@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateCampaignCommandInput,
@@ -235,13 +240,20 @@ const paginators = {
   paginateListConnectInstanceIntegrations,
 };
 
+/**
+ * @public
+ */
+export interface ConnectCampaignsV2RequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ConnectCampaignsV2 {
   /**
    * @see {@link CreateCampaignCommand}
    */
   createCampaign(
     args: CreateCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<CreateCampaignCommandOutput>;
   createCampaign(
     args: CreateCampaignCommandInput,
@@ -249,7 +261,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   createCampaign(
     args: CreateCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: CreateCampaignCommandOutput) => void
   ): void;
 
@@ -258,7 +270,7 @@ export interface ConnectCampaignsV2 {
    */
   deleteCampaign(
     args: DeleteCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<DeleteCampaignCommandOutput>;
   deleteCampaign(
     args: DeleteCampaignCommandInput,
@@ -266,7 +278,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   deleteCampaign(
     args: DeleteCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: DeleteCampaignCommandOutput) => void
   ): void;
 
@@ -275,7 +287,7 @@ export interface ConnectCampaignsV2 {
    */
   deleteCampaignChannelSubtypeConfig(
     args: DeleteCampaignChannelSubtypeConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<DeleteCampaignChannelSubtypeConfigCommandOutput>;
   deleteCampaignChannelSubtypeConfig(
     args: DeleteCampaignChannelSubtypeConfigCommandInput,
@@ -283,7 +295,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   deleteCampaignChannelSubtypeConfig(
     args: DeleteCampaignChannelSubtypeConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: DeleteCampaignChannelSubtypeConfigCommandOutput) => void
   ): void;
 
@@ -292,7 +304,7 @@ export interface ConnectCampaignsV2 {
    */
   deleteCampaignCommunicationLimits(
     args: DeleteCampaignCommunicationLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<DeleteCampaignCommunicationLimitsCommandOutput>;
   deleteCampaignCommunicationLimits(
     args: DeleteCampaignCommunicationLimitsCommandInput,
@@ -300,7 +312,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   deleteCampaignCommunicationLimits(
     args: DeleteCampaignCommunicationLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: DeleteCampaignCommunicationLimitsCommandOutput) => void
   ): void;
 
@@ -309,7 +321,7 @@ export interface ConnectCampaignsV2 {
    */
   deleteCampaignCommunicationTime(
     args: DeleteCampaignCommunicationTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<DeleteCampaignCommunicationTimeCommandOutput>;
   deleteCampaignCommunicationTime(
     args: DeleteCampaignCommunicationTimeCommandInput,
@@ -317,7 +329,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   deleteCampaignCommunicationTime(
     args: DeleteCampaignCommunicationTimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: DeleteCampaignCommunicationTimeCommandOutput) => void
   ): void;
 
@@ -326,7 +338,7 @@ export interface ConnectCampaignsV2 {
    */
   deleteCampaignEntryLimits(
     args: DeleteCampaignEntryLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<DeleteCampaignEntryLimitsCommandOutput>;
   deleteCampaignEntryLimits(
     args: DeleteCampaignEntryLimitsCommandInput,
@@ -334,7 +346,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   deleteCampaignEntryLimits(
     args: DeleteCampaignEntryLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: DeleteCampaignEntryLimitsCommandOutput) => void
   ): void;
 
@@ -343,7 +355,7 @@ export interface ConnectCampaignsV2 {
    */
   deleteConnectInstanceConfig(
     args: DeleteConnectInstanceConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<DeleteConnectInstanceConfigCommandOutput>;
   deleteConnectInstanceConfig(
     args: DeleteConnectInstanceConfigCommandInput,
@@ -351,7 +363,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   deleteConnectInstanceConfig(
     args: DeleteConnectInstanceConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: DeleteConnectInstanceConfigCommandOutput) => void
   ): void;
 
@@ -360,7 +372,7 @@ export interface ConnectCampaignsV2 {
    */
   deleteConnectInstanceIntegration(
     args: DeleteConnectInstanceIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<DeleteConnectInstanceIntegrationCommandOutput>;
   deleteConnectInstanceIntegration(
     args: DeleteConnectInstanceIntegrationCommandInput,
@@ -368,7 +380,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   deleteConnectInstanceIntegration(
     args: DeleteConnectInstanceIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: DeleteConnectInstanceIntegrationCommandOutput) => void
   ): void;
 
@@ -377,7 +389,7 @@ export interface ConnectCampaignsV2 {
    */
   deleteInstanceOnboardingJob(
     args: DeleteInstanceOnboardingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<DeleteInstanceOnboardingJobCommandOutput>;
   deleteInstanceOnboardingJob(
     args: DeleteInstanceOnboardingJobCommandInput,
@@ -385,7 +397,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   deleteInstanceOnboardingJob(
     args: DeleteInstanceOnboardingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: DeleteInstanceOnboardingJobCommandOutput) => void
   ): void;
 
@@ -394,7 +406,7 @@ export interface ConnectCampaignsV2 {
    */
   describeCampaign(
     args: DescribeCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<DescribeCampaignCommandOutput>;
   describeCampaign(
     args: DescribeCampaignCommandInput,
@@ -402,7 +414,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   describeCampaign(
     args: DescribeCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: DescribeCampaignCommandOutput) => void
   ): void;
 
@@ -411,7 +423,7 @@ export interface ConnectCampaignsV2 {
    */
   getCampaignState(
     args: GetCampaignStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<GetCampaignStateCommandOutput>;
   getCampaignState(
     args: GetCampaignStateCommandInput,
@@ -419,7 +431,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   getCampaignState(
     args: GetCampaignStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: GetCampaignStateCommandOutput) => void
   ): void;
 
@@ -428,7 +440,7 @@ export interface ConnectCampaignsV2 {
    */
   getCampaignStateBatch(
     args: GetCampaignStateBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<GetCampaignStateBatchCommandOutput>;
   getCampaignStateBatch(
     args: GetCampaignStateBatchCommandInput,
@@ -436,7 +448,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   getCampaignStateBatch(
     args: GetCampaignStateBatchCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: GetCampaignStateBatchCommandOutput) => void
   ): void;
 
@@ -445,7 +457,7 @@ export interface ConnectCampaignsV2 {
    */
   getConnectInstanceConfig(
     args: GetConnectInstanceConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<GetConnectInstanceConfigCommandOutput>;
   getConnectInstanceConfig(
     args: GetConnectInstanceConfigCommandInput,
@@ -453,7 +465,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   getConnectInstanceConfig(
     args: GetConnectInstanceConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: GetConnectInstanceConfigCommandOutput) => void
   ): void;
 
@@ -462,7 +474,7 @@ export interface ConnectCampaignsV2 {
    */
   getInstanceCommunicationLimits(
     args: GetInstanceCommunicationLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<GetInstanceCommunicationLimitsCommandOutput>;
   getInstanceCommunicationLimits(
     args: GetInstanceCommunicationLimitsCommandInput,
@@ -470,7 +482,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   getInstanceCommunicationLimits(
     args: GetInstanceCommunicationLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: GetInstanceCommunicationLimitsCommandOutput) => void
   ): void;
 
@@ -479,7 +491,7 @@ export interface ConnectCampaignsV2 {
    */
   getInstanceOnboardingJobStatus(
     args: GetInstanceOnboardingJobStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<GetInstanceOnboardingJobStatusCommandOutput>;
   getInstanceOnboardingJobStatus(
     args: GetInstanceOnboardingJobStatusCommandInput,
@@ -487,7 +499,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   getInstanceOnboardingJobStatus(
     args: GetInstanceOnboardingJobStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: GetInstanceOnboardingJobStatusCommandOutput) => void
   ): void;
 
@@ -497,7 +509,7 @@ export interface ConnectCampaignsV2 {
   listCampaigns(): Promise<ListCampaignsCommandOutput>;
   listCampaigns(
     args: ListCampaignsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<ListCampaignsCommandOutput>;
   listCampaigns(
     args: ListCampaignsCommandInput,
@@ -505,7 +517,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   listCampaigns(
     args: ListCampaignsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: ListCampaignsCommandOutput) => void
   ): void;
 
@@ -514,7 +526,7 @@ export interface ConnectCampaignsV2 {
    */
   listConnectInstanceIntegrations(
     args: ListConnectInstanceIntegrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<ListConnectInstanceIntegrationsCommandOutput>;
   listConnectInstanceIntegrations(
     args: ListConnectInstanceIntegrationsCommandInput,
@@ -522,7 +534,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   listConnectInstanceIntegrations(
     args: ListConnectInstanceIntegrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: ListConnectInstanceIntegrationsCommandOutput) => void
   ): void;
 
@@ -531,7 +543,7 @@ export interface ConnectCampaignsV2 {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -539,7 +551,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -548,7 +560,7 @@ export interface ConnectCampaignsV2 {
    */
   pauseCampaign(
     args: PauseCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<PauseCampaignCommandOutput>;
   pauseCampaign(
     args: PauseCampaignCommandInput,
@@ -556,7 +568,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   pauseCampaign(
     args: PauseCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: PauseCampaignCommandOutput) => void
   ): void;
 
@@ -565,7 +577,7 @@ export interface ConnectCampaignsV2 {
    */
   putConnectInstanceIntegration(
     args: PutConnectInstanceIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<PutConnectInstanceIntegrationCommandOutput>;
   putConnectInstanceIntegration(
     args: PutConnectInstanceIntegrationCommandInput,
@@ -573,7 +585,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   putConnectInstanceIntegration(
     args: PutConnectInstanceIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: PutConnectInstanceIntegrationCommandOutput) => void
   ): void;
 
@@ -582,7 +594,7 @@ export interface ConnectCampaignsV2 {
    */
   putInstanceCommunicationLimits(
     args: PutInstanceCommunicationLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<PutInstanceCommunicationLimitsCommandOutput>;
   putInstanceCommunicationLimits(
     args: PutInstanceCommunicationLimitsCommandInput,
@@ -590,7 +602,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   putInstanceCommunicationLimits(
     args: PutInstanceCommunicationLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: PutInstanceCommunicationLimitsCommandOutput) => void
   ): void;
 
@@ -599,7 +611,7 @@ export interface ConnectCampaignsV2 {
    */
   putOutboundRequestBatch(
     args: PutOutboundRequestBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<PutOutboundRequestBatchCommandOutput>;
   putOutboundRequestBatch(
     args: PutOutboundRequestBatchCommandInput,
@@ -607,7 +619,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   putOutboundRequestBatch(
     args: PutOutboundRequestBatchCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: PutOutboundRequestBatchCommandOutput) => void
   ): void;
 
@@ -616,7 +628,7 @@ export interface ConnectCampaignsV2 {
    */
   putProfileOutboundRequestBatch(
     args: PutProfileOutboundRequestBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<PutProfileOutboundRequestBatchCommandOutput>;
   putProfileOutboundRequestBatch(
     args: PutProfileOutboundRequestBatchCommandInput,
@@ -624,7 +636,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   putProfileOutboundRequestBatch(
     args: PutProfileOutboundRequestBatchCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: PutProfileOutboundRequestBatchCommandOutput) => void
   ): void;
 
@@ -633,7 +645,7 @@ export interface ConnectCampaignsV2 {
    */
   resumeCampaign(
     args: ResumeCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<ResumeCampaignCommandOutput>;
   resumeCampaign(
     args: ResumeCampaignCommandInput,
@@ -641,7 +653,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   resumeCampaign(
     args: ResumeCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: ResumeCampaignCommandOutput) => void
   ): void;
 
@@ -650,7 +662,7 @@ export interface ConnectCampaignsV2 {
    */
   startCampaign(
     args: StartCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<StartCampaignCommandOutput>;
   startCampaign(
     args: StartCampaignCommandInput,
@@ -658,7 +670,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   startCampaign(
     args: StartCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: StartCampaignCommandOutput) => void
   ): void;
 
@@ -667,7 +679,7 @@ export interface ConnectCampaignsV2 {
    */
   startInstanceOnboardingJob(
     args: StartInstanceOnboardingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<StartInstanceOnboardingJobCommandOutput>;
   startInstanceOnboardingJob(
     args: StartInstanceOnboardingJobCommandInput,
@@ -675,7 +687,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   startInstanceOnboardingJob(
     args: StartInstanceOnboardingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: StartInstanceOnboardingJobCommandOutput) => void
   ): void;
 
@@ -684,7 +696,7 @@ export interface ConnectCampaignsV2 {
    */
   stopCampaign(
     args: StopCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<StopCampaignCommandOutput>;
   stopCampaign(
     args: StopCampaignCommandInput,
@@ -692,7 +704,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   stopCampaign(
     args: StopCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: StopCampaignCommandOutput) => void
   ): void;
 
@@ -701,7 +713,7 @@ export interface ConnectCampaignsV2 {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -709,7 +721,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -718,7 +730,7 @@ export interface ConnectCampaignsV2 {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -726,7 +738,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -735,7 +747,7 @@ export interface ConnectCampaignsV2 {
    */
   updateCampaignChannelSubtypeConfig(
     args: UpdateCampaignChannelSubtypeConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<UpdateCampaignChannelSubtypeConfigCommandOutput>;
   updateCampaignChannelSubtypeConfig(
     args: UpdateCampaignChannelSubtypeConfigCommandInput,
@@ -743,7 +755,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   updateCampaignChannelSubtypeConfig(
     args: UpdateCampaignChannelSubtypeConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: UpdateCampaignChannelSubtypeConfigCommandOutput) => void
   ): void;
 
@@ -752,7 +764,7 @@ export interface ConnectCampaignsV2 {
    */
   updateCampaignCommunicationLimits(
     args: UpdateCampaignCommunicationLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<UpdateCampaignCommunicationLimitsCommandOutput>;
   updateCampaignCommunicationLimits(
     args: UpdateCampaignCommunicationLimitsCommandInput,
@@ -760,7 +772,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   updateCampaignCommunicationLimits(
     args: UpdateCampaignCommunicationLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: UpdateCampaignCommunicationLimitsCommandOutput) => void
   ): void;
 
@@ -769,7 +781,7 @@ export interface ConnectCampaignsV2 {
    */
   updateCampaignCommunicationTime(
     args: UpdateCampaignCommunicationTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<UpdateCampaignCommunicationTimeCommandOutput>;
   updateCampaignCommunicationTime(
     args: UpdateCampaignCommunicationTimeCommandInput,
@@ -777,7 +789,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   updateCampaignCommunicationTime(
     args: UpdateCampaignCommunicationTimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: UpdateCampaignCommunicationTimeCommandOutput) => void
   ): void;
 
@@ -786,7 +798,7 @@ export interface ConnectCampaignsV2 {
    */
   updateCampaignEntryLimits(
     args: UpdateCampaignEntryLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<UpdateCampaignEntryLimitsCommandOutput>;
   updateCampaignEntryLimits(
     args: UpdateCampaignEntryLimitsCommandInput,
@@ -794,7 +806,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   updateCampaignEntryLimits(
     args: UpdateCampaignEntryLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: UpdateCampaignEntryLimitsCommandOutput) => void
   ): void;
 
@@ -803,7 +815,7 @@ export interface ConnectCampaignsV2 {
    */
   updateCampaignFlowAssociation(
     args: UpdateCampaignFlowAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<UpdateCampaignFlowAssociationCommandOutput>;
   updateCampaignFlowAssociation(
     args: UpdateCampaignFlowAssociationCommandInput,
@@ -811,7 +823,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   updateCampaignFlowAssociation(
     args: UpdateCampaignFlowAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: UpdateCampaignFlowAssociationCommandOutput) => void
   ): void;
 
@@ -820,7 +832,7 @@ export interface ConnectCampaignsV2 {
    */
   updateCampaignName(
     args: UpdateCampaignNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<UpdateCampaignNameCommandOutput>;
   updateCampaignName(
     args: UpdateCampaignNameCommandInput,
@@ -828,7 +840,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   updateCampaignName(
     args: UpdateCampaignNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: UpdateCampaignNameCommandOutput) => void
   ): void;
 
@@ -837,7 +849,7 @@ export interface ConnectCampaignsV2 {
    */
   updateCampaignSchedule(
     args: UpdateCampaignScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<UpdateCampaignScheduleCommandOutput>;
   updateCampaignSchedule(
     args: UpdateCampaignScheduleCommandInput,
@@ -845,7 +857,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   updateCampaignSchedule(
     args: UpdateCampaignScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: UpdateCampaignScheduleCommandOutput) => void
   ): void;
 
@@ -854,7 +866,7 @@ export interface ConnectCampaignsV2 {
    */
   updateCampaignSource(
     args: UpdateCampaignSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsV2RequestOptions
   ): Promise<UpdateCampaignSourceCommandOutput>;
   updateCampaignSource(
     args: UpdateCampaignSourceCommandInput,
@@ -862,7 +874,7 @@ export interface ConnectCampaignsV2 {
   ): void;
   updateCampaignSource(
     args: UpdateCampaignSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsV2RequestOptions,
     cb: (err: any, data?: UpdateCampaignSourceCommandOutput) => void
   ): void;
 

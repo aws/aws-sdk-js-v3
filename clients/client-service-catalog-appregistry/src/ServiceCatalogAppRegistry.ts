@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateAttributeGroupCommandInput,
@@ -163,13 +168,20 @@ const paginators = {
   paginateListAttributeGroupsForApplication,
 };
 
+/**
+ * @public
+ */
+export interface ServiceCatalogAppRegistryRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ServiceCatalogAppRegistry {
   /**
    * @see {@link AssociateAttributeGroupCommand}
    */
   associateAttributeGroup(
     args: AssociateAttributeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<AssociateAttributeGroupCommandOutput>;
   associateAttributeGroup(
     args: AssociateAttributeGroupCommandInput,
@@ -177,7 +189,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   associateAttributeGroup(
     args: AssociateAttributeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: AssociateAttributeGroupCommandOutput) => void
   ): void;
 
@@ -186,7 +198,7 @@ export interface ServiceCatalogAppRegistry {
    */
   associateResource(
     args: AssociateResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<AssociateResourceCommandOutput>;
   associateResource(
     args: AssociateResourceCommandInput,
@@ -194,7 +206,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   associateResource(
     args: AssociateResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: AssociateResourceCommandOutput) => void
   ): void;
 
@@ -203,7 +215,7 @@ export interface ServiceCatalogAppRegistry {
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -211,7 +223,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -220,7 +232,7 @@ export interface ServiceCatalogAppRegistry {
    */
   createAttributeGroup(
     args: CreateAttributeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<CreateAttributeGroupCommandOutput>;
   createAttributeGroup(
     args: CreateAttributeGroupCommandInput,
@@ -228,7 +240,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   createAttributeGroup(
     args: CreateAttributeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: CreateAttributeGroupCommandOutput) => void
   ): void;
 
@@ -237,7 +249,7 @@ export interface ServiceCatalogAppRegistry {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -245,7 +257,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -254,7 +266,7 @@ export interface ServiceCatalogAppRegistry {
    */
   deleteAttributeGroup(
     args: DeleteAttributeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<DeleteAttributeGroupCommandOutput>;
   deleteAttributeGroup(
     args: DeleteAttributeGroupCommandInput,
@@ -262,7 +274,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   deleteAttributeGroup(
     args: DeleteAttributeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: DeleteAttributeGroupCommandOutput) => void
   ): void;
 
@@ -271,7 +283,7 @@ export interface ServiceCatalogAppRegistry {
    */
   disassociateAttributeGroup(
     args: DisassociateAttributeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<DisassociateAttributeGroupCommandOutput>;
   disassociateAttributeGroup(
     args: DisassociateAttributeGroupCommandInput,
@@ -279,7 +291,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   disassociateAttributeGroup(
     args: DisassociateAttributeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: DisassociateAttributeGroupCommandOutput) => void
   ): void;
 
@@ -288,7 +300,7 @@ export interface ServiceCatalogAppRegistry {
    */
   disassociateResource(
     args: DisassociateResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<DisassociateResourceCommandOutput>;
   disassociateResource(
     args: DisassociateResourceCommandInput,
@@ -296,7 +308,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   disassociateResource(
     args: DisassociateResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: DisassociateResourceCommandOutput) => void
   ): void;
 
@@ -305,7 +317,7 @@ export interface ServiceCatalogAppRegistry {
    */
   getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<GetApplicationCommandOutput>;
   getApplication(
     args: GetApplicationCommandInput,
@@ -313,7 +325,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   getApplication(
     args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: GetApplicationCommandOutput) => void
   ): void;
 
@@ -322,7 +334,7 @@ export interface ServiceCatalogAppRegistry {
    */
   getAssociatedResource(
     args: GetAssociatedResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<GetAssociatedResourceCommandOutput>;
   getAssociatedResource(
     args: GetAssociatedResourceCommandInput,
@@ -330,7 +342,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   getAssociatedResource(
     args: GetAssociatedResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: GetAssociatedResourceCommandOutput) => void
   ): void;
 
@@ -339,7 +351,7 @@ export interface ServiceCatalogAppRegistry {
    */
   getAttributeGroup(
     args: GetAttributeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<GetAttributeGroupCommandOutput>;
   getAttributeGroup(
     args: GetAttributeGroupCommandInput,
@@ -347,7 +359,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   getAttributeGroup(
     args: GetAttributeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: GetAttributeGroupCommandOutput) => void
   ): void;
 
@@ -357,7 +369,7 @@ export interface ServiceCatalogAppRegistry {
   getConfiguration(): Promise<GetConfigurationCommandOutput>;
   getConfiguration(
     args: GetConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<GetConfigurationCommandOutput>;
   getConfiguration(
     args: GetConfigurationCommandInput,
@@ -365,7 +377,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   getConfiguration(
     args: GetConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: GetConfigurationCommandOutput) => void
   ): void;
 
@@ -375,7 +387,7 @@ export interface ServiceCatalogAppRegistry {
   listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -383,7 +395,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -392,7 +404,7 @@ export interface ServiceCatalogAppRegistry {
    */
   listAssociatedAttributeGroups(
     args: ListAssociatedAttributeGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<ListAssociatedAttributeGroupsCommandOutput>;
   listAssociatedAttributeGroups(
     args: ListAssociatedAttributeGroupsCommandInput,
@@ -400,7 +412,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   listAssociatedAttributeGroups(
     args: ListAssociatedAttributeGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: ListAssociatedAttributeGroupsCommandOutput) => void
   ): void;
 
@@ -409,7 +421,7 @@ export interface ServiceCatalogAppRegistry {
    */
   listAssociatedResources(
     args: ListAssociatedResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<ListAssociatedResourcesCommandOutput>;
   listAssociatedResources(
     args: ListAssociatedResourcesCommandInput,
@@ -417,7 +429,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   listAssociatedResources(
     args: ListAssociatedResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: ListAssociatedResourcesCommandOutput) => void
   ): void;
 
@@ -427,7 +439,7 @@ export interface ServiceCatalogAppRegistry {
   listAttributeGroups(): Promise<ListAttributeGroupsCommandOutput>;
   listAttributeGroups(
     args: ListAttributeGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<ListAttributeGroupsCommandOutput>;
   listAttributeGroups(
     args: ListAttributeGroupsCommandInput,
@@ -435,7 +447,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   listAttributeGroups(
     args: ListAttributeGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: ListAttributeGroupsCommandOutput) => void
   ): void;
 
@@ -444,7 +456,7 @@ export interface ServiceCatalogAppRegistry {
    */
   listAttributeGroupsForApplication(
     args: ListAttributeGroupsForApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<ListAttributeGroupsForApplicationCommandOutput>;
   listAttributeGroupsForApplication(
     args: ListAttributeGroupsForApplicationCommandInput,
@@ -452,7 +464,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   listAttributeGroupsForApplication(
     args: ListAttributeGroupsForApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: ListAttributeGroupsForApplicationCommandOutput) => void
   ): void;
 
@@ -461,7 +473,7 @@ export interface ServiceCatalogAppRegistry {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -469,7 +481,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -478,7 +490,7 @@ export interface ServiceCatalogAppRegistry {
    */
   putConfiguration(
     args: PutConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<PutConfigurationCommandOutput>;
   putConfiguration(
     args: PutConfigurationCommandInput,
@@ -486,7 +498,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   putConfiguration(
     args: PutConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: PutConfigurationCommandOutput) => void
   ): void;
 
@@ -495,7 +507,7 @@ export interface ServiceCatalogAppRegistry {
    */
   syncResource(
     args: SyncResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<SyncResourceCommandOutput>;
   syncResource(
     args: SyncResourceCommandInput,
@@ -503,7 +515,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   syncResource(
     args: SyncResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: SyncResourceCommandOutput) => void
   ): void;
 
@@ -512,7 +524,7 @@ export interface ServiceCatalogAppRegistry {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -520,7 +532,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -529,7 +541,7 @@ export interface ServiceCatalogAppRegistry {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -537,7 +549,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -546,7 +558,7 @@ export interface ServiceCatalogAppRegistry {
    */
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
@@ -554,7 +566,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 
@@ -563,7 +575,7 @@ export interface ServiceCatalogAppRegistry {
    */
   updateAttributeGroup(
     args: UpdateAttributeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceCatalogAppRegistryRequestOptions
   ): Promise<UpdateAttributeGroupCommandOutput>;
   updateAttributeGroup(
     args: UpdateAttributeGroupCommandInput,
@@ -571,7 +583,7 @@ export interface ServiceCatalogAppRegistry {
   ): void;
   updateAttributeGroup(
     args: UpdateAttributeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceCatalogAppRegistryRequestOptions,
     cb: (err: any, data?: UpdateAttributeGroupCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ActivateSubscriptionCommandInput,
@@ -105,13 +110,20 @@ const paginators = {
   paginateListSubscriptions,
 };
 
+/**
+ * @public
+ */
+export interface ConnectHealthRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ConnectHealth {
   /**
    * @see {@link ActivateSubscriptionCommand}
    */
   activateSubscription(
     args: ActivateSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<ActivateSubscriptionCommandOutput>;
   activateSubscription(
     args: ActivateSubscriptionCommandInput,
@@ -119,7 +131,7 @@ export interface ConnectHealth {
   ): void;
   activateSubscription(
     args: ActivateSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: ActivateSubscriptionCommandOutput) => void
   ): void;
 
@@ -128,7 +140,7 @@ export interface ConnectHealth {
    */
   createDomain(
     args: CreateDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<CreateDomainCommandOutput>;
   createDomain(
     args: CreateDomainCommandInput,
@@ -136,7 +148,7 @@ export interface ConnectHealth {
   ): void;
   createDomain(
     args: CreateDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: CreateDomainCommandOutput) => void
   ): void;
 
@@ -145,7 +157,7 @@ export interface ConnectHealth {
    */
   createSubscription(
     args: CreateSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<CreateSubscriptionCommandOutput>;
   createSubscription(
     args: CreateSubscriptionCommandInput,
@@ -153,7 +165,7 @@ export interface ConnectHealth {
   ): void;
   createSubscription(
     args: CreateSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: CreateSubscriptionCommandOutput) => void
   ): void;
 
@@ -162,7 +174,7 @@ export interface ConnectHealth {
    */
   deactivateSubscription(
     args: DeactivateSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<DeactivateSubscriptionCommandOutput>;
   deactivateSubscription(
     args: DeactivateSubscriptionCommandInput,
@@ -170,7 +182,7 @@ export interface ConnectHealth {
   ): void;
   deactivateSubscription(
     args: DeactivateSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: DeactivateSubscriptionCommandOutput) => void
   ): void;
 
@@ -179,7 +191,7 @@ export interface ConnectHealth {
    */
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<DeleteDomainCommandOutput>;
   deleteDomain(
     args: DeleteDomainCommandInput,
@@ -187,7 +199,7 @@ export interface ConnectHealth {
   ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
   ): void;
 
@@ -196,7 +208,7 @@ export interface ConnectHealth {
    */
   getDomain(
     args: GetDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<GetDomainCommandOutput>;
   getDomain(
     args: GetDomainCommandInput,
@@ -204,7 +216,7 @@ export interface ConnectHealth {
   ): void;
   getDomain(
     args: GetDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: GetDomainCommandOutput) => void
   ): void;
 
@@ -213,7 +225,7 @@ export interface ConnectHealth {
    */
   getMedicalScribeListeningSession(
     args: GetMedicalScribeListeningSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<GetMedicalScribeListeningSessionCommandOutput>;
   getMedicalScribeListeningSession(
     args: GetMedicalScribeListeningSessionCommandInput,
@@ -221,7 +233,7 @@ export interface ConnectHealth {
   ): void;
   getMedicalScribeListeningSession(
     args: GetMedicalScribeListeningSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: GetMedicalScribeListeningSessionCommandOutput) => void
   ): void;
 
@@ -230,7 +242,7 @@ export interface ConnectHealth {
    */
   getPatientInsightsJob(
     args: GetPatientInsightsJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<GetPatientInsightsJobCommandOutput>;
   getPatientInsightsJob(
     args: GetPatientInsightsJobCommandInput,
@@ -238,7 +250,7 @@ export interface ConnectHealth {
   ): void;
   getPatientInsightsJob(
     args: GetPatientInsightsJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: GetPatientInsightsJobCommandOutput) => void
   ): void;
 
@@ -247,7 +259,7 @@ export interface ConnectHealth {
    */
   getSubscription(
     args: GetSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<GetSubscriptionCommandOutput>;
   getSubscription(
     args: GetSubscriptionCommandInput,
@@ -255,7 +267,7 @@ export interface ConnectHealth {
   ): void;
   getSubscription(
     args: GetSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: GetSubscriptionCommandOutput) => void
   ): void;
 
@@ -265,7 +277,7 @@ export interface ConnectHealth {
   listDomains(): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
@@ -273,7 +285,7 @@ export interface ConnectHealth {
   ): void;
   listDomains(
     args: ListDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: ListDomainsCommandOutput) => void
   ): void;
 
@@ -282,7 +294,7 @@ export interface ConnectHealth {
    */
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<ListSubscriptionsCommandOutput>;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
@@ -290,7 +302,7 @@ export interface ConnectHealth {
   ): void;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
   ): void;
 
@@ -299,7 +311,7 @@ export interface ConnectHealth {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -307,7 +319,7 @@ export interface ConnectHealth {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -316,7 +328,7 @@ export interface ConnectHealth {
    */
   startMedicalScribeListeningSession(
     args: StartMedicalScribeListeningSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<StartMedicalScribeListeningSessionCommandOutput>;
   startMedicalScribeListeningSession(
     args: StartMedicalScribeListeningSessionCommandInput,
@@ -324,7 +336,7 @@ export interface ConnectHealth {
   ): void;
   startMedicalScribeListeningSession(
     args: StartMedicalScribeListeningSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: StartMedicalScribeListeningSessionCommandOutput) => void
   ): void;
 
@@ -333,7 +345,7 @@ export interface ConnectHealth {
    */
   startPatientInsightsJob(
     args: StartPatientInsightsJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<StartPatientInsightsJobCommandOutput>;
   startPatientInsightsJob(
     args: StartPatientInsightsJobCommandInput,
@@ -341,7 +353,7 @@ export interface ConnectHealth {
   ): void;
   startPatientInsightsJob(
     args: StartPatientInsightsJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: StartPatientInsightsJobCommandOutput) => void
   ): void;
 
@@ -350,7 +362,7 @@ export interface ConnectHealth {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -358,7 +370,7 @@ export interface ConnectHealth {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -367,7 +379,7 @@ export interface ConnectHealth {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectHealthRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -375,7 +387,7 @@ export interface ConnectHealth {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectHealthRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

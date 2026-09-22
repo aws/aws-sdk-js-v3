@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateClusterCommandInput,
@@ -125,13 +130,20 @@ const paginators = {
   paginateListQueues,
 };
 
+/**
+ * @public
+ */
+export interface PCSRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PCS {
   /**
    * @see {@link CreateClusterCommand}
    */
   createCluster(
     args: CreateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<CreateClusterCommandOutput>;
   createCluster(
     args: CreateClusterCommandInput,
@@ -139,7 +151,7 @@ export interface PCS {
   ): void;
   createCluster(
     args: CreateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
   ): void;
 
@@ -148,7 +160,7 @@ export interface PCS {
    */
   createComputeNodeGroup(
     args: CreateComputeNodeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<CreateComputeNodeGroupCommandOutput>;
   createComputeNodeGroup(
     args: CreateComputeNodeGroupCommandInput,
@@ -156,7 +168,7 @@ export interface PCS {
   ): void;
   createComputeNodeGroup(
     args: CreateComputeNodeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: CreateComputeNodeGroupCommandOutput) => void
   ): void;
 
@@ -165,7 +177,7 @@ export interface PCS {
    */
   createQueue(
     args: CreateQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<CreateQueueCommandOutput>;
   createQueue(
     args: CreateQueueCommandInput,
@@ -173,7 +185,7 @@ export interface PCS {
   ): void;
   createQueue(
     args: CreateQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: CreateQueueCommandOutput) => void
   ): void;
 
@@ -182,7 +194,7 @@ export interface PCS {
    */
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<DeleteClusterCommandOutput>;
   deleteCluster(
     args: DeleteClusterCommandInput,
@@ -190,7 +202,7 @@ export interface PCS {
   ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
 
@@ -199,7 +211,7 @@ export interface PCS {
    */
   deleteComputeNodeGroup(
     args: DeleteComputeNodeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<DeleteComputeNodeGroupCommandOutput>;
   deleteComputeNodeGroup(
     args: DeleteComputeNodeGroupCommandInput,
@@ -207,7 +219,7 @@ export interface PCS {
   ): void;
   deleteComputeNodeGroup(
     args: DeleteComputeNodeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: DeleteComputeNodeGroupCommandOutput) => void
   ): void;
 
@@ -216,7 +228,7 @@ export interface PCS {
    */
   deleteQueue(
     args: DeleteQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<DeleteQueueCommandOutput>;
   deleteQueue(
     args: DeleteQueueCommandInput,
@@ -224,7 +236,7 @@ export interface PCS {
   ): void;
   deleteQueue(
     args: DeleteQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: DeleteQueueCommandOutput) => void
   ): void;
 
@@ -233,7 +245,7 @@ export interface PCS {
    */
   getCluster(
     args: GetClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<GetClusterCommandOutput>;
   getCluster(
     args: GetClusterCommandInput,
@@ -241,7 +253,7 @@ export interface PCS {
   ): void;
   getCluster(
     args: GetClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: GetClusterCommandOutput) => void
   ): void;
 
@@ -250,7 +262,7 @@ export interface PCS {
    */
   getComputeNodeGroup(
     args: GetComputeNodeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<GetComputeNodeGroupCommandOutput>;
   getComputeNodeGroup(
     args: GetComputeNodeGroupCommandInput,
@@ -258,7 +270,7 @@ export interface PCS {
   ): void;
   getComputeNodeGroup(
     args: GetComputeNodeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: GetComputeNodeGroupCommandOutput) => void
   ): void;
 
@@ -267,7 +279,7 @@ export interface PCS {
    */
   getQueue(
     args: GetQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<GetQueueCommandOutput>;
   getQueue(
     args: GetQueueCommandInput,
@@ -275,7 +287,7 @@ export interface PCS {
   ): void;
   getQueue(
     args: GetQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: GetQueueCommandOutput) => void
   ): void;
 
@@ -285,7 +297,7 @@ export interface PCS {
   listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
@@ -293,7 +305,7 @@ export interface PCS {
   ): void;
   listClusters(
     args: ListClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: ListClustersCommandOutput) => void
   ): void;
 
@@ -302,7 +314,7 @@ export interface PCS {
    */
   listComputeNodeGroups(
     args: ListComputeNodeGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<ListComputeNodeGroupsCommandOutput>;
   listComputeNodeGroups(
     args: ListComputeNodeGroupsCommandInput,
@@ -310,7 +322,7 @@ export interface PCS {
   ): void;
   listComputeNodeGroups(
     args: ListComputeNodeGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: ListComputeNodeGroupsCommandOutput) => void
   ): void;
 
@@ -319,7 +331,7 @@ export interface PCS {
    */
   listQueues(
     args: ListQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<ListQueuesCommandOutput>;
   listQueues(
     args: ListQueuesCommandInput,
@@ -327,7 +339,7 @@ export interface PCS {
   ): void;
   listQueues(
     args: ListQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: ListQueuesCommandOutput) => void
   ): void;
 
@@ -336,7 +348,7 @@ export interface PCS {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -344,7 +356,7 @@ export interface PCS {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -353,7 +365,7 @@ export interface PCS {
    */
   registerComputeNodeGroupInstance(
     args: RegisterComputeNodeGroupInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<RegisterComputeNodeGroupInstanceCommandOutput>;
   registerComputeNodeGroupInstance(
     args: RegisterComputeNodeGroupInstanceCommandInput,
@@ -361,7 +373,7 @@ export interface PCS {
   ): void;
   registerComputeNodeGroupInstance(
     args: RegisterComputeNodeGroupInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: RegisterComputeNodeGroupInstanceCommandOutput) => void
   ): void;
 
@@ -370,7 +382,7 @@ export interface PCS {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -378,7 +390,7 @@ export interface PCS {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -387,7 +399,7 @@ export interface PCS {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -395,7 +407,7 @@ export interface PCS {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -404,7 +416,7 @@ export interface PCS {
    */
   updateCluster(
     args: UpdateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<UpdateClusterCommandOutput>;
   updateCluster(
     args: UpdateClusterCommandInput,
@@ -412,7 +424,7 @@ export interface PCS {
   ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
 
@@ -421,7 +433,7 @@ export interface PCS {
    */
   updateComputeNodeGroup(
     args: UpdateComputeNodeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<UpdateComputeNodeGroupCommandOutput>;
   updateComputeNodeGroup(
     args: UpdateComputeNodeGroupCommandInput,
@@ -429,7 +441,7 @@ export interface PCS {
   ): void;
   updateComputeNodeGroup(
     args: UpdateComputeNodeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: UpdateComputeNodeGroupCommandOutput) => void
   ): void;
 
@@ -438,7 +450,7 @@ export interface PCS {
    */
   updateQueue(
     args: UpdateQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PCSRequestOptions
   ): Promise<UpdateQueueCommandOutput>;
   updateQueue(
     args: UpdateQueueCommandInput,
@@ -446,7 +458,7 @@ export interface PCS {
   ): void;
   updateQueue(
     args: UpdateQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: PCSRequestOptions,
     cb: (err: any, data?: UpdateQueueCommandOutput) => void
   ): void;
 

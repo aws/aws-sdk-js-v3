@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptResourceShareInvitationCommandInput,
@@ -249,13 +254,20 @@ const paginators = {
   paginateListSourceAssociations,
 };
 
+/**
+ * @public
+ */
+export interface RAMRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface RAM {
   /**
    * @see {@link AcceptResourceShareInvitationCommand}
    */
   acceptResourceShareInvitation(
     args: AcceptResourceShareInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<AcceptResourceShareInvitationCommandOutput>;
   acceptResourceShareInvitation(
     args: AcceptResourceShareInvitationCommandInput,
@@ -263,7 +275,7 @@ export interface RAM {
   ): void;
   acceptResourceShareInvitation(
     args: AcceptResourceShareInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: AcceptResourceShareInvitationCommandOutput) => void
   ): void;
 
@@ -272,7 +284,7 @@ export interface RAM {
    */
   associateResourceShare(
     args: AssociateResourceShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<AssociateResourceShareCommandOutput>;
   associateResourceShare(
     args: AssociateResourceShareCommandInput,
@@ -280,7 +292,7 @@ export interface RAM {
   ): void;
   associateResourceShare(
     args: AssociateResourceShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: AssociateResourceShareCommandOutput) => void
   ): void;
 
@@ -289,7 +301,7 @@ export interface RAM {
    */
   associateResourceSharePermission(
     args: AssociateResourceSharePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<AssociateResourceSharePermissionCommandOutput>;
   associateResourceSharePermission(
     args: AssociateResourceSharePermissionCommandInput,
@@ -297,7 +309,7 @@ export interface RAM {
   ): void;
   associateResourceSharePermission(
     args: AssociateResourceSharePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: AssociateResourceSharePermissionCommandOutput) => void
   ): void;
 
@@ -306,7 +318,7 @@ export interface RAM {
    */
   createPermission(
     args: CreatePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<CreatePermissionCommandOutput>;
   createPermission(
     args: CreatePermissionCommandInput,
@@ -314,7 +326,7 @@ export interface RAM {
   ): void;
   createPermission(
     args: CreatePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: CreatePermissionCommandOutput) => void
   ): void;
 
@@ -323,7 +335,7 @@ export interface RAM {
    */
   createPermissionVersion(
     args: CreatePermissionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<CreatePermissionVersionCommandOutput>;
   createPermissionVersion(
     args: CreatePermissionVersionCommandInput,
@@ -331,7 +343,7 @@ export interface RAM {
   ): void;
   createPermissionVersion(
     args: CreatePermissionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: CreatePermissionVersionCommandOutput) => void
   ): void;
 
@@ -340,7 +352,7 @@ export interface RAM {
    */
   createResourceShare(
     args: CreateResourceShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<CreateResourceShareCommandOutput>;
   createResourceShare(
     args: CreateResourceShareCommandInput,
@@ -348,7 +360,7 @@ export interface RAM {
   ): void;
   createResourceShare(
     args: CreateResourceShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: CreateResourceShareCommandOutput) => void
   ): void;
 
@@ -357,7 +369,7 @@ export interface RAM {
    */
   deletePermission(
     args: DeletePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<DeletePermissionCommandOutput>;
   deletePermission(
     args: DeletePermissionCommandInput,
@@ -365,7 +377,7 @@ export interface RAM {
   ): void;
   deletePermission(
     args: DeletePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: DeletePermissionCommandOutput) => void
   ): void;
 
@@ -374,7 +386,7 @@ export interface RAM {
    */
   deletePermissionVersion(
     args: DeletePermissionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<DeletePermissionVersionCommandOutput>;
   deletePermissionVersion(
     args: DeletePermissionVersionCommandInput,
@@ -382,7 +394,7 @@ export interface RAM {
   ): void;
   deletePermissionVersion(
     args: DeletePermissionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: DeletePermissionVersionCommandOutput) => void
   ): void;
 
@@ -391,7 +403,7 @@ export interface RAM {
    */
   deleteResourceShare(
     args: DeleteResourceShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<DeleteResourceShareCommandOutput>;
   deleteResourceShare(
     args: DeleteResourceShareCommandInput,
@@ -399,7 +411,7 @@ export interface RAM {
   ): void;
   deleteResourceShare(
     args: DeleteResourceShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: DeleteResourceShareCommandOutput) => void
   ): void;
 
@@ -408,7 +420,7 @@ export interface RAM {
    */
   disassociateResourceShare(
     args: DisassociateResourceShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<DisassociateResourceShareCommandOutput>;
   disassociateResourceShare(
     args: DisassociateResourceShareCommandInput,
@@ -416,7 +428,7 @@ export interface RAM {
   ): void;
   disassociateResourceShare(
     args: DisassociateResourceShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: DisassociateResourceShareCommandOutput) => void
   ): void;
 
@@ -425,7 +437,7 @@ export interface RAM {
    */
   disassociateResourceSharePermission(
     args: DisassociateResourceSharePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<DisassociateResourceSharePermissionCommandOutput>;
   disassociateResourceSharePermission(
     args: DisassociateResourceSharePermissionCommandInput,
@@ -433,7 +445,7 @@ export interface RAM {
   ): void;
   disassociateResourceSharePermission(
     args: DisassociateResourceSharePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: DisassociateResourceSharePermissionCommandOutput) => void
   ): void;
 
@@ -443,7 +455,7 @@ export interface RAM {
   enableSharingWithAwsOrganization(): Promise<EnableSharingWithAwsOrganizationCommandOutput>;
   enableSharingWithAwsOrganization(
     args: EnableSharingWithAwsOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<EnableSharingWithAwsOrganizationCommandOutput>;
   enableSharingWithAwsOrganization(
     args: EnableSharingWithAwsOrganizationCommandInput,
@@ -451,7 +463,7 @@ export interface RAM {
   ): void;
   enableSharingWithAwsOrganization(
     args: EnableSharingWithAwsOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: EnableSharingWithAwsOrganizationCommandOutput) => void
   ): void;
 
@@ -460,7 +472,7 @@ export interface RAM {
    */
   getPermission(
     args: GetPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<GetPermissionCommandOutput>;
   getPermission(
     args: GetPermissionCommandInput,
@@ -468,7 +480,7 @@ export interface RAM {
   ): void;
   getPermission(
     args: GetPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: GetPermissionCommandOutput) => void
   ): void;
 
@@ -477,7 +489,7 @@ export interface RAM {
    */
   getResourcePolicies(
     args: GetResourcePoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<GetResourcePoliciesCommandOutput>;
   getResourcePolicies(
     args: GetResourcePoliciesCommandInput,
@@ -485,7 +497,7 @@ export interface RAM {
   ): void;
   getResourcePolicies(
     args: GetResourcePoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
   ): void;
 
@@ -494,7 +506,7 @@ export interface RAM {
    */
   getResourceShareAssociations(
     args: GetResourceShareAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<GetResourceShareAssociationsCommandOutput>;
   getResourceShareAssociations(
     args: GetResourceShareAssociationsCommandInput,
@@ -502,7 +514,7 @@ export interface RAM {
   ): void;
   getResourceShareAssociations(
     args: GetResourceShareAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: GetResourceShareAssociationsCommandOutput) => void
   ): void;
 
@@ -512,7 +524,7 @@ export interface RAM {
   getResourceShareInvitations(): Promise<GetResourceShareInvitationsCommandOutput>;
   getResourceShareInvitations(
     args: GetResourceShareInvitationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<GetResourceShareInvitationsCommandOutput>;
   getResourceShareInvitations(
     args: GetResourceShareInvitationsCommandInput,
@@ -520,7 +532,7 @@ export interface RAM {
   ): void;
   getResourceShareInvitations(
     args: GetResourceShareInvitationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: GetResourceShareInvitationsCommandOutput) => void
   ): void;
 
@@ -529,7 +541,7 @@ export interface RAM {
    */
   getResourceShares(
     args: GetResourceSharesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<GetResourceSharesCommandOutput>;
   getResourceShares(
     args: GetResourceSharesCommandInput,
@@ -537,7 +549,7 @@ export interface RAM {
   ): void;
   getResourceShares(
     args: GetResourceSharesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: GetResourceSharesCommandOutput) => void
   ): void;
 
@@ -546,7 +558,7 @@ export interface RAM {
    */
   listPendingInvitationResources(
     args: ListPendingInvitationResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<ListPendingInvitationResourcesCommandOutput>;
   listPendingInvitationResources(
     args: ListPendingInvitationResourcesCommandInput,
@@ -554,7 +566,7 @@ export interface RAM {
   ): void;
   listPendingInvitationResources(
     args: ListPendingInvitationResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: ListPendingInvitationResourcesCommandOutput) => void
   ): void;
 
@@ -564,7 +576,7 @@ export interface RAM {
   listPermissionAssociations(): Promise<ListPermissionAssociationsCommandOutput>;
   listPermissionAssociations(
     args: ListPermissionAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<ListPermissionAssociationsCommandOutput>;
   listPermissionAssociations(
     args: ListPermissionAssociationsCommandInput,
@@ -572,7 +584,7 @@ export interface RAM {
   ): void;
   listPermissionAssociations(
     args: ListPermissionAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: ListPermissionAssociationsCommandOutput) => void
   ): void;
 
@@ -582,7 +594,7 @@ export interface RAM {
   listPermissions(): Promise<ListPermissionsCommandOutput>;
   listPermissions(
     args: ListPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<ListPermissionsCommandOutput>;
   listPermissions(
     args: ListPermissionsCommandInput,
@@ -590,7 +602,7 @@ export interface RAM {
   ): void;
   listPermissions(
     args: ListPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: ListPermissionsCommandOutput) => void
   ): void;
 
@@ -599,7 +611,7 @@ export interface RAM {
    */
   listPermissionVersions(
     args: ListPermissionVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<ListPermissionVersionsCommandOutput>;
   listPermissionVersions(
     args: ListPermissionVersionsCommandInput,
@@ -607,7 +619,7 @@ export interface RAM {
   ): void;
   listPermissionVersions(
     args: ListPermissionVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: ListPermissionVersionsCommandOutput) => void
   ): void;
 
@@ -616,7 +628,7 @@ export interface RAM {
    */
   listPrincipals(
     args: ListPrincipalsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<ListPrincipalsCommandOutput>;
   listPrincipals(
     args: ListPrincipalsCommandInput,
@@ -624,7 +636,7 @@ export interface RAM {
   ): void;
   listPrincipals(
     args: ListPrincipalsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: ListPrincipalsCommandOutput) => void
   ): void;
 
@@ -634,7 +646,7 @@ export interface RAM {
   listReplacePermissionAssociationsWork(): Promise<ListReplacePermissionAssociationsWorkCommandOutput>;
   listReplacePermissionAssociationsWork(
     args: ListReplacePermissionAssociationsWorkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<ListReplacePermissionAssociationsWorkCommandOutput>;
   listReplacePermissionAssociationsWork(
     args: ListReplacePermissionAssociationsWorkCommandInput,
@@ -642,7 +654,7 @@ export interface RAM {
   ): void;
   listReplacePermissionAssociationsWork(
     args: ListReplacePermissionAssociationsWorkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: ListReplacePermissionAssociationsWorkCommandOutput) => void
   ): void;
 
@@ -651,7 +663,7 @@ export interface RAM {
    */
   listResources(
     args: ListResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<ListResourcesCommandOutput>;
   listResources(
     args: ListResourcesCommandInput,
@@ -659,7 +671,7 @@ export interface RAM {
   ): void;
   listResources(
     args: ListResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: ListResourcesCommandOutput) => void
   ): void;
 
@@ -668,7 +680,7 @@ export interface RAM {
    */
   listResourceSharePermissions(
     args: ListResourceSharePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<ListResourceSharePermissionsCommandOutput>;
   listResourceSharePermissions(
     args: ListResourceSharePermissionsCommandInput,
@@ -676,7 +688,7 @@ export interface RAM {
   ): void;
   listResourceSharePermissions(
     args: ListResourceSharePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
   ): void;
 
@@ -686,7 +698,7 @@ export interface RAM {
   listResourceTypes(): Promise<ListResourceTypesCommandOutput>;
   listResourceTypes(
     args: ListResourceTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<ListResourceTypesCommandOutput>;
   listResourceTypes(
     args: ListResourceTypesCommandInput,
@@ -694,7 +706,7 @@ export interface RAM {
   ): void;
   listResourceTypes(
     args: ListResourceTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: ListResourceTypesCommandOutput) => void
   ): void;
 
@@ -704,7 +716,7 @@ export interface RAM {
   listSourceAssociations(): Promise<ListSourceAssociationsCommandOutput>;
   listSourceAssociations(
     args: ListSourceAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<ListSourceAssociationsCommandOutput>;
   listSourceAssociations(
     args: ListSourceAssociationsCommandInput,
@@ -712,7 +724,7 @@ export interface RAM {
   ): void;
   listSourceAssociations(
     args: ListSourceAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: ListSourceAssociationsCommandOutput) => void
   ): void;
 
@@ -721,7 +733,7 @@ export interface RAM {
    */
   promotePermissionCreatedFromPolicy(
     args: PromotePermissionCreatedFromPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<PromotePermissionCreatedFromPolicyCommandOutput>;
   promotePermissionCreatedFromPolicy(
     args: PromotePermissionCreatedFromPolicyCommandInput,
@@ -729,7 +741,7 @@ export interface RAM {
   ): void;
   promotePermissionCreatedFromPolicy(
     args: PromotePermissionCreatedFromPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: PromotePermissionCreatedFromPolicyCommandOutput) => void
   ): void;
 
@@ -738,7 +750,7 @@ export interface RAM {
    */
   promoteResourceShareCreatedFromPolicy(
     args: PromoteResourceShareCreatedFromPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput>;
   promoteResourceShareCreatedFromPolicy(
     args: PromoteResourceShareCreatedFromPolicyCommandInput,
@@ -746,7 +758,7 @@ export interface RAM {
   ): void;
   promoteResourceShareCreatedFromPolicy(
     args: PromoteResourceShareCreatedFromPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: PromoteResourceShareCreatedFromPolicyCommandOutput) => void
   ): void;
 
@@ -755,7 +767,7 @@ export interface RAM {
    */
   rejectResourceShareInvitation(
     args: RejectResourceShareInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<RejectResourceShareInvitationCommandOutput>;
   rejectResourceShareInvitation(
     args: RejectResourceShareInvitationCommandInput,
@@ -763,7 +775,7 @@ export interface RAM {
   ): void;
   rejectResourceShareInvitation(
     args: RejectResourceShareInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: RejectResourceShareInvitationCommandOutput) => void
   ): void;
 
@@ -772,7 +784,7 @@ export interface RAM {
    */
   replacePermissionAssociations(
     args: ReplacePermissionAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<ReplacePermissionAssociationsCommandOutput>;
   replacePermissionAssociations(
     args: ReplacePermissionAssociationsCommandInput,
@@ -780,7 +792,7 @@ export interface RAM {
   ): void;
   replacePermissionAssociations(
     args: ReplacePermissionAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: ReplacePermissionAssociationsCommandOutput) => void
   ): void;
 
@@ -789,7 +801,7 @@ export interface RAM {
    */
   setDefaultPermissionVersion(
     args: SetDefaultPermissionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<SetDefaultPermissionVersionCommandOutput>;
   setDefaultPermissionVersion(
     args: SetDefaultPermissionVersionCommandInput,
@@ -797,7 +809,7 @@ export interface RAM {
   ): void;
   setDefaultPermissionVersion(
     args: SetDefaultPermissionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: SetDefaultPermissionVersionCommandOutput) => void
   ): void;
 
@@ -806,7 +818,7 @@ export interface RAM {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -814,7 +826,7 @@ export interface RAM {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -823,7 +835,7 @@ export interface RAM {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -831,7 +843,7 @@ export interface RAM {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -840,7 +852,7 @@ export interface RAM {
    */
   updateResourceShare(
     args: UpdateResourceShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RAMRequestOptions
   ): Promise<UpdateResourceShareCommandOutput>;
   updateResourceShare(
     args: UpdateResourceShareCommandInput,
@@ -848,7 +860,7 @@ export interface RAM {
   ): void;
   updateResourceShare(
     args: UpdateResourceShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: RAMRequestOptions,
     cb: (err: any, data?: UpdateResourceShareCommandOutput) => void
   ): void;
 

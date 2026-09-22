@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateMonitorCommandInput,
@@ -171,13 +176,20 @@ const paginators = {
   paginateListScopes,
 };
 
+/**
+ * @public
+ */
+export interface NetworkFlowMonitorRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface NetworkFlowMonitor {
   /**
    * @see {@link CreateMonitorCommand}
    */
   createMonitor(
     args: CreateMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<CreateMonitorCommandOutput>;
   createMonitor(
     args: CreateMonitorCommandInput,
@@ -185,7 +197,7 @@ export interface NetworkFlowMonitor {
   ): void;
   createMonitor(
     args: CreateMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: CreateMonitorCommandOutput) => void
   ): void;
 
@@ -194,7 +206,7 @@ export interface NetworkFlowMonitor {
    */
   createScope(
     args: CreateScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<CreateScopeCommandOutput>;
   createScope(
     args: CreateScopeCommandInput,
@@ -202,7 +214,7 @@ export interface NetworkFlowMonitor {
   ): void;
   createScope(
     args: CreateScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: CreateScopeCommandOutput) => void
   ): void;
 
@@ -211,7 +223,7 @@ export interface NetworkFlowMonitor {
    */
   deleteMonitor(
     args: DeleteMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<DeleteMonitorCommandOutput>;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
@@ -219,7 +231,7 @@ export interface NetworkFlowMonitor {
   ): void;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: DeleteMonitorCommandOutput) => void
   ): void;
 
@@ -228,7 +240,7 @@ export interface NetworkFlowMonitor {
    */
   deleteScope(
     args: DeleteScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<DeleteScopeCommandOutput>;
   deleteScope(
     args: DeleteScopeCommandInput,
@@ -236,7 +248,7 @@ export interface NetworkFlowMonitor {
   ): void;
   deleteScope(
     args: DeleteScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: DeleteScopeCommandOutput) => void
   ): void;
 
@@ -245,7 +257,7 @@ export interface NetworkFlowMonitor {
    */
   getMonitor(
     args: GetMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<GetMonitorCommandOutput>;
   getMonitor(
     args: GetMonitorCommandInput,
@@ -253,7 +265,7 @@ export interface NetworkFlowMonitor {
   ): void;
   getMonitor(
     args: GetMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: GetMonitorCommandOutput) => void
   ): void;
 
@@ -262,7 +274,7 @@ export interface NetworkFlowMonitor {
    */
   getQueryResultsMonitorTopContributors(
     args: GetQueryResultsMonitorTopContributorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<GetQueryResultsMonitorTopContributorsCommandOutput>;
   getQueryResultsMonitorTopContributors(
     args: GetQueryResultsMonitorTopContributorsCommandInput,
@@ -270,7 +282,7 @@ export interface NetworkFlowMonitor {
   ): void;
   getQueryResultsMonitorTopContributors(
     args: GetQueryResultsMonitorTopContributorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: GetQueryResultsMonitorTopContributorsCommandOutput) => void
   ): void;
 
@@ -279,7 +291,7 @@ export interface NetworkFlowMonitor {
    */
   getQueryResultsWorkloadInsightsTopContributors(
     args: GetQueryResultsWorkloadInsightsTopContributorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<GetQueryResultsWorkloadInsightsTopContributorsCommandOutput>;
   getQueryResultsWorkloadInsightsTopContributors(
     args: GetQueryResultsWorkloadInsightsTopContributorsCommandInput,
@@ -287,7 +299,7 @@ export interface NetworkFlowMonitor {
   ): void;
   getQueryResultsWorkloadInsightsTopContributors(
     args: GetQueryResultsWorkloadInsightsTopContributorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: GetQueryResultsWorkloadInsightsTopContributorsCommandOutput) => void
   ): void;
 
@@ -296,7 +308,7 @@ export interface NetworkFlowMonitor {
    */
   getQueryResultsWorkloadInsightsTopContributorsData(
     args: GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput>;
   getQueryResultsWorkloadInsightsTopContributorsData(
     args: GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput,
@@ -304,7 +316,7 @@ export interface NetworkFlowMonitor {
   ): void;
   getQueryResultsWorkloadInsightsTopContributorsData(
     args: GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput) => void
   ): void;
 
@@ -313,7 +325,7 @@ export interface NetworkFlowMonitor {
    */
   getQueryStatusMonitorTopContributors(
     args: GetQueryStatusMonitorTopContributorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<GetQueryStatusMonitorTopContributorsCommandOutput>;
   getQueryStatusMonitorTopContributors(
     args: GetQueryStatusMonitorTopContributorsCommandInput,
@@ -321,7 +333,7 @@ export interface NetworkFlowMonitor {
   ): void;
   getQueryStatusMonitorTopContributors(
     args: GetQueryStatusMonitorTopContributorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: GetQueryStatusMonitorTopContributorsCommandOutput) => void
   ): void;
 
@@ -330,7 +342,7 @@ export interface NetworkFlowMonitor {
    */
   getQueryStatusWorkloadInsightsTopContributors(
     args: GetQueryStatusWorkloadInsightsTopContributorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<GetQueryStatusWorkloadInsightsTopContributorsCommandOutput>;
   getQueryStatusWorkloadInsightsTopContributors(
     args: GetQueryStatusWorkloadInsightsTopContributorsCommandInput,
@@ -338,7 +350,7 @@ export interface NetworkFlowMonitor {
   ): void;
   getQueryStatusWorkloadInsightsTopContributors(
     args: GetQueryStatusWorkloadInsightsTopContributorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: GetQueryStatusWorkloadInsightsTopContributorsCommandOutput) => void
   ): void;
 
@@ -347,7 +359,7 @@ export interface NetworkFlowMonitor {
    */
   getQueryStatusWorkloadInsightsTopContributorsData(
     args: GetQueryStatusWorkloadInsightsTopContributorsDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<GetQueryStatusWorkloadInsightsTopContributorsDataCommandOutput>;
   getQueryStatusWorkloadInsightsTopContributorsData(
     args: GetQueryStatusWorkloadInsightsTopContributorsDataCommandInput,
@@ -355,7 +367,7 @@ export interface NetworkFlowMonitor {
   ): void;
   getQueryStatusWorkloadInsightsTopContributorsData(
     args: GetQueryStatusWorkloadInsightsTopContributorsDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: GetQueryStatusWorkloadInsightsTopContributorsDataCommandOutput) => void
   ): void;
 
@@ -364,7 +376,7 @@ export interface NetworkFlowMonitor {
    */
   getScope(
     args: GetScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<GetScopeCommandOutput>;
   getScope(
     args: GetScopeCommandInput,
@@ -372,7 +384,7 @@ export interface NetworkFlowMonitor {
   ): void;
   getScope(
     args: GetScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: GetScopeCommandOutput) => void
   ): void;
 
@@ -382,7 +394,7 @@ export interface NetworkFlowMonitor {
   listMonitors(): Promise<ListMonitorsCommandOutput>;
   listMonitors(
     args: ListMonitorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<ListMonitorsCommandOutput>;
   listMonitors(
     args: ListMonitorsCommandInput,
@@ -390,7 +402,7 @@ export interface NetworkFlowMonitor {
   ): void;
   listMonitors(
     args: ListMonitorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: ListMonitorsCommandOutput) => void
   ): void;
 
@@ -400,7 +412,7 @@ export interface NetworkFlowMonitor {
   listScopes(): Promise<ListScopesCommandOutput>;
   listScopes(
     args: ListScopesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<ListScopesCommandOutput>;
   listScopes(
     args: ListScopesCommandInput,
@@ -408,7 +420,7 @@ export interface NetworkFlowMonitor {
   ): void;
   listScopes(
     args: ListScopesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: ListScopesCommandOutput) => void
   ): void;
 
@@ -417,7 +429,7 @@ export interface NetworkFlowMonitor {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -425,7 +437,7 @@ export interface NetworkFlowMonitor {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -434,7 +446,7 @@ export interface NetworkFlowMonitor {
    */
   startQueryMonitorTopContributors(
     args: StartQueryMonitorTopContributorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<StartQueryMonitorTopContributorsCommandOutput>;
   startQueryMonitorTopContributors(
     args: StartQueryMonitorTopContributorsCommandInput,
@@ -442,7 +454,7 @@ export interface NetworkFlowMonitor {
   ): void;
   startQueryMonitorTopContributors(
     args: StartQueryMonitorTopContributorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: StartQueryMonitorTopContributorsCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface NetworkFlowMonitor {
    */
   startQueryWorkloadInsightsTopContributors(
     args: StartQueryWorkloadInsightsTopContributorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<StartQueryWorkloadInsightsTopContributorsCommandOutput>;
   startQueryWorkloadInsightsTopContributors(
     args: StartQueryWorkloadInsightsTopContributorsCommandInput,
@@ -459,7 +471,7 @@ export interface NetworkFlowMonitor {
   ): void;
   startQueryWorkloadInsightsTopContributors(
     args: StartQueryWorkloadInsightsTopContributorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: StartQueryWorkloadInsightsTopContributorsCommandOutput) => void
   ): void;
 
@@ -468,7 +480,7 @@ export interface NetworkFlowMonitor {
    */
   startQueryWorkloadInsightsTopContributorsData(
     args: StartQueryWorkloadInsightsTopContributorsDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<StartQueryWorkloadInsightsTopContributorsDataCommandOutput>;
   startQueryWorkloadInsightsTopContributorsData(
     args: StartQueryWorkloadInsightsTopContributorsDataCommandInput,
@@ -476,7 +488,7 @@ export interface NetworkFlowMonitor {
   ): void;
   startQueryWorkloadInsightsTopContributorsData(
     args: StartQueryWorkloadInsightsTopContributorsDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: StartQueryWorkloadInsightsTopContributorsDataCommandOutput) => void
   ): void;
 
@@ -485,7 +497,7 @@ export interface NetworkFlowMonitor {
    */
   stopQueryMonitorTopContributors(
     args: StopQueryMonitorTopContributorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<StopQueryMonitorTopContributorsCommandOutput>;
   stopQueryMonitorTopContributors(
     args: StopQueryMonitorTopContributorsCommandInput,
@@ -493,7 +505,7 @@ export interface NetworkFlowMonitor {
   ): void;
   stopQueryMonitorTopContributors(
     args: StopQueryMonitorTopContributorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: StopQueryMonitorTopContributorsCommandOutput) => void
   ): void;
 
@@ -502,7 +514,7 @@ export interface NetworkFlowMonitor {
    */
   stopQueryWorkloadInsightsTopContributors(
     args: StopQueryWorkloadInsightsTopContributorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<StopQueryWorkloadInsightsTopContributorsCommandOutput>;
   stopQueryWorkloadInsightsTopContributors(
     args: StopQueryWorkloadInsightsTopContributorsCommandInput,
@@ -510,7 +522,7 @@ export interface NetworkFlowMonitor {
   ): void;
   stopQueryWorkloadInsightsTopContributors(
     args: StopQueryWorkloadInsightsTopContributorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: StopQueryWorkloadInsightsTopContributorsCommandOutput) => void
   ): void;
 
@@ -519,7 +531,7 @@ export interface NetworkFlowMonitor {
    */
   stopQueryWorkloadInsightsTopContributorsData(
     args: StopQueryWorkloadInsightsTopContributorsDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<StopQueryWorkloadInsightsTopContributorsDataCommandOutput>;
   stopQueryWorkloadInsightsTopContributorsData(
     args: StopQueryWorkloadInsightsTopContributorsDataCommandInput,
@@ -527,7 +539,7 @@ export interface NetworkFlowMonitor {
   ): void;
   stopQueryWorkloadInsightsTopContributorsData(
     args: StopQueryWorkloadInsightsTopContributorsDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: StopQueryWorkloadInsightsTopContributorsDataCommandOutput) => void
   ): void;
 
@@ -536,7 +548,7 @@ export interface NetworkFlowMonitor {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -544,7 +556,7 @@ export interface NetworkFlowMonitor {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -553,7 +565,7 @@ export interface NetworkFlowMonitor {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -561,7 +573,7 @@ export interface NetworkFlowMonitor {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -570,7 +582,7 @@ export interface NetworkFlowMonitor {
    */
   updateMonitor(
     args: UpdateMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<UpdateMonitorCommandOutput>;
   updateMonitor(
     args: UpdateMonitorCommandInput,
@@ -578,7 +590,7 @@ export interface NetworkFlowMonitor {
   ): void;
   updateMonitor(
     args: UpdateMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: UpdateMonitorCommandOutput) => void
   ): void;
 
@@ -587,7 +599,7 @@ export interface NetworkFlowMonitor {
    */
   updateScope(
     args: UpdateScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFlowMonitorRequestOptions
   ): Promise<UpdateScopeCommandOutput>;
   updateScope(
     args: UpdateScopeCommandInput,
@@ -595,7 +607,7 @@ export interface NetworkFlowMonitor {
   ): void;
   updateScope(
     args: UpdateScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFlowMonitorRequestOptions,
     cb: (err: any, data?: UpdateScopeCommandOutput) => void
   ): void;
 

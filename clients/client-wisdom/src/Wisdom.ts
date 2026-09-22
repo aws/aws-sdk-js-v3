@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateAssistantAssociationCommandInput,
@@ -275,13 +280,20 @@ const paginators = {
   paginateSearchSessions,
 };
 
+/**
+ * @public
+ */
+export interface WisdomRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Wisdom {
   /**
    * @see {@link CreateAssistantCommand}
    */
   createAssistant(
     args: CreateAssistantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<CreateAssistantCommandOutput>;
   createAssistant(
     args: CreateAssistantCommandInput,
@@ -289,7 +301,7 @@ export interface Wisdom {
   ): void;
   createAssistant(
     args: CreateAssistantCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: CreateAssistantCommandOutput) => void
   ): void;
 
@@ -298,7 +310,7 @@ export interface Wisdom {
    */
   createAssistantAssociation(
     args: CreateAssistantAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<CreateAssistantAssociationCommandOutput>;
   createAssistantAssociation(
     args: CreateAssistantAssociationCommandInput,
@@ -306,7 +318,7 @@ export interface Wisdom {
   ): void;
   createAssistantAssociation(
     args: CreateAssistantAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: CreateAssistantAssociationCommandOutput) => void
   ): void;
 
@@ -315,7 +327,7 @@ export interface Wisdom {
    */
   createContent(
     args: CreateContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<CreateContentCommandOutput>;
   createContent(
     args: CreateContentCommandInput,
@@ -323,7 +335,7 @@ export interface Wisdom {
   ): void;
   createContent(
     args: CreateContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: CreateContentCommandOutput) => void
   ): void;
 
@@ -332,7 +344,7 @@ export interface Wisdom {
    */
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<CreateKnowledgeBaseCommandOutput>;
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
@@ -340,7 +352,7 @@ export interface Wisdom {
   ): void;
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: CreateKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface Wisdom {
    */
   createQuickResponse(
     args: CreateQuickResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<CreateQuickResponseCommandOutput>;
   createQuickResponse(
     args: CreateQuickResponseCommandInput,
@@ -357,7 +369,7 @@ export interface Wisdom {
   ): void;
   createQuickResponse(
     args: CreateQuickResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: CreateQuickResponseCommandOutput) => void
   ): void;
 
@@ -366,7 +378,7 @@ export interface Wisdom {
    */
   createSession(
     args: CreateSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<CreateSessionCommandOutput>;
   createSession(
     args: CreateSessionCommandInput,
@@ -374,7 +386,7 @@ export interface Wisdom {
   ): void;
   createSession(
     args: CreateSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: CreateSessionCommandOutput) => void
   ): void;
 
@@ -383,7 +395,7 @@ export interface Wisdom {
    */
   deleteAssistant(
     args: DeleteAssistantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<DeleteAssistantCommandOutput>;
   deleteAssistant(
     args: DeleteAssistantCommandInput,
@@ -391,7 +403,7 @@ export interface Wisdom {
   ): void;
   deleteAssistant(
     args: DeleteAssistantCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: DeleteAssistantCommandOutput) => void
   ): void;
 
@@ -400,7 +412,7 @@ export interface Wisdom {
    */
   deleteAssistantAssociation(
     args: DeleteAssistantAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<DeleteAssistantAssociationCommandOutput>;
   deleteAssistantAssociation(
     args: DeleteAssistantAssociationCommandInput,
@@ -408,7 +420,7 @@ export interface Wisdom {
   ): void;
   deleteAssistantAssociation(
     args: DeleteAssistantAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: DeleteAssistantAssociationCommandOutput) => void
   ): void;
 
@@ -417,7 +429,7 @@ export interface Wisdom {
    */
   deleteContent(
     args: DeleteContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<DeleteContentCommandOutput>;
   deleteContent(
     args: DeleteContentCommandInput,
@@ -425,7 +437,7 @@ export interface Wisdom {
   ): void;
   deleteContent(
     args: DeleteContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: DeleteContentCommandOutput) => void
   ): void;
 
@@ -434,7 +446,7 @@ export interface Wisdom {
    */
   deleteImportJob(
     args: DeleteImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<DeleteImportJobCommandOutput>;
   deleteImportJob(
     args: DeleteImportJobCommandInput,
@@ -442,7 +454,7 @@ export interface Wisdom {
   ): void;
   deleteImportJob(
     args: DeleteImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: DeleteImportJobCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface Wisdom {
    */
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<DeleteKnowledgeBaseCommandOutput>;
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
@@ -459,7 +471,7 @@ export interface Wisdom {
   ): void;
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: DeleteKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -468,7 +480,7 @@ export interface Wisdom {
    */
   deleteQuickResponse(
     args: DeleteQuickResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<DeleteQuickResponseCommandOutput>;
   deleteQuickResponse(
     args: DeleteQuickResponseCommandInput,
@@ -476,7 +488,7 @@ export interface Wisdom {
   ): void;
   deleteQuickResponse(
     args: DeleteQuickResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: DeleteQuickResponseCommandOutput) => void
   ): void;
 
@@ -485,7 +497,7 @@ export interface Wisdom {
    */
   getAssistant(
     args: GetAssistantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<GetAssistantCommandOutput>;
   getAssistant(
     args: GetAssistantCommandInput,
@@ -493,7 +505,7 @@ export interface Wisdom {
   ): void;
   getAssistant(
     args: GetAssistantCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: GetAssistantCommandOutput) => void
   ): void;
 
@@ -502,7 +514,7 @@ export interface Wisdom {
    */
   getAssistantAssociation(
     args: GetAssistantAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<GetAssistantAssociationCommandOutput>;
   getAssistantAssociation(
     args: GetAssistantAssociationCommandInput,
@@ -510,7 +522,7 @@ export interface Wisdom {
   ): void;
   getAssistantAssociation(
     args: GetAssistantAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: GetAssistantAssociationCommandOutput) => void
   ): void;
 
@@ -519,7 +531,7 @@ export interface Wisdom {
    */
   getContent(
     args: GetContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<GetContentCommandOutput>;
   getContent(
     args: GetContentCommandInput,
@@ -527,7 +539,7 @@ export interface Wisdom {
   ): void;
   getContent(
     args: GetContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: GetContentCommandOutput) => void
   ): void;
 
@@ -536,7 +548,7 @@ export interface Wisdom {
    */
   getContentSummary(
     args: GetContentSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<GetContentSummaryCommandOutput>;
   getContentSummary(
     args: GetContentSummaryCommandInput,
@@ -544,7 +556,7 @@ export interface Wisdom {
   ): void;
   getContentSummary(
     args: GetContentSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: GetContentSummaryCommandOutput) => void
   ): void;
 
@@ -553,7 +565,7 @@ export interface Wisdom {
    */
   getImportJob(
     args: GetImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<GetImportJobCommandOutput>;
   getImportJob(
     args: GetImportJobCommandInput,
@@ -561,7 +573,7 @@ export interface Wisdom {
   ): void;
   getImportJob(
     args: GetImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: GetImportJobCommandOutput) => void
   ): void;
 
@@ -570,7 +582,7 @@ export interface Wisdom {
    */
   getKnowledgeBase(
     args: GetKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<GetKnowledgeBaseCommandOutput>;
   getKnowledgeBase(
     args: GetKnowledgeBaseCommandInput,
@@ -578,7 +590,7 @@ export interface Wisdom {
   ): void;
   getKnowledgeBase(
     args: GetKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: GetKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -587,7 +599,7 @@ export interface Wisdom {
    */
   getQuickResponse(
     args: GetQuickResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<GetQuickResponseCommandOutput>;
   getQuickResponse(
     args: GetQuickResponseCommandInput,
@@ -595,7 +607,7 @@ export interface Wisdom {
   ): void;
   getQuickResponse(
     args: GetQuickResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: GetQuickResponseCommandOutput) => void
   ): void;
 
@@ -604,7 +616,7 @@ export interface Wisdom {
    */
   getRecommendations(
     args: GetRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<GetRecommendationsCommandOutput>;
   getRecommendations(
     args: GetRecommendationsCommandInput,
@@ -612,7 +624,7 @@ export interface Wisdom {
   ): void;
   getRecommendations(
     args: GetRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: GetRecommendationsCommandOutput) => void
   ): void;
 
@@ -621,7 +633,7 @@ export interface Wisdom {
    */
   getSession(
     args: GetSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<GetSessionCommandOutput>;
   getSession(
     args: GetSessionCommandInput,
@@ -629,7 +641,7 @@ export interface Wisdom {
   ): void;
   getSession(
     args: GetSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
   ): void;
 
@@ -638,7 +650,7 @@ export interface Wisdom {
    */
   listAssistantAssociations(
     args: ListAssistantAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<ListAssistantAssociationsCommandOutput>;
   listAssistantAssociations(
     args: ListAssistantAssociationsCommandInput,
@@ -646,7 +658,7 @@ export interface Wisdom {
   ): void;
   listAssistantAssociations(
     args: ListAssistantAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: ListAssistantAssociationsCommandOutput) => void
   ): void;
 
@@ -656,7 +668,7 @@ export interface Wisdom {
   listAssistants(): Promise<ListAssistantsCommandOutput>;
   listAssistants(
     args: ListAssistantsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<ListAssistantsCommandOutput>;
   listAssistants(
     args: ListAssistantsCommandInput,
@@ -664,7 +676,7 @@ export interface Wisdom {
   ): void;
   listAssistants(
     args: ListAssistantsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: ListAssistantsCommandOutput) => void
   ): void;
 
@@ -673,7 +685,7 @@ export interface Wisdom {
    */
   listContents(
     args: ListContentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<ListContentsCommandOutput>;
   listContents(
     args: ListContentsCommandInput,
@@ -681,7 +693,7 @@ export interface Wisdom {
   ): void;
   listContents(
     args: ListContentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: ListContentsCommandOutput) => void
   ): void;
 
@@ -690,7 +702,7 @@ export interface Wisdom {
    */
   listImportJobs(
     args: ListImportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<ListImportJobsCommandOutput>;
   listImportJobs(
     args: ListImportJobsCommandInput,
@@ -698,7 +710,7 @@ export interface Wisdom {
   ): void;
   listImportJobs(
     args: ListImportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: ListImportJobsCommandOutput) => void
   ): void;
 
@@ -708,7 +720,7 @@ export interface Wisdom {
   listKnowledgeBases(): Promise<ListKnowledgeBasesCommandOutput>;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<ListKnowledgeBasesCommandOutput>;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
@@ -716,7 +728,7 @@ export interface Wisdom {
   ): void;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: ListKnowledgeBasesCommandOutput) => void
   ): void;
 
@@ -725,7 +737,7 @@ export interface Wisdom {
    */
   listQuickResponses(
     args: ListQuickResponsesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<ListQuickResponsesCommandOutput>;
   listQuickResponses(
     args: ListQuickResponsesCommandInput,
@@ -733,7 +745,7 @@ export interface Wisdom {
   ): void;
   listQuickResponses(
     args: ListQuickResponsesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: ListQuickResponsesCommandOutput) => void
   ): void;
 
@@ -742,7 +754,7 @@ export interface Wisdom {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -750,7 +762,7 @@ export interface Wisdom {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -759,7 +771,7 @@ export interface Wisdom {
    */
   notifyRecommendationsReceived(
     args: NotifyRecommendationsReceivedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<NotifyRecommendationsReceivedCommandOutput>;
   notifyRecommendationsReceived(
     args: NotifyRecommendationsReceivedCommandInput,
@@ -767,7 +779,7 @@ export interface Wisdom {
   ): void;
   notifyRecommendationsReceived(
     args: NotifyRecommendationsReceivedCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: NotifyRecommendationsReceivedCommandOutput) => void
   ): void;
 
@@ -776,7 +788,7 @@ export interface Wisdom {
    */
   queryAssistant(
     args: QueryAssistantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<QueryAssistantCommandOutput>;
   queryAssistant(
     args: QueryAssistantCommandInput,
@@ -784,7 +796,7 @@ export interface Wisdom {
   ): void;
   queryAssistant(
     args: QueryAssistantCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: QueryAssistantCommandOutput) => void
   ): void;
 
@@ -793,7 +805,7 @@ export interface Wisdom {
    */
   removeKnowledgeBaseTemplateUri(
     args: RemoveKnowledgeBaseTemplateUriCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<RemoveKnowledgeBaseTemplateUriCommandOutput>;
   removeKnowledgeBaseTemplateUri(
     args: RemoveKnowledgeBaseTemplateUriCommandInput,
@@ -801,7 +813,7 @@ export interface Wisdom {
   ): void;
   removeKnowledgeBaseTemplateUri(
     args: RemoveKnowledgeBaseTemplateUriCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: RemoveKnowledgeBaseTemplateUriCommandOutput) => void
   ): void;
 
@@ -810,7 +822,7 @@ export interface Wisdom {
    */
   searchContent(
     args: SearchContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<SearchContentCommandOutput>;
   searchContent(
     args: SearchContentCommandInput,
@@ -818,7 +830,7 @@ export interface Wisdom {
   ): void;
   searchContent(
     args: SearchContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: SearchContentCommandOutput) => void
   ): void;
 
@@ -827,7 +839,7 @@ export interface Wisdom {
    */
   searchQuickResponses(
     args: SearchQuickResponsesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<SearchQuickResponsesCommandOutput>;
   searchQuickResponses(
     args: SearchQuickResponsesCommandInput,
@@ -835,7 +847,7 @@ export interface Wisdom {
   ): void;
   searchQuickResponses(
     args: SearchQuickResponsesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: SearchQuickResponsesCommandOutput) => void
   ): void;
 
@@ -844,7 +856,7 @@ export interface Wisdom {
    */
   searchSessions(
     args: SearchSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<SearchSessionsCommandOutput>;
   searchSessions(
     args: SearchSessionsCommandInput,
@@ -852,7 +864,7 @@ export interface Wisdom {
   ): void;
   searchSessions(
     args: SearchSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: SearchSessionsCommandOutput) => void
   ): void;
 
@@ -861,7 +873,7 @@ export interface Wisdom {
    */
   startContentUpload(
     args: StartContentUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<StartContentUploadCommandOutput>;
   startContentUpload(
     args: StartContentUploadCommandInput,
@@ -869,7 +881,7 @@ export interface Wisdom {
   ): void;
   startContentUpload(
     args: StartContentUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: StartContentUploadCommandOutput) => void
   ): void;
 
@@ -878,7 +890,7 @@ export interface Wisdom {
    */
   startImportJob(
     args: StartImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<StartImportJobCommandOutput>;
   startImportJob(
     args: StartImportJobCommandInput,
@@ -886,7 +898,7 @@ export interface Wisdom {
   ): void;
   startImportJob(
     args: StartImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: StartImportJobCommandOutput) => void
   ): void;
 
@@ -895,7 +907,7 @@ export interface Wisdom {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -903,7 +915,7 @@ export interface Wisdom {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -912,7 +924,7 @@ export interface Wisdom {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -920,7 +932,7 @@ export interface Wisdom {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -929,7 +941,7 @@ export interface Wisdom {
    */
   updateContent(
     args: UpdateContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<UpdateContentCommandOutput>;
   updateContent(
     args: UpdateContentCommandInput,
@@ -937,7 +949,7 @@ export interface Wisdom {
   ): void;
   updateContent(
     args: UpdateContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: UpdateContentCommandOutput) => void
   ): void;
 
@@ -946,7 +958,7 @@ export interface Wisdom {
    */
   updateKnowledgeBaseTemplateUri(
     args: UpdateKnowledgeBaseTemplateUriCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<UpdateKnowledgeBaseTemplateUriCommandOutput>;
   updateKnowledgeBaseTemplateUri(
     args: UpdateKnowledgeBaseTemplateUriCommandInput,
@@ -954,7 +966,7 @@ export interface Wisdom {
   ): void;
   updateKnowledgeBaseTemplateUri(
     args: UpdateKnowledgeBaseTemplateUriCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: UpdateKnowledgeBaseTemplateUriCommandOutput) => void
   ): void;
 
@@ -963,7 +975,7 @@ export interface Wisdom {
    */
   updateQuickResponse(
     args: UpdateQuickResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WisdomRequestOptions
   ): Promise<UpdateQuickResponseCommandOutput>;
   updateQuickResponse(
     args: UpdateQuickResponseCommandInput,
@@ -971,7 +983,7 @@ export interface Wisdom {
   ): void;
   updateQuickResponse(
     args: UpdateQuickResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: WisdomRequestOptions,
     cb: (err: any, data?: UpdateQuickResponseCommandOutput) => void
   ): void;
 

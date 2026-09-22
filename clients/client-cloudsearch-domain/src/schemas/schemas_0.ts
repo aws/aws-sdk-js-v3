@@ -102,10 +102,10 @@ import { CloudSearchDomainServiceException } from "../models/CloudSearchDomainSe
 import { DocumentServiceException, SearchException } from "../models/errors";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var CloudSearchDomainServiceException$: StaticErrorSchema = [-3, _s, "CloudSearchDomainServiceException", 0, [], []];
 _s_registry.registerError(CloudSearchDomainServiceException$, CloudSearchDomainServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var DocumentServiceException$: StaticErrorSchema = [-3, n0, _DSE,
   { [_e]: _c },
   [_st, _m],

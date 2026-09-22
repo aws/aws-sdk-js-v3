@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchGetInvoiceProfileCommandInput,
@@ -145,13 +150,20 @@ const paginators = {
   paginateListProcurementPortalSuppliers,
 };
 
+/**
+ * @public
+ */
+export interface InvoicingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Invoicing {
   /**
    * @see {@link BatchGetInvoiceProfileCommand}
    */
   batchGetInvoiceProfile(
     args: BatchGetInvoiceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<BatchGetInvoiceProfileCommandOutput>;
   batchGetInvoiceProfile(
     args: BatchGetInvoiceProfileCommandInput,
@@ -159,7 +171,7 @@ export interface Invoicing {
   ): void;
   batchGetInvoiceProfile(
     args: BatchGetInvoiceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: BatchGetInvoiceProfileCommandOutput) => void
   ): void;
 
@@ -168,7 +180,7 @@ export interface Invoicing {
    */
   createInvoiceUnit(
     args: CreateInvoiceUnitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<CreateInvoiceUnitCommandOutput>;
   createInvoiceUnit(
     args: CreateInvoiceUnitCommandInput,
@@ -176,7 +188,7 @@ export interface Invoicing {
   ): void;
   createInvoiceUnit(
     args: CreateInvoiceUnitCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: CreateInvoiceUnitCommandOutput) => void
   ): void;
 
@@ -185,7 +197,7 @@ export interface Invoicing {
    */
   createProcurementPortalPreference(
     args: CreateProcurementPortalPreferenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<CreateProcurementPortalPreferenceCommandOutput>;
   createProcurementPortalPreference(
     args: CreateProcurementPortalPreferenceCommandInput,
@@ -193,7 +205,7 @@ export interface Invoicing {
   ): void;
   createProcurementPortalPreference(
     args: CreateProcurementPortalPreferenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: CreateProcurementPortalPreferenceCommandOutput) => void
   ): void;
 
@@ -202,7 +214,7 @@ export interface Invoicing {
    */
   deleteInvoiceUnit(
     args: DeleteInvoiceUnitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<DeleteInvoiceUnitCommandOutput>;
   deleteInvoiceUnit(
     args: DeleteInvoiceUnitCommandInput,
@@ -210,7 +222,7 @@ export interface Invoicing {
   ): void;
   deleteInvoiceUnit(
     args: DeleteInvoiceUnitCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: DeleteInvoiceUnitCommandOutput) => void
   ): void;
 
@@ -219,7 +231,7 @@ export interface Invoicing {
    */
   deleteProcurementPortalPreference(
     args: DeleteProcurementPortalPreferenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<DeleteProcurementPortalPreferenceCommandOutput>;
   deleteProcurementPortalPreference(
     args: DeleteProcurementPortalPreferenceCommandInput,
@@ -227,7 +239,7 @@ export interface Invoicing {
   ): void;
   deleteProcurementPortalPreference(
     args: DeleteProcurementPortalPreferenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: DeleteProcurementPortalPreferenceCommandOutput) => void
   ): void;
 
@@ -236,7 +248,7 @@ export interface Invoicing {
    */
   getInvoicePDF(
     args: GetInvoicePDFCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<GetInvoicePDFCommandOutput>;
   getInvoicePDF(
     args: GetInvoicePDFCommandInput,
@@ -244,7 +256,7 @@ export interface Invoicing {
   ): void;
   getInvoicePDF(
     args: GetInvoicePDFCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: GetInvoicePDFCommandOutput) => void
   ): void;
 
@@ -253,7 +265,7 @@ export interface Invoicing {
    */
   getInvoiceUnit(
     args: GetInvoiceUnitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<GetInvoiceUnitCommandOutput>;
   getInvoiceUnit(
     args: GetInvoiceUnitCommandInput,
@@ -261,7 +273,7 @@ export interface Invoicing {
   ): void;
   getInvoiceUnit(
     args: GetInvoiceUnitCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: GetInvoiceUnitCommandOutput) => void
   ): void;
 
@@ -270,7 +282,7 @@ export interface Invoicing {
    */
   getProcurementPortalPreference(
     args: GetProcurementPortalPreferenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<GetProcurementPortalPreferenceCommandOutput>;
   getProcurementPortalPreference(
     args: GetProcurementPortalPreferenceCommandInput,
@@ -278,7 +290,7 @@ export interface Invoicing {
   ): void;
   getProcurementPortalPreference(
     args: GetProcurementPortalPreferenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: GetProcurementPortalPreferenceCommandOutput) => void
   ): void;
 
@@ -287,7 +299,7 @@ export interface Invoicing {
    */
   listInvoiceSummaries(
     args: ListInvoiceSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<ListInvoiceSummariesCommandOutput>;
   listInvoiceSummaries(
     args: ListInvoiceSummariesCommandInput,
@@ -295,7 +307,7 @@ export interface Invoicing {
   ): void;
   listInvoiceSummaries(
     args: ListInvoiceSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: ListInvoiceSummariesCommandOutput) => void
   ): void;
 
@@ -305,7 +317,7 @@ export interface Invoicing {
   listInvoiceUnits(): Promise<ListInvoiceUnitsCommandOutput>;
   listInvoiceUnits(
     args: ListInvoiceUnitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<ListInvoiceUnitsCommandOutput>;
   listInvoiceUnits(
     args: ListInvoiceUnitsCommandInput,
@@ -313,7 +325,7 @@ export interface Invoicing {
   ): void;
   listInvoiceUnits(
     args: ListInvoiceUnitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: ListInvoiceUnitsCommandOutput) => void
   ): void;
 
@@ -323,7 +335,7 @@ export interface Invoicing {
   listProcurementPortalPreferences(): Promise<ListProcurementPortalPreferencesCommandOutput>;
   listProcurementPortalPreferences(
     args: ListProcurementPortalPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<ListProcurementPortalPreferencesCommandOutput>;
   listProcurementPortalPreferences(
     args: ListProcurementPortalPreferencesCommandInput,
@@ -331,7 +343,7 @@ export interface Invoicing {
   ): void;
   listProcurementPortalPreferences(
     args: ListProcurementPortalPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: ListProcurementPortalPreferencesCommandOutput) => void
   ): void;
 
@@ -341,7 +353,7 @@ export interface Invoicing {
   listProcurementPortals(): Promise<ListProcurementPortalsCommandOutput>;
   listProcurementPortals(
     args: ListProcurementPortalsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<ListProcurementPortalsCommandOutput>;
   listProcurementPortals(
     args: ListProcurementPortalsCommandInput,
@@ -349,7 +361,7 @@ export interface Invoicing {
   ): void;
   listProcurementPortals(
     args: ListProcurementPortalsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: ListProcurementPortalsCommandOutput) => void
   ): void;
 
@@ -358,7 +370,7 @@ export interface Invoicing {
    */
   listProcurementPortalSuppliers(
     args: ListProcurementPortalSuppliersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<ListProcurementPortalSuppliersCommandOutput>;
   listProcurementPortalSuppliers(
     args: ListProcurementPortalSuppliersCommandInput,
@@ -366,7 +378,7 @@ export interface Invoicing {
   ): void;
   listProcurementPortalSuppliers(
     args: ListProcurementPortalSuppliersCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: ListProcurementPortalSuppliersCommandOutput) => void
   ): void;
 
@@ -375,7 +387,7 @@ export interface Invoicing {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -383,7 +395,7 @@ export interface Invoicing {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -392,7 +404,7 @@ export interface Invoicing {
    */
   putProcurementPortalPreference(
     args: PutProcurementPortalPreferenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<PutProcurementPortalPreferenceCommandOutput>;
   putProcurementPortalPreference(
     args: PutProcurementPortalPreferenceCommandInput,
@@ -400,7 +412,7 @@ export interface Invoicing {
   ): void;
   putProcurementPortalPreference(
     args: PutProcurementPortalPreferenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: PutProcurementPortalPreferenceCommandOutput) => void
   ): void;
 
@@ -409,7 +421,7 @@ export interface Invoicing {
    */
   sendProcurementPortalValidation(
     args: SendProcurementPortalValidationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<SendProcurementPortalValidationCommandOutput>;
   sendProcurementPortalValidation(
     args: SendProcurementPortalValidationCommandInput,
@@ -417,7 +429,7 @@ export interface Invoicing {
   ): void;
   sendProcurementPortalValidation(
     args: SendProcurementPortalValidationCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: SendProcurementPortalValidationCommandOutput) => void
   ): void;
 
@@ -426,7 +438,7 @@ export interface Invoicing {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -434,7 +446,7 @@ export interface Invoicing {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -443,7 +455,7 @@ export interface Invoicing {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -451,7 +463,7 @@ export interface Invoicing {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -460,7 +472,7 @@ export interface Invoicing {
    */
   updateInvoiceUnit(
     args: UpdateInvoiceUnitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<UpdateInvoiceUnitCommandOutput>;
   updateInvoiceUnit(
     args: UpdateInvoiceUnitCommandInput,
@@ -468,7 +480,7 @@ export interface Invoicing {
   ): void;
   updateInvoiceUnit(
     args: UpdateInvoiceUnitCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: UpdateInvoiceUnitCommandOutput) => void
   ): void;
 
@@ -477,7 +489,7 @@ export interface Invoicing {
    */
   updateProcurementPortalPreferenceStatus(
     args: UpdateProcurementPortalPreferenceStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<UpdateProcurementPortalPreferenceStatusCommandOutput>;
   updateProcurementPortalPreferenceStatus(
     args: UpdateProcurementPortalPreferenceStatusCommandInput,
@@ -485,7 +497,7 @@ export interface Invoicing {
   ): void;
   updateProcurementPortalPreferenceStatus(
     args: UpdateProcurementPortalPreferenceStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: UpdateProcurementPortalPreferenceStatusCommandOutput) => void
   ): void;
 
@@ -494,7 +506,7 @@ export interface Invoicing {
    */
   verifyProcurementPortalValidation(
     args: VerifyProcurementPortalValidationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InvoicingRequestOptions
   ): Promise<VerifyProcurementPortalValidationCommandOutput>;
   verifyProcurementPortalValidation(
     args: VerifyProcurementPortalValidationCommandInput,
@@ -502,7 +514,7 @@ export interface Invoicing {
   ): void;
   verifyProcurementPortalValidation(
     args: VerifyProcurementPortalValidationCommandInput,
-    options: __HttpHandlerOptions,
+    options: InvoicingRequestOptions,
     cb: (err: any, data?: VerifyProcurementPortalValidationCommandOutput) => void
   ): void;
 

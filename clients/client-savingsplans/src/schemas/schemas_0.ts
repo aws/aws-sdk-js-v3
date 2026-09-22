@@ -143,10 +143,10 @@ import {
 import { SavingsplansServiceException } from "../models/SavingsplansServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var SavingsplansServiceException$: StaticErrorSchema = [-3, _s, "SavingsplansServiceException", 0, [], []];
 _s_registry.registerError(SavingsplansServiceException$, SavingsplansServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
   [_m],

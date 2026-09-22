@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type GetEntitlementsCommandInput,
@@ -17,13 +22,20 @@ const paginators = {
   paginateGetEntitlements,
 };
 
+/**
+ * @public
+ */
+export interface MarketplaceEntitlementServiceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MarketplaceEntitlementService {
   /**
    * @see {@link GetEntitlementsCommand}
    */
   getEntitlements(
     args: GetEntitlementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceEntitlementServiceRequestOptions
   ): Promise<GetEntitlementsCommandOutput>;
   getEntitlements(
     args: GetEntitlementsCommandInput,
@@ -31,7 +43,7 @@ export interface MarketplaceEntitlementService {
   ): void;
   getEntitlements(
     args: GetEntitlementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceEntitlementServiceRequestOptions,
     cb: (err: any, data?: GetEntitlementsCommandOutput) => void
   ): void;
 

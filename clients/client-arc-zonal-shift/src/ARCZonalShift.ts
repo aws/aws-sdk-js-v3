@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { ARCZonalShiftClient } from "./ARCZonalShiftClient";
 import {
@@ -105,13 +110,20 @@ const paginators = {
   paginateListZonalShifts,
 };
 
+/**
+ * @public
+ */
+export interface ARCZonalShiftRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ARCZonalShift {
   /**
    * @see {@link CancelPracticeRunCommand}
    */
   cancelPracticeRun(
     args: CancelPracticeRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<CancelPracticeRunCommandOutput>;
   cancelPracticeRun(
     args: CancelPracticeRunCommandInput,
@@ -119,7 +131,7 @@ export interface ARCZonalShift {
   ): void;
   cancelPracticeRun(
     args: CancelPracticeRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: CancelPracticeRunCommandOutput) => void
   ): void;
 
@@ -128,7 +140,7 @@ export interface ARCZonalShift {
    */
   cancelZonalShift(
     args: CancelZonalShiftCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<CancelZonalShiftCommandOutput>;
   cancelZonalShift(
     args: CancelZonalShiftCommandInput,
@@ -136,7 +148,7 @@ export interface ARCZonalShift {
   ): void;
   cancelZonalShift(
     args: CancelZonalShiftCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: CancelZonalShiftCommandOutput) => void
   ): void;
 
@@ -145,7 +157,7 @@ export interface ARCZonalShift {
    */
   createPracticeRunConfiguration(
     args: CreatePracticeRunConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<CreatePracticeRunConfigurationCommandOutput>;
   createPracticeRunConfiguration(
     args: CreatePracticeRunConfigurationCommandInput,
@@ -153,7 +165,7 @@ export interface ARCZonalShift {
   ): void;
   createPracticeRunConfiguration(
     args: CreatePracticeRunConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: CreatePracticeRunConfigurationCommandOutput) => void
   ): void;
 
@@ -162,7 +174,7 @@ export interface ARCZonalShift {
    */
   deletePracticeRunConfiguration(
     args: DeletePracticeRunConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<DeletePracticeRunConfigurationCommandOutput>;
   deletePracticeRunConfiguration(
     args: DeletePracticeRunConfigurationCommandInput,
@@ -170,7 +182,7 @@ export interface ARCZonalShift {
   ): void;
   deletePracticeRunConfiguration(
     args: DeletePracticeRunConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: DeletePracticeRunConfigurationCommandOutput) => void
   ): void;
 
@@ -180,7 +192,7 @@ export interface ARCZonalShift {
   getAutoshiftObserverNotificationStatus(): Promise<GetAutoshiftObserverNotificationStatusCommandOutput>;
   getAutoshiftObserverNotificationStatus(
     args: GetAutoshiftObserverNotificationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<GetAutoshiftObserverNotificationStatusCommandOutput>;
   getAutoshiftObserverNotificationStatus(
     args: GetAutoshiftObserverNotificationStatusCommandInput,
@@ -188,7 +200,7 @@ export interface ARCZonalShift {
   ): void;
   getAutoshiftObserverNotificationStatus(
     args: GetAutoshiftObserverNotificationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: GetAutoshiftObserverNotificationStatusCommandOutput) => void
   ): void;
 
@@ -197,7 +209,7 @@ export interface ARCZonalShift {
    */
   getManagedResource(
     args: GetManagedResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<GetManagedResourceCommandOutput>;
   getManagedResource(
     args: GetManagedResourceCommandInput,
@@ -205,7 +217,7 @@ export interface ARCZonalShift {
   ): void;
   getManagedResource(
     args: GetManagedResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: GetManagedResourceCommandOutput) => void
   ): void;
 
@@ -215,7 +227,7 @@ export interface ARCZonalShift {
   listAutoshifts(): Promise<ListAutoshiftsCommandOutput>;
   listAutoshifts(
     args: ListAutoshiftsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<ListAutoshiftsCommandOutput>;
   listAutoshifts(
     args: ListAutoshiftsCommandInput,
@@ -223,7 +235,7 @@ export interface ARCZonalShift {
   ): void;
   listAutoshifts(
     args: ListAutoshiftsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: ListAutoshiftsCommandOutput) => void
   ): void;
 
@@ -233,7 +245,7 @@ export interface ARCZonalShift {
   listManagedResources(): Promise<ListManagedResourcesCommandOutput>;
   listManagedResources(
     args: ListManagedResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<ListManagedResourcesCommandOutput>;
   listManagedResources(
     args: ListManagedResourcesCommandInput,
@@ -241,7 +253,7 @@ export interface ARCZonalShift {
   ): void;
   listManagedResources(
     args: ListManagedResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: ListManagedResourcesCommandOutput) => void
   ): void;
 
@@ -251,7 +263,7 @@ export interface ARCZonalShift {
   listZonalShifts(): Promise<ListZonalShiftsCommandOutput>;
   listZonalShifts(
     args: ListZonalShiftsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<ListZonalShiftsCommandOutput>;
   listZonalShifts(
     args: ListZonalShiftsCommandInput,
@@ -259,7 +271,7 @@ export interface ARCZonalShift {
   ): void;
   listZonalShifts(
     args: ListZonalShiftsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: ListZonalShiftsCommandOutput) => void
   ): void;
 
@@ -268,7 +280,7 @@ export interface ARCZonalShift {
    */
   startPracticeRun(
     args: StartPracticeRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<StartPracticeRunCommandOutput>;
   startPracticeRun(
     args: StartPracticeRunCommandInput,
@@ -276,7 +288,7 @@ export interface ARCZonalShift {
   ): void;
   startPracticeRun(
     args: StartPracticeRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: StartPracticeRunCommandOutput) => void
   ): void;
 
@@ -285,7 +297,7 @@ export interface ARCZonalShift {
    */
   startZonalShift(
     args: StartZonalShiftCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<StartZonalShiftCommandOutput>;
   startZonalShift(
     args: StartZonalShiftCommandInput,
@@ -293,7 +305,7 @@ export interface ARCZonalShift {
   ): void;
   startZonalShift(
     args: StartZonalShiftCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: StartZonalShiftCommandOutput) => void
   ): void;
 
@@ -302,7 +314,7 @@ export interface ARCZonalShift {
    */
   updateAutoshiftObserverNotificationStatus(
     args: UpdateAutoshiftObserverNotificationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<UpdateAutoshiftObserverNotificationStatusCommandOutput>;
   updateAutoshiftObserverNotificationStatus(
     args: UpdateAutoshiftObserverNotificationStatusCommandInput,
@@ -310,7 +322,7 @@ export interface ARCZonalShift {
   ): void;
   updateAutoshiftObserverNotificationStatus(
     args: UpdateAutoshiftObserverNotificationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: UpdateAutoshiftObserverNotificationStatusCommandOutput) => void
   ): void;
 
@@ -319,7 +331,7 @@ export interface ARCZonalShift {
    */
   updatePracticeRunConfiguration(
     args: UpdatePracticeRunConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<UpdatePracticeRunConfigurationCommandOutput>;
   updatePracticeRunConfiguration(
     args: UpdatePracticeRunConfigurationCommandInput,
@@ -327,7 +339,7 @@ export interface ARCZonalShift {
   ): void;
   updatePracticeRunConfiguration(
     args: UpdatePracticeRunConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: UpdatePracticeRunConfigurationCommandOutput) => void
   ): void;
 
@@ -336,7 +348,7 @@ export interface ARCZonalShift {
    */
   updateZonalAutoshiftConfiguration(
     args: UpdateZonalAutoshiftConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<UpdateZonalAutoshiftConfigurationCommandOutput>;
   updateZonalAutoshiftConfiguration(
     args: UpdateZonalAutoshiftConfigurationCommandInput,
@@ -344,7 +356,7 @@ export interface ARCZonalShift {
   ): void;
   updateZonalAutoshiftConfiguration(
     args: UpdateZonalAutoshiftConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: UpdateZonalAutoshiftConfigurationCommandOutput) => void
   ): void;
 
@@ -353,7 +365,7 @@ export interface ARCZonalShift {
    */
   updateZonalShift(
     args: UpdateZonalShiftCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCZonalShiftRequestOptions
   ): Promise<UpdateZonalShiftCommandOutput>;
   updateZonalShift(
     args: UpdateZonalShiftCommandInput,
@@ -361,7 +373,7 @@ export interface ARCZonalShift {
   ): void;
   updateZonalShift(
     args: UpdateZonalShiftCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCZonalShiftRequestOptions,
     cb: (err: any, data?: UpdateZonalShiftCommandOutput) => void
   ): void;
 

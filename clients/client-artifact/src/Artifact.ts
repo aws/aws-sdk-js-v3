@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { ArtifactClient } from "./ArtifactClient";
 import {
@@ -117,13 +122,20 @@ const paginators = {
   paginateListReportVersions,
 };
 
+/**
+ * @public
+ */
+export interface ArtifactRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Artifact {
   /**
    * @see {@link CreateComplianceInquiryCommand}
    */
   createComplianceInquiry(
     args: CreateComplianceInquiryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<CreateComplianceInquiryCommandOutput>;
   createComplianceInquiry(
     args: CreateComplianceInquiryCommandInput,
@@ -131,7 +143,7 @@ export interface Artifact {
   ): void;
   createComplianceInquiry(
     args: CreateComplianceInquiryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: CreateComplianceInquiryCommandOutput) => void
   ): void;
 
@@ -140,7 +152,7 @@ export interface Artifact {
    */
   exportComplianceInquiry(
     args: ExportComplianceInquiryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<ExportComplianceInquiryCommandOutput>;
   exportComplianceInquiry(
     args: ExportComplianceInquiryCommandInput,
@@ -148,7 +160,7 @@ export interface Artifact {
   ): void;
   exportComplianceInquiry(
     args: ExportComplianceInquiryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: ExportComplianceInquiryCommandOutput) => void
   ): void;
 
@@ -158,7 +170,7 @@ export interface Artifact {
   getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
@@ -166,7 +178,7 @@ export interface Artifact {
   ): void;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
   ): void;
 
@@ -175,7 +187,7 @@ export interface Artifact {
    */
   getComplianceInquiryMetadata(
     args: GetComplianceInquiryMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<GetComplianceInquiryMetadataCommandOutput>;
   getComplianceInquiryMetadata(
     args: GetComplianceInquiryMetadataCommandInput,
@@ -183,7 +195,7 @@ export interface Artifact {
   ): void;
   getComplianceInquiryMetadata(
     args: GetComplianceInquiryMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: GetComplianceInquiryMetadataCommandOutput) => void
   ): void;
 
@@ -192,7 +204,7 @@ export interface Artifact {
    */
   getReport(
     args: GetReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<GetReportCommandOutput>;
   getReport(
     args: GetReportCommandInput,
@@ -200,7 +212,7 @@ export interface Artifact {
   ): void;
   getReport(
     args: GetReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: GetReportCommandOutput) => void
   ): void;
 
@@ -209,7 +221,7 @@ export interface Artifact {
    */
   getReportMetadata(
     args: GetReportMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<GetReportMetadataCommandOutput>;
   getReportMetadata(
     args: GetReportMetadataCommandInput,
@@ -217,7 +229,7 @@ export interface Artifact {
   ): void;
   getReportMetadata(
     args: GetReportMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: GetReportMetadataCommandOutput) => void
   ): void;
 
@@ -226,7 +238,7 @@ export interface Artifact {
    */
   getTermForReport(
     args: GetTermForReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<GetTermForReportCommandOutput>;
   getTermForReport(
     args: GetTermForReportCommandInput,
@@ -234,7 +246,7 @@ export interface Artifact {
   ): void;
   getTermForReport(
     args: GetTermForReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: GetTermForReportCommandOutput) => void
   ): void;
 
@@ -244,7 +256,7 @@ export interface Artifact {
   listComplianceInquiries(): Promise<ListComplianceInquiriesCommandOutput>;
   listComplianceInquiries(
     args: ListComplianceInquiriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<ListComplianceInquiriesCommandOutput>;
   listComplianceInquiries(
     args: ListComplianceInquiriesCommandInput,
@@ -252,7 +264,7 @@ export interface Artifact {
   ): void;
   listComplianceInquiries(
     args: ListComplianceInquiriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: ListComplianceInquiriesCommandOutput) => void
   ): void;
 
@@ -261,7 +273,7 @@ export interface Artifact {
    */
   listComplianceInquiryQueries(
     args: ListComplianceInquiryQueriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<ListComplianceInquiryQueriesCommandOutput>;
   listComplianceInquiryQueries(
     args: ListComplianceInquiryQueriesCommandInput,
@@ -269,7 +281,7 @@ export interface Artifact {
   ): void;
   listComplianceInquiryQueries(
     args: ListComplianceInquiryQueriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: ListComplianceInquiryQueriesCommandOutput) => void
   ): void;
 
@@ -279,7 +291,7 @@ export interface Artifact {
   listCustomerAgreements(): Promise<ListCustomerAgreementsCommandOutput>;
   listCustomerAgreements(
     args: ListCustomerAgreementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<ListCustomerAgreementsCommandOutput>;
   listCustomerAgreements(
     args: ListCustomerAgreementsCommandInput,
@@ -287,7 +299,7 @@ export interface Artifact {
   ): void;
   listCustomerAgreements(
     args: ListCustomerAgreementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: ListCustomerAgreementsCommandOutput) => void
   ): void;
 
@@ -297,7 +309,7 @@ export interface Artifact {
   listReports(): Promise<ListReportsCommandOutput>;
   listReports(
     args: ListReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<ListReportsCommandOutput>;
   listReports(
     args: ListReportsCommandInput,
@@ -305,7 +317,7 @@ export interface Artifact {
   ): void;
   listReports(
     args: ListReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: ListReportsCommandOutput) => void
   ): void;
 
@@ -314,7 +326,7 @@ export interface Artifact {
    */
   listReportVersions(
     args: ListReportVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<ListReportVersionsCommandOutput>;
   listReportVersions(
     args: ListReportVersionsCommandInput,
@@ -322,7 +334,7 @@ export interface Artifact {
   ): void;
   listReportVersions(
     args: ListReportVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: ListReportVersionsCommandOutput) => void
   ): void;
 
@@ -331,7 +343,7 @@ export interface Artifact {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -339,7 +351,7 @@ export interface Artifact {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface Artifact {
   putAccountSettings(): Promise<PutAccountSettingsCommandOutput>;
   putAccountSettings(
     args: PutAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<PutAccountSettingsCommandOutput>;
   putAccountSettings(
     args: PutAccountSettingsCommandInput,
@@ -357,7 +369,7 @@ export interface Artifact {
   ): void;
   putAccountSettings(
     args: PutAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: PutAccountSettingsCommandOutput) => void
   ): void;
 
@@ -366,7 +378,7 @@ export interface Artifact {
    */
   putComplianceInquiryFeedback(
     args: PutComplianceInquiryFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<PutComplianceInquiryFeedbackCommandOutput>;
   putComplianceInquiryFeedback(
     args: PutComplianceInquiryFeedbackCommandInput,
@@ -374,7 +386,7 @@ export interface Artifact {
   ): void;
   putComplianceInquiryFeedback(
     args: PutComplianceInquiryFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: PutComplianceInquiryFeedbackCommandOutput) => void
   ): void;
 
@@ -383,7 +395,7 @@ export interface Artifact {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -391,7 +403,7 @@ export interface Artifact {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -400,7 +412,7 @@ export interface Artifact {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ArtifactRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -408,7 +420,7 @@ export interface Artifact {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ArtifactRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

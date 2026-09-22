@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ApprovePaidSubscriptionCommandInput,
@@ -65,13 +70,20 @@ const paginators = {
   paginateListSubscriptions,
 };
 
+/**
+ * @public
+ */
+export interface PricingPlanManagerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PricingPlanManager {
   /**
    * @see {@link ApprovePaidSubscriptionCommand}
    */
   approvePaidSubscription(
     args: ApprovePaidSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingPlanManagerRequestOptions
   ): Promise<ApprovePaidSubscriptionCommandOutput>;
   approvePaidSubscription(
     args: ApprovePaidSubscriptionCommandInput,
@@ -79,7 +91,7 @@ export interface PricingPlanManager {
   ): void;
   approvePaidSubscription(
     args: ApprovePaidSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingPlanManagerRequestOptions,
     cb: (err: any, data?: ApprovePaidSubscriptionCommandOutput) => void
   ): void;
 
@@ -88,7 +100,7 @@ export interface PricingPlanManager {
    */
   associateResourcesToSubscription(
     args: AssociateResourcesToSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingPlanManagerRequestOptions
   ): Promise<AssociateResourcesToSubscriptionCommandOutput>;
   associateResourcesToSubscription(
     args: AssociateResourcesToSubscriptionCommandInput,
@@ -96,7 +108,7 @@ export interface PricingPlanManager {
   ): void;
   associateResourcesToSubscription(
     args: AssociateResourcesToSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingPlanManagerRequestOptions,
     cb: (err: any, data?: AssociateResourcesToSubscriptionCommandOutput) => void
   ): void;
 
@@ -105,7 +117,7 @@ export interface PricingPlanManager {
    */
   cancelSubscription(
     args: CancelSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingPlanManagerRequestOptions
   ): Promise<CancelSubscriptionCommandOutput>;
   cancelSubscription(
     args: CancelSubscriptionCommandInput,
@@ -113,7 +125,7 @@ export interface PricingPlanManager {
   ): void;
   cancelSubscription(
     args: CancelSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingPlanManagerRequestOptions,
     cb: (err: any, data?: CancelSubscriptionCommandOutput) => void
   ): void;
 
@@ -122,7 +134,7 @@ export interface PricingPlanManager {
    */
   cancelSubscriptionChange(
     args: CancelSubscriptionChangeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingPlanManagerRequestOptions
   ): Promise<CancelSubscriptionChangeCommandOutput>;
   cancelSubscriptionChange(
     args: CancelSubscriptionChangeCommandInput,
@@ -130,7 +142,7 @@ export interface PricingPlanManager {
   ): void;
   cancelSubscriptionChange(
     args: CancelSubscriptionChangeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingPlanManagerRequestOptions,
     cb: (err: any, data?: CancelSubscriptionChangeCommandOutput) => void
   ): void;
 
@@ -139,7 +151,7 @@ export interface PricingPlanManager {
    */
   createSubscription(
     args: CreateSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingPlanManagerRequestOptions
   ): Promise<CreateSubscriptionCommandOutput>;
   createSubscription(
     args: CreateSubscriptionCommandInput,
@@ -147,7 +159,7 @@ export interface PricingPlanManager {
   ): void;
   createSubscription(
     args: CreateSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingPlanManagerRequestOptions,
     cb: (err: any, data?: CreateSubscriptionCommandOutput) => void
   ): void;
 
@@ -156,7 +168,7 @@ export interface PricingPlanManager {
    */
   disassociateResourcesFromSubscription(
     args: DisassociateResourcesFromSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingPlanManagerRequestOptions
   ): Promise<DisassociateResourcesFromSubscriptionCommandOutput>;
   disassociateResourcesFromSubscription(
     args: DisassociateResourcesFromSubscriptionCommandInput,
@@ -164,7 +176,7 @@ export interface PricingPlanManager {
   ): void;
   disassociateResourcesFromSubscription(
     args: DisassociateResourcesFromSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingPlanManagerRequestOptions,
     cb: (err: any, data?: DisassociateResourcesFromSubscriptionCommandOutput) => void
   ): void;
 
@@ -173,7 +185,7 @@ export interface PricingPlanManager {
    */
   getSubscription(
     args: GetSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingPlanManagerRequestOptions
   ): Promise<GetSubscriptionCommandOutput>;
   getSubscription(
     args: GetSubscriptionCommandInput,
@@ -181,7 +193,7 @@ export interface PricingPlanManager {
   ): void;
   getSubscription(
     args: GetSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingPlanManagerRequestOptions,
     cb: (err: any, data?: GetSubscriptionCommandOutput) => void
   ): void;
 
@@ -191,7 +203,7 @@ export interface PricingPlanManager {
   listSubscriptions(): Promise<ListSubscriptionsCommandOutput>;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingPlanManagerRequestOptions
   ): Promise<ListSubscriptionsCommandOutput>;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
@@ -199,7 +211,7 @@ export interface PricingPlanManager {
   ): void;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingPlanManagerRequestOptions,
     cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
   ): void;
 
@@ -208,7 +220,7 @@ export interface PricingPlanManager {
    */
   updateSubscription(
     args: UpdateSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingPlanManagerRequestOptions
   ): Promise<UpdateSubscriptionCommandOutput>;
   updateSubscription(
     args: UpdateSubscriptionCommandInput,
@@ -216,7 +228,7 @@ export interface PricingPlanManager {
   ): void;
   updateSubscription(
     args: UpdateSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingPlanManagerRequestOptions,
     cb: (err: any, data?: UpdateSubscriptionCommandOutput) => void
   ): void;
 

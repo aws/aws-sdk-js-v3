@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AddAttachmentsToSetCommandInput,
@@ -133,13 +138,20 @@ const paginators = {
   paginateDescribeCommunications,
 };
 
+/**
+ * @public
+ */
+export interface SupportRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Support {
   /**
    * @see {@link AddAttachmentsToSetCommand}
    */
   addAttachmentsToSet(
     args: AddAttachmentsToSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<AddAttachmentsToSetCommandOutput>;
   addAttachmentsToSet(
     args: AddAttachmentsToSetCommandInput,
@@ -147,7 +159,7 @@ export interface Support {
   ): void;
   addAttachmentsToSet(
     args: AddAttachmentsToSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: AddAttachmentsToSetCommandOutput) => void
   ): void;
 
@@ -156,7 +168,7 @@ export interface Support {
    */
   addCommunicationToCase(
     args: AddCommunicationToCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<AddCommunicationToCaseCommandOutput>;
   addCommunicationToCase(
     args: AddCommunicationToCaseCommandInput,
@@ -164,7 +176,7 @@ export interface Support {
   ): void;
   addCommunicationToCase(
     args: AddCommunicationToCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: AddCommunicationToCaseCommandOutput) => void
   ): void;
 
@@ -173,7 +185,7 @@ export interface Support {
    */
   completeAttachmentUpload(
     args: CompleteAttachmentUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<CompleteAttachmentUploadCommandOutput>;
   completeAttachmentUpload(
     args: CompleteAttachmentUploadCommandInput,
@@ -181,7 +193,7 @@ export interface Support {
   ): void;
   completeAttachmentUpload(
     args: CompleteAttachmentUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: CompleteAttachmentUploadCommandOutput) => void
   ): void;
 
@@ -190,7 +202,7 @@ export interface Support {
    */
   createCase(
     args: CreateCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<CreateCaseCommandOutput>;
   createCase(
     args: CreateCaseCommandInput,
@@ -198,7 +210,7 @@ export interface Support {
   ): void;
   createCase(
     args: CreateCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: CreateCaseCommandOutput) => void
   ): void;
 
@@ -207,7 +219,7 @@ export interface Support {
    */
   describeAttachment(
     args: DescribeAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeAttachmentCommandOutput>;
   describeAttachment(
     args: DescribeAttachmentCommandInput,
@@ -215,7 +227,7 @@ export interface Support {
   ): void;
   describeAttachment(
     args: DescribeAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeAttachmentCommandOutput) => void
   ): void;
 
@@ -224,7 +236,7 @@ export interface Support {
    */
   describeAttachmentUploadStatus(
     args: DescribeAttachmentUploadStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeAttachmentUploadStatusCommandOutput>;
   describeAttachmentUploadStatus(
     args: DescribeAttachmentUploadStatusCommandInput,
@@ -232,7 +244,7 @@ export interface Support {
   ): void;
   describeAttachmentUploadStatus(
     args: DescribeAttachmentUploadStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeAttachmentUploadStatusCommandOutput) => void
   ): void;
 
@@ -242,7 +254,7 @@ export interface Support {
   describeCases(): Promise<DescribeCasesCommandOutput>;
   describeCases(
     args: DescribeCasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeCasesCommandOutput>;
   describeCases(
     args: DescribeCasesCommandInput,
@@ -250,7 +262,7 @@ export interface Support {
   ): void;
   describeCases(
     args: DescribeCasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeCasesCommandOutput) => void
   ): void;
 
@@ -259,7 +271,7 @@ export interface Support {
    */
   describeCommunications(
     args: DescribeCommunicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeCommunicationsCommandOutput>;
   describeCommunications(
     args: DescribeCommunicationsCommandInput,
@@ -267,7 +279,7 @@ export interface Support {
   ): void;
   describeCommunications(
     args: DescribeCommunicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeCommunicationsCommandOutput) => void
   ): void;
 
@@ -276,7 +288,7 @@ export interface Support {
    */
   describeCreateCaseOptions(
     args: DescribeCreateCaseOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeCreateCaseOptionsCommandOutput>;
   describeCreateCaseOptions(
     args: DescribeCreateCaseOptionsCommandInput,
@@ -284,7 +296,7 @@ export interface Support {
   ): void;
   describeCreateCaseOptions(
     args: DescribeCreateCaseOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeCreateCaseOptionsCommandOutput) => void
   ): void;
 
@@ -294,7 +306,7 @@ export interface Support {
   describeServices(): Promise<DescribeServicesCommandOutput>;
   describeServices(
     args: DescribeServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeServicesCommandOutput>;
   describeServices(
     args: DescribeServicesCommandInput,
@@ -302,7 +314,7 @@ export interface Support {
   ): void;
   describeServices(
     args: DescribeServicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeServicesCommandOutput) => void
   ): void;
 
@@ -312,7 +324,7 @@ export interface Support {
   describeSeverityLevels(): Promise<DescribeSeverityLevelsCommandOutput>;
   describeSeverityLevels(
     args: DescribeSeverityLevelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeSeverityLevelsCommandOutput>;
   describeSeverityLevels(
     args: DescribeSeverityLevelsCommandInput,
@@ -320,7 +332,7 @@ export interface Support {
   ): void;
   describeSeverityLevels(
     args: DescribeSeverityLevelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeSeverityLevelsCommandOutput) => void
   ): void;
 
@@ -329,7 +341,7 @@ export interface Support {
    */
   describeSupportedLanguages(
     args: DescribeSupportedLanguagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeSupportedLanguagesCommandOutput>;
   describeSupportedLanguages(
     args: DescribeSupportedLanguagesCommandInput,
@@ -337,7 +349,7 @@ export interface Support {
   ): void;
   describeSupportedLanguages(
     args: DescribeSupportedLanguagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeSupportedLanguagesCommandOutput) => void
   ): void;
 
@@ -346,7 +358,7 @@ export interface Support {
    */
   describeTrustedAdvisorCheckRefreshStatuses(
     args: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput>;
   describeTrustedAdvisorCheckRefreshStatuses(
     args: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
@@ -354,7 +366,7 @@ export interface Support {
   ): void;
   describeTrustedAdvisorCheckRefreshStatuses(
     args: DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput) => void
   ): void;
 
@@ -363,7 +375,7 @@ export interface Support {
    */
   describeTrustedAdvisorCheckResult(
     args: DescribeTrustedAdvisorCheckResultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput>;
   describeTrustedAdvisorCheckResult(
     args: DescribeTrustedAdvisorCheckResultCommandInput,
@@ -371,7 +383,7 @@ export interface Support {
   ): void;
   describeTrustedAdvisorCheckResult(
     args: DescribeTrustedAdvisorCheckResultCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeTrustedAdvisorCheckResultCommandOutput) => void
   ): void;
 
@@ -380,7 +392,7 @@ export interface Support {
    */
   describeTrustedAdvisorChecks(
     args: DescribeTrustedAdvisorChecksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeTrustedAdvisorChecksCommandOutput>;
   describeTrustedAdvisorChecks(
     args: DescribeTrustedAdvisorChecksCommandInput,
@@ -388,7 +400,7 @@ export interface Support {
   ): void;
   describeTrustedAdvisorChecks(
     args: DescribeTrustedAdvisorChecksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeTrustedAdvisorChecksCommandOutput) => void
   ): void;
 
@@ -397,7 +409,7 @@ export interface Support {
    */
   describeTrustedAdvisorCheckSummaries(
     args: DescribeTrustedAdvisorCheckSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput>;
   describeTrustedAdvisorCheckSummaries(
     args: DescribeTrustedAdvisorCheckSummariesCommandInput,
@@ -405,7 +417,7 @@ export interface Support {
   ): void;
   describeTrustedAdvisorCheckSummaries(
     args: DescribeTrustedAdvisorCheckSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: DescribeTrustedAdvisorCheckSummariesCommandOutput) => void
   ): void;
 
@@ -414,7 +426,7 @@ export interface Support {
    */
   getAttachmentDownloadLink(
     args: GetAttachmentDownloadLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<GetAttachmentDownloadLinkCommandOutput>;
   getAttachmentDownloadLink(
     args: GetAttachmentDownloadLinkCommandInput,
@@ -422,7 +434,7 @@ export interface Support {
   ): void;
   getAttachmentDownloadLink(
     args: GetAttachmentDownloadLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: GetAttachmentDownloadLinkCommandOutput) => void
   ): void;
 
@@ -431,7 +443,7 @@ export interface Support {
    */
   getAttachmentUploadLinks(
     args: GetAttachmentUploadLinksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<GetAttachmentUploadLinksCommandOutput>;
   getAttachmentUploadLinks(
     args: GetAttachmentUploadLinksCommandInput,
@@ -439,7 +451,7 @@ export interface Support {
   ): void;
   getAttachmentUploadLinks(
     args: GetAttachmentUploadLinksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: GetAttachmentUploadLinksCommandOutput) => void
   ): void;
 
@@ -448,7 +460,7 @@ export interface Support {
    */
   refreshTrustedAdvisorCheck(
     args: RefreshTrustedAdvisorCheckCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<RefreshTrustedAdvisorCheckCommandOutput>;
   refreshTrustedAdvisorCheck(
     args: RefreshTrustedAdvisorCheckCommandInput,
@@ -456,7 +468,7 @@ export interface Support {
   ): void;
   refreshTrustedAdvisorCheck(
     args: RefreshTrustedAdvisorCheckCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: RefreshTrustedAdvisorCheckCommandOutput) => void
   ): void;
 
@@ -466,7 +478,7 @@ export interface Support {
   resolveCase(): Promise<ResolveCaseCommandOutput>;
   resolveCase(
     args: ResolveCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportRequestOptions
   ): Promise<ResolveCaseCommandOutput>;
   resolveCase(
     args: ResolveCaseCommandInput,
@@ -474,7 +486,7 @@ export interface Support {
   ): void;
   resolveCase(
     args: ResolveCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportRequestOptions,
     cb: (err: any, data?: ResolveCaseCommandOutput) => void
   ): void;
 

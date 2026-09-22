@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateBillOfMaterialsImportJobCommandInput,
@@ -201,13 +206,20 @@ const paginators = {
   paginateListInstances,
 };
 
+/**
+ * @public
+ */
+export interface SupplyChainRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SupplyChain {
   /**
    * @see {@link CreateBillOfMaterialsImportJobCommand}
    */
   createBillOfMaterialsImportJob(
     args: CreateBillOfMaterialsImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<CreateBillOfMaterialsImportJobCommandOutput>;
   createBillOfMaterialsImportJob(
     args: CreateBillOfMaterialsImportJobCommandInput,
@@ -215,7 +227,7 @@ export interface SupplyChain {
   ): void;
   createBillOfMaterialsImportJob(
     args: CreateBillOfMaterialsImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: CreateBillOfMaterialsImportJobCommandOutput) => void
   ): void;
 
@@ -224,7 +236,7 @@ export interface SupplyChain {
    */
   createDataIntegrationFlow(
     args: CreateDataIntegrationFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<CreateDataIntegrationFlowCommandOutput>;
   createDataIntegrationFlow(
     args: CreateDataIntegrationFlowCommandInput,
@@ -232,7 +244,7 @@ export interface SupplyChain {
   ): void;
   createDataIntegrationFlow(
     args: CreateDataIntegrationFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: CreateDataIntegrationFlowCommandOutput) => void
   ): void;
 
@@ -241,7 +253,7 @@ export interface SupplyChain {
    */
   createDataLakeDataset(
     args: CreateDataLakeDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<CreateDataLakeDatasetCommandOutput>;
   createDataLakeDataset(
     args: CreateDataLakeDatasetCommandInput,
@@ -249,7 +261,7 @@ export interface SupplyChain {
   ): void;
   createDataLakeDataset(
     args: CreateDataLakeDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: CreateDataLakeDatasetCommandOutput) => void
   ): void;
 
@@ -258,7 +270,7 @@ export interface SupplyChain {
    */
   createDataLakeNamespace(
     args: CreateDataLakeNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<CreateDataLakeNamespaceCommandOutput>;
   createDataLakeNamespace(
     args: CreateDataLakeNamespaceCommandInput,
@@ -266,7 +278,7 @@ export interface SupplyChain {
   ): void;
   createDataLakeNamespace(
     args: CreateDataLakeNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: CreateDataLakeNamespaceCommandOutput) => void
   ): void;
 
@@ -276,7 +288,7 @@ export interface SupplyChain {
   createInstance(): Promise<CreateInstanceCommandOutput>;
   createInstance(
     args: CreateInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<CreateInstanceCommandOutput>;
   createInstance(
     args: CreateInstanceCommandInput,
@@ -284,7 +296,7 @@ export interface SupplyChain {
   ): void;
   createInstance(
     args: CreateInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: CreateInstanceCommandOutput) => void
   ): void;
 
@@ -293,7 +305,7 @@ export interface SupplyChain {
    */
   deleteDataIntegrationFlow(
     args: DeleteDataIntegrationFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<DeleteDataIntegrationFlowCommandOutput>;
   deleteDataIntegrationFlow(
     args: DeleteDataIntegrationFlowCommandInput,
@@ -301,7 +313,7 @@ export interface SupplyChain {
   ): void;
   deleteDataIntegrationFlow(
     args: DeleteDataIntegrationFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: DeleteDataIntegrationFlowCommandOutput) => void
   ): void;
 
@@ -310,7 +322,7 @@ export interface SupplyChain {
    */
   deleteDataLakeDataset(
     args: DeleteDataLakeDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<DeleteDataLakeDatasetCommandOutput>;
   deleteDataLakeDataset(
     args: DeleteDataLakeDatasetCommandInput,
@@ -318,7 +330,7 @@ export interface SupplyChain {
   ): void;
   deleteDataLakeDataset(
     args: DeleteDataLakeDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: DeleteDataLakeDatasetCommandOutput) => void
   ): void;
 
@@ -327,7 +339,7 @@ export interface SupplyChain {
    */
   deleteDataLakeNamespace(
     args: DeleteDataLakeNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<DeleteDataLakeNamespaceCommandOutput>;
   deleteDataLakeNamespace(
     args: DeleteDataLakeNamespaceCommandInput,
@@ -335,7 +347,7 @@ export interface SupplyChain {
   ): void;
   deleteDataLakeNamespace(
     args: DeleteDataLakeNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: DeleteDataLakeNamespaceCommandOutput) => void
   ): void;
 
@@ -344,7 +356,7 @@ export interface SupplyChain {
    */
   deleteInstance(
     args: DeleteInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<DeleteInstanceCommandOutput>;
   deleteInstance(
     args: DeleteInstanceCommandInput,
@@ -352,7 +364,7 @@ export interface SupplyChain {
   ): void;
   deleteInstance(
     args: DeleteInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: DeleteInstanceCommandOutput) => void
   ): void;
 
@@ -361,7 +373,7 @@ export interface SupplyChain {
    */
   getBillOfMaterialsImportJob(
     args: GetBillOfMaterialsImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<GetBillOfMaterialsImportJobCommandOutput>;
   getBillOfMaterialsImportJob(
     args: GetBillOfMaterialsImportJobCommandInput,
@@ -369,7 +381,7 @@ export interface SupplyChain {
   ): void;
   getBillOfMaterialsImportJob(
     args: GetBillOfMaterialsImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: GetBillOfMaterialsImportJobCommandOutput) => void
   ): void;
 
@@ -378,7 +390,7 @@ export interface SupplyChain {
    */
   getDataIntegrationEvent(
     args: GetDataIntegrationEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<GetDataIntegrationEventCommandOutput>;
   getDataIntegrationEvent(
     args: GetDataIntegrationEventCommandInput,
@@ -386,7 +398,7 @@ export interface SupplyChain {
   ): void;
   getDataIntegrationEvent(
     args: GetDataIntegrationEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: GetDataIntegrationEventCommandOutput) => void
   ): void;
 
@@ -395,7 +407,7 @@ export interface SupplyChain {
    */
   getDataIntegrationFlow(
     args: GetDataIntegrationFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<GetDataIntegrationFlowCommandOutput>;
   getDataIntegrationFlow(
     args: GetDataIntegrationFlowCommandInput,
@@ -403,7 +415,7 @@ export interface SupplyChain {
   ): void;
   getDataIntegrationFlow(
     args: GetDataIntegrationFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: GetDataIntegrationFlowCommandOutput) => void
   ): void;
 
@@ -412,7 +424,7 @@ export interface SupplyChain {
    */
   getDataIntegrationFlowExecution(
     args: GetDataIntegrationFlowExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<GetDataIntegrationFlowExecutionCommandOutput>;
   getDataIntegrationFlowExecution(
     args: GetDataIntegrationFlowExecutionCommandInput,
@@ -420,7 +432,7 @@ export interface SupplyChain {
   ): void;
   getDataIntegrationFlowExecution(
     args: GetDataIntegrationFlowExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: GetDataIntegrationFlowExecutionCommandOutput) => void
   ): void;
 
@@ -429,7 +441,7 @@ export interface SupplyChain {
    */
   getDataLakeDataset(
     args: GetDataLakeDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<GetDataLakeDatasetCommandOutput>;
   getDataLakeDataset(
     args: GetDataLakeDatasetCommandInput,
@@ -437,7 +449,7 @@ export interface SupplyChain {
   ): void;
   getDataLakeDataset(
     args: GetDataLakeDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: GetDataLakeDatasetCommandOutput) => void
   ): void;
 
@@ -446,7 +458,7 @@ export interface SupplyChain {
    */
   getDataLakeNamespace(
     args: GetDataLakeNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<GetDataLakeNamespaceCommandOutput>;
   getDataLakeNamespace(
     args: GetDataLakeNamespaceCommandInput,
@@ -454,7 +466,7 @@ export interface SupplyChain {
   ): void;
   getDataLakeNamespace(
     args: GetDataLakeNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: GetDataLakeNamespaceCommandOutput) => void
   ): void;
 
@@ -463,7 +475,7 @@ export interface SupplyChain {
    */
   getInstance(
     args: GetInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<GetInstanceCommandOutput>;
   getInstance(
     args: GetInstanceCommandInput,
@@ -471,7 +483,7 @@ export interface SupplyChain {
   ): void;
   getInstance(
     args: GetInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: GetInstanceCommandOutput) => void
   ): void;
 
@@ -480,7 +492,7 @@ export interface SupplyChain {
    */
   listDataIntegrationEvents(
     args: ListDataIntegrationEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<ListDataIntegrationEventsCommandOutput>;
   listDataIntegrationEvents(
     args: ListDataIntegrationEventsCommandInput,
@@ -488,7 +500,7 @@ export interface SupplyChain {
   ): void;
   listDataIntegrationEvents(
     args: ListDataIntegrationEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: ListDataIntegrationEventsCommandOutput) => void
   ): void;
 
@@ -497,7 +509,7 @@ export interface SupplyChain {
    */
   listDataIntegrationFlowExecutions(
     args: ListDataIntegrationFlowExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<ListDataIntegrationFlowExecutionsCommandOutput>;
   listDataIntegrationFlowExecutions(
     args: ListDataIntegrationFlowExecutionsCommandInput,
@@ -505,7 +517,7 @@ export interface SupplyChain {
   ): void;
   listDataIntegrationFlowExecutions(
     args: ListDataIntegrationFlowExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: ListDataIntegrationFlowExecutionsCommandOutput) => void
   ): void;
 
@@ -514,7 +526,7 @@ export interface SupplyChain {
    */
   listDataIntegrationFlows(
     args: ListDataIntegrationFlowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<ListDataIntegrationFlowsCommandOutput>;
   listDataIntegrationFlows(
     args: ListDataIntegrationFlowsCommandInput,
@@ -522,7 +534,7 @@ export interface SupplyChain {
   ): void;
   listDataIntegrationFlows(
     args: ListDataIntegrationFlowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: ListDataIntegrationFlowsCommandOutput) => void
   ): void;
 
@@ -531,7 +543,7 @@ export interface SupplyChain {
    */
   listDataLakeDatasets(
     args: ListDataLakeDatasetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<ListDataLakeDatasetsCommandOutput>;
   listDataLakeDatasets(
     args: ListDataLakeDatasetsCommandInput,
@@ -539,7 +551,7 @@ export interface SupplyChain {
   ): void;
   listDataLakeDatasets(
     args: ListDataLakeDatasetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: ListDataLakeDatasetsCommandOutput) => void
   ): void;
 
@@ -548,7 +560,7 @@ export interface SupplyChain {
    */
   listDataLakeNamespaces(
     args: ListDataLakeNamespacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<ListDataLakeNamespacesCommandOutput>;
   listDataLakeNamespaces(
     args: ListDataLakeNamespacesCommandInput,
@@ -556,7 +568,7 @@ export interface SupplyChain {
   ): void;
   listDataLakeNamespaces(
     args: ListDataLakeNamespacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: ListDataLakeNamespacesCommandOutput) => void
   ): void;
 
@@ -566,7 +578,7 @@ export interface SupplyChain {
   listInstances(): Promise<ListInstancesCommandOutput>;
   listInstances(
     args: ListInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<ListInstancesCommandOutput>;
   listInstances(
     args: ListInstancesCommandInput,
@@ -574,7 +586,7 @@ export interface SupplyChain {
   ): void;
   listInstances(
     args: ListInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: ListInstancesCommandOutput) => void
   ): void;
 
@@ -583,7 +595,7 @@ export interface SupplyChain {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -591,7 +603,7 @@ export interface SupplyChain {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -600,7 +612,7 @@ export interface SupplyChain {
    */
   sendDataIntegrationEvent(
     args: SendDataIntegrationEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<SendDataIntegrationEventCommandOutput>;
   sendDataIntegrationEvent(
     args: SendDataIntegrationEventCommandInput,
@@ -608,7 +620,7 @@ export interface SupplyChain {
   ): void;
   sendDataIntegrationEvent(
     args: SendDataIntegrationEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: SendDataIntegrationEventCommandOutput) => void
   ): void;
 
@@ -617,7 +629,7 @@ export interface SupplyChain {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -625,7 +637,7 @@ export interface SupplyChain {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -634,7 +646,7 @@ export interface SupplyChain {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -642,7 +654,7 @@ export interface SupplyChain {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -651,7 +663,7 @@ export interface SupplyChain {
    */
   updateDataIntegrationFlow(
     args: UpdateDataIntegrationFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<UpdateDataIntegrationFlowCommandOutput>;
   updateDataIntegrationFlow(
     args: UpdateDataIntegrationFlowCommandInput,
@@ -659,7 +671,7 @@ export interface SupplyChain {
   ): void;
   updateDataIntegrationFlow(
     args: UpdateDataIntegrationFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: UpdateDataIntegrationFlowCommandOutput) => void
   ): void;
 
@@ -668,7 +680,7 @@ export interface SupplyChain {
    */
   updateDataLakeDataset(
     args: UpdateDataLakeDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<UpdateDataLakeDatasetCommandOutput>;
   updateDataLakeDataset(
     args: UpdateDataLakeDatasetCommandInput,
@@ -676,7 +688,7 @@ export interface SupplyChain {
   ): void;
   updateDataLakeDataset(
     args: UpdateDataLakeDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: UpdateDataLakeDatasetCommandOutput) => void
   ): void;
 
@@ -685,7 +697,7 @@ export interface SupplyChain {
    */
   updateDataLakeNamespace(
     args: UpdateDataLakeNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<UpdateDataLakeNamespaceCommandOutput>;
   updateDataLakeNamespace(
     args: UpdateDataLakeNamespaceCommandInput,
@@ -693,7 +705,7 @@ export interface SupplyChain {
   ): void;
   updateDataLakeNamespace(
     args: UpdateDataLakeNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: UpdateDataLakeNamespaceCommandOutput) => void
   ): void;
 
@@ -702,7 +714,7 @@ export interface SupplyChain {
    */
   updateInstance(
     args: UpdateInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupplyChainRequestOptions
   ): Promise<UpdateInstanceCommandOutput>;
   updateInstance(
     args: UpdateInstanceCommandInput,
@@ -710,7 +722,7 @@ export interface SupplyChain {
   ): void;
   updateInstance(
     args: UpdateInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupplyChainRequestOptions,
     cb: (err: any, data?: UpdateInstanceCommandOutput) => void
   ): void;
 

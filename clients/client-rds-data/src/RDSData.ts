@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type BatchExecuteStatementCommandInput,
@@ -43,13 +43,20 @@ const commands = {
   RollbackTransactionCommand,
 };
 
+/**
+ * @public
+ */
+export interface RDSDataRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface RDSData {
   /**
    * @see {@link BatchExecuteStatementCommand}
    */
   batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSDataRequestOptions
   ): Promise<BatchExecuteStatementCommandOutput>;
   batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
@@ -57,7 +64,7 @@ export interface RDSData {
   ): void;
   batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSDataRequestOptions,
     cb: (err: any, data?: BatchExecuteStatementCommandOutput) => void
   ): void;
 
@@ -66,7 +73,7 @@ export interface RDSData {
    */
   beginTransaction(
     args: BeginTransactionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSDataRequestOptions
   ): Promise<BeginTransactionCommandOutput>;
   beginTransaction(
     args: BeginTransactionCommandInput,
@@ -74,7 +81,7 @@ export interface RDSData {
   ): void;
   beginTransaction(
     args: BeginTransactionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSDataRequestOptions,
     cb: (err: any, data?: BeginTransactionCommandOutput) => void
   ): void;
 
@@ -83,7 +90,7 @@ export interface RDSData {
    */
   commitTransaction(
     args: CommitTransactionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSDataRequestOptions
   ): Promise<CommitTransactionCommandOutput>;
   commitTransaction(
     args: CommitTransactionCommandInput,
@@ -91,7 +98,7 @@ export interface RDSData {
   ): void;
   commitTransaction(
     args: CommitTransactionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSDataRequestOptions,
     cb: (err: any, data?: CommitTransactionCommandOutput) => void
   ): void;
 
@@ -100,7 +107,7 @@ export interface RDSData {
    */
   executeSql(
     args: ExecuteSqlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSDataRequestOptions
   ): Promise<ExecuteSqlCommandOutput>;
   executeSql(
     args: ExecuteSqlCommandInput,
@@ -108,7 +115,7 @@ export interface RDSData {
   ): void;
   executeSql(
     args: ExecuteSqlCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSDataRequestOptions,
     cb: (err: any, data?: ExecuteSqlCommandOutput) => void
   ): void;
 
@@ -117,7 +124,7 @@ export interface RDSData {
    */
   executeStatement(
     args: ExecuteStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSDataRequestOptions
   ): Promise<ExecuteStatementCommandOutput>;
   executeStatement(
     args: ExecuteStatementCommandInput,
@@ -125,7 +132,7 @@ export interface RDSData {
   ): void;
   executeStatement(
     args: ExecuteStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSDataRequestOptions,
     cb: (err: any, data?: ExecuteStatementCommandOutput) => void
   ): void;
 
@@ -134,7 +141,7 @@ export interface RDSData {
    */
   rollbackTransaction(
     args: RollbackTransactionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSDataRequestOptions
   ): Promise<RollbackTransactionCommandOutput>;
   rollbackTransaction(
     args: RollbackTransactionCommandInput,
@@ -142,7 +149,7 @@ export interface RDSData {
   ): void;
   rollbackTransaction(
     args: RollbackTransactionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSDataRequestOptions,
     cb: (err: any, data?: RollbackTransactionCommandOutput) => void
   ): void;
 }

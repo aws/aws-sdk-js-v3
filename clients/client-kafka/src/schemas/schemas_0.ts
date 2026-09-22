@@ -900,10 +900,10 @@ import {
 import { KafkaServiceException } from "../models/KafkaServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var KafkaServiceException$: StaticErrorSchema = [-3, _s, "KafkaServiceException", 0, [], []];
 _s_registry.registerError(KafkaServiceException$, KafkaServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_IP, _M],

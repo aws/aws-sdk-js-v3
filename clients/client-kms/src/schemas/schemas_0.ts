@@ -444,10 +444,10 @@ import {
 import { KMSServiceException } from "../models/KMSServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var KMSServiceException$: StaticErrorSchema = [-3, _s, "KMSServiceException", 0, [], []];
 _s_registry.registerError(KMSServiceException$, KMSServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
   { [_aQE]: [`AlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
   [_m],

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociatePermissionCommandInput,
@@ -511,13 +516,20 @@ const paginators = {
   paginateSearchRelevantContent,
 };
 
+/**
+ * @public
+ */
+export interface QBusinessRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface QBusiness {
   /**
    * @see {@link AssociatePermissionCommand}
    */
   associatePermission(
     args: AssociatePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<AssociatePermissionCommandOutput>;
   associatePermission(
     args: AssociatePermissionCommandInput,
@@ -525,7 +537,7 @@ export interface QBusiness {
   ): void;
   associatePermission(
     args: AssociatePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: AssociatePermissionCommandOutput) => void
   ): void;
 
@@ -534,7 +546,7 @@ export interface QBusiness {
    */
   batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<BatchDeleteDocumentCommandOutput>;
   batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
@@ -542,7 +554,7 @@ export interface QBusiness {
   ): void;
   batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: BatchDeleteDocumentCommandOutput) => void
   ): void;
 
@@ -551,7 +563,7 @@ export interface QBusiness {
    */
   batchPutDocument(
     args: BatchPutDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<BatchPutDocumentCommandOutput>;
   batchPutDocument(
     args: BatchPutDocumentCommandInput,
@@ -559,7 +571,7 @@ export interface QBusiness {
   ): void;
   batchPutDocument(
     args: BatchPutDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: BatchPutDocumentCommandOutput) => void
   ): void;
 
@@ -568,7 +580,7 @@ export interface QBusiness {
    */
   cancelSubscription(
     args: CancelSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CancelSubscriptionCommandOutput>;
   cancelSubscription(
     args: CancelSubscriptionCommandInput,
@@ -576,7 +588,7 @@ export interface QBusiness {
   ): void;
   cancelSubscription(
     args: CancelSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CancelSubscriptionCommandOutput) => void
   ): void;
 
@@ -585,7 +597,7 @@ export interface QBusiness {
    */
   chat(
     args: ChatCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ChatCommandOutput>;
   chat(
     args: ChatCommandInput,
@@ -593,7 +605,7 @@ export interface QBusiness {
   ): void;
   chat(
     args: ChatCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ChatCommandOutput) => void
   ): void;
 
@@ -602,7 +614,7 @@ export interface QBusiness {
    */
   chatSync(
     args: ChatSyncCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ChatSyncCommandOutput>;
   chatSync(
     args: ChatSyncCommandInput,
@@ -610,7 +622,7 @@ export interface QBusiness {
   ): void;
   chatSync(
     args: ChatSyncCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ChatSyncCommandOutput) => void
   ): void;
 
@@ -619,7 +631,7 @@ export interface QBusiness {
    */
   checkDocumentAccess(
     args: CheckDocumentAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CheckDocumentAccessCommandOutput>;
   checkDocumentAccess(
     args: CheckDocumentAccessCommandInput,
@@ -627,7 +639,7 @@ export interface QBusiness {
   ): void;
   checkDocumentAccess(
     args: CheckDocumentAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CheckDocumentAccessCommandOutput) => void
   ): void;
 
@@ -636,7 +648,7 @@ export interface QBusiness {
    */
   createAnonymousWebExperienceUrl(
     args: CreateAnonymousWebExperienceUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CreateAnonymousWebExperienceUrlCommandOutput>;
   createAnonymousWebExperienceUrl(
     args: CreateAnonymousWebExperienceUrlCommandInput,
@@ -644,7 +656,7 @@ export interface QBusiness {
   ): void;
   createAnonymousWebExperienceUrl(
     args: CreateAnonymousWebExperienceUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CreateAnonymousWebExperienceUrlCommandOutput) => void
   ): void;
 
@@ -653,7 +665,7 @@ export interface QBusiness {
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -661,7 +673,7 @@ export interface QBusiness {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -670,7 +682,7 @@ export interface QBusiness {
    */
   createChatResponseConfiguration(
     args: CreateChatResponseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CreateChatResponseConfigurationCommandOutput>;
   createChatResponseConfiguration(
     args: CreateChatResponseConfigurationCommandInput,
@@ -678,7 +690,7 @@ export interface QBusiness {
   ): void;
   createChatResponseConfiguration(
     args: CreateChatResponseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CreateChatResponseConfigurationCommandOutput) => void
   ): void;
 
@@ -687,7 +699,7 @@ export interface QBusiness {
    */
   createDataAccessor(
     args: CreateDataAccessorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CreateDataAccessorCommandOutput>;
   createDataAccessor(
     args: CreateDataAccessorCommandInput,
@@ -695,7 +707,7 @@ export interface QBusiness {
   ): void;
   createDataAccessor(
     args: CreateDataAccessorCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CreateDataAccessorCommandOutput) => void
   ): void;
 
@@ -704,7 +716,7 @@ export interface QBusiness {
    */
   createDataSource(
     args: CreateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CreateDataSourceCommandOutput>;
   createDataSource(
     args: CreateDataSourceCommandInput,
@@ -712,7 +724,7 @@ export interface QBusiness {
   ): void;
   createDataSource(
     args: CreateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): void;
 
@@ -721,7 +733,7 @@ export interface QBusiness {
    */
   createIndex(
     args: CreateIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CreateIndexCommandOutput>;
   createIndex(
     args: CreateIndexCommandInput,
@@ -729,7 +741,7 @@ export interface QBusiness {
   ): void;
   createIndex(
     args: CreateIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CreateIndexCommandOutput) => void
   ): void;
 
@@ -738,7 +750,7 @@ export interface QBusiness {
    */
   createPlugin(
     args: CreatePluginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CreatePluginCommandOutput>;
   createPlugin(
     args: CreatePluginCommandInput,
@@ -746,7 +758,7 @@ export interface QBusiness {
   ): void;
   createPlugin(
     args: CreatePluginCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CreatePluginCommandOutput) => void
   ): void;
 
@@ -755,7 +767,7 @@ export interface QBusiness {
    */
   createRetriever(
     args: CreateRetrieverCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CreateRetrieverCommandOutput>;
   createRetriever(
     args: CreateRetrieverCommandInput,
@@ -763,7 +775,7 @@ export interface QBusiness {
   ): void;
   createRetriever(
     args: CreateRetrieverCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CreateRetrieverCommandOutput) => void
   ): void;
 
@@ -772,7 +784,7 @@ export interface QBusiness {
    */
   createSubscription(
     args: CreateSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CreateSubscriptionCommandOutput>;
   createSubscription(
     args: CreateSubscriptionCommandInput,
@@ -780,7 +792,7 @@ export interface QBusiness {
   ): void;
   createSubscription(
     args: CreateSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CreateSubscriptionCommandOutput) => void
   ): void;
 
@@ -789,7 +801,7 @@ export interface QBusiness {
    */
   createUser(
     args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CreateUserCommandOutput>;
   createUser(
     args: CreateUserCommandInput,
@@ -797,7 +809,7 @@ export interface QBusiness {
   ): void;
   createUser(
     args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CreateUserCommandOutput) => void
   ): void;
 
@@ -806,7 +818,7 @@ export interface QBusiness {
    */
   createWebExperience(
     args: CreateWebExperienceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<CreateWebExperienceCommandOutput>;
   createWebExperience(
     args: CreateWebExperienceCommandInput,
@@ -814,7 +826,7 @@ export interface QBusiness {
   ): void;
   createWebExperience(
     args: CreateWebExperienceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: CreateWebExperienceCommandOutput) => void
   ): void;
 
@@ -823,7 +835,7 @@ export interface QBusiness {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -831,7 +843,7 @@ export interface QBusiness {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -840,7 +852,7 @@ export interface QBusiness {
    */
   deleteAttachment(
     args: DeleteAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteAttachmentCommandOutput>;
   deleteAttachment(
     args: DeleteAttachmentCommandInput,
@@ -848,7 +860,7 @@ export interface QBusiness {
   ): void;
   deleteAttachment(
     args: DeleteAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteAttachmentCommandOutput) => void
   ): void;
 
@@ -857,7 +869,7 @@ export interface QBusiness {
    */
   deleteChatControlsConfiguration(
     args: DeleteChatControlsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteChatControlsConfigurationCommandOutput>;
   deleteChatControlsConfiguration(
     args: DeleteChatControlsConfigurationCommandInput,
@@ -865,7 +877,7 @@ export interface QBusiness {
   ): void;
   deleteChatControlsConfiguration(
     args: DeleteChatControlsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteChatControlsConfigurationCommandOutput) => void
   ): void;
 
@@ -874,7 +886,7 @@ export interface QBusiness {
    */
   deleteChatResponseConfiguration(
     args: DeleteChatResponseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteChatResponseConfigurationCommandOutput>;
   deleteChatResponseConfiguration(
     args: DeleteChatResponseConfigurationCommandInput,
@@ -882,7 +894,7 @@ export interface QBusiness {
   ): void;
   deleteChatResponseConfiguration(
     args: DeleteChatResponseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteChatResponseConfigurationCommandOutput) => void
   ): void;
 
@@ -891,7 +903,7 @@ export interface QBusiness {
    */
   deleteConversation(
     args: DeleteConversationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteConversationCommandOutput>;
   deleteConversation(
     args: DeleteConversationCommandInput,
@@ -899,7 +911,7 @@ export interface QBusiness {
   ): void;
   deleteConversation(
     args: DeleteConversationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteConversationCommandOutput) => void
   ): void;
 
@@ -908,7 +920,7 @@ export interface QBusiness {
    */
   deleteDataAccessor(
     args: DeleteDataAccessorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteDataAccessorCommandOutput>;
   deleteDataAccessor(
     args: DeleteDataAccessorCommandInput,
@@ -916,7 +928,7 @@ export interface QBusiness {
   ): void;
   deleteDataAccessor(
     args: DeleteDataAccessorCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteDataAccessorCommandOutput) => void
   ): void;
 
@@ -925,7 +937,7 @@ export interface QBusiness {
    */
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteDataSourceCommandOutput>;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -933,7 +945,7 @@ export interface QBusiness {
   ): void;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): void;
 
@@ -942,7 +954,7 @@ export interface QBusiness {
    */
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteGroupCommandOutput>;
   deleteGroup(
     args: DeleteGroupCommandInput,
@@ -950,7 +962,7 @@ export interface QBusiness {
   ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteGroupCommandOutput) => void
   ): void;
 
@@ -959,7 +971,7 @@ export interface QBusiness {
    */
   deleteIndex(
     args: DeleteIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteIndexCommandOutput>;
   deleteIndex(
     args: DeleteIndexCommandInput,
@@ -967,7 +979,7 @@ export interface QBusiness {
   ): void;
   deleteIndex(
     args: DeleteIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteIndexCommandOutput) => void
   ): void;
 
@@ -976,7 +988,7 @@ export interface QBusiness {
    */
   deletePlugin(
     args: DeletePluginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeletePluginCommandOutput>;
   deletePlugin(
     args: DeletePluginCommandInput,
@@ -984,7 +996,7 @@ export interface QBusiness {
   ): void;
   deletePlugin(
     args: DeletePluginCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeletePluginCommandOutput) => void
   ): void;
 
@@ -993,7 +1005,7 @@ export interface QBusiness {
    */
   deleteRetriever(
     args: DeleteRetrieverCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteRetrieverCommandOutput>;
   deleteRetriever(
     args: DeleteRetrieverCommandInput,
@@ -1001,7 +1013,7 @@ export interface QBusiness {
   ): void;
   deleteRetriever(
     args: DeleteRetrieverCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteRetrieverCommandOutput) => void
   ): void;
 
@@ -1010,7 +1022,7 @@ export interface QBusiness {
    */
   deleteUser(
     args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteUserCommandOutput>;
   deleteUser(
     args: DeleteUserCommandInput,
@@ -1018,7 +1030,7 @@ export interface QBusiness {
   ): void;
   deleteUser(
     args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
 
@@ -1027,7 +1039,7 @@ export interface QBusiness {
    */
   deleteWebExperience(
     args: DeleteWebExperienceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DeleteWebExperienceCommandOutput>;
   deleteWebExperience(
     args: DeleteWebExperienceCommandInput,
@@ -1035,7 +1047,7 @@ export interface QBusiness {
   ): void;
   deleteWebExperience(
     args: DeleteWebExperienceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DeleteWebExperienceCommandOutput) => void
   ): void;
 
@@ -1044,7 +1056,7 @@ export interface QBusiness {
    */
   disassociatePermission(
     args: DisassociatePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<DisassociatePermissionCommandOutput>;
   disassociatePermission(
     args: DisassociatePermissionCommandInput,
@@ -1052,7 +1064,7 @@ export interface QBusiness {
   ): void;
   disassociatePermission(
     args: DisassociatePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: DisassociatePermissionCommandOutput) => void
   ): void;
 
@@ -1061,7 +1073,7 @@ export interface QBusiness {
    */
   getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetApplicationCommandOutput>;
   getApplication(
     args: GetApplicationCommandInput,
@@ -1069,7 +1081,7 @@ export interface QBusiness {
   ): void;
   getApplication(
     args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetApplicationCommandOutput) => void
   ): void;
 
@@ -1078,7 +1090,7 @@ export interface QBusiness {
    */
   getChatControlsConfiguration(
     args: GetChatControlsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetChatControlsConfigurationCommandOutput>;
   getChatControlsConfiguration(
     args: GetChatControlsConfigurationCommandInput,
@@ -1086,7 +1098,7 @@ export interface QBusiness {
   ): void;
   getChatControlsConfiguration(
     args: GetChatControlsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetChatControlsConfigurationCommandOutput) => void
   ): void;
 
@@ -1095,7 +1107,7 @@ export interface QBusiness {
    */
   getChatResponseConfiguration(
     args: GetChatResponseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetChatResponseConfigurationCommandOutput>;
   getChatResponseConfiguration(
     args: GetChatResponseConfigurationCommandInput,
@@ -1103,7 +1115,7 @@ export interface QBusiness {
   ): void;
   getChatResponseConfiguration(
     args: GetChatResponseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetChatResponseConfigurationCommandOutput) => void
   ): void;
 
@@ -1112,7 +1124,7 @@ export interface QBusiness {
    */
   getDataAccessor(
     args: GetDataAccessorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetDataAccessorCommandOutput>;
   getDataAccessor(
     args: GetDataAccessorCommandInput,
@@ -1120,7 +1132,7 @@ export interface QBusiness {
   ): void;
   getDataAccessor(
     args: GetDataAccessorCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetDataAccessorCommandOutput) => void
   ): void;
 
@@ -1129,7 +1141,7 @@ export interface QBusiness {
    */
   getDataSource(
     args: GetDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetDataSourceCommandOutput>;
   getDataSource(
     args: GetDataSourceCommandInput,
@@ -1137,7 +1149,7 @@ export interface QBusiness {
   ): void;
   getDataSource(
     args: GetDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetDataSourceCommandOutput) => void
   ): void;
 
@@ -1146,7 +1158,7 @@ export interface QBusiness {
    */
   getDocumentContent(
     args: GetDocumentContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetDocumentContentCommandOutput>;
   getDocumentContent(
     args: GetDocumentContentCommandInput,
@@ -1154,7 +1166,7 @@ export interface QBusiness {
   ): void;
   getDocumentContent(
     args: GetDocumentContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetDocumentContentCommandOutput) => void
   ): void;
 
@@ -1163,7 +1175,7 @@ export interface QBusiness {
    */
   getGroup(
     args: GetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetGroupCommandOutput>;
   getGroup(
     args: GetGroupCommandInput,
@@ -1171,7 +1183,7 @@ export interface QBusiness {
   ): void;
   getGroup(
     args: GetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetGroupCommandOutput) => void
   ): void;
 
@@ -1180,7 +1192,7 @@ export interface QBusiness {
    */
   getIndex(
     args: GetIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetIndexCommandOutput>;
   getIndex(
     args: GetIndexCommandInput,
@@ -1188,7 +1200,7 @@ export interface QBusiness {
   ): void;
   getIndex(
     args: GetIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetIndexCommandOutput) => void
   ): void;
 
@@ -1197,7 +1209,7 @@ export interface QBusiness {
    */
   getMedia(
     args: GetMediaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetMediaCommandOutput>;
   getMedia(
     args: GetMediaCommandInput,
@@ -1205,7 +1217,7 @@ export interface QBusiness {
   ): void;
   getMedia(
     args: GetMediaCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetMediaCommandOutput) => void
   ): void;
 
@@ -1214,7 +1226,7 @@ export interface QBusiness {
    */
   getPlugin(
     args: GetPluginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetPluginCommandOutput>;
   getPlugin(
     args: GetPluginCommandInput,
@@ -1222,7 +1234,7 @@ export interface QBusiness {
   ): void;
   getPlugin(
     args: GetPluginCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetPluginCommandOutput) => void
   ): void;
 
@@ -1231,7 +1243,7 @@ export interface QBusiness {
    */
   getPolicy(
     args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetPolicyCommandOutput>;
   getPolicy(
     args: GetPolicyCommandInput,
@@ -1239,7 +1251,7 @@ export interface QBusiness {
   ): void;
   getPolicy(
     args: GetPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
@@ -1248,7 +1260,7 @@ export interface QBusiness {
    */
   getRetriever(
     args: GetRetrieverCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetRetrieverCommandOutput>;
   getRetriever(
     args: GetRetrieverCommandInput,
@@ -1256,7 +1268,7 @@ export interface QBusiness {
   ): void;
   getRetriever(
     args: GetRetrieverCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetRetrieverCommandOutput) => void
   ): void;
 
@@ -1265,7 +1277,7 @@ export interface QBusiness {
    */
   getUser(
     args: GetUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetUserCommandOutput>;
   getUser(
     args: GetUserCommandInput,
@@ -1273,7 +1285,7 @@ export interface QBusiness {
   ): void;
   getUser(
     args: GetUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetUserCommandOutput) => void
   ): void;
 
@@ -1282,7 +1294,7 @@ export interface QBusiness {
    */
   getWebExperience(
     args: GetWebExperienceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<GetWebExperienceCommandOutput>;
   getWebExperience(
     args: GetWebExperienceCommandInput,
@@ -1290,7 +1302,7 @@ export interface QBusiness {
   ): void;
   getWebExperience(
     args: GetWebExperienceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: GetWebExperienceCommandOutput) => void
   ): void;
 
@@ -1300,7 +1312,7 @@ export interface QBusiness {
   listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -1308,7 +1320,7 @@ export interface QBusiness {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -1317,7 +1329,7 @@ export interface QBusiness {
    */
   listAttachments(
     args: ListAttachmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListAttachmentsCommandOutput>;
   listAttachments(
     args: ListAttachmentsCommandInput,
@@ -1325,7 +1337,7 @@ export interface QBusiness {
   ): void;
   listAttachments(
     args: ListAttachmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListAttachmentsCommandOutput) => void
   ): void;
 
@@ -1334,7 +1346,7 @@ export interface QBusiness {
    */
   listChatResponseConfigurations(
     args: ListChatResponseConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListChatResponseConfigurationsCommandOutput>;
   listChatResponseConfigurations(
     args: ListChatResponseConfigurationsCommandInput,
@@ -1342,7 +1354,7 @@ export interface QBusiness {
   ): void;
   listChatResponseConfigurations(
     args: ListChatResponseConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListChatResponseConfigurationsCommandOutput) => void
   ): void;
 
@@ -1351,7 +1363,7 @@ export interface QBusiness {
    */
   listConversations(
     args: ListConversationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListConversationsCommandOutput>;
   listConversations(
     args: ListConversationsCommandInput,
@@ -1359,7 +1371,7 @@ export interface QBusiness {
   ): void;
   listConversations(
     args: ListConversationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListConversationsCommandOutput) => void
   ): void;
 
@@ -1368,7 +1380,7 @@ export interface QBusiness {
    */
   listDataAccessors(
     args: ListDataAccessorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListDataAccessorsCommandOutput>;
   listDataAccessors(
     args: ListDataAccessorsCommandInput,
@@ -1376,7 +1388,7 @@ export interface QBusiness {
   ): void;
   listDataAccessors(
     args: ListDataAccessorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListDataAccessorsCommandOutput) => void
   ): void;
 
@@ -1385,7 +1397,7 @@ export interface QBusiness {
    */
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListDataSourcesCommandOutput>;
   listDataSources(
     args: ListDataSourcesCommandInput,
@@ -1393,7 +1405,7 @@ export interface QBusiness {
   ): void;
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): void;
 
@@ -1402,7 +1414,7 @@ export interface QBusiness {
    */
   listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListDataSourceSyncJobsCommandOutput>;
   listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
@@ -1410,7 +1422,7 @@ export interface QBusiness {
   ): void;
   listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListDataSourceSyncJobsCommandOutput) => void
   ): void;
 
@@ -1419,7 +1431,7 @@ export interface QBusiness {
    */
   listDocuments(
     args: ListDocumentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListDocumentsCommandOutput>;
   listDocuments(
     args: ListDocumentsCommandInput,
@@ -1427,7 +1439,7 @@ export interface QBusiness {
   ): void;
   listDocuments(
     args: ListDocumentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListDocumentsCommandOutput) => void
   ): void;
 
@@ -1436,7 +1448,7 @@ export interface QBusiness {
    */
   listGroups(
     args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListGroupsCommandOutput>;
   listGroups(
     args: ListGroupsCommandInput,
@@ -1444,7 +1456,7 @@ export interface QBusiness {
   ): void;
   listGroups(
     args: ListGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListGroupsCommandOutput) => void
   ): void;
 
@@ -1453,7 +1465,7 @@ export interface QBusiness {
    */
   listIndices(
     args: ListIndicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListIndicesCommandOutput>;
   listIndices(
     args: ListIndicesCommandInput,
@@ -1461,7 +1473,7 @@ export interface QBusiness {
   ): void;
   listIndices(
     args: ListIndicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListIndicesCommandOutput) => void
   ): void;
 
@@ -1470,7 +1482,7 @@ export interface QBusiness {
    */
   listMessages(
     args: ListMessagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListMessagesCommandOutput>;
   listMessages(
     args: ListMessagesCommandInput,
@@ -1478,7 +1490,7 @@ export interface QBusiness {
   ): void;
   listMessages(
     args: ListMessagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListMessagesCommandOutput) => void
   ): void;
 
@@ -1487,7 +1499,7 @@ export interface QBusiness {
    */
   listPluginActions(
     args: ListPluginActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListPluginActionsCommandOutput>;
   listPluginActions(
     args: ListPluginActionsCommandInput,
@@ -1495,7 +1507,7 @@ export interface QBusiness {
   ): void;
   listPluginActions(
     args: ListPluginActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListPluginActionsCommandOutput) => void
   ): void;
 
@@ -1504,7 +1516,7 @@ export interface QBusiness {
    */
   listPlugins(
     args: ListPluginsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListPluginsCommandOutput>;
   listPlugins(
     args: ListPluginsCommandInput,
@@ -1512,7 +1524,7 @@ export interface QBusiness {
   ): void;
   listPlugins(
     args: ListPluginsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListPluginsCommandOutput) => void
   ): void;
 
@@ -1521,7 +1533,7 @@ export interface QBusiness {
    */
   listPluginTypeActions(
     args: ListPluginTypeActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListPluginTypeActionsCommandOutput>;
   listPluginTypeActions(
     args: ListPluginTypeActionsCommandInput,
@@ -1529,7 +1541,7 @@ export interface QBusiness {
   ): void;
   listPluginTypeActions(
     args: ListPluginTypeActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListPluginTypeActionsCommandOutput) => void
   ): void;
 
@@ -1539,7 +1551,7 @@ export interface QBusiness {
   listPluginTypeMetadata(): Promise<ListPluginTypeMetadataCommandOutput>;
   listPluginTypeMetadata(
     args: ListPluginTypeMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListPluginTypeMetadataCommandOutput>;
   listPluginTypeMetadata(
     args: ListPluginTypeMetadataCommandInput,
@@ -1547,7 +1559,7 @@ export interface QBusiness {
   ): void;
   listPluginTypeMetadata(
     args: ListPluginTypeMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListPluginTypeMetadataCommandOutput) => void
   ): void;
 
@@ -1556,7 +1568,7 @@ export interface QBusiness {
    */
   listRetrievers(
     args: ListRetrieversCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListRetrieversCommandOutput>;
   listRetrievers(
     args: ListRetrieversCommandInput,
@@ -1564,7 +1576,7 @@ export interface QBusiness {
   ): void;
   listRetrievers(
     args: ListRetrieversCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListRetrieversCommandOutput) => void
   ): void;
 
@@ -1573,7 +1585,7 @@ export interface QBusiness {
    */
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListSubscriptionsCommandOutput>;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
@@ -1581,7 +1593,7 @@ export interface QBusiness {
   ): void;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
   ): void;
 
@@ -1590,7 +1602,7 @@ export interface QBusiness {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1598,7 +1610,7 @@ export interface QBusiness {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1607,7 +1619,7 @@ export interface QBusiness {
    */
   listWebExperiences(
     args: ListWebExperiencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<ListWebExperiencesCommandOutput>;
   listWebExperiences(
     args: ListWebExperiencesCommandInput,
@@ -1615,7 +1627,7 @@ export interface QBusiness {
   ): void;
   listWebExperiences(
     args: ListWebExperiencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: ListWebExperiencesCommandOutput) => void
   ): void;
 
@@ -1624,7 +1636,7 @@ export interface QBusiness {
    */
   putFeedback(
     args: PutFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<PutFeedbackCommandOutput>;
   putFeedback(
     args: PutFeedbackCommandInput,
@@ -1632,7 +1644,7 @@ export interface QBusiness {
   ): void;
   putFeedback(
     args: PutFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: PutFeedbackCommandOutput) => void
   ): void;
 
@@ -1641,7 +1653,7 @@ export interface QBusiness {
    */
   putGroup(
     args: PutGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<PutGroupCommandOutput>;
   putGroup(
     args: PutGroupCommandInput,
@@ -1649,7 +1661,7 @@ export interface QBusiness {
   ): void;
   putGroup(
     args: PutGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: PutGroupCommandOutput) => void
   ): void;
 
@@ -1658,7 +1670,7 @@ export interface QBusiness {
    */
   searchRelevantContent(
     args: SearchRelevantContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<SearchRelevantContentCommandOutput>;
   searchRelevantContent(
     args: SearchRelevantContentCommandInput,
@@ -1666,7 +1678,7 @@ export interface QBusiness {
   ): void;
   searchRelevantContent(
     args: SearchRelevantContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: SearchRelevantContentCommandOutput) => void
   ): void;
 
@@ -1675,7 +1687,7 @@ export interface QBusiness {
    */
   startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<StartDataSourceSyncJobCommandOutput>;
   startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
@@ -1683,7 +1695,7 @@ export interface QBusiness {
   ): void;
   startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: StartDataSourceSyncJobCommandOutput) => void
   ): void;
 
@@ -1692,7 +1704,7 @@ export interface QBusiness {
    */
   stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<StopDataSourceSyncJobCommandOutput>;
   stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,
@@ -1700,7 +1712,7 @@ export interface QBusiness {
   ): void;
   stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: StopDataSourceSyncJobCommandOutput) => void
   ): void;
 
@@ -1709,7 +1721,7 @@ export interface QBusiness {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1717,7 +1729,7 @@ export interface QBusiness {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1726,7 +1738,7 @@ export interface QBusiness {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1734,7 +1746,7 @@ export interface QBusiness {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1743,7 +1755,7 @@ export interface QBusiness {
    */
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
@@ -1751,7 +1763,7 @@ export interface QBusiness {
   ): void;
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 
@@ -1760,7 +1772,7 @@ export interface QBusiness {
    */
   updateChatControlsConfiguration(
     args: UpdateChatControlsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UpdateChatControlsConfigurationCommandOutput>;
   updateChatControlsConfiguration(
     args: UpdateChatControlsConfigurationCommandInput,
@@ -1768,7 +1780,7 @@ export interface QBusiness {
   ): void;
   updateChatControlsConfiguration(
     args: UpdateChatControlsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UpdateChatControlsConfigurationCommandOutput) => void
   ): void;
 
@@ -1777,7 +1789,7 @@ export interface QBusiness {
    */
   updateChatResponseConfiguration(
     args: UpdateChatResponseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UpdateChatResponseConfigurationCommandOutput>;
   updateChatResponseConfiguration(
     args: UpdateChatResponseConfigurationCommandInput,
@@ -1785,7 +1797,7 @@ export interface QBusiness {
   ): void;
   updateChatResponseConfiguration(
     args: UpdateChatResponseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UpdateChatResponseConfigurationCommandOutput) => void
   ): void;
 
@@ -1794,7 +1806,7 @@ export interface QBusiness {
    */
   updateDataAccessor(
     args: UpdateDataAccessorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UpdateDataAccessorCommandOutput>;
   updateDataAccessor(
     args: UpdateDataAccessorCommandInput,
@@ -1802,7 +1814,7 @@ export interface QBusiness {
   ): void;
   updateDataAccessor(
     args: UpdateDataAccessorCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UpdateDataAccessorCommandOutput) => void
   ): void;
 
@@ -1811,7 +1823,7 @@ export interface QBusiness {
    */
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UpdateDataSourceCommandOutput>;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -1819,7 +1831,7 @@ export interface QBusiness {
   ): void;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): void;
 
@@ -1828,7 +1840,7 @@ export interface QBusiness {
    */
   updateIndex(
     args: UpdateIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UpdateIndexCommandOutput>;
   updateIndex(
     args: UpdateIndexCommandInput,
@@ -1836,7 +1848,7 @@ export interface QBusiness {
   ): void;
   updateIndex(
     args: UpdateIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UpdateIndexCommandOutput) => void
   ): void;
 
@@ -1845,7 +1857,7 @@ export interface QBusiness {
    */
   updatePlugin(
     args: UpdatePluginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UpdatePluginCommandOutput>;
   updatePlugin(
     args: UpdatePluginCommandInput,
@@ -1853,7 +1865,7 @@ export interface QBusiness {
   ): void;
   updatePlugin(
     args: UpdatePluginCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UpdatePluginCommandOutput) => void
   ): void;
 
@@ -1862,7 +1874,7 @@ export interface QBusiness {
    */
   updateRetriever(
     args: UpdateRetrieverCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UpdateRetrieverCommandOutput>;
   updateRetriever(
     args: UpdateRetrieverCommandInput,
@@ -1870,7 +1882,7 @@ export interface QBusiness {
   ): void;
   updateRetriever(
     args: UpdateRetrieverCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UpdateRetrieverCommandOutput) => void
   ): void;
 
@@ -1879,7 +1891,7 @@ export interface QBusiness {
    */
   updateSubscription(
     args: UpdateSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UpdateSubscriptionCommandOutput>;
   updateSubscription(
     args: UpdateSubscriptionCommandInput,
@@ -1887,7 +1899,7 @@ export interface QBusiness {
   ): void;
   updateSubscription(
     args: UpdateSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UpdateSubscriptionCommandOutput) => void
   ): void;
 
@@ -1896,7 +1908,7 @@ export interface QBusiness {
    */
   updateUser(
     args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UpdateUserCommandOutput>;
   updateUser(
     args: UpdateUserCommandInput,
@@ -1904,7 +1916,7 @@ export interface QBusiness {
   ): void;
   updateUser(
     args: UpdateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
 
@@ -1913,7 +1925,7 @@ export interface QBusiness {
    */
   updateWebExperience(
     args: UpdateWebExperienceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QBusinessRequestOptions
   ): Promise<UpdateWebExperienceCommandOutput>;
   updateWebExperience(
     args: UpdateWebExperienceCommandInput,
@@ -1921,7 +1933,7 @@ export interface QBusiness {
   ): void;
   updateWebExperience(
     args: UpdateWebExperienceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QBusinessRequestOptions,
     cb: (err: any, data?: UpdateWebExperienceCommandOutput) => void
   ): void;
 

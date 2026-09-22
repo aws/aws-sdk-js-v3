@@ -56,10 +56,10 @@ import {
 import { GlacierServiceException } from "../models/GlacierServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var GlacierServiceException$: StaticErrorSchema = [-3, _s, "GlacierServiceException", 0, [], []];
 _s_registry.registerError(GlacierServiceException$, GlacierServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
   { [_e]: _c, [_hE]: 400 },
   [_t, _co, _m],

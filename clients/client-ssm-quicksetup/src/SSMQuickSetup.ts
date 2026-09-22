@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateConfigurationManagerCommandInput,
@@ -97,13 +102,20 @@ const paginators = {
   paginateListConfigurations,
 };
 
+/**
+ * @public
+ */
+export interface SSMQuickSetupRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SSMQuickSetup {
   /**
    * @see {@link CreateConfigurationManagerCommand}
    */
   createConfigurationManager(
     args: CreateConfigurationManagerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<CreateConfigurationManagerCommandOutput>;
   createConfigurationManager(
     args: CreateConfigurationManagerCommandInput,
@@ -111,7 +123,7 @@ export interface SSMQuickSetup {
   ): void;
   createConfigurationManager(
     args: CreateConfigurationManagerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: CreateConfigurationManagerCommandOutput) => void
   ): void;
 
@@ -120,7 +132,7 @@ export interface SSMQuickSetup {
    */
   deleteConfigurationManager(
     args: DeleteConfigurationManagerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<DeleteConfigurationManagerCommandOutput>;
   deleteConfigurationManager(
     args: DeleteConfigurationManagerCommandInput,
@@ -128,7 +140,7 @@ export interface SSMQuickSetup {
   ): void;
   deleteConfigurationManager(
     args: DeleteConfigurationManagerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: DeleteConfigurationManagerCommandOutput) => void
   ): void;
 
@@ -137,7 +149,7 @@ export interface SSMQuickSetup {
    */
   getConfiguration(
     args: GetConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<GetConfigurationCommandOutput>;
   getConfiguration(
     args: GetConfigurationCommandInput,
@@ -145,7 +157,7 @@ export interface SSMQuickSetup {
   ): void;
   getConfiguration(
     args: GetConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: GetConfigurationCommandOutput) => void
   ): void;
 
@@ -154,7 +166,7 @@ export interface SSMQuickSetup {
    */
   getConfigurationManager(
     args: GetConfigurationManagerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<GetConfigurationManagerCommandOutput>;
   getConfigurationManager(
     args: GetConfigurationManagerCommandInput,
@@ -162,7 +174,7 @@ export interface SSMQuickSetup {
   ): void;
   getConfigurationManager(
     args: GetConfigurationManagerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: GetConfigurationManagerCommandOutput) => void
   ): void;
 
@@ -172,7 +184,7 @@ export interface SSMQuickSetup {
   getServiceSettings(): Promise<GetServiceSettingsCommandOutput>;
   getServiceSettings(
     args: GetServiceSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<GetServiceSettingsCommandOutput>;
   getServiceSettings(
     args: GetServiceSettingsCommandInput,
@@ -180,7 +192,7 @@ export interface SSMQuickSetup {
   ): void;
   getServiceSettings(
     args: GetServiceSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: GetServiceSettingsCommandOutput) => void
   ): void;
 
@@ -190,7 +202,7 @@ export interface SSMQuickSetup {
   listConfigurationManagers(): Promise<ListConfigurationManagersCommandOutput>;
   listConfigurationManagers(
     args: ListConfigurationManagersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<ListConfigurationManagersCommandOutput>;
   listConfigurationManagers(
     args: ListConfigurationManagersCommandInput,
@@ -198,7 +210,7 @@ export interface SSMQuickSetup {
   ): void;
   listConfigurationManagers(
     args: ListConfigurationManagersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: ListConfigurationManagersCommandOutput) => void
   ): void;
 
@@ -208,7 +220,7 @@ export interface SSMQuickSetup {
   listConfigurations(): Promise<ListConfigurationsCommandOutput>;
   listConfigurations(
     args: ListConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<ListConfigurationsCommandOutput>;
   listConfigurations(
     args: ListConfigurationsCommandInput,
@@ -216,7 +228,7 @@ export interface SSMQuickSetup {
   ): void;
   listConfigurations(
     args: ListConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: ListConfigurationsCommandOutput) => void
   ): void;
 
@@ -226,7 +238,7 @@ export interface SSMQuickSetup {
   listQuickSetupTypes(): Promise<ListQuickSetupTypesCommandOutput>;
   listQuickSetupTypes(
     args: ListQuickSetupTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<ListQuickSetupTypesCommandOutput>;
   listQuickSetupTypes(
     args: ListQuickSetupTypesCommandInput,
@@ -234,7 +246,7 @@ export interface SSMQuickSetup {
   ): void;
   listQuickSetupTypes(
     args: ListQuickSetupTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: ListQuickSetupTypesCommandOutput) => void
   ): void;
 
@@ -243,7 +255,7 @@ export interface SSMQuickSetup {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -251,7 +263,7 @@ export interface SSMQuickSetup {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -260,7 +272,7 @@ export interface SSMQuickSetup {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -268,7 +280,7 @@ export interface SSMQuickSetup {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -277,7 +289,7 @@ export interface SSMQuickSetup {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -285,7 +297,7 @@ export interface SSMQuickSetup {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -294,7 +306,7 @@ export interface SSMQuickSetup {
    */
   updateConfigurationDefinition(
     args: UpdateConfigurationDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<UpdateConfigurationDefinitionCommandOutput>;
   updateConfigurationDefinition(
     args: UpdateConfigurationDefinitionCommandInput,
@@ -302,7 +314,7 @@ export interface SSMQuickSetup {
   ): void;
   updateConfigurationDefinition(
     args: UpdateConfigurationDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: UpdateConfigurationDefinitionCommandOutput) => void
   ): void;
 
@@ -311,7 +323,7 @@ export interface SSMQuickSetup {
    */
   updateConfigurationManager(
     args: UpdateConfigurationManagerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<UpdateConfigurationManagerCommandOutput>;
   updateConfigurationManager(
     args: UpdateConfigurationManagerCommandInput,
@@ -319,7 +331,7 @@ export interface SSMQuickSetup {
   ): void;
   updateConfigurationManager(
     args: UpdateConfigurationManagerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: UpdateConfigurationManagerCommandOutput) => void
   ): void;
 
@@ -329,7 +341,7 @@ export interface SSMQuickSetup {
   updateServiceSettings(): Promise<UpdateServiceSettingsCommandOutput>;
   updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMQuickSetupRequestOptions
   ): Promise<UpdateServiceSettingsCommandOutput>;
   updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
@@ -337,7 +349,7 @@ export interface SSMQuickSetup {
   ): void;
   updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMQuickSetupRequestOptions,
     cb: (err: any, data?: UpdateServiceSettingsCommandOutput) => void
   ): void;
 

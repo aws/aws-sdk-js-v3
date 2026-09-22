@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type GenerateDataSetCommandInput,
@@ -19,13 +19,20 @@ const commands = {
   StartSupportDataExportCommand,
 };
 
+/**
+ * @public
+ */
+export interface MarketplaceCommerceAnalyticsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MarketplaceCommerceAnalytics {
   /**
    * @see {@link GenerateDataSetCommand}
    */
   generateDataSet(
     args: GenerateDataSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCommerceAnalyticsRequestOptions
   ): Promise<GenerateDataSetCommandOutput>;
   generateDataSet(
     args: GenerateDataSetCommandInput,
@@ -33,7 +40,7 @@ export interface MarketplaceCommerceAnalytics {
   ): void;
   generateDataSet(
     args: GenerateDataSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCommerceAnalyticsRequestOptions,
     cb: (err: any, data?: GenerateDataSetCommandOutput) => void
   ): void;
 
@@ -42,7 +49,7 @@ export interface MarketplaceCommerceAnalytics {
    */
   startSupportDataExport(
     args: StartSupportDataExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCommerceAnalyticsRequestOptions
   ): Promise<StartSupportDataExportCommandOutput>;
   startSupportDataExport(
     args: StartSupportDataExportCommandInput,
@@ -50,7 +57,7 @@ export interface MarketplaceCommerceAnalytics {
   ): void;
   startSupportDataExport(
     args: StartSupportDataExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCommerceAnalyticsRequestOptions,
     cb: (err: any, data?: StartSupportDataExportCommandOutput) => void
   ): void;
 }

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ActivatePipelineCommandInput,
@@ -121,13 +126,20 @@ const paginators = {
   paginateQueryObjects,
 };
 
+/**
+ * @public
+ */
+export interface DataPipelineRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DataPipeline {
   /**
    * @see {@link ActivatePipelineCommand}
    */
   activatePipeline(
     args: ActivatePipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<ActivatePipelineCommandOutput>;
   activatePipeline(
     args: ActivatePipelineCommandInput,
@@ -135,7 +147,7 @@ export interface DataPipeline {
   ): void;
   activatePipeline(
     args: ActivatePipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: ActivatePipelineCommandOutput) => void
   ): void;
 
@@ -144,7 +156,7 @@ export interface DataPipeline {
    */
   addTags(
     args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<AddTagsCommandOutput>;
   addTags(
     args: AddTagsCommandInput,
@@ -152,7 +164,7 @@ export interface DataPipeline {
   ): void;
   addTags(
     args: AddTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: AddTagsCommandOutput) => void
   ): void;
 
@@ -161,7 +173,7 @@ export interface DataPipeline {
    */
   createPipeline(
     args: CreatePipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<CreatePipelineCommandOutput>;
   createPipeline(
     args: CreatePipelineCommandInput,
@@ -169,7 +181,7 @@ export interface DataPipeline {
   ): void;
   createPipeline(
     args: CreatePipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: CreatePipelineCommandOutput) => void
   ): void;
 
@@ -178,7 +190,7 @@ export interface DataPipeline {
    */
   deactivatePipeline(
     args: DeactivatePipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<DeactivatePipelineCommandOutput>;
   deactivatePipeline(
     args: DeactivatePipelineCommandInput,
@@ -186,7 +198,7 @@ export interface DataPipeline {
   ): void;
   deactivatePipeline(
     args: DeactivatePipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: DeactivatePipelineCommandOutput) => void
   ): void;
 
@@ -195,7 +207,7 @@ export interface DataPipeline {
    */
   deletePipeline(
     args: DeletePipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<DeletePipelineCommandOutput>;
   deletePipeline(
     args: DeletePipelineCommandInput,
@@ -203,7 +215,7 @@ export interface DataPipeline {
   ): void;
   deletePipeline(
     args: DeletePipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: DeletePipelineCommandOutput) => void
   ): void;
 
@@ -212,7 +224,7 @@ export interface DataPipeline {
    */
   describeObjects(
     args: DescribeObjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<DescribeObjectsCommandOutput>;
   describeObjects(
     args: DescribeObjectsCommandInput,
@@ -220,7 +232,7 @@ export interface DataPipeline {
   ): void;
   describeObjects(
     args: DescribeObjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: DescribeObjectsCommandOutput) => void
   ): void;
 
@@ -229,7 +241,7 @@ export interface DataPipeline {
    */
   describePipelines(
     args: DescribePipelinesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<DescribePipelinesCommandOutput>;
   describePipelines(
     args: DescribePipelinesCommandInput,
@@ -237,7 +249,7 @@ export interface DataPipeline {
   ): void;
   describePipelines(
     args: DescribePipelinesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: DescribePipelinesCommandOutput) => void
   ): void;
 
@@ -246,7 +258,7 @@ export interface DataPipeline {
    */
   evaluateExpression(
     args: EvaluateExpressionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<EvaluateExpressionCommandOutput>;
   evaluateExpression(
     args: EvaluateExpressionCommandInput,
@@ -254,7 +266,7 @@ export interface DataPipeline {
   ): void;
   evaluateExpression(
     args: EvaluateExpressionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: EvaluateExpressionCommandOutput) => void
   ): void;
 
@@ -263,7 +275,7 @@ export interface DataPipeline {
    */
   getPipelineDefinition(
     args: GetPipelineDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<GetPipelineDefinitionCommandOutput>;
   getPipelineDefinition(
     args: GetPipelineDefinitionCommandInput,
@@ -271,7 +283,7 @@ export interface DataPipeline {
   ): void;
   getPipelineDefinition(
     args: GetPipelineDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: GetPipelineDefinitionCommandOutput) => void
   ): void;
 
@@ -281,7 +293,7 @@ export interface DataPipeline {
   listPipelines(): Promise<ListPipelinesCommandOutput>;
   listPipelines(
     args: ListPipelinesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<ListPipelinesCommandOutput>;
   listPipelines(
     args: ListPipelinesCommandInput,
@@ -289,7 +301,7 @@ export interface DataPipeline {
   ): void;
   listPipelines(
     args: ListPipelinesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: ListPipelinesCommandOutput) => void
   ): void;
 
@@ -298,7 +310,7 @@ export interface DataPipeline {
    */
   pollForTask(
     args: PollForTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<PollForTaskCommandOutput>;
   pollForTask(
     args: PollForTaskCommandInput,
@@ -306,7 +318,7 @@ export interface DataPipeline {
   ): void;
   pollForTask(
     args: PollForTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: PollForTaskCommandOutput) => void
   ): void;
 
@@ -315,7 +327,7 @@ export interface DataPipeline {
    */
   putPipelineDefinition(
     args: PutPipelineDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<PutPipelineDefinitionCommandOutput>;
   putPipelineDefinition(
     args: PutPipelineDefinitionCommandInput,
@@ -323,7 +335,7 @@ export interface DataPipeline {
   ): void;
   putPipelineDefinition(
     args: PutPipelineDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: PutPipelineDefinitionCommandOutput) => void
   ): void;
 
@@ -332,7 +344,7 @@ export interface DataPipeline {
    */
   queryObjects(
     args: QueryObjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<QueryObjectsCommandOutput>;
   queryObjects(
     args: QueryObjectsCommandInput,
@@ -340,7 +352,7 @@ export interface DataPipeline {
   ): void;
   queryObjects(
     args: QueryObjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: QueryObjectsCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface DataPipeline {
    */
   removeTags(
     args: RemoveTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<RemoveTagsCommandOutput>;
   removeTags(
     args: RemoveTagsCommandInput,
@@ -357,7 +369,7 @@ export interface DataPipeline {
   ): void;
   removeTags(
     args: RemoveTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: RemoveTagsCommandOutput) => void
   ): void;
 
@@ -366,7 +378,7 @@ export interface DataPipeline {
    */
   reportTaskProgress(
     args: ReportTaskProgressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<ReportTaskProgressCommandOutput>;
   reportTaskProgress(
     args: ReportTaskProgressCommandInput,
@@ -374,7 +386,7 @@ export interface DataPipeline {
   ): void;
   reportTaskProgress(
     args: ReportTaskProgressCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: ReportTaskProgressCommandOutput) => void
   ): void;
 
@@ -383,7 +395,7 @@ export interface DataPipeline {
    */
   reportTaskRunnerHeartbeat(
     args: ReportTaskRunnerHeartbeatCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<ReportTaskRunnerHeartbeatCommandOutput>;
   reportTaskRunnerHeartbeat(
     args: ReportTaskRunnerHeartbeatCommandInput,
@@ -391,7 +403,7 @@ export interface DataPipeline {
   ): void;
   reportTaskRunnerHeartbeat(
     args: ReportTaskRunnerHeartbeatCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: ReportTaskRunnerHeartbeatCommandOutput) => void
   ): void;
 
@@ -400,7 +412,7 @@ export interface DataPipeline {
    */
   setStatus(
     args: SetStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<SetStatusCommandOutput>;
   setStatus(
     args: SetStatusCommandInput,
@@ -408,7 +420,7 @@ export interface DataPipeline {
   ): void;
   setStatus(
     args: SetStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: SetStatusCommandOutput) => void
   ): void;
 
@@ -417,7 +429,7 @@ export interface DataPipeline {
    */
   setTaskStatus(
     args: SetTaskStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<SetTaskStatusCommandOutput>;
   setTaskStatus(
     args: SetTaskStatusCommandInput,
@@ -425,7 +437,7 @@ export interface DataPipeline {
   ): void;
   setTaskStatus(
     args: SetTaskStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: SetTaskStatusCommandOutput) => void
   ): void;
 
@@ -434,7 +446,7 @@ export interface DataPipeline {
    */
   validatePipelineDefinition(
     args: ValidatePipelineDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataPipelineRequestOptions
   ): Promise<ValidatePipelineDefinitionCommandOutput>;
   validatePipelineDefinition(
     args: ValidatePipelineDefinitionCommandInput,
@@ -442,7 +454,7 @@ export interface DataPipeline {
   ): void;
   validatePipelineDefinition(
     args: ValidatePipelineDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataPipelineRequestOptions,
     cb: (err: any, data?: ValidatePipelineDefinitionCommandOutput) => void
   ): void;
 

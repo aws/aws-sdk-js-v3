@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateRuleCommandInput,
@@ -59,13 +64,20 @@ const paginators = {
   paginateListRules,
 };
 
+/**
+ * @public
+ */
+export interface RbinRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Rbin {
   /**
    * @see {@link CreateRuleCommand}
    */
   createRule(
     args: CreateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RbinRequestOptions
   ): Promise<CreateRuleCommandOutput>;
   createRule(
     args: CreateRuleCommandInput,
@@ -73,7 +85,7 @@ export interface Rbin {
   ): void;
   createRule(
     args: CreateRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RbinRequestOptions,
     cb: (err: any, data?: CreateRuleCommandOutput) => void
   ): void;
 
@@ -82,7 +94,7 @@ export interface Rbin {
    */
   deleteRule(
     args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RbinRequestOptions
   ): Promise<DeleteRuleCommandOutput>;
   deleteRule(
     args: DeleteRuleCommandInput,
@@ -90,7 +102,7 @@ export interface Rbin {
   ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RbinRequestOptions,
     cb: (err: any, data?: DeleteRuleCommandOutput) => void
   ): void;
 
@@ -99,7 +111,7 @@ export interface Rbin {
    */
   getRule(
     args: GetRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RbinRequestOptions
   ): Promise<GetRuleCommandOutput>;
   getRule(
     args: GetRuleCommandInput,
@@ -107,7 +119,7 @@ export interface Rbin {
   ): void;
   getRule(
     args: GetRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RbinRequestOptions,
     cb: (err: any, data?: GetRuleCommandOutput) => void
   ): void;
 
@@ -116,7 +128,7 @@ export interface Rbin {
    */
   listRules(
     args: ListRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RbinRequestOptions
   ): Promise<ListRulesCommandOutput>;
   listRules(
     args: ListRulesCommandInput,
@@ -124,7 +136,7 @@ export interface Rbin {
   ): void;
   listRules(
     args: ListRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RbinRequestOptions,
     cb: (err: any, data?: ListRulesCommandOutput) => void
   ): void;
 
@@ -133,7 +145,7 @@ export interface Rbin {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RbinRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -141,7 +153,7 @@ export interface Rbin {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RbinRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -150,7 +162,7 @@ export interface Rbin {
    */
   lockRule(
     args: LockRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RbinRequestOptions
   ): Promise<LockRuleCommandOutput>;
   lockRule(
     args: LockRuleCommandInput,
@@ -158,7 +170,7 @@ export interface Rbin {
   ): void;
   lockRule(
     args: LockRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RbinRequestOptions,
     cb: (err: any, data?: LockRuleCommandOutput) => void
   ): void;
 
@@ -167,7 +179,7 @@ export interface Rbin {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RbinRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -175,7 +187,7 @@ export interface Rbin {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RbinRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -184,7 +196,7 @@ export interface Rbin {
    */
   unlockRule(
     args: UnlockRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RbinRequestOptions
   ): Promise<UnlockRuleCommandOutput>;
   unlockRule(
     args: UnlockRuleCommandInput,
@@ -192,7 +204,7 @@ export interface Rbin {
   ): void;
   unlockRule(
     args: UnlockRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RbinRequestOptions,
     cb: (err: any, data?: UnlockRuleCommandOutput) => void
   ): void;
 
@@ -201,7 +213,7 @@ export interface Rbin {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RbinRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -209,7 +221,7 @@ export interface Rbin {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RbinRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -218,7 +230,7 @@ export interface Rbin {
    */
   updateRule(
     args: UpdateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RbinRequestOptions
   ): Promise<UpdateRuleCommandOutput>;
   updateRule(
     args: UpdateRuleCommandInput,
@@ -226,7 +238,7 @@ export interface Rbin {
   ): void;
   updateRule(
     args: UpdateRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RbinRequestOptions,
     cb: (err: any, data?: UpdateRuleCommandOutput) => void
   ): void;
 

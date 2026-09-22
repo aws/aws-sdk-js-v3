@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { type CreateActCommandInput, type CreateActCommandOutput, CreateActCommand } from "./commands/CreateActCommand";
 import {
@@ -101,13 +106,20 @@ const paginators = {
   paginateListWorkflowRuns,
 };
 
+/**
+ * @public
+ */
+export interface NovaActRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface NovaAct {
   /**
    * @see {@link CreateActCommand}
    */
   createAct(
     args: CreateActCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<CreateActCommandOutput>;
   createAct(
     args: CreateActCommandInput,
@@ -115,7 +127,7 @@ export interface NovaAct {
   ): void;
   createAct(
     args: CreateActCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: CreateActCommandOutput) => void
   ): void;
 
@@ -124,7 +136,7 @@ export interface NovaAct {
    */
   createSession(
     args: CreateSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<CreateSessionCommandOutput>;
   createSession(
     args: CreateSessionCommandInput,
@@ -132,7 +144,7 @@ export interface NovaAct {
   ): void;
   createSession(
     args: CreateSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: CreateSessionCommandOutput) => void
   ): void;
 
@@ -141,7 +153,7 @@ export interface NovaAct {
    */
   createWorkflowDefinition(
     args: CreateWorkflowDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<CreateWorkflowDefinitionCommandOutput>;
   createWorkflowDefinition(
     args: CreateWorkflowDefinitionCommandInput,
@@ -149,7 +161,7 @@ export interface NovaAct {
   ): void;
   createWorkflowDefinition(
     args: CreateWorkflowDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: CreateWorkflowDefinitionCommandOutput) => void
   ): void;
 
@@ -158,7 +170,7 @@ export interface NovaAct {
    */
   createWorkflowRun(
     args: CreateWorkflowRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<CreateWorkflowRunCommandOutput>;
   createWorkflowRun(
     args: CreateWorkflowRunCommandInput,
@@ -166,7 +178,7 @@ export interface NovaAct {
   ): void;
   createWorkflowRun(
     args: CreateWorkflowRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: CreateWorkflowRunCommandOutput) => void
   ): void;
 
@@ -175,7 +187,7 @@ export interface NovaAct {
    */
   deleteWorkflowDefinition(
     args: DeleteWorkflowDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<DeleteWorkflowDefinitionCommandOutput>;
   deleteWorkflowDefinition(
     args: DeleteWorkflowDefinitionCommandInput,
@@ -183,7 +195,7 @@ export interface NovaAct {
   ): void;
   deleteWorkflowDefinition(
     args: DeleteWorkflowDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: DeleteWorkflowDefinitionCommandOutput) => void
   ): void;
 
@@ -192,7 +204,7 @@ export interface NovaAct {
    */
   deleteWorkflowRun(
     args: DeleteWorkflowRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<DeleteWorkflowRunCommandOutput>;
   deleteWorkflowRun(
     args: DeleteWorkflowRunCommandInput,
@@ -200,7 +212,7 @@ export interface NovaAct {
   ): void;
   deleteWorkflowRun(
     args: DeleteWorkflowRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: DeleteWorkflowRunCommandOutput) => void
   ): void;
 
@@ -209,7 +221,7 @@ export interface NovaAct {
    */
   getWorkflowDefinition(
     args: GetWorkflowDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<GetWorkflowDefinitionCommandOutput>;
   getWorkflowDefinition(
     args: GetWorkflowDefinitionCommandInput,
@@ -217,7 +229,7 @@ export interface NovaAct {
   ): void;
   getWorkflowDefinition(
     args: GetWorkflowDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: GetWorkflowDefinitionCommandOutput) => void
   ): void;
 
@@ -226,7 +238,7 @@ export interface NovaAct {
    */
   getWorkflowRun(
     args: GetWorkflowRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<GetWorkflowRunCommandOutput>;
   getWorkflowRun(
     args: GetWorkflowRunCommandInput,
@@ -234,7 +246,7 @@ export interface NovaAct {
   ): void;
   getWorkflowRun(
     args: GetWorkflowRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: GetWorkflowRunCommandOutput) => void
   ): void;
 
@@ -243,7 +255,7 @@ export interface NovaAct {
    */
   invokeActStep(
     args: InvokeActStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<InvokeActStepCommandOutput>;
   invokeActStep(
     args: InvokeActStepCommandInput,
@@ -251,7 +263,7 @@ export interface NovaAct {
   ): void;
   invokeActStep(
     args: InvokeActStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: InvokeActStepCommandOutput) => void
   ): void;
 
@@ -260,7 +272,7 @@ export interface NovaAct {
    */
   listActs(
     args: ListActsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<ListActsCommandOutput>;
   listActs(
     args: ListActsCommandInput,
@@ -268,7 +280,7 @@ export interface NovaAct {
   ): void;
   listActs(
     args: ListActsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: ListActsCommandOutput) => void
   ): void;
 
@@ -277,7 +289,7 @@ export interface NovaAct {
    */
   listModels(
     args: ListModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<ListModelsCommandOutput>;
   listModels(
     args: ListModelsCommandInput,
@@ -285,7 +297,7 @@ export interface NovaAct {
   ): void;
   listModels(
     args: ListModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: ListModelsCommandOutput) => void
   ): void;
 
@@ -294,7 +306,7 @@ export interface NovaAct {
    */
   listSessions(
     args: ListSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<ListSessionsCommandOutput>;
   listSessions(
     args: ListSessionsCommandInput,
@@ -302,7 +314,7 @@ export interface NovaAct {
   ): void;
   listSessions(
     args: ListSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
@@ -312,7 +324,7 @@ export interface NovaAct {
   listWorkflowDefinitions(): Promise<ListWorkflowDefinitionsCommandOutput>;
   listWorkflowDefinitions(
     args: ListWorkflowDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<ListWorkflowDefinitionsCommandOutput>;
   listWorkflowDefinitions(
     args: ListWorkflowDefinitionsCommandInput,
@@ -320,7 +332,7 @@ export interface NovaAct {
   ): void;
   listWorkflowDefinitions(
     args: ListWorkflowDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: ListWorkflowDefinitionsCommandOutput) => void
   ): void;
 
@@ -329,7 +341,7 @@ export interface NovaAct {
    */
   listWorkflowRuns(
     args: ListWorkflowRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<ListWorkflowRunsCommandOutput>;
   listWorkflowRuns(
     args: ListWorkflowRunsCommandInput,
@@ -337,7 +349,7 @@ export interface NovaAct {
   ): void;
   listWorkflowRuns(
     args: ListWorkflowRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: ListWorkflowRunsCommandOutput) => void
   ): void;
 
@@ -346,7 +358,7 @@ export interface NovaAct {
    */
   updateAct(
     args: UpdateActCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<UpdateActCommandOutput>;
   updateAct(
     args: UpdateActCommandInput,
@@ -354,7 +366,7 @@ export interface NovaAct {
   ): void;
   updateAct(
     args: UpdateActCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: UpdateActCommandOutput) => void
   ): void;
 
@@ -363,7 +375,7 @@ export interface NovaAct {
    */
   updateWorkflowRun(
     args: UpdateWorkflowRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NovaActRequestOptions
   ): Promise<UpdateWorkflowRunCommandOutput>;
   updateWorkflowRun(
     args: UpdateWorkflowRunCommandInput,
@@ -371,7 +383,7 @@ export interface NovaAct {
   ): void;
   updateWorkflowRun(
     args: UpdateWorkflowRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: NovaActRequestOptions,
     cb: (err: any, data?: UpdateWorkflowRunCommandOutput) => void
   ): void;
 

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { CognitoSyncClient } from "./CognitoSyncClient";
 import {
@@ -109,13 +109,20 @@ const commands = {
   UpdateRecordsCommand,
 };
 
+/**
+ * @public
+ */
+export interface CognitoSyncRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CognitoSync {
   /**
    * @see {@link BulkPublishCommand}
    */
   bulkPublish(
     args: BulkPublishCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<BulkPublishCommandOutput>;
   bulkPublish(
     args: BulkPublishCommandInput,
@@ -123,7 +130,7 @@ export interface CognitoSync {
   ): void;
   bulkPublish(
     args: BulkPublishCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: BulkPublishCommandOutput) => void
   ): void;
 
@@ -132,7 +139,7 @@ export interface CognitoSync {
    */
   deleteDataset(
     args: DeleteDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<DeleteDatasetCommandOutput>;
   deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -140,7 +147,7 @@ export interface CognitoSync {
   ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): void;
 
@@ -149,7 +156,7 @@ export interface CognitoSync {
    */
   describeDataset(
     args: DescribeDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<DescribeDatasetCommandOutput>;
   describeDataset(
     args: DescribeDatasetCommandInput,
@@ -157,7 +164,7 @@ export interface CognitoSync {
   ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): void;
 
@@ -166,7 +173,7 @@ export interface CognitoSync {
    */
   describeIdentityPoolUsage(
     args: DescribeIdentityPoolUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<DescribeIdentityPoolUsageCommandOutput>;
   describeIdentityPoolUsage(
     args: DescribeIdentityPoolUsageCommandInput,
@@ -174,7 +181,7 @@ export interface CognitoSync {
   ): void;
   describeIdentityPoolUsage(
     args: DescribeIdentityPoolUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void
   ): void;
 
@@ -183,7 +190,7 @@ export interface CognitoSync {
    */
   describeIdentityUsage(
     args: DescribeIdentityUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<DescribeIdentityUsageCommandOutput>;
   describeIdentityUsage(
     args: DescribeIdentityUsageCommandInput,
@@ -191,7 +198,7 @@ export interface CognitoSync {
   ): void;
   describeIdentityUsage(
     args: DescribeIdentityUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: DescribeIdentityUsageCommandOutput) => void
   ): void;
 
@@ -200,7 +207,7 @@ export interface CognitoSync {
    */
   getBulkPublishDetails(
     args: GetBulkPublishDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<GetBulkPublishDetailsCommandOutput>;
   getBulkPublishDetails(
     args: GetBulkPublishDetailsCommandInput,
@@ -208,7 +215,7 @@ export interface CognitoSync {
   ): void;
   getBulkPublishDetails(
     args: GetBulkPublishDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: GetBulkPublishDetailsCommandOutput) => void
   ): void;
 
@@ -217,7 +224,7 @@ export interface CognitoSync {
    */
   getCognitoEvents(
     args: GetCognitoEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<GetCognitoEventsCommandOutput>;
   getCognitoEvents(
     args: GetCognitoEventsCommandInput,
@@ -225,7 +232,7 @@ export interface CognitoSync {
   ): void;
   getCognitoEvents(
     args: GetCognitoEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: GetCognitoEventsCommandOutput) => void
   ): void;
 
@@ -234,7 +241,7 @@ export interface CognitoSync {
    */
   getIdentityPoolConfiguration(
     args: GetIdentityPoolConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<GetIdentityPoolConfigurationCommandOutput>;
   getIdentityPoolConfiguration(
     args: GetIdentityPoolConfigurationCommandInput,
@@ -242,7 +249,7 @@ export interface CognitoSync {
   ): void;
   getIdentityPoolConfiguration(
     args: GetIdentityPoolConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
   ): void;
 
@@ -251,7 +258,7 @@ export interface CognitoSync {
    */
   listDatasets(
     args: ListDatasetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<ListDatasetsCommandOutput>;
   listDatasets(
     args: ListDatasetsCommandInput,
@@ -259,7 +266,7 @@ export interface CognitoSync {
   ): void;
   listDatasets(
     args: ListDatasetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: ListDatasetsCommandOutput) => void
   ): void;
 
@@ -269,7 +276,7 @@ export interface CognitoSync {
   listIdentityPoolUsage(): Promise<ListIdentityPoolUsageCommandOutput>;
   listIdentityPoolUsage(
     args: ListIdentityPoolUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<ListIdentityPoolUsageCommandOutput>;
   listIdentityPoolUsage(
     args: ListIdentityPoolUsageCommandInput,
@@ -277,7 +284,7 @@ export interface CognitoSync {
   ): void;
   listIdentityPoolUsage(
     args: ListIdentityPoolUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: ListIdentityPoolUsageCommandOutput) => void
   ): void;
 
@@ -286,7 +293,7 @@ export interface CognitoSync {
    */
   listRecords(
     args: ListRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<ListRecordsCommandOutput>;
   listRecords(
     args: ListRecordsCommandInput,
@@ -294,7 +301,7 @@ export interface CognitoSync {
   ): void;
   listRecords(
     args: ListRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: ListRecordsCommandOutput) => void
   ): void;
 
@@ -303,7 +310,7 @@ export interface CognitoSync {
    */
   registerDevice(
     args: RegisterDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<RegisterDeviceCommandOutput>;
   registerDevice(
     args: RegisterDeviceCommandInput,
@@ -311,7 +318,7 @@ export interface CognitoSync {
   ): void;
   registerDevice(
     args: RegisterDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: RegisterDeviceCommandOutput) => void
   ): void;
 
@@ -320,7 +327,7 @@ export interface CognitoSync {
    */
   setCognitoEvents(
     args: SetCognitoEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<SetCognitoEventsCommandOutput>;
   setCognitoEvents(
     args: SetCognitoEventsCommandInput,
@@ -328,7 +335,7 @@ export interface CognitoSync {
   ): void;
   setCognitoEvents(
     args: SetCognitoEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: SetCognitoEventsCommandOutput) => void
   ): void;
 
@@ -337,7 +344,7 @@ export interface CognitoSync {
    */
   setIdentityPoolConfiguration(
     args: SetIdentityPoolConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<SetIdentityPoolConfigurationCommandOutput>;
   setIdentityPoolConfiguration(
     args: SetIdentityPoolConfigurationCommandInput,
@@ -345,7 +352,7 @@ export interface CognitoSync {
   ): void;
   setIdentityPoolConfiguration(
     args: SetIdentityPoolConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: SetIdentityPoolConfigurationCommandOutput) => void
   ): void;
 
@@ -354,7 +361,7 @@ export interface CognitoSync {
    */
   subscribeToDataset(
     args: SubscribeToDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<SubscribeToDatasetCommandOutput>;
   subscribeToDataset(
     args: SubscribeToDatasetCommandInput,
@@ -362,7 +369,7 @@ export interface CognitoSync {
   ): void;
   subscribeToDataset(
     args: SubscribeToDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: SubscribeToDatasetCommandOutput) => void
   ): void;
 
@@ -371,7 +378,7 @@ export interface CognitoSync {
    */
   unsubscribeFromDataset(
     args: UnsubscribeFromDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<UnsubscribeFromDatasetCommandOutput>;
   unsubscribeFromDataset(
     args: UnsubscribeFromDatasetCommandInput,
@@ -379,7 +386,7 @@ export interface CognitoSync {
   ): void;
   unsubscribeFromDataset(
     args: UnsubscribeFromDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
   ): void;
 
@@ -388,7 +395,7 @@ export interface CognitoSync {
    */
   updateRecords(
     args: UpdateRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoSyncRequestOptions
   ): Promise<UpdateRecordsCommandOutput>;
   updateRecords(
     args: UpdateRecordsCommandInput,
@@ -396,7 +403,7 @@ export interface CognitoSync {
   ): void;
   updateRecords(
     args: UpdateRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoSyncRequestOptions,
     cb: (err: any, data?: UpdateRecordsCommandOutput) => void
   ): void;
 }

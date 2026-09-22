@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptInboundConnectionCommandInput,
@@ -603,13 +608,20 @@ const paginators = {
   paginateListVersions,
 };
 
+/**
+ * @public
+ */
+export interface OpenSearchRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface OpenSearch {
   /**
    * @see {@link AcceptInboundConnectionCommand}
    */
   acceptInboundConnection(
     args: AcceptInboundConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<AcceptInboundConnectionCommandOutput>;
   acceptInboundConnection(
     args: AcceptInboundConnectionCommandInput,
@@ -617,7 +629,7 @@ export interface OpenSearch {
   ): void;
   acceptInboundConnection(
     args: AcceptInboundConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: AcceptInboundConnectionCommandOutput) => void
   ): void;
 
@@ -626,7 +638,7 @@ export interface OpenSearch {
    */
   addDataSource(
     args: AddDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<AddDataSourceCommandOutput>;
   addDataSource(
     args: AddDataSourceCommandInput,
@@ -634,7 +646,7 @@ export interface OpenSearch {
   ): void;
   addDataSource(
     args: AddDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: AddDataSourceCommandOutput) => void
   ): void;
 
@@ -643,7 +655,7 @@ export interface OpenSearch {
    */
   addDirectQueryDataSource(
     args: AddDirectQueryDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<AddDirectQueryDataSourceCommandOutput>;
   addDirectQueryDataSource(
     args: AddDirectQueryDataSourceCommandInput,
@@ -651,7 +663,7 @@ export interface OpenSearch {
   ): void;
   addDirectQueryDataSource(
     args: AddDirectQueryDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: AddDirectQueryDataSourceCommandOutput) => void
   ): void;
 
@@ -660,7 +672,7 @@ export interface OpenSearch {
    */
   addTags(
     args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<AddTagsCommandOutput>;
   addTags(
     args: AddTagsCommandInput,
@@ -668,7 +680,7 @@ export interface OpenSearch {
   ): void;
   addTags(
     args: AddTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: AddTagsCommandOutput) => void
   ): void;
 
@@ -677,7 +689,7 @@ export interface OpenSearch {
    */
   associatePackage(
     args: AssociatePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<AssociatePackageCommandOutput>;
   associatePackage(
     args: AssociatePackageCommandInput,
@@ -685,7 +697,7 @@ export interface OpenSearch {
   ): void;
   associatePackage(
     args: AssociatePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: AssociatePackageCommandOutput) => void
   ): void;
 
@@ -694,7 +706,7 @@ export interface OpenSearch {
    */
   associatePackages(
     args: AssociatePackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<AssociatePackagesCommandOutput>;
   associatePackages(
     args: AssociatePackagesCommandInput,
@@ -702,7 +714,7 @@ export interface OpenSearch {
   ): void;
   associatePackages(
     args: AssociatePackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: AssociatePackagesCommandOutput) => void
   ): void;
 
@@ -711,7 +723,7 @@ export interface OpenSearch {
    */
   attachDataSource(
     args: AttachDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<AttachDataSourceCommandOutput>;
   attachDataSource(
     args: AttachDataSourceCommandInput,
@@ -719,7 +731,7 @@ export interface OpenSearch {
   ): void;
   attachDataSource(
     args: AttachDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: AttachDataSourceCommandOutput) => void
   ): void;
 
@@ -728,7 +740,7 @@ export interface OpenSearch {
    */
   authorizeVpcEndpointAccess(
     args: AuthorizeVpcEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<AuthorizeVpcEndpointAccessCommandOutput>;
   authorizeVpcEndpointAccess(
     args: AuthorizeVpcEndpointAccessCommandInput,
@@ -736,7 +748,7 @@ export interface OpenSearch {
   ): void;
   authorizeVpcEndpointAccess(
     args: AuthorizeVpcEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void
   ): void;
 
@@ -745,7 +757,7 @@ export interface OpenSearch {
    */
   cancelDomainConfigChange(
     args: CancelDomainConfigChangeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<CancelDomainConfigChangeCommandOutput>;
   cancelDomainConfigChange(
     args: CancelDomainConfigChangeCommandInput,
@@ -753,7 +765,7 @@ export interface OpenSearch {
   ): void;
   cancelDomainConfigChange(
     args: CancelDomainConfigChangeCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: CancelDomainConfigChangeCommandOutput) => void
   ): void;
 
@@ -762,7 +774,7 @@ export interface OpenSearch {
    */
   cancelServiceSoftwareUpdate(
     args: CancelServiceSoftwareUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<CancelServiceSoftwareUpdateCommandOutput>;
   cancelServiceSoftwareUpdate(
     args: CancelServiceSoftwareUpdateCommandInput,
@@ -770,7 +782,7 @@ export interface OpenSearch {
   ): void;
   cancelServiceSoftwareUpdate(
     args: CancelServiceSoftwareUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: CancelServiceSoftwareUpdateCommandOutput) => void
   ): void;
 
@@ -779,7 +791,7 @@ export interface OpenSearch {
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -787,7 +799,7 @@ export interface OpenSearch {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -796,7 +808,7 @@ export interface OpenSearch {
    */
   createDomain(
     args: CreateDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<CreateDomainCommandOutput>;
   createDomain(
     args: CreateDomainCommandInput,
@@ -804,7 +816,7 @@ export interface OpenSearch {
   ): void;
   createDomain(
     args: CreateDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: CreateDomainCommandOutput) => void
   ): void;
 
@@ -813,7 +825,7 @@ export interface OpenSearch {
    */
   createIndex(
     args: CreateIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<CreateIndexCommandOutput>;
   createIndex(
     args: CreateIndexCommandInput,
@@ -821,7 +833,7 @@ export interface OpenSearch {
   ): void;
   createIndex(
     args: CreateIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: CreateIndexCommandOutput) => void
   ): void;
 
@@ -830,7 +842,7 @@ export interface OpenSearch {
    */
   createOutboundConnection(
     args: CreateOutboundConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<CreateOutboundConnectionCommandOutput>;
   createOutboundConnection(
     args: CreateOutboundConnectionCommandInput,
@@ -838,7 +850,7 @@ export interface OpenSearch {
   ): void;
   createOutboundConnection(
     args: CreateOutboundConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: CreateOutboundConnectionCommandOutput) => void
   ): void;
 
@@ -847,7 +859,7 @@ export interface OpenSearch {
    */
   createPackage(
     args: CreatePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<CreatePackageCommandOutput>;
   createPackage(
     args: CreatePackageCommandInput,
@@ -855,7 +867,7 @@ export interface OpenSearch {
   ): void;
   createPackage(
     args: CreatePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: CreatePackageCommandOutput) => void
   ): void;
 
@@ -864,7 +876,7 @@ export interface OpenSearch {
    */
   createVpcEndpoint(
     args: CreateVpcEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<CreateVpcEndpointCommandOutput>;
   createVpcEndpoint(
     args: CreateVpcEndpointCommandInput,
@@ -872,7 +884,7 @@ export interface OpenSearch {
   ): void;
   createVpcEndpoint(
     args: CreateVpcEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
   ): void;
 
@@ -881,7 +893,7 @@ export interface OpenSearch {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -889,7 +901,7 @@ export interface OpenSearch {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -898,7 +910,7 @@ export interface OpenSearch {
    */
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DeleteDataSourceCommandOutput>;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -906,7 +918,7 @@ export interface OpenSearch {
   ): void;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): void;
 
@@ -915,7 +927,7 @@ export interface OpenSearch {
    */
   deleteDirectQueryDataSource(
     args: DeleteDirectQueryDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DeleteDirectQueryDataSourceCommandOutput>;
   deleteDirectQueryDataSource(
     args: DeleteDirectQueryDataSourceCommandInput,
@@ -923,7 +935,7 @@ export interface OpenSearch {
   ): void;
   deleteDirectQueryDataSource(
     args: DeleteDirectQueryDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DeleteDirectQueryDataSourceCommandOutput) => void
   ): void;
 
@@ -932,7 +944,7 @@ export interface OpenSearch {
    */
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DeleteDomainCommandOutput>;
   deleteDomain(
     args: DeleteDomainCommandInput,
@@ -940,7 +952,7 @@ export interface OpenSearch {
   ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
   ): void;
 
@@ -949,7 +961,7 @@ export interface OpenSearch {
    */
   deleteInboundConnection(
     args: DeleteInboundConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DeleteInboundConnectionCommandOutput>;
   deleteInboundConnection(
     args: DeleteInboundConnectionCommandInput,
@@ -957,7 +969,7 @@ export interface OpenSearch {
   ): void;
   deleteInboundConnection(
     args: DeleteInboundConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DeleteInboundConnectionCommandOutput) => void
   ): void;
 
@@ -966,7 +978,7 @@ export interface OpenSearch {
    */
   deleteIndex(
     args: DeleteIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DeleteIndexCommandOutput>;
   deleteIndex(
     args: DeleteIndexCommandInput,
@@ -974,7 +986,7 @@ export interface OpenSearch {
   ): void;
   deleteIndex(
     args: DeleteIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DeleteIndexCommandOutput) => void
   ): void;
 
@@ -983,7 +995,7 @@ export interface OpenSearch {
    */
   deleteOutboundConnection(
     args: DeleteOutboundConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DeleteOutboundConnectionCommandOutput>;
   deleteOutboundConnection(
     args: DeleteOutboundConnectionCommandInput,
@@ -991,7 +1003,7 @@ export interface OpenSearch {
   ): void;
   deleteOutboundConnection(
     args: DeleteOutboundConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DeleteOutboundConnectionCommandOutput) => void
   ): void;
 
@@ -1000,7 +1012,7 @@ export interface OpenSearch {
    */
   deletePackage(
     args: DeletePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DeletePackageCommandOutput>;
   deletePackage(
     args: DeletePackageCommandInput,
@@ -1008,7 +1020,7 @@ export interface OpenSearch {
   ): void;
   deletePackage(
     args: DeletePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DeletePackageCommandOutput) => void
   ): void;
 
@@ -1017,7 +1029,7 @@ export interface OpenSearch {
    */
   deleteVpcEndpoint(
     args: DeleteVpcEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DeleteVpcEndpointCommandOutput>;
   deleteVpcEndpoint(
     args: DeleteVpcEndpointCommandInput,
@@ -1025,7 +1037,7 @@ export interface OpenSearch {
   ): void;
   deleteVpcEndpoint(
     args: DeleteVpcEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
   ): void;
 
@@ -1034,7 +1046,7 @@ export interface OpenSearch {
    */
   deregisterCapability(
     args: DeregisterCapabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DeregisterCapabilityCommandOutput>;
   deregisterCapability(
     args: DeregisterCapabilityCommandInput,
@@ -1042,7 +1054,7 @@ export interface OpenSearch {
   ): void;
   deregisterCapability(
     args: DeregisterCapabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DeregisterCapabilityCommandOutput) => void
   ): void;
 
@@ -1051,7 +1063,7 @@ export interface OpenSearch {
    */
   describeDataSourceAttachment(
     args: DescribeDataSourceAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeDataSourceAttachmentCommandOutput>;
   describeDataSourceAttachment(
     args: DescribeDataSourceAttachmentCommandInput,
@@ -1059,7 +1071,7 @@ export interface OpenSearch {
   ): void;
   describeDataSourceAttachment(
     args: DescribeDataSourceAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeDataSourceAttachmentCommandOutput) => void
   ): void;
 
@@ -1068,7 +1080,7 @@ export interface OpenSearch {
    */
   describeDomain(
     args: DescribeDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeDomainCommandOutput>;
   describeDomain(
     args: DescribeDomainCommandInput,
@@ -1076,7 +1088,7 @@ export interface OpenSearch {
   ): void;
   describeDomain(
     args: DescribeDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeDomainCommandOutput) => void
   ): void;
 
@@ -1085,7 +1097,7 @@ export interface OpenSearch {
    */
   describeDomainAutoTunes(
     args: DescribeDomainAutoTunesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeDomainAutoTunesCommandOutput>;
   describeDomainAutoTunes(
     args: DescribeDomainAutoTunesCommandInput,
@@ -1093,7 +1105,7 @@ export interface OpenSearch {
   ): void;
   describeDomainAutoTunes(
     args: DescribeDomainAutoTunesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeDomainAutoTunesCommandOutput) => void
   ): void;
 
@@ -1102,7 +1114,7 @@ export interface OpenSearch {
    */
   describeDomainChangeProgress(
     args: DescribeDomainChangeProgressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeDomainChangeProgressCommandOutput>;
   describeDomainChangeProgress(
     args: DescribeDomainChangeProgressCommandInput,
@@ -1110,7 +1122,7 @@ export interface OpenSearch {
   ): void;
   describeDomainChangeProgress(
     args: DescribeDomainChangeProgressCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeDomainChangeProgressCommandOutput) => void
   ): void;
 
@@ -1119,7 +1131,7 @@ export interface OpenSearch {
    */
   describeDomainConfig(
     args: DescribeDomainConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeDomainConfigCommandOutput>;
   describeDomainConfig(
     args: DescribeDomainConfigCommandInput,
@@ -1127,7 +1139,7 @@ export interface OpenSearch {
   ): void;
   describeDomainConfig(
     args: DescribeDomainConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeDomainConfigCommandOutput) => void
   ): void;
 
@@ -1136,7 +1148,7 @@ export interface OpenSearch {
    */
   describeDomainHealth(
     args: DescribeDomainHealthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeDomainHealthCommandOutput>;
   describeDomainHealth(
     args: DescribeDomainHealthCommandInput,
@@ -1144,7 +1156,7 @@ export interface OpenSearch {
   ): void;
   describeDomainHealth(
     args: DescribeDomainHealthCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeDomainHealthCommandOutput) => void
   ): void;
 
@@ -1153,7 +1165,7 @@ export interface OpenSearch {
    */
   describeDomainNodes(
     args: DescribeDomainNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeDomainNodesCommandOutput>;
   describeDomainNodes(
     args: DescribeDomainNodesCommandInput,
@@ -1161,7 +1173,7 @@ export interface OpenSearch {
   ): void;
   describeDomainNodes(
     args: DescribeDomainNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeDomainNodesCommandOutput) => void
   ): void;
 
@@ -1170,7 +1182,7 @@ export interface OpenSearch {
    */
   describeDomains(
     args: DescribeDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeDomainsCommandOutput>;
   describeDomains(
     args: DescribeDomainsCommandInput,
@@ -1178,7 +1190,7 @@ export interface OpenSearch {
   ): void;
   describeDomains(
     args: DescribeDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeDomainsCommandOutput) => void
   ): void;
 
@@ -1187,7 +1199,7 @@ export interface OpenSearch {
    */
   describeDryRunProgress(
     args: DescribeDryRunProgressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeDryRunProgressCommandOutput>;
   describeDryRunProgress(
     args: DescribeDryRunProgressCommandInput,
@@ -1195,7 +1207,7 @@ export interface OpenSearch {
   ): void;
   describeDryRunProgress(
     args: DescribeDryRunProgressCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
   ): void;
 
@@ -1205,7 +1217,7 @@ export interface OpenSearch {
   describeInboundConnections(): Promise<DescribeInboundConnectionsCommandOutput>;
   describeInboundConnections(
     args: DescribeInboundConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeInboundConnectionsCommandOutput>;
   describeInboundConnections(
     args: DescribeInboundConnectionsCommandInput,
@@ -1213,7 +1225,7 @@ export interface OpenSearch {
   ): void;
   describeInboundConnections(
     args: DescribeInboundConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeInboundConnectionsCommandOutput) => void
   ): void;
 
@@ -1222,7 +1234,7 @@ export interface OpenSearch {
    */
   describeInsightDetails(
     args: DescribeInsightDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeInsightDetailsCommandOutput>;
   describeInsightDetails(
     args: DescribeInsightDetailsCommandInput,
@@ -1230,7 +1242,7 @@ export interface OpenSearch {
   ): void;
   describeInsightDetails(
     args: DescribeInsightDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeInsightDetailsCommandOutput) => void
   ): void;
 
@@ -1239,7 +1251,7 @@ export interface OpenSearch {
    */
   describeInstanceTypeLimits(
     args: DescribeInstanceTypeLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeInstanceTypeLimitsCommandOutput>;
   describeInstanceTypeLimits(
     args: DescribeInstanceTypeLimitsCommandInput,
@@ -1247,7 +1259,7 @@ export interface OpenSearch {
   ): void;
   describeInstanceTypeLimits(
     args: DescribeInstanceTypeLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeInstanceTypeLimitsCommandOutput) => void
   ): void;
 
@@ -1257,7 +1269,7 @@ export interface OpenSearch {
   describeOutboundConnections(): Promise<DescribeOutboundConnectionsCommandOutput>;
   describeOutboundConnections(
     args: DescribeOutboundConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeOutboundConnectionsCommandOutput>;
   describeOutboundConnections(
     args: DescribeOutboundConnectionsCommandInput,
@@ -1265,7 +1277,7 @@ export interface OpenSearch {
   ): void;
   describeOutboundConnections(
     args: DescribeOutboundConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeOutboundConnectionsCommandOutput) => void
   ): void;
 
@@ -1275,7 +1287,7 @@ export interface OpenSearch {
   describePackages(): Promise<DescribePackagesCommandOutput>;
   describePackages(
     args: DescribePackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribePackagesCommandOutput>;
   describePackages(
     args: DescribePackagesCommandInput,
@@ -1283,7 +1295,7 @@ export interface OpenSearch {
   ): void;
   describePackages(
     args: DescribePackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribePackagesCommandOutput) => void
   ): void;
 
@@ -1293,7 +1305,7 @@ export interface OpenSearch {
   describeReservedInstanceOfferings(): Promise<DescribeReservedInstanceOfferingsCommandOutput>;
   describeReservedInstanceOfferings(
     args: DescribeReservedInstanceOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeReservedInstanceOfferingsCommandOutput>;
   describeReservedInstanceOfferings(
     args: DescribeReservedInstanceOfferingsCommandInput,
@@ -1301,7 +1313,7 @@ export interface OpenSearch {
   ): void;
   describeReservedInstanceOfferings(
     args: DescribeReservedInstanceOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeReservedInstanceOfferingsCommandOutput) => void
   ): void;
 
@@ -1311,7 +1323,7 @@ export interface OpenSearch {
   describeReservedInstances(): Promise<DescribeReservedInstancesCommandOutput>;
   describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeReservedInstancesCommandOutput>;
   describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
@@ -1319,7 +1331,7 @@ export interface OpenSearch {
   ): void;
   describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeReservedInstancesCommandOutput) => void
   ): void;
 
@@ -1328,7 +1340,7 @@ export interface OpenSearch {
    */
   describeVpcEndpoints(
     args: DescribeVpcEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DescribeVpcEndpointsCommandOutput>;
   describeVpcEndpoints(
     args: DescribeVpcEndpointsCommandInput,
@@ -1336,7 +1348,7 @@ export interface OpenSearch {
   ): void;
   describeVpcEndpoints(
     args: DescribeVpcEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
   ): void;
 
@@ -1345,7 +1357,7 @@ export interface OpenSearch {
    */
   detachDataSource(
     args: DetachDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DetachDataSourceCommandOutput>;
   detachDataSource(
     args: DetachDataSourceCommandInput,
@@ -1353,7 +1365,7 @@ export interface OpenSearch {
   ): void;
   detachDataSource(
     args: DetachDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DetachDataSourceCommandOutput) => void
   ): void;
 
@@ -1362,7 +1374,7 @@ export interface OpenSearch {
    */
   dissociatePackage(
     args: DissociatePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DissociatePackageCommandOutput>;
   dissociatePackage(
     args: DissociatePackageCommandInput,
@@ -1370,7 +1382,7 @@ export interface OpenSearch {
   ): void;
   dissociatePackage(
     args: DissociatePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DissociatePackageCommandOutput) => void
   ): void;
 
@@ -1379,7 +1391,7 @@ export interface OpenSearch {
    */
   dissociatePackages(
     args: DissociatePackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<DissociatePackagesCommandOutput>;
   dissociatePackages(
     args: DissociatePackagesCommandInput,
@@ -1387,7 +1399,7 @@ export interface OpenSearch {
   ): void;
   dissociatePackages(
     args: DissociatePackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: DissociatePackagesCommandOutput) => void
   ): void;
 
@@ -1396,7 +1408,7 @@ export interface OpenSearch {
    */
   getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetApplicationCommandOutput>;
   getApplication(
     args: GetApplicationCommandInput,
@@ -1404,7 +1416,7 @@ export interface OpenSearch {
   ): void;
   getApplication(
     args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetApplicationCommandOutput) => void
   ): void;
 
@@ -1413,7 +1425,7 @@ export interface OpenSearch {
    */
   getCapability(
     args: GetCapabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetCapabilityCommandOutput>;
   getCapability(
     args: GetCapabilityCommandInput,
@@ -1421,7 +1433,7 @@ export interface OpenSearch {
   ): void;
   getCapability(
     args: GetCapabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetCapabilityCommandOutput) => void
   ): void;
 
@@ -1431,7 +1443,7 @@ export interface OpenSearch {
   getCompatibleVersions(): Promise<GetCompatibleVersionsCommandOutput>;
   getCompatibleVersions(
     args: GetCompatibleVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetCompatibleVersionsCommandOutput>;
   getCompatibleVersions(
     args: GetCompatibleVersionsCommandInput,
@@ -1439,7 +1451,7 @@ export interface OpenSearch {
   ): void;
   getCompatibleVersions(
     args: GetCompatibleVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetCompatibleVersionsCommandOutput) => void
   ): void;
 
@@ -1448,7 +1460,7 @@ export interface OpenSearch {
    */
   getDataSource(
     args: GetDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetDataSourceCommandOutput>;
   getDataSource(
     args: GetDataSourceCommandInput,
@@ -1456,7 +1468,7 @@ export interface OpenSearch {
   ): void;
   getDataSource(
     args: GetDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetDataSourceCommandOutput) => void
   ): void;
 
@@ -1466,7 +1478,7 @@ export interface OpenSearch {
   getDefaultApplicationSetting(): Promise<GetDefaultApplicationSettingCommandOutput>;
   getDefaultApplicationSetting(
     args: GetDefaultApplicationSettingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetDefaultApplicationSettingCommandOutput>;
   getDefaultApplicationSetting(
     args: GetDefaultApplicationSettingCommandInput,
@@ -1474,7 +1486,7 @@ export interface OpenSearch {
   ): void;
   getDefaultApplicationSetting(
     args: GetDefaultApplicationSettingCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetDefaultApplicationSettingCommandOutput) => void
   ): void;
 
@@ -1483,7 +1495,7 @@ export interface OpenSearch {
    */
   getDirectQueryDataSource(
     args: GetDirectQueryDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetDirectQueryDataSourceCommandOutput>;
   getDirectQueryDataSource(
     args: GetDirectQueryDataSourceCommandInput,
@@ -1491,7 +1503,7 @@ export interface OpenSearch {
   ): void;
   getDirectQueryDataSource(
     args: GetDirectQueryDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetDirectQueryDataSourceCommandOutput) => void
   ): void;
 
@@ -1500,7 +1512,7 @@ export interface OpenSearch {
    */
   getDomainMaintenanceStatus(
     args: GetDomainMaintenanceStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetDomainMaintenanceStatusCommandOutput>;
   getDomainMaintenanceStatus(
     args: GetDomainMaintenanceStatusCommandInput,
@@ -1508,7 +1520,7 @@ export interface OpenSearch {
   ): void;
   getDomainMaintenanceStatus(
     args: GetDomainMaintenanceStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetDomainMaintenanceStatusCommandOutput) => void
   ): void;
 
@@ -1517,7 +1529,7 @@ export interface OpenSearch {
    */
   getIndex(
     args: GetIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetIndexCommandOutput>;
   getIndex(
     args: GetIndexCommandInput,
@@ -1525,7 +1537,7 @@ export interface OpenSearch {
   ): void;
   getIndex(
     args: GetIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetIndexCommandOutput) => void
   ): void;
 
@@ -1534,7 +1546,7 @@ export interface OpenSearch {
    */
   getMigration(
     args: GetMigrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetMigrationCommandOutput>;
   getMigration(
     args: GetMigrationCommandInput,
@@ -1542,7 +1554,7 @@ export interface OpenSearch {
   ): void;
   getMigration(
     args: GetMigrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetMigrationCommandOutput) => void
   ): void;
 
@@ -1551,7 +1563,7 @@ export interface OpenSearch {
    */
   getPackageVersionHistory(
     args: GetPackageVersionHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetPackageVersionHistoryCommandOutput>;
   getPackageVersionHistory(
     args: GetPackageVersionHistoryCommandInput,
@@ -1559,7 +1571,7 @@ export interface OpenSearch {
   ): void;
   getPackageVersionHistory(
     args: GetPackageVersionHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetPackageVersionHistoryCommandOutput) => void
   ): void;
 
@@ -1568,7 +1580,7 @@ export interface OpenSearch {
    */
   getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetUpgradeHistoryCommandOutput>;
   getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
@@ -1576,7 +1588,7 @@ export interface OpenSearch {
   ): void;
   getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
   ): void;
 
@@ -1585,7 +1597,7 @@ export interface OpenSearch {
    */
   getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<GetUpgradeStatusCommandOutput>;
   getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
@@ -1593,7 +1605,7 @@ export interface OpenSearch {
   ): void;
   getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
   ): void;
 
@@ -1602,7 +1614,7 @@ export interface OpenSearch {
    */
   insightFeedback(
     args: InsightFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<InsightFeedbackCommandOutput>;
   insightFeedback(
     args: InsightFeedbackCommandInput,
@@ -1610,7 +1622,7 @@ export interface OpenSearch {
   ): void;
   insightFeedback(
     args: InsightFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: InsightFeedbackCommandOutput) => void
   ): void;
 
@@ -1620,7 +1632,7 @@ export interface OpenSearch {
   listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -1628,7 +1640,7 @@ export interface OpenSearch {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -1637,7 +1649,7 @@ export interface OpenSearch {
    */
   listDataSourceAttachments(
     args: ListDataSourceAttachmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListDataSourceAttachmentsCommandOutput>;
   listDataSourceAttachments(
     args: ListDataSourceAttachmentsCommandInput,
@@ -1645,7 +1657,7 @@ export interface OpenSearch {
   ): void;
   listDataSourceAttachments(
     args: ListDataSourceAttachmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListDataSourceAttachmentsCommandOutput) => void
   ): void;
 
@@ -1654,7 +1666,7 @@ export interface OpenSearch {
    */
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListDataSourcesCommandOutput>;
   listDataSources(
     args: ListDataSourcesCommandInput,
@@ -1662,7 +1674,7 @@ export interface OpenSearch {
   ): void;
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): void;
 
@@ -1672,7 +1684,7 @@ export interface OpenSearch {
   listDirectQueryDataSources(): Promise<ListDirectQueryDataSourcesCommandOutput>;
   listDirectQueryDataSources(
     args: ListDirectQueryDataSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListDirectQueryDataSourcesCommandOutput>;
   listDirectQueryDataSources(
     args: ListDirectQueryDataSourcesCommandInput,
@@ -1680,7 +1692,7 @@ export interface OpenSearch {
   ): void;
   listDirectQueryDataSources(
     args: ListDirectQueryDataSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListDirectQueryDataSourcesCommandOutput) => void
   ): void;
 
@@ -1689,7 +1701,7 @@ export interface OpenSearch {
    */
   listDomainMaintenances(
     args: ListDomainMaintenancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListDomainMaintenancesCommandOutput>;
   listDomainMaintenances(
     args: ListDomainMaintenancesCommandInput,
@@ -1697,7 +1709,7 @@ export interface OpenSearch {
   ): void;
   listDomainMaintenances(
     args: ListDomainMaintenancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListDomainMaintenancesCommandOutput) => void
   ): void;
 
@@ -1707,7 +1719,7 @@ export interface OpenSearch {
   listDomainNames(): Promise<ListDomainNamesCommandOutput>;
   listDomainNames(
     args: ListDomainNamesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListDomainNamesCommandOutput>;
   listDomainNames(
     args: ListDomainNamesCommandInput,
@@ -1715,7 +1727,7 @@ export interface OpenSearch {
   ): void;
   listDomainNames(
     args: ListDomainNamesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListDomainNamesCommandOutput) => void
   ): void;
 
@@ -1724,7 +1736,7 @@ export interface OpenSearch {
    */
   listDomainsForPackage(
     args: ListDomainsForPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListDomainsForPackageCommandOutput>;
   listDomainsForPackage(
     args: ListDomainsForPackageCommandInput,
@@ -1732,7 +1744,7 @@ export interface OpenSearch {
   ): void;
   listDomainsForPackage(
     args: ListDomainsForPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListDomainsForPackageCommandOutput) => void
   ): void;
 
@@ -1741,7 +1753,7 @@ export interface OpenSearch {
    */
   listInsights(
     args: ListInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListInsightsCommandOutput>;
   listInsights(
     args: ListInsightsCommandInput,
@@ -1749,7 +1761,7 @@ export interface OpenSearch {
   ): void;
   listInsights(
     args: ListInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListInsightsCommandOutput) => void
   ): void;
 
@@ -1758,7 +1770,7 @@ export interface OpenSearch {
    */
   listInstanceTypeDetails(
     args: ListInstanceTypeDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListInstanceTypeDetailsCommandOutput>;
   listInstanceTypeDetails(
     args: ListInstanceTypeDetailsCommandInput,
@@ -1766,7 +1778,7 @@ export interface OpenSearch {
   ): void;
   listInstanceTypeDetails(
     args: ListInstanceTypeDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListInstanceTypeDetailsCommandOutput) => void
   ): void;
 
@@ -1775,7 +1787,7 @@ export interface OpenSearch {
    */
   listMigrations(
     args: ListMigrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListMigrationsCommandOutput>;
   listMigrations(
     args: ListMigrationsCommandInput,
@@ -1783,7 +1795,7 @@ export interface OpenSearch {
   ): void;
   listMigrations(
     args: ListMigrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListMigrationsCommandOutput) => void
   ): void;
 
@@ -1792,7 +1804,7 @@ export interface OpenSearch {
    */
   listPackagesForDomain(
     args: ListPackagesForDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListPackagesForDomainCommandOutput>;
   listPackagesForDomain(
     args: ListPackagesForDomainCommandInput,
@@ -1800,7 +1812,7 @@ export interface OpenSearch {
   ): void;
   listPackagesForDomain(
     args: ListPackagesForDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListPackagesForDomainCommandOutput) => void
   ): void;
 
@@ -1809,7 +1821,7 @@ export interface OpenSearch {
    */
   listScheduledActions(
     args: ListScheduledActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListScheduledActionsCommandOutput>;
   listScheduledActions(
     args: ListScheduledActionsCommandInput,
@@ -1817,7 +1829,7 @@ export interface OpenSearch {
   ): void;
   listScheduledActions(
     args: ListScheduledActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListScheduledActionsCommandOutput) => void
   ): void;
 
@@ -1826,7 +1838,7 @@ export interface OpenSearch {
    */
   listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListTagsCommandOutput>;
   listTags(
     args: ListTagsCommandInput,
@@ -1834,7 +1846,7 @@ export interface OpenSearch {
   ): void;
   listTags(
     args: ListTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListTagsCommandOutput) => void
   ): void;
 
@@ -1844,7 +1856,7 @@ export interface OpenSearch {
   listVersions(): Promise<ListVersionsCommandOutput>;
   listVersions(
     args: ListVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListVersionsCommandOutput>;
   listVersions(
     args: ListVersionsCommandInput,
@@ -1852,7 +1864,7 @@ export interface OpenSearch {
   ): void;
   listVersions(
     args: ListVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListVersionsCommandOutput) => void
   ): void;
 
@@ -1861,7 +1873,7 @@ export interface OpenSearch {
    */
   listVpcEndpointAccess(
     args: ListVpcEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListVpcEndpointAccessCommandOutput>;
   listVpcEndpointAccess(
     args: ListVpcEndpointAccessCommandInput,
@@ -1869,7 +1881,7 @@ export interface OpenSearch {
   ): void;
   listVpcEndpointAccess(
     args: ListVpcEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListVpcEndpointAccessCommandOutput) => void
   ): void;
 
@@ -1879,7 +1891,7 @@ export interface OpenSearch {
   listVpcEndpoints(): Promise<ListVpcEndpointsCommandOutput>;
   listVpcEndpoints(
     args: ListVpcEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListVpcEndpointsCommandOutput>;
   listVpcEndpoints(
     args: ListVpcEndpointsCommandInput,
@@ -1887,7 +1899,7 @@ export interface OpenSearch {
   ): void;
   listVpcEndpoints(
     args: ListVpcEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
   ): void;
 
@@ -1896,7 +1908,7 @@ export interface OpenSearch {
    */
   listVpcEndpointsForDomain(
     args: ListVpcEndpointsForDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<ListVpcEndpointsForDomainCommandOutput>;
   listVpcEndpointsForDomain(
     args: ListVpcEndpointsForDomainCommandInput,
@@ -1904,7 +1916,7 @@ export interface OpenSearch {
   ): void;
   listVpcEndpointsForDomain(
     args: ListVpcEndpointsForDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void
   ): void;
 
@@ -1913,7 +1925,7 @@ export interface OpenSearch {
    */
   purchaseReservedInstanceOffering(
     args: PurchaseReservedInstanceOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<PurchaseReservedInstanceOfferingCommandOutput>;
   purchaseReservedInstanceOffering(
     args: PurchaseReservedInstanceOfferingCommandInput,
@@ -1921,7 +1933,7 @@ export interface OpenSearch {
   ): void;
   purchaseReservedInstanceOffering(
     args: PurchaseReservedInstanceOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: PurchaseReservedInstanceOfferingCommandOutput) => void
   ): void;
 
@@ -1930,7 +1942,7 @@ export interface OpenSearch {
    */
   putDefaultApplicationSetting(
     args: PutDefaultApplicationSettingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<PutDefaultApplicationSettingCommandOutput>;
   putDefaultApplicationSetting(
     args: PutDefaultApplicationSettingCommandInput,
@@ -1938,7 +1950,7 @@ export interface OpenSearch {
   ): void;
   putDefaultApplicationSetting(
     args: PutDefaultApplicationSettingCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: PutDefaultApplicationSettingCommandOutput) => void
   ): void;
 
@@ -1947,7 +1959,7 @@ export interface OpenSearch {
    */
   registerCapability(
     args: RegisterCapabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<RegisterCapabilityCommandOutput>;
   registerCapability(
     args: RegisterCapabilityCommandInput,
@@ -1955,7 +1967,7 @@ export interface OpenSearch {
   ): void;
   registerCapability(
     args: RegisterCapabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: RegisterCapabilityCommandOutput) => void
   ): void;
 
@@ -1964,7 +1976,7 @@ export interface OpenSearch {
    */
   rejectInboundConnection(
     args: RejectInboundConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<RejectInboundConnectionCommandOutput>;
   rejectInboundConnection(
     args: RejectInboundConnectionCommandInput,
@@ -1972,7 +1984,7 @@ export interface OpenSearch {
   ): void;
   rejectInboundConnection(
     args: RejectInboundConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: RejectInboundConnectionCommandOutput) => void
   ): void;
 
@@ -1981,7 +1993,7 @@ export interface OpenSearch {
    */
   removeTags(
     args: RemoveTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<RemoveTagsCommandOutput>;
   removeTags(
     args: RemoveTagsCommandInput,
@@ -1989,7 +2001,7 @@ export interface OpenSearch {
   ): void;
   removeTags(
     args: RemoveTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: RemoveTagsCommandOutput) => void
   ): void;
 
@@ -1998,7 +2010,7 @@ export interface OpenSearch {
    */
   revokeVpcEndpointAccess(
     args: RevokeVpcEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<RevokeVpcEndpointAccessCommandOutput>;
   revokeVpcEndpointAccess(
     args: RevokeVpcEndpointAccessCommandInput,
@@ -2006,7 +2018,7 @@ export interface OpenSearch {
   ): void;
   revokeVpcEndpointAccess(
     args: RevokeVpcEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
   ): void;
 
@@ -2015,7 +2027,7 @@ export interface OpenSearch {
    */
   rollbackServiceSoftwareUpdate(
     args: RollbackServiceSoftwareUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<RollbackServiceSoftwareUpdateCommandOutput>;
   rollbackServiceSoftwareUpdate(
     args: RollbackServiceSoftwareUpdateCommandInput,
@@ -2023,7 +2035,7 @@ export interface OpenSearch {
   ): void;
   rollbackServiceSoftwareUpdate(
     args: RollbackServiceSoftwareUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: RollbackServiceSoftwareUpdateCommandOutput) => void
   ): void;
 
@@ -2032,7 +2044,7 @@ export interface OpenSearch {
    */
   startDomainMaintenance(
     args: StartDomainMaintenanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<StartDomainMaintenanceCommandOutput>;
   startDomainMaintenance(
     args: StartDomainMaintenanceCommandInput,
@@ -2040,7 +2052,7 @@ export interface OpenSearch {
   ): void;
   startDomainMaintenance(
     args: StartDomainMaintenanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: StartDomainMaintenanceCommandOutput) => void
   ): void;
 
@@ -2049,7 +2061,7 @@ export interface OpenSearch {
    */
   startMigration(
     args: StartMigrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<StartMigrationCommandOutput>;
   startMigration(
     args: StartMigrationCommandInput,
@@ -2057,7 +2069,7 @@ export interface OpenSearch {
   ): void;
   startMigration(
     args: StartMigrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: StartMigrationCommandOutput) => void
   ): void;
 
@@ -2066,7 +2078,7 @@ export interface OpenSearch {
    */
   startServiceSoftwareUpdate(
     args: StartServiceSoftwareUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<StartServiceSoftwareUpdateCommandOutput>;
   startServiceSoftwareUpdate(
     args: StartServiceSoftwareUpdateCommandInput,
@@ -2074,7 +2086,7 @@ export interface OpenSearch {
   ): void;
   startServiceSoftwareUpdate(
     args: StartServiceSoftwareUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: StartServiceSoftwareUpdateCommandOutput) => void
   ): void;
 
@@ -2083,7 +2095,7 @@ export interface OpenSearch {
    */
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
@@ -2091,7 +2103,7 @@ export interface OpenSearch {
   ): void;
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 
@@ -2100,7 +2112,7 @@ export interface OpenSearch {
    */
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<UpdateDataSourceCommandOutput>;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -2108,7 +2120,7 @@ export interface OpenSearch {
   ): void;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): void;
 
@@ -2117,7 +2129,7 @@ export interface OpenSearch {
    */
   updateDirectQueryDataSource(
     args: UpdateDirectQueryDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<UpdateDirectQueryDataSourceCommandOutput>;
   updateDirectQueryDataSource(
     args: UpdateDirectQueryDataSourceCommandInput,
@@ -2125,7 +2137,7 @@ export interface OpenSearch {
   ): void;
   updateDirectQueryDataSource(
     args: UpdateDirectQueryDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: UpdateDirectQueryDataSourceCommandOutput) => void
   ): void;
 
@@ -2134,7 +2146,7 @@ export interface OpenSearch {
    */
   updateDomainConfig(
     args: UpdateDomainConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<UpdateDomainConfigCommandOutput>;
   updateDomainConfig(
     args: UpdateDomainConfigCommandInput,
@@ -2142,7 +2154,7 @@ export interface OpenSearch {
   ): void;
   updateDomainConfig(
     args: UpdateDomainConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: UpdateDomainConfigCommandOutput) => void
   ): void;
 
@@ -2151,7 +2163,7 @@ export interface OpenSearch {
    */
   updateIndex(
     args: UpdateIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<UpdateIndexCommandOutput>;
   updateIndex(
     args: UpdateIndexCommandInput,
@@ -2159,7 +2171,7 @@ export interface OpenSearch {
   ): void;
   updateIndex(
     args: UpdateIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: UpdateIndexCommandOutput) => void
   ): void;
 
@@ -2168,7 +2180,7 @@ export interface OpenSearch {
    */
   updatePackage(
     args: UpdatePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<UpdatePackageCommandOutput>;
   updatePackage(
     args: UpdatePackageCommandInput,
@@ -2176,7 +2188,7 @@ export interface OpenSearch {
   ): void;
   updatePackage(
     args: UpdatePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: UpdatePackageCommandOutput) => void
   ): void;
 
@@ -2185,7 +2197,7 @@ export interface OpenSearch {
    */
   updatePackageScope(
     args: UpdatePackageScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<UpdatePackageScopeCommandOutput>;
   updatePackageScope(
     args: UpdatePackageScopeCommandInput,
@@ -2193,7 +2205,7 @@ export interface OpenSearch {
   ): void;
   updatePackageScope(
     args: UpdatePackageScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: UpdatePackageScopeCommandOutput) => void
   ): void;
 
@@ -2202,7 +2214,7 @@ export interface OpenSearch {
    */
   updateScheduledAction(
     args: UpdateScheduledActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<UpdateScheduledActionCommandOutput>;
   updateScheduledAction(
     args: UpdateScheduledActionCommandInput,
@@ -2210,7 +2222,7 @@ export interface OpenSearch {
   ): void;
   updateScheduledAction(
     args: UpdateScheduledActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: UpdateScheduledActionCommandOutput) => void
   ): void;
 
@@ -2219,7 +2231,7 @@ export interface OpenSearch {
    */
   updateVpcEndpoint(
     args: UpdateVpcEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<UpdateVpcEndpointCommandOutput>;
   updateVpcEndpoint(
     args: UpdateVpcEndpointCommandInput,
@@ -2227,7 +2239,7 @@ export interface OpenSearch {
   ): void;
   updateVpcEndpoint(
     args: UpdateVpcEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
   ): void;
 
@@ -2236,7 +2248,7 @@ export interface OpenSearch {
    */
   upgradeDomain(
     args: UpgradeDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OpenSearchRequestOptions
   ): Promise<UpgradeDomainCommandOutput>;
   upgradeDomain(
     args: UpgradeDomainCommandInput,
@@ -2244,7 +2256,7 @@ export interface OpenSearch {
   ): void;
   upgradeDomain(
     args: UpgradeDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: OpenSearchRequestOptions,
     cb: (err: any, data?: UpgradeDomainCommandOutput) => void
   ): void;
 

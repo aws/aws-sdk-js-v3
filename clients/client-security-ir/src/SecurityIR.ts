@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchGetMemberAccountDetailsCommandInput,
@@ -151,13 +156,20 @@ const paginators = {
   paginateListMemberships,
 };
 
+/**
+ * @public
+ */
+export interface SecurityIRRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SecurityIR {
   /**
    * @see {@link BatchGetMemberAccountDetailsCommand}
    */
   batchGetMemberAccountDetails(
     args: BatchGetMemberAccountDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<BatchGetMemberAccountDetailsCommandOutput>;
   batchGetMemberAccountDetails(
     args: BatchGetMemberAccountDetailsCommandInput,
@@ -165,7 +177,7 @@ export interface SecurityIR {
   ): void;
   batchGetMemberAccountDetails(
     args: BatchGetMemberAccountDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: BatchGetMemberAccountDetailsCommandOutput) => void
   ): void;
 
@@ -174,7 +186,7 @@ export interface SecurityIR {
    */
   cancelMembership(
     args: CancelMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<CancelMembershipCommandOutput>;
   cancelMembership(
     args: CancelMembershipCommandInput,
@@ -182,7 +194,7 @@ export interface SecurityIR {
   ): void;
   cancelMembership(
     args: CancelMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: CancelMembershipCommandOutput) => void
   ): void;
 
@@ -191,7 +203,7 @@ export interface SecurityIR {
    */
   closeCase(
     args: CloseCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<CloseCaseCommandOutput>;
   closeCase(
     args: CloseCaseCommandInput,
@@ -199,7 +211,7 @@ export interface SecurityIR {
   ): void;
   closeCase(
     args: CloseCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: CloseCaseCommandOutput) => void
   ): void;
 
@@ -208,7 +220,7 @@ export interface SecurityIR {
    */
   createCase(
     args: CreateCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<CreateCaseCommandOutput>;
   createCase(
     args: CreateCaseCommandInput,
@@ -216,7 +228,7 @@ export interface SecurityIR {
   ): void;
   createCase(
     args: CreateCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: CreateCaseCommandOutput) => void
   ): void;
 
@@ -225,7 +237,7 @@ export interface SecurityIR {
    */
   createCaseComment(
     args: CreateCaseCommentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<CreateCaseCommentCommandOutput>;
   createCaseComment(
     args: CreateCaseCommentCommandInput,
@@ -233,7 +245,7 @@ export interface SecurityIR {
   ): void;
   createCaseComment(
     args: CreateCaseCommentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: CreateCaseCommentCommandOutput) => void
   ): void;
 
@@ -242,7 +254,7 @@ export interface SecurityIR {
    */
   createMembership(
     args: CreateMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<CreateMembershipCommandOutput>;
   createMembership(
     args: CreateMembershipCommandInput,
@@ -250,7 +262,7 @@ export interface SecurityIR {
   ): void;
   createMembership(
     args: CreateMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: CreateMembershipCommandOutput) => void
   ): void;
 
@@ -259,7 +271,7 @@ export interface SecurityIR {
    */
   getCase(
     args: GetCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<GetCaseCommandOutput>;
   getCase(
     args: GetCaseCommandInput,
@@ -267,7 +279,7 @@ export interface SecurityIR {
   ): void;
   getCase(
     args: GetCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: GetCaseCommandOutput) => void
   ): void;
 
@@ -276,7 +288,7 @@ export interface SecurityIR {
    */
   getCaseAttachmentDownloadUrl(
     args: GetCaseAttachmentDownloadUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<GetCaseAttachmentDownloadUrlCommandOutput>;
   getCaseAttachmentDownloadUrl(
     args: GetCaseAttachmentDownloadUrlCommandInput,
@@ -284,7 +296,7 @@ export interface SecurityIR {
   ): void;
   getCaseAttachmentDownloadUrl(
     args: GetCaseAttachmentDownloadUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: GetCaseAttachmentDownloadUrlCommandOutput) => void
   ): void;
 
@@ -293,7 +305,7 @@ export interface SecurityIR {
    */
   getCaseAttachmentUploadUrl(
     args: GetCaseAttachmentUploadUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<GetCaseAttachmentUploadUrlCommandOutput>;
   getCaseAttachmentUploadUrl(
     args: GetCaseAttachmentUploadUrlCommandInput,
@@ -301,7 +313,7 @@ export interface SecurityIR {
   ): void;
   getCaseAttachmentUploadUrl(
     args: GetCaseAttachmentUploadUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: GetCaseAttachmentUploadUrlCommandOutput) => void
   ): void;
 
@@ -310,7 +322,7 @@ export interface SecurityIR {
    */
   getMembership(
     args: GetMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<GetMembershipCommandOutput>;
   getMembership(
     args: GetMembershipCommandInput,
@@ -318,7 +330,7 @@ export interface SecurityIR {
   ): void;
   getMembership(
     args: GetMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: GetMembershipCommandOutput) => void
   ): void;
 
@@ -327,7 +339,7 @@ export interface SecurityIR {
    */
   listCaseEdits(
     args: ListCaseEditsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<ListCaseEditsCommandOutput>;
   listCaseEdits(
     args: ListCaseEditsCommandInput,
@@ -335,7 +347,7 @@ export interface SecurityIR {
   ): void;
   listCaseEdits(
     args: ListCaseEditsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: ListCaseEditsCommandOutput) => void
   ): void;
 
@@ -345,7 +357,7 @@ export interface SecurityIR {
   listCases(): Promise<ListCasesCommandOutput>;
   listCases(
     args: ListCasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<ListCasesCommandOutput>;
   listCases(
     args: ListCasesCommandInput,
@@ -353,7 +365,7 @@ export interface SecurityIR {
   ): void;
   listCases(
     args: ListCasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: ListCasesCommandOutput) => void
   ): void;
 
@@ -362,7 +374,7 @@ export interface SecurityIR {
    */
   listComments(
     args: ListCommentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<ListCommentsCommandOutput>;
   listComments(
     args: ListCommentsCommandInput,
@@ -370,7 +382,7 @@ export interface SecurityIR {
   ): void;
   listComments(
     args: ListCommentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: ListCommentsCommandOutput) => void
   ): void;
 
@@ -379,7 +391,7 @@ export interface SecurityIR {
    */
   listInvestigations(
     args: ListInvestigationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<ListInvestigationsCommandOutput>;
   listInvestigations(
     args: ListInvestigationsCommandInput,
@@ -387,7 +399,7 @@ export interface SecurityIR {
   ): void;
   listInvestigations(
     args: ListInvestigationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: ListInvestigationsCommandOutput) => void
   ): void;
 
@@ -397,7 +409,7 @@ export interface SecurityIR {
   listMemberships(): Promise<ListMembershipsCommandOutput>;
   listMemberships(
     args: ListMembershipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<ListMembershipsCommandOutput>;
   listMemberships(
     args: ListMembershipsCommandInput,
@@ -405,7 +417,7 @@ export interface SecurityIR {
   ): void;
   listMemberships(
     args: ListMembershipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: ListMembershipsCommandOutput) => void
   ): void;
 
@@ -414,7 +426,7 @@ export interface SecurityIR {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -422,7 +434,7 @@ export interface SecurityIR {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -431,7 +443,7 @@ export interface SecurityIR {
    */
   sendFeedback(
     args: SendFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<SendFeedbackCommandOutput>;
   sendFeedback(
     args: SendFeedbackCommandInput,
@@ -439,7 +451,7 @@ export interface SecurityIR {
   ): void;
   sendFeedback(
     args: SendFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: SendFeedbackCommandOutput) => void
   ): void;
 
@@ -448,7 +460,7 @@ export interface SecurityIR {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -456,7 +468,7 @@ export interface SecurityIR {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -465,7 +477,7 @@ export interface SecurityIR {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -473,7 +485,7 @@ export interface SecurityIR {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -482,7 +494,7 @@ export interface SecurityIR {
    */
   updateCase(
     args: UpdateCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<UpdateCaseCommandOutput>;
   updateCase(
     args: UpdateCaseCommandInput,
@@ -490,7 +502,7 @@ export interface SecurityIR {
   ): void;
   updateCase(
     args: UpdateCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: UpdateCaseCommandOutput) => void
   ): void;
 
@@ -499,7 +511,7 @@ export interface SecurityIR {
    */
   updateCaseComment(
     args: UpdateCaseCommentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<UpdateCaseCommentCommandOutput>;
   updateCaseComment(
     args: UpdateCaseCommentCommandInput,
@@ -507,7 +519,7 @@ export interface SecurityIR {
   ): void;
   updateCaseComment(
     args: UpdateCaseCommentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: UpdateCaseCommentCommandOutput) => void
   ): void;
 
@@ -516,7 +528,7 @@ export interface SecurityIR {
    */
   updateCaseStatus(
     args: UpdateCaseStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<UpdateCaseStatusCommandOutput>;
   updateCaseStatus(
     args: UpdateCaseStatusCommandInput,
@@ -524,7 +536,7 @@ export interface SecurityIR {
   ): void;
   updateCaseStatus(
     args: UpdateCaseStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: UpdateCaseStatusCommandOutput) => void
   ): void;
 
@@ -533,7 +545,7 @@ export interface SecurityIR {
    */
   updateMembership(
     args: UpdateMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<UpdateMembershipCommandOutput>;
   updateMembership(
     args: UpdateMembershipCommandInput,
@@ -541,7 +553,7 @@ export interface SecurityIR {
   ): void;
   updateMembership(
     args: UpdateMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: UpdateMembershipCommandOutput) => void
   ): void;
 
@@ -550,7 +562,7 @@ export interface SecurityIR {
    */
   updateResolverType(
     args: UpdateResolverTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityIRRequestOptions
   ): Promise<UpdateResolverTypeCommandOutput>;
   updateResolverType(
     args: UpdateResolverTypeCommandInput,
@@ -558,7 +570,7 @@ export interface SecurityIR {
   ): void;
   updateResolverType(
     args: UpdateResolverTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityIRRequestOptions,
     cb: (err: any, data?: UpdateResolverTypeCommandOutput) => void
   ): void;
 

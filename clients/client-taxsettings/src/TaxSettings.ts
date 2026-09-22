@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchDeleteTaxRegistrationCommandInput,
@@ -111,13 +116,20 @@ const paginators = {
   paginateListTaxRegistrations,
 };
 
+/**
+ * @public
+ */
+export interface TaxSettingsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface TaxSettings {
   /**
    * @see {@link BatchDeleteTaxRegistrationCommand}
    */
   batchDeleteTaxRegistration(
     args: BatchDeleteTaxRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<BatchDeleteTaxRegistrationCommandOutput>;
   batchDeleteTaxRegistration(
     args: BatchDeleteTaxRegistrationCommandInput,
@@ -125,7 +137,7 @@ export interface TaxSettings {
   ): void;
   batchDeleteTaxRegistration(
     args: BatchDeleteTaxRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: BatchDeleteTaxRegistrationCommandOutput) => void
   ): void;
 
@@ -134,7 +146,7 @@ export interface TaxSettings {
    */
   batchGetTaxExemptions(
     args: BatchGetTaxExemptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<BatchGetTaxExemptionsCommandOutput>;
   batchGetTaxExemptions(
     args: BatchGetTaxExemptionsCommandInput,
@@ -142,7 +154,7 @@ export interface TaxSettings {
   ): void;
   batchGetTaxExemptions(
     args: BatchGetTaxExemptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: BatchGetTaxExemptionsCommandOutput) => void
   ): void;
 
@@ -151,7 +163,7 @@ export interface TaxSettings {
    */
   batchPutTaxRegistration(
     args: BatchPutTaxRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<BatchPutTaxRegistrationCommandOutput>;
   batchPutTaxRegistration(
     args: BatchPutTaxRegistrationCommandInput,
@@ -159,7 +171,7 @@ export interface TaxSettings {
   ): void;
   batchPutTaxRegistration(
     args: BatchPutTaxRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: BatchPutTaxRegistrationCommandOutput) => void
   ): void;
 
@@ -168,7 +180,7 @@ export interface TaxSettings {
    */
   deleteSupplementalTaxRegistration(
     args: DeleteSupplementalTaxRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<DeleteSupplementalTaxRegistrationCommandOutput>;
   deleteSupplementalTaxRegistration(
     args: DeleteSupplementalTaxRegistrationCommandInput,
@@ -176,7 +188,7 @@ export interface TaxSettings {
   ): void;
   deleteSupplementalTaxRegistration(
     args: DeleteSupplementalTaxRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: DeleteSupplementalTaxRegistrationCommandOutput) => void
   ): void;
 
@@ -186,7 +198,7 @@ export interface TaxSettings {
   deleteTaxRegistration(): Promise<DeleteTaxRegistrationCommandOutput>;
   deleteTaxRegistration(
     args: DeleteTaxRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<DeleteTaxRegistrationCommandOutput>;
   deleteTaxRegistration(
     args: DeleteTaxRegistrationCommandInput,
@@ -194,7 +206,7 @@ export interface TaxSettings {
   ): void;
   deleteTaxRegistration(
     args: DeleteTaxRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: DeleteTaxRegistrationCommandOutput) => void
   ): void;
 
@@ -204,7 +216,7 @@ export interface TaxSettings {
   getTaxExemptionTypes(): Promise<GetTaxExemptionTypesCommandOutput>;
   getTaxExemptionTypes(
     args: GetTaxExemptionTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<GetTaxExemptionTypesCommandOutput>;
   getTaxExemptionTypes(
     args: GetTaxExemptionTypesCommandInput,
@@ -212,7 +224,7 @@ export interface TaxSettings {
   ): void;
   getTaxExemptionTypes(
     args: GetTaxExemptionTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: GetTaxExemptionTypesCommandOutput) => void
   ): void;
 
@@ -222,7 +234,7 @@ export interface TaxSettings {
   getTaxInheritance(): Promise<GetTaxInheritanceCommandOutput>;
   getTaxInheritance(
     args: GetTaxInheritanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<GetTaxInheritanceCommandOutput>;
   getTaxInheritance(
     args: GetTaxInheritanceCommandInput,
@@ -230,7 +242,7 @@ export interface TaxSettings {
   ): void;
   getTaxInheritance(
     args: GetTaxInheritanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: GetTaxInheritanceCommandOutput) => void
   ): void;
 
@@ -240,7 +252,7 @@ export interface TaxSettings {
   getTaxRegistration(): Promise<GetTaxRegistrationCommandOutput>;
   getTaxRegistration(
     args: GetTaxRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<GetTaxRegistrationCommandOutput>;
   getTaxRegistration(
     args: GetTaxRegistrationCommandInput,
@@ -248,7 +260,7 @@ export interface TaxSettings {
   ): void;
   getTaxRegistration(
     args: GetTaxRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: GetTaxRegistrationCommandOutput) => void
   ): void;
 
@@ -257,7 +269,7 @@ export interface TaxSettings {
    */
   getTaxRegistrationDocument(
     args: GetTaxRegistrationDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<GetTaxRegistrationDocumentCommandOutput>;
   getTaxRegistrationDocument(
     args: GetTaxRegistrationDocumentCommandInput,
@@ -265,7 +277,7 @@ export interface TaxSettings {
   ): void;
   getTaxRegistrationDocument(
     args: GetTaxRegistrationDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: GetTaxRegistrationDocumentCommandOutput) => void
   ): void;
 
@@ -275,7 +287,7 @@ export interface TaxSettings {
   listSupplementalTaxRegistrations(): Promise<ListSupplementalTaxRegistrationsCommandOutput>;
   listSupplementalTaxRegistrations(
     args: ListSupplementalTaxRegistrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<ListSupplementalTaxRegistrationsCommandOutput>;
   listSupplementalTaxRegistrations(
     args: ListSupplementalTaxRegistrationsCommandInput,
@@ -283,7 +295,7 @@ export interface TaxSettings {
   ): void;
   listSupplementalTaxRegistrations(
     args: ListSupplementalTaxRegistrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: ListSupplementalTaxRegistrationsCommandOutput) => void
   ): void;
 
@@ -293,7 +305,7 @@ export interface TaxSettings {
   listTaxExemptions(): Promise<ListTaxExemptionsCommandOutput>;
   listTaxExemptions(
     args: ListTaxExemptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<ListTaxExemptionsCommandOutput>;
   listTaxExemptions(
     args: ListTaxExemptionsCommandInput,
@@ -301,7 +313,7 @@ export interface TaxSettings {
   ): void;
   listTaxExemptions(
     args: ListTaxExemptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: ListTaxExemptionsCommandOutput) => void
   ): void;
 
@@ -311,7 +323,7 @@ export interface TaxSettings {
   listTaxRegistrations(): Promise<ListTaxRegistrationsCommandOutput>;
   listTaxRegistrations(
     args: ListTaxRegistrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<ListTaxRegistrationsCommandOutput>;
   listTaxRegistrations(
     args: ListTaxRegistrationsCommandInput,
@@ -319,7 +331,7 @@ export interface TaxSettings {
   ): void;
   listTaxRegistrations(
     args: ListTaxRegistrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: ListTaxRegistrationsCommandOutput) => void
   ): void;
 
@@ -328,7 +340,7 @@ export interface TaxSettings {
    */
   putSupplementalTaxRegistration(
     args: PutSupplementalTaxRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<PutSupplementalTaxRegistrationCommandOutput>;
   putSupplementalTaxRegistration(
     args: PutSupplementalTaxRegistrationCommandInput,
@@ -336,7 +348,7 @@ export interface TaxSettings {
   ): void;
   putSupplementalTaxRegistration(
     args: PutSupplementalTaxRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: PutSupplementalTaxRegistrationCommandOutput) => void
   ): void;
 
@@ -345,7 +357,7 @@ export interface TaxSettings {
    */
   putTaxExemption(
     args: PutTaxExemptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<PutTaxExemptionCommandOutput>;
   putTaxExemption(
     args: PutTaxExemptionCommandInput,
@@ -353,7 +365,7 @@ export interface TaxSettings {
   ): void;
   putTaxExemption(
     args: PutTaxExemptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: PutTaxExemptionCommandOutput) => void
   ): void;
 
@@ -363,7 +375,7 @@ export interface TaxSettings {
   putTaxInheritance(): Promise<PutTaxInheritanceCommandOutput>;
   putTaxInheritance(
     args: PutTaxInheritanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<PutTaxInheritanceCommandOutput>;
   putTaxInheritance(
     args: PutTaxInheritanceCommandInput,
@@ -371,7 +383,7 @@ export interface TaxSettings {
   ): void;
   putTaxInheritance(
     args: PutTaxInheritanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: PutTaxInheritanceCommandOutput) => void
   ): void;
 
@@ -380,7 +392,7 @@ export interface TaxSettings {
    */
   putTaxRegistration(
     args: PutTaxRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TaxSettingsRequestOptions
   ): Promise<PutTaxRegistrationCommandOutput>;
   putTaxRegistration(
     args: PutTaxRegistrationCommandInput,
@@ -388,7 +400,7 @@ export interface TaxSettings {
   ): void;
   putTaxRegistration(
     args: PutTaxRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: TaxSettingsRequestOptions,
     cb: (err: any, data?: PutTaxRegistrationCommandOutput) => void
   ): void;
 

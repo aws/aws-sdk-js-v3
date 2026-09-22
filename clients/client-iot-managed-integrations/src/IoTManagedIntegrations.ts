@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateAccountAssociationCommandInput,
@@ -541,13 +546,20 @@ const paginators = {
   paginateListSchemaVersions,
 };
 
+/**
+ * @public
+ */
+export interface IoTManagedIntegrationsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface IoTManagedIntegrations {
   /**
    * @see {@link CreateAccountAssociationCommand}
    */
   createAccountAssociation(
     args: CreateAccountAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<CreateAccountAssociationCommandOutput>;
   createAccountAssociation(
     args: CreateAccountAssociationCommandInput,
@@ -555,7 +567,7 @@ export interface IoTManagedIntegrations {
   ): void;
   createAccountAssociation(
     args: CreateAccountAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: CreateAccountAssociationCommandOutput) => void
   ): void;
 
@@ -564,7 +576,7 @@ export interface IoTManagedIntegrations {
    */
   createCloudConnector(
     args: CreateCloudConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<CreateCloudConnectorCommandOutput>;
   createCloudConnector(
     args: CreateCloudConnectorCommandInput,
@@ -572,7 +584,7 @@ export interface IoTManagedIntegrations {
   ): void;
   createCloudConnector(
     args: CreateCloudConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: CreateCloudConnectorCommandOutput) => void
   ): void;
 
@@ -581,7 +593,7 @@ export interface IoTManagedIntegrations {
    */
   createConnectorDestination(
     args: CreateConnectorDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<CreateConnectorDestinationCommandOutput>;
   createConnectorDestination(
     args: CreateConnectorDestinationCommandInput,
@@ -589,7 +601,7 @@ export interface IoTManagedIntegrations {
   ): void;
   createConnectorDestination(
     args: CreateConnectorDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: CreateConnectorDestinationCommandOutput) => void
   ): void;
 
@@ -599,7 +611,7 @@ export interface IoTManagedIntegrations {
   createCredentialLocker(): Promise<CreateCredentialLockerCommandOutput>;
   createCredentialLocker(
     args: CreateCredentialLockerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<CreateCredentialLockerCommandOutput>;
   createCredentialLocker(
     args: CreateCredentialLockerCommandInput,
@@ -607,7 +619,7 @@ export interface IoTManagedIntegrations {
   ): void;
   createCredentialLocker(
     args: CreateCredentialLockerCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: CreateCredentialLockerCommandOutput) => void
   ): void;
 
@@ -616,7 +628,7 @@ export interface IoTManagedIntegrations {
    */
   createDestination(
     args: CreateDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<CreateDestinationCommandOutput>;
   createDestination(
     args: CreateDestinationCommandInput,
@@ -624,7 +636,7 @@ export interface IoTManagedIntegrations {
   ): void;
   createDestination(
     args: CreateDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: CreateDestinationCommandOutput) => void
   ): void;
 
@@ -633,7 +645,7 @@ export interface IoTManagedIntegrations {
    */
   createEventLogConfiguration(
     args: CreateEventLogConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<CreateEventLogConfigurationCommandOutput>;
   createEventLogConfiguration(
     args: CreateEventLogConfigurationCommandInput,
@@ -641,7 +653,7 @@ export interface IoTManagedIntegrations {
   ): void;
   createEventLogConfiguration(
     args: CreateEventLogConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: CreateEventLogConfigurationCommandOutput) => void
   ): void;
 
@@ -650,7 +662,7 @@ export interface IoTManagedIntegrations {
    */
   createManagedThing(
     args: CreateManagedThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<CreateManagedThingCommandOutput>;
   createManagedThing(
     args: CreateManagedThingCommandInput,
@@ -658,7 +670,7 @@ export interface IoTManagedIntegrations {
   ): void;
   createManagedThing(
     args: CreateManagedThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: CreateManagedThingCommandOutput) => void
   ): void;
 
@@ -667,7 +679,7 @@ export interface IoTManagedIntegrations {
    */
   createNotificationConfiguration(
     args: CreateNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<CreateNotificationConfigurationCommandOutput>;
   createNotificationConfiguration(
     args: CreateNotificationConfigurationCommandInput,
@@ -675,7 +687,7 @@ export interface IoTManagedIntegrations {
   ): void;
   createNotificationConfiguration(
     args: CreateNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: CreateNotificationConfigurationCommandOutput) => void
   ): void;
 
@@ -684,7 +696,7 @@ export interface IoTManagedIntegrations {
    */
   createOtaTask(
     args: CreateOtaTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<CreateOtaTaskCommandOutput>;
   createOtaTask(
     args: CreateOtaTaskCommandInput,
@@ -692,7 +704,7 @@ export interface IoTManagedIntegrations {
   ): void;
   createOtaTask(
     args: CreateOtaTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: CreateOtaTaskCommandOutput) => void
   ): void;
 
@@ -702,7 +714,7 @@ export interface IoTManagedIntegrations {
   createOtaTaskConfiguration(): Promise<CreateOtaTaskConfigurationCommandOutput>;
   createOtaTaskConfiguration(
     args: CreateOtaTaskConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<CreateOtaTaskConfigurationCommandOutput>;
   createOtaTaskConfiguration(
     args: CreateOtaTaskConfigurationCommandInput,
@@ -710,7 +722,7 @@ export interface IoTManagedIntegrations {
   ): void;
   createOtaTaskConfiguration(
     args: CreateOtaTaskConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: CreateOtaTaskConfigurationCommandOutput) => void
   ): void;
 
@@ -719,7 +731,7 @@ export interface IoTManagedIntegrations {
    */
   createProvisioningProfile(
     args: CreateProvisioningProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<CreateProvisioningProfileCommandOutput>;
   createProvisioningProfile(
     args: CreateProvisioningProfileCommandInput,
@@ -727,7 +739,7 @@ export interface IoTManagedIntegrations {
   ): void;
   createProvisioningProfile(
     args: CreateProvisioningProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: CreateProvisioningProfileCommandOutput) => void
   ): void;
 
@@ -736,7 +748,7 @@ export interface IoTManagedIntegrations {
    */
   deleteAccountAssociation(
     args: DeleteAccountAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeleteAccountAssociationCommandOutput>;
   deleteAccountAssociation(
     args: DeleteAccountAssociationCommandInput,
@@ -744,7 +756,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deleteAccountAssociation(
     args: DeleteAccountAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeleteAccountAssociationCommandOutput) => void
   ): void;
 
@@ -753,7 +765,7 @@ export interface IoTManagedIntegrations {
    */
   deleteCloudConnector(
     args: DeleteCloudConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeleteCloudConnectorCommandOutput>;
   deleteCloudConnector(
     args: DeleteCloudConnectorCommandInput,
@@ -761,7 +773,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deleteCloudConnector(
     args: DeleteCloudConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeleteCloudConnectorCommandOutput) => void
   ): void;
 
@@ -770,7 +782,7 @@ export interface IoTManagedIntegrations {
    */
   deleteConnectorDestination(
     args: DeleteConnectorDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeleteConnectorDestinationCommandOutput>;
   deleteConnectorDestination(
     args: DeleteConnectorDestinationCommandInput,
@@ -778,7 +790,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deleteConnectorDestination(
     args: DeleteConnectorDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeleteConnectorDestinationCommandOutput) => void
   ): void;
 
@@ -787,7 +799,7 @@ export interface IoTManagedIntegrations {
    */
   deleteCredentialLocker(
     args: DeleteCredentialLockerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeleteCredentialLockerCommandOutput>;
   deleteCredentialLocker(
     args: DeleteCredentialLockerCommandInput,
@@ -795,7 +807,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deleteCredentialLocker(
     args: DeleteCredentialLockerCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeleteCredentialLockerCommandOutput) => void
   ): void;
 
@@ -804,7 +816,7 @@ export interface IoTManagedIntegrations {
    */
   deleteDestination(
     args: DeleteDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeleteDestinationCommandOutput>;
   deleteDestination(
     args: DeleteDestinationCommandInput,
@@ -812,7 +824,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deleteDestination(
     args: DeleteDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeleteDestinationCommandOutput) => void
   ): void;
 
@@ -821,7 +833,7 @@ export interface IoTManagedIntegrations {
    */
   deleteEventLogConfiguration(
     args: DeleteEventLogConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeleteEventLogConfigurationCommandOutput>;
   deleteEventLogConfiguration(
     args: DeleteEventLogConfigurationCommandInput,
@@ -829,7 +841,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deleteEventLogConfiguration(
     args: DeleteEventLogConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeleteEventLogConfigurationCommandOutput) => void
   ): void;
 
@@ -838,7 +850,7 @@ export interface IoTManagedIntegrations {
    */
   deleteManagedThing(
     args: DeleteManagedThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeleteManagedThingCommandOutput>;
   deleteManagedThing(
     args: DeleteManagedThingCommandInput,
@@ -846,7 +858,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deleteManagedThing(
     args: DeleteManagedThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeleteManagedThingCommandOutput) => void
   ): void;
 
@@ -855,7 +867,7 @@ export interface IoTManagedIntegrations {
    */
   deleteNotificationConfiguration(
     args: DeleteNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeleteNotificationConfigurationCommandOutput>;
   deleteNotificationConfiguration(
     args: DeleteNotificationConfigurationCommandInput,
@@ -863,7 +875,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deleteNotificationConfiguration(
     args: DeleteNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeleteNotificationConfigurationCommandOutput) => void
   ): void;
 
@@ -872,7 +884,7 @@ export interface IoTManagedIntegrations {
    */
   deleteOtaTask(
     args: DeleteOtaTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeleteOtaTaskCommandOutput>;
   deleteOtaTask(
     args: DeleteOtaTaskCommandInput,
@@ -880,7 +892,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deleteOtaTask(
     args: DeleteOtaTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeleteOtaTaskCommandOutput) => void
   ): void;
 
@@ -889,7 +901,7 @@ export interface IoTManagedIntegrations {
    */
   deleteOtaTaskConfiguration(
     args: DeleteOtaTaskConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeleteOtaTaskConfigurationCommandOutput>;
   deleteOtaTaskConfiguration(
     args: DeleteOtaTaskConfigurationCommandInput,
@@ -897,7 +909,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deleteOtaTaskConfiguration(
     args: DeleteOtaTaskConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeleteOtaTaskConfigurationCommandOutput) => void
   ): void;
 
@@ -906,7 +918,7 @@ export interface IoTManagedIntegrations {
    */
   deleteProvisioningProfile(
     args: DeleteProvisioningProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeleteProvisioningProfileCommandOutput>;
   deleteProvisioningProfile(
     args: DeleteProvisioningProfileCommandInput,
@@ -914,7 +926,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deleteProvisioningProfile(
     args: DeleteProvisioningProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeleteProvisioningProfileCommandOutput) => void
   ): void;
 
@@ -923,7 +935,7 @@ export interface IoTManagedIntegrations {
    */
   deregisterAccountAssociation(
     args: DeregisterAccountAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<DeregisterAccountAssociationCommandOutput>;
   deregisterAccountAssociation(
     args: DeregisterAccountAssociationCommandInput,
@@ -931,7 +943,7 @@ export interface IoTManagedIntegrations {
   ): void;
   deregisterAccountAssociation(
     args: DeregisterAccountAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: DeregisterAccountAssociationCommandOutput) => void
   ): void;
 
@@ -940,7 +952,7 @@ export interface IoTManagedIntegrations {
    */
   getAccountAssociation(
     args: GetAccountAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetAccountAssociationCommandOutput>;
   getAccountAssociation(
     args: GetAccountAssociationCommandInput,
@@ -948,7 +960,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getAccountAssociation(
     args: GetAccountAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetAccountAssociationCommandOutput) => void
   ): void;
 
@@ -957,7 +969,7 @@ export interface IoTManagedIntegrations {
    */
   getCloudConnector(
     args: GetCloudConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetCloudConnectorCommandOutput>;
   getCloudConnector(
     args: GetCloudConnectorCommandInput,
@@ -965,7 +977,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getCloudConnector(
     args: GetCloudConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetCloudConnectorCommandOutput) => void
   ): void;
 
@@ -974,7 +986,7 @@ export interface IoTManagedIntegrations {
    */
   getConnectorDestination(
     args: GetConnectorDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetConnectorDestinationCommandOutput>;
   getConnectorDestination(
     args: GetConnectorDestinationCommandInput,
@@ -982,7 +994,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getConnectorDestination(
     args: GetConnectorDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetConnectorDestinationCommandOutput) => void
   ): void;
 
@@ -991,7 +1003,7 @@ export interface IoTManagedIntegrations {
    */
   getCredentialLocker(
     args: GetCredentialLockerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetCredentialLockerCommandOutput>;
   getCredentialLocker(
     args: GetCredentialLockerCommandInput,
@@ -999,7 +1011,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getCredentialLocker(
     args: GetCredentialLockerCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetCredentialLockerCommandOutput) => void
   ): void;
 
@@ -1009,7 +1021,7 @@ export interface IoTManagedIntegrations {
   getCustomEndpoint(): Promise<GetCustomEndpointCommandOutput>;
   getCustomEndpoint(
     args: GetCustomEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetCustomEndpointCommandOutput>;
   getCustomEndpoint(
     args: GetCustomEndpointCommandInput,
@@ -1017,7 +1029,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getCustomEndpoint(
     args: GetCustomEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetCustomEndpointCommandOutput) => void
   ): void;
 
@@ -1027,7 +1039,7 @@ export interface IoTManagedIntegrations {
   getDefaultEncryptionConfiguration(): Promise<GetDefaultEncryptionConfigurationCommandOutput>;
   getDefaultEncryptionConfiguration(
     args: GetDefaultEncryptionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetDefaultEncryptionConfigurationCommandOutput>;
   getDefaultEncryptionConfiguration(
     args: GetDefaultEncryptionConfigurationCommandInput,
@@ -1035,7 +1047,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getDefaultEncryptionConfiguration(
     args: GetDefaultEncryptionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetDefaultEncryptionConfigurationCommandOutput) => void
   ): void;
 
@@ -1044,7 +1056,7 @@ export interface IoTManagedIntegrations {
    */
   getDestination(
     args: GetDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetDestinationCommandOutput>;
   getDestination(
     args: GetDestinationCommandInput,
@@ -1052,7 +1064,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getDestination(
     args: GetDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetDestinationCommandOutput) => void
   ): void;
 
@@ -1061,7 +1073,7 @@ export interface IoTManagedIntegrations {
    */
   getDeviceDiscovery(
     args: GetDeviceDiscoveryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetDeviceDiscoveryCommandOutput>;
   getDeviceDiscovery(
     args: GetDeviceDiscoveryCommandInput,
@@ -1069,7 +1081,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getDeviceDiscovery(
     args: GetDeviceDiscoveryCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetDeviceDiscoveryCommandOutput) => void
   ): void;
 
@@ -1078,7 +1090,7 @@ export interface IoTManagedIntegrations {
    */
   getEventLogConfiguration(
     args: GetEventLogConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetEventLogConfigurationCommandOutput>;
   getEventLogConfiguration(
     args: GetEventLogConfigurationCommandInput,
@@ -1086,7 +1098,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getEventLogConfiguration(
     args: GetEventLogConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetEventLogConfigurationCommandOutput) => void
   ): void;
 
@@ -1096,7 +1108,7 @@ export interface IoTManagedIntegrations {
   getHubConfiguration(): Promise<GetHubConfigurationCommandOutput>;
   getHubConfiguration(
     args: GetHubConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetHubConfigurationCommandOutput>;
   getHubConfiguration(
     args: GetHubConfigurationCommandInput,
@@ -1104,7 +1116,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getHubConfiguration(
     args: GetHubConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetHubConfigurationCommandOutput) => void
   ): void;
 
@@ -1113,7 +1125,7 @@ export interface IoTManagedIntegrations {
    */
   getManagedThing(
     args: GetManagedThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetManagedThingCommandOutput>;
   getManagedThing(
     args: GetManagedThingCommandInput,
@@ -1121,7 +1133,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getManagedThing(
     args: GetManagedThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetManagedThingCommandOutput) => void
   ): void;
 
@@ -1130,7 +1142,7 @@ export interface IoTManagedIntegrations {
    */
   getManagedThingCapabilities(
     args: GetManagedThingCapabilitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetManagedThingCapabilitiesCommandOutput>;
   getManagedThingCapabilities(
     args: GetManagedThingCapabilitiesCommandInput,
@@ -1138,7 +1150,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getManagedThingCapabilities(
     args: GetManagedThingCapabilitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetManagedThingCapabilitiesCommandOutput) => void
   ): void;
 
@@ -1147,7 +1159,7 @@ export interface IoTManagedIntegrations {
    */
   getManagedThingCertificate(
     args: GetManagedThingCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetManagedThingCertificateCommandOutput>;
   getManagedThingCertificate(
     args: GetManagedThingCertificateCommandInput,
@@ -1155,7 +1167,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getManagedThingCertificate(
     args: GetManagedThingCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetManagedThingCertificateCommandOutput) => void
   ): void;
 
@@ -1164,7 +1176,7 @@ export interface IoTManagedIntegrations {
    */
   getManagedThingConnectivityData(
     args: GetManagedThingConnectivityDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetManagedThingConnectivityDataCommandOutput>;
   getManagedThingConnectivityData(
     args: GetManagedThingConnectivityDataCommandInput,
@@ -1172,7 +1184,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getManagedThingConnectivityData(
     args: GetManagedThingConnectivityDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetManagedThingConnectivityDataCommandOutput) => void
   ): void;
 
@@ -1181,7 +1193,7 @@ export interface IoTManagedIntegrations {
    */
   getManagedThingMetaData(
     args: GetManagedThingMetaDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetManagedThingMetaDataCommandOutput>;
   getManagedThingMetaData(
     args: GetManagedThingMetaDataCommandInput,
@@ -1189,7 +1201,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getManagedThingMetaData(
     args: GetManagedThingMetaDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetManagedThingMetaDataCommandOutput) => void
   ): void;
 
@@ -1198,7 +1210,7 @@ export interface IoTManagedIntegrations {
    */
   getManagedThingState(
     args: GetManagedThingStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetManagedThingStateCommandOutput>;
   getManagedThingState(
     args: GetManagedThingStateCommandInput,
@@ -1206,7 +1218,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getManagedThingState(
     args: GetManagedThingStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetManagedThingStateCommandOutput) => void
   ): void;
 
@@ -1215,7 +1227,7 @@ export interface IoTManagedIntegrations {
    */
   getNotificationConfiguration(
     args: GetNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetNotificationConfigurationCommandOutput>;
   getNotificationConfiguration(
     args: GetNotificationConfigurationCommandInput,
@@ -1223,7 +1235,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getNotificationConfiguration(
     args: GetNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetNotificationConfigurationCommandOutput) => void
   ): void;
 
@@ -1232,7 +1244,7 @@ export interface IoTManagedIntegrations {
    */
   getOtaTask(
     args: GetOtaTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetOtaTaskCommandOutput>;
   getOtaTask(
     args: GetOtaTaskCommandInput,
@@ -1240,7 +1252,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getOtaTask(
     args: GetOtaTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetOtaTaskCommandOutput) => void
   ): void;
 
@@ -1249,7 +1261,7 @@ export interface IoTManagedIntegrations {
    */
   getOtaTaskConfiguration(
     args: GetOtaTaskConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetOtaTaskConfigurationCommandOutput>;
   getOtaTaskConfiguration(
     args: GetOtaTaskConfigurationCommandInput,
@@ -1257,7 +1269,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getOtaTaskConfiguration(
     args: GetOtaTaskConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetOtaTaskConfigurationCommandOutput) => void
   ): void;
 
@@ -1266,7 +1278,7 @@ export interface IoTManagedIntegrations {
    */
   getProvisioningProfile(
     args: GetProvisioningProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetProvisioningProfileCommandOutput>;
   getProvisioningProfile(
     args: GetProvisioningProfileCommandInput,
@@ -1274,7 +1286,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getProvisioningProfile(
     args: GetProvisioningProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetProvisioningProfileCommandOutput) => void
   ): void;
 
@@ -1283,7 +1295,7 @@ export interface IoTManagedIntegrations {
    */
   getRuntimeLogConfiguration(
     args: GetRuntimeLogConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetRuntimeLogConfigurationCommandOutput>;
   getRuntimeLogConfiguration(
     args: GetRuntimeLogConfigurationCommandInput,
@@ -1291,7 +1303,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getRuntimeLogConfiguration(
     args: GetRuntimeLogConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetRuntimeLogConfigurationCommandOutput) => void
   ): void;
 
@@ -1300,7 +1312,7 @@ export interface IoTManagedIntegrations {
    */
   getSchemaVersion(
     args: GetSchemaVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<GetSchemaVersionCommandOutput>;
   getSchemaVersion(
     args: GetSchemaVersionCommandInput,
@@ -1308,7 +1320,7 @@ export interface IoTManagedIntegrations {
   ): void;
   getSchemaVersion(
     args: GetSchemaVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: GetSchemaVersionCommandOutput) => void
   ): void;
 
@@ -1318,7 +1330,7 @@ export interface IoTManagedIntegrations {
   listAccountAssociations(): Promise<ListAccountAssociationsCommandOutput>;
   listAccountAssociations(
     args: ListAccountAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListAccountAssociationsCommandOutput>;
   listAccountAssociations(
     args: ListAccountAssociationsCommandInput,
@@ -1326,7 +1338,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listAccountAssociations(
     args: ListAccountAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListAccountAssociationsCommandOutput) => void
   ): void;
 
@@ -1336,7 +1348,7 @@ export interface IoTManagedIntegrations {
   listCloudConnectors(): Promise<ListCloudConnectorsCommandOutput>;
   listCloudConnectors(
     args: ListCloudConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListCloudConnectorsCommandOutput>;
   listCloudConnectors(
     args: ListCloudConnectorsCommandInput,
@@ -1344,7 +1356,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listCloudConnectors(
     args: ListCloudConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListCloudConnectorsCommandOutput) => void
   ): void;
 
@@ -1354,7 +1366,7 @@ export interface IoTManagedIntegrations {
   listConnectorDestinations(): Promise<ListConnectorDestinationsCommandOutput>;
   listConnectorDestinations(
     args: ListConnectorDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListConnectorDestinationsCommandOutput>;
   listConnectorDestinations(
     args: ListConnectorDestinationsCommandInput,
@@ -1362,7 +1374,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listConnectorDestinations(
     args: ListConnectorDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListConnectorDestinationsCommandOutput) => void
   ): void;
 
@@ -1372,7 +1384,7 @@ export interface IoTManagedIntegrations {
   listCredentialLockers(): Promise<ListCredentialLockersCommandOutput>;
   listCredentialLockers(
     args: ListCredentialLockersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListCredentialLockersCommandOutput>;
   listCredentialLockers(
     args: ListCredentialLockersCommandInput,
@@ -1380,7 +1392,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listCredentialLockers(
     args: ListCredentialLockersCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListCredentialLockersCommandOutput) => void
   ): void;
 
@@ -1390,7 +1402,7 @@ export interface IoTManagedIntegrations {
   listDestinations(): Promise<ListDestinationsCommandOutput>;
   listDestinations(
     args: ListDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListDestinationsCommandOutput>;
   listDestinations(
     args: ListDestinationsCommandInput,
@@ -1398,7 +1410,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listDestinations(
     args: ListDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListDestinationsCommandOutput) => void
   ): void;
 
@@ -1408,7 +1420,7 @@ export interface IoTManagedIntegrations {
   listDeviceDiscoveries(): Promise<ListDeviceDiscoveriesCommandOutput>;
   listDeviceDiscoveries(
     args: ListDeviceDiscoveriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListDeviceDiscoveriesCommandOutput>;
   listDeviceDiscoveries(
     args: ListDeviceDiscoveriesCommandInput,
@@ -1416,7 +1428,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listDeviceDiscoveries(
     args: ListDeviceDiscoveriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListDeviceDiscoveriesCommandOutput) => void
   ): void;
 
@@ -1425,7 +1437,7 @@ export interface IoTManagedIntegrations {
    */
   listDiscoveredDevices(
     args: ListDiscoveredDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListDiscoveredDevicesCommandOutput>;
   listDiscoveredDevices(
     args: ListDiscoveredDevicesCommandInput,
@@ -1433,7 +1445,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listDiscoveredDevices(
     args: ListDiscoveredDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListDiscoveredDevicesCommandOutput) => void
   ): void;
 
@@ -1443,7 +1455,7 @@ export interface IoTManagedIntegrations {
   listEventLogConfigurations(): Promise<ListEventLogConfigurationsCommandOutput>;
   listEventLogConfigurations(
     args: ListEventLogConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListEventLogConfigurationsCommandOutput>;
   listEventLogConfigurations(
     args: ListEventLogConfigurationsCommandInput,
@@ -1451,7 +1463,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listEventLogConfigurations(
     args: ListEventLogConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListEventLogConfigurationsCommandOutput) => void
   ): void;
 
@@ -1461,7 +1473,7 @@ export interface IoTManagedIntegrations {
   listManagedThingAccountAssociations(): Promise<ListManagedThingAccountAssociationsCommandOutput>;
   listManagedThingAccountAssociations(
     args: ListManagedThingAccountAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListManagedThingAccountAssociationsCommandOutput>;
   listManagedThingAccountAssociations(
     args: ListManagedThingAccountAssociationsCommandInput,
@@ -1469,7 +1481,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listManagedThingAccountAssociations(
     args: ListManagedThingAccountAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListManagedThingAccountAssociationsCommandOutput) => void
   ): void;
 
@@ -1479,7 +1491,7 @@ export interface IoTManagedIntegrations {
   listManagedThings(): Promise<ListManagedThingsCommandOutput>;
   listManagedThings(
     args: ListManagedThingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListManagedThingsCommandOutput>;
   listManagedThings(
     args: ListManagedThingsCommandInput,
@@ -1487,7 +1499,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listManagedThings(
     args: ListManagedThingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListManagedThingsCommandOutput) => void
   ): void;
 
@@ -1496,7 +1508,7 @@ export interface IoTManagedIntegrations {
    */
   listManagedThingSchemas(
     args: ListManagedThingSchemasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListManagedThingSchemasCommandOutput>;
   listManagedThingSchemas(
     args: ListManagedThingSchemasCommandInput,
@@ -1504,7 +1516,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listManagedThingSchemas(
     args: ListManagedThingSchemasCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListManagedThingSchemasCommandOutput) => void
   ): void;
 
@@ -1514,7 +1526,7 @@ export interface IoTManagedIntegrations {
   listNotificationConfigurations(): Promise<ListNotificationConfigurationsCommandOutput>;
   listNotificationConfigurations(
     args: ListNotificationConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListNotificationConfigurationsCommandOutput>;
   listNotificationConfigurations(
     args: ListNotificationConfigurationsCommandInput,
@@ -1522,7 +1534,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listNotificationConfigurations(
     args: ListNotificationConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListNotificationConfigurationsCommandOutput) => void
   ): void;
 
@@ -1532,7 +1544,7 @@ export interface IoTManagedIntegrations {
   listOtaTaskConfigurations(): Promise<ListOtaTaskConfigurationsCommandOutput>;
   listOtaTaskConfigurations(
     args: ListOtaTaskConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListOtaTaskConfigurationsCommandOutput>;
   listOtaTaskConfigurations(
     args: ListOtaTaskConfigurationsCommandInput,
@@ -1540,7 +1552,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listOtaTaskConfigurations(
     args: ListOtaTaskConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListOtaTaskConfigurationsCommandOutput) => void
   ): void;
 
@@ -1549,7 +1561,7 @@ export interface IoTManagedIntegrations {
    */
   listOtaTaskExecutions(
     args: ListOtaTaskExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListOtaTaskExecutionsCommandOutput>;
   listOtaTaskExecutions(
     args: ListOtaTaskExecutionsCommandInput,
@@ -1557,7 +1569,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listOtaTaskExecutions(
     args: ListOtaTaskExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListOtaTaskExecutionsCommandOutput) => void
   ): void;
 
@@ -1567,7 +1579,7 @@ export interface IoTManagedIntegrations {
   listOtaTasks(): Promise<ListOtaTasksCommandOutput>;
   listOtaTasks(
     args: ListOtaTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListOtaTasksCommandOutput>;
   listOtaTasks(
     args: ListOtaTasksCommandInput,
@@ -1575,7 +1587,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listOtaTasks(
     args: ListOtaTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListOtaTasksCommandOutput) => void
   ): void;
 
@@ -1585,7 +1597,7 @@ export interface IoTManagedIntegrations {
   listProvisioningProfiles(): Promise<ListProvisioningProfilesCommandOutput>;
   listProvisioningProfiles(
     args: ListProvisioningProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListProvisioningProfilesCommandOutput>;
   listProvisioningProfiles(
     args: ListProvisioningProfilesCommandInput,
@@ -1593,7 +1605,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listProvisioningProfiles(
     args: ListProvisioningProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListProvisioningProfilesCommandOutput) => void
   ): void;
 
@@ -1602,7 +1614,7 @@ export interface IoTManagedIntegrations {
    */
   listSchemaVersions(
     args: ListSchemaVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListSchemaVersionsCommandOutput>;
   listSchemaVersions(
     args: ListSchemaVersionsCommandInput,
@@ -1610,7 +1622,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listSchemaVersions(
     args: ListSchemaVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListSchemaVersionsCommandOutput) => void
   ): void;
 
@@ -1619,7 +1631,7 @@ export interface IoTManagedIntegrations {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1627,7 +1639,7 @@ export interface IoTManagedIntegrations {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1636,7 +1648,7 @@ export interface IoTManagedIntegrations {
    */
   putDefaultEncryptionConfiguration(
     args: PutDefaultEncryptionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<PutDefaultEncryptionConfigurationCommandOutput>;
   putDefaultEncryptionConfiguration(
     args: PutDefaultEncryptionConfigurationCommandInput,
@@ -1644,7 +1656,7 @@ export interface IoTManagedIntegrations {
   ): void;
   putDefaultEncryptionConfiguration(
     args: PutDefaultEncryptionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: PutDefaultEncryptionConfigurationCommandOutput) => void
   ): void;
 
@@ -1653,7 +1665,7 @@ export interface IoTManagedIntegrations {
    */
   putHubConfiguration(
     args: PutHubConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<PutHubConfigurationCommandOutput>;
   putHubConfiguration(
     args: PutHubConfigurationCommandInput,
@@ -1661,7 +1673,7 @@ export interface IoTManagedIntegrations {
   ): void;
   putHubConfiguration(
     args: PutHubConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: PutHubConfigurationCommandOutput) => void
   ): void;
 
@@ -1670,7 +1682,7 @@ export interface IoTManagedIntegrations {
    */
   putRuntimeLogConfiguration(
     args: PutRuntimeLogConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<PutRuntimeLogConfigurationCommandOutput>;
   putRuntimeLogConfiguration(
     args: PutRuntimeLogConfigurationCommandInput,
@@ -1678,7 +1690,7 @@ export interface IoTManagedIntegrations {
   ): void;
   putRuntimeLogConfiguration(
     args: PutRuntimeLogConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: PutRuntimeLogConfigurationCommandOutput) => void
   ): void;
 
@@ -1687,7 +1699,7 @@ export interface IoTManagedIntegrations {
    */
   registerAccountAssociation(
     args: RegisterAccountAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<RegisterAccountAssociationCommandOutput>;
   registerAccountAssociation(
     args: RegisterAccountAssociationCommandInput,
@@ -1695,7 +1707,7 @@ export interface IoTManagedIntegrations {
   ): void;
   registerAccountAssociation(
     args: RegisterAccountAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: RegisterAccountAssociationCommandOutput) => void
   ): void;
 
@@ -1705,7 +1717,7 @@ export interface IoTManagedIntegrations {
   registerCustomEndpoint(): Promise<RegisterCustomEndpointCommandOutput>;
   registerCustomEndpoint(
     args: RegisterCustomEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<RegisterCustomEndpointCommandOutput>;
   registerCustomEndpoint(
     args: RegisterCustomEndpointCommandInput,
@@ -1713,7 +1725,7 @@ export interface IoTManagedIntegrations {
   ): void;
   registerCustomEndpoint(
     args: RegisterCustomEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: RegisterCustomEndpointCommandOutput) => void
   ): void;
 
@@ -1722,7 +1734,7 @@ export interface IoTManagedIntegrations {
    */
   resetRuntimeLogConfiguration(
     args: ResetRuntimeLogConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<ResetRuntimeLogConfigurationCommandOutput>;
   resetRuntimeLogConfiguration(
     args: ResetRuntimeLogConfigurationCommandInput,
@@ -1730,7 +1742,7 @@ export interface IoTManagedIntegrations {
   ): void;
   resetRuntimeLogConfiguration(
     args: ResetRuntimeLogConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: ResetRuntimeLogConfigurationCommandOutput) => void
   ): void;
 
@@ -1739,7 +1751,7 @@ export interface IoTManagedIntegrations {
    */
   sendConnectorEvent(
     args: SendConnectorEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<SendConnectorEventCommandOutput>;
   sendConnectorEvent(
     args: SendConnectorEventCommandInput,
@@ -1747,7 +1759,7 @@ export interface IoTManagedIntegrations {
   ): void;
   sendConnectorEvent(
     args: SendConnectorEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: SendConnectorEventCommandOutput) => void
   ): void;
 
@@ -1756,7 +1768,7 @@ export interface IoTManagedIntegrations {
    */
   sendManagedThingCommand(
     args: SendManagedThingCommandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<SendManagedThingCommandCommandOutput>;
   sendManagedThingCommand(
     args: SendManagedThingCommandCommandInput,
@@ -1764,7 +1776,7 @@ export interface IoTManagedIntegrations {
   ): void;
   sendManagedThingCommand(
     args: SendManagedThingCommandCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: SendManagedThingCommandCommandOutput) => void
   ): void;
 
@@ -1773,7 +1785,7 @@ export interface IoTManagedIntegrations {
    */
   startAccountAssociationRefresh(
     args: StartAccountAssociationRefreshCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<StartAccountAssociationRefreshCommandOutput>;
   startAccountAssociationRefresh(
     args: StartAccountAssociationRefreshCommandInput,
@@ -1781,7 +1793,7 @@ export interface IoTManagedIntegrations {
   ): void;
   startAccountAssociationRefresh(
     args: StartAccountAssociationRefreshCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: StartAccountAssociationRefreshCommandOutput) => void
   ): void;
 
@@ -1790,7 +1802,7 @@ export interface IoTManagedIntegrations {
    */
   startDeviceDiscovery(
     args: StartDeviceDiscoveryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<StartDeviceDiscoveryCommandOutput>;
   startDeviceDiscovery(
     args: StartDeviceDiscoveryCommandInput,
@@ -1798,7 +1810,7 @@ export interface IoTManagedIntegrations {
   ): void;
   startDeviceDiscovery(
     args: StartDeviceDiscoveryCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: StartDeviceDiscoveryCommandOutput) => void
   ): void;
 
@@ -1807,7 +1819,7 @@ export interface IoTManagedIntegrations {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1815,7 +1827,7 @@ export interface IoTManagedIntegrations {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1824,7 +1836,7 @@ export interface IoTManagedIntegrations {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1832,7 +1844,7 @@ export interface IoTManagedIntegrations {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1841,7 +1853,7 @@ export interface IoTManagedIntegrations {
    */
   updateAccountAssociation(
     args: UpdateAccountAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<UpdateAccountAssociationCommandOutput>;
   updateAccountAssociation(
     args: UpdateAccountAssociationCommandInput,
@@ -1849,7 +1861,7 @@ export interface IoTManagedIntegrations {
   ): void;
   updateAccountAssociation(
     args: UpdateAccountAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: UpdateAccountAssociationCommandOutput) => void
   ): void;
 
@@ -1858,7 +1870,7 @@ export interface IoTManagedIntegrations {
    */
   updateCloudConnector(
     args: UpdateCloudConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<UpdateCloudConnectorCommandOutput>;
   updateCloudConnector(
     args: UpdateCloudConnectorCommandInput,
@@ -1866,7 +1878,7 @@ export interface IoTManagedIntegrations {
   ): void;
   updateCloudConnector(
     args: UpdateCloudConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: UpdateCloudConnectorCommandOutput) => void
   ): void;
 
@@ -1875,7 +1887,7 @@ export interface IoTManagedIntegrations {
    */
   updateConnectorDestination(
     args: UpdateConnectorDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<UpdateConnectorDestinationCommandOutput>;
   updateConnectorDestination(
     args: UpdateConnectorDestinationCommandInput,
@@ -1883,7 +1895,7 @@ export interface IoTManagedIntegrations {
   ): void;
   updateConnectorDestination(
     args: UpdateConnectorDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: UpdateConnectorDestinationCommandOutput) => void
   ): void;
 
@@ -1892,7 +1904,7 @@ export interface IoTManagedIntegrations {
    */
   updateDestination(
     args: UpdateDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<UpdateDestinationCommandOutput>;
   updateDestination(
     args: UpdateDestinationCommandInput,
@@ -1900,7 +1912,7 @@ export interface IoTManagedIntegrations {
   ): void;
   updateDestination(
     args: UpdateDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: UpdateDestinationCommandOutput) => void
   ): void;
 
@@ -1909,7 +1921,7 @@ export interface IoTManagedIntegrations {
    */
   updateEventLogConfiguration(
     args: UpdateEventLogConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<UpdateEventLogConfigurationCommandOutput>;
   updateEventLogConfiguration(
     args: UpdateEventLogConfigurationCommandInput,
@@ -1917,7 +1929,7 @@ export interface IoTManagedIntegrations {
   ): void;
   updateEventLogConfiguration(
     args: UpdateEventLogConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: UpdateEventLogConfigurationCommandOutput) => void
   ): void;
 
@@ -1926,7 +1938,7 @@ export interface IoTManagedIntegrations {
    */
   updateManagedThing(
     args: UpdateManagedThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<UpdateManagedThingCommandOutput>;
   updateManagedThing(
     args: UpdateManagedThingCommandInput,
@@ -1934,7 +1946,7 @@ export interface IoTManagedIntegrations {
   ): void;
   updateManagedThing(
     args: UpdateManagedThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: UpdateManagedThingCommandOutput) => void
   ): void;
 
@@ -1943,7 +1955,7 @@ export interface IoTManagedIntegrations {
    */
   updateNotificationConfiguration(
     args: UpdateNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<UpdateNotificationConfigurationCommandOutput>;
   updateNotificationConfiguration(
     args: UpdateNotificationConfigurationCommandInput,
@@ -1951,7 +1963,7 @@ export interface IoTManagedIntegrations {
   ): void;
   updateNotificationConfiguration(
     args: UpdateNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: UpdateNotificationConfigurationCommandOutput) => void
   ): void;
 
@@ -1960,7 +1972,7 @@ export interface IoTManagedIntegrations {
    */
   updateOtaTask(
     args: UpdateOtaTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTManagedIntegrationsRequestOptions
   ): Promise<UpdateOtaTaskCommandOutput>;
   updateOtaTask(
     args: UpdateOtaTaskCommandInput,
@@ -1968,7 +1980,7 @@ export interface IoTManagedIntegrations {
   ): void;
   updateOtaTask(
     args: UpdateOtaTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTManagedIntegrationsRequestOptions,
     cb: (err: any, data?: UpdateOtaTaskCommandOutput) => void
   ): void;
 

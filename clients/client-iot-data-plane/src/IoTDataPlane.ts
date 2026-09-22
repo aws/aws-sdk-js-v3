@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type DeleteConnectionCommandInput,
@@ -75,13 +80,20 @@ const paginators = {
   paginateListSubscriptions,
 };
 
+/**
+ * @public
+ */
+export interface IoTDataPlaneRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface IoTDataPlane {
   /**
    * @see {@link DeleteConnectionCommand}
    */
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTDataPlaneRequestOptions
   ): Promise<DeleteConnectionCommandOutput>;
   deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -89,7 +101,7 @@ export interface IoTDataPlane {
   ): void;
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTDataPlaneRequestOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): void;
 
@@ -98,7 +110,7 @@ export interface IoTDataPlane {
    */
   deleteThingShadow(
     args: DeleteThingShadowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTDataPlaneRequestOptions
   ): Promise<DeleteThingShadowCommandOutput>;
   deleteThingShadow(
     args: DeleteThingShadowCommandInput,
@@ -106,7 +118,7 @@ export interface IoTDataPlane {
   ): void;
   deleteThingShadow(
     args: DeleteThingShadowCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTDataPlaneRequestOptions,
     cb: (err: any, data?: DeleteThingShadowCommandOutput) => void
   ): void;
 
@@ -115,7 +127,7 @@ export interface IoTDataPlane {
    */
   getConnection(
     args: GetConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTDataPlaneRequestOptions
   ): Promise<GetConnectionCommandOutput>;
   getConnection(
     args: GetConnectionCommandInput,
@@ -123,7 +135,7 @@ export interface IoTDataPlane {
   ): void;
   getConnection(
     args: GetConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTDataPlaneRequestOptions,
     cb: (err: any, data?: GetConnectionCommandOutput) => void
   ): void;
 
@@ -132,7 +144,7 @@ export interface IoTDataPlane {
    */
   getRetainedMessage(
     args: GetRetainedMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTDataPlaneRequestOptions
   ): Promise<GetRetainedMessageCommandOutput>;
   getRetainedMessage(
     args: GetRetainedMessageCommandInput,
@@ -140,7 +152,7 @@ export interface IoTDataPlane {
   ): void;
   getRetainedMessage(
     args: GetRetainedMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTDataPlaneRequestOptions,
     cb: (err: any, data?: GetRetainedMessageCommandOutput) => void
   ): void;
 
@@ -149,7 +161,7 @@ export interface IoTDataPlane {
    */
   getThingShadow(
     args: GetThingShadowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTDataPlaneRequestOptions
   ): Promise<GetThingShadowCommandOutput>;
   getThingShadow(
     args: GetThingShadowCommandInput,
@@ -157,7 +169,7 @@ export interface IoTDataPlane {
   ): void;
   getThingShadow(
     args: GetThingShadowCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTDataPlaneRequestOptions,
     cb: (err: any, data?: GetThingShadowCommandOutput) => void
   ): void;
 
@@ -166,7 +178,7 @@ export interface IoTDataPlane {
    */
   listNamedShadowsForThing(
     args: ListNamedShadowsForThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTDataPlaneRequestOptions
   ): Promise<ListNamedShadowsForThingCommandOutput>;
   listNamedShadowsForThing(
     args: ListNamedShadowsForThingCommandInput,
@@ -174,7 +186,7 @@ export interface IoTDataPlane {
   ): void;
   listNamedShadowsForThing(
     args: ListNamedShadowsForThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTDataPlaneRequestOptions,
     cb: (err: any, data?: ListNamedShadowsForThingCommandOutput) => void
   ): void;
 
@@ -184,7 +196,7 @@ export interface IoTDataPlane {
   listRetainedMessages(): Promise<ListRetainedMessagesCommandOutput>;
   listRetainedMessages(
     args: ListRetainedMessagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTDataPlaneRequestOptions
   ): Promise<ListRetainedMessagesCommandOutput>;
   listRetainedMessages(
     args: ListRetainedMessagesCommandInput,
@@ -192,7 +204,7 @@ export interface IoTDataPlane {
   ): void;
   listRetainedMessages(
     args: ListRetainedMessagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTDataPlaneRequestOptions,
     cb: (err: any, data?: ListRetainedMessagesCommandOutput) => void
   ): void;
 
@@ -201,7 +213,7 @@ export interface IoTDataPlane {
    */
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTDataPlaneRequestOptions
   ): Promise<ListSubscriptionsCommandOutput>;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
@@ -209,7 +221,7 @@ export interface IoTDataPlane {
   ): void;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTDataPlaneRequestOptions,
     cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
   ): void;
 
@@ -218,7 +230,7 @@ export interface IoTDataPlane {
    */
   publish(
     args: PublishCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTDataPlaneRequestOptions
   ): Promise<PublishCommandOutput>;
   publish(
     args: PublishCommandInput,
@@ -226,7 +238,7 @@ export interface IoTDataPlane {
   ): void;
   publish(
     args: PublishCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTDataPlaneRequestOptions,
     cb: (err: any, data?: PublishCommandOutput) => void
   ): void;
 
@@ -235,7 +247,7 @@ export interface IoTDataPlane {
    */
   sendDirectMessage(
     args: SendDirectMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTDataPlaneRequestOptions
   ): Promise<SendDirectMessageCommandOutput>;
   sendDirectMessage(
     args: SendDirectMessageCommandInput,
@@ -243,7 +255,7 @@ export interface IoTDataPlane {
   ): void;
   sendDirectMessage(
     args: SendDirectMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTDataPlaneRequestOptions,
     cb: (err: any, data?: SendDirectMessageCommandOutput) => void
   ): void;
 
@@ -252,7 +264,7 @@ export interface IoTDataPlane {
    */
   updateThingShadow(
     args: UpdateThingShadowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTDataPlaneRequestOptions
   ): Promise<UpdateThingShadowCommandOutput>;
   updateThingShadow(
     args: UpdateThingShadowCommandInput,
@@ -260,7 +272,7 @@ export interface IoTDataPlane {
   ): void;
   updateThingShadow(
     args: UpdateThingShadowCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTDataPlaneRequestOptions,
     cb: (err: any, data?: UpdateThingShadowCommandOutput) => void
   ): void;
 

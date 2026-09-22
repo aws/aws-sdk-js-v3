@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ConfigureLogsForChannelCommandInput,
@@ -315,13 +320,20 @@ const paginators = {
   paginateListVodSources,
 };
 
+/**
+ * @public
+ */
+export interface MediaTailorRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MediaTailor {
   /**
    * @see {@link ConfigureLogsForChannelCommand}
    */
   configureLogsForChannel(
     args: ConfigureLogsForChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<ConfigureLogsForChannelCommandOutput>;
   configureLogsForChannel(
     args: ConfigureLogsForChannelCommandInput,
@@ -329,7 +341,7 @@ export interface MediaTailor {
   ): void;
   configureLogsForChannel(
     args: ConfigureLogsForChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: ConfigureLogsForChannelCommandOutput) => void
   ): void;
 
@@ -338,7 +350,7 @@ export interface MediaTailor {
    */
   configureLogsForPlaybackConfiguration(
     args: ConfigureLogsForPlaybackConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<ConfigureLogsForPlaybackConfigurationCommandOutput>;
   configureLogsForPlaybackConfiguration(
     args: ConfigureLogsForPlaybackConfigurationCommandInput,
@@ -346,7 +358,7 @@ export interface MediaTailor {
   ): void;
   configureLogsForPlaybackConfiguration(
     args: ConfigureLogsForPlaybackConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: ConfigureLogsForPlaybackConfigurationCommandOutput) => void
   ): void;
 
@@ -355,7 +367,7 @@ export interface MediaTailor {
    */
   createChannel(
     args: CreateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<CreateChannelCommandOutput>;
   createChannel(
     args: CreateChannelCommandInput,
@@ -363,7 +375,7 @@ export interface MediaTailor {
   ): void;
   createChannel(
     args: CreateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: CreateChannelCommandOutput) => void
   ): void;
 
@@ -372,7 +384,7 @@ export interface MediaTailor {
    */
   createLiveSource(
     args: CreateLiveSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<CreateLiveSourceCommandOutput>;
   createLiveSource(
     args: CreateLiveSourceCommandInput,
@@ -380,7 +392,7 @@ export interface MediaTailor {
   ): void;
   createLiveSource(
     args: CreateLiveSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: CreateLiveSourceCommandOutput) => void
   ): void;
 
@@ -389,7 +401,7 @@ export interface MediaTailor {
    */
   createPrefetchSchedule(
     args: CreatePrefetchScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<CreatePrefetchScheduleCommandOutput>;
   createPrefetchSchedule(
     args: CreatePrefetchScheduleCommandInput,
@@ -397,7 +409,7 @@ export interface MediaTailor {
   ): void;
   createPrefetchSchedule(
     args: CreatePrefetchScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: CreatePrefetchScheduleCommandOutput) => void
   ): void;
 
@@ -406,7 +418,7 @@ export interface MediaTailor {
    */
   createProgram(
     args: CreateProgramCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<CreateProgramCommandOutput>;
   createProgram(
     args: CreateProgramCommandInput,
@@ -414,7 +426,7 @@ export interface MediaTailor {
   ): void;
   createProgram(
     args: CreateProgramCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: CreateProgramCommandOutput) => void
   ): void;
 
@@ -423,7 +435,7 @@ export interface MediaTailor {
    */
   createSourceLocation(
     args: CreateSourceLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<CreateSourceLocationCommandOutput>;
   createSourceLocation(
     args: CreateSourceLocationCommandInput,
@@ -431,7 +443,7 @@ export interface MediaTailor {
   ): void;
   createSourceLocation(
     args: CreateSourceLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: CreateSourceLocationCommandOutput) => void
   ): void;
 
@@ -440,7 +452,7 @@ export interface MediaTailor {
    */
   createVodSource(
     args: CreateVodSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<CreateVodSourceCommandOutput>;
   createVodSource(
     args: CreateVodSourceCommandInput,
@@ -448,7 +460,7 @@ export interface MediaTailor {
   ): void;
   createVodSource(
     args: CreateVodSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: CreateVodSourceCommandOutput) => void
   ): void;
 
@@ -457,7 +469,7 @@ export interface MediaTailor {
    */
   deleteChannel(
     args: DeleteChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DeleteChannelCommandOutput>;
   deleteChannel(
     args: DeleteChannelCommandInput,
@@ -465,7 +477,7 @@ export interface MediaTailor {
   ): void;
   deleteChannel(
     args: DeleteChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DeleteChannelCommandOutput) => void
   ): void;
 
@@ -474,7 +486,7 @@ export interface MediaTailor {
    */
   deleteChannelPolicy(
     args: DeleteChannelPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DeleteChannelPolicyCommandOutput>;
   deleteChannelPolicy(
     args: DeleteChannelPolicyCommandInput,
@@ -482,7 +494,7 @@ export interface MediaTailor {
   ): void;
   deleteChannelPolicy(
     args: DeleteChannelPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DeleteChannelPolicyCommandOutput) => void
   ): void;
 
@@ -491,7 +503,7 @@ export interface MediaTailor {
    */
   deleteFunction(
     args: DeleteFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DeleteFunctionCommandOutput>;
   deleteFunction(
     args: DeleteFunctionCommandInput,
@@ -499,7 +511,7 @@ export interface MediaTailor {
   ): void;
   deleteFunction(
     args: DeleteFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DeleteFunctionCommandOutput) => void
   ): void;
 
@@ -508,7 +520,7 @@ export interface MediaTailor {
    */
   deleteLiveSource(
     args: DeleteLiveSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DeleteLiveSourceCommandOutput>;
   deleteLiveSource(
     args: DeleteLiveSourceCommandInput,
@@ -516,7 +528,7 @@ export interface MediaTailor {
   ): void;
   deleteLiveSource(
     args: DeleteLiveSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DeleteLiveSourceCommandOutput) => void
   ): void;
 
@@ -525,7 +537,7 @@ export interface MediaTailor {
    */
   deletePlaybackConfiguration(
     args: DeletePlaybackConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DeletePlaybackConfigurationCommandOutput>;
   deletePlaybackConfiguration(
     args: DeletePlaybackConfigurationCommandInput,
@@ -533,7 +545,7 @@ export interface MediaTailor {
   ): void;
   deletePlaybackConfiguration(
     args: DeletePlaybackConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DeletePlaybackConfigurationCommandOutput) => void
   ): void;
 
@@ -542,7 +554,7 @@ export interface MediaTailor {
    */
   deletePrefetchSchedule(
     args: DeletePrefetchScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DeletePrefetchScheduleCommandOutput>;
   deletePrefetchSchedule(
     args: DeletePrefetchScheduleCommandInput,
@@ -550,7 +562,7 @@ export interface MediaTailor {
   ): void;
   deletePrefetchSchedule(
     args: DeletePrefetchScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DeletePrefetchScheduleCommandOutput) => void
   ): void;
 
@@ -559,7 +571,7 @@ export interface MediaTailor {
    */
   deleteProgram(
     args: DeleteProgramCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DeleteProgramCommandOutput>;
   deleteProgram(
     args: DeleteProgramCommandInput,
@@ -567,7 +579,7 @@ export interface MediaTailor {
   ): void;
   deleteProgram(
     args: DeleteProgramCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DeleteProgramCommandOutput) => void
   ): void;
 
@@ -576,7 +588,7 @@ export interface MediaTailor {
    */
   deleteSourceLocation(
     args: DeleteSourceLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DeleteSourceLocationCommandOutput>;
   deleteSourceLocation(
     args: DeleteSourceLocationCommandInput,
@@ -584,7 +596,7 @@ export interface MediaTailor {
   ): void;
   deleteSourceLocation(
     args: DeleteSourceLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DeleteSourceLocationCommandOutput) => void
   ): void;
 
@@ -593,7 +605,7 @@ export interface MediaTailor {
    */
   deleteVodSource(
     args: DeleteVodSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DeleteVodSourceCommandOutput>;
   deleteVodSource(
     args: DeleteVodSourceCommandInput,
@@ -601,7 +613,7 @@ export interface MediaTailor {
   ): void;
   deleteVodSource(
     args: DeleteVodSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DeleteVodSourceCommandOutput) => void
   ): void;
 
@@ -610,7 +622,7 @@ export interface MediaTailor {
    */
   describeChannel(
     args: DescribeChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DescribeChannelCommandOutput>;
   describeChannel(
     args: DescribeChannelCommandInput,
@@ -618,7 +630,7 @@ export interface MediaTailor {
   ): void;
   describeChannel(
     args: DescribeChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DescribeChannelCommandOutput) => void
   ): void;
 
@@ -627,7 +639,7 @@ export interface MediaTailor {
    */
   describeLiveSource(
     args: DescribeLiveSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DescribeLiveSourceCommandOutput>;
   describeLiveSource(
     args: DescribeLiveSourceCommandInput,
@@ -635,7 +647,7 @@ export interface MediaTailor {
   ): void;
   describeLiveSource(
     args: DescribeLiveSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DescribeLiveSourceCommandOutput) => void
   ): void;
 
@@ -644,7 +656,7 @@ export interface MediaTailor {
    */
   describeProgram(
     args: DescribeProgramCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DescribeProgramCommandOutput>;
   describeProgram(
     args: DescribeProgramCommandInput,
@@ -652,7 +664,7 @@ export interface MediaTailor {
   ): void;
   describeProgram(
     args: DescribeProgramCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DescribeProgramCommandOutput) => void
   ): void;
 
@@ -661,7 +673,7 @@ export interface MediaTailor {
    */
   describeSourceLocation(
     args: DescribeSourceLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DescribeSourceLocationCommandOutput>;
   describeSourceLocation(
     args: DescribeSourceLocationCommandInput,
@@ -669,7 +681,7 @@ export interface MediaTailor {
   ): void;
   describeSourceLocation(
     args: DescribeSourceLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DescribeSourceLocationCommandOutput) => void
   ): void;
 
@@ -678,7 +690,7 @@ export interface MediaTailor {
    */
   describeVodSource(
     args: DescribeVodSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<DescribeVodSourceCommandOutput>;
   describeVodSource(
     args: DescribeVodSourceCommandInput,
@@ -686,7 +698,7 @@ export interface MediaTailor {
   ): void;
   describeVodSource(
     args: DescribeVodSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: DescribeVodSourceCommandOutput) => void
   ): void;
 
@@ -695,7 +707,7 @@ export interface MediaTailor {
    */
   getChannelPolicy(
     args: GetChannelPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<GetChannelPolicyCommandOutput>;
   getChannelPolicy(
     args: GetChannelPolicyCommandInput,
@@ -703,7 +715,7 @@ export interface MediaTailor {
   ): void;
   getChannelPolicy(
     args: GetChannelPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: GetChannelPolicyCommandOutput) => void
   ): void;
 
@@ -712,7 +724,7 @@ export interface MediaTailor {
    */
   getChannelSchedule(
     args: GetChannelScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<GetChannelScheduleCommandOutput>;
   getChannelSchedule(
     args: GetChannelScheduleCommandInput,
@@ -720,7 +732,7 @@ export interface MediaTailor {
   ): void;
   getChannelSchedule(
     args: GetChannelScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: GetChannelScheduleCommandOutput) => void
   ): void;
 
@@ -729,7 +741,7 @@ export interface MediaTailor {
    */
   getFunction(
     args: GetFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<GetFunctionCommandOutput>;
   getFunction(
     args: GetFunctionCommandInput,
@@ -737,7 +749,7 @@ export interface MediaTailor {
   ): void;
   getFunction(
     args: GetFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: GetFunctionCommandOutput) => void
   ): void;
 
@@ -746,7 +758,7 @@ export interface MediaTailor {
    */
   getPlaybackConfiguration(
     args: GetPlaybackConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<GetPlaybackConfigurationCommandOutput>;
   getPlaybackConfiguration(
     args: GetPlaybackConfigurationCommandInput,
@@ -754,7 +766,7 @@ export interface MediaTailor {
   ): void;
   getPlaybackConfiguration(
     args: GetPlaybackConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: GetPlaybackConfigurationCommandOutput) => void
   ): void;
 
@@ -763,7 +775,7 @@ export interface MediaTailor {
    */
   getPrefetchSchedule(
     args: GetPrefetchScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<GetPrefetchScheduleCommandOutput>;
   getPrefetchSchedule(
     args: GetPrefetchScheduleCommandInput,
@@ -771,7 +783,7 @@ export interface MediaTailor {
   ): void;
   getPrefetchSchedule(
     args: GetPrefetchScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: GetPrefetchScheduleCommandOutput) => void
   ): void;
 
@@ -780,7 +792,7 @@ export interface MediaTailor {
    */
   listAlerts(
     args: ListAlertsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<ListAlertsCommandOutput>;
   listAlerts(
     args: ListAlertsCommandInput,
@@ -788,7 +800,7 @@ export interface MediaTailor {
   ): void;
   listAlerts(
     args: ListAlertsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: ListAlertsCommandOutput) => void
   ): void;
 
@@ -798,7 +810,7 @@ export interface MediaTailor {
   listChannels(): Promise<ListChannelsCommandOutput>;
   listChannels(
     args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<ListChannelsCommandOutput>;
   listChannels(
     args: ListChannelsCommandInput,
@@ -806,7 +818,7 @@ export interface MediaTailor {
   ): void;
   listChannels(
     args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
 
@@ -816,7 +828,7 @@ export interface MediaTailor {
   listFunctions(): Promise<ListFunctionsCommandOutput>;
   listFunctions(
     args: ListFunctionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<ListFunctionsCommandOutput>;
   listFunctions(
     args: ListFunctionsCommandInput,
@@ -824,7 +836,7 @@ export interface MediaTailor {
   ): void;
   listFunctions(
     args: ListFunctionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: ListFunctionsCommandOutput) => void
   ): void;
 
@@ -833,7 +845,7 @@ export interface MediaTailor {
    */
   listLiveSources(
     args: ListLiveSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<ListLiveSourcesCommandOutput>;
   listLiveSources(
     args: ListLiveSourcesCommandInput,
@@ -841,7 +853,7 @@ export interface MediaTailor {
   ): void;
   listLiveSources(
     args: ListLiveSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: ListLiveSourcesCommandOutput) => void
   ): void;
 
@@ -851,7 +863,7 @@ export interface MediaTailor {
   listPlaybackConfigurations(): Promise<ListPlaybackConfigurationsCommandOutput>;
   listPlaybackConfigurations(
     args: ListPlaybackConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<ListPlaybackConfigurationsCommandOutput>;
   listPlaybackConfigurations(
     args: ListPlaybackConfigurationsCommandInput,
@@ -859,7 +871,7 @@ export interface MediaTailor {
   ): void;
   listPlaybackConfigurations(
     args: ListPlaybackConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: ListPlaybackConfigurationsCommandOutput) => void
   ): void;
 
@@ -868,7 +880,7 @@ export interface MediaTailor {
    */
   listPrefetchSchedules(
     args: ListPrefetchSchedulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<ListPrefetchSchedulesCommandOutput>;
   listPrefetchSchedules(
     args: ListPrefetchSchedulesCommandInput,
@@ -876,7 +888,7 @@ export interface MediaTailor {
   ): void;
   listPrefetchSchedules(
     args: ListPrefetchSchedulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: ListPrefetchSchedulesCommandOutput) => void
   ): void;
 
@@ -886,7 +898,7 @@ export interface MediaTailor {
   listSourceLocations(): Promise<ListSourceLocationsCommandOutput>;
   listSourceLocations(
     args: ListSourceLocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<ListSourceLocationsCommandOutput>;
   listSourceLocations(
     args: ListSourceLocationsCommandInput,
@@ -894,7 +906,7 @@ export interface MediaTailor {
   ): void;
   listSourceLocations(
     args: ListSourceLocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: ListSourceLocationsCommandOutput) => void
   ): void;
 
@@ -903,7 +915,7 @@ export interface MediaTailor {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -911,7 +923,7 @@ export interface MediaTailor {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -920,7 +932,7 @@ export interface MediaTailor {
    */
   listVodSources(
     args: ListVodSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<ListVodSourcesCommandOutput>;
   listVodSources(
     args: ListVodSourcesCommandInput,
@@ -928,7 +940,7 @@ export interface MediaTailor {
   ): void;
   listVodSources(
     args: ListVodSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: ListVodSourcesCommandOutput) => void
   ): void;
 
@@ -937,7 +949,7 @@ export interface MediaTailor {
    */
   putChannelPolicy(
     args: PutChannelPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<PutChannelPolicyCommandOutput>;
   putChannelPolicy(
     args: PutChannelPolicyCommandInput,
@@ -945,7 +957,7 @@ export interface MediaTailor {
   ): void;
   putChannelPolicy(
     args: PutChannelPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: PutChannelPolicyCommandOutput) => void
   ): void;
 
@@ -954,7 +966,7 @@ export interface MediaTailor {
    */
   putFunction(
     args: PutFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<PutFunctionCommandOutput>;
   putFunction(
     args: PutFunctionCommandInput,
@@ -962,7 +974,7 @@ export interface MediaTailor {
   ): void;
   putFunction(
     args: PutFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: PutFunctionCommandOutput) => void
   ): void;
 
@@ -971,7 +983,7 @@ export interface MediaTailor {
    */
   putPlaybackConfiguration(
     args: PutPlaybackConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<PutPlaybackConfigurationCommandOutput>;
   putPlaybackConfiguration(
     args: PutPlaybackConfigurationCommandInput,
@@ -979,7 +991,7 @@ export interface MediaTailor {
   ): void;
   putPlaybackConfiguration(
     args: PutPlaybackConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: PutPlaybackConfigurationCommandOutput) => void
   ): void;
 
@@ -988,7 +1000,7 @@ export interface MediaTailor {
    */
   startChannel(
     args: StartChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<StartChannelCommandOutput>;
   startChannel(
     args: StartChannelCommandInput,
@@ -996,7 +1008,7 @@ export interface MediaTailor {
   ): void;
   startChannel(
     args: StartChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: StartChannelCommandOutput) => void
   ): void;
 
@@ -1005,7 +1017,7 @@ export interface MediaTailor {
    */
   stopChannel(
     args: StopChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<StopChannelCommandOutput>;
   stopChannel(
     args: StopChannelCommandInput,
@@ -1013,7 +1025,7 @@ export interface MediaTailor {
   ): void;
   stopChannel(
     args: StopChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: StopChannelCommandOutput) => void
   ): void;
 
@@ -1022,7 +1034,7 @@ export interface MediaTailor {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1030,7 +1042,7 @@ export interface MediaTailor {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1039,7 +1051,7 @@ export interface MediaTailor {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1047,7 +1059,7 @@ export interface MediaTailor {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1056,7 +1068,7 @@ export interface MediaTailor {
    */
   updateChannel(
     args: UpdateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<UpdateChannelCommandOutput>;
   updateChannel(
     args: UpdateChannelCommandInput,
@@ -1064,7 +1076,7 @@ export interface MediaTailor {
   ): void;
   updateChannel(
     args: UpdateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: UpdateChannelCommandOutput) => void
   ): void;
 
@@ -1073,7 +1085,7 @@ export interface MediaTailor {
    */
   updateLiveSource(
     args: UpdateLiveSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<UpdateLiveSourceCommandOutput>;
   updateLiveSource(
     args: UpdateLiveSourceCommandInput,
@@ -1081,7 +1093,7 @@ export interface MediaTailor {
   ): void;
   updateLiveSource(
     args: UpdateLiveSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: UpdateLiveSourceCommandOutput) => void
   ): void;
 
@@ -1090,7 +1102,7 @@ export interface MediaTailor {
    */
   updateProgram(
     args: UpdateProgramCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<UpdateProgramCommandOutput>;
   updateProgram(
     args: UpdateProgramCommandInput,
@@ -1098,7 +1110,7 @@ export interface MediaTailor {
   ): void;
   updateProgram(
     args: UpdateProgramCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: UpdateProgramCommandOutput) => void
   ): void;
 
@@ -1107,7 +1119,7 @@ export interface MediaTailor {
    */
   updateSourceLocation(
     args: UpdateSourceLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<UpdateSourceLocationCommandOutput>;
   updateSourceLocation(
     args: UpdateSourceLocationCommandInput,
@@ -1115,7 +1127,7 @@ export interface MediaTailor {
   ): void;
   updateSourceLocation(
     args: UpdateSourceLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: UpdateSourceLocationCommandOutput) => void
   ): void;
 
@@ -1124,7 +1136,7 @@ export interface MediaTailor {
    */
   updateVodSource(
     args: UpdateVodSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaTailorRequestOptions
   ): Promise<UpdateVodSourceCommandOutput>;
   updateVodSource(
     args: UpdateVodSourceCommandInput,
@@ -1132,7 +1144,7 @@ export interface MediaTailor {
   ): void;
   updateVodSource(
     args: UpdateVodSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaTailorRequestOptions,
     cb: (err: any, data?: UpdateVodSourceCommandOutput) => void
   ): void;
 

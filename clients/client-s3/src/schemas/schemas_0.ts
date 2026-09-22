@@ -1117,10 +1117,10 @@ import {
 import { S3ServiceException } from "../models/S3ServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var S3ServiceException$: StaticErrorSchema = [-3, _s, "S3ServiceException", 0, [], []];
 _s_registry.registerError(S3ServiceException$, S3ServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var AccessDenied$: StaticErrorSchema = [-3, n0, _AD,
   { [_e]: _c, [_hE]: 403 },
   [],

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type CompleteRolloutCommandInput,
@@ -27,13 +27,20 @@ const commands = {
   UpdateRewardCommand,
 };
 
+/**
+ * @public
+ */
+export interface SagemakerJobRuntimeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SagemakerJobRuntime {
   /**
    * @see {@link CompleteRolloutCommand}
    */
   completeRollout(
     args: CompleteRolloutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SagemakerJobRuntimeRequestOptions
   ): Promise<CompleteRolloutCommandOutput>;
   completeRollout(
     args: CompleteRolloutCommandInput,
@@ -41,7 +48,7 @@ export interface SagemakerJobRuntime {
   ): void;
   completeRollout(
     args: CompleteRolloutCommandInput,
-    options: __HttpHandlerOptions,
+    options: SagemakerJobRuntimeRequestOptions,
     cb: (err: any, data?: CompleteRolloutCommandOutput) => void
   ): void;
 
@@ -50,7 +57,7 @@ export interface SagemakerJobRuntime {
    */
   sample(
     args: SampleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SagemakerJobRuntimeRequestOptions
   ): Promise<SampleCommandOutput>;
   sample(
     args: SampleCommandInput,
@@ -58,7 +65,7 @@ export interface SagemakerJobRuntime {
   ): void;
   sample(
     args: SampleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SagemakerJobRuntimeRequestOptions,
     cb: (err: any, data?: SampleCommandOutput) => void
   ): void;
 
@@ -67,7 +74,7 @@ export interface SagemakerJobRuntime {
    */
   sampleWithResponseStream(
     args: SampleWithResponseStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SagemakerJobRuntimeRequestOptions
   ): Promise<SampleWithResponseStreamCommandOutput>;
   sampleWithResponseStream(
     args: SampleWithResponseStreamCommandInput,
@@ -75,7 +82,7 @@ export interface SagemakerJobRuntime {
   ): void;
   sampleWithResponseStream(
     args: SampleWithResponseStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: SagemakerJobRuntimeRequestOptions,
     cb: (err: any, data?: SampleWithResponseStreamCommandOutput) => void
   ): void;
 
@@ -84,7 +91,7 @@ export interface SagemakerJobRuntime {
    */
   updateReward(
     args: UpdateRewardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SagemakerJobRuntimeRequestOptions
   ): Promise<UpdateRewardCommandOutput>;
   updateReward(
     args: UpdateRewardCommandInput,
@@ -92,7 +99,7 @@ export interface SagemakerJobRuntime {
   ): void;
   updateReward(
     args: UpdateRewardCommandInput,
-    options: __HttpHandlerOptions,
+    options: SagemakerJobRuntimeRequestOptions,
     cb: (err: any, data?: UpdateRewardCommandOutput) => void
   ): void;
 }

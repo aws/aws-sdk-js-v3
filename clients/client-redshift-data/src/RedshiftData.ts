@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchExecuteStatementCommandInput,
@@ -97,13 +102,20 @@ const paginators = {
   paginateListTables,
 };
 
+/**
+ * @public
+ */
+export interface RedshiftDataRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface RedshiftData {
   /**
    * @see {@link BatchExecuteStatementCommand}
    */
   batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<BatchExecuteStatementCommandOutput>;
   batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
@@ -111,7 +123,7 @@ export interface RedshiftData {
   ): void;
   batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: BatchExecuteStatementCommandOutput) => void
   ): void;
 
@@ -120,7 +132,7 @@ export interface RedshiftData {
    */
   cancelStatement(
     args: CancelStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<CancelStatementCommandOutput>;
   cancelStatement(
     args: CancelStatementCommandInput,
@@ -128,7 +140,7 @@ export interface RedshiftData {
   ): void;
   cancelStatement(
     args: CancelStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: CancelStatementCommandOutput) => void
   ): void;
 
@@ -137,7 +149,7 @@ export interface RedshiftData {
    */
   describeStatement(
     args: DescribeStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<DescribeStatementCommandOutput>;
   describeStatement(
     args: DescribeStatementCommandInput,
@@ -145,7 +157,7 @@ export interface RedshiftData {
   ): void;
   describeStatement(
     args: DescribeStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: DescribeStatementCommandOutput) => void
   ): void;
 
@@ -154,7 +166,7 @@ export interface RedshiftData {
    */
   describeTable(
     args: DescribeTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<DescribeTableCommandOutput>;
   describeTable(
     args: DescribeTableCommandInput,
@@ -162,7 +174,7 @@ export interface RedshiftData {
   ): void;
   describeTable(
     args: DescribeTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: DescribeTableCommandOutput) => void
   ): void;
 
@@ -171,7 +183,7 @@ export interface RedshiftData {
    */
   executeStatement(
     args: ExecuteStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<ExecuteStatementCommandOutput>;
   executeStatement(
     args: ExecuteStatementCommandInput,
@@ -179,7 +191,7 @@ export interface RedshiftData {
   ): void;
   executeStatement(
     args: ExecuteStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: ExecuteStatementCommandOutput) => void
   ): void;
 
@@ -188,7 +200,7 @@ export interface RedshiftData {
    */
   getStatementResult(
     args: GetStatementResultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<GetStatementResultCommandOutput>;
   getStatementResult(
     args: GetStatementResultCommandInput,
@@ -196,7 +208,7 @@ export interface RedshiftData {
   ): void;
   getStatementResult(
     args: GetStatementResultCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: GetStatementResultCommandOutput) => void
   ): void;
 
@@ -205,7 +217,7 @@ export interface RedshiftData {
    */
   getStatementResultV2(
     args: GetStatementResultV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<GetStatementResultV2CommandOutput>;
   getStatementResultV2(
     args: GetStatementResultV2CommandInput,
@@ -213,7 +225,7 @@ export interface RedshiftData {
   ): void;
   getStatementResultV2(
     args: GetStatementResultV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: GetStatementResultV2CommandOutput) => void
   ): void;
 
@@ -222,7 +234,7 @@ export interface RedshiftData {
    */
   listDatabases(
     args: ListDatabasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<ListDatabasesCommandOutput>;
   listDatabases(
     args: ListDatabasesCommandInput,
@@ -230,7 +242,7 @@ export interface RedshiftData {
   ): void;
   listDatabases(
     args: ListDatabasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: ListDatabasesCommandOutput) => void
   ): void;
 
@@ -239,7 +251,7 @@ export interface RedshiftData {
    */
   listSchemas(
     args: ListSchemasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<ListSchemasCommandOutput>;
   listSchemas(
     args: ListSchemasCommandInput,
@@ -247,7 +259,7 @@ export interface RedshiftData {
   ): void;
   listSchemas(
     args: ListSchemasCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: ListSchemasCommandOutput) => void
   ): void;
 
@@ -257,7 +269,7 @@ export interface RedshiftData {
   listSessions(): Promise<ListSessionsCommandOutput>;
   listSessions(
     args: ListSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<ListSessionsCommandOutput>;
   listSessions(
     args: ListSessionsCommandInput,
@@ -265,7 +277,7 @@ export interface RedshiftData {
   ): void;
   listSessions(
     args: ListSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
@@ -275,7 +287,7 @@ export interface RedshiftData {
   listStatements(): Promise<ListStatementsCommandOutput>;
   listStatements(
     args: ListStatementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<ListStatementsCommandOutput>;
   listStatements(
     args: ListStatementsCommandInput,
@@ -283,7 +295,7 @@ export interface RedshiftData {
   ): void;
   listStatements(
     args: ListStatementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: ListStatementsCommandOutput) => void
   ): void;
 
@@ -292,7 +304,7 @@ export interface RedshiftData {
    */
   listTables(
     args: ListTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftDataRequestOptions
   ): Promise<ListTablesCommandOutput>;
   listTables(
     args: ListTablesCommandInput,
@@ -300,7 +312,7 @@ export interface RedshiftData {
   ): void;
   listTables(
     args: ListTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftDataRequestOptions,
     cb: (err: any, data?: ListTablesCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { AgentRegistryClient } from "./AgentRegistryClient";
 import {
@@ -29,13 +34,20 @@ const paginators = {
   paginateListDiscoverableRegistryRecords,
 };
 
+/**
+ * @public
+ */
+export interface AgentRegistryRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface AgentRegistry {
   /**
    * @see {@link BatchGetDiscoverableRegistryRecordCommand}
    */
   batchGetDiscoverableRegistryRecord(
     args: BatchGetDiscoverableRegistryRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryRequestOptions
   ): Promise<BatchGetDiscoverableRegistryRecordCommandOutput>;
   batchGetDiscoverableRegistryRecord(
     args: BatchGetDiscoverableRegistryRecordCommandInput,
@@ -43,7 +55,7 @@ export interface AgentRegistry {
   ): void;
   batchGetDiscoverableRegistryRecord(
     args: BatchGetDiscoverableRegistryRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryRequestOptions,
     cb: (err: any, data?: BatchGetDiscoverableRegistryRecordCommandOutput) => void
   ): void;
 
@@ -52,7 +64,7 @@ export interface AgentRegistry {
    */
   listDiscoverableRegistryRecords(
     args: ListDiscoverableRegistryRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryRequestOptions
   ): Promise<ListDiscoverableRegistryRecordsCommandOutput>;
   listDiscoverableRegistryRecords(
     args: ListDiscoverableRegistryRecordsCommandInput,
@@ -60,7 +72,7 @@ export interface AgentRegistry {
   ): void;
   listDiscoverableRegistryRecords(
     args: ListDiscoverableRegistryRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryRequestOptions,
     cb: (err: any, data?: ListDiscoverableRegistryRecordsCommandOutput) => void
   ): void;
 
@@ -69,7 +81,7 @@ export interface AgentRegistry {
    */
   searchDiscoverableRegistryRecords(
     args: SearchDiscoverableRegistryRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryRequestOptions
   ): Promise<SearchDiscoverableRegistryRecordsCommandOutput>;
   searchDiscoverableRegistryRecords(
     args: SearchDiscoverableRegistryRecordsCommandInput,
@@ -77,7 +89,7 @@ export interface AgentRegistry {
   ): void;
   searchDiscoverableRegistryRecords(
     args: SearchDiscoverableRegistryRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryRequestOptions,
     cb: (err: any, data?: SearchDiscoverableRegistryRecordsCommandOutput) => void
   ): void;
 

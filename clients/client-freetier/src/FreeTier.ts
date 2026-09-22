@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type GetAccountActivityCommandInput,
@@ -43,13 +48,20 @@ const paginators = {
   paginateListAccountActivities,
 };
 
+/**
+ * @public
+ */
+export interface FreeTierRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface FreeTier {
   /**
    * @see {@link GetAccountActivityCommand}
    */
   getAccountActivity(
     args: GetAccountActivityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FreeTierRequestOptions
   ): Promise<GetAccountActivityCommandOutput>;
   getAccountActivity(
     args: GetAccountActivityCommandInput,
@@ -57,7 +69,7 @@ export interface FreeTier {
   ): void;
   getAccountActivity(
     args: GetAccountActivityCommandInput,
-    options: __HttpHandlerOptions,
+    options: FreeTierRequestOptions,
     cb: (err: any, data?: GetAccountActivityCommandOutput) => void
   ): void;
 
@@ -67,7 +79,7 @@ export interface FreeTier {
   getAccountPlanState(): Promise<GetAccountPlanStateCommandOutput>;
   getAccountPlanState(
     args: GetAccountPlanStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FreeTierRequestOptions
   ): Promise<GetAccountPlanStateCommandOutput>;
   getAccountPlanState(
     args: GetAccountPlanStateCommandInput,
@@ -75,7 +87,7 @@ export interface FreeTier {
   ): void;
   getAccountPlanState(
     args: GetAccountPlanStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: FreeTierRequestOptions,
     cb: (err: any, data?: GetAccountPlanStateCommandOutput) => void
   ): void;
 
@@ -85,7 +97,7 @@ export interface FreeTier {
   getFreeTierUsage(): Promise<GetFreeTierUsageCommandOutput>;
   getFreeTierUsage(
     args: GetFreeTierUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FreeTierRequestOptions
   ): Promise<GetFreeTierUsageCommandOutput>;
   getFreeTierUsage(
     args: GetFreeTierUsageCommandInput,
@@ -93,7 +105,7 @@ export interface FreeTier {
   ): void;
   getFreeTierUsage(
     args: GetFreeTierUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: FreeTierRequestOptions,
     cb: (err: any, data?: GetFreeTierUsageCommandOutput) => void
   ): void;
 
@@ -103,7 +115,7 @@ export interface FreeTier {
   listAccountActivities(): Promise<ListAccountActivitiesCommandOutput>;
   listAccountActivities(
     args: ListAccountActivitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FreeTierRequestOptions
   ): Promise<ListAccountActivitiesCommandOutput>;
   listAccountActivities(
     args: ListAccountActivitiesCommandInput,
@@ -111,7 +123,7 @@ export interface FreeTier {
   ): void;
   listAccountActivities(
     args: ListAccountActivitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: FreeTierRequestOptions,
     cb: (err: any, data?: ListAccountActivitiesCommandOutput) => void
   ): void;
 
@@ -120,7 +132,7 @@ export interface FreeTier {
    */
   upgradeAccountPlan(
     args: UpgradeAccountPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FreeTierRequestOptions
   ): Promise<UpgradeAccountPlanCommandOutput>;
   upgradeAccountPlan(
     args: UpgradeAccountPlanCommandInput,
@@ -128,7 +140,7 @@ export interface FreeTier {
   ): void;
   upgradeAccountPlan(
     args: UpgradeAccountPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: FreeTierRequestOptions,
     cb: (err: any, data?: UpgradeAccountPlanCommandOutput) => void
   ): void;
 

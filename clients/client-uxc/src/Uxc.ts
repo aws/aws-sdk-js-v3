@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type GetAccountCustomizationsCommandInput,
@@ -29,6 +34,13 @@ const paginators = {
   paginateListServices,
 };
 
+/**
+ * @public
+ */
+export interface UxcRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Uxc {
   /**
    * @see {@link GetAccountCustomizationsCommand}
@@ -36,7 +48,7 @@ export interface Uxc {
   getAccountCustomizations(): Promise<GetAccountCustomizationsCommandOutput>;
   getAccountCustomizations(
     args: GetAccountCustomizationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: UxcRequestOptions
   ): Promise<GetAccountCustomizationsCommandOutput>;
   getAccountCustomizations(
     args: GetAccountCustomizationsCommandInput,
@@ -44,7 +56,7 @@ export interface Uxc {
   ): void;
   getAccountCustomizations(
     args: GetAccountCustomizationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: UxcRequestOptions,
     cb: (err: any, data?: GetAccountCustomizationsCommandOutput) => void
   ): void;
 
@@ -54,7 +66,7 @@ export interface Uxc {
   listServices(): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: UxcRequestOptions
   ): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
@@ -62,7 +74,7 @@ export interface Uxc {
   ): void;
   listServices(
     args: ListServicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: UxcRequestOptions,
     cb: (err: any, data?: ListServicesCommandOutput) => void
   ): void;
 
@@ -72,7 +84,7 @@ export interface Uxc {
   updateAccountCustomizations(): Promise<UpdateAccountCustomizationsCommandOutput>;
   updateAccountCustomizations(
     args: UpdateAccountCustomizationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: UxcRequestOptions
   ): Promise<UpdateAccountCustomizationsCommandOutput>;
   updateAccountCustomizations(
     args: UpdateAccountCustomizationsCommandInput,
@@ -80,7 +92,7 @@ export interface Uxc {
   ): void;
   updateAccountCustomizations(
     args: UpdateAccountCustomizationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: UxcRequestOptions,
     cb: (err: any, data?: UpdateAccountCustomizationsCommandOutput) => void
   ): void;
 

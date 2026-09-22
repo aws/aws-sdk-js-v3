@@ -65,10 +65,10 @@ import { InternalServiceException } from "../models/errors";
 import { SagemakerEdgeServiceException } from "../models/SagemakerEdgeServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var SagemakerEdgeServiceException$: StaticErrorSchema = [-3, _s, "SagemakerEdgeServiceException", 0, [], []];
 _s_registry.registerError(SagemakerEdgeServiceException$, SagemakerEdgeServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _c },
   [_M],

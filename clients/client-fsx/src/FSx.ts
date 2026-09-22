@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateFileSystemAliasesCommandInput,
@@ -319,13 +324,20 @@ const paginators = {
   paginateListTagsForResource,
 };
 
+/**
+ * @public
+ */
+export interface FSxRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface FSx {
   /**
    * @see {@link AssociateFileSystemAliasesCommand}
    */
   associateFileSystemAliases(
     args: AssociateFileSystemAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<AssociateFileSystemAliasesCommandOutput>;
   associateFileSystemAliases(
     args: AssociateFileSystemAliasesCommandInput,
@@ -333,7 +345,7 @@ export interface FSx {
   ): void;
   associateFileSystemAliases(
     args: AssociateFileSystemAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: AssociateFileSystemAliasesCommandOutput) => void
   ): void;
 
@@ -342,7 +354,7 @@ export interface FSx {
    */
   cancelDataRepositoryTask(
     args: CancelDataRepositoryTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CancelDataRepositoryTaskCommandOutput>;
   cancelDataRepositoryTask(
     args: CancelDataRepositoryTaskCommandInput,
@@ -350,7 +362,7 @@ export interface FSx {
   ): void;
   cancelDataRepositoryTask(
     args: CancelDataRepositoryTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CancelDataRepositoryTaskCommandOutput) => void
   ): void;
 
@@ -359,7 +371,7 @@ export interface FSx {
    */
   copyBackup(
     args: CopyBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CopyBackupCommandOutput>;
   copyBackup(
     args: CopyBackupCommandInput,
@@ -367,7 +379,7 @@ export interface FSx {
   ): void;
   copyBackup(
     args: CopyBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CopyBackupCommandOutput) => void
   ): void;
 
@@ -376,7 +388,7 @@ export interface FSx {
    */
   copySnapshotAndUpdateVolume(
     args: CopySnapshotAndUpdateVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CopySnapshotAndUpdateVolumeCommandOutput>;
   copySnapshotAndUpdateVolume(
     args: CopySnapshotAndUpdateVolumeCommandInput,
@@ -384,7 +396,7 @@ export interface FSx {
   ): void;
   copySnapshotAndUpdateVolume(
     args: CopySnapshotAndUpdateVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CopySnapshotAndUpdateVolumeCommandOutput) => void
   ): void;
 
@@ -393,7 +405,7 @@ export interface FSx {
    */
   createAndAttachS3AccessPoint(
     args: CreateAndAttachS3AccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CreateAndAttachS3AccessPointCommandOutput>;
   createAndAttachS3AccessPoint(
     args: CreateAndAttachS3AccessPointCommandInput,
@@ -401,7 +413,7 @@ export interface FSx {
   ): void;
   createAndAttachS3AccessPoint(
     args: CreateAndAttachS3AccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CreateAndAttachS3AccessPointCommandOutput) => void
   ): void;
 
@@ -411,7 +423,7 @@ export interface FSx {
   createBackup(): Promise<CreateBackupCommandOutput>;
   createBackup(
     args: CreateBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CreateBackupCommandOutput>;
   createBackup(
     args: CreateBackupCommandInput,
@@ -419,7 +431,7 @@ export interface FSx {
   ): void;
   createBackup(
     args: CreateBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CreateBackupCommandOutput) => void
   ): void;
 
@@ -428,7 +440,7 @@ export interface FSx {
    */
   createDataRepositoryAssociation(
     args: CreateDataRepositoryAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CreateDataRepositoryAssociationCommandOutput>;
   createDataRepositoryAssociation(
     args: CreateDataRepositoryAssociationCommandInput,
@@ -436,7 +448,7 @@ export interface FSx {
   ): void;
   createDataRepositoryAssociation(
     args: CreateDataRepositoryAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CreateDataRepositoryAssociationCommandOutput) => void
   ): void;
 
@@ -445,7 +457,7 @@ export interface FSx {
    */
   createDataRepositoryTask(
     args: CreateDataRepositoryTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CreateDataRepositoryTaskCommandOutput>;
   createDataRepositoryTask(
     args: CreateDataRepositoryTaskCommandInput,
@@ -453,7 +465,7 @@ export interface FSx {
   ): void;
   createDataRepositoryTask(
     args: CreateDataRepositoryTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CreateDataRepositoryTaskCommandOutput) => void
   ): void;
 
@@ -462,7 +474,7 @@ export interface FSx {
    */
   createFileCache(
     args: CreateFileCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CreateFileCacheCommandOutput>;
   createFileCache(
     args: CreateFileCacheCommandInput,
@@ -470,7 +482,7 @@ export interface FSx {
   ): void;
   createFileCache(
     args: CreateFileCacheCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CreateFileCacheCommandOutput) => void
   ): void;
 
@@ -479,7 +491,7 @@ export interface FSx {
    */
   createFileSystem(
     args: CreateFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CreateFileSystemCommandOutput>;
   createFileSystem(
     args: CreateFileSystemCommandInput,
@@ -487,7 +499,7 @@ export interface FSx {
   ): void;
   createFileSystem(
     args: CreateFileSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CreateFileSystemCommandOutput) => void
   ): void;
 
@@ -496,7 +508,7 @@ export interface FSx {
    */
   createFileSystemFromBackup(
     args: CreateFileSystemFromBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CreateFileSystemFromBackupCommandOutput>;
   createFileSystemFromBackup(
     args: CreateFileSystemFromBackupCommandInput,
@@ -504,7 +516,7 @@ export interface FSx {
   ): void;
   createFileSystemFromBackup(
     args: CreateFileSystemFromBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CreateFileSystemFromBackupCommandOutput) => void
   ): void;
 
@@ -513,7 +525,7 @@ export interface FSx {
    */
   createSnapshot(
     args: CreateSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CreateSnapshotCommandOutput>;
   createSnapshot(
     args: CreateSnapshotCommandInput,
@@ -521,7 +533,7 @@ export interface FSx {
   ): void;
   createSnapshot(
     args: CreateSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): void;
 
@@ -530,7 +542,7 @@ export interface FSx {
    */
   createStorageVirtualMachine(
     args: CreateStorageVirtualMachineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CreateStorageVirtualMachineCommandOutput>;
   createStorageVirtualMachine(
     args: CreateStorageVirtualMachineCommandInput,
@@ -538,7 +550,7 @@ export interface FSx {
   ): void;
   createStorageVirtualMachine(
     args: CreateStorageVirtualMachineCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CreateStorageVirtualMachineCommandOutput) => void
   ): void;
 
@@ -547,7 +559,7 @@ export interface FSx {
    */
   createVolume(
     args: CreateVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CreateVolumeCommandOutput>;
   createVolume(
     args: CreateVolumeCommandInput,
@@ -555,7 +567,7 @@ export interface FSx {
   ): void;
   createVolume(
     args: CreateVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CreateVolumeCommandOutput) => void
   ): void;
 
@@ -564,7 +576,7 @@ export interface FSx {
    */
   createVolumeFromBackup(
     args: CreateVolumeFromBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<CreateVolumeFromBackupCommandOutput>;
   createVolumeFromBackup(
     args: CreateVolumeFromBackupCommandInput,
@@ -572,7 +584,7 @@ export interface FSx {
   ): void;
   createVolumeFromBackup(
     args: CreateVolumeFromBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: CreateVolumeFromBackupCommandOutput) => void
   ): void;
 
@@ -581,7 +593,7 @@ export interface FSx {
    */
   deleteBackup(
     args: DeleteBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DeleteBackupCommandOutput>;
   deleteBackup(
     args: DeleteBackupCommandInput,
@@ -589,7 +601,7 @@ export interface FSx {
   ): void;
   deleteBackup(
     args: DeleteBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DeleteBackupCommandOutput) => void
   ): void;
 
@@ -598,7 +610,7 @@ export interface FSx {
    */
   deleteDataRepositoryAssociation(
     args: DeleteDataRepositoryAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DeleteDataRepositoryAssociationCommandOutput>;
   deleteDataRepositoryAssociation(
     args: DeleteDataRepositoryAssociationCommandInput,
@@ -606,7 +618,7 @@ export interface FSx {
   ): void;
   deleteDataRepositoryAssociation(
     args: DeleteDataRepositoryAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DeleteDataRepositoryAssociationCommandOutput) => void
   ): void;
 
@@ -615,7 +627,7 @@ export interface FSx {
    */
   deleteFileCache(
     args: DeleteFileCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DeleteFileCacheCommandOutput>;
   deleteFileCache(
     args: DeleteFileCacheCommandInput,
@@ -623,7 +635,7 @@ export interface FSx {
   ): void;
   deleteFileCache(
     args: DeleteFileCacheCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DeleteFileCacheCommandOutput) => void
   ): void;
 
@@ -632,7 +644,7 @@ export interface FSx {
    */
   deleteFileSystem(
     args: DeleteFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DeleteFileSystemCommandOutput>;
   deleteFileSystem(
     args: DeleteFileSystemCommandInput,
@@ -640,7 +652,7 @@ export interface FSx {
   ): void;
   deleteFileSystem(
     args: DeleteFileSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DeleteFileSystemCommandOutput) => void
   ): void;
 
@@ -649,7 +661,7 @@ export interface FSx {
    */
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DeleteSnapshotCommandOutput>;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
@@ -657,7 +669,7 @@ export interface FSx {
   ): void;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
   ): void;
 
@@ -666,7 +678,7 @@ export interface FSx {
    */
   deleteStorageVirtualMachine(
     args: DeleteStorageVirtualMachineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DeleteStorageVirtualMachineCommandOutput>;
   deleteStorageVirtualMachine(
     args: DeleteStorageVirtualMachineCommandInput,
@@ -674,7 +686,7 @@ export interface FSx {
   ): void;
   deleteStorageVirtualMachine(
     args: DeleteStorageVirtualMachineCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DeleteStorageVirtualMachineCommandOutput) => void
   ): void;
 
@@ -683,7 +695,7 @@ export interface FSx {
    */
   deleteVolume(
     args: DeleteVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DeleteVolumeCommandOutput>;
   deleteVolume(
     args: DeleteVolumeCommandInput,
@@ -691,7 +703,7 @@ export interface FSx {
   ): void;
   deleteVolume(
     args: DeleteVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DeleteVolumeCommandOutput) => void
   ): void;
 
@@ -701,7 +713,7 @@ export interface FSx {
   describeBackups(): Promise<DescribeBackupsCommandOutput>;
   describeBackups(
     args: DescribeBackupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DescribeBackupsCommandOutput>;
   describeBackups(
     args: DescribeBackupsCommandInput,
@@ -709,7 +721,7 @@ export interface FSx {
   ): void;
   describeBackups(
     args: DescribeBackupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DescribeBackupsCommandOutput) => void
   ): void;
 
@@ -719,7 +731,7 @@ export interface FSx {
   describeDataRepositoryAssociations(): Promise<DescribeDataRepositoryAssociationsCommandOutput>;
   describeDataRepositoryAssociations(
     args: DescribeDataRepositoryAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DescribeDataRepositoryAssociationsCommandOutput>;
   describeDataRepositoryAssociations(
     args: DescribeDataRepositoryAssociationsCommandInput,
@@ -727,7 +739,7 @@ export interface FSx {
   ): void;
   describeDataRepositoryAssociations(
     args: DescribeDataRepositoryAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DescribeDataRepositoryAssociationsCommandOutput) => void
   ): void;
 
@@ -737,7 +749,7 @@ export interface FSx {
   describeDataRepositoryTasks(): Promise<DescribeDataRepositoryTasksCommandOutput>;
   describeDataRepositoryTasks(
     args: DescribeDataRepositoryTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DescribeDataRepositoryTasksCommandOutput>;
   describeDataRepositoryTasks(
     args: DescribeDataRepositoryTasksCommandInput,
@@ -745,7 +757,7 @@ export interface FSx {
   ): void;
   describeDataRepositoryTasks(
     args: DescribeDataRepositoryTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DescribeDataRepositoryTasksCommandOutput) => void
   ): void;
 
@@ -755,7 +767,7 @@ export interface FSx {
   describeFileCaches(): Promise<DescribeFileCachesCommandOutput>;
   describeFileCaches(
     args: DescribeFileCachesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DescribeFileCachesCommandOutput>;
   describeFileCaches(
     args: DescribeFileCachesCommandInput,
@@ -763,7 +775,7 @@ export interface FSx {
   ): void;
   describeFileCaches(
     args: DescribeFileCachesCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DescribeFileCachesCommandOutput) => void
   ): void;
 
@@ -772,7 +784,7 @@ export interface FSx {
    */
   describeFileSystemAliases(
     args: DescribeFileSystemAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DescribeFileSystemAliasesCommandOutput>;
   describeFileSystemAliases(
     args: DescribeFileSystemAliasesCommandInput,
@@ -780,7 +792,7 @@ export interface FSx {
   ): void;
   describeFileSystemAliases(
     args: DescribeFileSystemAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DescribeFileSystemAliasesCommandOutput) => void
   ): void;
 
@@ -790,7 +802,7 @@ export interface FSx {
   describeFileSystems(): Promise<DescribeFileSystemsCommandOutput>;
   describeFileSystems(
     args: DescribeFileSystemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DescribeFileSystemsCommandOutput>;
   describeFileSystems(
     args: DescribeFileSystemsCommandInput,
@@ -798,7 +810,7 @@ export interface FSx {
   ): void;
   describeFileSystems(
     args: DescribeFileSystemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DescribeFileSystemsCommandOutput) => void
   ): void;
 
@@ -808,7 +820,7 @@ export interface FSx {
   describeS3AccessPointAttachments(): Promise<DescribeS3AccessPointAttachmentsCommandOutput>;
   describeS3AccessPointAttachments(
     args: DescribeS3AccessPointAttachmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DescribeS3AccessPointAttachmentsCommandOutput>;
   describeS3AccessPointAttachments(
     args: DescribeS3AccessPointAttachmentsCommandInput,
@@ -816,7 +828,7 @@ export interface FSx {
   ): void;
   describeS3AccessPointAttachments(
     args: DescribeS3AccessPointAttachmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DescribeS3AccessPointAttachmentsCommandOutput) => void
   ): void;
 
@@ -826,7 +838,7 @@ export interface FSx {
   describeSharedVpcConfiguration(): Promise<DescribeSharedVpcConfigurationCommandOutput>;
   describeSharedVpcConfiguration(
     args: DescribeSharedVpcConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DescribeSharedVpcConfigurationCommandOutput>;
   describeSharedVpcConfiguration(
     args: DescribeSharedVpcConfigurationCommandInput,
@@ -834,7 +846,7 @@ export interface FSx {
   ): void;
   describeSharedVpcConfiguration(
     args: DescribeSharedVpcConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DescribeSharedVpcConfigurationCommandOutput) => void
   ): void;
 
@@ -844,7 +856,7 @@ export interface FSx {
   describeSnapshots(): Promise<DescribeSnapshotsCommandOutput>;
   describeSnapshots(
     args: DescribeSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DescribeSnapshotsCommandOutput>;
   describeSnapshots(
     args: DescribeSnapshotsCommandInput,
@@ -852,7 +864,7 @@ export interface FSx {
   ): void;
   describeSnapshots(
     args: DescribeSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DescribeSnapshotsCommandOutput) => void
   ): void;
 
@@ -862,7 +874,7 @@ export interface FSx {
   describeStorageVirtualMachines(): Promise<DescribeStorageVirtualMachinesCommandOutput>;
   describeStorageVirtualMachines(
     args: DescribeStorageVirtualMachinesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DescribeStorageVirtualMachinesCommandOutput>;
   describeStorageVirtualMachines(
     args: DescribeStorageVirtualMachinesCommandInput,
@@ -870,7 +882,7 @@ export interface FSx {
   ): void;
   describeStorageVirtualMachines(
     args: DescribeStorageVirtualMachinesCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DescribeStorageVirtualMachinesCommandOutput) => void
   ): void;
 
@@ -880,7 +892,7 @@ export interface FSx {
   describeVolumes(): Promise<DescribeVolumesCommandOutput>;
   describeVolumes(
     args: DescribeVolumesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DescribeVolumesCommandOutput>;
   describeVolumes(
     args: DescribeVolumesCommandInput,
@@ -888,7 +900,7 @@ export interface FSx {
   ): void;
   describeVolumes(
     args: DescribeVolumesCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DescribeVolumesCommandOutput) => void
   ): void;
 
@@ -897,7 +909,7 @@ export interface FSx {
    */
   detachAndDeleteS3AccessPoint(
     args: DetachAndDeleteS3AccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DetachAndDeleteS3AccessPointCommandOutput>;
   detachAndDeleteS3AccessPoint(
     args: DetachAndDeleteS3AccessPointCommandInput,
@@ -905,7 +917,7 @@ export interface FSx {
   ): void;
   detachAndDeleteS3AccessPoint(
     args: DetachAndDeleteS3AccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DetachAndDeleteS3AccessPointCommandOutput) => void
   ): void;
 
@@ -914,7 +926,7 @@ export interface FSx {
    */
   disassociateFileSystemAliases(
     args: DisassociateFileSystemAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<DisassociateFileSystemAliasesCommandOutput>;
   disassociateFileSystemAliases(
     args: DisassociateFileSystemAliasesCommandInput,
@@ -922,7 +934,7 @@ export interface FSx {
   ): void;
   disassociateFileSystemAliases(
     args: DisassociateFileSystemAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: DisassociateFileSystemAliasesCommandOutput) => void
   ): void;
 
@@ -931,7 +943,7 @@ export interface FSx {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -939,7 +951,7 @@ export interface FSx {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -948,7 +960,7 @@ export interface FSx {
    */
   releaseFileSystemNfsV3Locks(
     args: ReleaseFileSystemNfsV3LocksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<ReleaseFileSystemNfsV3LocksCommandOutput>;
   releaseFileSystemNfsV3Locks(
     args: ReleaseFileSystemNfsV3LocksCommandInput,
@@ -956,7 +968,7 @@ export interface FSx {
   ): void;
   releaseFileSystemNfsV3Locks(
     args: ReleaseFileSystemNfsV3LocksCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: ReleaseFileSystemNfsV3LocksCommandOutput) => void
   ): void;
 
@@ -965,7 +977,7 @@ export interface FSx {
    */
   restoreVolumeFromSnapshot(
     args: RestoreVolumeFromSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<RestoreVolumeFromSnapshotCommandOutput>;
   restoreVolumeFromSnapshot(
     args: RestoreVolumeFromSnapshotCommandInput,
@@ -973,7 +985,7 @@ export interface FSx {
   ): void;
   restoreVolumeFromSnapshot(
     args: RestoreVolumeFromSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: RestoreVolumeFromSnapshotCommandOutput) => void
   ): void;
 
@@ -982,7 +994,7 @@ export interface FSx {
    */
   startMisconfiguredStateRecovery(
     args: StartMisconfiguredStateRecoveryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<StartMisconfiguredStateRecoveryCommandOutput>;
   startMisconfiguredStateRecovery(
     args: StartMisconfiguredStateRecoveryCommandInput,
@@ -990,7 +1002,7 @@ export interface FSx {
   ): void;
   startMisconfiguredStateRecovery(
     args: StartMisconfiguredStateRecoveryCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: StartMisconfiguredStateRecoveryCommandOutput) => void
   ): void;
 
@@ -999,7 +1011,7 @@ export interface FSx {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1007,7 +1019,7 @@ export interface FSx {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1016,7 +1028,7 @@ export interface FSx {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1024,7 +1036,7 @@ export interface FSx {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1033,7 +1045,7 @@ export interface FSx {
    */
   updateDataRepositoryAssociation(
     args: UpdateDataRepositoryAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<UpdateDataRepositoryAssociationCommandOutput>;
   updateDataRepositoryAssociation(
     args: UpdateDataRepositoryAssociationCommandInput,
@@ -1041,7 +1053,7 @@ export interface FSx {
   ): void;
   updateDataRepositoryAssociation(
     args: UpdateDataRepositoryAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: UpdateDataRepositoryAssociationCommandOutput) => void
   ): void;
 
@@ -1050,7 +1062,7 @@ export interface FSx {
    */
   updateFileCache(
     args: UpdateFileCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<UpdateFileCacheCommandOutput>;
   updateFileCache(
     args: UpdateFileCacheCommandInput,
@@ -1058,7 +1070,7 @@ export interface FSx {
   ): void;
   updateFileCache(
     args: UpdateFileCacheCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: UpdateFileCacheCommandOutput) => void
   ): void;
 
@@ -1067,7 +1079,7 @@ export interface FSx {
    */
   updateFileSystem(
     args: UpdateFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<UpdateFileSystemCommandOutput>;
   updateFileSystem(
     args: UpdateFileSystemCommandInput,
@@ -1075,7 +1087,7 @@ export interface FSx {
   ): void;
   updateFileSystem(
     args: UpdateFileSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: UpdateFileSystemCommandOutput) => void
   ): void;
 
@@ -1085,7 +1097,7 @@ export interface FSx {
   updateSharedVpcConfiguration(): Promise<UpdateSharedVpcConfigurationCommandOutput>;
   updateSharedVpcConfiguration(
     args: UpdateSharedVpcConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<UpdateSharedVpcConfigurationCommandOutput>;
   updateSharedVpcConfiguration(
     args: UpdateSharedVpcConfigurationCommandInput,
@@ -1093,7 +1105,7 @@ export interface FSx {
   ): void;
   updateSharedVpcConfiguration(
     args: UpdateSharedVpcConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: UpdateSharedVpcConfigurationCommandOutput) => void
   ): void;
 
@@ -1102,7 +1114,7 @@ export interface FSx {
    */
   updateSnapshot(
     args: UpdateSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<UpdateSnapshotCommandOutput>;
   updateSnapshot(
     args: UpdateSnapshotCommandInput,
@@ -1110,7 +1122,7 @@ export interface FSx {
   ): void;
   updateSnapshot(
     args: UpdateSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: UpdateSnapshotCommandOutput) => void
   ): void;
 
@@ -1119,7 +1131,7 @@ export interface FSx {
    */
   updateStorageVirtualMachine(
     args: UpdateStorageVirtualMachineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<UpdateStorageVirtualMachineCommandOutput>;
   updateStorageVirtualMachine(
     args: UpdateStorageVirtualMachineCommandInput,
@@ -1127,7 +1139,7 @@ export interface FSx {
   ): void;
   updateStorageVirtualMachine(
     args: UpdateStorageVirtualMachineCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: UpdateStorageVirtualMachineCommandOutput) => void
   ): void;
 
@@ -1136,7 +1148,7 @@ export interface FSx {
    */
   updateVolume(
     args: UpdateVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FSxRequestOptions
   ): Promise<UpdateVolumeCommandOutput>;
   updateVolume(
     args: UpdateVolumeCommandInput,
@@ -1144,7 +1156,7 @@ export interface FSx {
   ): void;
   updateVolume(
     args: UpdateVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: FSxRequestOptions,
     cb: (err: any, data?: UpdateVolumeCommandOutput) => void
   ): void;
 

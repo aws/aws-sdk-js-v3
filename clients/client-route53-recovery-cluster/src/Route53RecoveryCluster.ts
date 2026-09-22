@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type GetRoutingControlStateCommandInput,
@@ -35,13 +40,20 @@ const paginators = {
   paginateListRoutingControls,
 };
 
+/**
+ * @public
+ */
+export interface Route53RecoveryClusterRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Route53RecoveryCluster {
   /**
    * @see {@link GetRoutingControlStateCommand}
    */
   getRoutingControlState(
     args: GetRoutingControlStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RecoveryClusterRequestOptions
   ): Promise<GetRoutingControlStateCommandOutput>;
   getRoutingControlState(
     args: GetRoutingControlStateCommandInput,
@@ -49,7 +61,7 @@ export interface Route53RecoveryCluster {
   ): void;
   getRoutingControlState(
     args: GetRoutingControlStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RecoveryClusterRequestOptions,
     cb: (err: any, data?: GetRoutingControlStateCommandOutput) => void
   ): void;
 
@@ -59,7 +71,7 @@ export interface Route53RecoveryCluster {
   listRoutingControls(): Promise<ListRoutingControlsCommandOutput>;
   listRoutingControls(
     args: ListRoutingControlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RecoveryClusterRequestOptions
   ): Promise<ListRoutingControlsCommandOutput>;
   listRoutingControls(
     args: ListRoutingControlsCommandInput,
@@ -67,7 +79,7 @@ export interface Route53RecoveryCluster {
   ): void;
   listRoutingControls(
     args: ListRoutingControlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RecoveryClusterRequestOptions,
     cb: (err: any, data?: ListRoutingControlsCommandOutput) => void
   ): void;
 
@@ -76,7 +88,7 @@ export interface Route53RecoveryCluster {
    */
   updateRoutingControlState(
     args: UpdateRoutingControlStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RecoveryClusterRequestOptions
   ): Promise<UpdateRoutingControlStateCommandOutput>;
   updateRoutingControlState(
     args: UpdateRoutingControlStateCommandInput,
@@ -84,7 +96,7 @@ export interface Route53RecoveryCluster {
   ): void;
   updateRoutingControlState(
     args: UpdateRoutingControlStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RecoveryClusterRequestOptions,
     cb: (err: any, data?: UpdateRoutingControlStateCommandOutput) => void
   ): void;
 
@@ -93,7 +105,7 @@ export interface Route53RecoveryCluster {
    */
   updateRoutingControlStates(
     args: UpdateRoutingControlStatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RecoveryClusterRequestOptions
   ): Promise<UpdateRoutingControlStatesCommandOutput>;
   updateRoutingControlStates(
     args: UpdateRoutingControlStatesCommandInput,
@@ -101,7 +113,7 @@ export interface Route53RecoveryCluster {
   ): void;
   updateRoutingControlStates(
     args: UpdateRoutingControlStatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RecoveryClusterRequestOptions,
     cb: (err: any, data?: UpdateRoutingControlStatesCommandOutput) => void
   ): void;
 

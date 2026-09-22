@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AddAttributesToFindingsCommandInput,
@@ -251,13 +256,20 @@ const paginators = {
   paginatePreviewAgents,
 };
 
+/**
+ * @public
+ */
+export interface InspectorRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Inspector {
   /**
    * @see {@link AddAttributesToFindingsCommand}
    */
   addAttributesToFindings(
     args: AddAttributesToFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<AddAttributesToFindingsCommandOutput>;
   addAttributesToFindings(
     args: AddAttributesToFindingsCommandInput,
@@ -265,7 +277,7 @@ export interface Inspector {
   ): void;
   addAttributesToFindings(
     args: AddAttributesToFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: AddAttributesToFindingsCommandOutput) => void
   ): void;
 
@@ -274,7 +286,7 @@ export interface Inspector {
    */
   createAssessmentTarget(
     args: CreateAssessmentTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<CreateAssessmentTargetCommandOutput>;
   createAssessmentTarget(
     args: CreateAssessmentTargetCommandInput,
@@ -282,7 +294,7 @@ export interface Inspector {
   ): void;
   createAssessmentTarget(
     args: CreateAssessmentTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: CreateAssessmentTargetCommandOutput) => void
   ): void;
 
@@ -291,7 +303,7 @@ export interface Inspector {
    */
   createAssessmentTemplate(
     args: CreateAssessmentTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<CreateAssessmentTemplateCommandOutput>;
   createAssessmentTemplate(
     args: CreateAssessmentTemplateCommandInput,
@@ -299,7 +311,7 @@ export interface Inspector {
   ): void;
   createAssessmentTemplate(
     args: CreateAssessmentTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: CreateAssessmentTemplateCommandOutput) => void
   ): void;
 
@@ -308,7 +320,7 @@ export interface Inspector {
    */
   createExclusionsPreview(
     args: CreateExclusionsPreviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<CreateExclusionsPreviewCommandOutput>;
   createExclusionsPreview(
     args: CreateExclusionsPreviewCommandInput,
@@ -316,7 +328,7 @@ export interface Inspector {
   ): void;
   createExclusionsPreview(
     args: CreateExclusionsPreviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: CreateExclusionsPreviewCommandOutput) => void
   ): void;
 
@@ -325,7 +337,7 @@ export interface Inspector {
    */
   createResourceGroup(
     args: CreateResourceGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<CreateResourceGroupCommandOutput>;
   createResourceGroup(
     args: CreateResourceGroupCommandInput,
@@ -333,7 +345,7 @@ export interface Inspector {
   ): void;
   createResourceGroup(
     args: CreateResourceGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: CreateResourceGroupCommandOutput) => void
   ): void;
 
@@ -342,7 +354,7 @@ export interface Inspector {
    */
   deleteAssessmentRun(
     args: DeleteAssessmentRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<DeleteAssessmentRunCommandOutput>;
   deleteAssessmentRun(
     args: DeleteAssessmentRunCommandInput,
@@ -350,7 +362,7 @@ export interface Inspector {
   ): void;
   deleteAssessmentRun(
     args: DeleteAssessmentRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: DeleteAssessmentRunCommandOutput) => void
   ): void;
 
@@ -359,7 +371,7 @@ export interface Inspector {
    */
   deleteAssessmentTarget(
     args: DeleteAssessmentTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<DeleteAssessmentTargetCommandOutput>;
   deleteAssessmentTarget(
     args: DeleteAssessmentTargetCommandInput,
@@ -367,7 +379,7 @@ export interface Inspector {
   ): void;
   deleteAssessmentTarget(
     args: DeleteAssessmentTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: DeleteAssessmentTargetCommandOutput) => void
   ): void;
 
@@ -376,7 +388,7 @@ export interface Inspector {
    */
   deleteAssessmentTemplate(
     args: DeleteAssessmentTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<DeleteAssessmentTemplateCommandOutput>;
   deleteAssessmentTemplate(
     args: DeleteAssessmentTemplateCommandInput,
@@ -384,7 +396,7 @@ export interface Inspector {
   ): void;
   deleteAssessmentTemplate(
     args: DeleteAssessmentTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: DeleteAssessmentTemplateCommandOutput) => void
   ): void;
 
@@ -393,7 +405,7 @@ export interface Inspector {
    */
   describeAssessmentRuns(
     args: DescribeAssessmentRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<DescribeAssessmentRunsCommandOutput>;
   describeAssessmentRuns(
     args: DescribeAssessmentRunsCommandInput,
@@ -401,7 +413,7 @@ export interface Inspector {
   ): void;
   describeAssessmentRuns(
     args: DescribeAssessmentRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: DescribeAssessmentRunsCommandOutput) => void
   ): void;
 
@@ -410,7 +422,7 @@ export interface Inspector {
    */
   describeAssessmentTargets(
     args: DescribeAssessmentTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<DescribeAssessmentTargetsCommandOutput>;
   describeAssessmentTargets(
     args: DescribeAssessmentTargetsCommandInput,
@@ -418,7 +430,7 @@ export interface Inspector {
   ): void;
   describeAssessmentTargets(
     args: DescribeAssessmentTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: DescribeAssessmentTargetsCommandOutput) => void
   ): void;
 
@@ -427,7 +439,7 @@ export interface Inspector {
    */
   describeAssessmentTemplates(
     args: DescribeAssessmentTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<DescribeAssessmentTemplatesCommandOutput>;
   describeAssessmentTemplates(
     args: DescribeAssessmentTemplatesCommandInput,
@@ -435,7 +447,7 @@ export interface Inspector {
   ): void;
   describeAssessmentTemplates(
     args: DescribeAssessmentTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: DescribeAssessmentTemplatesCommandOutput) => void
   ): void;
 
@@ -445,7 +457,7 @@ export interface Inspector {
   describeCrossAccountAccessRole(): Promise<DescribeCrossAccountAccessRoleCommandOutput>;
   describeCrossAccountAccessRole(
     args: DescribeCrossAccountAccessRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<DescribeCrossAccountAccessRoleCommandOutput>;
   describeCrossAccountAccessRole(
     args: DescribeCrossAccountAccessRoleCommandInput,
@@ -453,7 +465,7 @@ export interface Inspector {
   ): void;
   describeCrossAccountAccessRole(
     args: DescribeCrossAccountAccessRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: DescribeCrossAccountAccessRoleCommandOutput) => void
   ): void;
 
@@ -462,7 +474,7 @@ export interface Inspector {
    */
   describeExclusions(
     args: DescribeExclusionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<DescribeExclusionsCommandOutput>;
   describeExclusions(
     args: DescribeExclusionsCommandInput,
@@ -470,7 +482,7 @@ export interface Inspector {
   ): void;
   describeExclusions(
     args: DescribeExclusionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: DescribeExclusionsCommandOutput) => void
   ): void;
 
@@ -479,7 +491,7 @@ export interface Inspector {
    */
   describeFindings(
     args: DescribeFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<DescribeFindingsCommandOutput>;
   describeFindings(
     args: DescribeFindingsCommandInput,
@@ -487,7 +499,7 @@ export interface Inspector {
   ): void;
   describeFindings(
     args: DescribeFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: DescribeFindingsCommandOutput) => void
   ): void;
 
@@ -496,7 +508,7 @@ export interface Inspector {
    */
   describeResourceGroups(
     args: DescribeResourceGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<DescribeResourceGroupsCommandOutput>;
   describeResourceGroups(
     args: DescribeResourceGroupsCommandInput,
@@ -504,7 +516,7 @@ export interface Inspector {
   ): void;
   describeResourceGroups(
     args: DescribeResourceGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: DescribeResourceGroupsCommandOutput) => void
   ): void;
 
@@ -513,7 +525,7 @@ export interface Inspector {
    */
   describeRulesPackages(
     args: DescribeRulesPackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<DescribeRulesPackagesCommandOutput>;
   describeRulesPackages(
     args: DescribeRulesPackagesCommandInput,
@@ -521,7 +533,7 @@ export interface Inspector {
   ): void;
   describeRulesPackages(
     args: DescribeRulesPackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: DescribeRulesPackagesCommandOutput) => void
   ): void;
 
@@ -530,7 +542,7 @@ export interface Inspector {
    */
   getAssessmentReport(
     args: GetAssessmentReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<GetAssessmentReportCommandOutput>;
   getAssessmentReport(
     args: GetAssessmentReportCommandInput,
@@ -538,7 +550,7 @@ export interface Inspector {
   ): void;
   getAssessmentReport(
     args: GetAssessmentReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: GetAssessmentReportCommandOutput) => void
   ): void;
 
@@ -547,7 +559,7 @@ export interface Inspector {
    */
   getExclusionsPreview(
     args: GetExclusionsPreviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<GetExclusionsPreviewCommandOutput>;
   getExclusionsPreview(
     args: GetExclusionsPreviewCommandInput,
@@ -555,7 +567,7 @@ export interface Inspector {
   ): void;
   getExclusionsPreview(
     args: GetExclusionsPreviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: GetExclusionsPreviewCommandOutput) => void
   ): void;
 
@@ -564,7 +576,7 @@ export interface Inspector {
    */
   getTelemetryMetadata(
     args: GetTelemetryMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<GetTelemetryMetadataCommandOutput>;
   getTelemetryMetadata(
     args: GetTelemetryMetadataCommandInput,
@@ -572,7 +584,7 @@ export interface Inspector {
   ): void;
   getTelemetryMetadata(
     args: GetTelemetryMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: GetTelemetryMetadataCommandOutput) => void
   ): void;
 
@@ -581,7 +593,7 @@ export interface Inspector {
    */
   listAssessmentRunAgents(
     args: ListAssessmentRunAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<ListAssessmentRunAgentsCommandOutput>;
   listAssessmentRunAgents(
     args: ListAssessmentRunAgentsCommandInput,
@@ -589,7 +601,7 @@ export interface Inspector {
   ): void;
   listAssessmentRunAgents(
     args: ListAssessmentRunAgentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: ListAssessmentRunAgentsCommandOutput) => void
   ): void;
 
@@ -599,7 +611,7 @@ export interface Inspector {
   listAssessmentRuns(): Promise<ListAssessmentRunsCommandOutput>;
   listAssessmentRuns(
     args: ListAssessmentRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<ListAssessmentRunsCommandOutput>;
   listAssessmentRuns(
     args: ListAssessmentRunsCommandInput,
@@ -607,7 +619,7 @@ export interface Inspector {
   ): void;
   listAssessmentRuns(
     args: ListAssessmentRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: ListAssessmentRunsCommandOutput) => void
   ): void;
 
@@ -617,7 +629,7 @@ export interface Inspector {
   listAssessmentTargets(): Promise<ListAssessmentTargetsCommandOutput>;
   listAssessmentTargets(
     args: ListAssessmentTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<ListAssessmentTargetsCommandOutput>;
   listAssessmentTargets(
     args: ListAssessmentTargetsCommandInput,
@@ -625,7 +637,7 @@ export interface Inspector {
   ): void;
   listAssessmentTargets(
     args: ListAssessmentTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: ListAssessmentTargetsCommandOutput) => void
   ): void;
 
@@ -635,7 +647,7 @@ export interface Inspector {
   listAssessmentTemplates(): Promise<ListAssessmentTemplatesCommandOutput>;
   listAssessmentTemplates(
     args: ListAssessmentTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<ListAssessmentTemplatesCommandOutput>;
   listAssessmentTemplates(
     args: ListAssessmentTemplatesCommandInput,
@@ -643,7 +655,7 @@ export interface Inspector {
   ): void;
   listAssessmentTemplates(
     args: ListAssessmentTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: ListAssessmentTemplatesCommandOutput) => void
   ): void;
 
@@ -653,7 +665,7 @@ export interface Inspector {
   listEventSubscriptions(): Promise<ListEventSubscriptionsCommandOutput>;
   listEventSubscriptions(
     args: ListEventSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<ListEventSubscriptionsCommandOutput>;
   listEventSubscriptions(
     args: ListEventSubscriptionsCommandInput,
@@ -661,7 +673,7 @@ export interface Inspector {
   ): void;
   listEventSubscriptions(
     args: ListEventSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: ListEventSubscriptionsCommandOutput) => void
   ): void;
 
@@ -670,7 +682,7 @@ export interface Inspector {
    */
   listExclusions(
     args: ListExclusionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<ListExclusionsCommandOutput>;
   listExclusions(
     args: ListExclusionsCommandInput,
@@ -678,7 +690,7 @@ export interface Inspector {
   ): void;
   listExclusions(
     args: ListExclusionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: ListExclusionsCommandOutput) => void
   ): void;
 
@@ -688,7 +700,7 @@ export interface Inspector {
   listFindings(): Promise<ListFindingsCommandOutput>;
   listFindings(
     args: ListFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<ListFindingsCommandOutput>;
   listFindings(
     args: ListFindingsCommandInput,
@@ -696,7 +708,7 @@ export interface Inspector {
   ): void;
   listFindings(
     args: ListFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: ListFindingsCommandOutput) => void
   ): void;
 
@@ -706,7 +718,7 @@ export interface Inspector {
   listRulesPackages(): Promise<ListRulesPackagesCommandOutput>;
   listRulesPackages(
     args: ListRulesPackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<ListRulesPackagesCommandOutput>;
   listRulesPackages(
     args: ListRulesPackagesCommandInput,
@@ -714,7 +726,7 @@ export interface Inspector {
   ): void;
   listRulesPackages(
     args: ListRulesPackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: ListRulesPackagesCommandOutput) => void
   ): void;
 
@@ -723,7 +735,7 @@ export interface Inspector {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -731,7 +743,7 @@ export interface Inspector {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -740,7 +752,7 @@ export interface Inspector {
    */
   previewAgents(
     args: PreviewAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<PreviewAgentsCommandOutput>;
   previewAgents(
     args: PreviewAgentsCommandInput,
@@ -748,7 +760,7 @@ export interface Inspector {
   ): void;
   previewAgents(
     args: PreviewAgentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: PreviewAgentsCommandOutput) => void
   ): void;
 
@@ -757,7 +769,7 @@ export interface Inspector {
    */
   registerCrossAccountAccessRole(
     args: RegisterCrossAccountAccessRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<RegisterCrossAccountAccessRoleCommandOutput>;
   registerCrossAccountAccessRole(
     args: RegisterCrossAccountAccessRoleCommandInput,
@@ -765,7 +777,7 @@ export interface Inspector {
   ): void;
   registerCrossAccountAccessRole(
     args: RegisterCrossAccountAccessRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: RegisterCrossAccountAccessRoleCommandOutput) => void
   ): void;
 
@@ -774,7 +786,7 @@ export interface Inspector {
    */
   removeAttributesFromFindings(
     args: RemoveAttributesFromFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<RemoveAttributesFromFindingsCommandOutput>;
   removeAttributesFromFindings(
     args: RemoveAttributesFromFindingsCommandInput,
@@ -782,7 +794,7 @@ export interface Inspector {
   ): void;
   removeAttributesFromFindings(
     args: RemoveAttributesFromFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: RemoveAttributesFromFindingsCommandOutput) => void
   ): void;
 
@@ -791,7 +803,7 @@ export interface Inspector {
    */
   setTagsForResource(
     args: SetTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<SetTagsForResourceCommandOutput>;
   setTagsForResource(
     args: SetTagsForResourceCommandInput,
@@ -799,7 +811,7 @@ export interface Inspector {
   ): void;
   setTagsForResource(
     args: SetTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: SetTagsForResourceCommandOutput) => void
   ): void;
 
@@ -808,7 +820,7 @@ export interface Inspector {
    */
   startAssessmentRun(
     args: StartAssessmentRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<StartAssessmentRunCommandOutput>;
   startAssessmentRun(
     args: StartAssessmentRunCommandInput,
@@ -816,7 +828,7 @@ export interface Inspector {
   ): void;
   startAssessmentRun(
     args: StartAssessmentRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: StartAssessmentRunCommandOutput) => void
   ): void;
 
@@ -825,7 +837,7 @@ export interface Inspector {
    */
   stopAssessmentRun(
     args: StopAssessmentRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<StopAssessmentRunCommandOutput>;
   stopAssessmentRun(
     args: StopAssessmentRunCommandInput,
@@ -833,7 +845,7 @@ export interface Inspector {
   ): void;
   stopAssessmentRun(
     args: StopAssessmentRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: StopAssessmentRunCommandOutput) => void
   ): void;
 
@@ -842,7 +854,7 @@ export interface Inspector {
    */
   subscribeToEvent(
     args: SubscribeToEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<SubscribeToEventCommandOutput>;
   subscribeToEvent(
     args: SubscribeToEventCommandInput,
@@ -850,7 +862,7 @@ export interface Inspector {
   ): void;
   subscribeToEvent(
     args: SubscribeToEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: SubscribeToEventCommandOutput) => void
   ): void;
 
@@ -859,7 +871,7 @@ export interface Inspector {
    */
   unsubscribeFromEvent(
     args: UnsubscribeFromEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<UnsubscribeFromEventCommandOutput>;
   unsubscribeFromEvent(
     args: UnsubscribeFromEventCommandInput,
@@ -867,7 +879,7 @@ export interface Inspector {
   ): void;
   unsubscribeFromEvent(
     args: UnsubscribeFromEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: UnsubscribeFromEventCommandOutput) => void
   ): void;
 
@@ -876,7 +888,7 @@ export interface Inspector {
    */
   updateAssessmentTarget(
     args: UpdateAssessmentTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InspectorRequestOptions
   ): Promise<UpdateAssessmentTargetCommandOutput>;
   updateAssessmentTarget(
     args: UpdateAssessmentTargetCommandInput,
@@ -884,7 +896,7 @@ export interface Inspector {
   ): void;
   updateAssessmentTarget(
     args: UpdateAssessmentTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: InspectorRequestOptions,
     cb: (err: any, data?: UpdateAssessmentTargetCommandOutput) => void
   ): void;
 

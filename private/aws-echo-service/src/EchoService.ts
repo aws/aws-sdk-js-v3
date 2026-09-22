@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { type EchoCommandInput, type EchoCommandOutput, EchoCommand } from "./commands/EchoCommand";
 import { type LengthCommandInput, type LengthCommandOutput, LengthCommand } from "./commands/LengthCommand";
@@ -11,6 +11,13 @@ const commands = {
   LengthCommand,
 };
 
+/**
+ * @public
+ */
+export interface EchoServiceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface EchoService {
   /**
    * @see {@link EchoCommand}
@@ -18,7 +25,7 @@ export interface EchoService {
   echo(): Promise<EchoCommandOutput>;
   echo(
     args: EchoCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EchoServiceRequestOptions
   ): Promise<EchoCommandOutput>;
   echo(
     args: EchoCommandInput,
@@ -26,7 +33,7 @@ export interface EchoService {
   ): void;
   echo(
     args: EchoCommandInput,
-    options: __HttpHandlerOptions,
+    options: EchoServiceRequestOptions,
     cb: (err: any, data?: EchoCommandOutput) => void
   ): void;
 
@@ -35,7 +42,7 @@ export interface EchoService {
    */
   length(
     args: LengthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EchoServiceRequestOptions
   ): Promise<LengthCommandOutput>;
   length(
     args: LengthCommandInput,
@@ -43,7 +50,7 @@ export interface EchoService {
   ): void;
   length(
     args: LengthCommandInput,
-    options: __HttpHandlerOptions,
+    options: EchoServiceRequestOptions,
     cb: (err: any, data?: LengthCommandOutput) => void
   ): void;
 }

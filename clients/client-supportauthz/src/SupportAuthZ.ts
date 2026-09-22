@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateSupportPermitCommandInput,
@@ -77,13 +82,20 @@ const paginators = {
   paginateListSupportPermits,
 };
 
+/**
+ * @public
+ */
+export interface SupportAuthZRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SupportAuthZ {
   /**
    * @see {@link CreateSupportPermitCommand}
    */
   createSupportPermit(
     args: CreateSupportPermitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportAuthZRequestOptions
   ): Promise<CreateSupportPermitCommandOutput>;
   createSupportPermit(
     args: CreateSupportPermitCommandInput,
@@ -91,7 +103,7 @@ export interface SupportAuthZ {
   ): void;
   createSupportPermit(
     args: CreateSupportPermitCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportAuthZRequestOptions,
     cb: (err: any, data?: CreateSupportPermitCommandOutput) => void
   ): void;
 
@@ -100,7 +112,7 @@ export interface SupportAuthZ {
    */
   deleteSupportPermit(
     args: DeleteSupportPermitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportAuthZRequestOptions
   ): Promise<DeleteSupportPermitCommandOutput>;
   deleteSupportPermit(
     args: DeleteSupportPermitCommandInput,
@@ -108,7 +120,7 @@ export interface SupportAuthZ {
   ): void;
   deleteSupportPermit(
     args: DeleteSupportPermitCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportAuthZRequestOptions,
     cb: (err: any, data?: DeleteSupportPermitCommandOutput) => void
   ): void;
 
@@ -117,7 +129,7 @@ export interface SupportAuthZ {
    */
   getAction(
     args: GetActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportAuthZRequestOptions
   ): Promise<GetActionCommandOutput>;
   getAction(
     args: GetActionCommandInput,
@@ -125,7 +137,7 @@ export interface SupportAuthZ {
   ): void;
   getAction(
     args: GetActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportAuthZRequestOptions,
     cb: (err: any, data?: GetActionCommandOutput) => void
   ): void;
 
@@ -134,7 +146,7 @@ export interface SupportAuthZ {
    */
   getSupportPermit(
     args: GetSupportPermitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportAuthZRequestOptions
   ): Promise<GetSupportPermitCommandOutput>;
   getSupportPermit(
     args: GetSupportPermitCommandInput,
@@ -142,7 +154,7 @@ export interface SupportAuthZ {
   ): void;
   getSupportPermit(
     args: GetSupportPermitCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportAuthZRequestOptions,
     cb: (err: any, data?: GetSupportPermitCommandOutput) => void
   ): void;
 
@@ -151,7 +163,7 @@ export interface SupportAuthZ {
    */
   listActions(
     args: ListActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportAuthZRequestOptions
   ): Promise<ListActionsCommandOutput>;
   listActions(
     args: ListActionsCommandInput,
@@ -159,7 +171,7 @@ export interface SupportAuthZ {
   ): void;
   listActions(
     args: ListActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportAuthZRequestOptions,
     cb: (err: any, data?: ListActionsCommandOutput) => void
   ): void;
 
@@ -169,7 +181,7 @@ export interface SupportAuthZ {
   listSupportPermitRequests(): Promise<ListSupportPermitRequestsCommandOutput>;
   listSupportPermitRequests(
     args: ListSupportPermitRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportAuthZRequestOptions
   ): Promise<ListSupportPermitRequestsCommandOutput>;
   listSupportPermitRequests(
     args: ListSupportPermitRequestsCommandInput,
@@ -177,7 +189,7 @@ export interface SupportAuthZ {
   ): void;
   listSupportPermitRequests(
     args: ListSupportPermitRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportAuthZRequestOptions,
     cb: (err: any, data?: ListSupportPermitRequestsCommandOutput) => void
   ): void;
 
@@ -187,7 +199,7 @@ export interface SupportAuthZ {
   listSupportPermits(): Promise<ListSupportPermitsCommandOutput>;
   listSupportPermits(
     args: ListSupportPermitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportAuthZRequestOptions
   ): Promise<ListSupportPermitsCommandOutput>;
   listSupportPermits(
     args: ListSupportPermitsCommandInput,
@@ -195,7 +207,7 @@ export interface SupportAuthZ {
   ): void;
   listSupportPermits(
     args: ListSupportPermitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportAuthZRequestOptions,
     cb: (err: any, data?: ListSupportPermitsCommandOutput) => void
   ): void;
 
@@ -204,7 +216,7 @@ export interface SupportAuthZ {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportAuthZRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -212,7 +224,7 @@ export interface SupportAuthZ {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportAuthZRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -221,7 +233,7 @@ export interface SupportAuthZ {
    */
   rejectSupportPermitRequest(
     args: RejectSupportPermitRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportAuthZRequestOptions
   ): Promise<RejectSupportPermitRequestCommandOutput>;
   rejectSupportPermitRequest(
     args: RejectSupportPermitRequestCommandInput,
@@ -229,7 +241,7 @@ export interface SupportAuthZ {
   ): void;
   rejectSupportPermitRequest(
     args: RejectSupportPermitRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportAuthZRequestOptions,
     cb: (err: any, data?: RejectSupportPermitRequestCommandOutput) => void
   ): void;
 
@@ -238,7 +250,7 @@ export interface SupportAuthZ {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportAuthZRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -246,7 +258,7 @@ export interface SupportAuthZ {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportAuthZRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -255,7 +267,7 @@ export interface SupportAuthZ {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SupportAuthZRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -263,7 +275,7 @@ export interface SupportAuthZ {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SupportAuthZRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

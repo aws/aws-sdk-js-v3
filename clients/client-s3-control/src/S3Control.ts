@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateAccessGrantsIdentityCenterCommandInput,
@@ -603,13 +608,20 @@ const paginators = {
   paginateListStorageLensGroups,
 };
 
+/**
+ * @public
+ */
+export interface S3ControlRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface S3Control {
   /**
    * @see {@link AssociateAccessGrantsIdentityCenterCommand}
    */
   associateAccessGrantsIdentityCenter(
     args: AssociateAccessGrantsIdentityCenterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<AssociateAccessGrantsIdentityCenterCommandOutput>;
   associateAccessGrantsIdentityCenter(
     args: AssociateAccessGrantsIdentityCenterCommandInput,
@@ -617,7 +629,7 @@ export interface S3Control {
   ): void;
   associateAccessGrantsIdentityCenter(
     args: AssociateAccessGrantsIdentityCenterCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: AssociateAccessGrantsIdentityCenterCommandOutput) => void
   ): void;
 
@@ -626,7 +638,7 @@ export interface S3Control {
    */
   createAccessGrant(
     args: CreateAccessGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<CreateAccessGrantCommandOutput>;
   createAccessGrant(
     args: CreateAccessGrantCommandInput,
@@ -634,7 +646,7 @@ export interface S3Control {
   ): void;
   createAccessGrant(
     args: CreateAccessGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: CreateAccessGrantCommandOutput) => void
   ): void;
 
@@ -644,7 +656,7 @@ export interface S3Control {
   createAccessGrantsInstance(): Promise<CreateAccessGrantsInstanceCommandOutput>;
   createAccessGrantsInstance(
     args: CreateAccessGrantsInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<CreateAccessGrantsInstanceCommandOutput>;
   createAccessGrantsInstance(
     args: CreateAccessGrantsInstanceCommandInput,
@@ -652,7 +664,7 @@ export interface S3Control {
   ): void;
   createAccessGrantsInstance(
     args: CreateAccessGrantsInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: CreateAccessGrantsInstanceCommandOutput) => void
   ): void;
 
@@ -661,7 +673,7 @@ export interface S3Control {
    */
   createAccessGrantsLocation(
     args: CreateAccessGrantsLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<CreateAccessGrantsLocationCommandOutput>;
   createAccessGrantsLocation(
     args: CreateAccessGrantsLocationCommandInput,
@@ -669,7 +681,7 @@ export interface S3Control {
   ): void;
   createAccessGrantsLocation(
     args: CreateAccessGrantsLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: CreateAccessGrantsLocationCommandOutput) => void
   ): void;
 
@@ -678,7 +690,7 @@ export interface S3Control {
    */
   createAccessPoint(
     args: CreateAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<CreateAccessPointCommandOutput>;
   createAccessPoint(
     args: CreateAccessPointCommandInput,
@@ -686,7 +698,7 @@ export interface S3Control {
   ): void;
   createAccessPoint(
     args: CreateAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: CreateAccessPointCommandOutput) => void
   ): void;
 
@@ -695,7 +707,7 @@ export interface S3Control {
    */
   createAccessPointForObjectLambda(
     args: CreateAccessPointForObjectLambdaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<CreateAccessPointForObjectLambdaCommandOutput>;
   createAccessPointForObjectLambda(
     args: CreateAccessPointForObjectLambdaCommandInput,
@@ -703,7 +715,7 @@ export interface S3Control {
   ): void;
   createAccessPointForObjectLambda(
     args: CreateAccessPointForObjectLambdaCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: CreateAccessPointForObjectLambdaCommandOutput) => void
   ): void;
 
@@ -712,7 +724,7 @@ export interface S3Control {
    */
   createBucket(
     args: CreateBucketCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<CreateBucketCommandOutput>;
   createBucket(
     args: CreateBucketCommandInput,
@@ -720,7 +732,7 @@ export interface S3Control {
   ): void;
   createBucket(
     args: CreateBucketCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: CreateBucketCommandOutput) => void
   ): void;
 
@@ -729,7 +741,7 @@ export interface S3Control {
    */
   createJob(
     args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<CreateJobCommandOutput>;
   createJob(
     args: CreateJobCommandInput,
@@ -737,7 +749,7 @@ export interface S3Control {
   ): void;
   createJob(
     args: CreateJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: CreateJobCommandOutput) => void
   ): void;
 
@@ -746,7 +758,7 @@ export interface S3Control {
    */
   createMultiRegionAccessPoint(
     args: CreateMultiRegionAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<CreateMultiRegionAccessPointCommandOutput>;
   createMultiRegionAccessPoint(
     args: CreateMultiRegionAccessPointCommandInput,
@@ -754,7 +766,7 @@ export interface S3Control {
   ): void;
   createMultiRegionAccessPoint(
     args: CreateMultiRegionAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: CreateMultiRegionAccessPointCommandOutput) => void
   ): void;
 
@@ -763,7 +775,7 @@ export interface S3Control {
    */
   createStorageLensGroup(
     args: CreateStorageLensGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<CreateStorageLensGroupCommandOutput>;
   createStorageLensGroup(
     args: CreateStorageLensGroupCommandInput,
@@ -771,7 +783,7 @@ export interface S3Control {
   ): void;
   createStorageLensGroup(
     args: CreateStorageLensGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: CreateStorageLensGroupCommandOutput) => void
   ): void;
 
@@ -780,7 +792,7 @@ export interface S3Control {
    */
   deleteAccessGrant(
     args: DeleteAccessGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteAccessGrantCommandOutput>;
   deleteAccessGrant(
     args: DeleteAccessGrantCommandInput,
@@ -788,7 +800,7 @@ export interface S3Control {
   ): void;
   deleteAccessGrant(
     args: DeleteAccessGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteAccessGrantCommandOutput) => void
   ): void;
 
@@ -798,7 +810,7 @@ export interface S3Control {
   deleteAccessGrantsInstance(): Promise<DeleteAccessGrantsInstanceCommandOutput>;
   deleteAccessGrantsInstance(
     args: DeleteAccessGrantsInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteAccessGrantsInstanceCommandOutput>;
   deleteAccessGrantsInstance(
     args: DeleteAccessGrantsInstanceCommandInput,
@@ -806,7 +818,7 @@ export interface S3Control {
   ): void;
   deleteAccessGrantsInstance(
     args: DeleteAccessGrantsInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteAccessGrantsInstanceCommandOutput) => void
   ): void;
 
@@ -816,7 +828,7 @@ export interface S3Control {
   deleteAccessGrantsInstanceResourcePolicy(): Promise<DeleteAccessGrantsInstanceResourcePolicyCommandOutput>;
   deleteAccessGrantsInstanceResourcePolicy(
     args: DeleteAccessGrantsInstanceResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteAccessGrantsInstanceResourcePolicyCommandOutput>;
   deleteAccessGrantsInstanceResourcePolicy(
     args: DeleteAccessGrantsInstanceResourcePolicyCommandInput,
@@ -824,7 +836,7 @@ export interface S3Control {
   ): void;
   deleteAccessGrantsInstanceResourcePolicy(
     args: DeleteAccessGrantsInstanceResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteAccessGrantsInstanceResourcePolicyCommandOutput) => void
   ): void;
 
@@ -833,7 +845,7 @@ export interface S3Control {
    */
   deleteAccessGrantsLocation(
     args: DeleteAccessGrantsLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteAccessGrantsLocationCommandOutput>;
   deleteAccessGrantsLocation(
     args: DeleteAccessGrantsLocationCommandInput,
@@ -841,7 +853,7 @@ export interface S3Control {
   ): void;
   deleteAccessGrantsLocation(
     args: DeleteAccessGrantsLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteAccessGrantsLocationCommandOutput) => void
   ): void;
 
@@ -850,7 +862,7 @@ export interface S3Control {
    */
   deleteAccessPoint(
     args: DeleteAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteAccessPointCommandOutput>;
   deleteAccessPoint(
     args: DeleteAccessPointCommandInput,
@@ -858,7 +870,7 @@ export interface S3Control {
   ): void;
   deleteAccessPoint(
     args: DeleteAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteAccessPointCommandOutput) => void
   ): void;
 
@@ -867,7 +879,7 @@ export interface S3Control {
    */
   deleteAccessPointForObjectLambda(
     args: DeleteAccessPointForObjectLambdaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteAccessPointForObjectLambdaCommandOutput>;
   deleteAccessPointForObjectLambda(
     args: DeleteAccessPointForObjectLambdaCommandInput,
@@ -875,7 +887,7 @@ export interface S3Control {
   ): void;
   deleteAccessPointForObjectLambda(
     args: DeleteAccessPointForObjectLambdaCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteAccessPointForObjectLambdaCommandOutput) => void
   ): void;
 
@@ -884,7 +896,7 @@ export interface S3Control {
    */
   deleteAccessPointPolicy(
     args: DeleteAccessPointPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteAccessPointPolicyCommandOutput>;
   deleteAccessPointPolicy(
     args: DeleteAccessPointPolicyCommandInput,
@@ -892,7 +904,7 @@ export interface S3Control {
   ): void;
   deleteAccessPointPolicy(
     args: DeleteAccessPointPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteAccessPointPolicyCommandOutput) => void
   ): void;
 
@@ -901,7 +913,7 @@ export interface S3Control {
    */
   deleteAccessPointPolicyForObjectLambda(
     args: DeleteAccessPointPolicyForObjectLambdaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteAccessPointPolicyForObjectLambdaCommandOutput>;
   deleteAccessPointPolicyForObjectLambda(
     args: DeleteAccessPointPolicyForObjectLambdaCommandInput,
@@ -909,7 +921,7 @@ export interface S3Control {
   ): void;
   deleteAccessPointPolicyForObjectLambda(
     args: DeleteAccessPointPolicyForObjectLambdaCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteAccessPointPolicyForObjectLambdaCommandOutput) => void
   ): void;
 
@@ -918,7 +930,7 @@ export interface S3Control {
    */
   deleteAccessPointScope(
     args: DeleteAccessPointScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteAccessPointScopeCommandOutput>;
   deleteAccessPointScope(
     args: DeleteAccessPointScopeCommandInput,
@@ -926,7 +938,7 @@ export interface S3Control {
   ): void;
   deleteAccessPointScope(
     args: DeleteAccessPointScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteAccessPointScopeCommandOutput) => void
   ): void;
 
@@ -935,7 +947,7 @@ export interface S3Control {
    */
   deleteBucket(
     args: DeleteBucketCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteBucketCommandOutput>;
   deleteBucket(
     args: DeleteBucketCommandInput,
@@ -943,7 +955,7 @@ export interface S3Control {
   ): void;
   deleteBucket(
     args: DeleteBucketCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteBucketCommandOutput) => void
   ): void;
 
@@ -952,7 +964,7 @@ export interface S3Control {
    */
   deleteBucketLifecycleConfiguration(
     args: DeleteBucketLifecycleConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteBucketLifecycleConfigurationCommandOutput>;
   deleteBucketLifecycleConfiguration(
     args: DeleteBucketLifecycleConfigurationCommandInput,
@@ -960,7 +972,7 @@ export interface S3Control {
   ): void;
   deleteBucketLifecycleConfiguration(
     args: DeleteBucketLifecycleConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteBucketLifecycleConfigurationCommandOutput) => void
   ): void;
 
@@ -969,7 +981,7 @@ export interface S3Control {
    */
   deleteBucketPolicy(
     args: DeleteBucketPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteBucketPolicyCommandOutput>;
   deleteBucketPolicy(
     args: DeleteBucketPolicyCommandInput,
@@ -977,7 +989,7 @@ export interface S3Control {
   ): void;
   deleteBucketPolicy(
     args: DeleteBucketPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteBucketPolicyCommandOutput) => void
   ): void;
 
@@ -986,7 +998,7 @@ export interface S3Control {
    */
   deleteBucketReplication(
     args: DeleteBucketReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteBucketReplicationCommandOutput>;
   deleteBucketReplication(
     args: DeleteBucketReplicationCommandInput,
@@ -994,7 +1006,7 @@ export interface S3Control {
   ): void;
   deleteBucketReplication(
     args: DeleteBucketReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteBucketReplicationCommandOutput) => void
   ): void;
 
@@ -1003,7 +1015,7 @@ export interface S3Control {
    */
   deleteBucketTagging(
     args: DeleteBucketTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteBucketTaggingCommandOutput>;
   deleteBucketTagging(
     args: DeleteBucketTaggingCommandInput,
@@ -1011,7 +1023,7 @@ export interface S3Control {
   ): void;
   deleteBucketTagging(
     args: DeleteBucketTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteBucketTaggingCommandOutput) => void
   ): void;
 
@@ -1020,7 +1032,7 @@ export interface S3Control {
    */
   deleteJobTagging(
     args: DeleteJobTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteJobTaggingCommandOutput>;
   deleteJobTagging(
     args: DeleteJobTaggingCommandInput,
@@ -1028,7 +1040,7 @@ export interface S3Control {
   ): void;
   deleteJobTagging(
     args: DeleteJobTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteJobTaggingCommandOutput) => void
   ): void;
 
@@ -1037,7 +1049,7 @@ export interface S3Control {
    */
   deleteMultiRegionAccessPoint(
     args: DeleteMultiRegionAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteMultiRegionAccessPointCommandOutput>;
   deleteMultiRegionAccessPoint(
     args: DeleteMultiRegionAccessPointCommandInput,
@@ -1045,7 +1057,7 @@ export interface S3Control {
   ): void;
   deleteMultiRegionAccessPoint(
     args: DeleteMultiRegionAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteMultiRegionAccessPointCommandOutput) => void
   ): void;
 
@@ -1055,7 +1067,7 @@ export interface S3Control {
   deletePublicAccessBlock(): Promise<DeletePublicAccessBlockCommandOutput>;
   deletePublicAccessBlock(
     args: DeletePublicAccessBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeletePublicAccessBlockCommandOutput>;
   deletePublicAccessBlock(
     args: DeletePublicAccessBlockCommandInput,
@@ -1063,7 +1075,7 @@ export interface S3Control {
   ): void;
   deletePublicAccessBlock(
     args: DeletePublicAccessBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeletePublicAccessBlockCommandOutput) => void
   ): void;
 
@@ -1072,7 +1084,7 @@ export interface S3Control {
    */
   deleteStorageLensConfiguration(
     args: DeleteStorageLensConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteStorageLensConfigurationCommandOutput>;
   deleteStorageLensConfiguration(
     args: DeleteStorageLensConfigurationCommandInput,
@@ -1080,7 +1092,7 @@ export interface S3Control {
   ): void;
   deleteStorageLensConfiguration(
     args: DeleteStorageLensConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteStorageLensConfigurationCommandOutput) => void
   ): void;
 
@@ -1089,7 +1101,7 @@ export interface S3Control {
    */
   deleteStorageLensConfigurationTagging(
     args: DeleteStorageLensConfigurationTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteStorageLensConfigurationTaggingCommandOutput>;
   deleteStorageLensConfigurationTagging(
     args: DeleteStorageLensConfigurationTaggingCommandInput,
@@ -1097,7 +1109,7 @@ export interface S3Control {
   ): void;
   deleteStorageLensConfigurationTagging(
     args: DeleteStorageLensConfigurationTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteStorageLensConfigurationTaggingCommandOutput) => void
   ): void;
 
@@ -1106,7 +1118,7 @@ export interface S3Control {
    */
   deleteStorageLensGroup(
     args: DeleteStorageLensGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DeleteStorageLensGroupCommandOutput>;
   deleteStorageLensGroup(
     args: DeleteStorageLensGroupCommandInput,
@@ -1114,7 +1126,7 @@ export interface S3Control {
   ): void;
   deleteStorageLensGroup(
     args: DeleteStorageLensGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DeleteStorageLensGroupCommandOutput) => void
   ): void;
 
@@ -1123,7 +1135,7 @@ export interface S3Control {
    */
   describeJob(
     args: DescribeJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DescribeJobCommandOutput>;
   describeJob(
     args: DescribeJobCommandInput,
@@ -1131,7 +1143,7 @@ export interface S3Control {
   ): void;
   describeJob(
     args: DescribeJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DescribeJobCommandOutput) => void
   ): void;
 
@@ -1140,7 +1152,7 @@ export interface S3Control {
    */
   describeMultiRegionAccessPointOperation(
     args: DescribeMultiRegionAccessPointOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DescribeMultiRegionAccessPointOperationCommandOutput>;
   describeMultiRegionAccessPointOperation(
     args: DescribeMultiRegionAccessPointOperationCommandInput,
@@ -1148,7 +1160,7 @@ export interface S3Control {
   ): void;
   describeMultiRegionAccessPointOperation(
     args: DescribeMultiRegionAccessPointOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DescribeMultiRegionAccessPointOperationCommandOutput) => void
   ): void;
 
@@ -1158,7 +1170,7 @@ export interface S3Control {
   dissociateAccessGrantsIdentityCenter(): Promise<DissociateAccessGrantsIdentityCenterCommandOutput>;
   dissociateAccessGrantsIdentityCenter(
     args: DissociateAccessGrantsIdentityCenterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<DissociateAccessGrantsIdentityCenterCommandOutput>;
   dissociateAccessGrantsIdentityCenter(
     args: DissociateAccessGrantsIdentityCenterCommandInput,
@@ -1166,7 +1178,7 @@ export interface S3Control {
   ): void;
   dissociateAccessGrantsIdentityCenter(
     args: DissociateAccessGrantsIdentityCenterCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: DissociateAccessGrantsIdentityCenterCommandOutput) => void
   ): void;
 
@@ -1175,7 +1187,7 @@ export interface S3Control {
    */
   getAccessGrant(
     args: GetAccessGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessGrantCommandOutput>;
   getAccessGrant(
     args: GetAccessGrantCommandInput,
@@ -1183,7 +1195,7 @@ export interface S3Control {
   ): void;
   getAccessGrant(
     args: GetAccessGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessGrantCommandOutput) => void
   ): void;
 
@@ -1193,7 +1205,7 @@ export interface S3Control {
   getAccessGrantsInstance(): Promise<GetAccessGrantsInstanceCommandOutput>;
   getAccessGrantsInstance(
     args: GetAccessGrantsInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessGrantsInstanceCommandOutput>;
   getAccessGrantsInstance(
     args: GetAccessGrantsInstanceCommandInput,
@@ -1201,7 +1213,7 @@ export interface S3Control {
   ): void;
   getAccessGrantsInstance(
     args: GetAccessGrantsInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessGrantsInstanceCommandOutput) => void
   ): void;
 
@@ -1210,7 +1222,7 @@ export interface S3Control {
    */
   getAccessGrantsInstanceForPrefix(
     args: GetAccessGrantsInstanceForPrefixCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessGrantsInstanceForPrefixCommandOutput>;
   getAccessGrantsInstanceForPrefix(
     args: GetAccessGrantsInstanceForPrefixCommandInput,
@@ -1218,7 +1230,7 @@ export interface S3Control {
   ): void;
   getAccessGrantsInstanceForPrefix(
     args: GetAccessGrantsInstanceForPrefixCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessGrantsInstanceForPrefixCommandOutput) => void
   ): void;
 
@@ -1228,7 +1240,7 @@ export interface S3Control {
   getAccessGrantsInstanceResourcePolicy(): Promise<GetAccessGrantsInstanceResourcePolicyCommandOutput>;
   getAccessGrantsInstanceResourcePolicy(
     args: GetAccessGrantsInstanceResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessGrantsInstanceResourcePolicyCommandOutput>;
   getAccessGrantsInstanceResourcePolicy(
     args: GetAccessGrantsInstanceResourcePolicyCommandInput,
@@ -1236,7 +1248,7 @@ export interface S3Control {
   ): void;
   getAccessGrantsInstanceResourcePolicy(
     args: GetAccessGrantsInstanceResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessGrantsInstanceResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1245,7 +1257,7 @@ export interface S3Control {
    */
   getAccessGrantsLocation(
     args: GetAccessGrantsLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessGrantsLocationCommandOutput>;
   getAccessGrantsLocation(
     args: GetAccessGrantsLocationCommandInput,
@@ -1253,7 +1265,7 @@ export interface S3Control {
   ): void;
   getAccessGrantsLocation(
     args: GetAccessGrantsLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessGrantsLocationCommandOutput) => void
   ): void;
 
@@ -1262,7 +1274,7 @@ export interface S3Control {
    */
   getAccessPoint(
     args: GetAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessPointCommandOutput>;
   getAccessPoint(
     args: GetAccessPointCommandInput,
@@ -1270,7 +1282,7 @@ export interface S3Control {
   ): void;
   getAccessPoint(
     args: GetAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessPointCommandOutput) => void
   ): void;
 
@@ -1279,7 +1291,7 @@ export interface S3Control {
    */
   getAccessPointConfigurationForObjectLambda(
     args: GetAccessPointConfigurationForObjectLambdaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessPointConfigurationForObjectLambdaCommandOutput>;
   getAccessPointConfigurationForObjectLambda(
     args: GetAccessPointConfigurationForObjectLambdaCommandInput,
@@ -1287,7 +1299,7 @@ export interface S3Control {
   ): void;
   getAccessPointConfigurationForObjectLambda(
     args: GetAccessPointConfigurationForObjectLambdaCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessPointConfigurationForObjectLambdaCommandOutput) => void
   ): void;
 
@@ -1296,7 +1308,7 @@ export interface S3Control {
    */
   getAccessPointForObjectLambda(
     args: GetAccessPointForObjectLambdaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessPointForObjectLambdaCommandOutput>;
   getAccessPointForObjectLambda(
     args: GetAccessPointForObjectLambdaCommandInput,
@@ -1304,7 +1316,7 @@ export interface S3Control {
   ): void;
   getAccessPointForObjectLambda(
     args: GetAccessPointForObjectLambdaCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessPointForObjectLambdaCommandOutput) => void
   ): void;
 
@@ -1313,7 +1325,7 @@ export interface S3Control {
    */
   getAccessPointPolicy(
     args: GetAccessPointPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessPointPolicyCommandOutput>;
   getAccessPointPolicy(
     args: GetAccessPointPolicyCommandInput,
@@ -1321,7 +1333,7 @@ export interface S3Control {
   ): void;
   getAccessPointPolicy(
     args: GetAccessPointPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessPointPolicyCommandOutput) => void
   ): void;
 
@@ -1330,7 +1342,7 @@ export interface S3Control {
    */
   getAccessPointPolicyForObjectLambda(
     args: GetAccessPointPolicyForObjectLambdaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessPointPolicyForObjectLambdaCommandOutput>;
   getAccessPointPolicyForObjectLambda(
     args: GetAccessPointPolicyForObjectLambdaCommandInput,
@@ -1338,7 +1350,7 @@ export interface S3Control {
   ): void;
   getAccessPointPolicyForObjectLambda(
     args: GetAccessPointPolicyForObjectLambdaCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessPointPolicyForObjectLambdaCommandOutput) => void
   ): void;
 
@@ -1347,7 +1359,7 @@ export interface S3Control {
    */
   getAccessPointPolicyStatus(
     args: GetAccessPointPolicyStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessPointPolicyStatusCommandOutput>;
   getAccessPointPolicyStatus(
     args: GetAccessPointPolicyStatusCommandInput,
@@ -1355,7 +1367,7 @@ export interface S3Control {
   ): void;
   getAccessPointPolicyStatus(
     args: GetAccessPointPolicyStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessPointPolicyStatusCommandOutput) => void
   ): void;
 
@@ -1364,7 +1376,7 @@ export interface S3Control {
    */
   getAccessPointPolicyStatusForObjectLambda(
     args: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessPointPolicyStatusForObjectLambdaCommandOutput>;
   getAccessPointPolicyStatusForObjectLambda(
     args: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
@@ -1372,7 +1384,7 @@ export interface S3Control {
   ): void;
   getAccessPointPolicyStatusForObjectLambda(
     args: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessPointPolicyStatusForObjectLambdaCommandOutput) => void
   ): void;
 
@@ -1381,7 +1393,7 @@ export interface S3Control {
    */
   getAccessPointScope(
     args: GetAccessPointScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetAccessPointScopeCommandOutput>;
   getAccessPointScope(
     args: GetAccessPointScopeCommandInput,
@@ -1389,7 +1401,7 @@ export interface S3Control {
   ): void;
   getAccessPointScope(
     args: GetAccessPointScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetAccessPointScopeCommandOutput) => void
   ): void;
 
@@ -1398,7 +1410,7 @@ export interface S3Control {
    */
   getBucket(
     args: GetBucketCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetBucketCommandOutput>;
   getBucket(
     args: GetBucketCommandInput,
@@ -1406,7 +1418,7 @@ export interface S3Control {
   ): void;
   getBucket(
     args: GetBucketCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetBucketCommandOutput) => void
   ): void;
 
@@ -1415,7 +1427,7 @@ export interface S3Control {
    */
   getBucketLifecycleConfiguration(
     args: GetBucketLifecycleConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetBucketLifecycleConfigurationCommandOutput>;
   getBucketLifecycleConfiguration(
     args: GetBucketLifecycleConfigurationCommandInput,
@@ -1423,7 +1435,7 @@ export interface S3Control {
   ): void;
   getBucketLifecycleConfiguration(
     args: GetBucketLifecycleConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetBucketLifecycleConfigurationCommandOutput) => void
   ): void;
 
@@ -1432,7 +1444,7 @@ export interface S3Control {
    */
   getBucketPolicy(
     args: GetBucketPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetBucketPolicyCommandOutput>;
   getBucketPolicy(
     args: GetBucketPolicyCommandInput,
@@ -1440,7 +1452,7 @@ export interface S3Control {
   ): void;
   getBucketPolicy(
     args: GetBucketPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetBucketPolicyCommandOutput) => void
   ): void;
 
@@ -1449,7 +1461,7 @@ export interface S3Control {
    */
   getBucketReplication(
     args: GetBucketReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetBucketReplicationCommandOutput>;
   getBucketReplication(
     args: GetBucketReplicationCommandInput,
@@ -1457,7 +1469,7 @@ export interface S3Control {
   ): void;
   getBucketReplication(
     args: GetBucketReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetBucketReplicationCommandOutput) => void
   ): void;
 
@@ -1466,7 +1478,7 @@ export interface S3Control {
    */
   getBucketTagging(
     args: GetBucketTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetBucketTaggingCommandOutput>;
   getBucketTagging(
     args: GetBucketTaggingCommandInput,
@@ -1474,7 +1486,7 @@ export interface S3Control {
   ): void;
   getBucketTagging(
     args: GetBucketTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetBucketTaggingCommandOutput) => void
   ): void;
 
@@ -1483,7 +1495,7 @@ export interface S3Control {
    */
   getBucketVersioning(
     args: GetBucketVersioningCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetBucketVersioningCommandOutput>;
   getBucketVersioning(
     args: GetBucketVersioningCommandInput,
@@ -1491,7 +1503,7 @@ export interface S3Control {
   ): void;
   getBucketVersioning(
     args: GetBucketVersioningCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetBucketVersioningCommandOutput) => void
   ): void;
 
@@ -1500,7 +1512,7 @@ export interface S3Control {
    */
   getDataAccess(
     args: GetDataAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetDataAccessCommandOutput>;
   getDataAccess(
     args: GetDataAccessCommandInput,
@@ -1508,7 +1520,7 @@ export interface S3Control {
   ): void;
   getDataAccess(
     args: GetDataAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetDataAccessCommandOutput) => void
   ): void;
 
@@ -1517,7 +1529,7 @@ export interface S3Control {
    */
   getJobTagging(
     args: GetJobTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetJobTaggingCommandOutput>;
   getJobTagging(
     args: GetJobTaggingCommandInput,
@@ -1525,7 +1537,7 @@ export interface S3Control {
   ): void;
   getJobTagging(
     args: GetJobTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetJobTaggingCommandOutput) => void
   ): void;
 
@@ -1534,7 +1546,7 @@ export interface S3Control {
    */
   getMultiRegionAccessPoint(
     args: GetMultiRegionAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetMultiRegionAccessPointCommandOutput>;
   getMultiRegionAccessPoint(
     args: GetMultiRegionAccessPointCommandInput,
@@ -1542,7 +1554,7 @@ export interface S3Control {
   ): void;
   getMultiRegionAccessPoint(
     args: GetMultiRegionAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetMultiRegionAccessPointCommandOutput) => void
   ): void;
 
@@ -1551,7 +1563,7 @@ export interface S3Control {
    */
   getMultiRegionAccessPointPolicy(
     args: GetMultiRegionAccessPointPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetMultiRegionAccessPointPolicyCommandOutput>;
   getMultiRegionAccessPointPolicy(
     args: GetMultiRegionAccessPointPolicyCommandInput,
@@ -1559,7 +1571,7 @@ export interface S3Control {
   ): void;
   getMultiRegionAccessPointPolicy(
     args: GetMultiRegionAccessPointPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetMultiRegionAccessPointPolicyCommandOutput) => void
   ): void;
 
@@ -1568,7 +1580,7 @@ export interface S3Control {
    */
   getMultiRegionAccessPointPolicyStatus(
     args: GetMultiRegionAccessPointPolicyStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetMultiRegionAccessPointPolicyStatusCommandOutput>;
   getMultiRegionAccessPointPolicyStatus(
     args: GetMultiRegionAccessPointPolicyStatusCommandInput,
@@ -1576,7 +1588,7 @@ export interface S3Control {
   ): void;
   getMultiRegionAccessPointPolicyStatus(
     args: GetMultiRegionAccessPointPolicyStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetMultiRegionAccessPointPolicyStatusCommandOutput) => void
   ): void;
 
@@ -1585,7 +1597,7 @@ export interface S3Control {
    */
   getMultiRegionAccessPointRoutes(
     args: GetMultiRegionAccessPointRoutesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetMultiRegionAccessPointRoutesCommandOutput>;
   getMultiRegionAccessPointRoutes(
     args: GetMultiRegionAccessPointRoutesCommandInput,
@@ -1593,7 +1605,7 @@ export interface S3Control {
   ): void;
   getMultiRegionAccessPointRoutes(
     args: GetMultiRegionAccessPointRoutesCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetMultiRegionAccessPointRoutesCommandOutput) => void
   ): void;
 
@@ -1603,7 +1615,7 @@ export interface S3Control {
   getPublicAccessBlock(): Promise<GetPublicAccessBlockCommandOutput>;
   getPublicAccessBlock(
     args: GetPublicAccessBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetPublicAccessBlockCommandOutput>;
   getPublicAccessBlock(
     args: GetPublicAccessBlockCommandInput,
@@ -1611,7 +1623,7 @@ export interface S3Control {
   ): void;
   getPublicAccessBlock(
     args: GetPublicAccessBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetPublicAccessBlockCommandOutput) => void
   ): void;
 
@@ -1620,7 +1632,7 @@ export interface S3Control {
    */
   getStorageLensConfiguration(
     args: GetStorageLensConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetStorageLensConfigurationCommandOutput>;
   getStorageLensConfiguration(
     args: GetStorageLensConfigurationCommandInput,
@@ -1628,7 +1640,7 @@ export interface S3Control {
   ): void;
   getStorageLensConfiguration(
     args: GetStorageLensConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetStorageLensConfigurationCommandOutput) => void
   ): void;
 
@@ -1637,7 +1649,7 @@ export interface S3Control {
    */
   getStorageLensConfigurationTagging(
     args: GetStorageLensConfigurationTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetStorageLensConfigurationTaggingCommandOutput>;
   getStorageLensConfigurationTagging(
     args: GetStorageLensConfigurationTaggingCommandInput,
@@ -1645,7 +1657,7 @@ export interface S3Control {
   ): void;
   getStorageLensConfigurationTagging(
     args: GetStorageLensConfigurationTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetStorageLensConfigurationTaggingCommandOutput) => void
   ): void;
 
@@ -1654,7 +1666,7 @@ export interface S3Control {
    */
   getStorageLensGroup(
     args: GetStorageLensGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<GetStorageLensGroupCommandOutput>;
   getStorageLensGroup(
     args: GetStorageLensGroupCommandInput,
@@ -1662,7 +1674,7 @@ export interface S3Control {
   ): void;
   getStorageLensGroup(
     args: GetStorageLensGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: GetStorageLensGroupCommandOutput) => void
   ): void;
 
@@ -1672,7 +1684,7 @@ export interface S3Control {
   listAccessGrants(): Promise<ListAccessGrantsCommandOutput>;
   listAccessGrants(
     args: ListAccessGrantsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListAccessGrantsCommandOutput>;
   listAccessGrants(
     args: ListAccessGrantsCommandInput,
@@ -1680,7 +1692,7 @@ export interface S3Control {
   ): void;
   listAccessGrants(
     args: ListAccessGrantsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListAccessGrantsCommandOutput) => void
   ): void;
 
@@ -1690,7 +1702,7 @@ export interface S3Control {
   listAccessGrantsInstances(): Promise<ListAccessGrantsInstancesCommandOutput>;
   listAccessGrantsInstances(
     args: ListAccessGrantsInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListAccessGrantsInstancesCommandOutput>;
   listAccessGrantsInstances(
     args: ListAccessGrantsInstancesCommandInput,
@@ -1698,7 +1710,7 @@ export interface S3Control {
   ): void;
   listAccessGrantsInstances(
     args: ListAccessGrantsInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListAccessGrantsInstancesCommandOutput) => void
   ): void;
 
@@ -1708,7 +1720,7 @@ export interface S3Control {
   listAccessGrantsLocations(): Promise<ListAccessGrantsLocationsCommandOutput>;
   listAccessGrantsLocations(
     args: ListAccessGrantsLocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListAccessGrantsLocationsCommandOutput>;
   listAccessGrantsLocations(
     args: ListAccessGrantsLocationsCommandInput,
@@ -1716,7 +1728,7 @@ export interface S3Control {
   ): void;
   listAccessGrantsLocations(
     args: ListAccessGrantsLocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListAccessGrantsLocationsCommandOutput) => void
   ): void;
 
@@ -1726,7 +1738,7 @@ export interface S3Control {
   listAccessPoints(): Promise<ListAccessPointsCommandOutput>;
   listAccessPoints(
     args: ListAccessPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListAccessPointsCommandOutput>;
   listAccessPoints(
     args: ListAccessPointsCommandInput,
@@ -1734,7 +1746,7 @@ export interface S3Control {
   ): void;
   listAccessPoints(
     args: ListAccessPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListAccessPointsCommandOutput) => void
   ): void;
 
@@ -1744,7 +1756,7 @@ export interface S3Control {
   listAccessPointsForDirectoryBuckets(): Promise<ListAccessPointsForDirectoryBucketsCommandOutput>;
   listAccessPointsForDirectoryBuckets(
     args: ListAccessPointsForDirectoryBucketsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListAccessPointsForDirectoryBucketsCommandOutput>;
   listAccessPointsForDirectoryBuckets(
     args: ListAccessPointsForDirectoryBucketsCommandInput,
@@ -1752,7 +1764,7 @@ export interface S3Control {
   ): void;
   listAccessPointsForDirectoryBuckets(
     args: ListAccessPointsForDirectoryBucketsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListAccessPointsForDirectoryBucketsCommandOutput) => void
   ): void;
 
@@ -1762,7 +1774,7 @@ export interface S3Control {
   listAccessPointsForObjectLambda(): Promise<ListAccessPointsForObjectLambdaCommandOutput>;
   listAccessPointsForObjectLambda(
     args: ListAccessPointsForObjectLambdaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListAccessPointsForObjectLambdaCommandOutput>;
   listAccessPointsForObjectLambda(
     args: ListAccessPointsForObjectLambdaCommandInput,
@@ -1770,7 +1782,7 @@ export interface S3Control {
   ): void;
   listAccessPointsForObjectLambda(
     args: ListAccessPointsForObjectLambdaCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListAccessPointsForObjectLambdaCommandOutput) => void
   ): void;
 
@@ -1780,7 +1792,7 @@ export interface S3Control {
   listCallerAccessGrants(): Promise<ListCallerAccessGrantsCommandOutput>;
   listCallerAccessGrants(
     args: ListCallerAccessGrantsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListCallerAccessGrantsCommandOutput>;
   listCallerAccessGrants(
     args: ListCallerAccessGrantsCommandInput,
@@ -1788,7 +1800,7 @@ export interface S3Control {
   ): void;
   listCallerAccessGrants(
     args: ListCallerAccessGrantsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListCallerAccessGrantsCommandOutput) => void
   ): void;
 
@@ -1798,7 +1810,7 @@ export interface S3Control {
   listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
@@ -1806,7 +1818,7 @@ export interface S3Control {
   ): void;
   listJobs(
     args: ListJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListJobsCommandOutput) => void
   ): void;
 
@@ -1816,7 +1828,7 @@ export interface S3Control {
   listMultiRegionAccessPoints(): Promise<ListMultiRegionAccessPointsCommandOutput>;
   listMultiRegionAccessPoints(
     args: ListMultiRegionAccessPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListMultiRegionAccessPointsCommandOutput>;
   listMultiRegionAccessPoints(
     args: ListMultiRegionAccessPointsCommandInput,
@@ -1824,7 +1836,7 @@ export interface S3Control {
   ): void;
   listMultiRegionAccessPoints(
     args: ListMultiRegionAccessPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListMultiRegionAccessPointsCommandOutput) => void
   ): void;
 
@@ -1834,7 +1846,7 @@ export interface S3Control {
   listRegionalBuckets(): Promise<ListRegionalBucketsCommandOutput>;
   listRegionalBuckets(
     args: ListRegionalBucketsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListRegionalBucketsCommandOutput>;
   listRegionalBuckets(
     args: ListRegionalBucketsCommandInput,
@@ -1842,7 +1854,7 @@ export interface S3Control {
   ): void;
   listRegionalBuckets(
     args: ListRegionalBucketsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListRegionalBucketsCommandOutput) => void
   ): void;
 
@@ -1852,7 +1864,7 @@ export interface S3Control {
   listStorageLensConfigurations(): Promise<ListStorageLensConfigurationsCommandOutput>;
   listStorageLensConfigurations(
     args: ListStorageLensConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListStorageLensConfigurationsCommandOutput>;
   listStorageLensConfigurations(
     args: ListStorageLensConfigurationsCommandInput,
@@ -1860,7 +1872,7 @@ export interface S3Control {
   ): void;
   listStorageLensConfigurations(
     args: ListStorageLensConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListStorageLensConfigurationsCommandOutput) => void
   ): void;
 
@@ -1870,7 +1882,7 @@ export interface S3Control {
   listStorageLensGroups(): Promise<ListStorageLensGroupsCommandOutput>;
   listStorageLensGroups(
     args: ListStorageLensGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListStorageLensGroupsCommandOutput>;
   listStorageLensGroups(
     args: ListStorageLensGroupsCommandInput,
@@ -1878,7 +1890,7 @@ export interface S3Control {
   ): void;
   listStorageLensGroups(
     args: ListStorageLensGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListStorageLensGroupsCommandOutput) => void
   ): void;
 
@@ -1887,7 +1899,7 @@ export interface S3Control {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1895,7 +1907,7 @@ export interface S3Control {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1904,7 +1916,7 @@ export interface S3Control {
    */
   putAccessGrantsInstanceResourcePolicy(
     args: PutAccessGrantsInstanceResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutAccessGrantsInstanceResourcePolicyCommandOutput>;
   putAccessGrantsInstanceResourcePolicy(
     args: PutAccessGrantsInstanceResourcePolicyCommandInput,
@@ -1912,7 +1924,7 @@ export interface S3Control {
   ): void;
   putAccessGrantsInstanceResourcePolicy(
     args: PutAccessGrantsInstanceResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutAccessGrantsInstanceResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1921,7 +1933,7 @@ export interface S3Control {
    */
   putAccessPointConfigurationForObjectLambda(
     args: PutAccessPointConfigurationForObjectLambdaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutAccessPointConfigurationForObjectLambdaCommandOutput>;
   putAccessPointConfigurationForObjectLambda(
     args: PutAccessPointConfigurationForObjectLambdaCommandInput,
@@ -1929,7 +1941,7 @@ export interface S3Control {
   ): void;
   putAccessPointConfigurationForObjectLambda(
     args: PutAccessPointConfigurationForObjectLambdaCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutAccessPointConfigurationForObjectLambdaCommandOutput) => void
   ): void;
 
@@ -1938,7 +1950,7 @@ export interface S3Control {
    */
   putAccessPointPolicy(
     args: PutAccessPointPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutAccessPointPolicyCommandOutput>;
   putAccessPointPolicy(
     args: PutAccessPointPolicyCommandInput,
@@ -1946,7 +1958,7 @@ export interface S3Control {
   ): void;
   putAccessPointPolicy(
     args: PutAccessPointPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutAccessPointPolicyCommandOutput) => void
   ): void;
 
@@ -1955,7 +1967,7 @@ export interface S3Control {
    */
   putAccessPointPolicyForObjectLambda(
     args: PutAccessPointPolicyForObjectLambdaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutAccessPointPolicyForObjectLambdaCommandOutput>;
   putAccessPointPolicyForObjectLambda(
     args: PutAccessPointPolicyForObjectLambdaCommandInput,
@@ -1963,7 +1975,7 @@ export interface S3Control {
   ): void;
   putAccessPointPolicyForObjectLambda(
     args: PutAccessPointPolicyForObjectLambdaCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutAccessPointPolicyForObjectLambdaCommandOutput) => void
   ): void;
 
@@ -1972,7 +1984,7 @@ export interface S3Control {
    */
   putAccessPointScope(
     args: PutAccessPointScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutAccessPointScopeCommandOutput>;
   putAccessPointScope(
     args: PutAccessPointScopeCommandInput,
@@ -1980,7 +1992,7 @@ export interface S3Control {
   ): void;
   putAccessPointScope(
     args: PutAccessPointScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutAccessPointScopeCommandOutput) => void
   ): void;
 
@@ -1989,7 +2001,7 @@ export interface S3Control {
    */
   putBucketLifecycleConfiguration(
     args: PutBucketLifecycleConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutBucketLifecycleConfigurationCommandOutput>;
   putBucketLifecycleConfiguration(
     args: PutBucketLifecycleConfigurationCommandInput,
@@ -1997,7 +2009,7 @@ export interface S3Control {
   ): void;
   putBucketLifecycleConfiguration(
     args: PutBucketLifecycleConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutBucketLifecycleConfigurationCommandOutput) => void
   ): void;
 
@@ -2006,7 +2018,7 @@ export interface S3Control {
    */
   putBucketPolicy(
     args: PutBucketPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutBucketPolicyCommandOutput>;
   putBucketPolicy(
     args: PutBucketPolicyCommandInput,
@@ -2014,7 +2026,7 @@ export interface S3Control {
   ): void;
   putBucketPolicy(
     args: PutBucketPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutBucketPolicyCommandOutput) => void
   ): void;
 
@@ -2023,7 +2035,7 @@ export interface S3Control {
    */
   putBucketReplication(
     args: PutBucketReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutBucketReplicationCommandOutput>;
   putBucketReplication(
     args: PutBucketReplicationCommandInput,
@@ -2031,7 +2043,7 @@ export interface S3Control {
   ): void;
   putBucketReplication(
     args: PutBucketReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutBucketReplicationCommandOutput) => void
   ): void;
 
@@ -2040,7 +2052,7 @@ export interface S3Control {
    */
   putBucketTagging(
     args: PutBucketTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutBucketTaggingCommandOutput>;
   putBucketTagging(
     args: PutBucketTaggingCommandInput,
@@ -2048,7 +2060,7 @@ export interface S3Control {
   ): void;
   putBucketTagging(
     args: PutBucketTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutBucketTaggingCommandOutput) => void
   ): void;
 
@@ -2057,7 +2069,7 @@ export interface S3Control {
    */
   putBucketVersioning(
     args: PutBucketVersioningCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutBucketVersioningCommandOutput>;
   putBucketVersioning(
     args: PutBucketVersioningCommandInput,
@@ -2065,7 +2077,7 @@ export interface S3Control {
   ): void;
   putBucketVersioning(
     args: PutBucketVersioningCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutBucketVersioningCommandOutput) => void
   ): void;
 
@@ -2074,7 +2086,7 @@ export interface S3Control {
    */
   putJobTagging(
     args: PutJobTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutJobTaggingCommandOutput>;
   putJobTagging(
     args: PutJobTaggingCommandInput,
@@ -2082,7 +2094,7 @@ export interface S3Control {
   ): void;
   putJobTagging(
     args: PutJobTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutJobTaggingCommandOutput) => void
   ): void;
 
@@ -2091,7 +2103,7 @@ export interface S3Control {
    */
   putMultiRegionAccessPointPolicy(
     args: PutMultiRegionAccessPointPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutMultiRegionAccessPointPolicyCommandOutput>;
   putMultiRegionAccessPointPolicy(
     args: PutMultiRegionAccessPointPolicyCommandInput,
@@ -2099,7 +2111,7 @@ export interface S3Control {
   ): void;
   putMultiRegionAccessPointPolicy(
     args: PutMultiRegionAccessPointPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutMultiRegionAccessPointPolicyCommandOutput) => void
   ): void;
 
@@ -2108,7 +2120,7 @@ export interface S3Control {
    */
   putPublicAccessBlock(
     args: PutPublicAccessBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutPublicAccessBlockCommandOutput>;
   putPublicAccessBlock(
     args: PutPublicAccessBlockCommandInput,
@@ -2116,7 +2128,7 @@ export interface S3Control {
   ): void;
   putPublicAccessBlock(
     args: PutPublicAccessBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutPublicAccessBlockCommandOutput) => void
   ): void;
 
@@ -2125,7 +2137,7 @@ export interface S3Control {
    */
   putStorageLensConfiguration(
     args: PutStorageLensConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutStorageLensConfigurationCommandOutput>;
   putStorageLensConfiguration(
     args: PutStorageLensConfigurationCommandInput,
@@ -2133,7 +2145,7 @@ export interface S3Control {
   ): void;
   putStorageLensConfiguration(
     args: PutStorageLensConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutStorageLensConfigurationCommandOutput) => void
   ): void;
 
@@ -2142,7 +2154,7 @@ export interface S3Control {
    */
   putStorageLensConfigurationTagging(
     args: PutStorageLensConfigurationTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<PutStorageLensConfigurationTaggingCommandOutput>;
   putStorageLensConfigurationTagging(
     args: PutStorageLensConfigurationTaggingCommandInput,
@@ -2150,7 +2162,7 @@ export interface S3Control {
   ): void;
   putStorageLensConfigurationTagging(
     args: PutStorageLensConfigurationTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: PutStorageLensConfigurationTaggingCommandOutput) => void
   ): void;
 
@@ -2159,7 +2171,7 @@ export interface S3Control {
    */
   submitMultiRegionAccessPointRoutes(
     args: SubmitMultiRegionAccessPointRoutesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<SubmitMultiRegionAccessPointRoutesCommandOutput>;
   submitMultiRegionAccessPointRoutes(
     args: SubmitMultiRegionAccessPointRoutesCommandInput,
@@ -2167,7 +2179,7 @@ export interface S3Control {
   ): void;
   submitMultiRegionAccessPointRoutes(
     args: SubmitMultiRegionAccessPointRoutesCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: SubmitMultiRegionAccessPointRoutesCommandOutput) => void
   ): void;
 
@@ -2176,7 +2188,7 @@ export interface S3Control {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2184,7 +2196,7 @@ export interface S3Control {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2193,7 +2205,7 @@ export interface S3Control {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2201,7 +2213,7 @@ export interface S3Control {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2210,7 +2222,7 @@ export interface S3Control {
    */
   updateAccessGrantsLocation(
     args: UpdateAccessGrantsLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<UpdateAccessGrantsLocationCommandOutput>;
   updateAccessGrantsLocation(
     args: UpdateAccessGrantsLocationCommandInput,
@@ -2218,7 +2230,7 @@ export interface S3Control {
   ): void;
   updateAccessGrantsLocation(
     args: UpdateAccessGrantsLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: UpdateAccessGrantsLocationCommandOutput) => void
   ): void;
 
@@ -2227,7 +2239,7 @@ export interface S3Control {
    */
   updateJobPriority(
     args: UpdateJobPriorityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<UpdateJobPriorityCommandOutput>;
   updateJobPriority(
     args: UpdateJobPriorityCommandInput,
@@ -2235,7 +2247,7 @@ export interface S3Control {
   ): void;
   updateJobPriority(
     args: UpdateJobPriorityCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: UpdateJobPriorityCommandOutput) => void
   ): void;
 
@@ -2244,7 +2256,7 @@ export interface S3Control {
    */
   updateJobStatus(
     args: UpdateJobStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<UpdateJobStatusCommandOutput>;
   updateJobStatus(
     args: UpdateJobStatusCommandInput,
@@ -2252,7 +2264,7 @@ export interface S3Control {
   ): void;
   updateJobStatus(
     args: UpdateJobStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: UpdateJobStatusCommandOutput) => void
   ): void;
 
@@ -2261,7 +2273,7 @@ export interface S3Control {
    */
   updateStorageLensGroup(
     args: UpdateStorageLensGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3ControlRequestOptions
   ): Promise<UpdateStorageLensGroupCommandOutput>;
   updateStorageLensGroup(
     args: UpdateStorageLensGroupCommandInput,
@@ -2269,7 +2281,7 @@ export interface S3Control {
   ): void;
   updateStorageLensGroup(
     args: UpdateStorageLensGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3ControlRequestOptions,
     cb: (err: any, data?: UpdateStorageLensGroupCommandOutput) => void
   ): void;
 

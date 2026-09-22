@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { CleanRoomsMLClient } from "./CleanRoomsMLClient";
 import {
@@ -403,13 +408,20 @@ const paginators = {
   paginateListTrainingDatasets,
 };
 
+/**
+ * @public
+ */
+export interface CleanRoomsMLRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CleanRoomsML {
   /**
    * @see {@link CancelTrainedModelCommand}
    */
   cancelTrainedModel(
     args: CancelTrainedModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<CancelTrainedModelCommandOutput>;
   cancelTrainedModel(
     args: CancelTrainedModelCommandInput,
@@ -417,7 +429,7 @@ export interface CleanRoomsML {
   ): void;
   cancelTrainedModel(
     args: CancelTrainedModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: CancelTrainedModelCommandOutput) => void
   ): void;
 
@@ -426,7 +438,7 @@ export interface CleanRoomsML {
    */
   cancelTrainedModelInferenceJob(
     args: CancelTrainedModelInferenceJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<CancelTrainedModelInferenceJobCommandOutput>;
   cancelTrainedModelInferenceJob(
     args: CancelTrainedModelInferenceJobCommandInput,
@@ -434,7 +446,7 @@ export interface CleanRoomsML {
   ): void;
   cancelTrainedModelInferenceJob(
     args: CancelTrainedModelInferenceJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: CancelTrainedModelInferenceJobCommandOutput) => void
   ): void;
 
@@ -443,7 +455,7 @@ export interface CleanRoomsML {
    */
   createAudienceModel(
     args: CreateAudienceModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<CreateAudienceModelCommandOutput>;
   createAudienceModel(
     args: CreateAudienceModelCommandInput,
@@ -451,7 +463,7 @@ export interface CleanRoomsML {
   ): void;
   createAudienceModel(
     args: CreateAudienceModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: CreateAudienceModelCommandOutput) => void
   ): void;
 
@@ -460,7 +472,7 @@ export interface CleanRoomsML {
    */
   createConfiguredAudienceModel(
     args: CreateConfiguredAudienceModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<CreateConfiguredAudienceModelCommandOutput>;
   createConfiguredAudienceModel(
     args: CreateConfiguredAudienceModelCommandInput,
@@ -468,7 +480,7 @@ export interface CleanRoomsML {
   ): void;
   createConfiguredAudienceModel(
     args: CreateConfiguredAudienceModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: CreateConfiguredAudienceModelCommandOutput) => void
   ): void;
 
@@ -477,7 +489,7 @@ export interface CleanRoomsML {
    */
   createConfiguredModelAlgorithm(
     args: CreateConfiguredModelAlgorithmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<CreateConfiguredModelAlgorithmCommandOutput>;
   createConfiguredModelAlgorithm(
     args: CreateConfiguredModelAlgorithmCommandInput,
@@ -485,7 +497,7 @@ export interface CleanRoomsML {
   ): void;
   createConfiguredModelAlgorithm(
     args: CreateConfiguredModelAlgorithmCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: CreateConfiguredModelAlgorithmCommandOutput) => void
   ): void;
 
@@ -494,7 +506,7 @@ export interface CleanRoomsML {
    */
   createConfiguredModelAlgorithmAssociation(
     args: CreateConfiguredModelAlgorithmAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<CreateConfiguredModelAlgorithmAssociationCommandOutput>;
   createConfiguredModelAlgorithmAssociation(
     args: CreateConfiguredModelAlgorithmAssociationCommandInput,
@@ -502,7 +514,7 @@ export interface CleanRoomsML {
   ): void;
   createConfiguredModelAlgorithmAssociation(
     args: CreateConfiguredModelAlgorithmAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: CreateConfiguredModelAlgorithmAssociationCommandOutput) => void
   ): void;
 
@@ -511,7 +523,7 @@ export interface CleanRoomsML {
    */
   createMLInputChannel(
     args: CreateMLInputChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<CreateMLInputChannelCommandOutput>;
   createMLInputChannel(
     args: CreateMLInputChannelCommandInput,
@@ -519,7 +531,7 @@ export interface CleanRoomsML {
   ): void;
   createMLInputChannel(
     args: CreateMLInputChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: CreateMLInputChannelCommandOutput) => void
   ): void;
 
@@ -528,7 +540,7 @@ export interface CleanRoomsML {
    */
   createTrainedModel(
     args: CreateTrainedModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<CreateTrainedModelCommandOutput>;
   createTrainedModel(
     args: CreateTrainedModelCommandInput,
@@ -536,7 +548,7 @@ export interface CleanRoomsML {
   ): void;
   createTrainedModel(
     args: CreateTrainedModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: CreateTrainedModelCommandOutput) => void
   ): void;
 
@@ -545,7 +557,7 @@ export interface CleanRoomsML {
    */
   createTrainingDataset(
     args: CreateTrainingDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<CreateTrainingDatasetCommandOutput>;
   createTrainingDataset(
     args: CreateTrainingDatasetCommandInput,
@@ -553,7 +565,7 @@ export interface CleanRoomsML {
   ): void;
   createTrainingDataset(
     args: CreateTrainingDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: CreateTrainingDatasetCommandOutput) => void
   ): void;
 
@@ -562,7 +574,7 @@ export interface CleanRoomsML {
    */
   deleteAudienceGenerationJob(
     args: DeleteAudienceGenerationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<DeleteAudienceGenerationJobCommandOutput>;
   deleteAudienceGenerationJob(
     args: DeleteAudienceGenerationJobCommandInput,
@@ -570,7 +582,7 @@ export interface CleanRoomsML {
   ): void;
   deleteAudienceGenerationJob(
     args: DeleteAudienceGenerationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: DeleteAudienceGenerationJobCommandOutput) => void
   ): void;
 
@@ -579,7 +591,7 @@ export interface CleanRoomsML {
    */
   deleteAudienceModel(
     args: DeleteAudienceModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<DeleteAudienceModelCommandOutput>;
   deleteAudienceModel(
     args: DeleteAudienceModelCommandInput,
@@ -587,7 +599,7 @@ export interface CleanRoomsML {
   ): void;
   deleteAudienceModel(
     args: DeleteAudienceModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: DeleteAudienceModelCommandOutput) => void
   ): void;
 
@@ -596,7 +608,7 @@ export interface CleanRoomsML {
    */
   deleteConfiguredAudienceModel(
     args: DeleteConfiguredAudienceModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<DeleteConfiguredAudienceModelCommandOutput>;
   deleteConfiguredAudienceModel(
     args: DeleteConfiguredAudienceModelCommandInput,
@@ -604,7 +616,7 @@ export interface CleanRoomsML {
   ): void;
   deleteConfiguredAudienceModel(
     args: DeleteConfiguredAudienceModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: DeleteConfiguredAudienceModelCommandOutput) => void
   ): void;
 
@@ -613,7 +625,7 @@ export interface CleanRoomsML {
    */
   deleteConfiguredAudienceModelPolicy(
     args: DeleteConfiguredAudienceModelPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<DeleteConfiguredAudienceModelPolicyCommandOutput>;
   deleteConfiguredAudienceModelPolicy(
     args: DeleteConfiguredAudienceModelPolicyCommandInput,
@@ -621,7 +633,7 @@ export interface CleanRoomsML {
   ): void;
   deleteConfiguredAudienceModelPolicy(
     args: DeleteConfiguredAudienceModelPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: DeleteConfiguredAudienceModelPolicyCommandOutput) => void
   ): void;
 
@@ -630,7 +642,7 @@ export interface CleanRoomsML {
    */
   deleteConfiguredModelAlgorithm(
     args: DeleteConfiguredModelAlgorithmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<DeleteConfiguredModelAlgorithmCommandOutput>;
   deleteConfiguredModelAlgorithm(
     args: DeleteConfiguredModelAlgorithmCommandInput,
@@ -638,7 +650,7 @@ export interface CleanRoomsML {
   ): void;
   deleteConfiguredModelAlgorithm(
     args: DeleteConfiguredModelAlgorithmCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: DeleteConfiguredModelAlgorithmCommandOutput) => void
   ): void;
 
@@ -647,7 +659,7 @@ export interface CleanRoomsML {
    */
   deleteConfiguredModelAlgorithmAssociation(
     args: DeleteConfiguredModelAlgorithmAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<DeleteConfiguredModelAlgorithmAssociationCommandOutput>;
   deleteConfiguredModelAlgorithmAssociation(
     args: DeleteConfiguredModelAlgorithmAssociationCommandInput,
@@ -655,7 +667,7 @@ export interface CleanRoomsML {
   ): void;
   deleteConfiguredModelAlgorithmAssociation(
     args: DeleteConfiguredModelAlgorithmAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: DeleteConfiguredModelAlgorithmAssociationCommandOutput) => void
   ): void;
 
@@ -664,7 +676,7 @@ export interface CleanRoomsML {
    */
   deleteMLConfiguration(
     args: DeleteMLConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<DeleteMLConfigurationCommandOutput>;
   deleteMLConfiguration(
     args: DeleteMLConfigurationCommandInput,
@@ -672,7 +684,7 @@ export interface CleanRoomsML {
   ): void;
   deleteMLConfiguration(
     args: DeleteMLConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: DeleteMLConfigurationCommandOutput) => void
   ): void;
 
@@ -681,7 +693,7 @@ export interface CleanRoomsML {
    */
   deleteMLInputChannelData(
     args: DeleteMLInputChannelDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<DeleteMLInputChannelDataCommandOutput>;
   deleteMLInputChannelData(
     args: DeleteMLInputChannelDataCommandInput,
@@ -689,7 +701,7 @@ export interface CleanRoomsML {
   ): void;
   deleteMLInputChannelData(
     args: DeleteMLInputChannelDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: DeleteMLInputChannelDataCommandOutput) => void
   ): void;
 
@@ -698,7 +710,7 @@ export interface CleanRoomsML {
    */
   deleteTrainedModelOutput(
     args: DeleteTrainedModelOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<DeleteTrainedModelOutputCommandOutput>;
   deleteTrainedModelOutput(
     args: DeleteTrainedModelOutputCommandInput,
@@ -706,7 +718,7 @@ export interface CleanRoomsML {
   ): void;
   deleteTrainedModelOutput(
     args: DeleteTrainedModelOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: DeleteTrainedModelOutputCommandOutput) => void
   ): void;
 
@@ -715,7 +727,7 @@ export interface CleanRoomsML {
    */
   deleteTrainingDataset(
     args: DeleteTrainingDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<DeleteTrainingDatasetCommandOutput>;
   deleteTrainingDataset(
     args: DeleteTrainingDatasetCommandInput,
@@ -723,7 +735,7 @@ export interface CleanRoomsML {
   ): void;
   deleteTrainingDataset(
     args: DeleteTrainingDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: DeleteTrainingDatasetCommandOutput) => void
   ): void;
 
@@ -732,7 +744,7 @@ export interface CleanRoomsML {
    */
   getAudienceGenerationJob(
     args: GetAudienceGenerationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetAudienceGenerationJobCommandOutput>;
   getAudienceGenerationJob(
     args: GetAudienceGenerationJobCommandInput,
@@ -740,7 +752,7 @@ export interface CleanRoomsML {
   ): void;
   getAudienceGenerationJob(
     args: GetAudienceGenerationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetAudienceGenerationJobCommandOutput) => void
   ): void;
 
@@ -749,7 +761,7 @@ export interface CleanRoomsML {
    */
   getAudienceModel(
     args: GetAudienceModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetAudienceModelCommandOutput>;
   getAudienceModel(
     args: GetAudienceModelCommandInput,
@@ -757,7 +769,7 @@ export interface CleanRoomsML {
   ): void;
   getAudienceModel(
     args: GetAudienceModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetAudienceModelCommandOutput) => void
   ): void;
 
@@ -766,7 +778,7 @@ export interface CleanRoomsML {
    */
   getCollaborationConfiguredModelAlgorithmAssociation(
     args: GetCollaborationConfiguredModelAlgorithmAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput>;
   getCollaborationConfiguredModelAlgorithmAssociation(
     args: GetCollaborationConfiguredModelAlgorithmAssociationCommandInput,
@@ -774,7 +786,7 @@ export interface CleanRoomsML {
   ): void;
   getCollaborationConfiguredModelAlgorithmAssociation(
     args: GetCollaborationConfiguredModelAlgorithmAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput) => void
   ): void;
 
@@ -783,7 +795,7 @@ export interface CleanRoomsML {
    */
   getCollaborationMLInputChannel(
     args: GetCollaborationMLInputChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetCollaborationMLInputChannelCommandOutput>;
   getCollaborationMLInputChannel(
     args: GetCollaborationMLInputChannelCommandInput,
@@ -791,7 +803,7 @@ export interface CleanRoomsML {
   ): void;
   getCollaborationMLInputChannel(
     args: GetCollaborationMLInputChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetCollaborationMLInputChannelCommandOutput) => void
   ): void;
 
@@ -800,7 +812,7 @@ export interface CleanRoomsML {
    */
   getCollaborationTrainedModel(
     args: GetCollaborationTrainedModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetCollaborationTrainedModelCommandOutput>;
   getCollaborationTrainedModel(
     args: GetCollaborationTrainedModelCommandInput,
@@ -808,7 +820,7 @@ export interface CleanRoomsML {
   ): void;
   getCollaborationTrainedModel(
     args: GetCollaborationTrainedModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetCollaborationTrainedModelCommandOutput) => void
   ): void;
 
@@ -817,7 +829,7 @@ export interface CleanRoomsML {
    */
   getConfiguredAudienceModel(
     args: GetConfiguredAudienceModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetConfiguredAudienceModelCommandOutput>;
   getConfiguredAudienceModel(
     args: GetConfiguredAudienceModelCommandInput,
@@ -825,7 +837,7 @@ export interface CleanRoomsML {
   ): void;
   getConfiguredAudienceModel(
     args: GetConfiguredAudienceModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetConfiguredAudienceModelCommandOutput) => void
   ): void;
 
@@ -834,7 +846,7 @@ export interface CleanRoomsML {
    */
   getConfiguredAudienceModelPolicy(
     args: GetConfiguredAudienceModelPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetConfiguredAudienceModelPolicyCommandOutput>;
   getConfiguredAudienceModelPolicy(
     args: GetConfiguredAudienceModelPolicyCommandInput,
@@ -842,7 +854,7 @@ export interface CleanRoomsML {
   ): void;
   getConfiguredAudienceModelPolicy(
     args: GetConfiguredAudienceModelPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetConfiguredAudienceModelPolicyCommandOutput) => void
   ): void;
 
@@ -851,7 +863,7 @@ export interface CleanRoomsML {
    */
   getConfiguredModelAlgorithm(
     args: GetConfiguredModelAlgorithmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetConfiguredModelAlgorithmCommandOutput>;
   getConfiguredModelAlgorithm(
     args: GetConfiguredModelAlgorithmCommandInput,
@@ -859,7 +871,7 @@ export interface CleanRoomsML {
   ): void;
   getConfiguredModelAlgorithm(
     args: GetConfiguredModelAlgorithmCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetConfiguredModelAlgorithmCommandOutput) => void
   ): void;
 
@@ -868,7 +880,7 @@ export interface CleanRoomsML {
    */
   getConfiguredModelAlgorithmAssociation(
     args: GetConfiguredModelAlgorithmAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetConfiguredModelAlgorithmAssociationCommandOutput>;
   getConfiguredModelAlgorithmAssociation(
     args: GetConfiguredModelAlgorithmAssociationCommandInput,
@@ -876,7 +888,7 @@ export interface CleanRoomsML {
   ): void;
   getConfiguredModelAlgorithmAssociation(
     args: GetConfiguredModelAlgorithmAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetConfiguredModelAlgorithmAssociationCommandOutput) => void
   ): void;
 
@@ -885,7 +897,7 @@ export interface CleanRoomsML {
    */
   getMLConfiguration(
     args: GetMLConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetMLConfigurationCommandOutput>;
   getMLConfiguration(
     args: GetMLConfigurationCommandInput,
@@ -893,7 +905,7 @@ export interface CleanRoomsML {
   ): void;
   getMLConfiguration(
     args: GetMLConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetMLConfigurationCommandOutput) => void
   ): void;
 
@@ -902,7 +914,7 @@ export interface CleanRoomsML {
    */
   getMLInputChannel(
     args: GetMLInputChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetMLInputChannelCommandOutput>;
   getMLInputChannel(
     args: GetMLInputChannelCommandInput,
@@ -910,7 +922,7 @@ export interface CleanRoomsML {
   ): void;
   getMLInputChannel(
     args: GetMLInputChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetMLInputChannelCommandOutput) => void
   ): void;
 
@@ -919,7 +931,7 @@ export interface CleanRoomsML {
    */
   getTrainedModel(
     args: GetTrainedModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetTrainedModelCommandOutput>;
   getTrainedModel(
     args: GetTrainedModelCommandInput,
@@ -927,7 +939,7 @@ export interface CleanRoomsML {
   ): void;
   getTrainedModel(
     args: GetTrainedModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetTrainedModelCommandOutput) => void
   ): void;
 
@@ -936,7 +948,7 @@ export interface CleanRoomsML {
    */
   getTrainedModelInferenceJob(
     args: GetTrainedModelInferenceJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetTrainedModelInferenceJobCommandOutput>;
   getTrainedModelInferenceJob(
     args: GetTrainedModelInferenceJobCommandInput,
@@ -944,7 +956,7 @@ export interface CleanRoomsML {
   ): void;
   getTrainedModelInferenceJob(
     args: GetTrainedModelInferenceJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetTrainedModelInferenceJobCommandOutput) => void
   ): void;
 
@@ -953,7 +965,7 @@ export interface CleanRoomsML {
    */
   getTrainingDataset(
     args: GetTrainingDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<GetTrainingDatasetCommandOutput>;
   getTrainingDataset(
     args: GetTrainingDatasetCommandInput,
@@ -961,7 +973,7 @@ export interface CleanRoomsML {
   ): void;
   getTrainingDataset(
     args: GetTrainingDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: GetTrainingDatasetCommandOutput) => void
   ): void;
 
@@ -971,7 +983,7 @@ export interface CleanRoomsML {
   listAudienceExportJobs(): Promise<ListAudienceExportJobsCommandOutput>;
   listAudienceExportJobs(
     args: ListAudienceExportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListAudienceExportJobsCommandOutput>;
   listAudienceExportJobs(
     args: ListAudienceExportJobsCommandInput,
@@ -979,7 +991,7 @@ export interface CleanRoomsML {
   ): void;
   listAudienceExportJobs(
     args: ListAudienceExportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListAudienceExportJobsCommandOutput) => void
   ): void;
 
@@ -989,7 +1001,7 @@ export interface CleanRoomsML {
   listAudienceGenerationJobs(): Promise<ListAudienceGenerationJobsCommandOutput>;
   listAudienceGenerationJobs(
     args: ListAudienceGenerationJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListAudienceGenerationJobsCommandOutput>;
   listAudienceGenerationJobs(
     args: ListAudienceGenerationJobsCommandInput,
@@ -997,7 +1009,7 @@ export interface CleanRoomsML {
   ): void;
   listAudienceGenerationJobs(
     args: ListAudienceGenerationJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListAudienceGenerationJobsCommandOutput) => void
   ): void;
 
@@ -1007,7 +1019,7 @@ export interface CleanRoomsML {
   listAudienceModels(): Promise<ListAudienceModelsCommandOutput>;
   listAudienceModels(
     args: ListAudienceModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListAudienceModelsCommandOutput>;
   listAudienceModels(
     args: ListAudienceModelsCommandInput,
@@ -1015,7 +1027,7 @@ export interface CleanRoomsML {
   ): void;
   listAudienceModels(
     args: ListAudienceModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListAudienceModelsCommandOutput) => void
   ): void;
 
@@ -1024,7 +1036,7 @@ export interface CleanRoomsML {
    */
   listCollaborationConfiguredModelAlgorithmAssociations(
     args: ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput>;
   listCollaborationConfiguredModelAlgorithmAssociations(
     args: ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
@@ -1032,7 +1044,7 @@ export interface CleanRoomsML {
   ): void;
   listCollaborationConfiguredModelAlgorithmAssociations(
     args: ListCollaborationConfiguredModelAlgorithmAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListCollaborationConfiguredModelAlgorithmAssociationsCommandOutput) => void
   ): void;
 
@@ -1041,7 +1053,7 @@ export interface CleanRoomsML {
    */
   listCollaborationMLInputChannels(
     args: ListCollaborationMLInputChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListCollaborationMLInputChannelsCommandOutput>;
   listCollaborationMLInputChannels(
     args: ListCollaborationMLInputChannelsCommandInput,
@@ -1049,7 +1061,7 @@ export interface CleanRoomsML {
   ): void;
   listCollaborationMLInputChannels(
     args: ListCollaborationMLInputChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListCollaborationMLInputChannelsCommandOutput) => void
   ): void;
 
@@ -1058,7 +1070,7 @@ export interface CleanRoomsML {
    */
   listCollaborationTrainedModelExportJobs(
     args: ListCollaborationTrainedModelExportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListCollaborationTrainedModelExportJobsCommandOutput>;
   listCollaborationTrainedModelExportJobs(
     args: ListCollaborationTrainedModelExportJobsCommandInput,
@@ -1066,7 +1078,7 @@ export interface CleanRoomsML {
   ): void;
   listCollaborationTrainedModelExportJobs(
     args: ListCollaborationTrainedModelExportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListCollaborationTrainedModelExportJobsCommandOutput) => void
   ): void;
 
@@ -1075,7 +1087,7 @@ export interface CleanRoomsML {
    */
   listCollaborationTrainedModelInferenceJobs(
     args: ListCollaborationTrainedModelInferenceJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListCollaborationTrainedModelInferenceJobsCommandOutput>;
   listCollaborationTrainedModelInferenceJobs(
     args: ListCollaborationTrainedModelInferenceJobsCommandInput,
@@ -1083,7 +1095,7 @@ export interface CleanRoomsML {
   ): void;
   listCollaborationTrainedModelInferenceJobs(
     args: ListCollaborationTrainedModelInferenceJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListCollaborationTrainedModelInferenceJobsCommandOutput) => void
   ): void;
 
@@ -1092,7 +1104,7 @@ export interface CleanRoomsML {
    */
   listCollaborationTrainedModels(
     args: ListCollaborationTrainedModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListCollaborationTrainedModelsCommandOutput>;
   listCollaborationTrainedModels(
     args: ListCollaborationTrainedModelsCommandInput,
@@ -1100,7 +1112,7 @@ export interface CleanRoomsML {
   ): void;
   listCollaborationTrainedModels(
     args: ListCollaborationTrainedModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListCollaborationTrainedModelsCommandOutput) => void
   ): void;
 
@@ -1110,7 +1122,7 @@ export interface CleanRoomsML {
   listConfiguredAudienceModels(): Promise<ListConfiguredAudienceModelsCommandOutput>;
   listConfiguredAudienceModels(
     args: ListConfiguredAudienceModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListConfiguredAudienceModelsCommandOutput>;
   listConfiguredAudienceModels(
     args: ListConfiguredAudienceModelsCommandInput,
@@ -1118,7 +1130,7 @@ export interface CleanRoomsML {
   ): void;
   listConfiguredAudienceModels(
     args: ListConfiguredAudienceModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListConfiguredAudienceModelsCommandOutput) => void
   ): void;
 
@@ -1127,7 +1139,7 @@ export interface CleanRoomsML {
    */
   listConfiguredModelAlgorithmAssociations(
     args: ListConfiguredModelAlgorithmAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListConfiguredModelAlgorithmAssociationsCommandOutput>;
   listConfiguredModelAlgorithmAssociations(
     args: ListConfiguredModelAlgorithmAssociationsCommandInput,
@@ -1135,7 +1147,7 @@ export interface CleanRoomsML {
   ): void;
   listConfiguredModelAlgorithmAssociations(
     args: ListConfiguredModelAlgorithmAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListConfiguredModelAlgorithmAssociationsCommandOutput) => void
   ): void;
 
@@ -1145,7 +1157,7 @@ export interface CleanRoomsML {
   listConfiguredModelAlgorithms(): Promise<ListConfiguredModelAlgorithmsCommandOutput>;
   listConfiguredModelAlgorithms(
     args: ListConfiguredModelAlgorithmsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListConfiguredModelAlgorithmsCommandOutput>;
   listConfiguredModelAlgorithms(
     args: ListConfiguredModelAlgorithmsCommandInput,
@@ -1153,7 +1165,7 @@ export interface CleanRoomsML {
   ): void;
   listConfiguredModelAlgorithms(
     args: ListConfiguredModelAlgorithmsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListConfiguredModelAlgorithmsCommandOutput) => void
   ): void;
 
@@ -1162,7 +1174,7 @@ export interface CleanRoomsML {
    */
   listMLInputChannels(
     args: ListMLInputChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListMLInputChannelsCommandOutput>;
   listMLInputChannels(
     args: ListMLInputChannelsCommandInput,
@@ -1170,7 +1182,7 @@ export interface CleanRoomsML {
   ): void;
   listMLInputChannels(
     args: ListMLInputChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListMLInputChannelsCommandOutput) => void
   ): void;
 
@@ -1179,7 +1191,7 @@ export interface CleanRoomsML {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1187,7 +1199,7 @@ export interface CleanRoomsML {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1196,7 +1208,7 @@ export interface CleanRoomsML {
    */
   listTrainedModelInferenceJobs(
     args: ListTrainedModelInferenceJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListTrainedModelInferenceJobsCommandOutput>;
   listTrainedModelInferenceJobs(
     args: ListTrainedModelInferenceJobsCommandInput,
@@ -1204,7 +1216,7 @@ export interface CleanRoomsML {
   ): void;
   listTrainedModelInferenceJobs(
     args: ListTrainedModelInferenceJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListTrainedModelInferenceJobsCommandOutput) => void
   ): void;
 
@@ -1213,7 +1225,7 @@ export interface CleanRoomsML {
    */
   listTrainedModels(
     args: ListTrainedModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListTrainedModelsCommandOutput>;
   listTrainedModels(
     args: ListTrainedModelsCommandInput,
@@ -1221,7 +1233,7 @@ export interface CleanRoomsML {
   ): void;
   listTrainedModels(
     args: ListTrainedModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListTrainedModelsCommandOutput) => void
   ): void;
 
@@ -1230,7 +1242,7 @@ export interface CleanRoomsML {
    */
   listTrainedModelVersions(
     args: ListTrainedModelVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListTrainedModelVersionsCommandOutput>;
   listTrainedModelVersions(
     args: ListTrainedModelVersionsCommandInput,
@@ -1238,7 +1250,7 @@ export interface CleanRoomsML {
   ): void;
   listTrainedModelVersions(
     args: ListTrainedModelVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListTrainedModelVersionsCommandOutput) => void
   ): void;
 
@@ -1248,7 +1260,7 @@ export interface CleanRoomsML {
   listTrainingDatasets(): Promise<ListTrainingDatasetsCommandOutput>;
   listTrainingDatasets(
     args: ListTrainingDatasetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<ListTrainingDatasetsCommandOutput>;
   listTrainingDatasets(
     args: ListTrainingDatasetsCommandInput,
@@ -1256,7 +1268,7 @@ export interface CleanRoomsML {
   ): void;
   listTrainingDatasets(
     args: ListTrainingDatasetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: ListTrainingDatasetsCommandOutput) => void
   ): void;
 
@@ -1265,7 +1277,7 @@ export interface CleanRoomsML {
    */
   putConfiguredAudienceModelPolicy(
     args: PutConfiguredAudienceModelPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<PutConfiguredAudienceModelPolicyCommandOutput>;
   putConfiguredAudienceModelPolicy(
     args: PutConfiguredAudienceModelPolicyCommandInput,
@@ -1273,7 +1285,7 @@ export interface CleanRoomsML {
   ): void;
   putConfiguredAudienceModelPolicy(
     args: PutConfiguredAudienceModelPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: PutConfiguredAudienceModelPolicyCommandOutput) => void
   ): void;
 
@@ -1282,7 +1294,7 @@ export interface CleanRoomsML {
    */
   putMLConfiguration(
     args: PutMLConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<PutMLConfigurationCommandOutput>;
   putMLConfiguration(
     args: PutMLConfigurationCommandInput,
@@ -1290,7 +1302,7 @@ export interface CleanRoomsML {
   ): void;
   putMLConfiguration(
     args: PutMLConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: PutMLConfigurationCommandOutput) => void
   ): void;
 
@@ -1299,7 +1311,7 @@ export interface CleanRoomsML {
    */
   startAudienceExportJob(
     args: StartAudienceExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<StartAudienceExportJobCommandOutput>;
   startAudienceExportJob(
     args: StartAudienceExportJobCommandInput,
@@ -1307,7 +1319,7 @@ export interface CleanRoomsML {
   ): void;
   startAudienceExportJob(
     args: StartAudienceExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: StartAudienceExportJobCommandOutput) => void
   ): void;
 
@@ -1316,7 +1328,7 @@ export interface CleanRoomsML {
    */
   startAudienceGenerationJob(
     args: StartAudienceGenerationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<StartAudienceGenerationJobCommandOutput>;
   startAudienceGenerationJob(
     args: StartAudienceGenerationJobCommandInput,
@@ -1324,7 +1336,7 @@ export interface CleanRoomsML {
   ): void;
   startAudienceGenerationJob(
     args: StartAudienceGenerationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: StartAudienceGenerationJobCommandOutput) => void
   ): void;
 
@@ -1333,7 +1345,7 @@ export interface CleanRoomsML {
    */
   startTrainedModelExportJob(
     args: StartTrainedModelExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<StartTrainedModelExportJobCommandOutput>;
   startTrainedModelExportJob(
     args: StartTrainedModelExportJobCommandInput,
@@ -1341,7 +1353,7 @@ export interface CleanRoomsML {
   ): void;
   startTrainedModelExportJob(
     args: StartTrainedModelExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: StartTrainedModelExportJobCommandOutput) => void
   ): void;
 
@@ -1350,7 +1362,7 @@ export interface CleanRoomsML {
    */
   startTrainedModelInferenceJob(
     args: StartTrainedModelInferenceJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<StartTrainedModelInferenceJobCommandOutput>;
   startTrainedModelInferenceJob(
     args: StartTrainedModelInferenceJobCommandInput,
@@ -1358,7 +1370,7 @@ export interface CleanRoomsML {
   ): void;
   startTrainedModelInferenceJob(
     args: StartTrainedModelInferenceJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: StartTrainedModelInferenceJobCommandOutput) => void
   ): void;
 
@@ -1367,7 +1379,7 @@ export interface CleanRoomsML {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1375,7 +1387,7 @@ export interface CleanRoomsML {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1384,7 +1396,7 @@ export interface CleanRoomsML {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1392,7 +1404,7 @@ export interface CleanRoomsML {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1401,7 +1413,7 @@ export interface CleanRoomsML {
    */
   updateConfiguredAudienceModel(
     args: UpdateConfiguredAudienceModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsMLRequestOptions
   ): Promise<UpdateConfiguredAudienceModelCommandOutput>;
   updateConfiguredAudienceModel(
     args: UpdateConfiguredAudienceModelCommandInput,
@@ -1409,7 +1421,7 @@ export interface CleanRoomsML {
   ): void;
   updateConfiguredAudienceModel(
     args: UpdateConfiguredAudienceModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsMLRequestOptions,
     cb: (err: any, data?: UpdateConfiguredAudienceModelCommandOutput) => void
   ): void;
 

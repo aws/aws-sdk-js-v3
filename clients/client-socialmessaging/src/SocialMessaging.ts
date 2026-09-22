@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateWhatsAppBusinessAccountCommandInput,
@@ -247,6 +252,13 @@ const paginators = {
   paginateListWhatsAppTemplateLibrary,
 };
 
+/**
+ * @public
+ */
+export interface SocialMessagingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SocialMessaging {
   /**
    * @see {@link AssociateWhatsAppBusinessAccountCommand}
@@ -254,7 +266,7 @@ export interface SocialMessaging {
   associateWhatsAppBusinessAccount(): Promise<AssociateWhatsAppBusinessAccountCommandOutput>;
   associateWhatsAppBusinessAccount(
     args: AssociateWhatsAppBusinessAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<AssociateWhatsAppBusinessAccountCommandOutput>;
   associateWhatsAppBusinessAccount(
     args: AssociateWhatsAppBusinessAccountCommandInput,
@@ -262,7 +274,7 @@ export interface SocialMessaging {
   ): void;
   associateWhatsAppBusinessAccount(
     args: AssociateWhatsAppBusinessAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: AssociateWhatsAppBusinessAccountCommandOutput) => void
   ): void;
 
@@ -271,7 +283,7 @@ export interface SocialMessaging {
    */
   createWhatsAppDataset(
     args: CreateWhatsAppDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<CreateWhatsAppDatasetCommandOutput>;
   createWhatsAppDataset(
     args: CreateWhatsAppDatasetCommandInput,
@@ -279,7 +291,7 @@ export interface SocialMessaging {
   ): void;
   createWhatsAppDataset(
     args: CreateWhatsAppDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: CreateWhatsAppDatasetCommandOutput) => void
   ): void;
 
@@ -288,7 +300,7 @@ export interface SocialMessaging {
    */
   createWhatsAppFlow(
     args: CreateWhatsAppFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<CreateWhatsAppFlowCommandOutput>;
   createWhatsAppFlow(
     args: CreateWhatsAppFlowCommandInput,
@@ -296,7 +308,7 @@ export interface SocialMessaging {
   ): void;
   createWhatsAppFlow(
     args: CreateWhatsAppFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: CreateWhatsAppFlowCommandOutput) => void
   ): void;
 
@@ -305,7 +317,7 @@ export interface SocialMessaging {
    */
   createWhatsAppMessageTemplate(
     args: CreateWhatsAppMessageTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<CreateWhatsAppMessageTemplateCommandOutput>;
   createWhatsAppMessageTemplate(
     args: CreateWhatsAppMessageTemplateCommandInput,
@@ -313,7 +325,7 @@ export interface SocialMessaging {
   ): void;
   createWhatsAppMessageTemplate(
     args: CreateWhatsAppMessageTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: CreateWhatsAppMessageTemplateCommandOutput) => void
   ): void;
 
@@ -322,7 +334,7 @@ export interface SocialMessaging {
    */
   createWhatsAppMessageTemplateFromLibrary(
     args: CreateWhatsAppMessageTemplateFromLibraryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<CreateWhatsAppMessageTemplateFromLibraryCommandOutput>;
   createWhatsAppMessageTemplateFromLibrary(
     args: CreateWhatsAppMessageTemplateFromLibraryCommandInput,
@@ -330,7 +342,7 @@ export interface SocialMessaging {
   ): void;
   createWhatsAppMessageTemplateFromLibrary(
     args: CreateWhatsAppMessageTemplateFromLibraryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: CreateWhatsAppMessageTemplateFromLibraryCommandOutput) => void
   ): void;
 
@@ -339,7 +351,7 @@ export interface SocialMessaging {
    */
   createWhatsAppMessageTemplateMedia(
     args: CreateWhatsAppMessageTemplateMediaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<CreateWhatsAppMessageTemplateMediaCommandOutput>;
   createWhatsAppMessageTemplateMedia(
     args: CreateWhatsAppMessageTemplateMediaCommandInput,
@@ -347,7 +359,7 @@ export interface SocialMessaging {
   ): void;
   createWhatsAppMessageTemplateMedia(
     args: CreateWhatsAppMessageTemplateMediaCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: CreateWhatsAppMessageTemplateMediaCommandOutput) => void
   ): void;
 
@@ -356,7 +368,7 @@ export interface SocialMessaging {
    */
   deleteWhatsAppFlow(
     args: DeleteWhatsAppFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<DeleteWhatsAppFlowCommandOutput>;
   deleteWhatsAppFlow(
     args: DeleteWhatsAppFlowCommandInput,
@@ -364,7 +376,7 @@ export interface SocialMessaging {
   ): void;
   deleteWhatsAppFlow(
     args: DeleteWhatsAppFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: DeleteWhatsAppFlowCommandOutput) => void
   ): void;
 
@@ -373,7 +385,7 @@ export interface SocialMessaging {
    */
   deleteWhatsAppMessageMedia(
     args: DeleteWhatsAppMessageMediaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<DeleteWhatsAppMessageMediaCommandOutput>;
   deleteWhatsAppMessageMedia(
     args: DeleteWhatsAppMessageMediaCommandInput,
@@ -381,7 +393,7 @@ export interface SocialMessaging {
   ): void;
   deleteWhatsAppMessageMedia(
     args: DeleteWhatsAppMessageMediaCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: DeleteWhatsAppMessageMediaCommandOutput) => void
   ): void;
 
@@ -390,7 +402,7 @@ export interface SocialMessaging {
    */
   deleteWhatsAppMessageTemplate(
     args: DeleteWhatsAppMessageTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<DeleteWhatsAppMessageTemplateCommandOutput>;
   deleteWhatsAppMessageTemplate(
     args: DeleteWhatsAppMessageTemplateCommandInput,
@@ -398,7 +410,7 @@ export interface SocialMessaging {
   ): void;
   deleteWhatsAppMessageTemplate(
     args: DeleteWhatsAppMessageTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: DeleteWhatsAppMessageTemplateCommandOutput) => void
   ): void;
 
@@ -407,7 +419,7 @@ export interface SocialMessaging {
    */
   deprecateWhatsAppFlow(
     args: DeprecateWhatsAppFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<DeprecateWhatsAppFlowCommandOutput>;
   deprecateWhatsAppFlow(
     args: DeprecateWhatsAppFlowCommandInput,
@@ -415,7 +427,7 @@ export interface SocialMessaging {
   ): void;
   deprecateWhatsAppFlow(
     args: DeprecateWhatsAppFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: DeprecateWhatsAppFlowCommandOutput) => void
   ): void;
 
@@ -424,7 +436,7 @@ export interface SocialMessaging {
    */
   disassociateWhatsAppBusinessAccount(
     args: DisassociateWhatsAppBusinessAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<DisassociateWhatsAppBusinessAccountCommandOutput>;
   disassociateWhatsAppBusinessAccount(
     args: DisassociateWhatsAppBusinessAccountCommandInput,
@@ -432,7 +444,7 @@ export interface SocialMessaging {
   ): void;
   disassociateWhatsAppBusinessAccount(
     args: DisassociateWhatsAppBusinessAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: DisassociateWhatsAppBusinessAccountCommandOutput) => void
   ): void;
 
@@ -441,7 +453,7 @@ export interface SocialMessaging {
    */
   getLinkedWhatsAppBusinessAccount(
     args: GetLinkedWhatsAppBusinessAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<GetLinkedWhatsAppBusinessAccountCommandOutput>;
   getLinkedWhatsAppBusinessAccount(
     args: GetLinkedWhatsAppBusinessAccountCommandInput,
@@ -449,7 +461,7 @@ export interface SocialMessaging {
   ): void;
   getLinkedWhatsAppBusinessAccount(
     args: GetLinkedWhatsAppBusinessAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: GetLinkedWhatsAppBusinessAccountCommandOutput) => void
   ): void;
 
@@ -458,7 +470,7 @@ export interface SocialMessaging {
    */
   getLinkedWhatsAppBusinessAccountPhoneNumber(
     args: GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput>;
   getLinkedWhatsAppBusinessAccountPhoneNumber(
     args: GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
@@ -466,7 +478,7 @@ export interface SocialMessaging {
   ): void;
   getLinkedWhatsAppBusinessAccountPhoneNumber(
     args: GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput) => void
   ): void;
 
@@ -475,7 +487,7 @@ export interface SocialMessaging {
    */
   getWhatsAppBusinessPublicKey(
     args: GetWhatsAppBusinessPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<GetWhatsAppBusinessPublicKeyCommandOutput>;
   getWhatsAppBusinessPublicKey(
     args: GetWhatsAppBusinessPublicKeyCommandInput,
@@ -483,7 +495,7 @@ export interface SocialMessaging {
   ): void;
   getWhatsAppBusinessPublicKey(
     args: GetWhatsAppBusinessPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: GetWhatsAppBusinessPublicKeyCommandOutput) => void
   ): void;
 
@@ -492,7 +504,7 @@ export interface SocialMessaging {
    */
   getWhatsAppCallPermission(
     args: GetWhatsAppCallPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<GetWhatsAppCallPermissionCommandOutput>;
   getWhatsAppCallPermission(
     args: GetWhatsAppCallPermissionCommandInput,
@@ -500,7 +512,7 @@ export interface SocialMessaging {
   ): void;
   getWhatsAppCallPermission(
     args: GetWhatsAppCallPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: GetWhatsAppCallPermissionCommandOutput) => void
   ): void;
 
@@ -509,7 +521,7 @@ export interface SocialMessaging {
    */
   getWhatsAppFlow(
     args: GetWhatsAppFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<GetWhatsAppFlowCommandOutput>;
   getWhatsAppFlow(
     args: GetWhatsAppFlowCommandInput,
@@ -517,7 +529,7 @@ export interface SocialMessaging {
   ): void;
   getWhatsAppFlow(
     args: GetWhatsAppFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: GetWhatsAppFlowCommandOutput) => void
   ): void;
 
@@ -526,7 +538,7 @@ export interface SocialMessaging {
    */
   getWhatsAppFlowPreview(
     args: GetWhatsAppFlowPreviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<GetWhatsAppFlowPreviewCommandOutput>;
   getWhatsAppFlowPreview(
     args: GetWhatsAppFlowPreviewCommandInput,
@@ -534,7 +546,7 @@ export interface SocialMessaging {
   ): void;
   getWhatsAppFlowPreview(
     args: GetWhatsAppFlowPreviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: GetWhatsAppFlowPreviewCommandOutput) => void
   ): void;
 
@@ -543,7 +555,7 @@ export interface SocialMessaging {
    */
   getWhatsAppMessageMedia(
     args: GetWhatsAppMessageMediaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<GetWhatsAppMessageMediaCommandOutput>;
   getWhatsAppMessageMedia(
     args: GetWhatsAppMessageMediaCommandInput,
@@ -551,7 +563,7 @@ export interface SocialMessaging {
   ): void;
   getWhatsAppMessageMedia(
     args: GetWhatsAppMessageMediaCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: GetWhatsAppMessageMediaCommandOutput) => void
   ): void;
 
@@ -560,7 +572,7 @@ export interface SocialMessaging {
    */
   getWhatsAppMessageTemplate(
     args: GetWhatsAppMessageTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<GetWhatsAppMessageTemplateCommandOutput>;
   getWhatsAppMessageTemplate(
     args: GetWhatsAppMessageTemplateCommandInput,
@@ -568,7 +580,7 @@ export interface SocialMessaging {
   ): void;
   getWhatsAppMessageTemplate(
     args: GetWhatsAppMessageTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: GetWhatsAppMessageTemplateCommandOutput) => void
   ): void;
 
@@ -578,7 +590,7 @@ export interface SocialMessaging {
   listLinkedWhatsAppBusinessAccounts(): Promise<ListLinkedWhatsAppBusinessAccountsCommandOutput>;
   listLinkedWhatsAppBusinessAccounts(
     args: ListLinkedWhatsAppBusinessAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<ListLinkedWhatsAppBusinessAccountsCommandOutput>;
   listLinkedWhatsAppBusinessAccounts(
     args: ListLinkedWhatsAppBusinessAccountsCommandInput,
@@ -586,7 +598,7 @@ export interface SocialMessaging {
   ): void;
   listLinkedWhatsAppBusinessAccounts(
     args: ListLinkedWhatsAppBusinessAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: ListLinkedWhatsAppBusinessAccountsCommandOutput) => void
   ): void;
 
@@ -595,7 +607,7 @@ export interface SocialMessaging {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -603,7 +615,7 @@ export interface SocialMessaging {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -612,7 +624,7 @@ export interface SocialMessaging {
    */
   listWhatsAppFlowAssets(
     args: ListWhatsAppFlowAssetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<ListWhatsAppFlowAssetsCommandOutput>;
   listWhatsAppFlowAssets(
     args: ListWhatsAppFlowAssetsCommandInput,
@@ -620,7 +632,7 @@ export interface SocialMessaging {
   ): void;
   listWhatsAppFlowAssets(
     args: ListWhatsAppFlowAssetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: ListWhatsAppFlowAssetsCommandOutput) => void
   ): void;
 
@@ -629,7 +641,7 @@ export interface SocialMessaging {
    */
   listWhatsAppFlows(
     args: ListWhatsAppFlowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<ListWhatsAppFlowsCommandOutput>;
   listWhatsAppFlows(
     args: ListWhatsAppFlowsCommandInput,
@@ -637,7 +649,7 @@ export interface SocialMessaging {
   ): void;
   listWhatsAppFlows(
     args: ListWhatsAppFlowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: ListWhatsAppFlowsCommandOutput) => void
   ): void;
 
@@ -646,7 +658,7 @@ export interface SocialMessaging {
    */
   listWhatsAppMessageTemplates(
     args: ListWhatsAppMessageTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<ListWhatsAppMessageTemplatesCommandOutput>;
   listWhatsAppMessageTemplates(
     args: ListWhatsAppMessageTemplatesCommandInput,
@@ -654,7 +666,7 @@ export interface SocialMessaging {
   ): void;
   listWhatsAppMessageTemplates(
     args: ListWhatsAppMessageTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: ListWhatsAppMessageTemplatesCommandOutput) => void
   ): void;
 
@@ -663,7 +675,7 @@ export interface SocialMessaging {
    */
   listWhatsAppTemplateLibrary(
     args: ListWhatsAppTemplateLibraryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<ListWhatsAppTemplateLibraryCommandOutput>;
   listWhatsAppTemplateLibrary(
     args: ListWhatsAppTemplateLibraryCommandInput,
@@ -671,7 +683,7 @@ export interface SocialMessaging {
   ): void;
   listWhatsAppTemplateLibrary(
     args: ListWhatsAppTemplateLibraryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: ListWhatsAppTemplateLibraryCommandOutput) => void
   ): void;
 
@@ -680,7 +692,7 @@ export interface SocialMessaging {
    */
   postWhatsAppMessageMedia(
     args: PostWhatsAppMessageMediaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<PostWhatsAppMessageMediaCommandOutput>;
   postWhatsAppMessageMedia(
     args: PostWhatsAppMessageMediaCommandInput,
@@ -688,7 +700,7 @@ export interface SocialMessaging {
   ): void;
   postWhatsAppMessageMedia(
     args: PostWhatsAppMessageMediaCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: PostWhatsAppMessageMediaCommandOutput) => void
   ): void;
 
@@ -697,7 +709,7 @@ export interface SocialMessaging {
    */
   publishWhatsAppFlow(
     args: PublishWhatsAppFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<PublishWhatsAppFlowCommandOutput>;
   publishWhatsAppFlow(
     args: PublishWhatsAppFlowCommandInput,
@@ -705,7 +717,7 @@ export interface SocialMessaging {
   ): void;
   publishWhatsAppFlow(
     args: PublishWhatsAppFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: PublishWhatsAppFlowCommandOutput) => void
   ): void;
 
@@ -714,7 +726,7 @@ export interface SocialMessaging {
    */
   putWhatsAppBusinessAccountEventDestinations(
     args: PutWhatsAppBusinessAccountEventDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<PutWhatsAppBusinessAccountEventDestinationsCommandOutput>;
   putWhatsAppBusinessAccountEventDestinations(
     args: PutWhatsAppBusinessAccountEventDestinationsCommandInput,
@@ -722,7 +734,7 @@ export interface SocialMessaging {
   ): void;
   putWhatsAppBusinessAccountEventDestinations(
     args: PutWhatsAppBusinessAccountEventDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: PutWhatsAppBusinessAccountEventDestinationsCommandOutput) => void
   ): void;
 
@@ -731,7 +743,7 @@ export interface SocialMessaging {
    */
   putWhatsAppBusinessPublicKey(
     args: PutWhatsAppBusinessPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<PutWhatsAppBusinessPublicKeyCommandOutput>;
   putWhatsAppBusinessPublicKey(
     args: PutWhatsAppBusinessPublicKeyCommandInput,
@@ -739,7 +751,7 @@ export interface SocialMessaging {
   ): void;
   putWhatsAppBusinessPublicKey(
     args: PutWhatsAppBusinessPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: PutWhatsAppBusinessPublicKeyCommandOutput) => void
   ): void;
 
@@ -748,7 +760,7 @@ export interface SocialMessaging {
    */
   sendWhatsAppCallEvent(
     args: SendWhatsAppCallEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<SendWhatsAppCallEventCommandOutput>;
   sendWhatsAppCallEvent(
     args: SendWhatsAppCallEventCommandInput,
@@ -756,7 +768,7 @@ export interface SocialMessaging {
   ): void;
   sendWhatsAppCallEvent(
     args: SendWhatsAppCallEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: SendWhatsAppCallEventCommandOutput) => void
   ): void;
 
@@ -765,7 +777,7 @@ export interface SocialMessaging {
    */
   sendWhatsAppConversionEvent(
     args: SendWhatsAppConversionEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<SendWhatsAppConversionEventCommandOutput>;
   sendWhatsAppConversionEvent(
     args: SendWhatsAppConversionEventCommandInput,
@@ -773,7 +785,7 @@ export interface SocialMessaging {
   ): void;
   sendWhatsAppConversionEvent(
     args: SendWhatsAppConversionEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: SendWhatsAppConversionEventCommandOutput) => void
   ): void;
 
@@ -782,7 +794,7 @@ export interface SocialMessaging {
    */
   sendWhatsAppMessage(
     args: SendWhatsAppMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<SendWhatsAppMessageCommandOutput>;
   sendWhatsAppMessage(
     args: SendWhatsAppMessageCommandInput,
@@ -790,7 +802,7 @@ export interface SocialMessaging {
   ): void;
   sendWhatsAppMessage(
     args: SendWhatsAppMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: SendWhatsAppMessageCommandOutput) => void
   ): void;
 
@@ -799,7 +811,7 @@ export interface SocialMessaging {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -807,7 +819,7 @@ export interface SocialMessaging {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -816,7 +828,7 @@ export interface SocialMessaging {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -824,7 +836,7 @@ export interface SocialMessaging {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -833,7 +845,7 @@ export interface SocialMessaging {
    */
   updateLinkedWhatsAppBusinessAccountPhoneNumber(
     args: UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput>;
   updateLinkedWhatsAppBusinessAccountPhoneNumber(
     args: UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
@@ -841,7 +853,7 @@ export interface SocialMessaging {
   ): void;
   updateLinkedWhatsAppBusinessAccountPhoneNumber(
     args: UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput) => void
   ): void;
 
@@ -850,7 +862,7 @@ export interface SocialMessaging {
    */
   updateWhatsAppFlow(
     args: UpdateWhatsAppFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<UpdateWhatsAppFlowCommandOutput>;
   updateWhatsAppFlow(
     args: UpdateWhatsAppFlowCommandInput,
@@ -858,7 +870,7 @@ export interface SocialMessaging {
   ): void;
   updateWhatsAppFlow(
     args: UpdateWhatsAppFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: UpdateWhatsAppFlowCommandOutput) => void
   ): void;
 
@@ -867,7 +879,7 @@ export interface SocialMessaging {
    */
   updateWhatsAppFlowAssets(
     args: UpdateWhatsAppFlowAssetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<UpdateWhatsAppFlowAssetsCommandOutput>;
   updateWhatsAppFlowAssets(
     args: UpdateWhatsAppFlowAssetsCommandInput,
@@ -875,7 +887,7 @@ export interface SocialMessaging {
   ): void;
   updateWhatsAppFlowAssets(
     args: UpdateWhatsAppFlowAssetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: UpdateWhatsAppFlowAssetsCommandOutput) => void
   ): void;
 
@@ -884,7 +896,7 @@ export interface SocialMessaging {
    */
   updateWhatsAppMessageTemplate(
     args: UpdateWhatsAppMessageTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SocialMessagingRequestOptions
   ): Promise<UpdateWhatsAppMessageTemplateCommandOutput>;
   updateWhatsAppMessageTemplate(
     args: UpdateWhatsAppMessageTemplateCommandInput,
@@ -892,7 +904,7 @@ export interface SocialMessaging {
   ): void;
   updateWhatsAppMessageTemplate(
     args: UpdateWhatsAppMessageTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SocialMessagingRequestOptions,
     cb: (err: any, data?: UpdateWhatsAppMessageTemplateCommandOutput) => void
   ): void;
 

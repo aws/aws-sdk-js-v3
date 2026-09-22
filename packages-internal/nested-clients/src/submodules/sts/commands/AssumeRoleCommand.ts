@@ -148,6 +148,7 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *       ContextAssertion: "STRING_VALUE",
  *     },
  *   ],
+ *   MinimumSessionTokenSize: Number("int"),
  * };
  * const command = new AssumeRoleCommand(input);
  * const response = await client.send(command);
@@ -164,6 +165,8 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * //   },
  * //   PackedPolicySize: Number("int"),
  * //   SourceIdentity: "STRING_VALUE",
+ * //   SessionTokenUtilization: Number("int"),
+ * //   SessionTokenSize: Number("int"),
  * // };
  *
  * ```

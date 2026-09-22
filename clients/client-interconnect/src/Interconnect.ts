@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -105,13 +106,20 @@ const waiters = {
   waitUntilConnectionDeleted,
 };
 
+/**
+ * @public
+ */
+export interface InterconnectRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Interconnect {
   /**
    * @see {@link AcceptConnectionProposalCommand}
    */
   acceptConnectionProposal(
     args: AcceptConnectionProposalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<AcceptConnectionProposalCommandOutput>;
   acceptConnectionProposal(
     args: AcceptConnectionProposalCommandInput,
@@ -119,7 +127,7 @@ export interface Interconnect {
   ): void;
   acceptConnectionProposal(
     args: AcceptConnectionProposalCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: AcceptConnectionProposalCommandOutput) => void
   ): void;
 
@@ -128,7 +136,7 @@ export interface Interconnect {
    */
   createConnection(
     args: CreateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<CreateConnectionCommandOutput>;
   createConnection(
     args: CreateConnectionCommandInput,
@@ -136,7 +144,7 @@ export interface Interconnect {
   ): void;
   createConnection(
     args: CreateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: CreateConnectionCommandOutput) => void
   ): void;
 
@@ -145,7 +153,7 @@ export interface Interconnect {
    */
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<DeleteConnectionCommandOutput>;
   deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -153,7 +161,7 @@ export interface Interconnect {
   ): void;
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): void;
 
@@ -162,7 +170,7 @@ export interface Interconnect {
    */
   describeConnectionProposal(
     args: DescribeConnectionProposalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<DescribeConnectionProposalCommandOutput>;
   describeConnectionProposal(
     args: DescribeConnectionProposalCommandInput,
@@ -170,7 +178,7 @@ export interface Interconnect {
   ): void;
   describeConnectionProposal(
     args: DescribeConnectionProposalCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: DescribeConnectionProposalCommandOutput) => void
   ): void;
 
@@ -179,7 +187,7 @@ export interface Interconnect {
    */
   getConnection(
     args: GetConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<GetConnectionCommandOutput>;
   getConnection(
     args: GetConnectionCommandInput,
@@ -187,7 +195,7 @@ export interface Interconnect {
   ): void;
   getConnection(
     args: GetConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: GetConnectionCommandOutput) => void
   ): void;
 
@@ -196,7 +204,7 @@ export interface Interconnect {
    */
   getEnvironment(
     args: GetEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<GetEnvironmentCommandOutput>;
   getEnvironment(
     args: GetEnvironmentCommandInput,
@@ -204,7 +212,7 @@ export interface Interconnect {
   ): void;
   getEnvironment(
     args: GetEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: GetEnvironmentCommandOutput) => void
   ): void;
 
@@ -213,7 +221,7 @@ export interface Interconnect {
    */
   listAttachPoints(
     args: ListAttachPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<ListAttachPointsCommandOutput>;
   listAttachPoints(
     args: ListAttachPointsCommandInput,
@@ -221,7 +229,7 @@ export interface Interconnect {
   ): void;
   listAttachPoints(
     args: ListAttachPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: ListAttachPointsCommandOutput) => void
   ): void;
 
@@ -231,7 +239,7 @@ export interface Interconnect {
   listConnections(): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
@@ -239,7 +247,7 @@ export interface Interconnect {
   ): void;
   listConnections(
     args: ListConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: ListConnectionsCommandOutput) => void
   ): void;
 
@@ -249,7 +257,7 @@ export interface Interconnect {
   listEnvironments(): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
@@ -257,7 +265,7 @@ export interface Interconnect {
   ): void;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
   ): void;
 
@@ -266,7 +274,7 @@ export interface Interconnect {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -274,7 +282,7 @@ export interface Interconnect {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -283,7 +291,7 @@ export interface Interconnect {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -291,7 +299,7 @@ export interface Interconnect {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -300,7 +308,7 @@ export interface Interconnect {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -308,7 +316,7 @@ export interface Interconnect {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -317,7 +325,7 @@ export interface Interconnect {
    */
   updateConnection(
     args: UpdateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InterconnectRequestOptions
   ): Promise<UpdateConnectionCommandOutput>;
   updateConnection(
     args: UpdateConnectionCommandInput,
@@ -325,7 +333,7 @@ export interface Interconnect {
   ): void;
   updateConnection(
     args: UpdateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: InterconnectRequestOptions,
     cb: (err: any, data?: UpdateConnectionCommandOutput) => void
   ): void;
 

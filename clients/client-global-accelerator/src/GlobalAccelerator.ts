@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AddCustomRoutingEndpointsCommandInput,
@@ -369,13 +374,20 @@ const paginators = {
   paginateListListeners,
 };
 
+/**
+ * @public
+ */
+export interface GlobalAcceleratorRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface GlobalAccelerator {
   /**
    * @see {@link AddCustomRoutingEndpointsCommand}
    */
   addCustomRoutingEndpoints(
     args: AddCustomRoutingEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<AddCustomRoutingEndpointsCommandOutput>;
   addCustomRoutingEndpoints(
     args: AddCustomRoutingEndpointsCommandInput,
@@ -383,7 +395,7 @@ export interface GlobalAccelerator {
   ): void;
   addCustomRoutingEndpoints(
     args: AddCustomRoutingEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: AddCustomRoutingEndpointsCommandOutput) => void
   ): void;
 
@@ -392,7 +404,7 @@ export interface GlobalAccelerator {
    */
   addEndpoints(
     args: AddEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<AddEndpointsCommandOutput>;
   addEndpoints(
     args: AddEndpointsCommandInput,
@@ -400,7 +412,7 @@ export interface GlobalAccelerator {
   ): void;
   addEndpoints(
     args: AddEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: AddEndpointsCommandOutput) => void
   ): void;
 
@@ -409,7 +421,7 @@ export interface GlobalAccelerator {
    */
   advertiseByoipCidr(
     args: AdvertiseByoipCidrCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<AdvertiseByoipCidrCommandOutput>;
   advertiseByoipCidr(
     args: AdvertiseByoipCidrCommandInput,
@@ -417,7 +429,7 @@ export interface GlobalAccelerator {
   ): void;
   advertiseByoipCidr(
     args: AdvertiseByoipCidrCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: AdvertiseByoipCidrCommandOutput) => void
   ): void;
 
@@ -426,7 +438,7 @@ export interface GlobalAccelerator {
    */
   allowCustomRoutingTraffic(
     args: AllowCustomRoutingTrafficCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<AllowCustomRoutingTrafficCommandOutput>;
   allowCustomRoutingTraffic(
     args: AllowCustomRoutingTrafficCommandInput,
@@ -434,7 +446,7 @@ export interface GlobalAccelerator {
   ): void;
   allowCustomRoutingTraffic(
     args: AllowCustomRoutingTrafficCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: AllowCustomRoutingTrafficCommandOutput) => void
   ): void;
 
@@ -443,7 +455,7 @@ export interface GlobalAccelerator {
    */
   createAccelerator(
     args: CreateAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<CreateAcceleratorCommandOutput>;
   createAccelerator(
     args: CreateAcceleratorCommandInput,
@@ -451,7 +463,7 @@ export interface GlobalAccelerator {
   ): void;
   createAccelerator(
     args: CreateAcceleratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: CreateAcceleratorCommandOutput) => void
   ): void;
 
@@ -460,7 +472,7 @@ export interface GlobalAccelerator {
    */
   createCrossAccountAttachment(
     args: CreateCrossAccountAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<CreateCrossAccountAttachmentCommandOutput>;
   createCrossAccountAttachment(
     args: CreateCrossAccountAttachmentCommandInput,
@@ -468,7 +480,7 @@ export interface GlobalAccelerator {
   ): void;
   createCrossAccountAttachment(
     args: CreateCrossAccountAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: CreateCrossAccountAttachmentCommandOutput) => void
   ): void;
 
@@ -477,7 +489,7 @@ export interface GlobalAccelerator {
    */
   createCustomRoutingAccelerator(
     args: CreateCustomRoutingAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<CreateCustomRoutingAcceleratorCommandOutput>;
   createCustomRoutingAccelerator(
     args: CreateCustomRoutingAcceleratorCommandInput,
@@ -485,7 +497,7 @@ export interface GlobalAccelerator {
   ): void;
   createCustomRoutingAccelerator(
     args: CreateCustomRoutingAcceleratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: CreateCustomRoutingAcceleratorCommandOutput) => void
   ): void;
 
@@ -494,7 +506,7 @@ export interface GlobalAccelerator {
    */
   createCustomRoutingEndpointGroup(
     args: CreateCustomRoutingEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<CreateCustomRoutingEndpointGroupCommandOutput>;
   createCustomRoutingEndpointGroup(
     args: CreateCustomRoutingEndpointGroupCommandInput,
@@ -502,7 +514,7 @@ export interface GlobalAccelerator {
   ): void;
   createCustomRoutingEndpointGroup(
     args: CreateCustomRoutingEndpointGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: CreateCustomRoutingEndpointGroupCommandOutput) => void
   ): void;
 
@@ -511,7 +523,7 @@ export interface GlobalAccelerator {
    */
   createCustomRoutingListener(
     args: CreateCustomRoutingListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<CreateCustomRoutingListenerCommandOutput>;
   createCustomRoutingListener(
     args: CreateCustomRoutingListenerCommandInput,
@@ -519,7 +531,7 @@ export interface GlobalAccelerator {
   ): void;
   createCustomRoutingListener(
     args: CreateCustomRoutingListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: CreateCustomRoutingListenerCommandOutput) => void
   ): void;
 
@@ -528,7 +540,7 @@ export interface GlobalAccelerator {
    */
   createEndpointGroup(
     args: CreateEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<CreateEndpointGroupCommandOutput>;
   createEndpointGroup(
     args: CreateEndpointGroupCommandInput,
@@ -536,7 +548,7 @@ export interface GlobalAccelerator {
   ): void;
   createEndpointGroup(
     args: CreateEndpointGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: CreateEndpointGroupCommandOutput) => void
   ): void;
 
@@ -545,7 +557,7 @@ export interface GlobalAccelerator {
    */
   createListener(
     args: CreateListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<CreateListenerCommandOutput>;
   createListener(
     args: CreateListenerCommandInput,
@@ -553,7 +565,7 @@ export interface GlobalAccelerator {
   ): void;
   createListener(
     args: CreateListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: CreateListenerCommandOutput) => void
   ): void;
 
@@ -562,7 +574,7 @@ export interface GlobalAccelerator {
    */
   deleteAccelerator(
     args: DeleteAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DeleteAcceleratorCommandOutput>;
   deleteAccelerator(
     args: DeleteAcceleratorCommandInput,
@@ -570,7 +582,7 @@ export interface GlobalAccelerator {
   ): void;
   deleteAccelerator(
     args: DeleteAcceleratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DeleteAcceleratorCommandOutput) => void
   ): void;
 
@@ -579,7 +591,7 @@ export interface GlobalAccelerator {
    */
   deleteCrossAccountAttachment(
     args: DeleteCrossAccountAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DeleteCrossAccountAttachmentCommandOutput>;
   deleteCrossAccountAttachment(
     args: DeleteCrossAccountAttachmentCommandInput,
@@ -587,7 +599,7 @@ export interface GlobalAccelerator {
   ): void;
   deleteCrossAccountAttachment(
     args: DeleteCrossAccountAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DeleteCrossAccountAttachmentCommandOutput) => void
   ): void;
 
@@ -596,7 +608,7 @@ export interface GlobalAccelerator {
    */
   deleteCustomRoutingAccelerator(
     args: DeleteCustomRoutingAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DeleteCustomRoutingAcceleratorCommandOutput>;
   deleteCustomRoutingAccelerator(
     args: DeleteCustomRoutingAcceleratorCommandInput,
@@ -604,7 +616,7 @@ export interface GlobalAccelerator {
   ): void;
   deleteCustomRoutingAccelerator(
     args: DeleteCustomRoutingAcceleratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DeleteCustomRoutingAcceleratorCommandOutput) => void
   ): void;
 
@@ -613,7 +625,7 @@ export interface GlobalAccelerator {
    */
   deleteCustomRoutingEndpointGroup(
     args: DeleteCustomRoutingEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DeleteCustomRoutingEndpointGroupCommandOutput>;
   deleteCustomRoutingEndpointGroup(
     args: DeleteCustomRoutingEndpointGroupCommandInput,
@@ -621,7 +633,7 @@ export interface GlobalAccelerator {
   ): void;
   deleteCustomRoutingEndpointGroup(
     args: DeleteCustomRoutingEndpointGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DeleteCustomRoutingEndpointGroupCommandOutput) => void
   ): void;
 
@@ -630,7 +642,7 @@ export interface GlobalAccelerator {
    */
   deleteCustomRoutingListener(
     args: DeleteCustomRoutingListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DeleteCustomRoutingListenerCommandOutput>;
   deleteCustomRoutingListener(
     args: DeleteCustomRoutingListenerCommandInput,
@@ -638,7 +650,7 @@ export interface GlobalAccelerator {
   ): void;
   deleteCustomRoutingListener(
     args: DeleteCustomRoutingListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DeleteCustomRoutingListenerCommandOutput) => void
   ): void;
 
@@ -647,7 +659,7 @@ export interface GlobalAccelerator {
    */
   deleteEndpointGroup(
     args: DeleteEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DeleteEndpointGroupCommandOutput>;
   deleteEndpointGroup(
     args: DeleteEndpointGroupCommandInput,
@@ -655,7 +667,7 @@ export interface GlobalAccelerator {
   ): void;
   deleteEndpointGroup(
     args: DeleteEndpointGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DeleteEndpointGroupCommandOutput) => void
   ): void;
 
@@ -664,7 +676,7 @@ export interface GlobalAccelerator {
    */
   deleteListener(
     args: DeleteListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DeleteListenerCommandOutput>;
   deleteListener(
     args: DeleteListenerCommandInput,
@@ -672,7 +684,7 @@ export interface GlobalAccelerator {
   ): void;
   deleteListener(
     args: DeleteListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DeleteListenerCommandOutput) => void
   ): void;
 
@@ -681,7 +693,7 @@ export interface GlobalAccelerator {
    */
   denyCustomRoutingTraffic(
     args: DenyCustomRoutingTrafficCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DenyCustomRoutingTrafficCommandOutput>;
   denyCustomRoutingTraffic(
     args: DenyCustomRoutingTrafficCommandInput,
@@ -689,7 +701,7 @@ export interface GlobalAccelerator {
   ): void;
   denyCustomRoutingTraffic(
     args: DenyCustomRoutingTrafficCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DenyCustomRoutingTrafficCommandOutput) => void
   ): void;
 
@@ -698,7 +710,7 @@ export interface GlobalAccelerator {
    */
   deprovisionByoipCidr(
     args: DeprovisionByoipCidrCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DeprovisionByoipCidrCommandOutput>;
   deprovisionByoipCidr(
     args: DeprovisionByoipCidrCommandInput,
@@ -706,7 +718,7 @@ export interface GlobalAccelerator {
   ): void;
   deprovisionByoipCidr(
     args: DeprovisionByoipCidrCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DeprovisionByoipCidrCommandOutput) => void
   ): void;
 
@@ -715,7 +727,7 @@ export interface GlobalAccelerator {
    */
   describeAccelerator(
     args: DescribeAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DescribeAcceleratorCommandOutput>;
   describeAccelerator(
     args: DescribeAcceleratorCommandInput,
@@ -723,7 +735,7 @@ export interface GlobalAccelerator {
   ): void;
   describeAccelerator(
     args: DescribeAcceleratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DescribeAcceleratorCommandOutput) => void
   ): void;
 
@@ -732,7 +744,7 @@ export interface GlobalAccelerator {
    */
   describeAcceleratorAttributes(
     args: DescribeAcceleratorAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DescribeAcceleratorAttributesCommandOutput>;
   describeAcceleratorAttributes(
     args: DescribeAcceleratorAttributesCommandInput,
@@ -740,7 +752,7 @@ export interface GlobalAccelerator {
   ): void;
   describeAcceleratorAttributes(
     args: DescribeAcceleratorAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DescribeAcceleratorAttributesCommandOutput) => void
   ): void;
 
@@ -749,7 +761,7 @@ export interface GlobalAccelerator {
    */
   describeCrossAccountAttachment(
     args: DescribeCrossAccountAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DescribeCrossAccountAttachmentCommandOutput>;
   describeCrossAccountAttachment(
     args: DescribeCrossAccountAttachmentCommandInput,
@@ -757,7 +769,7 @@ export interface GlobalAccelerator {
   ): void;
   describeCrossAccountAttachment(
     args: DescribeCrossAccountAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DescribeCrossAccountAttachmentCommandOutput) => void
   ): void;
 
@@ -766,7 +778,7 @@ export interface GlobalAccelerator {
    */
   describeCustomRoutingAccelerator(
     args: DescribeCustomRoutingAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DescribeCustomRoutingAcceleratorCommandOutput>;
   describeCustomRoutingAccelerator(
     args: DescribeCustomRoutingAcceleratorCommandInput,
@@ -774,7 +786,7 @@ export interface GlobalAccelerator {
   ): void;
   describeCustomRoutingAccelerator(
     args: DescribeCustomRoutingAcceleratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DescribeCustomRoutingAcceleratorCommandOutput) => void
   ): void;
 
@@ -783,7 +795,7 @@ export interface GlobalAccelerator {
    */
   describeCustomRoutingAcceleratorAttributes(
     args: DescribeCustomRoutingAcceleratorAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DescribeCustomRoutingAcceleratorAttributesCommandOutput>;
   describeCustomRoutingAcceleratorAttributes(
     args: DescribeCustomRoutingAcceleratorAttributesCommandInput,
@@ -791,7 +803,7 @@ export interface GlobalAccelerator {
   ): void;
   describeCustomRoutingAcceleratorAttributes(
     args: DescribeCustomRoutingAcceleratorAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DescribeCustomRoutingAcceleratorAttributesCommandOutput) => void
   ): void;
 
@@ -800,7 +812,7 @@ export interface GlobalAccelerator {
    */
   describeCustomRoutingEndpointGroup(
     args: DescribeCustomRoutingEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DescribeCustomRoutingEndpointGroupCommandOutput>;
   describeCustomRoutingEndpointGroup(
     args: DescribeCustomRoutingEndpointGroupCommandInput,
@@ -808,7 +820,7 @@ export interface GlobalAccelerator {
   ): void;
   describeCustomRoutingEndpointGroup(
     args: DescribeCustomRoutingEndpointGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DescribeCustomRoutingEndpointGroupCommandOutput) => void
   ): void;
 
@@ -817,7 +829,7 @@ export interface GlobalAccelerator {
    */
   describeCustomRoutingListener(
     args: DescribeCustomRoutingListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DescribeCustomRoutingListenerCommandOutput>;
   describeCustomRoutingListener(
     args: DescribeCustomRoutingListenerCommandInput,
@@ -825,7 +837,7 @@ export interface GlobalAccelerator {
   ): void;
   describeCustomRoutingListener(
     args: DescribeCustomRoutingListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DescribeCustomRoutingListenerCommandOutput) => void
   ): void;
 
@@ -834,7 +846,7 @@ export interface GlobalAccelerator {
    */
   describeEndpointGroup(
     args: DescribeEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DescribeEndpointGroupCommandOutput>;
   describeEndpointGroup(
     args: DescribeEndpointGroupCommandInput,
@@ -842,7 +854,7 @@ export interface GlobalAccelerator {
   ): void;
   describeEndpointGroup(
     args: DescribeEndpointGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DescribeEndpointGroupCommandOutput) => void
   ): void;
 
@@ -851,7 +863,7 @@ export interface GlobalAccelerator {
    */
   describeListener(
     args: DescribeListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<DescribeListenerCommandOutput>;
   describeListener(
     args: DescribeListenerCommandInput,
@@ -859,7 +871,7 @@ export interface GlobalAccelerator {
   ): void;
   describeListener(
     args: DescribeListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: DescribeListenerCommandOutput) => void
   ): void;
 
@@ -869,7 +881,7 @@ export interface GlobalAccelerator {
   listAccelerators(): Promise<ListAcceleratorsCommandOutput>;
   listAccelerators(
     args: ListAcceleratorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListAcceleratorsCommandOutput>;
   listAccelerators(
     args: ListAcceleratorsCommandInput,
@@ -877,7 +889,7 @@ export interface GlobalAccelerator {
   ): void;
   listAccelerators(
     args: ListAcceleratorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListAcceleratorsCommandOutput) => void
   ): void;
 
@@ -887,7 +899,7 @@ export interface GlobalAccelerator {
   listByoipCidrs(): Promise<ListByoipCidrsCommandOutput>;
   listByoipCidrs(
     args: ListByoipCidrsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListByoipCidrsCommandOutput>;
   listByoipCidrs(
     args: ListByoipCidrsCommandInput,
@@ -895,7 +907,7 @@ export interface GlobalAccelerator {
   ): void;
   listByoipCidrs(
     args: ListByoipCidrsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListByoipCidrsCommandOutput) => void
   ): void;
 
@@ -905,7 +917,7 @@ export interface GlobalAccelerator {
   listCrossAccountAttachments(): Promise<ListCrossAccountAttachmentsCommandOutput>;
   listCrossAccountAttachments(
     args: ListCrossAccountAttachmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListCrossAccountAttachmentsCommandOutput>;
   listCrossAccountAttachments(
     args: ListCrossAccountAttachmentsCommandInput,
@@ -913,7 +925,7 @@ export interface GlobalAccelerator {
   ): void;
   listCrossAccountAttachments(
     args: ListCrossAccountAttachmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListCrossAccountAttachmentsCommandOutput) => void
   ): void;
 
@@ -923,7 +935,7 @@ export interface GlobalAccelerator {
   listCrossAccountResourceAccounts(): Promise<ListCrossAccountResourceAccountsCommandOutput>;
   listCrossAccountResourceAccounts(
     args: ListCrossAccountResourceAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListCrossAccountResourceAccountsCommandOutput>;
   listCrossAccountResourceAccounts(
     args: ListCrossAccountResourceAccountsCommandInput,
@@ -931,7 +943,7 @@ export interface GlobalAccelerator {
   ): void;
   listCrossAccountResourceAccounts(
     args: ListCrossAccountResourceAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListCrossAccountResourceAccountsCommandOutput) => void
   ): void;
 
@@ -940,7 +952,7 @@ export interface GlobalAccelerator {
    */
   listCrossAccountResources(
     args: ListCrossAccountResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListCrossAccountResourcesCommandOutput>;
   listCrossAccountResources(
     args: ListCrossAccountResourcesCommandInput,
@@ -948,7 +960,7 @@ export interface GlobalAccelerator {
   ): void;
   listCrossAccountResources(
     args: ListCrossAccountResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListCrossAccountResourcesCommandOutput) => void
   ): void;
 
@@ -958,7 +970,7 @@ export interface GlobalAccelerator {
   listCustomRoutingAccelerators(): Promise<ListCustomRoutingAcceleratorsCommandOutput>;
   listCustomRoutingAccelerators(
     args: ListCustomRoutingAcceleratorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListCustomRoutingAcceleratorsCommandOutput>;
   listCustomRoutingAccelerators(
     args: ListCustomRoutingAcceleratorsCommandInput,
@@ -966,7 +978,7 @@ export interface GlobalAccelerator {
   ): void;
   listCustomRoutingAccelerators(
     args: ListCustomRoutingAcceleratorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListCustomRoutingAcceleratorsCommandOutput) => void
   ): void;
 
@@ -975,7 +987,7 @@ export interface GlobalAccelerator {
    */
   listCustomRoutingEndpointGroups(
     args: ListCustomRoutingEndpointGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListCustomRoutingEndpointGroupsCommandOutput>;
   listCustomRoutingEndpointGroups(
     args: ListCustomRoutingEndpointGroupsCommandInput,
@@ -983,7 +995,7 @@ export interface GlobalAccelerator {
   ): void;
   listCustomRoutingEndpointGroups(
     args: ListCustomRoutingEndpointGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListCustomRoutingEndpointGroupsCommandOutput) => void
   ): void;
 
@@ -992,7 +1004,7 @@ export interface GlobalAccelerator {
    */
   listCustomRoutingListeners(
     args: ListCustomRoutingListenersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListCustomRoutingListenersCommandOutput>;
   listCustomRoutingListeners(
     args: ListCustomRoutingListenersCommandInput,
@@ -1000,7 +1012,7 @@ export interface GlobalAccelerator {
   ): void;
   listCustomRoutingListeners(
     args: ListCustomRoutingListenersCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListCustomRoutingListenersCommandOutput) => void
   ): void;
 
@@ -1009,7 +1021,7 @@ export interface GlobalAccelerator {
    */
   listCustomRoutingPortMappings(
     args: ListCustomRoutingPortMappingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListCustomRoutingPortMappingsCommandOutput>;
   listCustomRoutingPortMappings(
     args: ListCustomRoutingPortMappingsCommandInput,
@@ -1017,7 +1029,7 @@ export interface GlobalAccelerator {
   ): void;
   listCustomRoutingPortMappings(
     args: ListCustomRoutingPortMappingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListCustomRoutingPortMappingsCommandOutput) => void
   ): void;
 
@@ -1026,7 +1038,7 @@ export interface GlobalAccelerator {
    */
   listCustomRoutingPortMappingsByDestination(
     args: ListCustomRoutingPortMappingsByDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListCustomRoutingPortMappingsByDestinationCommandOutput>;
   listCustomRoutingPortMappingsByDestination(
     args: ListCustomRoutingPortMappingsByDestinationCommandInput,
@@ -1034,7 +1046,7 @@ export interface GlobalAccelerator {
   ): void;
   listCustomRoutingPortMappingsByDestination(
     args: ListCustomRoutingPortMappingsByDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListCustomRoutingPortMappingsByDestinationCommandOutput) => void
   ): void;
 
@@ -1043,7 +1055,7 @@ export interface GlobalAccelerator {
    */
   listEndpointGroups(
     args: ListEndpointGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListEndpointGroupsCommandOutput>;
   listEndpointGroups(
     args: ListEndpointGroupsCommandInput,
@@ -1051,7 +1063,7 @@ export interface GlobalAccelerator {
   ): void;
   listEndpointGroups(
     args: ListEndpointGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListEndpointGroupsCommandOutput) => void
   ): void;
 
@@ -1060,7 +1072,7 @@ export interface GlobalAccelerator {
    */
   listListeners(
     args: ListListenersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListListenersCommandOutput>;
   listListeners(
     args: ListListenersCommandInput,
@@ -1068,7 +1080,7 @@ export interface GlobalAccelerator {
   ): void;
   listListeners(
     args: ListListenersCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListListenersCommandOutput) => void
   ): void;
 
@@ -1077,7 +1089,7 @@ export interface GlobalAccelerator {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1085,7 +1097,7 @@ export interface GlobalAccelerator {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1094,7 +1106,7 @@ export interface GlobalAccelerator {
    */
   provisionByoipCidr(
     args: ProvisionByoipCidrCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<ProvisionByoipCidrCommandOutput>;
   provisionByoipCidr(
     args: ProvisionByoipCidrCommandInput,
@@ -1102,7 +1114,7 @@ export interface GlobalAccelerator {
   ): void;
   provisionByoipCidr(
     args: ProvisionByoipCidrCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: ProvisionByoipCidrCommandOutput) => void
   ): void;
 
@@ -1111,7 +1123,7 @@ export interface GlobalAccelerator {
    */
   removeCustomRoutingEndpoints(
     args: RemoveCustomRoutingEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<RemoveCustomRoutingEndpointsCommandOutput>;
   removeCustomRoutingEndpoints(
     args: RemoveCustomRoutingEndpointsCommandInput,
@@ -1119,7 +1131,7 @@ export interface GlobalAccelerator {
   ): void;
   removeCustomRoutingEndpoints(
     args: RemoveCustomRoutingEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: RemoveCustomRoutingEndpointsCommandOutput) => void
   ): void;
 
@@ -1128,7 +1140,7 @@ export interface GlobalAccelerator {
    */
   removeEndpoints(
     args: RemoveEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<RemoveEndpointsCommandOutput>;
   removeEndpoints(
     args: RemoveEndpointsCommandInput,
@@ -1136,7 +1148,7 @@ export interface GlobalAccelerator {
   ): void;
   removeEndpoints(
     args: RemoveEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: RemoveEndpointsCommandOutput) => void
   ): void;
 
@@ -1145,7 +1157,7 @@ export interface GlobalAccelerator {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1153,7 +1165,7 @@ export interface GlobalAccelerator {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1162,7 +1174,7 @@ export interface GlobalAccelerator {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1170,7 +1182,7 @@ export interface GlobalAccelerator {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1179,7 +1191,7 @@ export interface GlobalAccelerator {
    */
   updateAccelerator(
     args: UpdateAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<UpdateAcceleratorCommandOutput>;
   updateAccelerator(
     args: UpdateAcceleratorCommandInput,
@@ -1187,7 +1199,7 @@ export interface GlobalAccelerator {
   ): void;
   updateAccelerator(
     args: UpdateAcceleratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: UpdateAcceleratorCommandOutput) => void
   ): void;
 
@@ -1196,7 +1208,7 @@ export interface GlobalAccelerator {
    */
   updateAcceleratorAttributes(
     args: UpdateAcceleratorAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<UpdateAcceleratorAttributesCommandOutput>;
   updateAcceleratorAttributes(
     args: UpdateAcceleratorAttributesCommandInput,
@@ -1204,7 +1216,7 @@ export interface GlobalAccelerator {
   ): void;
   updateAcceleratorAttributes(
     args: UpdateAcceleratorAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: UpdateAcceleratorAttributesCommandOutput) => void
   ): void;
 
@@ -1213,7 +1225,7 @@ export interface GlobalAccelerator {
    */
   updateCrossAccountAttachment(
     args: UpdateCrossAccountAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<UpdateCrossAccountAttachmentCommandOutput>;
   updateCrossAccountAttachment(
     args: UpdateCrossAccountAttachmentCommandInput,
@@ -1221,7 +1233,7 @@ export interface GlobalAccelerator {
   ): void;
   updateCrossAccountAttachment(
     args: UpdateCrossAccountAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: UpdateCrossAccountAttachmentCommandOutput) => void
   ): void;
 
@@ -1230,7 +1242,7 @@ export interface GlobalAccelerator {
    */
   updateCustomRoutingAccelerator(
     args: UpdateCustomRoutingAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<UpdateCustomRoutingAcceleratorCommandOutput>;
   updateCustomRoutingAccelerator(
     args: UpdateCustomRoutingAcceleratorCommandInput,
@@ -1238,7 +1250,7 @@ export interface GlobalAccelerator {
   ): void;
   updateCustomRoutingAccelerator(
     args: UpdateCustomRoutingAcceleratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: UpdateCustomRoutingAcceleratorCommandOutput) => void
   ): void;
 
@@ -1247,7 +1259,7 @@ export interface GlobalAccelerator {
    */
   updateCustomRoutingAcceleratorAttributes(
     args: UpdateCustomRoutingAcceleratorAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<UpdateCustomRoutingAcceleratorAttributesCommandOutput>;
   updateCustomRoutingAcceleratorAttributes(
     args: UpdateCustomRoutingAcceleratorAttributesCommandInput,
@@ -1255,7 +1267,7 @@ export interface GlobalAccelerator {
   ): void;
   updateCustomRoutingAcceleratorAttributes(
     args: UpdateCustomRoutingAcceleratorAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: UpdateCustomRoutingAcceleratorAttributesCommandOutput) => void
   ): void;
 
@@ -1264,7 +1276,7 @@ export interface GlobalAccelerator {
    */
   updateCustomRoutingListener(
     args: UpdateCustomRoutingListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<UpdateCustomRoutingListenerCommandOutput>;
   updateCustomRoutingListener(
     args: UpdateCustomRoutingListenerCommandInput,
@@ -1272,7 +1284,7 @@ export interface GlobalAccelerator {
   ): void;
   updateCustomRoutingListener(
     args: UpdateCustomRoutingListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: UpdateCustomRoutingListenerCommandOutput) => void
   ): void;
 
@@ -1281,7 +1293,7 @@ export interface GlobalAccelerator {
    */
   updateEndpointGroup(
     args: UpdateEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<UpdateEndpointGroupCommandOutput>;
   updateEndpointGroup(
     args: UpdateEndpointGroupCommandInput,
@@ -1289,7 +1301,7 @@ export interface GlobalAccelerator {
   ): void;
   updateEndpointGroup(
     args: UpdateEndpointGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: UpdateEndpointGroupCommandOutput) => void
   ): void;
 
@@ -1298,7 +1310,7 @@ export interface GlobalAccelerator {
    */
   updateListener(
     args: UpdateListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<UpdateListenerCommandOutput>;
   updateListener(
     args: UpdateListenerCommandInput,
@@ -1306,7 +1318,7 @@ export interface GlobalAccelerator {
   ): void;
   updateListener(
     args: UpdateListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: UpdateListenerCommandOutput) => void
   ): void;
 
@@ -1315,7 +1327,7 @@ export interface GlobalAccelerator {
    */
   withdrawByoipCidr(
     args: WithdrawByoipCidrCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlobalAcceleratorRequestOptions
   ): Promise<WithdrawByoipCidrCommandOutput>;
   withdrawByoipCidr(
     args: WithdrawByoipCidrCommandInput,
@@ -1323,7 +1335,7 @@ export interface GlobalAccelerator {
   ): void;
   withdrawByoipCidr(
     args: WithdrawByoipCidrCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlobalAcceleratorRequestOptions,
     cb: (err: any, data?: WithdrawByoipCidrCommandOutput) => void
   ): void;
 

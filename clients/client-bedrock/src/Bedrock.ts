@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BedrockClient } from "./BedrockClient";
 import {
@@ -701,13 +706,20 @@ const paginators = {
   paginateListProvisionedModelThroughputs,
 };
 
+/**
+ * @public
+ */
+export interface BedrockRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Bedrock {
   /**
    * @see {@link BatchDeleteAdvancedPromptOptimizationJobCommand}
    */
   batchDeleteAdvancedPromptOptimizationJob(
     args: BatchDeleteAdvancedPromptOptimizationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<BatchDeleteAdvancedPromptOptimizationJobCommandOutput>;
   batchDeleteAdvancedPromptOptimizationJob(
     args: BatchDeleteAdvancedPromptOptimizationJobCommandInput,
@@ -715,7 +727,7 @@ export interface Bedrock {
   ): void;
   batchDeleteAdvancedPromptOptimizationJob(
     args: BatchDeleteAdvancedPromptOptimizationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: BatchDeleteAdvancedPromptOptimizationJobCommandOutput) => void
   ): void;
 
@@ -724,7 +736,7 @@ export interface Bedrock {
    */
   batchDeleteEvaluationJob(
     args: BatchDeleteEvaluationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<BatchDeleteEvaluationJobCommandOutput>;
   batchDeleteEvaluationJob(
     args: BatchDeleteEvaluationJobCommandInput,
@@ -732,7 +744,7 @@ export interface Bedrock {
   ): void;
   batchDeleteEvaluationJob(
     args: BatchDeleteEvaluationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: BatchDeleteEvaluationJobCommandOutput) => void
   ): void;
 
@@ -741,7 +753,7 @@ export interface Bedrock {
    */
   cancelAutomatedReasoningPolicyBuildWorkflow(
     args: CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput>;
   cancelAutomatedReasoningPolicyBuildWorkflow(
     args: CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
@@ -749,7 +761,7 @@ export interface Bedrock {
   ): void;
   cancelAutomatedReasoningPolicyBuildWorkflow(
     args: CancelAutomatedReasoningPolicyBuildWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
   ): void;
 
@@ -758,7 +770,7 @@ export interface Bedrock {
    */
   createAdvancedPromptOptimizationJob(
     args: CreateAdvancedPromptOptimizationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateAdvancedPromptOptimizationJobCommandOutput>;
   createAdvancedPromptOptimizationJob(
     args: CreateAdvancedPromptOptimizationJobCommandInput,
@@ -766,7 +778,7 @@ export interface Bedrock {
   ): void;
   createAdvancedPromptOptimizationJob(
     args: CreateAdvancedPromptOptimizationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateAdvancedPromptOptimizationJobCommandOutput) => void
   ): void;
 
@@ -775,7 +787,7 @@ export interface Bedrock {
    */
   createAutomatedReasoningPolicy(
     args: CreateAutomatedReasoningPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateAutomatedReasoningPolicyCommandOutput>;
   createAutomatedReasoningPolicy(
     args: CreateAutomatedReasoningPolicyCommandInput,
@@ -783,7 +795,7 @@ export interface Bedrock {
   ): void;
   createAutomatedReasoningPolicy(
     args: CreateAutomatedReasoningPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateAutomatedReasoningPolicyCommandOutput) => void
   ): void;
 
@@ -792,7 +804,7 @@ export interface Bedrock {
    */
   createAutomatedReasoningPolicyTestCase(
     args: CreateAutomatedReasoningPolicyTestCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateAutomatedReasoningPolicyTestCaseCommandOutput>;
   createAutomatedReasoningPolicyTestCase(
     args: CreateAutomatedReasoningPolicyTestCaseCommandInput,
@@ -800,7 +812,7 @@ export interface Bedrock {
   ): void;
   createAutomatedReasoningPolicyTestCase(
     args: CreateAutomatedReasoningPolicyTestCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateAutomatedReasoningPolicyTestCaseCommandOutput) => void
   ): void;
 
@@ -809,7 +821,7 @@ export interface Bedrock {
    */
   createAutomatedReasoningPolicyVersion(
     args: CreateAutomatedReasoningPolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateAutomatedReasoningPolicyVersionCommandOutput>;
   createAutomatedReasoningPolicyVersion(
     args: CreateAutomatedReasoningPolicyVersionCommandInput,
@@ -817,7 +829,7 @@ export interface Bedrock {
   ): void;
   createAutomatedReasoningPolicyVersion(
     args: CreateAutomatedReasoningPolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateAutomatedReasoningPolicyVersionCommandOutput) => void
   ): void;
 
@@ -826,7 +838,7 @@ export interface Bedrock {
    */
   createCustomModel(
     args: CreateCustomModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateCustomModelCommandOutput>;
   createCustomModel(
     args: CreateCustomModelCommandInput,
@@ -834,7 +846,7 @@ export interface Bedrock {
   ): void;
   createCustomModel(
     args: CreateCustomModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateCustomModelCommandOutput) => void
   ): void;
 
@@ -843,7 +855,7 @@ export interface Bedrock {
    */
   createCustomModelDeployment(
     args: CreateCustomModelDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateCustomModelDeploymentCommandOutput>;
   createCustomModelDeployment(
     args: CreateCustomModelDeploymentCommandInput,
@@ -851,7 +863,7 @@ export interface Bedrock {
   ): void;
   createCustomModelDeployment(
     args: CreateCustomModelDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateCustomModelDeploymentCommandOutput) => void
   ): void;
 
@@ -860,7 +872,7 @@ export interface Bedrock {
    */
   createEvaluationJob(
     args: CreateEvaluationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateEvaluationJobCommandOutput>;
   createEvaluationJob(
     args: CreateEvaluationJobCommandInput,
@@ -868,7 +880,7 @@ export interface Bedrock {
   ): void;
   createEvaluationJob(
     args: CreateEvaluationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateEvaluationJobCommandOutput) => void
   ): void;
 
@@ -877,7 +889,7 @@ export interface Bedrock {
    */
   createFoundationModelAgreement(
     args: CreateFoundationModelAgreementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateFoundationModelAgreementCommandOutput>;
   createFoundationModelAgreement(
     args: CreateFoundationModelAgreementCommandInput,
@@ -885,7 +897,7 @@ export interface Bedrock {
   ): void;
   createFoundationModelAgreement(
     args: CreateFoundationModelAgreementCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateFoundationModelAgreementCommandOutput) => void
   ): void;
 
@@ -894,7 +906,7 @@ export interface Bedrock {
    */
   createGuardrail(
     args: CreateGuardrailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateGuardrailCommandOutput>;
   createGuardrail(
     args: CreateGuardrailCommandInput,
@@ -902,7 +914,7 @@ export interface Bedrock {
   ): void;
   createGuardrail(
     args: CreateGuardrailCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateGuardrailCommandOutput) => void
   ): void;
 
@@ -911,7 +923,7 @@ export interface Bedrock {
    */
   createGuardrailVersion(
     args: CreateGuardrailVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateGuardrailVersionCommandOutput>;
   createGuardrailVersion(
     args: CreateGuardrailVersionCommandInput,
@@ -919,7 +931,7 @@ export interface Bedrock {
   ): void;
   createGuardrailVersion(
     args: CreateGuardrailVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateGuardrailVersionCommandOutput) => void
   ): void;
 
@@ -928,7 +940,7 @@ export interface Bedrock {
    */
   createInferenceProfile(
     args: CreateInferenceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateInferenceProfileCommandOutput>;
   createInferenceProfile(
     args: CreateInferenceProfileCommandInput,
@@ -936,7 +948,7 @@ export interface Bedrock {
   ): void;
   createInferenceProfile(
     args: CreateInferenceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateInferenceProfileCommandOutput) => void
   ): void;
 
@@ -945,7 +957,7 @@ export interface Bedrock {
    */
   createMarketplaceModelEndpoint(
     args: CreateMarketplaceModelEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateMarketplaceModelEndpointCommandOutput>;
   createMarketplaceModelEndpoint(
     args: CreateMarketplaceModelEndpointCommandInput,
@@ -953,7 +965,7 @@ export interface Bedrock {
   ): void;
   createMarketplaceModelEndpoint(
     args: CreateMarketplaceModelEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateMarketplaceModelEndpointCommandOutput) => void
   ): void;
 
@@ -962,7 +974,7 @@ export interface Bedrock {
    */
   createModelCopyJob(
     args: CreateModelCopyJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateModelCopyJobCommandOutput>;
   createModelCopyJob(
     args: CreateModelCopyJobCommandInput,
@@ -970,7 +982,7 @@ export interface Bedrock {
   ): void;
   createModelCopyJob(
     args: CreateModelCopyJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateModelCopyJobCommandOutput) => void
   ): void;
 
@@ -979,7 +991,7 @@ export interface Bedrock {
    */
   createModelCustomizationJob(
     args: CreateModelCustomizationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateModelCustomizationJobCommandOutput>;
   createModelCustomizationJob(
     args: CreateModelCustomizationJobCommandInput,
@@ -987,7 +999,7 @@ export interface Bedrock {
   ): void;
   createModelCustomizationJob(
     args: CreateModelCustomizationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateModelCustomizationJobCommandOutput) => void
   ): void;
 
@@ -996,7 +1008,7 @@ export interface Bedrock {
    */
   createModelImportJob(
     args: CreateModelImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateModelImportJobCommandOutput>;
   createModelImportJob(
     args: CreateModelImportJobCommandInput,
@@ -1004,7 +1016,7 @@ export interface Bedrock {
   ): void;
   createModelImportJob(
     args: CreateModelImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateModelImportJobCommandOutput) => void
   ): void;
 
@@ -1013,7 +1025,7 @@ export interface Bedrock {
    */
   createModelInvocationJob(
     args: CreateModelInvocationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateModelInvocationJobCommandOutput>;
   createModelInvocationJob(
     args: CreateModelInvocationJobCommandInput,
@@ -1021,7 +1033,7 @@ export interface Bedrock {
   ): void;
   createModelInvocationJob(
     args: CreateModelInvocationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateModelInvocationJobCommandOutput) => void
   ): void;
 
@@ -1030,7 +1042,7 @@ export interface Bedrock {
    */
   createPromptRouter(
     args: CreatePromptRouterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreatePromptRouterCommandOutput>;
   createPromptRouter(
     args: CreatePromptRouterCommandInput,
@@ -1038,7 +1050,7 @@ export interface Bedrock {
   ): void;
   createPromptRouter(
     args: CreatePromptRouterCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreatePromptRouterCommandOutput) => void
   ): void;
 
@@ -1047,7 +1059,7 @@ export interface Bedrock {
    */
   createProvisionedModelThroughput(
     args: CreateProvisionedModelThroughputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<CreateProvisionedModelThroughputCommandOutput>;
   createProvisionedModelThroughput(
     args: CreateProvisionedModelThroughputCommandInput,
@@ -1055,7 +1067,7 @@ export interface Bedrock {
   ): void;
   createProvisionedModelThroughput(
     args: CreateProvisionedModelThroughputCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: CreateProvisionedModelThroughputCommandOutput) => void
   ): void;
 
@@ -1064,7 +1076,7 @@ export interface Bedrock {
    */
   deleteAutomatedReasoningPolicy(
     args: DeleteAutomatedReasoningPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteAutomatedReasoningPolicyCommandOutput>;
   deleteAutomatedReasoningPolicy(
     args: DeleteAutomatedReasoningPolicyCommandInput,
@@ -1072,7 +1084,7 @@ export interface Bedrock {
   ): void;
   deleteAutomatedReasoningPolicy(
     args: DeleteAutomatedReasoningPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteAutomatedReasoningPolicyCommandOutput) => void
   ): void;
 
@@ -1081,7 +1093,7 @@ export interface Bedrock {
    */
   deleteAutomatedReasoningPolicyBuildWorkflow(
     args: DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput>;
   deleteAutomatedReasoningPolicyBuildWorkflow(
     args: DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
@@ -1089,7 +1101,7 @@ export interface Bedrock {
   ): void;
   deleteAutomatedReasoningPolicyBuildWorkflow(
     args: DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
   ): void;
 
@@ -1098,7 +1110,7 @@ export interface Bedrock {
    */
   deleteAutomatedReasoningPolicyTestCase(
     args: DeleteAutomatedReasoningPolicyTestCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteAutomatedReasoningPolicyTestCaseCommandOutput>;
   deleteAutomatedReasoningPolicyTestCase(
     args: DeleteAutomatedReasoningPolicyTestCaseCommandInput,
@@ -1106,7 +1118,7 @@ export interface Bedrock {
   ): void;
   deleteAutomatedReasoningPolicyTestCase(
     args: DeleteAutomatedReasoningPolicyTestCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteAutomatedReasoningPolicyTestCaseCommandOutput) => void
   ): void;
 
@@ -1115,7 +1127,7 @@ export interface Bedrock {
    */
   deleteCustomModel(
     args: DeleteCustomModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteCustomModelCommandOutput>;
   deleteCustomModel(
     args: DeleteCustomModelCommandInput,
@@ -1123,7 +1135,7 @@ export interface Bedrock {
   ): void;
   deleteCustomModel(
     args: DeleteCustomModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteCustomModelCommandOutput) => void
   ): void;
 
@@ -1132,7 +1144,7 @@ export interface Bedrock {
    */
   deleteCustomModelDeployment(
     args: DeleteCustomModelDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteCustomModelDeploymentCommandOutput>;
   deleteCustomModelDeployment(
     args: DeleteCustomModelDeploymentCommandInput,
@@ -1140,7 +1152,7 @@ export interface Bedrock {
   ): void;
   deleteCustomModelDeployment(
     args: DeleteCustomModelDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteCustomModelDeploymentCommandOutput) => void
   ): void;
 
@@ -1149,7 +1161,7 @@ export interface Bedrock {
    */
   deleteEnforcedGuardrailConfiguration(
     args: DeleteEnforcedGuardrailConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteEnforcedGuardrailConfigurationCommandOutput>;
   deleteEnforcedGuardrailConfiguration(
     args: DeleteEnforcedGuardrailConfigurationCommandInput,
@@ -1157,7 +1169,7 @@ export interface Bedrock {
   ): void;
   deleteEnforcedGuardrailConfiguration(
     args: DeleteEnforcedGuardrailConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteEnforcedGuardrailConfigurationCommandOutput) => void
   ): void;
 
@@ -1166,7 +1178,7 @@ export interface Bedrock {
    */
   deleteFoundationModelAgreement(
     args: DeleteFoundationModelAgreementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteFoundationModelAgreementCommandOutput>;
   deleteFoundationModelAgreement(
     args: DeleteFoundationModelAgreementCommandInput,
@@ -1174,7 +1186,7 @@ export interface Bedrock {
   ): void;
   deleteFoundationModelAgreement(
     args: DeleteFoundationModelAgreementCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteFoundationModelAgreementCommandOutput) => void
   ): void;
 
@@ -1183,7 +1195,7 @@ export interface Bedrock {
    */
   deleteGuardrail(
     args: DeleteGuardrailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteGuardrailCommandOutput>;
   deleteGuardrail(
     args: DeleteGuardrailCommandInput,
@@ -1191,7 +1203,7 @@ export interface Bedrock {
   ): void;
   deleteGuardrail(
     args: DeleteGuardrailCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteGuardrailCommandOutput) => void
   ): void;
 
@@ -1200,7 +1212,7 @@ export interface Bedrock {
    */
   deleteImportedModel(
     args: DeleteImportedModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteImportedModelCommandOutput>;
   deleteImportedModel(
     args: DeleteImportedModelCommandInput,
@@ -1208,7 +1220,7 @@ export interface Bedrock {
   ): void;
   deleteImportedModel(
     args: DeleteImportedModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteImportedModelCommandOutput) => void
   ): void;
 
@@ -1217,7 +1229,7 @@ export interface Bedrock {
    */
   deleteInferenceProfile(
     args: DeleteInferenceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteInferenceProfileCommandOutput>;
   deleteInferenceProfile(
     args: DeleteInferenceProfileCommandInput,
@@ -1225,7 +1237,7 @@ export interface Bedrock {
   ): void;
   deleteInferenceProfile(
     args: DeleteInferenceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteInferenceProfileCommandOutput) => void
   ): void;
 
@@ -1234,7 +1246,7 @@ export interface Bedrock {
    */
   deleteMarketplaceModelEndpoint(
     args: DeleteMarketplaceModelEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteMarketplaceModelEndpointCommandOutput>;
   deleteMarketplaceModelEndpoint(
     args: DeleteMarketplaceModelEndpointCommandInput,
@@ -1242,7 +1254,7 @@ export interface Bedrock {
   ): void;
   deleteMarketplaceModelEndpoint(
     args: DeleteMarketplaceModelEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteMarketplaceModelEndpointCommandOutput) => void
   ): void;
 
@@ -1252,7 +1264,7 @@ export interface Bedrock {
   deleteModelInvocationLoggingConfiguration(): Promise<DeleteModelInvocationLoggingConfigurationCommandOutput>;
   deleteModelInvocationLoggingConfiguration(
     args: DeleteModelInvocationLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteModelInvocationLoggingConfigurationCommandOutput>;
   deleteModelInvocationLoggingConfiguration(
     args: DeleteModelInvocationLoggingConfigurationCommandInput,
@@ -1260,7 +1272,7 @@ export interface Bedrock {
   ): void;
   deleteModelInvocationLoggingConfiguration(
     args: DeleteModelInvocationLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteModelInvocationLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -1269,7 +1281,7 @@ export interface Bedrock {
    */
   deletePromptRouter(
     args: DeletePromptRouterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeletePromptRouterCommandOutput>;
   deletePromptRouter(
     args: DeletePromptRouterCommandInput,
@@ -1277,7 +1289,7 @@ export interface Bedrock {
   ): void;
   deletePromptRouter(
     args: DeletePromptRouterCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeletePromptRouterCommandOutput) => void
   ): void;
 
@@ -1286,7 +1298,7 @@ export interface Bedrock {
    */
   deleteProvisionedModelThroughput(
     args: DeleteProvisionedModelThroughputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteProvisionedModelThroughputCommandOutput>;
   deleteProvisionedModelThroughput(
     args: DeleteProvisionedModelThroughputCommandInput,
@@ -1294,7 +1306,7 @@ export interface Bedrock {
   ): void;
   deleteProvisionedModelThroughput(
     args: DeleteProvisionedModelThroughputCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteProvisionedModelThroughputCommandOutput) => void
   ): void;
 
@@ -1303,7 +1315,7 @@ export interface Bedrock {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -1311,7 +1323,7 @@ export interface Bedrock {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1320,7 +1332,7 @@ export interface Bedrock {
    */
   deregisterMarketplaceModelEndpoint(
     args: DeregisterMarketplaceModelEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<DeregisterMarketplaceModelEndpointCommandOutput>;
   deregisterMarketplaceModelEndpoint(
     args: DeregisterMarketplaceModelEndpointCommandInput,
@@ -1328,7 +1340,7 @@ export interface Bedrock {
   ): void;
   deregisterMarketplaceModelEndpoint(
     args: DeregisterMarketplaceModelEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: DeregisterMarketplaceModelEndpointCommandOutput) => void
   ): void;
 
@@ -1337,7 +1349,7 @@ export interface Bedrock {
    */
   exportAutomatedReasoningPolicyVersion(
     args: ExportAutomatedReasoningPolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ExportAutomatedReasoningPolicyVersionCommandOutput>;
   exportAutomatedReasoningPolicyVersion(
     args: ExportAutomatedReasoningPolicyVersionCommandInput,
@@ -1345,7 +1357,7 @@ export interface Bedrock {
   ): void;
   exportAutomatedReasoningPolicyVersion(
     args: ExportAutomatedReasoningPolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ExportAutomatedReasoningPolicyVersionCommandOutput) => void
   ): void;
 
@@ -1355,7 +1367,7 @@ export interface Bedrock {
   getAccountDataRetention(): Promise<GetAccountDataRetentionCommandOutput>;
   getAccountDataRetention(
     args: GetAccountDataRetentionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetAccountDataRetentionCommandOutput>;
   getAccountDataRetention(
     args: GetAccountDataRetentionCommandInput,
@@ -1363,7 +1375,7 @@ export interface Bedrock {
   ): void;
   getAccountDataRetention(
     args: GetAccountDataRetentionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetAccountDataRetentionCommandOutput) => void
   ): void;
 
@@ -1372,7 +1384,7 @@ export interface Bedrock {
    */
   getAdvancedPromptOptimizationJob(
     args: GetAdvancedPromptOptimizationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetAdvancedPromptOptimizationJobCommandOutput>;
   getAdvancedPromptOptimizationJob(
     args: GetAdvancedPromptOptimizationJobCommandInput,
@@ -1380,7 +1392,7 @@ export interface Bedrock {
   ): void;
   getAdvancedPromptOptimizationJob(
     args: GetAdvancedPromptOptimizationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetAdvancedPromptOptimizationJobCommandOutput) => void
   ): void;
 
@@ -1389,7 +1401,7 @@ export interface Bedrock {
    */
   getAutomatedReasoningPolicy(
     args: GetAutomatedReasoningPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetAutomatedReasoningPolicyCommandOutput>;
   getAutomatedReasoningPolicy(
     args: GetAutomatedReasoningPolicyCommandInput,
@@ -1397,7 +1409,7 @@ export interface Bedrock {
   ): void;
   getAutomatedReasoningPolicy(
     args: GetAutomatedReasoningPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetAutomatedReasoningPolicyCommandOutput) => void
   ): void;
 
@@ -1406,7 +1418,7 @@ export interface Bedrock {
    */
   getAutomatedReasoningPolicyAnnotations(
     args: GetAutomatedReasoningPolicyAnnotationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetAutomatedReasoningPolicyAnnotationsCommandOutput>;
   getAutomatedReasoningPolicyAnnotations(
     args: GetAutomatedReasoningPolicyAnnotationsCommandInput,
@@ -1414,7 +1426,7 @@ export interface Bedrock {
   ): void;
   getAutomatedReasoningPolicyAnnotations(
     args: GetAutomatedReasoningPolicyAnnotationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetAutomatedReasoningPolicyAnnotationsCommandOutput) => void
   ): void;
 
@@ -1423,7 +1435,7 @@ export interface Bedrock {
    */
   getAutomatedReasoningPolicyBuildWorkflow(
     args: GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetAutomatedReasoningPolicyBuildWorkflowCommandOutput>;
   getAutomatedReasoningPolicyBuildWorkflow(
     args: GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
@@ -1431,7 +1443,7 @@ export interface Bedrock {
   ): void;
   getAutomatedReasoningPolicyBuildWorkflow(
     args: GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
   ): void;
 
@@ -1440,7 +1452,7 @@ export interface Bedrock {
    */
   getAutomatedReasoningPolicyBuildWorkflowResultAssets(
     args: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput>;
   getAutomatedReasoningPolicyBuildWorkflowResultAssets(
     args: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
@@ -1448,7 +1460,7 @@ export interface Bedrock {
   ): void;
   getAutomatedReasoningPolicyBuildWorkflowResultAssets(
     args: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput) => void
   ): void;
 
@@ -1457,7 +1469,7 @@ export interface Bedrock {
    */
   getAutomatedReasoningPolicyNextScenario(
     args: GetAutomatedReasoningPolicyNextScenarioCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetAutomatedReasoningPolicyNextScenarioCommandOutput>;
   getAutomatedReasoningPolicyNextScenario(
     args: GetAutomatedReasoningPolicyNextScenarioCommandInput,
@@ -1465,7 +1477,7 @@ export interface Bedrock {
   ): void;
   getAutomatedReasoningPolicyNextScenario(
     args: GetAutomatedReasoningPolicyNextScenarioCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetAutomatedReasoningPolicyNextScenarioCommandOutput) => void
   ): void;
 
@@ -1474,7 +1486,7 @@ export interface Bedrock {
    */
   getAutomatedReasoningPolicyTestCase(
     args: GetAutomatedReasoningPolicyTestCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetAutomatedReasoningPolicyTestCaseCommandOutput>;
   getAutomatedReasoningPolicyTestCase(
     args: GetAutomatedReasoningPolicyTestCaseCommandInput,
@@ -1482,7 +1494,7 @@ export interface Bedrock {
   ): void;
   getAutomatedReasoningPolicyTestCase(
     args: GetAutomatedReasoningPolicyTestCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetAutomatedReasoningPolicyTestCaseCommandOutput) => void
   ): void;
 
@@ -1491,7 +1503,7 @@ export interface Bedrock {
    */
   getAutomatedReasoningPolicyTestResult(
     args: GetAutomatedReasoningPolicyTestResultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetAutomatedReasoningPolicyTestResultCommandOutput>;
   getAutomatedReasoningPolicyTestResult(
     args: GetAutomatedReasoningPolicyTestResultCommandInput,
@@ -1499,7 +1511,7 @@ export interface Bedrock {
   ): void;
   getAutomatedReasoningPolicyTestResult(
     args: GetAutomatedReasoningPolicyTestResultCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetAutomatedReasoningPolicyTestResultCommandOutput) => void
   ): void;
 
@@ -1508,7 +1520,7 @@ export interface Bedrock {
    */
   getCustomModel(
     args: GetCustomModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetCustomModelCommandOutput>;
   getCustomModel(
     args: GetCustomModelCommandInput,
@@ -1516,7 +1528,7 @@ export interface Bedrock {
   ): void;
   getCustomModel(
     args: GetCustomModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetCustomModelCommandOutput) => void
   ): void;
 
@@ -1525,7 +1537,7 @@ export interface Bedrock {
    */
   getCustomModelDeployment(
     args: GetCustomModelDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetCustomModelDeploymentCommandOutput>;
   getCustomModelDeployment(
     args: GetCustomModelDeploymentCommandInput,
@@ -1533,7 +1545,7 @@ export interface Bedrock {
   ): void;
   getCustomModelDeployment(
     args: GetCustomModelDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetCustomModelDeploymentCommandOutput) => void
   ): void;
 
@@ -1542,7 +1554,7 @@ export interface Bedrock {
    */
   getEvaluationJob(
     args: GetEvaluationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetEvaluationJobCommandOutput>;
   getEvaluationJob(
     args: GetEvaluationJobCommandInput,
@@ -1550,7 +1562,7 @@ export interface Bedrock {
   ): void;
   getEvaluationJob(
     args: GetEvaluationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetEvaluationJobCommandOutput) => void
   ): void;
 
@@ -1559,7 +1571,7 @@ export interface Bedrock {
    */
   getFoundationModel(
     args: GetFoundationModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetFoundationModelCommandOutput>;
   getFoundationModel(
     args: GetFoundationModelCommandInput,
@@ -1567,7 +1579,7 @@ export interface Bedrock {
   ): void;
   getFoundationModel(
     args: GetFoundationModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetFoundationModelCommandOutput) => void
   ): void;
 
@@ -1576,7 +1588,7 @@ export interface Bedrock {
    */
   getFoundationModelAvailability(
     args: GetFoundationModelAvailabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetFoundationModelAvailabilityCommandOutput>;
   getFoundationModelAvailability(
     args: GetFoundationModelAvailabilityCommandInput,
@@ -1584,7 +1596,7 @@ export interface Bedrock {
   ): void;
   getFoundationModelAvailability(
     args: GetFoundationModelAvailabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetFoundationModelAvailabilityCommandOutput) => void
   ): void;
 
@@ -1593,7 +1605,7 @@ export interface Bedrock {
    */
   getGuardrail(
     args: GetGuardrailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetGuardrailCommandOutput>;
   getGuardrail(
     args: GetGuardrailCommandInput,
@@ -1601,7 +1613,7 @@ export interface Bedrock {
   ): void;
   getGuardrail(
     args: GetGuardrailCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetGuardrailCommandOutput) => void
   ): void;
 
@@ -1610,7 +1622,7 @@ export interface Bedrock {
    */
   getImportedModel(
     args: GetImportedModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetImportedModelCommandOutput>;
   getImportedModel(
     args: GetImportedModelCommandInput,
@@ -1618,7 +1630,7 @@ export interface Bedrock {
   ): void;
   getImportedModel(
     args: GetImportedModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetImportedModelCommandOutput) => void
   ): void;
 
@@ -1627,7 +1639,7 @@ export interface Bedrock {
    */
   getInferenceProfile(
     args: GetInferenceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetInferenceProfileCommandOutput>;
   getInferenceProfile(
     args: GetInferenceProfileCommandInput,
@@ -1635,7 +1647,7 @@ export interface Bedrock {
   ): void;
   getInferenceProfile(
     args: GetInferenceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetInferenceProfileCommandOutput) => void
   ): void;
 
@@ -1644,7 +1656,7 @@ export interface Bedrock {
    */
   getMarketplaceModelEndpoint(
     args: GetMarketplaceModelEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetMarketplaceModelEndpointCommandOutput>;
   getMarketplaceModelEndpoint(
     args: GetMarketplaceModelEndpointCommandInput,
@@ -1652,7 +1664,7 @@ export interface Bedrock {
   ): void;
   getMarketplaceModelEndpoint(
     args: GetMarketplaceModelEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetMarketplaceModelEndpointCommandOutput) => void
   ): void;
 
@@ -1661,7 +1673,7 @@ export interface Bedrock {
    */
   getModelCopyJob(
     args: GetModelCopyJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetModelCopyJobCommandOutput>;
   getModelCopyJob(
     args: GetModelCopyJobCommandInput,
@@ -1669,7 +1681,7 @@ export interface Bedrock {
   ): void;
   getModelCopyJob(
     args: GetModelCopyJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetModelCopyJobCommandOutput) => void
   ): void;
 
@@ -1678,7 +1690,7 @@ export interface Bedrock {
    */
   getModelCustomizationJob(
     args: GetModelCustomizationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetModelCustomizationJobCommandOutput>;
   getModelCustomizationJob(
     args: GetModelCustomizationJobCommandInput,
@@ -1686,7 +1698,7 @@ export interface Bedrock {
   ): void;
   getModelCustomizationJob(
     args: GetModelCustomizationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetModelCustomizationJobCommandOutput) => void
   ): void;
 
@@ -1695,7 +1707,7 @@ export interface Bedrock {
    */
   getModelImportJob(
     args: GetModelImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetModelImportJobCommandOutput>;
   getModelImportJob(
     args: GetModelImportJobCommandInput,
@@ -1703,7 +1715,7 @@ export interface Bedrock {
   ): void;
   getModelImportJob(
     args: GetModelImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetModelImportJobCommandOutput) => void
   ): void;
 
@@ -1712,7 +1724,7 @@ export interface Bedrock {
    */
   getModelInvocationJob(
     args: GetModelInvocationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetModelInvocationJobCommandOutput>;
   getModelInvocationJob(
     args: GetModelInvocationJobCommandInput,
@@ -1720,7 +1732,7 @@ export interface Bedrock {
   ): void;
   getModelInvocationJob(
     args: GetModelInvocationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetModelInvocationJobCommandOutput) => void
   ): void;
 
@@ -1730,7 +1742,7 @@ export interface Bedrock {
   getModelInvocationLoggingConfiguration(): Promise<GetModelInvocationLoggingConfigurationCommandOutput>;
   getModelInvocationLoggingConfiguration(
     args: GetModelInvocationLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetModelInvocationLoggingConfigurationCommandOutput>;
   getModelInvocationLoggingConfiguration(
     args: GetModelInvocationLoggingConfigurationCommandInput,
@@ -1738,7 +1750,7 @@ export interface Bedrock {
   ): void;
   getModelInvocationLoggingConfiguration(
     args: GetModelInvocationLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetModelInvocationLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -1747,7 +1759,7 @@ export interface Bedrock {
    */
   getPromptRouter(
     args: GetPromptRouterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetPromptRouterCommandOutput>;
   getPromptRouter(
     args: GetPromptRouterCommandInput,
@@ -1755,7 +1767,7 @@ export interface Bedrock {
   ): void;
   getPromptRouter(
     args: GetPromptRouterCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetPromptRouterCommandOutput) => void
   ): void;
 
@@ -1764,7 +1776,7 @@ export interface Bedrock {
    */
   getProvisionedModelThroughput(
     args: GetProvisionedModelThroughputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetProvisionedModelThroughputCommandOutput>;
   getProvisionedModelThroughput(
     args: GetProvisionedModelThroughputCommandInput,
@@ -1772,7 +1784,7 @@ export interface Bedrock {
   ): void;
   getProvisionedModelThroughput(
     args: GetProvisionedModelThroughputCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetProvisionedModelThroughputCommandOutput) => void
   ): void;
 
@@ -1781,7 +1793,7 @@ export interface Bedrock {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -1789,7 +1801,7 @@ export interface Bedrock {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1799,7 +1811,7 @@ export interface Bedrock {
   getUseCaseForModelAccess(): Promise<GetUseCaseForModelAccessCommandOutput>;
   getUseCaseForModelAccess(
     args: GetUseCaseForModelAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<GetUseCaseForModelAccessCommandOutput>;
   getUseCaseForModelAccess(
     args: GetUseCaseForModelAccessCommandInput,
@@ -1807,7 +1819,7 @@ export interface Bedrock {
   ): void;
   getUseCaseForModelAccess(
     args: GetUseCaseForModelAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: GetUseCaseForModelAccessCommandOutput) => void
   ): void;
 
@@ -1817,7 +1829,7 @@ export interface Bedrock {
   listAdvancedPromptOptimizationJobs(): Promise<ListAdvancedPromptOptimizationJobsCommandOutput>;
   listAdvancedPromptOptimizationJobs(
     args: ListAdvancedPromptOptimizationJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListAdvancedPromptOptimizationJobsCommandOutput>;
   listAdvancedPromptOptimizationJobs(
     args: ListAdvancedPromptOptimizationJobsCommandInput,
@@ -1825,7 +1837,7 @@ export interface Bedrock {
   ): void;
   listAdvancedPromptOptimizationJobs(
     args: ListAdvancedPromptOptimizationJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListAdvancedPromptOptimizationJobsCommandOutput) => void
   ): void;
 
@@ -1835,7 +1847,7 @@ export interface Bedrock {
   listAutomatedReasoningPolicies(): Promise<ListAutomatedReasoningPoliciesCommandOutput>;
   listAutomatedReasoningPolicies(
     args: ListAutomatedReasoningPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListAutomatedReasoningPoliciesCommandOutput>;
   listAutomatedReasoningPolicies(
     args: ListAutomatedReasoningPoliciesCommandInput,
@@ -1843,7 +1855,7 @@ export interface Bedrock {
   ): void;
   listAutomatedReasoningPolicies(
     args: ListAutomatedReasoningPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListAutomatedReasoningPoliciesCommandOutput) => void
   ): void;
 
@@ -1852,7 +1864,7 @@ export interface Bedrock {
    */
   listAutomatedReasoningPolicyBuildWorkflows(
     args: ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput>;
   listAutomatedReasoningPolicyBuildWorkflows(
     args: ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
@@ -1860,7 +1872,7 @@ export interface Bedrock {
   ): void;
   listAutomatedReasoningPolicyBuildWorkflows(
     args: ListAutomatedReasoningPolicyBuildWorkflowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListAutomatedReasoningPolicyBuildWorkflowsCommandOutput) => void
   ): void;
 
@@ -1869,7 +1881,7 @@ export interface Bedrock {
    */
   listAutomatedReasoningPolicyTestCases(
     args: ListAutomatedReasoningPolicyTestCasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListAutomatedReasoningPolicyTestCasesCommandOutput>;
   listAutomatedReasoningPolicyTestCases(
     args: ListAutomatedReasoningPolicyTestCasesCommandInput,
@@ -1877,7 +1889,7 @@ export interface Bedrock {
   ): void;
   listAutomatedReasoningPolicyTestCases(
     args: ListAutomatedReasoningPolicyTestCasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListAutomatedReasoningPolicyTestCasesCommandOutput) => void
   ): void;
 
@@ -1886,7 +1898,7 @@ export interface Bedrock {
    */
   listAutomatedReasoningPolicyTestResults(
     args: ListAutomatedReasoningPolicyTestResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListAutomatedReasoningPolicyTestResultsCommandOutput>;
   listAutomatedReasoningPolicyTestResults(
     args: ListAutomatedReasoningPolicyTestResultsCommandInput,
@@ -1894,7 +1906,7 @@ export interface Bedrock {
   ): void;
   listAutomatedReasoningPolicyTestResults(
     args: ListAutomatedReasoningPolicyTestResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListAutomatedReasoningPolicyTestResultsCommandOutput) => void
   ): void;
 
@@ -1904,7 +1916,7 @@ export interface Bedrock {
   listCustomModelDeployments(): Promise<ListCustomModelDeploymentsCommandOutput>;
   listCustomModelDeployments(
     args: ListCustomModelDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListCustomModelDeploymentsCommandOutput>;
   listCustomModelDeployments(
     args: ListCustomModelDeploymentsCommandInput,
@@ -1912,7 +1924,7 @@ export interface Bedrock {
   ): void;
   listCustomModelDeployments(
     args: ListCustomModelDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListCustomModelDeploymentsCommandOutput) => void
   ): void;
 
@@ -1922,7 +1934,7 @@ export interface Bedrock {
   listCustomModels(): Promise<ListCustomModelsCommandOutput>;
   listCustomModels(
     args: ListCustomModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListCustomModelsCommandOutput>;
   listCustomModels(
     args: ListCustomModelsCommandInput,
@@ -1930,7 +1942,7 @@ export interface Bedrock {
   ): void;
   listCustomModels(
     args: ListCustomModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListCustomModelsCommandOutput) => void
   ): void;
 
@@ -1940,7 +1952,7 @@ export interface Bedrock {
   listEnforcedGuardrailsConfiguration(): Promise<ListEnforcedGuardrailsConfigurationCommandOutput>;
   listEnforcedGuardrailsConfiguration(
     args: ListEnforcedGuardrailsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListEnforcedGuardrailsConfigurationCommandOutput>;
   listEnforcedGuardrailsConfiguration(
     args: ListEnforcedGuardrailsConfigurationCommandInput,
@@ -1948,7 +1960,7 @@ export interface Bedrock {
   ): void;
   listEnforcedGuardrailsConfiguration(
     args: ListEnforcedGuardrailsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListEnforcedGuardrailsConfigurationCommandOutput) => void
   ): void;
 
@@ -1958,7 +1970,7 @@ export interface Bedrock {
   listEvaluationJobs(): Promise<ListEvaluationJobsCommandOutput>;
   listEvaluationJobs(
     args: ListEvaluationJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListEvaluationJobsCommandOutput>;
   listEvaluationJobs(
     args: ListEvaluationJobsCommandInput,
@@ -1966,7 +1978,7 @@ export interface Bedrock {
   ): void;
   listEvaluationJobs(
     args: ListEvaluationJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListEvaluationJobsCommandOutput) => void
   ): void;
 
@@ -1975,7 +1987,7 @@ export interface Bedrock {
    */
   listFoundationModelAgreementOffers(
     args: ListFoundationModelAgreementOffersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListFoundationModelAgreementOffersCommandOutput>;
   listFoundationModelAgreementOffers(
     args: ListFoundationModelAgreementOffersCommandInput,
@@ -1983,7 +1995,7 @@ export interface Bedrock {
   ): void;
   listFoundationModelAgreementOffers(
     args: ListFoundationModelAgreementOffersCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListFoundationModelAgreementOffersCommandOutput) => void
   ): void;
 
@@ -1993,7 +2005,7 @@ export interface Bedrock {
   listFoundationModels(): Promise<ListFoundationModelsCommandOutput>;
   listFoundationModels(
     args: ListFoundationModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListFoundationModelsCommandOutput>;
   listFoundationModels(
     args: ListFoundationModelsCommandInput,
@@ -2001,7 +2013,7 @@ export interface Bedrock {
   ): void;
   listFoundationModels(
     args: ListFoundationModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListFoundationModelsCommandOutput) => void
   ): void;
 
@@ -2011,7 +2023,7 @@ export interface Bedrock {
   listGuardrails(): Promise<ListGuardrailsCommandOutput>;
   listGuardrails(
     args: ListGuardrailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListGuardrailsCommandOutput>;
   listGuardrails(
     args: ListGuardrailsCommandInput,
@@ -2019,7 +2031,7 @@ export interface Bedrock {
   ): void;
   listGuardrails(
     args: ListGuardrailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListGuardrailsCommandOutput) => void
   ): void;
 
@@ -2029,7 +2041,7 @@ export interface Bedrock {
   listImportedModels(): Promise<ListImportedModelsCommandOutput>;
   listImportedModels(
     args: ListImportedModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListImportedModelsCommandOutput>;
   listImportedModels(
     args: ListImportedModelsCommandInput,
@@ -2037,7 +2049,7 @@ export interface Bedrock {
   ): void;
   listImportedModels(
     args: ListImportedModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListImportedModelsCommandOutput) => void
   ): void;
 
@@ -2047,7 +2059,7 @@ export interface Bedrock {
   listInferenceProfiles(): Promise<ListInferenceProfilesCommandOutput>;
   listInferenceProfiles(
     args: ListInferenceProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListInferenceProfilesCommandOutput>;
   listInferenceProfiles(
     args: ListInferenceProfilesCommandInput,
@@ -2055,7 +2067,7 @@ export interface Bedrock {
   ): void;
   listInferenceProfiles(
     args: ListInferenceProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListInferenceProfilesCommandOutput) => void
   ): void;
 
@@ -2065,7 +2077,7 @@ export interface Bedrock {
   listMarketplaceModelEndpoints(): Promise<ListMarketplaceModelEndpointsCommandOutput>;
   listMarketplaceModelEndpoints(
     args: ListMarketplaceModelEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListMarketplaceModelEndpointsCommandOutput>;
   listMarketplaceModelEndpoints(
     args: ListMarketplaceModelEndpointsCommandInput,
@@ -2073,7 +2085,7 @@ export interface Bedrock {
   ): void;
   listMarketplaceModelEndpoints(
     args: ListMarketplaceModelEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListMarketplaceModelEndpointsCommandOutput) => void
   ): void;
 
@@ -2083,7 +2095,7 @@ export interface Bedrock {
   listModelCopyJobs(): Promise<ListModelCopyJobsCommandOutput>;
   listModelCopyJobs(
     args: ListModelCopyJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListModelCopyJobsCommandOutput>;
   listModelCopyJobs(
     args: ListModelCopyJobsCommandInput,
@@ -2091,7 +2103,7 @@ export interface Bedrock {
   ): void;
   listModelCopyJobs(
     args: ListModelCopyJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListModelCopyJobsCommandOutput) => void
   ): void;
 
@@ -2101,7 +2113,7 @@ export interface Bedrock {
   listModelCustomizationJobs(): Promise<ListModelCustomizationJobsCommandOutput>;
   listModelCustomizationJobs(
     args: ListModelCustomizationJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListModelCustomizationJobsCommandOutput>;
   listModelCustomizationJobs(
     args: ListModelCustomizationJobsCommandInput,
@@ -2109,7 +2121,7 @@ export interface Bedrock {
   ): void;
   listModelCustomizationJobs(
     args: ListModelCustomizationJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListModelCustomizationJobsCommandOutput) => void
   ): void;
 
@@ -2119,7 +2131,7 @@ export interface Bedrock {
   listModelImportJobs(): Promise<ListModelImportJobsCommandOutput>;
   listModelImportJobs(
     args: ListModelImportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListModelImportJobsCommandOutput>;
   listModelImportJobs(
     args: ListModelImportJobsCommandInput,
@@ -2127,7 +2139,7 @@ export interface Bedrock {
   ): void;
   listModelImportJobs(
     args: ListModelImportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListModelImportJobsCommandOutput) => void
   ): void;
 
@@ -2137,7 +2149,7 @@ export interface Bedrock {
   listModelInvocationJobs(): Promise<ListModelInvocationJobsCommandOutput>;
   listModelInvocationJobs(
     args: ListModelInvocationJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListModelInvocationJobsCommandOutput>;
   listModelInvocationJobs(
     args: ListModelInvocationJobsCommandInput,
@@ -2145,7 +2157,7 @@ export interface Bedrock {
   ): void;
   listModelInvocationJobs(
     args: ListModelInvocationJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListModelInvocationJobsCommandOutput) => void
   ): void;
 
@@ -2155,7 +2167,7 @@ export interface Bedrock {
   listPromptRouters(): Promise<ListPromptRoutersCommandOutput>;
   listPromptRouters(
     args: ListPromptRoutersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListPromptRoutersCommandOutput>;
   listPromptRouters(
     args: ListPromptRoutersCommandInput,
@@ -2163,7 +2175,7 @@ export interface Bedrock {
   ): void;
   listPromptRouters(
     args: ListPromptRoutersCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListPromptRoutersCommandOutput) => void
   ): void;
 
@@ -2173,7 +2185,7 @@ export interface Bedrock {
   listProvisionedModelThroughputs(): Promise<ListProvisionedModelThroughputsCommandOutput>;
   listProvisionedModelThroughputs(
     args: ListProvisionedModelThroughputsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListProvisionedModelThroughputsCommandOutput>;
   listProvisionedModelThroughputs(
     args: ListProvisionedModelThroughputsCommandInput,
@@ -2181,7 +2193,7 @@ export interface Bedrock {
   ): void;
   listProvisionedModelThroughputs(
     args: ListProvisionedModelThroughputsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListProvisionedModelThroughputsCommandOutput) => void
   ): void;
 
@@ -2190,7 +2202,7 @@ export interface Bedrock {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2198,7 +2210,7 @@ export interface Bedrock {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -2207,7 +2219,7 @@ export interface Bedrock {
    */
   putAccountDataRetention(
     args: PutAccountDataRetentionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<PutAccountDataRetentionCommandOutput>;
   putAccountDataRetention(
     args: PutAccountDataRetentionCommandInput,
@@ -2215,7 +2227,7 @@ export interface Bedrock {
   ): void;
   putAccountDataRetention(
     args: PutAccountDataRetentionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: PutAccountDataRetentionCommandOutput) => void
   ): void;
 
@@ -2224,7 +2236,7 @@ export interface Bedrock {
    */
   putEnforcedGuardrailConfiguration(
     args: PutEnforcedGuardrailConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<PutEnforcedGuardrailConfigurationCommandOutput>;
   putEnforcedGuardrailConfiguration(
     args: PutEnforcedGuardrailConfigurationCommandInput,
@@ -2232,7 +2244,7 @@ export interface Bedrock {
   ): void;
   putEnforcedGuardrailConfiguration(
     args: PutEnforcedGuardrailConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: PutEnforcedGuardrailConfigurationCommandOutput) => void
   ): void;
 
@@ -2241,7 +2253,7 @@ export interface Bedrock {
    */
   putModelInvocationLoggingConfiguration(
     args: PutModelInvocationLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<PutModelInvocationLoggingConfigurationCommandOutput>;
   putModelInvocationLoggingConfiguration(
     args: PutModelInvocationLoggingConfigurationCommandInput,
@@ -2249,7 +2261,7 @@ export interface Bedrock {
   ): void;
   putModelInvocationLoggingConfiguration(
     args: PutModelInvocationLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: PutModelInvocationLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -2258,7 +2270,7 @@ export interface Bedrock {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -2266,7 +2278,7 @@ export interface Bedrock {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -2275,7 +2287,7 @@ export interface Bedrock {
    */
   putUseCaseForModelAccess(
     args: PutUseCaseForModelAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<PutUseCaseForModelAccessCommandOutput>;
   putUseCaseForModelAccess(
     args: PutUseCaseForModelAccessCommandInput,
@@ -2283,7 +2295,7 @@ export interface Bedrock {
   ): void;
   putUseCaseForModelAccess(
     args: PutUseCaseForModelAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: PutUseCaseForModelAccessCommandOutput) => void
   ): void;
 
@@ -2292,7 +2304,7 @@ export interface Bedrock {
    */
   registerMarketplaceModelEndpoint(
     args: RegisterMarketplaceModelEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<RegisterMarketplaceModelEndpointCommandOutput>;
   registerMarketplaceModelEndpoint(
     args: RegisterMarketplaceModelEndpointCommandInput,
@@ -2300,7 +2312,7 @@ export interface Bedrock {
   ): void;
   registerMarketplaceModelEndpoint(
     args: RegisterMarketplaceModelEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: RegisterMarketplaceModelEndpointCommandOutput) => void
   ): void;
 
@@ -2309,7 +2321,7 @@ export interface Bedrock {
    */
   startAutomatedReasoningPolicyBuildWorkflow(
     args: StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<StartAutomatedReasoningPolicyBuildWorkflowCommandOutput>;
   startAutomatedReasoningPolicyBuildWorkflow(
     args: StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
@@ -2317,7 +2329,7 @@ export interface Bedrock {
   ): void;
   startAutomatedReasoningPolicyBuildWorkflow(
     args: StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: StartAutomatedReasoningPolicyBuildWorkflowCommandOutput) => void
   ): void;
 
@@ -2326,7 +2338,7 @@ export interface Bedrock {
    */
   startAutomatedReasoningPolicyTestWorkflow(
     args: StartAutomatedReasoningPolicyTestWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<StartAutomatedReasoningPolicyTestWorkflowCommandOutput>;
   startAutomatedReasoningPolicyTestWorkflow(
     args: StartAutomatedReasoningPolicyTestWorkflowCommandInput,
@@ -2334,7 +2346,7 @@ export interface Bedrock {
   ): void;
   startAutomatedReasoningPolicyTestWorkflow(
     args: StartAutomatedReasoningPolicyTestWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: StartAutomatedReasoningPolicyTestWorkflowCommandOutput) => void
   ): void;
 
@@ -2343,7 +2355,7 @@ export interface Bedrock {
    */
   stopAdvancedPromptOptimizationJob(
     args: StopAdvancedPromptOptimizationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<StopAdvancedPromptOptimizationJobCommandOutput>;
   stopAdvancedPromptOptimizationJob(
     args: StopAdvancedPromptOptimizationJobCommandInput,
@@ -2351,7 +2363,7 @@ export interface Bedrock {
   ): void;
   stopAdvancedPromptOptimizationJob(
     args: StopAdvancedPromptOptimizationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: StopAdvancedPromptOptimizationJobCommandOutput) => void
   ): void;
 
@@ -2360,7 +2372,7 @@ export interface Bedrock {
    */
   stopEvaluationJob(
     args: StopEvaluationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<StopEvaluationJobCommandOutput>;
   stopEvaluationJob(
     args: StopEvaluationJobCommandInput,
@@ -2368,7 +2380,7 @@ export interface Bedrock {
   ): void;
   stopEvaluationJob(
     args: StopEvaluationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: StopEvaluationJobCommandOutput) => void
   ): void;
 
@@ -2377,7 +2389,7 @@ export interface Bedrock {
    */
   stopModelCustomizationJob(
     args: StopModelCustomizationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<StopModelCustomizationJobCommandOutput>;
   stopModelCustomizationJob(
     args: StopModelCustomizationJobCommandInput,
@@ -2385,7 +2397,7 @@ export interface Bedrock {
   ): void;
   stopModelCustomizationJob(
     args: StopModelCustomizationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: StopModelCustomizationJobCommandOutput) => void
   ): void;
 
@@ -2394,7 +2406,7 @@ export interface Bedrock {
    */
   stopModelInvocationJob(
     args: StopModelInvocationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<StopModelInvocationJobCommandOutput>;
   stopModelInvocationJob(
     args: StopModelInvocationJobCommandInput,
@@ -2402,7 +2414,7 @@ export interface Bedrock {
   ): void;
   stopModelInvocationJob(
     args: StopModelInvocationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: StopModelInvocationJobCommandOutput) => void
   ): void;
 
@@ -2411,7 +2423,7 @@ export interface Bedrock {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2419,7 +2431,7 @@ export interface Bedrock {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2428,7 +2440,7 @@ export interface Bedrock {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2436,7 +2448,7 @@ export interface Bedrock {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2445,7 +2457,7 @@ export interface Bedrock {
    */
   updateAutomatedReasoningPolicy(
     args: UpdateAutomatedReasoningPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<UpdateAutomatedReasoningPolicyCommandOutput>;
   updateAutomatedReasoningPolicy(
     args: UpdateAutomatedReasoningPolicyCommandInput,
@@ -2453,7 +2465,7 @@ export interface Bedrock {
   ): void;
   updateAutomatedReasoningPolicy(
     args: UpdateAutomatedReasoningPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: UpdateAutomatedReasoningPolicyCommandOutput) => void
   ): void;
 
@@ -2462,7 +2474,7 @@ export interface Bedrock {
    */
   updateAutomatedReasoningPolicyAnnotations(
     args: UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<UpdateAutomatedReasoningPolicyAnnotationsCommandOutput>;
   updateAutomatedReasoningPolicyAnnotations(
     args: UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
@@ -2470,7 +2482,7 @@ export interface Bedrock {
   ): void;
   updateAutomatedReasoningPolicyAnnotations(
     args: UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: UpdateAutomatedReasoningPolicyAnnotationsCommandOutput) => void
   ): void;
 
@@ -2479,7 +2491,7 @@ export interface Bedrock {
    */
   updateAutomatedReasoningPolicyTestCase(
     args: UpdateAutomatedReasoningPolicyTestCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<UpdateAutomatedReasoningPolicyTestCaseCommandOutput>;
   updateAutomatedReasoningPolicyTestCase(
     args: UpdateAutomatedReasoningPolicyTestCaseCommandInput,
@@ -2487,7 +2499,7 @@ export interface Bedrock {
   ): void;
   updateAutomatedReasoningPolicyTestCase(
     args: UpdateAutomatedReasoningPolicyTestCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: UpdateAutomatedReasoningPolicyTestCaseCommandOutput) => void
   ): void;
 
@@ -2496,7 +2508,7 @@ export interface Bedrock {
    */
   updateCustomModelDeployment(
     args: UpdateCustomModelDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<UpdateCustomModelDeploymentCommandOutput>;
   updateCustomModelDeployment(
     args: UpdateCustomModelDeploymentCommandInput,
@@ -2504,7 +2516,7 @@ export interface Bedrock {
   ): void;
   updateCustomModelDeployment(
     args: UpdateCustomModelDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: UpdateCustomModelDeploymentCommandOutput) => void
   ): void;
 
@@ -2513,7 +2525,7 @@ export interface Bedrock {
    */
   updateGuardrail(
     args: UpdateGuardrailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<UpdateGuardrailCommandOutput>;
   updateGuardrail(
     args: UpdateGuardrailCommandInput,
@@ -2521,7 +2533,7 @@ export interface Bedrock {
   ): void;
   updateGuardrail(
     args: UpdateGuardrailCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: UpdateGuardrailCommandOutput) => void
   ): void;
 
@@ -2530,7 +2542,7 @@ export interface Bedrock {
    */
   updateMarketplaceModelEndpoint(
     args: UpdateMarketplaceModelEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<UpdateMarketplaceModelEndpointCommandOutput>;
   updateMarketplaceModelEndpoint(
     args: UpdateMarketplaceModelEndpointCommandInput,
@@ -2538,7 +2550,7 @@ export interface Bedrock {
   ): void;
   updateMarketplaceModelEndpoint(
     args: UpdateMarketplaceModelEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: UpdateMarketplaceModelEndpointCommandOutput) => void
   ): void;
 
@@ -2547,7 +2559,7 @@ export interface Bedrock {
    */
   updateProvisionedModelThroughput(
     args: UpdateProvisionedModelThroughputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRequestOptions
   ): Promise<UpdateProvisionedModelThroughputCommandOutput>;
   updateProvisionedModelThroughput(
     args: UpdateProvisionedModelThroughputCommandInput,
@@ -2555,7 +2567,7 @@ export interface Bedrock {
   ): void;
   updateProvisionedModelThroughput(
     args: UpdateProvisionedModelThroughputCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRequestOptions,
     cb: (err: any, data?: UpdateProvisionedModelThroughputCommandOutput) => void
   ): void;
 

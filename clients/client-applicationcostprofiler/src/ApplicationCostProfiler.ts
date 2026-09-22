@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { ApplicationCostProfilerClient } from "./ApplicationCostProfilerClient";
 import {
@@ -47,13 +52,20 @@ const paginators = {
   paginateListReportDefinitions,
 };
 
+/**
+ * @public
+ */
+export interface ApplicationCostProfilerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ApplicationCostProfiler {
   /**
    * @see {@link DeleteReportDefinitionCommand}
    */
   deleteReportDefinition(
     args: DeleteReportDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationCostProfilerRequestOptions
   ): Promise<DeleteReportDefinitionCommandOutput>;
   deleteReportDefinition(
     args: DeleteReportDefinitionCommandInput,
@@ -61,7 +73,7 @@ export interface ApplicationCostProfiler {
   ): void;
   deleteReportDefinition(
     args: DeleteReportDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationCostProfilerRequestOptions,
     cb: (err: any, data?: DeleteReportDefinitionCommandOutput) => void
   ): void;
 
@@ -70,7 +82,7 @@ export interface ApplicationCostProfiler {
    */
   getReportDefinition(
     args: GetReportDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationCostProfilerRequestOptions
   ): Promise<GetReportDefinitionCommandOutput>;
   getReportDefinition(
     args: GetReportDefinitionCommandInput,
@@ -78,7 +90,7 @@ export interface ApplicationCostProfiler {
   ): void;
   getReportDefinition(
     args: GetReportDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationCostProfilerRequestOptions,
     cb: (err: any, data?: GetReportDefinitionCommandOutput) => void
   ): void;
 
@@ -87,7 +99,7 @@ export interface ApplicationCostProfiler {
    */
   importApplicationUsage(
     args: ImportApplicationUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationCostProfilerRequestOptions
   ): Promise<ImportApplicationUsageCommandOutput>;
   importApplicationUsage(
     args: ImportApplicationUsageCommandInput,
@@ -95,7 +107,7 @@ export interface ApplicationCostProfiler {
   ): void;
   importApplicationUsage(
     args: ImportApplicationUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationCostProfilerRequestOptions,
     cb: (err: any, data?: ImportApplicationUsageCommandOutput) => void
   ): void;
 
@@ -105,7 +117,7 @@ export interface ApplicationCostProfiler {
   listReportDefinitions(): Promise<ListReportDefinitionsCommandOutput>;
   listReportDefinitions(
     args: ListReportDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationCostProfilerRequestOptions
   ): Promise<ListReportDefinitionsCommandOutput>;
   listReportDefinitions(
     args: ListReportDefinitionsCommandInput,
@@ -113,7 +125,7 @@ export interface ApplicationCostProfiler {
   ): void;
   listReportDefinitions(
     args: ListReportDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationCostProfilerRequestOptions,
     cb: (err: any, data?: ListReportDefinitionsCommandOutput) => void
   ): void;
 
@@ -122,7 +134,7 @@ export interface ApplicationCostProfiler {
    */
   putReportDefinition(
     args: PutReportDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationCostProfilerRequestOptions
   ): Promise<PutReportDefinitionCommandOutput>;
   putReportDefinition(
     args: PutReportDefinitionCommandInput,
@@ -130,7 +142,7 @@ export interface ApplicationCostProfiler {
   ): void;
   putReportDefinition(
     args: PutReportDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationCostProfilerRequestOptions,
     cb: (err: any, data?: PutReportDefinitionCommandOutput) => void
   ): void;
 
@@ -139,7 +151,7 @@ export interface ApplicationCostProfiler {
    */
   updateReportDefinition(
     args: UpdateReportDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationCostProfilerRequestOptions
   ): Promise<UpdateReportDefinitionCommandOutput>;
   updateReportDefinition(
     args: UpdateReportDefinitionCommandInput,
@@ -147,7 +159,7 @@ export interface ApplicationCostProfiler {
   ): void;
   updateReportDefinition(
     args: UpdateReportDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationCostProfilerRequestOptions,
     cb: (err: any, data?: UpdateReportDefinitionCommandOutput) => void
   ): void;
 

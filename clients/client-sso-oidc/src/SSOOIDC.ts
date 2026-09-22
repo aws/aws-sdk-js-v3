@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type CreateTokenCommandInput,
@@ -31,13 +31,20 @@ const commands = {
   StartDeviceAuthorizationCommand,
 };
 
+/**
+ * @public
+ */
+export interface SSOOIDCRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SSOOIDC {
   /**
    * @see {@link CreateTokenCommand}
    */
   createToken(
     args: CreateTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOOIDCRequestOptions
   ): Promise<CreateTokenCommandOutput>;
   createToken(
     args: CreateTokenCommandInput,
@@ -45,7 +52,7 @@ export interface SSOOIDC {
   ): void;
   createToken(
     args: CreateTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOOIDCRequestOptions,
     cb: (err: any, data?: CreateTokenCommandOutput) => void
   ): void;
 
@@ -54,7 +61,7 @@ export interface SSOOIDC {
    */
   createTokenWithIAM(
     args: CreateTokenWithIAMCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOOIDCRequestOptions
   ): Promise<CreateTokenWithIAMCommandOutput>;
   createTokenWithIAM(
     args: CreateTokenWithIAMCommandInput,
@@ -62,7 +69,7 @@ export interface SSOOIDC {
   ): void;
   createTokenWithIAM(
     args: CreateTokenWithIAMCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOOIDCRequestOptions,
     cb: (err: any, data?: CreateTokenWithIAMCommandOutput) => void
   ): void;
 
@@ -71,7 +78,7 @@ export interface SSOOIDC {
    */
   registerClient(
     args: RegisterClientCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOOIDCRequestOptions
   ): Promise<RegisterClientCommandOutput>;
   registerClient(
     args: RegisterClientCommandInput,
@@ -79,7 +86,7 @@ export interface SSOOIDC {
   ): void;
   registerClient(
     args: RegisterClientCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOOIDCRequestOptions,
     cb: (err: any, data?: RegisterClientCommandOutput) => void
   ): void;
 
@@ -88,7 +95,7 @@ export interface SSOOIDC {
    */
   startDeviceAuthorization(
     args: StartDeviceAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOOIDCRequestOptions
   ): Promise<StartDeviceAuthorizationCommandOutput>;
   startDeviceAuthorization(
     args: StartDeviceAuthorizationCommandInput,
@@ -96,7 +103,7 @@ export interface SSOOIDC {
   ): void;
   startDeviceAuthorization(
     args: StartDeviceAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOOIDCRequestOptions,
     cb: (err: any, data?: StartDeviceAuthorizationCommandOutput) => void
   ): void;
 }

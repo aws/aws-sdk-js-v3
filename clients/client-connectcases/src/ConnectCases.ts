@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchGetCaseRuleCommandInput,
@@ -279,13 +284,20 @@ const paginators = {
   paginateSearchRelatedItems,
 };
 
+/**
+ * @public
+ */
+export interface ConnectCasesRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ConnectCases {
   /**
    * @see {@link BatchGetCaseRuleCommand}
    */
   batchGetCaseRule(
     args: BatchGetCaseRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<BatchGetCaseRuleCommandOutput>;
   batchGetCaseRule(
     args: BatchGetCaseRuleCommandInput,
@@ -293,7 +305,7 @@ export interface ConnectCases {
   ): void;
   batchGetCaseRule(
     args: BatchGetCaseRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: BatchGetCaseRuleCommandOutput) => void
   ): void;
 
@@ -302,7 +314,7 @@ export interface ConnectCases {
    */
   batchGetField(
     args: BatchGetFieldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<BatchGetFieldCommandOutput>;
   batchGetField(
     args: BatchGetFieldCommandInput,
@@ -310,7 +322,7 @@ export interface ConnectCases {
   ): void;
   batchGetField(
     args: BatchGetFieldCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: BatchGetFieldCommandOutput) => void
   ): void;
 
@@ -319,7 +331,7 @@ export interface ConnectCases {
    */
   batchPutFieldOptions(
     args: BatchPutFieldOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<BatchPutFieldOptionsCommandOutput>;
   batchPutFieldOptions(
     args: BatchPutFieldOptionsCommandInput,
@@ -327,7 +339,7 @@ export interface ConnectCases {
   ): void;
   batchPutFieldOptions(
     args: BatchPutFieldOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: BatchPutFieldOptionsCommandOutput) => void
   ): void;
 
@@ -336,7 +348,7 @@ export interface ConnectCases {
    */
   createCase(
     args: CreateCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<CreateCaseCommandOutput>;
   createCase(
     args: CreateCaseCommandInput,
@@ -344,7 +356,7 @@ export interface ConnectCases {
   ): void;
   createCase(
     args: CreateCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: CreateCaseCommandOutput) => void
   ): void;
 
@@ -353,7 +365,7 @@ export interface ConnectCases {
    */
   createCaseRule(
     args: CreateCaseRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<CreateCaseRuleCommandOutput>;
   createCaseRule(
     args: CreateCaseRuleCommandInput,
@@ -361,7 +373,7 @@ export interface ConnectCases {
   ): void;
   createCaseRule(
     args: CreateCaseRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: CreateCaseRuleCommandOutput) => void
   ): void;
 
@@ -370,7 +382,7 @@ export interface ConnectCases {
    */
   createDomain(
     args: CreateDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<CreateDomainCommandOutput>;
   createDomain(
     args: CreateDomainCommandInput,
@@ -378,7 +390,7 @@ export interface ConnectCases {
   ): void;
   createDomain(
     args: CreateDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: CreateDomainCommandOutput) => void
   ): void;
 
@@ -387,7 +399,7 @@ export interface ConnectCases {
    */
   createField(
     args: CreateFieldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<CreateFieldCommandOutput>;
   createField(
     args: CreateFieldCommandInput,
@@ -395,7 +407,7 @@ export interface ConnectCases {
   ): void;
   createField(
     args: CreateFieldCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: CreateFieldCommandOutput) => void
   ): void;
 
@@ -404,7 +416,7 @@ export interface ConnectCases {
    */
   createLayout(
     args: CreateLayoutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<CreateLayoutCommandOutput>;
   createLayout(
     args: CreateLayoutCommandInput,
@@ -412,7 +424,7 @@ export interface ConnectCases {
   ): void;
   createLayout(
     args: CreateLayoutCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: CreateLayoutCommandOutput) => void
   ): void;
 
@@ -421,7 +433,7 @@ export interface ConnectCases {
    */
   createRelatedItem(
     args: CreateRelatedItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<CreateRelatedItemCommandOutput>;
   createRelatedItem(
     args: CreateRelatedItemCommandInput,
@@ -429,7 +441,7 @@ export interface ConnectCases {
   ): void;
   createRelatedItem(
     args: CreateRelatedItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: CreateRelatedItemCommandOutput) => void
   ): void;
 
@@ -438,7 +450,7 @@ export interface ConnectCases {
    */
   createTemplate(
     args: CreateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<CreateTemplateCommandOutput>;
   createTemplate(
     args: CreateTemplateCommandInput,
@@ -446,7 +458,7 @@ export interface ConnectCases {
   ): void;
   createTemplate(
     args: CreateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: CreateTemplateCommandOutput) => void
   ): void;
 
@@ -455,7 +467,7 @@ export interface ConnectCases {
    */
   deleteCase(
     args: DeleteCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<DeleteCaseCommandOutput>;
   deleteCase(
     args: DeleteCaseCommandInput,
@@ -463,7 +475,7 @@ export interface ConnectCases {
   ): void;
   deleteCase(
     args: DeleteCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: DeleteCaseCommandOutput) => void
   ): void;
 
@@ -472,7 +484,7 @@ export interface ConnectCases {
    */
   deleteCaseRule(
     args: DeleteCaseRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<DeleteCaseRuleCommandOutput>;
   deleteCaseRule(
     args: DeleteCaseRuleCommandInput,
@@ -480,7 +492,7 @@ export interface ConnectCases {
   ): void;
   deleteCaseRule(
     args: DeleteCaseRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: DeleteCaseRuleCommandOutput) => void
   ): void;
 
@@ -489,7 +501,7 @@ export interface ConnectCases {
    */
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<DeleteDomainCommandOutput>;
   deleteDomain(
     args: DeleteDomainCommandInput,
@@ -497,7 +509,7 @@ export interface ConnectCases {
   ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
   ): void;
 
@@ -506,7 +518,7 @@ export interface ConnectCases {
    */
   deleteField(
     args: DeleteFieldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<DeleteFieldCommandOutput>;
   deleteField(
     args: DeleteFieldCommandInput,
@@ -514,7 +526,7 @@ export interface ConnectCases {
   ): void;
   deleteField(
     args: DeleteFieldCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: DeleteFieldCommandOutput) => void
   ): void;
 
@@ -523,7 +535,7 @@ export interface ConnectCases {
    */
   deleteLayout(
     args: DeleteLayoutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<DeleteLayoutCommandOutput>;
   deleteLayout(
     args: DeleteLayoutCommandInput,
@@ -531,7 +543,7 @@ export interface ConnectCases {
   ): void;
   deleteLayout(
     args: DeleteLayoutCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: DeleteLayoutCommandOutput) => void
   ): void;
 
@@ -540,7 +552,7 @@ export interface ConnectCases {
    */
   deleteRelatedItem(
     args: DeleteRelatedItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<DeleteRelatedItemCommandOutput>;
   deleteRelatedItem(
     args: DeleteRelatedItemCommandInput,
@@ -548,7 +560,7 @@ export interface ConnectCases {
   ): void;
   deleteRelatedItem(
     args: DeleteRelatedItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: DeleteRelatedItemCommandOutput) => void
   ): void;
 
@@ -557,7 +569,7 @@ export interface ConnectCases {
    */
   deleteTemplate(
     args: DeleteTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<DeleteTemplateCommandOutput>;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
@@ -565,7 +577,7 @@ export interface ConnectCases {
   ): void;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: DeleteTemplateCommandOutput) => void
   ): void;
 
@@ -574,7 +586,7 @@ export interface ConnectCases {
    */
   getCase(
     args: GetCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<GetCaseCommandOutput>;
   getCase(
     args: GetCaseCommandInput,
@@ -582,7 +594,7 @@ export interface ConnectCases {
   ): void;
   getCase(
     args: GetCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: GetCaseCommandOutput) => void
   ): void;
 
@@ -591,7 +603,7 @@ export interface ConnectCases {
    */
   getCaseAuditEvents(
     args: GetCaseAuditEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<GetCaseAuditEventsCommandOutput>;
   getCaseAuditEvents(
     args: GetCaseAuditEventsCommandInput,
@@ -599,7 +611,7 @@ export interface ConnectCases {
   ): void;
   getCaseAuditEvents(
     args: GetCaseAuditEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: GetCaseAuditEventsCommandOutput) => void
   ): void;
 
@@ -608,7 +620,7 @@ export interface ConnectCases {
    */
   getCaseEventConfiguration(
     args: GetCaseEventConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<GetCaseEventConfigurationCommandOutput>;
   getCaseEventConfiguration(
     args: GetCaseEventConfigurationCommandInput,
@@ -616,7 +628,7 @@ export interface ConnectCases {
   ): void;
   getCaseEventConfiguration(
     args: GetCaseEventConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: GetCaseEventConfigurationCommandOutput) => void
   ): void;
 
@@ -625,7 +637,7 @@ export interface ConnectCases {
    */
   getDomain(
     args: GetDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<GetDomainCommandOutput>;
   getDomain(
     args: GetDomainCommandInput,
@@ -633,7 +645,7 @@ export interface ConnectCases {
   ): void;
   getDomain(
     args: GetDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: GetDomainCommandOutput) => void
   ): void;
 
@@ -642,7 +654,7 @@ export interface ConnectCases {
    */
   getLayout(
     args: GetLayoutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<GetLayoutCommandOutput>;
   getLayout(
     args: GetLayoutCommandInput,
@@ -650,7 +662,7 @@ export interface ConnectCases {
   ): void;
   getLayout(
     args: GetLayoutCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: GetLayoutCommandOutput) => void
   ): void;
 
@@ -659,7 +671,7 @@ export interface ConnectCases {
    */
   getTemplate(
     args: GetTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<GetTemplateCommandOutput>;
   getTemplate(
     args: GetTemplateCommandInput,
@@ -667,7 +679,7 @@ export interface ConnectCases {
   ): void;
   getTemplate(
     args: GetTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: GetTemplateCommandOutput) => void
   ): void;
 
@@ -676,7 +688,7 @@ export interface ConnectCases {
    */
   listCaseRules(
     args: ListCaseRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<ListCaseRulesCommandOutput>;
   listCaseRules(
     args: ListCaseRulesCommandInput,
@@ -684,7 +696,7 @@ export interface ConnectCases {
   ): void;
   listCaseRules(
     args: ListCaseRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: ListCaseRulesCommandOutput) => void
   ): void;
 
@@ -693,7 +705,7 @@ export interface ConnectCases {
    */
   listCasesForContact(
     args: ListCasesForContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<ListCasesForContactCommandOutput>;
   listCasesForContact(
     args: ListCasesForContactCommandInput,
@@ -701,7 +713,7 @@ export interface ConnectCases {
   ): void;
   listCasesForContact(
     args: ListCasesForContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: ListCasesForContactCommandOutput) => void
   ): void;
 
@@ -711,7 +723,7 @@ export interface ConnectCases {
   listDomains(): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
@@ -719,7 +731,7 @@ export interface ConnectCases {
   ): void;
   listDomains(
     args: ListDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: ListDomainsCommandOutput) => void
   ): void;
 
@@ -728,7 +740,7 @@ export interface ConnectCases {
    */
   listFieldOptions(
     args: ListFieldOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<ListFieldOptionsCommandOutput>;
   listFieldOptions(
     args: ListFieldOptionsCommandInput,
@@ -736,7 +748,7 @@ export interface ConnectCases {
   ): void;
   listFieldOptions(
     args: ListFieldOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: ListFieldOptionsCommandOutput) => void
   ): void;
 
@@ -745,7 +757,7 @@ export interface ConnectCases {
    */
   listFields(
     args: ListFieldsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<ListFieldsCommandOutput>;
   listFields(
     args: ListFieldsCommandInput,
@@ -753,7 +765,7 @@ export interface ConnectCases {
   ): void;
   listFields(
     args: ListFieldsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: ListFieldsCommandOutput) => void
   ): void;
 
@@ -762,7 +774,7 @@ export interface ConnectCases {
    */
   listLayouts(
     args: ListLayoutsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<ListLayoutsCommandOutput>;
   listLayouts(
     args: ListLayoutsCommandInput,
@@ -770,7 +782,7 @@ export interface ConnectCases {
   ): void;
   listLayouts(
     args: ListLayoutsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: ListLayoutsCommandOutput) => void
   ): void;
 
@@ -779,7 +791,7 @@ export interface ConnectCases {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -787,7 +799,7 @@ export interface ConnectCases {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -796,7 +808,7 @@ export interface ConnectCases {
    */
   listTemplates(
     args: ListTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<ListTemplatesCommandOutput>;
   listTemplates(
     args: ListTemplatesCommandInput,
@@ -804,7 +816,7 @@ export interface ConnectCases {
   ): void;
   listTemplates(
     args: ListTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: ListTemplatesCommandOutput) => void
   ): void;
 
@@ -813,7 +825,7 @@ export interface ConnectCases {
    */
   putCaseEventConfiguration(
     args: PutCaseEventConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<PutCaseEventConfigurationCommandOutput>;
   putCaseEventConfiguration(
     args: PutCaseEventConfigurationCommandInput,
@@ -821,7 +833,7 @@ export interface ConnectCases {
   ): void;
   putCaseEventConfiguration(
     args: PutCaseEventConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: PutCaseEventConfigurationCommandOutput) => void
   ): void;
 
@@ -830,7 +842,7 @@ export interface ConnectCases {
    */
   searchAllRelatedItems(
     args: SearchAllRelatedItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<SearchAllRelatedItemsCommandOutput>;
   searchAllRelatedItems(
     args: SearchAllRelatedItemsCommandInput,
@@ -838,7 +850,7 @@ export interface ConnectCases {
   ): void;
   searchAllRelatedItems(
     args: SearchAllRelatedItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: SearchAllRelatedItemsCommandOutput) => void
   ): void;
 
@@ -847,7 +859,7 @@ export interface ConnectCases {
    */
   searchCases(
     args: SearchCasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<SearchCasesCommandOutput>;
   searchCases(
     args: SearchCasesCommandInput,
@@ -855,7 +867,7 @@ export interface ConnectCases {
   ): void;
   searchCases(
     args: SearchCasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: SearchCasesCommandOutput) => void
   ): void;
 
@@ -864,7 +876,7 @@ export interface ConnectCases {
    */
   searchRelatedItems(
     args: SearchRelatedItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<SearchRelatedItemsCommandOutput>;
   searchRelatedItems(
     args: SearchRelatedItemsCommandInput,
@@ -872,7 +884,7 @@ export interface ConnectCases {
   ): void;
   searchRelatedItems(
     args: SearchRelatedItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: SearchRelatedItemsCommandOutput) => void
   ): void;
 
@@ -881,7 +893,7 @@ export interface ConnectCases {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -889,7 +901,7 @@ export interface ConnectCases {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -898,7 +910,7 @@ export interface ConnectCases {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -906,7 +918,7 @@ export interface ConnectCases {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -915,7 +927,7 @@ export interface ConnectCases {
    */
   updateCase(
     args: UpdateCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<UpdateCaseCommandOutput>;
   updateCase(
     args: UpdateCaseCommandInput,
@@ -923,7 +935,7 @@ export interface ConnectCases {
   ): void;
   updateCase(
     args: UpdateCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: UpdateCaseCommandOutput) => void
   ): void;
 
@@ -932,7 +944,7 @@ export interface ConnectCases {
    */
   updateCaseRule(
     args: UpdateCaseRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<UpdateCaseRuleCommandOutput>;
   updateCaseRule(
     args: UpdateCaseRuleCommandInput,
@@ -940,7 +952,7 @@ export interface ConnectCases {
   ): void;
   updateCaseRule(
     args: UpdateCaseRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: UpdateCaseRuleCommandOutput) => void
   ): void;
 
@@ -949,7 +961,7 @@ export interface ConnectCases {
    */
   updateField(
     args: UpdateFieldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<UpdateFieldCommandOutput>;
   updateField(
     args: UpdateFieldCommandInput,
@@ -957,7 +969,7 @@ export interface ConnectCases {
   ): void;
   updateField(
     args: UpdateFieldCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: UpdateFieldCommandOutput) => void
   ): void;
 
@@ -966,7 +978,7 @@ export interface ConnectCases {
    */
   updateLayout(
     args: UpdateLayoutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<UpdateLayoutCommandOutput>;
   updateLayout(
     args: UpdateLayoutCommandInput,
@@ -974,7 +986,7 @@ export interface ConnectCases {
   ): void;
   updateLayout(
     args: UpdateLayoutCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: UpdateLayoutCommandOutput) => void
   ): void;
 
@@ -983,7 +995,7 @@ export interface ConnectCases {
    */
   updateRelatedItem(
     args: UpdateRelatedItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<UpdateRelatedItemCommandOutput>;
   updateRelatedItem(
     args: UpdateRelatedItemCommandInput,
@@ -991,7 +1003,7 @@ export interface ConnectCases {
   ): void;
   updateRelatedItem(
     args: UpdateRelatedItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: UpdateRelatedItemCommandOutput) => void
   ): void;
 
@@ -1000,7 +1012,7 @@ export interface ConnectCases {
    */
   updateTemplate(
     args: UpdateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCasesRequestOptions
   ): Promise<UpdateTemplateCommandOutput>;
   updateTemplate(
     args: UpdateTemplateCommandInput,
@@ -1008,7 +1020,7 @@ export interface ConnectCases {
   ): void;
   updateTemplate(
     args: UpdateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCasesRequestOptions,
     cb: (err: any, data?: UpdateTemplateCommandOutput) => void
   ): void;
 

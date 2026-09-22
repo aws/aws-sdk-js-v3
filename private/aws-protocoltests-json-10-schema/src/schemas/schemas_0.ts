@@ -150,10 +150,10 @@ import { ComplexError, FooError, InvalidGreeting } from "../models/errors";
 import { JSONRPC10ServiceException } from "../models/JSONRPC10ServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var JSONRPC10ServiceException$: StaticErrorSchema = [-3, _s, "JSONRPC10ServiceException", 0, [], []];
 _s_registry.registerError(JSONRPC10ServiceException$, JSONRPC10ServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var ComplexError$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c },
   [_TL, _N],

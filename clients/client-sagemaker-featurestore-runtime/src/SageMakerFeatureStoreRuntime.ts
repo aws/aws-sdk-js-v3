@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchGetRecordCommandInput,
@@ -45,13 +50,20 @@ const paginators = {
   paginateListRecords,
 };
 
+/**
+ * @public
+ */
+export interface SageMakerFeatureStoreRuntimeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SageMakerFeatureStoreRuntime {
   /**
    * @see {@link BatchGetRecordCommand}
    */
   batchGetRecord(
     args: BatchGetRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerFeatureStoreRuntimeRequestOptions
   ): Promise<BatchGetRecordCommandOutput>;
   batchGetRecord(
     args: BatchGetRecordCommandInput,
@@ -59,7 +71,7 @@ export interface SageMakerFeatureStoreRuntime {
   ): void;
   batchGetRecord(
     args: BatchGetRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerFeatureStoreRuntimeRequestOptions,
     cb: (err: any, data?: BatchGetRecordCommandOutput) => void
   ): void;
 
@@ -68,7 +80,7 @@ export interface SageMakerFeatureStoreRuntime {
    */
   batchWriteRecord(
     args: BatchWriteRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerFeatureStoreRuntimeRequestOptions
   ): Promise<BatchWriteRecordCommandOutput>;
   batchWriteRecord(
     args: BatchWriteRecordCommandInput,
@@ -76,7 +88,7 @@ export interface SageMakerFeatureStoreRuntime {
   ): void;
   batchWriteRecord(
     args: BatchWriteRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerFeatureStoreRuntimeRequestOptions,
     cb: (err: any, data?: BatchWriteRecordCommandOutput) => void
   ): void;
 
@@ -85,7 +97,7 @@ export interface SageMakerFeatureStoreRuntime {
    */
   deleteRecord(
     args: DeleteRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerFeatureStoreRuntimeRequestOptions
   ): Promise<DeleteRecordCommandOutput>;
   deleteRecord(
     args: DeleteRecordCommandInput,
@@ -93,7 +105,7 @@ export interface SageMakerFeatureStoreRuntime {
   ): void;
   deleteRecord(
     args: DeleteRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerFeatureStoreRuntimeRequestOptions,
     cb: (err: any, data?: DeleteRecordCommandOutput) => void
   ): void;
 
@@ -102,7 +114,7 @@ export interface SageMakerFeatureStoreRuntime {
    */
   getRecord(
     args: GetRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerFeatureStoreRuntimeRequestOptions
   ): Promise<GetRecordCommandOutput>;
   getRecord(
     args: GetRecordCommandInput,
@@ -110,7 +122,7 @@ export interface SageMakerFeatureStoreRuntime {
   ): void;
   getRecord(
     args: GetRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerFeatureStoreRuntimeRequestOptions,
     cb: (err: any, data?: GetRecordCommandOutput) => void
   ): void;
 
@@ -119,7 +131,7 @@ export interface SageMakerFeatureStoreRuntime {
    */
   listRecords(
     args: ListRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerFeatureStoreRuntimeRequestOptions
   ): Promise<ListRecordsCommandOutput>;
   listRecords(
     args: ListRecordsCommandInput,
@@ -127,7 +139,7 @@ export interface SageMakerFeatureStoreRuntime {
   ): void;
   listRecords(
     args: ListRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerFeatureStoreRuntimeRequestOptions,
     cb: (err: any, data?: ListRecordsCommandOutput) => void
   ): void;
 
@@ -136,7 +148,7 @@ export interface SageMakerFeatureStoreRuntime {
    */
   putRecord(
     args: PutRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerFeatureStoreRuntimeRequestOptions
   ): Promise<PutRecordCommandOutput>;
   putRecord(
     args: PutRecordCommandInput,
@@ -144,7 +156,7 @@ export interface SageMakerFeatureStoreRuntime {
   ): void;
   putRecord(
     args: PutRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerFeatureStoreRuntimeRequestOptions,
     cb: (err: any, data?: PutRecordCommandOutput) => void
   ): void;
 
@@ -153,7 +165,7 @@ export interface SageMakerFeatureStoreRuntime {
    */
   updateRecord(
     args: UpdateRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerFeatureStoreRuntimeRequestOptions
   ): Promise<UpdateRecordCommandOutput>;
   updateRecord(
     args: UpdateRecordCommandInput,
@@ -161,7 +173,7 @@ export interface SageMakerFeatureStoreRuntime {
   ): void;
   updateRecord(
     args: UpdateRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerFeatureStoreRuntimeRequestOptions,
     cb: (err: any, data?: UpdateRecordCommandOutput) => void
   ): void;
 

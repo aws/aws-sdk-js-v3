@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -139,13 +140,20 @@ const waiters = {
   waitUntilSuccessfulSigningJob,
 };
 
+/**
+ * @public
+ */
+export interface SignerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Signer {
   /**
    * @see {@link AddProfilePermissionCommand}
    */
   addProfilePermission(
     args: AddProfilePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<AddProfilePermissionCommandOutput>;
   addProfilePermission(
     args: AddProfilePermissionCommandInput,
@@ -153,7 +161,7 @@ export interface Signer {
   ): void;
   addProfilePermission(
     args: AddProfilePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: AddProfilePermissionCommandOutput) => void
   ): void;
 
@@ -162,7 +170,7 @@ export interface Signer {
    */
   cancelSigningProfile(
     args: CancelSigningProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<CancelSigningProfileCommandOutput>;
   cancelSigningProfile(
     args: CancelSigningProfileCommandInput,
@@ -170,7 +178,7 @@ export interface Signer {
   ): void;
   cancelSigningProfile(
     args: CancelSigningProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: CancelSigningProfileCommandOutput) => void
   ): void;
 
@@ -179,7 +187,7 @@ export interface Signer {
    */
   describeSigningJob(
     args: DescribeSigningJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<DescribeSigningJobCommandOutput>;
   describeSigningJob(
     args: DescribeSigningJobCommandInput,
@@ -187,7 +195,7 @@ export interface Signer {
   ): void;
   describeSigningJob(
     args: DescribeSigningJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: DescribeSigningJobCommandOutput) => void
   ): void;
 
@@ -196,7 +204,7 @@ export interface Signer {
    */
   getRevocationStatus(
     args: GetRevocationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<GetRevocationStatusCommandOutput>;
   getRevocationStatus(
     args: GetRevocationStatusCommandInput,
@@ -204,7 +212,7 @@ export interface Signer {
   ): void;
   getRevocationStatus(
     args: GetRevocationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: GetRevocationStatusCommandOutput) => void
   ): void;
 
@@ -213,7 +221,7 @@ export interface Signer {
    */
   getSigningPlatform(
     args: GetSigningPlatformCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<GetSigningPlatformCommandOutput>;
   getSigningPlatform(
     args: GetSigningPlatformCommandInput,
@@ -221,7 +229,7 @@ export interface Signer {
   ): void;
   getSigningPlatform(
     args: GetSigningPlatformCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: GetSigningPlatformCommandOutput) => void
   ): void;
 
@@ -230,7 +238,7 @@ export interface Signer {
    */
   getSigningProfile(
     args: GetSigningProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<GetSigningProfileCommandOutput>;
   getSigningProfile(
     args: GetSigningProfileCommandInput,
@@ -238,7 +246,7 @@ export interface Signer {
   ): void;
   getSigningProfile(
     args: GetSigningProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: GetSigningProfileCommandOutput) => void
   ): void;
 
@@ -247,7 +255,7 @@ export interface Signer {
    */
   listProfilePermissions(
     args: ListProfilePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<ListProfilePermissionsCommandOutput>;
   listProfilePermissions(
     args: ListProfilePermissionsCommandInput,
@@ -255,7 +263,7 @@ export interface Signer {
   ): void;
   listProfilePermissions(
     args: ListProfilePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: ListProfilePermissionsCommandOutput) => void
   ): void;
 
@@ -265,7 +273,7 @@ export interface Signer {
   listSigningJobs(): Promise<ListSigningJobsCommandOutput>;
   listSigningJobs(
     args: ListSigningJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<ListSigningJobsCommandOutput>;
   listSigningJobs(
     args: ListSigningJobsCommandInput,
@@ -273,7 +281,7 @@ export interface Signer {
   ): void;
   listSigningJobs(
     args: ListSigningJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: ListSigningJobsCommandOutput) => void
   ): void;
 
@@ -283,7 +291,7 @@ export interface Signer {
   listSigningPlatforms(): Promise<ListSigningPlatformsCommandOutput>;
   listSigningPlatforms(
     args: ListSigningPlatformsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<ListSigningPlatformsCommandOutput>;
   listSigningPlatforms(
     args: ListSigningPlatformsCommandInput,
@@ -291,7 +299,7 @@ export interface Signer {
   ): void;
   listSigningPlatforms(
     args: ListSigningPlatformsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: ListSigningPlatformsCommandOutput) => void
   ): void;
 
@@ -301,7 +309,7 @@ export interface Signer {
   listSigningProfiles(): Promise<ListSigningProfilesCommandOutput>;
   listSigningProfiles(
     args: ListSigningProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<ListSigningProfilesCommandOutput>;
   listSigningProfiles(
     args: ListSigningProfilesCommandInput,
@@ -309,7 +317,7 @@ export interface Signer {
   ): void;
   listSigningProfiles(
     args: ListSigningProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: ListSigningProfilesCommandOutput) => void
   ): void;
 
@@ -318,7 +326,7 @@ export interface Signer {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -326,7 +334,7 @@ export interface Signer {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -335,7 +343,7 @@ export interface Signer {
    */
   putSigningProfile(
     args: PutSigningProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<PutSigningProfileCommandOutput>;
   putSigningProfile(
     args: PutSigningProfileCommandInput,
@@ -343,7 +351,7 @@ export interface Signer {
   ): void;
   putSigningProfile(
     args: PutSigningProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: PutSigningProfileCommandOutput) => void
   ): void;
 
@@ -352,7 +360,7 @@ export interface Signer {
    */
   removeProfilePermission(
     args: RemoveProfilePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<RemoveProfilePermissionCommandOutput>;
   removeProfilePermission(
     args: RemoveProfilePermissionCommandInput,
@@ -360,7 +368,7 @@ export interface Signer {
   ): void;
   removeProfilePermission(
     args: RemoveProfilePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: RemoveProfilePermissionCommandOutput) => void
   ): void;
 
@@ -369,7 +377,7 @@ export interface Signer {
    */
   revokeSignature(
     args: RevokeSignatureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<RevokeSignatureCommandOutput>;
   revokeSignature(
     args: RevokeSignatureCommandInput,
@@ -377,7 +385,7 @@ export interface Signer {
   ): void;
   revokeSignature(
     args: RevokeSignatureCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: RevokeSignatureCommandOutput) => void
   ): void;
 
@@ -386,7 +394,7 @@ export interface Signer {
    */
   revokeSigningProfile(
     args: RevokeSigningProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<RevokeSigningProfileCommandOutput>;
   revokeSigningProfile(
     args: RevokeSigningProfileCommandInput,
@@ -394,7 +402,7 @@ export interface Signer {
   ): void;
   revokeSigningProfile(
     args: RevokeSigningProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: RevokeSigningProfileCommandOutput) => void
   ): void;
 
@@ -403,7 +411,7 @@ export interface Signer {
    */
   signPayload(
     args: SignPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<SignPayloadCommandOutput>;
   signPayload(
     args: SignPayloadCommandInput,
@@ -411,7 +419,7 @@ export interface Signer {
   ): void;
   signPayload(
     args: SignPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: SignPayloadCommandOutput) => void
   ): void;
 
@@ -420,7 +428,7 @@ export interface Signer {
    */
   startSigningJob(
     args: StartSigningJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<StartSigningJobCommandOutput>;
   startSigningJob(
     args: StartSigningJobCommandInput,
@@ -428,7 +436,7 @@ export interface Signer {
   ): void;
   startSigningJob(
     args: StartSigningJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: StartSigningJobCommandOutput) => void
   ): void;
 
@@ -437,7 +445,7 @@ export interface Signer {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -445,7 +453,7 @@ export interface Signer {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -454,7 +462,7 @@ export interface Signer {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -462,7 +470,7 @@ export interface Signer {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

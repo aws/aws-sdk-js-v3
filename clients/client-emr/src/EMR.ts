@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -431,13 +432,20 @@ const waiters = {
   waitUntilStepComplete,
 };
 
+/**
+ * @public
+ */
+export interface EMRRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface EMR {
   /**
    * @see {@link AddInstanceFleetCommand}
    */
   addInstanceFleet(
     args: AddInstanceFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<AddInstanceFleetCommandOutput>;
   addInstanceFleet(
     args: AddInstanceFleetCommandInput,
@@ -445,7 +453,7 @@ export interface EMR {
   ): void;
   addInstanceFleet(
     args: AddInstanceFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: AddInstanceFleetCommandOutput) => void
   ): void;
 
@@ -454,7 +462,7 @@ export interface EMR {
    */
   addInstanceGroups(
     args: AddInstanceGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<AddInstanceGroupsCommandOutput>;
   addInstanceGroups(
     args: AddInstanceGroupsCommandInput,
@@ -462,7 +470,7 @@ export interface EMR {
   ): void;
   addInstanceGroups(
     args: AddInstanceGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: AddInstanceGroupsCommandOutput) => void
   ): void;
 
@@ -471,7 +479,7 @@ export interface EMR {
    */
   addJobFlowSteps(
     args: AddJobFlowStepsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<AddJobFlowStepsCommandOutput>;
   addJobFlowSteps(
     args: AddJobFlowStepsCommandInput,
@@ -479,7 +487,7 @@ export interface EMR {
   ): void;
   addJobFlowSteps(
     args: AddJobFlowStepsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: AddJobFlowStepsCommandOutput) => void
   ): void;
 
@@ -488,7 +496,7 @@ export interface EMR {
    */
   addTags(
     args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<AddTagsCommandOutput>;
   addTags(
     args: AddTagsCommandInput,
@@ -496,7 +504,7 @@ export interface EMR {
   ): void;
   addTags(
     args: AddTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: AddTagsCommandOutput) => void
   ): void;
 
@@ -505,7 +513,7 @@ export interface EMR {
    */
   cancelSteps(
     args: CancelStepsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<CancelStepsCommandOutput>;
   cancelSteps(
     args: CancelStepsCommandInput,
@@ -513,7 +521,7 @@ export interface EMR {
   ): void;
   cancelSteps(
     args: CancelStepsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: CancelStepsCommandOutput) => void
   ): void;
 
@@ -522,7 +530,7 @@ export interface EMR {
    */
   createPersistentAppUI(
     args: CreatePersistentAppUICommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<CreatePersistentAppUICommandOutput>;
   createPersistentAppUI(
     args: CreatePersistentAppUICommandInput,
@@ -530,7 +538,7 @@ export interface EMR {
   ): void;
   createPersistentAppUI(
     args: CreatePersistentAppUICommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: CreatePersistentAppUICommandOutput) => void
   ): void;
 
@@ -539,7 +547,7 @@ export interface EMR {
    */
   createSecurityConfiguration(
     args: CreateSecurityConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<CreateSecurityConfigurationCommandOutput>;
   createSecurityConfiguration(
     args: CreateSecurityConfigurationCommandInput,
@@ -547,7 +555,7 @@ export interface EMR {
   ): void;
   createSecurityConfiguration(
     args: CreateSecurityConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: CreateSecurityConfigurationCommandOutput) => void
   ): void;
 
@@ -556,7 +564,7 @@ export interface EMR {
    */
   createStudio(
     args: CreateStudioCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<CreateStudioCommandOutput>;
   createStudio(
     args: CreateStudioCommandInput,
@@ -564,7 +572,7 @@ export interface EMR {
   ): void;
   createStudio(
     args: CreateStudioCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: CreateStudioCommandOutput) => void
   ): void;
 
@@ -573,7 +581,7 @@ export interface EMR {
    */
   createStudioSessionMapping(
     args: CreateStudioSessionMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<CreateStudioSessionMappingCommandOutput>;
   createStudioSessionMapping(
     args: CreateStudioSessionMappingCommandInput,
@@ -581,7 +589,7 @@ export interface EMR {
   ): void;
   createStudioSessionMapping(
     args: CreateStudioSessionMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: CreateStudioSessionMappingCommandOutput) => void
   ): void;
 
@@ -590,7 +598,7 @@ export interface EMR {
    */
   deleteSecurityConfiguration(
     args: DeleteSecurityConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<DeleteSecurityConfigurationCommandOutput>;
   deleteSecurityConfiguration(
     args: DeleteSecurityConfigurationCommandInput,
@@ -598,7 +606,7 @@ export interface EMR {
   ): void;
   deleteSecurityConfiguration(
     args: DeleteSecurityConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: DeleteSecurityConfigurationCommandOutput) => void
   ): void;
 
@@ -607,7 +615,7 @@ export interface EMR {
    */
   deleteStudio(
     args: DeleteStudioCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<DeleteStudioCommandOutput>;
   deleteStudio(
     args: DeleteStudioCommandInput,
@@ -615,7 +623,7 @@ export interface EMR {
   ): void;
   deleteStudio(
     args: DeleteStudioCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: DeleteStudioCommandOutput) => void
   ): void;
 
@@ -624,7 +632,7 @@ export interface EMR {
    */
   deleteStudioSessionMapping(
     args: DeleteStudioSessionMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<DeleteStudioSessionMappingCommandOutput>;
   deleteStudioSessionMapping(
     args: DeleteStudioSessionMappingCommandInput,
@@ -632,7 +640,7 @@ export interface EMR {
   ): void;
   deleteStudioSessionMapping(
     args: DeleteStudioSessionMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: DeleteStudioSessionMappingCommandOutput) => void
   ): void;
 
@@ -641,7 +649,7 @@ export interface EMR {
    */
   describeCluster(
     args: DescribeClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<DescribeClusterCommandOutput>;
   describeCluster(
     args: DescribeClusterCommandInput,
@@ -649,7 +657,7 @@ export interface EMR {
   ): void;
   describeCluster(
     args: DescribeClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: DescribeClusterCommandOutput) => void
   ): void;
 
@@ -659,7 +667,7 @@ export interface EMR {
   describeJobFlows(): Promise<DescribeJobFlowsCommandOutput>;
   describeJobFlows(
     args: DescribeJobFlowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<DescribeJobFlowsCommandOutput>;
   describeJobFlows(
     args: DescribeJobFlowsCommandInput,
@@ -667,7 +675,7 @@ export interface EMR {
   ): void;
   describeJobFlows(
     args: DescribeJobFlowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: DescribeJobFlowsCommandOutput) => void
   ): void;
 
@@ -676,7 +684,7 @@ export interface EMR {
    */
   describeNotebookExecution(
     args: DescribeNotebookExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<DescribeNotebookExecutionCommandOutput>;
   describeNotebookExecution(
     args: DescribeNotebookExecutionCommandInput,
@@ -684,7 +692,7 @@ export interface EMR {
   ): void;
   describeNotebookExecution(
     args: DescribeNotebookExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: DescribeNotebookExecutionCommandOutput) => void
   ): void;
 
@@ -693,7 +701,7 @@ export interface EMR {
    */
   describePersistentAppUI(
     args: DescribePersistentAppUICommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<DescribePersistentAppUICommandOutput>;
   describePersistentAppUI(
     args: DescribePersistentAppUICommandInput,
@@ -701,7 +709,7 @@ export interface EMR {
   ): void;
   describePersistentAppUI(
     args: DescribePersistentAppUICommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: DescribePersistentAppUICommandOutput) => void
   ): void;
 
@@ -711,7 +719,7 @@ export interface EMR {
   describeReleaseLabel(): Promise<DescribeReleaseLabelCommandOutput>;
   describeReleaseLabel(
     args: DescribeReleaseLabelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<DescribeReleaseLabelCommandOutput>;
   describeReleaseLabel(
     args: DescribeReleaseLabelCommandInput,
@@ -719,7 +727,7 @@ export interface EMR {
   ): void;
   describeReleaseLabel(
     args: DescribeReleaseLabelCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: DescribeReleaseLabelCommandOutput) => void
   ): void;
 
@@ -728,7 +736,7 @@ export interface EMR {
    */
   describeSecurityConfiguration(
     args: DescribeSecurityConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<DescribeSecurityConfigurationCommandOutput>;
   describeSecurityConfiguration(
     args: DescribeSecurityConfigurationCommandInput,
@@ -736,7 +744,7 @@ export interface EMR {
   ): void;
   describeSecurityConfiguration(
     args: DescribeSecurityConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: DescribeSecurityConfigurationCommandOutput) => void
   ): void;
 
@@ -745,7 +753,7 @@ export interface EMR {
    */
   describeStep(
     args: DescribeStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<DescribeStepCommandOutput>;
   describeStep(
     args: DescribeStepCommandInput,
@@ -753,7 +761,7 @@ export interface EMR {
   ): void;
   describeStep(
     args: DescribeStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: DescribeStepCommandOutput) => void
   ): void;
 
@@ -762,7 +770,7 @@ export interface EMR {
    */
   describeStudio(
     args: DescribeStudioCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<DescribeStudioCommandOutput>;
   describeStudio(
     args: DescribeStudioCommandInput,
@@ -770,7 +778,7 @@ export interface EMR {
   ): void;
   describeStudio(
     args: DescribeStudioCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: DescribeStudioCommandOutput) => void
   ): void;
 
@@ -779,7 +787,7 @@ export interface EMR {
    */
   getAutoTerminationPolicy(
     args: GetAutoTerminationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<GetAutoTerminationPolicyCommandOutput>;
   getAutoTerminationPolicy(
     args: GetAutoTerminationPolicyCommandInput,
@@ -787,7 +795,7 @@ export interface EMR {
   ): void;
   getAutoTerminationPolicy(
     args: GetAutoTerminationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: GetAutoTerminationPolicyCommandOutput) => void
   ): void;
 
@@ -797,7 +805,7 @@ export interface EMR {
   getBlockPublicAccessConfiguration(): Promise<GetBlockPublicAccessConfigurationCommandOutput>;
   getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<GetBlockPublicAccessConfigurationCommandOutput>;
   getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
@@ -805,7 +813,7 @@ export interface EMR {
   ): void;
   getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: GetBlockPublicAccessConfigurationCommandOutput) => void
   ): void;
 
@@ -814,7 +822,7 @@ export interface EMR {
    */
   getClusterSessionCredentials(
     args: GetClusterSessionCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<GetClusterSessionCredentialsCommandOutput>;
   getClusterSessionCredentials(
     args: GetClusterSessionCredentialsCommandInput,
@@ -822,7 +830,7 @@ export interface EMR {
   ): void;
   getClusterSessionCredentials(
     args: GetClusterSessionCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: GetClusterSessionCredentialsCommandOutput) => void
   ): void;
 
@@ -831,7 +839,7 @@ export interface EMR {
    */
   getManagedScalingPolicy(
     args: GetManagedScalingPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<GetManagedScalingPolicyCommandOutput>;
   getManagedScalingPolicy(
     args: GetManagedScalingPolicyCommandInput,
@@ -839,7 +847,7 @@ export interface EMR {
   ): void;
   getManagedScalingPolicy(
     args: GetManagedScalingPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: GetManagedScalingPolicyCommandOutput) => void
   ): void;
 
@@ -848,7 +856,7 @@ export interface EMR {
    */
   getOnClusterAppUIPresignedURL(
     args: GetOnClusterAppUIPresignedURLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<GetOnClusterAppUIPresignedURLCommandOutput>;
   getOnClusterAppUIPresignedURL(
     args: GetOnClusterAppUIPresignedURLCommandInput,
@@ -856,7 +864,7 @@ export interface EMR {
   ): void;
   getOnClusterAppUIPresignedURL(
     args: GetOnClusterAppUIPresignedURLCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: GetOnClusterAppUIPresignedURLCommandOutput) => void
   ): void;
 
@@ -865,7 +873,7 @@ export interface EMR {
    */
   getPersistentAppUIPresignedURL(
     args: GetPersistentAppUIPresignedURLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<GetPersistentAppUIPresignedURLCommandOutput>;
   getPersistentAppUIPresignedURL(
     args: GetPersistentAppUIPresignedURLCommandInput,
@@ -873,7 +881,7 @@ export interface EMR {
   ): void;
   getPersistentAppUIPresignedURL(
     args: GetPersistentAppUIPresignedURLCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: GetPersistentAppUIPresignedURLCommandOutput) => void
   ): void;
 
@@ -882,7 +890,7 @@ export interface EMR {
    */
   getSession(
     args: GetSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<GetSessionCommandOutput>;
   getSession(
     args: GetSessionCommandInput,
@@ -890,7 +898,7 @@ export interface EMR {
   ): void;
   getSession(
     args: GetSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
   ): void;
 
@@ -899,7 +907,7 @@ export interface EMR {
    */
   getSessionEndpoint(
     args: GetSessionEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<GetSessionEndpointCommandOutput>;
   getSessionEndpoint(
     args: GetSessionEndpointCommandInput,
@@ -907,7 +915,7 @@ export interface EMR {
   ): void;
   getSessionEndpoint(
     args: GetSessionEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: GetSessionEndpointCommandOutput) => void
   ): void;
 
@@ -916,7 +924,7 @@ export interface EMR {
    */
   getStudioSessionMapping(
     args: GetStudioSessionMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<GetStudioSessionMappingCommandOutput>;
   getStudioSessionMapping(
     args: GetStudioSessionMappingCommandInput,
@@ -924,7 +932,7 @@ export interface EMR {
   ): void;
   getStudioSessionMapping(
     args: GetStudioSessionMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: GetStudioSessionMappingCommandOutput) => void
   ): void;
 
@@ -933,7 +941,7 @@ export interface EMR {
    */
   listBootstrapActions(
     args: ListBootstrapActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListBootstrapActionsCommandOutput>;
   listBootstrapActions(
     args: ListBootstrapActionsCommandInput,
@@ -941,7 +949,7 @@ export interface EMR {
   ): void;
   listBootstrapActions(
     args: ListBootstrapActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListBootstrapActionsCommandOutput) => void
   ): void;
 
@@ -951,7 +959,7 @@ export interface EMR {
   listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
@@ -959,7 +967,7 @@ export interface EMR {
   ): void;
   listClusters(
     args: ListClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListClustersCommandOutput) => void
   ): void;
 
@@ -968,7 +976,7 @@ export interface EMR {
    */
   listInstanceFleets(
     args: ListInstanceFleetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListInstanceFleetsCommandOutput>;
   listInstanceFleets(
     args: ListInstanceFleetsCommandInput,
@@ -976,7 +984,7 @@ export interface EMR {
   ): void;
   listInstanceFleets(
     args: ListInstanceFleetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListInstanceFleetsCommandOutput) => void
   ): void;
 
@@ -985,7 +993,7 @@ export interface EMR {
    */
   listInstanceGroups(
     args: ListInstanceGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListInstanceGroupsCommandOutput>;
   listInstanceGroups(
     args: ListInstanceGroupsCommandInput,
@@ -993,7 +1001,7 @@ export interface EMR {
   ): void;
   listInstanceGroups(
     args: ListInstanceGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListInstanceGroupsCommandOutput) => void
   ): void;
 
@@ -1002,7 +1010,7 @@ export interface EMR {
    */
   listInstances(
     args: ListInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListInstancesCommandOutput>;
   listInstances(
     args: ListInstancesCommandInput,
@@ -1010,7 +1018,7 @@ export interface EMR {
   ): void;
   listInstances(
     args: ListInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListInstancesCommandOutput) => void
   ): void;
 
@@ -1020,7 +1028,7 @@ export interface EMR {
   listNotebookExecutions(): Promise<ListNotebookExecutionsCommandOutput>;
   listNotebookExecutions(
     args: ListNotebookExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListNotebookExecutionsCommandOutput>;
   listNotebookExecutions(
     args: ListNotebookExecutionsCommandInput,
@@ -1028,7 +1036,7 @@ export interface EMR {
   ): void;
   listNotebookExecutions(
     args: ListNotebookExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListNotebookExecutionsCommandOutput) => void
   ): void;
 
@@ -1038,7 +1046,7 @@ export interface EMR {
   listReleaseLabels(): Promise<ListReleaseLabelsCommandOutput>;
   listReleaseLabels(
     args: ListReleaseLabelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListReleaseLabelsCommandOutput>;
   listReleaseLabels(
     args: ListReleaseLabelsCommandInput,
@@ -1046,7 +1054,7 @@ export interface EMR {
   ): void;
   listReleaseLabels(
     args: ListReleaseLabelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListReleaseLabelsCommandOutput) => void
   ): void;
 
@@ -1056,7 +1064,7 @@ export interface EMR {
   listSecurityConfigurations(): Promise<ListSecurityConfigurationsCommandOutput>;
   listSecurityConfigurations(
     args: ListSecurityConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListSecurityConfigurationsCommandOutput>;
   listSecurityConfigurations(
     args: ListSecurityConfigurationsCommandInput,
@@ -1064,7 +1072,7 @@ export interface EMR {
   ): void;
   listSecurityConfigurations(
     args: ListSecurityConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListSecurityConfigurationsCommandOutput) => void
   ): void;
 
@@ -1073,7 +1081,7 @@ export interface EMR {
    */
   listSessions(
     args: ListSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListSessionsCommandOutput>;
   listSessions(
     args: ListSessionsCommandInput,
@@ -1081,7 +1089,7 @@ export interface EMR {
   ): void;
   listSessions(
     args: ListSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
@@ -1090,7 +1098,7 @@ export interface EMR {
    */
   listSteps(
     args: ListStepsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListStepsCommandOutput>;
   listSteps(
     args: ListStepsCommandInput,
@@ -1098,7 +1106,7 @@ export interface EMR {
   ): void;
   listSteps(
     args: ListStepsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListStepsCommandOutput) => void
   ): void;
 
@@ -1108,7 +1116,7 @@ export interface EMR {
   listStudios(): Promise<ListStudiosCommandOutput>;
   listStudios(
     args: ListStudiosCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListStudiosCommandOutput>;
   listStudios(
     args: ListStudiosCommandInput,
@@ -1116,7 +1124,7 @@ export interface EMR {
   ): void;
   listStudios(
     args: ListStudiosCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListStudiosCommandOutput) => void
   ): void;
 
@@ -1126,7 +1134,7 @@ export interface EMR {
   listStudioSessionMappings(): Promise<ListStudioSessionMappingsCommandOutput>;
   listStudioSessionMappings(
     args: ListStudioSessionMappingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListStudioSessionMappingsCommandOutput>;
   listStudioSessionMappings(
     args: ListStudioSessionMappingsCommandInput,
@@ -1134,7 +1142,7 @@ export interface EMR {
   ): void;
   listStudioSessionMappings(
     args: ListStudioSessionMappingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListStudioSessionMappingsCommandOutput) => void
   ): void;
 
@@ -1143,7 +1151,7 @@ export interface EMR {
    */
   listSupportedInstanceTypes(
     args: ListSupportedInstanceTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ListSupportedInstanceTypesCommandOutput>;
   listSupportedInstanceTypes(
     args: ListSupportedInstanceTypesCommandInput,
@@ -1151,7 +1159,7 @@ export interface EMR {
   ): void;
   listSupportedInstanceTypes(
     args: ListSupportedInstanceTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ListSupportedInstanceTypesCommandOutput) => void
   ): void;
 
@@ -1160,7 +1168,7 @@ export interface EMR {
    */
   modifyCluster(
     args: ModifyClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ModifyClusterCommandOutput>;
   modifyCluster(
     args: ModifyClusterCommandInput,
@@ -1168,7 +1176,7 @@ export interface EMR {
   ): void;
   modifyCluster(
     args: ModifyClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ModifyClusterCommandOutput) => void
   ): void;
 
@@ -1177,7 +1185,7 @@ export interface EMR {
    */
   modifyInstanceFleet(
     args: ModifyInstanceFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ModifyInstanceFleetCommandOutput>;
   modifyInstanceFleet(
     args: ModifyInstanceFleetCommandInput,
@@ -1185,7 +1193,7 @@ export interface EMR {
   ): void;
   modifyInstanceFleet(
     args: ModifyInstanceFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ModifyInstanceFleetCommandOutput) => void
   ): void;
 
@@ -1195,7 +1203,7 @@ export interface EMR {
   modifyInstanceGroups(): Promise<ModifyInstanceGroupsCommandOutput>;
   modifyInstanceGroups(
     args: ModifyInstanceGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<ModifyInstanceGroupsCommandOutput>;
   modifyInstanceGroups(
     args: ModifyInstanceGroupsCommandInput,
@@ -1203,7 +1211,7 @@ export interface EMR {
   ): void;
   modifyInstanceGroups(
     args: ModifyInstanceGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: ModifyInstanceGroupsCommandOutput) => void
   ): void;
 
@@ -1212,7 +1220,7 @@ export interface EMR {
    */
   putAutoScalingPolicy(
     args: PutAutoScalingPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<PutAutoScalingPolicyCommandOutput>;
   putAutoScalingPolicy(
     args: PutAutoScalingPolicyCommandInput,
@@ -1220,7 +1228,7 @@ export interface EMR {
   ): void;
   putAutoScalingPolicy(
     args: PutAutoScalingPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: PutAutoScalingPolicyCommandOutput) => void
   ): void;
 
@@ -1229,7 +1237,7 @@ export interface EMR {
    */
   putAutoTerminationPolicy(
     args: PutAutoTerminationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<PutAutoTerminationPolicyCommandOutput>;
   putAutoTerminationPolicy(
     args: PutAutoTerminationPolicyCommandInput,
@@ -1237,7 +1245,7 @@ export interface EMR {
   ): void;
   putAutoTerminationPolicy(
     args: PutAutoTerminationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: PutAutoTerminationPolicyCommandOutput) => void
   ): void;
 
@@ -1246,7 +1254,7 @@ export interface EMR {
    */
   putBlockPublicAccessConfiguration(
     args: PutBlockPublicAccessConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<PutBlockPublicAccessConfigurationCommandOutput>;
   putBlockPublicAccessConfiguration(
     args: PutBlockPublicAccessConfigurationCommandInput,
@@ -1254,7 +1262,7 @@ export interface EMR {
   ): void;
   putBlockPublicAccessConfiguration(
     args: PutBlockPublicAccessConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: PutBlockPublicAccessConfigurationCommandOutput) => void
   ): void;
 
@@ -1263,7 +1271,7 @@ export interface EMR {
    */
   putManagedScalingPolicy(
     args: PutManagedScalingPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<PutManagedScalingPolicyCommandOutput>;
   putManagedScalingPolicy(
     args: PutManagedScalingPolicyCommandInput,
@@ -1271,7 +1279,7 @@ export interface EMR {
   ): void;
   putManagedScalingPolicy(
     args: PutManagedScalingPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: PutManagedScalingPolicyCommandOutput) => void
   ): void;
 
@@ -1280,7 +1288,7 @@ export interface EMR {
    */
   removeAutoScalingPolicy(
     args: RemoveAutoScalingPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<RemoveAutoScalingPolicyCommandOutput>;
   removeAutoScalingPolicy(
     args: RemoveAutoScalingPolicyCommandInput,
@@ -1288,7 +1296,7 @@ export interface EMR {
   ): void;
   removeAutoScalingPolicy(
     args: RemoveAutoScalingPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: RemoveAutoScalingPolicyCommandOutput) => void
   ): void;
 
@@ -1297,7 +1305,7 @@ export interface EMR {
    */
   removeAutoTerminationPolicy(
     args: RemoveAutoTerminationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<RemoveAutoTerminationPolicyCommandOutput>;
   removeAutoTerminationPolicy(
     args: RemoveAutoTerminationPolicyCommandInput,
@@ -1305,7 +1313,7 @@ export interface EMR {
   ): void;
   removeAutoTerminationPolicy(
     args: RemoveAutoTerminationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: RemoveAutoTerminationPolicyCommandOutput) => void
   ): void;
 
@@ -1314,7 +1322,7 @@ export interface EMR {
    */
   removeManagedScalingPolicy(
     args: RemoveManagedScalingPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<RemoveManagedScalingPolicyCommandOutput>;
   removeManagedScalingPolicy(
     args: RemoveManagedScalingPolicyCommandInput,
@@ -1322,7 +1330,7 @@ export interface EMR {
   ): void;
   removeManagedScalingPolicy(
     args: RemoveManagedScalingPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: RemoveManagedScalingPolicyCommandOutput) => void
   ): void;
 
@@ -1331,7 +1339,7 @@ export interface EMR {
    */
   removeTags(
     args: RemoveTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<RemoveTagsCommandOutput>;
   removeTags(
     args: RemoveTagsCommandInput,
@@ -1339,7 +1347,7 @@ export interface EMR {
   ): void;
   removeTags(
     args: RemoveTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: RemoveTagsCommandOutput) => void
   ): void;
 
@@ -1348,7 +1356,7 @@ export interface EMR {
    */
   runJobFlow(
     args: RunJobFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<RunJobFlowCommandOutput>;
   runJobFlow(
     args: RunJobFlowCommandInput,
@@ -1356,7 +1364,7 @@ export interface EMR {
   ): void;
   runJobFlow(
     args: RunJobFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: RunJobFlowCommandOutput) => void
   ): void;
 
@@ -1365,7 +1373,7 @@ export interface EMR {
    */
   setKeepJobFlowAliveWhenNoSteps(
     args: SetKeepJobFlowAliveWhenNoStepsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<SetKeepJobFlowAliveWhenNoStepsCommandOutput>;
   setKeepJobFlowAliveWhenNoSteps(
     args: SetKeepJobFlowAliveWhenNoStepsCommandInput,
@@ -1373,7 +1381,7 @@ export interface EMR {
   ): void;
   setKeepJobFlowAliveWhenNoSteps(
     args: SetKeepJobFlowAliveWhenNoStepsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: SetKeepJobFlowAliveWhenNoStepsCommandOutput) => void
   ): void;
 
@@ -1382,7 +1390,7 @@ export interface EMR {
    */
   setTerminationProtection(
     args: SetTerminationProtectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<SetTerminationProtectionCommandOutput>;
   setTerminationProtection(
     args: SetTerminationProtectionCommandInput,
@@ -1390,7 +1398,7 @@ export interface EMR {
   ): void;
   setTerminationProtection(
     args: SetTerminationProtectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: SetTerminationProtectionCommandOutput) => void
   ): void;
 
@@ -1399,7 +1407,7 @@ export interface EMR {
    */
   setUnhealthyNodeReplacement(
     args: SetUnhealthyNodeReplacementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<SetUnhealthyNodeReplacementCommandOutput>;
   setUnhealthyNodeReplacement(
     args: SetUnhealthyNodeReplacementCommandInput,
@@ -1407,7 +1415,7 @@ export interface EMR {
   ): void;
   setUnhealthyNodeReplacement(
     args: SetUnhealthyNodeReplacementCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: SetUnhealthyNodeReplacementCommandOutput) => void
   ): void;
 
@@ -1416,7 +1424,7 @@ export interface EMR {
    */
   setVisibleToAllUsers(
     args: SetVisibleToAllUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<SetVisibleToAllUsersCommandOutput>;
   setVisibleToAllUsers(
     args: SetVisibleToAllUsersCommandInput,
@@ -1424,7 +1432,7 @@ export interface EMR {
   ): void;
   setVisibleToAllUsers(
     args: SetVisibleToAllUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: SetVisibleToAllUsersCommandOutput) => void
   ): void;
 
@@ -1433,7 +1441,7 @@ export interface EMR {
    */
   startNotebookExecution(
     args: StartNotebookExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<StartNotebookExecutionCommandOutput>;
   startNotebookExecution(
     args: StartNotebookExecutionCommandInput,
@@ -1441,7 +1449,7 @@ export interface EMR {
   ): void;
   startNotebookExecution(
     args: StartNotebookExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: StartNotebookExecutionCommandOutput) => void
   ): void;
 
@@ -1450,7 +1458,7 @@ export interface EMR {
    */
   startSession(
     args: StartSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<StartSessionCommandOutput>;
   startSession(
     args: StartSessionCommandInput,
@@ -1458,7 +1466,7 @@ export interface EMR {
   ): void;
   startSession(
     args: StartSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: StartSessionCommandOutput) => void
   ): void;
 
@@ -1467,7 +1475,7 @@ export interface EMR {
    */
   stopNotebookExecution(
     args: StopNotebookExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<StopNotebookExecutionCommandOutput>;
   stopNotebookExecution(
     args: StopNotebookExecutionCommandInput,
@@ -1475,7 +1483,7 @@ export interface EMR {
   ): void;
   stopNotebookExecution(
     args: StopNotebookExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: StopNotebookExecutionCommandOutput) => void
   ): void;
 
@@ -1484,7 +1492,7 @@ export interface EMR {
    */
   terminateJobFlows(
     args: TerminateJobFlowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<TerminateJobFlowsCommandOutput>;
   terminateJobFlows(
     args: TerminateJobFlowsCommandInput,
@@ -1492,7 +1500,7 @@ export interface EMR {
   ): void;
   terminateJobFlows(
     args: TerminateJobFlowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: TerminateJobFlowsCommandOutput) => void
   ): void;
 
@@ -1501,7 +1509,7 @@ export interface EMR {
    */
   terminateSession(
     args: TerminateSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<TerminateSessionCommandOutput>;
   terminateSession(
     args: TerminateSessionCommandInput,
@@ -1509,7 +1517,7 @@ export interface EMR {
   ): void;
   terminateSession(
     args: TerminateSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: TerminateSessionCommandOutput) => void
   ): void;
 
@@ -1518,7 +1526,7 @@ export interface EMR {
    */
   updateStudio(
     args: UpdateStudioCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<UpdateStudioCommandOutput>;
   updateStudio(
     args: UpdateStudioCommandInput,
@@ -1526,7 +1534,7 @@ export interface EMR {
   ): void;
   updateStudio(
     args: UpdateStudioCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: UpdateStudioCommandOutput) => void
   ): void;
 
@@ -1535,7 +1543,7 @@ export interface EMR {
    */
   updateStudioSessionMapping(
     args: UpdateStudioSessionMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EMRRequestOptions
   ): Promise<UpdateStudioSessionMappingCommandOutput>;
   updateStudioSessionMapping(
     args: UpdateStudioSessionMappingCommandInput,
@@ -1543,7 +1551,7 @@ export interface EMR {
   ): void;
   updateStudioSessionMapping(
     args: UpdateStudioSessionMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: EMRRequestOptions,
     cb: (err: any, data?: UpdateStudioSessionMappingCommandOutput) => void
   ): void;
 

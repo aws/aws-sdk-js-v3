@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { CloudWatchEventsClient } from "./CloudWatchEventsClient";
 import {
@@ -301,13 +301,20 @@ const commands = {
   UpdateConnectionCommand,
 };
 
+/**
+ * @public
+ */
+export interface CloudWatchEventsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CloudWatchEvents {
   /**
    * @see {@link ActivateEventSourceCommand}
    */
   activateEventSource(
     args: ActivateEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ActivateEventSourceCommandOutput>;
   activateEventSource(
     args: ActivateEventSourceCommandInput,
@@ -315,7 +322,7 @@ export interface CloudWatchEvents {
   ): void;
   activateEventSource(
     args: ActivateEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ActivateEventSourceCommandOutput) => void
   ): void;
 
@@ -324,7 +331,7 @@ export interface CloudWatchEvents {
    */
   cancelReplay(
     args: CancelReplayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<CancelReplayCommandOutput>;
   cancelReplay(
     args: CancelReplayCommandInput,
@@ -332,7 +339,7 @@ export interface CloudWatchEvents {
   ): void;
   cancelReplay(
     args: CancelReplayCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: CancelReplayCommandOutput) => void
   ): void;
 
@@ -341,7 +348,7 @@ export interface CloudWatchEvents {
    */
   createApiDestination(
     args: CreateApiDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<CreateApiDestinationCommandOutput>;
   createApiDestination(
     args: CreateApiDestinationCommandInput,
@@ -349,7 +356,7 @@ export interface CloudWatchEvents {
   ): void;
   createApiDestination(
     args: CreateApiDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: CreateApiDestinationCommandOutput) => void
   ): void;
 
@@ -358,7 +365,7 @@ export interface CloudWatchEvents {
    */
   createArchive(
     args: CreateArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<CreateArchiveCommandOutput>;
   createArchive(
     args: CreateArchiveCommandInput,
@@ -366,7 +373,7 @@ export interface CloudWatchEvents {
   ): void;
   createArchive(
     args: CreateArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: CreateArchiveCommandOutput) => void
   ): void;
 
@@ -375,7 +382,7 @@ export interface CloudWatchEvents {
    */
   createConnection(
     args: CreateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<CreateConnectionCommandOutput>;
   createConnection(
     args: CreateConnectionCommandInput,
@@ -383,7 +390,7 @@ export interface CloudWatchEvents {
   ): void;
   createConnection(
     args: CreateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: CreateConnectionCommandOutput) => void
   ): void;
 
@@ -392,7 +399,7 @@ export interface CloudWatchEvents {
    */
   createEventBus(
     args: CreateEventBusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<CreateEventBusCommandOutput>;
   createEventBus(
     args: CreateEventBusCommandInput,
@@ -400,7 +407,7 @@ export interface CloudWatchEvents {
   ): void;
   createEventBus(
     args: CreateEventBusCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: CreateEventBusCommandOutput) => void
   ): void;
 
@@ -409,7 +416,7 @@ export interface CloudWatchEvents {
    */
   createPartnerEventSource(
     args: CreatePartnerEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<CreatePartnerEventSourceCommandOutput>;
   createPartnerEventSource(
     args: CreatePartnerEventSourceCommandInput,
@@ -417,7 +424,7 @@ export interface CloudWatchEvents {
   ): void;
   createPartnerEventSource(
     args: CreatePartnerEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: CreatePartnerEventSourceCommandOutput) => void
   ): void;
 
@@ -426,7 +433,7 @@ export interface CloudWatchEvents {
    */
   deactivateEventSource(
     args: DeactivateEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DeactivateEventSourceCommandOutput>;
   deactivateEventSource(
     args: DeactivateEventSourceCommandInput,
@@ -434,7 +441,7 @@ export interface CloudWatchEvents {
   ): void;
   deactivateEventSource(
     args: DeactivateEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DeactivateEventSourceCommandOutput) => void
   ): void;
 
@@ -443,7 +450,7 @@ export interface CloudWatchEvents {
    */
   deauthorizeConnection(
     args: DeauthorizeConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DeauthorizeConnectionCommandOutput>;
   deauthorizeConnection(
     args: DeauthorizeConnectionCommandInput,
@@ -451,7 +458,7 @@ export interface CloudWatchEvents {
   ): void;
   deauthorizeConnection(
     args: DeauthorizeConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DeauthorizeConnectionCommandOutput) => void
   ): void;
 
@@ -460,7 +467,7 @@ export interface CloudWatchEvents {
    */
   deleteApiDestination(
     args: DeleteApiDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DeleteApiDestinationCommandOutput>;
   deleteApiDestination(
     args: DeleteApiDestinationCommandInput,
@@ -468,7 +475,7 @@ export interface CloudWatchEvents {
   ): void;
   deleteApiDestination(
     args: DeleteApiDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DeleteApiDestinationCommandOutput) => void
   ): void;
 
@@ -477,7 +484,7 @@ export interface CloudWatchEvents {
    */
   deleteArchive(
     args: DeleteArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DeleteArchiveCommandOutput>;
   deleteArchive(
     args: DeleteArchiveCommandInput,
@@ -485,7 +492,7 @@ export interface CloudWatchEvents {
   ): void;
   deleteArchive(
     args: DeleteArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DeleteArchiveCommandOutput) => void
   ): void;
 
@@ -494,7 +501,7 @@ export interface CloudWatchEvents {
    */
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DeleteConnectionCommandOutput>;
   deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -502,7 +509,7 @@ export interface CloudWatchEvents {
   ): void;
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): void;
 
@@ -511,7 +518,7 @@ export interface CloudWatchEvents {
    */
   deleteEventBus(
     args: DeleteEventBusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DeleteEventBusCommandOutput>;
   deleteEventBus(
     args: DeleteEventBusCommandInput,
@@ -519,7 +526,7 @@ export interface CloudWatchEvents {
   ): void;
   deleteEventBus(
     args: DeleteEventBusCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DeleteEventBusCommandOutput) => void
   ): void;
 
@@ -528,7 +535,7 @@ export interface CloudWatchEvents {
    */
   deletePartnerEventSource(
     args: DeletePartnerEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DeletePartnerEventSourceCommandOutput>;
   deletePartnerEventSource(
     args: DeletePartnerEventSourceCommandInput,
@@ -536,7 +543,7 @@ export interface CloudWatchEvents {
   ): void;
   deletePartnerEventSource(
     args: DeletePartnerEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DeletePartnerEventSourceCommandOutput) => void
   ): void;
 
@@ -545,7 +552,7 @@ export interface CloudWatchEvents {
    */
   deleteRule(
     args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DeleteRuleCommandOutput>;
   deleteRule(
     args: DeleteRuleCommandInput,
@@ -553,7 +560,7 @@ export interface CloudWatchEvents {
   ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DeleteRuleCommandOutput) => void
   ): void;
 
@@ -562,7 +569,7 @@ export interface CloudWatchEvents {
    */
   describeApiDestination(
     args: DescribeApiDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DescribeApiDestinationCommandOutput>;
   describeApiDestination(
     args: DescribeApiDestinationCommandInput,
@@ -570,7 +577,7 @@ export interface CloudWatchEvents {
   ): void;
   describeApiDestination(
     args: DescribeApiDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DescribeApiDestinationCommandOutput) => void
   ): void;
 
@@ -579,7 +586,7 @@ export interface CloudWatchEvents {
    */
   describeArchive(
     args: DescribeArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DescribeArchiveCommandOutput>;
   describeArchive(
     args: DescribeArchiveCommandInput,
@@ -587,7 +594,7 @@ export interface CloudWatchEvents {
   ): void;
   describeArchive(
     args: DescribeArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DescribeArchiveCommandOutput) => void
   ): void;
 
@@ -596,7 +603,7 @@ export interface CloudWatchEvents {
    */
   describeConnection(
     args: DescribeConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DescribeConnectionCommandOutput>;
   describeConnection(
     args: DescribeConnectionCommandInput,
@@ -604,7 +611,7 @@ export interface CloudWatchEvents {
   ): void;
   describeConnection(
     args: DescribeConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DescribeConnectionCommandOutput) => void
   ): void;
 
@@ -614,7 +621,7 @@ export interface CloudWatchEvents {
   describeEventBus(): Promise<DescribeEventBusCommandOutput>;
   describeEventBus(
     args: DescribeEventBusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DescribeEventBusCommandOutput>;
   describeEventBus(
     args: DescribeEventBusCommandInput,
@@ -622,7 +629,7 @@ export interface CloudWatchEvents {
   ): void;
   describeEventBus(
     args: DescribeEventBusCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DescribeEventBusCommandOutput) => void
   ): void;
 
@@ -631,7 +638,7 @@ export interface CloudWatchEvents {
    */
   describeEventSource(
     args: DescribeEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DescribeEventSourceCommandOutput>;
   describeEventSource(
     args: DescribeEventSourceCommandInput,
@@ -639,7 +646,7 @@ export interface CloudWatchEvents {
   ): void;
   describeEventSource(
     args: DescribeEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DescribeEventSourceCommandOutput) => void
   ): void;
 
@@ -648,7 +655,7 @@ export interface CloudWatchEvents {
    */
   describePartnerEventSource(
     args: DescribePartnerEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DescribePartnerEventSourceCommandOutput>;
   describePartnerEventSource(
     args: DescribePartnerEventSourceCommandInput,
@@ -656,7 +663,7 @@ export interface CloudWatchEvents {
   ): void;
   describePartnerEventSource(
     args: DescribePartnerEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DescribePartnerEventSourceCommandOutput) => void
   ): void;
 
@@ -665,7 +672,7 @@ export interface CloudWatchEvents {
    */
   describeReplay(
     args: DescribeReplayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DescribeReplayCommandOutput>;
   describeReplay(
     args: DescribeReplayCommandInput,
@@ -673,7 +680,7 @@ export interface CloudWatchEvents {
   ): void;
   describeReplay(
     args: DescribeReplayCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DescribeReplayCommandOutput) => void
   ): void;
 
@@ -682,7 +689,7 @@ export interface CloudWatchEvents {
    */
   describeRule(
     args: DescribeRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DescribeRuleCommandOutput>;
   describeRule(
     args: DescribeRuleCommandInput,
@@ -690,7 +697,7 @@ export interface CloudWatchEvents {
   ): void;
   describeRule(
     args: DescribeRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DescribeRuleCommandOutput) => void
   ): void;
 
@@ -699,7 +706,7 @@ export interface CloudWatchEvents {
    */
   disableRule(
     args: DisableRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<DisableRuleCommandOutput>;
   disableRule(
     args: DisableRuleCommandInput,
@@ -707,7 +714,7 @@ export interface CloudWatchEvents {
   ): void;
   disableRule(
     args: DisableRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: DisableRuleCommandOutput) => void
   ): void;
 
@@ -716,7 +723,7 @@ export interface CloudWatchEvents {
    */
   enableRule(
     args: EnableRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<EnableRuleCommandOutput>;
   enableRule(
     args: EnableRuleCommandInput,
@@ -724,7 +731,7 @@ export interface CloudWatchEvents {
   ): void;
   enableRule(
     args: EnableRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: EnableRuleCommandOutput) => void
   ): void;
 
@@ -734,7 +741,7 @@ export interface CloudWatchEvents {
   listApiDestinations(): Promise<ListApiDestinationsCommandOutput>;
   listApiDestinations(
     args: ListApiDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListApiDestinationsCommandOutput>;
   listApiDestinations(
     args: ListApiDestinationsCommandInput,
@@ -742,7 +749,7 @@ export interface CloudWatchEvents {
   ): void;
   listApiDestinations(
     args: ListApiDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListApiDestinationsCommandOutput) => void
   ): void;
 
@@ -752,7 +759,7 @@ export interface CloudWatchEvents {
   listArchives(): Promise<ListArchivesCommandOutput>;
   listArchives(
     args: ListArchivesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListArchivesCommandOutput>;
   listArchives(
     args: ListArchivesCommandInput,
@@ -760,7 +767,7 @@ export interface CloudWatchEvents {
   ): void;
   listArchives(
     args: ListArchivesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListArchivesCommandOutput) => void
   ): void;
 
@@ -770,7 +777,7 @@ export interface CloudWatchEvents {
   listConnections(): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
@@ -778,7 +785,7 @@ export interface CloudWatchEvents {
   ): void;
   listConnections(
     args: ListConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListConnectionsCommandOutput) => void
   ): void;
 
@@ -788,7 +795,7 @@ export interface CloudWatchEvents {
   listEventBuses(): Promise<ListEventBusesCommandOutput>;
   listEventBuses(
     args: ListEventBusesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListEventBusesCommandOutput>;
   listEventBuses(
     args: ListEventBusesCommandInput,
@@ -796,7 +803,7 @@ export interface CloudWatchEvents {
   ): void;
   listEventBuses(
     args: ListEventBusesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListEventBusesCommandOutput) => void
   ): void;
 
@@ -806,7 +813,7 @@ export interface CloudWatchEvents {
   listEventSources(): Promise<ListEventSourcesCommandOutput>;
   listEventSources(
     args: ListEventSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListEventSourcesCommandOutput>;
   listEventSources(
     args: ListEventSourcesCommandInput,
@@ -814,7 +821,7 @@ export interface CloudWatchEvents {
   ): void;
   listEventSources(
     args: ListEventSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListEventSourcesCommandOutput) => void
   ): void;
 
@@ -823,7 +830,7 @@ export interface CloudWatchEvents {
    */
   listPartnerEventSourceAccounts(
     args: ListPartnerEventSourceAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListPartnerEventSourceAccountsCommandOutput>;
   listPartnerEventSourceAccounts(
     args: ListPartnerEventSourceAccountsCommandInput,
@@ -831,7 +838,7 @@ export interface CloudWatchEvents {
   ): void;
   listPartnerEventSourceAccounts(
     args: ListPartnerEventSourceAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListPartnerEventSourceAccountsCommandOutput) => void
   ): void;
 
@@ -840,7 +847,7 @@ export interface CloudWatchEvents {
    */
   listPartnerEventSources(
     args: ListPartnerEventSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListPartnerEventSourcesCommandOutput>;
   listPartnerEventSources(
     args: ListPartnerEventSourcesCommandInput,
@@ -848,7 +855,7 @@ export interface CloudWatchEvents {
   ): void;
   listPartnerEventSources(
     args: ListPartnerEventSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListPartnerEventSourcesCommandOutput) => void
   ): void;
 
@@ -858,7 +865,7 @@ export interface CloudWatchEvents {
   listReplays(): Promise<ListReplaysCommandOutput>;
   listReplays(
     args: ListReplaysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListReplaysCommandOutput>;
   listReplays(
     args: ListReplaysCommandInput,
@@ -866,7 +873,7 @@ export interface CloudWatchEvents {
   ): void;
   listReplays(
     args: ListReplaysCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListReplaysCommandOutput) => void
   ): void;
 
@@ -875,7 +882,7 @@ export interface CloudWatchEvents {
    */
   listRuleNamesByTarget(
     args: ListRuleNamesByTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListRuleNamesByTargetCommandOutput>;
   listRuleNamesByTarget(
     args: ListRuleNamesByTargetCommandInput,
@@ -883,7 +890,7 @@ export interface CloudWatchEvents {
   ): void;
   listRuleNamesByTarget(
     args: ListRuleNamesByTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListRuleNamesByTargetCommandOutput) => void
   ): void;
 
@@ -893,7 +900,7 @@ export interface CloudWatchEvents {
   listRules(): Promise<ListRulesCommandOutput>;
   listRules(
     args: ListRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListRulesCommandOutput>;
   listRules(
     args: ListRulesCommandInput,
@@ -901,7 +908,7 @@ export interface CloudWatchEvents {
   ): void;
   listRules(
     args: ListRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListRulesCommandOutput) => void
   ): void;
 
@@ -910,7 +917,7 @@ export interface CloudWatchEvents {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -918,7 +925,7 @@ export interface CloudWatchEvents {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -927,7 +934,7 @@ export interface CloudWatchEvents {
    */
   listTargetsByRule(
     args: ListTargetsByRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<ListTargetsByRuleCommandOutput>;
   listTargetsByRule(
     args: ListTargetsByRuleCommandInput,
@@ -935,7 +942,7 @@ export interface CloudWatchEvents {
   ): void;
   listTargetsByRule(
     args: ListTargetsByRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: ListTargetsByRuleCommandOutput) => void
   ): void;
 
@@ -944,7 +951,7 @@ export interface CloudWatchEvents {
    */
   putEvents(
     args: PutEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<PutEventsCommandOutput>;
   putEvents(
     args: PutEventsCommandInput,
@@ -952,7 +959,7 @@ export interface CloudWatchEvents {
   ): void;
   putEvents(
     args: PutEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: PutEventsCommandOutput) => void
   ): void;
 
@@ -961,7 +968,7 @@ export interface CloudWatchEvents {
    */
   putPartnerEvents(
     args: PutPartnerEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<PutPartnerEventsCommandOutput>;
   putPartnerEvents(
     args: PutPartnerEventsCommandInput,
@@ -969,7 +976,7 @@ export interface CloudWatchEvents {
   ): void;
   putPartnerEvents(
     args: PutPartnerEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: PutPartnerEventsCommandOutput) => void
   ): void;
 
@@ -979,7 +986,7 @@ export interface CloudWatchEvents {
   putPermission(): Promise<PutPermissionCommandOutput>;
   putPermission(
     args: PutPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<PutPermissionCommandOutput>;
   putPermission(
     args: PutPermissionCommandInput,
@@ -987,7 +994,7 @@ export interface CloudWatchEvents {
   ): void;
   putPermission(
     args: PutPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: PutPermissionCommandOutput) => void
   ): void;
 
@@ -996,7 +1003,7 @@ export interface CloudWatchEvents {
    */
   putRule(
     args: PutRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<PutRuleCommandOutput>;
   putRule(
     args: PutRuleCommandInput,
@@ -1004,7 +1011,7 @@ export interface CloudWatchEvents {
   ): void;
   putRule(
     args: PutRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: PutRuleCommandOutput) => void
   ): void;
 
@@ -1013,7 +1020,7 @@ export interface CloudWatchEvents {
    */
   putTargets(
     args: PutTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<PutTargetsCommandOutput>;
   putTargets(
     args: PutTargetsCommandInput,
@@ -1021,7 +1028,7 @@ export interface CloudWatchEvents {
   ): void;
   putTargets(
     args: PutTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: PutTargetsCommandOutput) => void
   ): void;
 
@@ -1031,7 +1038,7 @@ export interface CloudWatchEvents {
   removePermission(): Promise<RemovePermissionCommandOutput>;
   removePermission(
     args: RemovePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<RemovePermissionCommandOutput>;
   removePermission(
     args: RemovePermissionCommandInput,
@@ -1039,7 +1046,7 @@ export interface CloudWatchEvents {
   ): void;
   removePermission(
     args: RemovePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: RemovePermissionCommandOutput) => void
   ): void;
 
@@ -1048,7 +1055,7 @@ export interface CloudWatchEvents {
    */
   removeTargets(
     args: RemoveTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<RemoveTargetsCommandOutput>;
   removeTargets(
     args: RemoveTargetsCommandInput,
@@ -1056,7 +1063,7 @@ export interface CloudWatchEvents {
   ): void;
   removeTargets(
     args: RemoveTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: RemoveTargetsCommandOutput) => void
   ): void;
 
@@ -1065,7 +1072,7 @@ export interface CloudWatchEvents {
    */
   startReplay(
     args: StartReplayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<StartReplayCommandOutput>;
   startReplay(
     args: StartReplayCommandInput,
@@ -1073,7 +1080,7 @@ export interface CloudWatchEvents {
   ): void;
   startReplay(
     args: StartReplayCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: StartReplayCommandOutput) => void
   ): void;
 
@@ -1082,7 +1089,7 @@ export interface CloudWatchEvents {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1090,7 +1097,7 @@ export interface CloudWatchEvents {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1099,7 +1106,7 @@ export interface CloudWatchEvents {
    */
   testEventPattern(
     args: TestEventPatternCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<TestEventPatternCommandOutput>;
   testEventPattern(
     args: TestEventPatternCommandInput,
@@ -1107,7 +1114,7 @@ export interface CloudWatchEvents {
   ): void;
   testEventPattern(
     args: TestEventPatternCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: TestEventPatternCommandOutput) => void
   ): void;
 
@@ -1116,7 +1123,7 @@ export interface CloudWatchEvents {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1124,7 +1131,7 @@ export interface CloudWatchEvents {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1133,7 +1140,7 @@ export interface CloudWatchEvents {
    */
   updateApiDestination(
     args: UpdateApiDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<UpdateApiDestinationCommandOutput>;
   updateApiDestination(
     args: UpdateApiDestinationCommandInput,
@@ -1141,7 +1148,7 @@ export interface CloudWatchEvents {
   ): void;
   updateApiDestination(
     args: UpdateApiDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: UpdateApiDestinationCommandOutput) => void
   ): void;
 
@@ -1150,7 +1157,7 @@ export interface CloudWatchEvents {
    */
   updateArchive(
     args: UpdateArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<UpdateArchiveCommandOutput>;
   updateArchive(
     args: UpdateArchiveCommandInput,
@@ -1158,7 +1165,7 @@ export interface CloudWatchEvents {
   ): void;
   updateArchive(
     args: UpdateArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: UpdateArchiveCommandOutput) => void
   ): void;
 
@@ -1167,7 +1174,7 @@ export interface CloudWatchEvents {
    */
   updateConnection(
     args: UpdateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchEventsRequestOptions
   ): Promise<UpdateConnectionCommandOutput>;
   updateConnection(
     args: UpdateConnectionCommandInput,
@@ -1175,7 +1182,7 @@ export interface CloudWatchEvents {
   ): void;
   updateConnection(
     args: UpdateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchEventsRequestOptions,
     cb: (err: any, data?: UpdateConnectionCommandOutput) => void
   ): void;
 }

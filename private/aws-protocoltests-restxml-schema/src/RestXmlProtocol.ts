@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type AllQueryStringTypesCommandInput,
@@ -377,6 +377,13 @@ const commands = {
   XmlUnionsCommand,
 };
 
+/**
+ * @public
+ */
+export interface RestXmlProtocolRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface RestXmlProtocol {
   /**
    * @see {@link AllQueryStringTypesCommand}
@@ -384,7 +391,7 @@ export interface RestXmlProtocol {
   allQueryStringTypes(): Promise<AllQueryStringTypesCommandOutput>;
   allQueryStringTypes(
     args: AllQueryStringTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<AllQueryStringTypesCommandOutput>;
   allQueryStringTypes(
     args: AllQueryStringTypesCommandInput,
@@ -392,7 +399,7 @@ export interface RestXmlProtocol {
   ): void;
   allQueryStringTypes(
     args: AllQueryStringTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: AllQueryStringTypesCommandOutput) => void
   ): void;
 
@@ -402,7 +409,7 @@ export interface RestXmlProtocol {
   bodyWithXmlName(): Promise<BodyWithXmlNameCommandOutput>;
   bodyWithXmlName(
     args: BodyWithXmlNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<BodyWithXmlNameCommandOutput>;
   bodyWithXmlName(
     args: BodyWithXmlNameCommandInput,
@@ -410,7 +417,7 @@ export interface RestXmlProtocol {
   ): void;
   bodyWithXmlName(
     args: BodyWithXmlNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: BodyWithXmlNameCommandOutput) => void
   ): void;
 
@@ -420,7 +427,7 @@ export interface RestXmlProtocol {
   constantAndVariableQueryString(): Promise<ConstantAndVariableQueryStringCommandOutput>;
   constantAndVariableQueryString(
     args: ConstantAndVariableQueryStringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<ConstantAndVariableQueryStringCommandOutput>;
   constantAndVariableQueryString(
     args: ConstantAndVariableQueryStringCommandInput,
@@ -428,7 +435,7 @@ export interface RestXmlProtocol {
   ): void;
   constantAndVariableQueryString(
     args: ConstantAndVariableQueryStringCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: ConstantAndVariableQueryStringCommandOutput) => void
   ): void;
 
@@ -437,7 +444,7 @@ export interface RestXmlProtocol {
    */
   constantQueryString(
     args: ConstantQueryStringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<ConstantQueryStringCommandOutput>;
   constantQueryString(
     args: ConstantQueryStringCommandInput,
@@ -445,7 +452,7 @@ export interface RestXmlProtocol {
   ): void;
   constantQueryString(
     args: ConstantQueryStringCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: ConstantQueryStringCommandOutput) => void
   ): void;
 
@@ -455,7 +462,7 @@ export interface RestXmlProtocol {
   contentTypeParameters(): Promise<ContentTypeParametersCommandOutput>;
   contentTypeParameters(
     args: ContentTypeParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<ContentTypeParametersCommandOutput>;
   contentTypeParameters(
     args: ContentTypeParametersCommandInput,
@@ -463,7 +470,7 @@ export interface RestXmlProtocol {
   ): void;
   contentTypeParameters(
     args: ContentTypeParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: ContentTypeParametersCommandOutput) => void
   ): void;
 
@@ -473,7 +480,7 @@ export interface RestXmlProtocol {
   datetimeOffsets(): Promise<DatetimeOffsetsCommandOutput>;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<DatetimeOffsetsCommandOutput>;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
@@ -481,7 +488,7 @@ export interface RestXmlProtocol {
   ): void;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
   ): void;
 
@@ -491,7 +498,7 @@ export interface RestXmlProtocol {
   emptyInputAndEmptyOutput(): Promise<EmptyInputAndEmptyOutputCommandOutput>;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<EmptyInputAndEmptyOutputCommandOutput>;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
@@ -499,7 +506,7 @@ export interface RestXmlProtocol {
   ): void;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: EmptyInputAndEmptyOutputCommandOutput) => void
   ): void;
 
@@ -509,7 +516,7 @@ export interface RestXmlProtocol {
   endpointOperation(): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
@@ -517,7 +524,7 @@ export interface RestXmlProtocol {
   ): void;
   endpointOperation(
     args: EndpointOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: EndpointOperationCommandOutput) => void
   ): void;
 
@@ -526,7 +533,7 @@ export interface RestXmlProtocol {
    */
   endpointWithHostLabelHeaderOperation(
     args: EndpointWithHostLabelHeaderOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<EndpointWithHostLabelHeaderOperationCommandOutput>;
   endpointWithHostLabelHeaderOperation(
     args: EndpointWithHostLabelHeaderOperationCommandInput,
@@ -534,7 +541,7 @@ export interface RestXmlProtocol {
   ): void;
   endpointWithHostLabelHeaderOperation(
     args: EndpointWithHostLabelHeaderOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: EndpointWithHostLabelHeaderOperationCommandOutput) => void
   ): void;
 
@@ -543,7 +550,7 @@ export interface RestXmlProtocol {
    */
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<EndpointWithHostLabelOperationCommandOutput>;
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
@@ -551,7 +558,7 @@ export interface RestXmlProtocol {
   ): void;
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
   ): void;
 
@@ -561,7 +568,7 @@ export interface RestXmlProtocol {
   flattenedXmlMap(): Promise<FlattenedXmlMapCommandOutput>;
   flattenedXmlMap(
     args: FlattenedXmlMapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<FlattenedXmlMapCommandOutput>;
   flattenedXmlMap(
     args: FlattenedXmlMapCommandInput,
@@ -569,7 +576,7 @@ export interface RestXmlProtocol {
   ): void;
   flattenedXmlMap(
     args: FlattenedXmlMapCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: FlattenedXmlMapCommandOutput) => void
   ): void;
 
@@ -579,7 +586,7 @@ export interface RestXmlProtocol {
   flattenedXmlMapWithXmlName(): Promise<FlattenedXmlMapWithXmlNameCommandOutput>;
   flattenedXmlMapWithXmlName(
     args: FlattenedXmlMapWithXmlNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<FlattenedXmlMapWithXmlNameCommandOutput>;
   flattenedXmlMapWithXmlName(
     args: FlattenedXmlMapWithXmlNameCommandInput,
@@ -587,7 +594,7 @@ export interface RestXmlProtocol {
   ): void;
   flattenedXmlMapWithXmlName(
     args: FlattenedXmlMapWithXmlNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: FlattenedXmlMapWithXmlNameCommandOutput) => void
   ): void;
 
@@ -597,7 +604,7 @@ export interface RestXmlProtocol {
   flattenedXmlMapWithXmlNamespace(): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput>;
   flattenedXmlMapWithXmlNamespace(
     args: FlattenedXmlMapWithXmlNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput>;
   flattenedXmlMapWithXmlNamespace(
     args: FlattenedXmlMapWithXmlNamespaceCommandInput,
@@ -605,7 +612,7 @@ export interface RestXmlProtocol {
   ): void;
   flattenedXmlMapWithXmlNamespace(
     args: FlattenedXmlMapWithXmlNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: FlattenedXmlMapWithXmlNamespaceCommandOutput) => void
   ): void;
 
@@ -615,7 +622,7 @@ export interface RestXmlProtocol {
   fractionalSeconds(): Promise<FractionalSecondsCommandOutput>;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<FractionalSecondsCommandOutput>;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
@@ -623,7 +630,7 @@ export interface RestXmlProtocol {
   ): void;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: FractionalSecondsCommandOutput) => void
   ): void;
 
@@ -633,7 +640,7 @@ export interface RestXmlProtocol {
   greetingWithErrors(): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
@@ -641,7 +648,7 @@ export interface RestXmlProtocol {
   ): void;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: GreetingWithErrorsCommandOutput) => void
   ): void;
 
@@ -651,7 +658,7 @@ export interface RestXmlProtocol {
   httpEmptyPrefixHeaders(): Promise<HttpEmptyPrefixHeadersCommandOutput>;
   httpEmptyPrefixHeaders(
     args: HttpEmptyPrefixHeadersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpEmptyPrefixHeadersCommandOutput>;
   httpEmptyPrefixHeaders(
     args: HttpEmptyPrefixHeadersCommandInput,
@@ -659,7 +666,7 @@ export interface RestXmlProtocol {
   ): void;
   httpEmptyPrefixHeaders(
     args: HttpEmptyPrefixHeadersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpEmptyPrefixHeadersCommandOutput) => void
   ): void;
 
@@ -669,7 +676,7 @@ export interface RestXmlProtocol {
   httpEnumPayload(): Promise<HttpEnumPayloadCommandOutput>;
   httpEnumPayload(
     args: HttpEnumPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpEnumPayloadCommandOutput>;
   httpEnumPayload(
     args: HttpEnumPayloadCommandInput,
@@ -677,7 +684,7 @@ export interface RestXmlProtocol {
   ): void;
   httpEnumPayload(
     args: HttpEnumPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpEnumPayloadCommandOutput) => void
   ): void;
 
@@ -687,7 +694,7 @@ export interface RestXmlProtocol {
   httpPayloadTraits(): Promise<HttpPayloadTraitsCommandOutput>;
   httpPayloadTraits(
     args: HttpPayloadTraitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpPayloadTraitsCommandOutput>;
   httpPayloadTraits(
     args: HttpPayloadTraitsCommandInput,
@@ -695,7 +702,7 @@ export interface RestXmlProtocol {
   ): void;
   httpPayloadTraits(
     args: HttpPayloadTraitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadTraitsCommandOutput) => void
   ): void;
 
@@ -705,7 +712,7 @@ export interface RestXmlProtocol {
   httpPayloadTraitsWithMediaType(): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput>;
   httpPayloadTraitsWithMediaType(
     args: HttpPayloadTraitsWithMediaTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput>;
   httpPayloadTraitsWithMediaType(
     args: HttpPayloadTraitsWithMediaTypeCommandInput,
@@ -713,7 +720,7 @@ export interface RestXmlProtocol {
   ): void;
   httpPayloadTraitsWithMediaType(
     args: HttpPayloadTraitsWithMediaTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadTraitsWithMediaTypeCommandOutput) => void
   ): void;
 
@@ -723,7 +730,7 @@ export interface RestXmlProtocol {
   httpPayloadWithMemberXmlName(): Promise<HttpPayloadWithMemberXmlNameCommandOutput>;
   httpPayloadWithMemberXmlName(
     args: HttpPayloadWithMemberXmlNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpPayloadWithMemberXmlNameCommandOutput>;
   httpPayloadWithMemberXmlName(
     args: HttpPayloadWithMemberXmlNameCommandInput,
@@ -731,7 +738,7 @@ export interface RestXmlProtocol {
   ): void;
   httpPayloadWithMemberXmlName(
     args: HttpPayloadWithMemberXmlNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadWithMemberXmlNameCommandOutput) => void
   ): void;
 
@@ -741,7 +748,7 @@ export interface RestXmlProtocol {
   httpPayloadWithStructure(): Promise<HttpPayloadWithStructureCommandOutput>;
   httpPayloadWithStructure(
     args: HttpPayloadWithStructureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpPayloadWithStructureCommandOutput>;
   httpPayloadWithStructure(
     args: HttpPayloadWithStructureCommandInput,
@@ -749,7 +756,7 @@ export interface RestXmlProtocol {
   ): void;
   httpPayloadWithStructure(
     args: HttpPayloadWithStructureCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadWithStructureCommandOutput) => void
   ): void;
 
@@ -759,7 +766,7 @@ export interface RestXmlProtocol {
   httpPayloadWithUnion(): Promise<HttpPayloadWithUnionCommandOutput>;
   httpPayloadWithUnion(
     args: HttpPayloadWithUnionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpPayloadWithUnionCommandOutput>;
   httpPayloadWithUnion(
     args: HttpPayloadWithUnionCommandInput,
@@ -767,7 +774,7 @@ export interface RestXmlProtocol {
   ): void;
   httpPayloadWithUnion(
     args: HttpPayloadWithUnionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadWithUnionCommandOutput) => void
   ): void;
 
@@ -777,7 +784,7 @@ export interface RestXmlProtocol {
   httpPayloadWithXmlName(): Promise<HttpPayloadWithXmlNameCommandOutput>;
   httpPayloadWithXmlName(
     args: HttpPayloadWithXmlNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpPayloadWithXmlNameCommandOutput>;
   httpPayloadWithXmlName(
     args: HttpPayloadWithXmlNameCommandInput,
@@ -785,7 +792,7 @@ export interface RestXmlProtocol {
   ): void;
   httpPayloadWithXmlName(
     args: HttpPayloadWithXmlNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadWithXmlNameCommandOutput) => void
   ): void;
 
@@ -795,7 +802,7 @@ export interface RestXmlProtocol {
   httpPayloadWithXmlNamespace(): Promise<HttpPayloadWithXmlNamespaceCommandOutput>;
   httpPayloadWithXmlNamespace(
     args: HttpPayloadWithXmlNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpPayloadWithXmlNamespaceCommandOutput>;
   httpPayloadWithXmlNamespace(
     args: HttpPayloadWithXmlNamespaceCommandInput,
@@ -803,7 +810,7 @@ export interface RestXmlProtocol {
   ): void;
   httpPayloadWithXmlNamespace(
     args: HttpPayloadWithXmlNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadWithXmlNamespaceCommandOutput) => void
   ): void;
 
@@ -813,7 +820,7 @@ export interface RestXmlProtocol {
   httpPayloadWithXmlNamespaceAndPrefix(): Promise<HttpPayloadWithXmlNamespaceAndPrefixCommandOutput>;
   httpPayloadWithXmlNamespaceAndPrefix(
     args: HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpPayloadWithXmlNamespaceAndPrefixCommandOutput>;
   httpPayloadWithXmlNamespaceAndPrefix(
     args: HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
@@ -821,7 +828,7 @@ export interface RestXmlProtocol {
   ): void;
   httpPayloadWithXmlNamespaceAndPrefix(
     args: HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadWithXmlNamespaceAndPrefixCommandOutput) => void
   ): void;
 
@@ -831,7 +838,7 @@ export interface RestXmlProtocol {
   httpPrefixHeaders(): Promise<HttpPrefixHeadersCommandOutput>;
   httpPrefixHeaders(
     args: HttpPrefixHeadersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpPrefixHeadersCommandOutput>;
   httpPrefixHeaders(
     args: HttpPrefixHeadersCommandInput,
@@ -839,7 +846,7 @@ export interface RestXmlProtocol {
   ): void;
   httpPrefixHeaders(
     args: HttpPrefixHeadersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpPrefixHeadersCommandOutput) => void
   ): void;
 
@@ -848,7 +855,7 @@ export interface RestXmlProtocol {
    */
   httpRequestWithFloatLabels(
     args: HttpRequestWithFloatLabelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpRequestWithFloatLabelsCommandOutput>;
   httpRequestWithFloatLabels(
     args: HttpRequestWithFloatLabelsCommandInput,
@@ -856,7 +863,7 @@ export interface RestXmlProtocol {
   ): void;
   httpRequestWithFloatLabels(
     args: HttpRequestWithFloatLabelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpRequestWithFloatLabelsCommandOutput) => void
   ): void;
 
@@ -865,7 +872,7 @@ export interface RestXmlProtocol {
    */
   httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput>;
   httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
@@ -873,7 +880,7 @@ export interface RestXmlProtocol {
   ): void;
   httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpRequestWithGreedyLabelInPathCommandOutput) => void
   ): void;
 
@@ -882,7 +889,7 @@ export interface RestXmlProtocol {
    */
   httpRequestWithLabels(
     args: HttpRequestWithLabelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpRequestWithLabelsCommandOutput>;
   httpRequestWithLabels(
     args: HttpRequestWithLabelsCommandInput,
@@ -890,7 +897,7 @@ export interface RestXmlProtocol {
   ): void;
   httpRequestWithLabels(
     args: HttpRequestWithLabelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpRequestWithLabelsCommandOutput) => void
   ): void;
 
@@ -899,7 +906,7 @@ export interface RestXmlProtocol {
    */
   httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput>;
   httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
@@ -907,7 +914,7 @@ export interface RestXmlProtocol {
   ): void;
   httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
   ): void;
 
@@ -917,7 +924,7 @@ export interface RestXmlProtocol {
   httpResponseCode(): Promise<HttpResponseCodeCommandOutput>;
   httpResponseCode(
     args: HttpResponseCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpResponseCodeCommandOutput>;
   httpResponseCode(
     args: HttpResponseCodeCommandInput,
@@ -925,7 +932,7 @@ export interface RestXmlProtocol {
   ): void;
   httpResponseCode(
     args: HttpResponseCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpResponseCodeCommandOutput) => void
   ): void;
 
@@ -935,7 +942,7 @@ export interface RestXmlProtocol {
   httpStringPayload(): Promise<HttpStringPayloadCommandOutput>;
   httpStringPayload(
     args: HttpStringPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<HttpStringPayloadCommandOutput>;
   httpStringPayload(
     args: HttpStringPayloadCommandInput,
@@ -943,7 +950,7 @@ export interface RestXmlProtocol {
   ): void;
   httpStringPayload(
     args: HttpStringPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: HttpStringPayloadCommandOutput) => void
   ): void;
 
@@ -953,7 +960,7 @@ export interface RestXmlProtocol {
   ignoreQueryParamsInResponse(): Promise<IgnoreQueryParamsInResponseCommandOutput>;
   ignoreQueryParamsInResponse(
     args: IgnoreQueryParamsInResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<IgnoreQueryParamsInResponseCommandOutput>;
   ignoreQueryParamsInResponse(
     args: IgnoreQueryParamsInResponseCommandInput,
@@ -961,7 +968,7 @@ export interface RestXmlProtocol {
   ): void;
   ignoreQueryParamsInResponse(
     args: IgnoreQueryParamsInResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: IgnoreQueryParamsInResponseCommandOutput) => void
   ): void;
 
@@ -971,7 +978,7 @@ export interface RestXmlProtocol {
   inputAndOutputWithHeaders(): Promise<InputAndOutputWithHeadersCommandOutput>;
   inputAndOutputWithHeaders(
     args: InputAndOutputWithHeadersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<InputAndOutputWithHeadersCommandOutput>;
   inputAndOutputWithHeaders(
     args: InputAndOutputWithHeadersCommandInput,
@@ -979,7 +986,7 @@ export interface RestXmlProtocol {
   ): void;
   inputAndOutputWithHeaders(
     args: InputAndOutputWithHeadersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: InputAndOutputWithHeadersCommandOutput) => void
   ): void;
 
@@ -989,7 +996,7 @@ export interface RestXmlProtocol {
   nestedXmlMaps(): Promise<NestedXmlMapsCommandOutput>;
   nestedXmlMaps(
     args: NestedXmlMapsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<NestedXmlMapsCommandOutput>;
   nestedXmlMaps(
     args: NestedXmlMapsCommandInput,
@@ -997,7 +1004,7 @@ export interface RestXmlProtocol {
   ): void;
   nestedXmlMaps(
     args: NestedXmlMapsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: NestedXmlMapsCommandOutput) => void
   ): void;
 
@@ -1007,7 +1014,7 @@ export interface RestXmlProtocol {
   nestedXmlMapWithXmlName(): Promise<NestedXmlMapWithXmlNameCommandOutput>;
   nestedXmlMapWithXmlName(
     args: NestedXmlMapWithXmlNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<NestedXmlMapWithXmlNameCommandOutput>;
   nestedXmlMapWithXmlName(
     args: NestedXmlMapWithXmlNameCommandInput,
@@ -1015,7 +1022,7 @@ export interface RestXmlProtocol {
   ): void;
   nestedXmlMapWithXmlName(
     args: NestedXmlMapWithXmlNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: NestedXmlMapWithXmlNameCommandOutput) => void
   ): void;
 
@@ -1025,7 +1032,7 @@ export interface RestXmlProtocol {
   noInputAndNoOutput(): Promise<NoInputAndNoOutputCommandOutput>;
   noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<NoInputAndNoOutputCommandOutput>;
   noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
@@ -1033,7 +1040,7 @@ export interface RestXmlProtocol {
   ): void;
   noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: NoInputAndNoOutputCommandOutput) => void
   ): void;
 
@@ -1043,7 +1050,7 @@ export interface RestXmlProtocol {
   noInputAndOutput(): Promise<NoInputAndOutputCommandOutput>;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<NoInputAndOutputCommandOutput>;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
@@ -1051,7 +1058,7 @@ export interface RestXmlProtocol {
   ): void;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: NoInputAndOutputCommandOutput) => void
   ): void;
 
@@ -1061,7 +1068,7 @@ export interface RestXmlProtocol {
   nullAndEmptyHeadersClient(): Promise<NullAndEmptyHeadersClientCommandOutput>;
   nullAndEmptyHeadersClient(
     args: NullAndEmptyHeadersClientCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<NullAndEmptyHeadersClientCommandOutput>;
   nullAndEmptyHeadersClient(
     args: NullAndEmptyHeadersClientCommandInput,
@@ -1069,7 +1076,7 @@ export interface RestXmlProtocol {
   ): void;
   nullAndEmptyHeadersClient(
     args: NullAndEmptyHeadersClientCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: NullAndEmptyHeadersClientCommandOutput) => void
   ): void;
 
@@ -1079,7 +1086,7 @@ export interface RestXmlProtocol {
   nullAndEmptyHeadersServer(): Promise<NullAndEmptyHeadersServerCommandOutput>;
   nullAndEmptyHeadersServer(
     args: NullAndEmptyHeadersServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<NullAndEmptyHeadersServerCommandOutput>;
   nullAndEmptyHeadersServer(
     args: NullAndEmptyHeadersServerCommandInput,
@@ -1087,7 +1094,7 @@ export interface RestXmlProtocol {
   ): void;
   nullAndEmptyHeadersServer(
     args: NullAndEmptyHeadersServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: NullAndEmptyHeadersServerCommandOutput) => void
   ): void;
 
@@ -1097,7 +1104,7 @@ export interface RestXmlProtocol {
   omitsNullSerializesEmptyString(): Promise<OmitsNullSerializesEmptyStringCommandOutput>;
   omitsNullSerializesEmptyString(
     args: OmitsNullSerializesEmptyStringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<OmitsNullSerializesEmptyStringCommandOutput>;
   omitsNullSerializesEmptyString(
     args: OmitsNullSerializesEmptyStringCommandInput,
@@ -1105,7 +1112,7 @@ export interface RestXmlProtocol {
   ): void;
   omitsNullSerializesEmptyString(
     args: OmitsNullSerializesEmptyStringCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: OmitsNullSerializesEmptyStringCommandOutput) => void
   ): void;
 
@@ -1115,7 +1122,7 @@ export interface RestXmlProtocol {
   putWithContentEncoding(): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
@@ -1123,7 +1130,7 @@ export interface RestXmlProtocol {
   ): void;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
   ): void;
 
@@ -1133,7 +1140,7 @@ export interface RestXmlProtocol {
   queryIdempotencyTokenAutoFill(): Promise<QueryIdempotencyTokenAutoFillCommandOutput>;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput>;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
@@ -1141,7 +1148,7 @@ export interface RestXmlProtocol {
   ): void;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: QueryIdempotencyTokenAutoFillCommandOutput) => void
   ): void;
 
@@ -1151,7 +1158,7 @@ export interface RestXmlProtocol {
   queryParamsAsStringListMap(): Promise<QueryParamsAsStringListMapCommandOutput>;
   queryParamsAsStringListMap(
     args: QueryParamsAsStringListMapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<QueryParamsAsStringListMapCommandOutput>;
   queryParamsAsStringListMap(
     args: QueryParamsAsStringListMapCommandInput,
@@ -1159,7 +1166,7 @@ export interface RestXmlProtocol {
   ): void;
   queryParamsAsStringListMap(
     args: QueryParamsAsStringListMapCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: QueryParamsAsStringListMapCommandOutput) => void
   ): void;
 
@@ -1169,7 +1176,7 @@ export interface RestXmlProtocol {
   queryPrecedence(): Promise<QueryPrecedenceCommandOutput>;
   queryPrecedence(
     args: QueryPrecedenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<QueryPrecedenceCommandOutput>;
   queryPrecedence(
     args: QueryPrecedenceCommandInput,
@@ -1177,7 +1184,7 @@ export interface RestXmlProtocol {
   ): void;
   queryPrecedence(
     args: QueryPrecedenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: QueryPrecedenceCommandOutput) => void
   ): void;
 
@@ -1187,7 +1194,7 @@ export interface RestXmlProtocol {
   recursiveShapes(): Promise<RecursiveShapesCommandOutput>;
   recursiveShapes(
     args: RecursiveShapesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<RecursiveShapesCommandOutput>;
   recursiveShapes(
     args: RecursiveShapesCommandInput,
@@ -1195,7 +1202,7 @@ export interface RestXmlProtocol {
   ): void;
   recursiveShapes(
     args: RecursiveShapesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: RecursiveShapesCommandOutput) => void
   ): void;
 
@@ -1205,7 +1212,7 @@ export interface RestXmlProtocol {
   simpleScalarProperties(): Promise<SimpleScalarPropertiesCommandOutput>;
   simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<SimpleScalarPropertiesCommandOutput>;
   simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
@@ -1213,7 +1220,7 @@ export interface RestXmlProtocol {
   ): void;
   simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: SimpleScalarPropertiesCommandOutput) => void
   ): void;
 
@@ -1223,7 +1230,7 @@ export interface RestXmlProtocol {
   timestampFormatHeaders(): Promise<TimestampFormatHeadersCommandOutput>;
   timestampFormatHeaders(
     args: TimestampFormatHeadersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<TimestampFormatHeadersCommandOutput>;
   timestampFormatHeaders(
     args: TimestampFormatHeadersCommandInput,
@@ -1231,7 +1238,7 @@ export interface RestXmlProtocol {
   ): void;
   timestampFormatHeaders(
     args: TimestampFormatHeadersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: TimestampFormatHeadersCommandOutput) => void
   ): void;
 
@@ -1241,7 +1248,7 @@ export interface RestXmlProtocol {
   xmlAttributes(): Promise<XmlAttributesCommandOutput>;
   xmlAttributes(
     args: XmlAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlAttributesCommandOutput>;
   xmlAttributes(
     args: XmlAttributesCommandInput,
@@ -1249,7 +1256,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlAttributes(
     args: XmlAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlAttributesCommandOutput) => void
   ): void;
 
@@ -1259,7 +1266,7 @@ export interface RestXmlProtocol {
   xmlAttributesInMiddle(): Promise<XmlAttributesInMiddleCommandOutput>;
   xmlAttributesInMiddle(
     args: XmlAttributesInMiddleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlAttributesInMiddleCommandOutput>;
   xmlAttributesInMiddle(
     args: XmlAttributesInMiddleCommandInput,
@@ -1267,7 +1274,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlAttributesInMiddle(
     args: XmlAttributesInMiddleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlAttributesInMiddleCommandOutput) => void
   ): void;
 
@@ -1277,7 +1284,7 @@ export interface RestXmlProtocol {
   xmlAttributesOnPayload(): Promise<XmlAttributesOnPayloadCommandOutput>;
   xmlAttributesOnPayload(
     args: XmlAttributesOnPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlAttributesOnPayloadCommandOutput>;
   xmlAttributesOnPayload(
     args: XmlAttributesOnPayloadCommandInput,
@@ -1285,7 +1292,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlAttributesOnPayload(
     args: XmlAttributesOnPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlAttributesOnPayloadCommandOutput) => void
   ): void;
 
@@ -1295,7 +1302,7 @@ export interface RestXmlProtocol {
   xmlBlobs(): Promise<XmlBlobsCommandOutput>;
   xmlBlobs(
     args: XmlBlobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlBlobsCommandOutput>;
   xmlBlobs(
     args: XmlBlobsCommandInput,
@@ -1303,7 +1310,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlBlobs(
     args: XmlBlobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlBlobsCommandOutput) => void
   ): void;
 
@@ -1313,7 +1320,7 @@ export interface RestXmlProtocol {
   xmlEmptyBlobs(): Promise<XmlEmptyBlobsCommandOutput>;
   xmlEmptyBlobs(
     args: XmlEmptyBlobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlEmptyBlobsCommandOutput>;
   xmlEmptyBlobs(
     args: XmlEmptyBlobsCommandInput,
@@ -1321,7 +1328,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlEmptyBlobs(
     args: XmlEmptyBlobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
   ): void;
 
@@ -1331,7 +1338,7 @@ export interface RestXmlProtocol {
   xmlEmptyLists(): Promise<XmlEmptyListsCommandOutput>;
   xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlEmptyListsCommandOutput>;
   xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
@@ -1339,7 +1346,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlEmptyListsCommandOutput) => void
   ): void;
 
@@ -1349,7 +1356,7 @@ export interface RestXmlProtocol {
   xmlEmptyMaps(): Promise<XmlEmptyMapsCommandOutput>;
   xmlEmptyMaps(
     args: XmlEmptyMapsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlEmptyMapsCommandOutput>;
   xmlEmptyMaps(
     args: XmlEmptyMapsCommandInput,
@@ -1357,7 +1364,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlEmptyMaps(
     args: XmlEmptyMapsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlEmptyMapsCommandOutput) => void
   ): void;
 
@@ -1367,7 +1374,7 @@ export interface RestXmlProtocol {
   xmlEmptyStrings(): Promise<XmlEmptyStringsCommandOutput>;
   xmlEmptyStrings(
     args: XmlEmptyStringsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlEmptyStringsCommandOutput>;
   xmlEmptyStrings(
     args: XmlEmptyStringsCommandInput,
@@ -1375,7 +1382,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlEmptyStrings(
     args: XmlEmptyStringsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlEmptyStringsCommandOutput) => void
   ): void;
 
@@ -1385,7 +1392,7 @@ export interface RestXmlProtocol {
   xmlEnums(): Promise<XmlEnumsCommandOutput>;
   xmlEnums(
     args: XmlEnumsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlEnumsCommandOutput>;
   xmlEnums(
     args: XmlEnumsCommandInput,
@@ -1393,7 +1400,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlEnums(
     args: XmlEnumsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlEnumsCommandOutput) => void
   ): void;
 
@@ -1403,7 +1410,7 @@ export interface RestXmlProtocol {
   xmlIntEnums(): Promise<XmlIntEnumsCommandOutput>;
   xmlIntEnums(
     args: XmlIntEnumsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlIntEnumsCommandOutput>;
   xmlIntEnums(
     args: XmlIntEnumsCommandInput,
@@ -1411,7 +1418,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlIntEnums(
     args: XmlIntEnumsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlIntEnumsCommandOutput) => void
   ): void;
 
@@ -1421,7 +1428,7 @@ export interface RestXmlProtocol {
   xmlLists(): Promise<XmlListsCommandOutput>;
   xmlLists(
     args: XmlListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlListsCommandOutput>;
   xmlLists(
     args: XmlListsCommandInput,
@@ -1429,7 +1436,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlLists(
     args: XmlListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlListsCommandOutput) => void
   ): void;
 
@@ -1439,7 +1446,7 @@ export interface RestXmlProtocol {
   xmlMaps(): Promise<XmlMapsCommandOutput>;
   xmlMaps(
     args: XmlMapsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlMapsCommandOutput>;
   xmlMaps(
     args: XmlMapsCommandInput,
@@ -1447,7 +1454,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlMaps(
     args: XmlMapsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlMapsCommandOutput) => void
   ): void;
 
@@ -1457,7 +1464,7 @@ export interface RestXmlProtocol {
   xmlMapsXmlName(): Promise<XmlMapsXmlNameCommandOutput>;
   xmlMapsXmlName(
     args: XmlMapsXmlNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlMapsXmlNameCommandOutput>;
   xmlMapsXmlName(
     args: XmlMapsXmlNameCommandInput,
@@ -1465,7 +1472,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlMapsXmlName(
     args: XmlMapsXmlNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlMapsXmlNameCommandOutput) => void
   ): void;
 
@@ -1475,7 +1482,7 @@ export interface RestXmlProtocol {
   xmlMapWithXmlNamespace(): Promise<XmlMapWithXmlNamespaceCommandOutput>;
   xmlMapWithXmlNamespace(
     args: XmlMapWithXmlNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlMapWithXmlNamespaceCommandOutput>;
   xmlMapWithXmlNamespace(
     args: XmlMapWithXmlNamespaceCommandInput,
@@ -1483,7 +1490,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlMapWithXmlNamespace(
     args: XmlMapWithXmlNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlMapWithXmlNamespaceCommandOutput) => void
   ): void;
 
@@ -1493,7 +1500,7 @@ export interface RestXmlProtocol {
   xmlNamespaces(): Promise<XmlNamespacesCommandOutput>;
   xmlNamespaces(
     args: XmlNamespacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlNamespacesCommandOutput>;
   xmlNamespaces(
     args: XmlNamespacesCommandInput,
@@ -1501,7 +1508,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlNamespaces(
     args: XmlNamespacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlNamespacesCommandOutput) => void
   ): void;
 
@@ -1511,7 +1518,7 @@ export interface RestXmlProtocol {
   xmlTimestamps(): Promise<XmlTimestampsCommandOutput>;
   xmlTimestamps(
     args: XmlTimestampsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlTimestampsCommandOutput>;
   xmlTimestamps(
     args: XmlTimestampsCommandInput,
@@ -1519,7 +1526,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlTimestamps(
     args: XmlTimestampsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlTimestampsCommandOutput) => void
   ): void;
 
@@ -1529,7 +1536,7 @@ export interface RestXmlProtocol {
   xmlUnions(): Promise<XmlUnionsCommandOutput>;
   xmlUnions(
     args: XmlUnionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestXmlProtocolRequestOptions
   ): Promise<XmlUnionsCommandOutput>;
   xmlUnions(
     args: XmlUnionsCommandInput,
@@ -1537,7 +1544,7 @@ export interface RestXmlProtocol {
   ): void;
   xmlUnions(
     args: XmlUnionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestXmlProtocolRequestOptions,
     cb: (err: any, data?: XmlUnionsCommandOutput) => void
   ): void;
 }

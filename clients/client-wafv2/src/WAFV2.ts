@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type AssociateWebACLCommandInput,
@@ -353,13 +353,20 @@ const commands = {
   UpdateWebACLCommand,
 };
 
+/**
+ * @public
+ */
+export interface WAFV2RequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface WAFV2 {
   /**
    * @see {@link AssociateWebACLCommand}
    */
   associateWebACL(
     args: AssociateWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<AssociateWebACLCommandOutput>;
   associateWebACL(
     args: AssociateWebACLCommandInput,
@@ -367,7 +374,7 @@ export interface WAFV2 {
   ): void;
   associateWebACL(
     args: AssociateWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: AssociateWebACLCommandOutput) => void
   ): void;
 
@@ -376,7 +383,7 @@ export interface WAFV2 {
    */
   checkCapacity(
     args: CheckCapacityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<CheckCapacityCommandOutput>;
   checkCapacity(
     args: CheckCapacityCommandInput,
@@ -384,7 +391,7 @@ export interface WAFV2 {
   ): void;
   checkCapacity(
     args: CheckCapacityCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: CheckCapacityCommandOutput) => void
   ): void;
 
@@ -393,7 +400,7 @@ export interface WAFV2 {
    */
   createAPIKey(
     args: CreateAPIKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<CreateAPIKeyCommandOutput>;
   createAPIKey(
     args: CreateAPIKeyCommandInput,
@@ -401,7 +408,7 @@ export interface WAFV2 {
   ): void;
   createAPIKey(
     args: CreateAPIKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: CreateAPIKeyCommandOutput) => void
   ): void;
 
@@ -410,7 +417,7 @@ export interface WAFV2 {
    */
   createIPSet(
     args: CreateIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<CreateIPSetCommandOutput>;
   createIPSet(
     args: CreateIPSetCommandInput,
@@ -418,7 +425,7 @@ export interface WAFV2 {
   ): void;
   createIPSet(
     args: CreateIPSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: CreateIPSetCommandOutput) => void
   ): void;
 
@@ -427,7 +434,7 @@ export interface WAFV2 {
    */
   createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<CreateRegexPatternSetCommandOutput>;
   createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
@@ -435,7 +442,7 @@ export interface WAFV2 {
   ): void;
   createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: CreateRegexPatternSetCommandOutput) => void
   ): void;
 
@@ -444,7 +451,7 @@ export interface WAFV2 {
    */
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<CreateRuleGroupCommandOutput>;
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
@@ -452,7 +459,7 @@ export interface WAFV2 {
   ): void;
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: CreateRuleGroupCommandOutput) => void
   ): void;
 
@@ -461,7 +468,7 @@ export interface WAFV2 {
    */
   createWebACL(
     args: CreateWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<CreateWebACLCommandOutput>;
   createWebACL(
     args: CreateWebACLCommandInput,
@@ -469,7 +476,7 @@ export interface WAFV2 {
   ): void;
   createWebACL(
     args: CreateWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: CreateWebACLCommandOutput) => void
   ): void;
 
@@ -478,7 +485,7 @@ export interface WAFV2 {
    */
   deleteAPIKey(
     args: DeleteAPIKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DeleteAPIKeyCommandOutput>;
   deleteAPIKey(
     args: DeleteAPIKeyCommandInput,
@@ -486,7 +493,7 @@ export interface WAFV2 {
   ): void;
   deleteAPIKey(
     args: DeleteAPIKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DeleteAPIKeyCommandOutput) => void
   ): void;
 
@@ -495,7 +502,7 @@ export interface WAFV2 {
    */
   deleteFirewallManagerRuleGroups(
     args: DeleteFirewallManagerRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DeleteFirewallManagerRuleGroupsCommandOutput>;
   deleteFirewallManagerRuleGroups(
     args: DeleteFirewallManagerRuleGroupsCommandInput,
@@ -503,7 +510,7 @@ export interface WAFV2 {
   ): void;
   deleteFirewallManagerRuleGroups(
     args: DeleteFirewallManagerRuleGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DeleteFirewallManagerRuleGroupsCommandOutput) => void
   ): void;
 
@@ -512,7 +519,7 @@ export interface WAFV2 {
    */
   deleteIPSet(
     args: DeleteIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DeleteIPSetCommandOutput>;
   deleteIPSet(
     args: DeleteIPSetCommandInput,
@@ -520,7 +527,7 @@ export interface WAFV2 {
   ): void;
   deleteIPSet(
     args: DeleteIPSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DeleteIPSetCommandOutput) => void
   ): void;
 
@@ -529,7 +536,7 @@ export interface WAFV2 {
    */
   deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DeleteLoggingConfigurationCommandOutput>;
   deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
@@ -537,7 +544,7 @@ export interface WAFV2 {
   ): void;
   deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -546,7 +553,7 @@ export interface WAFV2 {
    */
   deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DeletePermissionPolicyCommandOutput>;
   deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
@@ -554,7 +561,7 @@ export interface WAFV2 {
   ): void;
   deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DeletePermissionPolicyCommandOutput) => void
   ): void;
 
@@ -563,7 +570,7 @@ export interface WAFV2 {
    */
   deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DeleteRegexPatternSetCommandOutput>;
   deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
@@ -571,7 +578,7 @@ export interface WAFV2 {
   ): void;
   deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DeleteRegexPatternSetCommandOutput) => void
   ): void;
 
@@ -580,7 +587,7 @@ export interface WAFV2 {
    */
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DeleteRuleGroupCommandOutput>;
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
@@ -588,7 +595,7 @@ export interface WAFV2 {
   ): void;
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DeleteRuleGroupCommandOutput) => void
   ): void;
 
@@ -597,7 +604,7 @@ export interface WAFV2 {
    */
   deleteWebACL(
     args: DeleteWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DeleteWebACLCommandOutput>;
   deleteWebACL(
     args: DeleteWebACLCommandInput,
@@ -605,7 +612,7 @@ export interface WAFV2 {
   ): void;
   deleteWebACL(
     args: DeleteWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DeleteWebACLCommandOutput) => void
   ): void;
 
@@ -614,7 +621,7 @@ export interface WAFV2 {
    */
   describeAllManagedProducts(
     args: DescribeAllManagedProductsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DescribeAllManagedProductsCommandOutput>;
   describeAllManagedProducts(
     args: DescribeAllManagedProductsCommandInput,
@@ -622,7 +629,7 @@ export interface WAFV2 {
   ): void;
   describeAllManagedProducts(
     args: DescribeAllManagedProductsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DescribeAllManagedProductsCommandOutput) => void
   ): void;
 
@@ -631,7 +638,7 @@ export interface WAFV2 {
    */
   describeManagedProductsByVendor(
     args: DescribeManagedProductsByVendorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DescribeManagedProductsByVendorCommandOutput>;
   describeManagedProductsByVendor(
     args: DescribeManagedProductsByVendorCommandInput,
@@ -639,7 +646,7 @@ export interface WAFV2 {
   ): void;
   describeManagedProductsByVendor(
     args: DescribeManagedProductsByVendorCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DescribeManagedProductsByVendorCommandOutput) => void
   ): void;
 
@@ -648,7 +655,7 @@ export interface WAFV2 {
    */
   describeManagedRuleGroup(
     args: DescribeManagedRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DescribeManagedRuleGroupCommandOutput>;
   describeManagedRuleGroup(
     args: DescribeManagedRuleGroupCommandInput,
@@ -656,7 +663,7 @@ export interface WAFV2 {
   ): void;
   describeManagedRuleGroup(
     args: DescribeManagedRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DescribeManagedRuleGroupCommandOutput) => void
   ): void;
 
@@ -665,7 +672,7 @@ export interface WAFV2 {
    */
   disassociateWebACL(
     args: DisassociateWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<DisassociateWebACLCommandOutput>;
   disassociateWebACL(
     args: DisassociateWebACLCommandInput,
@@ -673,7 +680,7 @@ export interface WAFV2 {
   ): void;
   disassociateWebACL(
     args: DisassociateWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: DisassociateWebACLCommandOutput) => void
   ): void;
 
@@ -682,7 +689,7 @@ export interface WAFV2 {
    */
   generateMobileSdkReleaseUrl(
     args: GenerateMobileSdkReleaseUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GenerateMobileSdkReleaseUrlCommandOutput>;
   generateMobileSdkReleaseUrl(
     args: GenerateMobileSdkReleaseUrlCommandInput,
@@ -690,7 +697,7 @@ export interface WAFV2 {
   ): void;
   generateMobileSdkReleaseUrl(
     args: GenerateMobileSdkReleaseUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GenerateMobileSdkReleaseUrlCommandOutput) => void
   ): void;
 
@@ -699,7 +706,7 @@ export interface WAFV2 {
    */
   getDecryptedAPIKey(
     args: GetDecryptedAPIKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetDecryptedAPIKeyCommandOutput>;
   getDecryptedAPIKey(
     args: GetDecryptedAPIKeyCommandInput,
@@ -707,7 +714,7 @@ export interface WAFV2 {
   ): void;
   getDecryptedAPIKey(
     args: GetDecryptedAPIKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetDecryptedAPIKeyCommandOutput) => void
   ): void;
 
@@ -716,7 +723,7 @@ export interface WAFV2 {
    */
   getIPSet(
     args: GetIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetIPSetCommandOutput>;
   getIPSet(
     args: GetIPSetCommandInput,
@@ -724,7 +731,7 @@ export interface WAFV2 {
   ): void;
   getIPSet(
     args: GetIPSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetIPSetCommandOutput) => void
   ): void;
 
@@ -733,7 +740,7 @@ export interface WAFV2 {
    */
   getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetLoggingConfigurationCommandOutput>;
   getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
@@ -741,7 +748,7 @@ export interface WAFV2 {
   ): void;
   getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -750,7 +757,7 @@ export interface WAFV2 {
    */
   getManagedRuleSet(
     args: GetManagedRuleSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetManagedRuleSetCommandOutput>;
   getManagedRuleSet(
     args: GetManagedRuleSetCommandInput,
@@ -758,7 +765,7 @@ export interface WAFV2 {
   ): void;
   getManagedRuleSet(
     args: GetManagedRuleSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetManagedRuleSetCommandOutput) => void
   ): void;
 
@@ -767,7 +774,7 @@ export interface WAFV2 {
    */
   getMobileSdkRelease(
     args: GetMobileSdkReleaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetMobileSdkReleaseCommandOutput>;
   getMobileSdkRelease(
     args: GetMobileSdkReleaseCommandInput,
@@ -775,7 +782,7 @@ export interface WAFV2 {
   ): void;
   getMobileSdkRelease(
     args: GetMobileSdkReleaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetMobileSdkReleaseCommandOutput) => void
   ): void;
 
@@ -784,7 +791,7 @@ export interface WAFV2 {
    */
   getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetPermissionPolicyCommandOutput>;
   getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
@@ -792,7 +799,7 @@ export interface WAFV2 {
   ): void;
   getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetPermissionPolicyCommandOutput) => void
   ): void;
 
@@ -801,7 +808,7 @@ export interface WAFV2 {
    */
   getRateBasedStatementManagedKeys(
     args: GetRateBasedStatementManagedKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetRateBasedStatementManagedKeysCommandOutput>;
   getRateBasedStatementManagedKeys(
     args: GetRateBasedStatementManagedKeysCommandInput,
@@ -809,7 +816,7 @@ export interface WAFV2 {
   ): void;
   getRateBasedStatementManagedKeys(
     args: GetRateBasedStatementManagedKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetRateBasedStatementManagedKeysCommandOutput) => void
   ): void;
 
@@ -818,7 +825,7 @@ export interface WAFV2 {
    */
   getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetRegexPatternSetCommandOutput>;
   getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
@@ -826,7 +833,7 @@ export interface WAFV2 {
   ): void;
   getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetRegexPatternSetCommandOutput) => void
   ): void;
 
@@ -835,7 +842,7 @@ export interface WAFV2 {
    */
   getRevenueStatistics(
     args: GetRevenueStatisticsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetRevenueStatisticsCommandOutput>;
   getRevenueStatistics(
     args: GetRevenueStatisticsCommandInput,
@@ -843,7 +850,7 @@ export interface WAFV2 {
   ): void;
   getRevenueStatistics(
     args: GetRevenueStatisticsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetRevenueStatisticsCommandOutput) => void
   ): void;
 
@@ -852,7 +859,7 @@ export interface WAFV2 {
    */
   getRevenueStatisticsSummary(
     args: GetRevenueStatisticsSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetRevenueStatisticsSummaryCommandOutput>;
   getRevenueStatisticsSummary(
     args: GetRevenueStatisticsSummaryCommandInput,
@@ -860,7 +867,7 @@ export interface WAFV2 {
   ): void;
   getRevenueStatisticsSummary(
     args: GetRevenueStatisticsSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetRevenueStatisticsSummaryCommandOutput) => void
   ): void;
 
@@ -869,7 +876,7 @@ export interface WAFV2 {
    */
   getRevenueStatisticsTimeSeries(
     args: GetRevenueStatisticsTimeSeriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetRevenueStatisticsTimeSeriesCommandOutput>;
   getRevenueStatisticsTimeSeries(
     args: GetRevenueStatisticsTimeSeriesCommandInput,
@@ -877,7 +884,7 @@ export interface WAFV2 {
   ): void;
   getRevenueStatisticsTimeSeries(
     args: GetRevenueStatisticsTimeSeriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetRevenueStatisticsTimeSeriesCommandOutput) => void
   ): void;
 
@@ -887,7 +894,7 @@ export interface WAFV2 {
   getRuleGroup(): Promise<GetRuleGroupCommandOutput>;
   getRuleGroup(
     args: GetRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetRuleGroupCommandOutput>;
   getRuleGroup(
     args: GetRuleGroupCommandInput,
@@ -895,7 +902,7 @@ export interface WAFV2 {
   ): void;
   getRuleGroup(
     args: GetRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetRuleGroupCommandOutput) => void
   ): void;
 
@@ -904,7 +911,7 @@ export interface WAFV2 {
    */
   getSampledRequests(
     args: GetSampledRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetSampledRequestsCommandOutput>;
   getSampledRequests(
     args: GetSampledRequestsCommandInput,
@@ -912,7 +919,7 @@ export interface WAFV2 {
   ): void;
   getSampledRequests(
     args: GetSampledRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetSampledRequestsCommandOutput) => void
   ): void;
 
@@ -921,7 +928,7 @@ export interface WAFV2 {
    */
   getTopPathStatisticsByTraffic(
     args: GetTopPathStatisticsByTrafficCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetTopPathStatisticsByTrafficCommandOutput>;
   getTopPathStatisticsByTraffic(
     args: GetTopPathStatisticsByTrafficCommandInput,
@@ -929,7 +936,7 @@ export interface WAFV2 {
   ): void;
   getTopPathStatisticsByTraffic(
     args: GetTopPathStatisticsByTrafficCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetTopPathStatisticsByTrafficCommandOutput) => void
   ): void;
 
@@ -939,7 +946,7 @@ export interface WAFV2 {
   getWebACL(): Promise<GetWebACLCommandOutput>;
   getWebACL(
     args: GetWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetWebACLCommandOutput>;
   getWebACL(
     args: GetWebACLCommandInput,
@@ -947,7 +954,7 @@ export interface WAFV2 {
   ): void;
   getWebACL(
     args: GetWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetWebACLCommandOutput) => void
   ): void;
 
@@ -956,7 +963,7 @@ export interface WAFV2 {
    */
   getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<GetWebACLForResourceCommandOutput>;
   getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
@@ -964,7 +971,7 @@ export interface WAFV2 {
   ): void;
   getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: GetWebACLForResourceCommandOutput) => void
   ): void;
 
@@ -973,7 +980,7 @@ export interface WAFV2 {
    */
   listAPIKeys(
     args: ListAPIKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListAPIKeysCommandOutput>;
   listAPIKeys(
     args: ListAPIKeysCommandInput,
@@ -981,7 +988,7 @@ export interface WAFV2 {
   ): void;
   listAPIKeys(
     args: ListAPIKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListAPIKeysCommandOutput) => void
   ): void;
 
@@ -990,7 +997,7 @@ export interface WAFV2 {
    */
   listAvailableManagedRuleGroups(
     args: ListAvailableManagedRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListAvailableManagedRuleGroupsCommandOutput>;
   listAvailableManagedRuleGroups(
     args: ListAvailableManagedRuleGroupsCommandInput,
@@ -998,7 +1005,7 @@ export interface WAFV2 {
   ): void;
   listAvailableManagedRuleGroups(
     args: ListAvailableManagedRuleGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListAvailableManagedRuleGroupsCommandOutput) => void
   ): void;
 
@@ -1007,7 +1014,7 @@ export interface WAFV2 {
    */
   listAvailableManagedRuleGroupVersions(
     args: ListAvailableManagedRuleGroupVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListAvailableManagedRuleGroupVersionsCommandOutput>;
   listAvailableManagedRuleGroupVersions(
     args: ListAvailableManagedRuleGroupVersionsCommandInput,
@@ -1015,7 +1022,7 @@ export interface WAFV2 {
   ): void;
   listAvailableManagedRuleGroupVersions(
     args: ListAvailableManagedRuleGroupVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListAvailableManagedRuleGroupVersionsCommandOutput) => void
   ): void;
 
@@ -1024,7 +1031,7 @@ export interface WAFV2 {
    */
   listIPSets(
     args: ListIPSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListIPSetsCommandOutput>;
   listIPSets(
     args: ListIPSetsCommandInput,
@@ -1032,7 +1039,7 @@ export interface WAFV2 {
   ): void;
   listIPSets(
     args: ListIPSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListIPSetsCommandOutput) => void
   ): void;
 
@@ -1041,7 +1048,7 @@ export interface WAFV2 {
    */
   listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListLoggingConfigurationsCommandOutput>;
   listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
@@ -1049,7 +1056,7 @@ export interface WAFV2 {
   ): void;
   listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListLoggingConfigurationsCommandOutput) => void
   ): void;
 
@@ -1058,7 +1065,7 @@ export interface WAFV2 {
    */
   listManagedRuleSets(
     args: ListManagedRuleSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListManagedRuleSetsCommandOutput>;
   listManagedRuleSets(
     args: ListManagedRuleSetsCommandInput,
@@ -1066,7 +1073,7 @@ export interface WAFV2 {
   ): void;
   listManagedRuleSets(
     args: ListManagedRuleSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListManagedRuleSetsCommandOutput) => void
   ): void;
 
@@ -1075,7 +1082,7 @@ export interface WAFV2 {
    */
   listMobileSdkReleases(
     args: ListMobileSdkReleasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListMobileSdkReleasesCommandOutput>;
   listMobileSdkReleases(
     args: ListMobileSdkReleasesCommandInput,
@@ -1083,7 +1090,7 @@ export interface WAFV2 {
   ): void;
   listMobileSdkReleases(
     args: ListMobileSdkReleasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListMobileSdkReleasesCommandOutput) => void
   ): void;
 
@@ -1092,7 +1099,7 @@ export interface WAFV2 {
    */
   listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListRegexPatternSetsCommandOutput>;
   listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
@@ -1100,7 +1107,7 @@ export interface WAFV2 {
   ): void;
   listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListRegexPatternSetsCommandOutput) => void
   ): void;
 
@@ -1109,7 +1116,7 @@ export interface WAFV2 {
    */
   listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListResourcesForWebACLCommandOutput>;
   listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
@@ -1117,7 +1124,7 @@ export interface WAFV2 {
   ): void;
   listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListResourcesForWebACLCommandOutput) => void
   ): void;
 
@@ -1126,7 +1133,7 @@ export interface WAFV2 {
    */
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListRuleGroupsCommandOutput>;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
@@ -1134,7 +1141,7 @@ export interface WAFV2 {
   ): void;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListRuleGroupsCommandOutput) => void
   ): void;
 
@@ -1143,7 +1150,7 @@ export interface WAFV2 {
    */
   listSettlementRecords(
     args: ListSettlementRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListSettlementRecordsCommandOutput>;
   listSettlementRecords(
     args: ListSettlementRecordsCommandInput,
@@ -1151,7 +1158,7 @@ export interface WAFV2 {
   ): void;
   listSettlementRecords(
     args: ListSettlementRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListSettlementRecordsCommandOutput) => void
   ): void;
 
@@ -1160,7 +1167,7 @@ export interface WAFV2 {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1168,7 +1175,7 @@ export interface WAFV2 {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1177,7 +1184,7 @@ export interface WAFV2 {
    */
   listWebACLs(
     args: ListWebACLsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<ListWebACLsCommandOutput>;
   listWebACLs(
     args: ListWebACLsCommandInput,
@@ -1185,7 +1192,7 @@ export interface WAFV2 {
   ): void;
   listWebACLs(
     args: ListWebACLsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: ListWebACLsCommandOutput) => void
   ): void;
 
@@ -1194,7 +1201,7 @@ export interface WAFV2 {
    */
   putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<PutLoggingConfigurationCommandOutput>;
   putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
@@ -1202,7 +1209,7 @@ export interface WAFV2 {
   ): void;
   putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: PutLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -1211,7 +1218,7 @@ export interface WAFV2 {
    */
   putManagedRuleSetVersions(
     args: PutManagedRuleSetVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<PutManagedRuleSetVersionsCommandOutput>;
   putManagedRuleSetVersions(
     args: PutManagedRuleSetVersionsCommandInput,
@@ -1219,7 +1226,7 @@ export interface WAFV2 {
   ): void;
   putManagedRuleSetVersions(
     args: PutManagedRuleSetVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: PutManagedRuleSetVersionsCommandOutput) => void
   ): void;
 
@@ -1228,7 +1235,7 @@ export interface WAFV2 {
    */
   putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<PutPermissionPolicyCommandOutput>;
   putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
@@ -1236,7 +1243,7 @@ export interface WAFV2 {
   ): void;
   putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: PutPermissionPolicyCommandOutput) => void
   ): void;
 
@@ -1245,7 +1252,7 @@ export interface WAFV2 {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1253,7 +1260,7 @@ export interface WAFV2 {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1262,7 +1269,7 @@ export interface WAFV2 {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1270,7 +1277,7 @@ export interface WAFV2 {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1279,7 +1286,7 @@ export interface WAFV2 {
    */
   updateIPSet(
     args: UpdateIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<UpdateIPSetCommandOutput>;
   updateIPSet(
     args: UpdateIPSetCommandInput,
@@ -1287,7 +1294,7 @@ export interface WAFV2 {
   ): void;
   updateIPSet(
     args: UpdateIPSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: UpdateIPSetCommandOutput) => void
   ): void;
 
@@ -1296,7 +1303,7 @@ export interface WAFV2 {
    */
   updateManagedRuleSetVersionExpiryDate(
     args: UpdateManagedRuleSetVersionExpiryDateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<UpdateManagedRuleSetVersionExpiryDateCommandOutput>;
   updateManagedRuleSetVersionExpiryDate(
     args: UpdateManagedRuleSetVersionExpiryDateCommandInput,
@@ -1304,7 +1311,7 @@ export interface WAFV2 {
   ): void;
   updateManagedRuleSetVersionExpiryDate(
     args: UpdateManagedRuleSetVersionExpiryDateCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: UpdateManagedRuleSetVersionExpiryDateCommandOutput) => void
   ): void;
 
@@ -1313,7 +1320,7 @@ export interface WAFV2 {
    */
   updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<UpdateRegexPatternSetCommandOutput>;
   updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
@@ -1321,7 +1328,7 @@ export interface WAFV2 {
   ): void;
   updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: UpdateRegexPatternSetCommandOutput) => void
   ): void;
 
@@ -1330,7 +1337,7 @@ export interface WAFV2 {
    */
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<UpdateRuleGroupCommandOutput>;
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
@@ -1338,7 +1345,7 @@ export interface WAFV2 {
   ): void;
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: UpdateRuleGroupCommandOutput) => void
   ): void;
 
@@ -1347,7 +1354,7 @@ export interface WAFV2 {
    */
   updateWebACL(
     args: UpdateWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFV2RequestOptions
   ): Promise<UpdateWebACLCommandOutput>;
   updateWebACL(
     args: UpdateWebACLCommandInput,
@@ -1355,7 +1362,7 @@ export interface WAFV2 {
   ): void;
   updateWebACL(
     args: UpdateWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFV2RequestOptions,
     cb: (err: any, data?: UpdateWebACLCommandOutput) => void
   ): void;
 }

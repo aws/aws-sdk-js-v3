@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BedrockRuntimeClient } from "./BedrockRuntimeClient";
 import {
@@ -73,13 +78,20 @@ const paginators = {
   paginateListAsyncInvokes,
 };
 
+/**
+ * @public
+ */
+export interface BedrockRuntimeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface BedrockRuntime {
   /**
    * @see {@link ApplyGuardrailCommand}
    */
   applyGuardrail(
     args: ApplyGuardrailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRuntimeRequestOptions
   ): Promise<ApplyGuardrailCommandOutput>;
   applyGuardrail(
     args: ApplyGuardrailCommandInput,
@@ -87,7 +99,7 @@ export interface BedrockRuntime {
   ): void;
   applyGuardrail(
     args: ApplyGuardrailCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRuntimeRequestOptions,
     cb: (err: any, data?: ApplyGuardrailCommandOutput) => void
   ): void;
 
@@ -96,7 +108,7 @@ export interface BedrockRuntime {
    */
   converse(
     args: ConverseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRuntimeRequestOptions
   ): Promise<ConverseCommandOutput>;
   converse(
     args: ConverseCommandInput,
@@ -104,7 +116,7 @@ export interface BedrockRuntime {
   ): void;
   converse(
     args: ConverseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRuntimeRequestOptions,
     cb: (err: any, data?: ConverseCommandOutput) => void
   ): void;
 
@@ -113,7 +125,7 @@ export interface BedrockRuntime {
    */
   converseStream(
     args: ConverseStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRuntimeRequestOptions
   ): Promise<ConverseStreamCommandOutput>;
   converseStream(
     args: ConverseStreamCommandInput,
@@ -121,7 +133,7 @@ export interface BedrockRuntime {
   ): void;
   converseStream(
     args: ConverseStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRuntimeRequestOptions,
     cb: (err: any, data?: ConverseStreamCommandOutput) => void
   ): void;
 
@@ -130,7 +142,7 @@ export interface BedrockRuntime {
    */
   countTokens(
     args: CountTokensCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRuntimeRequestOptions
   ): Promise<CountTokensCommandOutput>;
   countTokens(
     args: CountTokensCommandInput,
@@ -138,7 +150,7 @@ export interface BedrockRuntime {
   ): void;
   countTokens(
     args: CountTokensCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRuntimeRequestOptions,
     cb: (err: any, data?: CountTokensCommandOutput) => void
   ): void;
 
@@ -147,7 +159,7 @@ export interface BedrockRuntime {
    */
   getAsyncInvoke(
     args: GetAsyncInvokeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRuntimeRequestOptions
   ): Promise<GetAsyncInvokeCommandOutput>;
   getAsyncInvoke(
     args: GetAsyncInvokeCommandInput,
@@ -155,7 +167,7 @@ export interface BedrockRuntime {
   ): void;
   getAsyncInvoke(
     args: GetAsyncInvokeCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRuntimeRequestOptions,
     cb: (err: any, data?: GetAsyncInvokeCommandOutput) => void
   ): void;
 
@@ -164,7 +176,7 @@ export interface BedrockRuntime {
    */
   invokeGuardrailChecks(
     args: InvokeGuardrailChecksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRuntimeRequestOptions
   ): Promise<InvokeGuardrailChecksCommandOutput>;
   invokeGuardrailChecks(
     args: InvokeGuardrailChecksCommandInput,
@@ -172,7 +184,7 @@ export interface BedrockRuntime {
   ): void;
   invokeGuardrailChecks(
     args: InvokeGuardrailChecksCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRuntimeRequestOptions,
     cb: (err: any, data?: InvokeGuardrailChecksCommandOutput) => void
   ): void;
 
@@ -181,7 +193,7 @@ export interface BedrockRuntime {
    */
   invokeModel(
     args: InvokeModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRuntimeRequestOptions
   ): Promise<InvokeModelCommandOutput>;
   invokeModel(
     args: InvokeModelCommandInput,
@@ -189,7 +201,7 @@ export interface BedrockRuntime {
   ): void;
   invokeModel(
     args: InvokeModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRuntimeRequestOptions,
     cb: (err: any, data?: InvokeModelCommandOutput) => void
   ): void;
 
@@ -198,7 +210,7 @@ export interface BedrockRuntime {
    */
   invokeModelWithBidirectionalStream(
     args: InvokeModelWithBidirectionalStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRuntimeRequestOptions
   ): Promise<InvokeModelWithBidirectionalStreamCommandOutput>;
   invokeModelWithBidirectionalStream(
     args: InvokeModelWithBidirectionalStreamCommandInput,
@@ -206,7 +218,7 @@ export interface BedrockRuntime {
   ): void;
   invokeModelWithBidirectionalStream(
     args: InvokeModelWithBidirectionalStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRuntimeRequestOptions,
     cb: (err: any, data?: InvokeModelWithBidirectionalStreamCommandOutput) => void
   ): void;
 
@@ -215,7 +227,7 @@ export interface BedrockRuntime {
    */
   invokeModelWithResponseStream(
     args: InvokeModelWithResponseStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRuntimeRequestOptions
   ): Promise<InvokeModelWithResponseStreamCommandOutput>;
   invokeModelWithResponseStream(
     args: InvokeModelWithResponseStreamCommandInput,
@@ -223,7 +235,7 @@ export interface BedrockRuntime {
   ): void;
   invokeModelWithResponseStream(
     args: InvokeModelWithResponseStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRuntimeRequestOptions,
     cb: (err: any, data?: InvokeModelWithResponseStreamCommandOutput) => void
   ): void;
 
@@ -233,7 +245,7 @@ export interface BedrockRuntime {
   listAsyncInvokes(): Promise<ListAsyncInvokesCommandOutput>;
   listAsyncInvokes(
     args: ListAsyncInvokesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRuntimeRequestOptions
   ): Promise<ListAsyncInvokesCommandOutput>;
   listAsyncInvokes(
     args: ListAsyncInvokesCommandInput,
@@ -241,7 +253,7 @@ export interface BedrockRuntime {
   ): void;
   listAsyncInvokes(
     args: ListAsyncInvokesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRuntimeRequestOptions,
     cb: (err: any, data?: ListAsyncInvokesCommandOutput) => void
   ): void;
 
@@ -250,7 +262,7 @@ export interface BedrockRuntime {
    */
   startAsyncInvoke(
     args: StartAsyncInvokeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockRuntimeRequestOptions
   ): Promise<StartAsyncInvokeCommandOutput>;
   startAsyncInvoke(
     args: StartAsyncInvokeCommandInput,
@@ -258,7 +270,7 @@ export interface BedrockRuntime {
   ): void;
   startAsyncInvoke(
     args: StartAsyncInvokeCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockRuntimeRequestOptions,
     cb: (err: any, data?: StartAsyncInvokeCommandOutput) => void
   ): void;
 

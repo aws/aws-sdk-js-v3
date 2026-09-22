@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchGetTokenBalanceCommandInput,
@@ -73,6 +78,13 @@ const paginators = {
   paginateListTransactions,
 };
 
+/**
+ * @public
+ */
+export interface ManagedBlockchainQueryRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ManagedBlockchainQuery {
   /**
    * @see {@link BatchGetTokenBalanceCommand}
@@ -80,7 +92,7 @@ export interface ManagedBlockchainQuery {
   batchGetTokenBalance(): Promise<BatchGetTokenBalanceCommandOutput>;
   batchGetTokenBalance(
     args: BatchGetTokenBalanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ManagedBlockchainQueryRequestOptions
   ): Promise<BatchGetTokenBalanceCommandOutput>;
   batchGetTokenBalance(
     args: BatchGetTokenBalanceCommandInput,
@@ -88,7 +100,7 @@ export interface ManagedBlockchainQuery {
   ): void;
   batchGetTokenBalance(
     args: BatchGetTokenBalanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ManagedBlockchainQueryRequestOptions,
     cb: (err: any, data?: BatchGetTokenBalanceCommandOutput) => void
   ): void;
 
@@ -97,7 +109,7 @@ export interface ManagedBlockchainQuery {
    */
   getAssetContract(
     args: GetAssetContractCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ManagedBlockchainQueryRequestOptions
   ): Promise<GetAssetContractCommandOutput>;
   getAssetContract(
     args: GetAssetContractCommandInput,
@@ -105,7 +117,7 @@ export interface ManagedBlockchainQuery {
   ): void;
   getAssetContract(
     args: GetAssetContractCommandInput,
-    options: __HttpHandlerOptions,
+    options: ManagedBlockchainQueryRequestOptions,
     cb: (err: any, data?: GetAssetContractCommandOutput) => void
   ): void;
 
@@ -114,7 +126,7 @@ export interface ManagedBlockchainQuery {
    */
   getTokenBalance(
     args: GetTokenBalanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ManagedBlockchainQueryRequestOptions
   ): Promise<GetTokenBalanceCommandOutput>;
   getTokenBalance(
     args: GetTokenBalanceCommandInput,
@@ -122,7 +134,7 @@ export interface ManagedBlockchainQuery {
   ): void;
   getTokenBalance(
     args: GetTokenBalanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ManagedBlockchainQueryRequestOptions,
     cb: (err: any, data?: GetTokenBalanceCommandOutput) => void
   ): void;
 
@@ -131,7 +143,7 @@ export interface ManagedBlockchainQuery {
    */
   getTransaction(
     args: GetTransactionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ManagedBlockchainQueryRequestOptions
   ): Promise<GetTransactionCommandOutput>;
   getTransaction(
     args: GetTransactionCommandInput,
@@ -139,7 +151,7 @@ export interface ManagedBlockchainQuery {
   ): void;
   getTransaction(
     args: GetTransactionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ManagedBlockchainQueryRequestOptions,
     cb: (err: any, data?: GetTransactionCommandOutput) => void
   ): void;
 
@@ -148,7 +160,7 @@ export interface ManagedBlockchainQuery {
    */
   listAssetContracts(
     args: ListAssetContractsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ManagedBlockchainQueryRequestOptions
   ): Promise<ListAssetContractsCommandOutput>;
   listAssetContracts(
     args: ListAssetContractsCommandInput,
@@ -156,7 +168,7 @@ export interface ManagedBlockchainQuery {
   ): void;
   listAssetContracts(
     args: ListAssetContractsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ManagedBlockchainQueryRequestOptions,
     cb: (err: any, data?: ListAssetContractsCommandOutput) => void
   ): void;
 
@@ -165,7 +177,7 @@ export interface ManagedBlockchainQuery {
    */
   listFilteredTransactionEvents(
     args: ListFilteredTransactionEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ManagedBlockchainQueryRequestOptions
   ): Promise<ListFilteredTransactionEventsCommandOutput>;
   listFilteredTransactionEvents(
     args: ListFilteredTransactionEventsCommandInput,
@@ -173,7 +185,7 @@ export interface ManagedBlockchainQuery {
   ): void;
   listFilteredTransactionEvents(
     args: ListFilteredTransactionEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ManagedBlockchainQueryRequestOptions,
     cb: (err: any, data?: ListFilteredTransactionEventsCommandOutput) => void
   ): void;
 
@@ -182,7 +194,7 @@ export interface ManagedBlockchainQuery {
    */
   listTokenBalances(
     args: ListTokenBalancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ManagedBlockchainQueryRequestOptions
   ): Promise<ListTokenBalancesCommandOutput>;
   listTokenBalances(
     args: ListTokenBalancesCommandInput,
@@ -190,7 +202,7 @@ export interface ManagedBlockchainQuery {
   ): void;
   listTokenBalances(
     args: ListTokenBalancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ManagedBlockchainQueryRequestOptions,
     cb: (err: any, data?: ListTokenBalancesCommandOutput) => void
   ): void;
 
@@ -199,7 +211,7 @@ export interface ManagedBlockchainQuery {
    */
   listTransactionEvents(
     args: ListTransactionEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ManagedBlockchainQueryRequestOptions
   ): Promise<ListTransactionEventsCommandOutput>;
   listTransactionEvents(
     args: ListTransactionEventsCommandInput,
@@ -207,7 +219,7 @@ export interface ManagedBlockchainQuery {
   ): void;
   listTransactionEvents(
     args: ListTransactionEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ManagedBlockchainQueryRequestOptions,
     cb: (err: any, data?: ListTransactionEventsCommandOutput) => void
   ): void;
 
@@ -216,7 +228,7 @@ export interface ManagedBlockchainQuery {
    */
   listTransactions(
     args: ListTransactionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ManagedBlockchainQueryRequestOptions
   ): Promise<ListTransactionsCommandOutput>;
   listTransactions(
     args: ListTransactionsCommandInput,
@@ -224,7 +236,7 @@ export interface ManagedBlockchainQuery {
   ): void;
   listTransactions(
     args: ListTransactionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ManagedBlockchainQueryRequestOptions,
     cb: (err: any, data?: ListTransactionsCommandOutput) => void
   ): void;
 

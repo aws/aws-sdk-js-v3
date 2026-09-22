@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AddNotificationChannelCommandInput,
@@ -225,13 +230,20 @@ const paginators = {
   paginateSearchOrganizationInsights,
 };
 
+/**
+ * @public
+ */
+export interface DevOpsGuruRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DevOpsGuru {
   /**
    * @see {@link AddNotificationChannelCommand}
    */
   addNotificationChannel(
     args: AddNotificationChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<AddNotificationChannelCommandOutput>;
   addNotificationChannel(
     args: AddNotificationChannelCommandInput,
@@ -239,7 +251,7 @@ export interface DevOpsGuru {
   ): void;
   addNotificationChannel(
     args: AddNotificationChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: AddNotificationChannelCommandOutput) => void
   ): void;
 
@@ -248,7 +260,7 @@ export interface DevOpsGuru {
    */
   deleteInsight(
     args: DeleteInsightCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DeleteInsightCommandOutput>;
   deleteInsight(
     args: DeleteInsightCommandInput,
@@ -256,7 +268,7 @@ export interface DevOpsGuru {
   ): void;
   deleteInsight(
     args: DeleteInsightCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DeleteInsightCommandOutput) => void
   ): void;
 
@@ -266,7 +278,7 @@ export interface DevOpsGuru {
   describeAccountHealth(): Promise<DescribeAccountHealthCommandOutput>;
   describeAccountHealth(
     args: DescribeAccountHealthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DescribeAccountHealthCommandOutput>;
   describeAccountHealth(
     args: DescribeAccountHealthCommandInput,
@@ -274,7 +286,7 @@ export interface DevOpsGuru {
   ): void;
   describeAccountHealth(
     args: DescribeAccountHealthCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DescribeAccountHealthCommandOutput) => void
   ): void;
 
@@ -283,7 +295,7 @@ export interface DevOpsGuru {
    */
   describeAccountOverview(
     args: DescribeAccountOverviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DescribeAccountOverviewCommandOutput>;
   describeAccountOverview(
     args: DescribeAccountOverviewCommandInput,
@@ -291,7 +303,7 @@ export interface DevOpsGuru {
   ): void;
   describeAccountOverview(
     args: DescribeAccountOverviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DescribeAccountOverviewCommandOutput) => void
   ): void;
 
@@ -300,7 +312,7 @@ export interface DevOpsGuru {
    */
   describeAnomaly(
     args: DescribeAnomalyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DescribeAnomalyCommandOutput>;
   describeAnomaly(
     args: DescribeAnomalyCommandInput,
@@ -308,7 +320,7 @@ export interface DevOpsGuru {
   ): void;
   describeAnomaly(
     args: DescribeAnomalyCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DescribeAnomalyCommandOutput) => void
   ): void;
 
@@ -318,7 +330,7 @@ export interface DevOpsGuru {
   describeEventSourcesConfig(): Promise<DescribeEventSourcesConfigCommandOutput>;
   describeEventSourcesConfig(
     args: DescribeEventSourcesConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DescribeEventSourcesConfigCommandOutput>;
   describeEventSourcesConfig(
     args: DescribeEventSourcesConfigCommandInput,
@@ -326,7 +338,7 @@ export interface DevOpsGuru {
   ): void;
   describeEventSourcesConfig(
     args: DescribeEventSourcesConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DescribeEventSourcesConfigCommandOutput) => void
   ): void;
 
@@ -336,7 +348,7 @@ export interface DevOpsGuru {
   describeFeedback(): Promise<DescribeFeedbackCommandOutput>;
   describeFeedback(
     args: DescribeFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DescribeFeedbackCommandOutput>;
   describeFeedback(
     args: DescribeFeedbackCommandInput,
@@ -344,7 +356,7 @@ export interface DevOpsGuru {
   ): void;
   describeFeedback(
     args: DescribeFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DescribeFeedbackCommandOutput) => void
   ): void;
 
@@ -353,7 +365,7 @@ export interface DevOpsGuru {
    */
   describeInsight(
     args: DescribeInsightCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DescribeInsightCommandOutput>;
   describeInsight(
     args: DescribeInsightCommandInput,
@@ -361,7 +373,7 @@ export interface DevOpsGuru {
   ): void;
   describeInsight(
     args: DescribeInsightCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DescribeInsightCommandOutput) => void
   ): void;
 
@@ -371,7 +383,7 @@ export interface DevOpsGuru {
   describeOrganizationHealth(): Promise<DescribeOrganizationHealthCommandOutput>;
   describeOrganizationHealth(
     args: DescribeOrganizationHealthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DescribeOrganizationHealthCommandOutput>;
   describeOrganizationHealth(
     args: DescribeOrganizationHealthCommandInput,
@@ -379,7 +391,7 @@ export interface DevOpsGuru {
   ): void;
   describeOrganizationHealth(
     args: DescribeOrganizationHealthCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DescribeOrganizationHealthCommandOutput) => void
   ): void;
 
@@ -388,7 +400,7 @@ export interface DevOpsGuru {
    */
   describeOrganizationOverview(
     args: DescribeOrganizationOverviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DescribeOrganizationOverviewCommandOutput>;
   describeOrganizationOverview(
     args: DescribeOrganizationOverviewCommandInput,
@@ -396,7 +408,7 @@ export interface DevOpsGuru {
   ): void;
   describeOrganizationOverview(
     args: DescribeOrganizationOverviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DescribeOrganizationOverviewCommandOutput) => void
   ): void;
 
@@ -405,7 +417,7 @@ export interface DevOpsGuru {
    */
   describeOrganizationResourceCollectionHealth(
     args: DescribeOrganizationResourceCollectionHealthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DescribeOrganizationResourceCollectionHealthCommandOutput>;
   describeOrganizationResourceCollectionHealth(
     args: DescribeOrganizationResourceCollectionHealthCommandInput,
@@ -413,7 +425,7 @@ export interface DevOpsGuru {
   ): void;
   describeOrganizationResourceCollectionHealth(
     args: DescribeOrganizationResourceCollectionHealthCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DescribeOrganizationResourceCollectionHealthCommandOutput) => void
   ): void;
 
@@ -422,7 +434,7 @@ export interface DevOpsGuru {
    */
   describeResourceCollectionHealth(
     args: DescribeResourceCollectionHealthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DescribeResourceCollectionHealthCommandOutput>;
   describeResourceCollectionHealth(
     args: DescribeResourceCollectionHealthCommandInput,
@@ -430,7 +442,7 @@ export interface DevOpsGuru {
   ): void;
   describeResourceCollectionHealth(
     args: DescribeResourceCollectionHealthCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DescribeResourceCollectionHealthCommandOutput) => void
   ): void;
 
@@ -440,7 +452,7 @@ export interface DevOpsGuru {
   describeServiceIntegration(): Promise<DescribeServiceIntegrationCommandOutput>;
   describeServiceIntegration(
     args: DescribeServiceIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<DescribeServiceIntegrationCommandOutput>;
   describeServiceIntegration(
     args: DescribeServiceIntegrationCommandInput,
@@ -448,7 +460,7 @@ export interface DevOpsGuru {
   ): void;
   describeServiceIntegration(
     args: DescribeServiceIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: DescribeServiceIntegrationCommandOutput) => void
   ): void;
 
@@ -458,7 +470,7 @@ export interface DevOpsGuru {
   getCostEstimation(): Promise<GetCostEstimationCommandOutput>;
   getCostEstimation(
     args: GetCostEstimationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<GetCostEstimationCommandOutput>;
   getCostEstimation(
     args: GetCostEstimationCommandInput,
@@ -466,7 +478,7 @@ export interface DevOpsGuru {
   ): void;
   getCostEstimation(
     args: GetCostEstimationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: GetCostEstimationCommandOutput) => void
   ): void;
 
@@ -475,7 +487,7 @@ export interface DevOpsGuru {
    */
   getResourceCollection(
     args: GetResourceCollectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<GetResourceCollectionCommandOutput>;
   getResourceCollection(
     args: GetResourceCollectionCommandInput,
@@ -483,7 +495,7 @@ export interface DevOpsGuru {
   ): void;
   getResourceCollection(
     args: GetResourceCollectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: GetResourceCollectionCommandOutput) => void
   ): void;
 
@@ -492,7 +504,7 @@ export interface DevOpsGuru {
    */
   listAnomaliesForInsight(
     args: ListAnomaliesForInsightCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<ListAnomaliesForInsightCommandOutput>;
   listAnomaliesForInsight(
     args: ListAnomaliesForInsightCommandInput,
@@ -500,7 +512,7 @@ export interface DevOpsGuru {
   ): void;
   listAnomaliesForInsight(
     args: ListAnomaliesForInsightCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: ListAnomaliesForInsightCommandOutput) => void
   ): void;
 
@@ -509,7 +521,7 @@ export interface DevOpsGuru {
    */
   listAnomalousLogGroups(
     args: ListAnomalousLogGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<ListAnomalousLogGroupsCommandOutput>;
   listAnomalousLogGroups(
     args: ListAnomalousLogGroupsCommandInput,
@@ -517,7 +529,7 @@ export interface DevOpsGuru {
   ): void;
   listAnomalousLogGroups(
     args: ListAnomalousLogGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: ListAnomalousLogGroupsCommandOutput) => void
   ): void;
 
@@ -526,7 +538,7 @@ export interface DevOpsGuru {
    */
   listEvents(
     args: ListEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<ListEventsCommandOutput>;
   listEvents(
     args: ListEventsCommandInput,
@@ -534,7 +546,7 @@ export interface DevOpsGuru {
   ): void;
   listEvents(
     args: ListEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: ListEventsCommandOutput) => void
   ): void;
 
@@ -543,7 +555,7 @@ export interface DevOpsGuru {
    */
   listInsights(
     args: ListInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<ListInsightsCommandOutput>;
   listInsights(
     args: ListInsightsCommandInput,
@@ -551,7 +563,7 @@ export interface DevOpsGuru {
   ): void;
   listInsights(
     args: ListInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: ListInsightsCommandOutput) => void
   ): void;
 
@@ -561,7 +573,7 @@ export interface DevOpsGuru {
   listMonitoredResources(): Promise<ListMonitoredResourcesCommandOutput>;
   listMonitoredResources(
     args: ListMonitoredResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<ListMonitoredResourcesCommandOutput>;
   listMonitoredResources(
     args: ListMonitoredResourcesCommandInput,
@@ -569,7 +581,7 @@ export interface DevOpsGuru {
   ): void;
   listMonitoredResources(
     args: ListMonitoredResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: ListMonitoredResourcesCommandOutput) => void
   ): void;
 
@@ -579,7 +591,7 @@ export interface DevOpsGuru {
   listNotificationChannels(): Promise<ListNotificationChannelsCommandOutput>;
   listNotificationChannels(
     args: ListNotificationChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<ListNotificationChannelsCommandOutput>;
   listNotificationChannels(
     args: ListNotificationChannelsCommandInput,
@@ -587,7 +599,7 @@ export interface DevOpsGuru {
   ): void;
   listNotificationChannels(
     args: ListNotificationChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: ListNotificationChannelsCommandOutput) => void
   ): void;
 
@@ -596,7 +608,7 @@ export interface DevOpsGuru {
    */
   listOrganizationInsights(
     args: ListOrganizationInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<ListOrganizationInsightsCommandOutput>;
   listOrganizationInsights(
     args: ListOrganizationInsightsCommandInput,
@@ -604,7 +616,7 @@ export interface DevOpsGuru {
   ): void;
   listOrganizationInsights(
     args: ListOrganizationInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: ListOrganizationInsightsCommandOutput) => void
   ): void;
 
@@ -613,7 +625,7 @@ export interface DevOpsGuru {
    */
   listRecommendations(
     args: ListRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<ListRecommendationsCommandOutput>;
   listRecommendations(
     args: ListRecommendationsCommandInput,
@@ -621,7 +633,7 @@ export interface DevOpsGuru {
   ): void;
   listRecommendations(
     args: ListRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: ListRecommendationsCommandOutput) => void
   ): void;
 
@@ -631,7 +643,7 @@ export interface DevOpsGuru {
   putFeedback(): Promise<PutFeedbackCommandOutput>;
   putFeedback(
     args: PutFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<PutFeedbackCommandOutput>;
   putFeedback(
     args: PutFeedbackCommandInput,
@@ -639,7 +651,7 @@ export interface DevOpsGuru {
   ): void;
   putFeedback(
     args: PutFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: PutFeedbackCommandOutput) => void
   ): void;
 
@@ -648,7 +660,7 @@ export interface DevOpsGuru {
    */
   removeNotificationChannel(
     args: RemoveNotificationChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<RemoveNotificationChannelCommandOutput>;
   removeNotificationChannel(
     args: RemoveNotificationChannelCommandInput,
@@ -656,7 +668,7 @@ export interface DevOpsGuru {
   ): void;
   removeNotificationChannel(
     args: RemoveNotificationChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: RemoveNotificationChannelCommandOutput) => void
   ): void;
 
@@ -665,7 +677,7 @@ export interface DevOpsGuru {
    */
   searchInsights(
     args: SearchInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<SearchInsightsCommandOutput>;
   searchInsights(
     args: SearchInsightsCommandInput,
@@ -673,7 +685,7 @@ export interface DevOpsGuru {
   ): void;
   searchInsights(
     args: SearchInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: SearchInsightsCommandOutput) => void
   ): void;
 
@@ -682,7 +694,7 @@ export interface DevOpsGuru {
    */
   searchOrganizationInsights(
     args: SearchOrganizationInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<SearchOrganizationInsightsCommandOutput>;
   searchOrganizationInsights(
     args: SearchOrganizationInsightsCommandInput,
@@ -690,7 +702,7 @@ export interface DevOpsGuru {
   ): void;
   searchOrganizationInsights(
     args: SearchOrganizationInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: SearchOrganizationInsightsCommandOutput) => void
   ): void;
 
@@ -699,7 +711,7 @@ export interface DevOpsGuru {
    */
   startCostEstimation(
     args: StartCostEstimationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<StartCostEstimationCommandOutput>;
   startCostEstimation(
     args: StartCostEstimationCommandInput,
@@ -707,7 +719,7 @@ export interface DevOpsGuru {
   ): void;
   startCostEstimation(
     args: StartCostEstimationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: StartCostEstimationCommandOutput) => void
   ): void;
 
@@ -717,7 +729,7 @@ export interface DevOpsGuru {
   updateEventSourcesConfig(): Promise<UpdateEventSourcesConfigCommandOutput>;
   updateEventSourcesConfig(
     args: UpdateEventSourcesConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<UpdateEventSourcesConfigCommandOutput>;
   updateEventSourcesConfig(
     args: UpdateEventSourcesConfigCommandInput,
@@ -725,7 +737,7 @@ export interface DevOpsGuru {
   ): void;
   updateEventSourcesConfig(
     args: UpdateEventSourcesConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: UpdateEventSourcesConfigCommandOutput) => void
   ): void;
 
@@ -734,7 +746,7 @@ export interface DevOpsGuru {
    */
   updateResourceCollection(
     args: UpdateResourceCollectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<UpdateResourceCollectionCommandOutput>;
   updateResourceCollection(
     args: UpdateResourceCollectionCommandInput,
@@ -742,7 +754,7 @@ export interface DevOpsGuru {
   ): void;
   updateResourceCollection(
     args: UpdateResourceCollectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: UpdateResourceCollectionCommandOutput) => void
   ): void;
 
@@ -751,7 +763,7 @@ export interface DevOpsGuru {
    */
   updateServiceIntegration(
     args: UpdateServiceIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsGuruRequestOptions
   ): Promise<UpdateServiceIntegrationCommandOutput>;
   updateServiceIntegration(
     args: UpdateServiceIntegrationCommandInput,
@@ -759,7 +771,7 @@ export interface DevOpsGuru {
   ): void;
   updateServiceIntegration(
     args: UpdateServiceIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsGuruRequestOptions,
     cb: (err: any, data?: UpdateServiceIntegrationCommandOutput) => void
   ): void;
 

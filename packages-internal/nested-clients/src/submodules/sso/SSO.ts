@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type GetRoleCredentialsCommandInput,
@@ -13,13 +13,20 @@ const commands = {
   GetRoleCredentialsCommand,
 };
 
+/**
+ * @public
+ */
+export interface SSORequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SSO {
   /**
    * @see {@link GetRoleCredentialsCommand}
    */
   getRoleCredentials(
     args: GetRoleCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSORequestOptions
   ): Promise<GetRoleCredentialsCommandOutput>;
   getRoleCredentials(
     args: GetRoleCredentialsCommandInput,
@@ -27,7 +34,7 @@ export interface SSO {
   ): void;
   getRoleCredentials(
     args: GetRoleCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSORequestOptions,
     cb: (err: any, data?: GetRoleCredentialsCommandOutput) => void
   ): void;
 }

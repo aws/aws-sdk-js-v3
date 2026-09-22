@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ArchiveApplicationCommandInput,
@@ -633,13 +638,20 @@ const paginators = {
   paginateListWaves,
 };
 
+/**
+ * @public
+ */
+export interface MgnRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Mgn {
   /**
    * @see {@link ArchiveApplicationCommand}
    */
   archiveApplication(
     args: ArchiveApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ArchiveApplicationCommandOutput>;
   archiveApplication(
     args: ArchiveApplicationCommandInput,
@@ -647,7 +659,7 @@ export interface Mgn {
   ): void;
   archiveApplication(
     args: ArchiveApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ArchiveApplicationCommandOutput) => void
   ): void;
 
@@ -656,7 +668,7 @@ export interface Mgn {
    */
   archiveWave(
     args: ArchiveWaveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ArchiveWaveCommandOutput>;
   archiveWave(
     args: ArchiveWaveCommandInput,
@@ -664,7 +676,7 @@ export interface Mgn {
   ): void;
   archiveWave(
     args: ArchiveWaveCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ArchiveWaveCommandOutput) => void
   ): void;
 
@@ -673,7 +685,7 @@ export interface Mgn {
    */
   associateApplications(
     args: AssociateApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<AssociateApplicationsCommandOutput>;
   associateApplications(
     args: AssociateApplicationsCommandInput,
@@ -681,7 +693,7 @@ export interface Mgn {
   ): void;
   associateApplications(
     args: AssociateApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: AssociateApplicationsCommandOutput) => void
   ): void;
 
@@ -690,7 +702,7 @@ export interface Mgn {
    */
   associateSourceServers(
     args: AssociateSourceServersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<AssociateSourceServersCommandOutput>;
   associateSourceServers(
     args: AssociateSourceServersCommandInput,
@@ -698,7 +710,7 @@ export interface Mgn {
   ): void;
   associateSourceServers(
     args: AssociateSourceServersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: AssociateSourceServersCommandOutput) => void
   ): void;
 
@@ -707,7 +719,7 @@ export interface Mgn {
    */
   changeServerLifeCycleState(
     args: ChangeServerLifeCycleStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ChangeServerLifeCycleStateCommandOutput>;
   changeServerLifeCycleState(
     args: ChangeServerLifeCycleStateCommandInput,
@@ -715,7 +727,7 @@ export interface Mgn {
   ): void;
   changeServerLifeCycleState(
     args: ChangeServerLifeCycleStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ChangeServerLifeCycleStateCommandOutput) => void
   ): void;
 
@@ -724,7 +736,7 @@ export interface Mgn {
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -732,7 +744,7 @@ export interface Mgn {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -741,7 +753,7 @@ export interface Mgn {
    */
   createConnector(
     args: CreateConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<CreateConnectorCommandOutput>;
   createConnector(
     args: CreateConnectorCommandInput,
@@ -749,7 +761,7 @@ export interface Mgn {
   ): void;
   createConnector(
     args: CreateConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: CreateConnectorCommandOutput) => void
   ): void;
 
@@ -759,7 +771,7 @@ export interface Mgn {
   createLaunchConfigurationTemplate(): Promise<CreateLaunchConfigurationTemplateCommandOutput>;
   createLaunchConfigurationTemplate(
     args: CreateLaunchConfigurationTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<CreateLaunchConfigurationTemplateCommandOutput>;
   createLaunchConfigurationTemplate(
     args: CreateLaunchConfigurationTemplateCommandInput,
@@ -767,7 +779,7 @@ export interface Mgn {
   ): void;
   createLaunchConfigurationTemplate(
     args: CreateLaunchConfigurationTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
   ): void;
 
@@ -776,7 +788,7 @@ export interface Mgn {
    */
   createNetworkMigrationDefinition(
     args: CreateNetworkMigrationDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<CreateNetworkMigrationDefinitionCommandOutput>;
   createNetworkMigrationDefinition(
     args: CreateNetworkMigrationDefinitionCommandInput,
@@ -784,7 +796,7 @@ export interface Mgn {
   ): void;
   createNetworkMigrationDefinition(
     args: CreateNetworkMigrationDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: CreateNetworkMigrationDefinitionCommandOutput) => void
   ): void;
 
@@ -793,7 +805,7 @@ export interface Mgn {
    */
   createReplicationConfigurationTemplate(
     args: CreateReplicationConfigurationTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<CreateReplicationConfigurationTemplateCommandOutput>;
   createReplicationConfigurationTemplate(
     args: CreateReplicationConfigurationTemplateCommandInput,
@@ -801,7 +813,7 @@ export interface Mgn {
   ): void;
   createReplicationConfigurationTemplate(
     args: CreateReplicationConfigurationTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: CreateReplicationConfigurationTemplateCommandOutput) => void
   ): void;
 
@@ -810,7 +822,7 @@ export interface Mgn {
    */
   createWave(
     args: CreateWaveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<CreateWaveCommandOutput>;
   createWave(
     args: CreateWaveCommandInput,
@@ -818,7 +830,7 @@ export interface Mgn {
   ): void;
   createWave(
     args: CreateWaveCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: CreateWaveCommandOutput) => void
   ): void;
 
@@ -827,7 +839,7 @@ export interface Mgn {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -835,7 +847,7 @@ export interface Mgn {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -844,7 +856,7 @@ export interface Mgn {
    */
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DeleteConnectorCommandOutput>;
   deleteConnector(
     args: DeleteConnectorCommandInput,
@@ -852,7 +864,7 @@ export interface Mgn {
   ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
 
@@ -861,7 +873,7 @@ export interface Mgn {
    */
   deleteJob(
     args: DeleteJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DeleteJobCommandOutput>;
   deleteJob(
     args: DeleteJobCommandInput,
@@ -869,7 +881,7 @@ export interface Mgn {
   ): void;
   deleteJob(
     args: DeleteJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DeleteJobCommandOutput) => void
   ): void;
 
@@ -878,7 +890,7 @@ export interface Mgn {
    */
   deleteLaunchConfigurationTemplate(
     args: DeleteLaunchConfigurationTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DeleteLaunchConfigurationTemplateCommandOutput>;
   deleteLaunchConfigurationTemplate(
     args: DeleteLaunchConfigurationTemplateCommandInput,
@@ -886,7 +898,7 @@ export interface Mgn {
   ): void;
   deleteLaunchConfigurationTemplate(
     args: DeleteLaunchConfigurationTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
   ): void;
 
@@ -895,7 +907,7 @@ export interface Mgn {
    */
   deleteNetworkMigrationDefinition(
     args: DeleteNetworkMigrationDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DeleteNetworkMigrationDefinitionCommandOutput>;
   deleteNetworkMigrationDefinition(
     args: DeleteNetworkMigrationDefinitionCommandInput,
@@ -903,7 +915,7 @@ export interface Mgn {
   ): void;
   deleteNetworkMigrationDefinition(
     args: DeleteNetworkMigrationDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DeleteNetworkMigrationDefinitionCommandOutput) => void
   ): void;
 
@@ -912,7 +924,7 @@ export interface Mgn {
    */
   deleteReplicationConfigurationTemplate(
     args: DeleteReplicationConfigurationTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DeleteReplicationConfigurationTemplateCommandOutput>;
   deleteReplicationConfigurationTemplate(
     args: DeleteReplicationConfigurationTemplateCommandInput,
@@ -920,7 +932,7 @@ export interface Mgn {
   ): void;
   deleteReplicationConfigurationTemplate(
     args: DeleteReplicationConfigurationTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DeleteReplicationConfigurationTemplateCommandOutput) => void
   ): void;
 
@@ -929,7 +941,7 @@ export interface Mgn {
    */
   deleteSourceServer(
     args: DeleteSourceServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DeleteSourceServerCommandOutput>;
   deleteSourceServer(
     args: DeleteSourceServerCommandInput,
@@ -937,7 +949,7 @@ export interface Mgn {
   ): void;
   deleteSourceServer(
     args: DeleteSourceServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DeleteSourceServerCommandOutput) => void
   ): void;
 
@@ -946,7 +958,7 @@ export interface Mgn {
    */
   deleteVcenterClient(
     args: DeleteVcenterClientCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DeleteVcenterClientCommandOutput>;
   deleteVcenterClient(
     args: DeleteVcenterClientCommandInput,
@@ -954,7 +966,7 @@ export interface Mgn {
   ): void;
   deleteVcenterClient(
     args: DeleteVcenterClientCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DeleteVcenterClientCommandOutput) => void
   ): void;
 
@@ -963,7 +975,7 @@ export interface Mgn {
    */
   deleteWave(
     args: DeleteWaveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DeleteWaveCommandOutput>;
   deleteWave(
     args: DeleteWaveCommandInput,
@@ -971,7 +983,7 @@ export interface Mgn {
   ): void;
   deleteWave(
     args: DeleteWaveCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DeleteWaveCommandOutput) => void
   ): void;
 
@@ -980,7 +992,7 @@ export interface Mgn {
    */
   describeJobLogItems(
     args: DescribeJobLogItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DescribeJobLogItemsCommandOutput>;
   describeJobLogItems(
     args: DescribeJobLogItemsCommandInput,
@@ -988,7 +1000,7 @@ export interface Mgn {
   ): void;
   describeJobLogItems(
     args: DescribeJobLogItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DescribeJobLogItemsCommandOutput) => void
   ): void;
 
@@ -998,7 +1010,7 @@ export interface Mgn {
   describeJobs(): Promise<DescribeJobsCommandOutput>;
   describeJobs(
     args: DescribeJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DescribeJobsCommandOutput>;
   describeJobs(
     args: DescribeJobsCommandInput,
@@ -1006,7 +1018,7 @@ export interface Mgn {
   ): void;
   describeJobs(
     args: DescribeJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DescribeJobsCommandOutput) => void
   ): void;
 
@@ -1016,7 +1028,7 @@ export interface Mgn {
   describeLaunchConfigurationTemplates(): Promise<DescribeLaunchConfigurationTemplatesCommandOutput>;
   describeLaunchConfigurationTemplates(
     args: DescribeLaunchConfigurationTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DescribeLaunchConfigurationTemplatesCommandOutput>;
   describeLaunchConfigurationTemplates(
     args: DescribeLaunchConfigurationTemplatesCommandInput,
@@ -1024,7 +1036,7 @@ export interface Mgn {
   ): void;
   describeLaunchConfigurationTemplates(
     args: DescribeLaunchConfigurationTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void
   ): void;
 
@@ -1034,7 +1046,7 @@ export interface Mgn {
   describeReplicationConfigurationTemplates(): Promise<DescribeReplicationConfigurationTemplatesCommandOutput>;
   describeReplicationConfigurationTemplates(
     args: DescribeReplicationConfigurationTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DescribeReplicationConfigurationTemplatesCommandOutput>;
   describeReplicationConfigurationTemplates(
     args: DescribeReplicationConfigurationTemplatesCommandInput,
@@ -1042,7 +1054,7 @@ export interface Mgn {
   ): void;
   describeReplicationConfigurationTemplates(
     args: DescribeReplicationConfigurationTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DescribeReplicationConfigurationTemplatesCommandOutput) => void
   ): void;
 
@@ -1052,7 +1064,7 @@ export interface Mgn {
   describeSourceServers(): Promise<DescribeSourceServersCommandOutput>;
   describeSourceServers(
     args: DescribeSourceServersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DescribeSourceServersCommandOutput>;
   describeSourceServers(
     args: DescribeSourceServersCommandInput,
@@ -1060,7 +1072,7 @@ export interface Mgn {
   ): void;
   describeSourceServers(
     args: DescribeSourceServersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DescribeSourceServersCommandOutput) => void
   ): void;
 
@@ -1070,7 +1082,7 @@ export interface Mgn {
   describeVcenterClients(): Promise<DescribeVcenterClientsCommandOutput>;
   describeVcenterClients(
     args: DescribeVcenterClientsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DescribeVcenterClientsCommandOutput>;
   describeVcenterClients(
     args: DescribeVcenterClientsCommandInput,
@@ -1078,7 +1090,7 @@ export interface Mgn {
   ): void;
   describeVcenterClients(
     args: DescribeVcenterClientsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DescribeVcenterClientsCommandOutput) => void
   ): void;
 
@@ -1087,7 +1099,7 @@ export interface Mgn {
    */
   disassociateApplications(
     args: DisassociateApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DisassociateApplicationsCommandOutput>;
   disassociateApplications(
     args: DisassociateApplicationsCommandInput,
@@ -1095,7 +1107,7 @@ export interface Mgn {
   ): void;
   disassociateApplications(
     args: DisassociateApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DisassociateApplicationsCommandOutput) => void
   ): void;
 
@@ -1104,7 +1116,7 @@ export interface Mgn {
    */
   disassociateSourceServers(
     args: DisassociateSourceServersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DisassociateSourceServersCommandOutput>;
   disassociateSourceServers(
     args: DisassociateSourceServersCommandInput,
@@ -1112,7 +1124,7 @@ export interface Mgn {
   ): void;
   disassociateSourceServers(
     args: DisassociateSourceServersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DisassociateSourceServersCommandOutput) => void
   ): void;
 
@@ -1121,7 +1133,7 @@ export interface Mgn {
    */
   disconnectFromService(
     args: DisconnectFromServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<DisconnectFromServiceCommandOutput>;
   disconnectFromService(
     args: DisconnectFromServiceCommandInput,
@@ -1129,7 +1141,7 @@ export interface Mgn {
   ): void;
   disconnectFromService(
     args: DisconnectFromServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: DisconnectFromServiceCommandOutput) => void
   ): void;
 
@@ -1138,7 +1150,7 @@ export interface Mgn {
    */
   finalizeCutover(
     args: FinalizeCutoverCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<FinalizeCutoverCommandOutput>;
   finalizeCutover(
     args: FinalizeCutoverCommandInput,
@@ -1146,7 +1158,7 @@ export interface Mgn {
   ): void;
   finalizeCutover(
     args: FinalizeCutoverCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: FinalizeCutoverCommandOutput) => void
   ): void;
 
@@ -1155,7 +1167,7 @@ export interface Mgn {
    */
   getLaunchConfiguration(
     args: GetLaunchConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<GetLaunchConfigurationCommandOutput>;
   getLaunchConfiguration(
     args: GetLaunchConfigurationCommandInput,
@@ -1163,7 +1175,7 @@ export interface Mgn {
   ): void;
   getLaunchConfiguration(
     args: GetLaunchConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: GetLaunchConfigurationCommandOutput) => void
   ): void;
 
@@ -1172,7 +1184,7 @@ export interface Mgn {
    */
   getNetworkMigrationDefinition(
     args: GetNetworkMigrationDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<GetNetworkMigrationDefinitionCommandOutput>;
   getNetworkMigrationDefinition(
     args: GetNetworkMigrationDefinitionCommandInput,
@@ -1180,7 +1192,7 @@ export interface Mgn {
   ): void;
   getNetworkMigrationDefinition(
     args: GetNetworkMigrationDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: GetNetworkMigrationDefinitionCommandOutput) => void
   ): void;
 
@@ -1189,7 +1201,7 @@ export interface Mgn {
    */
   getNetworkMigrationMapperSegmentConstruct(
     args: GetNetworkMigrationMapperSegmentConstructCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<GetNetworkMigrationMapperSegmentConstructCommandOutput>;
   getNetworkMigrationMapperSegmentConstruct(
     args: GetNetworkMigrationMapperSegmentConstructCommandInput,
@@ -1197,7 +1209,7 @@ export interface Mgn {
   ): void;
   getNetworkMigrationMapperSegmentConstruct(
     args: GetNetworkMigrationMapperSegmentConstructCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: GetNetworkMigrationMapperSegmentConstructCommandOutput) => void
   ): void;
 
@@ -1206,7 +1218,7 @@ export interface Mgn {
    */
   getReplicationConfiguration(
     args: GetReplicationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<GetReplicationConfigurationCommandOutput>;
   getReplicationConfiguration(
     args: GetReplicationConfigurationCommandInput,
@@ -1214,7 +1226,7 @@ export interface Mgn {
   ): void;
   getReplicationConfiguration(
     args: GetReplicationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: GetReplicationConfigurationCommandOutput) => void
   ): void;
 
@@ -1224,7 +1236,7 @@ export interface Mgn {
   initializeService(): Promise<InitializeServiceCommandOutput>;
   initializeService(
     args: InitializeServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<InitializeServiceCommandOutput>;
   initializeService(
     args: InitializeServiceCommandInput,
@@ -1232,7 +1244,7 @@ export interface Mgn {
   ): void;
   initializeService(
     args: InitializeServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: InitializeServiceCommandOutput) => void
   ): void;
 
@@ -1242,7 +1254,7 @@ export interface Mgn {
   listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -1250,7 +1262,7 @@ export interface Mgn {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -1260,7 +1272,7 @@ export interface Mgn {
   listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
@@ -1268,7 +1280,7 @@ export interface Mgn {
   ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListConnectorsCommandOutput) => void
   ): void;
 
@@ -1277,7 +1289,7 @@ export interface Mgn {
    */
   listExportErrors(
     args: ListExportErrorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListExportErrorsCommandOutput>;
   listExportErrors(
     args: ListExportErrorsCommandInput,
@@ -1285,7 +1297,7 @@ export interface Mgn {
   ): void;
   listExportErrors(
     args: ListExportErrorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListExportErrorsCommandOutput) => void
   ): void;
 
@@ -1295,7 +1307,7 @@ export interface Mgn {
   listExports(): Promise<ListExportsCommandOutput>;
   listExports(
     args: ListExportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListExportsCommandOutput>;
   listExports(
     args: ListExportsCommandInput,
@@ -1303,7 +1315,7 @@ export interface Mgn {
   ): void;
   listExports(
     args: ListExportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListExportsCommandOutput) => void
   ): void;
 
@@ -1312,7 +1324,7 @@ export interface Mgn {
    */
   listImportErrors(
     args: ListImportErrorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListImportErrorsCommandOutput>;
   listImportErrors(
     args: ListImportErrorsCommandInput,
@@ -1320,7 +1332,7 @@ export interface Mgn {
   ): void;
   listImportErrors(
     args: ListImportErrorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListImportErrorsCommandOutput) => void
   ): void;
 
@@ -1330,7 +1342,7 @@ export interface Mgn {
   listImportFileEnrichments(): Promise<ListImportFileEnrichmentsCommandOutput>;
   listImportFileEnrichments(
     args: ListImportFileEnrichmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListImportFileEnrichmentsCommandOutput>;
   listImportFileEnrichments(
     args: ListImportFileEnrichmentsCommandInput,
@@ -1338,7 +1350,7 @@ export interface Mgn {
   ): void;
   listImportFileEnrichments(
     args: ListImportFileEnrichmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListImportFileEnrichmentsCommandOutput) => void
   ): void;
 
@@ -1348,7 +1360,7 @@ export interface Mgn {
   listImports(): Promise<ListImportsCommandOutput>;
   listImports(
     args: ListImportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListImportsCommandOutput>;
   listImports(
     args: ListImportsCommandInput,
@@ -1356,7 +1368,7 @@ export interface Mgn {
   ): void;
   listImports(
     args: ListImportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListImportsCommandOutput) => void
   ): void;
 
@@ -1366,7 +1378,7 @@ export interface Mgn {
   listManagedAccounts(): Promise<ListManagedAccountsCommandOutput>;
   listManagedAccounts(
     args: ListManagedAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListManagedAccountsCommandOutput>;
   listManagedAccounts(
     args: ListManagedAccountsCommandInput,
@@ -1374,7 +1386,7 @@ export interface Mgn {
   ): void;
   listManagedAccounts(
     args: ListManagedAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListManagedAccountsCommandOutput) => void
   ): void;
 
@@ -1383,7 +1395,7 @@ export interface Mgn {
    */
   listNetworkMigrationAnalyses(
     args: ListNetworkMigrationAnalysesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationAnalysesCommandOutput>;
   listNetworkMigrationAnalyses(
     args: ListNetworkMigrationAnalysesCommandInput,
@@ -1391,7 +1403,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationAnalyses(
     args: ListNetworkMigrationAnalysesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationAnalysesCommandOutput) => void
   ): void;
 
@@ -1400,7 +1412,7 @@ export interface Mgn {
    */
   listNetworkMigrationAnalysisResults(
     args: ListNetworkMigrationAnalysisResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationAnalysisResultsCommandOutput>;
   listNetworkMigrationAnalysisResults(
     args: ListNetworkMigrationAnalysisResultsCommandInput,
@@ -1408,7 +1420,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationAnalysisResults(
     args: ListNetworkMigrationAnalysisResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationAnalysisResultsCommandOutput) => void
   ): void;
 
@@ -1417,7 +1429,7 @@ export interface Mgn {
    */
   listNetworkMigrationCodeGenerations(
     args: ListNetworkMigrationCodeGenerationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationCodeGenerationsCommandOutput>;
   listNetworkMigrationCodeGenerations(
     args: ListNetworkMigrationCodeGenerationsCommandInput,
@@ -1425,7 +1437,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationCodeGenerations(
     args: ListNetworkMigrationCodeGenerationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationCodeGenerationsCommandOutput) => void
   ): void;
 
@@ -1434,7 +1446,7 @@ export interface Mgn {
    */
   listNetworkMigrationCodeGenerationSegments(
     args: ListNetworkMigrationCodeGenerationSegmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationCodeGenerationSegmentsCommandOutput>;
   listNetworkMigrationCodeGenerationSegments(
     args: ListNetworkMigrationCodeGenerationSegmentsCommandInput,
@@ -1442,7 +1454,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationCodeGenerationSegments(
     args: ListNetworkMigrationCodeGenerationSegmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationCodeGenerationSegmentsCommandOutput) => void
   ): void;
 
@@ -1452,7 +1464,7 @@ export interface Mgn {
   listNetworkMigrationDefinitions(): Promise<ListNetworkMigrationDefinitionsCommandOutput>;
   listNetworkMigrationDefinitions(
     args: ListNetworkMigrationDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationDefinitionsCommandOutput>;
   listNetworkMigrationDefinitions(
     args: ListNetworkMigrationDefinitionsCommandInput,
@@ -1460,7 +1472,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationDefinitions(
     args: ListNetworkMigrationDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationDefinitionsCommandOutput) => void
   ): void;
 
@@ -1469,7 +1481,7 @@ export interface Mgn {
    */
   listNetworkMigrationDeployedStacks(
     args: ListNetworkMigrationDeployedStacksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationDeployedStacksCommandOutput>;
   listNetworkMigrationDeployedStacks(
     args: ListNetworkMigrationDeployedStacksCommandInput,
@@ -1477,7 +1489,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationDeployedStacks(
     args: ListNetworkMigrationDeployedStacksCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationDeployedStacksCommandOutput) => void
   ): void;
 
@@ -1486,7 +1498,7 @@ export interface Mgn {
    */
   listNetworkMigrationDeployments(
     args: ListNetworkMigrationDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationDeploymentsCommandOutput>;
   listNetworkMigrationDeployments(
     args: ListNetworkMigrationDeploymentsCommandInput,
@@ -1494,7 +1506,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationDeployments(
     args: ListNetworkMigrationDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationDeploymentsCommandOutput) => void
   ): void;
 
@@ -1503,7 +1515,7 @@ export interface Mgn {
    */
   listNetworkMigrationExecutions(
     args: ListNetworkMigrationExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationExecutionsCommandOutput>;
   listNetworkMigrationExecutions(
     args: ListNetworkMigrationExecutionsCommandInput,
@@ -1511,7 +1523,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationExecutions(
     args: ListNetworkMigrationExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationExecutionsCommandOutput) => void
   ): void;
 
@@ -1520,7 +1532,7 @@ export interface Mgn {
    */
   listNetworkMigrationMapperSegmentConstructs(
     args: ListNetworkMigrationMapperSegmentConstructsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationMapperSegmentConstructsCommandOutput>;
   listNetworkMigrationMapperSegmentConstructs(
     args: ListNetworkMigrationMapperSegmentConstructsCommandInput,
@@ -1528,7 +1540,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationMapperSegmentConstructs(
     args: ListNetworkMigrationMapperSegmentConstructsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationMapperSegmentConstructsCommandOutput) => void
   ): void;
 
@@ -1537,7 +1549,7 @@ export interface Mgn {
    */
   listNetworkMigrationMapperSegments(
     args: ListNetworkMigrationMapperSegmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationMapperSegmentsCommandOutput>;
   listNetworkMigrationMapperSegments(
     args: ListNetworkMigrationMapperSegmentsCommandInput,
@@ -1545,7 +1557,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationMapperSegments(
     args: ListNetworkMigrationMapperSegmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationMapperSegmentsCommandOutput) => void
   ): void;
 
@@ -1554,7 +1566,7 @@ export interface Mgn {
    */
   listNetworkMigrationMappings(
     args: ListNetworkMigrationMappingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationMappingsCommandOutput>;
   listNetworkMigrationMappings(
     args: ListNetworkMigrationMappingsCommandInput,
@@ -1562,7 +1574,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationMappings(
     args: ListNetworkMigrationMappingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationMappingsCommandOutput) => void
   ): void;
 
@@ -1571,7 +1583,7 @@ export interface Mgn {
    */
   listNetworkMigrationMappingUpdates(
     args: ListNetworkMigrationMappingUpdatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListNetworkMigrationMappingUpdatesCommandOutput>;
   listNetworkMigrationMappingUpdates(
     args: ListNetworkMigrationMappingUpdatesCommandInput,
@@ -1579,7 +1591,7 @@ export interface Mgn {
   ): void;
   listNetworkMigrationMappingUpdates(
     args: ListNetworkMigrationMappingUpdatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListNetworkMigrationMappingUpdatesCommandOutput) => void
   ): void;
 
@@ -1588,7 +1600,7 @@ export interface Mgn {
    */
   listSourceServerActions(
     args: ListSourceServerActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListSourceServerActionsCommandOutput>;
   listSourceServerActions(
     args: ListSourceServerActionsCommandInput,
@@ -1596,7 +1608,7 @@ export interface Mgn {
   ): void;
   listSourceServerActions(
     args: ListSourceServerActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListSourceServerActionsCommandOutput) => void
   ): void;
 
@@ -1605,7 +1617,7 @@ export interface Mgn {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1613,7 +1625,7 @@ export interface Mgn {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1622,7 +1634,7 @@ export interface Mgn {
    */
   listTemplateActions(
     args: ListTemplateActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListTemplateActionsCommandOutput>;
   listTemplateActions(
     args: ListTemplateActionsCommandInput,
@@ -1630,7 +1642,7 @@ export interface Mgn {
   ): void;
   listTemplateActions(
     args: ListTemplateActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListTemplateActionsCommandOutput) => void
   ): void;
 
@@ -1640,7 +1652,7 @@ export interface Mgn {
   listWaves(): Promise<ListWavesCommandOutput>;
   listWaves(
     args: ListWavesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ListWavesCommandOutput>;
   listWaves(
     args: ListWavesCommandInput,
@@ -1648,7 +1660,7 @@ export interface Mgn {
   ): void;
   listWaves(
     args: ListWavesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ListWavesCommandOutput) => void
   ): void;
 
@@ -1657,7 +1669,7 @@ export interface Mgn {
    */
   markAsArchived(
     args: MarkAsArchivedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<MarkAsArchivedCommandOutput>;
   markAsArchived(
     args: MarkAsArchivedCommandInput,
@@ -1665,7 +1677,7 @@ export interface Mgn {
   ): void;
   markAsArchived(
     args: MarkAsArchivedCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: MarkAsArchivedCommandOutput) => void
   ): void;
 
@@ -1674,7 +1686,7 @@ export interface Mgn {
    */
   pauseReplication(
     args: PauseReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<PauseReplicationCommandOutput>;
   pauseReplication(
     args: PauseReplicationCommandInput,
@@ -1682,7 +1694,7 @@ export interface Mgn {
   ): void;
   pauseReplication(
     args: PauseReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: PauseReplicationCommandOutput) => void
   ): void;
 
@@ -1691,7 +1703,7 @@ export interface Mgn {
    */
   putSourceServerAction(
     args: PutSourceServerActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<PutSourceServerActionCommandOutput>;
   putSourceServerAction(
     args: PutSourceServerActionCommandInput,
@@ -1699,7 +1711,7 @@ export interface Mgn {
   ): void;
   putSourceServerAction(
     args: PutSourceServerActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: PutSourceServerActionCommandOutput) => void
   ): void;
 
@@ -1708,7 +1720,7 @@ export interface Mgn {
    */
   putTemplateAction(
     args: PutTemplateActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<PutTemplateActionCommandOutput>;
   putTemplateAction(
     args: PutTemplateActionCommandInput,
@@ -1716,7 +1728,7 @@ export interface Mgn {
   ): void;
   putTemplateAction(
     args: PutTemplateActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: PutTemplateActionCommandOutput) => void
   ): void;
 
@@ -1725,7 +1737,7 @@ export interface Mgn {
    */
   removeSourceServerAction(
     args: RemoveSourceServerActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<RemoveSourceServerActionCommandOutput>;
   removeSourceServerAction(
     args: RemoveSourceServerActionCommandInput,
@@ -1733,7 +1745,7 @@ export interface Mgn {
   ): void;
   removeSourceServerAction(
     args: RemoveSourceServerActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: RemoveSourceServerActionCommandOutput) => void
   ): void;
 
@@ -1742,7 +1754,7 @@ export interface Mgn {
    */
   removeTemplateAction(
     args: RemoveTemplateActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<RemoveTemplateActionCommandOutput>;
   removeTemplateAction(
     args: RemoveTemplateActionCommandInput,
@@ -1750,7 +1762,7 @@ export interface Mgn {
   ): void;
   removeTemplateAction(
     args: RemoveTemplateActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: RemoveTemplateActionCommandOutput) => void
   ): void;
 
@@ -1759,7 +1771,7 @@ export interface Mgn {
    */
   resumeReplication(
     args: ResumeReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<ResumeReplicationCommandOutput>;
   resumeReplication(
     args: ResumeReplicationCommandInput,
@@ -1767,7 +1779,7 @@ export interface Mgn {
   ): void;
   resumeReplication(
     args: ResumeReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: ResumeReplicationCommandOutput) => void
   ): void;
 
@@ -1776,7 +1788,7 @@ export interface Mgn {
    */
   retryDataReplication(
     args: RetryDataReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<RetryDataReplicationCommandOutput>;
   retryDataReplication(
     args: RetryDataReplicationCommandInput,
@@ -1784,7 +1796,7 @@ export interface Mgn {
   ): void;
   retryDataReplication(
     args: RetryDataReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: RetryDataReplicationCommandOutput) => void
   ): void;
 
@@ -1793,7 +1805,7 @@ export interface Mgn {
    */
   startCutover(
     args: StartCutoverCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StartCutoverCommandOutput>;
   startCutover(
     args: StartCutoverCommandInput,
@@ -1801,7 +1813,7 @@ export interface Mgn {
   ): void;
   startCutover(
     args: StartCutoverCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StartCutoverCommandOutput) => void
   ): void;
 
@@ -1810,7 +1822,7 @@ export interface Mgn {
    */
   startExport(
     args: StartExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StartExportCommandOutput>;
   startExport(
     args: StartExportCommandInput,
@@ -1818,7 +1830,7 @@ export interface Mgn {
   ): void;
   startExport(
     args: StartExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StartExportCommandOutput) => void
   ): void;
 
@@ -1827,7 +1839,7 @@ export interface Mgn {
    */
   startImport(
     args: StartImportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StartImportCommandOutput>;
   startImport(
     args: StartImportCommandInput,
@@ -1835,7 +1847,7 @@ export interface Mgn {
   ): void;
   startImport(
     args: StartImportCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StartImportCommandOutput) => void
   ): void;
 
@@ -1844,7 +1856,7 @@ export interface Mgn {
    */
   startImportFileEnrichment(
     args: StartImportFileEnrichmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StartImportFileEnrichmentCommandOutput>;
   startImportFileEnrichment(
     args: StartImportFileEnrichmentCommandInput,
@@ -1852,7 +1864,7 @@ export interface Mgn {
   ): void;
   startImportFileEnrichment(
     args: StartImportFileEnrichmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StartImportFileEnrichmentCommandOutput) => void
   ): void;
 
@@ -1861,7 +1873,7 @@ export interface Mgn {
    */
   startNetworkMigrationAnalysis(
     args: StartNetworkMigrationAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StartNetworkMigrationAnalysisCommandOutput>;
   startNetworkMigrationAnalysis(
     args: StartNetworkMigrationAnalysisCommandInput,
@@ -1869,7 +1881,7 @@ export interface Mgn {
   ): void;
   startNetworkMigrationAnalysis(
     args: StartNetworkMigrationAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StartNetworkMigrationAnalysisCommandOutput) => void
   ): void;
 
@@ -1878,7 +1890,7 @@ export interface Mgn {
    */
   startNetworkMigrationCodeGeneration(
     args: StartNetworkMigrationCodeGenerationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StartNetworkMigrationCodeGenerationCommandOutput>;
   startNetworkMigrationCodeGeneration(
     args: StartNetworkMigrationCodeGenerationCommandInput,
@@ -1886,7 +1898,7 @@ export interface Mgn {
   ): void;
   startNetworkMigrationCodeGeneration(
     args: StartNetworkMigrationCodeGenerationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StartNetworkMigrationCodeGenerationCommandOutput) => void
   ): void;
 
@@ -1895,7 +1907,7 @@ export interface Mgn {
    */
   startNetworkMigrationDeployment(
     args: StartNetworkMigrationDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StartNetworkMigrationDeploymentCommandOutput>;
   startNetworkMigrationDeployment(
     args: StartNetworkMigrationDeploymentCommandInput,
@@ -1903,7 +1915,7 @@ export interface Mgn {
   ): void;
   startNetworkMigrationDeployment(
     args: StartNetworkMigrationDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StartNetworkMigrationDeploymentCommandOutput) => void
   ): void;
 
@@ -1912,7 +1924,7 @@ export interface Mgn {
    */
   startNetworkMigrationMapping(
     args: StartNetworkMigrationMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StartNetworkMigrationMappingCommandOutput>;
   startNetworkMigrationMapping(
     args: StartNetworkMigrationMappingCommandInput,
@@ -1920,7 +1932,7 @@ export interface Mgn {
   ): void;
   startNetworkMigrationMapping(
     args: StartNetworkMigrationMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StartNetworkMigrationMappingCommandOutput) => void
   ): void;
 
@@ -1929,7 +1941,7 @@ export interface Mgn {
    */
   startNetworkMigrationMappingUpdate(
     args: StartNetworkMigrationMappingUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StartNetworkMigrationMappingUpdateCommandOutput>;
   startNetworkMigrationMappingUpdate(
     args: StartNetworkMigrationMappingUpdateCommandInput,
@@ -1937,7 +1949,7 @@ export interface Mgn {
   ): void;
   startNetworkMigrationMappingUpdate(
     args: StartNetworkMigrationMappingUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StartNetworkMigrationMappingUpdateCommandOutput) => void
   ): void;
 
@@ -1946,7 +1958,7 @@ export interface Mgn {
    */
   startReplication(
     args: StartReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StartReplicationCommandOutput>;
   startReplication(
     args: StartReplicationCommandInput,
@@ -1954,7 +1966,7 @@ export interface Mgn {
   ): void;
   startReplication(
     args: StartReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StartReplicationCommandOutput) => void
   ): void;
 
@@ -1963,7 +1975,7 @@ export interface Mgn {
    */
   startTest(
     args: StartTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StartTestCommandOutput>;
   startTest(
     args: StartTestCommandInput,
@@ -1971,7 +1983,7 @@ export interface Mgn {
   ): void;
   startTest(
     args: StartTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StartTestCommandOutput) => void
   ): void;
 
@@ -1980,7 +1992,7 @@ export interface Mgn {
    */
   stopReplication(
     args: StopReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<StopReplicationCommandOutput>;
   stopReplication(
     args: StopReplicationCommandInput,
@@ -1988,7 +2000,7 @@ export interface Mgn {
   ): void;
   stopReplication(
     args: StopReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: StopReplicationCommandOutput) => void
   ): void;
 
@@ -1997,7 +2009,7 @@ export interface Mgn {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2005,7 +2017,7 @@ export interface Mgn {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2014,7 +2026,7 @@ export interface Mgn {
    */
   terminateTargetInstances(
     args: TerminateTargetInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<TerminateTargetInstancesCommandOutput>;
   terminateTargetInstances(
     args: TerminateTargetInstancesCommandInput,
@@ -2022,7 +2034,7 @@ export interface Mgn {
   ): void;
   terminateTargetInstances(
     args: TerminateTargetInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: TerminateTargetInstancesCommandOutput) => void
   ): void;
 
@@ -2031,7 +2043,7 @@ export interface Mgn {
    */
   unarchiveApplication(
     args: UnarchiveApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UnarchiveApplicationCommandOutput>;
   unarchiveApplication(
     args: UnarchiveApplicationCommandInput,
@@ -2039,7 +2051,7 @@ export interface Mgn {
   ): void;
   unarchiveApplication(
     args: UnarchiveApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UnarchiveApplicationCommandOutput) => void
   ): void;
 
@@ -2048,7 +2060,7 @@ export interface Mgn {
    */
   unarchiveWave(
     args: UnarchiveWaveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UnarchiveWaveCommandOutput>;
   unarchiveWave(
     args: UnarchiveWaveCommandInput,
@@ -2056,7 +2068,7 @@ export interface Mgn {
   ): void;
   unarchiveWave(
     args: UnarchiveWaveCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UnarchiveWaveCommandOutput) => void
   ): void;
 
@@ -2065,7 +2077,7 @@ export interface Mgn {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2073,7 +2085,7 @@ export interface Mgn {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2082,7 +2094,7 @@ export interface Mgn {
    */
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
@@ -2090,7 +2102,7 @@ export interface Mgn {
   ): void;
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 
@@ -2099,7 +2111,7 @@ export interface Mgn {
    */
   updateConnector(
     args: UpdateConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UpdateConnectorCommandOutput>;
   updateConnector(
     args: UpdateConnectorCommandInput,
@@ -2107,7 +2119,7 @@ export interface Mgn {
   ): void;
   updateConnector(
     args: UpdateConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UpdateConnectorCommandOutput) => void
   ): void;
 
@@ -2116,7 +2128,7 @@ export interface Mgn {
    */
   updateLaunchConfiguration(
     args: UpdateLaunchConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UpdateLaunchConfigurationCommandOutput>;
   updateLaunchConfiguration(
     args: UpdateLaunchConfigurationCommandInput,
@@ -2124,7 +2136,7 @@ export interface Mgn {
   ): void;
   updateLaunchConfiguration(
     args: UpdateLaunchConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UpdateLaunchConfigurationCommandOutput) => void
   ): void;
 
@@ -2133,7 +2145,7 @@ export interface Mgn {
    */
   updateLaunchConfigurationTemplate(
     args: UpdateLaunchConfigurationTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UpdateLaunchConfigurationTemplateCommandOutput>;
   updateLaunchConfigurationTemplate(
     args: UpdateLaunchConfigurationTemplateCommandInput,
@@ -2141,7 +2153,7 @@ export interface Mgn {
   ): void;
   updateLaunchConfigurationTemplate(
     args: UpdateLaunchConfigurationTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
   ): void;
 
@@ -2150,7 +2162,7 @@ export interface Mgn {
    */
   updateNetworkMigrationDefinition(
     args: UpdateNetworkMigrationDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UpdateNetworkMigrationDefinitionCommandOutput>;
   updateNetworkMigrationDefinition(
     args: UpdateNetworkMigrationDefinitionCommandInput,
@@ -2158,7 +2170,7 @@ export interface Mgn {
   ): void;
   updateNetworkMigrationDefinition(
     args: UpdateNetworkMigrationDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UpdateNetworkMigrationDefinitionCommandOutput) => void
   ): void;
 
@@ -2167,7 +2179,7 @@ export interface Mgn {
    */
   updateNetworkMigrationMapperSegment(
     args: UpdateNetworkMigrationMapperSegmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UpdateNetworkMigrationMapperSegmentCommandOutput>;
   updateNetworkMigrationMapperSegment(
     args: UpdateNetworkMigrationMapperSegmentCommandInput,
@@ -2175,7 +2187,7 @@ export interface Mgn {
   ): void;
   updateNetworkMigrationMapperSegment(
     args: UpdateNetworkMigrationMapperSegmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UpdateNetworkMigrationMapperSegmentCommandOutput) => void
   ): void;
 
@@ -2184,7 +2196,7 @@ export interface Mgn {
    */
   updateReplicationConfiguration(
     args: UpdateReplicationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UpdateReplicationConfigurationCommandOutput>;
   updateReplicationConfiguration(
     args: UpdateReplicationConfigurationCommandInput,
@@ -2192,7 +2204,7 @@ export interface Mgn {
   ): void;
   updateReplicationConfiguration(
     args: UpdateReplicationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UpdateReplicationConfigurationCommandOutput) => void
   ): void;
 
@@ -2201,7 +2213,7 @@ export interface Mgn {
    */
   updateReplicationConfigurationTemplate(
     args: UpdateReplicationConfigurationTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UpdateReplicationConfigurationTemplateCommandOutput>;
   updateReplicationConfigurationTemplate(
     args: UpdateReplicationConfigurationTemplateCommandInput,
@@ -2209,7 +2221,7 @@ export interface Mgn {
   ): void;
   updateReplicationConfigurationTemplate(
     args: UpdateReplicationConfigurationTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void
   ): void;
 
@@ -2218,7 +2230,7 @@ export interface Mgn {
    */
   updateSourceServer(
     args: UpdateSourceServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UpdateSourceServerCommandOutput>;
   updateSourceServer(
     args: UpdateSourceServerCommandInput,
@@ -2226,7 +2238,7 @@ export interface Mgn {
   ): void;
   updateSourceServer(
     args: UpdateSourceServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UpdateSourceServerCommandOutput) => void
   ): void;
 
@@ -2235,7 +2247,7 @@ export interface Mgn {
    */
   updateSourceServerReplicationType(
     args: UpdateSourceServerReplicationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UpdateSourceServerReplicationTypeCommandOutput>;
   updateSourceServerReplicationType(
     args: UpdateSourceServerReplicationTypeCommandInput,
@@ -2243,7 +2255,7 @@ export interface Mgn {
   ): void;
   updateSourceServerReplicationType(
     args: UpdateSourceServerReplicationTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UpdateSourceServerReplicationTypeCommandOutput) => void
   ): void;
 
@@ -2252,7 +2264,7 @@ export interface Mgn {
    */
   updateWave(
     args: UpdateWaveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MgnRequestOptions
   ): Promise<UpdateWaveCommandOutput>;
   updateWave(
     args: UpdateWaveCommandInput,
@@ -2260,7 +2272,7 @@ export interface Mgn {
   ): void;
   updateWave(
     args: UpdateWaveCommandInput,
-    options: __HttpHandlerOptions,
+    options: MgnRequestOptions,
     cb: (err: any, data?: UpdateWaveCommandOutput) => void
   ): void;
 

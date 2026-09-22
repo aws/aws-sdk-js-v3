@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -113,13 +114,20 @@ const waiters = {
   waitUntilRepositoryAssociationSucceeded,
 };
 
+/**
+ * @public
+ */
+export interface CodeGuruReviewerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CodeGuruReviewer {
   /**
    * @see {@link AssociateRepositoryCommand}
    */
   associateRepository(
     args: AssociateRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<AssociateRepositoryCommandOutput>;
   associateRepository(
     args: AssociateRepositoryCommandInput,
@@ -127,7 +135,7 @@ export interface CodeGuruReviewer {
   ): void;
   associateRepository(
     args: AssociateRepositoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: AssociateRepositoryCommandOutput) => void
   ): void;
 
@@ -136,7 +144,7 @@ export interface CodeGuruReviewer {
    */
   createCodeReview(
     args: CreateCodeReviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<CreateCodeReviewCommandOutput>;
   createCodeReview(
     args: CreateCodeReviewCommandInput,
@@ -144,7 +152,7 @@ export interface CodeGuruReviewer {
   ): void;
   createCodeReview(
     args: CreateCodeReviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: CreateCodeReviewCommandOutput) => void
   ): void;
 
@@ -153,7 +161,7 @@ export interface CodeGuruReviewer {
    */
   describeCodeReview(
     args: DescribeCodeReviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<DescribeCodeReviewCommandOutput>;
   describeCodeReview(
     args: DescribeCodeReviewCommandInput,
@@ -161,7 +169,7 @@ export interface CodeGuruReviewer {
   ): void;
   describeCodeReview(
     args: DescribeCodeReviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: DescribeCodeReviewCommandOutput) => void
   ): void;
 
@@ -170,7 +178,7 @@ export interface CodeGuruReviewer {
    */
   describeRecommendationFeedback(
     args: DescribeRecommendationFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<DescribeRecommendationFeedbackCommandOutput>;
   describeRecommendationFeedback(
     args: DescribeRecommendationFeedbackCommandInput,
@@ -178,7 +186,7 @@ export interface CodeGuruReviewer {
   ): void;
   describeRecommendationFeedback(
     args: DescribeRecommendationFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: DescribeRecommendationFeedbackCommandOutput) => void
   ): void;
 
@@ -187,7 +195,7 @@ export interface CodeGuruReviewer {
    */
   describeRepositoryAssociation(
     args: DescribeRepositoryAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<DescribeRepositoryAssociationCommandOutput>;
   describeRepositoryAssociation(
     args: DescribeRepositoryAssociationCommandInput,
@@ -195,7 +203,7 @@ export interface CodeGuruReviewer {
   ): void;
   describeRepositoryAssociation(
     args: DescribeRepositoryAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
   ): void;
 
@@ -204,7 +212,7 @@ export interface CodeGuruReviewer {
    */
   disassociateRepository(
     args: DisassociateRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<DisassociateRepositoryCommandOutput>;
   disassociateRepository(
     args: DisassociateRepositoryCommandInput,
@@ -212,7 +220,7 @@ export interface CodeGuruReviewer {
   ): void;
   disassociateRepository(
     args: DisassociateRepositoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: DisassociateRepositoryCommandOutput) => void
   ): void;
 
@@ -221,7 +229,7 @@ export interface CodeGuruReviewer {
    */
   listCodeReviews(
     args: ListCodeReviewsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<ListCodeReviewsCommandOutput>;
   listCodeReviews(
     args: ListCodeReviewsCommandInput,
@@ -229,7 +237,7 @@ export interface CodeGuruReviewer {
   ): void;
   listCodeReviews(
     args: ListCodeReviewsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: ListCodeReviewsCommandOutput) => void
   ): void;
 
@@ -238,7 +246,7 @@ export interface CodeGuruReviewer {
    */
   listRecommendationFeedback(
     args: ListRecommendationFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<ListRecommendationFeedbackCommandOutput>;
   listRecommendationFeedback(
     args: ListRecommendationFeedbackCommandInput,
@@ -246,7 +254,7 @@ export interface CodeGuruReviewer {
   ): void;
   listRecommendationFeedback(
     args: ListRecommendationFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: ListRecommendationFeedbackCommandOutput) => void
   ): void;
 
@@ -255,7 +263,7 @@ export interface CodeGuruReviewer {
    */
   listRecommendations(
     args: ListRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<ListRecommendationsCommandOutput>;
   listRecommendations(
     args: ListRecommendationsCommandInput,
@@ -263,7 +271,7 @@ export interface CodeGuruReviewer {
   ): void;
   listRecommendations(
     args: ListRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: ListRecommendationsCommandOutput) => void
   ): void;
 
@@ -273,7 +281,7 @@ export interface CodeGuruReviewer {
   listRepositoryAssociations(): Promise<ListRepositoryAssociationsCommandOutput>;
   listRepositoryAssociations(
     args: ListRepositoryAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<ListRepositoryAssociationsCommandOutput>;
   listRepositoryAssociations(
     args: ListRepositoryAssociationsCommandInput,
@@ -281,7 +289,7 @@ export interface CodeGuruReviewer {
   ): void;
   listRepositoryAssociations(
     args: ListRepositoryAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: ListRepositoryAssociationsCommandOutput) => void
   ): void;
 
@@ -290,7 +298,7 @@ export interface CodeGuruReviewer {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -298,7 +306,7 @@ export interface CodeGuruReviewer {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -307,7 +315,7 @@ export interface CodeGuruReviewer {
    */
   putRecommendationFeedback(
     args: PutRecommendationFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<PutRecommendationFeedbackCommandOutput>;
   putRecommendationFeedback(
     args: PutRecommendationFeedbackCommandInput,
@@ -315,7 +323,7 @@ export interface CodeGuruReviewer {
   ): void;
   putRecommendationFeedback(
     args: PutRecommendationFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: PutRecommendationFeedbackCommandOutput) => void
   ): void;
 
@@ -324,7 +332,7 @@ export interface CodeGuruReviewer {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -332,7 +340,7 @@ export interface CodeGuruReviewer {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -341,7 +349,7 @@ export interface CodeGuruReviewer {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruReviewerRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -349,7 +357,7 @@ export interface CodeGuruReviewer {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruReviewerRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

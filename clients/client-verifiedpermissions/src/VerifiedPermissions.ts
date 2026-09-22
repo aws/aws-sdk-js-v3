@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchGetPolicyCommandInput,
@@ -211,13 +216,20 @@ const paginators = {
   paginateListPolicyTemplates,
 };
 
+/**
+ * @public
+ */
+export interface VerifiedPermissionsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface VerifiedPermissions {
   /**
    * @see {@link BatchGetPolicyCommand}
    */
   batchGetPolicy(
     args: BatchGetPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<BatchGetPolicyCommandOutput>;
   batchGetPolicy(
     args: BatchGetPolicyCommandInput,
@@ -225,7 +237,7 @@ export interface VerifiedPermissions {
   ): void;
   batchGetPolicy(
     args: BatchGetPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: BatchGetPolicyCommandOutput) => void
   ): void;
 
@@ -234,7 +246,7 @@ export interface VerifiedPermissions {
    */
   batchIsAuthorized(
     args: BatchIsAuthorizedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<BatchIsAuthorizedCommandOutput>;
   batchIsAuthorized(
     args: BatchIsAuthorizedCommandInput,
@@ -242,7 +254,7 @@ export interface VerifiedPermissions {
   ): void;
   batchIsAuthorized(
     args: BatchIsAuthorizedCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: BatchIsAuthorizedCommandOutput) => void
   ): void;
 
@@ -251,7 +263,7 @@ export interface VerifiedPermissions {
    */
   batchIsAuthorizedWithToken(
     args: BatchIsAuthorizedWithTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<BatchIsAuthorizedWithTokenCommandOutput>;
   batchIsAuthorizedWithToken(
     args: BatchIsAuthorizedWithTokenCommandInput,
@@ -259,7 +271,7 @@ export interface VerifiedPermissions {
   ): void;
   batchIsAuthorizedWithToken(
     args: BatchIsAuthorizedWithTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: BatchIsAuthorizedWithTokenCommandOutput) => void
   ): void;
 
@@ -268,7 +280,7 @@ export interface VerifiedPermissions {
    */
   createIdentitySource(
     args: CreateIdentitySourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<CreateIdentitySourceCommandOutput>;
   createIdentitySource(
     args: CreateIdentitySourceCommandInput,
@@ -276,7 +288,7 @@ export interface VerifiedPermissions {
   ): void;
   createIdentitySource(
     args: CreateIdentitySourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: CreateIdentitySourceCommandOutput) => void
   ): void;
 
@@ -285,7 +297,7 @@ export interface VerifiedPermissions {
    */
   createPolicy(
     args: CreatePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<CreatePolicyCommandOutput>;
   createPolicy(
     args: CreatePolicyCommandInput,
@@ -293,7 +305,7 @@ export interface VerifiedPermissions {
   ): void;
   createPolicy(
     args: CreatePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: CreatePolicyCommandOutput) => void
   ): void;
 
@@ -302,7 +314,7 @@ export interface VerifiedPermissions {
    */
   createPolicyStore(
     args: CreatePolicyStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<CreatePolicyStoreCommandOutput>;
   createPolicyStore(
     args: CreatePolicyStoreCommandInput,
@@ -310,7 +322,7 @@ export interface VerifiedPermissions {
   ): void;
   createPolicyStore(
     args: CreatePolicyStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: CreatePolicyStoreCommandOutput) => void
   ): void;
 
@@ -319,7 +331,7 @@ export interface VerifiedPermissions {
    */
   createPolicyStoreAlias(
     args: CreatePolicyStoreAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<CreatePolicyStoreAliasCommandOutput>;
   createPolicyStoreAlias(
     args: CreatePolicyStoreAliasCommandInput,
@@ -327,7 +339,7 @@ export interface VerifiedPermissions {
   ): void;
   createPolicyStoreAlias(
     args: CreatePolicyStoreAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: CreatePolicyStoreAliasCommandOutput) => void
   ): void;
 
@@ -336,7 +348,7 @@ export interface VerifiedPermissions {
    */
   createPolicyTemplate(
     args: CreatePolicyTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<CreatePolicyTemplateCommandOutput>;
   createPolicyTemplate(
     args: CreatePolicyTemplateCommandInput,
@@ -344,7 +356,7 @@ export interface VerifiedPermissions {
   ): void;
   createPolicyTemplate(
     args: CreatePolicyTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: CreatePolicyTemplateCommandOutput) => void
   ): void;
 
@@ -353,7 +365,7 @@ export interface VerifiedPermissions {
    */
   deleteIdentitySource(
     args: DeleteIdentitySourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<DeleteIdentitySourceCommandOutput>;
   deleteIdentitySource(
     args: DeleteIdentitySourceCommandInput,
@@ -361,7 +373,7 @@ export interface VerifiedPermissions {
   ): void;
   deleteIdentitySource(
     args: DeleteIdentitySourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: DeleteIdentitySourceCommandOutput) => void
   ): void;
 
@@ -370,7 +382,7 @@ export interface VerifiedPermissions {
    */
   deletePolicy(
     args: DeletePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<DeletePolicyCommandOutput>;
   deletePolicy(
     args: DeletePolicyCommandInput,
@@ -378,7 +390,7 @@ export interface VerifiedPermissions {
   ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: DeletePolicyCommandOutput) => void
   ): void;
 
@@ -387,7 +399,7 @@ export interface VerifiedPermissions {
    */
   deletePolicyStore(
     args: DeletePolicyStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<DeletePolicyStoreCommandOutput>;
   deletePolicyStore(
     args: DeletePolicyStoreCommandInput,
@@ -395,7 +407,7 @@ export interface VerifiedPermissions {
   ): void;
   deletePolicyStore(
     args: DeletePolicyStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: DeletePolicyStoreCommandOutput) => void
   ): void;
 
@@ -404,7 +416,7 @@ export interface VerifiedPermissions {
    */
   deletePolicyStoreAlias(
     args: DeletePolicyStoreAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<DeletePolicyStoreAliasCommandOutput>;
   deletePolicyStoreAlias(
     args: DeletePolicyStoreAliasCommandInput,
@@ -412,7 +424,7 @@ export interface VerifiedPermissions {
   ): void;
   deletePolicyStoreAlias(
     args: DeletePolicyStoreAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: DeletePolicyStoreAliasCommandOutput) => void
   ): void;
 
@@ -421,7 +433,7 @@ export interface VerifiedPermissions {
    */
   deletePolicyTemplate(
     args: DeletePolicyTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<DeletePolicyTemplateCommandOutput>;
   deletePolicyTemplate(
     args: DeletePolicyTemplateCommandInput,
@@ -429,7 +441,7 @@ export interface VerifiedPermissions {
   ): void;
   deletePolicyTemplate(
     args: DeletePolicyTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: DeletePolicyTemplateCommandOutput) => void
   ): void;
 
@@ -438,7 +450,7 @@ export interface VerifiedPermissions {
    */
   getIdentitySource(
     args: GetIdentitySourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<GetIdentitySourceCommandOutput>;
   getIdentitySource(
     args: GetIdentitySourceCommandInput,
@@ -446,7 +458,7 @@ export interface VerifiedPermissions {
   ): void;
   getIdentitySource(
     args: GetIdentitySourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: GetIdentitySourceCommandOutput) => void
   ): void;
 
@@ -455,7 +467,7 @@ export interface VerifiedPermissions {
    */
   getPolicy(
     args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<GetPolicyCommandOutput>;
   getPolicy(
     args: GetPolicyCommandInput,
@@ -463,7 +475,7 @@ export interface VerifiedPermissions {
   ): void;
   getPolicy(
     args: GetPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
@@ -472,7 +484,7 @@ export interface VerifiedPermissions {
    */
   getPolicyStore(
     args: GetPolicyStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<GetPolicyStoreCommandOutput>;
   getPolicyStore(
     args: GetPolicyStoreCommandInput,
@@ -480,7 +492,7 @@ export interface VerifiedPermissions {
   ): void;
   getPolicyStore(
     args: GetPolicyStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: GetPolicyStoreCommandOutput) => void
   ): void;
 
@@ -489,7 +501,7 @@ export interface VerifiedPermissions {
    */
   getPolicyStoreAlias(
     args: GetPolicyStoreAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<GetPolicyStoreAliasCommandOutput>;
   getPolicyStoreAlias(
     args: GetPolicyStoreAliasCommandInput,
@@ -497,7 +509,7 @@ export interface VerifiedPermissions {
   ): void;
   getPolicyStoreAlias(
     args: GetPolicyStoreAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: GetPolicyStoreAliasCommandOutput) => void
   ): void;
 
@@ -506,7 +518,7 @@ export interface VerifiedPermissions {
    */
   getPolicyTemplate(
     args: GetPolicyTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<GetPolicyTemplateCommandOutput>;
   getPolicyTemplate(
     args: GetPolicyTemplateCommandInput,
@@ -514,7 +526,7 @@ export interface VerifiedPermissions {
   ): void;
   getPolicyTemplate(
     args: GetPolicyTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: GetPolicyTemplateCommandOutput) => void
   ): void;
 
@@ -523,7 +535,7 @@ export interface VerifiedPermissions {
    */
   getSchema(
     args: GetSchemaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<GetSchemaCommandOutput>;
   getSchema(
     args: GetSchemaCommandInput,
@@ -531,7 +543,7 @@ export interface VerifiedPermissions {
   ): void;
   getSchema(
     args: GetSchemaCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: GetSchemaCommandOutput) => void
   ): void;
 
@@ -540,7 +552,7 @@ export interface VerifiedPermissions {
    */
   isAuthorized(
     args: IsAuthorizedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<IsAuthorizedCommandOutput>;
   isAuthorized(
     args: IsAuthorizedCommandInput,
@@ -548,7 +560,7 @@ export interface VerifiedPermissions {
   ): void;
   isAuthorized(
     args: IsAuthorizedCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: IsAuthorizedCommandOutput) => void
   ): void;
 
@@ -557,7 +569,7 @@ export interface VerifiedPermissions {
    */
   isAuthorizedWithToken(
     args: IsAuthorizedWithTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<IsAuthorizedWithTokenCommandOutput>;
   isAuthorizedWithToken(
     args: IsAuthorizedWithTokenCommandInput,
@@ -565,7 +577,7 @@ export interface VerifiedPermissions {
   ): void;
   isAuthorizedWithToken(
     args: IsAuthorizedWithTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: IsAuthorizedWithTokenCommandOutput) => void
   ): void;
 
@@ -574,7 +586,7 @@ export interface VerifiedPermissions {
    */
   listIdentitySources(
     args: ListIdentitySourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<ListIdentitySourcesCommandOutput>;
   listIdentitySources(
     args: ListIdentitySourcesCommandInput,
@@ -582,7 +594,7 @@ export interface VerifiedPermissions {
   ): void;
   listIdentitySources(
     args: ListIdentitySourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: ListIdentitySourcesCommandOutput) => void
   ): void;
 
@@ -591,7 +603,7 @@ export interface VerifiedPermissions {
    */
   listPolicies(
     args: ListPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<ListPoliciesCommandOutput>;
   listPolicies(
     args: ListPoliciesCommandInput,
@@ -599,7 +611,7 @@ export interface VerifiedPermissions {
   ): void;
   listPolicies(
     args: ListPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: ListPoliciesCommandOutput) => void
   ): void;
 
@@ -609,7 +621,7 @@ export interface VerifiedPermissions {
   listPolicyStoreAliases(): Promise<ListPolicyStoreAliasesCommandOutput>;
   listPolicyStoreAliases(
     args: ListPolicyStoreAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<ListPolicyStoreAliasesCommandOutput>;
   listPolicyStoreAliases(
     args: ListPolicyStoreAliasesCommandInput,
@@ -617,7 +629,7 @@ export interface VerifiedPermissions {
   ): void;
   listPolicyStoreAliases(
     args: ListPolicyStoreAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: ListPolicyStoreAliasesCommandOutput) => void
   ): void;
 
@@ -627,7 +639,7 @@ export interface VerifiedPermissions {
   listPolicyStores(): Promise<ListPolicyStoresCommandOutput>;
   listPolicyStores(
     args: ListPolicyStoresCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<ListPolicyStoresCommandOutput>;
   listPolicyStores(
     args: ListPolicyStoresCommandInput,
@@ -635,7 +647,7 @@ export interface VerifiedPermissions {
   ): void;
   listPolicyStores(
     args: ListPolicyStoresCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: ListPolicyStoresCommandOutput) => void
   ): void;
 
@@ -644,7 +656,7 @@ export interface VerifiedPermissions {
    */
   listPolicyTemplates(
     args: ListPolicyTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<ListPolicyTemplatesCommandOutput>;
   listPolicyTemplates(
     args: ListPolicyTemplatesCommandInput,
@@ -652,7 +664,7 @@ export interface VerifiedPermissions {
   ): void;
   listPolicyTemplates(
     args: ListPolicyTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: ListPolicyTemplatesCommandOutput) => void
   ): void;
 
@@ -661,7 +673,7 @@ export interface VerifiedPermissions {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -669,7 +681,7 @@ export interface VerifiedPermissions {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -678,7 +690,7 @@ export interface VerifiedPermissions {
    */
   putSchema(
     args: PutSchemaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<PutSchemaCommandOutput>;
   putSchema(
     args: PutSchemaCommandInput,
@@ -686,7 +698,7 @@ export interface VerifiedPermissions {
   ): void;
   putSchema(
     args: PutSchemaCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: PutSchemaCommandOutput) => void
   ): void;
 
@@ -695,7 +707,7 @@ export interface VerifiedPermissions {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -703,7 +715,7 @@ export interface VerifiedPermissions {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -712,7 +724,7 @@ export interface VerifiedPermissions {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -720,7 +732,7 @@ export interface VerifiedPermissions {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -729,7 +741,7 @@ export interface VerifiedPermissions {
    */
   updateIdentitySource(
     args: UpdateIdentitySourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<UpdateIdentitySourceCommandOutput>;
   updateIdentitySource(
     args: UpdateIdentitySourceCommandInput,
@@ -737,7 +749,7 @@ export interface VerifiedPermissions {
   ): void;
   updateIdentitySource(
     args: UpdateIdentitySourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: UpdateIdentitySourceCommandOutput) => void
   ): void;
 
@@ -746,7 +758,7 @@ export interface VerifiedPermissions {
    */
   updatePolicy(
     args: UpdatePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<UpdatePolicyCommandOutput>;
   updatePolicy(
     args: UpdatePolicyCommandInput,
@@ -754,7 +766,7 @@ export interface VerifiedPermissions {
   ): void;
   updatePolicy(
     args: UpdatePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: UpdatePolicyCommandOutput) => void
   ): void;
 
@@ -763,7 +775,7 @@ export interface VerifiedPermissions {
    */
   updatePolicyStore(
     args: UpdatePolicyStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<UpdatePolicyStoreCommandOutput>;
   updatePolicyStore(
     args: UpdatePolicyStoreCommandInput,
@@ -771,7 +783,7 @@ export interface VerifiedPermissions {
   ): void;
   updatePolicyStore(
     args: UpdatePolicyStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: UpdatePolicyStoreCommandOutput) => void
   ): void;
 
@@ -780,7 +792,7 @@ export interface VerifiedPermissions {
    */
   updatePolicyTemplate(
     args: UpdatePolicyTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VerifiedPermissionsRequestOptions
   ): Promise<UpdatePolicyTemplateCommandOutput>;
   updatePolicyTemplate(
     args: UpdatePolicyTemplateCommandInput,
@@ -788,7 +800,7 @@ export interface VerifiedPermissions {
   ): void;
   updatePolicyTemplate(
     args: UpdatePolicyTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: VerifiedPermissionsRequestOptions,
     cb: (err: any, data?: UpdatePolicyTemplateCommandOutput) => void
   ): void;
 

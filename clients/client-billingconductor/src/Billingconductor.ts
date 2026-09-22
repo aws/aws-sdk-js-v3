@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BillingconductorClient } from "./BillingconductorClient";
 import {
@@ -241,13 +246,20 @@ const paginators = {
   paginateListResourcesAssociatedToCustomLineItem,
 };
 
+/**
+ * @public
+ */
+export interface BillingconductorRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Billingconductor {
   /**
    * @see {@link AssociateAccountsCommand}
    */
   associateAccounts(
     args: AssociateAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<AssociateAccountsCommandOutput>;
   associateAccounts(
     args: AssociateAccountsCommandInput,
@@ -255,7 +267,7 @@ export interface Billingconductor {
   ): void;
   associateAccounts(
     args: AssociateAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: AssociateAccountsCommandOutput) => void
   ): void;
 
@@ -264,7 +276,7 @@ export interface Billingconductor {
    */
   associatePricingRules(
     args: AssociatePricingRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<AssociatePricingRulesCommandOutput>;
   associatePricingRules(
     args: AssociatePricingRulesCommandInput,
@@ -272,7 +284,7 @@ export interface Billingconductor {
   ): void;
   associatePricingRules(
     args: AssociatePricingRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: AssociatePricingRulesCommandOutput) => void
   ): void;
 
@@ -281,7 +293,7 @@ export interface Billingconductor {
    */
   batchAssociateResourcesToCustomLineItem(
     args: BatchAssociateResourcesToCustomLineItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<BatchAssociateResourcesToCustomLineItemCommandOutput>;
   batchAssociateResourcesToCustomLineItem(
     args: BatchAssociateResourcesToCustomLineItemCommandInput,
@@ -289,7 +301,7 @@ export interface Billingconductor {
   ): void;
   batchAssociateResourcesToCustomLineItem(
     args: BatchAssociateResourcesToCustomLineItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: BatchAssociateResourcesToCustomLineItemCommandOutput) => void
   ): void;
 
@@ -298,7 +310,7 @@ export interface Billingconductor {
    */
   batchDisassociateResourcesFromCustomLineItem(
     args: BatchDisassociateResourcesFromCustomLineItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<BatchDisassociateResourcesFromCustomLineItemCommandOutput>;
   batchDisassociateResourcesFromCustomLineItem(
     args: BatchDisassociateResourcesFromCustomLineItemCommandInput,
@@ -306,7 +318,7 @@ export interface Billingconductor {
   ): void;
   batchDisassociateResourcesFromCustomLineItem(
     args: BatchDisassociateResourcesFromCustomLineItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: BatchDisassociateResourcesFromCustomLineItemCommandOutput) => void
   ): void;
 
@@ -315,7 +327,7 @@ export interface Billingconductor {
    */
   createBillingGroup(
     args: CreateBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<CreateBillingGroupCommandOutput>;
   createBillingGroup(
     args: CreateBillingGroupCommandInput,
@@ -323,7 +335,7 @@ export interface Billingconductor {
   ): void;
   createBillingGroup(
     args: CreateBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: CreateBillingGroupCommandOutput) => void
   ): void;
 
@@ -332,7 +344,7 @@ export interface Billingconductor {
    */
   createCustomLineItem(
     args: CreateCustomLineItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<CreateCustomLineItemCommandOutput>;
   createCustomLineItem(
     args: CreateCustomLineItemCommandInput,
@@ -340,7 +352,7 @@ export interface Billingconductor {
   ): void;
   createCustomLineItem(
     args: CreateCustomLineItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: CreateCustomLineItemCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface Billingconductor {
    */
   createPricingPlan(
     args: CreatePricingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<CreatePricingPlanCommandOutput>;
   createPricingPlan(
     args: CreatePricingPlanCommandInput,
@@ -357,7 +369,7 @@ export interface Billingconductor {
   ): void;
   createPricingPlan(
     args: CreatePricingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: CreatePricingPlanCommandOutput) => void
   ): void;
 
@@ -366,7 +378,7 @@ export interface Billingconductor {
    */
   createPricingRule(
     args: CreatePricingRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<CreatePricingRuleCommandOutput>;
   createPricingRule(
     args: CreatePricingRuleCommandInput,
@@ -374,7 +386,7 @@ export interface Billingconductor {
   ): void;
   createPricingRule(
     args: CreatePricingRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: CreatePricingRuleCommandOutput) => void
   ): void;
 
@@ -383,7 +395,7 @@ export interface Billingconductor {
    */
   deleteBillingGroup(
     args: DeleteBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<DeleteBillingGroupCommandOutput>;
   deleteBillingGroup(
     args: DeleteBillingGroupCommandInput,
@@ -391,7 +403,7 @@ export interface Billingconductor {
   ): void;
   deleteBillingGroup(
     args: DeleteBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: DeleteBillingGroupCommandOutput) => void
   ): void;
 
@@ -400,7 +412,7 @@ export interface Billingconductor {
    */
   deleteCustomLineItem(
     args: DeleteCustomLineItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<DeleteCustomLineItemCommandOutput>;
   deleteCustomLineItem(
     args: DeleteCustomLineItemCommandInput,
@@ -408,7 +420,7 @@ export interface Billingconductor {
   ): void;
   deleteCustomLineItem(
     args: DeleteCustomLineItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: DeleteCustomLineItemCommandOutput) => void
   ): void;
 
@@ -417,7 +429,7 @@ export interface Billingconductor {
    */
   deletePricingPlan(
     args: DeletePricingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<DeletePricingPlanCommandOutput>;
   deletePricingPlan(
     args: DeletePricingPlanCommandInput,
@@ -425,7 +437,7 @@ export interface Billingconductor {
   ): void;
   deletePricingPlan(
     args: DeletePricingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: DeletePricingPlanCommandOutput) => void
   ): void;
 
@@ -434,7 +446,7 @@ export interface Billingconductor {
    */
   deletePricingRule(
     args: DeletePricingRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<DeletePricingRuleCommandOutput>;
   deletePricingRule(
     args: DeletePricingRuleCommandInput,
@@ -442,7 +454,7 @@ export interface Billingconductor {
   ): void;
   deletePricingRule(
     args: DeletePricingRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: DeletePricingRuleCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface Billingconductor {
    */
   disassociateAccounts(
     args: DisassociateAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<DisassociateAccountsCommandOutput>;
   disassociateAccounts(
     args: DisassociateAccountsCommandInput,
@@ -459,7 +471,7 @@ export interface Billingconductor {
   ): void;
   disassociateAccounts(
     args: DisassociateAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: DisassociateAccountsCommandOutput) => void
   ): void;
 
@@ -468,7 +480,7 @@ export interface Billingconductor {
    */
   disassociatePricingRules(
     args: DisassociatePricingRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<DisassociatePricingRulesCommandOutput>;
   disassociatePricingRules(
     args: DisassociatePricingRulesCommandInput,
@@ -476,7 +488,7 @@ export interface Billingconductor {
   ): void;
   disassociatePricingRules(
     args: DisassociatePricingRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: DisassociatePricingRulesCommandOutput) => void
   ): void;
 
@@ -485,7 +497,7 @@ export interface Billingconductor {
    */
   getBillingGroupCostReport(
     args: GetBillingGroupCostReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<GetBillingGroupCostReportCommandOutput>;
   getBillingGroupCostReport(
     args: GetBillingGroupCostReportCommandInput,
@@ -493,7 +505,7 @@ export interface Billingconductor {
   ): void;
   getBillingGroupCostReport(
     args: GetBillingGroupCostReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: GetBillingGroupCostReportCommandOutput) => void
   ): void;
 
@@ -502,7 +514,7 @@ export interface Billingconductor {
    */
   getBillingTransferPreference(
     args: GetBillingTransferPreferenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<GetBillingTransferPreferenceCommandOutput>;
   getBillingTransferPreference(
     args: GetBillingTransferPreferenceCommandInput,
@@ -510,7 +522,7 @@ export interface Billingconductor {
   ): void;
   getBillingTransferPreference(
     args: GetBillingTransferPreferenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: GetBillingTransferPreferenceCommandOutput) => void
   ): void;
 
@@ -520,7 +532,7 @@ export interface Billingconductor {
   listAccountAssociations(): Promise<ListAccountAssociationsCommandOutput>;
   listAccountAssociations(
     args: ListAccountAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<ListAccountAssociationsCommandOutput>;
   listAccountAssociations(
     args: ListAccountAssociationsCommandInput,
@@ -528,7 +540,7 @@ export interface Billingconductor {
   ): void;
   listAccountAssociations(
     args: ListAccountAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: ListAccountAssociationsCommandOutput) => void
   ): void;
 
@@ -538,7 +550,7 @@ export interface Billingconductor {
   listBillingGroupCostReports(): Promise<ListBillingGroupCostReportsCommandOutput>;
   listBillingGroupCostReports(
     args: ListBillingGroupCostReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<ListBillingGroupCostReportsCommandOutput>;
   listBillingGroupCostReports(
     args: ListBillingGroupCostReportsCommandInput,
@@ -546,7 +558,7 @@ export interface Billingconductor {
   ): void;
   listBillingGroupCostReports(
     args: ListBillingGroupCostReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: ListBillingGroupCostReportsCommandOutput) => void
   ): void;
 
@@ -556,7 +568,7 @@ export interface Billingconductor {
   listBillingGroups(): Promise<ListBillingGroupsCommandOutput>;
   listBillingGroups(
     args: ListBillingGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<ListBillingGroupsCommandOutput>;
   listBillingGroups(
     args: ListBillingGroupsCommandInput,
@@ -564,7 +576,7 @@ export interface Billingconductor {
   ): void;
   listBillingGroups(
     args: ListBillingGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: ListBillingGroupsCommandOutput) => void
   ): void;
 
@@ -574,7 +586,7 @@ export interface Billingconductor {
   listCustomLineItems(): Promise<ListCustomLineItemsCommandOutput>;
   listCustomLineItems(
     args: ListCustomLineItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<ListCustomLineItemsCommandOutput>;
   listCustomLineItems(
     args: ListCustomLineItemsCommandInput,
@@ -582,7 +594,7 @@ export interface Billingconductor {
   ): void;
   listCustomLineItems(
     args: ListCustomLineItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: ListCustomLineItemsCommandOutput) => void
   ): void;
 
@@ -591,7 +603,7 @@ export interface Billingconductor {
    */
   listCustomLineItemVersions(
     args: ListCustomLineItemVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<ListCustomLineItemVersionsCommandOutput>;
   listCustomLineItemVersions(
     args: ListCustomLineItemVersionsCommandInput,
@@ -599,7 +611,7 @@ export interface Billingconductor {
   ): void;
   listCustomLineItemVersions(
     args: ListCustomLineItemVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: ListCustomLineItemVersionsCommandOutput) => void
   ): void;
 
@@ -609,7 +621,7 @@ export interface Billingconductor {
   listPricingPlans(): Promise<ListPricingPlansCommandOutput>;
   listPricingPlans(
     args: ListPricingPlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<ListPricingPlansCommandOutput>;
   listPricingPlans(
     args: ListPricingPlansCommandInput,
@@ -617,7 +629,7 @@ export interface Billingconductor {
   ): void;
   listPricingPlans(
     args: ListPricingPlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: ListPricingPlansCommandOutput) => void
   ): void;
 
@@ -626,7 +638,7 @@ export interface Billingconductor {
    */
   listPricingPlansAssociatedWithPricingRule(
     args: ListPricingPlansAssociatedWithPricingRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<ListPricingPlansAssociatedWithPricingRuleCommandOutput>;
   listPricingPlansAssociatedWithPricingRule(
     args: ListPricingPlansAssociatedWithPricingRuleCommandInput,
@@ -634,7 +646,7 @@ export interface Billingconductor {
   ): void;
   listPricingPlansAssociatedWithPricingRule(
     args: ListPricingPlansAssociatedWithPricingRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: ListPricingPlansAssociatedWithPricingRuleCommandOutput) => void
   ): void;
 
@@ -644,7 +656,7 @@ export interface Billingconductor {
   listPricingRules(): Promise<ListPricingRulesCommandOutput>;
   listPricingRules(
     args: ListPricingRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<ListPricingRulesCommandOutput>;
   listPricingRules(
     args: ListPricingRulesCommandInput,
@@ -652,7 +664,7 @@ export interface Billingconductor {
   ): void;
   listPricingRules(
     args: ListPricingRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: ListPricingRulesCommandOutput) => void
   ): void;
 
@@ -661,7 +673,7 @@ export interface Billingconductor {
    */
   listPricingRulesAssociatedToPricingPlan(
     args: ListPricingRulesAssociatedToPricingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<ListPricingRulesAssociatedToPricingPlanCommandOutput>;
   listPricingRulesAssociatedToPricingPlan(
     args: ListPricingRulesAssociatedToPricingPlanCommandInput,
@@ -669,7 +681,7 @@ export interface Billingconductor {
   ): void;
   listPricingRulesAssociatedToPricingPlan(
     args: ListPricingRulesAssociatedToPricingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: ListPricingRulesAssociatedToPricingPlanCommandOutput) => void
   ): void;
 
@@ -678,7 +690,7 @@ export interface Billingconductor {
    */
   listResourcesAssociatedToCustomLineItem(
     args: ListResourcesAssociatedToCustomLineItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<ListResourcesAssociatedToCustomLineItemCommandOutput>;
   listResourcesAssociatedToCustomLineItem(
     args: ListResourcesAssociatedToCustomLineItemCommandInput,
@@ -686,7 +698,7 @@ export interface Billingconductor {
   ): void;
   listResourcesAssociatedToCustomLineItem(
     args: ListResourcesAssociatedToCustomLineItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: ListResourcesAssociatedToCustomLineItemCommandOutput) => void
   ): void;
 
@@ -695,7 +707,7 @@ export interface Billingconductor {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -703,7 +715,7 @@ export interface Billingconductor {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -712,7 +724,7 @@ export interface Billingconductor {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -720,7 +732,7 @@ export interface Billingconductor {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -729,7 +741,7 @@ export interface Billingconductor {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -737,7 +749,7 @@ export interface Billingconductor {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -746,7 +758,7 @@ export interface Billingconductor {
    */
   updateBillingGroup(
     args: UpdateBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<UpdateBillingGroupCommandOutput>;
   updateBillingGroup(
     args: UpdateBillingGroupCommandInput,
@@ -754,7 +766,7 @@ export interface Billingconductor {
   ): void;
   updateBillingGroup(
     args: UpdateBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: UpdateBillingGroupCommandOutput) => void
   ): void;
 
@@ -763,7 +775,7 @@ export interface Billingconductor {
    */
   updateBillingTransferPreference(
     args: UpdateBillingTransferPreferenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<UpdateBillingTransferPreferenceCommandOutput>;
   updateBillingTransferPreference(
     args: UpdateBillingTransferPreferenceCommandInput,
@@ -771,7 +783,7 @@ export interface Billingconductor {
   ): void;
   updateBillingTransferPreference(
     args: UpdateBillingTransferPreferenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: UpdateBillingTransferPreferenceCommandOutput) => void
   ): void;
 
@@ -780,7 +792,7 @@ export interface Billingconductor {
    */
   updateCustomLineItem(
     args: UpdateCustomLineItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<UpdateCustomLineItemCommandOutput>;
   updateCustomLineItem(
     args: UpdateCustomLineItemCommandInput,
@@ -788,7 +800,7 @@ export interface Billingconductor {
   ): void;
   updateCustomLineItem(
     args: UpdateCustomLineItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: UpdateCustomLineItemCommandOutput) => void
   ): void;
 
@@ -797,7 +809,7 @@ export interface Billingconductor {
    */
   updatePricingPlan(
     args: UpdatePricingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<UpdatePricingPlanCommandOutput>;
   updatePricingPlan(
     args: UpdatePricingPlanCommandInput,
@@ -805,7 +817,7 @@ export interface Billingconductor {
   ): void;
   updatePricingPlan(
     args: UpdatePricingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: UpdatePricingPlanCommandOutput) => void
   ): void;
 
@@ -814,7 +826,7 @@ export interface Billingconductor {
    */
   updatePricingRule(
     args: UpdatePricingRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingconductorRequestOptions
   ): Promise<UpdatePricingRuleCommandOutput>;
   updatePricingRule(
     args: UpdatePricingRuleCommandInput,
@@ -822,7 +834,7 @@ export interface Billingconductor {
   ): void;
   updatePricingRule(
     args: UpdatePricingRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingconductorRequestOptions,
     cb: (err: any, data?: UpdatePricingRuleCommandOutput) => void
   ): void;
 

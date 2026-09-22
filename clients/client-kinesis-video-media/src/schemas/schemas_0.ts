@@ -47,10 +47,10 @@ import {
 import { KinesisVideoMediaServiceException } from "../models/KinesisVideoMediaServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var KinesisVideoMediaServiceException$: StaticErrorSchema = [-3, _s, "KinesisVideoMediaServiceException", 0, [], []];
 _s_registry.registerError(KinesisVideoMediaServiceException$, KinesisVideoMediaServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var ClientLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
   { [_e]: _c, [_hE]: 400 },
   [_M],

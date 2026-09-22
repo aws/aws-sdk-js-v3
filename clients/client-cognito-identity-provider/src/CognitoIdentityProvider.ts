@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { CognitoIdentityProviderClient } from "./CognitoIdentityProviderClient";
 import {
@@ -795,13 +800,20 @@ const paginators = {
   paginateListUsersInGroup,
 };
 
+/**
+ * @public
+ */
+export interface CognitoIdentityProviderRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CognitoIdentityProvider {
   /**
    * @see {@link AddCustomAttributesCommand}
    */
   addCustomAttributes(
     args: AddCustomAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AddCustomAttributesCommandOutput>;
   addCustomAttributes(
     args: AddCustomAttributesCommandInput,
@@ -809,7 +821,7 @@ export interface CognitoIdentityProvider {
   ): void;
   addCustomAttributes(
     args: AddCustomAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AddCustomAttributesCommandOutput) => void
   ): void;
 
@@ -818,7 +830,7 @@ export interface CognitoIdentityProvider {
    */
   addUserPoolClientSecret(
     args: AddUserPoolClientSecretCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AddUserPoolClientSecretCommandOutput>;
   addUserPoolClientSecret(
     args: AddUserPoolClientSecretCommandInput,
@@ -826,7 +838,7 @@ export interface CognitoIdentityProvider {
   ): void;
   addUserPoolClientSecret(
     args: AddUserPoolClientSecretCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AddUserPoolClientSecretCommandOutput) => void
   ): void;
 
@@ -835,7 +847,7 @@ export interface CognitoIdentityProvider {
    */
   adminAddUserToGroup(
     args: AdminAddUserToGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminAddUserToGroupCommandOutput>;
   adminAddUserToGroup(
     args: AdminAddUserToGroupCommandInput,
@@ -843,7 +855,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminAddUserToGroup(
     args: AdminAddUserToGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminAddUserToGroupCommandOutput) => void
   ): void;
 
@@ -852,7 +864,7 @@ export interface CognitoIdentityProvider {
    */
   adminConfirmSignUp(
     args: AdminConfirmSignUpCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminConfirmSignUpCommandOutput>;
   adminConfirmSignUp(
     args: AdminConfirmSignUpCommandInput,
@@ -860,7 +872,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminConfirmSignUp(
     args: AdminConfirmSignUpCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminConfirmSignUpCommandOutput) => void
   ): void;
 
@@ -869,7 +881,7 @@ export interface CognitoIdentityProvider {
    */
   adminCreateUser(
     args: AdminCreateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminCreateUserCommandOutput>;
   adminCreateUser(
     args: AdminCreateUserCommandInput,
@@ -877,7 +889,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminCreateUser(
     args: AdminCreateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminCreateUserCommandOutput) => void
   ): void;
 
@@ -886,7 +898,7 @@ export interface CognitoIdentityProvider {
    */
   adminDeleteSoftwareToken(
     args: AdminDeleteSoftwareTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminDeleteSoftwareTokenCommandOutput>;
   adminDeleteSoftwareToken(
     args: AdminDeleteSoftwareTokenCommandInput,
@@ -894,7 +906,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminDeleteSoftwareToken(
     args: AdminDeleteSoftwareTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminDeleteSoftwareTokenCommandOutput) => void
   ): void;
 
@@ -903,7 +915,7 @@ export interface CognitoIdentityProvider {
    */
   adminDeleteUser(
     args: AdminDeleteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminDeleteUserCommandOutput>;
   adminDeleteUser(
     args: AdminDeleteUserCommandInput,
@@ -911,7 +923,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminDeleteUser(
     args: AdminDeleteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminDeleteUserCommandOutput) => void
   ): void;
 
@@ -920,7 +932,7 @@ export interface CognitoIdentityProvider {
    */
   adminDeleteUserAttributes(
     args: AdminDeleteUserAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminDeleteUserAttributesCommandOutput>;
   adminDeleteUserAttributes(
     args: AdminDeleteUserAttributesCommandInput,
@@ -928,7 +940,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminDeleteUserAttributes(
     args: AdminDeleteUserAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminDeleteUserAttributesCommandOutput) => void
   ): void;
 
@@ -937,7 +949,7 @@ export interface CognitoIdentityProvider {
    */
   adminDisableProviderForUser(
     args: AdminDisableProviderForUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminDisableProviderForUserCommandOutput>;
   adminDisableProviderForUser(
     args: AdminDisableProviderForUserCommandInput,
@@ -945,7 +957,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminDisableProviderForUser(
     args: AdminDisableProviderForUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminDisableProviderForUserCommandOutput) => void
   ): void;
 
@@ -954,7 +966,7 @@ export interface CognitoIdentityProvider {
    */
   adminDisableUser(
     args: AdminDisableUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminDisableUserCommandOutput>;
   adminDisableUser(
     args: AdminDisableUserCommandInput,
@@ -962,7 +974,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminDisableUser(
     args: AdminDisableUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminDisableUserCommandOutput) => void
   ): void;
 
@@ -971,7 +983,7 @@ export interface CognitoIdentityProvider {
    */
   adminEnableUser(
     args: AdminEnableUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminEnableUserCommandOutput>;
   adminEnableUser(
     args: AdminEnableUserCommandInput,
@@ -979,7 +991,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminEnableUser(
     args: AdminEnableUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminEnableUserCommandOutput) => void
   ): void;
 
@@ -988,7 +1000,7 @@ export interface CognitoIdentityProvider {
    */
   adminForgetDevice(
     args: AdminForgetDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminForgetDeviceCommandOutput>;
   adminForgetDevice(
     args: AdminForgetDeviceCommandInput,
@@ -996,7 +1008,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminForgetDevice(
     args: AdminForgetDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminForgetDeviceCommandOutput) => void
   ): void;
 
@@ -1005,7 +1017,7 @@ export interface CognitoIdentityProvider {
    */
   adminGetDevice(
     args: AdminGetDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminGetDeviceCommandOutput>;
   adminGetDevice(
     args: AdminGetDeviceCommandInput,
@@ -1013,7 +1025,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminGetDevice(
     args: AdminGetDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminGetDeviceCommandOutput) => void
   ): void;
 
@@ -1022,7 +1034,7 @@ export interface CognitoIdentityProvider {
    */
   adminGetUser(
     args: AdminGetUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminGetUserCommandOutput>;
   adminGetUser(
     args: AdminGetUserCommandInput,
@@ -1030,7 +1042,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminGetUser(
     args: AdminGetUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminGetUserCommandOutput) => void
   ): void;
 
@@ -1039,7 +1051,7 @@ export interface CognitoIdentityProvider {
    */
   adminGetUserAuthFactors(
     args: AdminGetUserAuthFactorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminGetUserAuthFactorsCommandOutput>;
   adminGetUserAuthFactors(
     args: AdminGetUserAuthFactorsCommandInput,
@@ -1047,7 +1059,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminGetUserAuthFactors(
     args: AdminGetUserAuthFactorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminGetUserAuthFactorsCommandOutput) => void
   ): void;
 
@@ -1056,7 +1068,7 @@ export interface CognitoIdentityProvider {
    */
   adminInitiateAuth(
     args: AdminInitiateAuthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminInitiateAuthCommandOutput>;
   adminInitiateAuth(
     args: AdminInitiateAuthCommandInput,
@@ -1064,7 +1076,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminInitiateAuth(
     args: AdminInitiateAuthCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminInitiateAuthCommandOutput) => void
   ): void;
 
@@ -1073,7 +1085,7 @@ export interface CognitoIdentityProvider {
    */
   adminLinkProviderForUser(
     args: AdminLinkProviderForUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminLinkProviderForUserCommandOutput>;
   adminLinkProviderForUser(
     args: AdminLinkProviderForUserCommandInput,
@@ -1081,7 +1093,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminLinkProviderForUser(
     args: AdminLinkProviderForUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminLinkProviderForUserCommandOutput) => void
   ): void;
 
@@ -1090,7 +1102,7 @@ export interface CognitoIdentityProvider {
    */
   adminListDevices(
     args: AdminListDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminListDevicesCommandOutput>;
   adminListDevices(
     args: AdminListDevicesCommandInput,
@@ -1098,7 +1110,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminListDevices(
     args: AdminListDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminListDevicesCommandOutput) => void
   ): void;
 
@@ -1107,7 +1119,7 @@ export interface CognitoIdentityProvider {
    */
   adminListGroupsForUser(
     args: AdminListGroupsForUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminListGroupsForUserCommandOutput>;
   adminListGroupsForUser(
     args: AdminListGroupsForUserCommandInput,
@@ -1115,7 +1127,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminListGroupsForUser(
     args: AdminListGroupsForUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminListGroupsForUserCommandOutput) => void
   ): void;
 
@@ -1124,7 +1136,7 @@ export interface CognitoIdentityProvider {
    */
   adminListUserAuthEvents(
     args: AdminListUserAuthEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminListUserAuthEventsCommandOutput>;
   adminListUserAuthEvents(
     args: AdminListUserAuthEventsCommandInput,
@@ -1132,7 +1144,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminListUserAuthEvents(
     args: AdminListUserAuthEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminListUserAuthEventsCommandOutput) => void
   ): void;
 
@@ -1141,7 +1153,7 @@ export interface CognitoIdentityProvider {
    */
   adminRemoveUserFromGroup(
     args: AdminRemoveUserFromGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminRemoveUserFromGroupCommandOutput>;
   adminRemoveUserFromGroup(
     args: AdminRemoveUserFromGroupCommandInput,
@@ -1149,7 +1161,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminRemoveUserFromGroup(
     args: AdminRemoveUserFromGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminRemoveUserFromGroupCommandOutput) => void
   ): void;
 
@@ -1158,7 +1170,7 @@ export interface CognitoIdentityProvider {
    */
   adminResetUserPassword(
     args: AdminResetUserPasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminResetUserPasswordCommandOutput>;
   adminResetUserPassword(
     args: AdminResetUserPasswordCommandInput,
@@ -1166,7 +1178,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminResetUserPassword(
     args: AdminResetUserPasswordCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminResetUserPasswordCommandOutput) => void
   ): void;
 
@@ -1175,7 +1187,7 @@ export interface CognitoIdentityProvider {
    */
   adminRespondToAuthChallenge(
     args: AdminRespondToAuthChallengeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminRespondToAuthChallengeCommandOutput>;
   adminRespondToAuthChallenge(
     args: AdminRespondToAuthChallengeCommandInput,
@@ -1183,7 +1195,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminRespondToAuthChallenge(
     args: AdminRespondToAuthChallengeCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminRespondToAuthChallengeCommandOutput) => void
   ): void;
 
@@ -1192,7 +1204,7 @@ export interface CognitoIdentityProvider {
    */
   adminSetUserMFAPreference(
     args: AdminSetUserMFAPreferenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminSetUserMFAPreferenceCommandOutput>;
   adminSetUserMFAPreference(
     args: AdminSetUserMFAPreferenceCommandInput,
@@ -1200,7 +1212,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminSetUserMFAPreference(
     args: AdminSetUserMFAPreferenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminSetUserMFAPreferenceCommandOutput) => void
   ): void;
 
@@ -1209,7 +1221,7 @@ export interface CognitoIdentityProvider {
    */
   adminSetUserPassword(
     args: AdminSetUserPasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminSetUserPasswordCommandOutput>;
   adminSetUserPassword(
     args: AdminSetUserPasswordCommandInput,
@@ -1217,7 +1229,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminSetUserPassword(
     args: AdminSetUserPasswordCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminSetUserPasswordCommandOutput) => void
   ): void;
 
@@ -1226,7 +1238,7 @@ export interface CognitoIdentityProvider {
    */
   adminSetUserSettings(
     args: AdminSetUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminSetUserSettingsCommandOutput>;
   adminSetUserSettings(
     args: AdminSetUserSettingsCommandInput,
@@ -1234,7 +1246,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminSetUserSettings(
     args: AdminSetUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminSetUserSettingsCommandOutput) => void
   ): void;
 
@@ -1243,7 +1255,7 @@ export interface CognitoIdentityProvider {
    */
   adminUpdateAuthEventFeedback(
     args: AdminUpdateAuthEventFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminUpdateAuthEventFeedbackCommandOutput>;
   adminUpdateAuthEventFeedback(
     args: AdminUpdateAuthEventFeedbackCommandInput,
@@ -1251,7 +1263,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminUpdateAuthEventFeedback(
     args: AdminUpdateAuthEventFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminUpdateAuthEventFeedbackCommandOutput) => void
   ): void;
 
@@ -1260,7 +1272,7 @@ export interface CognitoIdentityProvider {
    */
   adminUpdateDeviceStatus(
     args: AdminUpdateDeviceStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminUpdateDeviceStatusCommandOutput>;
   adminUpdateDeviceStatus(
     args: AdminUpdateDeviceStatusCommandInput,
@@ -1268,7 +1280,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminUpdateDeviceStatus(
     args: AdminUpdateDeviceStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminUpdateDeviceStatusCommandOutput) => void
   ): void;
 
@@ -1277,7 +1289,7 @@ export interface CognitoIdentityProvider {
    */
   adminUpdateUserAttributes(
     args: AdminUpdateUserAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminUpdateUserAttributesCommandOutput>;
   adminUpdateUserAttributes(
     args: AdminUpdateUserAttributesCommandInput,
@@ -1285,7 +1297,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminUpdateUserAttributes(
     args: AdminUpdateUserAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminUpdateUserAttributesCommandOutput) => void
   ): void;
 
@@ -1294,7 +1306,7 @@ export interface CognitoIdentityProvider {
    */
   adminUserGlobalSignOut(
     args: AdminUserGlobalSignOutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AdminUserGlobalSignOutCommandOutput>;
   adminUserGlobalSignOut(
     args: AdminUserGlobalSignOutCommandInput,
@@ -1302,7 +1314,7 @@ export interface CognitoIdentityProvider {
   ): void;
   adminUserGlobalSignOut(
     args: AdminUserGlobalSignOutCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AdminUserGlobalSignOutCommandOutput) => void
   ): void;
 
@@ -1312,7 +1324,7 @@ export interface CognitoIdentityProvider {
   associateSoftwareToken(): Promise<AssociateSoftwareTokenCommandOutput>;
   associateSoftwareToken(
     args: AssociateSoftwareTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<AssociateSoftwareTokenCommandOutput>;
   associateSoftwareToken(
     args: AssociateSoftwareTokenCommandInput,
@@ -1320,7 +1332,7 @@ export interface CognitoIdentityProvider {
   ): void;
   associateSoftwareToken(
     args: AssociateSoftwareTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: AssociateSoftwareTokenCommandOutput) => void
   ): void;
 
@@ -1329,7 +1341,7 @@ export interface CognitoIdentityProvider {
    */
   changePassword(
     args: ChangePasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ChangePasswordCommandOutput>;
   changePassword(
     args: ChangePasswordCommandInput,
@@ -1337,7 +1349,7 @@ export interface CognitoIdentityProvider {
   ): void;
   changePassword(
     args: ChangePasswordCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ChangePasswordCommandOutput) => void
   ): void;
 
@@ -1346,7 +1358,7 @@ export interface CognitoIdentityProvider {
    */
   completeWebAuthnRegistration(
     args: CompleteWebAuthnRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<CompleteWebAuthnRegistrationCommandOutput>;
   completeWebAuthnRegistration(
     args: CompleteWebAuthnRegistrationCommandInput,
@@ -1354,7 +1366,7 @@ export interface CognitoIdentityProvider {
   ): void;
   completeWebAuthnRegistration(
     args: CompleteWebAuthnRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CompleteWebAuthnRegistrationCommandOutput) => void
   ): void;
 
@@ -1363,7 +1375,7 @@ export interface CognitoIdentityProvider {
    */
   confirmDevice(
     args: ConfirmDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ConfirmDeviceCommandOutput>;
   confirmDevice(
     args: ConfirmDeviceCommandInput,
@@ -1371,7 +1383,7 @@ export interface CognitoIdentityProvider {
   ): void;
   confirmDevice(
     args: ConfirmDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ConfirmDeviceCommandOutput) => void
   ): void;
 
@@ -1380,7 +1392,7 @@ export interface CognitoIdentityProvider {
    */
   confirmForgotPassword(
     args: ConfirmForgotPasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ConfirmForgotPasswordCommandOutput>;
   confirmForgotPassword(
     args: ConfirmForgotPasswordCommandInput,
@@ -1388,7 +1400,7 @@ export interface CognitoIdentityProvider {
   ): void;
   confirmForgotPassword(
     args: ConfirmForgotPasswordCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ConfirmForgotPasswordCommandOutput) => void
   ): void;
 
@@ -1397,7 +1409,7 @@ export interface CognitoIdentityProvider {
    */
   confirmSignUp(
     args: ConfirmSignUpCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ConfirmSignUpCommandOutput>;
   confirmSignUp(
     args: ConfirmSignUpCommandInput,
@@ -1405,7 +1417,7 @@ export interface CognitoIdentityProvider {
   ): void;
   confirmSignUp(
     args: ConfirmSignUpCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ConfirmSignUpCommandOutput) => void
   ): void;
 
@@ -1414,7 +1426,7 @@ export interface CognitoIdentityProvider {
    */
   createGroup(
     args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<CreateGroupCommandOutput>;
   createGroup(
     args: CreateGroupCommandInput,
@@ -1422,7 +1434,7 @@ export interface CognitoIdentityProvider {
   ): void;
   createGroup(
     args: CreateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CreateGroupCommandOutput) => void
   ): void;
 
@@ -1431,7 +1443,7 @@ export interface CognitoIdentityProvider {
    */
   createIdentityProvider(
     args: CreateIdentityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<CreateIdentityProviderCommandOutput>;
   createIdentityProvider(
     args: CreateIdentityProviderCommandInput,
@@ -1439,7 +1451,7 @@ export interface CognitoIdentityProvider {
   ): void;
   createIdentityProvider(
     args: CreateIdentityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CreateIdentityProviderCommandOutput) => void
   ): void;
 
@@ -1448,7 +1460,7 @@ export interface CognitoIdentityProvider {
    */
   createManagedLoginBranding(
     args: CreateManagedLoginBrandingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<CreateManagedLoginBrandingCommandOutput>;
   createManagedLoginBranding(
     args: CreateManagedLoginBrandingCommandInput,
@@ -1456,7 +1468,7 @@ export interface CognitoIdentityProvider {
   ): void;
   createManagedLoginBranding(
     args: CreateManagedLoginBrandingCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CreateManagedLoginBrandingCommandOutput) => void
   ): void;
 
@@ -1465,7 +1477,7 @@ export interface CognitoIdentityProvider {
    */
   createResourceServer(
     args: CreateResourceServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<CreateResourceServerCommandOutput>;
   createResourceServer(
     args: CreateResourceServerCommandInput,
@@ -1473,7 +1485,7 @@ export interface CognitoIdentityProvider {
   ): void;
   createResourceServer(
     args: CreateResourceServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CreateResourceServerCommandOutput) => void
   ): void;
 
@@ -1482,7 +1494,7 @@ export interface CognitoIdentityProvider {
    */
   createTerms(
     args: CreateTermsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<CreateTermsCommandOutput>;
   createTerms(
     args: CreateTermsCommandInput,
@@ -1490,7 +1502,7 @@ export interface CognitoIdentityProvider {
   ): void;
   createTerms(
     args: CreateTermsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CreateTermsCommandOutput) => void
   ): void;
 
@@ -1499,7 +1511,7 @@ export interface CognitoIdentityProvider {
    */
   createUserImportJob(
     args: CreateUserImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<CreateUserImportJobCommandOutput>;
   createUserImportJob(
     args: CreateUserImportJobCommandInput,
@@ -1507,7 +1519,7 @@ export interface CognitoIdentityProvider {
   ): void;
   createUserImportJob(
     args: CreateUserImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CreateUserImportJobCommandOutput) => void
   ): void;
 
@@ -1516,7 +1528,7 @@ export interface CognitoIdentityProvider {
    */
   createUserPool(
     args: CreateUserPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<CreateUserPoolCommandOutput>;
   createUserPool(
     args: CreateUserPoolCommandInput,
@@ -1524,7 +1536,7 @@ export interface CognitoIdentityProvider {
   ): void;
   createUserPool(
     args: CreateUserPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CreateUserPoolCommandOutput) => void
   ): void;
 
@@ -1533,7 +1545,7 @@ export interface CognitoIdentityProvider {
    */
   createUserPoolClient(
     args: CreateUserPoolClientCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<CreateUserPoolClientCommandOutput>;
   createUserPoolClient(
     args: CreateUserPoolClientCommandInput,
@@ -1541,7 +1553,7 @@ export interface CognitoIdentityProvider {
   ): void;
   createUserPoolClient(
     args: CreateUserPoolClientCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CreateUserPoolClientCommandOutput) => void
   ): void;
 
@@ -1550,7 +1562,7 @@ export interface CognitoIdentityProvider {
    */
   createUserPoolDomain(
     args: CreateUserPoolDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<CreateUserPoolDomainCommandOutput>;
   createUserPoolDomain(
     args: CreateUserPoolDomainCommandInput,
@@ -1558,7 +1570,7 @@ export interface CognitoIdentityProvider {
   ): void;
   createUserPoolDomain(
     args: CreateUserPoolDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CreateUserPoolDomainCommandOutput) => void
   ): void;
 
@@ -1567,7 +1579,7 @@ export interface CognitoIdentityProvider {
    */
   createUserPoolReplica(
     args: CreateUserPoolReplicaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<CreateUserPoolReplicaCommandOutput>;
   createUserPoolReplica(
     args: CreateUserPoolReplicaCommandInput,
@@ -1575,7 +1587,7 @@ export interface CognitoIdentityProvider {
   ): void;
   createUserPoolReplica(
     args: CreateUserPoolReplicaCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: CreateUserPoolReplicaCommandOutput) => void
   ): void;
 
@@ -1584,7 +1596,7 @@ export interface CognitoIdentityProvider {
    */
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteGroupCommandOutput>;
   deleteGroup(
     args: DeleteGroupCommandInput,
@@ -1592,7 +1604,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteGroupCommandOutput) => void
   ): void;
 
@@ -1601,7 +1613,7 @@ export interface CognitoIdentityProvider {
    */
   deleteIdentityProvider(
     args: DeleteIdentityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteIdentityProviderCommandOutput>;
   deleteIdentityProvider(
     args: DeleteIdentityProviderCommandInput,
@@ -1609,7 +1621,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteIdentityProvider(
     args: DeleteIdentityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteIdentityProviderCommandOutput) => void
   ): void;
 
@@ -1618,7 +1630,7 @@ export interface CognitoIdentityProvider {
    */
   deleteManagedLoginBranding(
     args: DeleteManagedLoginBrandingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteManagedLoginBrandingCommandOutput>;
   deleteManagedLoginBranding(
     args: DeleteManagedLoginBrandingCommandInput,
@@ -1626,7 +1638,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteManagedLoginBranding(
     args: DeleteManagedLoginBrandingCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteManagedLoginBrandingCommandOutput) => void
   ): void;
 
@@ -1635,7 +1647,7 @@ export interface CognitoIdentityProvider {
    */
   deleteResourceServer(
     args: DeleteResourceServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteResourceServerCommandOutput>;
   deleteResourceServer(
     args: DeleteResourceServerCommandInput,
@@ -1643,7 +1655,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteResourceServer(
     args: DeleteResourceServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteResourceServerCommandOutput) => void
   ): void;
 
@@ -1652,7 +1664,7 @@ export interface CognitoIdentityProvider {
    */
   deleteTerms(
     args: DeleteTermsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteTermsCommandOutput>;
   deleteTerms(
     args: DeleteTermsCommandInput,
@@ -1660,7 +1672,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteTerms(
     args: DeleteTermsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteTermsCommandOutput) => void
   ): void;
 
@@ -1669,7 +1681,7 @@ export interface CognitoIdentityProvider {
    */
   deleteUser(
     args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteUserCommandOutput>;
   deleteUser(
     args: DeleteUserCommandInput,
@@ -1677,7 +1689,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteUser(
     args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
 
@@ -1686,7 +1698,7 @@ export interface CognitoIdentityProvider {
    */
   deleteUserAttributes(
     args: DeleteUserAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteUserAttributesCommandOutput>;
   deleteUserAttributes(
     args: DeleteUserAttributesCommandInput,
@@ -1694,7 +1706,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteUserAttributes(
     args: DeleteUserAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteUserAttributesCommandOutput) => void
   ): void;
 
@@ -1703,7 +1715,7 @@ export interface CognitoIdentityProvider {
    */
   deleteUserPool(
     args: DeleteUserPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteUserPoolCommandOutput>;
   deleteUserPool(
     args: DeleteUserPoolCommandInput,
@@ -1711,7 +1723,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteUserPool(
     args: DeleteUserPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteUserPoolCommandOutput) => void
   ): void;
 
@@ -1720,7 +1732,7 @@ export interface CognitoIdentityProvider {
    */
   deleteUserPoolClient(
     args: DeleteUserPoolClientCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteUserPoolClientCommandOutput>;
   deleteUserPoolClient(
     args: DeleteUserPoolClientCommandInput,
@@ -1728,7 +1740,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteUserPoolClient(
     args: DeleteUserPoolClientCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteUserPoolClientCommandOutput) => void
   ): void;
 
@@ -1737,7 +1749,7 @@ export interface CognitoIdentityProvider {
    */
   deleteUserPoolClientSecret(
     args: DeleteUserPoolClientSecretCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteUserPoolClientSecretCommandOutput>;
   deleteUserPoolClientSecret(
     args: DeleteUserPoolClientSecretCommandInput,
@@ -1745,7 +1757,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteUserPoolClientSecret(
     args: DeleteUserPoolClientSecretCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteUserPoolClientSecretCommandOutput) => void
   ): void;
 
@@ -1754,7 +1766,7 @@ export interface CognitoIdentityProvider {
    */
   deleteUserPoolDomain(
     args: DeleteUserPoolDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteUserPoolDomainCommandOutput>;
   deleteUserPoolDomain(
     args: DeleteUserPoolDomainCommandInput,
@@ -1762,7 +1774,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteUserPoolDomain(
     args: DeleteUserPoolDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteUserPoolDomainCommandOutput) => void
   ): void;
 
@@ -1771,7 +1783,7 @@ export interface CognitoIdentityProvider {
    */
   deleteUserPoolReplica(
     args: DeleteUserPoolReplicaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteUserPoolReplicaCommandOutput>;
   deleteUserPoolReplica(
     args: DeleteUserPoolReplicaCommandInput,
@@ -1779,7 +1791,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteUserPoolReplica(
     args: DeleteUserPoolReplicaCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteUserPoolReplicaCommandOutput) => void
   ): void;
 
@@ -1788,7 +1800,7 @@ export interface CognitoIdentityProvider {
    */
   deleteWebAuthnCredential(
     args: DeleteWebAuthnCredentialCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DeleteWebAuthnCredentialCommandOutput>;
   deleteWebAuthnCredential(
     args: DeleteWebAuthnCredentialCommandInput,
@@ -1796,7 +1808,7 @@ export interface CognitoIdentityProvider {
   ): void;
   deleteWebAuthnCredential(
     args: DeleteWebAuthnCredentialCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DeleteWebAuthnCredentialCommandOutput) => void
   ): void;
 
@@ -1805,7 +1817,7 @@ export interface CognitoIdentityProvider {
    */
   describeIdentityProvider(
     args: DescribeIdentityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DescribeIdentityProviderCommandOutput>;
   describeIdentityProvider(
     args: DescribeIdentityProviderCommandInput,
@@ -1813,7 +1825,7 @@ export interface CognitoIdentityProvider {
   ): void;
   describeIdentityProvider(
     args: DescribeIdentityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DescribeIdentityProviderCommandOutput) => void
   ): void;
 
@@ -1822,7 +1834,7 @@ export interface CognitoIdentityProvider {
    */
   describeManagedLoginBranding(
     args: DescribeManagedLoginBrandingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DescribeManagedLoginBrandingCommandOutput>;
   describeManagedLoginBranding(
     args: DescribeManagedLoginBrandingCommandInput,
@@ -1830,7 +1842,7 @@ export interface CognitoIdentityProvider {
   ): void;
   describeManagedLoginBranding(
     args: DescribeManagedLoginBrandingCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DescribeManagedLoginBrandingCommandOutput) => void
   ): void;
 
@@ -1839,7 +1851,7 @@ export interface CognitoIdentityProvider {
    */
   describeManagedLoginBrandingByClient(
     args: DescribeManagedLoginBrandingByClientCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DescribeManagedLoginBrandingByClientCommandOutput>;
   describeManagedLoginBrandingByClient(
     args: DescribeManagedLoginBrandingByClientCommandInput,
@@ -1847,7 +1859,7 @@ export interface CognitoIdentityProvider {
   ): void;
   describeManagedLoginBrandingByClient(
     args: DescribeManagedLoginBrandingByClientCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DescribeManagedLoginBrandingByClientCommandOutput) => void
   ): void;
 
@@ -1856,7 +1868,7 @@ export interface CognitoIdentityProvider {
    */
   describeResourceServer(
     args: DescribeResourceServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DescribeResourceServerCommandOutput>;
   describeResourceServer(
     args: DescribeResourceServerCommandInput,
@@ -1864,7 +1876,7 @@ export interface CognitoIdentityProvider {
   ): void;
   describeResourceServer(
     args: DescribeResourceServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DescribeResourceServerCommandOutput) => void
   ): void;
 
@@ -1873,7 +1885,7 @@ export interface CognitoIdentityProvider {
    */
   describeRiskConfiguration(
     args: DescribeRiskConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DescribeRiskConfigurationCommandOutput>;
   describeRiskConfiguration(
     args: DescribeRiskConfigurationCommandInput,
@@ -1881,7 +1893,7 @@ export interface CognitoIdentityProvider {
   ): void;
   describeRiskConfiguration(
     args: DescribeRiskConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DescribeRiskConfigurationCommandOutput) => void
   ): void;
 
@@ -1890,7 +1902,7 @@ export interface CognitoIdentityProvider {
    */
   describeTerms(
     args: DescribeTermsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DescribeTermsCommandOutput>;
   describeTerms(
     args: DescribeTermsCommandInput,
@@ -1898,7 +1910,7 @@ export interface CognitoIdentityProvider {
   ): void;
   describeTerms(
     args: DescribeTermsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DescribeTermsCommandOutput) => void
   ): void;
 
@@ -1907,7 +1919,7 @@ export interface CognitoIdentityProvider {
    */
   describeTermsByClient(
     args: DescribeTermsByClientCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DescribeTermsByClientCommandOutput>;
   describeTermsByClient(
     args: DescribeTermsByClientCommandInput,
@@ -1915,7 +1927,7 @@ export interface CognitoIdentityProvider {
   ): void;
   describeTermsByClient(
     args: DescribeTermsByClientCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DescribeTermsByClientCommandOutput) => void
   ): void;
 
@@ -1924,7 +1936,7 @@ export interface CognitoIdentityProvider {
    */
   describeUserImportJob(
     args: DescribeUserImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DescribeUserImportJobCommandOutput>;
   describeUserImportJob(
     args: DescribeUserImportJobCommandInput,
@@ -1932,7 +1944,7 @@ export interface CognitoIdentityProvider {
   ): void;
   describeUserImportJob(
     args: DescribeUserImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DescribeUserImportJobCommandOutput) => void
   ): void;
 
@@ -1941,7 +1953,7 @@ export interface CognitoIdentityProvider {
    */
   describeUserPool(
     args: DescribeUserPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DescribeUserPoolCommandOutput>;
   describeUserPool(
     args: DescribeUserPoolCommandInput,
@@ -1949,7 +1961,7 @@ export interface CognitoIdentityProvider {
   ): void;
   describeUserPool(
     args: DescribeUserPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DescribeUserPoolCommandOutput) => void
   ): void;
 
@@ -1958,7 +1970,7 @@ export interface CognitoIdentityProvider {
    */
   describeUserPoolClient(
     args: DescribeUserPoolClientCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DescribeUserPoolClientCommandOutput>;
   describeUserPoolClient(
     args: DescribeUserPoolClientCommandInput,
@@ -1966,7 +1978,7 @@ export interface CognitoIdentityProvider {
   ): void;
   describeUserPoolClient(
     args: DescribeUserPoolClientCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DescribeUserPoolClientCommandOutput) => void
   ): void;
 
@@ -1975,7 +1987,7 @@ export interface CognitoIdentityProvider {
    */
   describeUserPoolDomain(
     args: DescribeUserPoolDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<DescribeUserPoolDomainCommandOutput>;
   describeUserPoolDomain(
     args: DescribeUserPoolDomainCommandInput,
@@ -1983,7 +1995,7 @@ export interface CognitoIdentityProvider {
   ): void;
   describeUserPoolDomain(
     args: DescribeUserPoolDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: DescribeUserPoolDomainCommandOutput) => void
   ): void;
 
@@ -1992,7 +2004,7 @@ export interface CognitoIdentityProvider {
    */
   forgetDevice(
     args: ForgetDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ForgetDeviceCommandOutput>;
   forgetDevice(
     args: ForgetDeviceCommandInput,
@@ -2000,7 +2012,7 @@ export interface CognitoIdentityProvider {
   ): void;
   forgetDevice(
     args: ForgetDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ForgetDeviceCommandOutput) => void
   ): void;
 
@@ -2009,7 +2021,7 @@ export interface CognitoIdentityProvider {
    */
   forgotPassword(
     args: ForgotPasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ForgotPasswordCommandOutput>;
   forgotPassword(
     args: ForgotPasswordCommandInput,
@@ -2017,7 +2029,7 @@ export interface CognitoIdentityProvider {
   ): void;
   forgotPassword(
     args: ForgotPasswordCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ForgotPasswordCommandOutput) => void
   ): void;
 
@@ -2026,7 +2038,7 @@ export interface CognitoIdentityProvider {
    */
   getClientToken(
     args: GetClientTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetClientTokenCommandOutput>;
   getClientToken(
     args: GetClientTokenCommandInput,
@@ -2034,7 +2046,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getClientToken(
     args: GetClientTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetClientTokenCommandOutput) => void
   ): void;
 
@@ -2043,7 +2055,7 @@ export interface CognitoIdentityProvider {
    */
   getCSVHeader(
     args: GetCSVHeaderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetCSVHeaderCommandOutput>;
   getCSVHeader(
     args: GetCSVHeaderCommandInput,
@@ -2051,7 +2063,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getCSVHeader(
     args: GetCSVHeaderCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetCSVHeaderCommandOutput) => void
   ): void;
 
@@ -2060,7 +2072,7 @@ export interface CognitoIdentityProvider {
    */
   getDevice(
     args: GetDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetDeviceCommandOutput>;
   getDevice(
     args: GetDeviceCommandInput,
@@ -2068,7 +2080,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getDevice(
     args: GetDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetDeviceCommandOutput) => void
   ): void;
 
@@ -2077,7 +2089,7 @@ export interface CognitoIdentityProvider {
    */
   getGroup(
     args: GetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetGroupCommandOutput>;
   getGroup(
     args: GetGroupCommandInput,
@@ -2085,7 +2097,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getGroup(
     args: GetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetGroupCommandOutput) => void
   ): void;
 
@@ -2094,7 +2106,7 @@ export interface CognitoIdentityProvider {
    */
   getIdentityProviderByIdentifier(
     args: GetIdentityProviderByIdentifierCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetIdentityProviderByIdentifierCommandOutput>;
   getIdentityProviderByIdentifier(
     args: GetIdentityProviderByIdentifierCommandInput,
@@ -2102,7 +2114,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getIdentityProviderByIdentifier(
     args: GetIdentityProviderByIdentifierCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetIdentityProviderByIdentifierCommandOutput) => void
   ): void;
 
@@ -2111,7 +2123,7 @@ export interface CognitoIdentityProvider {
    */
   getLogDeliveryConfiguration(
     args: GetLogDeliveryConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetLogDeliveryConfigurationCommandOutput>;
   getLogDeliveryConfiguration(
     args: GetLogDeliveryConfigurationCommandInput,
@@ -2119,7 +2131,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getLogDeliveryConfiguration(
     args: GetLogDeliveryConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetLogDeliveryConfigurationCommandOutput) => void
   ): void;
 
@@ -2128,7 +2140,7 @@ export interface CognitoIdentityProvider {
    */
   getProvisionedLimit(
     args: GetProvisionedLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetProvisionedLimitCommandOutput>;
   getProvisionedLimit(
     args: GetProvisionedLimitCommandInput,
@@ -2136,7 +2148,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getProvisionedLimit(
     args: GetProvisionedLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetProvisionedLimitCommandOutput) => void
   ): void;
 
@@ -2145,7 +2157,7 @@ export interface CognitoIdentityProvider {
    */
   getSigningCertificate(
     args: GetSigningCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetSigningCertificateCommandOutput>;
   getSigningCertificate(
     args: GetSigningCertificateCommandInput,
@@ -2153,7 +2165,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getSigningCertificate(
     args: GetSigningCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetSigningCertificateCommandOutput) => void
   ): void;
 
@@ -2162,7 +2174,7 @@ export interface CognitoIdentityProvider {
    */
   getTokensFromRefreshToken(
     args: GetTokensFromRefreshTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetTokensFromRefreshTokenCommandOutput>;
   getTokensFromRefreshToken(
     args: GetTokensFromRefreshTokenCommandInput,
@@ -2170,7 +2182,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getTokensFromRefreshToken(
     args: GetTokensFromRefreshTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetTokensFromRefreshTokenCommandOutput) => void
   ): void;
 
@@ -2179,7 +2191,7 @@ export interface CognitoIdentityProvider {
    */
   getUICustomization(
     args: GetUICustomizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetUICustomizationCommandOutput>;
   getUICustomization(
     args: GetUICustomizationCommandInput,
@@ -2187,7 +2199,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getUICustomization(
     args: GetUICustomizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetUICustomizationCommandOutput) => void
   ): void;
 
@@ -2196,7 +2208,7 @@ export interface CognitoIdentityProvider {
    */
   getUser(
     args: GetUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetUserCommandOutput>;
   getUser(
     args: GetUserCommandInput,
@@ -2204,7 +2216,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getUser(
     args: GetUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetUserCommandOutput) => void
   ): void;
 
@@ -2213,7 +2225,7 @@ export interface CognitoIdentityProvider {
    */
   getUserAttributeVerificationCode(
     args: GetUserAttributeVerificationCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetUserAttributeVerificationCodeCommandOutput>;
   getUserAttributeVerificationCode(
     args: GetUserAttributeVerificationCodeCommandInput,
@@ -2221,7 +2233,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getUserAttributeVerificationCode(
     args: GetUserAttributeVerificationCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetUserAttributeVerificationCodeCommandOutput) => void
   ): void;
 
@@ -2230,7 +2242,7 @@ export interface CognitoIdentityProvider {
    */
   getUserAuthFactors(
     args: GetUserAuthFactorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetUserAuthFactorsCommandOutput>;
   getUserAuthFactors(
     args: GetUserAuthFactorsCommandInput,
@@ -2238,7 +2250,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getUserAuthFactors(
     args: GetUserAuthFactorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetUserAuthFactorsCommandOutput) => void
   ): void;
 
@@ -2247,7 +2259,7 @@ export interface CognitoIdentityProvider {
    */
   getUserPoolMfaConfig(
     args: GetUserPoolMfaConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GetUserPoolMfaConfigCommandOutput>;
   getUserPoolMfaConfig(
     args: GetUserPoolMfaConfigCommandInput,
@@ -2255,7 +2267,7 @@ export interface CognitoIdentityProvider {
   ): void;
   getUserPoolMfaConfig(
     args: GetUserPoolMfaConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GetUserPoolMfaConfigCommandOutput) => void
   ): void;
 
@@ -2264,7 +2276,7 @@ export interface CognitoIdentityProvider {
    */
   globalSignOut(
     args: GlobalSignOutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<GlobalSignOutCommandOutput>;
   globalSignOut(
     args: GlobalSignOutCommandInput,
@@ -2272,7 +2284,7 @@ export interface CognitoIdentityProvider {
   ): void;
   globalSignOut(
     args: GlobalSignOutCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: GlobalSignOutCommandOutput) => void
   ): void;
 
@@ -2281,7 +2293,7 @@ export interface CognitoIdentityProvider {
    */
   initiateAuth(
     args: InitiateAuthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<InitiateAuthCommandOutput>;
   initiateAuth(
     args: InitiateAuthCommandInput,
@@ -2289,7 +2301,7 @@ export interface CognitoIdentityProvider {
   ): void;
   initiateAuth(
     args: InitiateAuthCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: InitiateAuthCommandOutput) => void
   ): void;
 
@@ -2298,7 +2310,7 @@ export interface CognitoIdentityProvider {
    */
   listDevices(
     args: ListDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListDevicesCommandOutput>;
   listDevices(
     args: ListDevicesCommandInput,
@@ -2306,7 +2318,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listDevices(
     args: ListDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListDevicesCommandOutput) => void
   ): void;
 
@@ -2315,7 +2327,7 @@ export interface CognitoIdentityProvider {
    */
   listGroups(
     args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListGroupsCommandOutput>;
   listGroups(
     args: ListGroupsCommandInput,
@@ -2323,7 +2335,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listGroups(
     args: ListGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListGroupsCommandOutput) => void
   ): void;
 
@@ -2332,7 +2344,7 @@ export interface CognitoIdentityProvider {
    */
   listIdentityProviders(
     args: ListIdentityProvidersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListIdentityProvidersCommandOutput>;
   listIdentityProviders(
     args: ListIdentityProvidersCommandInput,
@@ -2340,7 +2352,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listIdentityProviders(
     args: ListIdentityProvidersCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListIdentityProvidersCommandOutput) => void
   ): void;
 
@@ -2349,7 +2361,7 @@ export interface CognitoIdentityProvider {
    */
   listResourceServers(
     args: ListResourceServersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListResourceServersCommandOutput>;
   listResourceServers(
     args: ListResourceServersCommandInput,
@@ -2357,7 +2369,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listResourceServers(
     args: ListResourceServersCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListResourceServersCommandOutput) => void
   ): void;
 
@@ -2366,7 +2378,7 @@ export interface CognitoIdentityProvider {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2374,7 +2386,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -2383,7 +2395,7 @@ export interface CognitoIdentityProvider {
    */
   listTerms(
     args: ListTermsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListTermsCommandOutput>;
   listTerms(
     args: ListTermsCommandInput,
@@ -2391,7 +2403,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listTerms(
     args: ListTermsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListTermsCommandOutput) => void
   ): void;
 
@@ -2400,7 +2412,7 @@ export interface CognitoIdentityProvider {
    */
   listUserImportJobs(
     args: ListUserImportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListUserImportJobsCommandOutput>;
   listUserImportJobs(
     args: ListUserImportJobsCommandInput,
@@ -2408,7 +2420,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listUserImportJobs(
     args: ListUserImportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListUserImportJobsCommandOutput) => void
   ): void;
 
@@ -2417,7 +2429,7 @@ export interface CognitoIdentityProvider {
    */
   listUserPoolClients(
     args: ListUserPoolClientsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListUserPoolClientsCommandOutput>;
   listUserPoolClients(
     args: ListUserPoolClientsCommandInput,
@@ -2425,7 +2437,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listUserPoolClients(
     args: ListUserPoolClientsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListUserPoolClientsCommandOutput) => void
   ): void;
 
@@ -2434,7 +2446,7 @@ export interface CognitoIdentityProvider {
    */
   listUserPoolClientSecrets(
     args: ListUserPoolClientSecretsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListUserPoolClientSecretsCommandOutput>;
   listUserPoolClientSecrets(
     args: ListUserPoolClientSecretsCommandInput,
@@ -2442,7 +2454,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listUserPoolClientSecrets(
     args: ListUserPoolClientSecretsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListUserPoolClientSecretsCommandOutput) => void
   ): void;
 
@@ -2451,7 +2463,7 @@ export interface CognitoIdentityProvider {
    */
   listUserPoolReplicas(
     args: ListUserPoolReplicasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListUserPoolReplicasCommandOutput>;
   listUserPoolReplicas(
     args: ListUserPoolReplicasCommandInput,
@@ -2459,7 +2471,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listUserPoolReplicas(
     args: ListUserPoolReplicasCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListUserPoolReplicasCommandOutput) => void
   ): void;
 
@@ -2468,7 +2480,7 @@ export interface CognitoIdentityProvider {
    */
   listUserPools(
     args: ListUserPoolsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListUserPoolsCommandOutput>;
   listUserPools(
     args: ListUserPoolsCommandInput,
@@ -2476,7 +2488,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listUserPools(
     args: ListUserPoolsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListUserPoolsCommandOutput) => void
   ): void;
 
@@ -2485,7 +2497,7 @@ export interface CognitoIdentityProvider {
    */
   listUsers(
     args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListUsersCommandOutput>;
   listUsers(
     args: ListUsersCommandInput,
@@ -2493,7 +2505,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listUsers(
     args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
   ): void;
 
@@ -2502,7 +2514,7 @@ export interface CognitoIdentityProvider {
    */
   listUsersInGroup(
     args: ListUsersInGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListUsersInGroupCommandOutput>;
   listUsersInGroup(
     args: ListUsersInGroupCommandInput,
@@ -2510,7 +2522,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listUsersInGroup(
     args: ListUsersInGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListUsersInGroupCommandOutput) => void
   ): void;
 
@@ -2519,7 +2531,7 @@ export interface CognitoIdentityProvider {
    */
   listWebAuthnCredentials(
     args: ListWebAuthnCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ListWebAuthnCredentialsCommandOutput>;
   listWebAuthnCredentials(
     args: ListWebAuthnCredentialsCommandInput,
@@ -2527,7 +2539,7 @@ export interface CognitoIdentityProvider {
   ): void;
   listWebAuthnCredentials(
     args: ListWebAuthnCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ListWebAuthnCredentialsCommandOutput) => void
   ): void;
 
@@ -2536,7 +2548,7 @@ export interface CognitoIdentityProvider {
    */
   resendConfirmationCode(
     args: ResendConfirmationCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<ResendConfirmationCodeCommandOutput>;
   resendConfirmationCode(
     args: ResendConfirmationCodeCommandInput,
@@ -2544,7 +2556,7 @@ export interface CognitoIdentityProvider {
   ): void;
   resendConfirmationCode(
     args: ResendConfirmationCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: ResendConfirmationCodeCommandOutput) => void
   ): void;
 
@@ -2553,7 +2565,7 @@ export interface CognitoIdentityProvider {
    */
   respondToAuthChallenge(
     args: RespondToAuthChallengeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<RespondToAuthChallengeCommandOutput>;
   respondToAuthChallenge(
     args: RespondToAuthChallengeCommandInput,
@@ -2561,7 +2573,7 @@ export interface CognitoIdentityProvider {
   ): void;
   respondToAuthChallenge(
     args: RespondToAuthChallengeCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: RespondToAuthChallengeCommandOutput) => void
   ): void;
 
@@ -2570,7 +2582,7 @@ export interface CognitoIdentityProvider {
    */
   revokeToken(
     args: RevokeTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<RevokeTokenCommandOutput>;
   revokeToken(
     args: RevokeTokenCommandInput,
@@ -2578,7 +2590,7 @@ export interface CognitoIdentityProvider {
   ): void;
   revokeToken(
     args: RevokeTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: RevokeTokenCommandOutput) => void
   ): void;
 
@@ -2587,7 +2599,7 @@ export interface CognitoIdentityProvider {
    */
   setLogDeliveryConfiguration(
     args: SetLogDeliveryConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<SetLogDeliveryConfigurationCommandOutput>;
   setLogDeliveryConfiguration(
     args: SetLogDeliveryConfigurationCommandInput,
@@ -2595,7 +2607,7 @@ export interface CognitoIdentityProvider {
   ): void;
   setLogDeliveryConfiguration(
     args: SetLogDeliveryConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: SetLogDeliveryConfigurationCommandOutput) => void
   ): void;
 
@@ -2604,7 +2616,7 @@ export interface CognitoIdentityProvider {
    */
   setRiskConfiguration(
     args: SetRiskConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<SetRiskConfigurationCommandOutput>;
   setRiskConfiguration(
     args: SetRiskConfigurationCommandInput,
@@ -2612,7 +2624,7 @@ export interface CognitoIdentityProvider {
   ): void;
   setRiskConfiguration(
     args: SetRiskConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: SetRiskConfigurationCommandOutput) => void
   ): void;
 
@@ -2621,7 +2633,7 @@ export interface CognitoIdentityProvider {
    */
   setUICustomization(
     args: SetUICustomizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<SetUICustomizationCommandOutput>;
   setUICustomization(
     args: SetUICustomizationCommandInput,
@@ -2629,7 +2641,7 @@ export interface CognitoIdentityProvider {
   ): void;
   setUICustomization(
     args: SetUICustomizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: SetUICustomizationCommandOutput) => void
   ): void;
 
@@ -2638,7 +2650,7 @@ export interface CognitoIdentityProvider {
    */
   setUserMFAPreference(
     args: SetUserMFAPreferenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<SetUserMFAPreferenceCommandOutput>;
   setUserMFAPreference(
     args: SetUserMFAPreferenceCommandInput,
@@ -2646,7 +2658,7 @@ export interface CognitoIdentityProvider {
   ): void;
   setUserMFAPreference(
     args: SetUserMFAPreferenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: SetUserMFAPreferenceCommandOutput) => void
   ): void;
 
@@ -2655,7 +2667,7 @@ export interface CognitoIdentityProvider {
    */
   setUserPoolMfaConfig(
     args: SetUserPoolMfaConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<SetUserPoolMfaConfigCommandOutput>;
   setUserPoolMfaConfig(
     args: SetUserPoolMfaConfigCommandInput,
@@ -2663,7 +2675,7 @@ export interface CognitoIdentityProvider {
   ): void;
   setUserPoolMfaConfig(
     args: SetUserPoolMfaConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: SetUserPoolMfaConfigCommandOutput) => void
   ): void;
 
@@ -2672,7 +2684,7 @@ export interface CognitoIdentityProvider {
    */
   setUserSettings(
     args: SetUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<SetUserSettingsCommandOutput>;
   setUserSettings(
     args: SetUserSettingsCommandInput,
@@ -2680,7 +2692,7 @@ export interface CognitoIdentityProvider {
   ): void;
   setUserSettings(
     args: SetUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: SetUserSettingsCommandOutput) => void
   ): void;
 
@@ -2689,7 +2701,7 @@ export interface CognitoIdentityProvider {
    */
   signUp(
     args: SignUpCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<SignUpCommandOutput>;
   signUp(
     args: SignUpCommandInput,
@@ -2697,7 +2709,7 @@ export interface CognitoIdentityProvider {
   ): void;
   signUp(
     args: SignUpCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: SignUpCommandOutput) => void
   ): void;
 
@@ -2706,7 +2718,7 @@ export interface CognitoIdentityProvider {
    */
   startUserImportJob(
     args: StartUserImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<StartUserImportJobCommandOutput>;
   startUserImportJob(
     args: StartUserImportJobCommandInput,
@@ -2714,7 +2726,7 @@ export interface CognitoIdentityProvider {
   ): void;
   startUserImportJob(
     args: StartUserImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: StartUserImportJobCommandOutput) => void
   ): void;
 
@@ -2723,7 +2735,7 @@ export interface CognitoIdentityProvider {
    */
   startWebAuthnRegistration(
     args: StartWebAuthnRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<StartWebAuthnRegistrationCommandOutput>;
   startWebAuthnRegistration(
     args: StartWebAuthnRegistrationCommandInput,
@@ -2731,7 +2743,7 @@ export interface CognitoIdentityProvider {
   ): void;
   startWebAuthnRegistration(
     args: StartWebAuthnRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: StartWebAuthnRegistrationCommandOutput) => void
   ): void;
 
@@ -2740,7 +2752,7 @@ export interface CognitoIdentityProvider {
    */
   stopUserImportJob(
     args: StopUserImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<StopUserImportJobCommandOutput>;
   stopUserImportJob(
     args: StopUserImportJobCommandInput,
@@ -2748,7 +2760,7 @@ export interface CognitoIdentityProvider {
   ): void;
   stopUserImportJob(
     args: StopUserImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: StopUserImportJobCommandOutput) => void
   ): void;
 
@@ -2757,7 +2769,7 @@ export interface CognitoIdentityProvider {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2765,7 +2777,7 @@ export interface CognitoIdentityProvider {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2774,7 +2786,7 @@ export interface CognitoIdentityProvider {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2782,7 +2794,7 @@ export interface CognitoIdentityProvider {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2791,7 +2803,7 @@ export interface CognitoIdentityProvider {
    */
   updateAuthEventFeedback(
     args: UpdateAuthEventFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateAuthEventFeedbackCommandOutput>;
   updateAuthEventFeedback(
     args: UpdateAuthEventFeedbackCommandInput,
@@ -2799,7 +2811,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateAuthEventFeedback(
     args: UpdateAuthEventFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateAuthEventFeedbackCommandOutput) => void
   ): void;
 
@@ -2808,7 +2820,7 @@ export interface CognitoIdentityProvider {
    */
   updateDeviceStatus(
     args: UpdateDeviceStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateDeviceStatusCommandOutput>;
   updateDeviceStatus(
     args: UpdateDeviceStatusCommandInput,
@@ -2816,7 +2828,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateDeviceStatus(
     args: UpdateDeviceStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateDeviceStatusCommandOutput) => void
   ): void;
 
@@ -2825,7 +2837,7 @@ export interface CognitoIdentityProvider {
    */
   updateGroup(
     args: UpdateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateGroupCommandOutput>;
   updateGroup(
     args: UpdateGroupCommandInput,
@@ -2833,7 +2845,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateGroup(
     args: UpdateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateGroupCommandOutput) => void
   ): void;
 
@@ -2842,7 +2854,7 @@ export interface CognitoIdentityProvider {
    */
   updateIdentityProvider(
     args: UpdateIdentityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateIdentityProviderCommandOutput>;
   updateIdentityProvider(
     args: UpdateIdentityProviderCommandInput,
@@ -2850,7 +2862,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateIdentityProvider(
     args: UpdateIdentityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateIdentityProviderCommandOutput) => void
   ): void;
 
@@ -2860,7 +2872,7 @@ export interface CognitoIdentityProvider {
   updateManagedLoginBranding(): Promise<UpdateManagedLoginBrandingCommandOutput>;
   updateManagedLoginBranding(
     args: UpdateManagedLoginBrandingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateManagedLoginBrandingCommandOutput>;
   updateManagedLoginBranding(
     args: UpdateManagedLoginBrandingCommandInput,
@@ -2868,7 +2880,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateManagedLoginBranding(
     args: UpdateManagedLoginBrandingCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateManagedLoginBrandingCommandOutput) => void
   ): void;
 
@@ -2877,7 +2889,7 @@ export interface CognitoIdentityProvider {
    */
   updateProvisionedLimit(
     args: UpdateProvisionedLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateProvisionedLimitCommandOutput>;
   updateProvisionedLimit(
     args: UpdateProvisionedLimitCommandInput,
@@ -2885,7 +2897,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateProvisionedLimit(
     args: UpdateProvisionedLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateProvisionedLimitCommandOutput) => void
   ): void;
 
@@ -2894,7 +2906,7 @@ export interface CognitoIdentityProvider {
    */
   updateResourceServer(
     args: UpdateResourceServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateResourceServerCommandOutput>;
   updateResourceServer(
     args: UpdateResourceServerCommandInput,
@@ -2902,7 +2914,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateResourceServer(
     args: UpdateResourceServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateResourceServerCommandOutput) => void
   ): void;
 
@@ -2911,7 +2923,7 @@ export interface CognitoIdentityProvider {
    */
   updateTerms(
     args: UpdateTermsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateTermsCommandOutput>;
   updateTerms(
     args: UpdateTermsCommandInput,
@@ -2919,7 +2931,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateTerms(
     args: UpdateTermsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateTermsCommandOutput) => void
   ): void;
 
@@ -2928,7 +2940,7 @@ export interface CognitoIdentityProvider {
    */
   updateUserAttributes(
     args: UpdateUserAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateUserAttributesCommandOutput>;
   updateUserAttributes(
     args: UpdateUserAttributesCommandInput,
@@ -2936,7 +2948,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateUserAttributes(
     args: UpdateUserAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateUserAttributesCommandOutput) => void
   ): void;
 
@@ -2945,7 +2957,7 @@ export interface CognitoIdentityProvider {
    */
   updateUserPool(
     args: UpdateUserPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateUserPoolCommandOutput>;
   updateUserPool(
     args: UpdateUserPoolCommandInput,
@@ -2953,7 +2965,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateUserPool(
     args: UpdateUserPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateUserPoolCommandOutput) => void
   ): void;
 
@@ -2962,7 +2974,7 @@ export interface CognitoIdentityProvider {
    */
   updateUserPoolClient(
     args: UpdateUserPoolClientCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateUserPoolClientCommandOutput>;
   updateUserPoolClient(
     args: UpdateUserPoolClientCommandInput,
@@ -2970,7 +2982,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateUserPoolClient(
     args: UpdateUserPoolClientCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateUserPoolClientCommandOutput) => void
   ): void;
 
@@ -2979,7 +2991,7 @@ export interface CognitoIdentityProvider {
    */
   updateUserPoolDomain(
     args: UpdateUserPoolDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateUserPoolDomainCommandOutput>;
   updateUserPoolDomain(
     args: UpdateUserPoolDomainCommandInput,
@@ -2987,7 +2999,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateUserPoolDomain(
     args: UpdateUserPoolDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateUserPoolDomainCommandOutput) => void
   ): void;
 
@@ -2996,7 +3008,7 @@ export interface CognitoIdentityProvider {
    */
   updateUserPoolReplica(
     args: UpdateUserPoolReplicaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<UpdateUserPoolReplicaCommandOutput>;
   updateUserPoolReplica(
     args: UpdateUserPoolReplicaCommandInput,
@@ -3004,7 +3016,7 @@ export interface CognitoIdentityProvider {
   ): void;
   updateUserPoolReplica(
     args: UpdateUserPoolReplicaCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: UpdateUserPoolReplicaCommandOutput) => void
   ): void;
 
@@ -3013,7 +3025,7 @@ export interface CognitoIdentityProvider {
    */
   verifySoftwareToken(
     args: VerifySoftwareTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<VerifySoftwareTokenCommandOutput>;
   verifySoftwareToken(
     args: VerifySoftwareTokenCommandInput,
@@ -3021,7 +3033,7 @@ export interface CognitoIdentityProvider {
   ): void;
   verifySoftwareToken(
     args: VerifySoftwareTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: VerifySoftwareTokenCommandOutput) => void
   ): void;
 
@@ -3030,7 +3042,7 @@ export interface CognitoIdentityProvider {
    */
   verifyUserAttribute(
     args: VerifyUserAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityProviderRequestOptions
   ): Promise<VerifyUserAttributeCommandOutput>;
   verifyUserAttribute(
     args: VerifyUserAttributeCommandInput,
@@ -3038,7 +3050,7 @@ export interface CognitoIdentityProvider {
   ): void;
   verifyUserAttribute(
     args: VerifyUserAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityProviderRequestOptions,
     cb: (err: any, data?: VerifyUserAttributeCommandOutput) => void
   ): void;
 

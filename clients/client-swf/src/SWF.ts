@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CountClosedWorkflowExecutionsCommandInput,
@@ -257,13 +262,20 @@ const paginators = {
   paginatePollForDecisionTask,
 };
 
+/**
+ * @public
+ */
+export interface SWFRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SWF {
   /**
    * @see {@link CountClosedWorkflowExecutionsCommand}
    */
   countClosedWorkflowExecutions(
     args: CountClosedWorkflowExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<CountClosedWorkflowExecutionsCommandOutput>;
   countClosedWorkflowExecutions(
     args: CountClosedWorkflowExecutionsCommandInput,
@@ -271,7 +283,7 @@ export interface SWF {
   ): void;
   countClosedWorkflowExecutions(
     args: CountClosedWorkflowExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: CountClosedWorkflowExecutionsCommandOutput) => void
   ): void;
 
@@ -280,7 +292,7 @@ export interface SWF {
    */
   countOpenWorkflowExecutions(
     args: CountOpenWorkflowExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<CountOpenWorkflowExecutionsCommandOutput>;
   countOpenWorkflowExecutions(
     args: CountOpenWorkflowExecutionsCommandInput,
@@ -288,7 +300,7 @@ export interface SWF {
   ): void;
   countOpenWorkflowExecutions(
     args: CountOpenWorkflowExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: CountOpenWorkflowExecutionsCommandOutput) => void
   ): void;
 
@@ -297,7 +309,7 @@ export interface SWF {
    */
   countPendingActivityTasks(
     args: CountPendingActivityTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<CountPendingActivityTasksCommandOutput>;
   countPendingActivityTasks(
     args: CountPendingActivityTasksCommandInput,
@@ -305,7 +317,7 @@ export interface SWF {
   ): void;
   countPendingActivityTasks(
     args: CountPendingActivityTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: CountPendingActivityTasksCommandOutput) => void
   ): void;
 
@@ -314,7 +326,7 @@ export interface SWF {
    */
   countPendingDecisionTasks(
     args: CountPendingDecisionTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<CountPendingDecisionTasksCommandOutput>;
   countPendingDecisionTasks(
     args: CountPendingDecisionTasksCommandInput,
@@ -322,7 +334,7 @@ export interface SWF {
   ): void;
   countPendingDecisionTasks(
     args: CountPendingDecisionTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: CountPendingDecisionTasksCommandOutput) => void
   ): void;
 
@@ -331,7 +343,7 @@ export interface SWF {
    */
   deleteActivityType(
     args: DeleteActivityTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<DeleteActivityTypeCommandOutput>;
   deleteActivityType(
     args: DeleteActivityTypeCommandInput,
@@ -339,7 +351,7 @@ export interface SWF {
   ): void;
   deleteActivityType(
     args: DeleteActivityTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: DeleteActivityTypeCommandOutput) => void
   ): void;
 
@@ -348,7 +360,7 @@ export interface SWF {
    */
   deleteWorkflowType(
     args: DeleteWorkflowTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<DeleteWorkflowTypeCommandOutput>;
   deleteWorkflowType(
     args: DeleteWorkflowTypeCommandInput,
@@ -356,7 +368,7 @@ export interface SWF {
   ): void;
   deleteWorkflowType(
     args: DeleteWorkflowTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: DeleteWorkflowTypeCommandOutput) => void
   ): void;
 
@@ -365,7 +377,7 @@ export interface SWF {
    */
   deprecateActivityType(
     args: DeprecateActivityTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<DeprecateActivityTypeCommandOutput>;
   deprecateActivityType(
     args: DeprecateActivityTypeCommandInput,
@@ -373,7 +385,7 @@ export interface SWF {
   ): void;
   deprecateActivityType(
     args: DeprecateActivityTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: DeprecateActivityTypeCommandOutput) => void
   ): void;
 
@@ -382,7 +394,7 @@ export interface SWF {
    */
   deprecateDomain(
     args: DeprecateDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<DeprecateDomainCommandOutput>;
   deprecateDomain(
     args: DeprecateDomainCommandInput,
@@ -390,7 +402,7 @@ export interface SWF {
   ): void;
   deprecateDomain(
     args: DeprecateDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: DeprecateDomainCommandOutput) => void
   ): void;
 
@@ -399,7 +411,7 @@ export interface SWF {
    */
   deprecateWorkflowType(
     args: DeprecateWorkflowTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<DeprecateWorkflowTypeCommandOutput>;
   deprecateWorkflowType(
     args: DeprecateWorkflowTypeCommandInput,
@@ -407,7 +419,7 @@ export interface SWF {
   ): void;
   deprecateWorkflowType(
     args: DeprecateWorkflowTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: DeprecateWorkflowTypeCommandOutput) => void
   ): void;
 
@@ -416,7 +428,7 @@ export interface SWF {
    */
   describeActivityType(
     args: DescribeActivityTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<DescribeActivityTypeCommandOutput>;
   describeActivityType(
     args: DescribeActivityTypeCommandInput,
@@ -424,7 +436,7 @@ export interface SWF {
   ): void;
   describeActivityType(
     args: DescribeActivityTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: DescribeActivityTypeCommandOutput) => void
   ): void;
 
@@ -433,7 +445,7 @@ export interface SWF {
    */
   describeDomain(
     args: DescribeDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<DescribeDomainCommandOutput>;
   describeDomain(
     args: DescribeDomainCommandInput,
@@ -441,7 +453,7 @@ export interface SWF {
   ): void;
   describeDomain(
     args: DescribeDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: DescribeDomainCommandOutput) => void
   ): void;
 
@@ -450,7 +462,7 @@ export interface SWF {
    */
   describeWorkflowExecution(
     args: DescribeWorkflowExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<DescribeWorkflowExecutionCommandOutput>;
   describeWorkflowExecution(
     args: DescribeWorkflowExecutionCommandInput,
@@ -458,7 +470,7 @@ export interface SWF {
   ): void;
   describeWorkflowExecution(
     args: DescribeWorkflowExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: DescribeWorkflowExecutionCommandOutput) => void
   ): void;
 
@@ -467,7 +479,7 @@ export interface SWF {
    */
   describeWorkflowType(
     args: DescribeWorkflowTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<DescribeWorkflowTypeCommandOutput>;
   describeWorkflowType(
     args: DescribeWorkflowTypeCommandInput,
@@ -475,7 +487,7 @@ export interface SWF {
   ): void;
   describeWorkflowType(
     args: DescribeWorkflowTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: DescribeWorkflowTypeCommandOutput) => void
   ): void;
 
@@ -484,7 +496,7 @@ export interface SWF {
    */
   getWorkflowExecutionHistory(
     args: GetWorkflowExecutionHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<GetWorkflowExecutionHistoryCommandOutput>;
   getWorkflowExecutionHistory(
     args: GetWorkflowExecutionHistoryCommandInput,
@@ -492,7 +504,7 @@ export interface SWF {
   ): void;
   getWorkflowExecutionHistory(
     args: GetWorkflowExecutionHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: GetWorkflowExecutionHistoryCommandOutput) => void
   ): void;
 
@@ -501,7 +513,7 @@ export interface SWF {
    */
   listActivityTypes(
     args: ListActivityTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<ListActivityTypesCommandOutput>;
   listActivityTypes(
     args: ListActivityTypesCommandInput,
@@ -509,7 +521,7 @@ export interface SWF {
   ): void;
   listActivityTypes(
     args: ListActivityTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: ListActivityTypesCommandOutput) => void
   ): void;
 
@@ -518,7 +530,7 @@ export interface SWF {
    */
   listClosedWorkflowExecutions(
     args: ListClosedWorkflowExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<ListClosedWorkflowExecutionsCommandOutput>;
   listClosedWorkflowExecutions(
     args: ListClosedWorkflowExecutionsCommandInput,
@@ -526,7 +538,7 @@ export interface SWF {
   ): void;
   listClosedWorkflowExecutions(
     args: ListClosedWorkflowExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: ListClosedWorkflowExecutionsCommandOutput) => void
   ): void;
 
@@ -535,7 +547,7 @@ export interface SWF {
    */
   listDomains(
     args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
@@ -543,7 +555,7 @@ export interface SWF {
   ): void;
   listDomains(
     args: ListDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: ListDomainsCommandOutput) => void
   ): void;
 
@@ -552,7 +564,7 @@ export interface SWF {
    */
   listOpenWorkflowExecutions(
     args: ListOpenWorkflowExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<ListOpenWorkflowExecutionsCommandOutput>;
   listOpenWorkflowExecutions(
     args: ListOpenWorkflowExecutionsCommandInput,
@@ -560,7 +572,7 @@ export interface SWF {
   ): void;
   listOpenWorkflowExecutions(
     args: ListOpenWorkflowExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: ListOpenWorkflowExecutionsCommandOutput) => void
   ): void;
 
@@ -569,7 +581,7 @@ export interface SWF {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -577,7 +589,7 @@ export interface SWF {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -586,7 +598,7 @@ export interface SWF {
    */
   listWorkflowTypes(
     args: ListWorkflowTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<ListWorkflowTypesCommandOutput>;
   listWorkflowTypes(
     args: ListWorkflowTypesCommandInput,
@@ -594,7 +606,7 @@ export interface SWF {
   ): void;
   listWorkflowTypes(
     args: ListWorkflowTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: ListWorkflowTypesCommandOutput) => void
   ): void;
 
@@ -603,7 +615,7 @@ export interface SWF {
    */
   pollForActivityTask(
     args: PollForActivityTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<PollForActivityTaskCommandOutput>;
   pollForActivityTask(
     args: PollForActivityTaskCommandInput,
@@ -611,7 +623,7 @@ export interface SWF {
   ): void;
   pollForActivityTask(
     args: PollForActivityTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: PollForActivityTaskCommandOutput) => void
   ): void;
 
@@ -620,7 +632,7 @@ export interface SWF {
    */
   pollForDecisionTask(
     args: PollForDecisionTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<PollForDecisionTaskCommandOutput>;
   pollForDecisionTask(
     args: PollForDecisionTaskCommandInput,
@@ -628,7 +640,7 @@ export interface SWF {
   ): void;
   pollForDecisionTask(
     args: PollForDecisionTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: PollForDecisionTaskCommandOutput) => void
   ): void;
 
@@ -637,7 +649,7 @@ export interface SWF {
    */
   recordActivityTaskHeartbeat(
     args: RecordActivityTaskHeartbeatCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<RecordActivityTaskHeartbeatCommandOutput>;
   recordActivityTaskHeartbeat(
     args: RecordActivityTaskHeartbeatCommandInput,
@@ -645,7 +657,7 @@ export interface SWF {
   ): void;
   recordActivityTaskHeartbeat(
     args: RecordActivityTaskHeartbeatCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: RecordActivityTaskHeartbeatCommandOutput) => void
   ): void;
 
@@ -654,7 +666,7 @@ export interface SWF {
    */
   registerActivityType(
     args: RegisterActivityTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<RegisterActivityTypeCommandOutput>;
   registerActivityType(
     args: RegisterActivityTypeCommandInput,
@@ -662,7 +674,7 @@ export interface SWF {
   ): void;
   registerActivityType(
     args: RegisterActivityTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: RegisterActivityTypeCommandOutput) => void
   ): void;
 
@@ -671,7 +683,7 @@ export interface SWF {
    */
   registerDomain(
     args: RegisterDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<RegisterDomainCommandOutput>;
   registerDomain(
     args: RegisterDomainCommandInput,
@@ -679,7 +691,7 @@ export interface SWF {
   ): void;
   registerDomain(
     args: RegisterDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: RegisterDomainCommandOutput) => void
   ): void;
 
@@ -688,7 +700,7 @@ export interface SWF {
    */
   registerWorkflowType(
     args: RegisterWorkflowTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<RegisterWorkflowTypeCommandOutput>;
   registerWorkflowType(
     args: RegisterWorkflowTypeCommandInput,
@@ -696,7 +708,7 @@ export interface SWF {
   ): void;
   registerWorkflowType(
     args: RegisterWorkflowTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: RegisterWorkflowTypeCommandOutput) => void
   ): void;
 
@@ -705,7 +717,7 @@ export interface SWF {
    */
   requestCancelWorkflowExecution(
     args: RequestCancelWorkflowExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<RequestCancelWorkflowExecutionCommandOutput>;
   requestCancelWorkflowExecution(
     args: RequestCancelWorkflowExecutionCommandInput,
@@ -713,7 +725,7 @@ export interface SWF {
   ): void;
   requestCancelWorkflowExecution(
     args: RequestCancelWorkflowExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: RequestCancelWorkflowExecutionCommandOutput) => void
   ): void;
 
@@ -722,7 +734,7 @@ export interface SWF {
    */
   respondActivityTaskCanceled(
     args: RespondActivityTaskCanceledCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<RespondActivityTaskCanceledCommandOutput>;
   respondActivityTaskCanceled(
     args: RespondActivityTaskCanceledCommandInput,
@@ -730,7 +742,7 @@ export interface SWF {
   ): void;
   respondActivityTaskCanceled(
     args: RespondActivityTaskCanceledCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: RespondActivityTaskCanceledCommandOutput) => void
   ): void;
 
@@ -739,7 +751,7 @@ export interface SWF {
    */
   respondActivityTaskCompleted(
     args: RespondActivityTaskCompletedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<RespondActivityTaskCompletedCommandOutput>;
   respondActivityTaskCompleted(
     args: RespondActivityTaskCompletedCommandInput,
@@ -747,7 +759,7 @@ export interface SWF {
   ): void;
   respondActivityTaskCompleted(
     args: RespondActivityTaskCompletedCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: RespondActivityTaskCompletedCommandOutput) => void
   ): void;
 
@@ -756,7 +768,7 @@ export interface SWF {
    */
   respondActivityTaskFailed(
     args: RespondActivityTaskFailedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<RespondActivityTaskFailedCommandOutput>;
   respondActivityTaskFailed(
     args: RespondActivityTaskFailedCommandInput,
@@ -764,7 +776,7 @@ export interface SWF {
   ): void;
   respondActivityTaskFailed(
     args: RespondActivityTaskFailedCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: RespondActivityTaskFailedCommandOutput) => void
   ): void;
 
@@ -773,7 +785,7 @@ export interface SWF {
    */
   respondDecisionTaskCompleted(
     args: RespondDecisionTaskCompletedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<RespondDecisionTaskCompletedCommandOutput>;
   respondDecisionTaskCompleted(
     args: RespondDecisionTaskCompletedCommandInput,
@@ -781,7 +793,7 @@ export interface SWF {
   ): void;
   respondDecisionTaskCompleted(
     args: RespondDecisionTaskCompletedCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: RespondDecisionTaskCompletedCommandOutput) => void
   ): void;
 
@@ -790,7 +802,7 @@ export interface SWF {
    */
   signalWorkflowExecution(
     args: SignalWorkflowExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<SignalWorkflowExecutionCommandOutput>;
   signalWorkflowExecution(
     args: SignalWorkflowExecutionCommandInput,
@@ -798,7 +810,7 @@ export interface SWF {
   ): void;
   signalWorkflowExecution(
     args: SignalWorkflowExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: SignalWorkflowExecutionCommandOutput) => void
   ): void;
 
@@ -807,7 +819,7 @@ export interface SWF {
    */
   startWorkflowExecution(
     args: StartWorkflowExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<StartWorkflowExecutionCommandOutput>;
   startWorkflowExecution(
     args: StartWorkflowExecutionCommandInput,
@@ -815,7 +827,7 @@ export interface SWF {
   ): void;
   startWorkflowExecution(
     args: StartWorkflowExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: StartWorkflowExecutionCommandOutput) => void
   ): void;
 
@@ -824,7 +836,7 @@ export interface SWF {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -832,7 +844,7 @@ export interface SWF {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -841,7 +853,7 @@ export interface SWF {
    */
   terminateWorkflowExecution(
     args: TerminateWorkflowExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<TerminateWorkflowExecutionCommandOutput>;
   terminateWorkflowExecution(
     args: TerminateWorkflowExecutionCommandInput,
@@ -849,7 +861,7 @@ export interface SWF {
   ): void;
   terminateWorkflowExecution(
     args: TerminateWorkflowExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: TerminateWorkflowExecutionCommandOutput) => void
   ): void;
 
@@ -858,7 +870,7 @@ export interface SWF {
    */
   undeprecateActivityType(
     args: UndeprecateActivityTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<UndeprecateActivityTypeCommandOutput>;
   undeprecateActivityType(
     args: UndeprecateActivityTypeCommandInput,
@@ -866,7 +878,7 @@ export interface SWF {
   ): void;
   undeprecateActivityType(
     args: UndeprecateActivityTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: UndeprecateActivityTypeCommandOutput) => void
   ): void;
 
@@ -875,7 +887,7 @@ export interface SWF {
    */
   undeprecateDomain(
     args: UndeprecateDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<UndeprecateDomainCommandOutput>;
   undeprecateDomain(
     args: UndeprecateDomainCommandInput,
@@ -883,7 +895,7 @@ export interface SWF {
   ): void;
   undeprecateDomain(
     args: UndeprecateDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: UndeprecateDomainCommandOutput) => void
   ): void;
 
@@ -892,7 +904,7 @@ export interface SWF {
    */
   undeprecateWorkflowType(
     args: UndeprecateWorkflowTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<UndeprecateWorkflowTypeCommandOutput>;
   undeprecateWorkflowType(
     args: UndeprecateWorkflowTypeCommandInput,
@@ -900,7 +912,7 @@ export interface SWF {
   ): void;
   undeprecateWorkflowType(
     args: UndeprecateWorkflowTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: UndeprecateWorkflowTypeCommandOutput) => void
   ): void;
 
@@ -909,7 +921,7 @@ export interface SWF {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SWFRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -917,7 +929,7 @@ export interface SWF {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SWFRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

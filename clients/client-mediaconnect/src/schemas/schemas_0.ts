@@ -1175,10 +1175,10 @@ import {
 import { MediaConnectServiceException } from "../models/MediaConnectServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var MediaConnectServiceException$: StaticErrorSchema = [-3, _s, "MediaConnectServiceException", 0, [], []];
 _s_registry.registerError(MediaConnectServiceException$, MediaConnectServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var AddFlowOutputs420Exception$: StaticErrorSchema = [-3, n0, _AFOE,
   { [_e]: _c, [_hE]: 420 },
   [_M],

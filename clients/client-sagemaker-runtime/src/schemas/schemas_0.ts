@@ -107,10 +107,10 @@ import {
 import { SageMakerRuntimeServiceException } from "../models/SageMakerRuntimeServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var SageMakerRuntimeServiceException$: StaticErrorSchema = [-3, _s, "SageMakerRuntimeServiceException", 0, [], []];
 _s_registry.registerError(SageMakerRuntimeServiceException$, SageMakerRuntimeServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var InternalDependencyException$: StaticErrorSchema = [-3, n0, _IDE,
   { [_e]: _se, [_hE]: 530 },
   [_M],

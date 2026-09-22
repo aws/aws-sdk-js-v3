@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateDatasetCommandInput,
@@ -325,13 +330,20 @@ const paginators = {
   paginateListSensorStatistics,
 };
 
+/**
+ * @public
+ */
+export interface LookoutEquipmentRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface LookoutEquipment {
   /**
    * @see {@link CreateDatasetCommand}
    */
   createDataset(
     args: CreateDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<CreateDatasetCommandOutput>;
   createDataset(
     args: CreateDatasetCommandInput,
@@ -339,7 +351,7 @@ export interface LookoutEquipment {
   ): void;
   createDataset(
     args: CreateDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: CreateDatasetCommandOutput) => void
   ): void;
 
@@ -348,7 +360,7 @@ export interface LookoutEquipment {
    */
   createInferenceScheduler(
     args: CreateInferenceSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<CreateInferenceSchedulerCommandOutput>;
   createInferenceScheduler(
     args: CreateInferenceSchedulerCommandInput,
@@ -356,7 +368,7 @@ export interface LookoutEquipment {
   ): void;
   createInferenceScheduler(
     args: CreateInferenceSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: CreateInferenceSchedulerCommandOutput) => void
   ): void;
 
@@ -365,7 +377,7 @@ export interface LookoutEquipment {
    */
   createLabel(
     args: CreateLabelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<CreateLabelCommandOutput>;
   createLabel(
     args: CreateLabelCommandInput,
@@ -373,7 +385,7 @@ export interface LookoutEquipment {
   ): void;
   createLabel(
     args: CreateLabelCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: CreateLabelCommandOutput) => void
   ): void;
 
@@ -382,7 +394,7 @@ export interface LookoutEquipment {
    */
   createLabelGroup(
     args: CreateLabelGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<CreateLabelGroupCommandOutput>;
   createLabelGroup(
     args: CreateLabelGroupCommandInput,
@@ -390,7 +402,7 @@ export interface LookoutEquipment {
   ): void;
   createLabelGroup(
     args: CreateLabelGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: CreateLabelGroupCommandOutput) => void
   ): void;
 
@@ -399,7 +411,7 @@ export interface LookoutEquipment {
    */
   createModel(
     args: CreateModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<CreateModelCommandOutput>;
   createModel(
     args: CreateModelCommandInput,
@@ -407,7 +419,7 @@ export interface LookoutEquipment {
   ): void;
   createModel(
     args: CreateModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: CreateModelCommandOutput) => void
   ): void;
 
@@ -416,7 +428,7 @@ export interface LookoutEquipment {
    */
   createRetrainingScheduler(
     args: CreateRetrainingSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<CreateRetrainingSchedulerCommandOutput>;
   createRetrainingScheduler(
     args: CreateRetrainingSchedulerCommandInput,
@@ -424,7 +436,7 @@ export interface LookoutEquipment {
   ): void;
   createRetrainingScheduler(
     args: CreateRetrainingSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: CreateRetrainingSchedulerCommandOutput) => void
   ): void;
 
@@ -433,7 +445,7 @@ export interface LookoutEquipment {
    */
   deleteDataset(
     args: DeleteDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DeleteDatasetCommandOutput>;
   deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -441,7 +453,7 @@ export interface LookoutEquipment {
   ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): void;
 
@@ -450,7 +462,7 @@ export interface LookoutEquipment {
    */
   deleteInferenceScheduler(
     args: DeleteInferenceSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DeleteInferenceSchedulerCommandOutput>;
   deleteInferenceScheduler(
     args: DeleteInferenceSchedulerCommandInput,
@@ -458,7 +470,7 @@ export interface LookoutEquipment {
   ): void;
   deleteInferenceScheduler(
     args: DeleteInferenceSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DeleteInferenceSchedulerCommandOutput) => void
   ): void;
 
@@ -467,7 +479,7 @@ export interface LookoutEquipment {
    */
   deleteLabel(
     args: DeleteLabelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DeleteLabelCommandOutput>;
   deleteLabel(
     args: DeleteLabelCommandInput,
@@ -475,7 +487,7 @@ export interface LookoutEquipment {
   ): void;
   deleteLabel(
     args: DeleteLabelCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DeleteLabelCommandOutput) => void
   ): void;
 
@@ -484,7 +496,7 @@ export interface LookoutEquipment {
    */
   deleteLabelGroup(
     args: DeleteLabelGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DeleteLabelGroupCommandOutput>;
   deleteLabelGroup(
     args: DeleteLabelGroupCommandInput,
@@ -492,7 +504,7 @@ export interface LookoutEquipment {
   ): void;
   deleteLabelGroup(
     args: DeleteLabelGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DeleteLabelGroupCommandOutput) => void
   ): void;
 
@@ -501,7 +513,7 @@ export interface LookoutEquipment {
    */
   deleteModel(
     args: DeleteModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DeleteModelCommandOutput>;
   deleteModel(
     args: DeleteModelCommandInput,
@@ -509,7 +521,7 @@ export interface LookoutEquipment {
   ): void;
   deleteModel(
     args: DeleteModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DeleteModelCommandOutput) => void
   ): void;
 
@@ -518,7 +530,7 @@ export interface LookoutEquipment {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -526,7 +538,7 @@ export interface LookoutEquipment {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -535,7 +547,7 @@ export interface LookoutEquipment {
    */
   deleteRetrainingScheduler(
     args: DeleteRetrainingSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DeleteRetrainingSchedulerCommandOutput>;
   deleteRetrainingScheduler(
     args: DeleteRetrainingSchedulerCommandInput,
@@ -543,7 +555,7 @@ export interface LookoutEquipment {
   ): void;
   deleteRetrainingScheduler(
     args: DeleteRetrainingSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DeleteRetrainingSchedulerCommandOutput) => void
   ): void;
 
@@ -552,7 +564,7 @@ export interface LookoutEquipment {
    */
   describeDataIngestionJob(
     args: DescribeDataIngestionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DescribeDataIngestionJobCommandOutput>;
   describeDataIngestionJob(
     args: DescribeDataIngestionJobCommandInput,
@@ -560,7 +572,7 @@ export interface LookoutEquipment {
   ): void;
   describeDataIngestionJob(
     args: DescribeDataIngestionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DescribeDataIngestionJobCommandOutput) => void
   ): void;
 
@@ -569,7 +581,7 @@ export interface LookoutEquipment {
    */
   describeDataset(
     args: DescribeDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DescribeDatasetCommandOutput>;
   describeDataset(
     args: DescribeDatasetCommandInput,
@@ -577,7 +589,7 @@ export interface LookoutEquipment {
   ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): void;
 
@@ -586,7 +598,7 @@ export interface LookoutEquipment {
    */
   describeInferenceScheduler(
     args: DescribeInferenceSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DescribeInferenceSchedulerCommandOutput>;
   describeInferenceScheduler(
     args: DescribeInferenceSchedulerCommandInput,
@@ -594,7 +606,7 @@ export interface LookoutEquipment {
   ): void;
   describeInferenceScheduler(
     args: DescribeInferenceSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DescribeInferenceSchedulerCommandOutput) => void
   ): void;
 
@@ -603,7 +615,7 @@ export interface LookoutEquipment {
    */
   describeLabel(
     args: DescribeLabelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DescribeLabelCommandOutput>;
   describeLabel(
     args: DescribeLabelCommandInput,
@@ -611,7 +623,7 @@ export interface LookoutEquipment {
   ): void;
   describeLabel(
     args: DescribeLabelCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DescribeLabelCommandOutput) => void
   ): void;
 
@@ -620,7 +632,7 @@ export interface LookoutEquipment {
    */
   describeLabelGroup(
     args: DescribeLabelGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DescribeLabelGroupCommandOutput>;
   describeLabelGroup(
     args: DescribeLabelGroupCommandInput,
@@ -628,7 +640,7 @@ export interface LookoutEquipment {
   ): void;
   describeLabelGroup(
     args: DescribeLabelGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DescribeLabelGroupCommandOutput) => void
   ): void;
 
@@ -637,7 +649,7 @@ export interface LookoutEquipment {
    */
   describeModel(
     args: DescribeModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DescribeModelCommandOutput>;
   describeModel(
     args: DescribeModelCommandInput,
@@ -645,7 +657,7 @@ export interface LookoutEquipment {
   ): void;
   describeModel(
     args: DescribeModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DescribeModelCommandOutput) => void
   ): void;
 
@@ -654,7 +666,7 @@ export interface LookoutEquipment {
    */
   describeModelVersion(
     args: DescribeModelVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DescribeModelVersionCommandOutput>;
   describeModelVersion(
     args: DescribeModelVersionCommandInput,
@@ -662,7 +674,7 @@ export interface LookoutEquipment {
   ): void;
   describeModelVersion(
     args: DescribeModelVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DescribeModelVersionCommandOutput) => void
   ): void;
 
@@ -671,7 +683,7 @@ export interface LookoutEquipment {
    */
   describeResourcePolicy(
     args: DescribeResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DescribeResourcePolicyCommandOutput>;
   describeResourcePolicy(
     args: DescribeResourcePolicyCommandInput,
@@ -679,7 +691,7 @@ export interface LookoutEquipment {
   ): void;
   describeResourcePolicy(
     args: DescribeResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
   ): void;
 
@@ -688,7 +700,7 @@ export interface LookoutEquipment {
    */
   describeRetrainingScheduler(
     args: DescribeRetrainingSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<DescribeRetrainingSchedulerCommandOutput>;
   describeRetrainingScheduler(
     args: DescribeRetrainingSchedulerCommandInput,
@@ -696,7 +708,7 @@ export interface LookoutEquipment {
   ): void;
   describeRetrainingScheduler(
     args: DescribeRetrainingSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: DescribeRetrainingSchedulerCommandOutput) => void
   ): void;
 
@@ -705,7 +717,7 @@ export interface LookoutEquipment {
    */
   importDataset(
     args: ImportDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ImportDatasetCommandOutput>;
   importDataset(
     args: ImportDatasetCommandInput,
@@ -713,7 +725,7 @@ export interface LookoutEquipment {
   ): void;
   importDataset(
     args: ImportDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ImportDatasetCommandOutput) => void
   ): void;
 
@@ -722,7 +734,7 @@ export interface LookoutEquipment {
    */
   importModelVersion(
     args: ImportModelVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ImportModelVersionCommandOutput>;
   importModelVersion(
     args: ImportModelVersionCommandInput,
@@ -730,7 +742,7 @@ export interface LookoutEquipment {
   ): void;
   importModelVersion(
     args: ImportModelVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ImportModelVersionCommandOutput) => void
   ): void;
 
@@ -740,7 +752,7 @@ export interface LookoutEquipment {
   listDataIngestionJobs(): Promise<ListDataIngestionJobsCommandOutput>;
   listDataIngestionJobs(
     args: ListDataIngestionJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListDataIngestionJobsCommandOutput>;
   listDataIngestionJobs(
     args: ListDataIngestionJobsCommandInput,
@@ -748,7 +760,7 @@ export interface LookoutEquipment {
   ): void;
   listDataIngestionJobs(
     args: ListDataIngestionJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListDataIngestionJobsCommandOutput) => void
   ): void;
 
@@ -758,7 +770,7 @@ export interface LookoutEquipment {
   listDatasets(): Promise<ListDatasetsCommandOutput>;
   listDatasets(
     args: ListDatasetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListDatasetsCommandOutput>;
   listDatasets(
     args: ListDatasetsCommandInput,
@@ -766,7 +778,7 @@ export interface LookoutEquipment {
   ): void;
   listDatasets(
     args: ListDatasetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListDatasetsCommandOutput) => void
   ): void;
 
@@ -775,7 +787,7 @@ export interface LookoutEquipment {
    */
   listInferenceEvents(
     args: ListInferenceEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListInferenceEventsCommandOutput>;
   listInferenceEvents(
     args: ListInferenceEventsCommandInput,
@@ -783,7 +795,7 @@ export interface LookoutEquipment {
   ): void;
   listInferenceEvents(
     args: ListInferenceEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListInferenceEventsCommandOutput) => void
   ): void;
 
@@ -792,7 +804,7 @@ export interface LookoutEquipment {
    */
   listInferenceExecutions(
     args: ListInferenceExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListInferenceExecutionsCommandOutput>;
   listInferenceExecutions(
     args: ListInferenceExecutionsCommandInput,
@@ -800,7 +812,7 @@ export interface LookoutEquipment {
   ): void;
   listInferenceExecutions(
     args: ListInferenceExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListInferenceExecutionsCommandOutput) => void
   ): void;
 
@@ -810,7 +822,7 @@ export interface LookoutEquipment {
   listInferenceSchedulers(): Promise<ListInferenceSchedulersCommandOutput>;
   listInferenceSchedulers(
     args: ListInferenceSchedulersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListInferenceSchedulersCommandOutput>;
   listInferenceSchedulers(
     args: ListInferenceSchedulersCommandInput,
@@ -818,7 +830,7 @@ export interface LookoutEquipment {
   ): void;
   listInferenceSchedulers(
     args: ListInferenceSchedulersCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListInferenceSchedulersCommandOutput) => void
   ): void;
 
@@ -828,7 +840,7 @@ export interface LookoutEquipment {
   listLabelGroups(): Promise<ListLabelGroupsCommandOutput>;
   listLabelGroups(
     args: ListLabelGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListLabelGroupsCommandOutput>;
   listLabelGroups(
     args: ListLabelGroupsCommandInput,
@@ -836,7 +848,7 @@ export interface LookoutEquipment {
   ): void;
   listLabelGroups(
     args: ListLabelGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListLabelGroupsCommandOutput) => void
   ): void;
 
@@ -845,7 +857,7 @@ export interface LookoutEquipment {
    */
   listLabels(
     args: ListLabelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListLabelsCommandOutput>;
   listLabels(
     args: ListLabelsCommandInput,
@@ -853,7 +865,7 @@ export interface LookoutEquipment {
   ): void;
   listLabels(
     args: ListLabelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListLabelsCommandOutput) => void
   ): void;
 
@@ -863,7 +875,7 @@ export interface LookoutEquipment {
   listModels(): Promise<ListModelsCommandOutput>;
   listModels(
     args: ListModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListModelsCommandOutput>;
   listModels(
     args: ListModelsCommandInput,
@@ -871,7 +883,7 @@ export interface LookoutEquipment {
   ): void;
   listModels(
     args: ListModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListModelsCommandOutput) => void
   ): void;
 
@@ -880,7 +892,7 @@ export interface LookoutEquipment {
    */
   listModelVersions(
     args: ListModelVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListModelVersionsCommandOutput>;
   listModelVersions(
     args: ListModelVersionsCommandInput,
@@ -888,7 +900,7 @@ export interface LookoutEquipment {
   ): void;
   listModelVersions(
     args: ListModelVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListModelVersionsCommandOutput) => void
   ): void;
 
@@ -898,7 +910,7 @@ export interface LookoutEquipment {
   listRetrainingSchedulers(): Promise<ListRetrainingSchedulersCommandOutput>;
   listRetrainingSchedulers(
     args: ListRetrainingSchedulersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListRetrainingSchedulersCommandOutput>;
   listRetrainingSchedulers(
     args: ListRetrainingSchedulersCommandInput,
@@ -906,7 +918,7 @@ export interface LookoutEquipment {
   ): void;
   listRetrainingSchedulers(
     args: ListRetrainingSchedulersCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListRetrainingSchedulersCommandOutput) => void
   ): void;
 
@@ -915,7 +927,7 @@ export interface LookoutEquipment {
    */
   listSensorStatistics(
     args: ListSensorStatisticsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListSensorStatisticsCommandOutput>;
   listSensorStatistics(
     args: ListSensorStatisticsCommandInput,
@@ -923,7 +935,7 @@ export interface LookoutEquipment {
   ): void;
   listSensorStatistics(
     args: ListSensorStatisticsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListSensorStatisticsCommandOutput) => void
   ): void;
 
@@ -932,7 +944,7 @@ export interface LookoutEquipment {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -940,7 +952,7 @@ export interface LookoutEquipment {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -949,7 +961,7 @@ export interface LookoutEquipment {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -957,7 +969,7 @@ export interface LookoutEquipment {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -966,7 +978,7 @@ export interface LookoutEquipment {
    */
   startDataIngestionJob(
     args: StartDataIngestionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<StartDataIngestionJobCommandOutput>;
   startDataIngestionJob(
     args: StartDataIngestionJobCommandInput,
@@ -974,7 +986,7 @@ export interface LookoutEquipment {
   ): void;
   startDataIngestionJob(
     args: StartDataIngestionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: StartDataIngestionJobCommandOutput) => void
   ): void;
 
@@ -983,7 +995,7 @@ export interface LookoutEquipment {
    */
   startInferenceScheduler(
     args: StartInferenceSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<StartInferenceSchedulerCommandOutput>;
   startInferenceScheduler(
     args: StartInferenceSchedulerCommandInput,
@@ -991,7 +1003,7 @@ export interface LookoutEquipment {
   ): void;
   startInferenceScheduler(
     args: StartInferenceSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: StartInferenceSchedulerCommandOutput) => void
   ): void;
 
@@ -1000,7 +1012,7 @@ export interface LookoutEquipment {
    */
   startRetrainingScheduler(
     args: StartRetrainingSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<StartRetrainingSchedulerCommandOutput>;
   startRetrainingScheduler(
     args: StartRetrainingSchedulerCommandInput,
@@ -1008,7 +1020,7 @@ export interface LookoutEquipment {
   ): void;
   startRetrainingScheduler(
     args: StartRetrainingSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: StartRetrainingSchedulerCommandOutput) => void
   ): void;
 
@@ -1017,7 +1029,7 @@ export interface LookoutEquipment {
    */
   stopInferenceScheduler(
     args: StopInferenceSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<StopInferenceSchedulerCommandOutput>;
   stopInferenceScheduler(
     args: StopInferenceSchedulerCommandInput,
@@ -1025,7 +1037,7 @@ export interface LookoutEquipment {
   ): void;
   stopInferenceScheduler(
     args: StopInferenceSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: StopInferenceSchedulerCommandOutput) => void
   ): void;
 
@@ -1034,7 +1046,7 @@ export interface LookoutEquipment {
    */
   stopRetrainingScheduler(
     args: StopRetrainingSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<StopRetrainingSchedulerCommandOutput>;
   stopRetrainingScheduler(
     args: StopRetrainingSchedulerCommandInput,
@@ -1042,7 +1054,7 @@ export interface LookoutEquipment {
   ): void;
   stopRetrainingScheduler(
     args: StopRetrainingSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: StopRetrainingSchedulerCommandOutput) => void
   ): void;
 
@@ -1051,7 +1063,7 @@ export interface LookoutEquipment {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1059,7 +1071,7 @@ export interface LookoutEquipment {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1068,7 +1080,7 @@ export interface LookoutEquipment {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1076,7 +1088,7 @@ export interface LookoutEquipment {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1085,7 +1097,7 @@ export interface LookoutEquipment {
    */
   updateActiveModelVersion(
     args: UpdateActiveModelVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<UpdateActiveModelVersionCommandOutput>;
   updateActiveModelVersion(
     args: UpdateActiveModelVersionCommandInput,
@@ -1093,7 +1105,7 @@ export interface LookoutEquipment {
   ): void;
   updateActiveModelVersion(
     args: UpdateActiveModelVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: UpdateActiveModelVersionCommandOutput) => void
   ): void;
 
@@ -1102,7 +1114,7 @@ export interface LookoutEquipment {
    */
   updateInferenceScheduler(
     args: UpdateInferenceSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<UpdateInferenceSchedulerCommandOutput>;
   updateInferenceScheduler(
     args: UpdateInferenceSchedulerCommandInput,
@@ -1110,7 +1122,7 @@ export interface LookoutEquipment {
   ): void;
   updateInferenceScheduler(
     args: UpdateInferenceSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: UpdateInferenceSchedulerCommandOutput) => void
   ): void;
 
@@ -1119,7 +1131,7 @@ export interface LookoutEquipment {
    */
   updateLabelGroup(
     args: UpdateLabelGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<UpdateLabelGroupCommandOutput>;
   updateLabelGroup(
     args: UpdateLabelGroupCommandInput,
@@ -1127,7 +1139,7 @@ export interface LookoutEquipment {
   ): void;
   updateLabelGroup(
     args: UpdateLabelGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: UpdateLabelGroupCommandOutput) => void
   ): void;
 
@@ -1136,7 +1148,7 @@ export interface LookoutEquipment {
    */
   updateModel(
     args: UpdateModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<UpdateModelCommandOutput>;
   updateModel(
     args: UpdateModelCommandInput,
@@ -1144,7 +1156,7 @@ export interface LookoutEquipment {
   ): void;
   updateModel(
     args: UpdateModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: UpdateModelCommandOutput) => void
   ): void;
 
@@ -1153,7 +1165,7 @@ export interface LookoutEquipment {
    */
   updateRetrainingScheduler(
     args: UpdateRetrainingSchedulerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LookoutEquipmentRequestOptions
   ): Promise<UpdateRetrainingSchedulerCommandOutput>;
   updateRetrainingScheduler(
     args: UpdateRetrainingSchedulerCommandInput,
@@ -1161,7 +1173,7 @@ export interface LookoutEquipment {
   ): void;
   updateRetrainingScheduler(
     args: UpdateRetrainingSchedulerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LookoutEquipmentRequestOptions,
     cb: (err: any, data?: UpdateRetrainingSchedulerCommandOutput) => void
   ): void;
 

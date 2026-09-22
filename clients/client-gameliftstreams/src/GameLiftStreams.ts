@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -218,13 +219,20 @@ const waiters = {
   waitUntilStreamSessionActive,
 };
 
+/**
+ * @public
+ */
+export interface GameLiftStreamsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface GameLiftStreams {
   /**
    * @see {@link AddStreamGroupLocationsCommand}
    */
   addStreamGroupLocations(
     args: AddStreamGroupLocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<AddStreamGroupLocationsCommandOutput>;
   addStreamGroupLocations(
     args: AddStreamGroupLocationsCommandInput,
@@ -232,7 +240,7 @@ export interface GameLiftStreams {
   ): void;
   addStreamGroupLocations(
     args: AddStreamGroupLocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: AddStreamGroupLocationsCommandOutput) => void
   ): void;
 
@@ -241,7 +249,7 @@ export interface GameLiftStreams {
    */
   associateApplications(
     args: AssociateApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<AssociateApplicationsCommandOutput>;
   associateApplications(
     args: AssociateApplicationsCommandInput,
@@ -249,7 +257,7 @@ export interface GameLiftStreams {
   ): void;
   associateApplications(
     args: AssociateApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: AssociateApplicationsCommandOutput) => void
   ): void;
 
@@ -258,7 +266,7 @@ export interface GameLiftStreams {
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -266,7 +274,7 @@ export interface GameLiftStreams {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -275,7 +283,7 @@ export interface GameLiftStreams {
    */
   createStreamGroup(
     args: CreateStreamGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<CreateStreamGroupCommandOutput>;
   createStreamGroup(
     args: CreateStreamGroupCommandInput,
@@ -283,7 +291,7 @@ export interface GameLiftStreams {
   ): void;
   createStreamGroup(
     args: CreateStreamGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: CreateStreamGroupCommandOutput) => void
   ): void;
 
@@ -292,7 +300,7 @@ export interface GameLiftStreams {
    */
   createStreamSessionAdminShell(
     args: CreateStreamSessionAdminShellCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<CreateStreamSessionAdminShellCommandOutput>;
   createStreamSessionAdminShell(
     args: CreateStreamSessionAdminShellCommandInput,
@@ -300,7 +308,7 @@ export interface GameLiftStreams {
   ): void;
   createStreamSessionAdminShell(
     args: CreateStreamSessionAdminShellCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: CreateStreamSessionAdminShellCommandOutput) => void
   ): void;
 
@@ -309,7 +317,7 @@ export interface GameLiftStreams {
    */
   createStreamSessionConnection(
     args: CreateStreamSessionConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<CreateStreamSessionConnectionCommandOutput>;
   createStreamSessionConnection(
     args: CreateStreamSessionConnectionCommandInput,
@@ -317,7 +325,7 @@ export interface GameLiftStreams {
   ): void;
   createStreamSessionConnection(
     args: CreateStreamSessionConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: CreateStreamSessionConnectionCommandOutput) => void
   ): void;
 
@@ -326,7 +334,7 @@ export interface GameLiftStreams {
    */
   createStreamUrl(
     args: CreateStreamUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<CreateStreamUrlCommandOutput>;
   createStreamUrl(
     args: CreateStreamUrlCommandInput,
@@ -334,7 +342,7 @@ export interface GameLiftStreams {
   ): void;
   createStreamUrl(
     args: CreateStreamUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: CreateStreamUrlCommandOutput) => void
   ): void;
 
@@ -343,7 +351,7 @@ export interface GameLiftStreams {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -351,7 +359,7 @@ export interface GameLiftStreams {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -360,7 +368,7 @@ export interface GameLiftStreams {
    */
   deleteStreamGroup(
     args: DeleteStreamGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<DeleteStreamGroupCommandOutput>;
   deleteStreamGroup(
     args: DeleteStreamGroupCommandInput,
@@ -368,7 +376,7 @@ export interface GameLiftStreams {
   ): void;
   deleteStreamGroup(
     args: DeleteStreamGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: DeleteStreamGroupCommandOutput) => void
   ): void;
 
@@ -377,7 +385,7 @@ export interface GameLiftStreams {
    */
   disassociateApplications(
     args: DisassociateApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<DisassociateApplicationsCommandOutput>;
   disassociateApplications(
     args: DisassociateApplicationsCommandInput,
@@ -385,7 +393,7 @@ export interface GameLiftStreams {
   ): void;
   disassociateApplications(
     args: DisassociateApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: DisassociateApplicationsCommandOutput) => void
   ): void;
 
@@ -394,7 +402,7 @@ export interface GameLiftStreams {
    */
   exportStreamSessionFiles(
     args: ExportStreamSessionFilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<ExportStreamSessionFilesCommandOutput>;
   exportStreamSessionFiles(
     args: ExportStreamSessionFilesCommandInput,
@@ -402,7 +410,7 @@ export interface GameLiftStreams {
   ): void;
   exportStreamSessionFiles(
     args: ExportStreamSessionFilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: ExportStreamSessionFilesCommandOutput) => void
   ): void;
 
@@ -411,7 +419,7 @@ export interface GameLiftStreams {
    */
   getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<GetApplicationCommandOutput>;
   getApplication(
     args: GetApplicationCommandInput,
@@ -419,7 +427,7 @@ export interface GameLiftStreams {
   ): void;
   getApplication(
     args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: GetApplicationCommandOutput) => void
   ): void;
 
@@ -428,7 +436,7 @@ export interface GameLiftStreams {
    */
   getStreamGroup(
     args: GetStreamGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<GetStreamGroupCommandOutput>;
   getStreamGroup(
     args: GetStreamGroupCommandInput,
@@ -436,7 +444,7 @@ export interface GameLiftStreams {
   ): void;
   getStreamGroup(
     args: GetStreamGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: GetStreamGroupCommandOutput) => void
   ): void;
 
@@ -445,7 +453,7 @@ export interface GameLiftStreams {
    */
   getStreamSession(
     args: GetStreamSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<GetStreamSessionCommandOutput>;
   getStreamSession(
     args: GetStreamSessionCommandInput,
@@ -453,7 +461,7 @@ export interface GameLiftStreams {
   ): void;
   getStreamSession(
     args: GetStreamSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: GetStreamSessionCommandOutput) => void
   ): void;
 
@@ -462,7 +470,7 @@ export interface GameLiftStreams {
    */
   getStreamUrl(
     args: GetStreamUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<GetStreamUrlCommandOutput>;
   getStreamUrl(
     args: GetStreamUrlCommandInput,
@@ -470,7 +478,7 @@ export interface GameLiftStreams {
   ): void;
   getStreamUrl(
     args: GetStreamUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: GetStreamUrlCommandOutput) => void
   ): void;
 
@@ -480,7 +488,7 @@ export interface GameLiftStreams {
   listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -488,7 +496,7 @@ export interface GameLiftStreams {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -497,7 +505,7 @@ export interface GameLiftStreams {
    */
   listApplicationShaderCaches(
     args: ListApplicationShaderCachesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<ListApplicationShaderCachesCommandOutput>;
   listApplicationShaderCaches(
     args: ListApplicationShaderCachesCommandInput,
@@ -505,7 +513,7 @@ export interface GameLiftStreams {
   ): void;
   listApplicationShaderCaches(
     args: ListApplicationShaderCachesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: ListApplicationShaderCachesCommandOutput) => void
   ): void;
 
@@ -515,7 +523,7 @@ export interface GameLiftStreams {
   listStreamGroups(): Promise<ListStreamGroupsCommandOutput>;
   listStreamGroups(
     args: ListStreamGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<ListStreamGroupsCommandOutput>;
   listStreamGroups(
     args: ListStreamGroupsCommandInput,
@@ -523,7 +531,7 @@ export interface GameLiftStreams {
   ): void;
   listStreamGroups(
     args: ListStreamGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: ListStreamGroupsCommandOutput) => void
   ): void;
 
@@ -532,7 +540,7 @@ export interface GameLiftStreams {
    */
   listStreamSessions(
     args: ListStreamSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<ListStreamSessionsCommandOutput>;
   listStreamSessions(
     args: ListStreamSessionsCommandInput,
@@ -540,7 +548,7 @@ export interface GameLiftStreams {
   ): void;
   listStreamSessions(
     args: ListStreamSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: ListStreamSessionsCommandOutput) => void
   ): void;
 
@@ -550,7 +558,7 @@ export interface GameLiftStreams {
   listStreamSessionsByAccount(): Promise<ListStreamSessionsByAccountCommandOutput>;
   listStreamSessionsByAccount(
     args: ListStreamSessionsByAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<ListStreamSessionsByAccountCommandOutput>;
   listStreamSessionsByAccount(
     args: ListStreamSessionsByAccountCommandInput,
@@ -558,7 +566,7 @@ export interface GameLiftStreams {
   ): void;
   listStreamSessionsByAccount(
     args: ListStreamSessionsByAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: ListStreamSessionsByAccountCommandOutput) => void
   ): void;
 
@@ -568,7 +576,7 @@ export interface GameLiftStreams {
   listStreamUrls(): Promise<ListStreamUrlsCommandOutput>;
   listStreamUrls(
     args: ListStreamUrlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<ListStreamUrlsCommandOutput>;
   listStreamUrls(
     args: ListStreamUrlsCommandInput,
@@ -576,7 +584,7 @@ export interface GameLiftStreams {
   ): void;
   listStreamUrls(
     args: ListStreamUrlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: ListStreamUrlsCommandOutput) => void
   ): void;
 
@@ -585,7 +593,7 @@ export interface GameLiftStreams {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -593,7 +601,7 @@ export interface GameLiftStreams {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -602,7 +610,7 @@ export interface GameLiftStreams {
    */
   removeStreamGroupLocations(
     args: RemoveStreamGroupLocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<RemoveStreamGroupLocationsCommandOutput>;
   removeStreamGroupLocations(
     args: RemoveStreamGroupLocationsCommandInput,
@@ -610,7 +618,7 @@ export interface GameLiftStreams {
   ): void;
   removeStreamGroupLocations(
     args: RemoveStreamGroupLocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: RemoveStreamGroupLocationsCommandOutput) => void
   ): void;
 
@@ -619,7 +627,7 @@ export interface GameLiftStreams {
    */
   revokeStreamUrl(
     args: RevokeStreamUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<RevokeStreamUrlCommandOutput>;
   revokeStreamUrl(
     args: RevokeStreamUrlCommandInput,
@@ -627,7 +635,7 @@ export interface GameLiftStreams {
   ): void;
   revokeStreamUrl(
     args: RevokeStreamUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: RevokeStreamUrlCommandOutput) => void
   ): void;
 
@@ -636,7 +644,7 @@ export interface GameLiftStreams {
    */
   startStreamSession(
     args: StartStreamSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<StartStreamSessionCommandOutput>;
   startStreamSession(
     args: StartStreamSessionCommandInput,
@@ -644,7 +652,7 @@ export interface GameLiftStreams {
   ): void;
   startStreamSession(
     args: StartStreamSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: StartStreamSessionCommandOutput) => void
   ): void;
 
@@ -653,7 +661,7 @@ export interface GameLiftStreams {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -661,7 +669,7 @@ export interface GameLiftStreams {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -670,7 +678,7 @@ export interface GameLiftStreams {
    */
   terminateStreamSession(
     args: TerminateStreamSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<TerminateStreamSessionCommandOutput>;
   terminateStreamSession(
     args: TerminateStreamSessionCommandInput,
@@ -678,7 +686,7 @@ export interface GameLiftStreams {
   ): void;
   terminateStreamSession(
     args: TerminateStreamSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: TerminateStreamSessionCommandOutput) => void
   ): void;
 
@@ -687,7 +695,7 @@ export interface GameLiftStreams {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -695,7 +703,7 @@ export interface GameLiftStreams {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -704,7 +712,7 @@ export interface GameLiftStreams {
    */
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
@@ -712,7 +720,7 @@ export interface GameLiftStreams {
   ): void;
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 
@@ -721,7 +729,7 @@ export interface GameLiftStreams {
    */
   updateStreamGroup(
     args: UpdateStreamGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GameLiftStreamsRequestOptions
   ): Promise<UpdateStreamGroupCommandOutput>;
   updateStreamGroup(
     args: UpdateStreamGroupCommandInput,
@@ -729,7 +737,7 @@ export interface GameLiftStreams {
   ): void;
   updateStreamGroup(
     args: UpdateStreamGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GameLiftStreamsRequestOptions,
     cb: (err: any, data?: UpdateStreamGroupCommandOutput) => void
   ): void;
 

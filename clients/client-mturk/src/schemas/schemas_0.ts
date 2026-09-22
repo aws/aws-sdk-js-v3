@@ -288,10 +288,10 @@ import { RequestError, ServiceFault } from "../models/errors";
 import { MTurkServiceException } from "../models/MTurkServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var MTurkServiceException$: StaticErrorSchema = [-3, _s, "MTurkServiceException", 0, [], []];
 _s_registry.registerError(MTurkServiceException$, MTurkServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var RequestError$: StaticErrorSchema = [-3, n0, _RE,
   { [_aQE]: [`RequestError`, 400], [_e]: _c, [_hE]: 400 },
   [_M, _TEC],

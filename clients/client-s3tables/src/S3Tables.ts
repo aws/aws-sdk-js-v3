@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateNamespaceCommandInput,
@@ -305,13 +310,20 @@ const paginators = {
   paginateListTables,
 };
 
+/**
+ * @public
+ */
+export interface S3TablesRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface S3Tables {
   /**
    * @see {@link CreateNamespaceCommand}
    */
   createNamespace(
     args: CreateNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<CreateNamespaceCommandOutput>;
   createNamespace(
     args: CreateNamespaceCommandInput,
@@ -319,7 +331,7 @@ export interface S3Tables {
   ): void;
   createNamespace(
     args: CreateNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: CreateNamespaceCommandOutput) => void
   ): void;
 
@@ -328,7 +340,7 @@ export interface S3Tables {
    */
   createTable(
     args: CreateTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<CreateTableCommandOutput>;
   createTable(
     args: CreateTableCommandInput,
@@ -336,7 +348,7 @@ export interface S3Tables {
   ): void;
   createTable(
     args: CreateTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: CreateTableCommandOutput) => void
   ): void;
 
@@ -345,7 +357,7 @@ export interface S3Tables {
    */
   createTableBucket(
     args: CreateTableBucketCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<CreateTableBucketCommandOutput>;
   createTableBucket(
     args: CreateTableBucketCommandInput,
@@ -353,7 +365,7 @@ export interface S3Tables {
   ): void;
   createTableBucket(
     args: CreateTableBucketCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: CreateTableBucketCommandOutput) => void
   ): void;
 
@@ -362,7 +374,7 @@ export interface S3Tables {
    */
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<DeleteNamespaceCommandOutput>;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
@@ -370,7 +382,7 @@ export interface S3Tables {
   ): void;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
   ): void;
 
@@ -379,7 +391,7 @@ export interface S3Tables {
    */
   deleteTable(
     args: DeleteTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<DeleteTableCommandOutput>;
   deleteTable(
     args: DeleteTableCommandInput,
@@ -387,7 +399,7 @@ export interface S3Tables {
   ): void;
   deleteTable(
     args: DeleteTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: DeleteTableCommandOutput) => void
   ): void;
 
@@ -396,7 +408,7 @@ export interface S3Tables {
    */
   deleteTableBucket(
     args: DeleteTableBucketCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<DeleteTableBucketCommandOutput>;
   deleteTableBucket(
     args: DeleteTableBucketCommandInput,
@@ -404,7 +416,7 @@ export interface S3Tables {
   ): void;
   deleteTableBucket(
     args: DeleteTableBucketCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: DeleteTableBucketCommandOutput) => void
   ): void;
 
@@ -413,7 +425,7 @@ export interface S3Tables {
    */
   deleteTableBucketEncryption(
     args: DeleteTableBucketEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<DeleteTableBucketEncryptionCommandOutput>;
   deleteTableBucketEncryption(
     args: DeleteTableBucketEncryptionCommandInput,
@@ -421,7 +433,7 @@ export interface S3Tables {
   ): void;
   deleteTableBucketEncryption(
     args: DeleteTableBucketEncryptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: DeleteTableBucketEncryptionCommandOutput) => void
   ): void;
 
@@ -430,7 +442,7 @@ export interface S3Tables {
    */
   deleteTableBucketMetricsConfiguration(
     args: DeleteTableBucketMetricsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<DeleteTableBucketMetricsConfigurationCommandOutput>;
   deleteTableBucketMetricsConfiguration(
     args: DeleteTableBucketMetricsConfigurationCommandInput,
@@ -438,7 +450,7 @@ export interface S3Tables {
   ): void;
   deleteTableBucketMetricsConfiguration(
     args: DeleteTableBucketMetricsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: DeleteTableBucketMetricsConfigurationCommandOutput) => void
   ): void;
 
@@ -447,7 +459,7 @@ export interface S3Tables {
    */
   deleteTableBucketPolicy(
     args: DeleteTableBucketPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<DeleteTableBucketPolicyCommandOutput>;
   deleteTableBucketPolicy(
     args: DeleteTableBucketPolicyCommandInput,
@@ -455,7 +467,7 @@ export interface S3Tables {
   ): void;
   deleteTableBucketPolicy(
     args: DeleteTableBucketPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: DeleteTableBucketPolicyCommandOutput) => void
   ): void;
 
@@ -464,7 +476,7 @@ export interface S3Tables {
    */
   deleteTableBucketReplication(
     args: DeleteTableBucketReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<DeleteTableBucketReplicationCommandOutput>;
   deleteTableBucketReplication(
     args: DeleteTableBucketReplicationCommandInput,
@@ -472,7 +484,7 @@ export interface S3Tables {
   ): void;
   deleteTableBucketReplication(
     args: DeleteTableBucketReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: DeleteTableBucketReplicationCommandOutput) => void
   ): void;
 
@@ -481,7 +493,7 @@ export interface S3Tables {
    */
   deleteTablePolicy(
     args: DeleteTablePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<DeleteTablePolicyCommandOutput>;
   deleteTablePolicy(
     args: DeleteTablePolicyCommandInput,
@@ -489,7 +501,7 @@ export interface S3Tables {
   ): void;
   deleteTablePolicy(
     args: DeleteTablePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: DeleteTablePolicyCommandOutput) => void
   ): void;
 
@@ -498,7 +510,7 @@ export interface S3Tables {
    */
   deleteTableReplication(
     args: DeleteTableReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<DeleteTableReplicationCommandOutput>;
   deleteTableReplication(
     args: DeleteTableReplicationCommandInput,
@@ -506,7 +518,7 @@ export interface S3Tables {
   ): void;
   deleteTableReplication(
     args: DeleteTableReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: DeleteTableReplicationCommandOutput) => void
   ): void;
 
@@ -515,7 +527,7 @@ export interface S3Tables {
    */
   getNamespace(
     args: GetNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetNamespaceCommandOutput>;
   getNamespace(
     args: GetNamespaceCommandInput,
@@ -523,7 +535,7 @@ export interface S3Tables {
   ): void;
   getNamespace(
     args: GetNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetNamespaceCommandOutput) => void
   ): void;
 
@@ -533,7 +545,7 @@ export interface S3Tables {
   getTable(): Promise<GetTableCommandOutput>;
   getTable(
     args: GetTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableCommandOutput>;
   getTable(
     args: GetTableCommandInput,
@@ -541,7 +553,7 @@ export interface S3Tables {
   ): void;
   getTable(
     args: GetTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableCommandOutput) => void
   ): void;
 
@@ -550,7 +562,7 @@ export interface S3Tables {
    */
   getTableBucket(
     args: GetTableBucketCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableBucketCommandOutput>;
   getTableBucket(
     args: GetTableBucketCommandInput,
@@ -558,7 +570,7 @@ export interface S3Tables {
   ): void;
   getTableBucket(
     args: GetTableBucketCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableBucketCommandOutput) => void
   ): void;
 
@@ -567,7 +579,7 @@ export interface S3Tables {
    */
   getTableBucketEncryption(
     args: GetTableBucketEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableBucketEncryptionCommandOutput>;
   getTableBucketEncryption(
     args: GetTableBucketEncryptionCommandInput,
@@ -575,7 +587,7 @@ export interface S3Tables {
   ): void;
   getTableBucketEncryption(
     args: GetTableBucketEncryptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableBucketEncryptionCommandOutput) => void
   ): void;
 
@@ -584,7 +596,7 @@ export interface S3Tables {
    */
   getTableBucketMaintenanceConfiguration(
     args: GetTableBucketMaintenanceConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableBucketMaintenanceConfigurationCommandOutput>;
   getTableBucketMaintenanceConfiguration(
     args: GetTableBucketMaintenanceConfigurationCommandInput,
@@ -592,7 +604,7 @@ export interface S3Tables {
   ): void;
   getTableBucketMaintenanceConfiguration(
     args: GetTableBucketMaintenanceConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableBucketMaintenanceConfigurationCommandOutput) => void
   ): void;
 
@@ -601,7 +613,7 @@ export interface S3Tables {
    */
   getTableBucketMetricsConfiguration(
     args: GetTableBucketMetricsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableBucketMetricsConfigurationCommandOutput>;
   getTableBucketMetricsConfiguration(
     args: GetTableBucketMetricsConfigurationCommandInput,
@@ -609,7 +621,7 @@ export interface S3Tables {
   ): void;
   getTableBucketMetricsConfiguration(
     args: GetTableBucketMetricsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableBucketMetricsConfigurationCommandOutput) => void
   ): void;
 
@@ -618,7 +630,7 @@ export interface S3Tables {
    */
   getTableBucketPolicy(
     args: GetTableBucketPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableBucketPolicyCommandOutput>;
   getTableBucketPolicy(
     args: GetTableBucketPolicyCommandInput,
@@ -626,7 +638,7 @@ export interface S3Tables {
   ): void;
   getTableBucketPolicy(
     args: GetTableBucketPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableBucketPolicyCommandOutput) => void
   ): void;
 
@@ -635,7 +647,7 @@ export interface S3Tables {
    */
   getTableBucketReplication(
     args: GetTableBucketReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableBucketReplicationCommandOutput>;
   getTableBucketReplication(
     args: GetTableBucketReplicationCommandInput,
@@ -643,7 +655,7 @@ export interface S3Tables {
   ): void;
   getTableBucketReplication(
     args: GetTableBucketReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableBucketReplicationCommandOutput) => void
   ): void;
 
@@ -652,7 +664,7 @@ export interface S3Tables {
    */
   getTableBucketStorageClass(
     args: GetTableBucketStorageClassCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableBucketStorageClassCommandOutput>;
   getTableBucketStorageClass(
     args: GetTableBucketStorageClassCommandInput,
@@ -660,7 +672,7 @@ export interface S3Tables {
   ): void;
   getTableBucketStorageClass(
     args: GetTableBucketStorageClassCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableBucketStorageClassCommandOutput) => void
   ): void;
 
@@ -669,7 +681,7 @@ export interface S3Tables {
    */
   getTableEncryption(
     args: GetTableEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableEncryptionCommandOutput>;
   getTableEncryption(
     args: GetTableEncryptionCommandInput,
@@ -677,7 +689,7 @@ export interface S3Tables {
   ): void;
   getTableEncryption(
     args: GetTableEncryptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableEncryptionCommandOutput) => void
   ): void;
 
@@ -686,7 +698,7 @@ export interface S3Tables {
    */
   getTableMaintenanceConfiguration(
     args: GetTableMaintenanceConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableMaintenanceConfigurationCommandOutput>;
   getTableMaintenanceConfiguration(
     args: GetTableMaintenanceConfigurationCommandInput,
@@ -694,7 +706,7 @@ export interface S3Tables {
   ): void;
   getTableMaintenanceConfiguration(
     args: GetTableMaintenanceConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableMaintenanceConfigurationCommandOutput) => void
   ): void;
 
@@ -703,7 +715,7 @@ export interface S3Tables {
    */
   getTableMaintenanceJobStatus(
     args: GetTableMaintenanceJobStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableMaintenanceJobStatusCommandOutput>;
   getTableMaintenanceJobStatus(
     args: GetTableMaintenanceJobStatusCommandInput,
@@ -711,7 +723,7 @@ export interface S3Tables {
   ): void;
   getTableMaintenanceJobStatus(
     args: GetTableMaintenanceJobStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableMaintenanceJobStatusCommandOutput) => void
   ): void;
 
@@ -720,7 +732,7 @@ export interface S3Tables {
    */
   getTableMetadataLocation(
     args: GetTableMetadataLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableMetadataLocationCommandOutput>;
   getTableMetadataLocation(
     args: GetTableMetadataLocationCommandInput,
@@ -728,7 +740,7 @@ export interface S3Tables {
   ): void;
   getTableMetadataLocation(
     args: GetTableMetadataLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableMetadataLocationCommandOutput) => void
   ): void;
 
@@ -737,7 +749,7 @@ export interface S3Tables {
    */
   getTablePolicy(
     args: GetTablePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTablePolicyCommandOutput>;
   getTablePolicy(
     args: GetTablePolicyCommandInput,
@@ -745,7 +757,7 @@ export interface S3Tables {
   ): void;
   getTablePolicy(
     args: GetTablePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTablePolicyCommandOutput) => void
   ): void;
 
@@ -754,7 +766,7 @@ export interface S3Tables {
    */
   getTableRecordExpirationConfiguration(
     args: GetTableRecordExpirationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableRecordExpirationConfigurationCommandOutput>;
   getTableRecordExpirationConfiguration(
     args: GetTableRecordExpirationConfigurationCommandInput,
@@ -762,7 +774,7 @@ export interface S3Tables {
   ): void;
   getTableRecordExpirationConfiguration(
     args: GetTableRecordExpirationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableRecordExpirationConfigurationCommandOutput) => void
   ): void;
 
@@ -771,7 +783,7 @@ export interface S3Tables {
    */
   getTableRecordExpirationJobStatus(
     args: GetTableRecordExpirationJobStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableRecordExpirationJobStatusCommandOutput>;
   getTableRecordExpirationJobStatus(
     args: GetTableRecordExpirationJobStatusCommandInput,
@@ -779,7 +791,7 @@ export interface S3Tables {
   ): void;
   getTableRecordExpirationJobStatus(
     args: GetTableRecordExpirationJobStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableRecordExpirationJobStatusCommandOutput) => void
   ): void;
 
@@ -788,7 +800,7 @@ export interface S3Tables {
    */
   getTableReplication(
     args: GetTableReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableReplicationCommandOutput>;
   getTableReplication(
     args: GetTableReplicationCommandInput,
@@ -796,7 +808,7 @@ export interface S3Tables {
   ): void;
   getTableReplication(
     args: GetTableReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableReplicationCommandOutput) => void
   ): void;
 
@@ -805,7 +817,7 @@ export interface S3Tables {
    */
   getTableReplicationStatus(
     args: GetTableReplicationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableReplicationStatusCommandOutput>;
   getTableReplicationStatus(
     args: GetTableReplicationStatusCommandInput,
@@ -813,7 +825,7 @@ export interface S3Tables {
   ): void;
   getTableReplicationStatus(
     args: GetTableReplicationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableReplicationStatusCommandOutput) => void
   ): void;
 
@@ -822,7 +834,7 @@ export interface S3Tables {
    */
   getTableStorageClass(
     args: GetTableStorageClassCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<GetTableStorageClassCommandOutput>;
   getTableStorageClass(
     args: GetTableStorageClassCommandInput,
@@ -830,7 +842,7 @@ export interface S3Tables {
   ): void;
   getTableStorageClass(
     args: GetTableStorageClassCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: GetTableStorageClassCommandOutput) => void
   ): void;
 
@@ -839,7 +851,7 @@ export interface S3Tables {
    */
   listNamespaces(
     args: ListNamespacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<ListNamespacesCommandOutput>;
   listNamespaces(
     args: ListNamespacesCommandInput,
@@ -847,7 +859,7 @@ export interface S3Tables {
   ): void;
   listNamespaces(
     args: ListNamespacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: ListNamespacesCommandOutput) => void
   ): void;
 
@@ -857,7 +869,7 @@ export interface S3Tables {
   listTableBuckets(): Promise<ListTableBucketsCommandOutput>;
   listTableBuckets(
     args: ListTableBucketsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<ListTableBucketsCommandOutput>;
   listTableBuckets(
     args: ListTableBucketsCommandInput,
@@ -865,7 +877,7 @@ export interface S3Tables {
   ): void;
   listTableBuckets(
     args: ListTableBucketsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: ListTableBucketsCommandOutput) => void
   ): void;
 
@@ -874,7 +886,7 @@ export interface S3Tables {
    */
   listTables(
     args: ListTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<ListTablesCommandOutput>;
   listTables(
     args: ListTablesCommandInput,
@@ -882,7 +894,7 @@ export interface S3Tables {
   ): void;
   listTables(
     args: ListTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: ListTablesCommandOutput) => void
   ): void;
 
@@ -891,7 +903,7 @@ export interface S3Tables {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -899,7 +911,7 @@ export interface S3Tables {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -908,7 +920,7 @@ export interface S3Tables {
    */
   putTableBucketEncryption(
     args: PutTableBucketEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<PutTableBucketEncryptionCommandOutput>;
   putTableBucketEncryption(
     args: PutTableBucketEncryptionCommandInput,
@@ -916,7 +928,7 @@ export interface S3Tables {
   ): void;
   putTableBucketEncryption(
     args: PutTableBucketEncryptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: PutTableBucketEncryptionCommandOutput) => void
   ): void;
 
@@ -925,7 +937,7 @@ export interface S3Tables {
    */
   putTableBucketMaintenanceConfiguration(
     args: PutTableBucketMaintenanceConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<PutTableBucketMaintenanceConfigurationCommandOutput>;
   putTableBucketMaintenanceConfiguration(
     args: PutTableBucketMaintenanceConfigurationCommandInput,
@@ -933,7 +945,7 @@ export interface S3Tables {
   ): void;
   putTableBucketMaintenanceConfiguration(
     args: PutTableBucketMaintenanceConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: PutTableBucketMaintenanceConfigurationCommandOutput) => void
   ): void;
 
@@ -942,7 +954,7 @@ export interface S3Tables {
    */
   putTableBucketMetricsConfiguration(
     args: PutTableBucketMetricsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<PutTableBucketMetricsConfigurationCommandOutput>;
   putTableBucketMetricsConfiguration(
     args: PutTableBucketMetricsConfigurationCommandInput,
@@ -950,7 +962,7 @@ export interface S3Tables {
   ): void;
   putTableBucketMetricsConfiguration(
     args: PutTableBucketMetricsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: PutTableBucketMetricsConfigurationCommandOutput) => void
   ): void;
 
@@ -959,7 +971,7 @@ export interface S3Tables {
    */
   putTableBucketPolicy(
     args: PutTableBucketPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<PutTableBucketPolicyCommandOutput>;
   putTableBucketPolicy(
     args: PutTableBucketPolicyCommandInput,
@@ -967,7 +979,7 @@ export interface S3Tables {
   ): void;
   putTableBucketPolicy(
     args: PutTableBucketPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: PutTableBucketPolicyCommandOutput) => void
   ): void;
 
@@ -976,7 +988,7 @@ export interface S3Tables {
    */
   putTableBucketReplication(
     args: PutTableBucketReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<PutTableBucketReplicationCommandOutput>;
   putTableBucketReplication(
     args: PutTableBucketReplicationCommandInput,
@@ -984,7 +996,7 @@ export interface S3Tables {
   ): void;
   putTableBucketReplication(
     args: PutTableBucketReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: PutTableBucketReplicationCommandOutput) => void
   ): void;
 
@@ -993,7 +1005,7 @@ export interface S3Tables {
    */
   putTableBucketStorageClass(
     args: PutTableBucketStorageClassCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<PutTableBucketStorageClassCommandOutput>;
   putTableBucketStorageClass(
     args: PutTableBucketStorageClassCommandInput,
@@ -1001,7 +1013,7 @@ export interface S3Tables {
   ): void;
   putTableBucketStorageClass(
     args: PutTableBucketStorageClassCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: PutTableBucketStorageClassCommandOutput) => void
   ): void;
 
@@ -1010,7 +1022,7 @@ export interface S3Tables {
    */
   putTableMaintenanceConfiguration(
     args: PutTableMaintenanceConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<PutTableMaintenanceConfigurationCommandOutput>;
   putTableMaintenanceConfiguration(
     args: PutTableMaintenanceConfigurationCommandInput,
@@ -1018,7 +1030,7 @@ export interface S3Tables {
   ): void;
   putTableMaintenanceConfiguration(
     args: PutTableMaintenanceConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: PutTableMaintenanceConfigurationCommandOutput) => void
   ): void;
 
@@ -1027,7 +1039,7 @@ export interface S3Tables {
    */
   putTablePolicy(
     args: PutTablePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<PutTablePolicyCommandOutput>;
   putTablePolicy(
     args: PutTablePolicyCommandInput,
@@ -1035,7 +1047,7 @@ export interface S3Tables {
   ): void;
   putTablePolicy(
     args: PutTablePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: PutTablePolicyCommandOutput) => void
   ): void;
 
@@ -1044,7 +1056,7 @@ export interface S3Tables {
    */
   putTableRecordExpirationConfiguration(
     args: PutTableRecordExpirationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<PutTableRecordExpirationConfigurationCommandOutput>;
   putTableRecordExpirationConfiguration(
     args: PutTableRecordExpirationConfigurationCommandInput,
@@ -1052,7 +1064,7 @@ export interface S3Tables {
   ): void;
   putTableRecordExpirationConfiguration(
     args: PutTableRecordExpirationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: PutTableRecordExpirationConfigurationCommandOutput) => void
   ): void;
 
@@ -1061,7 +1073,7 @@ export interface S3Tables {
    */
   putTableReplication(
     args: PutTableReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<PutTableReplicationCommandOutput>;
   putTableReplication(
     args: PutTableReplicationCommandInput,
@@ -1069,7 +1081,7 @@ export interface S3Tables {
   ): void;
   putTableReplication(
     args: PutTableReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: PutTableReplicationCommandOutput) => void
   ): void;
 
@@ -1078,7 +1090,7 @@ export interface S3Tables {
    */
   renameTable(
     args: RenameTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<RenameTableCommandOutput>;
   renameTable(
     args: RenameTableCommandInput,
@@ -1086,7 +1098,7 @@ export interface S3Tables {
   ): void;
   renameTable(
     args: RenameTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: RenameTableCommandOutput) => void
   ): void;
 
@@ -1095,7 +1107,7 @@ export interface S3Tables {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1103,7 +1115,7 @@ export interface S3Tables {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1112,7 +1124,7 @@ export interface S3Tables {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1120,7 +1132,7 @@ export interface S3Tables {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1129,7 +1141,7 @@ export interface S3Tables {
    */
   updateTableMetadataLocation(
     args: UpdateTableMetadataLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3TablesRequestOptions
   ): Promise<UpdateTableMetadataLocationCommandOutput>;
   updateTableMetadataLocation(
     args: UpdateTableMetadataLocationCommandInput,
@@ -1137,7 +1149,7 @@ export interface S3Tables {
   ): void;
   updateTableMetadataLocation(
     args: UpdateTableMetadataLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3TablesRequestOptions,
     cb: (err: any, data?: UpdateTableMetadataLocationCommandOutput) => void
   ): void;
 

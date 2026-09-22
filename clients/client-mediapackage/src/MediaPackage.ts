@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ConfigureLogsCommandInput,
@@ -129,13 +134,20 @@ const paginators = {
   paginateListOriginEndpoints,
 };
 
+/**
+ * @public
+ */
+export interface MediaPackageRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MediaPackage {
   /**
    * @see {@link ConfigureLogsCommand}
    */
   configureLogs(
     args: ConfigureLogsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<ConfigureLogsCommandOutput>;
   configureLogs(
     args: ConfigureLogsCommandInput,
@@ -143,7 +155,7 @@ export interface MediaPackage {
   ): void;
   configureLogs(
     args: ConfigureLogsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: ConfigureLogsCommandOutput) => void
   ): void;
 
@@ -152,7 +164,7 @@ export interface MediaPackage {
    */
   createChannel(
     args: CreateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<CreateChannelCommandOutput>;
   createChannel(
     args: CreateChannelCommandInput,
@@ -160,7 +172,7 @@ export interface MediaPackage {
   ): void;
   createChannel(
     args: CreateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: CreateChannelCommandOutput) => void
   ): void;
 
@@ -169,7 +181,7 @@ export interface MediaPackage {
    */
   createHarvestJob(
     args: CreateHarvestJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<CreateHarvestJobCommandOutput>;
   createHarvestJob(
     args: CreateHarvestJobCommandInput,
@@ -177,7 +189,7 @@ export interface MediaPackage {
   ): void;
   createHarvestJob(
     args: CreateHarvestJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: CreateHarvestJobCommandOutput) => void
   ): void;
 
@@ -186,7 +198,7 @@ export interface MediaPackage {
    */
   createOriginEndpoint(
     args: CreateOriginEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<CreateOriginEndpointCommandOutput>;
   createOriginEndpoint(
     args: CreateOriginEndpointCommandInput,
@@ -194,7 +206,7 @@ export interface MediaPackage {
   ): void;
   createOriginEndpoint(
     args: CreateOriginEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: CreateOriginEndpointCommandOutput) => void
   ): void;
 
@@ -203,7 +215,7 @@ export interface MediaPackage {
    */
   deleteChannel(
     args: DeleteChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<DeleteChannelCommandOutput>;
   deleteChannel(
     args: DeleteChannelCommandInput,
@@ -211,7 +223,7 @@ export interface MediaPackage {
   ): void;
   deleteChannel(
     args: DeleteChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: DeleteChannelCommandOutput) => void
   ): void;
 
@@ -220,7 +232,7 @@ export interface MediaPackage {
    */
   deleteOriginEndpoint(
     args: DeleteOriginEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<DeleteOriginEndpointCommandOutput>;
   deleteOriginEndpoint(
     args: DeleteOriginEndpointCommandInput,
@@ -228,7 +240,7 @@ export interface MediaPackage {
   ): void;
   deleteOriginEndpoint(
     args: DeleteOriginEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: DeleteOriginEndpointCommandOutput) => void
   ): void;
 
@@ -237,7 +249,7 @@ export interface MediaPackage {
    */
   describeChannel(
     args: DescribeChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<DescribeChannelCommandOutput>;
   describeChannel(
     args: DescribeChannelCommandInput,
@@ -245,7 +257,7 @@ export interface MediaPackage {
   ): void;
   describeChannel(
     args: DescribeChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: DescribeChannelCommandOutput) => void
   ): void;
 
@@ -254,7 +266,7 @@ export interface MediaPackage {
    */
   describeHarvestJob(
     args: DescribeHarvestJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<DescribeHarvestJobCommandOutput>;
   describeHarvestJob(
     args: DescribeHarvestJobCommandInput,
@@ -262,7 +274,7 @@ export interface MediaPackage {
   ): void;
   describeHarvestJob(
     args: DescribeHarvestJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: DescribeHarvestJobCommandOutput) => void
   ): void;
 
@@ -271,7 +283,7 @@ export interface MediaPackage {
    */
   describeOriginEndpoint(
     args: DescribeOriginEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<DescribeOriginEndpointCommandOutput>;
   describeOriginEndpoint(
     args: DescribeOriginEndpointCommandInput,
@@ -279,7 +291,7 @@ export interface MediaPackage {
   ): void;
   describeOriginEndpoint(
     args: DescribeOriginEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: DescribeOriginEndpointCommandOutput) => void
   ): void;
 
@@ -289,7 +301,7 @@ export interface MediaPackage {
   listChannels(): Promise<ListChannelsCommandOutput>;
   listChannels(
     args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<ListChannelsCommandOutput>;
   listChannels(
     args: ListChannelsCommandInput,
@@ -297,7 +309,7 @@ export interface MediaPackage {
   ): void;
   listChannels(
     args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
 
@@ -307,7 +319,7 @@ export interface MediaPackage {
   listHarvestJobs(): Promise<ListHarvestJobsCommandOutput>;
   listHarvestJobs(
     args: ListHarvestJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<ListHarvestJobsCommandOutput>;
   listHarvestJobs(
     args: ListHarvestJobsCommandInput,
@@ -315,7 +327,7 @@ export interface MediaPackage {
   ): void;
   listHarvestJobs(
     args: ListHarvestJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: ListHarvestJobsCommandOutput) => void
   ): void;
 
@@ -325,7 +337,7 @@ export interface MediaPackage {
   listOriginEndpoints(): Promise<ListOriginEndpointsCommandOutput>;
   listOriginEndpoints(
     args: ListOriginEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<ListOriginEndpointsCommandOutput>;
   listOriginEndpoints(
     args: ListOriginEndpointsCommandInput,
@@ -333,7 +345,7 @@ export interface MediaPackage {
   ): void;
   listOriginEndpoints(
     args: ListOriginEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: ListOriginEndpointsCommandOutput) => void
   ): void;
 
@@ -342,7 +354,7 @@ export interface MediaPackage {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -350,7 +362,7 @@ export interface MediaPackage {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -359,7 +371,7 @@ export interface MediaPackage {
    */
   rotateChannelCredentials(
     args: RotateChannelCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<RotateChannelCredentialsCommandOutput>;
   rotateChannelCredentials(
     args: RotateChannelCredentialsCommandInput,
@@ -367,7 +379,7 @@ export interface MediaPackage {
   ): void;
   rotateChannelCredentials(
     args: RotateChannelCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: RotateChannelCredentialsCommandOutput) => void
   ): void;
 
@@ -376,7 +388,7 @@ export interface MediaPackage {
    */
   rotateIngestEndpointCredentials(
     args: RotateIngestEndpointCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<RotateIngestEndpointCredentialsCommandOutput>;
   rotateIngestEndpointCredentials(
     args: RotateIngestEndpointCredentialsCommandInput,
@@ -384,7 +396,7 @@ export interface MediaPackage {
   ): void;
   rotateIngestEndpointCredentials(
     args: RotateIngestEndpointCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: RotateIngestEndpointCredentialsCommandOutput) => void
   ): void;
 
@@ -393,7 +405,7 @@ export interface MediaPackage {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -401,7 +413,7 @@ export interface MediaPackage {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -410,7 +422,7 @@ export interface MediaPackage {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -418,7 +430,7 @@ export interface MediaPackage {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -427,7 +439,7 @@ export interface MediaPackage {
    */
   updateChannel(
     args: UpdateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<UpdateChannelCommandOutput>;
   updateChannel(
     args: UpdateChannelCommandInput,
@@ -435,7 +447,7 @@ export interface MediaPackage {
   ): void;
   updateChannel(
     args: UpdateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: UpdateChannelCommandOutput) => void
   ): void;
 
@@ -444,7 +456,7 @@ export interface MediaPackage {
    */
   updateOriginEndpoint(
     args: UpdateOriginEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageRequestOptions
   ): Promise<UpdateOriginEndpointCommandOutput>;
   updateOriginEndpoint(
     args: UpdateOriginEndpointCommandInput,
@@ -452,7 +464,7 @@ export interface MediaPackage {
   ): void;
   updateOriginEndpoint(
     args: UpdateOriginEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageRequestOptions,
     cb: (err: any, data?: UpdateOriginEndpointCommandOutput) => void
   ): void;
 

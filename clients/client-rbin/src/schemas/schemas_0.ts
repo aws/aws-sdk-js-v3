@@ -90,10 +90,10 @@ import {
 import { RbinServiceException } from "../models/RbinServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var RbinServiceException$: StaticErrorSchema = [-3, _s, "RbinServiceException", 0, [], []];
 _s_registry.registerError(RbinServiceException$, RbinServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _R],

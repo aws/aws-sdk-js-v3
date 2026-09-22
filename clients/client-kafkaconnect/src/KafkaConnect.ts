@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateConnectorCommandInput,
@@ -131,13 +136,20 @@ const paginators = {
   paginateListWorkerConfigurations,
 };
 
+/**
+ * @public
+ */
+export interface KafkaConnectRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface KafkaConnect {
   /**
    * @see {@link CreateConnectorCommand}
    */
   createConnector(
     args: CreateConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<CreateConnectorCommandOutput>;
   createConnector(
     args: CreateConnectorCommandInput,
@@ -145,7 +157,7 @@ export interface KafkaConnect {
   ): void;
   createConnector(
     args: CreateConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: CreateConnectorCommandOutput) => void
   ): void;
 
@@ -154,7 +166,7 @@ export interface KafkaConnect {
    */
   createCustomPlugin(
     args: CreateCustomPluginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<CreateCustomPluginCommandOutput>;
   createCustomPlugin(
     args: CreateCustomPluginCommandInput,
@@ -162,7 +174,7 @@ export interface KafkaConnect {
   ): void;
   createCustomPlugin(
     args: CreateCustomPluginCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: CreateCustomPluginCommandOutput) => void
   ): void;
 
@@ -171,7 +183,7 @@ export interface KafkaConnect {
    */
   createWorkerConfiguration(
     args: CreateWorkerConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<CreateWorkerConfigurationCommandOutput>;
   createWorkerConfiguration(
     args: CreateWorkerConfigurationCommandInput,
@@ -179,7 +191,7 @@ export interface KafkaConnect {
   ): void;
   createWorkerConfiguration(
     args: CreateWorkerConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: CreateWorkerConfigurationCommandOutput) => void
   ): void;
 
@@ -188,7 +200,7 @@ export interface KafkaConnect {
    */
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<DeleteConnectorCommandOutput>;
   deleteConnector(
     args: DeleteConnectorCommandInput,
@@ -196,7 +208,7 @@ export interface KafkaConnect {
   ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
 
@@ -205,7 +217,7 @@ export interface KafkaConnect {
    */
   deleteCustomPlugin(
     args: DeleteCustomPluginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<DeleteCustomPluginCommandOutput>;
   deleteCustomPlugin(
     args: DeleteCustomPluginCommandInput,
@@ -213,7 +225,7 @@ export interface KafkaConnect {
   ): void;
   deleteCustomPlugin(
     args: DeleteCustomPluginCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: DeleteCustomPluginCommandOutput) => void
   ): void;
 
@@ -222,7 +234,7 @@ export interface KafkaConnect {
    */
   deleteWorkerConfiguration(
     args: DeleteWorkerConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<DeleteWorkerConfigurationCommandOutput>;
   deleteWorkerConfiguration(
     args: DeleteWorkerConfigurationCommandInput,
@@ -230,7 +242,7 @@ export interface KafkaConnect {
   ): void;
   deleteWorkerConfiguration(
     args: DeleteWorkerConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: DeleteWorkerConfigurationCommandOutput) => void
   ): void;
 
@@ -239,7 +251,7 @@ export interface KafkaConnect {
    */
   describeConnector(
     args: DescribeConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<DescribeConnectorCommandOutput>;
   describeConnector(
     args: DescribeConnectorCommandInput,
@@ -247,7 +259,7 @@ export interface KafkaConnect {
   ): void;
   describeConnector(
     args: DescribeConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: DescribeConnectorCommandOutput) => void
   ): void;
 
@@ -256,7 +268,7 @@ export interface KafkaConnect {
    */
   describeConnectorOperation(
     args: DescribeConnectorOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<DescribeConnectorOperationCommandOutput>;
   describeConnectorOperation(
     args: DescribeConnectorOperationCommandInput,
@@ -264,7 +276,7 @@ export interface KafkaConnect {
   ): void;
   describeConnectorOperation(
     args: DescribeConnectorOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: DescribeConnectorOperationCommandOutput) => void
   ): void;
 
@@ -273,7 +285,7 @@ export interface KafkaConnect {
    */
   describeCustomPlugin(
     args: DescribeCustomPluginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<DescribeCustomPluginCommandOutput>;
   describeCustomPlugin(
     args: DescribeCustomPluginCommandInput,
@@ -281,7 +293,7 @@ export interface KafkaConnect {
   ): void;
   describeCustomPlugin(
     args: DescribeCustomPluginCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: DescribeCustomPluginCommandOutput) => void
   ): void;
 
@@ -290,7 +302,7 @@ export interface KafkaConnect {
    */
   describeWorkerConfiguration(
     args: DescribeWorkerConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<DescribeWorkerConfigurationCommandOutput>;
   describeWorkerConfiguration(
     args: DescribeWorkerConfigurationCommandInput,
@@ -298,7 +310,7 @@ export interface KafkaConnect {
   ): void;
   describeWorkerConfiguration(
     args: DescribeWorkerConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: DescribeWorkerConfigurationCommandOutput) => void
   ): void;
 
@@ -307,7 +319,7 @@ export interface KafkaConnect {
    */
   listConnectorOperations(
     args: ListConnectorOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<ListConnectorOperationsCommandOutput>;
   listConnectorOperations(
     args: ListConnectorOperationsCommandInput,
@@ -315,7 +327,7 @@ export interface KafkaConnect {
   ): void;
   listConnectorOperations(
     args: ListConnectorOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: ListConnectorOperationsCommandOutput) => void
   ): void;
 
@@ -325,7 +337,7 @@ export interface KafkaConnect {
   listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
@@ -333,7 +345,7 @@ export interface KafkaConnect {
   ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: ListConnectorsCommandOutput) => void
   ): void;
 
@@ -343,7 +355,7 @@ export interface KafkaConnect {
   listCustomPlugins(): Promise<ListCustomPluginsCommandOutput>;
   listCustomPlugins(
     args: ListCustomPluginsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<ListCustomPluginsCommandOutput>;
   listCustomPlugins(
     args: ListCustomPluginsCommandInput,
@@ -351,7 +363,7 @@ export interface KafkaConnect {
   ): void;
   listCustomPlugins(
     args: ListCustomPluginsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: ListCustomPluginsCommandOutput) => void
   ): void;
 
@@ -360,7 +372,7 @@ export interface KafkaConnect {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -368,7 +380,7 @@ export interface KafkaConnect {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -378,7 +390,7 @@ export interface KafkaConnect {
   listWorkerConfigurations(): Promise<ListWorkerConfigurationsCommandOutput>;
   listWorkerConfigurations(
     args: ListWorkerConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<ListWorkerConfigurationsCommandOutput>;
   listWorkerConfigurations(
     args: ListWorkerConfigurationsCommandInput,
@@ -386,7 +398,7 @@ export interface KafkaConnect {
   ): void;
   listWorkerConfigurations(
     args: ListWorkerConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: ListWorkerConfigurationsCommandOutput) => void
   ): void;
 
@@ -395,7 +407,7 @@ export interface KafkaConnect {
    */
   restartConnector(
     args: RestartConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<RestartConnectorCommandOutput>;
   restartConnector(
     args: RestartConnectorCommandInput,
@@ -403,7 +415,7 @@ export interface KafkaConnect {
   ): void;
   restartConnector(
     args: RestartConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: RestartConnectorCommandOutput) => void
   ): void;
 
@@ -412,7 +424,7 @@ export interface KafkaConnect {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -420,7 +432,7 @@ export interface KafkaConnect {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -429,7 +441,7 @@ export interface KafkaConnect {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -437,7 +449,7 @@ export interface KafkaConnect {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -446,7 +458,7 @@ export interface KafkaConnect {
    */
   updateConnector(
     args: UpdateConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KafkaConnectRequestOptions
   ): Promise<UpdateConnectorCommandOutput>;
   updateConnector(
     args: UpdateConnectorCommandInput,
@@ -454,7 +466,7 @@ export interface KafkaConnect {
   ): void;
   updateConnector(
     args: UpdateConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: KafkaConnectRequestOptions,
     cb: (err: any, data?: UpdateConnectorCommandOutput) => void
   ): void;
 

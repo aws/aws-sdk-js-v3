@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type GetRevocationStatusCommandInput,
@@ -13,13 +13,20 @@ const commands = {
   GetRevocationStatusCommand,
 };
 
+/**
+ * @public
+ */
+export interface SignerDataRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SignerData {
   /**
    * @see {@link GetRevocationStatusCommand}
    */
   getRevocationStatus(
     args: GetRevocationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SignerDataRequestOptions
   ): Promise<GetRevocationStatusCommandOutput>;
   getRevocationStatus(
     args: GetRevocationStatusCommandInput,
@@ -27,7 +34,7 @@ export interface SignerData {
   ): void;
   getRevocationStatus(
     args: GetRevocationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SignerDataRequestOptions,
     cb: (err: any, data?: GetRevocationStatusCommandOutput) => void
   ): void;
 }

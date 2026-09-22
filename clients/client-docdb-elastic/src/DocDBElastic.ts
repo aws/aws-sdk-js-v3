@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ApplyPendingMaintenanceActionCommandInput,
@@ -129,13 +134,20 @@ const paginators = {
   paginateListPendingMaintenanceActions,
 };
 
+/**
+ * @public
+ */
+export interface DocDBElasticRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DocDBElastic {
   /**
    * @see {@link ApplyPendingMaintenanceActionCommand}
    */
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<ApplyPendingMaintenanceActionCommandOutput>;
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
@@ -143,7 +155,7 @@ export interface DocDBElastic {
   ): void;
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void
   ): void;
 
@@ -152,7 +164,7 @@ export interface DocDBElastic {
    */
   copyClusterSnapshot(
     args: CopyClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<CopyClusterSnapshotCommandOutput>;
   copyClusterSnapshot(
     args: CopyClusterSnapshotCommandInput,
@@ -160,7 +172,7 @@ export interface DocDBElastic {
   ): void;
   copyClusterSnapshot(
     args: CopyClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: CopyClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -169,7 +181,7 @@ export interface DocDBElastic {
    */
   createCluster(
     args: CreateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<CreateClusterCommandOutput>;
   createCluster(
     args: CreateClusterCommandInput,
@@ -177,7 +189,7 @@ export interface DocDBElastic {
   ): void;
   createCluster(
     args: CreateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
   ): void;
 
@@ -186,7 +198,7 @@ export interface DocDBElastic {
    */
   createClusterSnapshot(
     args: CreateClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<CreateClusterSnapshotCommandOutput>;
   createClusterSnapshot(
     args: CreateClusterSnapshotCommandInput,
@@ -194,7 +206,7 @@ export interface DocDBElastic {
   ): void;
   createClusterSnapshot(
     args: CreateClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: CreateClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -203,7 +215,7 @@ export interface DocDBElastic {
    */
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<DeleteClusterCommandOutput>;
   deleteCluster(
     args: DeleteClusterCommandInput,
@@ -211,7 +223,7 @@ export interface DocDBElastic {
   ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
 
@@ -220,7 +232,7 @@ export interface DocDBElastic {
    */
   deleteClusterSnapshot(
     args: DeleteClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<DeleteClusterSnapshotCommandOutput>;
   deleteClusterSnapshot(
     args: DeleteClusterSnapshotCommandInput,
@@ -228,7 +240,7 @@ export interface DocDBElastic {
   ): void;
   deleteClusterSnapshot(
     args: DeleteClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: DeleteClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -237,7 +249,7 @@ export interface DocDBElastic {
    */
   getCluster(
     args: GetClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<GetClusterCommandOutput>;
   getCluster(
     args: GetClusterCommandInput,
@@ -245,7 +257,7 @@ export interface DocDBElastic {
   ): void;
   getCluster(
     args: GetClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: GetClusterCommandOutput) => void
   ): void;
 
@@ -254,7 +266,7 @@ export interface DocDBElastic {
    */
   getClusterSnapshot(
     args: GetClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<GetClusterSnapshotCommandOutput>;
   getClusterSnapshot(
     args: GetClusterSnapshotCommandInput,
@@ -262,7 +274,7 @@ export interface DocDBElastic {
   ): void;
   getClusterSnapshot(
     args: GetClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: GetClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -271,7 +283,7 @@ export interface DocDBElastic {
    */
   getPendingMaintenanceAction(
     args: GetPendingMaintenanceActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<GetPendingMaintenanceActionCommandOutput>;
   getPendingMaintenanceAction(
     args: GetPendingMaintenanceActionCommandInput,
@@ -279,7 +291,7 @@ export interface DocDBElastic {
   ): void;
   getPendingMaintenanceAction(
     args: GetPendingMaintenanceActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: GetPendingMaintenanceActionCommandOutput) => void
   ): void;
 
@@ -289,7 +301,7 @@ export interface DocDBElastic {
   listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
@@ -297,7 +309,7 @@ export interface DocDBElastic {
   ): void;
   listClusters(
     args: ListClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: ListClustersCommandOutput) => void
   ): void;
 
@@ -307,7 +319,7 @@ export interface DocDBElastic {
   listClusterSnapshots(): Promise<ListClusterSnapshotsCommandOutput>;
   listClusterSnapshots(
     args: ListClusterSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<ListClusterSnapshotsCommandOutput>;
   listClusterSnapshots(
     args: ListClusterSnapshotsCommandInput,
@@ -315,7 +327,7 @@ export interface DocDBElastic {
   ): void;
   listClusterSnapshots(
     args: ListClusterSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: ListClusterSnapshotsCommandOutput) => void
   ): void;
 
@@ -325,7 +337,7 @@ export interface DocDBElastic {
   listPendingMaintenanceActions(): Promise<ListPendingMaintenanceActionsCommandOutput>;
   listPendingMaintenanceActions(
     args: ListPendingMaintenanceActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<ListPendingMaintenanceActionsCommandOutput>;
   listPendingMaintenanceActions(
     args: ListPendingMaintenanceActionsCommandInput,
@@ -333,7 +345,7 @@ export interface DocDBElastic {
   ): void;
   listPendingMaintenanceActions(
     args: ListPendingMaintenanceActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: ListPendingMaintenanceActionsCommandOutput) => void
   ): void;
 
@@ -342,7 +354,7 @@ export interface DocDBElastic {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -350,7 +362,7 @@ export interface DocDBElastic {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -359,7 +371,7 @@ export interface DocDBElastic {
    */
   restoreClusterFromSnapshot(
     args: RestoreClusterFromSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<RestoreClusterFromSnapshotCommandOutput>;
   restoreClusterFromSnapshot(
     args: RestoreClusterFromSnapshotCommandInput,
@@ -367,7 +379,7 @@ export interface DocDBElastic {
   ): void;
   restoreClusterFromSnapshot(
     args: RestoreClusterFromSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: RestoreClusterFromSnapshotCommandOutput) => void
   ): void;
 
@@ -376,7 +388,7 @@ export interface DocDBElastic {
    */
   startCluster(
     args: StartClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<StartClusterCommandOutput>;
   startCluster(
     args: StartClusterCommandInput,
@@ -384,7 +396,7 @@ export interface DocDBElastic {
   ): void;
   startCluster(
     args: StartClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: StartClusterCommandOutput) => void
   ): void;
 
@@ -393,7 +405,7 @@ export interface DocDBElastic {
    */
   stopCluster(
     args: StopClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<StopClusterCommandOutput>;
   stopCluster(
     args: StopClusterCommandInput,
@@ -401,7 +413,7 @@ export interface DocDBElastic {
   ): void;
   stopCluster(
     args: StopClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: StopClusterCommandOutput) => void
   ): void;
 
@@ -410,7 +422,7 @@ export interface DocDBElastic {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -418,7 +430,7 @@ export interface DocDBElastic {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -427,7 +439,7 @@ export interface DocDBElastic {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -435,7 +447,7 @@ export interface DocDBElastic {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -444,7 +456,7 @@ export interface DocDBElastic {
    */
   updateCluster(
     args: UpdateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DocDBElasticRequestOptions
   ): Promise<UpdateClusterCommandOutput>;
   updateCluster(
     args: UpdateClusterCommandInput,
@@ -452,7 +464,7 @@ export interface DocDBElastic {
   ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DocDBElasticRequestOptions,
     cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
 

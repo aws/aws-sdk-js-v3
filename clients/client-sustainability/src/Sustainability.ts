@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type GetEstimatedCarbonEmissionsCommandInput,
@@ -45,13 +50,20 @@ const paginators = {
   paginateGetEstimatedWaterAllocationDimensionValues,
 };
 
+/**
+ * @public
+ */
+export interface SustainabilityRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Sustainability {
   /**
    * @see {@link GetEstimatedCarbonEmissionsCommand}
    */
   getEstimatedCarbonEmissions(
     args: GetEstimatedCarbonEmissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SustainabilityRequestOptions
   ): Promise<GetEstimatedCarbonEmissionsCommandOutput>;
   getEstimatedCarbonEmissions(
     args: GetEstimatedCarbonEmissionsCommandInput,
@@ -59,7 +71,7 @@ export interface Sustainability {
   ): void;
   getEstimatedCarbonEmissions(
     args: GetEstimatedCarbonEmissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SustainabilityRequestOptions,
     cb: (err: any, data?: GetEstimatedCarbonEmissionsCommandOutput) => void
   ): void;
 
@@ -68,7 +80,7 @@ export interface Sustainability {
    */
   getEstimatedCarbonEmissionsDimensionValues(
     args: GetEstimatedCarbonEmissionsDimensionValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SustainabilityRequestOptions
   ): Promise<GetEstimatedCarbonEmissionsDimensionValuesCommandOutput>;
   getEstimatedCarbonEmissionsDimensionValues(
     args: GetEstimatedCarbonEmissionsDimensionValuesCommandInput,
@@ -76,7 +88,7 @@ export interface Sustainability {
   ): void;
   getEstimatedCarbonEmissionsDimensionValues(
     args: GetEstimatedCarbonEmissionsDimensionValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SustainabilityRequestOptions,
     cb: (err: any, data?: GetEstimatedCarbonEmissionsDimensionValuesCommandOutput) => void
   ): void;
 
@@ -85,7 +97,7 @@ export interface Sustainability {
    */
   getEstimatedWaterAllocation(
     args: GetEstimatedWaterAllocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SustainabilityRequestOptions
   ): Promise<GetEstimatedWaterAllocationCommandOutput>;
   getEstimatedWaterAllocation(
     args: GetEstimatedWaterAllocationCommandInput,
@@ -93,7 +105,7 @@ export interface Sustainability {
   ): void;
   getEstimatedWaterAllocation(
     args: GetEstimatedWaterAllocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SustainabilityRequestOptions,
     cb: (err: any, data?: GetEstimatedWaterAllocationCommandOutput) => void
   ): void;
 
@@ -102,7 +114,7 @@ export interface Sustainability {
    */
   getEstimatedWaterAllocationDimensionValues(
     args: GetEstimatedWaterAllocationDimensionValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SustainabilityRequestOptions
   ): Promise<GetEstimatedWaterAllocationDimensionValuesCommandOutput>;
   getEstimatedWaterAllocationDimensionValues(
     args: GetEstimatedWaterAllocationDimensionValuesCommandInput,
@@ -110,7 +122,7 @@ export interface Sustainability {
   ): void;
   getEstimatedWaterAllocationDimensionValues(
     args: GetEstimatedWaterAllocationDimensionValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SustainabilityRequestOptions,
     cb: (err: any, data?: GetEstimatedWaterAllocationDimensionValuesCommandOutput) => void
   ): void;
 

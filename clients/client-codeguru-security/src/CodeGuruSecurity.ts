@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { CodeGuruSecurityClient } from "./CodeGuruSecurityClient";
 import {
@@ -85,13 +90,20 @@ const paginators = {
   paginateListScans,
 };
 
+/**
+ * @public
+ */
+export interface CodeGuruSecurityRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CodeGuruSecurity {
   /**
    * @see {@link BatchGetFindingsCommand}
    */
   batchGetFindings(
     args: BatchGetFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<BatchGetFindingsCommandOutput>;
   batchGetFindings(
     args: BatchGetFindingsCommandInput,
@@ -99,7 +111,7 @@ export interface CodeGuruSecurity {
   ): void;
   batchGetFindings(
     args: BatchGetFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: BatchGetFindingsCommandOutput) => void
   ): void;
 
@@ -108,7 +120,7 @@ export interface CodeGuruSecurity {
    */
   createScan(
     args: CreateScanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<CreateScanCommandOutput>;
   createScan(
     args: CreateScanCommandInput,
@@ -116,7 +128,7 @@ export interface CodeGuruSecurity {
   ): void;
   createScan(
     args: CreateScanCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: CreateScanCommandOutput) => void
   ): void;
 
@@ -125,7 +137,7 @@ export interface CodeGuruSecurity {
    */
   createUploadUrl(
     args: CreateUploadUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<CreateUploadUrlCommandOutput>;
   createUploadUrl(
     args: CreateUploadUrlCommandInput,
@@ -133,7 +145,7 @@ export interface CodeGuruSecurity {
   ): void;
   createUploadUrl(
     args: CreateUploadUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: CreateUploadUrlCommandOutput) => void
   ): void;
 
@@ -143,7 +155,7 @@ export interface CodeGuruSecurity {
   getAccountConfiguration(): Promise<GetAccountConfigurationCommandOutput>;
   getAccountConfiguration(
     args: GetAccountConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<GetAccountConfigurationCommandOutput>;
   getAccountConfiguration(
     args: GetAccountConfigurationCommandInput,
@@ -151,7 +163,7 @@ export interface CodeGuruSecurity {
   ): void;
   getAccountConfiguration(
     args: GetAccountConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: GetAccountConfigurationCommandOutput) => void
   ): void;
 
@@ -160,7 +172,7 @@ export interface CodeGuruSecurity {
    */
   getFindings(
     args: GetFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<GetFindingsCommandOutput>;
   getFindings(
     args: GetFindingsCommandInput,
@@ -168,7 +180,7 @@ export interface CodeGuruSecurity {
   ): void;
   getFindings(
     args: GetFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: GetFindingsCommandOutput) => void
   ): void;
 
@@ -177,7 +189,7 @@ export interface CodeGuruSecurity {
    */
   getMetricsSummary(
     args: GetMetricsSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<GetMetricsSummaryCommandOutput>;
   getMetricsSummary(
     args: GetMetricsSummaryCommandInput,
@@ -185,7 +197,7 @@ export interface CodeGuruSecurity {
   ): void;
   getMetricsSummary(
     args: GetMetricsSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: GetMetricsSummaryCommandOutput) => void
   ): void;
 
@@ -194,7 +206,7 @@ export interface CodeGuruSecurity {
    */
   getScan(
     args: GetScanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<GetScanCommandOutput>;
   getScan(
     args: GetScanCommandInput,
@@ -202,7 +214,7 @@ export interface CodeGuruSecurity {
   ): void;
   getScan(
     args: GetScanCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: GetScanCommandOutput) => void
   ): void;
 
@@ -211,7 +223,7 @@ export interface CodeGuruSecurity {
    */
   listFindingsMetrics(
     args: ListFindingsMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<ListFindingsMetricsCommandOutput>;
   listFindingsMetrics(
     args: ListFindingsMetricsCommandInput,
@@ -219,7 +231,7 @@ export interface CodeGuruSecurity {
   ): void;
   listFindingsMetrics(
     args: ListFindingsMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: ListFindingsMetricsCommandOutput) => void
   ): void;
 
@@ -229,7 +241,7 @@ export interface CodeGuruSecurity {
   listScans(): Promise<ListScansCommandOutput>;
   listScans(
     args: ListScansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<ListScansCommandOutput>;
   listScans(
     args: ListScansCommandInput,
@@ -237,7 +249,7 @@ export interface CodeGuruSecurity {
   ): void;
   listScans(
     args: ListScansCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: ListScansCommandOutput) => void
   ): void;
 
@@ -246,7 +258,7 @@ export interface CodeGuruSecurity {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -254,7 +266,7 @@ export interface CodeGuruSecurity {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -263,7 +275,7 @@ export interface CodeGuruSecurity {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -271,7 +283,7 @@ export interface CodeGuruSecurity {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -280,7 +292,7 @@ export interface CodeGuruSecurity {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -288,7 +300,7 @@ export interface CodeGuruSecurity {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -297,7 +309,7 @@ export interface CodeGuruSecurity {
    */
   updateAccountConfiguration(
     args: UpdateAccountConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruSecurityRequestOptions
   ): Promise<UpdateAccountConfigurationCommandOutput>;
   updateAccountConfiguration(
     args: UpdateAccountConfigurationCommandInput,
@@ -305,7 +317,7 @@ export interface CodeGuruSecurity {
   ): void;
   updateAccountConfiguration(
     args: UpdateAccountConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruSecurityRequestOptions,
     cb: (err: any, data?: UpdateAccountConfigurationCommandOutput) => void
   ): void;
 

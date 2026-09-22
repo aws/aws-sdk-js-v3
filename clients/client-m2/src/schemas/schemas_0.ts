@@ -390,10 +390,10 @@ import {
 import { M2ServiceException } from "../models/M2ServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var M2ServiceException$: StaticErrorSchema = [-3, _s, "M2ServiceException", 0, [], []];
 _s_registry.registerError(M2ServiceException$, M2ServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],

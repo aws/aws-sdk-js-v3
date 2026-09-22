@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptInvitationCommandInput,
@@ -193,13 +198,20 @@ const paginators = {
   paginateListOrganizationAdminAccounts,
 };
 
+/**
+ * @public
+ */
+export interface DetectiveRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Detective {
   /**
    * @see {@link AcceptInvitationCommand}
    */
   acceptInvitation(
     args: AcceptInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<AcceptInvitationCommandOutput>;
   acceptInvitation(
     args: AcceptInvitationCommandInput,
@@ -207,7 +219,7 @@ export interface Detective {
   ): void;
   acceptInvitation(
     args: AcceptInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: AcceptInvitationCommandOutput) => void
   ): void;
 
@@ -216,7 +228,7 @@ export interface Detective {
    */
   batchGetGraphMemberDatasources(
     args: BatchGetGraphMemberDatasourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<BatchGetGraphMemberDatasourcesCommandOutput>;
   batchGetGraphMemberDatasources(
     args: BatchGetGraphMemberDatasourcesCommandInput,
@@ -224,7 +236,7 @@ export interface Detective {
   ): void;
   batchGetGraphMemberDatasources(
     args: BatchGetGraphMemberDatasourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: BatchGetGraphMemberDatasourcesCommandOutput) => void
   ): void;
 
@@ -233,7 +245,7 @@ export interface Detective {
    */
   batchGetMembershipDatasources(
     args: BatchGetMembershipDatasourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<BatchGetMembershipDatasourcesCommandOutput>;
   batchGetMembershipDatasources(
     args: BatchGetMembershipDatasourcesCommandInput,
@@ -241,7 +253,7 @@ export interface Detective {
   ): void;
   batchGetMembershipDatasources(
     args: BatchGetMembershipDatasourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: BatchGetMembershipDatasourcesCommandOutput) => void
   ): void;
 
@@ -251,7 +263,7 @@ export interface Detective {
   createGraph(): Promise<CreateGraphCommandOutput>;
   createGraph(
     args: CreateGraphCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<CreateGraphCommandOutput>;
   createGraph(
     args: CreateGraphCommandInput,
@@ -259,7 +271,7 @@ export interface Detective {
   ): void;
   createGraph(
     args: CreateGraphCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: CreateGraphCommandOutput) => void
   ): void;
 
@@ -268,7 +280,7 @@ export interface Detective {
    */
   createMembers(
     args: CreateMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<CreateMembersCommandOutput>;
   createMembers(
     args: CreateMembersCommandInput,
@@ -276,7 +288,7 @@ export interface Detective {
   ): void;
   createMembers(
     args: CreateMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: CreateMembersCommandOutput) => void
   ): void;
 
@@ -285,7 +297,7 @@ export interface Detective {
    */
   deleteGraph(
     args: DeleteGraphCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<DeleteGraphCommandOutput>;
   deleteGraph(
     args: DeleteGraphCommandInput,
@@ -293,7 +305,7 @@ export interface Detective {
   ): void;
   deleteGraph(
     args: DeleteGraphCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: DeleteGraphCommandOutput) => void
   ): void;
 
@@ -302,7 +314,7 @@ export interface Detective {
    */
   deleteMembers(
     args: DeleteMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<DeleteMembersCommandOutput>;
   deleteMembers(
     args: DeleteMembersCommandInput,
@@ -310,7 +322,7 @@ export interface Detective {
   ): void;
   deleteMembers(
     args: DeleteMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: DeleteMembersCommandOutput) => void
   ): void;
 
@@ -319,7 +331,7 @@ export interface Detective {
    */
   describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<DescribeOrganizationConfigurationCommandOutput>;
   describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
@@ -327,7 +339,7 @@ export interface Detective {
   ): void;
   describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: DescribeOrganizationConfigurationCommandOutput) => void
   ): void;
 
@@ -337,7 +349,7 @@ export interface Detective {
   disableOrganizationAdminAccount(): Promise<DisableOrganizationAdminAccountCommandOutput>;
   disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<DisableOrganizationAdminAccountCommandOutput>;
   disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
@@ -345,7 +357,7 @@ export interface Detective {
   ): void;
   disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: DisableOrganizationAdminAccountCommandOutput) => void
   ): void;
 
@@ -354,7 +366,7 @@ export interface Detective {
    */
   disassociateMembership(
     args: DisassociateMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<DisassociateMembershipCommandOutput>;
   disassociateMembership(
     args: DisassociateMembershipCommandInput,
@@ -362,7 +374,7 @@ export interface Detective {
   ): void;
   disassociateMembership(
     args: DisassociateMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: DisassociateMembershipCommandOutput) => void
   ): void;
 
@@ -371,7 +383,7 @@ export interface Detective {
    */
   enableOrganizationAdminAccount(
     args: EnableOrganizationAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<EnableOrganizationAdminAccountCommandOutput>;
   enableOrganizationAdminAccount(
     args: EnableOrganizationAdminAccountCommandInput,
@@ -379,7 +391,7 @@ export interface Detective {
   ): void;
   enableOrganizationAdminAccount(
     args: EnableOrganizationAdminAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void
   ): void;
 
@@ -388,7 +400,7 @@ export interface Detective {
    */
   getInvestigation(
     args: GetInvestigationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<GetInvestigationCommandOutput>;
   getInvestigation(
     args: GetInvestigationCommandInput,
@@ -396,7 +408,7 @@ export interface Detective {
   ): void;
   getInvestigation(
     args: GetInvestigationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: GetInvestigationCommandOutput) => void
   ): void;
 
@@ -405,7 +417,7 @@ export interface Detective {
    */
   getMembers(
     args: GetMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<GetMembersCommandOutput>;
   getMembers(
     args: GetMembersCommandInput,
@@ -413,7 +425,7 @@ export interface Detective {
   ): void;
   getMembers(
     args: GetMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: GetMembersCommandOutput) => void
   ): void;
 
@@ -422,7 +434,7 @@ export interface Detective {
    */
   listDatasourcePackages(
     args: ListDatasourcePackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<ListDatasourcePackagesCommandOutput>;
   listDatasourcePackages(
     args: ListDatasourcePackagesCommandInput,
@@ -430,7 +442,7 @@ export interface Detective {
   ): void;
   listDatasourcePackages(
     args: ListDatasourcePackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: ListDatasourcePackagesCommandOutput) => void
   ): void;
 
@@ -440,7 +452,7 @@ export interface Detective {
   listGraphs(): Promise<ListGraphsCommandOutput>;
   listGraphs(
     args: ListGraphsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<ListGraphsCommandOutput>;
   listGraphs(
     args: ListGraphsCommandInput,
@@ -448,7 +460,7 @@ export interface Detective {
   ): void;
   listGraphs(
     args: ListGraphsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: ListGraphsCommandOutput) => void
   ): void;
 
@@ -457,7 +469,7 @@ export interface Detective {
    */
   listIndicators(
     args: ListIndicatorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<ListIndicatorsCommandOutput>;
   listIndicators(
     args: ListIndicatorsCommandInput,
@@ -465,7 +477,7 @@ export interface Detective {
   ): void;
   listIndicators(
     args: ListIndicatorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: ListIndicatorsCommandOutput) => void
   ): void;
 
@@ -474,7 +486,7 @@ export interface Detective {
    */
   listInvestigations(
     args: ListInvestigationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<ListInvestigationsCommandOutput>;
   listInvestigations(
     args: ListInvestigationsCommandInput,
@@ -482,7 +494,7 @@ export interface Detective {
   ): void;
   listInvestigations(
     args: ListInvestigationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: ListInvestigationsCommandOutput) => void
   ): void;
 
@@ -492,7 +504,7 @@ export interface Detective {
   listInvitations(): Promise<ListInvitationsCommandOutput>;
   listInvitations(
     args: ListInvitationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<ListInvitationsCommandOutput>;
   listInvitations(
     args: ListInvitationsCommandInput,
@@ -500,7 +512,7 @@ export interface Detective {
   ): void;
   listInvitations(
     args: ListInvitationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: ListInvitationsCommandOutput) => void
   ): void;
 
@@ -509,7 +521,7 @@ export interface Detective {
    */
   listMembers(
     args: ListMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<ListMembersCommandOutput>;
   listMembers(
     args: ListMembersCommandInput,
@@ -517,7 +529,7 @@ export interface Detective {
   ): void;
   listMembers(
     args: ListMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: ListMembersCommandOutput) => void
   ): void;
 
@@ -527,7 +539,7 @@ export interface Detective {
   listOrganizationAdminAccounts(): Promise<ListOrganizationAdminAccountsCommandOutput>;
   listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<ListOrganizationAdminAccountsCommandOutput>;
   listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
@@ -535,7 +547,7 @@ export interface Detective {
   ): void;
   listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void
   ): void;
 
@@ -544,7 +556,7 @@ export interface Detective {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -552,7 +564,7 @@ export interface Detective {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -561,7 +573,7 @@ export interface Detective {
    */
   rejectInvitation(
     args: RejectInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<RejectInvitationCommandOutput>;
   rejectInvitation(
     args: RejectInvitationCommandInput,
@@ -569,7 +581,7 @@ export interface Detective {
   ): void;
   rejectInvitation(
     args: RejectInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: RejectInvitationCommandOutput) => void
   ): void;
 
@@ -578,7 +590,7 @@ export interface Detective {
    */
   startInvestigation(
     args: StartInvestigationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<StartInvestigationCommandOutput>;
   startInvestigation(
     args: StartInvestigationCommandInput,
@@ -586,7 +598,7 @@ export interface Detective {
   ): void;
   startInvestigation(
     args: StartInvestigationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: StartInvestigationCommandOutput) => void
   ): void;
 
@@ -595,7 +607,7 @@ export interface Detective {
    */
   startMonitoringMember(
     args: StartMonitoringMemberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<StartMonitoringMemberCommandOutput>;
   startMonitoringMember(
     args: StartMonitoringMemberCommandInput,
@@ -603,7 +615,7 @@ export interface Detective {
   ): void;
   startMonitoringMember(
     args: StartMonitoringMemberCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: StartMonitoringMemberCommandOutput) => void
   ): void;
 
@@ -612,7 +624,7 @@ export interface Detective {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -620,7 +632,7 @@ export interface Detective {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -629,7 +641,7 @@ export interface Detective {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -637,7 +649,7 @@ export interface Detective {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -646,7 +658,7 @@ export interface Detective {
    */
   updateDatasourcePackages(
     args: UpdateDatasourcePackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<UpdateDatasourcePackagesCommandOutput>;
   updateDatasourcePackages(
     args: UpdateDatasourcePackagesCommandInput,
@@ -654,7 +666,7 @@ export interface Detective {
   ): void;
   updateDatasourcePackages(
     args: UpdateDatasourcePackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: UpdateDatasourcePackagesCommandOutput) => void
   ): void;
 
@@ -663,7 +675,7 @@ export interface Detective {
    */
   updateInvestigationState(
     args: UpdateInvestigationStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<UpdateInvestigationStateCommandOutput>;
   updateInvestigationState(
     args: UpdateInvestigationStateCommandInput,
@@ -671,7 +683,7 @@ export interface Detective {
   ): void;
   updateInvestigationState(
     args: UpdateInvestigationStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: UpdateInvestigationStateCommandOutput) => void
   ): void;
 
@@ -680,7 +692,7 @@ export interface Detective {
    */
   updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DetectiveRequestOptions
   ): Promise<UpdateOrganizationConfigurationCommandOutput>;
   updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,
@@ -688,7 +700,7 @@ export interface Detective {
   ): void;
   updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DetectiveRequestOptions,
     cb: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
   ): void;
 

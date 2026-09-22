@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchCreateRumMetricDefinitionsCommandInput,
@@ -137,13 +142,20 @@ const paginators = {
   paginateListRumMetricsDestinations,
 };
 
+/**
+ * @public
+ */
+export interface RUMRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface RUM {
   /**
    * @see {@link BatchCreateRumMetricDefinitionsCommand}
    */
   batchCreateRumMetricDefinitions(
     args: BatchCreateRumMetricDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<BatchCreateRumMetricDefinitionsCommandOutput>;
   batchCreateRumMetricDefinitions(
     args: BatchCreateRumMetricDefinitionsCommandInput,
@@ -151,7 +163,7 @@ export interface RUM {
   ): void;
   batchCreateRumMetricDefinitions(
     args: BatchCreateRumMetricDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: BatchCreateRumMetricDefinitionsCommandOutput) => void
   ): void;
 
@@ -160,7 +172,7 @@ export interface RUM {
    */
   batchDeleteRumMetricDefinitions(
     args: BatchDeleteRumMetricDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<BatchDeleteRumMetricDefinitionsCommandOutput>;
   batchDeleteRumMetricDefinitions(
     args: BatchDeleteRumMetricDefinitionsCommandInput,
@@ -168,7 +180,7 @@ export interface RUM {
   ): void;
   batchDeleteRumMetricDefinitions(
     args: BatchDeleteRumMetricDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: BatchDeleteRumMetricDefinitionsCommandOutput) => void
   ): void;
 
@@ -177,7 +189,7 @@ export interface RUM {
    */
   batchGetRumMetricDefinitions(
     args: BatchGetRumMetricDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<BatchGetRumMetricDefinitionsCommandOutput>;
   batchGetRumMetricDefinitions(
     args: BatchGetRumMetricDefinitionsCommandInput,
@@ -185,7 +197,7 @@ export interface RUM {
   ): void;
   batchGetRumMetricDefinitions(
     args: BatchGetRumMetricDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: BatchGetRumMetricDefinitionsCommandOutput) => void
   ): void;
 
@@ -194,7 +206,7 @@ export interface RUM {
    */
   createAppMonitor(
     args: CreateAppMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<CreateAppMonitorCommandOutput>;
   createAppMonitor(
     args: CreateAppMonitorCommandInput,
@@ -202,7 +214,7 @@ export interface RUM {
   ): void;
   createAppMonitor(
     args: CreateAppMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: CreateAppMonitorCommandOutput) => void
   ): void;
 
@@ -211,7 +223,7 @@ export interface RUM {
    */
   deleteAppMonitor(
     args: DeleteAppMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<DeleteAppMonitorCommandOutput>;
   deleteAppMonitor(
     args: DeleteAppMonitorCommandInput,
@@ -219,7 +231,7 @@ export interface RUM {
   ): void;
   deleteAppMonitor(
     args: DeleteAppMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: DeleteAppMonitorCommandOutput) => void
   ): void;
 
@@ -228,7 +240,7 @@ export interface RUM {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -236,7 +248,7 @@ export interface RUM {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -245,7 +257,7 @@ export interface RUM {
    */
   deleteRumMetricsDestination(
     args: DeleteRumMetricsDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<DeleteRumMetricsDestinationCommandOutput>;
   deleteRumMetricsDestination(
     args: DeleteRumMetricsDestinationCommandInput,
@@ -253,7 +265,7 @@ export interface RUM {
   ): void;
   deleteRumMetricsDestination(
     args: DeleteRumMetricsDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: DeleteRumMetricsDestinationCommandOutput) => void
   ): void;
 
@@ -262,7 +274,7 @@ export interface RUM {
    */
   getAppMonitor(
     args: GetAppMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<GetAppMonitorCommandOutput>;
   getAppMonitor(
     args: GetAppMonitorCommandInput,
@@ -270,7 +282,7 @@ export interface RUM {
   ): void;
   getAppMonitor(
     args: GetAppMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: GetAppMonitorCommandOutput) => void
   ): void;
 
@@ -279,7 +291,7 @@ export interface RUM {
    */
   getAppMonitorData(
     args: GetAppMonitorDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<GetAppMonitorDataCommandOutput>;
   getAppMonitorData(
     args: GetAppMonitorDataCommandInput,
@@ -287,7 +299,7 @@ export interface RUM {
   ): void;
   getAppMonitorData(
     args: GetAppMonitorDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: GetAppMonitorDataCommandOutput) => void
   ): void;
 
@@ -296,7 +308,7 @@ export interface RUM {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -304,7 +316,7 @@ export interface RUM {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -314,7 +326,7 @@ export interface RUM {
   listAppMonitors(): Promise<ListAppMonitorsCommandOutput>;
   listAppMonitors(
     args: ListAppMonitorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<ListAppMonitorsCommandOutput>;
   listAppMonitors(
     args: ListAppMonitorsCommandInput,
@@ -322,7 +334,7 @@ export interface RUM {
   ): void;
   listAppMonitors(
     args: ListAppMonitorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: ListAppMonitorsCommandOutput) => void
   ): void;
 
@@ -331,7 +343,7 @@ export interface RUM {
    */
   listRumMetricsDestinations(
     args: ListRumMetricsDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<ListRumMetricsDestinationsCommandOutput>;
   listRumMetricsDestinations(
     args: ListRumMetricsDestinationsCommandInput,
@@ -339,7 +351,7 @@ export interface RUM {
   ): void;
   listRumMetricsDestinations(
     args: ListRumMetricsDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: ListRumMetricsDestinationsCommandOutput) => void
   ): void;
 
@@ -348,7 +360,7 @@ export interface RUM {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -356,7 +368,7 @@ export interface RUM {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -365,7 +377,7 @@ export interface RUM {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -373,7 +385,7 @@ export interface RUM {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -382,7 +394,7 @@ export interface RUM {
    */
   putRumEvents(
     args: PutRumEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<PutRumEventsCommandOutput>;
   putRumEvents(
     args: PutRumEventsCommandInput,
@@ -390,7 +402,7 @@ export interface RUM {
   ): void;
   putRumEvents(
     args: PutRumEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: PutRumEventsCommandOutput) => void
   ): void;
 
@@ -399,7 +411,7 @@ export interface RUM {
    */
   putRumMetricsDestination(
     args: PutRumMetricsDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<PutRumMetricsDestinationCommandOutput>;
   putRumMetricsDestination(
     args: PutRumMetricsDestinationCommandInput,
@@ -407,7 +419,7 @@ export interface RUM {
   ): void;
   putRumMetricsDestination(
     args: PutRumMetricsDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: PutRumMetricsDestinationCommandOutput) => void
   ): void;
 
@@ -416,7 +428,7 @@ export interface RUM {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -424,7 +436,7 @@ export interface RUM {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -433,7 +445,7 @@ export interface RUM {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -441,7 +453,7 @@ export interface RUM {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -450,7 +462,7 @@ export interface RUM {
    */
   updateAppMonitor(
     args: UpdateAppMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<UpdateAppMonitorCommandOutput>;
   updateAppMonitor(
     args: UpdateAppMonitorCommandInput,
@@ -458,7 +470,7 @@ export interface RUM {
   ): void;
   updateAppMonitor(
     args: UpdateAppMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: UpdateAppMonitorCommandOutput) => void
   ): void;
 
@@ -467,7 +479,7 @@ export interface RUM {
    */
   updateRumMetricDefinition(
     args: UpdateRumMetricDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RUMRequestOptions
   ): Promise<UpdateRumMetricDefinitionCommandOutput>;
   updateRumMetricDefinition(
     args: UpdateRumMetricDefinitionCommandInput,
@@ -475,7 +487,7 @@ export interface RUM {
   ): void;
   updateRumMetricDefinition(
     args: UpdateRumMetricDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RUMRequestOptions,
     cb: (err: any, data?: UpdateRumMetricDefinitionCommandOutput) => void
   ): void;
 

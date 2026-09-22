@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BCMRecommendedActionsClient } from "./BCMRecommendedActionsClient";
 import {
@@ -17,6 +22,13 @@ const paginators = {
   paginateListRecommendedActions,
 };
 
+/**
+ * @public
+ */
+export interface BCMRecommendedActionsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface BCMRecommendedActions {
   /**
    * @see {@link ListRecommendedActionsCommand}
@@ -24,7 +36,7 @@ export interface BCMRecommendedActions {
   listRecommendedActions(): Promise<ListRecommendedActionsCommandOutput>;
   listRecommendedActions(
     args: ListRecommendedActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMRecommendedActionsRequestOptions
   ): Promise<ListRecommendedActionsCommandOutput>;
   listRecommendedActions(
     args: ListRecommendedActionsCommandInput,
@@ -32,7 +44,7 @@ export interface BCMRecommendedActions {
   ): void;
   listRecommendedActions(
     args: ListRecommendedActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMRecommendedActionsRequestOptions,
     cb: (err: any, data?: ListRecommendedActionsCommandOutput) => void
   ): void;
 

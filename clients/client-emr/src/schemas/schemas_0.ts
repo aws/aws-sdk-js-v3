@@ -689,10 +689,10 @@ import { EMRServiceException } from "../models/EMRServiceException";
 import { InternalServerError, InternalServerException, InvalidRequestException } from "../models/errors";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var EMRServiceException$: StaticErrorSchema = [-3, _s, "EMRServiceException", 0, [], []];
 _s_registry.registerError(EMRServiceException$, EMRServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
   { [_aQE]: [`InternalFailure`, 500], [_e]: _se, [_hE]: 500 },
   [],

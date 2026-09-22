@@ -245,10 +245,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var ACMPCAServiceException$: StaticErrorSchema = [-3, _s, "ACMPCAServiceException", 0, [], []];
 _s_registry.registerError(ACMPCAServiceException$, ACMPCAServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var CertificateMismatchException$: StaticErrorSchema = [-3, n0, _CME,
   { [_e]: _c },
   [_m],

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateDevicePoolCommandInput,
@@ -459,13 +464,20 @@ const paginators = {
   paginateListUploads,
 };
 
+/**
+ * @public
+ */
+export interface DeviceFarmRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DeviceFarm {
   /**
    * @see {@link CreateDevicePoolCommand}
    */
   createDevicePool(
     args: CreateDevicePoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<CreateDevicePoolCommandOutput>;
   createDevicePool(
     args: CreateDevicePoolCommandInput,
@@ -473,7 +485,7 @@ export interface DeviceFarm {
   ): void;
   createDevicePool(
     args: CreateDevicePoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: CreateDevicePoolCommandOutput) => void
   ): void;
 
@@ -482,7 +494,7 @@ export interface DeviceFarm {
    */
   createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<CreateInstanceProfileCommandOutput>;
   createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
@@ -490,7 +502,7 @@ export interface DeviceFarm {
   ): void;
   createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: CreateInstanceProfileCommandOutput) => void
   ): void;
 
@@ -499,7 +511,7 @@ export interface DeviceFarm {
    */
   createNetworkProfile(
     args: CreateNetworkProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<CreateNetworkProfileCommandOutput>;
   createNetworkProfile(
     args: CreateNetworkProfileCommandInput,
@@ -507,7 +519,7 @@ export interface DeviceFarm {
   ): void;
   createNetworkProfile(
     args: CreateNetworkProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: CreateNetworkProfileCommandOutput) => void
   ): void;
 
@@ -516,7 +528,7 @@ export interface DeviceFarm {
    */
   createProject(
     args: CreateProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<CreateProjectCommandOutput>;
   createProject(
     args: CreateProjectCommandInput,
@@ -524,7 +536,7 @@ export interface DeviceFarm {
   ): void;
   createProject(
     args: CreateProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: CreateProjectCommandOutput) => void
   ): void;
 
@@ -533,7 +545,7 @@ export interface DeviceFarm {
    */
   createRemoteAccessSession(
     args: CreateRemoteAccessSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<CreateRemoteAccessSessionCommandOutput>;
   createRemoteAccessSession(
     args: CreateRemoteAccessSessionCommandInput,
@@ -541,7 +553,7 @@ export interface DeviceFarm {
   ): void;
   createRemoteAccessSession(
     args: CreateRemoteAccessSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: CreateRemoteAccessSessionCommandOutput) => void
   ): void;
 
@@ -550,7 +562,7 @@ export interface DeviceFarm {
    */
   createTestGridProject(
     args: CreateTestGridProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<CreateTestGridProjectCommandOutput>;
   createTestGridProject(
     args: CreateTestGridProjectCommandInput,
@@ -558,7 +570,7 @@ export interface DeviceFarm {
   ): void;
   createTestGridProject(
     args: CreateTestGridProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: CreateTestGridProjectCommandOutput) => void
   ): void;
 
@@ -567,7 +579,7 @@ export interface DeviceFarm {
    */
   createTestGridUrl(
     args: CreateTestGridUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<CreateTestGridUrlCommandOutput>;
   createTestGridUrl(
     args: CreateTestGridUrlCommandInput,
@@ -575,7 +587,7 @@ export interface DeviceFarm {
   ): void;
   createTestGridUrl(
     args: CreateTestGridUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: CreateTestGridUrlCommandOutput) => void
   ): void;
 
@@ -584,7 +596,7 @@ export interface DeviceFarm {
    */
   createUpload(
     args: CreateUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<CreateUploadCommandOutput>;
   createUpload(
     args: CreateUploadCommandInput,
@@ -592,7 +604,7 @@ export interface DeviceFarm {
   ): void;
   createUpload(
     args: CreateUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: CreateUploadCommandOutput) => void
   ): void;
 
@@ -601,7 +613,7 @@ export interface DeviceFarm {
    */
   createVPCEConfiguration(
     args: CreateVPCEConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<CreateVPCEConfigurationCommandOutput>;
   createVPCEConfiguration(
     args: CreateVPCEConfigurationCommandInput,
@@ -609,7 +621,7 @@ export interface DeviceFarm {
   ): void;
   createVPCEConfiguration(
     args: CreateVPCEConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: CreateVPCEConfigurationCommandOutput) => void
   ): void;
 
@@ -618,7 +630,7 @@ export interface DeviceFarm {
    */
   deleteDevicePool(
     args: DeleteDevicePoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<DeleteDevicePoolCommandOutput>;
   deleteDevicePool(
     args: DeleteDevicePoolCommandInput,
@@ -626,7 +638,7 @@ export interface DeviceFarm {
   ): void;
   deleteDevicePool(
     args: DeleteDevicePoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: DeleteDevicePoolCommandOutput) => void
   ): void;
 
@@ -635,7 +647,7 @@ export interface DeviceFarm {
    */
   deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<DeleteInstanceProfileCommandOutput>;
   deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
@@ -643,7 +655,7 @@ export interface DeviceFarm {
   ): void;
   deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: DeleteInstanceProfileCommandOutput) => void
   ): void;
 
@@ -652,7 +664,7 @@ export interface DeviceFarm {
    */
   deleteNetworkProfile(
     args: DeleteNetworkProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<DeleteNetworkProfileCommandOutput>;
   deleteNetworkProfile(
     args: DeleteNetworkProfileCommandInput,
@@ -660,7 +672,7 @@ export interface DeviceFarm {
   ): void;
   deleteNetworkProfile(
     args: DeleteNetworkProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: DeleteNetworkProfileCommandOutput) => void
   ): void;
 
@@ -669,7 +681,7 @@ export interface DeviceFarm {
    */
   deleteProject(
     args: DeleteProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<DeleteProjectCommandOutput>;
   deleteProject(
     args: DeleteProjectCommandInput,
@@ -677,7 +689,7 @@ export interface DeviceFarm {
   ): void;
   deleteProject(
     args: DeleteProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: DeleteProjectCommandOutput) => void
   ): void;
 
@@ -686,7 +698,7 @@ export interface DeviceFarm {
    */
   deleteRemoteAccessSession(
     args: DeleteRemoteAccessSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<DeleteRemoteAccessSessionCommandOutput>;
   deleteRemoteAccessSession(
     args: DeleteRemoteAccessSessionCommandInput,
@@ -694,7 +706,7 @@ export interface DeviceFarm {
   ): void;
   deleteRemoteAccessSession(
     args: DeleteRemoteAccessSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: DeleteRemoteAccessSessionCommandOutput) => void
   ): void;
 
@@ -703,7 +715,7 @@ export interface DeviceFarm {
    */
   deleteRun(
     args: DeleteRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<DeleteRunCommandOutput>;
   deleteRun(
     args: DeleteRunCommandInput,
@@ -711,7 +723,7 @@ export interface DeviceFarm {
   ): void;
   deleteRun(
     args: DeleteRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: DeleteRunCommandOutput) => void
   ): void;
 
@@ -720,7 +732,7 @@ export interface DeviceFarm {
    */
   deleteTestGridProject(
     args: DeleteTestGridProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<DeleteTestGridProjectCommandOutput>;
   deleteTestGridProject(
     args: DeleteTestGridProjectCommandInput,
@@ -728,7 +740,7 @@ export interface DeviceFarm {
   ): void;
   deleteTestGridProject(
     args: DeleteTestGridProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: DeleteTestGridProjectCommandOutput) => void
   ): void;
 
@@ -737,7 +749,7 @@ export interface DeviceFarm {
    */
   deleteUpload(
     args: DeleteUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<DeleteUploadCommandOutput>;
   deleteUpload(
     args: DeleteUploadCommandInput,
@@ -745,7 +757,7 @@ export interface DeviceFarm {
   ): void;
   deleteUpload(
     args: DeleteUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: DeleteUploadCommandOutput) => void
   ): void;
 
@@ -754,7 +766,7 @@ export interface DeviceFarm {
    */
   deleteVPCEConfiguration(
     args: DeleteVPCEConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<DeleteVPCEConfigurationCommandOutput>;
   deleteVPCEConfiguration(
     args: DeleteVPCEConfigurationCommandInput,
@@ -762,7 +774,7 @@ export interface DeviceFarm {
   ): void;
   deleteVPCEConfiguration(
     args: DeleteVPCEConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: DeleteVPCEConfigurationCommandOutput) => void
   ): void;
 
@@ -772,7 +784,7 @@ export interface DeviceFarm {
   getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
@@ -780,7 +792,7 @@ export interface DeviceFarm {
   ): void;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
   ): void;
 
@@ -789,7 +801,7 @@ export interface DeviceFarm {
    */
   getDevice(
     args: GetDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetDeviceCommandOutput>;
   getDevice(
     args: GetDeviceCommandInput,
@@ -797,7 +809,7 @@ export interface DeviceFarm {
   ): void;
   getDevice(
     args: GetDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetDeviceCommandOutput) => void
   ): void;
 
@@ -806,7 +818,7 @@ export interface DeviceFarm {
    */
   getDeviceInstance(
     args: GetDeviceInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetDeviceInstanceCommandOutput>;
   getDeviceInstance(
     args: GetDeviceInstanceCommandInput,
@@ -814,7 +826,7 @@ export interface DeviceFarm {
   ): void;
   getDeviceInstance(
     args: GetDeviceInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetDeviceInstanceCommandOutput) => void
   ): void;
 
@@ -823,7 +835,7 @@ export interface DeviceFarm {
    */
   getDevicePool(
     args: GetDevicePoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetDevicePoolCommandOutput>;
   getDevicePool(
     args: GetDevicePoolCommandInput,
@@ -831,7 +843,7 @@ export interface DeviceFarm {
   ): void;
   getDevicePool(
     args: GetDevicePoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetDevicePoolCommandOutput) => void
   ): void;
 
@@ -840,7 +852,7 @@ export interface DeviceFarm {
    */
   getDevicePoolCompatibility(
     args: GetDevicePoolCompatibilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetDevicePoolCompatibilityCommandOutput>;
   getDevicePoolCompatibility(
     args: GetDevicePoolCompatibilityCommandInput,
@@ -848,7 +860,7 @@ export interface DeviceFarm {
   ): void;
   getDevicePoolCompatibility(
     args: GetDevicePoolCompatibilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetDevicePoolCompatibilityCommandOutput) => void
   ): void;
 
@@ -857,7 +869,7 @@ export interface DeviceFarm {
    */
   getInstanceProfile(
     args: GetInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetInstanceProfileCommandOutput>;
   getInstanceProfile(
     args: GetInstanceProfileCommandInput,
@@ -865,7 +877,7 @@ export interface DeviceFarm {
   ): void;
   getInstanceProfile(
     args: GetInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetInstanceProfileCommandOutput) => void
   ): void;
 
@@ -874,7 +886,7 @@ export interface DeviceFarm {
    */
   getJob(
     args: GetJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetJobCommandOutput>;
   getJob(
     args: GetJobCommandInput,
@@ -882,7 +894,7 @@ export interface DeviceFarm {
   ): void;
   getJob(
     args: GetJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetJobCommandOutput) => void
   ): void;
 
@@ -891,7 +903,7 @@ export interface DeviceFarm {
    */
   getNetworkProfile(
     args: GetNetworkProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetNetworkProfileCommandOutput>;
   getNetworkProfile(
     args: GetNetworkProfileCommandInput,
@@ -899,7 +911,7 @@ export interface DeviceFarm {
   ): void;
   getNetworkProfile(
     args: GetNetworkProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetNetworkProfileCommandOutput) => void
   ): void;
 
@@ -909,7 +921,7 @@ export interface DeviceFarm {
   getOfferingStatus(): Promise<GetOfferingStatusCommandOutput>;
   getOfferingStatus(
     args: GetOfferingStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetOfferingStatusCommandOutput>;
   getOfferingStatus(
     args: GetOfferingStatusCommandInput,
@@ -917,7 +929,7 @@ export interface DeviceFarm {
   ): void;
   getOfferingStatus(
     args: GetOfferingStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetOfferingStatusCommandOutput) => void
   ): void;
 
@@ -926,7 +938,7 @@ export interface DeviceFarm {
    */
   getProject(
     args: GetProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetProjectCommandOutput>;
   getProject(
     args: GetProjectCommandInput,
@@ -934,7 +946,7 @@ export interface DeviceFarm {
   ): void;
   getProject(
     args: GetProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetProjectCommandOutput) => void
   ): void;
 
@@ -943,7 +955,7 @@ export interface DeviceFarm {
    */
   getRemoteAccessSession(
     args: GetRemoteAccessSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetRemoteAccessSessionCommandOutput>;
   getRemoteAccessSession(
     args: GetRemoteAccessSessionCommandInput,
@@ -951,7 +963,7 @@ export interface DeviceFarm {
   ): void;
   getRemoteAccessSession(
     args: GetRemoteAccessSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetRemoteAccessSessionCommandOutput) => void
   ): void;
 
@@ -960,7 +972,7 @@ export interface DeviceFarm {
    */
   getRun(
     args: GetRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetRunCommandOutput>;
   getRun(
     args: GetRunCommandInput,
@@ -968,7 +980,7 @@ export interface DeviceFarm {
   ): void;
   getRun(
     args: GetRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetRunCommandOutput) => void
   ): void;
 
@@ -977,7 +989,7 @@ export interface DeviceFarm {
    */
   getSuite(
     args: GetSuiteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetSuiteCommandOutput>;
   getSuite(
     args: GetSuiteCommandInput,
@@ -985,7 +997,7 @@ export interface DeviceFarm {
   ): void;
   getSuite(
     args: GetSuiteCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetSuiteCommandOutput) => void
   ): void;
 
@@ -994,7 +1006,7 @@ export interface DeviceFarm {
    */
   getTest(
     args: GetTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetTestCommandOutput>;
   getTest(
     args: GetTestCommandInput,
@@ -1002,7 +1014,7 @@ export interface DeviceFarm {
   ): void;
   getTest(
     args: GetTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetTestCommandOutput) => void
   ): void;
 
@@ -1011,7 +1023,7 @@ export interface DeviceFarm {
    */
   getTestGridProject(
     args: GetTestGridProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetTestGridProjectCommandOutput>;
   getTestGridProject(
     args: GetTestGridProjectCommandInput,
@@ -1019,7 +1031,7 @@ export interface DeviceFarm {
   ): void;
   getTestGridProject(
     args: GetTestGridProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetTestGridProjectCommandOutput) => void
   ): void;
 
@@ -1029,7 +1041,7 @@ export interface DeviceFarm {
   getTestGridSession(): Promise<GetTestGridSessionCommandOutput>;
   getTestGridSession(
     args: GetTestGridSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetTestGridSessionCommandOutput>;
   getTestGridSession(
     args: GetTestGridSessionCommandInput,
@@ -1037,7 +1049,7 @@ export interface DeviceFarm {
   ): void;
   getTestGridSession(
     args: GetTestGridSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetTestGridSessionCommandOutput) => void
   ): void;
 
@@ -1046,7 +1058,7 @@ export interface DeviceFarm {
    */
   getUpload(
     args: GetUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetUploadCommandOutput>;
   getUpload(
     args: GetUploadCommandInput,
@@ -1054,7 +1066,7 @@ export interface DeviceFarm {
   ): void;
   getUpload(
     args: GetUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetUploadCommandOutput) => void
   ): void;
 
@@ -1063,7 +1075,7 @@ export interface DeviceFarm {
    */
   getVPCEConfiguration(
     args: GetVPCEConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<GetVPCEConfigurationCommandOutput>;
   getVPCEConfiguration(
     args: GetVPCEConfigurationCommandInput,
@@ -1071,7 +1083,7 @@ export interface DeviceFarm {
   ): void;
   getVPCEConfiguration(
     args: GetVPCEConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: GetVPCEConfigurationCommandOutput) => void
   ): void;
 
@@ -1080,7 +1092,7 @@ export interface DeviceFarm {
    */
   installToRemoteAccessSession(
     args: InstallToRemoteAccessSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<InstallToRemoteAccessSessionCommandOutput>;
   installToRemoteAccessSession(
     args: InstallToRemoteAccessSessionCommandInput,
@@ -1088,7 +1100,7 @@ export interface DeviceFarm {
   ): void;
   installToRemoteAccessSession(
     args: InstallToRemoteAccessSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: InstallToRemoteAccessSessionCommandOutput) => void
   ): void;
 
@@ -1097,7 +1109,7 @@ export interface DeviceFarm {
    */
   listArtifacts(
     args: ListArtifactsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListArtifactsCommandOutput>;
   listArtifacts(
     args: ListArtifactsCommandInput,
@@ -1105,7 +1117,7 @@ export interface DeviceFarm {
   ): void;
   listArtifacts(
     args: ListArtifactsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListArtifactsCommandOutput) => void
   ): void;
 
@@ -1115,7 +1127,7 @@ export interface DeviceFarm {
   listDeviceInstances(): Promise<ListDeviceInstancesCommandOutput>;
   listDeviceInstances(
     args: ListDeviceInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListDeviceInstancesCommandOutput>;
   listDeviceInstances(
     args: ListDeviceInstancesCommandInput,
@@ -1123,7 +1135,7 @@ export interface DeviceFarm {
   ): void;
   listDeviceInstances(
     args: ListDeviceInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListDeviceInstancesCommandOutput) => void
   ): void;
 
@@ -1132,7 +1144,7 @@ export interface DeviceFarm {
    */
   listDevicePools(
     args: ListDevicePoolsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListDevicePoolsCommandOutput>;
   listDevicePools(
     args: ListDevicePoolsCommandInput,
@@ -1140,7 +1152,7 @@ export interface DeviceFarm {
   ): void;
   listDevicePools(
     args: ListDevicePoolsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListDevicePoolsCommandOutput) => void
   ): void;
 
@@ -1150,7 +1162,7 @@ export interface DeviceFarm {
   listDevices(): Promise<ListDevicesCommandOutput>;
   listDevices(
     args: ListDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListDevicesCommandOutput>;
   listDevices(
     args: ListDevicesCommandInput,
@@ -1158,7 +1170,7 @@ export interface DeviceFarm {
   ): void;
   listDevices(
     args: ListDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListDevicesCommandOutput) => void
   ): void;
 
@@ -1168,7 +1180,7 @@ export interface DeviceFarm {
   listInstanceProfiles(): Promise<ListInstanceProfilesCommandOutput>;
   listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListInstanceProfilesCommandOutput>;
   listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
@@ -1176,7 +1188,7 @@ export interface DeviceFarm {
   ): void;
   listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListInstanceProfilesCommandOutput) => void
   ): void;
 
@@ -1185,7 +1197,7 @@ export interface DeviceFarm {
    */
   listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
@@ -1193,7 +1205,7 @@ export interface DeviceFarm {
   ): void;
   listJobs(
     args: ListJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListJobsCommandOutput) => void
   ): void;
 
@@ -1202,7 +1214,7 @@ export interface DeviceFarm {
    */
   listNetworkProfiles(
     args: ListNetworkProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListNetworkProfilesCommandOutput>;
   listNetworkProfiles(
     args: ListNetworkProfilesCommandInput,
@@ -1210,7 +1222,7 @@ export interface DeviceFarm {
   ): void;
   listNetworkProfiles(
     args: ListNetworkProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListNetworkProfilesCommandOutput) => void
   ): void;
 
@@ -1220,7 +1232,7 @@ export interface DeviceFarm {
   listOfferingPromotions(): Promise<ListOfferingPromotionsCommandOutput>;
   listOfferingPromotions(
     args: ListOfferingPromotionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListOfferingPromotionsCommandOutput>;
   listOfferingPromotions(
     args: ListOfferingPromotionsCommandInput,
@@ -1228,7 +1240,7 @@ export interface DeviceFarm {
   ): void;
   listOfferingPromotions(
     args: ListOfferingPromotionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListOfferingPromotionsCommandOutput) => void
   ): void;
 
@@ -1238,7 +1250,7 @@ export interface DeviceFarm {
   listOfferings(): Promise<ListOfferingsCommandOutput>;
   listOfferings(
     args: ListOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListOfferingsCommandOutput>;
   listOfferings(
     args: ListOfferingsCommandInput,
@@ -1246,7 +1258,7 @@ export interface DeviceFarm {
   ): void;
   listOfferings(
     args: ListOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListOfferingsCommandOutput) => void
   ): void;
 
@@ -1256,7 +1268,7 @@ export interface DeviceFarm {
   listOfferingTransactions(): Promise<ListOfferingTransactionsCommandOutput>;
   listOfferingTransactions(
     args: ListOfferingTransactionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListOfferingTransactionsCommandOutput>;
   listOfferingTransactions(
     args: ListOfferingTransactionsCommandInput,
@@ -1264,7 +1276,7 @@ export interface DeviceFarm {
   ): void;
   listOfferingTransactions(
     args: ListOfferingTransactionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListOfferingTransactionsCommandOutput) => void
   ): void;
 
@@ -1274,7 +1286,7 @@ export interface DeviceFarm {
   listProjects(): Promise<ListProjectsCommandOutput>;
   listProjects(
     args: ListProjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListProjectsCommandOutput>;
   listProjects(
     args: ListProjectsCommandInput,
@@ -1282,7 +1294,7 @@ export interface DeviceFarm {
   ): void;
   listProjects(
     args: ListProjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListProjectsCommandOutput) => void
   ): void;
 
@@ -1291,7 +1303,7 @@ export interface DeviceFarm {
    */
   listRemoteAccessSessions(
     args: ListRemoteAccessSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListRemoteAccessSessionsCommandOutput>;
   listRemoteAccessSessions(
     args: ListRemoteAccessSessionsCommandInput,
@@ -1299,7 +1311,7 @@ export interface DeviceFarm {
   ): void;
   listRemoteAccessSessions(
     args: ListRemoteAccessSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListRemoteAccessSessionsCommandOutput) => void
   ): void;
 
@@ -1308,7 +1320,7 @@ export interface DeviceFarm {
    */
   listRuns(
     args: ListRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListRunsCommandOutput>;
   listRuns(
     args: ListRunsCommandInput,
@@ -1316,7 +1328,7 @@ export interface DeviceFarm {
   ): void;
   listRuns(
     args: ListRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListRunsCommandOutput) => void
   ): void;
 
@@ -1325,7 +1337,7 @@ export interface DeviceFarm {
    */
   listSamples(
     args: ListSamplesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListSamplesCommandOutput>;
   listSamples(
     args: ListSamplesCommandInput,
@@ -1333,7 +1345,7 @@ export interface DeviceFarm {
   ): void;
   listSamples(
     args: ListSamplesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListSamplesCommandOutput) => void
   ): void;
 
@@ -1342,7 +1354,7 @@ export interface DeviceFarm {
    */
   listSuites(
     args: ListSuitesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListSuitesCommandOutput>;
   listSuites(
     args: ListSuitesCommandInput,
@@ -1350,7 +1362,7 @@ export interface DeviceFarm {
   ): void;
   listSuites(
     args: ListSuitesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListSuitesCommandOutput) => void
   ): void;
 
@@ -1359,7 +1371,7 @@ export interface DeviceFarm {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1367,7 +1379,7 @@ export interface DeviceFarm {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1377,7 +1389,7 @@ export interface DeviceFarm {
   listTestGridProjects(): Promise<ListTestGridProjectsCommandOutput>;
   listTestGridProjects(
     args: ListTestGridProjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListTestGridProjectsCommandOutput>;
   listTestGridProjects(
     args: ListTestGridProjectsCommandInput,
@@ -1385,7 +1397,7 @@ export interface DeviceFarm {
   ): void;
   listTestGridProjects(
     args: ListTestGridProjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListTestGridProjectsCommandOutput) => void
   ): void;
 
@@ -1394,7 +1406,7 @@ export interface DeviceFarm {
    */
   listTestGridSessionActions(
     args: ListTestGridSessionActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListTestGridSessionActionsCommandOutput>;
   listTestGridSessionActions(
     args: ListTestGridSessionActionsCommandInput,
@@ -1402,7 +1414,7 @@ export interface DeviceFarm {
   ): void;
   listTestGridSessionActions(
     args: ListTestGridSessionActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListTestGridSessionActionsCommandOutput) => void
   ): void;
 
@@ -1411,7 +1423,7 @@ export interface DeviceFarm {
    */
   listTestGridSessionArtifacts(
     args: ListTestGridSessionArtifactsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListTestGridSessionArtifactsCommandOutput>;
   listTestGridSessionArtifacts(
     args: ListTestGridSessionArtifactsCommandInput,
@@ -1419,7 +1431,7 @@ export interface DeviceFarm {
   ): void;
   listTestGridSessionArtifacts(
     args: ListTestGridSessionArtifactsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListTestGridSessionArtifactsCommandOutput) => void
   ): void;
 
@@ -1428,7 +1440,7 @@ export interface DeviceFarm {
    */
   listTestGridSessions(
     args: ListTestGridSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListTestGridSessionsCommandOutput>;
   listTestGridSessions(
     args: ListTestGridSessionsCommandInput,
@@ -1436,7 +1448,7 @@ export interface DeviceFarm {
   ): void;
   listTestGridSessions(
     args: ListTestGridSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListTestGridSessionsCommandOutput) => void
   ): void;
 
@@ -1445,7 +1457,7 @@ export interface DeviceFarm {
    */
   listTests(
     args: ListTestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListTestsCommandOutput>;
   listTests(
     args: ListTestsCommandInput,
@@ -1453,7 +1465,7 @@ export interface DeviceFarm {
   ): void;
   listTests(
     args: ListTestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListTestsCommandOutput) => void
   ): void;
 
@@ -1462,7 +1474,7 @@ export interface DeviceFarm {
    */
   listUniqueProblems(
     args: ListUniqueProblemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListUniqueProblemsCommandOutput>;
   listUniqueProblems(
     args: ListUniqueProblemsCommandInput,
@@ -1470,7 +1482,7 @@ export interface DeviceFarm {
   ): void;
   listUniqueProblems(
     args: ListUniqueProblemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListUniqueProblemsCommandOutput) => void
   ): void;
 
@@ -1479,7 +1491,7 @@ export interface DeviceFarm {
    */
   listUploads(
     args: ListUploadsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListUploadsCommandOutput>;
   listUploads(
     args: ListUploadsCommandInput,
@@ -1487,7 +1499,7 @@ export interface DeviceFarm {
   ): void;
   listUploads(
     args: ListUploadsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListUploadsCommandOutput) => void
   ): void;
 
@@ -1497,7 +1509,7 @@ export interface DeviceFarm {
   listVPCEConfigurations(): Promise<ListVPCEConfigurationsCommandOutput>;
   listVPCEConfigurations(
     args: ListVPCEConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ListVPCEConfigurationsCommandOutput>;
   listVPCEConfigurations(
     args: ListVPCEConfigurationsCommandInput,
@@ -1505,7 +1517,7 @@ export interface DeviceFarm {
   ): void;
   listVPCEConfigurations(
     args: ListVPCEConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ListVPCEConfigurationsCommandOutput) => void
   ): void;
 
@@ -1514,7 +1526,7 @@ export interface DeviceFarm {
    */
   purchaseOffering(
     args: PurchaseOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<PurchaseOfferingCommandOutput>;
   purchaseOffering(
     args: PurchaseOfferingCommandInput,
@@ -1522,7 +1534,7 @@ export interface DeviceFarm {
   ): void;
   purchaseOffering(
     args: PurchaseOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: PurchaseOfferingCommandOutput) => void
   ): void;
 
@@ -1531,7 +1543,7 @@ export interface DeviceFarm {
    */
   renewOffering(
     args: RenewOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<RenewOfferingCommandOutput>;
   renewOffering(
     args: RenewOfferingCommandInput,
@@ -1539,7 +1551,7 @@ export interface DeviceFarm {
   ): void;
   renewOffering(
     args: RenewOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: RenewOfferingCommandOutput) => void
   ): void;
 
@@ -1548,7 +1560,7 @@ export interface DeviceFarm {
    */
   scheduleRun(
     args: ScheduleRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<ScheduleRunCommandOutput>;
   scheduleRun(
     args: ScheduleRunCommandInput,
@@ -1556,7 +1568,7 @@ export interface DeviceFarm {
   ): void;
   scheduleRun(
     args: ScheduleRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: ScheduleRunCommandOutput) => void
   ): void;
 
@@ -1565,7 +1577,7 @@ export interface DeviceFarm {
    */
   stopJob(
     args: StopJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<StopJobCommandOutput>;
   stopJob(
     args: StopJobCommandInput,
@@ -1573,7 +1585,7 @@ export interface DeviceFarm {
   ): void;
   stopJob(
     args: StopJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: StopJobCommandOutput) => void
   ): void;
 
@@ -1582,7 +1594,7 @@ export interface DeviceFarm {
    */
   stopRemoteAccessSession(
     args: StopRemoteAccessSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<StopRemoteAccessSessionCommandOutput>;
   stopRemoteAccessSession(
     args: StopRemoteAccessSessionCommandInput,
@@ -1590,7 +1602,7 @@ export interface DeviceFarm {
   ): void;
   stopRemoteAccessSession(
     args: StopRemoteAccessSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: StopRemoteAccessSessionCommandOutput) => void
   ): void;
 
@@ -1599,7 +1611,7 @@ export interface DeviceFarm {
    */
   stopRun(
     args: StopRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<StopRunCommandOutput>;
   stopRun(
     args: StopRunCommandInput,
@@ -1607,7 +1619,7 @@ export interface DeviceFarm {
   ): void;
   stopRun(
     args: StopRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: StopRunCommandOutput) => void
   ): void;
 
@@ -1616,7 +1628,7 @@ export interface DeviceFarm {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1624,7 +1636,7 @@ export interface DeviceFarm {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1633,7 +1645,7 @@ export interface DeviceFarm {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1641,7 +1653,7 @@ export interface DeviceFarm {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1650,7 +1662,7 @@ export interface DeviceFarm {
    */
   updateDeviceInstance(
     args: UpdateDeviceInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<UpdateDeviceInstanceCommandOutput>;
   updateDeviceInstance(
     args: UpdateDeviceInstanceCommandInput,
@@ -1658,7 +1670,7 @@ export interface DeviceFarm {
   ): void;
   updateDeviceInstance(
     args: UpdateDeviceInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: UpdateDeviceInstanceCommandOutput) => void
   ): void;
 
@@ -1667,7 +1679,7 @@ export interface DeviceFarm {
    */
   updateDevicePool(
     args: UpdateDevicePoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<UpdateDevicePoolCommandOutput>;
   updateDevicePool(
     args: UpdateDevicePoolCommandInput,
@@ -1675,7 +1687,7 @@ export interface DeviceFarm {
   ): void;
   updateDevicePool(
     args: UpdateDevicePoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: UpdateDevicePoolCommandOutput) => void
   ): void;
 
@@ -1684,7 +1696,7 @@ export interface DeviceFarm {
    */
   updateInstanceProfile(
     args: UpdateInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<UpdateInstanceProfileCommandOutput>;
   updateInstanceProfile(
     args: UpdateInstanceProfileCommandInput,
@@ -1692,7 +1704,7 @@ export interface DeviceFarm {
   ): void;
   updateInstanceProfile(
     args: UpdateInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: UpdateInstanceProfileCommandOutput) => void
   ): void;
 
@@ -1701,7 +1713,7 @@ export interface DeviceFarm {
    */
   updateNetworkProfile(
     args: UpdateNetworkProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<UpdateNetworkProfileCommandOutput>;
   updateNetworkProfile(
     args: UpdateNetworkProfileCommandInput,
@@ -1709,7 +1721,7 @@ export interface DeviceFarm {
   ): void;
   updateNetworkProfile(
     args: UpdateNetworkProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: UpdateNetworkProfileCommandOutput) => void
   ): void;
 
@@ -1718,7 +1730,7 @@ export interface DeviceFarm {
    */
   updateProject(
     args: UpdateProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<UpdateProjectCommandOutput>;
   updateProject(
     args: UpdateProjectCommandInput,
@@ -1726,7 +1738,7 @@ export interface DeviceFarm {
   ): void;
   updateProject(
     args: UpdateProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: UpdateProjectCommandOutput) => void
   ): void;
 
@@ -1735,7 +1747,7 @@ export interface DeviceFarm {
    */
   updateTestGridProject(
     args: UpdateTestGridProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<UpdateTestGridProjectCommandOutput>;
   updateTestGridProject(
     args: UpdateTestGridProjectCommandInput,
@@ -1743,7 +1755,7 @@ export interface DeviceFarm {
   ): void;
   updateTestGridProject(
     args: UpdateTestGridProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: UpdateTestGridProjectCommandOutput) => void
   ): void;
 
@@ -1752,7 +1764,7 @@ export interface DeviceFarm {
    */
   updateUpload(
     args: UpdateUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<UpdateUploadCommandOutput>;
   updateUpload(
     args: UpdateUploadCommandInput,
@@ -1760,7 +1772,7 @@ export interface DeviceFarm {
   ): void;
   updateUpload(
     args: UpdateUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: UpdateUploadCommandOutput) => void
   ): void;
 
@@ -1769,7 +1781,7 @@ export interface DeviceFarm {
    */
   updateVPCEConfiguration(
     args: UpdateVPCEConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeviceFarmRequestOptions
   ): Promise<UpdateVPCEConfigurationCommandOutput>;
   updateVPCEConfiguration(
     args: UpdateVPCEConfigurationCommandInput,
@@ -1777,7 +1789,7 @@ export interface DeviceFarm {
   ): void;
   updateVPCEConfiguration(
     args: UpdateVPCEConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeviceFarmRequestOptions,
     cb: (err: any, data?: UpdateVPCEConfigurationCommandOutput) => void
   ): void;
 

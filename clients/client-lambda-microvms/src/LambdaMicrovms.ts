@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateMicrovmAuthTokenCommandInput,
@@ -161,13 +166,20 @@ const paginators = {
   paginateListMicrovms,
 };
 
+/**
+ * @public
+ */
+export interface LambdaMicrovmsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface LambdaMicrovms {
   /**
    * @see {@link CreateMicrovmAuthTokenCommand}
    */
   createMicrovmAuthToken(
     args: CreateMicrovmAuthTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<CreateMicrovmAuthTokenCommandOutput>;
   createMicrovmAuthToken(
     args: CreateMicrovmAuthTokenCommandInput,
@@ -175,7 +187,7 @@ export interface LambdaMicrovms {
   ): void;
   createMicrovmAuthToken(
     args: CreateMicrovmAuthTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: CreateMicrovmAuthTokenCommandOutput) => void
   ): void;
 
@@ -184,7 +196,7 @@ export interface LambdaMicrovms {
    */
   createMicrovmImage(
     args: CreateMicrovmImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<CreateMicrovmImageCommandOutput>;
   createMicrovmImage(
     args: CreateMicrovmImageCommandInput,
@@ -192,7 +204,7 @@ export interface LambdaMicrovms {
   ): void;
   createMicrovmImage(
     args: CreateMicrovmImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: CreateMicrovmImageCommandOutput) => void
   ): void;
 
@@ -201,7 +213,7 @@ export interface LambdaMicrovms {
    */
   createMicrovmShellAuthToken(
     args: CreateMicrovmShellAuthTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<CreateMicrovmShellAuthTokenCommandOutput>;
   createMicrovmShellAuthToken(
     args: CreateMicrovmShellAuthTokenCommandInput,
@@ -209,7 +221,7 @@ export interface LambdaMicrovms {
   ): void;
   createMicrovmShellAuthToken(
     args: CreateMicrovmShellAuthTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: CreateMicrovmShellAuthTokenCommandOutput) => void
   ): void;
 
@@ -218,7 +230,7 @@ export interface LambdaMicrovms {
    */
   deleteMicrovmImage(
     args: DeleteMicrovmImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<DeleteMicrovmImageCommandOutput>;
   deleteMicrovmImage(
     args: DeleteMicrovmImageCommandInput,
@@ -226,7 +238,7 @@ export interface LambdaMicrovms {
   ): void;
   deleteMicrovmImage(
     args: DeleteMicrovmImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: DeleteMicrovmImageCommandOutput) => void
   ): void;
 
@@ -235,7 +247,7 @@ export interface LambdaMicrovms {
    */
   deleteMicrovmImageVersion(
     args: DeleteMicrovmImageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<DeleteMicrovmImageVersionCommandOutput>;
   deleteMicrovmImageVersion(
     args: DeleteMicrovmImageVersionCommandInput,
@@ -243,7 +255,7 @@ export interface LambdaMicrovms {
   ): void;
   deleteMicrovmImageVersion(
     args: DeleteMicrovmImageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: DeleteMicrovmImageVersionCommandOutput) => void
   ): void;
 
@@ -252,7 +264,7 @@ export interface LambdaMicrovms {
    */
   getMicrovm(
     args: GetMicrovmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<GetMicrovmCommandOutput>;
   getMicrovm(
     args: GetMicrovmCommandInput,
@@ -260,7 +272,7 @@ export interface LambdaMicrovms {
   ): void;
   getMicrovm(
     args: GetMicrovmCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: GetMicrovmCommandOutput) => void
   ): void;
 
@@ -269,7 +281,7 @@ export interface LambdaMicrovms {
    */
   getMicrovmImage(
     args: GetMicrovmImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<GetMicrovmImageCommandOutput>;
   getMicrovmImage(
     args: GetMicrovmImageCommandInput,
@@ -277,7 +289,7 @@ export interface LambdaMicrovms {
   ): void;
   getMicrovmImage(
     args: GetMicrovmImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: GetMicrovmImageCommandOutput) => void
   ): void;
 
@@ -286,7 +298,7 @@ export interface LambdaMicrovms {
    */
   getMicrovmImageBuild(
     args: GetMicrovmImageBuildCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<GetMicrovmImageBuildCommandOutput>;
   getMicrovmImageBuild(
     args: GetMicrovmImageBuildCommandInput,
@@ -294,7 +306,7 @@ export interface LambdaMicrovms {
   ): void;
   getMicrovmImageBuild(
     args: GetMicrovmImageBuildCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: GetMicrovmImageBuildCommandOutput) => void
   ): void;
 
@@ -303,7 +315,7 @@ export interface LambdaMicrovms {
    */
   getMicrovmImageVersion(
     args: GetMicrovmImageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<GetMicrovmImageVersionCommandOutput>;
   getMicrovmImageVersion(
     args: GetMicrovmImageVersionCommandInput,
@@ -311,7 +323,7 @@ export interface LambdaMicrovms {
   ): void;
   getMicrovmImageVersion(
     args: GetMicrovmImageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: GetMicrovmImageVersionCommandOutput) => void
   ): void;
 
@@ -321,7 +333,7 @@ export interface LambdaMicrovms {
   listManagedMicrovmImages(): Promise<ListManagedMicrovmImagesCommandOutput>;
   listManagedMicrovmImages(
     args: ListManagedMicrovmImagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<ListManagedMicrovmImagesCommandOutput>;
   listManagedMicrovmImages(
     args: ListManagedMicrovmImagesCommandInput,
@@ -329,7 +341,7 @@ export interface LambdaMicrovms {
   ): void;
   listManagedMicrovmImages(
     args: ListManagedMicrovmImagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: ListManagedMicrovmImagesCommandOutput) => void
   ): void;
 
@@ -338,7 +350,7 @@ export interface LambdaMicrovms {
    */
   listManagedMicrovmImageVersions(
     args: ListManagedMicrovmImageVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<ListManagedMicrovmImageVersionsCommandOutput>;
   listManagedMicrovmImageVersions(
     args: ListManagedMicrovmImageVersionsCommandInput,
@@ -346,7 +358,7 @@ export interface LambdaMicrovms {
   ): void;
   listManagedMicrovmImageVersions(
     args: ListManagedMicrovmImageVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: ListManagedMicrovmImageVersionsCommandOutput) => void
   ): void;
 
@@ -355,7 +367,7 @@ export interface LambdaMicrovms {
    */
   listMicrovmImageBuilds(
     args: ListMicrovmImageBuildsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<ListMicrovmImageBuildsCommandOutput>;
   listMicrovmImageBuilds(
     args: ListMicrovmImageBuildsCommandInput,
@@ -363,7 +375,7 @@ export interface LambdaMicrovms {
   ): void;
   listMicrovmImageBuilds(
     args: ListMicrovmImageBuildsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: ListMicrovmImageBuildsCommandOutput) => void
   ): void;
 
@@ -373,7 +385,7 @@ export interface LambdaMicrovms {
   listMicrovmImages(): Promise<ListMicrovmImagesCommandOutput>;
   listMicrovmImages(
     args: ListMicrovmImagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<ListMicrovmImagesCommandOutput>;
   listMicrovmImages(
     args: ListMicrovmImagesCommandInput,
@@ -381,7 +393,7 @@ export interface LambdaMicrovms {
   ): void;
   listMicrovmImages(
     args: ListMicrovmImagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: ListMicrovmImagesCommandOutput) => void
   ): void;
 
@@ -390,7 +402,7 @@ export interface LambdaMicrovms {
    */
   listMicrovmImageVersions(
     args: ListMicrovmImageVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<ListMicrovmImageVersionsCommandOutput>;
   listMicrovmImageVersions(
     args: ListMicrovmImageVersionsCommandInput,
@@ -398,7 +410,7 @@ export interface LambdaMicrovms {
   ): void;
   listMicrovmImageVersions(
     args: ListMicrovmImageVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: ListMicrovmImageVersionsCommandOutput) => void
   ): void;
 
@@ -408,7 +420,7 @@ export interface LambdaMicrovms {
   listMicrovms(): Promise<ListMicrovmsCommandOutput>;
   listMicrovms(
     args: ListMicrovmsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<ListMicrovmsCommandOutput>;
   listMicrovms(
     args: ListMicrovmsCommandInput,
@@ -416,7 +428,7 @@ export interface LambdaMicrovms {
   ): void;
   listMicrovms(
     args: ListMicrovmsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: ListMicrovmsCommandOutput) => void
   ): void;
 
@@ -425,7 +437,7 @@ export interface LambdaMicrovms {
    */
   listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<ListTagsCommandOutput>;
   listTags(
     args: ListTagsCommandInput,
@@ -433,7 +445,7 @@ export interface LambdaMicrovms {
   ): void;
   listTags(
     args: ListTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: ListTagsCommandOutput) => void
   ): void;
 
@@ -442,7 +454,7 @@ export interface LambdaMicrovms {
    */
   resumeMicrovm(
     args: ResumeMicrovmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<ResumeMicrovmCommandOutput>;
   resumeMicrovm(
     args: ResumeMicrovmCommandInput,
@@ -450,7 +462,7 @@ export interface LambdaMicrovms {
   ): void;
   resumeMicrovm(
     args: ResumeMicrovmCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: ResumeMicrovmCommandOutput) => void
   ): void;
 
@@ -459,7 +471,7 @@ export interface LambdaMicrovms {
    */
   runMicrovm(
     args: RunMicrovmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<RunMicrovmCommandOutput>;
   runMicrovm(
     args: RunMicrovmCommandInput,
@@ -467,7 +479,7 @@ export interface LambdaMicrovms {
   ): void;
   runMicrovm(
     args: RunMicrovmCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: RunMicrovmCommandOutput) => void
   ): void;
 
@@ -476,7 +488,7 @@ export interface LambdaMicrovms {
    */
   suspendMicrovm(
     args: SuspendMicrovmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<SuspendMicrovmCommandOutput>;
   suspendMicrovm(
     args: SuspendMicrovmCommandInput,
@@ -484,7 +496,7 @@ export interface LambdaMicrovms {
   ): void;
   suspendMicrovm(
     args: SuspendMicrovmCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: SuspendMicrovmCommandOutput) => void
   ): void;
 
@@ -493,7 +505,7 @@ export interface LambdaMicrovms {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -501,7 +513,7 @@ export interface LambdaMicrovms {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -510,7 +522,7 @@ export interface LambdaMicrovms {
    */
   terminateMicrovm(
     args: TerminateMicrovmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<TerminateMicrovmCommandOutput>;
   terminateMicrovm(
     args: TerminateMicrovmCommandInput,
@@ -518,7 +530,7 @@ export interface LambdaMicrovms {
   ): void;
   terminateMicrovm(
     args: TerminateMicrovmCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: TerminateMicrovmCommandOutput) => void
   ): void;
 
@@ -527,7 +539,7 @@ export interface LambdaMicrovms {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -535,7 +547,7 @@ export interface LambdaMicrovms {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -544,7 +556,7 @@ export interface LambdaMicrovms {
    */
   updateMicrovmImage(
     args: UpdateMicrovmImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<UpdateMicrovmImageCommandOutput>;
   updateMicrovmImage(
     args: UpdateMicrovmImageCommandInput,
@@ -552,7 +564,7 @@ export interface LambdaMicrovms {
   ): void;
   updateMicrovmImage(
     args: UpdateMicrovmImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: UpdateMicrovmImageCommandOutput) => void
   ): void;
 
@@ -561,7 +573,7 @@ export interface LambdaMicrovms {
    */
   updateMicrovmImageVersion(
     args: UpdateMicrovmImageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaMicrovmsRequestOptions
   ): Promise<UpdateMicrovmImageVersionCommandOutput>;
   updateMicrovmImageVersion(
     args: UpdateMicrovmImageVersionCommandInput,
@@ -569,7 +581,7 @@ export interface LambdaMicrovms {
   ): void;
   updateMicrovmImageVersion(
     args: UpdateMicrovmImageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaMicrovmsRequestOptions,
     cb: (err: any, data?: UpdateMicrovmImageVersionCommandOutput) => void
   ): void;
 

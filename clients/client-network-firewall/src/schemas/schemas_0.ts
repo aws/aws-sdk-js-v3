@@ -662,10 +662,10 @@ import {
 import { NetworkFirewallServiceException } from "../models/NetworkFirewallServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var NetworkFirewallServiceException$: StaticErrorSchema = [-3, _s, "NetworkFirewallServiceException", 0, [], []];
 _s_registry.registerError(NetworkFirewallServiceException$, NetworkFirewallServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var InsufficientCapacityException$: StaticErrorSchema = [-3, n0, _ICE,
   { [_e]: _se },
   [_M],

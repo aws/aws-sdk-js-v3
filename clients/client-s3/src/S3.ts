@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -696,13 +697,20 @@ const waiters = {
   waitUntilObjectNotExists,
 };
 
+/**
+ * @public
+ */
+export interface S3RequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface S3 {
   /**
    * @see {@link AbortMultipartUploadCommand}
    */
   abortMultipartUpload(
     args: AbortMultipartUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<AbortMultipartUploadCommandOutput>;
   abortMultipartUpload(
     args: AbortMultipartUploadCommandInput,
@@ -710,7 +718,7 @@ export interface S3 {
   ): void;
   abortMultipartUpload(
     args: AbortMultipartUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: AbortMultipartUploadCommandOutput) => void
   ): void;
 
@@ -719,7 +727,7 @@ export interface S3 {
    */
   completeMultipartUpload(
     args: CompleteMultipartUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<CompleteMultipartUploadCommandOutput>;
   completeMultipartUpload(
     args: CompleteMultipartUploadCommandInput,
@@ -727,7 +735,7 @@ export interface S3 {
   ): void;
   completeMultipartUpload(
     args: CompleteMultipartUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: CompleteMultipartUploadCommandOutput) => void
   ): void;
 
@@ -736,7 +744,7 @@ export interface S3 {
    */
   copyObject(
     args: CopyObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<CopyObjectCommandOutput>;
   copyObject(
     args: CopyObjectCommandInput,
@@ -744,7 +752,7 @@ export interface S3 {
   ): void;
   copyObject(
     args: CopyObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: CopyObjectCommandOutput) => void
   ): void;
 
@@ -753,7 +761,7 @@ export interface S3 {
    */
   createBucket(
     args: CreateBucketCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<CreateBucketCommandOutput>;
   createBucket(
     args: CreateBucketCommandInput,
@@ -761,7 +769,7 @@ export interface S3 {
   ): void;
   createBucket(
     args: CreateBucketCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: CreateBucketCommandOutput) => void
   ): void;
 
@@ -770,7 +778,7 @@ export interface S3 {
    */
   createBucketMetadataConfiguration(
     args: CreateBucketMetadataConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<CreateBucketMetadataConfigurationCommandOutput>;
   createBucketMetadataConfiguration(
     args: CreateBucketMetadataConfigurationCommandInput,
@@ -778,7 +786,7 @@ export interface S3 {
   ): void;
   createBucketMetadataConfiguration(
     args: CreateBucketMetadataConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: CreateBucketMetadataConfigurationCommandOutput) => void
   ): void;
 
@@ -787,7 +795,7 @@ export interface S3 {
    */
   createBucketMetadataTableConfiguration(
     args: CreateBucketMetadataTableConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<CreateBucketMetadataTableConfigurationCommandOutput>;
   createBucketMetadataTableConfiguration(
     args: CreateBucketMetadataTableConfigurationCommandInput,
@@ -795,7 +803,7 @@ export interface S3 {
   ): void;
   createBucketMetadataTableConfiguration(
     args: CreateBucketMetadataTableConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: CreateBucketMetadataTableConfigurationCommandOutput) => void
   ): void;
 
@@ -804,7 +812,7 @@ export interface S3 {
    */
   createMultipartUpload(
     args: CreateMultipartUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<CreateMultipartUploadCommandOutput>;
   createMultipartUpload(
     args: CreateMultipartUploadCommandInput,
@@ -812,7 +820,7 @@ export interface S3 {
   ): void;
   createMultipartUpload(
     args: CreateMultipartUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: CreateMultipartUploadCommandOutput) => void
   ): void;
 
@@ -821,7 +829,7 @@ export interface S3 {
    */
   createSession(
     args: CreateSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<CreateSessionCommandOutput>;
   createSession(
     args: CreateSessionCommandInput,
@@ -829,7 +837,7 @@ export interface S3 {
   ): void;
   createSession(
     args: CreateSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: CreateSessionCommandOutput) => void
   ): void;
 
@@ -838,7 +846,7 @@ export interface S3 {
    */
   deleteBucket(
     args: DeleteBucketCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketCommandOutput>;
   deleteBucket(
     args: DeleteBucketCommandInput,
@@ -846,7 +854,7 @@ export interface S3 {
   ): void;
   deleteBucket(
     args: DeleteBucketCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketCommandOutput) => void
   ): void;
 
@@ -855,7 +863,7 @@ export interface S3 {
    */
   deleteBucketAnalyticsConfiguration(
     args: DeleteBucketAnalyticsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketAnalyticsConfigurationCommandOutput>;
   deleteBucketAnalyticsConfiguration(
     args: DeleteBucketAnalyticsConfigurationCommandInput,
@@ -863,7 +871,7 @@ export interface S3 {
   ): void;
   deleteBucketAnalyticsConfiguration(
     args: DeleteBucketAnalyticsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketAnalyticsConfigurationCommandOutput) => void
   ): void;
 
@@ -872,7 +880,7 @@ export interface S3 {
    */
   deleteBucketCors(
     args: DeleteBucketCorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketCorsCommandOutput>;
   deleteBucketCors(
     args: DeleteBucketCorsCommandInput,
@@ -880,7 +888,7 @@ export interface S3 {
   ): void;
   deleteBucketCors(
     args: DeleteBucketCorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketCorsCommandOutput) => void
   ): void;
 
@@ -889,7 +897,7 @@ export interface S3 {
    */
   deleteBucketEncryption(
     args: DeleteBucketEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketEncryptionCommandOutput>;
   deleteBucketEncryption(
     args: DeleteBucketEncryptionCommandInput,
@@ -897,7 +905,7 @@ export interface S3 {
   ): void;
   deleteBucketEncryption(
     args: DeleteBucketEncryptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketEncryptionCommandOutput) => void
   ): void;
 
@@ -906,7 +914,7 @@ export interface S3 {
    */
   deleteBucketIntelligentTieringConfiguration(
     args: DeleteBucketIntelligentTieringConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketIntelligentTieringConfigurationCommandOutput>;
   deleteBucketIntelligentTieringConfiguration(
     args: DeleteBucketIntelligentTieringConfigurationCommandInput,
@@ -914,7 +922,7 @@ export interface S3 {
   ): void;
   deleteBucketIntelligentTieringConfiguration(
     args: DeleteBucketIntelligentTieringConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketIntelligentTieringConfigurationCommandOutput) => void
   ): void;
 
@@ -923,7 +931,7 @@ export interface S3 {
    */
   deleteBucketInventoryConfiguration(
     args: DeleteBucketInventoryConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketInventoryConfigurationCommandOutput>;
   deleteBucketInventoryConfiguration(
     args: DeleteBucketInventoryConfigurationCommandInput,
@@ -931,7 +939,7 @@ export interface S3 {
   ): void;
   deleteBucketInventoryConfiguration(
     args: DeleteBucketInventoryConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketInventoryConfigurationCommandOutput) => void
   ): void;
 
@@ -940,7 +948,7 @@ export interface S3 {
    */
   deleteBucketLifecycle(
     args: DeleteBucketLifecycleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketLifecycleCommandOutput>;
   deleteBucketLifecycle(
     args: DeleteBucketLifecycleCommandInput,
@@ -948,7 +956,7 @@ export interface S3 {
   ): void;
   deleteBucketLifecycle(
     args: DeleteBucketLifecycleCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketLifecycleCommandOutput) => void
   ): void;
 
@@ -957,7 +965,7 @@ export interface S3 {
    */
   deleteBucketMetadataConfiguration(
     args: DeleteBucketMetadataConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketMetadataConfigurationCommandOutput>;
   deleteBucketMetadataConfiguration(
     args: DeleteBucketMetadataConfigurationCommandInput,
@@ -965,7 +973,7 @@ export interface S3 {
   ): void;
   deleteBucketMetadataConfiguration(
     args: DeleteBucketMetadataConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketMetadataConfigurationCommandOutput) => void
   ): void;
 
@@ -974,7 +982,7 @@ export interface S3 {
    */
   deleteBucketMetadataTableConfiguration(
     args: DeleteBucketMetadataTableConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketMetadataTableConfigurationCommandOutput>;
   deleteBucketMetadataTableConfiguration(
     args: DeleteBucketMetadataTableConfigurationCommandInput,
@@ -982,7 +990,7 @@ export interface S3 {
   ): void;
   deleteBucketMetadataTableConfiguration(
     args: DeleteBucketMetadataTableConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketMetadataTableConfigurationCommandOutput) => void
   ): void;
 
@@ -991,7 +999,7 @@ export interface S3 {
    */
   deleteBucketMetricsConfiguration(
     args: DeleteBucketMetricsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketMetricsConfigurationCommandOutput>;
   deleteBucketMetricsConfiguration(
     args: DeleteBucketMetricsConfigurationCommandInput,
@@ -999,7 +1007,7 @@ export interface S3 {
   ): void;
   deleteBucketMetricsConfiguration(
     args: DeleteBucketMetricsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketMetricsConfigurationCommandOutput) => void
   ): void;
 
@@ -1008,7 +1016,7 @@ export interface S3 {
    */
   deleteBucketOwnershipControls(
     args: DeleteBucketOwnershipControlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketOwnershipControlsCommandOutput>;
   deleteBucketOwnershipControls(
     args: DeleteBucketOwnershipControlsCommandInput,
@@ -1016,7 +1024,7 @@ export interface S3 {
   ): void;
   deleteBucketOwnershipControls(
     args: DeleteBucketOwnershipControlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketOwnershipControlsCommandOutput) => void
   ): void;
 
@@ -1025,7 +1033,7 @@ export interface S3 {
    */
   deleteBucketPolicy(
     args: DeleteBucketPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketPolicyCommandOutput>;
   deleteBucketPolicy(
     args: DeleteBucketPolicyCommandInput,
@@ -1033,7 +1041,7 @@ export interface S3 {
   ): void;
   deleteBucketPolicy(
     args: DeleteBucketPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketPolicyCommandOutput) => void
   ): void;
 
@@ -1042,7 +1050,7 @@ export interface S3 {
    */
   deleteBucketReplication(
     args: DeleteBucketReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketReplicationCommandOutput>;
   deleteBucketReplication(
     args: DeleteBucketReplicationCommandInput,
@@ -1050,7 +1058,7 @@ export interface S3 {
   ): void;
   deleteBucketReplication(
     args: DeleteBucketReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketReplicationCommandOutput) => void
   ): void;
 
@@ -1059,7 +1067,7 @@ export interface S3 {
    */
   deleteBucketTagging(
     args: DeleteBucketTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketTaggingCommandOutput>;
   deleteBucketTagging(
     args: DeleteBucketTaggingCommandInput,
@@ -1067,7 +1075,7 @@ export interface S3 {
   ): void;
   deleteBucketTagging(
     args: DeleteBucketTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketTaggingCommandOutput) => void
   ): void;
 
@@ -1076,7 +1084,7 @@ export interface S3 {
    */
   deleteBucketWebsite(
     args: DeleteBucketWebsiteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteBucketWebsiteCommandOutput>;
   deleteBucketWebsite(
     args: DeleteBucketWebsiteCommandInput,
@@ -1084,7 +1092,7 @@ export interface S3 {
   ): void;
   deleteBucketWebsite(
     args: DeleteBucketWebsiteCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteBucketWebsiteCommandOutput) => void
   ): void;
 
@@ -1093,7 +1101,7 @@ export interface S3 {
    */
   deleteObject(
     args: DeleteObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteObjectCommandOutput>;
   deleteObject(
     args: DeleteObjectCommandInput,
@@ -1101,7 +1109,7 @@ export interface S3 {
   ): void;
   deleteObject(
     args: DeleteObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteObjectCommandOutput) => void
   ): void;
 
@@ -1110,7 +1118,7 @@ export interface S3 {
    */
   deleteObjectAnnotation(
     args: DeleteObjectAnnotationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteObjectAnnotationCommandOutput>;
   deleteObjectAnnotation(
     args: DeleteObjectAnnotationCommandInput,
@@ -1118,7 +1126,7 @@ export interface S3 {
   ): void;
   deleteObjectAnnotation(
     args: DeleteObjectAnnotationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteObjectAnnotationCommandOutput) => void
   ): void;
 
@@ -1127,7 +1135,7 @@ export interface S3 {
    */
   deleteObjects(
     args: DeleteObjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteObjectsCommandOutput>;
   deleteObjects(
     args: DeleteObjectsCommandInput,
@@ -1135,7 +1143,7 @@ export interface S3 {
   ): void;
   deleteObjects(
     args: DeleteObjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteObjectsCommandOutput) => void
   ): void;
 
@@ -1144,7 +1152,7 @@ export interface S3 {
    */
   deleteObjectTagging(
     args: DeleteObjectTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeleteObjectTaggingCommandOutput>;
   deleteObjectTagging(
     args: DeleteObjectTaggingCommandInput,
@@ -1152,7 +1160,7 @@ export interface S3 {
   ): void;
   deleteObjectTagging(
     args: DeleteObjectTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeleteObjectTaggingCommandOutput) => void
   ): void;
 
@@ -1161,7 +1169,7 @@ export interface S3 {
    */
   deletePublicAccessBlock(
     args: DeletePublicAccessBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<DeletePublicAccessBlockCommandOutput>;
   deletePublicAccessBlock(
     args: DeletePublicAccessBlockCommandInput,
@@ -1169,7 +1177,7 @@ export interface S3 {
   ): void;
   deletePublicAccessBlock(
     args: DeletePublicAccessBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: DeletePublicAccessBlockCommandOutput) => void
   ): void;
 
@@ -1178,7 +1186,7 @@ export interface S3 {
    */
   getBucketAbac(
     args: GetBucketAbacCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketAbacCommandOutput>;
   getBucketAbac(
     args: GetBucketAbacCommandInput,
@@ -1186,7 +1194,7 @@ export interface S3 {
   ): void;
   getBucketAbac(
     args: GetBucketAbacCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketAbacCommandOutput) => void
   ): void;
 
@@ -1195,7 +1203,7 @@ export interface S3 {
    */
   getBucketAccelerateConfiguration(
     args: GetBucketAccelerateConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketAccelerateConfigurationCommandOutput>;
   getBucketAccelerateConfiguration(
     args: GetBucketAccelerateConfigurationCommandInput,
@@ -1203,7 +1211,7 @@ export interface S3 {
   ): void;
   getBucketAccelerateConfiguration(
     args: GetBucketAccelerateConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketAccelerateConfigurationCommandOutput) => void
   ): void;
 
@@ -1212,7 +1220,7 @@ export interface S3 {
    */
   getBucketAcl(
     args: GetBucketAclCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketAclCommandOutput>;
   getBucketAcl(
     args: GetBucketAclCommandInput,
@@ -1220,7 +1228,7 @@ export interface S3 {
   ): void;
   getBucketAcl(
     args: GetBucketAclCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketAclCommandOutput) => void
   ): void;
 
@@ -1229,7 +1237,7 @@ export interface S3 {
    */
   getBucketAnalyticsConfiguration(
     args: GetBucketAnalyticsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketAnalyticsConfigurationCommandOutput>;
   getBucketAnalyticsConfiguration(
     args: GetBucketAnalyticsConfigurationCommandInput,
@@ -1237,7 +1245,7 @@ export interface S3 {
   ): void;
   getBucketAnalyticsConfiguration(
     args: GetBucketAnalyticsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketAnalyticsConfigurationCommandOutput) => void
   ): void;
 
@@ -1246,7 +1254,7 @@ export interface S3 {
    */
   getBucketCors(
     args: GetBucketCorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketCorsCommandOutput>;
   getBucketCors(
     args: GetBucketCorsCommandInput,
@@ -1254,7 +1262,7 @@ export interface S3 {
   ): void;
   getBucketCors(
     args: GetBucketCorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketCorsCommandOutput) => void
   ): void;
 
@@ -1263,7 +1271,7 @@ export interface S3 {
    */
   getBucketEncryption(
     args: GetBucketEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketEncryptionCommandOutput>;
   getBucketEncryption(
     args: GetBucketEncryptionCommandInput,
@@ -1271,7 +1279,7 @@ export interface S3 {
   ): void;
   getBucketEncryption(
     args: GetBucketEncryptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketEncryptionCommandOutput) => void
   ): void;
 
@@ -1280,7 +1288,7 @@ export interface S3 {
    */
   getBucketIntelligentTieringConfiguration(
     args: GetBucketIntelligentTieringConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketIntelligentTieringConfigurationCommandOutput>;
   getBucketIntelligentTieringConfiguration(
     args: GetBucketIntelligentTieringConfigurationCommandInput,
@@ -1288,7 +1296,7 @@ export interface S3 {
   ): void;
   getBucketIntelligentTieringConfiguration(
     args: GetBucketIntelligentTieringConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketIntelligentTieringConfigurationCommandOutput) => void
   ): void;
 
@@ -1297,7 +1305,7 @@ export interface S3 {
    */
   getBucketInventoryConfiguration(
     args: GetBucketInventoryConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketInventoryConfigurationCommandOutput>;
   getBucketInventoryConfiguration(
     args: GetBucketInventoryConfigurationCommandInput,
@@ -1305,7 +1313,7 @@ export interface S3 {
   ): void;
   getBucketInventoryConfiguration(
     args: GetBucketInventoryConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketInventoryConfigurationCommandOutput) => void
   ): void;
 
@@ -1314,7 +1322,7 @@ export interface S3 {
    */
   getBucketLifecycleConfiguration(
     args: GetBucketLifecycleConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketLifecycleConfigurationCommandOutput>;
   getBucketLifecycleConfiguration(
     args: GetBucketLifecycleConfigurationCommandInput,
@@ -1322,7 +1330,7 @@ export interface S3 {
   ): void;
   getBucketLifecycleConfiguration(
     args: GetBucketLifecycleConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketLifecycleConfigurationCommandOutput) => void
   ): void;
 
@@ -1331,7 +1339,7 @@ export interface S3 {
    */
   getBucketLocation(
     args: GetBucketLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketLocationCommandOutput>;
   getBucketLocation(
     args: GetBucketLocationCommandInput,
@@ -1339,7 +1347,7 @@ export interface S3 {
   ): void;
   getBucketLocation(
     args: GetBucketLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketLocationCommandOutput) => void
   ): void;
 
@@ -1348,7 +1356,7 @@ export interface S3 {
    */
   getBucketLogging(
     args: GetBucketLoggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketLoggingCommandOutput>;
   getBucketLogging(
     args: GetBucketLoggingCommandInput,
@@ -1356,7 +1364,7 @@ export interface S3 {
   ): void;
   getBucketLogging(
     args: GetBucketLoggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketLoggingCommandOutput) => void
   ): void;
 
@@ -1365,7 +1373,7 @@ export interface S3 {
    */
   getBucketMetadataConfiguration(
     args: GetBucketMetadataConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketMetadataConfigurationCommandOutput>;
   getBucketMetadataConfiguration(
     args: GetBucketMetadataConfigurationCommandInput,
@@ -1373,7 +1381,7 @@ export interface S3 {
   ): void;
   getBucketMetadataConfiguration(
     args: GetBucketMetadataConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketMetadataConfigurationCommandOutput) => void
   ): void;
 
@@ -1382,7 +1390,7 @@ export interface S3 {
    */
   getBucketMetadataTableConfiguration(
     args: GetBucketMetadataTableConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketMetadataTableConfigurationCommandOutput>;
   getBucketMetadataTableConfiguration(
     args: GetBucketMetadataTableConfigurationCommandInput,
@@ -1390,7 +1398,7 @@ export interface S3 {
   ): void;
   getBucketMetadataTableConfiguration(
     args: GetBucketMetadataTableConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketMetadataTableConfigurationCommandOutput) => void
   ): void;
 
@@ -1399,7 +1407,7 @@ export interface S3 {
    */
   getBucketMetricsConfiguration(
     args: GetBucketMetricsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketMetricsConfigurationCommandOutput>;
   getBucketMetricsConfiguration(
     args: GetBucketMetricsConfigurationCommandInput,
@@ -1407,7 +1415,7 @@ export interface S3 {
   ): void;
   getBucketMetricsConfiguration(
     args: GetBucketMetricsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketMetricsConfigurationCommandOutput) => void
   ): void;
 
@@ -1416,7 +1424,7 @@ export interface S3 {
    */
   getBucketNotificationConfiguration(
     args: GetBucketNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketNotificationConfigurationCommandOutput>;
   getBucketNotificationConfiguration(
     args: GetBucketNotificationConfigurationCommandInput,
@@ -1424,7 +1432,7 @@ export interface S3 {
   ): void;
   getBucketNotificationConfiguration(
     args: GetBucketNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketNotificationConfigurationCommandOutput) => void
   ): void;
 
@@ -1433,7 +1441,7 @@ export interface S3 {
    */
   getBucketOwnershipControls(
     args: GetBucketOwnershipControlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketOwnershipControlsCommandOutput>;
   getBucketOwnershipControls(
     args: GetBucketOwnershipControlsCommandInput,
@@ -1441,7 +1449,7 @@ export interface S3 {
   ): void;
   getBucketOwnershipControls(
     args: GetBucketOwnershipControlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketOwnershipControlsCommandOutput) => void
   ): void;
 
@@ -1450,7 +1458,7 @@ export interface S3 {
    */
   getBucketPolicy(
     args: GetBucketPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketPolicyCommandOutput>;
   getBucketPolicy(
     args: GetBucketPolicyCommandInput,
@@ -1458,7 +1466,7 @@ export interface S3 {
   ): void;
   getBucketPolicy(
     args: GetBucketPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketPolicyCommandOutput) => void
   ): void;
 
@@ -1467,7 +1475,7 @@ export interface S3 {
    */
   getBucketPolicyStatus(
     args: GetBucketPolicyStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketPolicyStatusCommandOutput>;
   getBucketPolicyStatus(
     args: GetBucketPolicyStatusCommandInput,
@@ -1475,7 +1483,7 @@ export interface S3 {
   ): void;
   getBucketPolicyStatus(
     args: GetBucketPolicyStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketPolicyStatusCommandOutput) => void
   ): void;
 
@@ -1484,7 +1492,7 @@ export interface S3 {
    */
   getBucketReplication(
     args: GetBucketReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketReplicationCommandOutput>;
   getBucketReplication(
     args: GetBucketReplicationCommandInput,
@@ -1492,7 +1500,7 @@ export interface S3 {
   ): void;
   getBucketReplication(
     args: GetBucketReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketReplicationCommandOutput) => void
   ): void;
 
@@ -1501,7 +1509,7 @@ export interface S3 {
    */
   getBucketRequestPayment(
     args: GetBucketRequestPaymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketRequestPaymentCommandOutput>;
   getBucketRequestPayment(
     args: GetBucketRequestPaymentCommandInput,
@@ -1509,7 +1517,7 @@ export interface S3 {
   ): void;
   getBucketRequestPayment(
     args: GetBucketRequestPaymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketRequestPaymentCommandOutput) => void
   ): void;
 
@@ -1518,7 +1526,7 @@ export interface S3 {
    */
   getBucketTagging(
     args: GetBucketTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketTaggingCommandOutput>;
   getBucketTagging(
     args: GetBucketTaggingCommandInput,
@@ -1526,7 +1534,7 @@ export interface S3 {
   ): void;
   getBucketTagging(
     args: GetBucketTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketTaggingCommandOutput) => void
   ): void;
 
@@ -1535,7 +1543,7 @@ export interface S3 {
    */
   getBucketVersioning(
     args: GetBucketVersioningCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketVersioningCommandOutput>;
   getBucketVersioning(
     args: GetBucketVersioningCommandInput,
@@ -1543,7 +1551,7 @@ export interface S3 {
   ): void;
   getBucketVersioning(
     args: GetBucketVersioningCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketVersioningCommandOutput) => void
   ): void;
 
@@ -1552,7 +1560,7 @@ export interface S3 {
    */
   getBucketWebsite(
     args: GetBucketWebsiteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetBucketWebsiteCommandOutput>;
   getBucketWebsite(
     args: GetBucketWebsiteCommandInput,
@@ -1560,7 +1568,7 @@ export interface S3 {
   ): void;
   getBucketWebsite(
     args: GetBucketWebsiteCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetBucketWebsiteCommandOutput) => void
   ): void;
 
@@ -1569,7 +1577,7 @@ export interface S3 {
    */
   getObject(
     args: GetObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetObjectCommandOutput>;
   getObject(
     args: GetObjectCommandInput,
@@ -1577,7 +1585,7 @@ export interface S3 {
   ): void;
   getObject(
     args: GetObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetObjectCommandOutput) => void
   ): void;
 
@@ -1586,7 +1594,7 @@ export interface S3 {
    */
   getObjectAcl(
     args: GetObjectAclCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetObjectAclCommandOutput>;
   getObjectAcl(
     args: GetObjectAclCommandInput,
@@ -1594,7 +1602,7 @@ export interface S3 {
   ): void;
   getObjectAcl(
     args: GetObjectAclCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetObjectAclCommandOutput) => void
   ): void;
 
@@ -1603,7 +1611,7 @@ export interface S3 {
    */
   getObjectAnnotation(
     args: GetObjectAnnotationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetObjectAnnotationCommandOutput>;
   getObjectAnnotation(
     args: GetObjectAnnotationCommandInput,
@@ -1611,7 +1619,7 @@ export interface S3 {
   ): void;
   getObjectAnnotation(
     args: GetObjectAnnotationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetObjectAnnotationCommandOutput) => void
   ): void;
 
@@ -1620,7 +1628,7 @@ export interface S3 {
    */
   getObjectAttributes(
     args: GetObjectAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetObjectAttributesCommandOutput>;
   getObjectAttributes(
     args: GetObjectAttributesCommandInput,
@@ -1628,7 +1636,7 @@ export interface S3 {
   ): void;
   getObjectAttributes(
     args: GetObjectAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetObjectAttributesCommandOutput) => void
   ): void;
 
@@ -1637,7 +1645,7 @@ export interface S3 {
    */
   getObjectLegalHold(
     args: GetObjectLegalHoldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetObjectLegalHoldCommandOutput>;
   getObjectLegalHold(
     args: GetObjectLegalHoldCommandInput,
@@ -1645,7 +1653,7 @@ export interface S3 {
   ): void;
   getObjectLegalHold(
     args: GetObjectLegalHoldCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetObjectLegalHoldCommandOutput) => void
   ): void;
 
@@ -1654,7 +1662,7 @@ export interface S3 {
    */
   getObjectLockConfiguration(
     args: GetObjectLockConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetObjectLockConfigurationCommandOutput>;
   getObjectLockConfiguration(
     args: GetObjectLockConfigurationCommandInput,
@@ -1662,7 +1670,7 @@ export interface S3 {
   ): void;
   getObjectLockConfiguration(
     args: GetObjectLockConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetObjectLockConfigurationCommandOutput) => void
   ): void;
 
@@ -1671,7 +1679,7 @@ export interface S3 {
    */
   getObjectRetention(
     args: GetObjectRetentionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetObjectRetentionCommandOutput>;
   getObjectRetention(
     args: GetObjectRetentionCommandInput,
@@ -1679,7 +1687,7 @@ export interface S3 {
   ): void;
   getObjectRetention(
     args: GetObjectRetentionCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetObjectRetentionCommandOutput) => void
   ): void;
 
@@ -1688,7 +1696,7 @@ export interface S3 {
    */
   getObjectTagging(
     args: GetObjectTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetObjectTaggingCommandOutput>;
   getObjectTagging(
     args: GetObjectTaggingCommandInput,
@@ -1696,7 +1704,7 @@ export interface S3 {
   ): void;
   getObjectTagging(
     args: GetObjectTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetObjectTaggingCommandOutput) => void
   ): void;
 
@@ -1705,7 +1713,7 @@ export interface S3 {
    */
   getObjectTorrent(
     args: GetObjectTorrentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetObjectTorrentCommandOutput>;
   getObjectTorrent(
     args: GetObjectTorrentCommandInput,
@@ -1713,7 +1721,7 @@ export interface S3 {
   ): void;
   getObjectTorrent(
     args: GetObjectTorrentCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetObjectTorrentCommandOutput) => void
   ): void;
 
@@ -1722,7 +1730,7 @@ export interface S3 {
    */
   getPublicAccessBlock(
     args: GetPublicAccessBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<GetPublicAccessBlockCommandOutput>;
   getPublicAccessBlock(
     args: GetPublicAccessBlockCommandInput,
@@ -1730,7 +1738,7 @@ export interface S3 {
   ): void;
   getPublicAccessBlock(
     args: GetPublicAccessBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: GetPublicAccessBlockCommandOutput) => void
   ): void;
 
@@ -1739,7 +1747,7 @@ export interface S3 {
    */
   headBucket(
     args: HeadBucketCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<HeadBucketCommandOutput>;
   headBucket(
     args: HeadBucketCommandInput,
@@ -1747,7 +1755,7 @@ export interface S3 {
   ): void;
   headBucket(
     args: HeadBucketCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: HeadBucketCommandOutput) => void
   ): void;
 
@@ -1756,7 +1764,7 @@ export interface S3 {
    */
   headObject(
     args: HeadObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<HeadObjectCommandOutput>;
   headObject(
     args: HeadObjectCommandInput,
@@ -1764,7 +1772,7 @@ export interface S3 {
   ): void;
   headObject(
     args: HeadObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: HeadObjectCommandOutput) => void
   ): void;
 
@@ -1773,7 +1781,7 @@ export interface S3 {
    */
   listBucketAnalyticsConfigurations(
     args: ListBucketAnalyticsConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListBucketAnalyticsConfigurationsCommandOutput>;
   listBucketAnalyticsConfigurations(
     args: ListBucketAnalyticsConfigurationsCommandInput,
@@ -1781,7 +1789,7 @@ export interface S3 {
   ): void;
   listBucketAnalyticsConfigurations(
     args: ListBucketAnalyticsConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListBucketAnalyticsConfigurationsCommandOutput) => void
   ): void;
 
@@ -1790,7 +1798,7 @@ export interface S3 {
    */
   listBucketIntelligentTieringConfigurations(
     args: ListBucketIntelligentTieringConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListBucketIntelligentTieringConfigurationsCommandOutput>;
   listBucketIntelligentTieringConfigurations(
     args: ListBucketIntelligentTieringConfigurationsCommandInput,
@@ -1798,7 +1806,7 @@ export interface S3 {
   ): void;
   listBucketIntelligentTieringConfigurations(
     args: ListBucketIntelligentTieringConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListBucketIntelligentTieringConfigurationsCommandOutput) => void
   ): void;
 
@@ -1807,7 +1815,7 @@ export interface S3 {
    */
   listBucketInventoryConfigurations(
     args: ListBucketInventoryConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListBucketInventoryConfigurationsCommandOutput>;
   listBucketInventoryConfigurations(
     args: ListBucketInventoryConfigurationsCommandInput,
@@ -1815,7 +1823,7 @@ export interface S3 {
   ): void;
   listBucketInventoryConfigurations(
     args: ListBucketInventoryConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListBucketInventoryConfigurationsCommandOutput) => void
   ): void;
 
@@ -1824,7 +1832,7 @@ export interface S3 {
    */
   listBucketMetricsConfigurations(
     args: ListBucketMetricsConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListBucketMetricsConfigurationsCommandOutput>;
   listBucketMetricsConfigurations(
     args: ListBucketMetricsConfigurationsCommandInput,
@@ -1832,7 +1840,7 @@ export interface S3 {
   ): void;
   listBucketMetricsConfigurations(
     args: ListBucketMetricsConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListBucketMetricsConfigurationsCommandOutput) => void
   ): void;
 
@@ -1842,7 +1850,7 @@ export interface S3 {
   listBuckets(): Promise<ListBucketsCommandOutput>;
   listBuckets(
     args: ListBucketsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListBucketsCommandOutput>;
   listBuckets(
     args: ListBucketsCommandInput,
@@ -1850,7 +1858,7 @@ export interface S3 {
   ): void;
   listBuckets(
     args: ListBucketsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListBucketsCommandOutput) => void
   ): void;
 
@@ -1860,7 +1868,7 @@ export interface S3 {
   listDirectoryBuckets(): Promise<ListDirectoryBucketsCommandOutput>;
   listDirectoryBuckets(
     args: ListDirectoryBucketsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListDirectoryBucketsCommandOutput>;
   listDirectoryBuckets(
     args: ListDirectoryBucketsCommandInput,
@@ -1868,7 +1876,7 @@ export interface S3 {
   ): void;
   listDirectoryBuckets(
     args: ListDirectoryBucketsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListDirectoryBucketsCommandOutput) => void
   ): void;
 
@@ -1877,7 +1885,7 @@ export interface S3 {
    */
   listMultipartUploads(
     args: ListMultipartUploadsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListMultipartUploadsCommandOutput>;
   listMultipartUploads(
     args: ListMultipartUploadsCommandInput,
@@ -1885,7 +1893,7 @@ export interface S3 {
   ): void;
   listMultipartUploads(
     args: ListMultipartUploadsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListMultipartUploadsCommandOutput) => void
   ): void;
 
@@ -1894,7 +1902,7 @@ export interface S3 {
    */
   listObjectAnnotations(
     args: ListObjectAnnotationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListObjectAnnotationsCommandOutput>;
   listObjectAnnotations(
     args: ListObjectAnnotationsCommandInput,
@@ -1902,7 +1910,7 @@ export interface S3 {
   ): void;
   listObjectAnnotations(
     args: ListObjectAnnotationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListObjectAnnotationsCommandOutput) => void
   ): void;
 
@@ -1911,7 +1919,7 @@ export interface S3 {
    */
   listObjects(
     args: ListObjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListObjectsCommandOutput>;
   listObjects(
     args: ListObjectsCommandInput,
@@ -1919,7 +1927,7 @@ export interface S3 {
   ): void;
   listObjects(
     args: ListObjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListObjectsCommandOutput) => void
   ): void;
 
@@ -1928,7 +1936,7 @@ export interface S3 {
    */
   listObjectsV2(
     args: ListObjectsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListObjectsV2CommandOutput>;
   listObjectsV2(
     args: ListObjectsV2CommandInput,
@@ -1936,7 +1944,7 @@ export interface S3 {
   ): void;
   listObjectsV2(
     args: ListObjectsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListObjectsV2CommandOutput) => void
   ): void;
 
@@ -1945,7 +1953,7 @@ export interface S3 {
    */
   listObjectVersions(
     args: ListObjectVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListObjectVersionsCommandOutput>;
   listObjectVersions(
     args: ListObjectVersionsCommandInput,
@@ -1953,7 +1961,7 @@ export interface S3 {
   ): void;
   listObjectVersions(
     args: ListObjectVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListObjectVersionsCommandOutput) => void
   ): void;
 
@@ -1962,7 +1970,7 @@ export interface S3 {
    */
   listParts(
     args: ListPartsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<ListPartsCommandOutput>;
   listParts(
     args: ListPartsCommandInput,
@@ -1970,7 +1978,7 @@ export interface S3 {
   ): void;
   listParts(
     args: ListPartsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: ListPartsCommandOutput) => void
   ): void;
 
@@ -1979,7 +1987,7 @@ export interface S3 {
    */
   putBucketAbac(
     args: PutBucketAbacCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketAbacCommandOutput>;
   putBucketAbac(
     args: PutBucketAbacCommandInput,
@@ -1987,7 +1995,7 @@ export interface S3 {
   ): void;
   putBucketAbac(
     args: PutBucketAbacCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketAbacCommandOutput) => void
   ): void;
 
@@ -1996,7 +2004,7 @@ export interface S3 {
    */
   putBucketAccelerateConfiguration(
     args: PutBucketAccelerateConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketAccelerateConfigurationCommandOutput>;
   putBucketAccelerateConfiguration(
     args: PutBucketAccelerateConfigurationCommandInput,
@@ -2004,7 +2012,7 @@ export interface S3 {
   ): void;
   putBucketAccelerateConfiguration(
     args: PutBucketAccelerateConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketAccelerateConfigurationCommandOutput) => void
   ): void;
 
@@ -2013,7 +2021,7 @@ export interface S3 {
    */
   putBucketAcl(
     args: PutBucketAclCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketAclCommandOutput>;
   putBucketAcl(
     args: PutBucketAclCommandInput,
@@ -2021,7 +2029,7 @@ export interface S3 {
   ): void;
   putBucketAcl(
     args: PutBucketAclCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketAclCommandOutput) => void
   ): void;
 
@@ -2030,7 +2038,7 @@ export interface S3 {
    */
   putBucketAnalyticsConfiguration(
     args: PutBucketAnalyticsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketAnalyticsConfigurationCommandOutput>;
   putBucketAnalyticsConfiguration(
     args: PutBucketAnalyticsConfigurationCommandInput,
@@ -2038,7 +2046,7 @@ export interface S3 {
   ): void;
   putBucketAnalyticsConfiguration(
     args: PutBucketAnalyticsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketAnalyticsConfigurationCommandOutput) => void
   ): void;
 
@@ -2047,7 +2055,7 @@ export interface S3 {
    */
   putBucketCors(
     args: PutBucketCorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketCorsCommandOutput>;
   putBucketCors(
     args: PutBucketCorsCommandInput,
@@ -2055,7 +2063,7 @@ export interface S3 {
   ): void;
   putBucketCors(
     args: PutBucketCorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketCorsCommandOutput) => void
   ): void;
 
@@ -2064,7 +2072,7 @@ export interface S3 {
    */
   putBucketEncryption(
     args: PutBucketEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketEncryptionCommandOutput>;
   putBucketEncryption(
     args: PutBucketEncryptionCommandInput,
@@ -2072,7 +2080,7 @@ export interface S3 {
   ): void;
   putBucketEncryption(
     args: PutBucketEncryptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketEncryptionCommandOutput) => void
   ): void;
 
@@ -2081,7 +2089,7 @@ export interface S3 {
    */
   putBucketIntelligentTieringConfiguration(
     args: PutBucketIntelligentTieringConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketIntelligentTieringConfigurationCommandOutput>;
   putBucketIntelligentTieringConfiguration(
     args: PutBucketIntelligentTieringConfigurationCommandInput,
@@ -2089,7 +2097,7 @@ export interface S3 {
   ): void;
   putBucketIntelligentTieringConfiguration(
     args: PutBucketIntelligentTieringConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketIntelligentTieringConfigurationCommandOutput) => void
   ): void;
 
@@ -2098,7 +2106,7 @@ export interface S3 {
    */
   putBucketInventoryConfiguration(
     args: PutBucketInventoryConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketInventoryConfigurationCommandOutput>;
   putBucketInventoryConfiguration(
     args: PutBucketInventoryConfigurationCommandInput,
@@ -2106,7 +2114,7 @@ export interface S3 {
   ): void;
   putBucketInventoryConfiguration(
     args: PutBucketInventoryConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketInventoryConfigurationCommandOutput) => void
   ): void;
 
@@ -2115,7 +2123,7 @@ export interface S3 {
    */
   putBucketLifecycleConfiguration(
     args: PutBucketLifecycleConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketLifecycleConfigurationCommandOutput>;
   putBucketLifecycleConfiguration(
     args: PutBucketLifecycleConfigurationCommandInput,
@@ -2123,7 +2131,7 @@ export interface S3 {
   ): void;
   putBucketLifecycleConfiguration(
     args: PutBucketLifecycleConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketLifecycleConfigurationCommandOutput) => void
   ): void;
 
@@ -2132,7 +2140,7 @@ export interface S3 {
    */
   putBucketLogging(
     args: PutBucketLoggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketLoggingCommandOutput>;
   putBucketLogging(
     args: PutBucketLoggingCommandInput,
@@ -2140,7 +2148,7 @@ export interface S3 {
   ): void;
   putBucketLogging(
     args: PutBucketLoggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketLoggingCommandOutput) => void
   ): void;
 
@@ -2149,7 +2157,7 @@ export interface S3 {
    */
   putBucketMetricsConfiguration(
     args: PutBucketMetricsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketMetricsConfigurationCommandOutput>;
   putBucketMetricsConfiguration(
     args: PutBucketMetricsConfigurationCommandInput,
@@ -2157,7 +2165,7 @@ export interface S3 {
   ): void;
   putBucketMetricsConfiguration(
     args: PutBucketMetricsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketMetricsConfigurationCommandOutput) => void
   ): void;
 
@@ -2166,7 +2174,7 @@ export interface S3 {
    */
   putBucketNotificationConfiguration(
     args: PutBucketNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketNotificationConfigurationCommandOutput>;
   putBucketNotificationConfiguration(
     args: PutBucketNotificationConfigurationCommandInput,
@@ -2174,7 +2182,7 @@ export interface S3 {
   ): void;
   putBucketNotificationConfiguration(
     args: PutBucketNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketNotificationConfigurationCommandOutput) => void
   ): void;
 
@@ -2183,7 +2191,7 @@ export interface S3 {
    */
   putBucketOwnershipControls(
     args: PutBucketOwnershipControlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketOwnershipControlsCommandOutput>;
   putBucketOwnershipControls(
     args: PutBucketOwnershipControlsCommandInput,
@@ -2191,7 +2199,7 @@ export interface S3 {
   ): void;
   putBucketOwnershipControls(
     args: PutBucketOwnershipControlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketOwnershipControlsCommandOutput) => void
   ): void;
 
@@ -2200,7 +2208,7 @@ export interface S3 {
    */
   putBucketPolicy(
     args: PutBucketPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketPolicyCommandOutput>;
   putBucketPolicy(
     args: PutBucketPolicyCommandInput,
@@ -2208,7 +2216,7 @@ export interface S3 {
   ): void;
   putBucketPolicy(
     args: PutBucketPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketPolicyCommandOutput) => void
   ): void;
 
@@ -2217,7 +2225,7 @@ export interface S3 {
    */
   putBucketReplication(
     args: PutBucketReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketReplicationCommandOutput>;
   putBucketReplication(
     args: PutBucketReplicationCommandInput,
@@ -2225,7 +2233,7 @@ export interface S3 {
   ): void;
   putBucketReplication(
     args: PutBucketReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketReplicationCommandOutput) => void
   ): void;
 
@@ -2234,7 +2242,7 @@ export interface S3 {
    */
   putBucketRequestPayment(
     args: PutBucketRequestPaymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketRequestPaymentCommandOutput>;
   putBucketRequestPayment(
     args: PutBucketRequestPaymentCommandInput,
@@ -2242,7 +2250,7 @@ export interface S3 {
   ): void;
   putBucketRequestPayment(
     args: PutBucketRequestPaymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketRequestPaymentCommandOutput) => void
   ): void;
 
@@ -2251,7 +2259,7 @@ export interface S3 {
    */
   putBucketTagging(
     args: PutBucketTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketTaggingCommandOutput>;
   putBucketTagging(
     args: PutBucketTaggingCommandInput,
@@ -2259,7 +2267,7 @@ export interface S3 {
   ): void;
   putBucketTagging(
     args: PutBucketTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketTaggingCommandOutput) => void
   ): void;
 
@@ -2268,7 +2276,7 @@ export interface S3 {
    */
   putBucketVersioning(
     args: PutBucketVersioningCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketVersioningCommandOutput>;
   putBucketVersioning(
     args: PutBucketVersioningCommandInput,
@@ -2276,7 +2284,7 @@ export interface S3 {
   ): void;
   putBucketVersioning(
     args: PutBucketVersioningCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketVersioningCommandOutput) => void
   ): void;
 
@@ -2285,7 +2293,7 @@ export interface S3 {
    */
   putBucketWebsite(
     args: PutBucketWebsiteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutBucketWebsiteCommandOutput>;
   putBucketWebsite(
     args: PutBucketWebsiteCommandInput,
@@ -2293,7 +2301,7 @@ export interface S3 {
   ): void;
   putBucketWebsite(
     args: PutBucketWebsiteCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutBucketWebsiteCommandOutput) => void
   ): void;
 
@@ -2302,7 +2310,7 @@ export interface S3 {
    */
   putObject(
     args: PutObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutObjectCommandOutput>;
   putObject(
     args: PutObjectCommandInput,
@@ -2310,7 +2318,7 @@ export interface S3 {
   ): void;
   putObject(
     args: PutObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutObjectCommandOutput) => void
   ): void;
 
@@ -2319,7 +2327,7 @@ export interface S3 {
    */
   putObjectAcl(
     args: PutObjectAclCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutObjectAclCommandOutput>;
   putObjectAcl(
     args: PutObjectAclCommandInput,
@@ -2327,7 +2335,7 @@ export interface S3 {
   ): void;
   putObjectAcl(
     args: PutObjectAclCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutObjectAclCommandOutput) => void
   ): void;
 
@@ -2336,7 +2344,7 @@ export interface S3 {
    */
   putObjectAnnotation(
     args: PutObjectAnnotationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutObjectAnnotationCommandOutput>;
   putObjectAnnotation(
     args: PutObjectAnnotationCommandInput,
@@ -2344,7 +2352,7 @@ export interface S3 {
   ): void;
   putObjectAnnotation(
     args: PutObjectAnnotationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutObjectAnnotationCommandOutput) => void
   ): void;
 
@@ -2353,7 +2361,7 @@ export interface S3 {
    */
   putObjectLegalHold(
     args: PutObjectLegalHoldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutObjectLegalHoldCommandOutput>;
   putObjectLegalHold(
     args: PutObjectLegalHoldCommandInput,
@@ -2361,7 +2369,7 @@ export interface S3 {
   ): void;
   putObjectLegalHold(
     args: PutObjectLegalHoldCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutObjectLegalHoldCommandOutput) => void
   ): void;
 
@@ -2370,7 +2378,7 @@ export interface S3 {
    */
   putObjectLockConfiguration(
     args: PutObjectLockConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutObjectLockConfigurationCommandOutput>;
   putObjectLockConfiguration(
     args: PutObjectLockConfigurationCommandInput,
@@ -2378,7 +2386,7 @@ export interface S3 {
   ): void;
   putObjectLockConfiguration(
     args: PutObjectLockConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutObjectLockConfigurationCommandOutput) => void
   ): void;
 
@@ -2387,7 +2395,7 @@ export interface S3 {
    */
   putObjectRetention(
     args: PutObjectRetentionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutObjectRetentionCommandOutput>;
   putObjectRetention(
     args: PutObjectRetentionCommandInput,
@@ -2395,7 +2403,7 @@ export interface S3 {
   ): void;
   putObjectRetention(
     args: PutObjectRetentionCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutObjectRetentionCommandOutput) => void
   ): void;
 
@@ -2404,7 +2412,7 @@ export interface S3 {
    */
   putObjectTagging(
     args: PutObjectTaggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutObjectTaggingCommandOutput>;
   putObjectTagging(
     args: PutObjectTaggingCommandInput,
@@ -2412,7 +2420,7 @@ export interface S3 {
   ): void;
   putObjectTagging(
     args: PutObjectTaggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutObjectTaggingCommandOutput) => void
   ): void;
 
@@ -2421,7 +2429,7 @@ export interface S3 {
    */
   putPublicAccessBlock(
     args: PutPublicAccessBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<PutPublicAccessBlockCommandOutput>;
   putPublicAccessBlock(
     args: PutPublicAccessBlockCommandInput,
@@ -2429,7 +2437,7 @@ export interface S3 {
   ): void;
   putPublicAccessBlock(
     args: PutPublicAccessBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: PutPublicAccessBlockCommandOutput) => void
   ): void;
 
@@ -2438,7 +2446,7 @@ export interface S3 {
    */
   renameObject(
     args: RenameObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<RenameObjectCommandOutput>;
   renameObject(
     args: RenameObjectCommandInput,
@@ -2446,7 +2454,7 @@ export interface S3 {
   ): void;
   renameObject(
     args: RenameObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: RenameObjectCommandOutput) => void
   ): void;
 
@@ -2455,7 +2463,7 @@ export interface S3 {
    */
   restoreObject(
     args: RestoreObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<RestoreObjectCommandOutput>;
   restoreObject(
     args: RestoreObjectCommandInput,
@@ -2463,7 +2471,7 @@ export interface S3 {
   ): void;
   restoreObject(
     args: RestoreObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: RestoreObjectCommandOutput) => void
   ): void;
 
@@ -2472,7 +2480,7 @@ export interface S3 {
    */
   selectObjectContent(
     args: SelectObjectContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<SelectObjectContentCommandOutput>;
   selectObjectContent(
     args: SelectObjectContentCommandInput,
@@ -2480,7 +2488,7 @@ export interface S3 {
   ): void;
   selectObjectContent(
     args: SelectObjectContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: SelectObjectContentCommandOutput) => void
   ): void;
 
@@ -2489,7 +2497,7 @@ export interface S3 {
    */
   updateBucketMetadataAnnotationTableConfiguration(
     args: UpdateBucketMetadataAnnotationTableConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<UpdateBucketMetadataAnnotationTableConfigurationCommandOutput>;
   updateBucketMetadataAnnotationTableConfiguration(
     args: UpdateBucketMetadataAnnotationTableConfigurationCommandInput,
@@ -2497,7 +2505,7 @@ export interface S3 {
   ): void;
   updateBucketMetadataAnnotationTableConfiguration(
     args: UpdateBucketMetadataAnnotationTableConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: UpdateBucketMetadataAnnotationTableConfigurationCommandOutput) => void
   ): void;
 
@@ -2506,7 +2514,7 @@ export interface S3 {
    */
   updateBucketMetadataInventoryTableConfiguration(
     args: UpdateBucketMetadataInventoryTableConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<UpdateBucketMetadataInventoryTableConfigurationCommandOutput>;
   updateBucketMetadataInventoryTableConfiguration(
     args: UpdateBucketMetadataInventoryTableConfigurationCommandInput,
@@ -2514,7 +2522,7 @@ export interface S3 {
   ): void;
   updateBucketMetadataInventoryTableConfiguration(
     args: UpdateBucketMetadataInventoryTableConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: UpdateBucketMetadataInventoryTableConfigurationCommandOutput) => void
   ): void;
 
@@ -2523,7 +2531,7 @@ export interface S3 {
    */
   updateBucketMetadataJournalTableConfiguration(
     args: UpdateBucketMetadataJournalTableConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<UpdateBucketMetadataJournalTableConfigurationCommandOutput>;
   updateBucketMetadataJournalTableConfiguration(
     args: UpdateBucketMetadataJournalTableConfigurationCommandInput,
@@ -2531,7 +2539,7 @@ export interface S3 {
   ): void;
   updateBucketMetadataJournalTableConfiguration(
     args: UpdateBucketMetadataJournalTableConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: UpdateBucketMetadataJournalTableConfigurationCommandOutput) => void
   ): void;
 
@@ -2540,7 +2548,7 @@ export interface S3 {
    */
   updateObjectEncryption(
     args: UpdateObjectEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<UpdateObjectEncryptionCommandOutput>;
   updateObjectEncryption(
     args: UpdateObjectEncryptionCommandInput,
@@ -2548,7 +2556,7 @@ export interface S3 {
   ): void;
   updateObjectEncryption(
     args: UpdateObjectEncryptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: UpdateObjectEncryptionCommandOutput) => void
   ): void;
 
@@ -2557,7 +2565,7 @@ export interface S3 {
    */
   uploadPart(
     args: UploadPartCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<UploadPartCommandOutput>;
   uploadPart(
     args: UploadPartCommandInput,
@@ -2565,7 +2573,7 @@ export interface S3 {
   ): void;
   uploadPart(
     args: UploadPartCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: UploadPartCommandOutput) => void
   ): void;
 
@@ -2574,7 +2582,7 @@ export interface S3 {
    */
   uploadPartCopy(
     args: UploadPartCopyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<UploadPartCopyCommandOutput>;
   uploadPartCopy(
     args: UploadPartCopyCommandInput,
@@ -2582,7 +2590,7 @@ export interface S3 {
   ): void;
   uploadPartCopy(
     args: UploadPartCopyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: UploadPartCopyCommandOutput) => void
   ): void;
 
@@ -2591,7 +2599,7 @@ export interface S3 {
    */
   writeGetObjectResponse(
     args: WriteGetObjectResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3RequestOptions
   ): Promise<WriteGetObjectResponseCommandOutput>;
   writeGetObjectResponse(
     args: WriteGetObjectResponseCommandInput,
@@ -2599,7 +2607,7 @@ export interface S3 {
   ): void;
   writeGetObjectResponse(
     args: WriteGetObjectResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3RequestOptions,
     cb: (err: any, data?: WriteGetObjectResponseCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateHttpNamespaceCommandInput,
@@ -199,13 +204,20 @@ const paginators = {
   paginateListServices,
 };
 
+/**
+ * @public
+ */
+export interface ServiceDiscoveryRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ServiceDiscovery {
   /**
    * @see {@link CreateHttpNamespaceCommand}
    */
   createHttpNamespace(
     args: CreateHttpNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<CreateHttpNamespaceCommandOutput>;
   createHttpNamespace(
     args: CreateHttpNamespaceCommandInput,
@@ -213,7 +225,7 @@ export interface ServiceDiscovery {
   ): void;
   createHttpNamespace(
     args: CreateHttpNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: CreateHttpNamespaceCommandOutput) => void
   ): void;
 
@@ -222,7 +234,7 @@ export interface ServiceDiscovery {
    */
   createPrivateDnsNamespace(
     args: CreatePrivateDnsNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<CreatePrivateDnsNamespaceCommandOutput>;
   createPrivateDnsNamespace(
     args: CreatePrivateDnsNamespaceCommandInput,
@@ -230,7 +242,7 @@ export interface ServiceDiscovery {
   ): void;
   createPrivateDnsNamespace(
     args: CreatePrivateDnsNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: CreatePrivateDnsNamespaceCommandOutput) => void
   ): void;
 
@@ -239,7 +251,7 @@ export interface ServiceDiscovery {
    */
   createPublicDnsNamespace(
     args: CreatePublicDnsNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<CreatePublicDnsNamespaceCommandOutput>;
   createPublicDnsNamespace(
     args: CreatePublicDnsNamespaceCommandInput,
@@ -247,7 +259,7 @@ export interface ServiceDiscovery {
   ): void;
   createPublicDnsNamespace(
     args: CreatePublicDnsNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: CreatePublicDnsNamespaceCommandOutput) => void
   ): void;
 
@@ -256,7 +268,7 @@ export interface ServiceDiscovery {
    */
   createService(
     args: CreateServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<CreateServiceCommandOutput>;
   createService(
     args: CreateServiceCommandInput,
@@ -264,7 +276,7 @@ export interface ServiceDiscovery {
   ): void;
   createService(
     args: CreateServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: CreateServiceCommandOutput) => void
   ): void;
 
@@ -273,7 +285,7 @@ export interface ServiceDiscovery {
    */
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<DeleteNamespaceCommandOutput>;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
@@ -281,7 +293,7 @@ export interface ServiceDiscovery {
   ): void;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
   ): void;
 
@@ -290,7 +302,7 @@ export interface ServiceDiscovery {
    */
   deleteService(
     args: DeleteServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<DeleteServiceCommandOutput>;
   deleteService(
     args: DeleteServiceCommandInput,
@@ -298,7 +310,7 @@ export interface ServiceDiscovery {
   ): void;
   deleteService(
     args: DeleteServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: DeleteServiceCommandOutput) => void
   ): void;
 
@@ -307,7 +319,7 @@ export interface ServiceDiscovery {
    */
   deleteServiceAttributes(
     args: DeleteServiceAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<DeleteServiceAttributesCommandOutput>;
   deleteServiceAttributes(
     args: DeleteServiceAttributesCommandInput,
@@ -315,7 +327,7 @@ export interface ServiceDiscovery {
   ): void;
   deleteServiceAttributes(
     args: DeleteServiceAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: DeleteServiceAttributesCommandOutput) => void
   ): void;
 
@@ -324,7 +336,7 @@ export interface ServiceDiscovery {
    */
   deregisterInstance(
     args: DeregisterInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<DeregisterInstanceCommandOutput>;
   deregisterInstance(
     args: DeregisterInstanceCommandInput,
@@ -332,7 +344,7 @@ export interface ServiceDiscovery {
   ): void;
   deregisterInstance(
     args: DeregisterInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: DeregisterInstanceCommandOutput) => void
   ): void;
 
@@ -341,7 +353,7 @@ export interface ServiceDiscovery {
    */
   discoverInstances(
     args: DiscoverInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<DiscoverInstancesCommandOutput>;
   discoverInstances(
     args: DiscoverInstancesCommandInput,
@@ -349,7 +361,7 @@ export interface ServiceDiscovery {
   ): void;
   discoverInstances(
     args: DiscoverInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: DiscoverInstancesCommandOutput) => void
   ): void;
 
@@ -358,7 +370,7 @@ export interface ServiceDiscovery {
    */
   discoverInstancesRevision(
     args: DiscoverInstancesRevisionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<DiscoverInstancesRevisionCommandOutput>;
   discoverInstancesRevision(
     args: DiscoverInstancesRevisionCommandInput,
@@ -366,7 +378,7 @@ export interface ServiceDiscovery {
   ): void;
   discoverInstancesRevision(
     args: DiscoverInstancesRevisionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: DiscoverInstancesRevisionCommandOutput) => void
   ): void;
 
@@ -375,7 +387,7 @@ export interface ServiceDiscovery {
    */
   getInstance(
     args: GetInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<GetInstanceCommandOutput>;
   getInstance(
     args: GetInstanceCommandInput,
@@ -383,7 +395,7 @@ export interface ServiceDiscovery {
   ): void;
   getInstance(
     args: GetInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: GetInstanceCommandOutput) => void
   ): void;
 
@@ -392,7 +404,7 @@ export interface ServiceDiscovery {
    */
   getInstancesHealthStatus(
     args: GetInstancesHealthStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<GetInstancesHealthStatusCommandOutput>;
   getInstancesHealthStatus(
     args: GetInstancesHealthStatusCommandInput,
@@ -400,7 +412,7 @@ export interface ServiceDiscovery {
   ): void;
   getInstancesHealthStatus(
     args: GetInstancesHealthStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: GetInstancesHealthStatusCommandOutput) => void
   ): void;
 
@@ -409,7 +421,7 @@ export interface ServiceDiscovery {
    */
   getNamespace(
     args: GetNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<GetNamespaceCommandOutput>;
   getNamespace(
     args: GetNamespaceCommandInput,
@@ -417,7 +429,7 @@ export interface ServiceDiscovery {
   ): void;
   getNamespace(
     args: GetNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: GetNamespaceCommandOutput) => void
   ): void;
 
@@ -426,7 +438,7 @@ export interface ServiceDiscovery {
    */
   getOperation(
     args: GetOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<GetOperationCommandOutput>;
   getOperation(
     args: GetOperationCommandInput,
@@ -434,7 +446,7 @@ export interface ServiceDiscovery {
   ): void;
   getOperation(
     args: GetOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: GetOperationCommandOutput) => void
   ): void;
 
@@ -443,7 +455,7 @@ export interface ServiceDiscovery {
    */
   getService(
     args: GetServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<GetServiceCommandOutput>;
   getService(
     args: GetServiceCommandInput,
@@ -451,7 +463,7 @@ export interface ServiceDiscovery {
   ): void;
   getService(
     args: GetServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: GetServiceCommandOutput) => void
   ): void;
 
@@ -460,7 +472,7 @@ export interface ServiceDiscovery {
    */
   getServiceAttributes(
     args: GetServiceAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<GetServiceAttributesCommandOutput>;
   getServiceAttributes(
     args: GetServiceAttributesCommandInput,
@@ -468,7 +480,7 @@ export interface ServiceDiscovery {
   ): void;
   getServiceAttributes(
     args: GetServiceAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: GetServiceAttributesCommandOutput) => void
   ): void;
 
@@ -477,7 +489,7 @@ export interface ServiceDiscovery {
    */
   listInstances(
     args: ListInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<ListInstancesCommandOutput>;
   listInstances(
     args: ListInstancesCommandInput,
@@ -485,7 +497,7 @@ export interface ServiceDiscovery {
   ): void;
   listInstances(
     args: ListInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: ListInstancesCommandOutput) => void
   ): void;
 
@@ -495,7 +507,7 @@ export interface ServiceDiscovery {
   listNamespaces(): Promise<ListNamespacesCommandOutput>;
   listNamespaces(
     args: ListNamespacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<ListNamespacesCommandOutput>;
   listNamespaces(
     args: ListNamespacesCommandInput,
@@ -503,7 +515,7 @@ export interface ServiceDiscovery {
   ): void;
   listNamespaces(
     args: ListNamespacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: ListNamespacesCommandOutput) => void
   ): void;
 
@@ -513,7 +525,7 @@ export interface ServiceDiscovery {
   listOperations(): Promise<ListOperationsCommandOutput>;
   listOperations(
     args: ListOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<ListOperationsCommandOutput>;
   listOperations(
     args: ListOperationsCommandInput,
@@ -521,7 +533,7 @@ export interface ServiceDiscovery {
   ): void;
   listOperations(
     args: ListOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: ListOperationsCommandOutput) => void
   ): void;
 
@@ -531,7 +543,7 @@ export interface ServiceDiscovery {
   listServices(): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
@@ -539,7 +551,7 @@ export interface ServiceDiscovery {
   ): void;
   listServices(
     args: ListServicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: ListServicesCommandOutput) => void
   ): void;
 
@@ -548,7 +560,7 @@ export interface ServiceDiscovery {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -556,7 +568,7 @@ export interface ServiceDiscovery {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -565,7 +577,7 @@ export interface ServiceDiscovery {
    */
   registerInstance(
     args: RegisterInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<RegisterInstanceCommandOutput>;
   registerInstance(
     args: RegisterInstanceCommandInput,
@@ -573,7 +585,7 @@ export interface ServiceDiscovery {
   ): void;
   registerInstance(
     args: RegisterInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: RegisterInstanceCommandOutput) => void
   ): void;
 
@@ -582,7 +594,7 @@ export interface ServiceDiscovery {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -590,7 +602,7 @@ export interface ServiceDiscovery {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -599,7 +611,7 @@ export interface ServiceDiscovery {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -607,7 +619,7 @@ export interface ServiceDiscovery {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -616,7 +628,7 @@ export interface ServiceDiscovery {
    */
   updateHttpNamespace(
     args: UpdateHttpNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<UpdateHttpNamespaceCommandOutput>;
   updateHttpNamespace(
     args: UpdateHttpNamespaceCommandInput,
@@ -624,7 +636,7 @@ export interface ServiceDiscovery {
   ): void;
   updateHttpNamespace(
     args: UpdateHttpNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: UpdateHttpNamespaceCommandOutput) => void
   ): void;
 
@@ -633,7 +645,7 @@ export interface ServiceDiscovery {
    */
   updateInstanceCustomHealthStatus(
     args: UpdateInstanceCustomHealthStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<UpdateInstanceCustomHealthStatusCommandOutput>;
   updateInstanceCustomHealthStatus(
     args: UpdateInstanceCustomHealthStatusCommandInput,
@@ -641,7 +653,7 @@ export interface ServiceDiscovery {
   ): void;
   updateInstanceCustomHealthStatus(
     args: UpdateInstanceCustomHealthStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: UpdateInstanceCustomHealthStatusCommandOutput) => void
   ): void;
 
@@ -650,7 +662,7 @@ export interface ServiceDiscovery {
    */
   updatePrivateDnsNamespace(
     args: UpdatePrivateDnsNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<UpdatePrivateDnsNamespaceCommandOutput>;
   updatePrivateDnsNamespace(
     args: UpdatePrivateDnsNamespaceCommandInput,
@@ -658,7 +670,7 @@ export interface ServiceDiscovery {
   ): void;
   updatePrivateDnsNamespace(
     args: UpdatePrivateDnsNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: UpdatePrivateDnsNamespaceCommandOutput) => void
   ): void;
 
@@ -667,7 +679,7 @@ export interface ServiceDiscovery {
    */
   updatePublicDnsNamespace(
     args: UpdatePublicDnsNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<UpdatePublicDnsNamespaceCommandOutput>;
   updatePublicDnsNamespace(
     args: UpdatePublicDnsNamespaceCommandInput,
@@ -675,7 +687,7 @@ export interface ServiceDiscovery {
   ): void;
   updatePublicDnsNamespace(
     args: UpdatePublicDnsNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: UpdatePublicDnsNamespaceCommandOutput) => void
   ): void;
 
@@ -684,7 +696,7 @@ export interface ServiceDiscovery {
    */
   updateService(
     args: UpdateServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<UpdateServiceCommandOutput>;
   updateService(
     args: UpdateServiceCommandInput,
@@ -692,7 +704,7 @@ export interface ServiceDiscovery {
   ): void;
   updateService(
     args: UpdateServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: UpdateServiceCommandOutput) => void
   ): void;
 
@@ -701,7 +713,7 @@ export interface ServiceDiscovery {
    */
   updateServiceAttributes(
     args: UpdateServiceAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServiceDiscoveryRequestOptions
   ): Promise<UpdateServiceAttributesCommandOutput>;
   updateServiceAttributes(
     args: UpdateServiceAttributesCommandInput,
@@ -709,7 +721,7 @@ export interface ServiceDiscovery {
   ): void;
   updateServiceAttributes(
     args: UpdateServiceAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServiceDiscoveryRequestOptions,
     cb: (err: any, data?: UpdateServiceAttributesCommandOutput) => void
   ): void;
 

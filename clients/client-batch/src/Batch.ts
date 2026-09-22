@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BatchClient } from "./BatchClient";
 import { type CancelJobCommandInput, type CancelJobCommandOutput, CancelJobCommand } from "./commands/CancelJobCommand";
@@ -305,13 +310,20 @@ const paginators = {
   paginateListServiceJobs,
 };
 
+/**
+ * @public
+ */
+export interface BatchRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Batch {
   /**
    * @see {@link CancelJobCommand}
    */
   cancelJob(
     args: CancelJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<CancelJobCommandOutput>;
   cancelJob(
     args: CancelJobCommandInput,
@@ -319,7 +331,7 @@ export interface Batch {
   ): void;
   cancelJob(
     args: CancelJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: CancelJobCommandOutput) => void
   ): void;
 
@@ -328,7 +340,7 @@ export interface Batch {
    */
   cancelJobs(
     args: CancelJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<CancelJobsCommandOutput>;
   cancelJobs(
     args: CancelJobsCommandInput,
@@ -336,7 +348,7 @@ export interface Batch {
   ): void;
   cancelJobs(
     args: CancelJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: CancelJobsCommandOutput) => void
   ): void;
 
@@ -345,7 +357,7 @@ export interface Batch {
    */
   createComputeEnvironment(
     args: CreateComputeEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<CreateComputeEnvironmentCommandOutput>;
   createComputeEnvironment(
     args: CreateComputeEnvironmentCommandInput,
@@ -353,7 +365,7 @@ export interface Batch {
   ): void;
   createComputeEnvironment(
     args: CreateComputeEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: CreateComputeEnvironmentCommandOutput) => void
   ): void;
 
@@ -362,7 +374,7 @@ export interface Batch {
    */
   createConsumableResource(
     args: CreateConsumableResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<CreateConsumableResourceCommandOutput>;
   createConsumableResource(
     args: CreateConsumableResourceCommandInput,
@@ -370,7 +382,7 @@ export interface Batch {
   ): void;
   createConsumableResource(
     args: CreateConsumableResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: CreateConsumableResourceCommandOutput) => void
   ): void;
 
@@ -379,7 +391,7 @@ export interface Batch {
    */
   createJobQueue(
     args: CreateJobQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<CreateJobQueueCommandOutput>;
   createJobQueue(
     args: CreateJobQueueCommandInput,
@@ -387,7 +399,7 @@ export interface Batch {
   ): void;
   createJobQueue(
     args: CreateJobQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: CreateJobQueueCommandOutput) => void
   ): void;
 
@@ -396,7 +408,7 @@ export interface Batch {
    */
   createQuotaShare(
     args: CreateQuotaShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<CreateQuotaShareCommandOutput>;
   createQuotaShare(
     args: CreateQuotaShareCommandInput,
@@ -404,7 +416,7 @@ export interface Batch {
   ): void;
   createQuotaShare(
     args: CreateQuotaShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: CreateQuotaShareCommandOutput) => void
   ): void;
 
@@ -413,7 +425,7 @@ export interface Batch {
    */
   createSchedulingPolicy(
     args: CreateSchedulingPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<CreateSchedulingPolicyCommandOutput>;
   createSchedulingPolicy(
     args: CreateSchedulingPolicyCommandInput,
@@ -421,7 +433,7 @@ export interface Batch {
   ): void;
   createSchedulingPolicy(
     args: CreateSchedulingPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: CreateSchedulingPolicyCommandOutput) => void
   ): void;
 
@@ -430,7 +442,7 @@ export interface Batch {
    */
   createServiceEnvironment(
     args: CreateServiceEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<CreateServiceEnvironmentCommandOutput>;
   createServiceEnvironment(
     args: CreateServiceEnvironmentCommandInput,
@@ -438,7 +450,7 @@ export interface Batch {
   ): void;
   createServiceEnvironment(
     args: CreateServiceEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: CreateServiceEnvironmentCommandOutput) => void
   ): void;
 
@@ -447,7 +459,7 @@ export interface Batch {
    */
   deleteComputeEnvironment(
     args: DeleteComputeEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DeleteComputeEnvironmentCommandOutput>;
   deleteComputeEnvironment(
     args: DeleteComputeEnvironmentCommandInput,
@@ -455,7 +467,7 @@ export interface Batch {
   ): void;
   deleteComputeEnvironment(
     args: DeleteComputeEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DeleteComputeEnvironmentCommandOutput) => void
   ): void;
 
@@ -464,7 +476,7 @@ export interface Batch {
    */
   deleteConsumableResource(
     args: DeleteConsumableResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DeleteConsumableResourceCommandOutput>;
   deleteConsumableResource(
     args: DeleteConsumableResourceCommandInput,
@@ -472,7 +484,7 @@ export interface Batch {
   ): void;
   deleteConsumableResource(
     args: DeleteConsumableResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DeleteConsumableResourceCommandOutput) => void
   ): void;
 
@@ -481,7 +493,7 @@ export interface Batch {
    */
   deleteJobQueue(
     args: DeleteJobQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DeleteJobQueueCommandOutput>;
   deleteJobQueue(
     args: DeleteJobQueueCommandInput,
@@ -489,7 +501,7 @@ export interface Batch {
   ): void;
   deleteJobQueue(
     args: DeleteJobQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DeleteJobQueueCommandOutput) => void
   ): void;
 
@@ -498,7 +510,7 @@ export interface Batch {
    */
   deleteQuotaShare(
     args: DeleteQuotaShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DeleteQuotaShareCommandOutput>;
   deleteQuotaShare(
     args: DeleteQuotaShareCommandInput,
@@ -506,7 +518,7 @@ export interface Batch {
   ): void;
   deleteQuotaShare(
     args: DeleteQuotaShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DeleteQuotaShareCommandOutput) => void
   ): void;
 
@@ -515,7 +527,7 @@ export interface Batch {
    */
   deleteSchedulingPolicy(
     args: DeleteSchedulingPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DeleteSchedulingPolicyCommandOutput>;
   deleteSchedulingPolicy(
     args: DeleteSchedulingPolicyCommandInput,
@@ -523,7 +535,7 @@ export interface Batch {
   ): void;
   deleteSchedulingPolicy(
     args: DeleteSchedulingPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DeleteSchedulingPolicyCommandOutput) => void
   ): void;
 
@@ -532,7 +544,7 @@ export interface Batch {
    */
   deleteServiceEnvironment(
     args: DeleteServiceEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DeleteServiceEnvironmentCommandOutput>;
   deleteServiceEnvironment(
     args: DeleteServiceEnvironmentCommandInput,
@@ -540,7 +552,7 @@ export interface Batch {
   ): void;
   deleteServiceEnvironment(
     args: DeleteServiceEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DeleteServiceEnvironmentCommandOutput) => void
   ): void;
 
@@ -549,7 +561,7 @@ export interface Batch {
    */
   deregisterJobDefinition(
     args: DeregisterJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DeregisterJobDefinitionCommandOutput>;
   deregisterJobDefinition(
     args: DeregisterJobDefinitionCommandInput,
@@ -557,7 +569,7 @@ export interface Batch {
   ): void;
   deregisterJobDefinition(
     args: DeregisterJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DeregisterJobDefinitionCommandOutput) => void
   ): void;
 
@@ -567,7 +579,7 @@ export interface Batch {
   describeComputeEnvironments(): Promise<DescribeComputeEnvironmentsCommandOutput>;
   describeComputeEnvironments(
     args: DescribeComputeEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DescribeComputeEnvironmentsCommandOutput>;
   describeComputeEnvironments(
     args: DescribeComputeEnvironmentsCommandInput,
@@ -575,7 +587,7 @@ export interface Batch {
   ): void;
   describeComputeEnvironments(
     args: DescribeComputeEnvironmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void
   ): void;
 
@@ -584,7 +596,7 @@ export interface Batch {
    */
   describeConsumableResource(
     args: DescribeConsumableResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DescribeConsumableResourceCommandOutput>;
   describeConsumableResource(
     args: DescribeConsumableResourceCommandInput,
@@ -592,7 +604,7 @@ export interface Batch {
   ): void;
   describeConsumableResource(
     args: DescribeConsumableResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DescribeConsumableResourceCommandOutput) => void
   ): void;
 
@@ -602,7 +614,7 @@ export interface Batch {
   describeJobDefinitions(): Promise<DescribeJobDefinitionsCommandOutput>;
   describeJobDefinitions(
     args: DescribeJobDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DescribeJobDefinitionsCommandOutput>;
   describeJobDefinitions(
     args: DescribeJobDefinitionsCommandInput,
@@ -610,7 +622,7 @@ export interface Batch {
   ): void;
   describeJobDefinitions(
     args: DescribeJobDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DescribeJobDefinitionsCommandOutput) => void
   ): void;
 
@@ -620,7 +632,7 @@ export interface Batch {
   describeJobQueues(): Promise<DescribeJobQueuesCommandOutput>;
   describeJobQueues(
     args: DescribeJobQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DescribeJobQueuesCommandOutput>;
   describeJobQueues(
     args: DescribeJobQueuesCommandInput,
@@ -628,7 +640,7 @@ export interface Batch {
   ): void;
   describeJobQueues(
     args: DescribeJobQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DescribeJobQueuesCommandOutput) => void
   ): void;
 
@@ -637,7 +649,7 @@ export interface Batch {
    */
   describeJobs(
     args: DescribeJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DescribeJobsCommandOutput>;
   describeJobs(
     args: DescribeJobsCommandInput,
@@ -645,7 +657,7 @@ export interface Batch {
   ): void;
   describeJobs(
     args: DescribeJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DescribeJobsCommandOutput) => void
   ): void;
 
@@ -654,7 +666,7 @@ export interface Batch {
    */
   describeQuotaShare(
     args: DescribeQuotaShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DescribeQuotaShareCommandOutput>;
   describeQuotaShare(
     args: DescribeQuotaShareCommandInput,
@@ -662,7 +674,7 @@ export interface Batch {
   ): void;
   describeQuotaShare(
     args: DescribeQuotaShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DescribeQuotaShareCommandOutput) => void
   ): void;
 
@@ -671,7 +683,7 @@ export interface Batch {
    */
   describeSchedulingPolicies(
     args: DescribeSchedulingPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DescribeSchedulingPoliciesCommandOutput>;
   describeSchedulingPolicies(
     args: DescribeSchedulingPoliciesCommandInput,
@@ -679,7 +691,7 @@ export interface Batch {
   ): void;
   describeSchedulingPolicies(
     args: DescribeSchedulingPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DescribeSchedulingPoliciesCommandOutput) => void
   ): void;
 
@@ -689,7 +701,7 @@ export interface Batch {
   describeServiceEnvironments(): Promise<DescribeServiceEnvironmentsCommandOutput>;
   describeServiceEnvironments(
     args: DescribeServiceEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DescribeServiceEnvironmentsCommandOutput>;
   describeServiceEnvironments(
     args: DescribeServiceEnvironmentsCommandInput,
@@ -697,7 +709,7 @@ export interface Batch {
   ): void;
   describeServiceEnvironments(
     args: DescribeServiceEnvironmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DescribeServiceEnvironmentsCommandOutput) => void
   ): void;
 
@@ -706,7 +718,7 @@ export interface Batch {
    */
   describeServiceJob(
     args: DescribeServiceJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<DescribeServiceJobCommandOutput>;
   describeServiceJob(
     args: DescribeServiceJobCommandInput,
@@ -714,7 +726,7 @@ export interface Batch {
   ): void;
   describeServiceJob(
     args: DescribeServiceJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: DescribeServiceJobCommandOutput) => void
   ): void;
 
@@ -723,7 +735,7 @@ export interface Batch {
    */
   getJobQueueSnapshot(
     args: GetJobQueueSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<GetJobQueueSnapshotCommandOutput>;
   getJobQueueSnapshot(
     args: GetJobQueueSnapshotCommandInput,
@@ -731,7 +743,7 @@ export interface Batch {
   ): void;
   getJobQueueSnapshot(
     args: GetJobQueueSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: GetJobQueueSnapshotCommandOutput) => void
   ): void;
 
@@ -741,7 +753,7 @@ export interface Batch {
   listConsumableResources(): Promise<ListConsumableResourcesCommandOutput>;
   listConsumableResources(
     args: ListConsumableResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<ListConsumableResourcesCommandOutput>;
   listConsumableResources(
     args: ListConsumableResourcesCommandInput,
@@ -749,7 +761,7 @@ export interface Batch {
   ): void;
   listConsumableResources(
     args: ListConsumableResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: ListConsumableResourcesCommandOutput) => void
   ): void;
 
@@ -759,7 +771,7 @@ export interface Batch {
   listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
@@ -767,7 +779,7 @@ export interface Batch {
   ): void;
   listJobs(
     args: ListJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: ListJobsCommandOutput) => void
   ): void;
 
@@ -776,7 +788,7 @@ export interface Batch {
    */
   listJobsByConsumableResource(
     args: ListJobsByConsumableResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<ListJobsByConsumableResourceCommandOutput>;
   listJobsByConsumableResource(
     args: ListJobsByConsumableResourceCommandInput,
@@ -784,7 +796,7 @@ export interface Batch {
   ): void;
   listJobsByConsumableResource(
     args: ListJobsByConsumableResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: ListJobsByConsumableResourceCommandOutput) => void
   ): void;
 
@@ -793,7 +805,7 @@ export interface Batch {
    */
   listQuotaShares(
     args: ListQuotaSharesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<ListQuotaSharesCommandOutput>;
   listQuotaShares(
     args: ListQuotaSharesCommandInput,
@@ -801,7 +813,7 @@ export interface Batch {
   ): void;
   listQuotaShares(
     args: ListQuotaSharesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: ListQuotaSharesCommandOutput) => void
   ): void;
 
@@ -811,7 +823,7 @@ export interface Batch {
   listSchedulingPolicies(): Promise<ListSchedulingPoliciesCommandOutput>;
   listSchedulingPolicies(
     args: ListSchedulingPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<ListSchedulingPoliciesCommandOutput>;
   listSchedulingPolicies(
     args: ListSchedulingPoliciesCommandInput,
@@ -819,7 +831,7 @@ export interface Batch {
   ): void;
   listSchedulingPolicies(
     args: ListSchedulingPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: ListSchedulingPoliciesCommandOutput) => void
   ): void;
 
@@ -829,7 +841,7 @@ export interface Batch {
   listServiceJobs(): Promise<ListServiceJobsCommandOutput>;
   listServiceJobs(
     args: ListServiceJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<ListServiceJobsCommandOutput>;
   listServiceJobs(
     args: ListServiceJobsCommandInput,
@@ -837,7 +849,7 @@ export interface Batch {
   ): void;
   listServiceJobs(
     args: ListServiceJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: ListServiceJobsCommandOutput) => void
   ): void;
 
@@ -846,7 +858,7 @@ export interface Batch {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -854,7 +866,7 @@ export interface Batch {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -863,7 +875,7 @@ export interface Batch {
    */
   registerJobDefinition(
     args: RegisterJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<RegisterJobDefinitionCommandOutput>;
   registerJobDefinition(
     args: RegisterJobDefinitionCommandInput,
@@ -871,7 +883,7 @@ export interface Batch {
   ): void;
   registerJobDefinition(
     args: RegisterJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: RegisterJobDefinitionCommandOutput) => void
   ): void;
 
@@ -880,7 +892,7 @@ export interface Batch {
    */
   submitJob(
     args: SubmitJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<SubmitJobCommandOutput>;
   submitJob(
     args: SubmitJobCommandInput,
@@ -888,7 +900,7 @@ export interface Batch {
   ): void;
   submitJob(
     args: SubmitJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: SubmitJobCommandOutput) => void
   ): void;
 
@@ -897,7 +909,7 @@ export interface Batch {
    */
   submitServiceJob(
     args: SubmitServiceJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<SubmitServiceJobCommandOutput>;
   submitServiceJob(
     args: SubmitServiceJobCommandInput,
@@ -905,7 +917,7 @@ export interface Batch {
   ): void;
   submitServiceJob(
     args: SubmitServiceJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: SubmitServiceJobCommandOutput) => void
   ): void;
 
@@ -914,7 +926,7 @@ export interface Batch {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -922,7 +934,7 @@ export interface Batch {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -931,7 +943,7 @@ export interface Batch {
    */
   terminateJob(
     args: TerminateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<TerminateJobCommandOutput>;
   terminateJob(
     args: TerminateJobCommandInput,
@@ -939,7 +951,7 @@ export interface Batch {
   ): void;
   terminateJob(
     args: TerminateJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: TerminateJobCommandOutput) => void
   ): void;
 
@@ -948,7 +960,7 @@ export interface Batch {
    */
   terminateJobs(
     args: TerminateJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<TerminateJobsCommandOutput>;
   terminateJobs(
     args: TerminateJobsCommandInput,
@@ -956,7 +968,7 @@ export interface Batch {
   ): void;
   terminateJobs(
     args: TerminateJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: TerminateJobsCommandOutput) => void
   ): void;
 
@@ -965,7 +977,7 @@ export interface Batch {
    */
   terminateServiceJob(
     args: TerminateServiceJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<TerminateServiceJobCommandOutput>;
   terminateServiceJob(
     args: TerminateServiceJobCommandInput,
@@ -973,7 +985,7 @@ export interface Batch {
   ): void;
   terminateServiceJob(
     args: TerminateServiceJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: TerminateServiceJobCommandOutput) => void
   ): void;
 
@@ -982,7 +994,7 @@ export interface Batch {
    */
   terminateServiceJobs(
     args: TerminateServiceJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<TerminateServiceJobsCommandOutput>;
   terminateServiceJobs(
     args: TerminateServiceJobsCommandInput,
@@ -990,7 +1002,7 @@ export interface Batch {
   ): void;
   terminateServiceJobs(
     args: TerminateServiceJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: TerminateServiceJobsCommandOutput) => void
   ): void;
 
@@ -999,7 +1011,7 @@ export interface Batch {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1007,7 +1019,7 @@ export interface Batch {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1016,7 +1028,7 @@ export interface Batch {
    */
   updateComputeEnvironment(
     args: UpdateComputeEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<UpdateComputeEnvironmentCommandOutput>;
   updateComputeEnvironment(
     args: UpdateComputeEnvironmentCommandInput,
@@ -1024,7 +1036,7 @@ export interface Batch {
   ): void;
   updateComputeEnvironment(
     args: UpdateComputeEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: UpdateComputeEnvironmentCommandOutput) => void
   ): void;
 
@@ -1033,7 +1045,7 @@ export interface Batch {
    */
   updateConsumableResource(
     args: UpdateConsumableResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<UpdateConsumableResourceCommandOutput>;
   updateConsumableResource(
     args: UpdateConsumableResourceCommandInput,
@@ -1041,7 +1053,7 @@ export interface Batch {
   ): void;
   updateConsumableResource(
     args: UpdateConsumableResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: UpdateConsumableResourceCommandOutput) => void
   ): void;
 
@@ -1050,7 +1062,7 @@ export interface Batch {
    */
   updateJobQueue(
     args: UpdateJobQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<UpdateJobQueueCommandOutput>;
   updateJobQueue(
     args: UpdateJobQueueCommandInput,
@@ -1058,7 +1070,7 @@ export interface Batch {
   ): void;
   updateJobQueue(
     args: UpdateJobQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: UpdateJobQueueCommandOutput) => void
   ): void;
 
@@ -1067,7 +1079,7 @@ export interface Batch {
    */
   updateQuotaShare(
     args: UpdateQuotaShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<UpdateQuotaShareCommandOutput>;
   updateQuotaShare(
     args: UpdateQuotaShareCommandInput,
@@ -1075,7 +1087,7 @@ export interface Batch {
   ): void;
   updateQuotaShare(
     args: UpdateQuotaShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: UpdateQuotaShareCommandOutput) => void
   ): void;
 
@@ -1084,7 +1096,7 @@ export interface Batch {
    */
   updateSchedulingPolicy(
     args: UpdateSchedulingPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<UpdateSchedulingPolicyCommandOutput>;
   updateSchedulingPolicy(
     args: UpdateSchedulingPolicyCommandInput,
@@ -1092,7 +1104,7 @@ export interface Batch {
   ): void;
   updateSchedulingPolicy(
     args: UpdateSchedulingPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: UpdateSchedulingPolicyCommandOutput) => void
   ): void;
 
@@ -1101,7 +1113,7 @@ export interface Batch {
    */
   updateServiceEnvironment(
     args: UpdateServiceEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<UpdateServiceEnvironmentCommandOutput>;
   updateServiceEnvironment(
     args: UpdateServiceEnvironmentCommandInput,
@@ -1109,7 +1121,7 @@ export interface Batch {
   ): void;
   updateServiceEnvironment(
     args: UpdateServiceEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: UpdateServiceEnvironmentCommandOutput) => void
   ): void;
 
@@ -1118,7 +1130,7 @@ export interface Batch {
    */
   updateServiceJob(
     args: UpdateServiceJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BatchRequestOptions
   ): Promise<UpdateServiceJobCommandOutput>;
   updateServiceJob(
     args: UpdateServiceJobCommandInput,
@@ -1126,7 +1138,7 @@ export interface Batch {
   ): void;
   updateServiceJob(
     args: UpdateServiceJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BatchRequestOptions,
     cb: (err: any, data?: UpdateServiceJobCommandOutput) => void
   ): void;
 

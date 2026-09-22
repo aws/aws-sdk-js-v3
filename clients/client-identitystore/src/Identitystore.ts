@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateGroupCommandInput,
@@ -123,13 +128,20 @@ const paginators = {
   paginateListUsers,
 };
 
+/**
+ * @public
+ */
+export interface IdentitystoreRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Identitystore {
   /**
    * @see {@link CreateGroupCommand}
    */
   createGroup(
     args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<CreateGroupCommandOutput>;
   createGroup(
     args: CreateGroupCommandInput,
@@ -137,7 +149,7 @@ export interface Identitystore {
   ): void;
   createGroup(
     args: CreateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: CreateGroupCommandOutput) => void
   ): void;
 
@@ -146,7 +158,7 @@ export interface Identitystore {
    */
   createGroupMembership(
     args: CreateGroupMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<CreateGroupMembershipCommandOutput>;
   createGroupMembership(
     args: CreateGroupMembershipCommandInput,
@@ -154,7 +166,7 @@ export interface Identitystore {
   ): void;
   createGroupMembership(
     args: CreateGroupMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: CreateGroupMembershipCommandOutput) => void
   ): void;
 
@@ -163,7 +175,7 @@ export interface Identitystore {
    */
   createUser(
     args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<CreateUserCommandOutput>;
   createUser(
     args: CreateUserCommandInput,
@@ -171,7 +183,7 @@ export interface Identitystore {
   ): void;
   createUser(
     args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: CreateUserCommandOutput) => void
   ): void;
 
@@ -180,7 +192,7 @@ export interface Identitystore {
    */
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<DeleteGroupCommandOutput>;
   deleteGroup(
     args: DeleteGroupCommandInput,
@@ -188,7 +200,7 @@ export interface Identitystore {
   ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: DeleteGroupCommandOutput) => void
   ): void;
 
@@ -197,7 +209,7 @@ export interface Identitystore {
    */
   deleteGroupMembership(
     args: DeleteGroupMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<DeleteGroupMembershipCommandOutput>;
   deleteGroupMembership(
     args: DeleteGroupMembershipCommandInput,
@@ -205,7 +217,7 @@ export interface Identitystore {
   ): void;
   deleteGroupMembership(
     args: DeleteGroupMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
   ): void;
 
@@ -214,7 +226,7 @@ export interface Identitystore {
    */
   deleteUser(
     args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<DeleteUserCommandOutput>;
   deleteUser(
     args: DeleteUserCommandInput,
@@ -222,7 +234,7 @@ export interface Identitystore {
   ): void;
   deleteUser(
     args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
 
@@ -231,7 +243,7 @@ export interface Identitystore {
    */
   describeGroup(
     args: DescribeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<DescribeGroupCommandOutput>;
   describeGroup(
     args: DescribeGroupCommandInput,
@@ -239,7 +251,7 @@ export interface Identitystore {
   ): void;
   describeGroup(
     args: DescribeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: DescribeGroupCommandOutput) => void
   ): void;
 
@@ -248,7 +260,7 @@ export interface Identitystore {
    */
   describeGroupMembership(
     args: DescribeGroupMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<DescribeGroupMembershipCommandOutput>;
   describeGroupMembership(
     args: DescribeGroupMembershipCommandInput,
@@ -256,7 +268,7 @@ export interface Identitystore {
   ): void;
   describeGroupMembership(
     args: DescribeGroupMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: DescribeGroupMembershipCommandOutput) => void
   ): void;
 
@@ -265,7 +277,7 @@ export interface Identitystore {
    */
   describeUser(
     args: DescribeUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<DescribeUserCommandOutput>;
   describeUser(
     args: DescribeUserCommandInput,
@@ -273,7 +285,7 @@ export interface Identitystore {
   ): void;
   describeUser(
     args: DescribeUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: DescribeUserCommandOutput) => void
   ): void;
 
@@ -282,7 +294,7 @@ export interface Identitystore {
    */
   getGroupId(
     args: GetGroupIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<GetGroupIdCommandOutput>;
   getGroupId(
     args: GetGroupIdCommandInput,
@@ -290,7 +302,7 @@ export interface Identitystore {
   ): void;
   getGroupId(
     args: GetGroupIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: GetGroupIdCommandOutput) => void
   ): void;
 
@@ -299,7 +311,7 @@ export interface Identitystore {
    */
   getGroupMembershipId(
     args: GetGroupMembershipIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<GetGroupMembershipIdCommandOutput>;
   getGroupMembershipId(
     args: GetGroupMembershipIdCommandInput,
@@ -307,7 +319,7 @@ export interface Identitystore {
   ): void;
   getGroupMembershipId(
     args: GetGroupMembershipIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: GetGroupMembershipIdCommandOutput) => void
   ): void;
 
@@ -316,7 +328,7 @@ export interface Identitystore {
    */
   getUserId(
     args: GetUserIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<GetUserIdCommandOutput>;
   getUserId(
     args: GetUserIdCommandInput,
@@ -324,7 +336,7 @@ export interface Identitystore {
   ): void;
   getUserId(
     args: GetUserIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: GetUserIdCommandOutput) => void
   ): void;
 
@@ -333,7 +345,7 @@ export interface Identitystore {
    */
   isMemberInGroups(
     args: IsMemberInGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<IsMemberInGroupsCommandOutput>;
   isMemberInGroups(
     args: IsMemberInGroupsCommandInput,
@@ -341,7 +353,7 @@ export interface Identitystore {
   ): void;
   isMemberInGroups(
     args: IsMemberInGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: IsMemberInGroupsCommandOutput) => void
   ): void;
 
@@ -350,7 +362,7 @@ export interface Identitystore {
    */
   listGroupMemberships(
     args: ListGroupMembershipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<ListGroupMembershipsCommandOutput>;
   listGroupMemberships(
     args: ListGroupMembershipsCommandInput,
@@ -358,7 +370,7 @@ export interface Identitystore {
   ): void;
   listGroupMemberships(
     args: ListGroupMembershipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: ListGroupMembershipsCommandOutput) => void
   ): void;
 
@@ -367,7 +379,7 @@ export interface Identitystore {
    */
   listGroupMembershipsForMember(
     args: ListGroupMembershipsForMemberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<ListGroupMembershipsForMemberCommandOutput>;
   listGroupMembershipsForMember(
     args: ListGroupMembershipsForMemberCommandInput,
@@ -375,7 +387,7 @@ export interface Identitystore {
   ): void;
   listGroupMembershipsForMember(
     args: ListGroupMembershipsForMemberCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: ListGroupMembershipsForMemberCommandOutput) => void
   ): void;
 
@@ -384,7 +396,7 @@ export interface Identitystore {
    */
   listGroups(
     args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<ListGroupsCommandOutput>;
   listGroups(
     args: ListGroupsCommandInput,
@@ -392,7 +404,7 @@ export interface Identitystore {
   ): void;
   listGroups(
     args: ListGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: ListGroupsCommandOutput) => void
   ): void;
 
@@ -401,7 +413,7 @@ export interface Identitystore {
    */
   listUsers(
     args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<ListUsersCommandOutput>;
   listUsers(
     args: ListUsersCommandInput,
@@ -409,7 +421,7 @@ export interface Identitystore {
   ): void;
   listUsers(
     args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
   ): void;
 
@@ -418,7 +430,7 @@ export interface Identitystore {
    */
   updateGroup(
     args: UpdateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<UpdateGroupCommandOutput>;
   updateGroup(
     args: UpdateGroupCommandInput,
@@ -426,7 +438,7 @@ export interface Identitystore {
   ): void;
   updateGroup(
     args: UpdateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: UpdateGroupCommandOutput) => void
   ): void;
 
@@ -435,7 +447,7 @@ export interface Identitystore {
    */
   updateUser(
     args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IdentitystoreRequestOptions
   ): Promise<UpdateUserCommandOutput>;
   updateUser(
     args: UpdateUserCommandInput,
@@ -443,7 +455,7 @@ export interface Identitystore {
   ): void;
   updateUser(
     args: UpdateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IdentitystoreRequestOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
 

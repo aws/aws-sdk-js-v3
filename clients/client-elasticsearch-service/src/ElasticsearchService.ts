@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptInboundCrossClusterSearchConnectionCommandInput,
@@ -339,13 +344,20 @@ const paginators = {
   paginateListPackagesForDomain,
 };
 
+/**
+ * @public
+ */
+export interface ElasticsearchServiceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ElasticsearchService {
   /**
    * @see {@link AcceptInboundCrossClusterSearchConnectionCommand}
    */
   acceptInboundCrossClusterSearchConnection(
     args: AcceptInboundCrossClusterSearchConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<AcceptInboundCrossClusterSearchConnectionCommandOutput>;
   acceptInboundCrossClusterSearchConnection(
     args: AcceptInboundCrossClusterSearchConnectionCommandInput,
@@ -353,7 +365,7 @@ export interface ElasticsearchService {
   ): void;
   acceptInboundCrossClusterSearchConnection(
     args: AcceptInboundCrossClusterSearchConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: AcceptInboundCrossClusterSearchConnectionCommandOutput) => void
   ): void;
 
@@ -362,7 +374,7 @@ export interface ElasticsearchService {
    */
   addTags(
     args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<AddTagsCommandOutput>;
   addTags(
     args: AddTagsCommandInput,
@@ -370,7 +382,7 @@ export interface ElasticsearchService {
   ): void;
   addTags(
     args: AddTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: AddTagsCommandOutput) => void
   ): void;
 
@@ -379,7 +391,7 @@ export interface ElasticsearchService {
    */
   associatePackage(
     args: AssociatePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<AssociatePackageCommandOutput>;
   associatePackage(
     args: AssociatePackageCommandInput,
@@ -387,7 +399,7 @@ export interface ElasticsearchService {
   ): void;
   associatePackage(
     args: AssociatePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: AssociatePackageCommandOutput) => void
   ): void;
 
@@ -396,7 +408,7 @@ export interface ElasticsearchService {
    */
   authorizeVpcEndpointAccess(
     args: AuthorizeVpcEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<AuthorizeVpcEndpointAccessCommandOutput>;
   authorizeVpcEndpointAccess(
     args: AuthorizeVpcEndpointAccessCommandInput,
@@ -404,7 +416,7 @@ export interface ElasticsearchService {
   ): void;
   authorizeVpcEndpointAccess(
     args: AuthorizeVpcEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void
   ): void;
 
@@ -413,7 +425,7 @@ export interface ElasticsearchService {
    */
   cancelDomainConfigChange(
     args: CancelDomainConfigChangeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<CancelDomainConfigChangeCommandOutput>;
   cancelDomainConfigChange(
     args: CancelDomainConfigChangeCommandInput,
@@ -421,7 +433,7 @@ export interface ElasticsearchService {
   ): void;
   cancelDomainConfigChange(
     args: CancelDomainConfigChangeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: CancelDomainConfigChangeCommandOutput) => void
   ): void;
 
@@ -430,7 +442,7 @@ export interface ElasticsearchService {
    */
   cancelElasticsearchServiceSoftwareUpdate(
     args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput>;
   cancelElasticsearchServiceSoftwareUpdate(
     args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
@@ -438,7 +450,7 @@ export interface ElasticsearchService {
   ): void;
   cancelElasticsearchServiceSoftwareUpdate(
     args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput) => void
   ): void;
 
@@ -447,7 +459,7 @@ export interface ElasticsearchService {
    */
   createElasticsearchDomain(
     args: CreateElasticsearchDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<CreateElasticsearchDomainCommandOutput>;
   createElasticsearchDomain(
     args: CreateElasticsearchDomainCommandInput,
@@ -455,7 +467,7 @@ export interface ElasticsearchService {
   ): void;
   createElasticsearchDomain(
     args: CreateElasticsearchDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: CreateElasticsearchDomainCommandOutput) => void
   ): void;
 
@@ -464,7 +476,7 @@ export interface ElasticsearchService {
    */
   createOutboundCrossClusterSearchConnection(
     args: CreateOutboundCrossClusterSearchConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<CreateOutboundCrossClusterSearchConnectionCommandOutput>;
   createOutboundCrossClusterSearchConnection(
     args: CreateOutboundCrossClusterSearchConnectionCommandInput,
@@ -472,7 +484,7 @@ export interface ElasticsearchService {
   ): void;
   createOutboundCrossClusterSearchConnection(
     args: CreateOutboundCrossClusterSearchConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: CreateOutboundCrossClusterSearchConnectionCommandOutput) => void
   ): void;
 
@@ -481,7 +493,7 @@ export interface ElasticsearchService {
    */
   createPackage(
     args: CreatePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<CreatePackageCommandOutput>;
   createPackage(
     args: CreatePackageCommandInput,
@@ -489,7 +501,7 @@ export interface ElasticsearchService {
   ): void;
   createPackage(
     args: CreatePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: CreatePackageCommandOutput) => void
   ): void;
 
@@ -498,7 +510,7 @@ export interface ElasticsearchService {
    */
   createVpcEndpoint(
     args: CreateVpcEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<CreateVpcEndpointCommandOutput>;
   createVpcEndpoint(
     args: CreateVpcEndpointCommandInput,
@@ -506,7 +518,7 @@ export interface ElasticsearchService {
   ): void;
   createVpcEndpoint(
     args: CreateVpcEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
   ): void;
 
@@ -515,7 +527,7 @@ export interface ElasticsearchService {
    */
   deleteElasticsearchDomain(
     args: DeleteElasticsearchDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DeleteElasticsearchDomainCommandOutput>;
   deleteElasticsearchDomain(
     args: DeleteElasticsearchDomainCommandInput,
@@ -523,7 +535,7 @@ export interface ElasticsearchService {
   ): void;
   deleteElasticsearchDomain(
     args: DeleteElasticsearchDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DeleteElasticsearchDomainCommandOutput) => void
   ): void;
 
@@ -533,7 +545,7 @@ export interface ElasticsearchService {
   deleteElasticsearchServiceRole(): Promise<DeleteElasticsearchServiceRoleCommandOutput>;
   deleteElasticsearchServiceRole(
     args: DeleteElasticsearchServiceRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DeleteElasticsearchServiceRoleCommandOutput>;
   deleteElasticsearchServiceRole(
     args: DeleteElasticsearchServiceRoleCommandInput,
@@ -541,7 +553,7 @@ export interface ElasticsearchService {
   ): void;
   deleteElasticsearchServiceRole(
     args: DeleteElasticsearchServiceRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DeleteElasticsearchServiceRoleCommandOutput) => void
   ): void;
 
@@ -550,7 +562,7 @@ export interface ElasticsearchService {
    */
   deleteInboundCrossClusterSearchConnection(
     args: DeleteInboundCrossClusterSearchConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DeleteInboundCrossClusterSearchConnectionCommandOutput>;
   deleteInboundCrossClusterSearchConnection(
     args: DeleteInboundCrossClusterSearchConnectionCommandInput,
@@ -558,7 +570,7 @@ export interface ElasticsearchService {
   ): void;
   deleteInboundCrossClusterSearchConnection(
     args: DeleteInboundCrossClusterSearchConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DeleteInboundCrossClusterSearchConnectionCommandOutput) => void
   ): void;
 
@@ -567,7 +579,7 @@ export interface ElasticsearchService {
    */
   deleteOutboundCrossClusterSearchConnection(
     args: DeleteOutboundCrossClusterSearchConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DeleteOutboundCrossClusterSearchConnectionCommandOutput>;
   deleteOutboundCrossClusterSearchConnection(
     args: DeleteOutboundCrossClusterSearchConnectionCommandInput,
@@ -575,7 +587,7 @@ export interface ElasticsearchService {
   ): void;
   deleteOutboundCrossClusterSearchConnection(
     args: DeleteOutboundCrossClusterSearchConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DeleteOutboundCrossClusterSearchConnectionCommandOutput) => void
   ): void;
 
@@ -584,7 +596,7 @@ export interface ElasticsearchService {
    */
   deletePackage(
     args: DeletePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DeletePackageCommandOutput>;
   deletePackage(
     args: DeletePackageCommandInput,
@@ -592,7 +604,7 @@ export interface ElasticsearchService {
   ): void;
   deletePackage(
     args: DeletePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DeletePackageCommandOutput) => void
   ): void;
 
@@ -601,7 +613,7 @@ export interface ElasticsearchService {
    */
   deleteVpcEndpoint(
     args: DeleteVpcEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DeleteVpcEndpointCommandOutput>;
   deleteVpcEndpoint(
     args: DeleteVpcEndpointCommandInput,
@@ -609,7 +621,7 @@ export interface ElasticsearchService {
   ): void;
   deleteVpcEndpoint(
     args: DeleteVpcEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
   ): void;
 
@@ -618,7 +630,7 @@ export interface ElasticsearchService {
    */
   describeDomainAutoTunes(
     args: DescribeDomainAutoTunesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribeDomainAutoTunesCommandOutput>;
   describeDomainAutoTunes(
     args: DescribeDomainAutoTunesCommandInput,
@@ -626,7 +638,7 @@ export interface ElasticsearchService {
   ): void;
   describeDomainAutoTunes(
     args: DescribeDomainAutoTunesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribeDomainAutoTunesCommandOutput) => void
   ): void;
 
@@ -635,7 +647,7 @@ export interface ElasticsearchService {
    */
   describeDomainChangeProgress(
     args: DescribeDomainChangeProgressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribeDomainChangeProgressCommandOutput>;
   describeDomainChangeProgress(
     args: DescribeDomainChangeProgressCommandInput,
@@ -643,7 +655,7 @@ export interface ElasticsearchService {
   ): void;
   describeDomainChangeProgress(
     args: DescribeDomainChangeProgressCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribeDomainChangeProgressCommandOutput) => void
   ): void;
 
@@ -652,7 +664,7 @@ export interface ElasticsearchService {
    */
   describeElasticsearchDomain(
     args: DescribeElasticsearchDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribeElasticsearchDomainCommandOutput>;
   describeElasticsearchDomain(
     args: DescribeElasticsearchDomainCommandInput,
@@ -660,7 +672,7 @@ export interface ElasticsearchService {
   ): void;
   describeElasticsearchDomain(
     args: DescribeElasticsearchDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribeElasticsearchDomainCommandOutput) => void
   ): void;
 
@@ -669,7 +681,7 @@ export interface ElasticsearchService {
    */
   describeElasticsearchDomainConfig(
     args: DescribeElasticsearchDomainConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribeElasticsearchDomainConfigCommandOutput>;
   describeElasticsearchDomainConfig(
     args: DescribeElasticsearchDomainConfigCommandInput,
@@ -677,7 +689,7 @@ export interface ElasticsearchService {
   ): void;
   describeElasticsearchDomainConfig(
     args: DescribeElasticsearchDomainConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribeElasticsearchDomainConfigCommandOutput) => void
   ): void;
 
@@ -686,7 +698,7 @@ export interface ElasticsearchService {
    */
   describeElasticsearchDomains(
     args: DescribeElasticsearchDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribeElasticsearchDomainsCommandOutput>;
   describeElasticsearchDomains(
     args: DescribeElasticsearchDomainsCommandInput,
@@ -694,7 +706,7 @@ export interface ElasticsearchService {
   ): void;
   describeElasticsearchDomains(
     args: DescribeElasticsearchDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void
   ): void;
 
@@ -703,7 +715,7 @@ export interface ElasticsearchService {
    */
   describeElasticsearchInstanceTypeLimits(
     args: DescribeElasticsearchInstanceTypeLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput>;
   describeElasticsearchInstanceTypeLimits(
     args: DescribeElasticsearchInstanceTypeLimitsCommandInput,
@@ -711,7 +723,7 @@ export interface ElasticsearchService {
   ): void;
   describeElasticsearchInstanceTypeLimits(
     args: DescribeElasticsearchInstanceTypeLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribeElasticsearchInstanceTypeLimitsCommandOutput) => void
   ): void;
 
@@ -721,7 +733,7 @@ export interface ElasticsearchService {
   describeInboundCrossClusterSearchConnections(): Promise<DescribeInboundCrossClusterSearchConnectionsCommandOutput>;
   describeInboundCrossClusterSearchConnections(
     args: DescribeInboundCrossClusterSearchConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribeInboundCrossClusterSearchConnectionsCommandOutput>;
   describeInboundCrossClusterSearchConnections(
     args: DescribeInboundCrossClusterSearchConnectionsCommandInput,
@@ -729,7 +741,7 @@ export interface ElasticsearchService {
   ): void;
   describeInboundCrossClusterSearchConnections(
     args: DescribeInboundCrossClusterSearchConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribeInboundCrossClusterSearchConnectionsCommandOutput) => void
   ): void;
 
@@ -739,7 +751,7 @@ export interface ElasticsearchService {
   describeOutboundCrossClusterSearchConnections(): Promise<DescribeOutboundCrossClusterSearchConnectionsCommandOutput>;
   describeOutboundCrossClusterSearchConnections(
     args: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribeOutboundCrossClusterSearchConnectionsCommandOutput>;
   describeOutboundCrossClusterSearchConnections(
     args: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
@@ -747,7 +759,7 @@ export interface ElasticsearchService {
   ): void;
   describeOutboundCrossClusterSearchConnections(
     args: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribeOutboundCrossClusterSearchConnectionsCommandOutput) => void
   ): void;
 
@@ -757,7 +769,7 @@ export interface ElasticsearchService {
   describePackages(): Promise<DescribePackagesCommandOutput>;
   describePackages(
     args: DescribePackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribePackagesCommandOutput>;
   describePackages(
     args: DescribePackagesCommandInput,
@@ -765,7 +777,7 @@ export interface ElasticsearchService {
   ): void;
   describePackages(
     args: DescribePackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribePackagesCommandOutput) => void
   ): void;
 
@@ -775,7 +787,7 @@ export interface ElasticsearchService {
   describeReservedElasticsearchInstanceOfferings(): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput>;
   describeReservedElasticsearchInstanceOfferings(
     args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput>;
   describeReservedElasticsearchInstanceOfferings(
     args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
@@ -783,7 +795,7 @@ export interface ElasticsearchService {
   ): void;
   describeReservedElasticsearchInstanceOfferings(
     args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput) => void
   ): void;
 
@@ -793,7 +805,7 @@ export interface ElasticsearchService {
   describeReservedElasticsearchInstances(): Promise<DescribeReservedElasticsearchInstancesCommandOutput>;
   describeReservedElasticsearchInstances(
     args: DescribeReservedElasticsearchInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribeReservedElasticsearchInstancesCommandOutput>;
   describeReservedElasticsearchInstances(
     args: DescribeReservedElasticsearchInstancesCommandInput,
@@ -801,7 +813,7 @@ export interface ElasticsearchService {
   ): void;
   describeReservedElasticsearchInstances(
     args: DescribeReservedElasticsearchInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribeReservedElasticsearchInstancesCommandOutput) => void
   ): void;
 
@@ -810,7 +822,7 @@ export interface ElasticsearchService {
    */
   describeVpcEndpoints(
     args: DescribeVpcEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DescribeVpcEndpointsCommandOutput>;
   describeVpcEndpoints(
     args: DescribeVpcEndpointsCommandInput,
@@ -818,7 +830,7 @@ export interface ElasticsearchService {
   ): void;
   describeVpcEndpoints(
     args: DescribeVpcEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
   ): void;
 
@@ -827,7 +839,7 @@ export interface ElasticsearchService {
    */
   dissociatePackage(
     args: DissociatePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<DissociatePackageCommandOutput>;
   dissociatePackage(
     args: DissociatePackageCommandInput,
@@ -835,7 +847,7 @@ export interface ElasticsearchService {
   ): void;
   dissociatePackage(
     args: DissociatePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: DissociatePackageCommandOutput) => void
   ): void;
 
@@ -845,7 +857,7 @@ export interface ElasticsearchService {
   getCompatibleElasticsearchVersions(): Promise<GetCompatibleElasticsearchVersionsCommandOutput>;
   getCompatibleElasticsearchVersions(
     args: GetCompatibleElasticsearchVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<GetCompatibleElasticsearchVersionsCommandOutput>;
   getCompatibleElasticsearchVersions(
     args: GetCompatibleElasticsearchVersionsCommandInput,
@@ -853,7 +865,7 @@ export interface ElasticsearchService {
   ): void;
   getCompatibleElasticsearchVersions(
     args: GetCompatibleElasticsearchVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: GetCompatibleElasticsearchVersionsCommandOutput) => void
   ): void;
 
@@ -862,7 +874,7 @@ export interface ElasticsearchService {
    */
   getPackageVersionHistory(
     args: GetPackageVersionHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<GetPackageVersionHistoryCommandOutput>;
   getPackageVersionHistory(
     args: GetPackageVersionHistoryCommandInput,
@@ -870,7 +882,7 @@ export interface ElasticsearchService {
   ): void;
   getPackageVersionHistory(
     args: GetPackageVersionHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: GetPackageVersionHistoryCommandOutput) => void
   ): void;
 
@@ -879,7 +891,7 @@ export interface ElasticsearchService {
    */
   getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<GetUpgradeHistoryCommandOutput>;
   getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
@@ -887,7 +899,7 @@ export interface ElasticsearchService {
   ): void;
   getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
   ): void;
 
@@ -896,7 +908,7 @@ export interface ElasticsearchService {
    */
   getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<GetUpgradeStatusCommandOutput>;
   getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
@@ -904,7 +916,7 @@ export interface ElasticsearchService {
   ): void;
   getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
   ): void;
 
@@ -914,7 +926,7 @@ export interface ElasticsearchService {
   listDomainNames(): Promise<ListDomainNamesCommandOutput>;
   listDomainNames(
     args: ListDomainNamesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<ListDomainNamesCommandOutput>;
   listDomainNames(
     args: ListDomainNamesCommandInput,
@@ -922,7 +934,7 @@ export interface ElasticsearchService {
   ): void;
   listDomainNames(
     args: ListDomainNamesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: ListDomainNamesCommandOutput) => void
   ): void;
 
@@ -931,7 +943,7 @@ export interface ElasticsearchService {
    */
   listDomainsForPackage(
     args: ListDomainsForPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<ListDomainsForPackageCommandOutput>;
   listDomainsForPackage(
     args: ListDomainsForPackageCommandInput,
@@ -939,7 +951,7 @@ export interface ElasticsearchService {
   ): void;
   listDomainsForPackage(
     args: ListDomainsForPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: ListDomainsForPackageCommandOutput) => void
   ): void;
 
@@ -948,7 +960,7 @@ export interface ElasticsearchService {
    */
   listElasticsearchInstanceTypes(
     args: ListElasticsearchInstanceTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<ListElasticsearchInstanceTypesCommandOutput>;
   listElasticsearchInstanceTypes(
     args: ListElasticsearchInstanceTypesCommandInput,
@@ -956,7 +968,7 @@ export interface ElasticsearchService {
   ): void;
   listElasticsearchInstanceTypes(
     args: ListElasticsearchInstanceTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: ListElasticsearchInstanceTypesCommandOutput) => void
   ): void;
 
@@ -966,7 +978,7 @@ export interface ElasticsearchService {
   listElasticsearchVersions(): Promise<ListElasticsearchVersionsCommandOutput>;
   listElasticsearchVersions(
     args: ListElasticsearchVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<ListElasticsearchVersionsCommandOutput>;
   listElasticsearchVersions(
     args: ListElasticsearchVersionsCommandInput,
@@ -974,7 +986,7 @@ export interface ElasticsearchService {
   ): void;
   listElasticsearchVersions(
     args: ListElasticsearchVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: ListElasticsearchVersionsCommandOutput) => void
   ): void;
 
@@ -983,7 +995,7 @@ export interface ElasticsearchService {
    */
   listPackagesForDomain(
     args: ListPackagesForDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<ListPackagesForDomainCommandOutput>;
   listPackagesForDomain(
     args: ListPackagesForDomainCommandInput,
@@ -991,7 +1003,7 @@ export interface ElasticsearchService {
   ): void;
   listPackagesForDomain(
     args: ListPackagesForDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: ListPackagesForDomainCommandOutput) => void
   ): void;
 
@@ -1000,7 +1012,7 @@ export interface ElasticsearchService {
    */
   listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<ListTagsCommandOutput>;
   listTags(
     args: ListTagsCommandInput,
@@ -1008,7 +1020,7 @@ export interface ElasticsearchService {
   ): void;
   listTags(
     args: ListTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: ListTagsCommandOutput) => void
   ): void;
 
@@ -1017,7 +1029,7 @@ export interface ElasticsearchService {
    */
   listVpcEndpointAccess(
     args: ListVpcEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<ListVpcEndpointAccessCommandOutput>;
   listVpcEndpointAccess(
     args: ListVpcEndpointAccessCommandInput,
@@ -1025,7 +1037,7 @@ export interface ElasticsearchService {
   ): void;
   listVpcEndpointAccess(
     args: ListVpcEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: ListVpcEndpointAccessCommandOutput) => void
   ): void;
 
@@ -1035,7 +1047,7 @@ export interface ElasticsearchService {
   listVpcEndpoints(): Promise<ListVpcEndpointsCommandOutput>;
   listVpcEndpoints(
     args: ListVpcEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<ListVpcEndpointsCommandOutput>;
   listVpcEndpoints(
     args: ListVpcEndpointsCommandInput,
@@ -1043,7 +1055,7 @@ export interface ElasticsearchService {
   ): void;
   listVpcEndpoints(
     args: ListVpcEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
   ): void;
 
@@ -1052,7 +1064,7 @@ export interface ElasticsearchService {
    */
   listVpcEndpointsForDomain(
     args: ListVpcEndpointsForDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<ListVpcEndpointsForDomainCommandOutput>;
   listVpcEndpointsForDomain(
     args: ListVpcEndpointsForDomainCommandInput,
@@ -1060,7 +1072,7 @@ export interface ElasticsearchService {
   ): void;
   listVpcEndpointsForDomain(
     args: ListVpcEndpointsForDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void
   ): void;
 
@@ -1069,7 +1081,7 @@ export interface ElasticsearchService {
    */
   purchaseReservedElasticsearchInstanceOffering(
     args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput>;
   purchaseReservedElasticsearchInstanceOffering(
     args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
@@ -1077,7 +1089,7 @@ export interface ElasticsearchService {
   ): void;
   purchaseReservedElasticsearchInstanceOffering(
     args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput) => void
   ): void;
 
@@ -1086,7 +1098,7 @@ export interface ElasticsearchService {
    */
   rejectInboundCrossClusterSearchConnection(
     args: RejectInboundCrossClusterSearchConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<RejectInboundCrossClusterSearchConnectionCommandOutput>;
   rejectInboundCrossClusterSearchConnection(
     args: RejectInboundCrossClusterSearchConnectionCommandInput,
@@ -1094,7 +1106,7 @@ export interface ElasticsearchService {
   ): void;
   rejectInboundCrossClusterSearchConnection(
     args: RejectInboundCrossClusterSearchConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: RejectInboundCrossClusterSearchConnectionCommandOutput) => void
   ): void;
 
@@ -1103,7 +1115,7 @@ export interface ElasticsearchService {
    */
   removeTags(
     args: RemoveTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<RemoveTagsCommandOutput>;
   removeTags(
     args: RemoveTagsCommandInput,
@@ -1111,7 +1123,7 @@ export interface ElasticsearchService {
   ): void;
   removeTags(
     args: RemoveTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: RemoveTagsCommandOutput) => void
   ): void;
 
@@ -1120,7 +1132,7 @@ export interface ElasticsearchService {
    */
   revokeVpcEndpointAccess(
     args: RevokeVpcEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<RevokeVpcEndpointAccessCommandOutput>;
   revokeVpcEndpointAccess(
     args: RevokeVpcEndpointAccessCommandInput,
@@ -1128,7 +1140,7 @@ export interface ElasticsearchService {
   ): void;
   revokeVpcEndpointAccess(
     args: RevokeVpcEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
   ): void;
 
@@ -1137,7 +1149,7 @@ export interface ElasticsearchService {
    */
   startElasticsearchServiceSoftwareUpdate(
     args: StartElasticsearchServiceSoftwareUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput>;
   startElasticsearchServiceSoftwareUpdate(
     args: StartElasticsearchServiceSoftwareUpdateCommandInput,
@@ -1145,7 +1157,7 @@ export interface ElasticsearchService {
   ): void;
   startElasticsearchServiceSoftwareUpdate(
     args: StartElasticsearchServiceSoftwareUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: StartElasticsearchServiceSoftwareUpdateCommandOutput) => void
   ): void;
 
@@ -1154,7 +1166,7 @@ export interface ElasticsearchService {
    */
   updateElasticsearchDomainConfig(
     args: UpdateElasticsearchDomainConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<UpdateElasticsearchDomainConfigCommandOutput>;
   updateElasticsearchDomainConfig(
     args: UpdateElasticsearchDomainConfigCommandInput,
@@ -1162,7 +1174,7 @@ export interface ElasticsearchService {
   ): void;
   updateElasticsearchDomainConfig(
     args: UpdateElasticsearchDomainConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: UpdateElasticsearchDomainConfigCommandOutput) => void
   ): void;
 
@@ -1171,7 +1183,7 @@ export interface ElasticsearchService {
    */
   updatePackage(
     args: UpdatePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<UpdatePackageCommandOutput>;
   updatePackage(
     args: UpdatePackageCommandInput,
@@ -1179,7 +1191,7 @@ export interface ElasticsearchService {
   ): void;
   updatePackage(
     args: UpdatePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: UpdatePackageCommandOutput) => void
   ): void;
 
@@ -1188,7 +1200,7 @@ export interface ElasticsearchService {
    */
   updateVpcEndpoint(
     args: UpdateVpcEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<UpdateVpcEndpointCommandOutput>;
   updateVpcEndpoint(
     args: UpdateVpcEndpointCommandInput,
@@ -1196,7 +1208,7 @@ export interface ElasticsearchService {
   ): void;
   updateVpcEndpoint(
     args: UpdateVpcEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
   ): void;
 
@@ -1205,7 +1217,7 @@ export interface ElasticsearchService {
    */
   upgradeElasticsearchDomain(
     args: UpgradeElasticsearchDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElasticsearchServiceRequestOptions
   ): Promise<UpgradeElasticsearchDomainCommandOutput>;
   upgradeElasticsearchDomain(
     args: UpgradeElasticsearchDomainCommandInput,
@@ -1213,7 +1225,7 @@ export interface ElasticsearchService {
   ): void;
   upgradeElasticsearchDomain(
     args: UpgradeElasticsearchDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElasticsearchServiceRequestOptions,
     cb: (err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void
   ): void;
 

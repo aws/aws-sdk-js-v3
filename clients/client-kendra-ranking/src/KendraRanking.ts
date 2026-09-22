@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateRescoreExecutionPlanCommandInput,
@@ -61,13 +66,20 @@ const paginators = {
   paginateListRescoreExecutionPlans,
 };
 
+/**
+ * @public
+ */
+export interface KendraRankingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface KendraRanking {
   /**
    * @see {@link CreateRescoreExecutionPlanCommand}
    */
   createRescoreExecutionPlan(
     args: CreateRescoreExecutionPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRankingRequestOptions
   ): Promise<CreateRescoreExecutionPlanCommandOutput>;
   createRescoreExecutionPlan(
     args: CreateRescoreExecutionPlanCommandInput,
@@ -75,7 +87,7 @@ export interface KendraRanking {
   ): void;
   createRescoreExecutionPlan(
     args: CreateRescoreExecutionPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRankingRequestOptions,
     cb: (err: any, data?: CreateRescoreExecutionPlanCommandOutput) => void
   ): void;
 
@@ -84,7 +96,7 @@ export interface KendraRanking {
    */
   deleteRescoreExecutionPlan(
     args: DeleteRescoreExecutionPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRankingRequestOptions
   ): Promise<DeleteRescoreExecutionPlanCommandOutput>;
   deleteRescoreExecutionPlan(
     args: DeleteRescoreExecutionPlanCommandInput,
@@ -92,7 +104,7 @@ export interface KendraRanking {
   ): void;
   deleteRescoreExecutionPlan(
     args: DeleteRescoreExecutionPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRankingRequestOptions,
     cb: (err: any, data?: DeleteRescoreExecutionPlanCommandOutput) => void
   ): void;
 
@@ -101,7 +113,7 @@ export interface KendraRanking {
    */
   describeRescoreExecutionPlan(
     args: DescribeRescoreExecutionPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRankingRequestOptions
   ): Promise<DescribeRescoreExecutionPlanCommandOutput>;
   describeRescoreExecutionPlan(
     args: DescribeRescoreExecutionPlanCommandInput,
@@ -109,7 +121,7 @@ export interface KendraRanking {
   ): void;
   describeRescoreExecutionPlan(
     args: DescribeRescoreExecutionPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRankingRequestOptions,
     cb: (err: any, data?: DescribeRescoreExecutionPlanCommandOutput) => void
   ): void;
 
@@ -119,7 +131,7 @@ export interface KendraRanking {
   listRescoreExecutionPlans(): Promise<ListRescoreExecutionPlansCommandOutput>;
   listRescoreExecutionPlans(
     args: ListRescoreExecutionPlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRankingRequestOptions
   ): Promise<ListRescoreExecutionPlansCommandOutput>;
   listRescoreExecutionPlans(
     args: ListRescoreExecutionPlansCommandInput,
@@ -127,7 +139,7 @@ export interface KendraRanking {
   ): void;
   listRescoreExecutionPlans(
     args: ListRescoreExecutionPlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRankingRequestOptions,
     cb: (err: any, data?: ListRescoreExecutionPlansCommandOutput) => void
   ): void;
 
@@ -136,7 +148,7 @@ export interface KendraRanking {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRankingRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -144,7 +156,7 @@ export interface KendraRanking {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRankingRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -153,7 +165,7 @@ export interface KendraRanking {
    */
   rescore(
     args: RescoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRankingRequestOptions
   ): Promise<RescoreCommandOutput>;
   rescore(
     args: RescoreCommandInput,
@@ -161,7 +173,7 @@ export interface KendraRanking {
   ): void;
   rescore(
     args: RescoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRankingRequestOptions,
     cb: (err: any, data?: RescoreCommandOutput) => void
   ): void;
 
@@ -170,7 +182,7 @@ export interface KendraRanking {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRankingRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -178,7 +190,7 @@ export interface KendraRanking {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRankingRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -187,7 +199,7 @@ export interface KendraRanking {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRankingRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -195,7 +207,7 @@ export interface KendraRanking {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRankingRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -204,7 +216,7 @@ export interface KendraRanking {
    */
   updateRescoreExecutionPlan(
     args: UpdateRescoreExecutionPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRankingRequestOptions
   ): Promise<UpdateRescoreExecutionPlanCommandOutput>;
   updateRescoreExecutionPlan(
     args: UpdateRescoreExecutionPlanCommandInput,
@@ -212,7 +224,7 @@ export interface KendraRanking {
   ): void;
   updateRescoreExecutionPlan(
     args: UpdateRescoreExecutionPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRankingRequestOptions,
     cb: (err: any, data?: UpdateRescoreExecutionPlanCommandOutput) => void
   ): void;
 

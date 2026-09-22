@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptAccountLinkInvitationCommandInput,
@@ -567,13 +572,20 @@ const paginators = {
   paginateListAccountLinks,
 };
 
+/**
+ * @public
+ */
+export interface WorkSpacesRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface WorkSpaces {
   /**
    * @see {@link AcceptAccountLinkInvitationCommand}
    */
   acceptAccountLinkInvitation(
     args: AcceptAccountLinkInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<AcceptAccountLinkInvitationCommandOutput>;
   acceptAccountLinkInvitation(
     args: AcceptAccountLinkInvitationCommandInput,
@@ -581,7 +593,7 @@ export interface WorkSpaces {
   ): void;
   acceptAccountLinkInvitation(
     args: AcceptAccountLinkInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: AcceptAccountLinkInvitationCommandOutput) => void
   ): void;
 
@@ -590,7 +602,7 @@ export interface WorkSpaces {
    */
   associateConnectionAlias(
     args: AssociateConnectionAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<AssociateConnectionAliasCommandOutput>;
   associateConnectionAlias(
     args: AssociateConnectionAliasCommandInput,
@@ -598,7 +610,7 @@ export interface WorkSpaces {
   ): void;
   associateConnectionAlias(
     args: AssociateConnectionAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: AssociateConnectionAliasCommandOutput) => void
   ): void;
 
@@ -607,7 +619,7 @@ export interface WorkSpaces {
    */
   associateIpGroups(
     args: AssociateIpGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<AssociateIpGroupsCommandOutput>;
   associateIpGroups(
     args: AssociateIpGroupsCommandInput,
@@ -615,7 +627,7 @@ export interface WorkSpaces {
   ): void;
   associateIpGroups(
     args: AssociateIpGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: AssociateIpGroupsCommandOutput) => void
   ): void;
 
@@ -624,7 +636,7 @@ export interface WorkSpaces {
    */
   associateWorkspaceApplication(
     args: AssociateWorkspaceApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<AssociateWorkspaceApplicationCommandOutput>;
   associateWorkspaceApplication(
     args: AssociateWorkspaceApplicationCommandInput,
@@ -632,7 +644,7 @@ export interface WorkSpaces {
   ): void;
   associateWorkspaceApplication(
     args: AssociateWorkspaceApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: AssociateWorkspaceApplicationCommandOutput) => void
   ): void;
 
@@ -641,7 +653,7 @@ export interface WorkSpaces {
    */
   authorizeIpRules(
     args: AuthorizeIpRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<AuthorizeIpRulesCommandOutput>;
   authorizeIpRules(
     args: AuthorizeIpRulesCommandInput,
@@ -649,7 +661,7 @@ export interface WorkSpaces {
   ): void;
   authorizeIpRules(
     args: AuthorizeIpRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: AuthorizeIpRulesCommandOutput) => void
   ): void;
 
@@ -658,7 +670,7 @@ export interface WorkSpaces {
    */
   copyWorkspaceImage(
     args: CopyWorkspaceImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CopyWorkspaceImageCommandOutput>;
   copyWorkspaceImage(
     args: CopyWorkspaceImageCommandInput,
@@ -666,7 +678,7 @@ export interface WorkSpaces {
   ): void;
   copyWorkspaceImage(
     args: CopyWorkspaceImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CopyWorkspaceImageCommandOutput) => void
   ): void;
 
@@ -675,7 +687,7 @@ export interface WorkSpaces {
    */
   createAccountLinkInvitation(
     args: CreateAccountLinkInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CreateAccountLinkInvitationCommandOutput>;
   createAccountLinkInvitation(
     args: CreateAccountLinkInvitationCommandInput,
@@ -683,7 +695,7 @@ export interface WorkSpaces {
   ): void;
   createAccountLinkInvitation(
     args: CreateAccountLinkInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CreateAccountLinkInvitationCommandOutput) => void
   ): void;
 
@@ -692,7 +704,7 @@ export interface WorkSpaces {
    */
   createConnectClientAddIn(
     args: CreateConnectClientAddInCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CreateConnectClientAddInCommandOutput>;
   createConnectClientAddIn(
     args: CreateConnectClientAddInCommandInput,
@@ -700,7 +712,7 @@ export interface WorkSpaces {
   ): void;
   createConnectClientAddIn(
     args: CreateConnectClientAddInCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CreateConnectClientAddInCommandOutput) => void
   ): void;
 
@@ -709,7 +721,7 @@ export interface WorkSpaces {
    */
   createConnectionAlias(
     args: CreateConnectionAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CreateConnectionAliasCommandOutput>;
   createConnectionAlias(
     args: CreateConnectionAliasCommandInput,
@@ -717,7 +729,7 @@ export interface WorkSpaces {
   ): void;
   createConnectionAlias(
     args: CreateConnectionAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CreateConnectionAliasCommandOutput) => void
   ): void;
 
@@ -726,7 +738,7 @@ export interface WorkSpaces {
    */
   createIpGroup(
     args: CreateIpGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CreateIpGroupCommandOutput>;
   createIpGroup(
     args: CreateIpGroupCommandInput,
@@ -734,7 +746,7 @@ export interface WorkSpaces {
   ): void;
   createIpGroup(
     args: CreateIpGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CreateIpGroupCommandOutput) => void
   ): void;
 
@@ -743,7 +755,7 @@ export interface WorkSpaces {
    */
   createStandbyWorkspaces(
     args: CreateStandbyWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CreateStandbyWorkspacesCommandOutput>;
   createStandbyWorkspaces(
     args: CreateStandbyWorkspacesCommandInput,
@@ -751,7 +763,7 @@ export interface WorkSpaces {
   ): void;
   createStandbyWorkspaces(
     args: CreateStandbyWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CreateStandbyWorkspacesCommandOutput) => void
   ): void;
 
@@ -760,7 +772,7 @@ export interface WorkSpaces {
    */
   createTags(
     args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CreateTagsCommandOutput>;
   createTags(
     args: CreateTagsCommandInput,
@@ -768,7 +780,7 @@ export interface WorkSpaces {
   ): void;
   createTags(
     args: CreateTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CreateTagsCommandOutput) => void
   ): void;
 
@@ -777,7 +789,7 @@ export interface WorkSpaces {
    */
   createUpdatedWorkspaceImage(
     args: CreateUpdatedWorkspaceImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CreateUpdatedWorkspaceImageCommandOutput>;
   createUpdatedWorkspaceImage(
     args: CreateUpdatedWorkspaceImageCommandInput,
@@ -785,7 +797,7 @@ export interface WorkSpaces {
   ): void;
   createUpdatedWorkspaceImage(
     args: CreateUpdatedWorkspaceImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CreateUpdatedWorkspaceImageCommandOutput) => void
   ): void;
 
@@ -794,7 +806,7 @@ export interface WorkSpaces {
    */
   createWorkspaceBundle(
     args: CreateWorkspaceBundleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CreateWorkspaceBundleCommandOutput>;
   createWorkspaceBundle(
     args: CreateWorkspaceBundleCommandInput,
@@ -802,7 +814,7 @@ export interface WorkSpaces {
   ): void;
   createWorkspaceBundle(
     args: CreateWorkspaceBundleCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CreateWorkspaceBundleCommandOutput) => void
   ): void;
 
@@ -811,7 +823,7 @@ export interface WorkSpaces {
    */
   createWorkspaceImage(
     args: CreateWorkspaceImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CreateWorkspaceImageCommandOutput>;
   createWorkspaceImage(
     args: CreateWorkspaceImageCommandInput,
@@ -819,7 +831,7 @@ export interface WorkSpaces {
   ): void;
   createWorkspaceImage(
     args: CreateWorkspaceImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CreateWorkspaceImageCommandOutput) => void
   ): void;
 
@@ -828,7 +840,7 @@ export interface WorkSpaces {
    */
   createWorkspaces(
     args: CreateWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CreateWorkspacesCommandOutput>;
   createWorkspaces(
     args: CreateWorkspacesCommandInput,
@@ -836,7 +848,7 @@ export interface WorkSpaces {
   ): void;
   createWorkspaces(
     args: CreateWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CreateWorkspacesCommandOutput) => void
   ): void;
 
@@ -845,7 +857,7 @@ export interface WorkSpaces {
    */
   createWorkspacesPool(
     args: CreateWorkspacesPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<CreateWorkspacesPoolCommandOutput>;
   createWorkspacesPool(
     args: CreateWorkspacesPoolCommandInput,
@@ -853,7 +865,7 @@ export interface WorkSpaces {
   ): void;
   createWorkspacesPool(
     args: CreateWorkspacesPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: CreateWorkspacesPoolCommandOutput) => void
   ): void;
 
@@ -862,7 +874,7 @@ export interface WorkSpaces {
    */
   deleteAccountLinkInvitation(
     args: DeleteAccountLinkInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DeleteAccountLinkInvitationCommandOutput>;
   deleteAccountLinkInvitation(
     args: DeleteAccountLinkInvitationCommandInput,
@@ -870,7 +882,7 @@ export interface WorkSpaces {
   ): void;
   deleteAccountLinkInvitation(
     args: DeleteAccountLinkInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DeleteAccountLinkInvitationCommandOutput) => void
   ): void;
 
@@ -879,7 +891,7 @@ export interface WorkSpaces {
    */
   deleteClientBranding(
     args: DeleteClientBrandingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DeleteClientBrandingCommandOutput>;
   deleteClientBranding(
     args: DeleteClientBrandingCommandInput,
@@ -887,7 +899,7 @@ export interface WorkSpaces {
   ): void;
   deleteClientBranding(
     args: DeleteClientBrandingCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DeleteClientBrandingCommandOutput) => void
   ): void;
 
@@ -896,7 +908,7 @@ export interface WorkSpaces {
    */
   deleteConnectClientAddIn(
     args: DeleteConnectClientAddInCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DeleteConnectClientAddInCommandOutput>;
   deleteConnectClientAddIn(
     args: DeleteConnectClientAddInCommandInput,
@@ -904,7 +916,7 @@ export interface WorkSpaces {
   ): void;
   deleteConnectClientAddIn(
     args: DeleteConnectClientAddInCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DeleteConnectClientAddInCommandOutput) => void
   ): void;
 
@@ -913,7 +925,7 @@ export interface WorkSpaces {
    */
   deleteConnectionAlias(
     args: DeleteConnectionAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DeleteConnectionAliasCommandOutput>;
   deleteConnectionAlias(
     args: DeleteConnectionAliasCommandInput,
@@ -921,7 +933,7 @@ export interface WorkSpaces {
   ): void;
   deleteConnectionAlias(
     args: DeleteConnectionAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DeleteConnectionAliasCommandOutput) => void
   ): void;
 
@@ -930,7 +942,7 @@ export interface WorkSpaces {
    */
   deleteIpGroup(
     args: DeleteIpGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DeleteIpGroupCommandOutput>;
   deleteIpGroup(
     args: DeleteIpGroupCommandInput,
@@ -938,7 +950,7 @@ export interface WorkSpaces {
   ): void;
   deleteIpGroup(
     args: DeleteIpGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DeleteIpGroupCommandOutput) => void
   ): void;
 
@@ -947,7 +959,7 @@ export interface WorkSpaces {
    */
   deleteTags(
     args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DeleteTagsCommandOutput>;
   deleteTags(
     args: DeleteTagsCommandInput,
@@ -955,7 +967,7 @@ export interface WorkSpaces {
   ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DeleteTagsCommandOutput) => void
   ): void;
 
@@ -965,7 +977,7 @@ export interface WorkSpaces {
   deleteWorkspaceBundle(): Promise<DeleteWorkspaceBundleCommandOutput>;
   deleteWorkspaceBundle(
     args: DeleteWorkspaceBundleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DeleteWorkspaceBundleCommandOutput>;
   deleteWorkspaceBundle(
     args: DeleteWorkspaceBundleCommandInput,
@@ -973,7 +985,7 @@ export interface WorkSpaces {
   ): void;
   deleteWorkspaceBundle(
     args: DeleteWorkspaceBundleCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DeleteWorkspaceBundleCommandOutput) => void
   ): void;
 
@@ -982,7 +994,7 @@ export interface WorkSpaces {
    */
   deleteWorkspaceImage(
     args: DeleteWorkspaceImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DeleteWorkspaceImageCommandOutput>;
   deleteWorkspaceImage(
     args: DeleteWorkspaceImageCommandInput,
@@ -990,7 +1002,7 @@ export interface WorkSpaces {
   ): void;
   deleteWorkspaceImage(
     args: DeleteWorkspaceImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DeleteWorkspaceImageCommandOutput) => void
   ): void;
 
@@ -999,7 +1011,7 @@ export interface WorkSpaces {
    */
   deployWorkspaceApplications(
     args: DeployWorkspaceApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DeployWorkspaceApplicationsCommandOutput>;
   deployWorkspaceApplications(
     args: DeployWorkspaceApplicationsCommandInput,
@@ -1007,7 +1019,7 @@ export interface WorkSpaces {
   ): void;
   deployWorkspaceApplications(
     args: DeployWorkspaceApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DeployWorkspaceApplicationsCommandOutput) => void
   ): void;
 
@@ -1016,7 +1028,7 @@ export interface WorkSpaces {
    */
   deregisterWorkspaceDirectory(
     args: DeregisterWorkspaceDirectoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DeregisterWorkspaceDirectoryCommandOutput>;
   deregisterWorkspaceDirectory(
     args: DeregisterWorkspaceDirectoryCommandInput,
@@ -1024,7 +1036,7 @@ export interface WorkSpaces {
   ): void;
   deregisterWorkspaceDirectory(
     args: DeregisterWorkspaceDirectoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DeregisterWorkspaceDirectoryCommandOutput) => void
   ): void;
 
@@ -1034,7 +1046,7 @@ export interface WorkSpaces {
   describeAccount(): Promise<DescribeAccountCommandOutput>;
   describeAccount(
     args: DescribeAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeAccountCommandOutput>;
   describeAccount(
     args: DescribeAccountCommandInput,
@@ -1042,7 +1054,7 @@ export interface WorkSpaces {
   ): void;
   describeAccount(
     args: DescribeAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeAccountCommandOutput) => void
   ): void;
 
@@ -1052,7 +1064,7 @@ export interface WorkSpaces {
   describeAccountModifications(): Promise<DescribeAccountModificationsCommandOutput>;
   describeAccountModifications(
     args: DescribeAccountModificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeAccountModificationsCommandOutput>;
   describeAccountModifications(
     args: DescribeAccountModificationsCommandInput,
@@ -1060,7 +1072,7 @@ export interface WorkSpaces {
   ): void;
   describeAccountModifications(
     args: DescribeAccountModificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeAccountModificationsCommandOutput) => void
   ): void;
 
@@ -1069,7 +1081,7 @@ export interface WorkSpaces {
    */
   describeApplicationAssociations(
     args: DescribeApplicationAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeApplicationAssociationsCommandOutput>;
   describeApplicationAssociations(
     args: DescribeApplicationAssociationsCommandInput,
@@ -1077,7 +1089,7 @@ export interface WorkSpaces {
   ): void;
   describeApplicationAssociations(
     args: DescribeApplicationAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeApplicationAssociationsCommandOutput) => void
   ): void;
 
@@ -1087,7 +1099,7 @@ export interface WorkSpaces {
   describeApplications(): Promise<DescribeApplicationsCommandOutput>;
   describeApplications(
     args: DescribeApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeApplicationsCommandOutput>;
   describeApplications(
     args: DescribeApplicationsCommandInput,
@@ -1095,7 +1107,7 @@ export interface WorkSpaces {
   ): void;
   describeApplications(
     args: DescribeApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeApplicationsCommandOutput) => void
   ): void;
 
@@ -1104,7 +1116,7 @@ export interface WorkSpaces {
    */
   describeBundleAssociations(
     args: DescribeBundleAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeBundleAssociationsCommandOutput>;
   describeBundleAssociations(
     args: DescribeBundleAssociationsCommandInput,
@@ -1112,7 +1124,7 @@ export interface WorkSpaces {
   ): void;
   describeBundleAssociations(
     args: DescribeBundleAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeBundleAssociationsCommandOutput) => void
   ): void;
 
@@ -1121,7 +1133,7 @@ export interface WorkSpaces {
    */
   describeClientBranding(
     args: DescribeClientBrandingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeClientBrandingCommandOutput>;
   describeClientBranding(
     args: DescribeClientBrandingCommandInput,
@@ -1129,7 +1141,7 @@ export interface WorkSpaces {
   ): void;
   describeClientBranding(
     args: DescribeClientBrandingCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeClientBrandingCommandOutput) => void
   ): void;
 
@@ -1138,7 +1150,7 @@ export interface WorkSpaces {
    */
   describeClientProperties(
     args: DescribeClientPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeClientPropertiesCommandOutput>;
   describeClientProperties(
     args: DescribeClientPropertiesCommandInput,
@@ -1146,7 +1158,7 @@ export interface WorkSpaces {
   ): void;
   describeClientProperties(
     args: DescribeClientPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeClientPropertiesCommandOutput) => void
   ): void;
 
@@ -1155,7 +1167,7 @@ export interface WorkSpaces {
    */
   describeConnectClientAddIns(
     args: DescribeConnectClientAddInsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeConnectClientAddInsCommandOutput>;
   describeConnectClientAddIns(
     args: DescribeConnectClientAddInsCommandInput,
@@ -1163,7 +1175,7 @@ export interface WorkSpaces {
   ): void;
   describeConnectClientAddIns(
     args: DescribeConnectClientAddInsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeConnectClientAddInsCommandOutput) => void
   ): void;
 
@@ -1173,7 +1185,7 @@ export interface WorkSpaces {
   describeConnectionAliases(): Promise<DescribeConnectionAliasesCommandOutput>;
   describeConnectionAliases(
     args: DescribeConnectionAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeConnectionAliasesCommandOutput>;
   describeConnectionAliases(
     args: DescribeConnectionAliasesCommandInput,
@@ -1181,7 +1193,7 @@ export interface WorkSpaces {
   ): void;
   describeConnectionAliases(
     args: DescribeConnectionAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeConnectionAliasesCommandOutput) => void
   ): void;
 
@@ -1190,7 +1202,7 @@ export interface WorkSpaces {
    */
   describeConnectionAliasPermissions(
     args: DescribeConnectionAliasPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeConnectionAliasPermissionsCommandOutput>;
   describeConnectionAliasPermissions(
     args: DescribeConnectionAliasPermissionsCommandInput,
@@ -1198,7 +1210,7 @@ export interface WorkSpaces {
   ): void;
   describeConnectionAliasPermissions(
     args: DescribeConnectionAliasPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeConnectionAliasPermissionsCommandOutput) => void
   ): void;
 
@@ -1207,7 +1219,7 @@ export interface WorkSpaces {
    */
   describeCustomWorkspaceImageImport(
     args: DescribeCustomWorkspaceImageImportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeCustomWorkspaceImageImportCommandOutput>;
   describeCustomWorkspaceImageImport(
     args: DescribeCustomWorkspaceImageImportCommandInput,
@@ -1215,7 +1227,7 @@ export interface WorkSpaces {
   ): void;
   describeCustomWorkspaceImageImport(
     args: DescribeCustomWorkspaceImageImportCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeCustomWorkspaceImageImportCommandOutput) => void
   ): void;
 
@@ -1224,7 +1236,7 @@ export interface WorkSpaces {
    */
   describeImageAssociations(
     args: DescribeImageAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeImageAssociationsCommandOutput>;
   describeImageAssociations(
     args: DescribeImageAssociationsCommandInput,
@@ -1232,7 +1244,7 @@ export interface WorkSpaces {
   ): void;
   describeImageAssociations(
     args: DescribeImageAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeImageAssociationsCommandOutput) => void
   ): void;
 
@@ -1242,7 +1254,7 @@ export interface WorkSpaces {
   describeIpGroups(): Promise<DescribeIpGroupsCommandOutput>;
   describeIpGroups(
     args: DescribeIpGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeIpGroupsCommandOutput>;
   describeIpGroups(
     args: DescribeIpGroupsCommandInput,
@@ -1250,7 +1262,7 @@ export interface WorkSpaces {
   ): void;
   describeIpGroups(
     args: DescribeIpGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeIpGroupsCommandOutput) => void
   ): void;
 
@@ -1259,7 +1271,7 @@ export interface WorkSpaces {
    */
   describeTags(
     args: DescribeTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeTagsCommandOutput>;
   describeTags(
     args: DescribeTagsCommandInput,
@@ -1267,7 +1279,7 @@ export interface WorkSpaces {
   ): void;
   describeTags(
     args: DescribeTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeTagsCommandOutput) => void
   ): void;
 
@@ -1276,7 +1288,7 @@ export interface WorkSpaces {
    */
   describeWorkspaceAssociations(
     args: DescribeWorkspaceAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeWorkspaceAssociationsCommandOutput>;
   describeWorkspaceAssociations(
     args: DescribeWorkspaceAssociationsCommandInput,
@@ -1284,7 +1296,7 @@ export interface WorkSpaces {
   ): void;
   describeWorkspaceAssociations(
     args: DescribeWorkspaceAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeWorkspaceAssociationsCommandOutput) => void
   ): void;
 
@@ -1294,7 +1306,7 @@ export interface WorkSpaces {
   describeWorkspaceBundles(): Promise<DescribeWorkspaceBundlesCommandOutput>;
   describeWorkspaceBundles(
     args: DescribeWorkspaceBundlesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeWorkspaceBundlesCommandOutput>;
   describeWorkspaceBundles(
     args: DescribeWorkspaceBundlesCommandInput,
@@ -1302,7 +1314,7 @@ export interface WorkSpaces {
   ): void;
   describeWorkspaceBundles(
     args: DescribeWorkspaceBundlesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeWorkspaceBundlesCommandOutput) => void
   ): void;
 
@@ -1312,7 +1324,7 @@ export interface WorkSpaces {
   describeWorkspaceDirectories(): Promise<DescribeWorkspaceDirectoriesCommandOutput>;
   describeWorkspaceDirectories(
     args: DescribeWorkspaceDirectoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeWorkspaceDirectoriesCommandOutput>;
   describeWorkspaceDirectories(
     args: DescribeWorkspaceDirectoriesCommandInput,
@@ -1320,7 +1332,7 @@ export interface WorkSpaces {
   ): void;
   describeWorkspaceDirectories(
     args: DescribeWorkspaceDirectoriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeWorkspaceDirectoriesCommandOutput) => void
   ): void;
 
@@ -1329,7 +1341,7 @@ export interface WorkSpaces {
    */
   describeWorkspaceImagePermissions(
     args: DescribeWorkspaceImagePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeWorkspaceImagePermissionsCommandOutput>;
   describeWorkspaceImagePermissions(
     args: DescribeWorkspaceImagePermissionsCommandInput,
@@ -1337,7 +1349,7 @@ export interface WorkSpaces {
   ): void;
   describeWorkspaceImagePermissions(
     args: DescribeWorkspaceImagePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeWorkspaceImagePermissionsCommandOutput) => void
   ): void;
 
@@ -1347,7 +1359,7 @@ export interface WorkSpaces {
   describeWorkspaceImages(): Promise<DescribeWorkspaceImagesCommandOutput>;
   describeWorkspaceImages(
     args: DescribeWorkspaceImagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeWorkspaceImagesCommandOutput>;
   describeWorkspaceImages(
     args: DescribeWorkspaceImagesCommandInput,
@@ -1355,7 +1367,7 @@ export interface WorkSpaces {
   ): void;
   describeWorkspaceImages(
     args: DescribeWorkspaceImagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeWorkspaceImagesCommandOutput) => void
   ): void;
 
@@ -1365,7 +1377,7 @@ export interface WorkSpaces {
   describeWorkspaces(): Promise<DescribeWorkspacesCommandOutput>;
   describeWorkspaces(
     args: DescribeWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeWorkspacesCommandOutput>;
   describeWorkspaces(
     args: DescribeWorkspacesCommandInput,
@@ -1373,7 +1385,7 @@ export interface WorkSpaces {
   ): void;
   describeWorkspaces(
     args: DescribeWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeWorkspacesCommandOutput) => void
   ): void;
 
@@ -1383,7 +1395,7 @@ export interface WorkSpaces {
   describeWorkspacesConnectionStatus(): Promise<DescribeWorkspacesConnectionStatusCommandOutput>;
   describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeWorkspacesConnectionStatusCommandOutput>;
   describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
@@ -1391,7 +1403,7 @@ export interface WorkSpaces {
   ): void;
   describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeWorkspacesConnectionStatusCommandOutput) => void
   ): void;
 
@@ -1400,7 +1412,7 @@ export interface WorkSpaces {
    */
   describeWorkspaceSnapshots(
     args: DescribeWorkspaceSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeWorkspaceSnapshotsCommandOutput>;
   describeWorkspaceSnapshots(
     args: DescribeWorkspaceSnapshotsCommandInput,
@@ -1408,7 +1420,7 @@ export interface WorkSpaces {
   ): void;
   describeWorkspaceSnapshots(
     args: DescribeWorkspaceSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void
   ): void;
 
@@ -1418,7 +1430,7 @@ export interface WorkSpaces {
   describeWorkspacesPools(): Promise<DescribeWorkspacesPoolsCommandOutput>;
   describeWorkspacesPools(
     args: DescribeWorkspacesPoolsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeWorkspacesPoolsCommandOutput>;
   describeWorkspacesPools(
     args: DescribeWorkspacesPoolsCommandInput,
@@ -1426,7 +1438,7 @@ export interface WorkSpaces {
   ): void;
   describeWorkspacesPools(
     args: DescribeWorkspacesPoolsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeWorkspacesPoolsCommandOutput) => void
   ): void;
 
@@ -1435,7 +1447,7 @@ export interface WorkSpaces {
    */
   describeWorkspacesPoolSessions(
     args: DescribeWorkspacesPoolSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DescribeWorkspacesPoolSessionsCommandOutput>;
   describeWorkspacesPoolSessions(
     args: DescribeWorkspacesPoolSessionsCommandInput,
@@ -1443,7 +1455,7 @@ export interface WorkSpaces {
   ): void;
   describeWorkspacesPoolSessions(
     args: DescribeWorkspacesPoolSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DescribeWorkspacesPoolSessionsCommandOutput) => void
   ): void;
 
@@ -1452,7 +1464,7 @@ export interface WorkSpaces {
    */
   disassociateConnectionAlias(
     args: DisassociateConnectionAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DisassociateConnectionAliasCommandOutput>;
   disassociateConnectionAlias(
     args: DisassociateConnectionAliasCommandInput,
@@ -1460,7 +1472,7 @@ export interface WorkSpaces {
   ): void;
   disassociateConnectionAlias(
     args: DisassociateConnectionAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DisassociateConnectionAliasCommandOutput) => void
   ): void;
 
@@ -1469,7 +1481,7 @@ export interface WorkSpaces {
    */
   disassociateIpGroups(
     args: DisassociateIpGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DisassociateIpGroupsCommandOutput>;
   disassociateIpGroups(
     args: DisassociateIpGroupsCommandInput,
@@ -1477,7 +1489,7 @@ export interface WorkSpaces {
   ): void;
   disassociateIpGroups(
     args: DisassociateIpGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DisassociateIpGroupsCommandOutput) => void
   ): void;
 
@@ -1486,7 +1498,7 @@ export interface WorkSpaces {
    */
   disassociateWorkspaceApplication(
     args: DisassociateWorkspaceApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<DisassociateWorkspaceApplicationCommandOutput>;
   disassociateWorkspaceApplication(
     args: DisassociateWorkspaceApplicationCommandInput,
@@ -1494,7 +1506,7 @@ export interface WorkSpaces {
   ): void;
   disassociateWorkspaceApplication(
     args: DisassociateWorkspaceApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: DisassociateWorkspaceApplicationCommandOutput) => void
   ): void;
 
@@ -1504,7 +1516,7 @@ export interface WorkSpaces {
   getAccountLink(): Promise<GetAccountLinkCommandOutput>;
   getAccountLink(
     args: GetAccountLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<GetAccountLinkCommandOutput>;
   getAccountLink(
     args: GetAccountLinkCommandInput,
@@ -1512,7 +1524,7 @@ export interface WorkSpaces {
   ): void;
   getAccountLink(
     args: GetAccountLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: GetAccountLinkCommandOutput) => void
   ): void;
 
@@ -1521,7 +1533,7 @@ export interface WorkSpaces {
    */
   importClientBranding(
     args: ImportClientBrandingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ImportClientBrandingCommandOutput>;
   importClientBranding(
     args: ImportClientBrandingCommandInput,
@@ -1529,7 +1541,7 @@ export interface WorkSpaces {
   ): void;
   importClientBranding(
     args: ImportClientBrandingCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ImportClientBrandingCommandOutput) => void
   ): void;
 
@@ -1538,7 +1550,7 @@ export interface WorkSpaces {
    */
   importCustomWorkspaceImage(
     args: ImportCustomWorkspaceImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ImportCustomWorkspaceImageCommandOutput>;
   importCustomWorkspaceImage(
     args: ImportCustomWorkspaceImageCommandInput,
@@ -1546,7 +1558,7 @@ export interface WorkSpaces {
   ): void;
   importCustomWorkspaceImage(
     args: ImportCustomWorkspaceImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ImportCustomWorkspaceImageCommandOutput) => void
   ): void;
 
@@ -1555,7 +1567,7 @@ export interface WorkSpaces {
    */
   importWorkspaceImage(
     args: ImportWorkspaceImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ImportWorkspaceImageCommandOutput>;
   importWorkspaceImage(
     args: ImportWorkspaceImageCommandInput,
@@ -1563,7 +1575,7 @@ export interface WorkSpaces {
   ): void;
   importWorkspaceImage(
     args: ImportWorkspaceImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ImportWorkspaceImageCommandOutput) => void
   ): void;
 
@@ -1573,7 +1585,7 @@ export interface WorkSpaces {
   listAccountLinks(): Promise<ListAccountLinksCommandOutput>;
   listAccountLinks(
     args: ListAccountLinksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ListAccountLinksCommandOutput>;
   listAccountLinks(
     args: ListAccountLinksCommandInput,
@@ -1581,7 +1593,7 @@ export interface WorkSpaces {
   ): void;
   listAccountLinks(
     args: ListAccountLinksCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ListAccountLinksCommandOutput) => void
   ): void;
 
@@ -1590,7 +1602,7 @@ export interface WorkSpaces {
    */
   listAvailableManagementCidrRanges(
     args: ListAvailableManagementCidrRangesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ListAvailableManagementCidrRangesCommandOutput>;
   listAvailableManagementCidrRanges(
     args: ListAvailableManagementCidrRangesCommandInput,
@@ -1598,7 +1610,7 @@ export interface WorkSpaces {
   ): void;
   listAvailableManagementCidrRanges(
     args: ListAvailableManagementCidrRangesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ListAvailableManagementCidrRangesCommandOutput) => void
   ): void;
 
@@ -1607,7 +1619,7 @@ export interface WorkSpaces {
    */
   migrateWorkspace(
     args: MigrateWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<MigrateWorkspaceCommandOutput>;
   migrateWorkspace(
     args: MigrateWorkspaceCommandInput,
@@ -1615,7 +1627,7 @@ export interface WorkSpaces {
   ): void;
   migrateWorkspace(
     args: MigrateWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: MigrateWorkspaceCommandOutput) => void
   ): void;
 
@@ -1625,7 +1637,7 @@ export interface WorkSpaces {
   modifyAccount(): Promise<ModifyAccountCommandOutput>;
   modifyAccount(
     args: ModifyAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ModifyAccountCommandOutput>;
   modifyAccount(
     args: ModifyAccountCommandInput,
@@ -1633,7 +1645,7 @@ export interface WorkSpaces {
   ): void;
   modifyAccount(
     args: ModifyAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ModifyAccountCommandOutput) => void
   ): void;
 
@@ -1642,7 +1654,7 @@ export interface WorkSpaces {
    */
   modifyCertificateBasedAuthProperties(
     args: ModifyCertificateBasedAuthPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput>;
   modifyCertificateBasedAuthProperties(
     args: ModifyCertificateBasedAuthPropertiesCommandInput,
@@ -1650,7 +1662,7 @@ export interface WorkSpaces {
   ): void;
   modifyCertificateBasedAuthProperties(
     args: ModifyCertificateBasedAuthPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ModifyCertificateBasedAuthPropertiesCommandOutput) => void
   ): void;
 
@@ -1659,7 +1671,7 @@ export interface WorkSpaces {
    */
   modifyClientProperties(
     args: ModifyClientPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ModifyClientPropertiesCommandOutput>;
   modifyClientProperties(
     args: ModifyClientPropertiesCommandInput,
@@ -1667,7 +1679,7 @@ export interface WorkSpaces {
   ): void;
   modifyClientProperties(
     args: ModifyClientPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ModifyClientPropertiesCommandOutput) => void
   ): void;
 
@@ -1676,7 +1688,7 @@ export interface WorkSpaces {
    */
   modifyEndpointEncryptionMode(
     args: ModifyEndpointEncryptionModeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ModifyEndpointEncryptionModeCommandOutput>;
   modifyEndpointEncryptionMode(
     args: ModifyEndpointEncryptionModeCommandInput,
@@ -1684,7 +1696,7 @@ export interface WorkSpaces {
   ): void;
   modifyEndpointEncryptionMode(
     args: ModifyEndpointEncryptionModeCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ModifyEndpointEncryptionModeCommandOutput) => void
   ): void;
 
@@ -1693,7 +1705,7 @@ export interface WorkSpaces {
    */
   modifySamlProperties(
     args: ModifySamlPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ModifySamlPropertiesCommandOutput>;
   modifySamlProperties(
     args: ModifySamlPropertiesCommandInput,
@@ -1701,7 +1713,7 @@ export interface WorkSpaces {
   ): void;
   modifySamlProperties(
     args: ModifySamlPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ModifySamlPropertiesCommandOutput) => void
   ): void;
 
@@ -1710,7 +1722,7 @@ export interface WorkSpaces {
    */
   modifySelfservicePermissions(
     args: ModifySelfservicePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ModifySelfservicePermissionsCommandOutput>;
   modifySelfservicePermissions(
     args: ModifySelfservicePermissionsCommandInput,
@@ -1718,7 +1730,7 @@ export interface WorkSpaces {
   ): void;
   modifySelfservicePermissions(
     args: ModifySelfservicePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ModifySelfservicePermissionsCommandOutput) => void
   ): void;
 
@@ -1727,7 +1739,7 @@ export interface WorkSpaces {
    */
   modifyStreamingProperties(
     args: ModifyStreamingPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ModifyStreamingPropertiesCommandOutput>;
   modifyStreamingProperties(
     args: ModifyStreamingPropertiesCommandInput,
@@ -1735,7 +1747,7 @@ export interface WorkSpaces {
   ): void;
   modifyStreamingProperties(
     args: ModifyStreamingPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ModifyStreamingPropertiesCommandOutput) => void
   ): void;
 
@@ -1744,7 +1756,7 @@ export interface WorkSpaces {
    */
   modifyWorkspaceAccessProperties(
     args: ModifyWorkspaceAccessPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ModifyWorkspaceAccessPropertiesCommandOutput>;
   modifyWorkspaceAccessProperties(
     args: ModifyWorkspaceAccessPropertiesCommandInput,
@@ -1752,7 +1764,7 @@ export interface WorkSpaces {
   ): void;
   modifyWorkspaceAccessProperties(
     args: ModifyWorkspaceAccessPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ModifyWorkspaceAccessPropertiesCommandOutput) => void
   ): void;
 
@@ -1761,7 +1773,7 @@ export interface WorkSpaces {
    */
   modifyWorkspaceCreationProperties(
     args: ModifyWorkspaceCreationPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ModifyWorkspaceCreationPropertiesCommandOutput>;
   modifyWorkspaceCreationProperties(
     args: ModifyWorkspaceCreationPropertiesCommandInput,
@@ -1769,7 +1781,7 @@ export interface WorkSpaces {
   ): void;
   modifyWorkspaceCreationProperties(
     args: ModifyWorkspaceCreationPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ModifyWorkspaceCreationPropertiesCommandOutput) => void
   ): void;
 
@@ -1778,7 +1790,7 @@ export interface WorkSpaces {
    */
   modifyWorkspaceProperties(
     args: ModifyWorkspacePropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ModifyWorkspacePropertiesCommandOutput>;
   modifyWorkspaceProperties(
     args: ModifyWorkspacePropertiesCommandInput,
@@ -1786,7 +1798,7 @@ export interface WorkSpaces {
   ): void;
   modifyWorkspaceProperties(
     args: ModifyWorkspacePropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ModifyWorkspacePropertiesCommandOutput) => void
   ): void;
 
@@ -1795,7 +1807,7 @@ export interface WorkSpaces {
    */
   modifyWorkspaceState(
     args: ModifyWorkspaceStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<ModifyWorkspaceStateCommandOutput>;
   modifyWorkspaceState(
     args: ModifyWorkspaceStateCommandInput,
@@ -1803,7 +1815,7 @@ export interface WorkSpaces {
   ): void;
   modifyWorkspaceState(
     args: ModifyWorkspaceStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: ModifyWorkspaceStateCommandOutput) => void
   ): void;
 
@@ -1812,7 +1824,7 @@ export interface WorkSpaces {
    */
   rebootWorkspaces(
     args: RebootWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<RebootWorkspacesCommandOutput>;
   rebootWorkspaces(
     args: RebootWorkspacesCommandInput,
@@ -1820,7 +1832,7 @@ export interface WorkSpaces {
   ): void;
   rebootWorkspaces(
     args: RebootWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: RebootWorkspacesCommandOutput) => void
   ): void;
 
@@ -1829,7 +1841,7 @@ export interface WorkSpaces {
    */
   rebuildWorkspaces(
     args: RebuildWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<RebuildWorkspacesCommandOutput>;
   rebuildWorkspaces(
     args: RebuildWorkspacesCommandInput,
@@ -1837,7 +1849,7 @@ export interface WorkSpaces {
   ): void;
   rebuildWorkspaces(
     args: RebuildWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: RebuildWorkspacesCommandOutput) => void
   ): void;
 
@@ -1847,7 +1859,7 @@ export interface WorkSpaces {
   registerWorkspaceDirectory(): Promise<RegisterWorkspaceDirectoryCommandOutput>;
   registerWorkspaceDirectory(
     args: RegisterWorkspaceDirectoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<RegisterWorkspaceDirectoryCommandOutput>;
   registerWorkspaceDirectory(
     args: RegisterWorkspaceDirectoryCommandInput,
@@ -1855,7 +1867,7 @@ export interface WorkSpaces {
   ): void;
   registerWorkspaceDirectory(
     args: RegisterWorkspaceDirectoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: RegisterWorkspaceDirectoryCommandOutput) => void
   ): void;
 
@@ -1864,7 +1876,7 @@ export interface WorkSpaces {
    */
   rejectAccountLinkInvitation(
     args: RejectAccountLinkInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<RejectAccountLinkInvitationCommandOutput>;
   rejectAccountLinkInvitation(
     args: RejectAccountLinkInvitationCommandInput,
@@ -1872,7 +1884,7 @@ export interface WorkSpaces {
   ): void;
   rejectAccountLinkInvitation(
     args: RejectAccountLinkInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: RejectAccountLinkInvitationCommandOutput) => void
   ): void;
 
@@ -1881,7 +1893,7 @@ export interface WorkSpaces {
    */
   restoreWorkspace(
     args: RestoreWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<RestoreWorkspaceCommandOutput>;
   restoreWorkspace(
     args: RestoreWorkspaceCommandInput,
@@ -1889,7 +1901,7 @@ export interface WorkSpaces {
   ): void;
   restoreWorkspace(
     args: RestoreWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: RestoreWorkspaceCommandOutput) => void
   ): void;
 
@@ -1898,7 +1910,7 @@ export interface WorkSpaces {
    */
   revokeIpRules(
     args: RevokeIpRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<RevokeIpRulesCommandOutput>;
   revokeIpRules(
     args: RevokeIpRulesCommandInput,
@@ -1906,7 +1918,7 @@ export interface WorkSpaces {
   ): void;
   revokeIpRules(
     args: RevokeIpRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: RevokeIpRulesCommandOutput) => void
   ): void;
 
@@ -1915,7 +1927,7 @@ export interface WorkSpaces {
    */
   startWorkspaces(
     args: StartWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<StartWorkspacesCommandOutput>;
   startWorkspaces(
     args: StartWorkspacesCommandInput,
@@ -1923,7 +1935,7 @@ export interface WorkSpaces {
   ): void;
   startWorkspaces(
     args: StartWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: StartWorkspacesCommandOutput) => void
   ): void;
 
@@ -1932,7 +1944,7 @@ export interface WorkSpaces {
    */
   startWorkspacesPool(
     args: StartWorkspacesPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<StartWorkspacesPoolCommandOutput>;
   startWorkspacesPool(
     args: StartWorkspacesPoolCommandInput,
@@ -1940,7 +1952,7 @@ export interface WorkSpaces {
   ): void;
   startWorkspacesPool(
     args: StartWorkspacesPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: StartWorkspacesPoolCommandOutput) => void
   ): void;
 
@@ -1949,7 +1961,7 @@ export interface WorkSpaces {
    */
   stopWorkspaces(
     args: StopWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<StopWorkspacesCommandOutput>;
   stopWorkspaces(
     args: StopWorkspacesCommandInput,
@@ -1957,7 +1969,7 @@ export interface WorkSpaces {
   ): void;
   stopWorkspaces(
     args: StopWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: StopWorkspacesCommandOutput) => void
   ): void;
 
@@ -1966,7 +1978,7 @@ export interface WorkSpaces {
    */
   stopWorkspacesPool(
     args: StopWorkspacesPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<StopWorkspacesPoolCommandOutput>;
   stopWorkspacesPool(
     args: StopWorkspacesPoolCommandInput,
@@ -1974,7 +1986,7 @@ export interface WorkSpaces {
   ): void;
   stopWorkspacesPool(
     args: StopWorkspacesPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: StopWorkspacesPoolCommandOutput) => void
   ): void;
 
@@ -1983,7 +1995,7 @@ export interface WorkSpaces {
    */
   terminateWorkspaces(
     args: TerminateWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<TerminateWorkspacesCommandOutput>;
   terminateWorkspaces(
     args: TerminateWorkspacesCommandInput,
@@ -1991,7 +2003,7 @@ export interface WorkSpaces {
   ): void;
   terminateWorkspaces(
     args: TerminateWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: TerminateWorkspacesCommandOutput) => void
   ): void;
 
@@ -2000,7 +2012,7 @@ export interface WorkSpaces {
    */
   terminateWorkspacesPool(
     args: TerminateWorkspacesPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<TerminateWorkspacesPoolCommandOutput>;
   terminateWorkspacesPool(
     args: TerminateWorkspacesPoolCommandInput,
@@ -2008,7 +2020,7 @@ export interface WorkSpaces {
   ): void;
   terminateWorkspacesPool(
     args: TerminateWorkspacesPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: TerminateWorkspacesPoolCommandOutput) => void
   ): void;
 
@@ -2017,7 +2029,7 @@ export interface WorkSpaces {
    */
   terminateWorkspacesPoolSession(
     args: TerminateWorkspacesPoolSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<TerminateWorkspacesPoolSessionCommandOutput>;
   terminateWorkspacesPoolSession(
     args: TerminateWorkspacesPoolSessionCommandInput,
@@ -2025,7 +2037,7 @@ export interface WorkSpaces {
   ): void;
   terminateWorkspacesPoolSession(
     args: TerminateWorkspacesPoolSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: TerminateWorkspacesPoolSessionCommandOutput) => void
   ): void;
 
@@ -2034,7 +2046,7 @@ export interface WorkSpaces {
    */
   updateConnectClientAddIn(
     args: UpdateConnectClientAddInCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<UpdateConnectClientAddInCommandOutput>;
   updateConnectClientAddIn(
     args: UpdateConnectClientAddInCommandInput,
@@ -2042,7 +2054,7 @@ export interface WorkSpaces {
   ): void;
   updateConnectClientAddIn(
     args: UpdateConnectClientAddInCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: UpdateConnectClientAddInCommandOutput) => void
   ): void;
 
@@ -2051,7 +2063,7 @@ export interface WorkSpaces {
    */
   updateConnectionAliasPermission(
     args: UpdateConnectionAliasPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<UpdateConnectionAliasPermissionCommandOutput>;
   updateConnectionAliasPermission(
     args: UpdateConnectionAliasPermissionCommandInput,
@@ -2059,7 +2071,7 @@ export interface WorkSpaces {
   ): void;
   updateConnectionAliasPermission(
     args: UpdateConnectionAliasPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: UpdateConnectionAliasPermissionCommandOutput) => void
   ): void;
 
@@ -2068,7 +2080,7 @@ export interface WorkSpaces {
    */
   updateRulesOfIpGroup(
     args: UpdateRulesOfIpGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<UpdateRulesOfIpGroupCommandOutput>;
   updateRulesOfIpGroup(
     args: UpdateRulesOfIpGroupCommandInput,
@@ -2076,7 +2088,7 @@ export interface WorkSpaces {
   ): void;
   updateRulesOfIpGroup(
     args: UpdateRulesOfIpGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: UpdateRulesOfIpGroupCommandOutput) => void
   ): void;
 
@@ -2086,7 +2098,7 @@ export interface WorkSpaces {
   updateWorkspaceBundle(): Promise<UpdateWorkspaceBundleCommandOutput>;
   updateWorkspaceBundle(
     args: UpdateWorkspaceBundleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<UpdateWorkspaceBundleCommandOutput>;
   updateWorkspaceBundle(
     args: UpdateWorkspaceBundleCommandInput,
@@ -2094,7 +2106,7 @@ export interface WorkSpaces {
   ): void;
   updateWorkspaceBundle(
     args: UpdateWorkspaceBundleCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: UpdateWorkspaceBundleCommandOutput) => void
   ): void;
 
@@ -2103,7 +2115,7 @@ export interface WorkSpaces {
    */
   updateWorkspaceImagePermission(
     args: UpdateWorkspaceImagePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<UpdateWorkspaceImagePermissionCommandOutput>;
   updateWorkspaceImagePermission(
     args: UpdateWorkspaceImagePermissionCommandInput,
@@ -2111,7 +2123,7 @@ export interface WorkSpaces {
   ): void;
   updateWorkspaceImagePermission(
     args: UpdateWorkspaceImagePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: UpdateWorkspaceImagePermissionCommandOutput) => void
   ): void;
 
@@ -2120,7 +2132,7 @@ export interface WorkSpaces {
    */
   updateWorkspacesPool(
     args: UpdateWorkspacesPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesRequestOptions
   ): Promise<UpdateWorkspacesPoolCommandOutput>;
   updateWorkspacesPool(
     args: UpdateWorkspacesPoolCommandInput,
@@ -2128,7 +2140,7 @@ export interface WorkSpaces {
   ): void;
   updateWorkspacesPool(
     args: UpdateWorkspacesPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesRequestOptions,
     cb: (err: any, data?: UpdateWorkspacesPoolCommandOutput) => void
   ): void;
 

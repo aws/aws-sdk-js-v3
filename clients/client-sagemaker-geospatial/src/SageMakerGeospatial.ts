@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type DeleteEarthObservationJobCommandInput,
@@ -127,13 +132,20 @@ const paginators = {
   paginateSearchRasterDataCollection,
 };
 
+/**
+ * @public
+ */
+export interface SageMakerGeospatialRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SageMakerGeospatial {
   /**
    * @see {@link DeleteEarthObservationJobCommand}
    */
   deleteEarthObservationJob(
     args: DeleteEarthObservationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<DeleteEarthObservationJobCommandOutput>;
   deleteEarthObservationJob(
     args: DeleteEarthObservationJobCommandInput,
@@ -141,7 +153,7 @@ export interface SageMakerGeospatial {
   ): void;
   deleteEarthObservationJob(
     args: DeleteEarthObservationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: DeleteEarthObservationJobCommandOutput) => void
   ): void;
 
@@ -150,7 +162,7 @@ export interface SageMakerGeospatial {
    */
   deleteVectorEnrichmentJob(
     args: DeleteVectorEnrichmentJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<DeleteVectorEnrichmentJobCommandOutput>;
   deleteVectorEnrichmentJob(
     args: DeleteVectorEnrichmentJobCommandInput,
@@ -158,7 +170,7 @@ export interface SageMakerGeospatial {
   ): void;
   deleteVectorEnrichmentJob(
     args: DeleteVectorEnrichmentJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: DeleteVectorEnrichmentJobCommandOutput) => void
   ): void;
 
@@ -167,7 +179,7 @@ export interface SageMakerGeospatial {
    */
   exportEarthObservationJob(
     args: ExportEarthObservationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<ExportEarthObservationJobCommandOutput>;
   exportEarthObservationJob(
     args: ExportEarthObservationJobCommandInput,
@@ -175,7 +187,7 @@ export interface SageMakerGeospatial {
   ): void;
   exportEarthObservationJob(
     args: ExportEarthObservationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: ExportEarthObservationJobCommandOutput) => void
   ): void;
 
@@ -184,7 +196,7 @@ export interface SageMakerGeospatial {
    */
   exportVectorEnrichmentJob(
     args: ExportVectorEnrichmentJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<ExportVectorEnrichmentJobCommandOutput>;
   exportVectorEnrichmentJob(
     args: ExportVectorEnrichmentJobCommandInput,
@@ -192,7 +204,7 @@ export interface SageMakerGeospatial {
   ): void;
   exportVectorEnrichmentJob(
     args: ExportVectorEnrichmentJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: ExportVectorEnrichmentJobCommandOutput) => void
   ): void;
 
@@ -201,7 +213,7 @@ export interface SageMakerGeospatial {
    */
   getEarthObservationJob(
     args: GetEarthObservationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<GetEarthObservationJobCommandOutput>;
   getEarthObservationJob(
     args: GetEarthObservationJobCommandInput,
@@ -209,7 +221,7 @@ export interface SageMakerGeospatial {
   ): void;
   getEarthObservationJob(
     args: GetEarthObservationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: GetEarthObservationJobCommandOutput) => void
   ): void;
 
@@ -218,7 +230,7 @@ export interface SageMakerGeospatial {
    */
   getRasterDataCollection(
     args: GetRasterDataCollectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<GetRasterDataCollectionCommandOutput>;
   getRasterDataCollection(
     args: GetRasterDataCollectionCommandInput,
@@ -226,7 +238,7 @@ export interface SageMakerGeospatial {
   ): void;
   getRasterDataCollection(
     args: GetRasterDataCollectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: GetRasterDataCollectionCommandOutput) => void
   ): void;
 
@@ -235,7 +247,7 @@ export interface SageMakerGeospatial {
    */
   getTile(
     args: GetTileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<GetTileCommandOutput>;
   getTile(
     args: GetTileCommandInput,
@@ -243,7 +255,7 @@ export interface SageMakerGeospatial {
   ): void;
   getTile(
     args: GetTileCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: GetTileCommandOutput) => void
   ): void;
 
@@ -252,7 +264,7 @@ export interface SageMakerGeospatial {
    */
   getVectorEnrichmentJob(
     args: GetVectorEnrichmentJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<GetVectorEnrichmentJobCommandOutput>;
   getVectorEnrichmentJob(
     args: GetVectorEnrichmentJobCommandInput,
@@ -260,7 +272,7 @@ export interface SageMakerGeospatial {
   ): void;
   getVectorEnrichmentJob(
     args: GetVectorEnrichmentJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: GetVectorEnrichmentJobCommandOutput) => void
   ): void;
 
@@ -270,7 +282,7 @@ export interface SageMakerGeospatial {
   listEarthObservationJobs(): Promise<ListEarthObservationJobsCommandOutput>;
   listEarthObservationJobs(
     args: ListEarthObservationJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<ListEarthObservationJobsCommandOutput>;
   listEarthObservationJobs(
     args: ListEarthObservationJobsCommandInput,
@@ -278,7 +290,7 @@ export interface SageMakerGeospatial {
   ): void;
   listEarthObservationJobs(
     args: ListEarthObservationJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: ListEarthObservationJobsCommandOutput) => void
   ): void;
 
@@ -288,7 +300,7 @@ export interface SageMakerGeospatial {
   listRasterDataCollections(): Promise<ListRasterDataCollectionsCommandOutput>;
   listRasterDataCollections(
     args: ListRasterDataCollectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<ListRasterDataCollectionsCommandOutput>;
   listRasterDataCollections(
     args: ListRasterDataCollectionsCommandInput,
@@ -296,7 +308,7 @@ export interface SageMakerGeospatial {
   ): void;
   listRasterDataCollections(
     args: ListRasterDataCollectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: ListRasterDataCollectionsCommandOutput) => void
   ): void;
 
@@ -305,7 +317,7 @@ export interface SageMakerGeospatial {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -313,7 +325,7 @@ export interface SageMakerGeospatial {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -323,7 +335,7 @@ export interface SageMakerGeospatial {
   listVectorEnrichmentJobs(): Promise<ListVectorEnrichmentJobsCommandOutput>;
   listVectorEnrichmentJobs(
     args: ListVectorEnrichmentJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<ListVectorEnrichmentJobsCommandOutput>;
   listVectorEnrichmentJobs(
     args: ListVectorEnrichmentJobsCommandInput,
@@ -331,7 +343,7 @@ export interface SageMakerGeospatial {
   ): void;
   listVectorEnrichmentJobs(
     args: ListVectorEnrichmentJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: ListVectorEnrichmentJobsCommandOutput) => void
   ): void;
 
@@ -340,7 +352,7 @@ export interface SageMakerGeospatial {
    */
   searchRasterDataCollection(
     args: SearchRasterDataCollectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<SearchRasterDataCollectionCommandOutput>;
   searchRasterDataCollection(
     args: SearchRasterDataCollectionCommandInput,
@@ -348,7 +360,7 @@ export interface SageMakerGeospatial {
   ): void;
   searchRasterDataCollection(
     args: SearchRasterDataCollectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: SearchRasterDataCollectionCommandOutput) => void
   ): void;
 
@@ -357,7 +369,7 @@ export interface SageMakerGeospatial {
    */
   startEarthObservationJob(
     args: StartEarthObservationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<StartEarthObservationJobCommandOutput>;
   startEarthObservationJob(
     args: StartEarthObservationJobCommandInput,
@@ -365,7 +377,7 @@ export interface SageMakerGeospatial {
   ): void;
   startEarthObservationJob(
     args: StartEarthObservationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: StartEarthObservationJobCommandOutput) => void
   ): void;
 
@@ -374,7 +386,7 @@ export interface SageMakerGeospatial {
    */
   startVectorEnrichmentJob(
     args: StartVectorEnrichmentJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<StartVectorEnrichmentJobCommandOutput>;
   startVectorEnrichmentJob(
     args: StartVectorEnrichmentJobCommandInput,
@@ -382,7 +394,7 @@ export interface SageMakerGeospatial {
   ): void;
   startVectorEnrichmentJob(
     args: StartVectorEnrichmentJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: StartVectorEnrichmentJobCommandOutput) => void
   ): void;
 
@@ -391,7 +403,7 @@ export interface SageMakerGeospatial {
    */
   stopEarthObservationJob(
     args: StopEarthObservationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<StopEarthObservationJobCommandOutput>;
   stopEarthObservationJob(
     args: StopEarthObservationJobCommandInput,
@@ -399,7 +411,7 @@ export interface SageMakerGeospatial {
   ): void;
   stopEarthObservationJob(
     args: StopEarthObservationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: StopEarthObservationJobCommandOutput) => void
   ): void;
 
@@ -408,7 +420,7 @@ export interface SageMakerGeospatial {
    */
   stopVectorEnrichmentJob(
     args: StopVectorEnrichmentJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<StopVectorEnrichmentJobCommandOutput>;
   stopVectorEnrichmentJob(
     args: StopVectorEnrichmentJobCommandInput,
@@ -416,7 +428,7 @@ export interface SageMakerGeospatial {
   ): void;
   stopVectorEnrichmentJob(
     args: StopVectorEnrichmentJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: StopVectorEnrichmentJobCommandOutput) => void
   ): void;
 
@@ -425,7 +437,7 @@ export interface SageMakerGeospatial {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -433,7 +445,7 @@ export interface SageMakerGeospatial {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -442,7 +454,7 @@ export interface SageMakerGeospatial {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerGeospatialRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -450,7 +462,7 @@ export interface SageMakerGeospatial {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerGeospatialRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

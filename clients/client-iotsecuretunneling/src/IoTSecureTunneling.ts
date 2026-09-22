@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CloseTunnelCommandInput,
@@ -59,13 +64,20 @@ const paginators = {
   paginateListTunnels,
 };
 
+/**
+ * @public
+ */
+export interface IoTSecureTunnelingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface IoTSecureTunneling {
   /**
    * @see {@link CloseTunnelCommand}
    */
   closeTunnel(
     args: CloseTunnelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTSecureTunnelingRequestOptions
   ): Promise<CloseTunnelCommandOutput>;
   closeTunnel(
     args: CloseTunnelCommandInput,
@@ -73,7 +85,7 @@ export interface IoTSecureTunneling {
   ): void;
   closeTunnel(
     args: CloseTunnelCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTSecureTunnelingRequestOptions,
     cb: (err: any, data?: CloseTunnelCommandOutput) => void
   ): void;
 
@@ -82,7 +94,7 @@ export interface IoTSecureTunneling {
    */
   describeTunnel(
     args: DescribeTunnelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTSecureTunnelingRequestOptions
   ): Promise<DescribeTunnelCommandOutput>;
   describeTunnel(
     args: DescribeTunnelCommandInput,
@@ -90,7 +102,7 @@ export interface IoTSecureTunneling {
   ): void;
   describeTunnel(
     args: DescribeTunnelCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTSecureTunnelingRequestOptions,
     cb: (err: any, data?: DescribeTunnelCommandOutput) => void
   ): void;
 
@@ -99,7 +111,7 @@ export interface IoTSecureTunneling {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTSecureTunnelingRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -107,7 +119,7 @@ export interface IoTSecureTunneling {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTSecureTunnelingRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -117,7 +129,7 @@ export interface IoTSecureTunneling {
   listTunnels(): Promise<ListTunnelsCommandOutput>;
   listTunnels(
     args: ListTunnelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTSecureTunnelingRequestOptions
   ): Promise<ListTunnelsCommandOutput>;
   listTunnels(
     args: ListTunnelsCommandInput,
@@ -125,7 +137,7 @@ export interface IoTSecureTunneling {
   ): void;
   listTunnels(
     args: ListTunnelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTSecureTunnelingRequestOptions,
     cb: (err: any, data?: ListTunnelsCommandOutput) => void
   ): void;
 
@@ -135,7 +147,7 @@ export interface IoTSecureTunneling {
   openTunnel(): Promise<OpenTunnelCommandOutput>;
   openTunnel(
     args: OpenTunnelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTSecureTunnelingRequestOptions
   ): Promise<OpenTunnelCommandOutput>;
   openTunnel(
     args: OpenTunnelCommandInput,
@@ -143,7 +155,7 @@ export interface IoTSecureTunneling {
   ): void;
   openTunnel(
     args: OpenTunnelCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTSecureTunnelingRequestOptions,
     cb: (err: any, data?: OpenTunnelCommandOutput) => void
   ): void;
 
@@ -152,7 +164,7 @@ export interface IoTSecureTunneling {
    */
   rotateTunnelAccessToken(
     args: RotateTunnelAccessTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTSecureTunnelingRequestOptions
   ): Promise<RotateTunnelAccessTokenCommandOutput>;
   rotateTunnelAccessToken(
     args: RotateTunnelAccessTokenCommandInput,
@@ -160,7 +172,7 @@ export interface IoTSecureTunneling {
   ): void;
   rotateTunnelAccessToken(
     args: RotateTunnelAccessTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTSecureTunnelingRequestOptions,
     cb: (err: any, data?: RotateTunnelAccessTokenCommandOutput) => void
   ): void;
 
@@ -169,7 +181,7 @@ export interface IoTSecureTunneling {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTSecureTunnelingRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -177,7 +189,7 @@ export interface IoTSecureTunneling {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTSecureTunnelingRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -186,7 +198,7 @@ export interface IoTSecureTunneling {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTSecureTunnelingRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -194,7 +206,7 @@ export interface IoTSecureTunneling {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTSecureTunnelingRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

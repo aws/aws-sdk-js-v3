@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type GetBuyerDashboardCommandInput,
@@ -13,13 +13,20 @@ const commands = {
   GetBuyerDashboardCommand,
 };
 
+/**
+ * @public
+ */
+export interface MarketplaceReportingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MarketplaceReporting {
   /**
    * @see {@link GetBuyerDashboardCommand}
    */
   getBuyerDashboard(
     args: GetBuyerDashboardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceReportingRequestOptions
   ): Promise<GetBuyerDashboardCommandOutput>;
   getBuyerDashboard(
     args: GetBuyerDashboardCommandInput,
@@ -27,7 +34,7 @@ export interface MarketplaceReporting {
   ): void;
   getBuyerDashboard(
     args: GetBuyerDashboardCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceReportingRequestOptions,
     cb: (err: any, data?: GetBuyerDashboardCommandOutput) => void
   ): void;
 }

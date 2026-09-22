@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { ApplicationDiscoveryServiceClient } from "./ApplicationDiscoveryServiceClient";
 import {
@@ -191,13 +196,20 @@ const paginators = {
   paginateListConfigurations,
 };
 
+/**
+ * @public
+ */
+export interface ApplicationDiscoveryServiceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ApplicationDiscoveryService {
   /**
    * @see {@link AssociateConfigurationItemsToApplicationCommand}
    */
   associateConfigurationItemsToApplication(
     args: AssociateConfigurationItemsToApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<AssociateConfigurationItemsToApplicationCommandOutput>;
   associateConfigurationItemsToApplication(
     args: AssociateConfigurationItemsToApplicationCommandInput,
@@ -205,7 +217,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   associateConfigurationItemsToApplication(
     args: AssociateConfigurationItemsToApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: AssociateConfigurationItemsToApplicationCommandOutput) => void
   ): void;
 
@@ -214,7 +226,7 @@ export interface ApplicationDiscoveryService {
    */
   batchDeleteAgents(
     args: BatchDeleteAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<BatchDeleteAgentsCommandOutput>;
   batchDeleteAgents(
     args: BatchDeleteAgentsCommandInput,
@@ -222,7 +234,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   batchDeleteAgents(
     args: BatchDeleteAgentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: BatchDeleteAgentsCommandOutput) => void
   ): void;
 
@@ -231,7 +243,7 @@ export interface ApplicationDiscoveryService {
    */
   batchDeleteImportData(
     args: BatchDeleteImportDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<BatchDeleteImportDataCommandOutput>;
   batchDeleteImportData(
     args: BatchDeleteImportDataCommandInput,
@@ -239,7 +251,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   batchDeleteImportData(
     args: BatchDeleteImportDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: BatchDeleteImportDataCommandOutput) => void
   ): void;
 
@@ -248,7 +260,7 @@ export interface ApplicationDiscoveryService {
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -256,7 +268,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -265,7 +277,7 @@ export interface ApplicationDiscoveryService {
    */
   createTags(
     args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<CreateTagsCommandOutput>;
   createTags(
     args: CreateTagsCommandInput,
@@ -273,7 +285,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   createTags(
     args: CreateTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: CreateTagsCommandOutput) => void
   ): void;
 
@@ -282,7 +294,7 @@ export interface ApplicationDiscoveryService {
    */
   deleteApplications(
     args: DeleteApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<DeleteApplicationsCommandOutput>;
   deleteApplications(
     args: DeleteApplicationsCommandInput,
@@ -290,7 +302,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   deleteApplications(
     args: DeleteApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: DeleteApplicationsCommandOutput) => void
   ): void;
 
@@ -299,7 +311,7 @@ export interface ApplicationDiscoveryService {
    */
   deleteTags(
     args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<DeleteTagsCommandOutput>;
   deleteTags(
     args: DeleteTagsCommandInput,
@@ -307,7 +319,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: DeleteTagsCommandOutput) => void
   ): void;
 
@@ -317,7 +329,7 @@ export interface ApplicationDiscoveryService {
   describeAgents(): Promise<DescribeAgentsCommandOutput>;
   describeAgents(
     args: DescribeAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<DescribeAgentsCommandOutput>;
   describeAgents(
     args: DescribeAgentsCommandInput,
@@ -325,7 +337,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   describeAgents(
     args: DescribeAgentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: DescribeAgentsCommandOutput) => void
   ): void;
 
@@ -334,7 +346,7 @@ export interface ApplicationDiscoveryService {
    */
   describeBatchDeleteConfigurationTask(
     args: DescribeBatchDeleteConfigurationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<DescribeBatchDeleteConfigurationTaskCommandOutput>;
   describeBatchDeleteConfigurationTask(
     args: DescribeBatchDeleteConfigurationTaskCommandInput,
@@ -342,7 +354,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   describeBatchDeleteConfigurationTask(
     args: DescribeBatchDeleteConfigurationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: DescribeBatchDeleteConfigurationTaskCommandOutput) => void
   ): void;
 
@@ -351,7 +363,7 @@ export interface ApplicationDiscoveryService {
    */
   describeConfigurations(
     args: DescribeConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<DescribeConfigurationsCommandOutput>;
   describeConfigurations(
     args: DescribeConfigurationsCommandInput,
@@ -359,7 +371,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   describeConfigurations(
     args: DescribeConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: DescribeConfigurationsCommandOutput) => void
   ): void;
 
@@ -369,7 +381,7 @@ export interface ApplicationDiscoveryService {
   describeContinuousExports(): Promise<DescribeContinuousExportsCommandOutput>;
   describeContinuousExports(
     args: DescribeContinuousExportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<DescribeContinuousExportsCommandOutput>;
   describeContinuousExports(
     args: DescribeContinuousExportsCommandInput,
@@ -377,7 +389,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   describeContinuousExports(
     args: DescribeContinuousExportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: DescribeContinuousExportsCommandOutput) => void
   ): void;
 
@@ -387,7 +399,7 @@ export interface ApplicationDiscoveryService {
   describeExportConfigurations(): Promise<DescribeExportConfigurationsCommandOutput>;
   describeExportConfigurations(
     args: DescribeExportConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<DescribeExportConfigurationsCommandOutput>;
   describeExportConfigurations(
     args: DescribeExportConfigurationsCommandInput,
@@ -395,7 +407,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   describeExportConfigurations(
     args: DescribeExportConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: DescribeExportConfigurationsCommandOutput) => void
   ): void;
 
@@ -405,7 +417,7 @@ export interface ApplicationDiscoveryService {
   describeExportTasks(): Promise<DescribeExportTasksCommandOutput>;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<DescribeExportTasksCommandOutput>;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
@@ -413,7 +425,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: DescribeExportTasksCommandOutput) => void
   ): void;
 
@@ -423,7 +435,7 @@ export interface ApplicationDiscoveryService {
   describeImportTasks(): Promise<DescribeImportTasksCommandOutput>;
   describeImportTasks(
     args: DescribeImportTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<DescribeImportTasksCommandOutput>;
   describeImportTasks(
     args: DescribeImportTasksCommandInput,
@@ -431,7 +443,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   describeImportTasks(
     args: DescribeImportTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: DescribeImportTasksCommandOutput) => void
   ): void;
 
@@ -441,7 +453,7 @@ export interface ApplicationDiscoveryService {
   describeTags(): Promise<DescribeTagsCommandOutput>;
   describeTags(
     args: DescribeTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<DescribeTagsCommandOutput>;
   describeTags(
     args: DescribeTagsCommandInput,
@@ -449,7 +461,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   describeTags(
     args: DescribeTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: DescribeTagsCommandOutput) => void
   ): void;
 
@@ -458,7 +470,7 @@ export interface ApplicationDiscoveryService {
    */
   disassociateConfigurationItemsFromApplication(
     args: DisassociateConfigurationItemsFromApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput>;
   disassociateConfigurationItemsFromApplication(
     args: DisassociateConfigurationItemsFromApplicationCommandInput,
@@ -466,7 +478,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   disassociateConfigurationItemsFromApplication(
     args: DisassociateConfigurationItemsFromApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: DisassociateConfigurationItemsFromApplicationCommandOutput) => void
   ): void;
 
@@ -476,7 +488,7 @@ export interface ApplicationDiscoveryService {
   exportConfigurations(): Promise<ExportConfigurationsCommandOutput>;
   exportConfigurations(
     args: ExportConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<ExportConfigurationsCommandOutput>;
   exportConfigurations(
     args: ExportConfigurationsCommandInput,
@@ -484,7 +496,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   exportConfigurations(
     args: ExportConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: ExportConfigurationsCommandOutput) => void
   ): void;
 
@@ -494,7 +506,7 @@ export interface ApplicationDiscoveryService {
   getDiscoverySummary(): Promise<GetDiscoverySummaryCommandOutput>;
   getDiscoverySummary(
     args: GetDiscoverySummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<GetDiscoverySummaryCommandOutput>;
   getDiscoverySummary(
     args: GetDiscoverySummaryCommandInput,
@@ -502,7 +514,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   getDiscoverySummary(
     args: GetDiscoverySummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: GetDiscoverySummaryCommandOutput) => void
   ): void;
 
@@ -511,7 +523,7 @@ export interface ApplicationDiscoveryService {
    */
   listConfigurations(
     args: ListConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<ListConfigurationsCommandOutput>;
   listConfigurations(
     args: ListConfigurationsCommandInput,
@@ -519,7 +531,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   listConfigurations(
     args: ListConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: ListConfigurationsCommandOutput) => void
   ): void;
 
@@ -528,7 +540,7 @@ export interface ApplicationDiscoveryService {
    */
   listServerNeighbors(
     args: ListServerNeighborsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<ListServerNeighborsCommandOutput>;
   listServerNeighbors(
     args: ListServerNeighborsCommandInput,
@@ -536,7 +548,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   listServerNeighbors(
     args: ListServerNeighborsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: ListServerNeighborsCommandOutput) => void
   ): void;
 
@@ -545,7 +557,7 @@ export interface ApplicationDiscoveryService {
    */
   startBatchDeleteConfigurationTask(
     args: StartBatchDeleteConfigurationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<StartBatchDeleteConfigurationTaskCommandOutput>;
   startBatchDeleteConfigurationTask(
     args: StartBatchDeleteConfigurationTaskCommandInput,
@@ -553,7 +565,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   startBatchDeleteConfigurationTask(
     args: StartBatchDeleteConfigurationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: StartBatchDeleteConfigurationTaskCommandOutput) => void
   ): void;
 
@@ -563,7 +575,7 @@ export interface ApplicationDiscoveryService {
   startContinuousExport(): Promise<StartContinuousExportCommandOutput>;
   startContinuousExport(
     args: StartContinuousExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<StartContinuousExportCommandOutput>;
   startContinuousExport(
     args: StartContinuousExportCommandInput,
@@ -571,7 +583,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   startContinuousExport(
     args: StartContinuousExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: StartContinuousExportCommandOutput) => void
   ): void;
 
@@ -580,7 +592,7 @@ export interface ApplicationDiscoveryService {
    */
   startDataCollectionByAgentIds(
     args: StartDataCollectionByAgentIdsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<StartDataCollectionByAgentIdsCommandOutput>;
   startDataCollectionByAgentIds(
     args: StartDataCollectionByAgentIdsCommandInput,
@@ -588,7 +600,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   startDataCollectionByAgentIds(
     args: StartDataCollectionByAgentIdsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: StartDataCollectionByAgentIdsCommandOutput) => void
   ): void;
 
@@ -598,7 +610,7 @@ export interface ApplicationDiscoveryService {
   startExportTask(): Promise<StartExportTaskCommandOutput>;
   startExportTask(
     args: StartExportTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<StartExportTaskCommandOutput>;
   startExportTask(
     args: StartExportTaskCommandInput,
@@ -606,7 +618,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   startExportTask(
     args: StartExportTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: StartExportTaskCommandOutput) => void
   ): void;
 
@@ -615,7 +627,7 @@ export interface ApplicationDiscoveryService {
    */
   startImportTask(
     args: StartImportTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<StartImportTaskCommandOutput>;
   startImportTask(
     args: StartImportTaskCommandInput,
@@ -623,7 +635,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   startImportTask(
     args: StartImportTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: StartImportTaskCommandOutput) => void
   ): void;
 
@@ -632,7 +644,7 @@ export interface ApplicationDiscoveryService {
    */
   stopContinuousExport(
     args: StopContinuousExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<StopContinuousExportCommandOutput>;
   stopContinuousExport(
     args: StopContinuousExportCommandInput,
@@ -640,7 +652,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   stopContinuousExport(
     args: StopContinuousExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: StopContinuousExportCommandOutput) => void
   ): void;
 
@@ -649,7 +661,7 @@ export interface ApplicationDiscoveryService {
    */
   stopDataCollectionByAgentIds(
     args: StopDataCollectionByAgentIdsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<StopDataCollectionByAgentIdsCommandOutput>;
   stopDataCollectionByAgentIds(
     args: StopDataCollectionByAgentIdsCommandInput,
@@ -657,7 +669,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   stopDataCollectionByAgentIds(
     args: StopDataCollectionByAgentIdsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: StopDataCollectionByAgentIdsCommandOutput) => void
   ): void;
 
@@ -666,7 +678,7 @@ export interface ApplicationDiscoveryService {
    */
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationDiscoveryServiceRequestOptions
   ): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
@@ -674,7 +686,7 @@ export interface ApplicationDiscoveryService {
   ): void;
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationDiscoveryServiceRequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 

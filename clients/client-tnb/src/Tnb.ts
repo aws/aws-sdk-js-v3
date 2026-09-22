@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CancelSolNetworkOperationCommandInput,
@@ -217,13 +222,20 @@ const paginators = {
   paginateListSolNetworkPackages,
 };
 
+/**
+ * @public
+ */
+export interface TnbRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Tnb {
   /**
    * @see {@link CancelSolNetworkOperationCommand}
    */
   cancelSolNetworkOperation(
     args: CancelSolNetworkOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<CancelSolNetworkOperationCommandOutput>;
   cancelSolNetworkOperation(
     args: CancelSolNetworkOperationCommandInput,
@@ -231,7 +243,7 @@ export interface Tnb {
   ): void;
   cancelSolNetworkOperation(
     args: CancelSolNetworkOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: CancelSolNetworkOperationCommandOutput) => void
   ): void;
 
@@ -241,7 +253,7 @@ export interface Tnb {
   createSolFunctionPackage(): Promise<CreateSolFunctionPackageCommandOutput>;
   createSolFunctionPackage(
     args: CreateSolFunctionPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<CreateSolFunctionPackageCommandOutput>;
   createSolFunctionPackage(
     args: CreateSolFunctionPackageCommandInput,
@@ -249,7 +261,7 @@ export interface Tnb {
   ): void;
   createSolFunctionPackage(
     args: CreateSolFunctionPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: CreateSolFunctionPackageCommandOutput) => void
   ): void;
 
@@ -258,7 +270,7 @@ export interface Tnb {
    */
   createSolNetworkInstance(
     args: CreateSolNetworkInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<CreateSolNetworkInstanceCommandOutput>;
   createSolNetworkInstance(
     args: CreateSolNetworkInstanceCommandInput,
@@ -266,7 +278,7 @@ export interface Tnb {
   ): void;
   createSolNetworkInstance(
     args: CreateSolNetworkInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: CreateSolNetworkInstanceCommandOutput) => void
   ): void;
 
@@ -276,7 +288,7 @@ export interface Tnb {
   createSolNetworkPackage(): Promise<CreateSolNetworkPackageCommandOutput>;
   createSolNetworkPackage(
     args: CreateSolNetworkPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<CreateSolNetworkPackageCommandOutput>;
   createSolNetworkPackage(
     args: CreateSolNetworkPackageCommandInput,
@@ -284,7 +296,7 @@ export interface Tnb {
   ): void;
   createSolNetworkPackage(
     args: CreateSolNetworkPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: CreateSolNetworkPackageCommandOutput) => void
   ): void;
 
@@ -293,7 +305,7 @@ export interface Tnb {
    */
   deleteSolFunctionPackage(
     args: DeleteSolFunctionPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<DeleteSolFunctionPackageCommandOutput>;
   deleteSolFunctionPackage(
     args: DeleteSolFunctionPackageCommandInput,
@@ -301,7 +313,7 @@ export interface Tnb {
   ): void;
   deleteSolFunctionPackage(
     args: DeleteSolFunctionPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: DeleteSolFunctionPackageCommandOutput) => void
   ): void;
 
@@ -310,7 +322,7 @@ export interface Tnb {
    */
   deleteSolNetworkInstance(
     args: DeleteSolNetworkInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<DeleteSolNetworkInstanceCommandOutput>;
   deleteSolNetworkInstance(
     args: DeleteSolNetworkInstanceCommandInput,
@@ -318,7 +330,7 @@ export interface Tnb {
   ): void;
   deleteSolNetworkInstance(
     args: DeleteSolNetworkInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: DeleteSolNetworkInstanceCommandOutput) => void
   ): void;
 
@@ -327,7 +339,7 @@ export interface Tnb {
    */
   deleteSolNetworkPackage(
     args: DeleteSolNetworkPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<DeleteSolNetworkPackageCommandOutput>;
   deleteSolNetworkPackage(
     args: DeleteSolNetworkPackageCommandInput,
@@ -335,7 +347,7 @@ export interface Tnb {
   ): void;
   deleteSolNetworkPackage(
     args: DeleteSolNetworkPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: DeleteSolNetworkPackageCommandOutput) => void
   ): void;
 
@@ -344,7 +356,7 @@ export interface Tnb {
    */
   getSolFunctionInstance(
     args: GetSolFunctionInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<GetSolFunctionInstanceCommandOutput>;
   getSolFunctionInstance(
     args: GetSolFunctionInstanceCommandInput,
@@ -352,7 +364,7 @@ export interface Tnb {
   ): void;
   getSolFunctionInstance(
     args: GetSolFunctionInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: GetSolFunctionInstanceCommandOutput) => void
   ): void;
 
@@ -361,7 +373,7 @@ export interface Tnb {
    */
   getSolFunctionPackage(
     args: GetSolFunctionPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<GetSolFunctionPackageCommandOutput>;
   getSolFunctionPackage(
     args: GetSolFunctionPackageCommandInput,
@@ -369,7 +381,7 @@ export interface Tnb {
   ): void;
   getSolFunctionPackage(
     args: GetSolFunctionPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: GetSolFunctionPackageCommandOutput) => void
   ): void;
 
@@ -378,7 +390,7 @@ export interface Tnb {
    */
   getSolFunctionPackageContent(
     args: GetSolFunctionPackageContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<GetSolFunctionPackageContentCommandOutput>;
   getSolFunctionPackageContent(
     args: GetSolFunctionPackageContentCommandInput,
@@ -386,7 +398,7 @@ export interface Tnb {
   ): void;
   getSolFunctionPackageContent(
     args: GetSolFunctionPackageContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: GetSolFunctionPackageContentCommandOutput) => void
   ): void;
 
@@ -395,7 +407,7 @@ export interface Tnb {
    */
   getSolFunctionPackageDescriptor(
     args: GetSolFunctionPackageDescriptorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<GetSolFunctionPackageDescriptorCommandOutput>;
   getSolFunctionPackageDescriptor(
     args: GetSolFunctionPackageDescriptorCommandInput,
@@ -403,7 +415,7 @@ export interface Tnb {
   ): void;
   getSolFunctionPackageDescriptor(
     args: GetSolFunctionPackageDescriptorCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: GetSolFunctionPackageDescriptorCommandOutput) => void
   ): void;
 
@@ -412,7 +424,7 @@ export interface Tnb {
    */
   getSolNetworkInstance(
     args: GetSolNetworkInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<GetSolNetworkInstanceCommandOutput>;
   getSolNetworkInstance(
     args: GetSolNetworkInstanceCommandInput,
@@ -420,7 +432,7 @@ export interface Tnb {
   ): void;
   getSolNetworkInstance(
     args: GetSolNetworkInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: GetSolNetworkInstanceCommandOutput) => void
   ): void;
 
@@ -429,7 +441,7 @@ export interface Tnb {
    */
   getSolNetworkOperation(
     args: GetSolNetworkOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<GetSolNetworkOperationCommandOutput>;
   getSolNetworkOperation(
     args: GetSolNetworkOperationCommandInput,
@@ -437,7 +449,7 @@ export interface Tnb {
   ): void;
   getSolNetworkOperation(
     args: GetSolNetworkOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: GetSolNetworkOperationCommandOutput) => void
   ): void;
 
@@ -446,7 +458,7 @@ export interface Tnb {
    */
   getSolNetworkPackage(
     args: GetSolNetworkPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<GetSolNetworkPackageCommandOutput>;
   getSolNetworkPackage(
     args: GetSolNetworkPackageCommandInput,
@@ -454,7 +466,7 @@ export interface Tnb {
   ): void;
   getSolNetworkPackage(
     args: GetSolNetworkPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: GetSolNetworkPackageCommandOutput) => void
   ): void;
 
@@ -463,7 +475,7 @@ export interface Tnb {
    */
   getSolNetworkPackageContent(
     args: GetSolNetworkPackageContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<GetSolNetworkPackageContentCommandOutput>;
   getSolNetworkPackageContent(
     args: GetSolNetworkPackageContentCommandInput,
@@ -471,7 +483,7 @@ export interface Tnb {
   ): void;
   getSolNetworkPackageContent(
     args: GetSolNetworkPackageContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: GetSolNetworkPackageContentCommandOutput) => void
   ): void;
 
@@ -480,7 +492,7 @@ export interface Tnb {
    */
   getSolNetworkPackageDescriptor(
     args: GetSolNetworkPackageDescriptorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<GetSolNetworkPackageDescriptorCommandOutput>;
   getSolNetworkPackageDescriptor(
     args: GetSolNetworkPackageDescriptorCommandInput,
@@ -488,7 +500,7 @@ export interface Tnb {
   ): void;
   getSolNetworkPackageDescriptor(
     args: GetSolNetworkPackageDescriptorCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: GetSolNetworkPackageDescriptorCommandOutput) => void
   ): void;
 
@@ -497,7 +509,7 @@ export interface Tnb {
    */
   instantiateSolNetworkInstance(
     args: InstantiateSolNetworkInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<InstantiateSolNetworkInstanceCommandOutput>;
   instantiateSolNetworkInstance(
     args: InstantiateSolNetworkInstanceCommandInput,
@@ -505,7 +517,7 @@ export interface Tnb {
   ): void;
   instantiateSolNetworkInstance(
     args: InstantiateSolNetworkInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: InstantiateSolNetworkInstanceCommandOutput) => void
   ): void;
 
@@ -515,7 +527,7 @@ export interface Tnb {
   listSolFunctionInstances(): Promise<ListSolFunctionInstancesCommandOutput>;
   listSolFunctionInstances(
     args: ListSolFunctionInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<ListSolFunctionInstancesCommandOutput>;
   listSolFunctionInstances(
     args: ListSolFunctionInstancesCommandInput,
@@ -523,7 +535,7 @@ export interface Tnb {
   ): void;
   listSolFunctionInstances(
     args: ListSolFunctionInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: ListSolFunctionInstancesCommandOutput) => void
   ): void;
 
@@ -533,7 +545,7 @@ export interface Tnb {
   listSolFunctionPackages(): Promise<ListSolFunctionPackagesCommandOutput>;
   listSolFunctionPackages(
     args: ListSolFunctionPackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<ListSolFunctionPackagesCommandOutput>;
   listSolFunctionPackages(
     args: ListSolFunctionPackagesCommandInput,
@@ -541,7 +553,7 @@ export interface Tnb {
   ): void;
   listSolFunctionPackages(
     args: ListSolFunctionPackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: ListSolFunctionPackagesCommandOutput) => void
   ): void;
 
@@ -551,7 +563,7 @@ export interface Tnb {
   listSolNetworkInstances(): Promise<ListSolNetworkInstancesCommandOutput>;
   listSolNetworkInstances(
     args: ListSolNetworkInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<ListSolNetworkInstancesCommandOutput>;
   listSolNetworkInstances(
     args: ListSolNetworkInstancesCommandInput,
@@ -559,7 +571,7 @@ export interface Tnb {
   ): void;
   listSolNetworkInstances(
     args: ListSolNetworkInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: ListSolNetworkInstancesCommandOutput) => void
   ): void;
 
@@ -569,7 +581,7 @@ export interface Tnb {
   listSolNetworkOperations(): Promise<ListSolNetworkOperationsCommandOutput>;
   listSolNetworkOperations(
     args: ListSolNetworkOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<ListSolNetworkOperationsCommandOutput>;
   listSolNetworkOperations(
     args: ListSolNetworkOperationsCommandInput,
@@ -577,7 +589,7 @@ export interface Tnb {
   ): void;
   listSolNetworkOperations(
     args: ListSolNetworkOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: ListSolNetworkOperationsCommandOutput) => void
   ): void;
 
@@ -587,7 +599,7 @@ export interface Tnb {
   listSolNetworkPackages(): Promise<ListSolNetworkPackagesCommandOutput>;
   listSolNetworkPackages(
     args: ListSolNetworkPackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<ListSolNetworkPackagesCommandOutput>;
   listSolNetworkPackages(
     args: ListSolNetworkPackagesCommandInput,
@@ -595,7 +607,7 @@ export interface Tnb {
   ): void;
   listSolNetworkPackages(
     args: ListSolNetworkPackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: ListSolNetworkPackagesCommandOutput) => void
   ): void;
 
@@ -604,7 +616,7 @@ export interface Tnb {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -612,7 +624,7 @@ export interface Tnb {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -621,7 +633,7 @@ export interface Tnb {
    */
   putSolFunctionPackageContent(
     args: PutSolFunctionPackageContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<PutSolFunctionPackageContentCommandOutput>;
   putSolFunctionPackageContent(
     args: PutSolFunctionPackageContentCommandInput,
@@ -629,7 +641,7 @@ export interface Tnb {
   ): void;
   putSolFunctionPackageContent(
     args: PutSolFunctionPackageContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: PutSolFunctionPackageContentCommandOutput) => void
   ): void;
 
@@ -638,7 +650,7 @@ export interface Tnb {
    */
   putSolNetworkPackageContent(
     args: PutSolNetworkPackageContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<PutSolNetworkPackageContentCommandOutput>;
   putSolNetworkPackageContent(
     args: PutSolNetworkPackageContentCommandInput,
@@ -646,7 +658,7 @@ export interface Tnb {
   ): void;
   putSolNetworkPackageContent(
     args: PutSolNetworkPackageContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: PutSolNetworkPackageContentCommandOutput) => void
   ): void;
 
@@ -655,7 +667,7 @@ export interface Tnb {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -663,7 +675,7 @@ export interface Tnb {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -672,7 +684,7 @@ export interface Tnb {
    */
   terminateSolNetworkInstance(
     args: TerminateSolNetworkInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<TerminateSolNetworkInstanceCommandOutput>;
   terminateSolNetworkInstance(
     args: TerminateSolNetworkInstanceCommandInput,
@@ -680,7 +692,7 @@ export interface Tnb {
   ): void;
   terminateSolNetworkInstance(
     args: TerminateSolNetworkInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: TerminateSolNetworkInstanceCommandOutput) => void
   ): void;
 
@@ -689,7 +701,7 @@ export interface Tnb {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -697,7 +709,7 @@ export interface Tnb {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -706,7 +718,7 @@ export interface Tnb {
    */
   updateSolFunctionPackage(
     args: UpdateSolFunctionPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<UpdateSolFunctionPackageCommandOutput>;
   updateSolFunctionPackage(
     args: UpdateSolFunctionPackageCommandInput,
@@ -714,7 +726,7 @@ export interface Tnb {
   ): void;
   updateSolFunctionPackage(
     args: UpdateSolFunctionPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: UpdateSolFunctionPackageCommandOutput) => void
   ): void;
 
@@ -723,7 +735,7 @@ export interface Tnb {
    */
   updateSolNetworkInstance(
     args: UpdateSolNetworkInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<UpdateSolNetworkInstanceCommandOutput>;
   updateSolNetworkInstance(
     args: UpdateSolNetworkInstanceCommandInput,
@@ -731,7 +743,7 @@ export interface Tnb {
   ): void;
   updateSolNetworkInstance(
     args: UpdateSolNetworkInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: UpdateSolNetworkInstanceCommandOutput) => void
   ): void;
 
@@ -740,7 +752,7 @@ export interface Tnb {
    */
   updateSolNetworkPackage(
     args: UpdateSolNetworkPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<UpdateSolNetworkPackageCommandOutput>;
   updateSolNetworkPackage(
     args: UpdateSolNetworkPackageCommandInput,
@@ -748,7 +760,7 @@ export interface Tnb {
   ): void;
   updateSolNetworkPackage(
     args: UpdateSolNetworkPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: UpdateSolNetworkPackageCommandOutput) => void
   ): void;
 
@@ -757,7 +769,7 @@ export interface Tnb {
    */
   validateSolFunctionPackageContent(
     args: ValidateSolFunctionPackageContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<ValidateSolFunctionPackageContentCommandOutput>;
   validateSolFunctionPackageContent(
     args: ValidateSolFunctionPackageContentCommandInput,
@@ -765,7 +777,7 @@ export interface Tnb {
   ): void;
   validateSolFunctionPackageContent(
     args: ValidateSolFunctionPackageContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: ValidateSolFunctionPackageContentCommandOutput) => void
   ): void;
 
@@ -774,7 +786,7 @@ export interface Tnb {
    */
   validateSolNetworkPackageContent(
     args: ValidateSolNetworkPackageContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TnbRequestOptions
   ): Promise<ValidateSolNetworkPackageContentCommandOutput>;
   validateSolNetworkPackageContent(
     args: ValidateSolNetworkPackageContentCommandInput,
@@ -782,7 +794,7 @@ export interface Tnb {
   ): void;
   validateSolNetworkPackageContent(
     args: ValidateSolNetworkPackageContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: TnbRequestOptions,
     cb: (err: any, data?: ValidateSolNetworkPackageContentCommandOutput) => void
   ): void;
 

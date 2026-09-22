@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AddArtifactCommandInput,
@@ -605,13 +610,20 @@ const paginators = {
   paginateListThreats,
 };
 
+/**
+ * @public
+ */
+export interface SecurityAgentRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SecurityAgent {
   /**
    * @see {@link AddArtifactCommand}
    */
   addArtifact(
     args: AddArtifactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<AddArtifactCommandOutput>;
   addArtifact(
     args: AddArtifactCommandInput,
@@ -619,7 +631,7 @@ export interface SecurityAgent {
   ): void;
   addArtifact(
     args: AddArtifactCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: AddArtifactCommandOutput) => void
   ): void;
 
@@ -628,7 +640,7 @@ export interface SecurityAgent {
    */
   batchCreateSecurityRequirements(
     args: BatchCreateSecurityRequirementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchCreateSecurityRequirementsCommandOutput>;
   batchCreateSecurityRequirements(
     args: BatchCreateSecurityRequirementsCommandInput,
@@ -636,7 +648,7 @@ export interface SecurityAgent {
   ): void;
   batchCreateSecurityRequirements(
     args: BatchCreateSecurityRequirementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchCreateSecurityRequirementsCommandOutput) => void
   ): void;
 
@@ -645,7 +657,7 @@ export interface SecurityAgent {
    */
   batchDeleteCodeReviews(
     args: BatchDeleteCodeReviewsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchDeleteCodeReviewsCommandOutput>;
   batchDeleteCodeReviews(
     args: BatchDeleteCodeReviewsCommandInput,
@@ -653,7 +665,7 @@ export interface SecurityAgent {
   ): void;
   batchDeleteCodeReviews(
     args: BatchDeleteCodeReviewsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchDeleteCodeReviewsCommandOutput) => void
   ): void;
 
@@ -662,7 +674,7 @@ export interface SecurityAgent {
    */
   batchDeletePentests(
     args: BatchDeletePentestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchDeletePentestsCommandOutput>;
   batchDeletePentests(
     args: BatchDeletePentestsCommandInput,
@@ -670,7 +682,7 @@ export interface SecurityAgent {
   ): void;
   batchDeletePentests(
     args: BatchDeletePentestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchDeletePentestsCommandOutput) => void
   ): void;
 
@@ -679,7 +691,7 @@ export interface SecurityAgent {
    */
   batchDeleteSecurityRequirements(
     args: BatchDeleteSecurityRequirementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchDeleteSecurityRequirementsCommandOutput>;
   batchDeleteSecurityRequirements(
     args: BatchDeleteSecurityRequirementsCommandInput,
@@ -687,7 +699,7 @@ export interface SecurityAgent {
   ): void;
   batchDeleteSecurityRequirements(
     args: BatchDeleteSecurityRequirementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchDeleteSecurityRequirementsCommandOutput) => void
   ): void;
 
@@ -696,7 +708,7 @@ export interface SecurityAgent {
    */
   batchDeleteThreatModels(
     args: BatchDeleteThreatModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchDeleteThreatModelsCommandOutput>;
   batchDeleteThreatModels(
     args: BatchDeleteThreatModelsCommandInput,
@@ -704,7 +716,7 @@ export interface SecurityAgent {
   ): void;
   batchDeleteThreatModels(
     args: BatchDeleteThreatModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchDeleteThreatModelsCommandOutput) => void
   ): void;
 
@@ -713,7 +725,7 @@ export interface SecurityAgent {
    */
   batchGetAgentSpaces(
     args: BatchGetAgentSpacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetAgentSpacesCommandOutput>;
   batchGetAgentSpaces(
     args: BatchGetAgentSpacesCommandInput,
@@ -721,7 +733,7 @@ export interface SecurityAgent {
   ): void;
   batchGetAgentSpaces(
     args: BatchGetAgentSpacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetAgentSpacesCommandOutput) => void
   ): void;
 
@@ -730,7 +742,7 @@ export interface SecurityAgent {
    */
   batchGetArtifactMetadata(
     args: BatchGetArtifactMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetArtifactMetadataCommandOutput>;
   batchGetArtifactMetadata(
     args: BatchGetArtifactMetadataCommandInput,
@@ -738,7 +750,7 @@ export interface SecurityAgent {
   ): void;
   batchGetArtifactMetadata(
     args: BatchGetArtifactMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetArtifactMetadataCommandOutput) => void
   ): void;
 
@@ -747,7 +759,7 @@ export interface SecurityAgent {
    */
   batchGetCodeReviewJobs(
     args: BatchGetCodeReviewJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetCodeReviewJobsCommandOutput>;
   batchGetCodeReviewJobs(
     args: BatchGetCodeReviewJobsCommandInput,
@@ -755,7 +767,7 @@ export interface SecurityAgent {
   ): void;
   batchGetCodeReviewJobs(
     args: BatchGetCodeReviewJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetCodeReviewJobsCommandOutput) => void
   ): void;
 
@@ -764,7 +776,7 @@ export interface SecurityAgent {
    */
   batchGetCodeReviewJobTasks(
     args: BatchGetCodeReviewJobTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetCodeReviewJobTasksCommandOutput>;
   batchGetCodeReviewJobTasks(
     args: BatchGetCodeReviewJobTasksCommandInput,
@@ -772,7 +784,7 @@ export interface SecurityAgent {
   ): void;
   batchGetCodeReviewJobTasks(
     args: BatchGetCodeReviewJobTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetCodeReviewJobTasksCommandOutput) => void
   ): void;
 
@@ -781,7 +793,7 @@ export interface SecurityAgent {
    */
   batchGetCodeReviews(
     args: BatchGetCodeReviewsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetCodeReviewsCommandOutput>;
   batchGetCodeReviews(
     args: BatchGetCodeReviewsCommandInput,
@@ -789,7 +801,7 @@ export interface SecurityAgent {
   ): void;
   batchGetCodeReviews(
     args: BatchGetCodeReviewsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetCodeReviewsCommandOutput) => void
   ): void;
 
@@ -798,7 +810,7 @@ export interface SecurityAgent {
    */
   batchGetFindings(
     args: BatchGetFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetFindingsCommandOutput>;
   batchGetFindings(
     args: BatchGetFindingsCommandInput,
@@ -806,7 +818,7 @@ export interface SecurityAgent {
   ): void;
   batchGetFindings(
     args: BatchGetFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetFindingsCommandOutput) => void
   ): void;
 
@@ -815,7 +827,7 @@ export interface SecurityAgent {
    */
   batchGetPentestJobs(
     args: BatchGetPentestJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetPentestJobsCommandOutput>;
   batchGetPentestJobs(
     args: BatchGetPentestJobsCommandInput,
@@ -823,7 +835,7 @@ export interface SecurityAgent {
   ): void;
   batchGetPentestJobs(
     args: BatchGetPentestJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetPentestJobsCommandOutput) => void
   ): void;
 
@@ -832,7 +844,7 @@ export interface SecurityAgent {
    */
   batchGetPentestJobTasks(
     args: BatchGetPentestJobTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetPentestJobTasksCommandOutput>;
   batchGetPentestJobTasks(
     args: BatchGetPentestJobTasksCommandInput,
@@ -840,7 +852,7 @@ export interface SecurityAgent {
   ): void;
   batchGetPentestJobTasks(
     args: BatchGetPentestJobTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetPentestJobTasksCommandOutput) => void
   ): void;
 
@@ -849,7 +861,7 @@ export interface SecurityAgent {
    */
   batchGetPentests(
     args: BatchGetPentestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetPentestsCommandOutput>;
   batchGetPentests(
     args: BatchGetPentestsCommandInput,
@@ -857,7 +869,7 @@ export interface SecurityAgent {
   ): void;
   batchGetPentests(
     args: BatchGetPentestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetPentestsCommandOutput) => void
   ): void;
 
@@ -866,7 +878,7 @@ export interface SecurityAgent {
    */
   batchGetSecurityRequirements(
     args: BatchGetSecurityRequirementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetSecurityRequirementsCommandOutput>;
   batchGetSecurityRequirements(
     args: BatchGetSecurityRequirementsCommandInput,
@@ -874,7 +886,7 @@ export interface SecurityAgent {
   ): void;
   batchGetSecurityRequirements(
     args: BatchGetSecurityRequirementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetSecurityRequirementsCommandOutput) => void
   ): void;
 
@@ -883,7 +895,7 @@ export interface SecurityAgent {
    */
   batchGetTargetDomains(
     args: BatchGetTargetDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetTargetDomainsCommandOutput>;
   batchGetTargetDomains(
     args: BatchGetTargetDomainsCommandInput,
@@ -891,7 +903,7 @@ export interface SecurityAgent {
   ): void;
   batchGetTargetDomains(
     args: BatchGetTargetDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetTargetDomainsCommandOutput) => void
   ): void;
 
@@ -900,7 +912,7 @@ export interface SecurityAgent {
    */
   batchGetThreatModelJobs(
     args: BatchGetThreatModelJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetThreatModelJobsCommandOutput>;
   batchGetThreatModelJobs(
     args: BatchGetThreatModelJobsCommandInput,
@@ -908,7 +920,7 @@ export interface SecurityAgent {
   ): void;
   batchGetThreatModelJobs(
     args: BatchGetThreatModelJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetThreatModelJobsCommandOutput) => void
   ): void;
 
@@ -917,7 +929,7 @@ export interface SecurityAgent {
    */
   batchGetThreatModelJobTasks(
     args: BatchGetThreatModelJobTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetThreatModelJobTasksCommandOutput>;
   batchGetThreatModelJobTasks(
     args: BatchGetThreatModelJobTasksCommandInput,
@@ -925,7 +937,7 @@ export interface SecurityAgent {
   ): void;
   batchGetThreatModelJobTasks(
     args: BatchGetThreatModelJobTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetThreatModelJobTasksCommandOutput) => void
   ): void;
 
@@ -934,7 +946,7 @@ export interface SecurityAgent {
    */
   batchGetThreatModels(
     args: BatchGetThreatModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetThreatModelsCommandOutput>;
   batchGetThreatModels(
     args: BatchGetThreatModelsCommandInput,
@@ -942,7 +954,7 @@ export interface SecurityAgent {
   ): void;
   batchGetThreatModels(
     args: BatchGetThreatModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetThreatModelsCommandOutput) => void
   ): void;
 
@@ -951,7 +963,7 @@ export interface SecurityAgent {
    */
   batchGetThreats(
     args: BatchGetThreatsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchGetThreatsCommandOutput>;
   batchGetThreats(
     args: BatchGetThreatsCommandInput,
@@ -959,7 +971,7 @@ export interface SecurityAgent {
   ): void;
   batchGetThreats(
     args: BatchGetThreatsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchGetThreatsCommandOutput) => void
   ): void;
 
@@ -968,7 +980,7 @@ export interface SecurityAgent {
    */
   batchUpdateSecurityRequirements(
     args: BatchUpdateSecurityRequirementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<BatchUpdateSecurityRequirementsCommandOutput>;
   batchUpdateSecurityRequirements(
     args: BatchUpdateSecurityRequirementsCommandInput,
@@ -976,7 +988,7 @@ export interface SecurityAgent {
   ): void;
   batchUpdateSecurityRequirements(
     args: BatchUpdateSecurityRequirementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchUpdateSecurityRequirementsCommandOutput) => void
   ): void;
 
@@ -985,7 +997,7 @@ export interface SecurityAgent {
    */
   createAgentSpace(
     args: CreateAgentSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<CreateAgentSpaceCommandOutput>;
   createAgentSpace(
     args: CreateAgentSpaceCommandInput,
@@ -993,7 +1005,7 @@ export interface SecurityAgent {
   ): void;
   createAgentSpace(
     args: CreateAgentSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: CreateAgentSpaceCommandOutput) => void
   ): void;
 
@@ -1003,7 +1015,7 @@ export interface SecurityAgent {
   createApplication(): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -1011,7 +1023,7 @@ export interface SecurityAgent {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -1020,7 +1032,7 @@ export interface SecurityAgent {
    */
   createCodeReview(
     args: CreateCodeReviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<CreateCodeReviewCommandOutput>;
   createCodeReview(
     args: CreateCodeReviewCommandInput,
@@ -1028,7 +1040,7 @@ export interface SecurityAgent {
   ): void;
   createCodeReview(
     args: CreateCodeReviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: CreateCodeReviewCommandOutput) => void
   ): void;
 
@@ -1037,7 +1049,7 @@ export interface SecurityAgent {
    */
   createIntegration(
     args: CreateIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<CreateIntegrationCommandOutput>;
   createIntegration(
     args: CreateIntegrationCommandInput,
@@ -1045,7 +1057,7 @@ export interface SecurityAgent {
   ): void;
   createIntegration(
     args: CreateIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: CreateIntegrationCommandOutput) => void
   ): void;
 
@@ -1054,7 +1066,7 @@ export interface SecurityAgent {
    */
   createMembership(
     args: CreateMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<CreateMembershipCommandOutput>;
   createMembership(
     args: CreateMembershipCommandInput,
@@ -1062,7 +1074,7 @@ export interface SecurityAgent {
   ): void;
   createMembership(
     args: CreateMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: CreateMembershipCommandOutput) => void
   ): void;
 
@@ -1071,7 +1083,7 @@ export interface SecurityAgent {
    */
   createPentest(
     args: CreatePentestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<CreatePentestCommandOutput>;
   createPentest(
     args: CreatePentestCommandInput,
@@ -1079,7 +1091,7 @@ export interface SecurityAgent {
   ): void;
   createPentest(
     args: CreatePentestCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: CreatePentestCommandOutput) => void
   ): void;
 
@@ -1088,7 +1100,7 @@ export interface SecurityAgent {
    */
   createPrivateConnection(
     args: CreatePrivateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<CreatePrivateConnectionCommandOutput>;
   createPrivateConnection(
     args: CreatePrivateConnectionCommandInput,
@@ -1096,7 +1108,7 @@ export interface SecurityAgent {
   ): void;
   createPrivateConnection(
     args: CreatePrivateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: CreatePrivateConnectionCommandOutput) => void
   ): void;
 
@@ -1105,7 +1117,7 @@ export interface SecurityAgent {
    */
   createSecurityRequirementPack(
     args: CreateSecurityRequirementPackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<CreateSecurityRequirementPackCommandOutput>;
   createSecurityRequirementPack(
     args: CreateSecurityRequirementPackCommandInput,
@@ -1113,7 +1125,7 @@ export interface SecurityAgent {
   ): void;
   createSecurityRequirementPack(
     args: CreateSecurityRequirementPackCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: CreateSecurityRequirementPackCommandOutput) => void
   ): void;
 
@@ -1122,7 +1134,7 @@ export interface SecurityAgent {
    */
   createTargetDomain(
     args: CreateTargetDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<CreateTargetDomainCommandOutput>;
   createTargetDomain(
     args: CreateTargetDomainCommandInput,
@@ -1130,7 +1142,7 @@ export interface SecurityAgent {
   ): void;
   createTargetDomain(
     args: CreateTargetDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: CreateTargetDomainCommandOutput) => void
   ): void;
 
@@ -1139,7 +1151,7 @@ export interface SecurityAgent {
    */
   createThreat(
     args: CreateThreatCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<CreateThreatCommandOutput>;
   createThreat(
     args: CreateThreatCommandInput,
@@ -1147,7 +1159,7 @@ export interface SecurityAgent {
   ): void;
   createThreat(
     args: CreateThreatCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: CreateThreatCommandOutput) => void
   ): void;
 
@@ -1156,7 +1168,7 @@ export interface SecurityAgent {
    */
   createThreatModel(
     args: CreateThreatModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<CreateThreatModelCommandOutput>;
   createThreatModel(
     args: CreateThreatModelCommandInput,
@@ -1164,7 +1176,7 @@ export interface SecurityAgent {
   ): void;
   createThreatModel(
     args: CreateThreatModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: CreateThreatModelCommandOutput) => void
   ): void;
 
@@ -1173,7 +1185,7 @@ export interface SecurityAgent {
    */
   deleteAgentSpace(
     args: DeleteAgentSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<DeleteAgentSpaceCommandOutput>;
   deleteAgentSpace(
     args: DeleteAgentSpaceCommandInput,
@@ -1181,7 +1193,7 @@ export interface SecurityAgent {
   ): void;
   deleteAgentSpace(
     args: DeleteAgentSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: DeleteAgentSpaceCommandOutput) => void
   ): void;
 
@@ -1190,7 +1202,7 @@ export interface SecurityAgent {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -1198,7 +1210,7 @@ export interface SecurityAgent {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -1207,7 +1219,7 @@ export interface SecurityAgent {
    */
   deleteArtifact(
     args: DeleteArtifactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<DeleteArtifactCommandOutput>;
   deleteArtifact(
     args: DeleteArtifactCommandInput,
@@ -1215,7 +1227,7 @@ export interface SecurityAgent {
   ): void;
   deleteArtifact(
     args: DeleteArtifactCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: DeleteArtifactCommandOutput) => void
   ): void;
 
@@ -1224,7 +1236,7 @@ export interface SecurityAgent {
    */
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<DeleteIntegrationCommandOutput>;
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
@@ -1232,7 +1244,7 @@ export interface SecurityAgent {
   ): void;
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
   ): void;
 
@@ -1241,7 +1253,7 @@ export interface SecurityAgent {
    */
   deleteMembership(
     args: DeleteMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<DeleteMembershipCommandOutput>;
   deleteMembership(
     args: DeleteMembershipCommandInput,
@@ -1249,7 +1261,7 @@ export interface SecurityAgent {
   ): void;
   deleteMembership(
     args: DeleteMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: DeleteMembershipCommandOutput) => void
   ): void;
 
@@ -1258,7 +1270,7 @@ export interface SecurityAgent {
    */
   deletePrivateConnection(
     args: DeletePrivateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<DeletePrivateConnectionCommandOutput>;
   deletePrivateConnection(
     args: DeletePrivateConnectionCommandInput,
@@ -1266,7 +1278,7 @@ export interface SecurityAgent {
   ): void;
   deletePrivateConnection(
     args: DeletePrivateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: DeletePrivateConnectionCommandOutput) => void
   ): void;
 
@@ -1275,7 +1287,7 @@ export interface SecurityAgent {
    */
   deleteSecurityRequirementPack(
     args: DeleteSecurityRequirementPackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<DeleteSecurityRequirementPackCommandOutput>;
   deleteSecurityRequirementPack(
     args: DeleteSecurityRequirementPackCommandInput,
@@ -1283,7 +1295,7 @@ export interface SecurityAgent {
   ): void;
   deleteSecurityRequirementPack(
     args: DeleteSecurityRequirementPackCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: DeleteSecurityRequirementPackCommandOutput) => void
   ): void;
 
@@ -1292,7 +1304,7 @@ export interface SecurityAgent {
    */
   deleteTargetDomain(
     args: DeleteTargetDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<DeleteTargetDomainCommandOutput>;
   deleteTargetDomain(
     args: DeleteTargetDomainCommandInput,
@@ -1300,7 +1312,7 @@ export interface SecurityAgent {
   ): void;
   deleteTargetDomain(
     args: DeleteTargetDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: DeleteTargetDomainCommandOutput) => void
   ): void;
 
@@ -1309,7 +1321,7 @@ export interface SecurityAgent {
    */
   describePrivateConnection(
     args: DescribePrivateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<DescribePrivateConnectionCommandOutput>;
   describePrivateConnection(
     args: DescribePrivateConnectionCommandInput,
@@ -1317,7 +1329,7 @@ export interface SecurityAgent {
   ): void;
   describePrivateConnection(
     args: DescribePrivateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: DescribePrivateConnectionCommandOutput) => void
   ): void;
 
@@ -1326,7 +1338,7 @@ export interface SecurityAgent {
    */
   getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<GetApplicationCommandOutput>;
   getApplication(
     args: GetApplicationCommandInput,
@@ -1334,7 +1346,7 @@ export interface SecurityAgent {
   ): void;
   getApplication(
     args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: GetApplicationCommandOutput) => void
   ): void;
 
@@ -1343,7 +1355,7 @@ export interface SecurityAgent {
    */
   getArtifact(
     args: GetArtifactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<GetArtifactCommandOutput>;
   getArtifact(
     args: GetArtifactCommandInput,
@@ -1351,7 +1363,7 @@ export interface SecurityAgent {
   ): void;
   getArtifact(
     args: GetArtifactCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: GetArtifactCommandOutput) => void
   ): void;
 
@@ -1360,7 +1372,7 @@ export interface SecurityAgent {
    */
   getIntegration(
     args: GetIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<GetIntegrationCommandOutput>;
   getIntegration(
     args: GetIntegrationCommandInput,
@@ -1368,7 +1380,7 @@ export interface SecurityAgent {
   ): void;
   getIntegration(
     args: GetIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: GetIntegrationCommandOutput) => void
   ): void;
 
@@ -1377,7 +1389,7 @@ export interface SecurityAgent {
    */
   getSecurityRequirementPack(
     args: GetSecurityRequirementPackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<GetSecurityRequirementPackCommandOutput>;
   getSecurityRequirementPack(
     args: GetSecurityRequirementPackCommandInput,
@@ -1385,7 +1397,7 @@ export interface SecurityAgent {
   ): void;
   getSecurityRequirementPack(
     args: GetSecurityRequirementPackCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: GetSecurityRequirementPackCommandOutput) => void
   ): void;
 
@@ -1394,7 +1406,7 @@ export interface SecurityAgent {
    */
   importSecurityRequirements(
     args: ImportSecurityRequirementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ImportSecurityRequirementsCommandOutput>;
   importSecurityRequirements(
     args: ImportSecurityRequirementsCommandInput,
@@ -1402,7 +1414,7 @@ export interface SecurityAgent {
   ): void;
   importSecurityRequirements(
     args: ImportSecurityRequirementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ImportSecurityRequirementsCommandOutput) => void
   ): void;
 
@@ -1411,7 +1423,7 @@ export interface SecurityAgent {
    */
   initiateProviderRegistration(
     args: InitiateProviderRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<InitiateProviderRegistrationCommandOutput>;
   initiateProviderRegistration(
     args: InitiateProviderRegistrationCommandInput,
@@ -1419,7 +1431,7 @@ export interface SecurityAgent {
   ): void;
   initiateProviderRegistration(
     args: InitiateProviderRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: InitiateProviderRegistrationCommandOutput) => void
   ): void;
 
@@ -1429,7 +1441,7 @@ export interface SecurityAgent {
   listAgentSpaces(): Promise<ListAgentSpacesCommandOutput>;
   listAgentSpaces(
     args: ListAgentSpacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListAgentSpacesCommandOutput>;
   listAgentSpaces(
     args: ListAgentSpacesCommandInput,
@@ -1437,7 +1449,7 @@ export interface SecurityAgent {
   ): void;
   listAgentSpaces(
     args: ListAgentSpacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListAgentSpacesCommandOutput) => void
   ): void;
 
@@ -1447,7 +1459,7 @@ export interface SecurityAgent {
   listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -1455,7 +1467,7 @@ export interface SecurityAgent {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -1464,7 +1476,7 @@ export interface SecurityAgent {
    */
   listArtifacts(
     args: ListArtifactsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListArtifactsCommandOutput>;
   listArtifacts(
     args: ListArtifactsCommandInput,
@@ -1472,7 +1484,7 @@ export interface SecurityAgent {
   ): void;
   listArtifacts(
     args: ListArtifactsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListArtifactsCommandOutput) => void
   ): void;
 
@@ -1481,7 +1493,7 @@ export interface SecurityAgent {
    */
   listCodeReviewJobsForCodeReview(
     args: ListCodeReviewJobsForCodeReviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListCodeReviewJobsForCodeReviewCommandOutput>;
   listCodeReviewJobsForCodeReview(
     args: ListCodeReviewJobsForCodeReviewCommandInput,
@@ -1489,7 +1501,7 @@ export interface SecurityAgent {
   ): void;
   listCodeReviewJobsForCodeReview(
     args: ListCodeReviewJobsForCodeReviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListCodeReviewJobsForCodeReviewCommandOutput) => void
   ): void;
 
@@ -1498,7 +1510,7 @@ export interface SecurityAgent {
    */
   listCodeReviewJobTasks(
     args: ListCodeReviewJobTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListCodeReviewJobTasksCommandOutput>;
   listCodeReviewJobTasks(
     args: ListCodeReviewJobTasksCommandInput,
@@ -1506,7 +1518,7 @@ export interface SecurityAgent {
   ): void;
   listCodeReviewJobTasks(
     args: ListCodeReviewJobTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListCodeReviewJobTasksCommandOutput) => void
   ): void;
 
@@ -1515,7 +1527,7 @@ export interface SecurityAgent {
    */
   listCodeReviews(
     args: ListCodeReviewsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListCodeReviewsCommandOutput>;
   listCodeReviews(
     args: ListCodeReviewsCommandInput,
@@ -1523,7 +1535,7 @@ export interface SecurityAgent {
   ): void;
   listCodeReviews(
     args: ListCodeReviewsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListCodeReviewsCommandOutput) => void
   ): void;
 
@@ -1532,7 +1544,7 @@ export interface SecurityAgent {
    */
   listDiscoveredEndpoints(
     args: ListDiscoveredEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListDiscoveredEndpointsCommandOutput>;
   listDiscoveredEndpoints(
     args: ListDiscoveredEndpointsCommandInput,
@@ -1540,7 +1552,7 @@ export interface SecurityAgent {
   ): void;
   listDiscoveredEndpoints(
     args: ListDiscoveredEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListDiscoveredEndpointsCommandOutput) => void
   ): void;
 
@@ -1549,7 +1561,7 @@ export interface SecurityAgent {
    */
   listFindings(
     args: ListFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListFindingsCommandOutput>;
   listFindings(
     args: ListFindingsCommandInput,
@@ -1557,7 +1569,7 @@ export interface SecurityAgent {
   ): void;
   listFindings(
     args: ListFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListFindingsCommandOutput) => void
   ): void;
 
@@ -1566,7 +1578,7 @@ export interface SecurityAgent {
    */
   listIntegratedResources(
     args: ListIntegratedResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListIntegratedResourcesCommandOutput>;
   listIntegratedResources(
     args: ListIntegratedResourcesCommandInput,
@@ -1574,7 +1586,7 @@ export interface SecurityAgent {
   ): void;
   listIntegratedResources(
     args: ListIntegratedResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListIntegratedResourcesCommandOutput) => void
   ): void;
 
@@ -1584,7 +1596,7 @@ export interface SecurityAgent {
   listIntegrations(): Promise<ListIntegrationsCommandOutput>;
   listIntegrations(
     args: ListIntegrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListIntegrationsCommandOutput>;
   listIntegrations(
     args: ListIntegrationsCommandInput,
@@ -1592,7 +1604,7 @@ export interface SecurityAgent {
   ): void;
   listIntegrations(
     args: ListIntegrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListIntegrationsCommandOutput) => void
   ): void;
 
@@ -1601,7 +1613,7 @@ export interface SecurityAgent {
    */
   listMemberships(
     args: ListMembershipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListMembershipsCommandOutput>;
   listMemberships(
     args: ListMembershipsCommandInput,
@@ -1609,7 +1621,7 @@ export interface SecurityAgent {
   ): void;
   listMemberships(
     args: ListMembershipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListMembershipsCommandOutput) => void
   ): void;
 
@@ -1618,7 +1630,7 @@ export interface SecurityAgent {
    */
   listPentestJobsForPentest(
     args: ListPentestJobsForPentestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListPentestJobsForPentestCommandOutput>;
   listPentestJobsForPentest(
     args: ListPentestJobsForPentestCommandInput,
@@ -1626,7 +1638,7 @@ export interface SecurityAgent {
   ): void;
   listPentestJobsForPentest(
     args: ListPentestJobsForPentestCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListPentestJobsForPentestCommandOutput) => void
   ): void;
 
@@ -1635,7 +1647,7 @@ export interface SecurityAgent {
    */
   listPentestJobTasks(
     args: ListPentestJobTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListPentestJobTasksCommandOutput>;
   listPentestJobTasks(
     args: ListPentestJobTasksCommandInput,
@@ -1643,7 +1655,7 @@ export interface SecurityAgent {
   ): void;
   listPentestJobTasks(
     args: ListPentestJobTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListPentestJobTasksCommandOutput) => void
   ): void;
 
@@ -1652,7 +1664,7 @@ export interface SecurityAgent {
    */
   listPentests(
     args: ListPentestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListPentestsCommandOutput>;
   listPentests(
     args: ListPentestsCommandInput,
@@ -1660,7 +1672,7 @@ export interface SecurityAgent {
   ): void;
   listPentests(
     args: ListPentestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListPentestsCommandOutput) => void
   ): void;
 
@@ -1670,7 +1682,7 @@ export interface SecurityAgent {
   listPrivateConnections(): Promise<ListPrivateConnectionsCommandOutput>;
   listPrivateConnections(
     args: ListPrivateConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListPrivateConnectionsCommandOutput>;
   listPrivateConnections(
     args: ListPrivateConnectionsCommandInput,
@@ -1678,7 +1690,7 @@ export interface SecurityAgent {
   ): void;
   listPrivateConnections(
     args: ListPrivateConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListPrivateConnectionsCommandOutput) => void
   ): void;
 
@@ -1688,7 +1700,7 @@ export interface SecurityAgent {
   listSecurityRequirementPacks(): Promise<ListSecurityRequirementPacksCommandOutput>;
   listSecurityRequirementPacks(
     args: ListSecurityRequirementPacksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListSecurityRequirementPacksCommandOutput>;
   listSecurityRequirementPacks(
     args: ListSecurityRequirementPacksCommandInput,
@@ -1696,7 +1708,7 @@ export interface SecurityAgent {
   ): void;
   listSecurityRequirementPacks(
     args: ListSecurityRequirementPacksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListSecurityRequirementPacksCommandOutput) => void
   ): void;
 
@@ -1705,7 +1717,7 @@ export interface SecurityAgent {
    */
   listSecurityRequirements(
     args: ListSecurityRequirementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListSecurityRequirementsCommandOutput>;
   listSecurityRequirements(
     args: ListSecurityRequirementsCommandInput,
@@ -1713,7 +1725,7 @@ export interface SecurityAgent {
   ): void;
   listSecurityRequirements(
     args: ListSecurityRequirementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListSecurityRequirementsCommandOutput) => void
   ): void;
 
@@ -1722,7 +1734,7 @@ export interface SecurityAgent {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1730,7 +1742,7 @@ export interface SecurityAgent {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1740,7 +1752,7 @@ export interface SecurityAgent {
   listTargetDomains(): Promise<ListTargetDomainsCommandOutput>;
   listTargetDomains(
     args: ListTargetDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListTargetDomainsCommandOutput>;
   listTargetDomains(
     args: ListTargetDomainsCommandInput,
@@ -1748,7 +1760,7 @@ export interface SecurityAgent {
   ): void;
   listTargetDomains(
     args: ListTargetDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListTargetDomainsCommandOutput) => void
   ): void;
 
@@ -1757,7 +1769,7 @@ export interface SecurityAgent {
    */
   listThreatModelJobs(
     args: ListThreatModelJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListThreatModelJobsCommandOutput>;
   listThreatModelJobs(
     args: ListThreatModelJobsCommandInput,
@@ -1765,7 +1777,7 @@ export interface SecurityAgent {
   ): void;
   listThreatModelJobs(
     args: ListThreatModelJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListThreatModelJobsCommandOutput) => void
   ): void;
 
@@ -1774,7 +1786,7 @@ export interface SecurityAgent {
    */
   listThreatModelJobTasks(
     args: ListThreatModelJobTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListThreatModelJobTasksCommandOutput>;
   listThreatModelJobTasks(
     args: ListThreatModelJobTasksCommandInput,
@@ -1782,7 +1794,7 @@ export interface SecurityAgent {
   ): void;
   listThreatModelJobTasks(
     args: ListThreatModelJobTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListThreatModelJobTasksCommandOutput) => void
   ): void;
 
@@ -1791,7 +1803,7 @@ export interface SecurityAgent {
    */
   listThreatModels(
     args: ListThreatModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListThreatModelsCommandOutput>;
   listThreatModels(
     args: ListThreatModelsCommandInput,
@@ -1799,7 +1811,7 @@ export interface SecurityAgent {
   ): void;
   listThreatModels(
     args: ListThreatModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListThreatModelsCommandOutput) => void
   ): void;
 
@@ -1808,7 +1820,7 @@ export interface SecurityAgent {
    */
   listThreats(
     args: ListThreatsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<ListThreatsCommandOutput>;
   listThreats(
     args: ListThreatsCommandInput,
@@ -1816,7 +1828,7 @@ export interface SecurityAgent {
   ): void;
   listThreats(
     args: ListThreatsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: ListThreatsCommandOutput) => void
   ): void;
 
@@ -1825,7 +1837,7 @@ export interface SecurityAgent {
    */
   startCodeRemediation(
     args: StartCodeRemediationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<StartCodeRemediationCommandOutput>;
   startCodeRemediation(
     args: StartCodeRemediationCommandInput,
@@ -1833,7 +1845,7 @@ export interface SecurityAgent {
   ): void;
   startCodeRemediation(
     args: StartCodeRemediationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: StartCodeRemediationCommandOutput) => void
   ): void;
 
@@ -1842,7 +1854,7 @@ export interface SecurityAgent {
    */
   startCodeReviewJob(
     args: StartCodeReviewJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<StartCodeReviewJobCommandOutput>;
   startCodeReviewJob(
     args: StartCodeReviewJobCommandInput,
@@ -1850,7 +1862,7 @@ export interface SecurityAgent {
   ): void;
   startCodeReviewJob(
     args: StartCodeReviewJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: StartCodeReviewJobCommandOutput) => void
   ): void;
 
@@ -1859,7 +1871,7 @@ export interface SecurityAgent {
    */
   startPentestJob(
     args: StartPentestJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<StartPentestJobCommandOutput>;
   startPentestJob(
     args: StartPentestJobCommandInput,
@@ -1867,7 +1879,7 @@ export interface SecurityAgent {
   ): void;
   startPentestJob(
     args: StartPentestJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: StartPentestJobCommandOutput) => void
   ): void;
 
@@ -1876,7 +1888,7 @@ export interface SecurityAgent {
    */
   startThreatModelJob(
     args: StartThreatModelJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<StartThreatModelJobCommandOutput>;
   startThreatModelJob(
     args: StartThreatModelJobCommandInput,
@@ -1884,7 +1896,7 @@ export interface SecurityAgent {
   ): void;
   startThreatModelJob(
     args: StartThreatModelJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: StartThreatModelJobCommandOutput) => void
   ): void;
 
@@ -1893,7 +1905,7 @@ export interface SecurityAgent {
    */
   stopCodeReviewJob(
     args: StopCodeReviewJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<StopCodeReviewJobCommandOutput>;
   stopCodeReviewJob(
     args: StopCodeReviewJobCommandInput,
@@ -1901,7 +1913,7 @@ export interface SecurityAgent {
   ): void;
   stopCodeReviewJob(
     args: StopCodeReviewJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: StopCodeReviewJobCommandOutput) => void
   ): void;
 
@@ -1910,7 +1922,7 @@ export interface SecurityAgent {
    */
   stopPentestJob(
     args: StopPentestJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<StopPentestJobCommandOutput>;
   stopPentestJob(
     args: StopPentestJobCommandInput,
@@ -1918,7 +1930,7 @@ export interface SecurityAgent {
   ): void;
   stopPentestJob(
     args: StopPentestJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: StopPentestJobCommandOutput) => void
   ): void;
 
@@ -1927,7 +1939,7 @@ export interface SecurityAgent {
    */
   stopThreatModelJob(
     args: StopThreatModelJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<StopThreatModelJobCommandOutput>;
   stopThreatModelJob(
     args: StopThreatModelJobCommandInput,
@@ -1935,7 +1947,7 @@ export interface SecurityAgent {
   ): void;
   stopThreatModelJob(
     args: StopThreatModelJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: StopThreatModelJobCommandOutput) => void
   ): void;
 
@@ -1944,7 +1956,7 @@ export interface SecurityAgent {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1952,7 +1964,7 @@ export interface SecurityAgent {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1961,7 +1973,7 @@ export interface SecurityAgent {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1969,7 +1981,7 @@ export interface SecurityAgent {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1978,7 +1990,7 @@ export interface SecurityAgent {
    */
   updateAgentSpace(
     args: UpdateAgentSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UpdateAgentSpaceCommandOutput>;
   updateAgentSpace(
     args: UpdateAgentSpaceCommandInput,
@@ -1986,7 +1998,7 @@ export interface SecurityAgent {
   ): void;
   updateAgentSpace(
     args: UpdateAgentSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdateAgentSpaceCommandOutput) => void
   ): void;
 
@@ -1995,7 +2007,7 @@ export interface SecurityAgent {
    */
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
@@ -2003,7 +2015,7 @@ export interface SecurityAgent {
   ): void;
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 
@@ -2012,7 +2024,7 @@ export interface SecurityAgent {
    */
   updateCodeReview(
     args: UpdateCodeReviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UpdateCodeReviewCommandOutput>;
   updateCodeReview(
     args: UpdateCodeReviewCommandInput,
@@ -2020,7 +2032,7 @@ export interface SecurityAgent {
   ): void;
   updateCodeReview(
     args: UpdateCodeReviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdateCodeReviewCommandOutput) => void
   ): void;
 
@@ -2029,7 +2041,7 @@ export interface SecurityAgent {
    */
   updateFinding(
     args: UpdateFindingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UpdateFindingCommandOutput>;
   updateFinding(
     args: UpdateFindingCommandInput,
@@ -2037,7 +2049,7 @@ export interface SecurityAgent {
   ): void;
   updateFinding(
     args: UpdateFindingCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdateFindingCommandOutput) => void
   ): void;
 
@@ -2046,7 +2058,7 @@ export interface SecurityAgent {
    */
   updateIntegratedResources(
     args: UpdateIntegratedResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UpdateIntegratedResourcesCommandOutput>;
   updateIntegratedResources(
     args: UpdateIntegratedResourcesCommandInput,
@@ -2054,7 +2066,7 @@ export interface SecurityAgent {
   ): void;
   updateIntegratedResources(
     args: UpdateIntegratedResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdateIntegratedResourcesCommandOutput) => void
   ): void;
 
@@ -2063,7 +2075,7 @@ export interface SecurityAgent {
    */
   updatePentest(
     args: UpdatePentestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UpdatePentestCommandOutput>;
   updatePentest(
     args: UpdatePentestCommandInput,
@@ -2071,7 +2083,7 @@ export interface SecurityAgent {
   ): void;
   updatePentest(
     args: UpdatePentestCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdatePentestCommandOutput) => void
   ): void;
 
@@ -2080,7 +2092,7 @@ export interface SecurityAgent {
    */
   updatePrivateConnectionCertificate(
     args: UpdatePrivateConnectionCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UpdatePrivateConnectionCertificateCommandOutput>;
   updatePrivateConnectionCertificate(
     args: UpdatePrivateConnectionCertificateCommandInput,
@@ -2088,7 +2100,7 @@ export interface SecurityAgent {
   ): void;
   updatePrivateConnectionCertificate(
     args: UpdatePrivateConnectionCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdatePrivateConnectionCertificateCommandOutput) => void
   ): void;
 
@@ -2097,7 +2109,7 @@ export interface SecurityAgent {
    */
   updateSecurityRequirementPack(
     args: UpdateSecurityRequirementPackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UpdateSecurityRequirementPackCommandOutput>;
   updateSecurityRequirementPack(
     args: UpdateSecurityRequirementPackCommandInput,
@@ -2105,7 +2117,7 @@ export interface SecurityAgent {
   ): void;
   updateSecurityRequirementPack(
     args: UpdateSecurityRequirementPackCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdateSecurityRequirementPackCommandOutput) => void
   ): void;
 
@@ -2114,7 +2126,7 @@ export interface SecurityAgent {
    */
   updateTargetDomain(
     args: UpdateTargetDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UpdateTargetDomainCommandOutput>;
   updateTargetDomain(
     args: UpdateTargetDomainCommandInput,
@@ -2122,7 +2134,7 @@ export interface SecurityAgent {
   ): void;
   updateTargetDomain(
     args: UpdateTargetDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdateTargetDomainCommandOutput) => void
   ): void;
 
@@ -2131,7 +2143,7 @@ export interface SecurityAgent {
    */
   updateThreat(
     args: UpdateThreatCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UpdateThreatCommandOutput>;
   updateThreat(
     args: UpdateThreatCommandInput,
@@ -2139,7 +2151,7 @@ export interface SecurityAgent {
   ): void;
   updateThreat(
     args: UpdateThreatCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdateThreatCommandOutput) => void
   ): void;
 
@@ -2148,7 +2160,7 @@ export interface SecurityAgent {
    */
   updateThreatModel(
     args: UpdateThreatModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<UpdateThreatModelCommandOutput>;
   updateThreatModel(
     args: UpdateThreatModelCommandInput,
@@ -2156,7 +2168,7 @@ export interface SecurityAgent {
   ): void;
   updateThreatModel(
     args: UpdateThreatModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdateThreatModelCommandOutput) => void
   ): void;
 
@@ -2165,7 +2177,7 @@ export interface SecurityAgent {
    */
   verifyTargetDomain(
     args: VerifyTargetDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityAgentRequestOptions
   ): Promise<VerifyTargetDomainCommandOutput>;
   verifyTargetDomain(
     args: VerifyTargetDomainCommandInput,
@@ -2173,7 +2185,7 @@ export interface SecurityAgent {
   ): void;
   verifyTargetDomain(
     args: VerifyTargetDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityAgentRequestOptions,
     cb: (err: any, data?: VerifyTargetDomainCommandOutput) => void
   ): void;
 

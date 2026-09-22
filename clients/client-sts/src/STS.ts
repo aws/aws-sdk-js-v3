@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type AssumeRoleCommandInput,
@@ -73,13 +73,20 @@ const commands = {
   GetWebIdentityTokenCommand,
 };
 
+/**
+ * @public
+ */
+export interface STSRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface STS {
   /**
    * @see {@link AssumeRoleCommand}
    */
   assumeRole(
     args: AssumeRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: STSRequestOptions
   ): Promise<AssumeRoleCommandOutput>;
   assumeRole(
     args: AssumeRoleCommandInput,
@@ -87,7 +94,7 @@ export interface STS {
   ): void;
   assumeRole(
     args: AssumeRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: STSRequestOptions,
     cb: (err: any, data?: AssumeRoleCommandOutput) => void
   ): void;
 
@@ -96,7 +103,7 @@ export interface STS {
    */
   assumeRoleWithSAML(
     args: AssumeRoleWithSAMLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: STSRequestOptions
   ): Promise<AssumeRoleWithSAMLCommandOutput>;
   assumeRoleWithSAML(
     args: AssumeRoleWithSAMLCommandInput,
@@ -104,7 +111,7 @@ export interface STS {
   ): void;
   assumeRoleWithSAML(
     args: AssumeRoleWithSAMLCommandInput,
-    options: __HttpHandlerOptions,
+    options: STSRequestOptions,
     cb: (err: any, data?: AssumeRoleWithSAMLCommandOutput) => void
   ): void;
 
@@ -113,7 +120,7 @@ export interface STS {
    */
   assumeRoleWithWebIdentity(
     args: AssumeRoleWithWebIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: STSRequestOptions
   ): Promise<AssumeRoleWithWebIdentityCommandOutput>;
   assumeRoleWithWebIdentity(
     args: AssumeRoleWithWebIdentityCommandInput,
@@ -121,7 +128,7 @@ export interface STS {
   ): void;
   assumeRoleWithWebIdentity(
     args: AssumeRoleWithWebIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: STSRequestOptions,
     cb: (err: any, data?: AssumeRoleWithWebIdentityCommandOutput) => void
   ): void;
 
@@ -130,7 +137,7 @@ export interface STS {
    */
   assumeRoot(
     args: AssumeRootCommandInput,
-    options?: __HttpHandlerOptions
+    options?: STSRequestOptions
   ): Promise<AssumeRootCommandOutput>;
   assumeRoot(
     args: AssumeRootCommandInput,
@@ -138,7 +145,7 @@ export interface STS {
   ): void;
   assumeRoot(
     args: AssumeRootCommandInput,
-    options: __HttpHandlerOptions,
+    options: STSRequestOptions,
     cb: (err: any, data?: AssumeRootCommandOutput) => void
   ): void;
 
@@ -147,7 +154,7 @@ export interface STS {
    */
   decodeAuthorizationMessage(
     args: DecodeAuthorizationMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: STSRequestOptions
   ): Promise<DecodeAuthorizationMessageCommandOutput>;
   decodeAuthorizationMessage(
     args: DecodeAuthorizationMessageCommandInput,
@@ -155,7 +162,7 @@ export interface STS {
   ): void;
   decodeAuthorizationMessage(
     args: DecodeAuthorizationMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: STSRequestOptions,
     cb: (err: any, data?: DecodeAuthorizationMessageCommandOutput) => void
   ): void;
 
@@ -164,7 +171,7 @@ export interface STS {
    */
   getAccessKeyInfo(
     args: GetAccessKeyInfoCommandInput,
-    options?: __HttpHandlerOptions
+    options?: STSRequestOptions
   ): Promise<GetAccessKeyInfoCommandOutput>;
   getAccessKeyInfo(
     args: GetAccessKeyInfoCommandInput,
@@ -172,7 +179,7 @@ export interface STS {
   ): void;
   getAccessKeyInfo(
     args: GetAccessKeyInfoCommandInput,
-    options: __HttpHandlerOptions,
+    options: STSRequestOptions,
     cb: (err: any, data?: GetAccessKeyInfoCommandOutput) => void
   ): void;
 
@@ -182,7 +189,7 @@ export interface STS {
   getCallerIdentity(): Promise<GetCallerIdentityCommandOutput>;
   getCallerIdentity(
     args: GetCallerIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: STSRequestOptions
   ): Promise<GetCallerIdentityCommandOutput>;
   getCallerIdentity(
     args: GetCallerIdentityCommandInput,
@@ -190,7 +197,7 @@ export interface STS {
   ): void;
   getCallerIdentity(
     args: GetCallerIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: STSRequestOptions,
     cb: (err: any, data?: GetCallerIdentityCommandOutput) => void
   ): void;
 
@@ -199,7 +206,7 @@ export interface STS {
    */
   getDelegatedAccessToken(
     args: GetDelegatedAccessTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: STSRequestOptions
   ): Promise<GetDelegatedAccessTokenCommandOutput>;
   getDelegatedAccessToken(
     args: GetDelegatedAccessTokenCommandInput,
@@ -207,7 +214,7 @@ export interface STS {
   ): void;
   getDelegatedAccessToken(
     args: GetDelegatedAccessTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: STSRequestOptions,
     cb: (err: any, data?: GetDelegatedAccessTokenCommandOutput) => void
   ): void;
 
@@ -216,7 +223,7 @@ export interface STS {
    */
   getFederationToken(
     args: GetFederationTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: STSRequestOptions
   ): Promise<GetFederationTokenCommandOutput>;
   getFederationToken(
     args: GetFederationTokenCommandInput,
@@ -224,7 +231,7 @@ export interface STS {
   ): void;
   getFederationToken(
     args: GetFederationTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: STSRequestOptions,
     cb: (err: any, data?: GetFederationTokenCommandOutput) => void
   ): void;
 
@@ -234,7 +241,7 @@ export interface STS {
   getSessionToken(): Promise<GetSessionTokenCommandOutput>;
   getSessionToken(
     args: GetSessionTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: STSRequestOptions
   ): Promise<GetSessionTokenCommandOutput>;
   getSessionToken(
     args: GetSessionTokenCommandInput,
@@ -242,7 +249,7 @@ export interface STS {
   ): void;
   getSessionToken(
     args: GetSessionTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: STSRequestOptions,
     cb: (err: any, data?: GetSessionTokenCommandOutput) => void
   ): void;
 
@@ -251,7 +258,7 @@ export interface STS {
    */
   getWebIdentityToken(
     args: GetWebIdentityTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: STSRequestOptions
   ): Promise<GetWebIdentityTokenCommandOutput>;
   getWebIdentityToken(
     args: GetWebIdentityTokenCommandInput,
@@ -259,7 +266,7 @@ export interface STS {
   ): void;
   getWebIdentityToken(
     args: GetWebIdentityTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: STSRequestOptions,
     cb: (err: any, data?: GetWebIdentityTokenCommandOutput) => void
   ): void;
 }

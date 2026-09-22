@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type DeleteSessionCommandInput,
@@ -43,13 +43,20 @@ const commands = {
   StartConversationCommand,
 };
 
+/**
+ * @public
+ */
+export interface LexRuntimeV2RequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface LexRuntimeV2 {
   /**
    * @see {@link DeleteSessionCommand}
    */
   deleteSession(
     args: DeleteSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LexRuntimeV2RequestOptions
   ): Promise<DeleteSessionCommandOutput>;
   deleteSession(
     args: DeleteSessionCommandInput,
@@ -57,7 +64,7 @@ export interface LexRuntimeV2 {
   ): void;
   deleteSession(
     args: DeleteSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LexRuntimeV2RequestOptions,
     cb: (err: any, data?: DeleteSessionCommandOutput) => void
   ): void;
 
@@ -66,7 +73,7 @@ export interface LexRuntimeV2 {
    */
   getSession(
     args: GetSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LexRuntimeV2RequestOptions
   ): Promise<GetSessionCommandOutput>;
   getSession(
     args: GetSessionCommandInput,
@@ -74,7 +81,7 @@ export interface LexRuntimeV2 {
   ): void;
   getSession(
     args: GetSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LexRuntimeV2RequestOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
   ): void;
 
@@ -83,7 +90,7 @@ export interface LexRuntimeV2 {
    */
   putSession(
     args: PutSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LexRuntimeV2RequestOptions
   ): Promise<PutSessionCommandOutput>;
   putSession(
     args: PutSessionCommandInput,
@@ -91,7 +98,7 @@ export interface LexRuntimeV2 {
   ): void;
   putSession(
     args: PutSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LexRuntimeV2RequestOptions,
     cb: (err: any, data?: PutSessionCommandOutput) => void
   ): void;
 
@@ -100,7 +107,7 @@ export interface LexRuntimeV2 {
    */
   recognizeText(
     args: RecognizeTextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LexRuntimeV2RequestOptions
   ): Promise<RecognizeTextCommandOutput>;
   recognizeText(
     args: RecognizeTextCommandInput,
@@ -108,7 +115,7 @@ export interface LexRuntimeV2 {
   ): void;
   recognizeText(
     args: RecognizeTextCommandInput,
-    options: __HttpHandlerOptions,
+    options: LexRuntimeV2RequestOptions,
     cb: (err: any, data?: RecognizeTextCommandOutput) => void
   ): void;
 
@@ -117,7 +124,7 @@ export interface LexRuntimeV2 {
    */
   recognizeUtterance(
     args: RecognizeUtteranceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LexRuntimeV2RequestOptions
   ): Promise<RecognizeUtteranceCommandOutput>;
   recognizeUtterance(
     args: RecognizeUtteranceCommandInput,
@@ -125,7 +132,7 @@ export interface LexRuntimeV2 {
   ): void;
   recognizeUtterance(
     args: RecognizeUtteranceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LexRuntimeV2RequestOptions,
     cb: (err: any, data?: RecognizeUtteranceCommandOutput) => void
   ): void;
 
@@ -134,7 +141,7 @@ export interface LexRuntimeV2 {
    */
   startConversation(
     args: StartConversationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LexRuntimeV2RequestOptions
   ): Promise<StartConversationCommandOutput>;
   startConversation(
     args: StartConversationCommandInput,
@@ -142,7 +149,7 @@ export interface LexRuntimeV2 {
   ): void;
   startConversation(
     args: StartConversationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LexRuntimeV2RequestOptions,
     cb: (err: any, data?: StartConversationCommandOutput) => void
   ): void;
 }

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { CloudFrontKeyValueStoreClient } from "./CloudFrontKeyValueStoreClient";
 import { type DeleteKeyCommandInput, type DeleteKeyCommandOutput, DeleteKeyCommand } from "./commands/DeleteKeyCommand";
@@ -31,13 +36,20 @@ const paginators = {
   paginateListKeys,
 };
 
+/**
+ * @public
+ */
+export interface CloudFrontKeyValueStoreRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CloudFrontKeyValueStore {
   /**
    * @see {@link DeleteKeyCommand}
    */
   deleteKey(
     args: DeleteKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontKeyValueStoreRequestOptions
   ): Promise<DeleteKeyCommandOutput>;
   deleteKey(
     args: DeleteKeyCommandInput,
@@ -45,7 +57,7 @@ export interface CloudFrontKeyValueStore {
   ): void;
   deleteKey(
     args: DeleteKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontKeyValueStoreRequestOptions,
     cb: (err: any, data?: DeleteKeyCommandOutput) => void
   ): void;
 
@@ -54,7 +66,7 @@ export interface CloudFrontKeyValueStore {
    */
   describeKeyValueStore(
     args: DescribeKeyValueStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontKeyValueStoreRequestOptions
   ): Promise<DescribeKeyValueStoreCommandOutput>;
   describeKeyValueStore(
     args: DescribeKeyValueStoreCommandInput,
@@ -62,7 +74,7 @@ export interface CloudFrontKeyValueStore {
   ): void;
   describeKeyValueStore(
     args: DescribeKeyValueStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontKeyValueStoreRequestOptions,
     cb: (err: any, data?: DescribeKeyValueStoreCommandOutput) => void
   ): void;
 
@@ -71,7 +83,7 @@ export interface CloudFrontKeyValueStore {
    */
   getKey(
     args: GetKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontKeyValueStoreRequestOptions
   ): Promise<GetKeyCommandOutput>;
   getKey(
     args: GetKeyCommandInput,
@@ -79,7 +91,7 @@ export interface CloudFrontKeyValueStore {
   ): void;
   getKey(
     args: GetKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontKeyValueStoreRequestOptions,
     cb: (err: any, data?: GetKeyCommandOutput) => void
   ): void;
 
@@ -88,7 +100,7 @@ export interface CloudFrontKeyValueStore {
    */
   listKeys(
     args: ListKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontKeyValueStoreRequestOptions
   ): Promise<ListKeysCommandOutput>;
   listKeys(
     args: ListKeysCommandInput,
@@ -96,7 +108,7 @@ export interface CloudFrontKeyValueStore {
   ): void;
   listKeys(
     args: ListKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontKeyValueStoreRequestOptions,
     cb: (err: any, data?: ListKeysCommandOutput) => void
   ): void;
 
@@ -105,7 +117,7 @@ export interface CloudFrontKeyValueStore {
    */
   putKey(
     args: PutKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontKeyValueStoreRequestOptions
   ): Promise<PutKeyCommandOutput>;
   putKey(
     args: PutKeyCommandInput,
@@ -113,7 +125,7 @@ export interface CloudFrontKeyValueStore {
   ): void;
   putKey(
     args: PutKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontKeyValueStoreRequestOptions,
     cb: (err: any, data?: PutKeyCommandOutput) => void
   ): void;
 
@@ -122,7 +134,7 @@ export interface CloudFrontKeyValueStore {
    */
   updateKeys(
     args: UpdateKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontKeyValueStoreRequestOptions
   ): Promise<UpdateKeysCommandOutput>;
   updateKeys(
     args: UpdateKeysCommandInput,
@@ -130,7 +142,7 @@ export interface CloudFrontKeyValueStore {
   ): void;
   updateKeys(
     args: UpdateKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontKeyValueStoreRequestOptions,
     cb: (err: any, data?: UpdateKeysCommandOutput) => void
   ): void;
 

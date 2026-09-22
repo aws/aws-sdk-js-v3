@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptMarketplaceRegistrationCommandInput,
@@ -527,13 +532,20 @@ const paginators = {
   paginateListSystemVersions,
 };
 
+/**
+ * @public
+ */
+export interface OdbRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Odb {
   /**
    * @see {@link AcceptMarketplaceRegistrationCommand}
    */
   acceptMarketplaceRegistration(
     args: AcceptMarketplaceRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<AcceptMarketplaceRegistrationCommandOutput>;
   acceptMarketplaceRegistration(
     args: AcceptMarketplaceRegistrationCommandInput,
@@ -541,7 +553,7 @@ export interface Odb {
   ): void;
   acceptMarketplaceRegistration(
     args: AcceptMarketplaceRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: AcceptMarketplaceRegistrationCommandOutput) => void
   ): void;
 
@@ -550,7 +562,7 @@ export interface Odb {
    */
   associateIamRoleToResource(
     args: AssociateIamRoleToResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<AssociateIamRoleToResourceCommandOutput>;
   associateIamRoleToResource(
     args: AssociateIamRoleToResourceCommandInput,
@@ -558,7 +570,7 @@ export interface Odb {
   ): void;
   associateIamRoleToResource(
     args: AssociateIamRoleToResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: AssociateIamRoleToResourceCommandOutput) => void
   ): void;
 
@@ -567,7 +579,7 @@ export interface Odb {
    */
   associateVirtualMachinesToExadbVmCluster(
     args: AssociateVirtualMachinesToExadbVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<AssociateVirtualMachinesToExadbVmClusterCommandOutput>;
   associateVirtualMachinesToExadbVmCluster(
     args: AssociateVirtualMachinesToExadbVmClusterCommandInput,
@@ -575,7 +587,7 @@ export interface Odb {
   ): void;
   associateVirtualMachinesToExadbVmCluster(
     args: AssociateVirtualMachinesToExadbVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: AssociateVirtualMachinesToExadbVmClusterCommandOutput) => void
   ): void;
 
@@ -585,7 +597,7 @@ export interface Odb {
   createAutonomousDatabase(): Promise<CreateAutonomousDatabaseCommandOutput>;
   createAutonomousDatabase(
     args: CreateAutonomousDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<CreateAutonomousDatabaseCommandOutput>;
   createAutonomousDatabase(
     args: CreateAutonomousDatabaseCommandInput,
@@ -593,7 +605,7 @@ export interface Odb {
   ): void;
   createAutonomousDatabase(
     args: CreateAutonomousDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: CreateAutonomousDatabaseCommandOutput) => void
   ): void;
 
@@ -602,7 +614,7 @@ export interface Odb {
    */
   createAutonomousDatabaseBackup(
     args: CreateAutonomousDatabaseBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<CreateAutonomousDatabaseBackupCommandOutput>;
   createAutonomousDatabaseBackup(
     args: CreateAutonomousDatabaseBackupCommandInput,
@@ -610,7 +622,7 @@ export interface Odb {
   ): void;
   createAutonomousDatabaseBackup(
     args: CreateAutonomousDatabaseBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: CreateAutonomousDatabaseBackupCommandOutput) => void
   ): void;
 
@@ -619,7 +631,7 @@ export interface Odb {
    */
   createAutonomousDatabaseWallet(
     args: CreateAutonomousDatabaseWalletCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<CreateAutonomousDatabaseWalletCommandOutput>;
   createAutonomousDatabaseWallet(
     args: CreateAutonomousDatabaseWalletCommandInput,
@@ -627,7 +639,7 @@ export interface Odb {
   ): void;
   createAutonomousDatabaseWallet(
     args: CreateAutonomousDatabaseWalletCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: CreateAutonomousDatabaseWalletCommandOutput) => void
   ): void;
 
@@ -636,7 +648,7 @@ export interface Odb {
    */
   createCloudAutonomousVmCluster(
     args: CreateCloudAutonomousVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<CreateCloudAutonomousVmClusterCommandOutput>;
   createCloudAutonomousVmCluster(
     args: CreateCloudAutonomousVmClusterCommandInput,
@@ -644,7 +656,7 @@ export interface Odb {
   ): void;
   createCloudAutonomousVmCluster(
     args: CreateCloudAutonomousVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: CreateCloudAutonomousVmClusterCommandOutput) => void
   ): void;
 
@@ -653,7 +665,7 @@ export interface Odb {
    */
   createCloudExadataInfrastructure(
     args: CreateCloudExadataInfrastructureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<CreateCloudExadataInfrastructureCommandOutput>;
   createCloudExadataInfrastructure(
     args: CreateCloudExadataInfrastructureCommandInput,
@@ -661,7 +673,7 @@ export interface Odb {
   ): void;
   createCloudExadataInfrastructure(
     args: CreateCloudExadataInfrastructureCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: CreateCloudExadataInfrastructureCommandOutput) => void
   ): void;
 
@@ -670,7 +682,7 @@ export interface Odb {
    */
   createCloudVmCluster(
     args: CreateCloudVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<CreateCloudVmClusterCommandOutput>;
   createCloudVmCluster(
     args: CreateCloudVmClusterCommandInput,
@@ -678,7 +690,7 @@ export interface Odb {
   ): void;
   createCloudVmCluster(
     args: CreateCloudVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: CreateCloudVmClusterCommandOutput) => void
   ): void;
 
@@ -687,7 +699,7 @@ export interface Odb {
    */
   createExadbVmCluster(
     args: CreateExadbVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<CreateExadbVmClusterCommandOutput>;
   createExadbVmCluster(
     args: CreateExadbVmClusterCommandInput,
@@ -695,7 +707,7 @@ export interface Odb {
   ): void;
   createExadbVmCluster(
     args: CreateExadbVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: CreateExadbVmClusterCommandOutput) => void
   ): void;
 
@@ -704,7 +716,7 @@ export interface Odb {
    */
   createExascaleDbStorageVault(
     args: CreateExascaleDbStorageVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<CreateExascaleDbStorageVaultCommandOutput>;
   createExascaleDbStorageVault(
     args: CreateExascaleDbStorageVaultCommandInput,
@@ -712,7 +724,7 @@ export interface Odb {
   ): void;
   createExascaleDbStorageVault(
     args: CreateExascaleDbStorageVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: CreateExascaleDbStorageVaultCommandOutput) => void
   ): void;
 
@@ -721,7 +733,7 @@ export interface Odb {
    */
   createOdbNetwork(
     args: CreateOdbNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<CreateOdbNetworkCommandOutput>;
   createOdbNetwork(
     args: CreateOdbNetworkCommandInput,
@@ -729,7 +741,7 @@ export interface Odb {
   ): void;
   createOdbNetwork(
     args: CreateOdbNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: CreateOdbNetworkCommandOutput) => void
   ): void;
 
@@ -738,7 +750,7 @@ export interface Odb {
    */
   createOdbPeeringConnection(
     args: CreateOdbPeeringConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<CreateOdbPeeringConnectionCommandOutput>;
   createOdbPeeringConnection(
     args: CreateOdbPeeringConnectionCommandInput,
@@ -746,7 +758,7 @@ export interface Odb {
   ): void;
   createOdbPeeringConnection(
     args: CreateOdbPeeringConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: CreateOdbPeeringConnectionCommandOutput) => void
   ): void;
 
@@ -755,7 +767,7 @@ export interface Odb {
    */
   deleteAutonomousDatabase(
     args: DeleteAutonomousDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<DeleteAutonomousDatabaseCommandOutput>;
   deleteAutonomousDatabase(
     args: DeleteAutonomousDatabaseCommandInput,
@@ -763,7 +775,7 @@ export interface Odb {
   ): void;
   deleteAutonomousDatabase(
     args: DeleteAutonomousDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: DeleteAutonomousDatabaseCommandOutput) => void
   ): void;
 
@@ -772,7 +784,7 @@ export interface Odb {
    */
   deleteAutonomousDatabaseBackup(
     args: DeleteAutonomousDatabaseBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<DeleteAutonomousDatabaseBackupCommandOutput>;
   deleteAutonomousDatabaseBackup(
     args: DeleteAutonomousDatabaseBackupCommandInput,
@@ -780,7 +792,7 @@ export interface Odb {
   ): void;
   deleteAutonomousDatabaseBackup(
     args: DeleteAutonomousDatabaseBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: DeleteAutonomousDatabaseBackupCommandOutput) => void
   ): void;
 
@@ -789,7 +801,7 @@ export interface Odb {
    */
   deleteCloudAutonomousVmCluster(
     args: DeleteCloudAutonomousVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<DeleteCloudAutonomousVmClusterCommandOutput>;
   deleteCloudAutonomousVmCluster(
     args: DeleteCloudAutonomousVmClusterCommandInput,
@@ -797,7 +809,7 @@ export interface Odb {
   ): void;
   deleteCloudAutonomousVmCluster(
     args: DeleteCloudAutonomousVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: DeleteCloudAutonomousVmClusterCommandOutput) => void
   ): void;
 
@@ -806,7 +818,7 @@ export interface Odb {
    */
   deleteCloudExadataInfrastructure(
     args: DeleteCloudExadataInfrastructureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<DeleteCloudExadataInfrastructureCommandOutput>;
   deleteCloudExadataInfrastructure(
     args: DeleteCloudExadataInfrastructureCommandInput,
@@ -814,7 +826,7 @@ export interface Odb {
   ): void;
   deleteCloudExadataInfrastructure(
     args: DeleteCloudExadataInfrastructureCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: DeleteCloudExadataInfrastructureCommandOutput) => void
   ): void;
 
@@ -823,7 +835,7 @@ export interface Odb {
    */
   deleteCloudVmCluster(
     args: DeleteCloudVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<DeleteCloudVmClusterCommandOutput>;
   deleteCloudVmCluster(
     args: DeleteCloudVmClusterCommandInput,
@@ -831,7 +843,7 @@ export interface Odb {
   ): void;
   deleteCloudVmCluster(
     args: DeleteCloudVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: DeleteCloudVmClusterCommandOutput) => void
   ): void;
 
@@ -840,7 +852,7 @@ export interface Odb {
    */
   deleteExadbVmCluster(
     args: DeleteExadbVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<DeleteExadbVmClusterCommandOutput>;
   deleteExadbVmCluster(
     args: DeleteExadbVmClusterCommandInput,
@@ -848,7 +860,7 @@ export interface Odb {
   ): void;
   deleteExadbVmCluster(
     args: DeleteExadbVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: DeleteExadbVmClusterCommandOutput) => void
   ): void;
 
@@ -857,7 +869,7 @@ export interface Odb {
    */
   deleteExascaleDbStorageVault(
     args: DeleteExascaleDbStorageVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<DeleteExascaleDbStorageVaultCommandOutput>;
   deleteExascaleDbStorageVault(
     args: DeleteExascaleDbStorageVaultCommandInput,
@@ -865,7 +877,7 @@ export interface Odb {
   ): void;
   deleteExascaleDbStorageVault(
     args: DeleteExascaleDbStorageVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: DeleteExascaleDbStorageVaultCommandOutput) => void
   ): void;
 
@@ -874,7 +886,7 @@ export interface Odb {
    */
   deleteOdbNetwork(
     args: DeleteOdbNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<DeleteOdbNetworkCommandOutput>;
   deleteOdbNetwork(
     args: DeleteOdbNetworkCommandInput,
@@ -882,7 +894,7 @@ export interface Odb {
   ): void;
   deleteOdbNetwork(
     args: DeleteOdbNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: DeleteOdbNetworkCommandOutput) => void
   ): void;
 
@@ -891,7 +903,7 @@ export interface Odb {
    */
   deleteOdbPeeringConnection(
     args: DeleteOdbPeeringConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<DeleteOdbPeeringConnectionCommandOutput>;
   deleteOdbPeeringConnection(
     args: DeleteOdbPeeringConnectionCommandInput,
@@ -899,7 +911,7 @@ export interface Odb {
   ): void;
   deleteOdbPeeringConnection(
     args: DeleteOdbPeeringConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: DeleteOdbPeeringConnectionCommandOutput) => void
   ): void;
 
@@ -908,7 +920,7 @@ export interface Odb {
    */
   disassociateIamRoleFromResource(
     args: DisassociateIamRoleFromResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<DisassociateIamRoleFromResourceCommandOutput>;
   disassociateIamRoleFromResource(
     args: DisassociateIamRoleFromResourceCommandInput,
@@ -916,7 +928,7 @@ export interface Odb {
   ): void;
   disassociateIamRoleFromResource(
     args: DisassociateIamRoleFromResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: DisassociateIamRoleFromResourceCommandOutput) => void
   ): void;
 
@@ -925,7 +937,7 @@ export interface Odb {
    */
   disassociateVirtualMachinesFromExadbVmCluster(
     args: DisassociateVirtualMachinesFromExadbVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<DisassociateVirtualMachinesFromExadbVmClusterCommandOutput>;
   disassociateVirtualMachinesFromExadbVmCluster(
     args: DisassociateVirtualMachinesFromExadbVmClusterCommandInput,
@@ -933,7 +945,7 @@ export interface Odb {
   ): void;
   disassociateVirtualMachinesFromExadbVmCluster(
     args: DisassociateVirtualMachinesFromExadbVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: DisassociateVirtualMachinesFromExadbVmClusterCommandOutput) => void
   ): void;
 
@@ -942,7 +954,7 @@ export interface Odb {
    */
   failoverAutonomousDatabase(
     args: FailoverAutonomousDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<FailoverAutonomousDatabaseCommandOutput>;
   failoverAutonomousDatabase(
     args: FailoverAutonomousDatabaseCommandInput,
@@ -950,7 +962,7 @@ export interface Odb {
   ): void;
   failoverAutonomousDatabase(
     args: FailoverAutonomousDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: FailoverAutonomousDatabaseCommandOutput) => void
   ): void;
 
@@ -959,7 +971,7 @@ export interface Odb {
    */
   getAutonomousDatabase(
     args: GetAutonomousDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetAutonomousDatabaseCommandOutput>;
   getAutonomousDatabase(
     args: GetAutonomousDatabaseCommandInput,
@@ -967,7 +979,7 @@ export interface Odb {
   ): void;
   getAutonomousDatabase(
     args: GetAutonomousDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetAutonomousDatabaseCommandOutput) => void
   ): void;
 
@@ -976,7 +988,7 @@ export interface Odb {
    */
   getAutonomousDatabaseBackup(
     args: GetAutonomousDatabaseBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetAutonomousDatabaseBackupCommandOutput>;
   getAutonomousDatabaseBackup(
     args: GetAutonomousDatabaseBackupCommandInput,
@@ -984,7 +996,7 @@ export interface Odb {
   ): void;
   getAutonomousDatabaseBackup(
     args: GetAutonomousDatabaseBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetAutonomousDatabaseBackupCommandOutput) => void
   ): void;
 
@@ -993,7 +1005,7 @@ export interface Odb {
    */
   getAutonomousDatabaseWalletDetails(
     args: GetAutonomousDatabaseWalletDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetAutonomousDatabaseWalletDetailsCommandOutput>;
   getAutonomousDatabaseWalletDetails(
     args: GetAutonomousDatabaseWalletDetailsCommandInput,
@@ -1001,7 +1013,7 @@ export interface Odb {
   ): void;
   getAutonomousDatabaseWalletDetails(
     args: GetAutonomousDatabaseWalletDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetAutonomousDatabaseWalletDetailsCommandOutput) => void
   ): void;
 
@@ -1010,7 +1022,7 @@ export interface Odb {
    */
   getCloudAutonomousVmCluster(
     args: GetCloudAutonomousVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetCloudAutonomousVmClusterCommandOutput>;
   getCloudAutonomousVmCluster(
     args: GetCloudAutonomousVmClusterCommandInput,
@@ -1018,7 +1030,7 @@ export interface Odb {
   ): void;
   getCloudAutonomousVmCluster(
     args: GetCloudAutonomousVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetCloudAutonomousVmClusterCommandOutput) => void
   ): void;
 
@@ -1027,7 +1039,7 @@ export interface Odb {
    */
   getCloudExadataInfrastructure(
     args: GetCloudExadataInfrastructureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetCloudExadataInfrastructureCommandOutput>;
   getCloudExadataInfrastructure(
     args: GetCloudExadataInfrastructureCommandInput,
@@ -1035,7 +1047,7 @@ export interface Odb {
   ): void;
   getCloudExadataInfrastructure(
     args: GetCloudExadataInfrastructureCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetCloudExadataInfrastructureCommandOutput) => void
   ): void;
 
@@ -1044,7 +1056,7 @@ export interface Odb {
    */
   getCloudExadataInfrastructureUnallocatedResources(
     args: GetCloudExadataInfrastructureUnallocatedResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput>;
   getCloudExadataInfrastructureUnallocatedResources(
     args: GetCloudExadataInfrastructureUnallocatedResourcesCommandInput,
@@ -1052,7 +1064,7 @@ export interface Odb {
   ): void;
   getCloudExadataInfrastructureUnallocatedResources(
     args: GetCloudExadataInfrastructureUnallocatedResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput) => void
   ): void;
 
@@ -1061,7 +1073,7 @@ export interface Odb {
    */
   getCloudVmCluster(
     args: GetCloudVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetCloudVmClusterCommandOutput>;
   getCloudVmCluster(
     args: GetCloudVmClusterCommandInput,
@@ -1069,7 +1081,7 @@ export interface Odb {
   ): void;
   getCloudVmCluster(
     args: GetCloudVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetCloudVmClusterCommandOutput) => void
   ): void;
 
@@ -1078,7 +1090,7 @@ export interface Odb {
    */
   getDbNode(
     args: GetDbNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetDbNodeCommandOutput>;
   getDbNode(
     args: GetDbNodeCommandInput,
@@ -1086,7 +1098,7 @@ export interface Odb {
   ): void;
   getDbNode(
     args: GetDbNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetDbNodeCommandOutput) => void
   ): void;
 
@@ -1095,7 +1107,7 @@ export interface Odb {
    */
   getDbServer(
     args: GetDbServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetDbServerCommandOutput>;
   getDbServer(
     args: GetDbServerCommandInput,
@@ -1103,7 +1115,7 @@ export interface Odb {
   ): void;
   getDbServer(
     args: GetDbServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetDbServerCommandOutput) => void
   ): void;
 
@@ -1112,7 +1124,7 @@ export interface Odb {
    */
   getExadbVmCluster(
     args: GetExadbVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetExadbVmClusterCommandOutput>;
   getExadbVmCluster(
     args: GetExadbVmClusterCommandInput,
@@ -1120,7 +1132,7 @@ export interface Odb {
   ): void;
   getExadbVmCluster(
     args: GetExadbVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetExadbVmClusterCommandOutput) => void
   ): void;
 
@@ -1129,7 +1141,7 @@ export interface Odb {
    */
   getExascaleDbStorageVault(
     args: GetExascaleDbStorageVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetExascaleDbStorageVaultCommandOutput>;
   getExascaleDbStorageVault(
     args: GetExascaleDbStorageVaultCommandInput,
@@ -1137,7 +1149,7 @@ export interface Odb {
   ): void;
   getExascaleDbStorageVault(
     args: GetExascaleDbStorageVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetExascaleDbStorageVaultCommandOutput) => void
   ): void;
 
@@ -1147,7 +1159,7 @@ export interface Odb {
   getOciOnboardingStatus(): Promise<GetOciOnboardingStatusCommandOutput>;
   getOciOnboardingStatus(
     args: GetOciOnboardingStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetOciOnboardingStatusCommandOutput>;
   getOciOnboardingStatus(
     args: GetOciOnboardingStatusCommandInput,
@@ -1155,7 +1167,7 @@ export interface Odb {
   ): void;
   getOciOnboardingStatus(
     args: GetOciOnboardingStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetOciOnboardingStatusCommandOutput) => void
   ): void;
 
@@ -1164,7 +1176,7 @@ export interface Odb {
    */
   getOdbNetwork(
     args: GetOdbNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetOdbNetworkCommandOutput>;
   getOdbNetwork(
     args: GetOdbNetworkCommandInput,
@@ -1172,7 +1184,7 @@ export interface Odb {
   ): void;
   getOdbNetwork(
     args: GetOdbNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetOdbNetworkCommandOutput) => void
   ): void;
 
@@ -1181,7 +1193,7 @@ export interface Odb {
    */
   getOdbPeeringConnection(
     args: GetOdbPeeringConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<GetOdbPeeringConnectionCommandOutput>;
   getOdbPeeringConnection(
     args: GetOdbPeeringConnectionCommandInput,
@@ -1189,7 +1201,7 @@ export interface Odb {
   ): void;
   getOdbPeeringConnection(
     args: GetOdbPeeringConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: GetOdbPeeringConnectionCommandOutput) => void
   ): void;
 
@@ -1199,7 +1211,7 @@ export interface Odb {
   initializeService(): Promise<InitializeServiceCommandOutput>;
   initializeService(
     args: InitializeServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<InitializeServiceCommandOutput>;
   initializeService(
     args: InitializeServiceCommandInput,
@@ -1207,7 +1219,7 @@ export interface Odb {
   ): void;
   initializeService(
     args: InitializeServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: InitializeServiceCommandOutput) => void
   ): void;
 
@@ -1216,7 +1228,7 @@ export interface Odb {
    */
   listAutonomousDatabaseBackups(
     args: ListAutonomousDatabaseBackupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListAutonomousDatabaseBackupsCommandOutput>;
   listAutonomousDatabaseBackups(
     args: ListAutonomousDatabaseBackupsCommandInput,
@@ -1224,7 +1236,7 @@ export interface Odb {
   ): void;
   listAutonomousDatabaseBackups(
     args: ListAutonomousDatabaseBackupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListAutonomousDatabaseBackupsCommandOutput) => void
   ): void;
 
@@ -1234,7 +1246,7 @@ export interface Odb {
   listAutonomousDatabaseCharacterSets(): Promise<ListAutonomousDatabaseCharacterSetsCommandOutput>;
   listAutonomousDatabaseCharacterSets(
     args: ListAutonomousDatabaseCharacterSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListAutonomousDatabaseCharacterSetsCommandOutput>;
   listAutonomousDatabaseCharacterSets(
     args: ListAutonomousDatabaseCharacterSetsCommandInput,
@@ -1242,7 +1254,7 @@ export interface Odb {
   ): void;
   listAutonomousDatabaseCharacterSets(
     args: ListAutonomousDatabaseCharacterSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListAutonomousDatabaseCharacterSetsCommandOutput) => void
   ): void;
 
@@ -1251,7 +1263,7 @@ export interface Odb {
    */
   listAutonomousDatabaseClones(
     args: ListAutonomousDatabaseClonesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListAutonomousDatabaseClonesCommandOutput>;
   listAutonomousDatabaseClones(
     args: ListAutonomousDatabaseClonesCommandInput,
@@ -1259,7 +1271,7 @@ export interface Odb {
   ): void;
   listAutonomousDatabaseClones(
     args: ListAutonomousDatabaseClonesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListAutonomousDatabaseClonesCommandOutput) => void
   ): void;
 
@@ -1268,7 +1280,7 @@ export interface Odb {
    */
   listAutonomousDatabasePeers(
     args: ListAutonomousDatabasePeersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListAutonomousDatabasePeersCommandOutput>;
   listAutonomousDatabasePeers(
     args: ListAutonomousDatabasePeersCommandInput,
@@ -1276,7 +1288,7 @@ export interface Odb {
   ): void;
   listAutonomousDatabasePeers(
     args: ListAutonomousDatabasePeersCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListAutonomousDatabasePeersCommandOutput) => void
   ): void;
 
@@ -1286,7 +1298,7 @@ export interface Odb {
   listAutonomousDatabases(): Promise<ListAutonomousDatabasesCommandOutput>;
   listAutonomousDatabases(
     args: ListAutonomousDatabasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListAutonomousDatabasesCommandOutput>;
   listAutonomousDatabases(
     args: ListAutonomousDatabasesCommandInput,
@@ -1294,7 +1306,7 @@ export interface Odb {
   ): void;
   listAutonomousDatabases(
     args: ListAutonomousDatabasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListAutonomousDatabasesCommandOutput) => void
   ): void;
 
@@ -1304,7 +1316,7 @@ export interface Odb {
   listAutonomousDatabaseVersions(): Promise<ListAutonomousDatabaseVersionsCommandOutput>;
   listAutonomousDatabaseVersions(
     args: ListAutonomousDatabaseVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListAutonomousDatabaseVersionsCommandOutput>;
   listAutonomousDatabaseVersions(
     args: ListAutonomousDatabaseVersionsCommandInput,
@@ -1312,7 +1324,7 @@ export interface Odb {
   ): void;
   listAutonomousDatabaseVersions(
     args: ListAutonomousDatabaseVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListAutonomousDatabaseVersionsCommandOutput) => void
   ): void;
 
@@ -1321,7 +1333,7 @@ export interface Odb {
    */
   listAutonomousVirtualMachines(
     args: ListAutonomousVirtualMachinesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListAutonomousVirtualMachinesCommandOutput>;
   listAutonomousVirtualMachines(
     args: ListAutonomousVirtualMachinesCommandInput,
@@ -1329,7 +1341,7 @@ export interface Odb {
   ): void;
   listAutonomousVirtualMachines(
     args: ListAutonomousVirtualMachinesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListAutonomousVirtualMachinesCommandOutput) => void
   ): void;
 
@@ -1339,7 +1351,7 @@ export interface Odb {
   listCloudAutonomousVmClusters(): Promise<ListCloudAutonomousVmClustersCommandOutput>;
   listCloudAutonomousVmClusters(
     args: ListCloudAutonomousVmClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListCloudAutonomousVmClustersCommandOutput>;
   listCloudAutonomousVmClusters(
     args: ListCloudAutonomousVmClustersCommandInput,
@@ -1347,7 +1359,7 @@ export interface Odb {
   ): void;
   listCloudAutonomousVmClusters(
     args: ListCloudAutonomousVmClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListCloudAutonomousVmClustersCommandOutput) => void
   ): void;
 
@@ -1357,7 +1369,7 @@ export interface Odb {
   listCloudExadataInfrastructures(): Promise<ListCloudExadataInfrastructuresCommandOutput>;
   listCloudExadataInfrastructures(
     args: ListCloudExadataInfrastructuresCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListCloudExadataInfrastructuresCommandOutput>;
   listCloudExadataInfrastructures(
     args: ListCloudExadataInfrastructuresCommandInput,
@@ -1365,7 +1377,7 @@ export interface Odb {
   ): void;
   listCloudExadataInfrastructures(
     args: ListCloudExadataInfrastructuresCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListCloudExadataInfrastructuresCommandOutput) => void
   ): void;
 
@@ -1375,7 +1387,7 @@ export interface Odb {
   listCloudVmClusters(): Promise<ListCloudVmClustersCommandOutput>;
   listCloudVmClusters(
     args: ListCloudVmClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListCloudVmClustersCommandOutput>;
   listCloudVmClusters(
     args: ListCloudVmClustersCommandInput,
@@ -1383,7 +1395,7 @@ export interface Odb {
   ): void;
   listCloudVmClusters(
     args: ListCloudVmClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListCloudVmClustersCommandOutput) => void
   ): void;
 
@@ -1393,7 +1405,7 @@ export interface Odb {
   listDbNodes(): Promise<ListDbNodesCommandOutput>;
   listDbNodes(
     args: ListDbNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListDbNodesCommandOutput>;
   listDbNodes(
     args: ListDbNodesCommandInput,
@@ -1401,7 +1413,7 @@ export interface Odb {
   ): void;
   listDbNodes(
     args: ListDbNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListDbNodesCommandOutput) => void
   ): void;
 
@@ -1410,7 +1422,7 @@ export interface Odb {
    */
   listDbServers(
     args: ListDbServersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListDbServersCommandOutput>;
   listDbServers(
     args: ListDbServersCommandInput,
@@ -1418,7 +1430,7 @@ export interface Odb {
   ): void;
   listDbServers(
     args: ListDbServersCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListDbServersCommandOutput) => void
   ): void;
 
@@ -1428,7 +1440,7 @@ export interface Odb {
   listDbSystemShapes(): Promise<ListDbSystemShapesCommandOutput>;
   listDbSystemShapes(
     args: ListDbSystemShapesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListDbSystemShapesCommandOutput>;
   listDbSystemShapes(
     args: ListDbSystemShapesCommandInput,
@@ -1436,7 +1448,7 @@ export interface Odb {
   ): void;
   listDbSystemShapes(
     args: ListDbSystemShapesCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListDbSystemShapesCommandOutput) => void
   ): void;
 
@@ -1446,7 +1458,7 @@ export interface Odb {
   listExadbVmClusters(): Promise<ListExadbVmClustersCommandOutput>;
   listExadbVmClusters(
     args: ListExadbVmClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListExadbVmClustersCommandOutput>;
   listExadbVmClusters(
     args: ListExadbVmClustersCommandInput,
@@ -1454,7 +1466,7 @@ export interface Odb {
   ): void;
   listExadbVmClusters(
     args: ListExadbVmClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListExadbVmClustersCommandOutput) => void
   ): void;
 
@@ -1464,7 +1476,7 @@ export interface Odb {
   listExascaleDbStorageVaults(): Promise<ListExascaleDbStorageVaultsCommandOutput>;
   listExascaleDbStorageVaults(
     args: ListExascaleDbStorageVaultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListExascaleDbStorageVaultsCommandOutput>;
   listExascaleDbStorageVaults(
     args: ListExascaleDbStorageVaultsCommandInput,
@@ -1472,7 +1484,7 @@ export interface Odb {
   ): void;
   listExascaleDbStorageVaults(
     args: ListExascaleDbStorageVaultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListExascaleDbStorageVaultsCommandOutput) => void
   ): void;
 
@@ -1482,7 +1494,7 @@ export interface Odb {
   listFlexComponents(): Promise<ListFlexComponentsCommandOutput>;
   listFlexComponents(
     args: ListFlexComponentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListFlexComponentsCommandOutput>;
   listFlexComponents(
     args: ListFlexComponentsCommandInput,
@@ -1490,7 +1502,7 @@ export interface Odb {
   ): void;
   listFlexComponents(
     args: ListFlexComponentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListFlexComponentsCommandOutput) => void
   ): void;
 
@@ -1499,7 +1511,7 @@ export interface Odb {
    */
   listGiMinorVersions(
     args: ListGiMinorVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListGiMinorVersionsCommandOutput>;
   listGiMinorVersions(
     args: ListGiMinorVersionsCommandInput,
@@ -1507,7 +1519,7 @@ export interface Odb {
   ): void;
   listGiMinorVersions(
     args: ListGiMinorVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListGiMinorVersionsCommandOutput) => void
   ): void;
 
@@ -1517,7 +1529,7 @@ export interface Odb {
   listGiVersions(): Promise<ListGiVersionsCommandOutput>;
   listGiVersions(
     args: ListGiVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListGiVersionsCommandOutput>;
   listGiVersions(
     args: ListGiVersionsCommandInput,
@@ -1525,7 +1537,7 @@ export interface Odb {
   ): void;
   listGiVersions(
     args: ListGiVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListGiVersionsCommandOutput) => void
   ): void;
 
@@ -1535,7 +1547,7 @@ export interface Odb {
   listOdbNetworks(): Promise<ListOdbNetworksCommandOutput>;
   listOdbNetworks(
     args: ListOdbNetworksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListOdbNetworksCommandOutput>;
   listOdbNetworks(
     args: ListOdbNetworksCommandInput,
@@ -1543,7 +1555,7 @@ export interface Odb {
   ): void;
   listOdbNetworks(
     args: ListOdbNetworksCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListOdbNetworksCommandOutput) => void
   ): void;
 
@@ -1553,7 +1565,7 @@ export interface Odb {
   listOdbPeeringConnections(): Promise<ListOdbPeeringConnectionsCommandOutput>;
   listOdbPeeringConnections(
     args: ListOdbPeeringConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListOdbPeeringConnectionsCommandOutput>;
   listOdbPeeringConnections(
     args: ListOdbPeeringConnectionsCommandInput,
@@ -1561,7 +1573,7 @@ export interface Odb {
   ): void;
   listOdbPeeringConnections(
     args: ListOdbPeeringConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListOdbPeeringConnectionsCommandOutput) => void
   ): void;
 
@@ -1570,7 +1582,7 @@ export interface Odb {
    */
   listSystemVersions(
     args: ListSystemVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListSystemVersionsCommandOutput>;
   listSystemVersions(
     args: ListSystemVersionsCommandInput,
@@ -1578,7 +1590,7 @@ export interface Odb {
   ): void;
   listSystemVersions(
     args: ListSystemVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListSystemVersionsCommandOutput) => void
   ): void;
 
@@ -1587,7 +1599,7 @@ export interface Odb {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1595,7 +1607,7 @@ export interface Odb {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1604,7 +1616,7 @@ export interface Odb {
    */
   rebootAutonomousDatabase(
     args: RebootAutonomousDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<RebootAutonomousDatabaseCommandOutput>;
   rebootAutonomousDatabase(
     args: RebootAutonomousDatabaseCommandInput,
@@ -1612,7 +1624,7 @@ export interface Odb {
   ): void;
   rebootAutonomousDatabase(
     args: RebootAutonomousDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: RebootAutonomousDatabaseCommandOutput) => void
   ): void;
 
@@ -1621,7 +1633,7 @@ export interface Odb {
    */
   rebootDbNode(
     args: RebootDbNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<RebootDbNodeCommandOutput>;
   rebootDbNode(
     args: RebootDbNodeCommandInput,
@@ -1629,7 +1641,7 @@ export interface Odb {
   ): void;
   rebootDbNode(
     args: RebootDbNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: RebootDbNodeCommandOutput) => void
   ): void;
 
@@ -1638,7 +1650,7 @@ export interface Odb {
    */
   restoreAutonomousDatabase(
     args: RestoreAutonomousDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<RestoreAutonomousDatabaseCommandOutput>;
   restoreAutonomousDatabase(
     args: RestoreAutonomousDatabaseCommandInput,
@@ -1646,7 +1658,7 @@ export interface Odb {
   ): void;
   restoreAutonomousDatabase(
     args: RestoreAutonomousDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: RestoreAutonomousDatabaseCommandOutput) => void
   ): void;
 
@@ -1655,7 +1667,7 @@ export interface Odb {
    */
   shrinkAutonomousDatabase(
     args: ShrinkAutonomousDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<ShrinkAutonomousDatabaseCommandOutput>;
   shrinkAutonomousDatabase(
     args: ShrinkAutonomousDatabaseCommandInput,
@@ -1663,7 +1675,7 @@ export interface Odb {
   ): void;
   shrinkAutonomousDatabase(
     args: ShrinkAutonomousDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: ShrinkAutonomousDatabaseCommandOutput) => void
   ): void;
 
@@ -1672,7 +1684,7 @@ export interface Odb {
    */
   startAutonomousDatabase(
     args: StartAutonomousDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<StartAutonomousDatabaseCommandOutput>;
   startAutonomousDatabase(
     args: StartAutonomousDatabaseCommandInput,
@@ -1680,7 +1692,7 @@ export interface Odb {
   ): void;
   startAutonomousDatabase(
     args: StartAutonomousDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: StartAutonomousDatabaseCommandOutput) => void
   ): void;
 
@@ -1689,7 +1701,7 @@ export interface Odb {
    */
   startDbNode(
     args: StartDbNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<StartDbNodeCommandOutput>;
   startDbNode(
     args: StartDbNodeCommandInput,
@@ -1697,7 +1709,7 @@ export interface Odb {
   ): void;
   startDbNode(
     args: StartDbNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: StartDbNodeCommandOutput) => void
   ): void;
 
@@ -1706,7 +1718,7 @@ export interface Odb {
    */
   stopAutonomousDatabase(
     args: StopAutonomousDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<StopAutonomousDatabaseCommandOutput>;
   stopAutonomousDatabase(
     args: StopAutonomousDatabaseCommandInput,
@@ -1714,7 +1726,7 @@ export interface Odb {
   ): void;
   stopAutonomousDatabase(
     args: StopAutonomousDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: StopAutonomousDatabaseCommandOutput) => void
   ): void;
 
@@ -1723,7 +1735,7 @@ export interface Odb {
    */
   stopDbNode(
     args: StopDbNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<StopDbNodeCommandOutput>;
   stopDbNode(
     args: StopDbNodeCommandInput,
@@ -1731,7 +1743,7 @@ export interface Odb {
   ): void;
   stopDbNode(
     args: StopDbNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: StopDbNodeCommandOutput) => void
   ): void;
 
@@ -1740,7 +1752,7 @@ export interface Odb {
    */
   switchoverAutonomousDatabase(
     args: SwitchoverAutonomousDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<SwitchoverAutonomousDatabaseCommandOutput>;
   switchoverAutonomousDatabase(
     args: SwitchoverAutonomousDatabaseCommandInput,
@@ -1748,7 +1760,7 @@ export interface Odb {
   ): void;
   switchoverAutonomousDatabase(
     args: SwitchoverAutonomousDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: SwitchoverAutonomousDatabaseCommandOutput) => void
   ): void;
 
@@ -1757,7 +1769,7 @@ export interface Odb {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1765,7 +1777,7 @@ export interface Odb {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1774,7 +1786,7 @@ export interface Odb {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1782,7 +1794,7 @@ export interface Odb {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1791,7 +1803,7 @@ export interface Odb {
    */
   updateAutonomousDatabase(
     args: UpdateAutonomousDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<UpdateAutonomousDatabaseCommandOutput>;
   updateAutonomousDatabase(
     args: UpdateAutonomousDatabaseCommandInput,
@@ -1799,7 +1811,7 @@ export interface Odb {
   ): void;
   updateAutonomousDatabase(
     args: UpdateAutonomousDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: UpdateAutonomousDatabaseCommandOutput) => void
   ): void;
 
@@ -1808,7 +1820,7 @@ export interface Odb {
    */
   updateAutonomousDatabaseBackup(
     args: UpdateAutonomousDatabaseBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<UpdateAutonomousDatabaseBackupCommandOutput>;
   updateAutonomousDatabaseBackup(
     args: UpdateAutonomousDatabaseBackupCommandInput,
@@ -1816,7 +1828,7 @@ export interface Odb {
   ): void;
   updateAutonomousDatabaseBackup(
     args: UpdateAutonomousDatabaseBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: UpdateAutonomousDatabaseBackupCommandOutput) => void
   ): void;
 
@@ -1825,7 +1837,7 @@ export interface Odb {
    */
   updateCloudExadataInfrastructure(
     args: UpdateCloudExadataInfrastructureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<UpdateCloudExadataInfrastructureCommandOutput>;
   updateCloudExadataInfrastructure(
     args: UpdateCloudExadataInfrastructureCommandInput,
@@ -1833,7 +1845,7 @@ export interface Odb {
   ): void;
   updateCloudExadataInfrastructure(
     args: UpdateCloudExadataInfrastructureCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: UpdateCloudExadataInfrastructureCommandOutput) => void
   ): void;
 
@@ -1842,7 +1854,7 @@ export interface Odb {
    */
   updateExadbVmCluster(
     args: UpdateExadbVmClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<UpdateExadbVmClusterCommandOutput>;
   updateExadbVmCluster(
     args: UpdateExadbVmClusterCommandInput,
@@ -1850,7 +1862,7 @@ export interface Odb {
   ): void;
   updateExadbVmCluster(
     args: UpdateExadbVmClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: UpdateExadbVmClusterCommandOutput) => void
   ): void;
 
@@ -1859,7 +1871,7 @@ export interface Odb {
    */
   updateExascaleDbStorageVault(
     args: UpdateExascaleDbStorageVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<UpdateExascaleDbStorageVaultCommandOutput>;
   updateExascaleDbStorageVault(
     args: UpdateExascaleDbStorageVaultCommandInput,
@@ -1867,7 +1879,7 @@ export interface Odb {
   ): void;
   updateExascaleDbStorageVault(
     args: UpdateExascaleDbStorageVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: UpdateExascaleDbStorageVaultCommandOutput) => void
   ): void;
 
@@ -1876,7 +1888,7 @@ export interface Odb {
    */
   updateOdbNetwork(
     args: UpdateOdbNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<UpdateOdbNetworkCommandOutput>;
   updateOdbNetwork(
     args: UpdateOdbNetworkCommandInput,
@@ -1884,7 +1896,7 @@ export interface Odb {
   ): void;
   updateOdbNetwork(
     args: UpdateOdbNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: UpdateOdbNetworkCommandOutput) => void
   ): void;
 
@@ -1893,7 +1905,7 @@ export interface Odb {
    */
   updateOdbPeeringConnection(
     args: UpdateOdbPeeringConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OdbRequestOptions
   ): Promise<UpdateOdbPeeringConnectionCommandOutput>;
   updateOdbPeeringConnection(
     args: UpdateOdbPeeringConnectionCommandInput,
@@ -1901,7 +1913,7 @@ export interface Odb {
   ): void;
   updateOdbPeeringConnection(
     args: UpdateOdbPeeringConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: OdbRequestOptions,
     cb: (err: any, data?: UpdateOdbPeeringConnectionCommandOutput) => void
   ): void;
 

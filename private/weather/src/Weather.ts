@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type OnlyCustomAuthCommandInput,
@@ -73,6 +73,13 @@ const commands = {
   SameAsServiceCommand,
 };
 
+/**
+ * @public
+ */
+export interface WeatherRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Weather {
   /**
    * @see {@link OnlyCustomAuthCommand}
@@ -80,7 +87,7 @@ export interface Weather {
   onlyCustomAuth(): Promise<OnlyCustomAuthCommandOutput>;
   onlyCustomAuth(
     args: OnlyCustomAuthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WeatherRequestOptions
   ): Promise<OnlyCustomAuthCommandOutput>;
   onlyCustomAuth(
     args: OnlyCustomAuthCommandInput,
@@ -88,7 +95,7 @@ export interface Weather {
   ): void;
   onlyCustomAuth(
     args: OnlyCustomAuthCommandInput,
-    options: __HttpHandlerOptions,
+    options: WeatherRequestOptions,
     cb: (err: any, data?: OnlyCustomAuthCommandOutput) => void
   ): void;
 
@@ -98,7 +105,7 @@ export interface Weather {
   onlyCustomAuthOptional(): Promise<OnlyCustomAuthOptionalCommandOutput>;
   onlyCustomAuthOptional(
     args: OnlyCustomAuthOptionalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WeatherRequestOptions
   ): Promise<OnlyCustomAuthOptionalCommandOutput>;
   onlyCustomAuthOptional(
     args: OnlyCustomAuthOptionalCommandInput,
@@ -106,7 +113,7 @@ export interface Weather {
   ): void;
   onlyCustomAuthOptional(
     args: OnlyCustomAuthOptionalCommandInput,
-    options: __HttpHandlerOptions,
+    options: WeatherRequestOptions,
     cb: (err: any, data?: OnlyCustomAuthOptionalCommandOutput) => void
   ): void;
 
@@ -116,7 +123,7 @@ export interface Weather {
   onlyHttpApiKeyAndBearerAuth(): Promise<OnlyHttpApiKeyAndBearerAuthCommandOutput>;
   onlyHttpApiKeyAndBearerAuth(
     args: OnlyHttpApiKeyAndBearerAuthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WeatherRequestOptions
   ): Promise<OnlyHttpApiKeyAndBearerAuthCommandOutput>;
   onlyHttpApiKeyAndBearerAuth(
     args: OnlyHttpApiKeyAndBearerAuthCommandInput,
@@ -124,7 +131,7 @@ export interface Weather {
   ): void;
   onlyHttpApiKeyAndBearerAuth(
     args: OnlyHttpApiKeyAndBearerAuthCommandInput,
-    options: __HttpHandlerOptions,
+    options: WeatherRequestOptions,
     cb: (err: any, data?: OnlyHttpApiKeyAndBearerAuthCommandOutput) => void
   ): void;
 
@@ -134,7 +141,7 @@ export interface Weather {
   onlyHttpApiKeyAndBearerAuthReversed(): Promise<OnlyHttpApiKeyAndBearerAuthReversedCommandOutput>;
   onlyHttpApiKeyAndBearerAuthReversed(
     args: OnlyHttpApiKeyAndBearerAuthReversedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WeatherRequestOptions
   ): Promise<OnlyHttpApiKeyAndBearerAuthReversedCommandOutput>;
   onlyHttpApiKeyAndBearerAuthReversed(
     args: OnlyHttpApiKeyAndBearerAuthReversedCommandInput,
@@ -142,7 +149,7 @@ export interface Weather {
   ): void;
   onlyHttpApiKeyAndBearerAuthReversed(
     args: OnlyHttpApiKeyAndBearerAuthReversedCommandInput,
-    options: __HttpHandlerOptions,
+    options: WeatherRequestOptions,
     cb: (err: any, data?: OnlyHttpApiKeyAndBearerAuthReversedCommandOutput) => void
   ): void;
 
@@ -152,7 +159,7 @@ export interface Weather {
   onlyHttpApiKeyAuth(): Promise<OnlyHttpApiKeyAuthCommandOutput>;
   onlyHttpApiKeyAuth(
     args: OnlyHttpApiKeyAuthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WeatherRequestOptions
   ): Promise<OnlyHttpApiKeyAuthCommandOutput>;
   onlyHttpApiKeyAuth(
     args: OnlyHttpApiKeyAuthCommandInput,
@@ -160,7 +167,7 @@ export interface Weather {
   ): void;
   onlyHttpApiKeyAuth(
     args: OnlyHttpApiKeyAuthCommandInput,
-    options: __HttpHandlerOptions,
+    options: WeatherRequestOptions,
     cb: (err: any, data?: OnlyHttpApiKeyAuthCommandOutput) => void
   ): void;
 
@@ -170,7 +177,7 @@ export interface Weather {
   onlyHttpApiKeyAuthOptional(): Promise<OnlyHttpApiKeyAuthOptionalCommandOutput>;
   onlyHttpApiKeyAuthOptional(
     args: OnlyHttpApiKeyAuthOptionalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WeatherRequestOptions
   ): Promise<OnlyHttpApiKeyAuthOptionalCommandOutput>;
   onlyHttpApiKeyAuthOptional(
     args: OnlyHttpApiKeyAuthOptionalCommandInput,
@@ -178,7 +185,7 @@ export interface Weather {
   ): void;
   onlyHttpApiKeyAuthOptional(
     args: OnlyHttpApiKeyAuthOptionalCommandInput,
-    options: __HttpHandlerOptions,
+    options: WeatherRequestOptions,
     cb: (err: any, data?: OnlyHttpApiKeyAuthOptionalCommandOutput) => void
   ): void;
 
@@ -188,7 +195,7 @@ export interface Weather {
   onlyHttpBearerAuth(): Promise<OnlyHttpBearerAuthCommandOutput>;
   onlyHttpBearerAuth(
     args: OnlyHttpBearerAuthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WeatherRequestOptions
   ): Promise<OnlyHttpBearerAuthCommandOutput>;
   onlyHttpBearerAuth(
     args: OnlyHttpBearerAuthCommandInput,
@@ -196,7 +203,7 @@ export interface Weather {
   ): void;
   onlyHttpBearerAuth(
     args: OnlyHttpBearerAuthCommandInput,
-    options: __HttpHandlerOptions,
+    options: WeatherRequestOptions,
     cb: (err: any, data?: OnlyHttpBearerAuthCommandOutput) => void
   ): void;
 
@@ -206,7 +213,7 @@ export interface Weather {
   onlyHttpBearerAuthOptional(): Promise<OnlyHttpBearerAuthOptionalCommandOutput>;
   onlyHttpBearerAuthOptional(
     args: OnlyHttpBearerAuthOptionalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WeatherRequestOptions
   ): Promise<OnlyHttpBearerAuthOptionalCommandOutput>;
   onlyHttpBearerAuthOptional(
     args: OnlyHttpBearerAuthOptionalCommandInput,
@@ -214,7 +221,7 @@ export interface Weather {
   ): void;
   onlyHttpBearerAuthOptional(
     args: OnlyHttpBearerAuthOptionalCommandInput,
-    options: __HttpHandlerOptions,
+    options: WeatherRequestOptions,
     cb: (err: any, data?: OnlyHttpBearerAuthOptionalCommandOutput) => void
   ): void;
 
@@ -224,7 +231,7 @@ export interface Weather {
   onlySigv4Auth(): Promise<OnlySigv4AuthCommandOutput>;
   onlySigv4Auth(
     args: OnlySigv4AuthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WeatherRequestOptions
   ): Promise<OnlySigv4AuthCommandOutput>;
   onlySigv4Auth(
     args: OnlySigv4AuthCommandInput,
@@ -232,7 +239,7 @@ export interface Weather {
   ): void;
   onlySigv4Auth(
     args: OnlySigv4AuthCommandInput,
-    options: __HttpHandlerOptions,
+    options: WeatherRequestOptions,
     cb: (err: any, data?: OnlySigv4AuthCommandOutput) => void
   ): void;
 
@@ -242,7 +249,7 @@ export interface Weather {
   onlySigv4AuthOptional(): Promise<OnlySigv4AuthOptionalCommandOutput>;
   onlySigv4AuthOptional(
     args: OnlySigv4AuthOptionalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WeatherRequestOptions
   ): Promise<OnlySigv4AuthOptionalCommandOutput>;
   onlySigv4AuthOptional(
     args: OnlySigv4AuthOptionalCommandInput,
@@ -250,7 +257,7 @@ export interface Weather {
   ): void;
   onlySigv4AuthOptional(
     args: OnlySigv4AuthOptionalCommandInput,
-    options: __HttpHandlerOptions,
+    options: WeatherRequestOptions,
     cb: (err: any, data?: OnlySigv4AuthOptionalCommandOutput) => void
   ): void;
 
@@ -260,7 +267,7 @@ export interface Weather {
   sameAsService(): Promise<SameAsServiceCommandOutput>;
   sameAsService(
     args: SameAsServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WeatherRequestOptions
   ): Promise<SameAsServiceCommandOutput>;
   sameAsService(
     args: SameAsServiceCommandInput,
@@ -268,7 +275,7 @@ export interface Weather {
   ): void;
   sameAsService(
     args: SameAsServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WeatherRequestOptions,
     cb: (err: any, data?: SameAsServiceCommandOutput) => void
   ): void;
 }

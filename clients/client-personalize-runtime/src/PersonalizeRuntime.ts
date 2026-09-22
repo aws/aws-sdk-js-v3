@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type GetActionRecommendationsCommandInput,
@@ -25,6 +25,13 @@ const commands = {
   GetRecommendationsCommand,
 };
 
+/**
+ * @public
+ */
+export interface PersonalizeRuntimeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PersonalizeRuntime {
   /**
    * @see {@link GetActionRecommendationsCommand}
@@ -32,7 +39,7 @@ export interface PersonalizeRuntime {
   getActionRecommendations(): Promise<GetActionRecommendationsCommandOutput>;
   getActionRecommendations(
     args: GetActionRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PersonalizeRuntimeRequestOptions
   ): Promise<GetActionRecommendationsCommandOutput>;
   getActionRecommendations(
     args: GetActionRecommendationsCommandInput,
@@ -40,7 +47,7 @@ export interface PersonalizeRuntime {
   ): void;
   getActionRecommendations(
     args: GetActionRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PersonalizeRuntimeRequestOptions,
     cb: (err: any, data?: GetActionRecommendationsCommandOutput) => void
   ): void;
 
@@ -49,7 +56,7 @@ export interface PersonalizeRuntime {
    */
   getPersonalizedRanking(
     args: GetPersonalizedRankingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PersonalizeRuntimeRequestOptions
   ): Promise<GetPersonalizedRankingCommandOutput>;
   getPersonalizedRanking(
     args: GetPersonalizedRankingCommandInput,
@@ -57,7 +64,7 @@ export interface PersonalizeRuntime {
   ): void;
   getPersonalizedRanking(
     args: GetPersonalizedRankingCommandInput,
-    options: __HttpHandlerOptions,
+    options: PersonalizeRuntimeRequestOptions,
     cb: (err: any, data?: GetPersonalizedRankingCommandOutput) => void
   ): void;
 
@@ -67,7 +74,7 @@ export interface PersonalizeRuntime {
   getRecommendations(): Promise<GetRecommendationsCommandOutput>;
   getRecommendations(
     args: GetRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PersonalizeRuntimeRequestOptions
   ): Promise<GetRecommendationsCommandOutput>;
   getRecommendations(
     args: GetRecommendationsCommandInput,
@@ -75,7 +82,7 @@ export interface PersonalizeRuntime {
   ): void;
   getRecommendations(
     args: GetRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PersonalizeRuntimeRequestOptions,
     cb: (err: any, data?: GetRecommendationsCommandOutput) => void
   ): void;
 }

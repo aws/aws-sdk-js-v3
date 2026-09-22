@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateEntitiesToExperienceCommandInput,
@@ -409,13 +414,20 @@ const paginators = {
   paginateListThesauri,
 };
 
+/**
+ * @public
+ */
+export interface KendraRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Kendra {
   /**
    * @see {@link AssociateEntitiesToExperienceCommand}
    */
   associateEntitiesToExperience(
     args: AssociateEntitiesToExperienceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<AssociateEntitiesToExperienceCommandOutput>;
   associateEntitiesToExperience(
     args: AssociateEntitiesToExperienceCommandInput,
@@ -423,7 +435,7 @@ export interface Kendra {
   ): void;
   associateEntitiesToExperience(
     args: AssociateEntitiesToExperienceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: AssociateEntitiesToExperienceCommandOutput) => void
   ): void;
 
@@ -432,7 +444,7 @@ export interface Kendra {
    */
   associatePersonasToEntities(
     args: AssociatePersonasToEntitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<AssociatePersonasToEntitiesCommandOutput>;
   associatePersonasToEntities(
     args: AssociatePersonasToEntitiesCommandInput,
@@ -440,7 +452,7 @@ export interface Kendra {
   ): void;
   associatePersonasToEntities(
     args: AssociatePersonasToEntitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: AssociatePersonasToEntitiesCommandOutput) => void
   ): void;
 
@@ -449,7 +461,7 @@ export interface Kendra {
    */
   batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<BatchDeleteDocumentCommandOutput>;
   batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
@@ -457,7 +469,7 @@ export interface Kendra {
   ): void;
   batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: BatchDeleteDocumentCommandOutput) => void
   ): void;
 
@@ -466,7 +478,7 @@ export interface Kendra {
    */
   batchDeleteFeaturedResultsSet(
     args: BatchDeleteFeaturedResultsSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<BatchDeleteFeaturedResultsSetCommandOutput>;
   batchDeleteFeaturedResultsSet(
     args: BatchDeleteFeaturedResultsSetCommandInput,
@@ -474,7 +486,7 @@ export interface Kendra {
   ): void;
   batchDeleteFeaturedResultsSet(
     args: BatchDeleteFeaturedResultsSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: BatchDeleteFeaturedResultsSetCommandOutput) => void
   ): void;
 
@@ -483,7 +495,7 @@ export interface Kendra {
    */
   batchGetDocumentStatus(
     args: BatchGetDocumentStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<BatchGetDocumentStatusCommandOutput>;
   batchGetDocumentStatus(
     args: BatchGetDocumentStatusCommandInput,
@@ -491,7 +503,7 @@ export interface Kendra {
   ): void;
   batchGetDocumentStatus(
     args: BatchGetDocumentStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: BatchGetDocumentStatusCommandOutput) => void
   ): void;
 
@@ -500,7 +512,7 @@ export interface Kendra {
    */
   batchPutDocument(
     args: BatchPutDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<BatchPutDocumentCommandOutput>;
   batchPutDocument(
     args: BatchPutDocumentCommandInput,
@@ -508,7 +520,7 @@ export interface Kendra {
   ): void;
   batchPutDocument(
     args: BatchPutDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: BatchPutDocumentCommandOutput) => void
   ): void;
 
@@ -517,7 +529,7 @@ export interface Kendra {
    */
   clearQuerySuggestions(
     args: ClearQuerySuggestionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ClearQuerySuggestionsCommandOutput>;
   clearQuerySuggestions(
     args: ClearQuerySuggestionsCommandInput,
@@ -525,7 +537,7 @@ export interface Kendra {
   ): void;
   clearQuerySuggestions(
     args: ClearQuerySuggestionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ClearQuerySuggestionsCommandOutput) => void
   ): void;
 
@@ -534,7 +546,7 @@ export interface Kendra {
    */
   createAccessControlConfiguration(
     args: CreateAccessControlConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<CreateAccessControlConfigurationCommandOutput>;
   createAccessControlConfiguration(
     args: CreateAccessControlConfigurationCommandInput,
@@ -542,7 +554,7 @@ export interface Kendra {
   ): void;
   createAccessControlConfiguration(
     args: CreateAccessControlConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: CreateAccessControlConfigurationCommandOutput) => void
   ): void;
 
@@ -551,7 +563,7 @@ export interface Kendra {
    */
   createDataSource(
     args: CreateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<CreateDataSourceCommandOutput>;
   createDataSource(
     args: CreateDataSourceCommandInput,
@@ -559,7 +571,7 @@ export interface Kendra {
   ): void;
   createDataSource(
     args: CreateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): void;
 
@@ -568,7 +580,7 @@ export interface Kendra {
    */
   createExperience(
     args: CreateExperienceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<CreateExperienceCommandOutput>;
   createExperience(
     args: CreateExperienceCommandInput,
@@ -576,7 +588,7 @@ export interface Kendra {
   ): void;
   createExperience(
     args: CreateExperienceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: CreateExperienceCommandOutput) => void
   ): void;
 
@@ -585,7 +597,7 @@ export interface Kendra {
    */
   createFaq(
     args: CreateFaqCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<CreateFaqCommandOutput>;
   createFaq(
     args: CreateFaqCommandInput,
@@ -593,7 +605,7 @@ export interface Kendra {
   ): void;
   createFaq(
     args: CreateFaqCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: CreateFaqCommandOutput) => void
   ): void;
 
@@ -602,7 +614,7 @@ export interface Kendra {
    */
   createFeaturedResultsSet(
     args: CreateFeaturedResultsSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<CreateFeaturedResultsSetCommandOutput>;
   createFeaturedResultsSet(
     args: CreateFeaturedResultsSetCommandInput,
@@ -610,7 +622,7 @@ export interface Kendra {
   ): void;
   createFeaturedResultsSet(
     args: CreateFeaturedResultsSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: CreateFeaturedResultsSetCommandOutput) => void
   ): void;
 
@@ -619,7 +631,7 @@ export interface Kendra {
    */
   createIndex(
     args: CreateIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<CreateIndexCommandOutput>;
   createIndex(
     args: CreateIndexCommandInput,
@@ -627,7 +639,7 @@ export interface Kendra {
   ): void;
   createIndex(
     args: CreateIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: CreateIndexCommandOutput) => void
   ): void;
 
@@ -636,7 +648,7 @@ export interface Kendra {
    */
   createQuerySuggestionsBlockList(
     args: CreateQuerySuggestionsBlockListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<CreateQuerySuggestionsBlockListCommandOutput>;
   createQuerySuggestionsBlockList(
     args: CreateQuerySuggestionsBlockListCommandInput,
@@ -644,7 +656,7 @@ export interface Kendra {
   ): void;
   createQuerySuggestionsBlockList(
     args: CreateQuerySuggestionsBlockListCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: CreateQuerySuggestionsBlockListCommandOutput) => void
   ): void;
 
@@ -653,7 +665,7 @@ export interface Kendra {
    */
   createThesaurus(
     args: CreateThesaurusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<CreateThesaurusCommandOutput>;
   createThesaurus(
     args: CreateThesaurusCommandInput,
@@ -661,7 +673,7 @@ export interface Kendra {
   ): void;
   createThesaurus(
     args: CreateThesaurusCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: CreateThesaurusCommandOutput) => void
   ): void;
 
@@ -670,7 +682,7 @@ export interface Kendra {
    */
   deleteAccessControlConfiguration(
     args: DeleteAccessControlConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DeleteAccessControlConfigurationCommandOutput>;
   deleteAccessControlConfiguration(
     args: DeleteAccessControlConfigurationCommandInput,
@@ -678,7 +690,7 @@ export interface Kendra {
   ): void;
   deleteAccessControlConfiguration(
     args: DeleteAccessControlConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DeleteAccessControlConfigurationCommandOutput) => void
   ): void;
 
@@ -687,7 +699,7 @@ export interface Kendra {
    */
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DeleteDataSourceCommandOutput>;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -695,7 +707,7 @@ export interface Kendra {
   ): void;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): void;
 
@@ -704,7 +716,7 @@ export interface Kendra {
    */
   deleteExperience(
     args: DeleteExperienceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DeleteExperienceCommandOutput>;
   deleteExperience(
     args: DeleteExperienceCommandInput,
@@ -712,7 +724,7 @@ export interface Kendra {
   ): void;
   deleteExperience(
     args: DeleteExperienceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DeleteExperienceCommandOutput) => void
   ): void;
 
@@ -721,7 +733,7 @@ export interface Kendra {
    */
   deleteFaq(
     args: DeleteFaqCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DeleteFaqCommandOutput>;
   deleteFaq(
     args: DeleteFaqCommandInput,
@@ -729,7 +741,7 @@ export interface Kendra {
   ): void;
   deleteFaq(
     args: DeleteFaqCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DeleteFaqCommandOutput) => void
   ): void;
 
@@ -738,7 +750,7 @@ export interface Kendra {
    */
   deleteIndex(
     args: DeleteIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DeleteIndexCommandOutput>;
   deleteIndex(
     args: DeleteIndexCommandInput,
@@ -746,7 +758,7 @@ export interface Kendra {
   ): void;
   deleteIndex(
     args: DeleteIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DeleteIndexCommandOutput) => void
   ): void;
 
@@ -755,7 +767,7 @@ export interface Kendra {
    */
   deletePrincipalMapping(
     args: DeletePrincipalMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DeletePrincipalMappingCommandOutput>;
   deletePrincipalMapping(
     args: DeletePrincipalMappingCommandInput,
@@ -763,7 +775,7 @@ export interface Kendra {
   ): void;
   deletePrincipalMapping(
     args: DeletePrincipalMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DeletePrincipalMappingCommandOutput) => void
   ): void;
 
@@ -772,7 +784,7 @@ export interface Kendra {
    */
   deleteQuerySuggestionsBlockList(
     args: DeleteQuerySuggestionsBlockListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DeleteQuerySuggestionsBlockListCommandOutput>;
   deleteQuerySuggestionsBlockList(
     args: DeleteQuerySuggestionsBlockListCommandInput,
@@ -780,7 +792,7 @@ export interface Kendra {
   ): void;
   deleteQuerySuggestionsBlockList(
     args: DeleteQuerySuggestionsBlockListCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DeleteQuerySuggestionsBlockListCommandOutput) => void
   ): void;
 
@@ -789,7 +801,7 @@ export interface Kendra {
    */
   deleteThesaurus(
     args: DeleteThesaurusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DeleteThesaurusCommandOutput>;
   deleteThesaurus(
     args: DeleteThesaurusCommandInput,
@@ -797,7 +809,7 @@ export interface Kendra {
   ): void;
   deleteThesaurus(
     args: DeleteThesaurusCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DeleteThesaurusCommandOutput) => void
   ): void;
 
@@ -806,7 +818,7 @@ export interface Kendra {
    */
   describeAccessControlConfiguration(
     args: DescribeAccessControlConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DescribeAccessControlConfigurationCommandOutput>;
   describeAccessControlConfiguration(
     args: DescribeAccessControlConfigurationCommandInput,
@@ -814,7 +826,7 @@ export interface Kendra {
   ): void;
   describeAccessControlConfiguration(
     args: DescribeAccessControlConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DescribeAccessControlConfigurationCommandOutput) => void
   ): void;
 
@@ -823,7 +835,7 @@ export interface Kendra {
    */
   describeDataSource(
     args: DescribeDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DescribeDataSourceCommandOutput>;
   describeDataSource(
     args: DescribeDataSourceCommandInput,
@@ -831,7 +843,7 @@ export interface Kendra {
   ): void;
   describeDataSource(
     args: DescribeDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DescribeDataSourceCommandOutput) => void
   ): void;
 
@@ -840,7 +852,7 @@ export interface Kendra {
    */
   describeExperience(
     args: DescribeExperienceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DescribeExperienceCommandOutput>;
   describeExperience(
     args: DescribeExperienceCommandInput,
@@ -848,7 +860,7 @@ export interface Kendra {
   ): void;
   describeExperience(
     args: DescribeExperienceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DescribeExperienceCommandOutput) => void
   ): void;
 
@@ -857,7 +869,7 @@ export interface Kendra {
    */
   describeFaq(
     args: DescribeFaqCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DescribeFaqCommandOutput>;
   describeFaq(
     args: DescribeFaqCommandInput,
@@ -865,7 +877,7 @@ export interface Kendra {
   ): void;
   describeFaq(
     args: DescribeFaqCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DescribeFaqCommandOutput) => void
   ): void;
 
@@ -874,7 +886,7 @@ export interface Kendra {
    */
   describeFeaturedResultsSet(
     args: DescribeFeaturedResultsSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DescribeFeaturedResultsSetCommandOutput>;
   describeFeaturedResultsSet(
     args: DescribeFeaturedResultsSetCommandInput,
@@ -882,7 +894,7 @@ export interface Kendra {
   ): void;
   describeFeaturedResultsSet(
     args: DescribeFeaturedResultsSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DescribeFeaturedResultsSetCommandOutput) => void
   ): void;
 
@@ -891,7 +903,7 @@ export interface Kendra {
    */
   describeIndex(
     args: DescribeIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DescribeIndexCommandOutput>;
   describeIndex(
     args: DescribeIndexCommandInput,
@@ -899,7 +911,7 @@ export interface Kendra {
   ): void;
   describeIndex(
     args: DescribeIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DescribeIndexCommandOutput) => void
   ): void;
 
@@ -908,7 +920,7 @@ export interface Kendra {
    */
   describePrincipalMapping(
     args: DescribePrincipalMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DescribePrincipalMappingCommandOutput>;
   describePrincipalMapping(
     args: DescribePrincipalMappingCommandInput,
@@ -916,7 +928,7 @@ export interface Kendra {
   ): void;
   describePrincipalMapping(
     args: DescribePrincipalMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DescribePrincipalMappingCommandOutput) => void
   ): void;
 
@@ -925,7 +937,7 @@ export interface Kendra {
    */
   describeQuerySuggestionsBlockList(
     args: DescribeQuerySuggestionsBlockListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DescribeQuerySuggestionsBlockListCommandOutput>;
   describeQuerySuggestionsBlockList(
     args: DescribeQuerySuggestionsBlockListCommandInput,
@@ -933,7 +945,7 @@ export interface Kendra {
   ): void;
   describeQuerySuggestionsBlockList(
     args: DescribeQuerySuggestionsBlockListCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DescribeQuerySuggestionsBlockListCommandOutput) => void
   ): void;
 
@@ -942,7 +954,7 @@ export interface Kendra {
    */
   describeQuerySuggestionsConfig(
     args: DescribeQuerySuggestionsConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DescribeQuerySuggestionsConfigCommandOutput>;
   describeQuerySuggestionsConfig(
     args: DescribeQuerySuggestionsConfigCommandInput,
@@ -950,7 +962,7 @@ export interface Kendra {
   ): void;
   describeQuerySuggestionsConfig(
     args: DescribeQuerySuggestionsConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DescribeQuerySuggestionsConfigCommandOutput) => void
   ): void;
 
@@ -959,7 +971,7 @@ export interface Kendra {
    */
   describeThesaurus(
     args: DescribeThesaurusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DescribeThesaurusCommandOutput>;
   describeThesaurus(
     args: DescribeThesaurusCommandInput,
@@ -967,7 +979,7 @@ export interface Kendra {
   ): void;
   describeThesaurus(
     args: DescribeThesaurusCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DescribeThesaurusCommandOutput) => void
   ): void;
 
@@ -976,7 +988,7 @@ export interface Kendra {
    */
   disassociateEntitiesFromExperience(
     args: DisassociateEntitiesFromExperienceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DisassociateEntitiesFromExperienceCommandOutput>;
   disassociateEntitiesFromExperience(
     args: DisassociateEntitiesFromExperienceCommandInput,
@@ -984,7 +996,7 @@ export interface Kendra {
   ): void;
   disassociateEntitiesFromExperience(
     args: DisassociateEntitiesFromExperienceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DisassociateEntitiesFromExperienceCommandOutput) => void
   ): void;
 
@@ -993,7 +1005,7 @@ export interface Kendra {
    */
   disassociatePersonasFromEntities(
     args: DisassociatePersonasFromEntitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<DisassociatePersonasFromEntitiesCommandOutput>;
   disassociatePersonasFromEntities(
     args: DisassociatePersonasFromEntitiesCommandInput,
@@ -1001,7 +1013,7 @@ export interface Kendra {
   ): void;
   disassociatePersonasFromEntities(
     args: DisassociatePersonasFromEntitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: DisassociatePersonasFromEntitiesCommandOutput) => void
   ): void;
 
@@ -1010,7 +1022,7 @@ export interface Kendra {
    */
   getQuerySuggestions(
     args: GetQuerySuggestionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<GetQuerySuggestionsCommandOutput>;
   getQuerySuggestions(
     args: GetQuerySuggestionsCommandInput,
@@ -1018,7 +1030,7 @@ export interface Kendra {
   ): void;
   getQuerySuggestions(
     args: GetQuerySuggestionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: GetQuerySuggestionsCommandOutput) => void
   ): void;
 
@@ -1027,7 +1039,7 @@ export interface Kendra {
    */
   getSnapshots(
     args: GetSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<GetSnapshotsCommandOutput>;
   getSnapshots(
     args: GetSnapshotsCommandInput,
@@ -1035,7 +1047,7 @@ export interface Kendra {
   ): void;
   getSnapshots(
     args: GetSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: GetSnapshotsCommandOutput) => void
   ): void;
 
@@ -1044,7 +1056,7 @@ export interface Kendra {
    */
   listAccessControlConfigurations(
     args: ListAccessControlConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListAccessControlConfigurationsCommandOutput>;
   listAccessControlConfigurations(
     args: ListAccessControlConfigurationsCommandInput,
@@ -1052,7 +1064,7 @@ export interface Kendra {
   ): void;
   listAccessControlConfigurations(
     args: ListAccessControlConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListAccessControlConfigurationsCommandOutput) => void
   ): void;
 
@@ -1061,7 +1073,7 @@ export interface Kendra {
    */
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListDataSourcesCommandOutput>;
   listDataSources(
     args: ListDataSourcesCommandInput,
@@ -1069,7 +1081,7 @@ export interface Kendra {
   ): void;
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): void;
 
@@ -1078,7 +1090,7 @@ export interface Kendra {
    */
   listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListDataSourceSyncJobsCommandOutput>;
   listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
@@ -1086,7 +1098,7 @@ export interface Kendra {
   ): void;
   listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListDataSourceSyncJobsCommandOutput) => void
   ): void;
 
@@ -1095,7 +1107,7 @@ export interface Kendra {
    */
   listEntityPersonas(
     args: ListEntityPersonasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListEntityPersonasCommandOutput>;
   listEntityPersonas(
     args: ListEntityPersonasCommandInput,
@@ -1103,7 +1115,7 @@ export interface Kendra {
   ): void;
   listEntityPersonas(
     args: ListEntityPersonasCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListEntityPersonasCommandOutput) => void
   ): void;
 
@@ -1112,7 +1124,7 @@ export interface Kendra {
    */
   listExperienceEntities(
     args: ListExperienceEntitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListExperienceEntitiesCommandOutput>;
   listExperienceEntities(
     args: ListExperienceEntitiesCommandInput,
@@ -1120,7 +1132,7 @@ export interface Kendra {
   ): void;
   listExperienceEntities(
     args: ListExperienceEntitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListExperienceEntitiesCommandOutput) => void
   ): void;
 
@@ -1129,7 +1141,7 @@ export interface Kendra {
    */
   listExperiences(
     args: ListExperiencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListExperiencesCommandOutput>;
   listExperiences(
     args: ListExperiencesCommandInput,
@@ -1137,7 +1149,7 @@ export interface Kendra {
   ): void;
   listExperiences(
     args: ListExperiencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListExperiencesCommandOutput) => void
   ): void;
 
@@ -1146,7 +1158,7 @@ export interface Kendra {
    */
   listFaqs(
     args: ListFaqsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListFaqsCommandOutput>;
   listFaqs(
     args: ListFaqsCommandInput,
@@ -1154,7 +1166,7 @@ export interface Kendra {
   ): void;
   listFaqs(
     args: ListFaqsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListFaqsCommandOutput) => void
   ): void;
 
@@ -1163,7 +1175,7 @@ export interface Kendra {
    */
   listFeaturedResultsSets(
     args: ListFeaturedResultsSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListFeaturedResultsSetsCommandOutput>;
   listFeaturedResultsSets(
     args: ListFeaturedResultsSetsCommandInput,
@@ -1171,7 +1183,7 @@ export interface Kendra {
   ): void;
   listFeaturedResultsSets(
     args: ListFeaturedResultsSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListFeaturedResultsSetsCommandOutput) => void
   ): void;
 
@@ -1180,7 +1192,7 @@ export interface Kendra {
    */
   listGroupsOlderThanOrderingId(
     args: ListGroupsOlderThanOrderingIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListGroupsOlderThanOrderingIdCommandOutput>;
   listGroupsOlderThanOrderingId(
     args: ListGroupsOlderThanOrderingIdCommandInput,
@@ -1188,7 +1200,7 @@ export interface Kendra {
   ): void;
   listGroupsOlderThanOrderingId(
     args: ListGroupsOlderThanOrderingIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListGroupsOlderThanOrderingIdCommandOutput) => void
   ): void;
 
@@ -1198,7 +1210,7 @@ export interface Kendra {
   listIndices(): Promise<ListIndicesCommandOutput>;
   listIndices(
     args: ListIndicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListIndicesCommandOutput>;
   listIndices(
     args: ListIndicesCommandInput,
@@ -1206,7 +1218,7 @@ export interface Kendra {
   ): void;
   listIndices(
     args: ListIndicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListIndicesCommandOutput) => void
   ): void;
 
@@ -1215,7 +1227,7 @@ export interface Kendra {
    */
   listQuerySuggestionsBlockLists(
     args: ListQuerySuggestionsBlockListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListQuerySuggestionsBlockListsCommandOutput>;
   listQuerySuggestionsBlockLists(
     args: ListQuerySuggestionsBlockListsCommandInput,
@@ -1223,7 +1235,7 @@ export interface Kendra {
   ): void;
   listQuerySuggestionsBlockLists(
     args: ListQuerySuggestionsBlockListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListQuerySuggestionsBlockListsCommandOutput) => void
   ): void;
 
@@ -1232,7 +1244,7 @@ export interface Kendra {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1240,7 +1252,7 @@ export interface Kendra {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1249,7 +1261,7 @@ export interface Kendra {
    */
   listThesauri(
     args: ListThesauriCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<ListThesauriCommandOutput>;
   listThesauri(
     args: ListThesauriCommandInput,
@@ -1257,7 +1269,7 @@ export interface Kendra {
   ): void;
   listThesauri(
     args: ListThesauriCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: ListThesauriCommandOutput) => void
   ): void;
 
@@ -1266,7 +1278,7 @@ export interface Kendra {
    */
   putPrincipalMapping(
     args: PutPrincipalMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<PutPrincipalMappingCommandOutput>;
   putPrincipalMapping(
     args: PutPrincipalMappingCommandInput,
@@ -1274,7 +1286,7 @@ export interface Kendra {
   ): void;
   putPrincipalMapping(
     args: PutPrincipalMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: PutPrincipalMappingCommandOutput) => void
   ): void;
 
@@ -1283,7 +1295,7 @@ export interface Kendra {
    */
   query(
     args: QueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<QueryCommandOutput>;
   query(
     args: QueryCommandInput,
@@ -1291,7 +1303,7 @@ export interface Kendra {
   ): void;
   query(
     args: QueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: QueryCommandOutput) => void
   ): void;
 
@@ -1300,7 +1312,7 @@ export interface Kendra {
    */
   retrieve(
     args: RetrieveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<RetrieveCommandOutput>;
   retrieve(
     args: RetrieveCommandInput,
@@ -1308,7 +1320,7 @@ export interface Kendra {
   ): void;
   retrieve(
     args: RetrieveCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: RetrieveCommandOutput) => void
   ): void;
 
@@ -1317,7 +1329,7 @@ export interface Kendra {
    */
   startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<StartDataSourceSyncJobCommandOutput>;
   startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
@@ -1325,7 +1337,7 @@ export interface Kendra {
   ): void;
   startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: StartDataSourceSyncJobCommandOutput) => void
   ): void;
 
@@ -1334,7 +1346,7 @@ export interface Kendra {
    */
   stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<StopDataSourceSyncJobCommandOutput>;
   stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,
@@ -1342,7 +1354,7 @@ export interface Kendra {
   ): void;
   stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: StopDataSourceSyncJobCommandOutput) => void
   ): void;
 
@@ -1351,7 +1363,7 @@ export interface Kendra {
    */
   submitFeedback(
     args: SubmitFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<SubmitFeedbackCommandOutput>;
   submitFeedback(
     args: SubmitFeedbackCommandInput,
@@ -1359,7 +1371,7 @@ export interface Kendra {
   ): void;
   submitFeedback(
     args: SubmitFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: SubmitFeedbackCommandOutput) => void
   ): void;
 
@@ -1368,7 +1380,7 @@ export interface Kendra {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1376,7 +1388,7 @@ export interface Kendra {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1385,7 +1397,7 @@ export interface Kendra {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1393,7 +1405,7 @@ export interface Kendra {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1402,7 +1414,7 @@ export interface Kendra {
    */
   updateAccessControlConfiguration(
     args: UpdateAccessControlConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<UpdateAccessControlConfigurationCommandOutput>;
   updateAccessControlConfiguration(
     args: UpdateAccessControlConfigurationCommandInput,
@@ -1410,7 +1422,7 @@ export interface Kendra {
   ): void;
   updateAccessControlConfiguration(
     args: UpdateAccessControlConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: UpdateAccessControlConfigurationCommandOutput) => void
   ): void;
 
@@ -1419,7 +1431,7 @@ export interface Kendra {
    */
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<UpdateDataSourceCommandOutput>;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -1427,7 +1439,7 @@ export interface Kendra {
   ): void;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): void;
 
@@ -1436,7 +1448,7 @@ export interface Kendra {
    */
   updateExperience(
     args: UpdateExperienceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<UpdateExperienceCommandOutput>;
   updateExperience(
     args: UpdateExperienceCommandInput,
@@ -1444,7 +1456,7 @@ export interface Kendra {
   ): void;
   updateExperience(
     args: UpdateExperienceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: UpdateExperienceCommandOutput) => void
   ): void;
 
@@ -1453,7 +1465,7 @@ export interface Kendra {
    */
   updateFeaturedResultsSet(
     args: UpdateFeaturedResultsSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<UpdateFeaturedResultsSetCommandOutput>;
   updateFeaturedResultsSet(
     args: UpdateFeaturedResultsSetCommandInput,
@@ -1461,7 +1473,7 @@ export interface Kendra {
   ): void;
   updateFeaturedResultsSet(
     args: UpdateFeaturedResultsSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: UpdateFeaturedResultsSetCommandOutput) => void
   ): void;
 
@@ -1470,7 +1482,7 @@ export interface Kendra {
    */
   updateIndex(
     args: UpdateIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<UpdateIndexCommandOutput>;
   updateIndex(
     args: UpdateIndexCommandInput,
@@ -1478,7 +1490,7 @@ export interface Kendra {
   ): void;
   updateIndex(
     args: UpdateIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: UpdateIndexCommandOutput) => void
   ): void;
 
@@ -1487,7 +1499,7 @@ export interface Kendra {
    */
   updateQuerySuggestionsBlockList(
     args: UpdateQuerySuggestionsBlockListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<UpdateQuerySuggestionsBlockListCommandOutput>;
   updateQuerySuggestionsBlockList(
     args: UpdateQuerySuggestionsBlockListCommandInput,
@@ -1495,7 +1507,7 @@ export interface Kendra {
   ): void;
   updateQuerySuggestionsBlockList(
     args: UpdateQuerySuggestionsBlockListCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: UpdateQuerySuggestionsBlockListCommandOutput) => void
   ): void;
 
@@ -1504,7 +1516,7 @@ export interface Kendra {
    */
   updateQuerySuggestionsConfig(
     args: UpdateQuerySuggestionsConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<UpdateQuerySuggestionsConfigCommandOutput>;
   updateQuerySuggestionsConfig(
     args: UpdateQuerySuggestionsConfigCommandInput,
@@ -1512,7 +1524,7 @@ export interface Kendra {
   ): void;
   updateQuerySuggestionsConfig(
     args: UpdateQuerySuggestionsConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: UpdateQuerySuggestionsConfigCommandOutput) => void
   ): void;
 
@@ -1521,7 +1533,7 @@ export interface Kendra {
    */
   updateThesaurus(
     args: UpdateThesaurusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KendraRequestOptions
   ): Promise<UpdateThesaurusCommandOutput>;
   updateThesaurus(
     args: UpdateThesaurusCommandInput,
@@ -1529,7 +1541,7 @@ export interface Kendra {
   ): void;
   updateThesaurus(
     args: UpdateThesaurusCommandInput,
-    options: __HttpHandlerOptions,
+    options: KendraRequestOptions,
     cb: (err: any, data?: UpdateThesaurusCommandOutput) => void
   ): void;
 

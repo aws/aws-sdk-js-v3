@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { AuditManagerClient } from "./AuditManagerClient";
 import {
@@ -421,13 +426,20 @@ const paginators = {
   paginateListNotifications,
 };
 
+/**
+ * @public
+ */
+export interface AuditManagerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface AuditManager {
   /**
    * @see {@link AssociateAssessmentReportEvidenceFolderCommand}
    */
   associateAssessmentReportEvidenceFolder(
     args: AssociateAssessmentReportEvidenceFolderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<AssociateAssessmentReportEvidenceFolderCommandOutput>;
   associateAssessmentReportEvidenceFolder(
     args: AssociateAssessmentReportEvidenceFolderCommandInput,
@@ -435,7 +447,7 @@ export interface AuditManager {
   ): void;
   associateAssessmentReportEvidenceFolder(
     args: AssociateAssessmentReportEvidenceFolderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: AssociateAssessmentReportEvidenceFolderCommandOutput) => void
   ): void;
 
@@ -444,7 +456,7 @@ export interface AuditManager {
    */
   batchAssociateAssessmentReportEvidence(
     args: BatchAssociateAssessmentReportEvidenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<BatchAssociateAssessmentReportEvidenceCommandOutput>;
   batchAssociateAssessmentReportEvidence(
     args: BatchAssociateAssessmentReportEvidenceCommandInput,
@@ -452,7 +464,7 @@ export interface AuditManager {
   ): void;
   batchAssociateAssessmentReportEvidence(
     args: BatchAssociateAssessmentReportEvidenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: BatchAssociateAssessmentReportEvidenceCommandOutput) => void
   ): void;
 
@@ -461,7 +473,7 @@ export interface AuditManager {
    */
   batchCreateDelegationByAssessment(
     args: BatchCreateDelegationByAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<BatchCreateDelegationByAssessmentCommandOutput>;
   batchCreateDelegationByAssessment(
     args: BatchCreateDelegationByAssessmentCommandInput,
@@ -469,7 +481,7 @@ export interface AuditManager {
   ): void;
   batchCreateDelegationByAssessment(
     args: BatchCreateDelegationByAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: BatchCreateDelegationByAssessmentCommandOutput) => void
   ): void;
 
@@ -478,7 +490,7 @@ export interface AuditManager {
    */
   batchDeleteDelegationByAssessment(
     args: BatchDeleteDelegationByAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<BatchDeleteDelegationByAssessmentCommandOutput>;
   batchDeleteDelegationByAssessment(
     args: BatchDeleteDelegationByAssessmentCommandInput,
@@ -486,7 +498,7 @@ export interface AuditManager {
   ): void;
   batchDeleteDelegationByAssessment(
     args: BatchDeleteDelegationByAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: BatchDeleteDelegationByAssessmentCommandOutput) => void
   ): void;
 
@@ -495,7 +507,7 @@ export interface AuditManager {
    */
   batchDisassociateAssessmentReportEvidence(
     args: BatchDisassociateAssessmentReportEvidenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<BatchDisassociateAssessmentReportEvidenceCommandOutput>;
   batchDisassociateAssessmentReportEvidence(
     args: BatchDisassociateAssessmentReportEvidenceCommandInput,
@@ -503,7 +515,7 @@ export interface AuditManager {
   ): void;
   batchDisassociateAssessmentReportEvidence(
     args: BatchDisassociateAssessmentReportEvidenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: BatchDisassociateAssessmentReportEvidenceCommandOutput) => void
   ): void;
 
@@ -512,7 +524,7 @@ export interface AuditManager {
    */
   batchImportEvidenceToAssessmentControl(
     args: BatchImportEvidenceToAssessmentControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<BatchImportEvidenceToAssessmentControlCommandOutput>;
   batchImportEvidenceToAssessmentControl(
     args: BatchImportEvidenceToAssessmentControlCommandInput,
@@ -520,7 +532,7 @@ export interface AuditManager {
   ): void;
   batchImportEvidenceToAssessmentControl(
     args: BatchImportEvidenceToAssessmentControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: BatchImportEvidenceToAssessmentControlCommandOutput) => void
   ): void;
 
@@ -529,7 +541,7 @@ export interface AuditManager {
    */
   createAssessment(
     args: CreateAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<CreateAssessmentCommandOutput>;
   createAssessment(
     args: CreateAssessmentCommandInput,
@@ -537,7 +549,7 @@ export interface AuditManager {
   ): void;
   createAssessment(
     args: CreateAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: CreateAssessmentCommandOutput) => void
   ): void;
 
@@ -546,7 +558,7 @@ export interface AuditManager {
    */
   createAssessmentFramework(
     args: CreateAssessmentFrameworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<CreateAssessmentFrameworkCommandOutput>;
   createAssessmentFramework(
     args: CreateAssessmentFrameworkCommandInput,
@@ -554,7 +566,7 @@ export interface AuditManager {
   ): void;
   createAssessmentFramework(
     args: CreateAssessmentFrameworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: CreateAssessmentFrameworkCommandOutput) => void
   ): void;
 
@@ -563,7 +575,7 @@ export interface AuditManager {
    */
   createAssessmentReport(
     args: CreateAssessmentReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<CreateAssessmentReportCommandOutput>;
   createAssessmentReport(
     args: CreateAssessmentReportCommandInput,
@@ -571,7 +583,7 @@ export interface AuditManager {
   ): void;
   createAssessmentReport(
     args: CreateAssessmentReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: CreateAssessmentReportCommandOutput) => void
   ): void;
 
@@ -580,7 +592,7 @@ export interface AuditManager {
    */
   createControl(
     args: CreateControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<CreateControlCommandOutput>;
   createControl(
     args: CreateControlCommandInput,
@@ -588,7 +600,7 @@ export interface AuditManager {
   ): void;
   createControl(
     args: CreateControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: CreateControlCommandOutput) => void
   ): void;
 
@@ -597,7 +609,7 @@ export interface AuditManager {
    */
   deleteAssessment(
     args: DeleteAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<DeleteAssessmentCommandOutput>;
   deleteAssessment(
     args: DeleteAssessmentCommandInput,
@@ -605,7 +617,7 @@ export interface AuditManager {
   ): void;
   deleteAssessment(
     args: DeleteAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: DeleteAssessmentCommandOutput) => void
   ): void;
 
@@ -614,7 +626,7 @@ export interface AuditManager {
    */
   deleteAssessmentFramework(
     args: DeleteAssessmentFrameworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<DeleteAssessmentFrameworkCommandOutput>;
   deleteAssessmentFramework(
     args: DeleteAssessmentFrameworkCommandInput,
@@ -622,7 +634,7 @@ export interface AuditManager {
   ): void;
   deleteAssessmentFramework(
     args: DeleteAssessmentFrameworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: DeleteAssessmentFrameworkCommandOutput) => void
   ): void;
 
@@ -631,7 +643,7 @@ export interface AuditManager {
    */
   deleteAssessmentFrameworkShare(
     args: DeleteAssessmentFrameworkShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<DeleteAssessmentFrameworkShareCommandOutput>;
   deleteAssessmentFrameworkShare(
     args: DeleteAssessmentFrameworkShareCommandInput,
@@ -639,7 +651,7 @@ export interface AuditManager {
   ): void;
   deleteAssessmentFrameworkShare(
     args: DeleteAssessmentFrameworkShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: DeleteAssessmentFrameworkShareCommandOutput) => void
   ): void;
 
@@ -648,7 +660,7 @@ export interface AuditManager {
    */
   deleteAssessmentReport(
     args: DeleteAssessmentReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<DeleteAssessmentReportCommandOutput>;
   deleteAssessmentReport(
     args: DeleteAssessmentReportCommandInput,
@@ -656,7 +668,7 @@ export interface AuditManager {
   ): void;
   deleteAssessmentReport(
     args: DeleteAssessmentReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: DeleteAssessmentReportCommandOutput) => void
   ): void;
 
@@ -665,7 +677,7 @@ export interface AuditManager {
    */
   deleteControl(
     args: DeleteControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<DeleteControlCommandOutput>;
   deleteControl(
     args: DeleteControlCommandInput,
@@ -673,7 +685,7 @@ export interface AuditManager {
   ): void;
   deleteControl(
     args: DeleteControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: DeleteControlCommandOutput) => void
   ): void;
 
@@ -683,7 +695,7 @@ export interface AuditManager {
   deregisterAccount(): Promise<DeregisterAccountCommandOutput>;
   deregisterAccount(
     args: DeregisterAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<DeregisterAccountCommandOutput>;
   deregisterAccount(
     args: DeregisterAccountCommandInput,
@@ -691,7 +703,7 @@ export interface AuditManager {
   ): void;
   deregisterAccount(
     args: DeregisterAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: DeregisterAccountCommandOutput) => void
   ): void;
 
@@ -701,7 +713,7 @@ export interface AuditManager {
   deregisterOrganizationAdminAccount(): Promise<DeregisterOrganizationAdminAccountCommandOutput>;
   deregisterOrganizationAdminAccount(
     args: DeregisterOrganizationAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<DeregisterOrganizationAdminAccountCommandOutput>;
   deregisterOrganizationAdminAccount(
     args: DeregisterOrganizationAdminAccountCommandInput,
@@ -709,7 +721,7 @@ export interface AuditManager {
   ): void;
   deregisterOrganizationAdminAccount(
     args: DeregisterOrganizationAdminAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: DeregisterOrganizationAdminAccountCommandOutput) => void
   ): void;
 
@@ -718,7 +730,7 @@ export interface AuditManager {
    */
   disassociateAssessmentReportEvidenceFolder(
     args: DisassociateAssessmentReportEvidenceFolderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<DisassociateAssessmentReportEvidenceFolderCommandOutput>;
   disassociateAssessmentReportEvidenceFolder(
     args: DisassociateAssessmentReportEvidenceFolderCommandInput,
@@ -726,7 +738,7 @@ export interface AuditManager {
   ): void;
   disassociateAssessmentReportEvidenceFolder(
     args: DisassociateAssessmentReportEvidenceFolderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: DisassociateAssessmentReportEvidenceFolderCommandOutput) => void
   ): void;
 
@@ -736,7 +748,7 @@ export interface AuditManager {
   getAccountStatus(): Promise<GetAccountStatusCommandOutput>;
   getAccountStatus(
     args: GetAccountStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetAccountStatusCommandOutput>;
   getAccountStatus(
     args: GetAccountStatusCommandInput,
@@ -744,7 +756,7 @@ export interface AuditManager {
   ): void;
   getAccountStatus(
     args: GetAccountStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetAccountStatusCommandOutput) => void
   ): void;
 
@@ -753,7 +765,7 @@ export interface AuditManager {
    */
   getAssessment(
     args: GetAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetAssessmentCommandOutput>;
   getAssessment(
     args: GetAssessmentCommandInput,
@@ -761,7 +773,7 @@ export interface AuditManager {
   ): void;
   getAssessment(
     args: GetAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetAssessmentCommandOutput) => void
   ): void;
 
@@ -770,7 +782,7 @@ export interface AuditManager {
    */
   getAssessmentFramework(
     args: GetAssessmentFrameworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetAssessmentFrameworkCommandOutput>;
   getAssessmentFramework(
     args: GetAssessmentFrameworkCommandInput,
@@ -778,7 +790,7 @@ export interface AuditManager {
   ): void;
   getAssessmentFramework(
     args: GetAssessmentFrameworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetAssessmentFrameworkCommandOutput) => void
   ): void;
 
@@ -787,7 +799,7 @@ export interface AuditManager {
    */
   getAssessmentReportUrl(
     args: GetAssessmentReportUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetAssessmentReportUrlCommandOutput>;
   getAssessmentReportUrl(
     args: GetAssessmentReportUrlCommandInput,
@@ -795,7 +807,7 @@ export interface AuditManager {
   ): void;
   getAssessmentReportUrl(
     args: GetAssessmentReportUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetAssessmentReportUrlCommandOutput) => void
   ): void;
 
@@ -804,7 +816,7 @@ export interface AuditManager {
    */
   getChangeLogs(
     args: GetChangeLogsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetChangeLogsCommandOutput>;
   getChangeLogs(
     args: GetChangeLogsCommandInput,
@@ -812,7 +824,7 @@ export interface AuditManager {
   ): void;
   getChangeLogs(
     args: GetChangeLogsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetChangeLogsCommandOutput) => void
   ): void;
 
@@ -821,7 +833,7 @@ export interface AuditManager {
    */
   getControl(
     args: GetControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetControlCommandOutput>;
   getControl(
     args: GetControlCommandInput,
@@ -829,7 +841,7 @@ export interface AuditManager {
   ): void;
   getControl(
     args: GetControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetControlCommandOutput) => void
   ): void;
 
@@ -839,7 +851,7 @@ export interface AuditManager {
   getDelegations(): Promise<GetDelegationsCommandOutput>;
   getDelegations(
     args: GetDelegationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetDelegationsCommandOutput>;
   getDelegations(
     args: GetDelegationsCommandInput,
@@ -847,7 +859,7 @@ export interface AuditManager {
   ): void;
   getDelegations(
     args: GetDelegationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetDelegationsCommandOutput) => void
   ): void;
 
@@ -856,7 +868,7 @@ export interface AuditManager {
    */
   getEvidence(
     args: GetEvidenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetEvidenceCommandOutput>;
   getEvidence(
     args: GetEvidenceCommandInput,
@@ -864,7 +876,7 @@ export interface AuditManager {
   ): void;
   getEvidence(
     args: GetEvidenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetEvidenceCommandOutput) => void
   ): void;
 
@@ -873,7 +885,7 @@ export interface AuditManager {
    */
   getEvidenceByEvidenceFolder(
     args: GetEvidenceByEvidenceFolderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetEvidenceByEvidenceFolderCommandOutput>;
   getEvidenceByEvidenceFolder(
     args: GetEvidenceByEvidenceFolderCommandInput,
@@ -881,7 +893,7 @@ export interface AuditManager {
   ): void;
   getEvidenceByEvidenceFolder(
     args: GetEvidenceByEvidenceFolderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetEvidenceByEvidenceFolderCommandOutput) => void
   ): void;
 
@@ -890,7 +902,7 @@ export interface AuditManager {
    */
   getEvidenceFileUploadUrl(
     args: GetEvidenceFileUploadUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetEvidenceFileUploadUrlCommandOutput>;
   getEvidenceFileUploadUrl(
     args: GetEvidenceFileUploadUrlCommandInput,
@@ -898,7 +910,7 @@ export interface AuditManager {
   ): void;
   getEvidenceFileUploadUrl(
     args: GetEvidenceFileUploadUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetEvidenceFileUploadUrlCommandOutput) => void
   ): void;
 
@@ -907,7 +919,7 @@ export interface AuditManager {
    */
   getEvidenceFolder(
     args: GetEvidenceFolderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetEvidenceFolderCommandOutput>;
   getEvidenceFolder(
     args: GetEvidenceFolderCommandInput,
@@ -915,7 +927,7 @@ export interface AuditManager {
   ): void;
   getEvidenceFolder(
     args: GetEvidenceFolderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetEvidenceFolderCommandOutput) => void
   ): void;
 
@@ -924,7 +936,7 @@ export interface AuditManager {
    */
   getEvidenceFoldersByAssessment(
     args: GetEvidenceFoldersByAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetEvidenceFoldersByAssessmentCommandOutput>;
   getEvidenceFoldersByAssessment(
     args: GetEvidenceFoldersByAssessmentCommandInput,
@@ -932,7 +944,7 @@ export interface AuditManager {
   ): void;
   getEvidenceFoldersByAssessment(
     args: GetEvidenceFoldersByAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetEvidenceFoldersByAssessmentCommandOutput) => void
   ): void;
 
@@ -941,7 +953,7 @@ export interface AuditManager {
    */
   getEvidenceFoldersByAssessmentControl(
     args: GetEvidenceFoldersByAssessmentControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetEvidenceFoldersByAssessmentControlCommandOutput>;
   getEvidenceFoldersByAssessmentControl(
     args: GetEvidenceFoldersByAssessmentControlCommandInput,
@@ -949,7 +961,7 @@ export interface AuditManager {
   ): void;
   getEvidenceFoldersByAssessmentControl(
     args: GetEvidenceFoldersByAssessmentControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetEvidenceFoldersByAssessmentControlCommandOutput) => void
   ): void;
 
@@ -959,7 +971,7 @@ export interface AuditManager {
   getInsights(): Promise<GetInsightsCommandOutput>;
   getInsights(
     args: GetInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetInsightsCommandOutput>;
   getInsights(
     args: GetInsightsCommandInput,
@@ -967,7 +979,7 @@ export interface AuditManager {
   ): void;
   getInsights(
     args: GetInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetInsightsCommandOutput) => void
   ): void;
 
@@ -976,7 +988,7 @@ export interface AuditManager {
    */
   getInsightsByAssessment(
     args: GetInsightsByAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetInsightsByAssessmentCommandOutput>;
   getInsightsByAssessment(
     args: GetInsightsByAssessmentCommandInput,
@@ -984,7 +996,7 @@ export interface AuditManager {
   ): void;
   getInsightsByAssessment(
     args: GetInsightsByAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetInsightsByAssessmentCommandOutput) => void
   ): void;
 
@@ -994,7 +1006,7 @@ export interface AuditManager {
   getOrganizationAdminAccount(): Promise<GetOrganizationAdminAccountCommandOutput>;
   getOrganizationAdminAccount(
     args: GetOrganizationAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetOrganizationAdminAccountCommandOutput>;
   getOrganizationAdminAccount(
     args: GetOrganizationAdminAccountCommandInput,
@@ -1002,7 +1014,7 @@ export interface AuditManager {
   ): void;
   getOrganizationAdminAccount(
     args: GetOrganizationAdminAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetOrganizationAdminAccountCommandOutput) => void
   ): void;
 
@@ -1012,7 +1024,7 @@ export interface AuditManager {
   getServicesInScope(): Promise<GetServicesInScopeCommandOutput>;
   getServicesInScope(
     args: GetServicesInScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetServicesInScopeCommandOutput>;
   getServicesInScope(
     args: GetServicesInScopeCommandInput,
@@ -1020,7 +1032,7 @@ export interface AuditManager {
   ): void;
   getServicesInScope(
     args: GetServicesInScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetServicesInScopeCommandOutput) => void
   ): void;
 
@@ -1029,7 +1041,7 @@ export interface AuditManager {
    */
   getSettings(
     args: GetSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<GetSettingsCommandOutput>;
   getSettings(
     args: GetSettingsCommandInput,
@@ -1037,7 +1049,7 @@ export interface AuditManager {
   ): void;
   getSettings(
     args: GetSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: GetSettingsCommandOutput) => void
   ): void;
 
@@ -1046,7 +1058,7 @@ export interface AuditManager {
    */
   listAssessmentControlInsightsByControlDomain(
     args: ListAssessmentControlInsightsByControlDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListAssessmentControlInsightsByControlDomainCommandOutput>;
   listAssessmentControlInsightsByControlDomain(
     args: ListAssessmentControlInsightsByControlDomainCommandInput,
@@ -1054,7 +1066,7 @@ export interface AuditManager {
   ): void;
   listAssessmentControlInsightsByControlDomain(
     args: ListAssessmentControlInsightsByControlDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListAssessmentControlInsightsByControlDomainCommandOutput) => void
   ): void;
 
@@ -1063,7 +1075,7 @@ export interface AuditManager {
    */
   listAssessmentFrameworks(
     args: ListAssessmentFrameworksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListAssessmentFrameworksCommandOutput>;
   listAssessmentFrameworks(
     args: ListAssessmentFrameworksCommandInput,
@@ -1071,7 +1083,7 @@ export interface AuditManager {
   ): void;
   listAssessmentFrameworks(
     args: ListAssessmentFrameworksCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListAssessmentFrameworksCommandOutput) => void
   ): void;
 
@@ -1080,7 +1092,7 @@ export interface AuditManager {
    */
   listAssessmentFrameworkShareRequests(
     args: ListAssessmentFrameworkShareRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListAssessmentFrameworkShareRequestsCommandOutput>;
   listAssessmentFrameworkShareRequests(
     args: ListAssessmentFrameworkShareRequestsCommandInput,
@@ -1088,7 +1100,7 @@ export interface AuditManager {
   ): void;
   listAssessmentFrameworkShareRequests(
     args: ListAssessmentFrameworkShareRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListAssessmentFrameworkShareRequestsCommandOutput) => void
   ): void;
 
@@ -1098,7 +1110,7 @@ export interface AuditManager {
   listAssessmentReports(): Promise<ListAssessmentReportsCommandOutput>;
   listAssessmentReports(
     args: ListAssessmentReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListAssessmentReportsCommandOutput>;
   listAssessmentReports(
     args: ListAssessmentReportsCommandInput,
@@ -1106,7 +1118,7 @@ export interface AuditManager {
   ): void;
   listAssessmentReports(
     args: ListAssessmentReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListAssessmentReportsCommandOutput) => void
   ): void;
 
@@ -1116,7 +1128,7 @@ export interface AuditManager {
   listAssessments(): Promise<ListAssessmentsCommandOutput>;
   listAssessments(
     args: ListAssessmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListAssessmentsCommandOutput>;
   listAssessments(
     args: ListAssessmentsCommandInput,
@@ -1124,7 +1136,7 @@ export interface AuditManager {
   ): void;
   listAssessments(
     args: ListAssessmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListAssessmentsCommandOutput) => void
   ): void;
 
@@ -1134,7 +1146,7 @@ export interface AuditManager {
   listControlDomainInsights(): Promise<ListControlDomainInsightsCommandOutput>;
   listControlDomainInsights(
     args: ListControlDomainInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListControlDomainInsightsCommandOutput>;
   listControlDomainInsights(
     args: ListControlDomainInsightsCommandInput,
@@ -1142,7 +1154,7 @@ export interface AuditManager {
   ): void;
   listControlDomainInsights(
     args: ListControlDomainInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListControlDomainInsightsCommandOutput) => void
   ): void;
 
@@ -1151,7 +1163,7 @@ export interface AuditManager {
    */
   listControlDomainInsightsByAssessment(
     args: ListControlDomainInsightsByAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListControlDomainInsightsByAssessmentCommandOutput>;
   listControlDomainInsightsByAssessment(
     args: ListControlDomainInsightsByAssessmentCommandInput,
@@ -1159,7 +1171,7 @@ export interface AuditManager {
   ): void;
   listControlDomainInsightsByAssessment(
     args: ListControlDomainInsightsByAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListControlDomainInsightsByAssessmentCommandOutput) => void
   ): void;
 
@@ -1168,7 +1180,7 @@ export interface AuditManager {
    */
   listControlInsightsByControlDomain(
     args: ListControlInsightsByControlDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListControlInsightsByControlDomainCommandOutput>;
   listControlInsightsByControlDomain(
     args: ListControlInsightsByControlDomainCommandInput,
@@ -1176,7 +1188,7 @@ export interface AuditManager {
   ): void;
   listControlInsightsByControlDomain(
     args: ListControlInsightsByControlDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListControlInsightsByControlDomainCommandOutput) => void
   ): void;
 
@@ -1185,7 +1197,7 @@ export interface AuditManager {
    */
   listControls(
     args: ListControlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListControlsCommandOutput>;
   listControls(
     args: ListControlsCommandInput,
@@ -1193,7 +1205,7 @@ export interface AuditManager {
   ): void;
   listControls(
     args: ListControlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListControlsCommandOutput) => void
   ): void;
 
@@ -1202,7 +1214,7 @@ export interface AuditManager {
    */
   listKeywordsForDataSource(
     args: ListKeywordsForDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListKeywordsForDataSourceCommandOutput>;
   listKeywordsForDataSource(
     args: ListKeywordsForDataSourceCommandInput,
@@ -1210,7 +1222,7 @@ export interface AuditManager {
   ): void;
   listKeywordsForDataSource(
     args: ListKeywordsForDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListKeywordsForDataSourceCommandOutput) => void
   ): void;
 
@@ -1220,7 +1232,7 @@ export interface AuditManager {
   listNotifications(): Promise<ListNotificationsCommandOutput>;
   listNotifications(
     args: ListNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListNotificationsCommandOutput>;
   listNotifications(
     args: ListNotificationsCommandInput,
@@ -1228,7 +1240,7 @@ export interface AuditManager {
   ): void;
   listNotifications(
     args: ListNotificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListNotificationsCommandOutput) => void
   ): void;
 
@@ -1237,7 +1249,7 @@ export interface AuditManager {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1245,7 +1257,7 @@ export interface AuditManager {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1255,7 +1267,7 @@ export interface AuditManager {
   registerAccount(): Promise<RegisterAccountCommandOutput>;
   registerAccount(
     args: RegisterAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<RegisterAccountCommandOutput>;
   registerAccount(
     args: RegisterAccountCommandInput,
@@ -1263,7 +1275,7 @@ export interface AuditManager {
   ): void;
   registerAccount(
     args: RegisterAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: RegisterAccountCommandOutput) => void
   ): void;
 
@@ -1272,7 +1284,7 @@ export interface AuditManager {
    */
   registerOrganizationAdminAccount(
     args: RegisterOrganizationAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<RegisterOrganizationAdminAccountCommandOutput>;
   registerOrganizationAdminAccount(
     args: RegisterOrganizationAdminAccountCommandInput,
@@ -1280,7 +1292,7 @@ export interface AuditManager {
   ): void;
   registerOrganizationAdminAccount(
     args: RegisterOrganizationAdminAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: RegisterOrganizationAdminAccountCommandOutput) => void
   ): void;
 
@@ -1289,7 +1301,7 @@ export interface AuditManager {
    */
   startAssessmentFrameworkShare(
     args: StartAssessmentFrameworkShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<StartAssessmentFrameworkShareCommandOutput>;
   startAssessmentFrameworkShare(
     args: StartAssessmentFrameworkShareCommandInput,
@@ -1297,7 +1309,7 @@ export interface AuditManager {
   ): void;
   startAssessmentFrameworkShare(
     args: StartAssessmentFrameworkShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: StartAssessmentFrameworkShareCommandOutput) => void
   ): void;
 
@@ -1306,7 +1318,7 @@ export interface AuditManager {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1314,7 +1326,7 @@ export interface AuditManager {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1323,7 +1335,7 @@ export interface AuditManager {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1331,7 +1343,7 @@ export interface AuditManager {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1340,7 +1352,7 @@ export interface AuditManager {
    */
   updateAssessment(
     args: UpdateAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<UpdateAssessmentCommandOutput>;
   updateAssessment(
     args: UpdateAssessmentCommandInput,
@@ -1348,7 +1360,7 @@ export interface AuditManager {
   ): void;
   updateAssessment(
     args: UpdateAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: UpdateAssessmentCommandOutput) => void
   ): void;
 
@@ -1357,7 +1369,7 @@ export interface AuditManager {
    */
   updateAssessmentControl(
     args: UpdateAssessmentControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<UpdateAssessmentControlCommandOutput>;
   updateAssessmentControl(
     args: UpdateAssessmentControlCommandInput,
@@ -1365,7 +1377,7 @@ export interface AuditManager {
   ): void;
   updateAssessmentControl(
     args: UpdateAssessmentControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: UpdateAssessmentControlCommandOutput) => void
   ): void;
 
@@ -1374,7 +1386,7 @@ export interface AuditManager {
    */
   updateAssessmentControlSetStatus(
     args: UpdateAssessmentControlSetStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<UpdateAssessmentControlSetStatusCommandOutput>;
   updateAssessmentControlSetStatus(
     args: UpdateAssessmentControlSetStatusCommandInput,
@@ -1382,7 +1394,7 @@ export interface AuditManager {
   ): void;
   updateAssessmentControlSetStatus(
     args: UpdateAssessmentControlSetStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: UpdateAssessmentControlSetStatusCommandOutput) => void
   ): void;
 
@@ -1391,7 +1403,7 @@ export interface AuditManager {
    */
   updateAssessmentFramework(
     args: UpdateAssessmentFrameworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<UpdateAssessmentFrameworkCommandOutput>;
   updateAssessmentFramework(
     args: UpdateAssessmentFrameworkCommandInput,
@@ -1399,7 +1411,7 @@ export interface AuditManager {
   ): void;
   updateAssessmentFramework(
     args: UpdateAssessmentFrameworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: UpdateAssessmentFrameworkCommandOutput) => void
   ): void;
 
@@ -1408,7 +1420,7 @@ export interface AuditManager {
    */
   updateAssessmentFrameworkShare(
     args: UpdateAssessmentFrameworkShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<UpdateAssessmentFrameworkShareCommandOutput>;
   updateAssessmentFrameworkShare(
     args: UpdateAssessmentFrameworkShareCommandInput,
@@ -1416,7 +1428,7 @@ export interface AuditManager {
   ): void;
   updateAssessmentFrameworkShare(
     args: UpdateAssessmentFrameworkShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: UpdateAssessmentFrameworkShareCommandOutput) => void
   ): void;
 
@@ -1425,7 +1437,7 @@ export interface AuditManager {
    */
   updateAssessmentStatus(
     args: UpdateAssessmentStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<UpdateAssessmentStatusCommandOutput>;
   updateAssessmentStatus(
     args: UpdateAssessmentStatusCommandInput,
@@ -1433,7 +1445,7 @@ export interface AuditManager {
   ): void;
   updateAssessmentStatus(
     args: UpdateAssessmentStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: UpdateAssessmentStatusCommandOutput) => void
   ): void;
 
@@ -1442,7 +1454,7 @@ export interface AuditManager {
    */
   updateControl(
     args: UpdateControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<UpdateControlCommandOutput>;
   updateControl(
     args: UpdateControlCommandInput,
@@ -1450,7 +1462,7 @@ export interface AuditManager {
   ): void;
   updateControl(
     args: UpdateControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: UpdateControlCommandOutput) => void
   ): void;
 
@@ -1460,7 +1472,7 @@ export interface AuditManager {
   updateSettings(): Promise<UpdateSettingsCommandOutput>;
   updateSettings(
     args: UpdateSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<UpdateSettingsCommandOutput>;
   updateSettings(
     args: UpdateSettingsCommandInput,
@@ -1468,7 +1480,7 @@ export interface AuditManager {
   ): void;
   updateSettings(
     args: UpdateSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: UpdateSettingsCommandOutput) => void
   ): void;
 
@@ -1477,7 +1489,7 @@ export interface AuditManager {
    */
   validateAssessmentReportIntegrity(
     args: ValidateAssessmentReportIntegrityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AuditManagerRequestOptions
   ): Promise<ValidateAssessmentReportIntegrityCommandOutput>;
   validateAssessmentReportIntegrity(
     args: ValidateAssessmentReportIntegrityCommandInput,
@@ -1485,7 +1497,7 @@ export interface AuditManager {
   ): void;
   validateAssessmentReportIntegrity(
     args: ValidateAssessmentReportIntegrityCommandInput,
-    options: __HttpHandlerOptions,
+    options: AuditManagerRequestOptions,
     cb: (err: any, data?: ValidateAssessmentReportIntegrityCommandOutput) => void
   ): void;
 

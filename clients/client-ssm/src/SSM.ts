@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -1041,13 +1042,20 @@ const waiters = {
   waitUntilCommandExecuted,
 };
 
+/**
+ * @public
+ */
+export interface SSMRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SSM {
   /**
    * @see {@link AddTagsToResourceCommand}
    */
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<AddTagsToResourceCommandOutput>;
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -1055,7 +1063,7 @@ export interface SSM {
   ): void;
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): void;
 
@@ -1064,7 +1072,7 @@ export interface SSM {
    */
   associateOpsItemRelatedItem(
     args: AssociateOpsItemRelatedItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<AssociateOpsItemRelatedItemCommandOutput>;
   associateOpsItemRelatedItem(
     args: AssociateOpsItemRelatedItemCommandInput,
@@ -1072,7 +1080,7 @@ export interface SSM {
   ): void;
   associateOpsItemRelatedItem(
     args: AssociateOpsItemRelatedItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: AssociateOpsItemRelatedItemCommandOutput) => void
   ): void;
 
@@ -1081,7 +1089,7 @@ export interface SSM {
    */
   cancelCommand(
     args: CancelCommandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CancelCommandCommandOutput>;
   cancelCommand(
     args: CancelCommandCommandInput,
@@ -1089,7 +1097,7 @@ export interface SSM {
   ): void;
   cancelCommand(
     args: CancelCommandCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CancelCommandCommandOutput) => void
   ): void;
 
@@ -1098,7 +1106,7 @@ export interface SSM {
    */
   cancelMaintenanceWindowExecution(
     args: CancelMaintenanceWindowExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CancelMaintenanceWindowExecutionCommandOutput>;
   cancelMaintenanceWindowExecution(
     args: CancelMaintenanceWindowExecutionCommandInput,
@@ -1106,7 +1114,7 @@ export interface SSM {
   ): void;
   cancelMaintenanceWindowExecution(
     args: CancelMaintenanceWindowExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CancelMaintenanceWindowExecutionCommandOutput) => void
   ): void;
 
@@ -1115,7 +1123,7 @@ export interface SSM {
    */
   createActivation(
     args: CreateActivationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CreateActivationCommandOutput>;
   createActivation(
     args: CreateActivationCommandInput,
@@ -1123,7 +1131,7 @@ export interface SSM {
   ): void;
   createActivation(
     args: CreateActivationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CreateActivationCommandOutput) => void
   ): void;
 
@@ -1132,7 +1140,7 @@ export interface SSM {
    */
   createAssociation(
     args: CreateAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CreateAssociationCommandOutput>;
   createAssociation(
     args: CreateAssociationCommandInput,
@@ -1140,7 +1148,7 @@ export interface SSM {
   ): void;
   createAssociation(
     args: CreateAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CreateAssociationCommandOutput) => void
   ): void;
 
@@ -1149,7 +1157,7 @@ export interface SSM {
    */
   createAssociationBatch(
     args: CreateAssociationBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CreateAssociationBatchCommandOutput>;
   createAssociationBatch(
     args: CreateAssociationBatchCommandInput,
@@ -1157,7 +1165,7 @@ export interface SSM {
   ): void;
   createAssociationBatch(
     args: CreateAssociationBatchCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CreateAssociationBatchCommandOutput) => void
   ): void;
 
@@ -1166,7 +1174,7 @@ export interface SSM {
    */
   createCloudConnector(
     args: CreateCloudConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CreateCloudConnectorCommandOutput>;
   createCloudConnector(
     args: CreateCloudConnectorCommandInput,
@@ -1174,7 +1182,7 @@ export interface SSM {
   ): void;
   createCloudConnector(
     args: CreateCloudConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CreateCloudConnectorCommandOutput) => void
   ): void;
 
@@ -1183,7 +1191,7 @@ export interface SSM {
    */
   createDocument(
     args: CreateDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CreateDocumentCommandOutput>;
   createDocument(
     args: CreateDocumentCommandInput,
@@ -1191,7 +1199,7 @@ export interface SSM {
   ): void;
   createDocument(
     args: CreateDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CreateDocumentCommandOutput) => void
   ): void;
 
@@ -1200,7 +1208,7 @@ export interface SSM {
    */
   createMaintenanceWindow(
     args: CreateMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CreateMaintenanceWindowCommandOutput>;
   createMaintenanceWindow(
     args: CreateMaintenanceWindowCommandInput,
@@ -1208,7 +1216,7 @@ export interface SSM {
   ): void;
   createMaintenanceWindow(
     args: CreateMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CreateMaintenanceWindowCommandOutput) => void
   ): void;
 
@@ -1217,7 +1225,7 @@ export interface SSM {
    */
   createOpsItem(
     args: CreateOpsItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CreateOpsItemCommandOutput>;
   createOpsItem(
     args: CreateOpsItemCommandInput,
@@ -1225,7 +1233,7 @@ export interface SSM {
   ): void;
   createOpsItem(
     args: CreateOpsItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CreateOpsItemCommandOutput) => void
   ): void;
 
@@ -1234,7 +1242,7 @@ export interface SSM {
    */
   createOpsMetadata(
     args: CreateOpsMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CreateOpsMetadataCommandOutput>;
   createOpsMetadata(
     args: CreateOpsMetadataCommandInput,
@@ -1242,7 +1250,7 @@ export interface SSM {
   ): void;
   createOpsMetadata(
     args: CreateOpsMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CreateOpsMetadataCommandOutput) => void
   ): void;
 
@@ -1251,7 +1259,7 @@ export interface SSM {
    */
   createPatchBaseline(
     args: CreatePatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CreatePatchBaselineCommandOutput>;
   createPatchBaseline(
     args: CreatePatchBaselineCommandInput,
@@ -1259,7 +1267,7 @@ export interface SSM {
   ): void;
   createPatchBaseline(
     args: CreatePatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CreatePatchBaselineCommandOutput) => void
   ): void;
 
@@ -1268,7 +1276,7 @@ export interface SSM {
    */
   createResourceDataSync(
     args: CreateResourceDataSyncCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<CreateResourceDataSyncCommandOutput>;
   createResourceDataSync(
     args: CreateResourceDataSyncCommandInput,
@@ -1276,7 +1284,7 @@ export interface SSM {
   ): void;
   createResourceDataSync(
     args: CreateResourceDataSyncCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: CreateResourceDataSyncCommandOutput) => void
   ): void;
 
@@ -1285,7 +1293,7 @@ export interface SSM {
    */
   deleteActivation(
     args: DeleteActivationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteActivationCommandOutput>;
   deleteActivation(
     args: DeleteActivationCommandInput,
@@ -1293,7 +1301,7 @@ export interface SSM {
   ): void;
   deleteActivation(
     args: DeleteActivationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteActivationCommandOutput) => void
   ): void;
 
@@ -1303,7 +1311,7 @@ export interface SSM {
   deleteAssociation(): Promise<DeleteAssociationCommandOutput>;
   deleteAssociation(
     args: DeleteAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteAssociationCommandOutput>;
   deleteAssociation(
     args: DeleteAssociationCommandInput,
@@ -1311,7 +1319,7 @@ export interface SSM {
   ): void;
   deleteAssociation(
     args: DeleteAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteAssociationCommandOutput) => void
   ): void;
 
@@ -1320,7 +1328,7 @@ export interface SSM {
    */
   deleteCloudConnector(
     args: DeleteCloudConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteCloudConnectorCommandOutput>;
   deleteCloudConnector(
     args: DeleteCloudConnectorCommandInput,
@@ -1328,7 +1336,7 @@ export interface SSM {
   ): void;
   deleteCloudConnector(
     args: DeleteCloudConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteCloudConnectorCommandOutput) => void
   ): void;
 
@@ -1337,7 +1345,7 @@ export interface SSM {
    */
   deleteDocument(
     args: DeleteDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteDocumentCommandOutput>;
   deleteDocument(
     args: DeleteDocumentCommandInput,
@@ -1345,7 +1353,7 @@ export interface SSM {
   ): void;
   deleteDocument(
     args: DeleteDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteDocumentCommandOutput) => void
   ): void;
 
@@ -1354,7 +1362,7 @@ export interface SSM {
    */
   deleteInventory(
     args: DeleteInventoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteInventoryCommandOutput>;
   deleteInventory(
     args: DeleteInventoryCommandInput,
@@ -1362,7 +1370,7 @@ export interface SSM {
   ): void;
   deleteInventory(
     args: DeleteInventoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteInventoryCommandOutput) => void
   ): void;
 
@@ -1371,7 +1379,7 @@ export interface SSM {
    */
   deleteMaintenanceWindow(
     args: DeleteMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteMaintenanceWindowCommandOutput>;
   deleteMaintenanceWindow(
     args: DeleteMaintenanceWindowCommandInput,
@@ -1379,7 +1387,7 @@ export interface SSM {
   ): void;
   deleteMaintenanceWindow(
     args: DeleteMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteMaintenanceWindowCommandOutput) => void
   ): void;
 
@@ -1388,7 +1396,7 @@ export interface SSM {
    */
   deleteOpsItem(
     args: DeleteOpsItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteOpsItemCommandOutput>;
   deleteOpsItem(
     args: DeleteOpsItemCommandInput,
@@ -1396,7 +1404,7 @@ export interface SSM {
   ): void;
   deleteOpsItem(
     args: DeleteOpsItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteOpsItemCommandOutput) => void
   ): void;
 
@@ -1405,7 +1413,7 @@ export interface SSM {
    */
   deleteOpsMetadata(
     args: DeleteOpsMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteOpsMetadataCommandOutput>;
   deleteOpsMetadata(
     args: DeleteOpsMetadataCommandInput,
@@ -1413,7 +1421,7 @@ export interface SSM {
   ): void;
   deleteOpsMetadata(
     args: DeleteOpsMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteOpsMetadataCommandOutput) => void
   ): void;
 
@@ -1422,7 +1430,7 @@ export interface SSM {
    */
   deleteParameter(
     args: DeleteParameterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteParameterCommandOutput>;
   deleteParameter(
     args: DeleteParameterCommandInput,
@@ -1430,7 +1438,7 @@ export interface SSM {
   ): void;
   deleteParameter(
     args: DeleteParameterCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteParameterCommandOutput) => void
   ): void;
 
@@ -1439,7 +1447,7 @@ export interface SSM {
    */
   deleteParameters(
     args: DeleteParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteParametersCommandOutput>;
   deleteParameters(
     args: DeleteParametersCommandInput,
@@ -1447,7 +1455,7 @@ export interface SSM {
   ): void;
   deleteParameters(
     args: DeleteParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteParametersCommandOutput) => void
   ): void;
 
@@ -1456,7 +1464,7 @@ export interface SSM {
    */
   deletePatchBaseline(
     args: DeletePatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeletePatchBaselineCommandOutput>;
   deletePatchBaseline(
     args: DeletePatchBaselineCommandInput,
@@ -1464,7 +1472,7 @@ export interface SSM {
   ): void;
   deletePatchBaseline(
     args: DeletePatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeletePatchBaselineCommandOutput) => void
   ): void;
 
@@ -1473,7 +1481,7 @@ export interface SSM {
    */
   deleteResourceDataSync(
     args: DeleteResourceDataSyncCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteResourceDataSyncCommandOutput>;
   deleteResourceDataSync(
     args: DeleteResourceDataSyncCommandInput,
@@ -1481,7 +1489,7 @@ export interface SSM {
   ): void;
   deleteResourceDataSync(
     args: DeleteResourceDataSyncCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteResourceDataSyncCommandOutput) => void
   ): void;
 
@@ -1490,7 +1498,7 @@ export interface SSM {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -1498,7 +1506,7 @@ export interface SSM {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1507,7 +1515,7 @@ export interface SSM {
    */
   deregisterManagedInstance(
     args: DeregisterManagedInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeregisterManagedInstanceCommandOutput>;
   deregisterManagedInstance(
     args: DeregisterManagedInstanceCommandInput,
@@ -1515,7 +1523,7 @@ export interface SSM {
   ): void;
   deregisterManagedInstance(
     args: DeregisterManagedInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeregisterManagedInstanceCommandOutput) => void
   ): void;
 
@@ -1524,7 +1532,7 @@ export interface SSM {
    */
   deregisterPatchBaselineForPatchGroup(
     args: DeregisterPatchBaselineForPatchGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput>;
   deregisterPatchBaselineForPatchGroup(
     args: DeregisterPatchBaselineForPatchGroupCommandInput,
@@ -1532,7 +1540,7 @@ export interface SSM {
   ): void;
   deregisterPatchBaselineForPatchGroup(
     args: DeregisterPatchBaselineForPatchGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeregisterPatchBaselineForPatchGroupCommandOutput) => void
   ): void;
 
@@ -1541,7 +1549,7 @@ export interface SSM {
    */
   deregisterTargetFromMaintenanceWindow(
     args: DeregisterTargetFromMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput>;
   deregisterTargetFromMaintenanceWindow(
     args: DeregisterTargetFromMaintenanceWindowCommandInput,
@@ -1549,7 +1557,7 @@ export interface SSM {
   ): void;
   deregisterTargetFromMaintenanceWindow(
     args: DeregisterTargetFromMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeregisterTargetFromMaintenanceWindowCommandOutput) => void
   ): void;
 
@@ -1558,7 +1566,7 @@ export interface SSM {
    */
   deregisterTaskFromMaintenanceWindow(
     args: DeregisterTaskFromMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput>;
   deregisterTaskFromMaintenanceWindow(
     args: DeregisterTaskFromMaintenanceWindowCommandInput,
@@ -1566,7 +1574,7 @@ export interface SSM {
   ): void;
   deregisterTaskFromMaintenanceWindow(
     args: DeregisterTaskFromMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DeregisterTaskFromMaintenanceWindowCommandOutput) => void
   ): void;
 
@@ -1576,7 +1584,7 @@ export interface SSM {
   describeActivations(): Promise<DescribeActivationsCommandOutput>;
   describeActivations(
     args: DescribeActivationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeActivationsCommandOutput>;
   describeActivations(
     args: DescribeActivationsCommandInput,
@@ -1584,7 +1592,7 @@ export interface SSM {
   ): void;
   describeActivations(
     args: DescribeActivationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeActivationsCommandOutput) => void
   ): void;
 
@@ -1594,7 +1602,7 @@ export interface SSM {
   describeAssociation(): Promise<DescribeAssociationCommandOutput>;
   describeAssociation(
     args: DescribeAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeAssociationCommandOutput>;
   describeAssociation(
     args: DescribeAssociationCommandInput,
@@ -1602,7 +1610,7 @@ export interface SSM {
   ): void;
   describeAssociation(
     args: DescribeAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeAssociationCommandOutput) => void
   ): void;
 
@@ -1611,7 +1619,7 @@ export interface SSM {
    */
   describeAssociationExecutions(
     args: DescribeAssociationExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeAssociationExecutionsCommandOutput>;
   describeAssociationExecutions(
     args: DescribeAssociationExecutionsCommandInput,
@@ -1619,7 +1627,7 @@ export interface SSM {
   ): void;
   describeAssociationExecutions(
     args: DescribeAssociationExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeAssociationExecutionsCommandOutput) => void
   ): void;
 
@@ -1628,7 +1636,7 @@ export interface SSM {
    */
   describeAssociationExecutionTargets(
     args: DescribeAssociationExecutionTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeAssociationExecutionTargetsCommandOutput>;
   describeAssociationExecutionTargets(
     args: DescribeAssociationExecutionTargetsCommandInput,
@@ -1636,7 +1644,7 @@ export interface SSM {
   ): void;
   describeAssociationExecutionTargets(
     args: DescribeAssociationExecutionTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeAssociationExecutionTargetsCommandOutput) => void
   ): void;
 
@@ -1646,7 +1654,7 @@ export interface SSM {
   describeAutomationExecutions(): Promise<DescribeAutomationExecutionsCommandOutput>;
   describeAutomationExecutions(
     args: DescribeAutomationExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeAutomationExecutionsCommandOutput>;
   describeAutomationExecutions(
     args: DescribeAutomationExecutionsCommandInput,
@@ -1654,7 +1662,7 @@ export interface SSM {
   ): void;
   describeAutomationExecutions(
     args: DescribeAutomationExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeAutomationExecutionsCommandOutput) => void
   ): void;
 
@@ -1663,7 +1671,7 @@ export interface SSM {
    */
   describeAutomationStepExecutions(
     args: DescribeAutomationStepExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeAutomationStepExecutionsCommandOutput>;
   describeAutomationStepExecutions(
     args: DescribeAutomationStepExecutionsCommandInput,
@@ -1671,7 +1679,7 @@ export interface SSM {
   ): void;
   describeAutomationStepExecutions(
     args: DescribeAutomationStepExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeAutomationStepExecutionsCommandOutput) => void
   ): void;
 
@@ -1681,7 +1689,7 @@ export interface SSM {
   describeAvailablePatches(): Promise<DescribeAvailablePatchesCommandOutput>;
   describeAvailablePatches(
     args: DescribeAvailablePatchesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeAvailablePatchesCommandOutput>;
   describeAvailablePatches(
     args: DescribeAvailablePatchesCommandInput,
@@ -1689,7 +1697,7 @@ export interface SSM {
   ): void;
   describeAvailablePatches(
     args: DescribeAvailablePatchesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeAvailablePatchesCommandOutput) => void
   ): void;
 
@@ -1698,7 +1706,7 @@ export interface SSM {
    */
   describeDocument(
     args: DescribeDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeDocumentCommandOutput>;
   describeDocument(
     args: DescribeDocumentCommandInput,
@@ -1706,7 +1714,7 @@ export interface SSM {
   ): void;
   describeDocument(
     args: DescribeDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeDocumentCommandOutput) => void
   ): void;
 
@@ -1715,7 +1723,7 @@ export interface SSM {
    */
   describeDocumentPermission(
     args: DescribeDocumentPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeDocumentPermissionCommandOutput>;
   describeDocumentPermission(
     args: DescribeDocumentPermissionCommandInput,
@@ -1723,7 +1731,7 @@ export interface SSM {
   ): void;
   describeDocumentPermission(
     args: DescribeDocumentPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeDocumentPermissionCommandOutput) => void
   ): void;
 
@@ -1732,7 +1740,7 @@ export interface SSM {
    */
   describeEffectiveInstanceAssociations(
     args: DescribeEffectiveInstanceAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput>;
   describeEffectiveInstanceAssociations(
     args: DescribeEffectiveInstanceAssociationsCommandInput,
@@ -1740,7 +1748,7 @@ export interface SSM {
   ): void;
   describeEffectiveInstanceAssociations(
     args: DescribeEffectiveInstanceAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeEffectiveInstanceAssociationsCommandOutput) => void
   ): void;
 
@@ -1749,7 +1757,7 @@ export interface SSM {
    */
   describeEffectivePatchesForPatchBaseline(
     args: DescribeEffectivePatchesForPatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput>;
   describeEffectivePatchesForPatchBaseline(
     args: DescribeEffectivePatchesForPatchBaselineCommandInput,
@@ -1757,7 +1765,7 @@ export interface SSM {
   ): void;
   describeEffectivePatchesForPatchBaseline(
     args: DescribeEffectivePatchesForPatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeEffectivePatchesForPatchBaselineCommandOutput) => void
   ): void;
 
@@ -1766,7 +1774,7 @@ export interface SSM {
    */
   describeInstanceAssociationsStatus(
     args: DescribeInstanceAssociationsStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeInstanceAssociationsStatusCommandOutput>;
   describeInstanceAssociationsStatus(
     args: DescribeInstanceAssociationsStatusCommandInput,
@@ -1774,7 +1782,7 @@ export interface SSM {
   ): void;
   describeInstanceAssociationsStatus(
     args: DescribeInstanceAssociationsStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeInstanceAssociationsStatusCommandOutput) => void
   ): void;
 
@@ -1784,7 +1792,7 @@ export interface SSM {
   describeInstanceInformation(): Promise<DescribeInstanceInformationCommandOutput>;
   describeInstanceInformation(
     args: DescribeInstanceInformationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeInstanceInformationCommandOutput>;
   describeInstanceInformation(
     args: DescribeInstanceInformationCommandInput,
@@ -1792,7 +1800,7 @@ export interface SSM {
   ): void;
   describeInstanceInformation(
     args: DescribeInstanceInformationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeInstanceInformationCommandOutput) => void
   ): void;
 
@@ -1801,7 +1809,7 @@ export interface SSM {
    */
   describeInstancePatches(
     args: DescribeInstancePatchesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeInstancePatchesCommandOutput>;
   describeInstancePatches(
     args: DescribeInstancePatchesCommandInput,
@@ -1809,7 +1817,7 @@ export interface SSM {
   ): void;
   describeInstancePatches(
     args: DescribeInstancePatchesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeInstancePatchesCommandOutput) => void
   ): void;
 
@@ -1818,7 +1826,7 @@ export interface SSM {
    */
   describeInstancePatchStates(
     args: DescribeInstancePatchStatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeInstancePatchStatesCommandOutput>;
   describeInstancePatchStates(
     args: DescribeInstancePatchStatesCommandInput,
@@ -1826,7 +1834,7 @@ export interface SSM {
   ): void;
   describeInstancePatchStates(
     args: DescribeInstancePatchStatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeInstancePatchStatesCommandOutput) => void
   ): void;
 
@@ -1835,7 +1843,7 @@ export interface SSM {
    */
   describeInstancePatchStatesForPatchGroup(
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput>;
   describeInstancePatchStatesForPatchGroup(
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
@@ -1843,7 +1851,7 @@ export interface SSM {
   ): void;
   describeInstancePatchStatesForPatchGroup(
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeInstancePatchStatesForPatchGroupCommandOutput) => void
   ): void;
 
@@ -1853,7 +1861,7 @@ export interface SSM {
   describeInstanceProperties(): Promise<DescribeInstancePropertiesCommandOutput>;
   describeInstanceProperties(
     args: DescribeInstancePropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeInstancePropertiesCommandOutput>;
   describeInstanceProperties(
     args: DescribeInstancePropertiesCommandInput,
@@ -1861,7 +1869,7 @@ export interface SSM {
   ): void;
   describeInstanceProperties(
     args: DescribeInstancePropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeInstancePropertiesCommandOutput) => void
   ): void;
 
@@ -1871,7 +1879,7 @@ export interface SSM {
   describeInventoryDeletions(): Promise<DescribeInventoryDeletionsCommandOutput>;
   describeInventoryDeletions(
     args: DescribeInventoryDeletionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeInventoryDeletionsCommandOutput>;
   describeInventoryDeletions(
     args: DescribeInventoryDeletionsCommandInput,
@@ -1879,7 +1887,7 @@ export interface SSM {
   ): void;
   describeInventoryDeletions(
     args: DescribeInventoryDeletionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeInventoryDeletionsCommandOutput) => void
   ): void;
 
@@ -1888,7 +1896,7 @@ export interface SSM {
    */
   describeMaintenanceWindowExecutions(
     args: DescribeMaintenanceWindowExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput>;
   describeMaintenanceWindowExecutions(
     args: DescribeMaintenanceWindowExecutionsCommandInput,
@@ -1896,7 +1904,7 @@ export interface SSM {
   ): void;
   describeMaintenanceWindowExecutions(
     args: DescribeMaintenanceWindowExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeMaintenanceWindowExecutionsCommandOutput) => void
   ): void;
 
@@ -1905,7 +1913,7 @@ export interface SSM {
    */
   describeMaintenanceWindowExecutionTaskInvocations(
     args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput>;
   describeMaintenanceWindowExecutionTaskInvocations(
     args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
@@ -1913,7 +1921,7 @@ export interface SSM {
   ): void;
   describeMaintenanceWindowExecutionTaskInvocations(
     args: DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput) => void
   ): void;
 
@@ -1922,7 +1930,7 @@ export interface SSM {
    */
   describeMaintenanceWindowExecutionTasks(
     args: DescribeMaintenanceWindowExecutionTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput>;
   describeMaintenanceWindowExecutionTasks(
     args: DescribeMaintenanceWindowExecutionTasksCommandInput,
@@ -1930,7 +1938,7 @@ export interface SSM {
   ): void;
   describeMaintenanceWindowExecutionTasks(
     args: DescribeMaintenanceWindowExecutionTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeMaintenanceWindowExecutionTasksCommandOutput) => void
   ): void;
 
@@ -1940,7 +1948,7 @@ export interface SSM {
   describeMaintenanceWindows(): Promise<DescribeMaintenanceWindowsCommandOutput>;
   describeMaintenanceWindows(
     args: DescribeMaintenanceWindowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeMaintenanceWindowsCommandOutput>;
   describeMaintenanceWindows(
     args: DescribeMaintenanceWindowsCommandInput,
@@ -1948,7 +1956,7 @@ export interface SSM {
   ): void;
   describeMaintenanceWindows(
     args: DescribeMaintenanceWindowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeMaintenanceWindowsCommandOutput) => void
   ): void;
 
@@ -1958,7 +1966,7 @@ export interface SSM {
   describeMaintenanceWindowSchedule(): Promise<DescribeMaintenanceWindowScheduleCommandOutput>;
   describeMaintenanceWindowSchedule(
     args: DescribeMaintenanceWindowScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeMaintenanceWindowScheduleCommandOutput>;
   describeMaintenanceWindowSchedule(
     args: DescribeMaintenanceWindowScheduleCommandInput,
@@ -1966,7 +1974,7 @@ export interface SSM {
   ): void;
   describeMaintenanceWindowSchedule(
     args: DescribeMaintenanceWindowScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeMaintenanceWindowScheduleCommandOutput) => void
   ): void;
 
@@ -1975,7 +1983,7 @@ export interface SSM {
    */
   describeMaintenanceWindowsForTarget(
     args: DescribeMaintenanceWindowsForTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput>;
   describeMaintenanceWindowsForTarget(
     args: DescribeMaintenanceWindowsForTargetCommandInput,
@@ -1983,7 +1991,7 @@ export interface SSM {
   ): void;
   describeMaintenanceWindowsForTarget(
     args: DescribeMaintenanceWindowsForTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeMaintenanceWindowsForTargetCommandOutput) => void
   ): void;
 
@@ -1992,7 +2000,7 @@ export interface SSM {
    */
   describeMaintenanceWindowTargets(
     args: DescribeMaintenanceWindowTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeMaintenanceWindowTargetsCommandOutput>;
   describeMaintenanceWindowTargets(
     args: DescribeMaintenanceWindowTargetsCommandInput,
@@ -2000,7 +2008,7 @@ export interface SSM {
   ): void;
   describeMaintenanceWindowTargets(
     args: DescribeMaintenanceWindowTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeMaintenanceWindowTargetsCommandOutput) => void
   ): void;
 
@@ -2009,7 +2017,7 @@ export interface SSM {
    */
   describeMaintenanceWindowTasks(
     args: DescribeMaintenanceWindowTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeMaintenanceWindowTasksCommandOutput>;
   describeMaintenanceWindowTasks(
     args: DescribeMaintenanceWindowTasksCommandInput,
@@ -2017,7 +2025,7 @@ export interface SSM {
   ): void;
   describeMaintenanceWindowTasks(
     args: DescribeMaintenanceWindowTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeMaintenanceWindowTasksCommandOutput) => void
   ): void;
 
@@ -2027,7 +2035,7 @@ export interface SSM {
   describeOpsItems(): Promise<DescribeOpsItemsCommandOutput>;
   describeOpsItems(
     args: DescribeOpsItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeOpsItemsCommandOutput>;
   describeOpsItems(
     args: DescribeOpsItemsCommandInput,
@@ -2035,7 +2043,7 @@ export interface SSM {
   ): void;
   describeOpsItems(
     args: DescribeOpsItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeOpsItemsCommandOutput) => void
   ): void;
 
@@ -2045,7 +2053,7 @@ export interface SSM {
   describeParameters(): Promise<DescribeParametersCommandOutput>;
   describeParameters(
     args: DescribeParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeParametersCommandOutput>;
   describeParameters(
     args: DescribeParametersCommandInput,
@@ -2053,7 +2061,7 @@ export interface SSM {
   ): void;
   describeParameters(
     args: DescribeParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeParametersCommandOutput) => void
   ): void;
 
@@ -2063,7 +2071,7 @@ export interface SSM {
   describePatchBaselines(): Promise<DescribePatchBaselinesCommandOutput>;
   describePatchBaselines(
     args: DescribePatchBaselinesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribePatchBaselinesCommandOutput>;
   describePatchBaselines(
     args: DescribePatchBaselinesCommandInput,
@@ -2071,7 +2079,7 @@ export interface SSM {
   ): void;
   describePatchBaselines(
     args: DescribePatchBaselinesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribePatchBaselinesCommandOutput) => void
   ): void;
 
@@ -2081,7 +2089,7 @@ export interface SSM {
   describePatchGroups(): Promise<DescribePatchGroupsCommandOutput>;
   describePatchGroups(
     args: DescribePatchGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribePatchGroupsCommandOutput>;
   describePatchGroups(
     args: DescribePatchGroupsCommandInput,
@@ -2089,7 +2097,7 @@ export interface SSM {
   ): void;
   describePatchGroups(
     args: DescribePatchGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribePatchGroupsCommandOutput) => void
   ): void;
 
@@ -2098,7 +2106,7 @@ export interface SSM {
    */
   describePatchGroupState(
     args: DescribePatchGroupStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribePatchGroupStateCommandOutput>;
   describePatchGroupState(
     args: DescribePatchGroupStateCommandInput,
@@ -2106,7 +2114,7 @@ export interface SSM {
   ): void;
   describePatchGroupState(
     args: DescribePatchGroupStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribePatchGroupStateCommandOutput) => void
   ): void;
 
@@ -2115,7 +2123,7 @@ export interface SSM {
    */
   describePatchProperties(
     args: DescribePatchPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribePatchPropertiesCommandOutput>;
   describePatchProperties(
     args: DescribePatchPropertiesCommandInput,
@@ -2123,7 +2131,7 @@ export interface SSM {
   ): void;
   describePatchProperties(
     args: DescribePatchPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribePatchPropertiesCommandOutput) => void
   ): void;
 
@@ -2132,7 +2140,7 @@ export interface SSM {
    */
   describeSessions(
     args: DescribeSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DescribeSessionsCommandOutput>;
   describeSessions(
     args: DescribeSessionsCommandInput,
@@ -2140,7 +2148,7 @@ export interface SSM {
   ): void;
   describeSessions(
     args: DescribeSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DescribeSessionsCommandOutput) => void
   ): void;
 
@@ -2149,7 +2157,7 @@ export interface SSM {
    */
   disassociateOpsItemRelatedItem(
     args: DisassociateOpsItemRelatedItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<DisassociateOpsItemRelatedItemCommandOutput>;
   disassociateOpsItemRelatedItem(
     args: DisassociateOpsItemRelatedItemCommandInput,
@@ -2157,7 +2165,7 @@ export interface SSM {
   ): void;
   disassociateOpsItemRelatedItem(
     args: DisassociateOpsItemRelatedItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: DisassociateOpsItemRelatedItemCommandOutput) => void
   ): void;
 
@@ -2166,7 +2174,7 @@ export interface SSM {
    */
   getAccessToken(
     args: GetAccessTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetAccessTokenCommandOutput>;
   getAccessToken(
     args: GetAccessTokenCommandInput,
@@ -2174,7 +2182,7 @@ export interface SSM {
   ): void;
   getAccessToken(
     args: GetAccessTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetAccessTokenCommandOutput) => void
   ): void;
 
@@ -2183,7 +2191,7 @@ export interface SSM {
    */
   getAutomationExecution(
     args: GetAutomationExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetAutomationExecutionCommandOutput>;
   getAutomationExecution(
     args: GetAutomationExecutionCommandInput,
@@ -2191,7 +2199,7 @@ export interface SSM {
   ): void;
   getAutomationExecution(
     args: GetAutomationExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetAutomationExecutionCommandOutput) => void
   ): void;
 
@@ -2200,7 +2208,7 @@ export interface SSM {
    */
   getCalendarState(
     args: GetCalendarStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetCalendarStateCommandOutput>;
   getCalendarState(
     args: GetCalendarStateCommandInput,
@@ -2208,7 +2216,7 @@ export interface SSM {
   ): void;
   getCalendarState(
     args: GetCalendarStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetCalendarStateCommandOutput) => void
   ): void;
 
@@ -2217,7 +2225,7 @@ export interface SSM {
    */
   getCloudConnector(
     args: GetCloudConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetCloudConnectorCommandOutput>;
   getCloudConnector(
     args: GetCloudConnectorCommandInput,
@@ -2225,7 +2233,7 @@ export interface SSM {
   ): void;
   getCloudConnector(
     args: GetCloudConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetCloudConnectorCommandOutput) => void
   ): void;
 
@@ -2234,7 +2242,7 @@ export interface SSM {
    */
   getCommandInvocation(
     args: GetCommandInvocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetCommandInvocationCommandOutput>;
   getCommandInvocation(
     args: GetCommandInvocationCommandInput,
@@ -2242,7 +2250,7 @@ export interface SSM {
   ): void;
   getCommandInvocation(
     args: GetCommandInvocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetCommandInvocationCommandOutput) => void
   ): void;
 
@@ -2251,7 +2259,7 @@ export interface SSM {
    */
   getConnectionStatus(
     args: GetConnectionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetConnectionStatusCommandOutput>;
   getConnectionStatus(
     args: GetConnectionStatusCommandInput,
@@ -2259,7 +2267,7 @@ export interface SSM {
   ): void;
   getConnectionStatus(
     args: GetConnectionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetConnectionStatusCommandOutput) => void
   ): void;
 
@@ -2269,7 +2277,7 @@ export interface SSM {
   getDefaultPatchBaseline(): Promise<GetDefaultPatchBaselineCommandOutput>;
   getDefaultPatchBaseline(
     args: GetDefaultPatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetDefaultPatchBaselineCommandOutput>;
   getDefaultPatchBaseline(
     args: GetDefaultPatchBaselineCommandInput,
@@ -2277,7 +2285,7 @@ export interface SSM {
   ): void;
   getDefaultPatchBaseline(
     args: GetDefaultPatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetDefaultPatchBaselineCommandOutput) => void
   ): void;
 
@@ -2286,7 +2294,7 @@ export interface SSM {
    */
   getDeployablePatchSnapshotForInstance(
     args: GetDeployablePatchSnapshotForInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput>;
   getDeployablePatchSnapshotForInstance(
     args: GetDeployablePatchSnapshotForInstanceCommandInput,
@@ -2294,7 +2302,7 @@ export interface SSM {
   ): void;
   getDeployablePatchSnapshotForInstance(
     args: GetDeployablePatchSnapshotForInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetDeployablePatchSnapshotForInstanceCommandOutput) => void
   ): void;
 
@@ -2303,7 +2311,7 @@ export interface SSM {
    */
   getDocument(
     args: GetDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetDocumentCommandOutput>;
   getDocument(
     args: GetDocumentCommandInput,
@@ -2311,7 +2319,7 @@ export interface SSM {
   ): void;
   getDocument(
     args: GetDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetDocumentCommandOutput) => void
   ): void;
 
@@ -2320,7 +2328,7 @@ export interface SSM {
    */
   getExecutionPreview(
     args: GetExecutionPreviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetExecutionPreviewCommandOutput>;
   getExecutionPreview(
     args: GetExecutionPreviewCommandInput,
@@ -2328,7 +2336,7 @@ export interface SSM {
   ): void;
   getExecutionPreview(
     args: GetExecutionPreviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetExecutionPreviewCommandOutput) => void
   ): void;
 
@@ -2338,7 +2346,7 @@ export interface SSM {
   getInventory(): Promise<GetInventoryCommandOutput>;
   getInventory(
     args: GetInventoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetInventoryCommandOutput>;
   getInventory(
     args: GetInventoryCommandInput,
@@ -2346,7 +2354,7 @@ export interface SSM {
   ): void;
   getInventory(
     args: GetInventoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetInventoryCommandOutput) => void
   ): void;
 
@@ -2356,7 +2364,7 @@ export interface SSM {
   getInventorySchema(): Promise<GetInventorySchemaCommandOutput>;
   getInventorySchema(
     args: GetInventorySchemaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetInventorySchemaCommandOutput>;
   getInventorySchema(
     args: GetInventorySchemaCommandInput,
@@ -2364,7 +2372,7 @@ export interface SSM {
   ): void;
   getInventorySchema(
     args: GetInventorySchemaCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetInventorySchemaCommandOutput) => void
   ): void;
 
@@ -2373,7 +2381,7 @@ export interface SSM {
    */
   getMaintenanceWindow(
     args: GetMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetMaintenanceWindowCommandOutput>;
   getMaintenanceWindow(
     args: GetMaintenanceWindowCommandInput,
@@ -2381,7 +2389,7 @@ export interface SSM {
   ): void;
   getMaintenanceWindow(
     args: GetMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetMaintenanceWindowCommandOutput) => void
   ): void;
 
@@ -2390,7 +2398,7 @@ export interface SSM {
    */
   getMaintenanceWindowExecution(
     args: GetMaintenanceWindowExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetMaintenanceWindowExecutionCommandOutput>;
   getMaintenanceWindowExecution(
     args: GetMaintenanceWindowExecutionCommandInput,
@@ -2398,7 +2406,7 @@ export interface SSM {
   ): void;
   getMaintenanceWindowExecution(
     args: GetMaintenanceWindowExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetMaintenanceWindowExecutionCommandOutput) => void
   ): void;
 
@@ -2407,7 +2415,7 @@ export interface SSM {
    */
   getMaintenanceWindowExecutionTask(
     args: GetMaintenanceWindowExecutionTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetMaintenanceWindowExecutionTaskCommandOutput>;
   getMaintenanceWindowExecutionTask(
     args: GetMaintenanceWindowExecutionTaskCommandInput,
@@ -2415,7 +2423,7 @@ export interface SSM {
   ): void;
   getMaintenanceWindowExecutionTask(
     args: GetMaintenanceWindowExecutionTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetMaintenanceWindowExecutionTaskCommandOutput) => void
   ): void;
 
@@ -2424,7 +2432,7 @@ export interface SSM {
    */
   getMaintenanceWindowExecutionTaskInvocation(
     args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput>;
   getMaintenanceWindowExecutionTaskInvocation(
     args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
@@ -2432,7 +2440,7 @@ export interface SSM {
   ): void;
   getMaintenanceWindowExecutionTaskInvocation(
     args: GetMaintenanceWindowExecutionTaskInvocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetMaintenanceWindowExecutionTaskInvocationCommandOutput) => void
   ): void;
 
@@ -2441,7 +2449,7 @@ export interface SSM {
    */
   getMaintenanceWindowTask(
     args: GetMaintenanceWindowTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetMaintenanceWindowTaskCommandOutput>;
   getMaintenanceWindowTask(
     args: GetMaintenanceWindowTaskCommandInput,
@@ -2449,7 +2457,7 @@ export interface SSM {
   ): void;
   getMaintenanceWindowTask(
     args: GetMaintenanceWindowTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetMaintenanceWindowTaskCommandOutput) => void
   ): void;
 
@@ -2458,7 +2466,7 @@ export interface SSM {
    */
   getOpsItem(
     args: GetOpsItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetOpsItemCommandOutput>;
   getOpsItem(
     args: GetOpsItemCommandInput,
@@ -2466,7 +2474,7 @@ export interface SSM {
   ): void;
   getOpsItem(
     args: GetOpsItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetOpsItemCommandOutput) => void
   ): void;
 
@@ -2475,7 +2483,7 @@ export interface SSM {
    */
   getOpsMetadata(
     args: GetOpsMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetOpsMetadataCommandOutput>;
   getOpsMetadata(
     args: GetOpsMetadataCommandInput,
@@ -2483,7 +2491,7 @@ export interface SSM {
   ): void;
   getOpsMetadata(
     args: GetOpsMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetOpsMetadataCommandOutput) => void
   ): void;
 
@@ -2493,7 +2501,7 @@ export interface SSM {
   getOpsSummary(): Promise<GetOpsSummaryCommandOutput>;
   getOpsSummary(
     args: GetOpsSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetOpsSummaryCommandOutput>;
   getOpsSummary(
     args: GetOpsSummaryCommandInput,
@@ -2501,7 +2509,7 @@ export interface SSM {
   ): void;
   getOpsSummary(
     args: GetOpsSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetOpsSummaryCommandOutput) => void
   ): void;
 
@@ -2510,7 +2518,7 @@ export interface SSM {
    */
   getParameter(
     args: GetParameterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetParameterCommandOutput>;
   getParameter(
     args: GetParameterCommandInput,
@@ -2518,7 +2526,7 @@ export interface SSM {
   ): void;
   getParameter(
     args: GetParameterCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetParameterCommandOutput) => void
   ): void;
 
@@ -2527,7 +2535,7 @@ export interface SSM {
    */
   getParameterHistory(
     args: GetParameterHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetParameterHistoryCommandOutput>;
   getParameterHistory(
     args: GetParameterHistoryCommandInput,
@@ -2535,7 +2543,7 @@ export interface SSM {
   ): void;
   getParameterHistory(
     args: GetParameterHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetParameterHistoryCommandOutput) => void
   ): void;
 
@@ -2544,7 +2552,7 @@ export interface SSM {
    */
   getParameters(
     args: GetParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetParametersCommandOutput>;
   getParameters(
     args: GetParametersCommandInput,
@@ -2552,7 +2560,7 @@ export interface SSM {
   ): void;
   getParameters(
     args: GetParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetParametersCommandOutput) => void
   ): void;
 
@@ -2561,7 +2569,7 @@ export interface SSM {
    */
   getParametersByPath(
     args: GetParametersByPathCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetParametersByPathCommandOutput>;
   getParametersByPath(
     args: GetParametersByPathCommandInput,
@@ -2569,7 +2577,7 @@ export interface SSM {
   ): void;
   getParametersByPath(
     args: GetParametersByPathCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetParametersByPathCommandOutput) => void
   ): void;
 
@@ -2578,7 +2586,7 @@ export interface SSM {
    */
   getPatchBaseline(
     args: GetPatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetPatchBaselineCommandOutput>;
   getPatchBaseline(
     args: GetPatchBaselineCommandInput,
@@ -2586,7 +2594,7 @@ export interface SSM {
   ): void;
   getPatchBaseline(
     args: GetPatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetPatchBaselineCommandOutput) => void
   ): void;
 
@@ -2595,7 +2603,7 @@ export interface SSM {
    */
   getPatchBaselineForPatchGroup(
     args: GetPatchBaselineForPatchGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetPatchBaselineForPatchGroupCommandOutput>;
   getPatchBaselineForPatchGroup(
     args: GetPatchBaselineForPatchGroupCommandInput,
@@ -2603,7 +2611,7 @@ export interface SSM {
   ): void;
   getPatchBaselineForPatchGroup(
     args: GetPatchBaselineForPatchGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetPatchBaselineForPatchGroupCommandOutput) => void
   ): void;
 
@@ -2612,7 +2620,7 @@ export interface SSM {
    */
   getResourcePolicies(
     args: GetResourcePoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetResourcePoliciesCommandOutput>;
   getResourcePolicies(
     args: GetResourcePoliciesCommandInput,
@@ -2620,7 +2628,7 @@ export interface SSM {
   ): void;
   getResourcePolicies(
     args: GetResourcePoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
   ): void;
 
@@ -2629,7 +2637,7 @@ export interface SSM {
    */
   getServiceSetting(
     args: GetServiceSettingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<GetServiceSettingCommandOutput>;
   getServiceSetting(
     args: GetServiceSettingCommandInput,
@@ -2637,7 +2645,7 @@ export interface SSM {
   ): void;
   getServiceSetting(
     args: GetServiceSettingCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: GetServiceSettingCommandOutput) => void
   ): void;
 
@@ -2646,7 +2654,7 @@ export interface SSM {
    */
   labelParameterVersion(
     args: LabelParameterVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<LabelParameterVersionCommandOutput>;
   labelParameterVersion(
     args: LabelParameterVersionCommandInput,
@@ -2654,7 +2662,7 @@ export interface SSM {
   ): void;
   labelParameterVersion(
     args: LabelParameterVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: LabelParameterVersionCommandOutput) => void
   ): void;
 
@@ -2664,7 +2672,7 @@ export interface SSM {
   listAssociations(): Promise<ListAssociationsCommandOutput>;
   listAssociations(
     args: ListAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListAssociationsCommandOutput>;
   listAssociations(
     args: ListAssociationsCommandInput,
@@ -2672,7 +2680,7 @@ export interface SSM {
   ): void;
   listAssociations(
     args: ListAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListAssociationsCommandOutput) => void
   ): void;
 
@@ -2681,7 +2689,7 @@ export interface SSM {
    */
   listAssociationVersions(
     args: ListAssociationVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListAssociationVersionsCommandOutput>;
   listAssociationVersions(
     args: ListAssociationVersionsCommandInput,
@@ -2689,7 +2697,7 @@ export interface SSM {
   ): void;
   listAssociationVersions(
     args: ListAssociationVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListAssociationVersionsCommandOutput) => void
   ): void;
 
@@ -2699,7 +2707,7 @@ export interface SSM {
   listCloudConnectors(): Promise<ListCloudConnectorsCommandOutput>;
   listCloudConnectors(
     args: ListCloudConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListCloudConnectorsCommandOutput>;
   listCloudConnectors(
     args: ListCloudConnectorsCommandInput,
@@ -2707,7 +2715,7 @@ export interface SSM {
   ): void;
   listCloudConnectors(
     args: ListCloudConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListCloudConnectorsCommandOutput) => void
   ): void;
 
@@ -2717,7 +2725,7 @@ export interface SSM {
   listCommandInvocations(): Promise<ListCommandInvocationsCommandOutput>;
   listCommandInvocations(
     args: ListCommandInvocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListCommandInvocationsCommandOutput>;
   listCommandInvocations(
     args: ListCommandInvocationsCommandInput,
@@ -2725,7 +2733,7 @@ export interface SSM {
   ): void;
   listCommandInvocations(
     args: ListCommandInvocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListCommandInvocationsCommandOutput) => void
   ): void;
 
@@ -2735,7 +2743,7 @@ export interface SSM {
   listCommands(): Promise<ListCommandsCommandOutput>;
   listCommands(
     args: ListCommandsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListCommandsCommandOutput>;
   listCommands(
     args: ListCommandsCommandInput,
@@ -2743,7 +2751,7 @@ export interface SSM {
   ): void;
   listCommands(
     args: ListCommandsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListCommandsCommandOutput) => void
   ): void;
 
@@ -2753,7 +2761,7 @@ export interface SSM {
   listComplianceItems(): Promise<ListComplianceItemsCommandOutput>;
   listComplianceItems(
     args: ListComplianceItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListComplianceItemsCommandOutput>;
   listComplianceItems(
     args: ListComplianceItemsCommandInput,
@@ -2761,7 +2769,7 @@ export interface SSM {
   ): void;
   listComplianceItems(
     args: ListComplianceItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListComplianceItemsCommandOutput) => void
   ): void;
 
@@ -2771,7 +2779,7 @@ export interface SSM {
   listComplianceSummaries(): Promise<ListComplianceSummariesCommandOutput>;
   listComplianceSummaries(
     args: ListComplianceSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListComplianceSummariesCommandOutput>;
   listComplianceSummaries(
     args: ListComplianceSummariesCommandInput,
@@ -2779,7 +2787,7 @@ export interface SSM {
   ): void;
   listComplianceSummaries(
     args: ListComplianceSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListComplianceSummariesCommandOutput) => void
   ): void;
 
@@ -2788,7 +2796,7 @@ export interface SSM {
    */
   listDocumentMetadataHistory(
     args: ListDocumentMetadataHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListDocumentMetadataHistoryCommandOutput>;
   listDocumentMetadataHistory(
     args: ListDocumentMetadataHistoryCommandInput,
@@ -2796,7 +2804,7 @@ export interface SSM {
   ): void;
   listDocumentMetadataHistory(
     args: ListDocumentMetadataHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListDocumentMetadataHistoryCommandOutput) => void
   ): void;
 
@@ -2806,7 +2814,7 @@ export interface SSM {
   listDocuments(): Promise<ListDocumentsCommandOutput>;
   listDocuments(
     args: ListDocumentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListDocumentsCommandOutput>;
   listDocuments(
     args: ListDocumentsCommandInput,
@@ -2814,7 +2822,7 @@ export interface SSM {
   ): void;
   listDocuments(
     args: ListDocumentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListDocumentsCommandOutput) => void
   ): void;
 
@@ -2823,7 +2831,7 @@ export interface SSM {
    */
   listDocumentVersions(
     args: ListDocumentVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListDocumentVersionsCommandOutput>;
   listDocumentVersions(
     args: ListDocumentVersionsCommandInput,
@@ -2831,7 +2839,7 @@ export interface SSM {
   ): void;
   listDocumentVersions(
     args: ListDocumentVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListDocumentVersionsCommandOutput) => void
   ): void;
 
@@ -2840,7 +2848,7 @@ export interface SSM {
    */
   listInventoryEntries(
     args: ListInventoryEntriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListInventoryEntriesCommandOutput>;
   listInventoryEntries(
     args: ListInventoryEntriesCommandInput,
@@ -2848,7 +2856,7 @@ export interface SSM {
   ): void;
   listInventoryEntries(
     args: ListInventoryEntriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListInventoryEntriesCommandOutput) => void
   ): void;
 
@@ -2858,7 +2866,7 @@ export interface SSM {
   listNodes(): Promise<ListNodesCommandOutput>;
   listNodes(
     args: ListNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListNodesCommandOutput>;
   listNodes(
     args: ListNodesCommandInput,
@@ -2866,7 +2874,7 @@ export interface SSM {
   ): void;
   listNodes(
     args: ListNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListNodesCommandOutput) => void
   ): void;
 
@@ -2875,7 +2883,7 @@ export interface SSM {
    */
   listNodesSummary(
     args: ListNodesSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListNodesSummaryCommandOutput>;
   listNodesSummary(
     args: ListNodesSummaryCommandInput,
@@ -2883,7 +2891,7 @@ export interface SSM {
   ): void;
   listNodesSummary(
     args: ListNodesSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListNodesSummaryCommandOutput) => void
   ): void;
 
@@ -2893,7 +2901,7 @@ export interface SSM {
   listOpsItemEvents(): Promise<ListOpsItemEventsCommandOutput>;
   listOpsItemEvents(
     args: ListOpsItemEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListOpsItemEventsCommandOutput>;
   listOpsItemEvents(
     args: ListOpsItemEventsCommandInput,
@@ -2901,7 +2909,7 @@ export interface SSM {
   ): void;
   listOpsItemEvents(
     args: ListOpsItemEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListOpsItemEventsCommandOutput) => void
   ): void;
 
@@ -2911,7 +2919,7 @@ export interface SSM {
   listOpsItemRelatedItems(): Promise<ListOpsItemRelatedItemsCommandOutput>;
   listOpsItemRelatedItems(
     args: ListOpsItemRelatedItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListOpsItemRelatedItemsCommandOutput>;
   listOpsItemRelatedItems(
     args: ListOpsItemRelatedItemsCommandInput,
@@ -2919,7 +2927,7 @@ export interface SSM {
   ): void;
   listOpsItemRelatedItems(
     args: ListOpsItemRelatedItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListOpsItemRelatedItemsCommandOutput) => void
   ): void;
 
@@ -2929,7 +2937,7 @@ export interface SSM {
   listOpsMetadata(): Promise<ListOpsMetadataCommandOutput>;
   listOpsMetadata(
     args: ListOpsMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListOpsMetadataCommandOutput>;
   listOpsMetadata(
     args: ListOpsMetadataCommandInput,
@@ -2937,7 +2945,7 @@ export interface SSM {
   ): void;
   listOpsMetadata(
     args: ListOpsMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListOpsMetadataCommandOutput) => void
   ): void;
 
@@ -2947,7 +2955,7 @@ export interface SSM {
   listResourceComplianceSummaries(): Promise<ListResourceComplianceSummariesCommandOutput>;
   listResourceComplianceSummaries(
     args: ListResourceComplianceSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListResourceComplianceSummariesCommandOutput>;
   listResourceComplianceSummaries(
     args: ListResourceComplianceSummariesCommandInput,
@@ -2955,7 +2963,7 @@ export interface SSM {
   ): void;
   listResourceComplianceSummaries(
     args: ListResourceComplianceSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListResourceComplianceSummariesCommandOutput) => void
   ): void;
 
@@ -2965,7 +2973,7 @@ export interface SSM {
   listResourceDataSync(): Promise<ListResourceDataSyncCommandOutput>;
   listResourceDataSync(
     args: ListResourceDataSyncCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListResourceDataSyncCommandOutput>;
   listResourceDataSync(
     args: ListResourceDataSyncCommandInput,
@@ -2973,7 +2981,7 @@ export interface SSM {
   ): void;
   listResourceDataSync(
     args: ListResourceDataSyncCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListResourceDataSyncCommandOutput) => void
   ): void;
 
@@ -2982,7 +2990,7 @@ export interface SSM {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2990,7 +2998,7 @@ export interface SSM {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -2999,7 +3007,7 @@ export interface SSM {
    */
   modifyDocumentPermission(
     args: ModifyDocumentPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ModifyDocumentPermissionCommandOutput>;
   modifyDocumentPermission(
     args: ModifyDocumentPermissionCommandInput,
@@ -3007,7 +3015,7 @@ export interface SSM {
   ): void;
   modifyDocumentPermission(
     args: ModifyDocumentPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ModifyDocumentPermissionCommandOutput) => void
   ): void;
 
@@ -3016,7 +3024,7 @@ export interface SSM {
    */
   putComplianceItems(
     args: PutComplianceItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<PutComplianceItemsCommandOutput>;
   putComplianceItems(
     args: PutComplianceItemsCommandInput,
@@ -3024,7 +3032,7 @@ export interface SSM {
   ): void;
   putComplianceItems(
     args: PutComplianceItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: PutComplianceItemsCommandOutput) => void
   ): void;
 
@@ -3033,7 +3041,7 @@ export interface SSM {
    */
   putInventory(
     args: PutInventoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<PutInventoryCommandOutput>;
   putInventory(
     args: PutInventoryCommandInput,
@@ -3041,7 +3049,7 @@ export interface SSM {
   ): void;
   putInventory(
     args: PutInventoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: PutInventoryCommandOutput) => void
   ): void;
 
@@ -3050,7 +3058,7 @@ export interface SSM {
    */
   putParameter(
     args: PutParameterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<PutParameterCommandOutput>;
   putParameter(
     args: PutParameterCommandInput,
@@ -3058,7 +3066,7 @@ export interface SSM {
   ): void;
   putParameter(
     args: PutParameterCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: PutParameterCommandOutput) => void
   ): void;
 
@@ -3067,7 +3075,7 @@ export interface SSM {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -3075,7 +3083,7 @@ export interface SSM {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -3084,7 +3092,7 @@ export interface SSM {
    */
   registerDefaultPatchBaseline(
     args: RegisterDefaultPatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<RegisterDefaultPatchBaselineCommandOutput>;
   registerDefaultPatchBaseline(
     args: RegisterDefaultPatchBaselineCommandInput,
@@ -3092,7 +3100,7 @@ export interface SSM {
   ): void;
   registerDefaultPatchBaseline(
     args: RegisterDefaultPatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: RegisterDefaultPatchBaselineCommandOutput) => void
   ): void;
 
@@ -3101,7 +3109,7 @@ export interface SSM {
    */
   registerPatchBaselineForPatchGroup(
     args: RegisterPatchBaselineForPatchGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<RegisterPatchBaselineForPatchGroupCommandOutput>;
   registerPatchBaselineForPatchGroup(
     args: RegisterPatchBaselineForPatchGroupCommandInput,
@@ -3109,7 +3117,7 @@ export interface SSM {
   ): void;
   registerPatchBaselineForPatchGroup(
     args: RegisterPatchBaselineForPatchGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: RegisterPatchBaselineForPatchGroupCommandOutput) => void
   ): void;
 
@@ -3118,7 +3126,7 @@ export interface SSM {
    */
   registerTargetWithMaintenanceWindow(
     args: RegisterTargetWithMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<RegisterTargetWithMaintenanceWindowCommandOutput>;
   registerTargetWithMaintenanceWindow(
     args: RegisterTargetWithMaintenanceWindowCommandInput,
@@ -3126,7 +3134,7 @@ export interface SSM {
   ): void;
   registerTargetWithMaintenanceWindow(
     args: RegisterTargetWithMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: RegisterTargetWithMaintenanceWindowCommandOutput) => void
   ): void;
 
@@ -3135,7 +3143,7 @@ export interface SSM {
    */
   registerTaskWithMaintenanceWindow(
     args: RegisterTaskWithMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<RegisterTaskWithMaintenanceWindowCommandOutput>;
   registerTaskWithMaintenanceWindow(
     args: RegisterTaskWithMaintenanceWindowCommandInput,
@@ -3143,7 +3151,7 @@ export interface SSM {
   ): void;
   registerTaskWithMaintenanceWindow(
     args: RegisterTaskWithMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: RegisterTaskWithMaintenanceWindowCommandOutput) => void
   ): void;
 
@@ -3152,7 +3160,7 @@ export interface SSM {
    */
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<RemoveTagsFromResourceCommandOutput>;
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -3160,7 +3168,7 @@ export interface SSM {
   ): void;
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): void;
 
@@ -3169,7 +3177,7 @@ export interface SSM {
    */
   resetServiceSetting(
     args: ResetServiceSettingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ResetServiceSettingCommandOutput>;
   resetServiceSetting(
     args: ResetServiceSettingCommandInput,
@@ -3177,7 +3185,7 @@ export interface SSM {
   ): void;
   resetServiceSetting(
     args: ResetServiceSettingCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ResetServiceSettingCommandOutput) => void
   ): void;
 
@@ -3186,7 +3194,7 @@ export interface SSM {
    */
   resumeSession(
     args: ResumeSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ResumeSessionCommandOutput>;
   resumeSession(
     args: ResumeSessionCommandInput,
@@ -3194,7 +3202,7 @@ export interface SSM {
   ): void;
   resumeSession(
     args: ResumeSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ResumeSessionCommandOutput) => void
   ): void;
 
@@ -3203,7 +3211,7 @@ export interface SSM {
    */
   sendAutomationSignal(
     args: SendAutomationSignalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<SendAutomationSignalCommandOutput>;
   sendAutomationSignal(
     args: SendAutomationSignalCommandInput,
@@ -3211,7 +3219,7 @@ export interface SSM {
   ): void;
   sendAutomationSignal(
     args: SendAutomationSignalCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: SendAutomationSignalCommandOutput) => void
   ): void;
 
@@ -3220,7 +3228,7 @@ export interface SSM {
    */
   sendCommand(
     args: SendCommandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<SendCommandCommandOutput>;
   sendCommand(
     args: SendCommandCommandInput,
@@ -3228,7 +3236,7 @@ export interface SSM {
   ): void;
   sendCommand(
     args: SendCommandCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: SendCommandCommandOutput) => void
   ): void;
 
@@ -3237,7 +3245,7 @@ export interface SSM {
    */
   startAccessRequest(
     args: StartAccessRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<StartAccessRequestCommandOutput>;
   startAccessRequest(
     args: StartAccessRequestCommandInput,
@@ -3245,7 +3253,7 @@ export interface SSM {
   ): void;
   startAccessRequest(
     args: StartAccessRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: StartAccessRequestCommandOutput) => void
   ): void;
 
@@ -3254,7 +3262,7 @@ export interface SSM {
    */
   startAssociationsOnce(
     args: StartAssociationsOnceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<StartAssociationsOnceCommandOutput>;
   startAssociationsOnce(
     args: StartAssociationsOnceCommandInput,
@@ -3262,7 +3270,7 @@ export interface SSM {
   ): void;
   startAssociationsOnce(
     args: StartAssociationsOnceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: StartAssociationsOnceCommandOutput) => void
   ): void;
 
@@ -3271,7 +3279,7 @@ export interface SSM {
    */
   startAutomationExecution(
     args: StartAutomationExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<StartAutomationExecutionCommandOutput>;
   startAutomationExecution(
     args: StartAutomationExecutionCommandInput,
@@ -3279,7 +3287,7 @@ export interface SSM {
   ): void;
   startAutomationExecution(
     args: StartAutomationExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: StartAutomationExecutionCommandOutput) => void
   ): void;
 
@@ -3288,7 +3296,7 @@ export interface SSM {
    */
   startChangeRequestExecution(
     args: StartChangeRequestExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<StartChangeRequestExecutionCommandOutput>;
   startChangeRequestExecution(
     args: StartChangeRequestExecutionCommandInput,
@@ -3296,7 +3304,7 @@ export interface SSM {
   ): void;
   startChangeRequestExecution(
     args: StartChangeRequestExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: StartChangeRequestExecutionCommandOutput) => void
   ): void;
 
@@ -3305,7 +3313,7 @@ export interface SSM {
    */
   startExecutionPreview(
     args: StartExecutionPreviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<StartExecutionPreviewCommandOutput>;
   startExecutionPreview(
     args: StartExecutionPreviewCommandInput,
@@ -3313,7 +3321,7 @@ export interface SSM {
   ): void;
   startExecutionPreview(
     args: StartExecutionPreviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: StartExecutionPreviewCommandOutput) => void
   ): void;
 
@@ -3322,7 +3330,7 @@ export interface SSM {
    */
   startSession(
     args: StartSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<StartSessionCommandOutput>;
   startSession(
     args: StartSessionCommandInput,
@@ -3330,7 +3338,7 @@ export interface SSM {
   ): void;
   startSession(
     args: StartSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: StartSessionCommandOutput) => void
   ): void;
 
@@ -3339,7 +3347,7 @@ export interface SSM {
    */
   stopAutomationExecution(
     args: StopAutomationExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<StopAutomationExecutionCommandOutput>;
   stopAutomationExecution(
     args: StopAutomationExecutionCommandInput,
@@ -3347,7 +3355,7 @@ export interface SSM {
   ): void;
   stopAutomationExecution(
     args: StopAutomationExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: StopAutomationExecutionCommandOutput) => void
   ): void;
 
@@ -3356,7 +3364,7 @@ export interface SSM {
    */
   terminateSession(
     args: TerminateSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<TerminateSessionCommandOutput>;
   terminateSession(
     args: TerminateSessionCommandInput,
@@ -3364,7 +3372,7 @@ export interface SSM {
   ): void;
   terminateSession(
     args: TerminateSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: TerminateSessionCommandOutput) => void
   ): void;
 
@@ -3373,7 +3381,7 @@ export interface SSM {
    */
   unlabelParameterVersion(
     args: UnlabelParameterVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UnlabelParameterVersionCommandOutput>;
   unlabelParameterVersion(
     args: UnlabelParameterVersionCommandInput,
@@ -3381,7 +3389,7 @@ export interface SSM {
   ): void;
   unlabelParameterVersion(
     args: UnlabelParameterVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UnlabelParameterVersionCommandOutput) => void
   ): void;
 
@@ -3390,7 +3398,7 @@ export interface SSM {
    */
   updateAssociation(
     args: UpdateAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateAssociationCommandOutput>;
   updateAssociation(
     args: UpdateAssociationCommandInput,
@@ -3398,7 +3406,7 @@ export interface SSM {
   ): void;
   updateAssociation(
     args: UpdateAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateAssociationCommandOutput) => void
   ): void;
 
@@ -3407,7 +3415,7 @@ export interface SSM {
    */
   updateAssociationStatus(
     args: UpdateAssociationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateAssociationStatusCommandOutput>;
   updateAssociationStatus(
     args: UpdateAssociationStatusCommandInput,
@@ -3415,7 +3423,7 @@ export interface SSM {
   ): void;
   updateAssociationStatus(
     args: UpdateAssociationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateAssociationStatusCommandOutput) => void
   ): void;
 
@@ -3424,7 +3432,7 @@ export interface SSM {
    */
   updateCloudConnector(
     args: UpdateCloudConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateCloudConnectorCommandOutput>;
   updateCloudConnector(
     args: UpdateCloudConnectorCommandInput,
@@ -3432,7 +3440,7 @@ export interface SSM {
   ): void;
   updateCloudConnector(
     args: UpdateCloudConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateCloudConnectorCommandOutput) => void
   ): void;
 
@@ -3441,7 +3449,7 @@ export interface SSM {
    */
   updateDocument(
     args: UpdateDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateDocumentCommandOutput>;
   updateDocument(
     args: UpdateDocumentCommandInput,
@@ -3449,7 +3457,7 @@ export interface SSM {
   ): void;
   updateDocument(
     args: UpdateDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateDocumentCommandOutput) => void
   ): void;
 
@@ -3458,7 +3466,7 @@ export interface SSM {
    */
   updateDocumentDefaultVersion(
     args: UpdateDocumentDefaultVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateDocumentDefaultVersionCommandOutput>;
   updateDocumentDefaultVersion(
     args: UpdateDocumentDefaultVersionCommandInput,
@@ -3466,7 +3474,7 @@ export interface SSM {
   ): void;
   updateDocumentDefaultVersion(
     args: UpdateDocumentDefaultVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateDocumentDefaultVersionCommandOutput) => void
   ): void;
 
@@ -3475,7 +3483,7 @@ export interface SSM {
    */
   updateDocumentMetadata(
     args: UpdateDocumentMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateDocumentMetadataCommandOutput>;
   updateDocumentMetadata(
     args: UpdateDocumentMetadataCommandInput,
@@ -3483,7 +3491,7 @@ export interface SSM {
   ): void;
   updateDocumentMetadata(
     args: UpdateDocumentMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateDocumentMetadataCommandOutput) => void
   ): void;
 
@@ -3492,7 +3500,7 @@ export interface SSM {
    */
   updateMaintenanceWindow(
     args: UpdateMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateMaintenanceWindowCommandOutput>;
   updateMaintenanceWindow(
     args: UpdateMaintenanceWindowCommandInput,
@@ -3500,7 +3508,7 @@ export interface SSM {
   ): void;
   updateMaintenanceWindow(
     args: UpdateMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateMaintenanceWindowCommandOutput) => void
   ): void;
 
@@ -3509,7 +3517,7 @@ export interface SSM {
    */
   updateMaintenanceWindowTarget(
     args: UpdateMaintenanceWindowTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateMaintenanceWindowTargetCommandOutput>;
   updateMaintenanceWindowTarget(
     args: UpdateMaintenanceWindowTargetCommandInput,
@@ -3517,7 +3525,7 @@ export interface SSM {
   ): void;
   updateMaintenanceWindowTarget(
     args: UpdateMaintenanceWindowTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateMaintenanceWindowTargetCommandOutput) => void
   ): void;
 
@@ -3526,7 +3534,7 @@ export interface SSM {
    */
   updateMaintenanceWindowTask(
     args: UpdateMaintenanceWindowTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateMaintenanceWindowTaskCommandOutput>;
   updateMaintenanceWindowTask(
     args: UpdateMaintenanceWindowTaskCommandInput,
@@ -3534,7 +3542,7 @@ export interface SSM {
   ): void;
   updateMaintenanceWindowTask(
     args: UpdateMaintenanceWindowTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateMaintenanceWindowTaskCommandOutput) => void
   ): void;
 
@@ -3543,7 +3551,7 @@ export interface SSM {
    */
   updateManagedInstanceRole(
     args: UpdateManagedInstanceRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateManagedInstanceRoleCommandOutput>;
   updateManagedInstanceRole(
     args: UpdateManagedInstanceRoleCommandInput,
@@ -3551,7 +3559,7 @@ export interface SSM {
   ): void;
   updateManagedInstanceRole(
     args: UpdateManagedInstanceRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateManagedInstanceRoleCommandOutput) => void
   ): void;
 
@@ -3560,7 +3568,7 @@ export interface SSM {
    */
   updateOpsItem(
     args: UpdateOpsItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateOpsItemCommandOutput>;
   updateOpsItem(
     args: UpdateOpsItemCommandInput,
@@ -3568,7 +3576,7 @@ export interface SSM {
   ): void;
   updateOpsItem(
     args: UpdateOpsItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateOpsItemCommandOutput) => void
   ): void;
 
@@ -3577,7 +3585,7 @@ export interface SSM {
    */
   updateOpsMetadata(
     args: UpdateOpsMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateOpsMetadataCommandOutput>;
   updateOpsMetadata(
     args: UpdateOpsMetadataCommandInput,
@@ -3585,7 +3593,7 @@ export interface SSM {
   ): void;
   updateOpsMetadata(
     args: UpdateOpsMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateOpsMetadataCommandOutput) => void
   ): void;
 
@@ -3594,7 +3602,7 @@ export interface SSM {
    */
   updatePatchBaseline(
     args: UpdatePatchBaselineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdatePatchBaselineCommandOutput>;
   updatePatchBaseline(
     args: UpdatePatchBaselineCommandInput,
@@ -3602,7 +3610,7 @@ export interface SSM {
   ): void;
   updatePatchBaseline(
     args: UpdatePatchBaselineCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdatePatchBaselineCommandOutput) => void
   ): void;
 
@@ -3611,7 +3619,7 @@ export interface SSM {
    */
   updateResourceDataSync(
     args: UpdateResourceDataSyncCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateResourceDataSyncCommandOutput>;
   updateResourceDataSync(
     args: UpdateResourceDataSyncCommandInput,
@@ -3619,7 +3627,7 @@ export interface SSM {
   ): void;
   updateResourceDataSync(
     args: UpdateResourceDataSyncCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateResourceDataSyncCommandOutput) => void
   ): void;
 
@@ -3628,7 +3636,7 @@ export interface SSM {
    */
   updateServiceSetting(
     args: UpdateServiceSettingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<UpdateServiceSettingCommandOutput>;
   updateServiceSetting(
     args: UpdateServiceSettingCommandInput,
@@ -3636,7 +3644,7 @@ export interface SSM {
   ): void;
   updateServiceSetting(
     args: UpdateServiceSettingCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: UpdateServiceSettingCommandOutput) => void
   ): void;
 
@@ -3645,7 +3653,7 @@ export interface SSM {
    */
   validateCloudConnector(
     args: ValidateCloudConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMRequestOptions
   ): Promise<ValidateCloudConnectorCommandOutput>;
   validateCloudConnector(
     args: ValidateCloudConnectorCommandInput,
@@ -3653,7 +3661,7 @@ export interface SSM {
   ): void;
   validateCloudConnector(
     args: ValidateCloudConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMRequestOptions,
     cb: (err: any, data?: ValidateCloudConnectorCommandOutput) => void
   ): void;
 

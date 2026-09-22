@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { AppConfigDataClient } from "./AppConfigDataClient";
 import {
@@ -19,13 +19,20 @@ const commands = {
   StartConfigurationSessionCommand,
 };
 
+/**
+ * @public
+ */
+export interface AppConfigDataRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface AppConfigData {
   /**
    * @see {@link GetLatestConfigurationCommand}
    */
   getLatestConfiguration(
     args: GetLatestConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppConfigDataRequestOptions
   ): Promise<GetLatestConfigurationCommandOutput>;
   getLatestConfiguration(
     args: GetLatestConfigurationCommandInput,
@@ -33,7 +40,7 @@ export interface AppConfigData {
   ): void;
   getLatestConfiguration(
     args: GetLatestConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppConfigDataRequestOptions,
     cb: (err: any, data?: GetLatestConfigurationCommandOutput) => void
   ): void;
 
@@ -42,7 +49,7 @@ export interface AppConfigData {
    */
   startConfigurationSession(
     args: StartConfigurationSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppConfigDataRequestOptions
   ): Promise<StartConfigurationSessionCommandOutput>;
   startConfigurationSession(
     args: StartConfigurationSessionCommandInput,
@@ -50,7 +57,7 @@ export interface AppConfigData {
   ): void;
   startConfigurationSession(
     args: StartConfigurationSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppConfigDataRequestOptions,
     cb: (err: any, data?: StartConfigurationSessionCommandOutput) => void
   ): void;
 }

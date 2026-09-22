@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ActivateEvaluationFormCommandInput,
@@ -2561,13 +2566,20 @@ const paginators = {
   paginateSearchWorkspaces,
 };
 
+/**
+ * @public
+ */
+export interface ConnectRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Connect {
   /**
    * @see {@link ActivateEvaluationFormCommand}
    */
   activateEvaluationForm(
     args: ActivateEvaluationFormCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ActivateEvaluationFormCommandOutput>;
   activateEvaluationForm(
     args: ActivateEvaluationFormCommandInput,
@@ -2575,7 +2587,7 @@ export interface Connect {
   ): void;
   activateEvaluationForm(
     args: ActivateEvaluationFormCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ActivateEvaluationFormCommandOutput) => void
   ): void;
 
@@ -2584,7 +2596,7 @@ export interface Connect {
    */
   associateAnalyticsDataSet(
     args: AssociateAnalyticsDataSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateAnalyticsDataSetCommandOutput>;
   associateAnalyticsDataSet(
     args: AssociateAnalyticsDataSetCommandInput,
@@ -2592,7 +2604,7 @@ export interface Connect {
   ): void;
   associateAnalyticsDataSet(
     args: AssociateAnalyticsDataSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateAnalyticsDataSetCommandOutput) => void
   ): void;
 
@@ -2601,7 +2613,7 @@ export interface Connect {
    */
   associateApprovedOrigin(
     args: AssociateApprovedOriginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateApprovedOriginCommandOutput>;
   associateApprovedOrigin(
     args: AssociateApprovedOriginCommandInput,
@@ -2609,7 +2621,7 @@ export interface Connect {
   ): void;
   associateApprovedOrigin(
     args: AssociateApprovedOriginCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateApprovedOriginCommandOutput) => void
   ): void;
 
@@ -2618,7 +2630,7 @@ export interface Connect {
    */
   associateBot(
     args: AssociateBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateBotCommandOutput>;
   associateBot(
     args: AssociateBotCommandInput,
@@ -2626,7 +2638,7 @@ export interface Connect {
   ): void;
   associateBot(
     args: AssociateBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateBotCommandOutput) => void
   ): void;
 
@@ -2635,7 +2647,7 @@ export interface Connect {
    */
   associateContactWithUser(
     args: AssociateContactWithUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateContactWithUserCommandOutput>;
   associateContactWithUser(
     args: AssociateContactWithUserCommandInput,
@@ -2643,7 +2655,7 @@ export interface Connect {
   ): void;
   associateContactWithUser(
     args: AssociateContactWithUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateContactWithUserCommandOutput) => void
   ): void;
 
@@ -2652,7 +2664,7 @@ export interface Connect {
    */
   associateDefaultVocabulary(
     args: AssociateDefaultVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateDefaultVocabularyCommandOutput>;
   associateDefaultVocabulary(
     args: AssociateDefaultVocabularyCommandInput,
@@ -2660,7 +2672,7 @@ export interface Connect {
   ): void;
   associateDefaultVocabulary(
     args: AssociateDefaultVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateDefaultVocabularyCommandOutput) => void
   ): void;
 
@@ -2669,7 +2681,7 @@ export interface Connect {
    */
   associateEmailAddressAlias(
     args: AssociateEmailAddressAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateEmailAddressAliasCommandOutput>;
   associateEmailAddressAlias(
     args: AssociateEmailAddressAliasCommandInput,
@@ -2677,7 +2689,7 @@ export interface Connect {
   ): void;
   associateEmailAddressAlias(
     args: AssociateEmailAddressAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateEmailAddressAliasCommandOutput) => void
   ): void;
 
@@ -2686,7 +2698,7 @@ export interface Connect {
    */
   associateFlow(
     args: AssociateFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateFlowCommandOutput>;
   associateFlow(
     args: AssociateFlowCommandInput,
@@ -2694,7 +2706,7 @@ export interface Connect {
   ): void;
   associateFlow(
     args: AssociateFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateFlowCommandOutput) => void
   ): void;
 
@@ -2703,7 +2715,7 @@ export interface Connect {
    */
   associateHoursOfOperations(
     args: AssociateHoursOfOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateHoursOfOperationsCommandOutput>;
   associateHoursOfOperations(
     args: AssociateHoursOfOperationsCommandInput,
@@ -2711,7 +2723,7 @@ export interface Connect {
   ): void;
   associateHoursOfOperations(
     args: AssociateHoursOfOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateHoursOfOperationsCommandOutput) => void
   ): void;
 
@@ -2720,7 +2732,7 @@ export interface Connect {
    */
   associateInstanceStorageConfig(
     args: AssociateInstanceStorageConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateInstanceStorageConfigCommandOutput>;
   associateInstanceStorageConfig(
     args: AssociateInstanceStorageConfigCommandInput,
@@ -2728,7 +2740,7 @@ export interface Connect {
   ): void;
   associateInstanceStorageConfig(
     args: AssociateInstanceStorageConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateInstanceStorageConfigCommandOutput) => void
   ): void;
 
@@ -2737,7 +2749,7 @@ export interface Connect {
    */
   associateLambdaFunction(
     args: AssociateLambdaFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateLambdaFunctionCommandOutput>;
   associateLambdaFunction(
     args: AssociateLambdaFunctionCommandInput,
@@ -2745,7 +2757,7 @@ export interface Connect {
   ): void;
   associateLambdaFunction(
     args: AssociateLambdaFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateLambdaFunctionCommandOutput) => void
   ): void;
 
@@ -2754,7 +2766,7 @@ export interface Connect {
    */
   associateLexBot(
     args: AssociateLexBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateLexBotCommandOutput>;
   associateLexBot(
     args: AssociateLexBotCommandInput,
@@ -2762,7 +2774,7 @@ export interface Connect {
   ): void;
   associateLexBot(
     args: AssociateLexBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateLexBotCommandOutput) => void
   ): void;
 
@@ -2771,7 +2783,7 @@ export interface Connect {
    */
   associatePhoneNumberContactFlow(
     args: AssociatePhoneNumberContactFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociatePhoneNumberContactFlowCommandOutput>;
   associatePhoneNumberContactFlow(
     args: AssociatePhoneNumberContactFlowCommandInput,
@@ -2779,7 +2791,7 @@ export interface Connect {
   ): void;
   associatePhoneNumberContactFlow(
     args: AssociatePhoneNumberContactFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociatePhoneNumberContactFlowCommandOutput) => void
   ): void;
 
@@ -2788,7 +2800,7 @@ export interface Connect {
    */
   associateQueueEmailAddresses(
     args: AssociateQueueEmailAddressesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateQueueEmailAddressesCommandOutput>;
   associateQueueEmailAddresses(
     args: AssociateQueueEmailAddressesCommandInput,
@@ -2796,7 +2808,7 @@ export interface Connect {
   ): void;
   associateQueueEmailAddresses(
     args: AssociateQueueEmailAddressesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateQueueEmailAddressesCommandOutput) => void
   ): void;
 
@@ -2805,7 +2817,7 @@ export interface Connect {
    */
   associateQueueQuickConnects(
     args: AssociateQueueQuickConnectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateQueueQuickConnectsCommandOutput>;
   associateQueueQuickConnects(
     args: AssociateQueueQuickConnectsCommandInput,
@@ -2813,7 +2825,7 @@ export interface Connect {
   ): void;
   associateQueueQuickConnects(
     args: AssociateQueueQuickConnectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateQueueQuickConnectsCommandOutput) => void
   ): void;
 
@@ -2822,7 +2834,7 @@ export interface Connect {
    */
   associateRoutingProfileQueues(
     args: AssociateRoutingProfileQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateRoutingProfileQueuesCommandOutput>;
   associateRoutingProfileQueues(
     args: AssociateRoutingProfileQueuesCommandInput,
@@ -2830,7 +2842,7 @@ export interface Connect {
   ): void;
   associateRoutingProfileQueues(
     args: AssociateRoutingProfileQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateRoutingProfileQueuesCommandOutput) => void
   ): void;
 
@@ -2839,7 +2851,7 @@ export interface Connect {
    */
   associateSecurityKey(
     args: AssociateSecurityKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateSecurityKeyCommandOutput>;
   associateSecurityKey(
     args: AssociateSecurityKeyCommandInput,
@@ -2847,7 +2859,7 @@ export interface Connect {
   ): void;
   associateSecurityKey(
     args: AssociateSecurityKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateSecurityKeyCommandOutput) => void
   ): void;
 
@@ -2856,7 +2868,7 @@ export interface Connect {
    */
   associateSecurityProfiles(
     args: AssociateSecurityProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateSecurityProfilesCommandOutput>;
   associateSecurityProfiles(
     args: AssociateSecurityProfilesCommandInput,
@@ -2864,7 +2876,7 @@ export interface Connect {
   ): void;
   associateSecurityProfiles(
     args: AssociateSecurityProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateSecurityProfilesCommandOutput) => void
   ): void;
 
@@ -2873,7 +2885,7 @@ export interface Connect {
    */
   associateTrafficDistributionGroupUser(
     args: AssociateTrafficDistributionGroupUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateTrafficDistributionGroupUserCommandOutput>;
   associateTrafficDistributionGroupUser(
     args: AssociateTrafficDistributionGroupUserCommandInput,
@@ -2881,7 +2893,7 @@ export interface Connect {
   ): void;
   associateTrafficDistributionGroupUser(
     args: AssociateTrafficDistributionGroupUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateTrafficDistributionGroupUserCommandOutput) => void
   ): void;
 
@@ -2890,7 +2902,7 @@ export interface Connect {
    */
   associateUserProficiencies(
     args: AssociateUserProficienciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateUserProficienciesCommandOutput>;
   associateUserProficiencies(
     args: AssociateUserProficienciesCommandInput,
@@ -2898,7 +2910,7 @@ export interface Connect {
   ): void;
   associateUserProficiencies(
     args: AssociateUserProficienciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateUserProficienciesCommandOutput) => void
   ): void;
 
@@ -2907,7 +2919,7 @@ export interface Connect {
    */
   associateWorkspace(
     args: AssociateWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<AssociateWorkspaceCommandOutput>;
   associateWorkspace(
     args: AssociateWorkspaceCommandInput,
@@ -2915,7 +2927,7 @@ export interface Connect {
   ): void;
   associateWorkspace(
     args: AssociateWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: AssociateWorkspaceCommandOutput) => void
   ): void;
 
@@ -2924,7 +2936,7 @@ export interface Connect {
    */
   batchAssociateAnalyticsDataSet(
     args: BatchAssociateAnalyticsDataSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<BatchAssociateAnalyticsDataSetCommandOutput>;
   batchAssociateAnalyticsDataSet(
     args: BatchAssociateAnalyticsDataSetCommandInput,
@@ -2932,7 +2944,7 @@ export interface Connect {
   ): void;
   batchAssociateAnalyticsDataSet(
     args: BatchAssociateAnalyticsDataSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: BatchAssociateAnalyticsDataSetCommandOutput) => void
   ): void;
 
@@ -2941,7 +2953,7 @@ export interface Connect {
    */
   batchCreateDataTableValue(
     args: BatchCreateDataTableValueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<BatchCreateDataTableValueCommandOutput>;
   batchCreateDataTableValue(
     args: BatchCreateDataTableValueCommandInput,
@@ -2949,7 +2961,7 @@ export interface Connect {
   ): void;
   batchCreateDataTableValue(
     args: BatchCreateDataTableValueCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: BatchCreateDataTableValueCommandOutput) => void
   ): void;
 
@@ -2958,7 +2970,7 @@ export interface Connect {
    */
   batchDeleteDataTableValue(
     args: BatchDeleteDataTableValueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<BatchDeleteDataTableValueCommandOutput>;
   batchDeleteDataTableValue(
     args: BatchDeleteDataTableValueCommandInput,
@@ -2966,7 +2978,7 @@ export interface Connect {
   ): void;
   batchDeleteDataTableValue(
     args: BatchDeleteDataTableValueCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: BatchDeleteDataTableValueCommandOutput) => void
   ): void;
 
@@ -2975,7 +2987,7 @@ export interface Connect {
    */
   batchDescribeDataTableValue(
     args: BatchDescribeDataTableValueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<BatchDescribeDataTableValueCommandOutput>;
   batchDescribeDataTableValue(
     args: BatchDescribeDataTableValueCommandInput,
@@ -2983,7 +2995,7 @@ export interface Connect {
   ): void;
   batchDescribeDataTableValue(
     args: BatchDescribeDataTableValueCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: BatchDescribeDataTableValueCommandOutput) => void
   ): void;
 
@@ -2992,7 +3004,7 @@ export interface Connect {
    */
   batchDisassociateAnalyticsDataSet(
     args: BatchDisassociateAnalyticsDataSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<BatchDisassociateAnalyticsDataSetCommandOutput>;
   batchDisassociateAnalyticsDataSet(
     args: BatchDisassociateAnalyticsDataSetCommandInput,
@@ -3000,7 +3012,7 @@ export interface Connect {
   ): void;
   batchDisassociateAnalyticsDataSet(
     args: BatchDisassociateAnalyticsDataSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: BatchDisassociateAnalyticsDataSetCommandOutput) => void
   ): void;
 
@@ -3009,7 +3021,7 @@ export interface Connect {
    */
   batchGetAttachedFileMetadata(
     args: BatchGetAttachedFileMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<BatchGetAttachedFileMetadataCommandOutput>;
   batchGetAttachedFileMetadata(
     args: BatchGetAttachedFileMetadataCommandInput,
@@ -3017,7 +3029,7 @@ export interface Connect {
   ): void;
   batchGetAttachedFileMetadata(
     args: BatchGetAttachedFileMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: BatchGetAttachedFileMetadataCommandOutput) => void
   ): void;
 
@@ -3026,7 +3038,7 @@ export interface Connect {
    */
   batchGetFlowAssociation(
     args: BatchGetFlowAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<BatchGetFlowAssociationCommandOutput>;
   batchGetFlowAssociation(
     args: BatchGetFlowAssociationCommandInput,
@@ -3034,7 +3046,7 @@ export interface Connect {
   ): void;
   batchGetFlowAssociation(
     args: BatchGetFlowAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: BatchGetFlowAssociationCommandOutput) => void
   ): void;
 
@@ -3043,7 +3055,7 @@ export interface Connect {
    */
   batchPutContact(
     args: BatchPutContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<BatchPutContactCommandOutput>;
   batchPutContact(
     args: BatchPutContactCommandInput,
@@ -3051,7 +3063,7 @@ export interface Connect {
   ): void;
   batchPutContact(
     args: BatchPutContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: BatchPutContactCommandOutput) => void
   ): void;
 
@@ -3060,7 +3072,7 @@ export interface Connect {
    */
   batchUpdateDataTableValue(
     args: BatchUpdateDataTableValueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<BatchUpdateDataTableValueCommandOutput>;
   batchUpdateDataTableValue(
     args: BatchUpdateDataTableValueCommandInput,
@@ -3068,7 +3080,7 @@ export interface Connect {
   ): void;
   batchUpdateDataTableValue(
     args: BatchUpdateDataTableValueCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: BatchUpdateDataTableValueCommandOutput) => void
   ): void;
 
@@ -3077,7 +3089,7 @@ export interface Connect {
    */
   claimPhoneNumber(
     args: ClaimPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ClaimPhoneNumberCommandOutput>;
   claimPhoneNumber(
     args: ClaimPhoneNumberCommandInput,
@@ -3085,7 +3097,7 @@ export interface Connect {
   ): void;
   claimPhoneNumber(
     args: ClaimPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ClaimPhoneNumberCommandOutput) => void
   ): void;
 
@@ -3094,7 +3106,7 @@ export interface Connect {
    */
   completeAttachedFileUpload(
     args: CompleteAttachedFileUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CompleteAttachedFileUploadCommandOutput>;
   completeAttachedFileUpload(
     args: CompleteAttachedFileUploadCommandInput,
@@ -3102,7 +3114,7 @@ export interface Connect {
   ): void;
   completeAttachedFileUpload(
     args: CompleteAttachedFileUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CompleteAttachedFileUploadCommandOutput) => void
   ): void;
 
@@ -3111,7 +3123,7 @@ export interface Connect {
    */
   createAgentStatus(
     args: CreateAgentStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateAgentStatusCommandOutput>;
   createAgentStatus(
     args: CreateAgentStatusCommandInput,
@@ -3119,7 +3131,7 @@ export interface Connect {
   ): void;
   createAgentStatus(
     args: CreateAgentStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateAgentStatusCommandOutput) => void
   ): void;
 
@@ -3128,7 +3140,7 @@ export interface Connect {
    */
   createAttachedFile(
     args: CreateAttachedFileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateAttachedFileCommandOutput>;
   createAttachedFile(
     args: CreateAttachedFileCommandInput,
@@ -3136,7 +3148,7 @@ export interface Connect {
   ): void;
   createAttachedFile(
     args: CreateAttachedFileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateAttachedFileCommandOutput) => void
   ): void;
 
@@ -3145,7 +3157,7 @@ export interface Connect {
    */
   createAuthCode(
     args: CreateAuthCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateAuthCodeCommandOutput>;
   createAuthCode(
     args: CreateAuthCodeCommandInput,
@@ -3153,7 +3165,7 @@ export interface Connect {
   ): void;
   createAuthCode(
     args: CreateAuthCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateAuthCodeCommandOutput) => void
   ): void;
 
@@ -3162,7 +3174,7 @@ export interface Connect {
    */
   createContact(
     args: CreateContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateContactCommandOutput>;
   createContact(
     args: CreateContactCommandInput,
@@ -3170,7 +3182,7 @@ export interface Connect {
   ): void;
   createContact(
     args: CreateContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateContactCommandOutput) => void
   ): void;
 
@@ -3179,7 +3191,7 @@ export interface Connect {
    */
   createContactFlow(
     args: CreateContactFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateContactFlowCommandOutput>;
   createContactFlow(
     args: CreateContactFlowCommandInput,
@@ -3187,7 +3199,7 @@ export interface Connect {
   ): void;
   createContactFlow(
     args: CreateContactFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateContactFlowCommandOutput) => void
   ): void;
 
@@ -3196,7 +3208,7 @@ export interface Connect {
    */
   createContactFlowModule(
     args: CreateContactFlowModuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateContactFlowModuleCommandOutput>;
   createContactFlowModule(
     args: CreateContactFlowModuleCommandInput,
@@ -3204,7 +3216,7 @@ export interface Connect {
   ): void;
   createContactFlowModule(
     args: CreateContactFlowModuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateContactFlowModuleCommandOutput) => void
   ): void;
 
@@ -3213,7 +3225,7 @@ export interface Connect {
    */
   createContactFlowModuleAlias(
     args: CreateContactFlowModuleAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateContactFlowModuleAliasCommandOutput>;
   createContactFlowModuleAlias(
     args: CreateContactFlowModuleAliasCommandInput,
@@ -3221,7 +3233,7 @@ export interface Connect {
   ): void;
   createContactFlowModuleAlias(
     args: CreateContactFlowModuleAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateContactFlowModuleAliasCommandOutput) => void
   ): void;
 
@@ -3230,7 +3242,7 @@ export interface Connect {
    */
   createContactFlowModuleVersion(
     args: CreateContactFlowModuleVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateContactFlowModuleVersionCommandOutput>;
   createContactFlowModuleVersion(
     args: CreateContactFlowModuleVersionCommandInput,
@@ -3238,7 +3250,7 @@ export interface Connect {
   ): void;
   createContactFlowModuleVersion(
     args: CreateContactFlowModuleVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateContactFlowModuleVersionCommandOutput) => void
   ): void;
 
@@ -3247,7 +3259,7 @@ export interface Connect {
    */
   createContactFlowVersion(
     args: CreateContactFlowVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateContactFlowVersionCommandOutput>;
   createContactFlowVersion(
     args: CreateContactFlowVersionCommandInput,
@@ -3255,7 +3267,7 @@ export interface Connect {
   ): void;
   createContactFlowVersion(
     args: CreateContactFlowVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateContactFlowVersionCommandOutput) => void
   ): void;
 
@@ -3264,7 +3276,7 @@ export interface Connect {
    */
   createDataTable(
     args: CreateDataTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateDataTableCommandOutput>;
   createDataTable(
     args: CreateDataTableCommandInput,
@@ -3272,7 +3284,7 @@ export interface Connect {
   ): void;
   createDataTable(
     args: CreateDataTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateDataTableCommandOutput) => void
   ): void;
 
@@ -3281,7 +3293,7 @@ export interface Connect {
    */
   createDataTableAttribute(
     args: CreateDataTableAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateDataTableAttributeCommandOutput>;
   createDataTableAttribute(
     args: CreateDataTableAttributeCommandInput,
@@ -3289,7 +3301,7 @@ export interface Connect {
   ): void;
   createDataTableAttribute(
     args: CreateDataTableAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateDataTableAttributeCommandOutput) => void
   ): void;
 
@@ -3298,7 +3310,7 @@ export interface Connect {
    */
   createEmailAddress(
     args: CreateEmailAddressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateEmailAddressCommandOutput>;
   createEmailAddress(
     args: CreateEmailAddressCommandInput,
@@ -3306,7 +3318,7 @@ export interface Connect {
   ): void;
   createEmailAddress(
     args: CreateEmailAddressCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateEmailAddressCommandOutput) => void
   ): void;
 
@@ -3315,7 +3327,7 @@ export interface Connect {
    */
   createEvaluationForm(
     args: CreateEvaluationFormCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateEvaluationFormCommandOutput>;
   createEvaluationForm(
     args: CreateEvaluationFormCommandInput,
@@ -3323,7 +3335,7 @@ export interface Connect {
   ): void;
   createEvaluationForm(
     args: CreateEvaluationFormCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateEvaluationFormCommandOutput) => void
   ): void;
 
@@ -3332,7 +3344,7 @@ export interface Connect {
    */
   createExtractionDefinition(
     args: CreateExtractionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateExtractionDefinitionCommandOutput>;
   createExtractionDefinition(
     args: CreateExtractionDefinitionCommandInput,
@@ -3340,7 +3352,7 @@ export interface Connect {
   ): void;
   createExtractionDefinition(
     args: CreateExtractionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateExtractionDefinitionCommandOutput) => void
   ): void;
 
@@ -3349,7 +3361,7 @@ export interface Connect {
    */
   createHoursOfOperation(
     args: CreateHoursOfOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateHoursOfOperationCommandOutput>;
   createHoursOfOperation(
     args: CreateHoursOfOperationCommandInput,
@@ -3357,7 +3369,7 @@ export interface Connect {
   ): void;
   createHoursOfOperation(
     args: CreateHoursOfOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateHoursOfOperationCommandOutput) => void
   ): void;
 
@@ -3366,7 +3378,7 @@ export interface Connect {
    */
   createHoursOfOperationOverride(
     args: CreateHoursOfOperationOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateHoursOfOperationOverrideCommandOutput>;
   createHoursOfOperationOverride(
     args: CreateHoursOfOperationOverrideCommandInput,
@@ -3374,7 +3386,7 @@ export interface Connect {
   ): void;
   createHoursOfOperationOverride(
     args: CreateHoursOfOperationOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateHoursOfOperationOverrideCommandOutput) => void
   ): void;
 
@@ -3383,7 +3395,7 @@ export interface Connect {
    */
   createInstance(
     args: CreateInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateInstanceCommandOutput>;
   createInstance(
     args: CreateInstanceCommandInput,
@@ -3391,7 +3403,7 @@ export interface Connect {
   ): void;
   createInstance(
     args: CreateInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateInstanceCommandOutput) => void
   ): void;
 
@@ -3400,7 +3412,7 @@ export interface Connect {
    */
   createIntegrationAssociation(
     args: CreateIntegrationAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateIntegrationAssociationCommandOutput>;
   createIntegrationAssociation(
     args: CreateIntegrationAssociationCommandInput,
@@ -3408,7 +3420,7 @@ export interface Connect {
   ): void;
   createIntegrationAssociation(
     args: CreateIntegrationAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateIntegrationAssociationCommandOutput) => void
   ): void;
 
@@ -3417,7 +3429,7 @@ export interface Connect {
    */
   createMetric(
     args: CreateMetricCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateMetricCommandOutput>;
   createMetric(
     args: CreateMetricCommandInput,
@@ -3425,7 +3437,7 @@ export interface Connect {
   ): void;
   createMetric(
     args: CreateMetricCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateMetricCommandOutput) => void
   ): void;
 
@@ -3434,7 +3446,7 @@ export interface Connect {
    */
   createNotification(
     args: CreateNotificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateNotificationCommandOutput>;
   createNotification(
     args: CreateNotificationCommandInput,
@@ -3442,7 +3454,7 @@ export interface Connect {
   ): void;
   createNotification(
     args: CreateNotificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateNotificationCommandOutput) => void
   ): void;
 
@@ -3451,7 +3463,7 @@ export interface Connect {
    */
   createParticipant(
     args: CreateParticipantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateParticipantCommandOutput>;
   createParticipant(
     args: CreateParticipantCommandInput,
@@ -3459,7 +3471,7 @@ export interface Connect {
   ): void;
   createParticipant(
     args: CreateParticipantCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateParticipantCommandOutput) => void
   ): void;
 
@@ -3468,7 +3480,7 @@ export interface Connect {
    */
   createPersistentContactAssociation(
     args: CreatePersistentContactAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreatePersistentContactAssociationCommandOutput>;
   createPersistentContactAssociation(
     args: CreatePersistentContactAssociationCommandInput,
@@ -3476,7 +3488,7 @@ export interface Connect {
   ): void;
   createPersistentContactAssociation(
     args: CreatePersistentContactAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreatePersistentContactAssociationCommandOutput) => void
   ): void;
 
@@ -3485,7 +3497,7 @@ export interface Connect {
    */
   createPredefinedAttribute(
     args: CreatePredefinedAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreatePredefinedAttributeCommandOutput>;
   createPredefinedAttribute(
     args: CreatePredefinedAttributeCommandInput,
@@ -3493,7 +3505,7 @@ export interface Connect {
   ): void;
   createPredefinedAttribute(
     args: CreatePredefinedAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreatePredefinedAttributeCommandOutput) => void
   ): void;
 
@@ -3502,7 +3514,7 @@ export interface Connect {
    */
   createPrompt(
     args: CreatePromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreatePromptCommandOutput>;
   createPrompt(
     args: CreatePromptCommandInput,
@@ -3510,7 +3522,7 @@ export interface Connect {
   ): void;
   createPrompt(
     args: CreatePromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreatePromptCommandOutput) => void
   ): void;
 
@@ -3519,7 +3531,7 @@ export interface Connect {
    */
   createPushNotificationRegistration(
     args: CreatePushNotificationRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreatePushNotificationRegistrationCommandOutput>;
   createPushNotificationRegistration(
     args: CreatePushNotificationRegistrationCommandInput,
@@ -3527,7 +3539,7 @@ export interface Connect {
   ): void;
   createPushNotificationRegistration(
     args: CreatePushNotificationRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreatePushNotificationRegistrationCommandOutput) => void
   ): void;
 
@@ -3536,7 +3548,7 @@ export interface Connect {
    */
   createQueue(
     args: CreateQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateQueueCommandOutput>;
   createQueue(
     args: CreateQueueCommandInput,
@@ -3544,7 +3556,7 @@ export interface Connect {
   ): void;
   createQueue(
     args: CreateQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateQueueCommandOutput) => void
   ): void;
 
@@ -3553,7 +3565,7 @@ export interface Connect {
    */
   createQuickConnect(
     args: CreateQuickConnectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateQuickConnectCommandOutput>;
   createQuickConnect(
     args: CreateQuickConnectCommandInput,
@@ -3561,7 +3573,7 @@ export interface Connect {
   ): void;
   createQuickConnect(
     args: CreateQuickConnectCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateQuickConnectCommandOutput) => void
   ): void;
 
@@ -3570,7 +3582,7 @@ export interface Connect {
    */
   createRoutingProfile(
     args: CreateRoutingProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateRoutingProfileCommandOutput>;
   createRoutingProfile(
     args: CreateRoutingProfileCommandInput,
@@ -3578,7 +3590,7 @@ export interface Connect {
   ): void;
   createRoutingProfile(
     args: CreateRoutingProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateRoutingProfileCommandOutput) => void
   ): void;
 
@@ -3587,7 +3599,7 @@ export interface Connect {
    */
   createRule(
     args: CreateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateRuleCommandOutput>;
   createRule(
     args: CreateRuleCommandInput,
@@ -3595,7 +3607,7 @@ export interface Connect {
   ): void;
   createRule(
     args: CreateRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateRuleCommandOutput) => void
   ): void;
 
@@ -3604,7 +3616,7 @@ export interface Connect {
    */
   createSecurityProfile(
     args: CreateSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateSecurityProfileCommandOutput>;
   createSecurityProfile(
     args: CreateSecurityProfileCommandInput,
@@ -3612,7 +3624,7 @@ export interface Connect {
   ): void;
   createSecurityProfile(
     args: CreateSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateSecurityProfileCommandOutput) => void
   ): void;
 
@@ -3621,7 +3633,7 @@ export interface Connect {
    */
   createTaskTemplate(
     args: CreateTaskTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateTaskTemplateCommandOutput>;
   createTaskTemplate(
     args: CreateTaskTemplateCommandInput,
@@ -3629,7 +3641,7 @@ export interface Connect {
   ): void;
   createTaskTemplate(
     args: CreateTaskTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateTaskTemplateCommandOutput) => void
   ): void;
 
@@ -3638,7 +3650,7 @@ export interface Connect {
    */
   createTestCase(
     args: CreateTestCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateTestCaseCommandOutput>;
   createTestCase(
     args: CreateTestCaseCommandInput,
@@ -3646,7 +3658,7 @@ export interface Connect {
   ): void;
   createTestCase(
     args: CreateTestCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateTestCaseCommandOutput) => void
   ): void;
 
@@ -3655,7 +3667,7 @@ export interface Connect {
    */
   createTrafficDistributionGroup(
     args: CreateTrafficDistributionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateTrafficDistributionGroupCommandOutput>;
   createTrafficDistributionGroup(
     args: CreateTrafficDistributionGroupCommandInput,
@@ -3663,7 +3675,7 @@ export interface Connect {
   ): void;
   createTrafficDistributionGroup(
     args: CreateTrafficDistributionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateTrafficDistributionGroupCommandOutput) => void
   ): void;
 
@@ -3672,7 +3684,7 @@ export interface Connect {
    */
   createUseCase(
     args: CreateUseCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateUseCaseCommandOutput>;
   createUseCase(
     args: CreateUseCaseCommandInput,
@@ -3680,7 +3692,7 @@ export interface Connect {
   ): void;
   createUseCase(
     args: CreateUseCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateUseCaseCommandOutput) => void
   ): void;
 
@@ -3689,7 +3701,7 @@ export interface Connect {
    */
   createUser(
     args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateUserCommandOutput>;
   createUser(
     args: CreateUserCommandInput,
@@ -3697,7 +3709,7 @@ export interface Connect {
   ): void;
   createUser(
     args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateUserCommandOutput) => void
   ): void;
 
@@ -3706,7 +3718,7 @@ export interface Connect {
    */
   createUserHierarchyGroup(
     args: CreateUserHierarchyGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateUserHierarchyGroupCommandOutput>;
   createUserHierarchyGroup(
     args: CreateUserHierarchyGroupCommandInput,
@@ -3714,7 +3726,7 @@ export interface Connect {
   ): void;
   createUserHierarchyGroup(
     args: CreateUserHierarchyGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateUserHierarchyGroupCommandOutput) => void
   ): void;
 
@@ -3723,7 +3735,7 @@ export interface Connect {
    */
   createView(
     args: CreateViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateViewCommandOutput>;
   createView(
     args: CreateViewCommandInput,
@@ -3731,7 +3743,7 @@ export interface Connect {
   ): void;
   createView(
     args: CreateViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateViewCommandOutput) => void
   ): void;
 
@@ -3740,7 +3752,7 @@ export interface Connect {
    */
   createViewVersion(
     args: CreateViewVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateViewVersionCommandOutput>;
   createViewVersion(
     args: CreateViewVersionCommandInput,
@@ -3748,7 +3760,7 @@ export interface Connect {
   ): void;
   createViewVersion(
     args: CreateViewVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateViewVersionCommandOutput) => void
   ): void;
 
@@ -3757,7 +3769,7 @@ export interface Connect {
    */
   createVocabulary(
     args: CreateVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateVocabularyCommandOutput>;
   createVocabulary(
     args: CreateVocabularyCommandInput,
@@ -3765,7 +3777,7 @@ export interface Connect {
   ): void;
   createVocabulary(
     args: CreateVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateVocabularyCommandOutput) => void
   ): void;
 
@@ -3774,7 +3786,7 @@ export interface Connect {
    */
   createWorkspace(
     args: CreateWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateWorkspaceCommandOutput>;
   createWorkspace(
     args: CreateWorkspaceCommandInput,
@@ -3782,7 +3794,7 @@ export interface Connect {
   ): void;
   createWorkspace(
     args: CreateWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateWorkspaceCommandOutput) => void
   ): void;
 
@@ -3791,7 +3803,7 @@ export interface Connect {
    */
   createWorkspacePage(
     args: CreateWorkspacePageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<CreateWorkspacePageCommandOutput>;
   createWorkspacePage(
     args: CreateWorkspacePageCommandInput,
@@ -3799,7 +3811,7 @@ export interface Connect {
   ): void;
   createWorkspacePage(
     args: CreateWorkspacePageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: CreateWorkspacePageCommandOutput) => void
   ): void;
 
@@ -3808,7 +3820,7 @@ export interface Connect {
    */
   deactivateEvaluationForm(
     args: DeactivateEvaluationFormCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeactivateEvaluationFormCommandOutput>;
   deactivateEvaluationForm(
     args: DeactivateEvaluationFormCommandInput,
@@ -3816,7 +3828,7 @@ export interface Connect {
   ): void;
   deactivateEvaluationForm(
     args: DeactivateEvaluationFormCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeactivateEvaluationFormCommandOutput) => void
   ): void;
 
@@ -3825,7 +3837,7 @@ export interface Connect {
    */
   deleteAttachedFile(
     args: DeleteAttachedFileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteAttachedFileCommandOutput>;
   deleteAttachedFile(
     args: DeleteAttachedFileCommandInput,
@@ -3833,7 +3845,7 @@ export interface Connect {
   ): void;
   deleteAttachedFile(
     args: DeleteAttachedFileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteAttachedFileCommandOutput) => void
   ): void;
 
@@ -3842,7 +3854,7 @@ export interface Connect {
    */
   deleteContactData(
     args: DeleteContactDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteContactDataCommandOutput>;
   deleteContactData(
     args: DeleteContactDataCommandInput,
@@ -3850,7 +3862,7 @@ export interface Connect {
   ): void;
   deleteContactData(
     args: DeleteContactDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteContactDataCommandOutput) => void
   ): void;
 
@@ -3859,7 +3871,7 @@ export interface Connect {
    */
   deleteContactEvaluation(
     args: DeleteContactEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteContactEvaluationCommandOutput>;
   deleteContactEvaluation(
     args: DeleteContactEvaluationCommandInput,
@@ -3867,7 +3879,7 @@ export interface Connect {
   ): void;
   deleteContactEvaluation(
     args: DeleteContactEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteContactEvaluationCommandOutput) => void
   ): void;
 
@@ -3876,7 +3888,7 @@ export interface Connect {
    */
   deleteContactFlow(
     args: DeleteContactFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteContactFlowCommandOutput>;
   deleteContactFlow(
     args: DeleteContactFlowCommandInput,
@@ -3884,7 +3896,7 @@ export interface Connect {
   ): void;
   deleteContactFlow(
     args: DeleteContactFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteContactFlowCommandOutput) => void
   ): void;
 
@@ -3893,7 +3905,7 @@ export interface Connect {
    */
   deleteContactFlowModule(
     args: DeleteContactFlowModuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteContactFlowModuleCommandOutput>;
   deleteContactFlowModule(
     args: DeleteContactFlowModuleCommandInput,
@@ -3901,7 +3913,7 @@ export interface Connect {
   ): void;
   deleteContactFlowModule(
     args: DeleteContactFlowModuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteContactFlowModuleCommandOutput) => void
   ): void;
 
@@ -3910,7 +3922,7 @@ export interface Connect {
    */
   deleteContactFlowModuleAlias(
     args: DeleteContactFlowModuleAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteContactFlowModuleAliasCommandOutput>;
   deleteContactFlowModuleAlias(
     args: DeleteContactFlowModuleAliasCommandInput,
@@ -3918,7 +3930,7 @@ export interface Connect {
   ): void;
   deleteContactFlowModuleAlias(
     args: DeleteContactFlowModuleAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteContactFlowModuleAliasCommandOutput) => void
   ): void;
 
@@ -3927,7 +3939,7 @@ export interface Connect {
    */
   deleteContactFlowModuleVersion(
     args: DeleteContactFlowModuleVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteContactFlowModuleVersionCommandOutput>;
   deleteContactFlowModuleVersion(
     args: DeleteContactFlowModuleVersionCommandInput,
@@ -3935,7 +3947,7 @@ export interface Connect {
   ): void;
   deleteContactFlowModuleVersion(
     args: DeleteContactFlowModuleVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteContactFlowModuleVersionCommandOutput) => void
   ): void;
 
@@ -3944,7 +3956,7 @@ export interface Connect {
    */
   deleteContactFlowVersion(
     args: DeleteContactFlowVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteContactFlowVersionCommandOutput>;
   deleteContactFlowVersion(
     args: DeleteContactFlowVersionCommandInput,
@@ -3952,7 +3964,7 @@ export interface Connect {
   ): void;
   deleteContactFlowVersion(
     args: DeleteContactFlowVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteContactFlowVersionCommandOutput) => void
   ): void;
 
@@ -3961,7 +3973,7 @@ export interface Connect {
    */
   deleteDataTable(
     args: DeleteDataTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteDataTableCommandOutput>;
   deleteDataTable(
     args: DeleteDataTableCommandInput,
@@ -3969,7 +3981,7 @@ export interface Connect {
   ): void;
   deleteDataTable(
     args: DeleteDataTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteDataTableCommandOutput) => void
   ): void;
 
@@ -3978,7 +3990,7 @@ export interface Connect {
    */
   deleteDataTableAttribute(
     args: DeleteDataTableAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteDataTableAttributeCommandOutput>;
   deleteDataTableAttribute(
     args: DeleteDataTableAttributeCommandInput,
@@ -3986,7 +3998,7 @@ export interface Connect {
   ): void;
   deleteDataTableAttribute(
     args: DeleteDataTableAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteDataTableAttributeCommandOutput) => void
   ): void;
 
@@ -3995,7 +4007,7 @@ export interface Connect {
    */
   deleteEmailAddress(
     args: DeleteEmailAddressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteEmailAddressCommandOutput>;
   deleteEmailAddress(
     args: DeleteEmailAddressCommandInput,
@@ -4003,7 +4015,7 @@ export interface Connect {
   ): void;
   deleteEmailAddress(
     args: DeleteEmailAddressCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteEmailAddressCommandOutput) => void
   ): void;
 
@@ -4012,7 +4024,7 @@ export interface Connect {
    */
   deleteEvaluationForm(
     args: DeleteEvaluationFormCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteEvaluationFormCommandOutput>;
   deleteEvaluationForm(
     args: DeleteEvaluationFormCommandInput,
@@ -4020,7 +4032,7 @@ export interface Connect {
   ): void;
   deleteEvaluationForm(
     args: DeleteEvaluationFormCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteEvaluationFormCommandOutput) => void
   ): void;
 
@@ -4029,7 +4041,7 @@ export interface Connect {
    */
   deleteExtractionDefinition(
     args: DeleteExtractionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteExtractionDefinitionCommandOutput>;
   deleteExtractionDefinition(
     args: DeleteExtractionDefinitionCommandInput,
@@ -4037,7 +4049,7 @@ export interface Connect {
   ): void;
   deleteExtractionDefinition(
     args: DeleteExtractionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteExtractionDefinitionCommandOutput) => void
   ): void;
 
@@ -4046,7 +4058,7 @@ export interface Connect {
    */
   deleteHoursOfOperation(
     args: DeleteHoursOfOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteHoursOfOperationCommandOutput>;
   deleteHoursOfOperation(
     args: DeleteHoursOfOperationCommandInput,
@@ -4054,7 +4066,7 @@ export interface Connect {
   ): void;
   deleteHoursOfOperation(
     args: DeleteHoursOfOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteHoursOfOperationCommandOutput) => void
   ): void;
 
@@ -4063,7 +4075,7 @@ export interface Connect {
    */
   deleteHoursOfOperationOverride(
     args: DeleteHoursOfOperationOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteHoursOfOperationOverrideCommandOutput>;
   deleteHoursOfOperationOverride(
     args: DeleteHoursOfOperationOverrideCommandInput,
@@ -4071,7 +4083,7 @@ export interface Connect {
   ): void;
   deleteHoursOfOperationOverride(
     args: DeleteHoursOfOperationOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteHoursOfOperationOverrideCommandOutput) => void
   ): void;
 
@@ -4080,7 +4092,7 @@ export interface Connect {
    */
   deleteInstance(
     args: DeleteInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteInstanceCommandOutput>;
   deleteInstance(
     args: DeleteInstanceCommandInput,
@@ -4088,7 +4100,7 @@ export interface Connect {
   ): void;
   deleteInstance(
     args: DeleteInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteInstanceCommandOutput) => void
   ): void;
 
@@ -4097,7 +4109,7 @@ export interface Connect {
    */
   deleteIntegrationAssociation(
     args: DeleteIntegrationAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteIntegrationAssociationCommandOutput>;
   deleteIntegrationAssociation(
     args: DeleteIntegrationAssociationCommandInput,
@@ -4105,7 +4117,7 @@ export interface Connect {
   ): void;
   deleteIntegrationAssociation(
     args: DeleteIntegrationAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteIntegrationAssociationCommandOutput) => void
   ): void;
 
@@ -4114,7 +4126,7 @@ export interface Connect {
    */
   deleteMetric(
     args: DeleteMetricCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteMetricCommandOutput>;
   deleteMetric(
     args: DeleteMetricCommandInput,
@@ -4122,7 +4134,7 @@ export interface Connect {
   ): void;
   deleteMetric(
     args: DeleteMetricCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteMetricCommandOutput) => void
   ): void;
 
@@ -4131,7 +4143,7 @@ export interface Connect {
    */
   deleteNotification(
     args: DeleteNotificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteNotificationCommandOutput>;
   deleteNotification(
     args: DeleteNotificationCommandInput,
@@ -4139,7 +4151,7 @@ export interface Connect {
   ): void;
   deleteNotification(
     args: DeleteNotificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteNotificationCommandOutput) => void
   ): void;
 
@@ -4148,7 +4160,7 @@ export interface Connect {
    */
   deletePredefinedAttribute(
     args: DeletePredefinedAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeletePredefinedAttributeCommandOutput>;
   deletePredefinedAttribute(
     args: DeletePredefinedAttributeCommandInput,
@@ -4156,7 +4168,7 @@ export interface Connect {
   ): void;
   deletePredefinedAttribute(
     args: DeletePredefinedAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeletePredefinedAttributeCommandOutput) => void
   ): void;
 
@@ -4165,7 +4177,7 @@ export interface Connect {
    */
   deletePrompt(
     args: DeletePromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeletePromptCommandOutput>;
   deletePrompt(
     args: DeletePromptCommandInput,
@@ -4173,7 +4185,7 @@ export interface Connect {
   ): void;
   deletePrompt(
     args: DeletePromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeletePromptCommandOutput) => void
   ): void;
 
@@ -4182,7 +4194,7 @@ export interface Connect {
    */
   deletePushNotificationRegistration(
     args: DeletePushNotificationRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeletePushNotificationRegistrationCommandOutput>;
   deletePushNotificationRegistration(
     args: DeletePushNotificationRegistrationCommandInput,
@@ -4190,7 +4202,7 @@ export interface Connect {
   ): void;
   deletePushNotificationRegistration(
     args: DeletePushNotificationRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeletePushNotificationRegistrationCommandOutput) => void
   ): void;
 
@@ -4199,7 +4211,7 @@ export interface Connect {
    */
   deleteQueue(
     args: DeleteQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteQueueCommandOutput>;
   deleteQueue(
     args: DeleteQueueCommandInput,
@@ -4207,7 +4219,7 @@ export interface Connect {
   ): void;
   deleteQueue(
     args: DeleteQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteQueueCommandOutput) => void
   ): void;
 
@@ -4216,7 +4228,7 @@ export interface Connect {
    */
   deleteQuickConnect(
     args: DeleteQuickConnectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteQuickConnectCommandOutput>;
   deleteQuickConnect(
     args: DeleteQuickConnectCommandInput,
@@ -4224,7 +4236,7 @@ export interface Connect {
   ): void;
   deleteQuickConnect(
     args: DeleteQuickConnectCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteQuickConnectCommandOutput) => void
   ): void;
 
@@ -4233,7 +4245,7 @@ export interface Connect {
    */
   deleteRoutingProfile(
     args: DeleteRoutingProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteRoutingProfileCommandOutput>;
   deleteRoutingProfile(
     args: DeleteRoutingProfileCommandInput,
@@ -4241,7 +4253,7 @@ export interface Connect {
   ): void;
   deleteRoutingProfile(
     args: DeleteRoutingProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteRoutingProfileCommandOutput) => void
   ): void;
 
@@ -4250,7 +4262,7 @@ export interface Connect {
    */
   deleteRule(
     args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteRuleCommandOutput>;
   deleteRule(
     args: DeleteRuleCommandInput,
@@ -4258,7 +4270,7 @@ export interface Connect {
   ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteRuleCommandOutput) => void
   ): void;
 
@@ -4267,7 +4279,7 @@ export interface Connect {
    */
   deleteSecurityProfile(
     args: DeleteSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteSecurityProfileCommandOutput>;
   deleteSecurityProfile(
     args: DeleteSecurityProfileCommandInput,
@@ -4275,7 +4287,7 @@ export interface Connect {
   ): void;
   deleteSecurityProfile(
     args: DeleteSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
   ): void;
 
@@ -4284,7 +4296,7 @@ export interface Connect {
    */
   deleteSession(
     args: DeleteSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteSessionCommandOutput>;
   deleteSession(
     args: DeleteSessionCommandInput,
@@ -4292,7 +4304,7 @@ export interface Connect {
   ): void;
   deleteSession(
     args: DeleteSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteSessionCommandOutput) => void
   ): void;
 
@@ -4301,7 +4313,7 @@ export interface Connect {
    */
   deleteTaskTemplate(
     args: DeleteTaskTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteTaskTemplateCommandOutput>;
   deleteTaskTemplate(
     args: DeleteTaskTemplateCommandInput,
@@ -4309,7 +4321,7 @@ export interface Connect {
   ): void;
   deleteTaskTemplate(
     args: DeleteTaskTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteTaskTemplateCommandOutput) => void
   ): void;
 
@@ -4318,7 +4330,7 @@ export interface Connect {
    */
   deleteTestCase(
     args: DeleteTestCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteTestCaseCommandOutput>;
   deleteTestCase(
     args: DeleteTestCaseCommandInput,
@@ -4326,7 +4338,7 @@ export interface Connect {
   ): void;
   deleteTestCase(
     args: DeleteTestCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteTestCaseCommandOutput) => void
   ): void;
 
@@ -4335,7 +4347,7 @@ export interface Connect {
    */
   deleteTrafficDistributionGroup(
     args: DeleteTrafficDistributionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteTrafficDistributionGroupCommandOutput>;
   deleteTrafficDistributionGroup(
     args: DeleteTrafficDistributionGroupCommandInput,
@@ -4343,7 +4355,7 @@ export interface Connect {
   ): void;
   deleteTrafficDistributionGroup(
     args: DeleteTrafficDistributionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteTrafficDistributionGroupCommandOutput) => void
   ): void;
 
@@ -4352,7 +4364,7 @@ export interface Connect {
    */
   deleteUseCase(
     args: DeleteUseCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteUseCaseCommandOutput>;
   deleteUseCase(
     args: DeleteUseCaseCommandInput,
@@ -4360,7 +4372,7 @@ export interface Connect {
   ): void;
   deleteUseCase(
     args: DeleteUseCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteUseCaseCommandOutput) => void
   ): void;
 
@@ -4369,7 +4381,7 @@ export interface Connect {
    */
   deleteUser(
     args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteUserCommandOutput>;
   deleteUser(
     args: DeleteUserCommandInput,
@@ -4377,7 +4389,7 @@ export interface Connect {
   ): void;
   deleteUser(
     args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
 
@@ -4386,7 +4398,7 @@ export interface Connect {
    */
   deleteUserHierarchyGroup(
     args: DeleteUserHierarchyGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteUserHierarchyGroupCommandOutput>;
   deleteUserHierarchyGroup(
     args: DeleteUserHierarchyGroupCommandInput,
@@ -4394,7 +4406,7 @@ export interface Connect {
   ): void;
   deleteUserHierarchyGroup(
     args: DeleteUserHierarchyGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteUserHierarchyGroupCommandOutput) => void
   ): void;
 
@@ -4403,7 +4415,7 @@ export interface Connect {
    */
   deleteView(
     args: DeleteViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteViewCommandOutput>;
   deleteView(
     args: DeleteViewCommandInput,
@@ -4411,7 +4423,7 @@ export interface Connect {
   ): void;
   deleteView(
     args: DeleteViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteViewCommandOutput) => void
   ): void;
 
@@ -4420,7 +4432,7 @@ export interface Connect {
    */
   deleteViewVersion(
     args: DeleteViewVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteViewVersionCommandOutput>;
   deleteViewVersion(
     args: DeleteViewVersionCommandInput,
@@ -4428,7 +4440,7 @@ export interface Connect {
   ): void;
   deleteViewVersion(
     args: DeleteViewVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteViewVersionCommandOutput) => void
   ): void;
 
@@ -4437,7 +4449,7 @@ export interface Connect {
    */
   deleteVocabulary(
     args: DeleteVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteVocabularyCommandOutput>;
   deleteVocabulary(
     args: DeleteVocabularyCommandInput,
@@ -4445,7 +4457,7 @@ export interface Connect {
   ): void;
   deleteVocabulary(
     args: DeleteVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteVocabularyCommandOutput) => void
   ): void;
 
@@ -4454,7 +4466,7 @@ export interface Connect {
    */
   deleteWorkspace(
     args: DeleteWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteWorkspaceCommandOutput>;
   deleteWorkspace(
     args: DeleteWorkspaceCommandInput,
@@ -4462,7 +4474,7 @@ export interface Connect {
   ): void;
   deleteWorkspace(
     args: DeleteWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void
   ): void;
 
@@ -4471,7 +4483,7 @@ export interface Connect {
    */
   deleteWorkspaceMedia(
     args: DeleteWorkspaceMediaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteWorkspaceMediaCommandOutput>;
   deleteWorkspaceMedia(
     args: DeleteWorkspaceMediaCommandInput,
@@ -4479,7 +4491,7 @@ export interface Connect {
   ): void;
   deleteWorkspaceMedia(
     args: DeleteWorkspaceMediaCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteWorkspaceMediaCommandOutput) => void
   ): void;
 
@@ -4488,7 +4500,7 @@ export interface Connect {
    */
   deleteWorkspacePage(
     args: DeleteWorkspacePageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DeleteWorkspacePageCommandOutput>;
   deleteWorkspacePage(
     args: DeleteWorkspacePageCommandInput,
@@ -4496,7 +4508,7 @@ export interface Connect {
   ): void;
   deleteWorkspacePage(
     args: DeleteWorkspacePageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DeleteWorkspacePageCommandOutput) => void
   ): void;
 
@@ -4505,7 +4517,7 @@ export interface Connect {
    */
   describeAgentStatus(
     args: DescribeAgentStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeAgentStatusCommandOutput>;
   describeAgentStatus(
     args: DescribeAgentStatusCommandInput,
@@ -4513,7 +4525,7 @@ export interface Connect {
   ): void;
   describeAgentStatus(
     args: DescribeAgentStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeAgentStatusCommandOutput) => void
   ): void;
 
@@ -4522,7 +4534,7 @@ export interface Connect {
    */
   describeAttachedFilesConfiguration(
     args: DescribeAttachedFilesConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeAttachedFilesConfigurationCommandOutput>;
   describeAttachedFilesConfiguration(
     args: DescribeAttachedFilesConfigurationCommandInput,
@@ -4530,7 +4542,7 @@ export interface Connect {
   ): void;
   describeAttachedFilesConfiguration(
     args: DescribeAttachedFilesConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeAttachedFilesConfigurationCommandOutput) => void
   ): void;
 
@@ -4539,7 +4551,7 @@ export interface Connect {
    */
   describeAuthenticationProfile(
     args: DescribeAuthenticationProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeAuthenticationProfileCommandOutput>;
   describeAuthenticationProfile(
     args: DescribeAuthenticationProfileCommandInput,
@@ -4547,7 +4559,7 @@ export interface Connect {
   ): void;
   describeAuthenticationProfile(
     args: DescribeAuthenticationProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeAuthenticationProfileCommandOutput) => void
   ): void;
 
@@ -4556,7 +4568,7 @@ export interface Connect {
    */
   describeContact(
     args: DescribeContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeContactCommandOutput>;
   describeContact(
     args: DescribeContactCommandInput,
@@ -4564,7 +4576,7 @@ export interface Connect {
   ): void;
   describeContact(
     args: DescribeContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeContactCommandOutput) => void
   ): void;
 
@@ -4573,7 +4585,7 @@ export interface Connect {
    */
   describeContactEvaluation(
     args: DescribeContactEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeContactEvaluationCommandOutput>;
   describeContactEvaluation(
     args: DescribeContactEvaluationCommandInput,
@@ -4581,7 +4593,7 @@ export interface Connect {
   ): void;
   describeContactEvaluation(
     args: DescribeContactEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeContactEvaluationCommandOutput) => void
   ): void;
 
@@ -4590,7 +4602,7 @@ export interface Connect {
    */
   describeContactFlow(
     args: DescribeContactFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeContactFlowCommandOutput>;
   describeContactFlow(
     args: DescribeContactFlowCommandInput,
@@ -4598,7 +4610,7 @@ export interface Connect {
   ): void;
   describeContactFlow(
     args: DescribeContactFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeContactFlowCommandOutput) => void
   ): void;
 
@@ -4607,7 +4619,7 @@ export interface Connect {
    */
   describeContactFlowModule(
     args: DescribeContactFlowModuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeContactFlowModuleCommandOutput>;
   describeContactFlowModule(
     args: DescribeContactFlowModuleCommandInput,
@@ -4615,7 +4627,7 @@ export interface Connect {
   ): void;
   describeContactFlowModule(
     args: DescribeContactFlowModuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeContactFlowModuleCommandOutput) => void
   ): void;
 
@@ -4624,7 +4636,7 @@ export interface Connect {
    */
   describeContactFlowModuleAlias(
     args: DescribeContactFlowModuleAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeContactFlowModuleAliasCommandOutput>;
   describeContactFlowModuleAlias(
     args: DescribeContactFlowModuleAliasCommandInput,
@@ -4632,7 +4644,7 @@ export interface Connect {
   ): void;
   describeContactFlowModuleAlias(
     args: DescribeContactFlowModuleAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeContactFlowModuleAliasCommandOutput) => void
   ): void;
 
@@ -4641,7 +4653,7 @@ export interface Connect {
    */
   describeDataTable(
     args: DescribeDataTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeDataTableCommandOutput>;
   describeDataTable(
     args: DescribeDataTableCommandInput,
@@ -4649,7 +4661,7 @@ export interface Connect {
   ): void;
   describeDataTable(
     args: DescribeDataTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeDataTableCommandOutput) => void
   ): void;
 
@@ -4658,7 +4670,7 @@ export interface Connect {
    */
   describeDataTableAttribute(
     args: DescribeDataTableAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeDataTableAttributeCommandOutput>;
   describeDataTableAttribute(
     args: DescribeDataTableAttributeCommandInput,
@@ -4666,7 +4678,7 @@ export interface Connect {
   ): void;
   describeDataTableAttribute(
     args: DescribeDataTableAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeDataTableAttributeCommandOutput) => void
   ): void;
 
@@ -4675,7 +4687,7 @@ export interface Connect {
    */
   describeEmailAddress(
     args: DescribeEmailAddressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeEmailAddressCommandOutput>;
   describeEmailAddress(
     args: DescribeEmailAddressCommandInput,
@@ -4683,7 +4695,7 @@ export interface Connect {
   ): void;
   describeEmailAddress(
     args: DescribeEmailAddressCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeEmailAddressCommandOutput) => void
   ): void;
 
@@ -4692,7 +4704,7 @@ export interface Connect {
    */
   describeEvaluationForm(
     args: DescribeEvaluationFormCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeEvaluationFormCommandOutput>;
   describeEvaluationForm(
     args: DescribeEvaluationFormCommandInput,
@@ -4700,7 +4712,7 @@ export interface Connect {
   ): void;
   describeEvaluationForm(
     args: DescribeEvaluationFormCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeEvaluationFormCommandOutput) => void
   ): void;
 
@@ -4709,7 +4721,7 @@ export interface Connect {
    */
   describeExtractionDefinition(
     args: DescribeExtractionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeExtractionDefinitionCommandOutput>;
   describeExtractionDefinition(
     args: DescribeExtractionDefinitionCommandInput,
@@ -4717,7 +4729,7 @@ export interface Connect {
   ): void;
   describeExtractionDefinition(
     args: DescribeExtractionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeExtractionDefinitionCommandOutput) => void
   ): void;
 
@@ -4726,7 +4738,7 @@ export interface Connect {
    */
   describeHoursOfOperation(
     args: DescribeHoursOfOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeHoursOfOperationCommandOutput>;
   describeHoursOfOperation(
     args: DescribeHoursOfOperationCommandInput,
@@ -4734,7 +4746,7 @@ export interface Connect {
   ): void;
   describeHoursOfOperation(
     args: DescribeHoursOfOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeHoursOfOperationCommandOutput) => void
   ): void;
 
@@ -4743,7 +4755,7 @@ export interface Connect {
    */
   describeHoursOfOperationOverride(
     args: DescribeHoursOfOperationOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeHoursOfOperationOverrideCommandOutput>;
   describeHoursOfOperationOverride(
     args: DescribeHoursOfOperationOverrideCommandInput,
@@ -4751,7 +4763,7 @@ export interface Connect {
   ): void;
   describeHoursOfOperationOverride(
     args: DescribeHoursOfOperationOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeHoursOfOperationOverrideCommandOutput) => void
   ): void;
 
@@ -4760,7 +4772,7 @@ export interface Connect {
    */
   describeInstance(
     args: DescribeInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeInstanceCommandOutput>;
   describeInstance(
     args: DescribeInstanceCommandInput,
@@ -4768,7 +4780,7 @@ export interface Connect {
   ): void;
   describeInstance(
     args: DescribeInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeInstanceCommandOutput) => void
   ): void;
 
@@ -4777,7 +4789,7 @@ export interface Connect {
    */
   describeInstanceAttribute(
     args: DescribeInstanceAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeInstanceAttributeCommandOutput>;
   describeInstanceAttribute(
     args: DescribeInstanceAttributeCommandInput,
@@ -4785,7 +4797,7 @@ export interface Connect {
   ): void;
   describeInstanceAttribute(
     args: DescribeInstanceAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeInstanceAttributeCommandOutput) => void
   ): void;
 
@@ -4794,7 +4806,7 @@ export interface Connect {
    */
   describeInstanceStorageConfig(
     args: DescribeInstanceStorageConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeInstanceStorageConfigCommandOutput>;
   describeInstanceStorageConfig(
     args: DescribeInstanceStorageConfigCommandInput,
@@ -4802,7 +4814,7 @@ export interface Connect {
   ): void;
   describeInstanceStorageConfig(
     args: DescribeInstanceStorageConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeInstanceStorageConfigCommandOutput) => void
   ): void;
 
@@ -4811,7 +4823,7 @@ export interface Connect {
    */
   describeMetric(
     args: DescribeMetricCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeMetricCommandOutput>;
   describeMetric(
     args: DescribeMetricCommandInput,
@@ -4819,7 +4831,7 @@ export interface Connect {
   ): void;
   describeMetric(
     args: DescribeMetricCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeMetricCommandOutput) => void
   ): void;
 
@@ -4828,7 +4840,7 @@ export interface Connect {
    */
   describeNotification(
     args: DescribeNotificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeNotificationCommandOutput>;
   describeNotification(
     args: DescribeNotificationCommandInput,
@@ -4836,7 +4848,7 @@ export interface Connect {
   ): void;
   describeNotification(
     args: DescribeNotificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeNotificationCommandOutput) => void
   ): void;
 
@@ -4845,7 +4857,7 @@ export interface Connect {
    */
   describePhoneNumber(
     args: DescribePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribePhoneNumberCommandOutput>;
   describePhoneNumber(
     args: DescribePhoneNumberCommandInput,
@@ -4853,7 +4865,7 @@ export interface Connect {
   ): void;
   describePhoneNumber(
     args: DescribePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribePhoneNumberCommandOutput) => void
   ): void;
 
@@ -4862,7 +4874,7 @@ export interface Connect {
    */
   describePredefinedAttribute(
     args: DescribePredefinedAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribePredefinedAttributeCommandOutput>;
   describePredefinedAttribute(
     args: DescribePredefinedAttributeCommandInput,
@@ -4870,7 +4882,7 @@ export interface Connect {
   ): void;
   describePredefinedAttribute(
     args: DescribePredefinedAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribePredefinedAttributeCommandOutput) => void
   ): void;
 
@@ -4879,7 +4891,7 @@ export interface Connect {
    */
   describePrompt(
     args: DescribePromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribePromptCommandOutput>;
   describePrompt(
     args: DescribePromptCommandInput,
@@ -4887,7 +4899,7 @@ export interface Connect {
   ): void;
   describePrompt(
     args: DescribePromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribePromptCommandOutput) => void
   ): void;
 
@@ -4896,7 +4908,7 @@ export interface Connect {
    */
   describeQueue(
     args: DescribeQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeQueueCommandOutput>;
   describeQueue(
     args: DescribeQueueCommandInput,
@@ -4904,7 +4916,7 @@ export interface Connect {
   ): void;
   describeQueue(
     args: DescribeQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeQueueCommandOutput) => void
   ): void;
 
@@ -4913,7 +4925,7 @@ export interface Connect {
    */
   describeQuickConnect(
     args: DescribeQuickConnectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeQuickConnectCommandOutput>;
   describeQuickConnect(
     args: DescribeQuickConnectCommandInput,
@@ -4921,7 +4933,7 @@ export interface Connect {
   ): void;
   describeQuickConnect(
     args: DescribeQuickConnectCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeQuickConnectCommandOutput) => void
   ): void;
 
@@ -4930,7 +4942,7 @@ export interface Connect {
    */
   describeRoutingProfile(
     args: DescribeRoutingProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeRoutingProfileCommandOutput>;
   describeRoutingProfile(
     args: DescribeRoutingProfileCommandInput,
@@ -4938,7 +4950,7 @@ export interface Connect {
   ): void;
   describeRoutingProfile(
     args: DescribeRoutingProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeRoutingProfileCommandOutput) => void
   ): void;
 
@@ -4947,7 +4959,7 @@ export interface Connect {
    */
   describeRule(
     args: DescribeRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeRuleCommandOutput>;
   describeRule(
     args: DescribeRuleCommandInput,
@@ -4955,7 +4967,7 @@ export interface Connect {
   ): void;
   describeRule(
     args: DescribeRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeRuleCommandOutput) => void
   ): void;
 
@@ -4964,7 +4976,7 @@ export interface Connect {
    */
   describeSecurityProfile(
     args: DescribeSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeSecurityProfileCommandOutput>;
   describeSecurityProfile(
     args: DescribeSecurityProfileCommandInput,
@@ -4972,7 +4984,7 @@ export interface Connect {
   ): void;
   describeSecurityProfile(
     args: DescribeSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
   ): void;
 
@@ -4981,7 +4993,7 @@ export interface Connect {
    */
   describeTestCase(
     args: DescribeTestCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeTestCaseCommandOutput>;
   describeTestCase(
     args: DescribeTestCaseCommandInput,
@@ -4989,7 +5001,7 @@ export interface Connect {
   ): void;
   describeTestCase(
     args: DescribeTestCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeTestCaseCommandOutput) => void
   ): void;
 
@@ -4998,7 +5010,7 @@ export interface Connect {
    */
   describeTrafficDistributionGroup(
     args: DescribeTrafficDistributionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeTrafficDistributionGroupCommandOutput>;
   describeTrafficDistributionGroup(
     args: DescribeTrafficDistributionGroupCommandInput,
@@ -5006,7 +5018,7 @@ export interface Connect {
   ): void;
   describeTrafficDistributionGroup(
     args: DescribeTrafficDistributionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeTrafficDistributionGroupCommandOutput) => void
   ): void;
 
@@ -5015,7 +5027,7 @@ export interface Connect {
    */
   describeUser(
     args: DescribeUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeUserCommandOutput>;
   describeUser(
     args: DescribeUserCommandInput,
@@ -5023,7 +5035,7 @@ export interface Connect {
   ): void;
   describeUser(
     args: DescribeUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeUserCommandOutput) => void
   ): void;
 
@@ -5032,7 +5044,7 @@ export interface Connect {
    */
   describeUserHierarchyGroup(
     args: DescribeUserHierarchyGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeUserHierarchyGroupCommandOutput>;
   describeUserHierarchyGroup(
     args: DescribeUserHierarchyGroupCommandInput,
@@ -5040,7 +5052,7 @@ export interface Connect {
   ): void;
   describeUserHierarchyGroup(
     args: DescribeUserHierarchyGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void
   ): void;
 
@@ -5049,7 +5061,7 @@ export interface Connect {
    */
   describeUserHierarchyStructure(
     args: DescribeUserHierarchyStructureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeUserHierarchyStructureCommandOutput>;
   describeUserHierarchyStructure(
     args: DescribeUserHierarchyStructureCommandInput,
@@ -5057,7 +5069,7 @@ export interface Connect {
   ): void;
   describeUserHierarchyStructure(
     args: DescribeUserHierarchyStructureCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeUserHierarchyStructureCommandOutput) => void
   ): void;
 
@@ -5066,7 +5078,7 @@ export interface Connect {
    */
   describeView(
     args: DescribeViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeViewCommandOutput>;
   describeView(
     args: DescribeViewCommandInput,
@@ -5074,7 +5086,7 @@ export interface Connect {
   ): void;
   describeView(
     args: DescribeViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeViewCommandOutput) => void
   ): void;
 
@@ -5083,7 +5095,7 @@ export interface Connect {
    */
   describeVocabulary(
     args: DescribeVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeVocabularyCommandOutput>;
   describeVocabulary(
     args: DescribeVocabularyCommandInput,
@@ -5091,7 +5103,7 @@ export interface Connect {
   ): void;
   describeVocabulary(
     args: DescribeVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeVocabularyCommandOutput) => void
   ): void;
 
@@ -5100,7 +5112,7 @@ export interface Connect {
    */
   describeWorkspace(
     args: DescribeWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DescribeWorkspaceCommandOutput>;
   describeWorkspace(
     args: DescribeWorkspaceCommandInput,
@@ -5108,7 +5120,7 @@ export interface Connect {
   ): void;
   describeWorkspace(
     args: DescribeWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DescribeWorkspaceCommandOutput) => void
   ): void;
 
@@ -5117,7 +5129,7 @@ export interface Connect {
    */
   disassociateAnalyticsDataSet(
     args: DisassociateAnalyticsDataSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateAnalyticsDataSetCommandOutput>;
   disassociateAnalyticsDataSet(
     args: DisassociateAnalyticsDataSetCommandInput,
@@ -5125,7 +5137,7 @@ export interface Connect {
   ): void;
   disassociateAnalyticsDataSet(
     args: DisassociateAnalyticsDataSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateAnalyticsDataSetCommandOutput) => void
   ): void;
 
@@ -5134,7 +5146,7 @@ export interface Connect {
    */
   disassociateApprovedOrigin(
     args: DisassociateApprovedOriginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateApprovedOriginCommandOutput>;
   disassociateApprovedOrigin(
     args: DisassociateApprovedOriginCommandInput,
@@ -5142,7 +5154,7 @@ export interface Connect {
   ): void;
   disassociateApprovedOrigin(
     args: DisassociateApprovedOriginCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateApprovedOriginCommandOutput) => void
   ): void;
 
@@ -5151,7 +5163,7 @@ export interface Connect {
    */
   disassociateBot(
     args: DisassociateBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateBotCommandOutput>;
   disassociateBot(
     args: DisassociateBotCommandInput,
@@ -5159,7 +5171,7 @@ export interface Connect {
   ): void;
   disassociateBot(
     args: DisassociateBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateBotCommandOutput) => void
   ): void;
 
@@ -5168,7 +5180,7 @@ export interface Connect {
    */
   disassociateEmailAddressAlias(
     args: DisassociateEmailAddressAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateEmailAddressAliasCommandOutput>;
   disassociateEmailAddressAlias(
     args: DisassociateEmailAddressAliasCommandInput,
@@ -5176,7 +5188,7 @@ export interface Connect {
   ): void;
   disassociateEmailAddressAlias(
     args: DisassociateEmailAddressAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateEmailAddressAliasCommandOutput) => void
   ): void;
 
@@ -5185,7 +5197,7 @@ export interface Connect {
    */
   disassociateFlow(
     args: DisassociateFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateFlowCommandOutput>;
   disassociateFlow(
     args: DisassociateFlowCommandInput,
@@ -5193,7 +5205,7 @@ export interface Connect {
   ): void;
   disassociateFlow(
     args: DisassociateFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateFlowCommandOutput) => void
   ): void;
 
@@ -5202,7 +5214,7 @@ export interface Connect {
    */
   disassociateHoursOfOperations(
     args: DisassociateHoursOfOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateHoursOfOperationsCommandOutput>;
   disassociateHoursOfOperations(
     args: DisassociateHoursOfOperationsCommandInput,
@@ -5210,7 +5222,7 @@ export interface Connect {
   ): void;
   disassociateHoursOfOperations(
     args: DisassociateHoursOfOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateHoursOfOperationsCommandOutput) => void
   ): void;
 
@@ -5219,7 +5231,7 @@ export interface Connect {
    */
   disassociateInstanceStorageConfig(
     args: DisassociateInstanceStorageConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateInstanceStorageConfigCommandOutput>;
   disassociateInstanceStorageConfig(
     args: DisassociateInstanceStorageConfigCommandInput,
@@ -5227,7 +5239,7 @@ export interface Connect {
   ): void;
   disassociateInstanceStorageConfig(
     args: DisassociateInstanceStorageConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateInstanceStorageConfigCommandOutput) => void
   ): void;
 
@@ -5236,7 +5248,7 @@ export interface Connect {
    */
   disassociateLambdaFunction(
     args: DisassociateLambdaFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateLambdaFunctionCommandOutput>;
   disassociateLambdaFunction(
     args: DisassociateLambdaFunctionCommandInput,
@@ -5244,7 +5256,7 @@ export interface Connect {
   ): void;
   disassociateLambdaFunction(
     args: DisassociateLambdaFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateLambdaFunctionCommandOutput) => void
   ): void;
 
@@ -5253,7 +5265,7 @@ export interface Connect {
    */
   disassociateLexBot(
     args: DisassociateLexBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateLexBotCommandOutput>;
   disassociateLexBot(
     args: DisassociateLexBotCommandInput,
@@ -5261,7 +5273,7 @@ export interface Connect {
   ): void;
   disassociateLexBot(
     args: DisassociateLexBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateLexBotCommandOutput) => void
   ): void;
 
@@ -5270,7 +5282,7 @@ export interface Connect {
    */
   disassociatePhoneNumberContactFlow(
     args: DisassociatePhoneNumberContactFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociatePhoneNumberContactFlowCommandOutput>;
   disassociatePhoneNumberContactFlow(
     args: DisassociatePhoneNumberContactFlowCommandInput,
@@ -5278,7 +5290,7 @@ export interface Connect {
   ): void;
   disassociatePhoneNumberContactFlow(
     args: DisassociatePhoneNumberContactFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociatePhoneNumberContactFlowCommandOutput) => void
   ): void;
 
@@ -5287,7 +5299,7 @@ export interface Connect {
    */
   disassociateQueueEmailAddresses(
     args: DisassociateQueueEmailAddressesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateQueueEmailAddressesCommandOutput>;
   disassociateQueueEmailAddresses(
     args: DisassociateQueueEmailAddressesCommandInput,
@@ -5295,7 +5307,7 @@ export interface Connect {
   ): void;
   disassociateQueueEmailAddresses(
     args: DisassociateQueueEmailAddressesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateQueueEmailAddressesCommandOutput) => void
   ): void;
 
@@ -5304,7 +5316,7 @@ export interface Connect {
    */
   disassociateQueueQuickConnects(
     args: DisassociateQueueQuickConnectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateQueueQuickConnectsCommandOutput>;
   disassociateQueueQuickConnects(
     args: DisassociateQueueQuickConnectsCommandInput,
@@ -5312,7 +5324,7 @@ export interface Connect {
   ): void;
   disassociateQueueQuickConnects(
     args: DisassociateQueueQuickConnectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateQueueQuickConnectsCommandOutput) => void
   ): void;
 
@@ -5321,7 +5333,7 @@ export interface Connect {
    */
   disassociateRoutingProfileQueues(
     args: DisassociateRoutingProfileQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateRoutingProfileQueuesCommandOutput>;
   disassociateRoutingProfileQueues(
     args: DisassociateRoutingProfileQueuesCommandInput,
@@ -5329,7 +5341,7 @@ export interface Connect {
   ): void;
   disassociateRoutingProfileQueues(
     args: DisassociateRoutingProfileQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateRoutingProfileQueuesCommandOutput) => void
   ): void;
 
@@ -5338,7 +5350,7 @@ export interface Connect {
    */
   disassociateSecurityKey(
     args: DisassociateSecurityKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateSecurityKeyCommandOutput>;
   disassociateSecurityKey(
     args: DisassociateSecurityKeyCommandInput,
@@ -5346,7 +5358,7 @@ export interface Connect {
   ): void;
   disassociateSecurityKey(
     args: DisassociateSecurityKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateSecurityKeyCommandOutput) => void
   ): void;
 
@@ -5355,7 +5367,7 @@ export interface Connect {
    */
   disassociateSecurityProfiles(
     args: DisassociateSecurityProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateSecurityProfilesCommandOutput>;
   disassociateSecurityProfiles(
     args: DisassociateSecurityProfilesCommandInput,
@@ -5363,7 +5375,7 @@ export interface Connect {
   ): void;
   disassociateSecurityProfiles(
     args: DisassociateSecurityProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateSecurityProfilesCommandOutput) => void
   ): void;
 
@@ -5372,7 +5384,7 @@ export interface Connect {
    */
   disassociateTrafficDistributionGroupUser(
     args: DisassociateTrafficDistributionGroupUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateTrafficDistributionGroupUserCommandOutput>;
   disassociateTrafficDistributionGroupUser(
     args: DisassociateTrafficDistributionGroupUserCommandInput,
@@ -5380,7 +5392,7 @@ export interface Connect {
   ): void;
   disassociateTrafficDistributionGroupUser(
     args: DisassociateTrafficDistributionGroupUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateTrafficDistributionGroupUserCommandOutput) => void
   ): void;
 
@@ -5389,7 +5401,7 @@ export interface Connect {
    */
   disassociateUserProficiencies(
     args: DisassociateUserProficienciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateUserProficienciesCommandOutput>;
   disassociateUserProficiencies(
     args: DisassociateUserProficienciesCommandInput,
@@ -5397,7 +5409,7 @@ export interface Connect {
   ): void;
   disassociateUserProficiencies(
     args: DisassociateUserProficienciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateUserProficienciesCommandOutput) => void
   ): void;
 
@@ -5406,7 +5418,7 @@ export interface Connect {
    */
   disassociateWorkspace(
     args: DisassociateWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DisassociateWorkspaceCommandOutput>;
   disassociateWorkspace(
     args: DisassociateWorkspaceCommandInput,
@@ -5414,7 +5426,7 @@ export interface Connect {
   ): void;
   disassociateWorkspace(
     args: DisassociateWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DisassociateWorkspaceCommandOutput) => void
   ): void;
 
@@ -5423,7 +5435,7 @@ export interface Connect {
    */
   dismissUserContact(
     args: DismissUserContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<DismissUserContactCommandOutput>;
   dismissUserContact(
     args: DismissUserContactCommandInput,
@@ -5431,7 +5443,7 @@ export interface Connect {
   ): void;
   dismissUserContact(
     args: DismissUserContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: DismissUserContactCommandOutput) => void
   ): void;
 
@@ -5440,7 +5452,7 @@ export interface Connect {
    */
   evaluateDataTableValues(
     args: EvaluateDataTableValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<EvaluateDataTableValuesCommandOutput>;
   evaluateDataTableValues(
     args: EvaluateDataTableValuesCommandInput,
@@ -5448,7 +5460,7 @@ export interface Connect {
   ): void;
   evaluateDataTableValues(
     args: EvaluateDataTableValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: EvaluateDataTableValuesCommandOutput) => void
   ): void;
 
@@ -5457,7 +5469,7 @@ export interface Connect {
    */
   getAttachedFile(
     args: GetAttachedFileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetAttachedFileCommandOutput>;
   getAttachedFile(
     args: GetAttachedFileCommandInput,
@@ -5465,7 +5477,7 @@ export interface Connect {
   ): void;
   getAttachedFile(
     args: GetAttachedFileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetAttachedFileCommandOutput) => void
   ): void;
 
@@ -5474,7 +5486,7 @@ export interface Connect {
    */
   getContactAttributes(
     args: GetContactAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetContactAttributesCommandOutput>;
   getContactAttributes(
     args: GetContactAttributesCommandInput,
@@ -5482,7 +5494,7 @@ export interface Connect {
   ): void;
   getContactAttributes(
     args: GetContactAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetContactAttributesCommandOutput) => void
   ): void;
 
@@ -5491,7 +5503,7 @@ export interface Connect {
    */
   getContactMetrics(
     args: GetContactMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetContactMetricsCommandOutput>;
   getContactMetrics(
     args: GetContactMetricsCommandInput,
@@ -5499,7 +5511,7 @@ export interface Connect {
   ): void;
   getContactMetrics(
     args: GetContactMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetContactMetricsCommandOutput) => void
   ): void;
 
@@ -5508,7 +5520,7 @@ export interface Connect {
    */
   getCrossRegionRouting(
     args: GetCrossRegionRoutingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetCrossRegionRoutingCommandOutput>;
   getCrossRegionRouting(
     args: GetCrossRegionRoutingCommandInput,
@@ -5516,7 +5528,7 @@ export interface Connect {
   ): void;
   getCrossRegionRouting(
     args: GetCrossRegionRoutingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetCrossRegionRoutingCommandOutput) => void
   ): void;
 
@@ -5525,7 +5537,7 @@ export interface Connect {
    */
   getCurrentMetricData(
     args: GetCurrentMetricDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetCurrentMetricDataCommandOutput>;
   getCurrentMetricData(
     args: GetCurrentMetricDataCommandInput,
@@ -5533,7 +5545,7 @@ export interface Connect {
   ): void;
   getCurrentMetricData(
     args: GetCurrentMetricDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetCurrentMetricDataCommandOutput) => void
   ): void;
 
@@ -5542,7 +5554,7 @@ export interface Connect {
    */
   getCurrentUserData(
     args: GetCurrentUserDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetCurrentUserDataCommandOutput>;
   getCurrentUserData(
     args: GetCurrentUserDataCommandInput,
@@ -5550,7 +5562,7 @@ export interface Connect {
   ): void;
   getCurrentUserData(
     args: GetCurrentUserDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetCurrentUserDataCommandOutput) => void
   ): void;
 
@@ -5559,7 +5571,7 @@ export interface Connect {
    */
   getEffectiveHoursOfOperations(
     args: GetEffectiveHoursOfOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetEffectiveHoursOfOperationsCommandOutput>;
   getEffectiveHoursOfOperations(
     args: GetEffectiveHoursOfOperationsCommandInput,
@@ -5567,7 +5579,7 @@ export interface Connect {
   ): void;
   getEffectiveHoursOfOperations(
     args: GetEffectiveHoursOfOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetEffectiveHoursOfOperationsCommandOutput) => void
   ): void;
 
@@ -5576,7 +5588,7 @@ export interface Connect {
    */
   getEvaluationFormValidation(
     args: GetEvaluationFormValidationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetEvaluationFormValidationCommandOutput>;
   getEvaluationFormValidation(
     args: GetEvaluationFormValidationCommandInput,
@@ -5584,7 +5596,7 @@ export interface Connect {
   ): void;
   getEvaluationFormValidation(
     args: GetEvaluationFormValidationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetEvaluationFormValidationCommandOutput) => void
   ): void;
 
@@ -5593,7 +5605,7 @@ export interface Connect {
    */
   getFederationToken(
     args: GetFederationTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetFederationTokenCommandOutput>;
   getFederationToken(
     args: GetFederationTokenCommandInput,
@@ -5601,7 +5613,7 @@ export interface Connect {
   ): void;
   getFederationToken(
     args: GetFederationTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetFederationTokenCommandOutput) => void
   ): void;
 
@@ -5610,7 +5622,7 @@ export interface Connect {
    */
   getFlowAssociation(
     args: GetFlowAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetFlowAssociationCommandOutput>;
   getFlowAssociation(
     args: GetFlowAssociationCommandInput,
@@ -5618,7 +5630,7 @@ export interface Connect {
   ): void;
   getFlowAssociation(
     args: GetFlowAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetFlowAssociationCommandOutput) => void
   ): void;
 
@@ -5627,7 +5639,7 @@ export interface Connect {
    */
   getMetricData(
     args: GetMetricDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetMetricDataCommandOutput>;
   getMetricData(
     args: GetMetricDataCommandInput,
@@ -5635,7 +5647,7 @@ export interface Connect {
   ): void;
   getMetricData(
     args: GetMetricDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetMetricDataCommandOutput) => void
   ): void;
 
@@ -5644,7 +5656,7 @@ export interface Connect {
    */
   getMetricDataV2(
     args: GetMetricDataV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetMetricDataV2CommandOutput>;
   getMetricDataV2(
     args: GetMetricDataV2CommandInput,
@@ -5652,7 +5664,7 @@ export interface Connect {
   ): void;
   getMetricDataV2(
     args: GetMetricDataV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetMetricDataV2CommandOutput) => void
   ): void;
 
@@ -5661,7 +5673,7 @@ export interface Connect {
    */
   getPromptFile(
     args: GetPromptFileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetPromptFileCommandOutput>;
   getPromptFile(
     args: GetPromptFileCommandInput,
@@ -5669,7 +5681,7 @@ export interface Connect {
   ): void;
   getPromptFile(
     args: GetPromptFileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetPromptFileCommandOutput) => void
   ): void;
 
@@ -5678,7 +5690,7 @@ export interface Connect {
    */
   getTaskTemplate(
     args: GetTaskTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetTaskTemplateCommandOutput>;
   getTaskTemplate(
     args: GetTaskTemplateCommandInput,
@@ -5686,7 +5698,7 @@ export interface Connect {
   ): void;
   getTaskTemplate(
     args: GetTaskTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetTaskTemplateCommandOutput) => void
   ): void;
 
@@ -5695,7 +5707,7 @@ export interface Connect {
    */
   getTestCaseExecutionSummary(
     args: GetTestCaseExecutionSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetTestCaseExecutionSummaryCommandOutput>;
   getTestCaseExecutionSummary(
     args: GetTestCaseExecutionSummaryCommandInput,
@@ -5703,7 +5715,7 @@ export interface Connect {
   ): void;
   getTestCaseExecutionSummary(
     args: GetTestCaseExecutionSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetTestCaseExecutionSummaryCommandOutput) => void
   ): void;
 
@@ -5712,7 +5724,7 @@ export interface Connect {
    */
   getTrafficDistribution(
     args: GetTrafficDistributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<GetTrafficDistributionCommandOutput>;
   getTrafficDistribution(
     args: GetTrafficDistributionCommandInput,
@@ -5720,7 +5732,7 @@ export interface Connect {
   ): void;
   getTrafficDistribution(
     args: GetTrafficDistributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: GetTrafficDistributionCommandOutput) => void
   ): void;
 
@@ -5729,7 +5741,7 @@ export interface Connect {
    */
   importPhoneNumber(
     args: ImportPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ImportPhoneNumberCommandOutput>;
   importPhoneNumber(
     args: ImportPhoneNumberCommandInput,
@@ -5737,7 +5749,7 @@ export interface Connect {
   ): void;
   importPhoneNumber(
     args: ImportPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ImportPhoneNumberCommandOutput) => void
   ): void;
 
@@ -5746,7 +5758,7 @@ export interface Connect {
    */
   importWorkspaceMedia(
     args: ImportWorkspaceMediaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ImportWorkspaceMediaCommandOutput>;
   importWorkspaceMedia(
     args: ImportWorkspaceMediaCommandInput,
@@ -5754,7 +5766,7 @@ export interface Connect {
   ): void;
   importWorkspaceMedia(
     args: ImportWorkspaceMediaCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ImportWorkspaceMediaCommandOutput) => void
   ): void;
 
@@ -5763,7 +5775,7 @@ export interface Connect {
    */
   listAgentStatuses(
     args: ListAgentStatusesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListAgentStatusesCommandOutput>;
   listAgentStatuses(
     args: ListAgentStatusesCommandInput,
@@ -5771,7 +5783,7 @@ export interface Connect {
   ): void;
   listAgentStatuses(
     args: ListAgentStatusesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListAgentStatusesCommandOutput) => void
   ): void;
 
@@ -5780,7 +5792,7 @@ export interface Connect {
    */
   listAnalyticsDataAssociations(
     args: ListAnalyticsDataAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListAnalyticsDataAssociationsCommandOutput>;
   listAnalyticsDataAssociations(
     args: ListAnalyticsDataAssociationsCommandInput,
@@ -5788,7 +5800,7 @@ export interface Connect {
   ): void;
   listAnalyticsDataAssociations(
     args: ListAnalyticsDataAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListAnalyticsDataAssociationsCommandOutput) => void
   ): void;
 
@@ -5797,7 +5809,7 @@ export interface Connect {
    */
   listAnalyticsDataLakeDataSets(
     args: ListAnalyticsDataLakeDataSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListAnalyticsDataLakeDataSetsCommandOutput>;
   listAnalyticsDataLakeDataSets(
     args: ListAnalyticsDataLakeDataSetsCommandInput,
@@ -5805,7 +5817,7 @@ export interface Connect {
   ): void;
   listAnalyticsDataLakeDataSets(
     args: ListAnalyticsDataLakeDataSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListAnalyticsDataLakeDataSetsCommandOutput) => void
   ): void;
 
@@ -5814,7 +5826,7 @@ export interface Connect {
    */
   listApprovedOrigins(
     args: ListApprovedOriginsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListApprovedOriginsCommandOutput>;
   listApprovedOrigins(
     args: ListApprovedOriginsCommandInput,
@@ -5822,7 +5834,7 @@ export interface Connect {
   ): void;
   listApprovedOrigins(
     args: ListApprovedOriginsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListApprovedOriginsCommandOutput) => void
   ): void;
 
@@ -5831,7 +5843,7 @@ export interface Connect {
    */
   listAssociatedContacts(
     args: ListAssociatedContactsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListAssociatedContactsCommandOutput>;
   listAssociatedContacts(
     args: ListAssociatedContactsCommandInput,
@@ -5839,7 +5851,7 @@ export interface Connect {
   ): void;
   listAssociatedContacts(
     args: ListAssociatedContactsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListAssociatedContactsCommandOutput) => void
   ): void;
 
@@ -5848,7 +5860,7 @@ export interface Connect {
    */
   listAttachedFilesConfigurations(
     args: ListAttachedFilesConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListAttachedFilesConfigurationsCommandOutput>;
   listAttachedFilesConfigurations(
     args: ListAttachedFilesConfigurationsCommandInput,
@@ -5856,7 +5868,7 @@ export interface Connect {
   ): void;
   listAttachedFilesConfigurations(
     args: ListAttachedFilesConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListAttachedFilesConfigurationsCommandOutput) => void
   ): void;
 
@@ -5865,7 +5877,7 @@ export interface Connect {
    */
   listAuthenticationProfiles(
     args: ListAuthenticationProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListAuthenticationProfilesCommandOutput>;
   listAuthenticationProfiles(
     args: ListAuthenticationProfilesCommandInput,
@@ -5873,7 +5885,7 @@ export interface Connect {
   ): void;
   listAuthenticationProfiles(
     args: ListAuthenticationProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListAuthenticationProfilesCommandOutput) => void
   ): void;
 
@@ -5882,7 +5894,7 @@ export interface Connect {
    */
   listBots(
     args: ListBotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListBotsCommandOutput>;
   listBots(
     args: ListBotsCommandInput,
@@ -5890,7 +5902,7 @@ export interface Connect {
   ): void;
   listBots(
     args: ListBotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListBotsCommandOutput) => void
   ): void;
 
@@ -5899,7 +5911,7 @@ export interface Connect {
    */
   listChildHoursOfOperations(
     args: ListChildHoursOfOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListChildHoursOfOperationsCommandOutput>;
   listChildHoursOfOperations(
     args: ListChildHoursOfOperationsCommandInput,
@@ -5907,7 +5919,7 @@ export interface Connect {
   ): void;
   listChildHoursOfOperations(
     args: ListChildHoursOfOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListChildHoursOfOperationsCommandOutput) => void
   ): void;
 
@@ -5916,7 +5928,7 @@ export interface Connect {
    */
   listContactEvaluations(
     args: ListContactEvaluationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListContactEvaluationsCommandOutput>;
   listContactEvaluations(
     args: ListContactEvaluationsCommandInput,
@@ -5924,7 +5936,7 @@ export interface Connect {
   ): void;
   listContactEvaluations(
     args: ListContactEvaluationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListContactEvaluationsCommandOutput) => void
   ): void;
 
@@ -5933,7 +5945,7 @@ export interface Connect {
    */
   listContactFlowModuleAliases(
     args: ListContactFlowModuleAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListContactFlowModuleAliasesCommandOutput>;
   listContactFlowModuleAliases(
     args: ListContactFlowModuleAliasesCommandInput,
@@ -5941,7 +5953,7 @@ export interface Connect {
   ): void;
   listContactFlowModuleAliases(
     args: ListContactFlowModuleAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListContactFlowModuleAliasesCommandOutput) => void
   ): void;
 
@@ -5950,7 +5962,7 @@ export interface Connect {
    */
   listContactFlowModules(
     args: ListContactFlowModulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListContactFlowModulesCommandOutput>;
   listContactFlowModules(
     args: ListContactFlowModulesCommandInput,
@@ -5958,7 +5970,7 @@ export interface Connect {
   ): void;
   listContactFlowModules(
     args: ListContactFlowModulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListContactFlowModulesCommandOutput) => void
   ): void;
 
@@ -5967,7 +5979,7 @@ export interface Connect {
    */
   listContactFlowModuleVersions(
     args: ListContactFlowModuleVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListContactFlowModuleVersionsCommandOutput>;
   listContactFlowModuleVersions(
     args: ListContactFlowModuleVersionsCommandInput,
@@ -5975,7 +5987,7 @@ export interface Connect {
   ): void;
   listContactFlowModuleVersions(
     args: ListContactFlowModuleVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListContactFlowModuleVersionsCommandOutput) => void
   ): void;
 
@@ -5984,7 +5996,7 @@ export interface Connect {
    */
   listContactFlows(
     args: ListContactFlowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListContactFlowsCommandOutput>;
   listContactFlows(
     args: ListContactFlowsCommandInput,
@@ -5992,7 +6004,7 @@ export interface Connect {
   ): void;
   listContactFlows(
     args: ListContactFlowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListContactFlowsCommandOutput) => void
   ): void;
 
@@ -6001,7 +6013,7 @@ export interface Connect {
    */
   listContactFlowVersions(
     args: ListContactFlowVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListContactFlowVersionsCommandOutput>;
   listContactFlowVersions(
     args: ListContactFlowVersionsCommandInput,
@@ -6009,7 +6021,7 @@ export interface Connect {
   ): void;
   listContactFlowVersions(
     args: ListContactFlowVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListContactFlowVersionsCommandOutput) => void
   ): void;
 
@@ -6018,7 +6030,7 @@ export interface Connect {
    */
   listContactReferences(
     args: ListContactReferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListContactReferencesCommandOutput>;
   listContactReferences(
     args: ListContactReferencesCommandInput,
@@ -6026,7 +6038,7 @@ export interface Connect {
   ): void;
   listContactReferences(
     args: ListContactReferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListContactReferencesCommandOutput) => void
   ): void;
 
@@ -6035,7 +6047,7 @@ export interface Connect {
    */
   listDataTableAttributes(
     args: ListDataTableAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListDataTableAttributesCommandOutput>;
   listDataTableAttributes(
     args: ListDataTableAttributesCommandInput,
@@ -6043,7 +6055,7 @@ export interface Connect {
   ): void;
   listDataTableAttributes(
     args: ListDataTableAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListDataTableAttributesCommandOutput) => void
   ): void;
 
@@ -6052,7 +6064,7 @@ export interface Connect {
    */
   listDataTablePrimaryValues(
     args: ListDataTablePrimaryValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListDataTablePrimaryValuesCommandOutput>;
   listDataTablePrimaryValues(
     args: ListDataTablePrimaryValuesCommandInput,
@@ -6060,7 +6072,7 @@ export interface Connect {
   ): void;
   listDataTablePrimaryValues(
     args: ListDataTablePrimaryValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListDataTablePrimaryValuesCommandOutput) => void
   ): void;
 
@@ -6069,7 +6081,7 @@ export interface Connect {
    */
   listDataTables(
     args: ListDataTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListDataTablesCommandOutput>;
   listDataTables(
     args: ListDataTablesCommandInput,
@@ -6077,7 +6089,7 @@ export interface Connect {
   ): void;
   listDataTables(
     args: ListDataTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListDataTablesCommandOutput) => void
   ): void;
 
@@ -6086,7 +6098,7 @@ export interface Connect {
    */
   listDataTableValues(
     args: ListDataTableValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListDataTableValuesCommandOutput>;
   listDataTableValues(
     args: ListDataTableValuesCommandInput,
@@ -6094,7 +6106,7 @@ export interface Connect {
   ): void;
   listDataTableValues(
     args: ListDataTableValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListDataTableValuesCommandOutput) => void
   ): void;
 
@@ -6103,7 +6115,7 @@ export interface Connect {
    */
   listDefaultVocabularies(
     args: ListDefaultVocabulariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListDefaultVocabulariesCommandOutput>;
   listDefaultVocabularies(
     args: ListDefaultVocabulariesCommandInput,
@@ -6111,7 +6123,7 @@ export interface Connect {
   ): void;
   listDefaultVocabularies(
     args: ListDefaultVocabulariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListDefaultVocabulariesCommandOutput) => void
   ): void;
 
@@ -6120,7 +6132,7 @@ export interface Connect {
    */
   listEntitySecurityProfiles(
     args: ListEntitySecurityProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListEntitySecurityProfilesCommandOutput>;
   listEntitySecurityProfiles(
     args: ListEntitySecurityProfilesCommandInput,
@@ -6128,7 +6140,7 @@ export interface Connect {
   ): void;
   listEntitySecurityProfiles(
     args: ListEntitySecurityProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListEntitySecurityProfilesCommandOutput) => void
   ): void;
 
@@ -6137,7 +6149,7 @@ export interface Connect {
    */
   listEvaluationFormAIVersions(
     args: ListEvaluationFormAIVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListEvaluationFormAIVersionsCommandOutput>;
   listEvaluationFormAIVersions(
     args: ListEvaluationFormAIVersionsCommandInput,
@@ -6145,7 +6157,7 @@ export interface Connect {
   ): void;
   listEvaluationFormAIVersions(
     args: ListEvaluationFormAIVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListEvaluationFormAIVersionsCommandOutput) => void
   ): void;
 
@@ -6154,7 +6166,7 @@ export interface Connect {
    */
   listEvaluationForms(
     args: ListEvaluationFormsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListEvaluationFormsCommandOutput>;
   listEvaluationForms(
     args: ListEvaluationFormsCommandInput,
@@ -6162,7 +6174,7 @@ export interface Connect {
   ): void;
   listEvaluationForms(
     args: ListEvaluationFormsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListEvaluationFormsCommandOutput) => void
   ): void;
 
@@ -6171,7 +6183,7 @@ export interface Connect {
    */
   listEvaluationFormVersions(
     args: ListEvaluationFormVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListEvaluationFormVersionsCommandOutput>;
   listEvaluationFormVersions(
     args: ListEvaluationFormVersionsCommandInput,
@@ -6179,7 +6191,7 @@ export interface Connect {
   ): void;
   listEvaluationFormVersions(
     args: ListEvaluationFormVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListEvaluationFormVersionsCommandOutput) => void
   ): void;
 
@@ -6188,7 +6200,7 @@ export interface Connect {
    */
   listExtractionDefinitions(
     args: ListExtractionDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListExtractionDefinitionsCommandOutput>;
   listExtractionDefinitions(
     args: ListExtractionDefinitionsCommandInput,
@@ -6196,7 +6208,7 @@ export interface Connect {
   ): void;
   listExtractionDefinitions(
     args: ListExtractionDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListExtractionDefinitionsCommandOutput) => void
   ): void;
 
@@ -6205,7 +6217,7 @@ export interface Connect {
    */
   listFlowAssociations(
     args: ListFlowAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListFlowAssociationsCommandOutput>;
   listFlowAssociations(
     args: ListFlowAssociationsCommandInput,
@@ -6213,7 +6225,7 @@ export interface Connect {
   ): void;
   listFlowAssociations(
     args: ListFlowAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListFlowAssociationsCommandOutput) => void
   ): void;
 
@@ -6222,7 +6234,7 @@ export interface Connect {
    */
   listHoursOfOperationOverrides(
     args: ListHoursOfOperationOverridesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListHoursOfOperationOverridesCommandOutput>;
   listHoursOfOperationOverrides(
     args: ListHoursOfOperationOverridesCommandInput,
@@ -6230,7 +6242,7 @@ export interface Connect {
   ): void;
   listHoursOfOperationOverrides(
     args: ListHoursOfOperationOverridesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListHoursOfOperationOverridesCommandOutput) => void
   ): void;
 
@@ -6239,7 +6251,7 @@ export interface Connect {
    */
   listHoursOfOperations(
     args: ListHoursOfOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListHoursOfOperationsCommandOutput>;
   listHoursOfOperations(
     args: ListHoursOfOperationsCommandInput,
@@ -6247,7 +6259,7 @@ export interface Connect {
   ): void;
   listHoursOfOperations(
     args: ListHoursOfOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListHoursOfOperationsCommandOutput) => void
   ): void;
 
@@ -6256,7 +6268,7 @@ export interface Connect {
    */
   listInstanceAttributes(
     args: ListInstanceAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListInstanceAttributesCommandOutput>;
   listInstanceAttributes(
     args: ListInstanceAttributesCommandInput,
@@ -6264,7 +6276,7 @@ export interface Connect {
   ): void;
   listInstanceAttributes(
     args: ListInstanceAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListInstanceAttributesCommandOutput) => void
   ): void;
 
@@ -6274,7 +6286,7 @@ export interface Connect {
   listInstances(): Promise<ListInstancesCommandOutput>;
   listInstances(
     args: ListInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListInstancesCommandOutput>;
   listInstances(
     args: ListInstancesCommandInput,
@@ -6282,7 +6294,7 @@ export interface Connect {
   ): void;
   listInstances(
     args: ListInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListInstancesCommandOutput) => void
   ): void;
 
@@ -6291,7 +6303,7 @@ export interface Connect {
    */
   listInstanceStorageConfigs(
     args: ListInstanceStorageConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListInstanceStorageConfigsCommandOutput>;
   listInstanceStorageConfigs(
     args: ListInstanceStorageConfigsCommandInput,
@@ -6299,7 +6311,7 @@ export interface Connect {
   ): void;
   listInstanceStorageConfigs(
     args: ListInstanceStorageConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListInstanceStorageConfigsCommandOutput) => void
   ): void;
 
@@ -6308,7 +6320,7 @@ export interface Connect {
    */
   listIntegrationAssociations(
     args: ListIntegrationAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListIntegrationAssociationsCommandOutput>;
   listIntegrationAssociations(
     args: ListIntegrationAssociationsCommandInput,
@@ -6316,7 +6328,7 @@ export interface Connect {
   ): void;
   listIntegrationAssociations(
     args: ListIntegrationAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListIntegrationAssociationsCommandOutput) => void
   ): void;
 
@@ -6325,7 +6337,7 @@ export interface Connect {
    */
   listLambdaFunctions(
     args: ListLambdaFunctionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListLambdaFunctionsCommandOutput>;
   listLambdaFunctions(
     args: ListLambdaFunctionsCommandInput,
@@ -6333,7 +6345,7 @@ export interface Connect {
   ): void;
   listLambdaFunctions(
     args: ListLambdaFunctionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListLambdaFunctionsCommandOutput) => void
   ): void;
 
@@ -6342,7 +6354,7 @@ export interface Connect {
    */
   listLexBots(
     args: ListLexBotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListLexBotsCommandOutput>;
   listLexBots(
     args: ListLexBotsCommandInput,
@@ -6350,7 +6362,7 @@ export interface Connect {
   ): void;
   listLexBots(
     args: ListLexBotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListLexBotsCommandOutput) => void
   ): void;
 
@@ -6359,7 +6371,7 @@ export interface Connect {
    */
   listMetrics(
     args: ListMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListMetricsCommandOutput>;
   listMetrics(
     args: ListMetricsCommandInput,
@@ -6367,7 +6379,7 @@ export interface Connect {
   ): void;
   listMetrics(
     args: ListMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListMetricsCommandOutput) => void
   ): void;
 
@@ -6376,7 +6388,7 @@ export interface Connect {
    */
   listNotifications(
     args: ListNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListNotificationsCommandOutput>;
   listNotifications(
     args: ListNotificationsCommandInput,
@@ -6384,7 +6396,7 @@ export interface Connect {
   ): void;
   listNotifications(
     args: ListNotificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListNotificationsCommandOutput) => void
   ): void;
 
@@ -6393,7 +6405,7 @@ export interface Connect {
    */
   listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListPhoneNumbersCommandOutput>;
   listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
@@ -6401,7 +6413,7 @@ export interface Connect {
   ): void;
   listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
   ): void;
 
@@ -6411,7 +6423,7 @@ export interface Connect {
   listPhoneNumbersV2(): Promise<ListPhoneNumbersV2CommandOutput>;
   listPhoneNumbersV2(
     args: ListPhoneNumbersV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListPhoneNumbersV2CommandOutput>;
   listPhoneNumbersV2(
     args: ListPhoneNumbersV2CommandInput,
@@ -6419,7 +6431,7 @@ export interface Connect {
   ): void;
   listPhoneNumbersV2(
     args: ListPhoneNumbersV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListPhoneNumbersV2CommandOutput) => void
   ): void;
 
@@ -6428,7 +6440,7 @@ export interface Connect {
    */
   listPredefinedAttributes(
     args: ListPredefinedAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListPredefinedAttributesCommandOutput>;
   listPredefinedAttributes(
     args: ListPredefinedAttributesCommandInput,
@@ -6436,7 +6448,7 @@ export interface Connect {
   ): void;
   listPredefinedAttributes(
     args: ListPredefinedAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListPredefinedAttributesCommandOutput) => void
   ): void;
 
@@ -6445,7 +6457,7 @@ export interface Connect {
    */
   listPrompts(
     args: ListPromptsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListPromptsCommandOutput>;
   listPrompts(
     args: ListPromptsCommandInput,
@@ -6453,7 +6465,7 @@ export interface Connect {
   ): void;
   listPrompts(
     args: ListPromptsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListPromptsCommandOutput) => void
   ): void;
 
@@ -6462,7 +6474,7 @@ export interface Connect {
    */
   listQueueEmailAddresses(
     args: ListQueueEmailAddressesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListQueueEmailAddressesCommandOutput>;
   listQueueEmailAddresses(
     args: ListQueueEmailAddressesCommandInput,
@@ -6470,7 +6482,7 @@ export interface Connect {
   ): void;
   listQueueEmailAddresses(
     args: ListQueueEmailAddressesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListQueueEmailAddressesCommandOutput) => void
   ): void;
 
@@ -6479,7 +6491,7 @@ export interface Connect {
    */
   listQueueQuickConnects(
     args: ListQueueQuickConnectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListQueueQuickConnectsCommandOutput>;
   listQueueQuickConnects(
     args: ListQueueQuickConnectsCommandInput,
@@ -6487,7 +6499,7 @@ export interface Connect {
   ): void;
   listQueueQuickConnects(
     args: ListQueueQuickConnectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListQueueQuickConnectsCommandOutput) => void
   ): void;
 
@@ -6496,7 +6508,7 @@ export interface Connect {
    */
   listQueues(
     args: ListQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListQueuesCommandOutput>;
   listQueues(
     args: ListQueuesCommandInput,
@@ -6504,7 +6516,7 @@ export interface Connect {
   ): void;
   listQueues(
     args: ListQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListQueuesCommandOutput) => void
   ): void;
 
@@ -6513,7 +6525,7 @@ export interface Connect {
    */
   listQuickConnects(
     args: ListQuickConnectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListQuickConnectsCommandOutput>;
   listQuickConnects(
     args: ListQuickConnectsCommandInput,
@@ -6521,7 +6533,7 @@ export interface Connect {
   ): void;
   listQuickConnects(
     args: ListQuickConnectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListQuickConnectsCommandOutput) => void
   ): void;
 
@@ -6530,7 +6542,7 @@ export interface Connect {
    */
   listRealtimeContactAnalysisSegmentsV2(
     args: ListRealtimeContactAnalysisSegmentsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListRealtimeContactAnalysisSegmentsV2CommandOutput>;
   listRealtimeContactAnalysisSegmentsV2(
     args: ListRealtimeContactAnalysisSegmentsV2CommandInput,
@@ -6538,7 +6550,7 @@ export interface Connect {
   ): void;
   listRealtimeContactAnalysisSegmentsV2(
     args: ListRealtimeContactAnalysisSegmentsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListRealtimeContactAnalysisSegmentsV2CommandOutput) => void
   ): void;
 
@@ -6547,7 +6559,7 @@ export interface Connect {
    */
   listRoutingProfileManualAssignmentQueues(
     args: ListRoutingProfileManualAssignmentQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListRoutingProfileManualAssignmentQueuesCommandOutput>;
   listRoutingProfileManualAssignmentQueues(
     args: ListRoutingProfileManualAssignmentQueuesCommandInput,
@@ -6555,7 +6567,7 @@ export interface Connect {
   ): void;
   listRoutingProfileManualAssignmentQueues(
     args: ListRoutingProfileManualAssignmentQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListRoutingProfileManualAssignmentQueuesCommandOutput) => void
   ): void;
 
@@ -6564,7 +6576,7 @@ export interface Connect {
    */
   listRoutingProfileQueues(
     args: ListRoutingProfileQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListRoutingProfileQueuesCommandOutput>;
   listRoutingProfileQueues(
     args: ListRoutingProfileQueuesCommandInput,
@@ -6572,7 +6584,7 @@ export interface Connect {
   ): void;
   listRoutingProfileQueues(
     args: ListRoutingProfileQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListRoutingProfileQueuesCommandOutput) => void
   ): void;
 
@@ -6581,7 +6593,7 @@ export interface Connect {
    */
   listRoutingProfiles(
     args: ListRoutingProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListRoutingProfilesCommandOutput>;
   listRoutingProfiles(
     args: ListRoutingProfilesCommandInput,
@@ -6589,7 +6601,7 @@ export interface Connect {
   ): void;
   listRoutingProfiles(
     args: ListRoutingProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListRoutingProfilesCommandOutput) => void
   ): void;
 
@@ -6598,7 +6610,7 @@ export interface Connect {
    */
   listRules(
     args: ListRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListRulesCommandOutput>;
   listRules(
     args: ListRulesCommandInput,
@@ -6606,7 +6618,7 @@ export interface Connect {
   ): void;
   listRules(
     args: ListRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListRulesCommandOutput) => void
   ): void;
 
@@ -6615,7 +6627,7 @@ export interface Connect {
    */
   listSecurityKeys(
     args: ListSecurityKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListSecurityKeysCommandOutput>;
   listSecurityKeys(
     args: ListSecurityKeysCommandInput,
@@ -6623,7 +6635,7 @@ export interface Connect {
   ): void;
   listSecurityKeys(
     args: ListSecurityKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListSecurityKeysCommandOutput) => void
   ): void;
 
@@ -6632,7 +6644,7 @@ export interface Connect {
    */
   listSecurityProfileAIAgents(
     args: ListSecurityProfileAIAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListSecurityProfileAIAgentsCommandOutput>;
   listSecurityProfileAIAgents(
     args: ListSecurityProfileAIAgentsCommandInput,
@@ -6640,7 +6652,7 @@ export interface Connect {
   ): void;
   listSecurityProfileAIAgents(
     args: ListSecurityProfileAIAgentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListSecurityProfileAIAgentsCommandOutput) => void
   ): void;
 
@@ -6649,7 +6661,7 @@ export interface Connect {
    */
   listSecurityProfileApplications(
     args: ListSecurityProfileApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListSecurityProfileApplicationsCommandOutput>;
   listSecurityProfileApplications(
     args: ListSecurityProfileApplicationsCommandInput,
@@ -6657,7 +6669,7 @@ export interface Connect {
   ): void;
   listSecurityProfileApplications(
     args: ListSecurityProfileApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListSecurityProfileApplicationsCommandOutput) => void
   ): void;
 
@@ -6666,7 +6678,7 @@ export interface Connect {
    */
   listSecurityProfileFlowModules(
     args: ListSecurityProfileFlowModulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListSecurityProfileFlowModulesCommandOutput>;
   listSecurityProfileFlowModules(
     args: ListSecurityProfileFlowModulesCommandInput,
@@ -6674,7 +6686,7 @@ export interface Connect {
   ): void;
   listSecurityProfileFlowModules(
     args: ListSecurityProfileFlowModulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListSecurityProfileFlowModulesCommandOutput) => void
   ): void;
 
@@ -6683,7 +6695,7 @@ export interface Connect {
    */
   listSecurityProfilePermissions(
     args: ListSecurityProfilePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListSecurityProfilePermissionsCommandOutput>;
   listSecurityProfilePermissions(
     args: ListSecurityProfilePermissionsCommandInput,
@@ -6691,7 +6703,7 @@ export interface Connect {
   ): void;
   listSecurityProfilePermissions(
     args: ListSecurityProfilePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListSecurityProfilePermissionsCommandOutput) => void
   ): void;
 
@@ -6700,7 +6712,7 @@ export interface Connect {
    */
   listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListSecurityProfilesCommandOutput>;
   listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
@@ -6708,7 +6720,7 @@ export interface Connect {
   ): void;
   listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListSecurityProfilesCommandOutput) => void
   ): void;
 
@@ -6717,7 +6729,7 @@ export interface Connect {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -6725,7 +6737,7 @@ export interface Connect {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -6734,7 +6746,7 @@ export interface Connect {
    */
   listTaskTemplates(
     args: ListTaskTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListTaskTemplatesCommandOutput>;
   listTaskTemplates(
     args: ListTaskTemplatesCommandInput,
@@ -6742,7 +6754,7 @@ export interface Connect {
   ): void;
   listTaskTemplates(
     args: ListTaskTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListTaskTemplatesCommandOutput) => void
   ): void;
 
@@ -6751,7 +6763,7 @@ export interface Connect {
    */
   listTestCaseExecutionRecords(
     args: ListTestCaseExecutionRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListTestCaseExecutionRecordsCommandOutput>;
   listTestCaseExecutionRecords(
     args: ListTestCaseExecutionRecordsCommandInput,
@@ -6759,7 +6771,7 @@ export interface Connect {
   ): void;
   listTestCaseExecutionRecords(
     args: ListTestCaseExecutionRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListTestCaseExecutionRecordsCommandOutput) => void
   ): void;
 
@@ -6768,7 +6780,7 @@ export interface Connect {
    */
   listTestCaseExecutions(
     args: ListTestCaseExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListTestCaseExecutionsCommandOutput>;
   listTestCaseExecutions(
     args: ListTestCaseExecutionsCommandInput,
@@ -6776,7 +6788,7 @@ export interface Connect {
   ): void;
   listTestCaseExecutions(
     args: ListTestCaseExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListTestCaseExecutionsCommandOutput) => void
   ): void;
 
@@ -6785,7 +6797,7 @@ export interface Connect {
    */
   listTestCases(
     args: ListTestCasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListTestCasesCommandOutput>;
   listTestCases(
     args: ListTestCasesCommandInput,
@@ -6793,7 +6805,7 @@ export interface Connect {
   ): void;
   listTestCases(
     args: ListTestCasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListTestCasesCommandOutput) => void
   ): void;
 
@@ -6803,7 +6815,7 @@ export interface Connect {
   listTrafficDistributionGroups(): Promise<ListTrafficDistributionGroupsCommandOutput>;
   listTrafficDistributionGroups(
     args: ListTrafficDistributionGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListTrafficDistributionGroupsCommandOutput>;
   listTrafficDistributionGroups(
     args: ListTrafficDistributionGroupsCommandInput,
@@ -6811,7 +6823,7 @@ export interface Connect {
   ): void;
   listTrafficDistributionGroups(
     args: ListTrafficDistributionGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListTrafficDistributionGroupsCommandOutput) => void
   ): void;
 
@@ -6820,7 +6832,7 @@ export interface Connect {
    */
   listTrafficDistributionGroupUsers(
     args: ListTrafficDistributionGroupUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListTrafficDistributionGroupUsersCommandOutput>;
   listTrafficDistributionGroupUsers(
     args: ListTrafficDistributionGroupUsersCommandInput,
@@ -6828,7 +6840,7 @@ export interface Connect {
   ): void;
   listTrafficDistributionGroupUsers(
     args: ListTrafficDistributionGroupUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListTrafficDistributionGroupUsersCommandOutput) => void
   ): void;
 
@@ -6837,7 +6849,7 @@ export interface Connect {
    */
   listUseCases(
     args: ListUseCasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListUseCasesCommandOutput>;
   listUseCases(
     args: ListUseCasesCommandInput,
@@ -6845,7 +6857,7 @@ export interface Connect {
   ): void;
   listUseCases(
     args: ListUseCasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListUseCasesCommandOutput) => void
   ): void;
 
@@ -6854,7 +6866,7 @@ export interface Connect {
    */
   listUserHierarchyGroups(
     args: ListUserHierarchyGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListUserHierarchyGroupsCommandOutput>;
   listUserHierarchyGroups(
     args: ListUserHierarchyGroupsCommandInput,
@@ -6862,7 +6874,7 @@ export interface Connect {
   ): void;
   listUserHierarchyGroups(
     args: ListUserHierarchyGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListUserHierarchyGroupsCommandOutput) => void
   ): void;
 
@@ -6871,7 +6883,7 @@ export interface Connect {
    */
   listUserNotifications(
     args: ListUserNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListUserNotificationsCommandOutput>;
   listUserNotifications(
     args: ListUserNotificationsCommandInput,
@@ -6879,7 +6891,7 @@ export interface Connect {
   ): void;
   listUserNotifications(
     args: ListUserNotificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListUserNotificationsCommandOutput) => void
   ): void;
 
@@ -6888,7 +6900,7 @@ export interface Connect {
    */
   listUserProficiencies(
     args: ListUserProficienciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListUserProficienciesCommandOutput>;
   listUserProficiencies(
     args: ListUserProficienciesCommandInput,
@@ -6896,7 +6908,7 @@ export interface Connect {
   ): void;
   listUserProficiencies(
     args: ListUserProficienciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListUserProficienciesCommandOutput) => void
   ): void;
 
@@ -6905,7 +6917,7 @@ export interface Connect {
    */
   listUsers(
     args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListUsersCommandOutput>;
   listUsers(
     args: ListUsersCommandInput,
@@ -6913,7 +6925,7 @@ export interface Connect {
   ): void;
   listUsers(
     args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
   ): void;
 
@@ -6922,7 +6934,7 @@ export interface Connect {
    */
   listViews(
     args: ListViewsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListViewsCommandOutput>;
   listViews(
     args: ListViewsCommandInput,
@@ -6930,7 +6942,7 @@ export interface Connect {
   ): void;
   listViews(
     args: ListViewsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListViewsCommandOutput) => void
   ): void;
 
@@ -6939,7 +6951,7 @@ export interface Connect {
    */
   listViewVersions(
     args: ListViewVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListViewVersionsCommandOutput>;
   listViewVersions(
     args: ListViewVersionsCommandInput,
@@ -6947,7 +6959,7 @@ export interface Connect {
   ): void;
   listViewVersions(
     args: ListViewVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListViewVersionsCommandOutput) => void
   ): void;
 
@@ -6956,7 +6968,7 @@ export interface Connect {
    */
   listWorkspaceMedia(
     args: ListWorkspaceMediaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListWorkspaceMediaCommandOutput>;
   listWorkspaceMedia(
     args: ListWorkspaceMediaCommandInput,
@@ -6964,7 +6976,7 @@ export interface Connect {
   ): void;
   listWorkspaceMedia(
     args: ListWorkspaceMediaCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListWorkspaceMediaCommandOutput) => void
   ): void;
 
@@ -6973,7 +6985,7 @@ export interface Connect {
    */
   listWorkspacePages(
     args: ListWorkspacePagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListWorkspacePagesCommandOutput>;
   listWorkspacePages(
     args: ListWorkspacePagesCommandInput,
@@ -6981,7 +6993,7 @@ export interface Connect {
   ): void;
   listWorkspacePages(
     args: ListWorkspacePagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListWorkspacePagesCommandOutput) => void
   ): void;
 
@@ -6990,7 +7002,7 @@ export interface Connect {
    */
   listWorkspaces(
     args: ListWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ListWorkspacesCommandOutput>;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
@@ -6998,7 +7010,7 @@ export interface Connect {
   ): void;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ListWorkspacesCommandOutput) => void
   ): void;
 
@@ -7007,7 +7019,7 @@ export interface Connect {
    */
   monitorContact(
     args: MonitorContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<MonitorContactCommandOutput>;
   monitorContact(
     args: MonitorContactCommandInput,
@@ -7015,7 +7027,7 @@ export interface Connect {
   ): void;
   monitorContact(
     args: MonitorContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: MonitorContactCommandOutput) => void
   ): void;
 
@@ -7024,7 +7036,7 @@ export interface Connect {
    */
   pauseContact(
     args: PauseContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<PauseContactCommandOutput>;
   pauseContact(
     args: PauseContactCommandInput,
@@ -7032,7 +7044,7 @@ export interface Connect {
   ): void;
   pauseContact(
     args: PauseContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: PauseContactCommandOutput) => void
   ): void;
 
@@ -7041,7 +7053,7 @@ export interface Connect {
    */
   putUserStatus(
     args: PutUserStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<PutUserStatusCommandOutput>;
   putUserStatus(
     args: PutUserStatusCommandInput,
@@ -7049,7 +7061,7 @@ export interface Connect {
   ): void;
   putUserStatus(
     args: PutUserStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: PutUserStatusCommandOutput) => void
   ): void;
 
@@ -7058,7 +7070,7 @@ export interface Connect {
    */
   releasePhoneNumber(
     args: ReleasePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ReleasePhoneNumberCommandOutput>;
   releasePhoneNumber(
     args: ReleasePhoneNumberCommandInput,
@@ -7066,7 +7078,7 @@ export interface Connect {
   ): void;
   releasePhoneNumber(
     args: ReleasePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ReleasePhoneNumberCommandOutput) => void
   ): void;
 
@@ -7075,7 +7087,7 @@ export interface Connect {
    */
   replicateInstance(
     args: ReplicateInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ReplicateInstanceCommandOutput>;
   replicateInstance(
     args: ReplicateInstanceCommandInput,
@@ -7083,7 +7095,7 @@ export interface Connect {
   ): void;
   replicateInstance(
     args: ReplicateInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ReplicateInstanceCommandOutput) => void
   ): void;
 
@@ -7092,7 +7104,7 @@ export interface Connect {
    */
   resumeContact(
     args: ResumeContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ResumeContactCommandOutput>;
   resumeContact(
     args: ResumeContactCommandInput,
@@ -7100,7 +7112,7 @@ export interface Connect {
   ): void;
   resumeContact(
     args: ResumeContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ResumeContactCommandOutput) => void
   ): void;
 
@@ -7109,7 +7121,7 @@ export interface Connect {
    */
   resumeContactRecording(
     args: ResumeContactRecordingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<ResumeContactRecordingCommandOutput>;
   resumeContactRecording(
     args: ResumeContactRecordingCommandInput,
@@ -7117,7 +7129,7 @@ export interface Connect {
   ): void;
   resumeContactRecording(
     args: ResumeContactRecordingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: ResumeContactRecordingCommandOutput) => void
   ): void;
 
@@ -7126,7 +7138,7 @@ export interface Connect {
    */
   searchAgentStatuses(
     args: SearchAgentStatusesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchAgentStatusesCommandOutput>;
   searchAgentStatuses(
     args: SearchAgentStatusesCommandInput,
@@ -7134,7 +7146,7 @@ export interface Connect {
   ): void;
   searchAgentStatuses(
     args: SearchAgentStatusesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchAgentStatusesCommandOutput) => void
   ): void;
 
@@ -7143,7 +7155,7 @@ export interface Connect {
    */
   searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchAvailablePhoneNumbersCommandOutput>;
   searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
@@ -7151,7 +7163,7 @@ export interface Connect {
   ): void;
   searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
   ): void;
 
@@ -7160,7 +7172,7 @@ export interface Connect {
    */
   searchContactEvaluations(
     args: SearchContactEvaluationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchContactEvaluationsCommandOutput>;
   searchContactEvaluations(
     args: SearchContactEvaluationsCommandInput,
@@ -7168,7 +7180,7 @@ export interface Connect {
   ): void;
   searchContactEvaluations(
     args: SearchContactEvaluationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchContactEvaluationsCommandOutput) => void
   ): void;
 
@@ -7177,7 +7189,7 @@ export interface Connect {
    */
   searchContactFlowModules(
     args: SearchContactFlowModulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchContactFlowModulesCommandOutput>;
   searchContactFlowModules(
     args: SearchContactFlowModulesCommandInput,
@@ -7185,7 +7197,7 @@ export interface Connect {
   ): void;
   searchContactFlowModules(
     args: SearchContactFlowModulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchContactFlowModulesCommandOutput) => void
   ): void;
 
@@ -7194,7 +7206,7 @@ export interface Connect {
    */
   searchContactFlows(
     args: SearchContactFlowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchContactFlowsCommandOutput>;
   searchContactFlows(
     args: SearchContactFlowsCommandInput,
@@ -7202,7 +7214,7 @@ export interface Connect {
   ): void;
   searchContactFlows(
     args: SearchContactFlowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchContactFlowsCommandOutput) => void
   ): void;
 
@@ -7211,7 +7223,7 @@ export interface Connect {
    */
   searchContacts(
     args: SearchContactsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchContactsCommandOutput>;
   searchContacts(
     args: SearchContactsCommandInput,
@@ -7219,7 +7231,7 @@ export interface Connect {
   ): void;
   searchContacts(
     args: SearchContactsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchContactsCommandOutput) => void
   ): void;
 
@@ -7228,7 +7240,7 @@ export interface Connect {
    */
   searchDataTables(
     args: SearchDataTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchDataTablesCommandOutput>;
   searchDataTables(
     args: SearchDataTablesCommandInput,
@@ -7236,7 +7248,7 @@ export interface Connect {
   ): void;
   searchDataTables(
     args: SearchDataTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchDataTablesCommandOutput) => void
   ): void;
 
@@ -7245,7 +7257,7 @@ export interface Connect {
    */
   searchEmailAddresses(
     args: SearchEmailAddressesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchEmailAddressesCommandOutput>;
   searchEmailAddresses(
     args: SearchEmailAddressesCommandInput,
@@ -7253,7 +7265,7 @@ export interface Connect {
   ): void;
   searchEmailAddresses(
     args: SearchEmailAddressesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchEmailAddressesCommandOutput) => void
   ): void;
 
@@ -7262,7 +7274,7 @@ export interface Connect {
    */
   searchEvaluationForms(
     args: SearchEvaluationFormsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchEvaluationFormsCommandOutput>;
   searchEvaluationForms(
     args: SearchEvaluationFormsCommandInput,
@@ -7270,7 +7282,7 @@ export interface Connect {
   ): void;
   searchEvaluationForms(
     args: SearchEvaluationFormsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchEvaluationFormsCommandOutput) => void
   ): void;
 
@@ -7279,7 +7291,7 @@ export interface Connect {
    */
   searchHoursOfOperationOverrides(
     args: SearchHoursOfOperationOverridesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchHoursOfOperationOverridesCommandOutput>;
   searchHoursOfOperationOverrides(
     args: SearchHoursOfOperationOverridesCommandInput,
@@ -7287,7 +7299,7 @@ export interface Connect {
   ): void;
   searchHoursOfOperationOverrides(
     args: SearchHoursOfOperationOverridesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchHoursOfOperationOverridesCommandOutput) => void
   ): void;
 
@@ -7296,7 +7308,7 @@ export interface Connect {
    */
   searchHoursOfOperations(
     args: SearchHoursOfOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchHoursOfOperationsCommandOutput>;
   searchHoursOfOperations(
     args: SearchHoursOfOperationsCommandInput,
@@ -7304,7 +7316,7 @@ export interface Connect {
   ): void;
   searchHoursOfOperations(
     args: SearchHoursOfOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchHoursOfOperationsCommandOutput) => void
   ): void;
 
@@ -7313,7 +7325,7 @@ export interface Connect {
    */
   searchMetrics(
     args: SearchMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchMetricsCommandOutput>;
   searchMetrics(
     args: SearchMetricsCommandInput,
@@ -7321,7 +7333,7 @@ export interface Connect {
   ): void;
   searchMetrics(
     args: SearchMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchMetricsCommandOutput) => void
   ): void;
 
@@ -7330,7 +7342,7 @@ export interface Connect {
    */
   searchNotifications(
     args: SearchNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchNotificationsCommandOutput>;
   searchNotifications(
     args: SearchNotificationsCommandInput,
@@ -7338,7 +7350,7 @@ export interface Connect {
   ): void;
   searchNotifications(
     args: SearchNotificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchNotificationsCommandOutput) => void
   ): void;
 
@@ -7347,7 +7359,7 @@ export interface Connect {
    */
   searchPredefinedAttributes(
     args: SearchPredefinedAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchPredefinedAttributesCommandOutput>;
   searchPredefinedAttributes(
     args: SearchPredefinedAttributesCommandInput,
@@ -7355,7 +7367,7 @@ export interface Connect {
   ): void;
   searchPredefinedAttributes(
     args: SearchPredefinedAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchPredefinedAttributesCommandOutput) => void
   ): void;
 
@@ -7364,7 +7376,7 @@ export interface Connect {
    */
   searchPrompts(
     args: SearchPromptsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchPromptsCommandOutput>;
   searchPrompts(
     args: SearchPromptsCommandInput,
@@ -7372,7 +7384,7 @@ export interface Connect {
   ): void;
   searchPrompts(
     args: SearchPromptsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchPromptsCommandOutput) => void
   ): void;
 
@@ -7381,7 +7393,7 @@ export interface Connect {
    */
   searchQueues(
     args: SearchQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchQueuesCommandOutput>;
   searchQueues(
     args: SearchQueuesCommandInput,
@@ -7389,7 +7401,7 @@ export interface Connect {
   ): void;
   searchQueues(
     args: SearchQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchQueuesCommandOutput) => void
   ): void;
 
@@ -7398,7 +7410,7 @@ export interface Connect {
    */
   searchQuickConnects(
     args: SearchQuickConnectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchQuickConnectsCommandOutput>;
   searchQuickConnects(
     args: SearchQuickConnectsCommandInput,
@@ -7406,7 +7418,7 @@ export interface Connect {
   ): void;
   searchQuickConnects(
     args: SearchQuickConnectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchQuickConnectsCommandOutput) => void
   ): void;
 
@@ -7415,7 +7427,7 @@ export interface Connect {
    */
   searchResourceTags(
     args: SearchResourceTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchResourceTagsCommandOutput>;
   searchResourceTags(
     args: SearchResourceTagsCommandInput,
@@ -7423,7 +7435,7 @@ export interface Connect {
   ): void;
   searchResourceTags(
     args: SearchResourceTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchResourceTagsCommandOutput) => void
   ): void;
 
@@ -7432,7 +7444,7 @@ export interface Connect {
    */
   searchRoutingProfiles(
     args: SearchRoutingProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchRoutingProfilesCommandOutput>;
   searchRoutingProfiles(
     args: SearchRoutingProfilesCommandInput,
@@ -7440,7 +7452,7 @@ export interface Connect {
   ): void;
   searchRoutingProfiles(
     args: SearchRoutingProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchRoutingProfilesCommandOutput) => void
   ): void;
 
@@ -7449,7 +7461,7 @@ export interface Connect {
    */
   searchRules(
     args: SearchRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchRulesCommandOutput>;
   searchRules(
     args: SearchRulesCommandInput,
@@ -7457,7 +7469,7 @@ export interface Connect {
   ): void;
   searchRules(
     args: SearchRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchRulesCommandOutput) => void
   ): void;
 
@@ -7466,7 +7478,7 @@ export interface Connect {
    */
   searchSecurityProfiles(
     args: SearchSecurityProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchSecurityProfilesCommandOutput>;
   searchSecurityProfiles(
     args: SearchSecurityProfilesCommandInput,
@@ -7474,7 +7486,7 @@ export interface Connect {
   ): void;
   searchSecurityProfiles(
     args: SearchSecurityProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchSecurityProfilesCommandOutput) => void
   ): void;
 
@@ -7483,7 +7495,7 @@ export interface Connect {
    */
   searchTestCases(
     args: SearchTestCasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchTestCasesCommandOutput>;
   searchTestCases(
     args: SearchTestCasesCommandInput,
@@ -7491,7 +7503,7 @@ export interface Connect {
   ): void;
   searchTestCases(
     args: SearchTestCasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchTestCasesCommandOutput) => void
   ): void;
 
@@ -7500,7 +7512,7 @@ export interface Connect {
    */
   searchUserHierarchyGroups(
     args: SearchUserHierarchyGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchUserHierarchyGroupsCommandOutput>;
   searchUserHierarchyGroups(
     args: SearchUserHierarchyGroupsCommandInput,
@@ -7508,7 +7520,7 @@ export interface Connect {
   ): void;
   searchUserHierarchyGroups(
     args: SearchUserHierarchyGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchUserHierarchyGroupsCommandOutput) => void
   ): void;
 
@@ -7517,7 +7529,7 @@ export interface Connect {
    */
   searchUsers(
     args: SearchUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchUsersCommandOutput>;
   searchUsers(
     args: SearchUsersCommandInput,
@@ -7525,7 +7537,7 @@ export interface Connect {
   ): void;
   searchUsers(
     args: SearchUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchUsersCommandOutput) => void
   ): void;
 
@@ -7534,7 +7546,7 @@ export interface Connect {
    */
   searchViews(
     args: SearchViewsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchViewsCommandOutput>;
   searchViews(
     args: SearchViewsCommandInput,
@@ -7542,7 +7554,7 @@ export interface Connect {
   ): void;
   searchViews(
     args: SearchViewsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchViewsCommandOutput) => void
   ): void;
 
@@ -7551,7 +7563,7 @@ export interface Connect {
    */
   searchVocabularies(
     args: SearchVocabulariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchVocabulariesCommandOutput>;
   searchVocabularies(
     args: SearchVocabulariesCommandInput,
@@ -7559,7 +7571,7 @@ export interface Connect {
   ): void;
   searchVocabularies(
     args: SearchVocabulariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchVocabulariesCommandOutput) => void
   ): void;
 
@@ -7568,7 +7580,7 @@ export interface Connect {
    */
   searchWorkspaceAssociations(
     args: SearchWorkspaceAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchWorkspaceAssociationsCommandOutput>;
   searchWorkspaceAssociations(
     args: SearchWorkspaceAssociationsCommandInput,
@@ -7576,7 +7588,7 @@ export interface Connect {
   ): void;
   searchWorkspaceAssociations(
     args: SearchWorkspaceAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchWorkspaceAssociationsCommandOutput) => void
   ): void;
 
@@ -7585,7 +7597,7 @@ export interface Connect {
    */
   searchWorkspaces(
     args: SearchWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SearchWorkspacesCommandOutput>;
   searchWorkspaces(
     args: SearchWorkspacesCommandInput,
@@ -7593,7 +7605,7 @@ export interface Connect {
   ): void;
   searchWorkspaces(
     args: SearchWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SearchWorkspacesCommandOutput) => void
   ): void;
 
@@ -7602,7 +7614,7 @@ export interface Connect {
    */
   sendChatIntegrationEvent(
     args: SendChatIntegrationEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SendChatIntegrationEventCommandOutput>;
   sendChatIntegrationEvent(
     args: SendChatIntegrationEventCommandInput,
@@ -7610,7 +7622,7 @@ export interface Connect {
   ): void;
   sendChatIntegrationEvent(
     args: SendChatIntegrationEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SendChatIntegrationEventCommandOutput) => void
   ): void;
 
@@ -7619,7 +7631,7 @@ export interface Connect {
    */
   sendOutboundEmail(
     args: SendOutboundEmailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SendOutboundEmailCommandOutput>;
   sendOutboundEmail(
     args: SendOutboundEmailCommandInput,
@@ -7627,7 +7639,7 @@ export interface Connect {
   ): void;
   sendOutboundEmail(
     args: SendOutboundEmailCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SendOutboundEmailCommandOutput) => void
   ): void;
 
@@ -7636,7 +7648,7 @@ export interface Connect {
    */
   sendOutboundWebNotification(
     args: SendOutboundWebNotificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SendOutboundWebNotificationCommandOutput>;
   sendOutboundWebNotification(
     args: SendOutboundWebNotificationCommandInput,
@@ -7644,7 +7656,7 @@ export interface Connect {
   ): void;
   sendOutboundWebNotification(
     args: SendOutboundWebNotificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SendOutboundWebNotificationCommandOutput) => void
   ): void;
 
@@ -7653,7 +7665,7 @@ export interface Connect {
    */
   startAssistantContact(
     args: StartAssistantContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartAssistantContactCommandOutput>;
   startAssistantContact(
     args: StartAssistantContactCommandInput,
@@ -7661,7 +7673,7 @@ export interface Connect {
   ): void;
   startAssistantContact(
     args: StartAssistantContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartAssistantContactCommandOutput) => void
   ): void;
 
@@ -7670,7 +7682,7 @@ export interface Connect {
    */
   startAttachedFileUpload(
     args: StartAttachedFileUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartAttachedFileUploadCommandOutput>;
   startAttachedFileUpload(
     args: StartAttachedFileUploadCommandInput,
@@ -7678,7 +7690,7 @@ export interface Connect {
   ): void;
   startAttachedFileUpload(
     args: StartAttachedFileUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartAttachedFileUploadCommandOutput) => void
   ): void;
 
@@ -7687,7 +7699,7 @@ export interface Connect {
    */
   startChatContact(
     args: StartChatContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartChatContactCommandOutput>;
   startChatContact(
     args: StartChatContactCommandInput,
@@ -7695,7 +7707,7 @@ export interface Connect {
   ): void;
   startChatContact(
     args: StartChatContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartChatContactCommandOutput) => void
   ): void;
 
@@ -7704,7 +7716,7 @@ export interface Connect {
    */
   startContactConversationalAnalyticsJob(
     args: StartContactConversationalAnalyticsJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartContactConversationalAnalyticsJobCommandOutput>;
   startContactConversationalAnalyticsJob(
     args: StartContactConversationalAnalyticsJobCommandInput,
@@ -7712,7 +7724,7 @@ export interface Connect {
   ): void;
   startContactConversationalAnalyticsJob(
     args: StartContactConversationalAnalyticsJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartContactConversationalAnalyticsJobCommandOutput) => void
   ): void;
 
@@ -7721,7 +7733,7 @@ export interface Connect {
    */
   startContactEvaluation(
     args: StartContactEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartContactEvaluationCommandOutput>;
   startContactEvaluation(
     args: StartContactEvaluationCommandInput,
@@ -7729,7 +7741,7 @@ export interface Connect {
   ): void;
   startContactEvaluation(
     args: StartContactEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartContactEvaluationCommandOutput) => void
   ): void;
 
@@ -7739,7 +7751,7 @@ export interface Connect {
   startContactMediaProcessing(): Promise<StartContactMediaProcessingCommandOutput>;
   startContactMediaProcessing(
     args: StartContactMediaProcessingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartContactMediaProcessingCommandOutput>;
   startContactMediaProcessing(
     args: StartContactMediaProcessingCommandInput,
@@ -7747,7 +7759,7 @@ export interface Connect {
   ): void;
   startContactMediaProcessing(
     args: StartContactMediaProcessingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartContactMediaProcessingCommandOutput) => void
   ): void;
 
@@ -7756,7 +7768,7 @@ export interface Connect {
    */
   startContactRecording(
     args: StartContactRecordingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartContactRecordingCommandOutput>;
   startContactRecording(
     args: StartContactRecordingCommandInput,
@@ -7764,7 +7776,7 @@ export interface Connect {
   ): void;
   startContactRecording(
     args: StartContactRecordingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartContactRecordingCommandOutput) => void
   ): void;
 
@@ -7773,7 +7785,7 @@ export interface Connect {
    */
   startContactStreaming(
     args: StartContactStreamingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartContactStreamingCommandOutput>;
   startContactStreaming(
     args: StartContactStreamingCommandInput,
@@ -7781,7 +7793,7 @@ export interface Connect {
   ): void;
   startContactStreaming(
     args: StartContactStreamingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartContactStreamingCommandOutput) => void
   ): void;
 
@@ -7790,7 +7802,7 @@ export interface Connect {
    */
   startEmailContact(
     args: StartEmailContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartEmailContactCommandOutput>;
   startEmailContact(
     args: StartEmailContactCommandInput,
@@ -7798,7 +7810,7 @@ export interface Connect {
   ): void;
   startEmailContact(
     args: StartEmailContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartEmailContactCommandOutput) => void
   ): void;
 
@@ -7807,7 +7819,7 @@ export interface Connect {
    */
   startEvaluationFormValidation(
     args: StartEvaluationFormValidationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartEvaluationFormValidationCommandOutput>;
   startEvaluationFormValidation(
     args: StartEvaluationFormValidationCommandInput,
@@ -7815,7 +7827,7 @@ export interface Connect {
   ): void;
   startEvaluationFormValidation(
     args: StartEvaluationFormValidationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartEvaluationFormValidationCommandOutput) => void
   ): void;
 
@@ -7824,7 +7836,7 @@ export interface Connect {
    */
   startOutboundChatContact(
     args: StartOutboundChatContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartOutboundChatContactCommandOutput>;
   startOutboundChatContact(
     args: StartOutboundChatContactCommandInput,
@@ -7832,7 +7844,7 @@ export interface Connect {
   ): void;
   startOutboundChatContact(
     args: StartOutboundChatContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartOutboundChatContactCommandOutput) => void
   ): void;
 
@@ -7841,7 +7853,7 @@ export interface Connect {
    */
   startOutboundEmailContact(
     args: StartOutboundEmailContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartOutboundEmailContactCommandOutput>;
   startOutboundEmailContact(
     args: StartOutboundEmailContactCommandInput,
@@ -7849,7 +7861,7 @@ export interface Connect {
   ): void;
   startOutboundEmailContact(
     args: StartOutboundEmailContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartOutboundEmailContactCommandOutput) => void
   ): void;
 
@@ -7858,7 +7870,7 @@ export interface Connect {
    */
   startOutboundVoiceContact(
     args: StartOutboundVoiceContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartOutboundVoiceContactCommandOutput>;
   startOutboundVoiceContact(
     args: StartOutboundVoiceContactCommandInput,
@@ -7866,7 +7878,7 @@ export interface Connect {
   ): void;
   startOutboundVoiceContact(
     args: StartOutboundVoiceContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartOutboundVoiceContactCommandOutput) => void
   ): void;
 
@@ -7875,7 +7887,7 @@ export interface Connect {
    */
   startScreenSharing(
     args: StartScreenSharingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartScreenSharingCommandOutput>;
   startScreenSharing(
     args: StartScreenSharingCommandInput,
@@ -7883,7 +7895,7 @@ export interface Connect {
   ): void;
   startScreenSharing(
     args: StartScreenSharingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartScreenSharingCommandOutput) => void
   ): void;
 
@@ -7892,7 +7904,7 @@ export interface Connect {
    */
   startTaskContact(
     args: StartTaskContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartTaskContactCommandOutput>;
   startTaskContact(
     args: StartTaskContactCommandInput,
@@ -7900,7 +7912,7 @@ export interface Connect {
   ): void;
   startTaskContact(
     args: StartTaskContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartTaskContactCommandOutput) => void
   ): void;
 
@@ -7909,7 +7921,7 @@ export interface Connect {
    */
   startTestCaseExecution(
     args: StartTestCaseExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartTestCaseExecutionCommandOutput>;
   startTestCaseExecution(
     args: StartTestCaseExecutionCommandInput,
@@ -7917,7 +7929,7 @@ export interface Connect {
   ): void;
   startTestCaseExecution(
     args: StartTestCaseExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartTestCaseExecutionCommandOutput) => void
   ): void;
 
@@ -7926,7 +7938,7 @@ export interface Connect {
    */
   startWebRTCContact(
     args: StartWebRTCContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StartWebRTCContactCommandOutput>;
   startWebRTCContact(
     args: StartWebRTCContactCommandInput,
@@ -7934,7 +7946,7 @@ export interface Connect {
   ): void;
   startWebRTCContact(
     args: StartWebRTCContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StartWebRTCContactCommandOutput) => void
   ): void;
 
@@ -7943,7 +7955,7 @@ export interface Connect {
    */
   stopContact(
     args: StopContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StopContactCommandOutput>;
   stopContact(
     args: StopContactCommandInput,
@@ -7951,7 +7963,7 @@ export interface Connect {
   ): void;
   stopContact(
     args: StopContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StopContactCommandOutput) => void
   ): void;
 
@@ -7961,7 +7973,7 @@ export interface Connect {
   stopContactMediaProcessing(): Promise<StopContactMediaProcessingCommandOutput>;
   stopContactMediaProcessing(
     args: StopContactMediaProcessingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StopContactMediaProcessingCommandOutput>;
   stopContactMediaProcessing(
     args: StopContactMediaProcessingCommandInput,
@@ -7969,7 +7981,7 @@ export interface Connect {
   ): void;
   stopContactMediaProcessing(
     args: StopContactMediaProcessingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StopContactMediaProcessingCommandOutput) => void
   ): void;
 
@@ -7978,7 +7990,7 @@ export interface Connect {
    */
   stopContactRecording(
     args: StopContactRecordingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StopContactRecordingCommandOutput>;
   stopContactRecording(
     args: StopContactRecordingCommandInput,
@@ -7986,7 +7998,7 @@ export interface Connect {
   ): void;
   stopContactRecording(
     args: StopContactRecordingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StopContactRecordingCommandOutput) => void
   ): void;
 
@@ -7995,7 +8007,7 @@ export interface Connect {
    */
   stopContactStreaming(
     args: StopContactStreamingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StopContactStreamingCommandOutput>;
   stopContactStreaming(
     args: StopContactStreamingCommandInput,
@@ -8003,7 +8015,7 @@ export interface Connect {
   ): void;
   stopContactStreaming(
     args: StopContactStreamingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StopContactStreamingCommandOutput) => void
   ): void;
 
@@ -8012,7 +8024,7 @@ export interface Connect {
    */
   stopTestCaseExecution(
     args: StopTestCaseExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<StopTestCaseExecutionCommandOutput>;
   stopTestCaseExecution(
     args: StopTestCaseExecutionCommandInput,
@@ -8020,7 +8032,7 @@ export interface Connect {
   ): void;
   stopTestCaseExecution(
     args: StopTestCaseExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: StopTestCaseExecutionCommandOutput) => void
   ): void;
 
@@ -8029,7 +8041,7 @@ export interface Connect {
    */
   submitContactEvaluation(
     args: SubmitContactEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SubmitContactEvaluationCommandOutput>;
   submitContactEvaluation(
     args: SubmitContactEvaluationCommandInput,
@@ -8037,7 +8049,7 @@ export interface Connect {
   ): void;
   submitContactEvaluation(
     args: SubmitContactEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SubmitContactEvaluationCommandOutput) => void
   ): void;
 
@@ -8046,7 +8058,7 @@ export interface Connect {
    */
   suspendContactRecording(
     args: SuspendContactRecordingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<SuspendContactRecordingCommandOutput>;
   suspendContactRecording(
     args: SuspendContactRecordingCommandInput,
@@ -8054,7 +8066,7 @@ export interface Connect {
   ): void;
   suspendContactRecording(
     args: SuspendContactRecordingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: SuspendContactRecordingCommandOutput) => void
   ): void;
 
@@ -8063,7 +8075,7 @@ export interface Connect {
    */
   tagContact(
     args: TagContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<TagContactCommandOutput>;
   tagContact(
     args: TagContactCommandInput,
@@ -8071,7 +8083,7 @@ export interface Connect {
   ): void;
   tagContact(
     args: TagContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: TagContactCommandOutput) => void
   ): void;
 
@@ -8080,7 +8092,7 @@ export interface Connect {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -8088,7 +8100,7 @@ export interface Connect {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -8097,7 +8109,7 @@ export interface Connect {
    */
   transferContact(
     args: TransferContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<TransferContactCommandOutput>;
   transferContact(
     args: TransferContactCommandInput,
@@ -8105,7 +8117,7 @@ export interface Connect {
   ): void;
   transferContact(
     args: TransferContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: TransferContactCommandOutput) => void
   ): void;
 
@@ -8114,7 +8126,7 @@ export interface Connect {
    */
   untagContact(
     args: UntagContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UntagContactCommandOutput>;
   untagContact(
     args: UntagContactCommandInput,
@@ -8122,7 +8134,7 @@ export interface Connect {
   ): void;
   untagContact(
     args: UntagContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UntagContactCommandOutput) => void
   ): void;
 
@@ -8131,7 +8143,7 @@ export interface Connect {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -8139,7 +8151,7 @@ export interface Connect {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -8148,7 +8160,7 @@ export interface Connect {
    */
   updateAgentStatus(
     args: UpdateAgentStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateAgentStatusCommandOutput>;
   updateAgentStatus(
     args: UpdateAgentStatusCommandInput,
@@ -8156,7 +8168,7 @@ export interface Connect {
   ): void;
   updateAgentStatus(
     args: UpdateAgentStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateAgentStatusCommandOutput) => void
   ): void;
 
@@ -8165,7 +8177,7 @@ export interface Connect {
    */
   updateAttachedFilesConfiguration(
     args: UpdateAttachedFilesConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateAttachedFilesConfigurationCommandOutput>;
   updateAttachedFilesConfiguration(
     args: UpdateAttachedFilesConfigurationCommandInput,
@@ -8173,7 +8185,7 @@ export interface Connect {
   ): void;
   updateAttachedFilesConfiguration(
     args: UpdateAttachedFilesConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateAttachedFilesConfigurationCommandOutput) => void
   ): void;
 
@@ -8182,7 +8194,7 @@ export interface Connect {
    */
   updateAuthenticationProfile(
     args: UpdateAuthenticationProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateAuthenticationProfileCommandOutput>;
   updateAuthenticationProfile(
     args: UpdateAuthenticationProfileCommandInput,
@@ -8190,7 +8202,7 @@ export interface Connect {
   ): void;
   updateAuthenticationProfile(
     args: UpdateAuthenticationProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateAuthenticationProfileCommandOutput) => void
   ): void;
 
@@ -8199,7 +8211,7 @@ export interface Connect {
    */
   updateContact(
     args: UpdateContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactCommandOutput>;
   updateContact(
     args: UpdateContactCommandInput,
@@ -8207,7 +8219,7 @@ export interface Connect {
   ): void;
   updateContact(
     args: UpdateContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactCommandOutput) => void
   ): void;
 
@@ -8216,7 +8228,7 @@ export interface Connect {
    */
   updateContactAttributes(
     args: UpdateContactAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactAttributesCommandOutput>;
   updateContactAttributes(
     args: UpdateContactAttributesCommandInput,
@@ -8224,7 +8236,7 @@ export interface Connect {
   ): void;
   updateContactAttributes(
     args: UpdateContactAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactAttributesCommandOutput) => void
   ): void;
 
@@ -8233,7 +8245,7 @@ export interface Connect {
    */
   updateContactEvaluation(
     args: UpdateContactEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactEvaluationCommandOutput>;
   updateContactEvaluation(
     args: UpdateContactEvaluationCommandInput,
@@ -8241,7 +8253,7 @@ export interface Connect {
   ): void;
   updateContactEvaluation(
     args: UpdateContactEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactEvaluationCommandOutput) => void
   ): void;
 
@@ -8250,7 +8262,7 @@ export interface Connect {
    */
   updateContactFlowContent(
     args: UpdateContactFlowContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactFlowContentCommandOutput>;
   updateContactFlowContent(
     args: UpdateContactFlowContentCommandInput,
@@ -8258,7 +8270,7 @@ export interface Connect {
   ): void;
   updateContactFlowContent(
     args: UpdateContactFlowContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactFlowContentCommandOutput) => void
   ): void;
 
@@ -8267,7 +8279,7 @@ export interface Connect {
    */
   updateContactFlowMetadata(
     args: UpdateContactFlowMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactFlowMetadataCommandOutput>;
   updateContactFlowMetadata(
     args: UpdateContactFlowMetadataCommandInput,
@@ -8275,7 +8287,7 @@ export interface Connect {
   ): void;
   updateContactFlowMetadata(
     args: UpdateContactFlowMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactFlowMetadataCommandOutput) => void
   ): void;
 
@@ -8284,7 +8296,7 @@ export interface Connect {
    */
   updateContactFlowModuleAlias(
     args: UpdateContactFlowModuleAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactFlowModuleAliasCommandOutput>;
   updateContactFlowModuleAlias(
     args: UpdateContactFlowModuleAliasCommandInput,
@@ -8292,7 +8304,7 @@ export interface Connect {
   ): void;
   updateContactFlowModuleAlias(
     args: UpdateContactFlowModuleAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactFlowModuleAliasCommandOutput) => void
   ): void;
 
@@ -8301,7 +8313,7 @@ export interface Connect {
    */
   updateContactFlowModuleContent(
     args: UpdateContactFlowModuleContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactFlowModuleContentCommandOutput>;
   updateContactFlowModuleContent(
     args: UpdateContactFlowModuleContentCommandInput,
@@ -8309,7 +8321,7 @@ export interface Connect {
   ): void;
   updateContactFlowModuleContent(
     args: UpdateContactFlowModuleContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactFlowModuleContentCommandOutput) => void
   ): void;
 
@@ -8318,7 +8330,7 @@ export interface Connect {
    */
   updateContactFlowModuleMetadata(
     args: UpdateContactFlowModuleMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactFlowModuleMetadataCommandOutput>;
   updateContactFlowModuleMetadata(
     args: UpdateContactFlowModuleMetadataCommandInput,
@@ -8326,7 +8338,7 @@ export interface Connect {
   ): void;
   updateContactFlowModuleMetadata(
     args: UpdateContactFlowModuleMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactFlowModuleMetadataCommandOutput) => void
   ): void;
 
@@ -8335,7 +8347,7 @@ export interface Connect {
    */
   updateContactFlowName(
     args: UpdateContactFlowNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactFlowNameCommandOutput>;
   updateContactFlowName(
     args: UpdateContactFlowNameCommandInput,
@@ -8343,7 +8355,7 @@ export interface Connect {
   ): void;
   updateContactFlowName(
     args: UpdateContactFlowNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactFlowNameCommandOutput) => void
   ): void;
 
@@ -8352,7 +8364,7 @@ export interface Connect {
    */
   updateContactRoutingData(
     args: UpdateContactRoutingDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactRoutingDataCommandOutput>;
   updateContactRoutingData(
     args: UpdateContactRoutingDataCommandInput,
@@ -8360,7 +8372,7 @@ export interface Connect {
   ): void;
   updateContactRoutingData(
     args: UpdateContactRoutingDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactRoutingDataCommandOutput) => void
   ): void;
 
@@ -8369,7 +8381,7 @@ export interface Connect {
    */
   updateContactSchedule(
     args: UpdateContactScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactScheduleCommandOutput>;
   updateContactSchedule(
     args: UpdateContactScheduleCommandInput,
@@ -8377,7 +8389,7 @@ export interface Connect {
   ): void;
   updateContactSchedule(
     args: UpdateContactScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactScheduleCommandOutput) => void
   ): void;
 
@@ -8386,7 +8398,7 @@ export interface Connect {
    */
   updateContactTaskTemplate(
     args: UpdateContactTaskTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateContactTaskTemplateCommandOutput>;
   updateContactTaskTemplate(
     args: UpdateContactTaskTemplateCommandInput,
@@ -8394,7 +8406,7 @@ export interface Connect {
   ): void;
   updateContactTaskTemplate(
     args: UpdateContactTaskTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateContactTaskTemplateCommandOutput) => void
   ): void;
 
@@ -8403,7 +8415,7 @@ export interface Connect {
    */
   updateCrossRegionRouting(
     args: UpdateCrossRegionRoutingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateCrossRegionRoutingCommandOutput>;
   updateCrossRegionRouting(
     args: UpdateCrossRegionRoutingCommandInput,
@@ -8411,7 +8423,7 @@ export interface Connect {
   ): void;
   updateCrossRegionRouting(
     args: UpdateCrossRegionRoutingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateCrossRegionRoutingCommandOutput) => void
   ): void;
 
@@ -8420,7 +8432,7 @@ export interface Connect {
    */
   updateDataTableAttribute(
     args: UpdateDataTableAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateDataTableAttributeCommandOutput>;
   updateDataTableAttribute(
     args: UpdateDataTableAttributeCommandInput,
@@ -8428,7 +8440,7 @@ export interface Connect {
   ): void;
   updateDataTableAttribute(
     args: UpdateDataTableAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateDataTableAttributeCommandOutput) => void
   ): void;
 
@@ -8437,7 +8449,7 @@ export interface Connect {
    */
   updateDataTableMetadata(
     args: UpdateDataTableMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateDataTableMetadataCommandOutput>;
   updateDataTableMetadata(
     args: UpdateDataTableMetadataCommandInput,
@@ -8445,7 +8457,7 @@ export interface Connect {
   ): void;
   updateDataTableMetadata(
     args: UpdateDataTableMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateDataTableMetadataCommandOutput) => void
   ): void;
 
@@ -8454,7 +8466,7 @@ export interface Connect {
    */
   updateDataTablePrimaryValues(
     args: UpdateDataTablePrimaryValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateDataTablePrimaryValuesCommandOutput>;
   updateDataTablePrimaryValues(
     args: UpdateDataTablePrimaryValuesCommandInput,
@@ -8462,7 +8474,7 @@ export interface Connect {
   ): void;
   updateDataTablePrimaryValues(
     args: UpdateDataTablePrimaryValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateDataTablePrimaryValuesCommandOutput) => void
   ): void;
 
@@ -8471,7 +8483,7 @@ export interface Connect {
    */
   updateEmailAddressMetadata(
     args: UpdateEmailAddressMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateEmailAddressMetadataCommandOutput>;
   updateEmailAddressMetadata(
     args: UpdateEmailAddressMetadataCommandInput,
@@ -8479,7 +8491,7 @@ export interface Connect {
   ): void;
   updateEmailAddressMetadata(
     args: UpdateEmailAddressMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateEmailAddressMetadataCommandOutput) => void
   ): void;
 
@@ -8488,7 +8500,7 @@ export interface Connect {
    */
   updateEvaluationForm(
     args: UpdateEvaluationFormCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateEvaluationFormCommandOutput>;
   updateEvaluationForm(
     args: UpdateEvaluationFormCommandInput,
@@ -8496,7 +8508,7 @@ export interface Connect {
   ): void;
   updateEvaluationForm(
     args: UpdateEvaluationFormCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateEvaluationFormCommandOutput) => void
   ): void;
 
@@ -8505,7 +8517,7 @@ export interface Connect {
    */
   updateExtractionDefinition(
     args: UpdateExtractionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateExtractionDefinitionCommandOutput>;
   updateExtractionDefinition(
     args: UpdateExtractionDefinitionCommandInput,
@@ -8513,7 +8525,7 @@ export interface Connect {
   ): void;
   updateExtractionDefinition(
     args: UpdateExtractionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateExtractionDefinitionCommandOutput) => void
   ): void;
 
@@ -8522,7 +8534,7 @@ export interface Connect {
    */
   updateHoursOfOperation(
     args: UpdateHoursOfOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateHoursOfOperationCommandOutput>;
   updateHoursOfOperation(
     args: UpdateHoursOfOperationCommandInput,
@@ -8530,7 +8542,7 @@ export interface Connect {
   ): void;
   updateHoursOfOperation(
     args: UpdateHoursOfOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateHoursOfOperationCommandOutput) => void
   ): void;
 
@@ -8539,7 +8551,7 @@ export interface Connect {
    */
   updateHoursOfOperationOverride(
     args: UpdateHoursOfOperationOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateHoursOfOperationOverrideCommandOutput>;
   updateHoursOfOperationOverride(
     args: UpdateHoursOfOperationOverrideCommandInput,
@@ -8547,7 +8559,7 @@ export interface Connect {
   ): void;
   updateHoursOfOperationOverride(
     args: UpdateHoursOfOperationOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateHoursOfOperationOverrideCommandOutput) => void
   ): void;
 
@@ -8556,7 +8568,7 @@ export interface Connect {
    */
   updateInstanceAttribute(
     args: UpdateInstanceAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateInstanceAttributeCommandOutput>;
   updateInstanceAttribute(
     args: UpdateInstanceAttributeCommandInput,
@@ -8564,7 +8576,7 @@ export interface Connect {
   ): void;
   updateInstanceAttribute(
     args: UpdateInstanceAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateInstanceAttributeCommandOutput) => void
   ): void;
 
@@ -8573,7 +8585,7 @@ export interface Connect {
    */
   updateInstanceStorageConfig(
     args: UpdateInstanceStorageConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateInstanceStorageConfigCommandOutput>;
   updateInstanceStorageConfig(
     args: UpdateInstanceStorageConfigCommandInput,
@@ -8581,7 +8593,7 @@ export interface Connect {
   ): void;
   updateInstanceStorageConfig(
     args: UpdateInstanceStorageConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateInstanceStorageConfigCommandOutput) => void
   ): void;
 
@@ -8590,7 +8602,7 @@ export interface Connect {
    */
   updateMetricContent(
     args: UpdateMetricContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateMetricContentCommandOutput>;
   updateMetricContent(
     args: UpdateMetricContentCommandInput,
@@ -8598,7 +8610,7 @@ export interface Connect {
   ): void;
   updateMetricContent(
     args: UpdateMetricContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateMetricContentCommandOutput) => void
   ): void;
 
@@ -8607,7 +8619,7 @@ export interface Connect {
    */
   updateMetricMetadata(
     args: UpdateMetricMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateMetricMetadataCommandOutput>;
   updateMetricMetadata(
     args: UpdateMetricMetadataCommandInput,
@@ -8615,7 +8627,7 @@ export interface Connect {
   ): void;
   updateMetricMetadata(
     args: UpdateMetricMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateMetricMetadataCommandOutput) => void
   ): void;
 
@@ -8624,7 +8636,7 @@ export interface Connect {
    */
   updateNotificationContent(
     args: UpdateNotificationContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateNotificationContentCommandOutput>;
   updateNotificationContent(
     args: UpdateNotificationContentCommandInput,
@@ -8632,7 +8644,7 @@ export interface Connect {
   ): void;
   updateNotificationContent(
     args: UpdateNotificationContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateNotificationContentCommandOutput) => void
   ): void;
 
@@ -8641,7 +8653,7 @@ export interface Connect {
    */
   updateParticipantAuthentication(
     args: UpdateParticipantAuthenticationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateParticipantAuthenticationCommandOutput>;
   updateParticipantAuthentication(
     args: UpdateParticipantAuthenticationCommandInput,
@@ -8649,7 +8661,7 @@ export interface Connect {
   ): void;
   updateParticipantAuthentication(
     args: UpdateParticipantAuthenticationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateParticipantAuthenticationCommandOutput) => void
   ): void;
 
@@ -8658,7 +8670,7 @@ export interface Connect {
    */
   updateParticipantRoleConfig(
     args: UpdateParticipantRoleConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateParticipantRoleConfigCommandOutput>;
   updateParticipantRoleConfig(
     args: UpdateParticipantRoleConfigCommandInput,
@@ -8666,7 +8678,7 @@ export interface Connect {
   ): void;
   updateParticipantRoleConfig(
     args: UpdateParticipantRoleConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateParticipantRoleConfigCommandOutput) => void
   ): void;
 
@@ -8675,7 +8687,7 @@ export interface Connect {
    */
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdatePhoneNumberCommandOutput>;
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
@@ -8683,7 +8695,7 @@ export interface Connect {
   ): void;
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
   ): void;
 
@@ -8692,7 +8704,7 @@ export interface Connect {
    */
   updatePhoneNumberMetadata(
     args: UpdatePhoneNumberMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdatePhoneNumberMetadataCommandOutput>;
   updatePhoneNumberMetadata(
     args: UpdatePhoneNumberMetadataCommandInput,
@@ -8700,7 +8712,7 @@ export interface Connect {
   ): void;
   updatePhoneNumberMetadata(
     args: UpdatePhoneNumberMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdatePhoneNumberMetadataCommandOutput) => void
   ): void;
 
@@ -8709,7 +8721,7 @@ export interface Connect {
    */
   updatePredefinedAttribute(
     args: UpdatePredefinedAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdatePredefinedAttributeCommandOutput>;
   updatePredefinedAttribute(
     args: UpdatePredefinedAttributeCommandInput,
@@ -8717,7 +8729,7 @@ export interface Connect {
   ): void;
   updatePredefinedAttribute(
     args: UpdatePredefinedAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdatePredefinedAttributeCommandOutput) => void
   ): void;
 
@@ -8726,7 +8738,7 @@ export interface Connect {
    */
   updatePrompt(
     args: UpdatePromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdatePromptCommandOutput>;
   updatePrompt(
     args: UpdatePromptCommandInput,
@@ -8734,7 +8746,7 @@ export interface Connect {
   ): void;
   updatePrompt(
     args: UpdatePromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdatePromptCommandOutput) => void
   ): void;
 
@@ -8743,7 +8755,7 @@ export interface Connect {
    */
   updateQueueHoursOfOperation(
     args: UpdateQueueHoursOfOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateQueueHoursOfOperationCommandOutput>;
   updateQueueHoursOfOperation(
     args: UpdateQueueHoursOfOperationCommandInput,
@@ -8751,7 +8763,7 @@ export interface Connect {
   ): void;
   updateQueueHoursOfOperation(
     args: UpdateQueueHoursOfOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateQueueHoursOfOperationCommandOutput) => void
   ): void;
 
@@ -8760,7 +8772,7 @@ export interface Connect {
    */
   updateQueueMaxContacts(
     args: UpdateQueueMaxContactsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateQueueMaxContactsCommandOutput>;
   updateQueueMaxContacts(
     args: UpdateQueueMaxContactsCommandInput,
@@ -8768,7 +8780,7 @@ export interface Connect {
   ): void;
   updateQueueMaxContacts(
     args: UpdateQueueMaxContactsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateQueueMaxContactsCommandOutput) => void
   ): void;
 
@@ -8777,7 +8789,7 @@ export interface Connect {
    */
   updateQueueName(
     args: UpdateQueueNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateQueueNameCommandOutput>;
   updateQueueName(
     args: UpdateQueueNameCommandInput,
@@ -8785,7 +8797,7 @@ export interface Connect {
   ): void;
   updateQueueName(
     args: UpdateQueueNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateQueueNameCommandOutput) => void
   ): void;
 
@@ -8794,7 +8806,7 @@ export interface Connect {
    */
   updateQueueOutboundCallerConfig(
     args: UpdateQueueOutboundCallerConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateQueueOutboundCallerConfigCommandOutput>;
   updateQueueOutboundCallerConfig(
     args: UpdateQueueOutboundCallerConfigCommandInput,
@@ -8802,7 +8814,7 @@ export interface Connect {
   ): void;
   updateQueueOutboundCallerConfig(
     args: UpdateQueueOutboundCallerConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateQueueOutboundCallerConfigCommandOutput) => void
   ): void;
 
@@ -8811,7 +8823,7 @@ export interface Connect {
    */
   updateQueueOutboundEmailConfig(
     args: UpdateQueueOutboundEmailConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateQueueOutboundEmailConfigCommandOutput>;
   updateQueueOutboundEmailConfig(
     args: UpdateQueueOutboundEmailConfigCommandInput,
@@ -8819,7 +8831,7 @@ export interface Connect {
   ): void;
   updateQueueOutboundEmailConfig(
     args: UpdateQueueOutboundEmailConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateQueueOutboundEmailConfigCommandOutput) => void
   ): void;
 
@@ -8828,7 +8840,7 @@ export interface Connect {
    */
   updateQueueStatus(
     args: UpdateQueueStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateQueueStatusCommandOutput>;
   updateQueueStatus(
     args: UpdateQueueStatusCommandInput,
@@ -8836,7 +8848,7 @@ export interface Connect {
   ): void;
   updateQueueStatus(
     args: UpdateQueueStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateQueueStatusCommandOutput) => void
   ): void;
 
@@ -8845,7 +8857,7 @@ export interface Connect {
    */
   updateQuickConnectConfig(
     args: UpdateQuickConnectConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateQuickConnectConfigCommandOutput>;
   updateQuickConnectConfig(
     args: UpdateQuickConnectConfigCommandInput,
@@ -8853,7 +8865,7 @@ export interface Connect {
   ): void;
   updateQuickConnectConfig(
     args: UpdateQuickConnectConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateQuickConnectConfigCommandOutput) => void
   ): void;
 
@@ -8862,7 +8874,7 @@ export interface Connect {
    */
   updateQuickConnectName(
     args: UpdateQuickConnectNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateQuickConnectNameCommandOutput>;
   updateQuickConnectName(
     args: UpdateQuickConnectNameCommandInput,
@@ -8870,7 +8882,7 @@ export interface Connect {
   ): void;
   updateQuickConnectName(
     args: UpdateQuickConnectNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateQuickConnectNameCommandOutput) => void
   ): void;
 
@@ -8879,7 +8891,7 @@ export interface Connect {
    */
   updateRoutingProfileAgentAvailabilityTimer(
     args: UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateRoutingProfileAgentAvailabilityTimerCommandOutput>;
   updateRoutingProfileAgentAvailabilityTimer(
     args: UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
@@ -8887,7 +8899,7 @@ export interface Connect {
   ): void;
   updateRoutingProfileAgentAvailabilityTimer(
     args: UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateRoutingProfileAgentAvailabilityTimerCommandOutput) => void
   ): void;
 
@@ -8896,7 +8908,7 @@ export interface Connect {
    */
   updateRoutingProfileConcurrency(
     args: UpdateRoutingProfileConcurrencyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateRoutingProfileConcurrencyCommandOutput>;
   updateRoutingProfileConcurrency(
     args: UpdateRoutingProfileConcurrencyCommandInput,
@@ -8904,7 +8916,7 @@ export interface Connect {
   ): void;
   updateRoutingProfileConcurrency(
     args: UpdateRoutingProfileConcurrencyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateRoutingProfileConcurrencyCommandOutput) => void
   ): void;
 
@@ -8913,7 +8925,7 @@ export interface Connect {
    */
   updateRoutingProfileDefaultOutboundQueue(
     args: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateRoutingProfileDefaultOutboundQueueCommandOutput>;
   updateRoutingProfileDefaultOutboundQueue(
     args: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
@@ -8921,7 +8933,7 @@ export interface Connect {
   ): void;
   updateRoutingProfileDefaultOutboundQueue(
     args: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateRoutingProfileDefaultOutboundQueueCommandOutput) => void
   ): void;
 
@@ -8930,7 +8942,7 @@ export interface Connect {
    */
   updateRoutingProfileName(
     args: UpdateRoutingProfileNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateRoutingProfileNameCommandOutput>;
   updateRoutingProfileName(
     args: UpdateRoutingProfileNameCommandInput,
@@ -8938,7 +8950,7 @@ export interface Connect {
   ): void;
   updateRoutingProfileName(
     args: UpdateRoutingProfileNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateRoutingProfileNameCommandOutput) => void
   ): void;
 
@@ -8947,7 +8959,7 @@ export interface Connect {
    */
   updateRoutingProfileQueues(
     args: UpdateRoutingProfileQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateRoutingProfileQueuesCommandOutput>;
   updateRoutingProfileQueues(
     args: UpdateRoutingProfileQueuesCommandInput,
@@ -8955,7 +8967,7 @@ export interface Connect {
   ): void;
   updateRoutingProfileQueues(
     args: UpdateRoutingProfileQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateRoutingProfileQueuesCommandOutput) => void
   ): void;
 
@@ -8964,7 +8976,7 @@ export interface Connect {
    */
   updateRule(
     args: UpdateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateRuleCommandOutput>;
   updateRule(
     args: UpdateRuleCommandInput,
@@ -8972,7 +8984,7 @@ export interface Connect {
   ): void;
   updateRule(
     args: UpdateRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateRuleCommandOutput) => void
   ): void;
 
@@ -8981,7 +8993,7 @@ export interface Connect {
    */
   updateSecurityProfile(
     args: UpdateSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateSecurityProfileCommandOutput>;
   updateSecurityProfile(
     args: UpdateSecurityProfileCommandInput,
@@ -8989,7 +9001,7 @@ export interface Connect {
   ): void;
   updateSecurityProfile(
     args: UpdateSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
   ): void;
 
@@ -8998,7 +9010,7 @@ export interface Connect {
    */
   updateTaskTemplate(
     args: UpdateTaskTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateTaskTemplateCommandOutput>;
   updateTaskTemplate(
     args: UpdateTaskTemplateCommandInput,
@@ -9006,7 +9018,7 @@ export interface Connect {
   ): void;
   updateTaskTemplate(
     args: UpdateTaskTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateTaskTemplateCommandOutput) => void
   ): void;
 
@@ -9015,7 +9027,7 @@ export interface Connect {
    */
   updateTestCase(
     args: UpdateTestCaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateTestCaseCommandOutput>;
   updateTestCase(
     args: UpdateTestCaseCommandInput,
@@ -9023,7 +9035,7 @@ export interface Connect {
   ): void;
   updateTestCase(
     args: UpdateTestCaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateTestCaseCommandOutput) => void
   ): void;
 
@@ -9032,7 +9044,7 @@ export interface Connect {
    */
   updateTrafficDistribution(
     args: UpdateTrafficDistributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateTrafficDistributionCommandOutput>;
   updateTrafficDistribution(
     args: UpdateTrafficDistributionCommandInput,
@@ -9040,7 +9052,7 @@ export interface Connect {
   ): void;
   updateTrafficDistribution(
     args: UpdateTrafficDistributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateTrafficDistributionCommandOutput) => void
   ): void;
 
@@ -9049,7 +9061,7 @@ export interface Connect {
    */
   updateUserConfig(
     args: UpdateUserConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateUserConfigCommandOutput>;
   updateUserConfig(
     args: UpdateUserConfigCommandInput,
@@ -9057,7 +9069,7 @@ export interface Connect {
   ): void;
   updateUserConfig(
     args: UpdateUserConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateUserConfigCommandOutput) => void
   ): void;
 
@@ -9066,7 +9078,7 @@ export interface Connect {
    */
   updateUserHierarchy(
     args: UpdateUserHierarchyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateUserHierarchyCommandOutput>;
   updateUserHierarchy(
     args: UpdateUserHierarchyCommandInput,
@@ -9074,7 +9086,7 @@ export interface Connect {
   ): void;
   updateUserHierarchy(
     args: UpdateUserHierarchyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateUserHierarchyCommandOutput) => void
   ): void;
 
@@ -9083,7 +9095,7 @@ export interface Connect {
    */
   updateUserHierarchyGroupName(
     args: UpdateUserHierarchyGroupNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateUserHierarchyGroupNameCommandOutput>;
   updateUserHierarchyGroupName(
     args: UpdateUserHierarchyGroupNameCommandInput,
@@ -9091,7 +9103,7 @@ export interface Connect {
   ): void;
   updateUserHierarchyGroupName(
     args: UpdateUserHierarchyGroupNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateUserHierarchyGroupNameCommandOutput) => void
   ): void;
 
@@ -9100,7 +9112,7 @@ export interface Connect {
    */
   updateUserHierarchyStructure(
     args: UpdateUserHierarchyStructureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateUserHierarchyStructureCommandOutput>;
   updateUserHierarchyStructure(
     args: UpdateUserHierarchyStructureCommandInput,
@@ -9108,7 +9120,7 @@ export interface Connect {
   ): void;
   updateUserHierarchyStructure(
     args: UpdateUserHierarchyStructureCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateUserHierarchyStructureCommandOutput) => void
   ): void;
 
@@ -9117,7 +9129,7 @@ export interface Connect {
    */
   updateUserIdentityInfo(
     args: UpdateUserIdentityInfoCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateUserIdentityInfoCommandOutput>;
   updateUserIdentityInfo(
     args: UpdateUserIdentityInfoCommandInput,
@@ -9125,7 +9137,7 @@ export interface Connect {
   ): void;
   updateUserIdentityInfo(
     args: UpdateUserIdentityInfoCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateUserIdentityInfoCommandOutput) => void
   ): void;
 
@@ -9134,7 +9146,7 @@ export interface Connect {
    */
   updateUserNotificationStatus(
     args: UpdateUserNotificationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateUserNotificationStatusCommandOutput>;
   updateUserNotificationStatus(
     args: UpdateUserNotificationStatusCommandInput,
@@ -9142,7 +9154,7 @@ export interface Connect {
   ): void;
   updateUserNotificationStatus(
     args: UpdateUserNotificationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateUserNotificationStatusCommandOutput) => void
   ): void;
 
@@ -9151,7 +9163,7 @@ export interface Connect {
    */
   updateUserPhoneConfig(
     args: UpdateUserPhoneConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateUserPhoneConfigCommandOutput>;
   updateUserPhoneConfig(
     args: UpdateUserPhoneConfigCommandInput,
@@ -9159,7 +9171,7 @@ export interface Connect {
   ): void;
   updateUserPhoneConfig(
     args: UpdateUserPhoneConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateUserPhoneConfigCommandOutput) => void
   ): void;
 
@@ -9168,7 +9180,7 @@ export interface Connect {
    */
   updateUserProficiencies(
     args: UpdateUserProficienciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateUserProficienciesCommandOutput>;
   updateUserProficiencies(
     args: UpdateUserProficienciesCommandInput,
@@ -9176,7 +9188,7 @@ export interface Connect {
   ): void;
   updateUserProficiencies(
     args: UpdateUserProficienciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateUserProficienciesCommandOutput) => void
   ): void;
 
@@ -9185,7 +9197,7 @@ export interface Connect {
    */
   updateUserRoutingProfile(
     args: UpdateUserRoutingProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateUserRoutingProfileCommandOutput>;
   updateUserRoutingProfile(
     args: UpdateUserRoutingProfileCommandInput,
@@ -9193,7 +9205,7 @@ export interface Connect {
   ): void;
   updateUserRoutingProfile(
     args: UpdateUserRoutingProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateUserRoutingProfileCommandOutput) => void
   ): void;
 
@@ -9202,7 +9214,7 @@ export interface Connect {
    */
   updateUserSecurityProfiles(
     args: UpdateUserSecurityProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateUserSecurityProfilesCommandOutput>;
   updateUserSecurityProfiles(
     args: UpdateUserSecurityProfilesCommandInput,
@@ -9210,7 +9222,7 @@ export interface Connect {
   ): void;
   updateUserSecurityProfiles(
     args: UpdateUserSecurityProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateUserSecurityProfilesCommandOutput) => void
   ): void;
 
@@ -9219,7 +9231,7 @@ export interface Connect {
    */
   updateViewContent(
     args: UpdateViewContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateViewContentCommandOutput>;
   updateViewContent(
     args: UpdateViewContentCommandInput,
@@ -9227,7 +9239,7 @@ export interface Connect {
   ): void;
   updateViewContent(
     args: UpdateViewContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateViewContentCommandOutput) => void
   ): void;
 
@@ -9236,7 +9248,7 @@ export interface Connect {
    */
   updateViewMetadata(
     args: UpdateViewMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateViewMetadataCommandOutput>;
   updateViewMetadata(
     args: UpdateViewMetadataCommandInput,
@@ -9244,7 +9256,7 @@ export interface Connect {
   ): void;
   updateViewMetadata(
     args: UpdateViewMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateViewMetadataCommandOutput) => void
   ): void;
 
@@ -9253,7 +9265,7 @@ export interface Connect {
    */
   updateWorkspaceMetadata(
     args: UpdateWorkspaceMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateWorkspaceMetadataCommandOutput>;
   updateWorkspaceMetadata(
     args: UpdateWorkspaceMetadataCommandInput,
@@ -9261,7 +9273,7 @@ export interface Connect {
   ): void;
   updateWorkspaceMetadata(
     args: UpdateWorkspaceMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateWorkspaceMetadataCommandOutput) => void
   ): void;
 
@@ -9270,7 +9282,7 @@ export interface Connect {
    */
   updateWorkspacePage(
     args: UpdateWorkspacePageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateWorkspacePageCommandOutput>;
   updateWorkspacePage(
     args: UpdateWorkspacePageCommandInput,
@@ -9278,7 +9290,7 @@ export interface Connect {
   ): void;
   updateWorkspacePage(
     args: UpdateWorkspacePageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateWorkspacePageCommandOutput) => void
   ): void;
 
@@ -9287,7 +9299,7 @@ export interface Connect {
    */
   updateWorkspaceTheme(
     args: UpdateWorkspaceThemeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateWorkspaceThemeCommandOutput>;
   updateWorkspaceTheme(
     args: UpdateWorkspaceThemeCommandInput,
@@ -9295,7 +9307,7 @@ export interface Connect {
   ): void;
   updateWorkspaceTheme(
     args: UpdateWorkspaceThemeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateWorkspaceThemeCommandOutput) => void
   ): void;
 
@@ -9304,7 +9316,7 @@ export interface Connect {
    */
   updateWorkspaceVisibility(
     args: UpdateWorkspaceVisibilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectRequestOptions
   ): Promise<UpdateWorkspaceVisibilityCommandOutput>;
   updateWorkspaceVisibility(
     args: UpdateWorkspaceVisibilityCommandInput,
@@ -9312,7 +9324,7 @@ export interface Connect {
   ): void;
   updateWorkspaceVisibility(
     args: UpdateWorkspaceVisibilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectRequestOptions,
     cb: (err: any, data?: UpdateWorkspaceVisibilityCommandOutput) => void
   ): void;
 

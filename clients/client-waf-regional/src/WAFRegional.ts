@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type AssociateWebACLCommandInput,
@@ -477,13 +477,20 @@ const commands = {
   UpdateXssMatchSetCommand,
 };
 
+/**
+ * @public
+ */
+export interface WAFRegionalRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface WAFRegional {
   /**
    * @see {@link AssociateWebACLCommand}
    */
   associateWebACL(
     args: AssociateWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<AssociateWebACLCommandOutput>;
   associateWebACL(
     args: AssociateWebACLCommandInput,
@@ -491,7 +498,7 @@ export interface WAFRegional {
   ): void;
   associateWebACL(
     args: AssociateWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: AssociateWebACLCommandOutput) => void
   ): void;
 
@@ -500,7 +507,7 @@ export interface WAFRegional {
    */
   createByteMatchSet(
     args: CreateByteMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateByteMatchSetCommandOutput>;
   createByteMatchSet(
     args: CreateByteMatchSetCommandInput,
@@ -508,7 +515,7 @@ export interface WAFRegional {
   ): void;
   createByteMatchSet(
     args: CreateByteMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateByteMatchSetCommandOutput) => void
   ): void;
 
@@ -517,7 +524,7 @@ export interface WAFRegional {
    */
   createGeoMatchSet(
     args: CreateGeoMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateGeoMatchSetCommandOutput>;
   createGeoMatchSet(
     args: CreateGeoMatchSetCommandInput,
@@ -525,7 +532,7 @@ export interface WAFRegional {
   ): void;
   createGeoMatchSet(
     args: CreateGeoMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateGeoMatchSetCommandOutput) => void
   ): void;
 
@@ -534,7 +541,7 @@ export interface WAFRegional {
    */
   createIPSet(
     args: CreateIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateIPSetCommandOutput>;
   createIPSet(
     args: CreateIPSetCommandInput,
@@ -542,7 +549,7 @@ export interface WAFRegional {
   ): void;
   createIPSet(
     args: CreateIPSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateIPSetCommandOutput) => void
   ): void;
 
@@ -551,7 +558,7 @@ export interface WAFRegional {
    */
   createRateBasedRule(
     args: CreateRateBasedRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateRateBasedRuleCommandOutput>;
   createRateBasedRule(
     args: CreateRateBasedRuleCommandInput,
@@ -559,7 +566,7 @@ export interface WAFRegional {
   ): void;
   createRateBasedRule(
     args: CreateRateBasedRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateRateBasedRuleCommandOutput) => void
   ): void;
 
@@ -568,7 +575,7 @@ export interface WAFRegional {
    */
   createRegexMatchSet(
     args: CreateRegexMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateRegexMatchSetCommandOutput>;
   createRegexMatchSet(
     args: CreateRegexMatchSetCommandInput,
@@ -576,7 +583,7 @@ export interface WAFRegional {
   ): void;
   createRegexMatchSet(
     args: CreateRegexMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateRegexMatchSetCommandOutput) => void
   ): void;
 
@@ -585,7 +592,7 @@ export interface WAFRegional {
    */
   createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateRegexPatternSetCommandOutput>;
   createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
@@ -593,7 +600,7 @@ export interface WAFRegional {
   ): void;
   createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateRegexPatternSetCommandOutput) => void
   ): void;
 
@@ -602,7 +609,7 @@ export interface WAFRegional {
    */
   createRule(
     args: CreateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateRuleCommandOutput>;
   createRule(
     args: CreateRuleCommandInput,
@@ -610,7 +617,7 @@ export interface WAFRegional {
   ): void;
   createRule(
     args: CreateRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateRuleCommandOutput) => void
   ): void;
 
@@ -619,7 +626,7 @@ export interface WAFRegional {
    */
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateRuleGroupCommandOutput>;
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
@@ -627,7 +634,7 @@ export interface WAFRegional {
   ): void;
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateRuleGroupCommandOutput) => void
   ): void;
 
@@ -636,7 +643,7 @@ export interface WAFRegional {
    */
   createSizeConstraintSet(
     args: CreateSizeConstraintSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateSizeConstraintSetCommandOutput>;
   createSizeConstraintSet(
     args: CreateSizeConstraintSetCommandInput,
@@ -644,7 +651,7 @@ export interface WAFRegional {
   ): void;
   createSizeConstraintSet(
     args: CreateSizeConstraintSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateSizeConstraintSetCommandOutput) => void
   ): void;
 
@@ -653,7 +660,7 @@ export interface WAFRegional {
    */
   createSqlInjectionMatchSet(
     args: CreateSqlInjectionMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateSqlInjectionMatchSetCommandOutput>;
   createSqlInjectionMatchSet(
     args: CreateSqlInjectionMatchSetCommandInput,
@@ -661,7 +668,7 @@ export interface WAFRegional {
   ): void;
   createSqlInjectionMatchSet(
     args: CreateSqlInjectionMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateSqlInjectionMatchSetCommandOutput) => void
   ): void;
 
@@ -670,7 +677,7 @@ export interface WAFRegional {
    */
   createWebACL(
     args: CreateWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateWebACLCommandOutput>;
   createWebACL(
     args: CreateWebACLCommandInput,
@@ -678,7 +685,7 @@ export interface WAFRegional {
   ): void;
   createWebACL(
     args: CreateWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateWebACLCommandOutput) => void
   ): void;
 
@@ -687,7 +694,7 @@ export interface WAFRegional {
    */
   createWebACLMigrationStack(
     args: CreateWebACLMigrationStackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateWebACLMigrationStackCommandOutput>;
   createWebACLMigrationStack(
     args: CreateWebACLMigrationStackCommandInput,
@@ -695,7 +702,7 @@ export interface WAFRegional {
   ): void;
   createWebACLMigrationStack(
     args: CreateWebACLMigrationStackCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateWebACLMigrationStackCommandOutput) => void
   ): void;
 
@@ -704,7 +711,7 @@ export interface WAFRegional {
    */
   createXssMatchSet(
     args: CreateXssMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<CreateXssMatchSetCommandOutput>;
   createXssMatchSet(
     args: CreateXssMatchSetCommandInput,
@@ -712,7 +719,7 @@ export interface WAFRegional {
   ): void;
   createXssMatchSet(
     args: CreateXssMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: CreateXssMatchSetCommandOutput) => void
   ): void;
 
@@ -721,7 +728,7 @@ export interface WAFRegional {
    */
   deleteByteMatchSet(
     args: DeleteByteMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteByteMatchSetCommandOutput>;
   deleteByteMatchSet(
     args: DeleteByteMatchSetCommandInput,
@@ -729,7 +736,7 @@ export interface WAFRegional {
   ): void;
   deleteByteMatchSet(
     args: DeleteByteMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteByteMatchSetCommandOutput) => void
   ): void;
 
@@ -738,7 +745,7 @@ export interface WAFRegional {
    */
   deleteGeoMatchSet(
     args: DeleteGeoMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteGeoMatchSetCommandOutput>;
   deleteGeoMatchSet(
     args: DeleteGeoMatchSetCommandInput,
@@ -746,7 +753,7 @@ export interface WAFRegional {
   ): void;
   deleteGeoMatchSet(
     args: DeleteGeoMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteGeoMatchSetCommandOutput) => void
   ): void;
 
@@ -755,7 +762,7 @@ export interface WAFRegional {
    */
   deleteIPSet(
     args: DeleteIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteIPSetCommandOutput>;
   deleteIPSet(
     args: DeleteIPSetCommandInput,
@@ -763,7 +770,7 @@ export interface WAFRegional {
   ): void;
   deleteIPSet(
     args: DeleteIPSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteIPSetCommandOutput) => void
   ): void;
 
@@ -772,7 +779,7 @@ export interface WAFRegional {
    */
   deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteLoggingConfigurationCommandOutput>;
   deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
@@ -780,7 +787,7 @@ export interface WAFRegional {
   ): void;
   deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -789,7 +796,7 @@ export interface WAFRegional {
    */
   deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeletePermissionPolicyCommandOutput>;
   deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
@@ -797,7 +804,7 @@ export interface WAFRegional {
   ): void;
   deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeletePermissionPolicyCommandOutput) => void
   ): void;
 
@@ -806,7 +813,7 @@ export interface WAFRegional {
    */
   deleteRateBasedRule(
     args: DeleteRateBasedRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteRateBasedRuleCommandOutput>;
   deleteRateBasedRule(
     args: DeleteRateBasedRuleCommandInput,
@@ -814,7 +821,7 @@ export interface WAFRegional {
   ): void;
   deleteRateBasedRule(
     args: DeleteRateBasedRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteRateBasedRuleCommandOutput) => void
   ): void;
 
@@ -823,7 +830,7 @@ export interface WAFRegional {
    */
   deleteRegexMatchSet(
     args: DeleteRegexMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteRegexMatchSetCommandOutput>;
   deleteRegexMatchSet(
     args: DeleteRegexMatchSetCommandInput,
@@ -831,7 +838,7 @@ export interface WAFRegional {
   ): void;
   deleteRegexMatchSet(
     args: DeleteRegexMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteRegexMatchSetCommandOutput) => void
   ): void;
 
@@ -840,7 +847,7 @@ export interface WAFRegional {
    */
   deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteRegexPatternSetCommandOutput>;
   deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
@@ -848,7 +855,7 @@ export interface WAFRegional {
   ): void;
   deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteRegexPatternSetCommandOutput) => void
   ): void;
 
@@ -857,7 +864,7 @@ export interface WAFRegional {
    */
   deleteRule(
     args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteRuleCommandOutput>;
   deleteRule(
     args: DeleteRuleCommandInput,
@@ -865,7 +872,7 @@ export interface WAFRegional {
   ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteRuleCommandOutput) => void
   ): void;
 
@@ -874,7 +881,7 @@ export interface WAFRegional {
    */
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteRuleGroupCommandOutput>;
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
@@ -882,7 +889,7 @@ export interface WAFRegional {
   ): void;
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteRuleGroupCommandOutput) => void
   ): void;
 
@@ -891,7 +898,7 @@ export interface WAFRegional {
    */
   deleteSizeConstraintSet(
     args: DeleteSizeConstraintSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteSizeConstraintSetCommandOutput>;
   deleteSizeConstraintSet(
     args: DeleteSizeConstraintSetCommandInput,
@@ -899,7 +906,7 @@ export interface WAFRegional {
   ): void;
   deleteSizeConstraintSet(
     args: DeleteSizeConstraintSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteSizeConstraintSetCommandOutput) => void
   ): void;
 
@@ -908,7 +915,7 @@ export interface WAFRegional {
    */
   deleteSqlInjectionMatchSet(
     args: DeleteSqlInjectionMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteSqlInjectionMatchSetCommandOutput>;
   deleteSqlInjectionMatchSet(
     args: DeleteSqlInjectionMatchSetCommandInput,
@@ -916,7 +923,7 @@ export interface WAFRegional {
   ): void;
   deleteSqlInjectionMatchSet(
     args: DeleteSqlInjectionMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteSqlInjectionMatchSetCommandOutput) => void
   ): void;
 
@@ -925,7 +932,7 @@ export interface WAFRegional {
    */
   deleteWebACL(
     args: DeleteWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteWebACLCommandOutput>;
   deleteWebACL(
     args: DeleteWebACLCommandInput,
@@ -933,7 +940,7 @@ export interface WAFRegional {
   ): void;
   deleteWebACL(
     args: DeleteWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteWebACLCommandOutput) => void
   ): void;
 
@@ -942,7 +949,7 @@ export interface WAFRegional {
    */
   deleteXssMatchSet(
     args: DeleteXssMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DeleteXssMatchSetCommandOutput>;
   deleteXssMatchSet(
     args: DeleteXssMatchSetCommandInput,
@@ -950,7 +957,7 @@ export interface WAFRegional {
   ): void;
   deleteXssMatchSet(
     args: DeleteXssMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DeleteXssMatchSetCommandOutput) => void
   ): void;
 
@@ -959,7 +966,7 @@ export interface WAFRegional {
    */
   disassociateWebACL(
     args: DisassociateWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<DisassociateWebACLCommandOutput>;
   disassociateWebACL(
     args: DisassociateWebACLCommandInput,
@@ -967,7 +974,7 @@ export interface WAFRegional {
   ): void;
   disassociateWebACL(
     args: DisassociateWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: DisassociateWebACLCommandOutput) => void
   ): void;
 
@@ -976,7 +983,7 @@ export interface WAFRegional {
    */
   getByteMatchSet(
     args: GetByteMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetByteMatchSetCommandOutput>;
   getByteMatchSet(
     args: GetByteMatchSetCommandInput,
@@ -984,7 +991,7 @@ export interface WAFRegional {
   ): void;
   getByteMatchSet(
     args: GetByteMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetByteMatchSetCommandOutput) => void
   ): void;
 
@@ -994,7 +1001,7 @@ export interface WAFRegional {
   getChangeToken(): Promise<GetChangeTokenCommandOutput>;
   getChangeToken(
     args: GetChangeTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetChangeTokenCommandOutput>;
   getChangeToken(
     args: GetChangeTokenCommandInput,
@@ -1002,7 +1009,7 @@ export interface WAFRegional {
   ): void;
   getChangeToken(
     args: GetChangeTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetChangeTokenCommandOutput) => void
   ): void;
 
@@ -1011,7 +1018,7 @@ export interface WAFRegional {
    */
   getChangeTokenStatus(
     args: GetChangeTokenStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetChangeTokenStatusCommandOutput>;
   getChangeTokenStatus(
     args: GetChangeTokenStatusCommandInput,
@@ -1019,7 +1026,7 @@ export interface WAFRegional {
   ): void;
   getChangeTokenStatus(
     args: GetChangeTokenStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetChangeTokenStatusCommandOutput) => void
   ): void;
 
@@ -1028,7 +1035,7 @@ export interface WAFRegional {
    */
   getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetGeoMatchSetCommandOutput>;
   getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
@@ -1036,7 +1043,7 @@ export interface WAFRegional {
   ): void;
   getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetGeoMatchSetCommandOutput) => void
   ): void;
 
@@ -1045,7 +1052,7 @@ export interface WAFRegional {
    */
   getIPSet(
     args: GetIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetIPSetCommandOutput>;
   getIPSet(
     args: GetIPSetCommandInput,
@@ -1053,7 +1060,7 @@ export interface WAFRegional {
   ): void;
   getIPSet(
     args: GetIPSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetIPSetCommandOutput) => void
   ): void;
 
@@ -1062,7 +1069,7 @@ export interface WAFRegional {
    */
   getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetLoggingConfigurationCommandOutput>;
   getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
@@ -1070,7 +1077,7 @@ export interface WAFRegional {
   ): void;
   getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -1079,7 +1086,7 @@ export interface WAFRegional {
    */
   getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetPermissionPolicyCommandOutput>;
   getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
@@ -1087,7 +1094,7 @@ export interface WAFRegional {
   ): void;
   getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetPermissionPolicyCommandOutput) => void
   ): void;
 
@@ -1096,7 +1103,7 @@ export interface WAFRegional {
    */
   getRateBasedRule(
     args: GetRateBasedRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetRateBasedRuleCommandOutput>;
   getRateBasedRule(
     args: GetRateBasedRuleCommandInput,
@@ -1104,7 +1111,7 @@ export interface WAFRegional {
   ): void;
   getRateBasedRule(
     args: GetRateBasedRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetRateBasedRuleCommandOutput) => void
   ): void;
 
@@ -1113,7 +1120,7 @@ export interface WAFRegional {
    */
   getRateBasedRuleManagedKeys(
     args: GetRateBasedRuleManagedKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetRateBasedRuleManagedKeysCommandOutput>;
   getRateBasedRuleManagedKeys(
     args: GetRateBasedRuleManagedKeysCommandInput,
@@ -1121,7 +1128,7 @@ export interface WAFRegional {
   ): void;
   getRateBasedRuleManagedKeys(
     args: GetRateBasedRuleManagedKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetRateBasedRuleManagedKeysCommandOutput) => void
   ): void;
 
@@ -1130,7 +1137,7 @@ export interface WAFRegional {
    */
   getRegexMatchSet(
     args: GetRegexMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetRegexMatchSetCommandOutput>;
   getRegexMatchSet(
     args: GetRegexMatchSetCommandInput,
@@ -1138,7 +1145,7 @@ export interface WAFRegional {
   ): void;
   getRegexMatchSet(
     args: GetRegexMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetRegexMatchSetCommandOutput) => void
   ): void;
 
@@ -1147,7 +1154,7 @@ export interface WAFRegional {
    */
   getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetRegexPatternSetCommandOutput>;
   getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
@@ -1155,7 +1162,7 @@ export interface WAFRegional {
   ): void;
   getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetRegexPatternSetCommandOutput) => void
   ): void;
 
@@ -1164,7 +1171,7 @@ export interface WAFRegional {
    */
   getRule(
     args: GetRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetRuleCommandOutput>;
   getRule(
     args: GetRuleCommandInput,
@@ -1172,7 +1179,7 @@ export interface WAFRegional {
   ): void;
   getRule(
     args: GetRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetRuleCommandOutput) => void
   ): void;
 
@@ -1181,7 +1188,7 @@ export interface WAFRegional {
    */
   getRuleGroup(
     args: GetRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetRuleGroupCommandOutput>;
   getRuleGroup(
     args: GetRuleGroupCommandInput,
@@ -1189,7 +1196,7 @@ export interface WAFRegional {
   ): void;
   getRuleGroup(
     args: GetRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetRuleGroupCommandOutput) => void
   ): void;
 
@@ -1198,7 +1205,7 @@ export interface WAFRegional {
    */
   getSampledRequests(
     args: GetSampledRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetSampledRequestsCommandOutput>;
   getSampledRequests(
     args: GetSampledRequestsCommandInput,
@@ -1206,7 +1213,7 @@ export interface WAFRegional {
   ): void;
   getSampledRequests(
     args: GetSampledRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetSampledRequestsCommandOutput) => void
   ): void;
 
@@ -1215,7 +1222,7 @@ export interface WAFRegional {
    */
   getSizeConstraintSet(
     args: GetSizeConstraintSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetSizeConstraintSetCommandOutput>;
   getSizeConstraintSet(
     args: GetSizeConstraintSetCommandInput,
@@ -1223,7 +1230,7 @@ export interface WAFRegional {
   ): void;
   getSizeConstraintSet(
     args: GetSizeConstraintSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetSizeConstraintSetCommandOutput) => void
   ): void;
 
@@ -1232,7 +1239,7 @@ export interface WAFRegional {
    */
   getSqlInjectionMatchSet(
     args: GetSqlInjectionMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetSqlInjectionMatchSetCommandOutput>;
   getSqlInjectionMatchSet(
     args: GetSqlInjectionMatchSetCommandInput,
@@ -1240,7 +1247,7 @@ export interface WAFRegional {
   ): void;
   getSqlInjectionMatchSet(
     args: GetSqlInjectionMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetSqlInjectionMatchSetCommandOutput) => void
   ): void;
 
@@ -1249,7 +1256,7 @@ export interface WAFRegional {
    */
   getWebACL(
     args: GetWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetWebACLCommandOutput>;
   getWebACL(
     args: GetWebACLCommandInput,
@@ -1257,7 +1264,7 @@ export interface WAFRegional {
   ): void;
   getWebACL(
     args: GetWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetWebACLCommandOutput) => void
   ): void;
 
@@ -1266,7 +1273,7 @@ export interface WAFRegional {
    */
   getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetWebACLForResourceCommandOutput>;
   getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
@@ -1274,7 +1281,7 @@ export interface WAFRegional {
   ): void;
   getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetWebACLForResourceCommandOutput) => void
   ): void;
 
@@ -1283,7 +1290,7 @@ export interface WAFRegional {
    */
   getXssMatchSet(
     args: GetXssMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<GetXssMatchSetCommandOutput>;
   getXssMatchSet(
     args: GetXssMatchSetCommandInput,
@@ -1291,7 +1298,7 @@ export interface WAFRegional {
   ): void;
   getXssMatchSet(
     args: GetXssMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: GetXssMatchSetCommandOutput) => void
   ): void;
 
@@ -1301,7 +1308,7 @@ export interface WAFRegional {
   listActivatedRulesInRuleGroup(): Promise<ListActivatedRulesInRuleGroupCommandOutput>;
   listActivatedRulesInRuleGroup(
     args: ListActivatedRulesInRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListActivatedRulesInRuleGroupCommandOutput>;
   listActivatedRulesInRuleGroup(
     args: ListActivatedRulesInRuleGroupCommandInput,
@@ -1309,7 +1316,7 @@ export interface WAFRegional {
   ): void;
   listActivatedRulesInRuleGroup(
     args: ListActivatedRulesInRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListActivatedRulesInRuleGroupCommandOutput) => void
   ): void;
 
@@ -1319,7 +1326,7 @@ export interface WAFRegional {
   listByteMatchSets(): Promise<ListByteMatchSetsCommandOutput>;
   listByteMatchSets(
     args: ListByteMatchSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListByteMatchSetsCommandOutput>;
   listByteMatchSets(
     args: ListByteMatchSetsCommandInput,
@@ -1327,7 +1334,7 @@ export interface WAFRegional {
   ): void;
   listByteMatchSets(
     args: ListByteMatchSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListByteMatchSetsCommandOutput) => void
   ): void;
 
@@ -1337,7 +1344,7 @@ export interface WAFRegional {
   listGeoMatchSets(): Promise<ListGeoMatchSetsCommandOutput>;
   listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListGeoMatchSetsCommandOutput>;
   listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
@@ -1345,7 +1352,7 @@ export interface WAFRegional {
   ): void;
   listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListGeoMatchSetsCommandOutput) => void
   ): void;
 
@@ -1355,7 +1362,7 @@ export interface WAFRegional {
   listIPSets(): Promise<ListIPSetsCommandOutput>;
   listIPSets(
     args: ListIPSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListIPSetsCommandOutput>;
   listIPSets(
     args: ListIPSetsCommandInput,
@@ -1363,7 +1370,7 @@ export interface WAFRegional {
   ): void;
   listIPSets(
     args: ListIPSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListIPSetsCommandOutput) => void
   ): void;
 
@@ -1373,7 +1380,7 @@ export interface WAFRegional {
   listLoggingConfigurations(): Promise<ListLoggingConfigurationsCommandOutput>;
   listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListLoggingConfigurationsCommandOutput>;
   listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
@@ -1381,7 +1388,7 @@ export interface WAFRegional {
   ): void;
   listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListLoggingConfigurationsCommandOutput) => void
   ): void;
 
@@ -1391,7 +1398,7 @@ export interface WAFRegional {
   listRateBasedRules(): Promise<ListRateBasedRulesCommandOutput>;
   listRateBasedRules(
     args: ListRateBasedRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListRateBasedRulesCommandOutput>;
   listRateBasedRules(
     args: ListRateBasedRulesCommandInput,
@@ -1399,7 +1406,7 @@ export interface WAFRegional {
   ): void;
   listRateBasedRules(
     args: ListRateBasedRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListRateBasedRulesCommandOutput) => void
   ): void;
 
@@ -1409,7 +1416,7 @@ export interface WAFRegional {
   listRegexMatchSets(): Promise<ListRegexMatchSetsCommandOutput>;
   listRegexMatchSets(
     args: ListRegexMatchSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListRegexMatchSetsCommandOutput>;
   listRegexMatchSets(
     args: ListRegexMatchSetsCommandInput,
@@ -1417,7 +1424,7 @@ export interface WAFRegional {
   ): void;
   listRegexMatchSets(
     args: ListRegexMatchSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListRegexMatchSetsCommandOutput) => void
   ): void;
 
@@ -1427,7 +1434,7 @@ export interface WAFRegional {
   listRegexPatternSets(): Promise<ListRegexPatternSetsCommandOutput>;
   listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListRegexPatternSetsCommandOutput>;
   listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
@@ -1435,7 +1442,7 @@ export interface WAFRegional {
   ): void;
   listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListRegexPatternSetsCommandOutput) => void
   ): void;
 
@@ -1444,7 +1451,7 @@ export interface WAFRegional {
    */
   listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListResourcesForWebACLCommandOutput>;
   listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
@@ -1452,7 +1459,7 @@ export interface WAFRegional {
   ): void;
   listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListResourcesForWebACLCommandOutput) => void
   ): void;
 
@@ -1462,7 +1469,7 @@ export interface WAFRegional {
   listRuleGroups(): Promise<ListRuleGroupsCommandOutput>;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListRuleGroupsCommandOutput>;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
@@ -1470,7 +1477,7 @@ export interface WAFRegional {
   ): void;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListRuleGroupsCommandOutput) => void
   ): void;
 
@@ -1480,7 +1487,7 @@ export interface WAFRegional {
   listRules(): Promise<ListRulesCommandOutput>;
   listRules(
     args: ListRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListRulesCommandOutput>;
   listRules(
     args: ListRulesCommandInput,
@@ -1488,7 +1495,7 @@ export interface WAFRegional {
   ): void;
   listRules(
     args: ListRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListRulesCommandOutput) => void
   ): void;
 
@@ -1498,7 +1505,7 @@ export interface WAFRegional {
   listSizeConstraintSets(): Promise<ListSizeConstraintSetsCommandOutput>;
   listSizeConstraintSets(
     args: ListSizeConstraintSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListSizeConstraintSetsCommandOutput>;
   listSizeConstraintSets(
     args: ListSizeConstraintSetsCommandInput,
@@ -1506,7 +1513,7 @@ export interface WAFRegional {
   ): void;
   listSizeConstraintSets(
     args: ListSizeConstraintSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListSizeConstraintSetsCommandOutput) => void
   ): void;
 
@@ -1516,7 +1523,7 @@ export interface WAFRegional {
   listSqlInjectionMatchSets(): Promise<ListSqlInjectionMatchSetsCommandOutput>;
   listSqlInjectionMatchSets(
     args: ListSqlInjectionMatchSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListSqlInjectionMatchSetsCommandOutput>;
   listSqlInjectionMatchSets(
     args: ListSqlInjectionMatchSetsCommandInput,
@@ -1524,7 +1531,7 @@ export interface WAFRegional {
   ): void;
   listSqlInjectionMatchSets(
     args: ListSqlInjectionMatchSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListSqlInjectionMatchSetsCommandOutput) => void
   ): void;
 
@@ -1534,7 +1541,7 @@ export interface WAFRegional {
   listSubscribedRuleGroups(): Promise<ListSubscribedRuleGroupsCommandOutput>;
   listSubscribedRuleGroups(
     args: ListSubscribedRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListSubscribedRuleGroupsCommandOutput>;
   listSubscribedRuleGroups(
     args: ListSubscribedRuleGroupsCommandInput,
@@ -1542,7 +1549,7 @@ export interface WAFRegional {
   ): void;
   listSubscribedRuleGroups(
     args: ListSubscribedRuleGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListSubscribedRuleGroupsCommandOutput) => void
   ): void;
 
@@ -1551,7 +1558,7 @@ export interface WAFRegional {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1559,7 +1566,7 @@ export interface WAFRegional {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1569,7 +1576,7 @@ export interface WAFRegional {
   listWebACLs(): Promise<ListWebACLsCommandOutput>;
   listWebACLs(
     args: ListWebACLsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListWebACLsCommandOutput>;
   listWebACLs(
     args: ListWebACLsCommandInput,
@@ -1577,7 +1584,7 @@ export interface WAFRegional {
   ): void;
   listWebACLs(
     args: ListWebACLsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListWebACLsCommandOutput) => void
   ): void;
 
@@ -1587,7 +1594,7 @@ export interface WAFRegional {
   listXssMatchSets(): Promise<ListXssMatchSetsCommandOutput>;
   listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<ListXssMatchSetsCommandOutput>;
   listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
@@ -1595,7 +1602,7 @@ export interface WAFRegional {
   ): void;
   listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: ListXssMatchSetsCommandOutput) => void
   ): void;
 
@@ -1604,7 +1611,7 @@ export interface WAFRegional {
    */
   putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<PutLoggingConfigurationCommandOutput>;
   putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
@@ -1612,7 +1619,7 @@ export interface WAFRegional {
   ): void;
   putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: PutLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -1621,7 +1628,7 @@ export interface WAFRegional {
    */
   putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<PutPermissionPolicyCommandOutput>;
   putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
@@ -1629,7 +1636,7 @@ export interface WAFRegional {
   ): void;
   putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: PutPermissionPolicyCommandOutput) => void
   ): void;
 
@@ -1638,7 +1645,7 @@ export interface WAFRegional {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1646,7 +1653,7 @@ export interface WAFRegional {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1655,7 +1662,7 @@ export interface WAFRegional {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1663,7 +1670,7 @@ export interface WAFRegional {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1672,7 +1679,7 @@ export interface WAFRegional {
    */
   updateByteMatchSet(
     args: UpdateByteMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateByteMatchSetCommandOutput>;
   updateByteMatchSet(
     args: UpdateByteMatchSetCommandInput,
@@ -1680,7 +1687,7 @@ export interface WAFRegional {
   ): void;
   updateByteMatchSet(
     args: UpdateByteMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateByteMatchSetCommandOutput) => void
   ): void;
 
@@ -1689,7 +1696,7 @@ export interface WAFRegional {
    */
   updateGeoMatchSet(
     args: UpdateGeoMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateGeoMatchSetCommandOutput>;
   updateGeoMatchSet(
     args: UpdateGeoMatchSetCommandInput,
@@ -1697,7 +1704,7 @@ export interface WAFRegional {
   ): void;
   updateGeoMatchSet(
     args: UpdateGeoMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateGeoMatchSetCommandOutput) => void
   ): void;
 
@@ -1706,7 +1713,7 @@ export interface WAFRegional {
    */
   updateIPSet(
     args: UpdateIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateIPSetCommandOutput>;
   updateIPSet(
     args: UpdateIPSetCommandInput,
@@ -1714,7 +1721,7 @@ export interface WAFRegional {
   ): void;
   updateIPSet(
     args: UpdateIPSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateIPSetCommandOutput) => void
   ): void;
 
@@ -1723,7 +1730,7 @@ export interface WAFRegional {
    */
   updateRateBasedRule(
     args: UpdateRateBasedRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateRateBasedRuleCommandOutput>;
   updateRateBasedRule(
     args: UpdateRateBasedRuleCommandInput,
@@ -1731,7 +1738,7 @@ export interface WAFRegional {
   ): void;
   updateRateBasedRule(
     args: UpdateRateBasedRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateRateBasedRuleCommandOutput) => void
   ): void;
 
@@ -1740,7 +1747,7 @@ export interface WAFRegional {
    */
   updateRegexMatchSet(
     args: UpdateRegexMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateRegexMatchSetCommandOutput>;
   updateRegexMatchSet(
     args: UpdateRegexMatchSetCommandInput,
@@ -1748,7 +1755,7 @@ export interface WAFRegional {
   ): void;
   updateRegexMatchSet(
     args: UpdateRegexMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateRegexMatchSetCommandOutput) => void
   ): void;
 
@@ -1757,7 +1764,7 @@ export interface WAFRegional {
    */
   updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateRegexPatternSetCommandOutput>;
   updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
@@ -1765,7 +1772,7 @@ export interface WAFRegional {
   ): void;
   updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateRegexPatternSetCommandOutput) => void
   ): void;
 
@@ -1774,7 +1781,7 @@ export interface WAFRegional {
    */
   updateRule(
     args: UpdateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateRuleCommandOutput>;
   updateRule(
     args: UpdateRuleCommandInput,
@@ -1782,7 +1789,7 @@ export interface WAFRegional {
   ): void;
   updateRule(
     args: UpdateRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateRuleCommandOutput) => void
   ): void;
 
@@ -1791,7 +1798,7 @@ export interface WAFRegional {
    */
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateRuleGroupCommandOutput>;
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
@@ -1799,7 +1806,7 @@ export interface WAFRegional {
   ): void;
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateRuleGroupCommandOutput) => void
   ): void;
 
@@ -1808,7 +1815,7 @@ export interface WAFRegional {
    */
   updateSizeConstraintSet(
     args: UpdateSizeConstraintSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateSizeConstraintSetCommandOutput>;
   updateSizeConstraintSet(
     args: UpdateSizeConstraintSetCommandInput,
@@ -1816,7 +1823,7 @@ export interface WAFRegional {
   ): void;
   updateSizeConstraintSet(
     args: UpdateSizeConstraintSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateSizeConstraintSetCommandOutput) => void
   ): void;
 
@@ -1825,7 +1832,7 @@ export interface WAFRegional {
    */
   updateSqlInjectionMatchSet(
     args: UpdateSqlInjectionMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateSqlInjectionMatchSetCommandOutput>;
   updateSqlInjectionMatchSet(
     args: UpdateSqlInjectionMatchSetCommandInput,
@@ -1833,7 +1840,7 @@ export interface WAFRegional {
   ): void;
   updateSqlInjectionMatchSet(
     args: UpdateSqlInjectionMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateSqlInjectionMatchSetCommandOutput) => void
   ): void;
 
@@ -1842,7 +1849,7 @@ export interface WAFRegional {
    */
   updateWebACL(
     args: UpdateWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateWebACLCommandOutput>;
   updateWebACL(
     args: UpdateWebACLCommandInput,
@@ -1850,7 +1857,7 @@ export interface WAFRegional {
   ): void;
   updateWebACL(
     args: UpdateWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateWebACLCommandOutput) => void
   ): void;
 
@@ -1859,7 +1866,7 @@ export interface WAFRegional {
    */
   updateXssMatchSet(
     args: UpdateXssMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WAFRegionalRequestOptions
   ): Promise<UpdateXssMatchSetCommandOutput>;
   updateXssMatchSet(
     args: UpdateXssMatchSetCommandInput,
@@ -1867,7 +1874,7 @@ export interface WAFRegional {
   ): void;
   updateXssMatchSet(
     args: UpdateXssMatchSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: WAFRegionalRequestOptions,
     cb: (err: any, data?: UpdateXssMatchSetCommandOutput) => void
   ): void;
 }

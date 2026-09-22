@@ -406,10 +406,10 @@ import {
 import { SWFServiceException } from "../models/SWFServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var SWFServiceException$: StaticErrorSchema = [-3, _s, "SWFServiceException", 0, [], []];
 _s_registry.registerError(SWFServiceException$, SWFServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var DefaultUndefinedFault$: StaticErrorSchema = [-3, n0, _DUF,
   { [_e]: _c },
   [_m],

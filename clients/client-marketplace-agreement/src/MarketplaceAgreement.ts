@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptAgreementCancellationRequestCommandInput,
@@ -175,13 +180,20 @@ const paginators = {
   paginateSearchAgreements,
 };
 
+/**
+ * @public
+ */
+export interface MarketplaceAgreementRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MarketplaceAgreement {
   /**
    * @see {@link AcceptAgreementCancellationRequestCommand}
    */
   acceptAgreementCancellationRequest(
     args: AcceptAgreementCancellationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<AcceptAgreementCancellationRequestCommandOutput>;
   acceptAgreementCancellationRequest(
     args: AcceptAgreementCancellationRequestCommandInput,
@@ -189,7 +201,7 @@ export interface MarketplaceAgreement {
   ): void;
   acceptAgreementCancellationRequest(
     args: AcceptAgreementCancellationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: AcceptAgreementCancellationRequestCommandOutput) => void
   ): void;
 
@@ -198,7 +210,7 @@ export interface MarketplaceAgreement {
    */
   acceptAgreementPaymentRequest(
     args: AcceptAgreementPaymentRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<AcceptAgreementPaymentRequestCommandOutput>;
   acceptAgreementPaymentRequest(
     args: AcceptAgreementPaymentRequestCommandInput,
@@ -206,7 +218,7 @@ export interface MarketplaceAgreement {
   ): void;
   acceptAgreementPaymentRequest(
     args: AcceptAgreementPaymentRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: AcceptAgreementPaymentRequestCommandOutput) => void
   ): void;
 
@@ -215,7 +227,7 @@ export interface MarketplaceAgreement {
    */
   acceptAgreementRequest(
     args: AcceptAgreementRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<AcceptAgreementRequestCommandOutput>;
   acceptAgreementRequest(
     args: AcceptAgreementRequestCommandInput,
@@ -223,7 +235,7 @@ export interface MarketplaceAgreement {
   ): void;
   acceptAgreementRequest(
     args: AcceptAgreementRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: AcceptAgreementRequestCommandOutput) => void
   ): void;
 
@@ -232,7 +244,7 @@ export interface MarketplaceAgreement {
    */
   batchCreateBillingAdjustmentRequest(
     args: BatchCreateBillingAdjustmentRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<BatchCreateBillingAdjustmentRequestCommandOutput>;
   batchCreateBillingAdjustmentRequest(
     args: BatchCreateBillingAdjustmentRequestCommandInput,
@@ -240,7 +252,7 @@ export interface MarketplaceAgreement {
   ): void;
   batchCreateBillingAdjustmentRequest(
     args: BatchCreateBillingAdjustmentRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: BatchCreateBillingAdjustmentRequestCommandOutput) => void
   ): void;
 
@@ -249,7 +261,7 @@ export interface MarketplaceAgreement {
    */
   cancelAgreement(
     args: CancelAgreementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<CancelAgreementCommandOutput>;
   cancelAgreement(
     args: CancelAgreementCommandInput,
@@ -257,7 +269,7 @@ export interface MarketplaceAgreement {
   ): void;
   cancelAgreement(
     args: CancelAgreementCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: CancelAgreementCommandOutput) => void
   ): void;
 
@@ -266,7 +278,7 @@ export interface MarketplaceAgreement {
    */
   cancelAgreementCancellationRequest(
     args: CancelAgreementCancellationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<CancelAgreementCancellationRequestCommandOutput>;
   cancelAgreementCancellationRequest(
     args: CancelAgreementCancellationRequestCommandInput,
@@ -274,7 +286,7 @@ export interface MarketplaceAgreement {
   ): void;
   cancelAgreementCancellationRequest(
     args: CancelAgreementCancellationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: CancelAgreementCancellationRequestCommandOutput) => void
   ): void;
 
@@ -283,7 +295,7 @@ export interface MarketplaceAgreement {
    */
   cancelAgreementPaymentRequest(
     args: CancelAgreementPaymentRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<CancelAgreementPaymentRequestCommandOutput>;
   cancelAgreementPaymentRequest(
     args: CancelAgreementPaymentRequestCommandInput,
@@ -291,7 +303,7 @@ export interface MarketplaceAgreement {
   ): void;
   cancelAgreementPaymentRequest(
     args: CancelAgreementPaymentRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: CancelAgreementPaymentRequestCommandOutput) => void
   ): void;
 
@@ -300,7 +312,7 @@ export interface MarketplaceAgreement {
    */
   createAgreementRequest(
     args: CreateAgreementRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<CreateAgreementRequestCommandOutput>;
   createAgreementRequest(
     args: CreateAgreementRequestCommandInput,
@@ -308,7 +320,7 @@ export interface MarketplaceAgreement {
   ): void;
   createAgreementRequest(
     args: CreateAgreementRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: CreateAgreementRequestCommandOutput) => void
   ): void;
 
@@ -317,7 +329,7 @@ export interface MarketplaceAgreement {
    */
   describeAgreement(
     args: DescribeAgreementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<DescribeAgreementCommandOutput>;
   describeAgreement(
     args: DescribeAgreementCommandInput,
@@ -325,7 +337,7 @@ export interface MarketplaceAgreement {
   ): void;
   describeAgreement(
     args: DescribeAgreementCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: DescribeAgreementCommandOutput) => void
   ): void;
 
@@ -334,7 +346,7 @@ export interface MarketplaceAgreement {
    */
   getAgreementCancellationRequest(
     args: GetAgreementCancellationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<GetAgreementCancellationRequestCommandOutput>;
   getAgreementCancellationRequest(
     args: GetAgreementCancellationRequestCommandInput,
@@ -342,7 +354,7 @@ export interface MarketplaceAgreement {
   ): void;
   getAgreementCancellationRequest(
     args: GetAgreementCancellationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: GetAgreementCancellationRequestCommandOutput) => void
   ): void;
 
@@ -351,7 +363,7 @@ export interface MarketplaceAgreement {
    */
   getAgreementEntitlements(
     args: GetAgreementEntitlementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<GetAgreementEntitlementsCommandOutput>;
   getAgreementEntitlements(
     args: GetAgreementEntitlementsCommandInput,
@@ -359,7 +371,7 @@ export interface MarketplaceAgreement {
   ): void;
   getAgreementEntitlements(
     args: GetAgreementEntitlementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: GetAgreementEntitlementsCommandOutput) => void
   ): void;
 
@@ -368,7 +380,7 @@ export interface MarketplaceAgreement {
    */
   getAgreementPaymentRequest(
     args: GetAgreementPaymentRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<GetAgreementPaymentRequestCommandOutput>;
   getAgreementPaymentRequest(
     args: GetAgreementPaymentRequestCommandInput,
@@ -376,7 +388,7 @@ export interface MarketplaceAgreement {
   ): void;
   getAgreementPaymentRequest(
     args: GetAgreementPaymentRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: GetAgreementPaymentRequestCommandOutput) => void
   ): void;
 
@@ -385,7 +397,7 @@ export interface MarketplaceAgreement {
    */
   getAgreementTerms(
     args: GetAgreementTermsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<GetAgreementTermsCommandOutput>;
   getAgreementTerms(
     args: GetAgreementTermsCommandInput,
@@ -393,7 +405,7 @@ export interface MarketplaceAgreement {
   ): void;
   getAgreementTerms(
     args: GetAgreementTermsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: GetAgreementTermsCommandOutput) => void
   ): void;
 
@@ -402,7 +414,7 @@ export interface MarketplaceAgreement {
    */
   getBillingAdjustmentRequest(
     args: GetBillingAdjustmentRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<GetBillingAdjustmentRequestCommandOutput>;
   getBillingAdjustmentRequest(
     args: GetBillingAdjustmentRequestCommandInput,
@@ -410,7 +422,7 @@ export interface MarketplaceAgreement {
   ): void;
   getBillingAdjustmentRequest(
     args: GetBillingAdjustmentRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: GetBillingAdjustmentRequestCommandOutput) => void
   ): void;
 
@@ -419,7 +431,7 @@ export interface MarketplaceAgreement {
    */
   listAgreementCancellationRequests(
     args: ListAgreementCancellationRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<ListAgreementCancellationRequestsCommandOutput>;
   listAgreementCancellationRequests(
     args: ListAgreementCancellationRequestsCommandInput,
@@ -427,7 +439,7 @@ export interface MarketplaceAgreement {
   ): void;
   listAgreementCancellationRequests(
     args: ListAgreementCancellationRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: ListAgreementCancellationRequestsCommandOutput) => void
   ): void;
 
@@ -437,7 +449,7 @@ export interface MarketplaceAgreement {
   listAgreementCharges(): Promise<ListAgreementChargesCommandOutput>;
   listAgreementCharges(
     args: ListAgreementChargesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<ListAgreementChargesCommandOutput>;
   listAgreementCharges(
     args: ListAgreementChargesCommandInput,
@@ -445,7 +457,7 @@ export interface MarketplaceAgreement {
   ): void;
   listAgreementCharges(
     args: ListAgreementChargesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: ListAgreementChargesCommandOutput) => void
   ): void;
 
@@ -454,7 +466,7 @@ export interface MarketplaceAgreement {
    */
   listAgreementInvoiceLineItems(
     args: ListAgreementInvoiceLineItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<ListAgreementInvoiceLineItemsCommandOutput>;
   listAgreementInvoiceLineItems(
     args: ListAgreementInvoiceLineItemsCommandInput,
@@ -462,7 +474,7 @@ export interface MarketplaceAgreement {
   ): void;
   listAgreementInvoiceLineItems(
     args: ListAgreementInvoiceLineItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: ListAgreementInvoiceLineItemsCommandOutput) => void
   ): void;
 
@@ -471,7 +483,7 @@ export interface MarketplaceAgreement {
    */
   listAgreementPaymentRequests(
     args: ListAgreementPaymentRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<ListAgreementPaymentRequestsCommandOutput>;
   listAgreementPaymentRequests(
     args: ListAgreementPaymentRequestsCommandInput,
@@ -479,7 +491,7 @@ export interface MarketplaceAgreement {
   ): void;
   listAgreementPaymentRequests(
     args: ListAgreementPaymentRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: ListAgreementPaymentRequestsCommandOutput) => void
   ): void;
 
@@ -489,7 +501,7 @@ export interface MarketplaceAgreement {
   listBillingAdjustmentRequests(): Promise<ListBillingAdjustmentRequestsCommandOutput>;
   listBillingAdjustmentRequests(
     args: ListBillingAdjustmentRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<ListBillingAdjustmentRequestsCommandOutput>;
   listBillingAdjustmentRequests(
     args: ListBillingAdjustmentRequestsCommandInput,
@@ -497,7 +509,7 @@ export interface MarketplaceAgreement {
   ): void;
   listBillingAdjustmentRequests(
     args: ListBillingAdjustmentRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: ListBillingAdjustmentRequestsCommandOutput) => void
   ): void;
 
@@ -506,7 +518,7 @@ export interface MarketplaceAgreement {
    */
   rejectAgreementCancellationRequest(
     args: RejectAgreementCancellationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<RejectAgreementCancellationRequestCommandOutput>;
   rejectAgreementCancellationRequest(
     args: RejectAgreementCancellationRequestCommandInput,
@@ -514,7 +526,7 @@ export interface MarketplaceAgreement {
   ): void;
   rejectAgreementCancellationRequest(
     args: RejectAgreementCancellationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: RejectAgreementCancellationRequestCommandOutput) => void
   ): void;
 
@@ -523,7 +535,7 @@ export interface MarketplaceAgreement {
    */
   rejectAgreementPaymentRequest(
     args: RejectAgreementPaymentRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<RejectAgreementPaymentRequestCommandOutput>;
   rejectAgreementPaymentRequest(
     args: RejectAgreementPaymentRequestCommandInput,
@@ -531,7 +543,7 @@ export interface MarketplaceAgreement {
   ): void;
   rejectAgreementPaymentRequest(
     args: RejectAgreementPaymentRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: RejectAgreementPaymentRequestCommandOutput) => void
   ): void;
 
@@ -541,7 +553,7 @@ export interface MarketplaceAgreement {
   searchAgreements(): Promise<SearchAgreementsCommandOutput>;
   searchAgreements(
     args: SearchAgreementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<SearchAgreementsCommandOutput>;
   searchAgreements(
     args: SearchAgreementsCommandInput,
@@ -549,7 +561,7 @@ export interface MarketplaceAgreement {
   ): void;
   searchAgreements(
     args: SearchAgreementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: SearchAgreementsCommandOutput) => void
   ): void;
 
@@ -558,7 +570,7 @@ export interface MarketplaceAgreement {
    */
   sendAgreementCancellationRequest(
     args: SendAgreementCancellationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<SendAgreementCancellationRequestCommandOutput>;
   sendAgreementCancellationRequest(
     args: SendAgreementCancellationRequestCommandInput,
@@ -566,7 +578,7 @@ export interface MarketplaceAgreement {
   ): void;
   sendAgreementCancellationRequest(
     args: SendAgreementCancellationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: SendAgreementCancellationRequestCommandOutput) => void
   ): void;
 
@@ -575,7 +587,7 @@ export interface MarketplaceAgreement {
    */
   sendAgreementPaymentRequest(
     args: SendAgreementPaymentRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<SendAgreementPaymentRequestCommandOutput>;
   sendAgreementPaymentRequest(
     args: SendAgreementPaymentRequestCommandInput,
@@ -583,7 +595,7 @@ export interface MarketplaceAgreement {
   ): void;
   sendAgreementPaymentRequest(
     args: SendAgreementPaymentRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: SendAgreementPaymentRequestCommandOutput) => void
   ): void;
 
@@ -592,7 +604,7 @@ export interface MarketplaceAgreement {
    */
   updatePurchaseOrders(
     args: UpdatePurchaseOrdersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceAgreementRequestOptions
   ): Promise<UpdatePurchaseOrdersCommandOutput>;
   updatePurchaseOrders(
     args: UpdatePurchaseOrdersCommandInput,
@@ -600,7 +612,7 @@ export interface MarketplaceAgreement {
   ): void;
   updatePurchaseOrders(
     args: UpdatePurchaseOrdersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceAgreementRequestOptions,
     cb: (err: any, data?: UpdatePurchaseOrdersCommandOutput) => void
   ): void;
 

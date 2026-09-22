@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchDeleteRecipeVersionCommandInput,
@@ -281,13 +286,20 @@ const paginators = {
   paginateListSchedules,
 };
 
+/**
+ * @public
+ */
+export interface DataBrewRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DataBrew {
   /**
    * @see {@link BatchDeleteRecipeVersionCommand}
    */
   batchDeleteRecipeVersion(
     args: BatchDeleteRecipeVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<BatchDeleteRecipeVersionCommandOutput>;
   batchDeleteRecipeVersion(
     args: BatchDeleteRecipeVersionCommandInput,
@@ -295,7 +307,7 @@ export interface DataBrew {
   ): void;
   batchDeleteRecipeVersion(
     args: BatchDeleteRecipeVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: BatchDeleteRecipeVersionCommandOutput) => void
   ): void;
 
@@ -304,7 +316,7 @@ export interface DataBrew {
    */
   createDataset(
     args: CreateDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<CreateDatasetCommandOutput>;
   createDataset(
     args: CreateDatasetCommandInput,
@@ -312,7 +324,7 @@ export interface DataBrew {
   ): void;
   createDataset(
     args: CreateDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: CreateDatasetCommandOutput) => void
   ): void;
 
@@ -321,7 +333,7 @@ export interface DataBrew {
    */
   createProfileJob(
     args: CreateProfileJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<CreateProfileJobCommandOutput>;
   createProfileJob(
     args: CreateProfileJobCommandInput,
@@ -329,7 +341,7 @@ export interface DataBrew {
   ): void;
   createProfileJob(
     args: CreateProfileJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: CreateProfileJobCommandOutput) => void
   ): void;
 
@@ -338,7 +350,7 @@ export interface DataBrew {
    */
   createProject(
     args: CreateProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<CreateProjectCommandOutput>;
   createProject(
     args: CreateProjectCommandInput,
@@ -346,7 +358,7 @@ export interface DataBrew {
   ): void;
   createProject(
     args: CreateProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: CreateProjectCommandOutput) => void
   ): void;
 
@@ -355,7 +367,7 @@ export interface DataBrew {
    */
   createRecipe(
     args: CreateRecipeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<CreateRecipeCommandOutput>;
   createRecipe(
     args: CreateRecipeCommandInput,
@@ -363,7 +375,7 @@ export interface DataBrew {
   ): void;
   createRecipe(
     args: CreateRecipeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: CreateRecipeCommandOutput) => void
   ): void;
 
@@ -372,7 +384,7 @@ export interface DataBrew {
    */
   createRecipeJob(
     args: CreateRecipeJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<CreateRecipeJobCommandOutput>;
   createRecipeJob(
     args: CreateRecipeJobCommandInput,
@@ -380,7 +392,7 @@ export interface DataBrew {
   ): void;
   createRecipeJob(
     args: CreateRecipeJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: CreateRecipeJobCommandOutput) => void
   ): void;
 
@@ -389,7 +401,7 @@ export interface DataBrew {
    */
   createRuleset(
     args: CreateRulesetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<CreateRulesetCommandOutput>;
   createRuleset(
     args: CreateRulesetCommandInput,
@@ -397,7 +409,7 @@ export interface DataBrew {
   ): void;
   createRuleset(
     args: CreateRulesetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: CreateRulesetCommandOutput) => void
   ): void;
 
@@ -406,7 +418,7 @@ export interface DataBrew {
    */
   createSchedule(
     args: CreateScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<CreateScheduleCommandOutput>;
   createSchedule(
     args: CreateScheduleCommandInput,
@@ -414,7 +426,7 @@ export interface DataBrew {
   ): void;
   createSchedule(
     args: CreateScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: CreateScheduleCommandOutput) => void
   ): void;
 
@@ -423,7 +435,7 @@ export interface DataBrew {
    */
   deleteDataset(
     args: DeleteDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DeleteDatasetCommandOutput>;
   deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -431,7 +443,7 @@ export interface DataBrew {
   ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): void;
 
@@ -440,7 +452,7 @@ export interface DataBrew {
    */
   deleteJob(
     args: DeleteJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DeleteJobCommandOutput>;
   deleteJob(
     args: DeleteJobCommandInput,
@@ -448,7 +460,7 @@ export interface DataBrew {
   ): void;
   deleteJob(
     args: DeleteJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DeleteJobCommandOutput) => void
   ): void;
 
@@ -457,7 +469,7 @@ export interface DataBrew {
    */
   deleteProject(
     args: DeleteProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DeleteProjectCommandOutput>;
   deleteProject(
     args: DeleteProjectCommandInput,
@@ -465,7 +477,7 @@ export interface DataBrew {
   ): void;
   deleteProject(
     args: DeleteProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DeleteProjectCommandOutput) => void
   ): void;
 
@@ -474,7 +486,7 @@ export interface DataBrew {
    */
   deleteRecipeVersion(
     args: DeleteRecipeVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DeleteRecipeVersionCommandOutput>;
   deleteRecipeVersion(
     args: DeleteRecipeVersionCommandInput,
@@ -482,7 +494,7 @@ export interface DataBrew {
   ): void;
   deleteRecipeVersion(
     args: DeleteRecipeVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DeleteRecipeVersionCommandOutput) => void
   ): void;
 
@@ -491,7 +503,7 @@ export interface DataBrew {
    */
   deleteRuleset(
     args: DeleteRulesetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DeleteRulesetCommandOutput>;
   deleteRuleset(
     args: DeleteRulesetCommandInput,
@@ -499,7 +511,7 @@ export interface DataBrew {
   ): void;
   deleteRuleset(
     args: DeleteRulesetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DeleteRulesetCommandOutput) => void
   ): void;
 
@@ -508,7 +520,7 @@ export interface DataBrew {
    */
   deleteSchedule(
     args: DeleteScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DeleteScheduleCommandOutput>;
   deleteSchedule(
     args: DeleteScheduleCommandInput,
@@ -516,7 +528,7 @@ export interface DataBrew {
   ): void;
   deleteSchedule(
     args: DeleteScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DeleteScheduleCommandOutput) => void
   ): void;
 
@@ -525,7 +537,7 @@ export interface DataBrew {
    */
   describeDataset(
     args: DescribeDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DescribeDatasetCommandOutput>;
   describeDataset(
     args: DescribeDatasetCommandInput,
@@ -533,7 +545,7 @@ export interface DataBrew {
   ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): void;
 
@@ -542,7 +554,7 @@ export interface DataBrew {
    */
   describeJob(
     args: DescribeJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DescribeJobCommandOutput>;
   describeJob(
     args: DescribeJobCommandInput,
@@ -550,7 +562,7 @@ export interface DataBrew {
   ): void;
   describeJob(
     args: DescribeJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DescribeJobCommandOutput) => void
   ): void;
 
@@ -559,7 +571,7 @@ export interface DataBrew {
    */
   describeJobRun(
     args: DescribeJobRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DescribeJobRunCommandOutput>;
   describeJobRun(
     args: DescribeJobRunCommandInput,
@@ -567,7 +579,7 @@ export interface DataBrew {
   ): void;
   describeJobRun(
     args: DescribeJobRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DescribeJobRunCommandOutput) => void
   ): void;
 
@@ -576,7 +588,7 @@ export interface DataBrew {
    */
   describeProject(
     args: DescribeProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DescribeProjectCommandOutput>;
   describeProject(
     args: DescribeProjectCommandInput,
@@ -584,7 +596,7 @@ export interface DataBrew {
   ): void;
   describeProject(
     args: DescribeProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DescribeProjectCommandOutput) => void
   ): void;
 
@@ -593,7 +605,7 @@ export interface DataBrew {
    */
   describeRecipe(
     args: DescribeRecipeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DescribeRecipeCommandOutput>;
   describeRecipe(
     args: DescribeRecipeCommandInput,
@@ -601,7 +613,7 @@ export interface DataBrew {
   ): void;
   describeRecipe(
     args: DescribeRecipeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DescribeRecipeCommandOutput) => void
   ): void;
 
@@ -610,7 +622,7 @@ export interface DataBrew {
    */
   describeRuleset(
     args: DescribeRulesetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DescribeRulesetCommandOutput>;
   describeRuleset(
     args: DescribeRulesetCommandInput,
@@ -618,7 +630,7 @@ export interface DataBrew {
   ): void;
   describeRuleset(
     args: DescribeRulesetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DescribeRulesetCommandOutput) => void
   ): void;
 
@@ -627,7 +639,7 @@ export interface DataBrew {
    */
   describeSchedule(
     args: DescribeScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<DescribeScheduleCommandOutput>;
   describeSchedule(
     args: DescribeScheduleCommandInput,
@@ -635,7 +647,7 @@ export interface DataBrew {
   ): void;
   describeSchedule(
     args: DescribeScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: DescribeScheduleCommandOutput) => void
   ): void;
 
@@ -645,7 +657,7 @@ export interface DataBrew {
   listDatasets(): Promise<ListDatasetsCommandOutput>;
   listDatasets(
     args: ListDatasetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<ListDatasetsCommandOutput>;
   listDatasets(
     args: ListDatasetsCommandInput,
@@ -653,7 +665,7 @@ export interface DataBrew {
   ): void;
   listDatasets(
     args: ListDatasetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: ListDatasetsCommandOutput) => void
   ): void;
 
@@ -662,7 +674,7 @@ export interface DataBrew {
    */
   listJobRuns(
     args: ListJobRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<ListJobRunsCommandOutput>;
   listJobRuns(
     args: ListJobRunsCommandInput,
@@ -670,7 +682,7 @@ export interface DataBrew {
   ): void;
   listJobRuns(
     args: ListJobRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: ListJobRunsCommandOutput) => void
   ): void;
 
@@ -680,7 +692,7 @@ export interface DataBrew {
   listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
@@ -688,7 +700,7 @@ export interface DataBrew {
   ): void;
   listJobs(
     args: ListJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: ListJobsCommandOutput) => void
   ): void;
 
@@ -698,7 +710,7 @@ export interface DataBrew {
   listProjects(): Promise<ListProjectsCommandOutput>;
   listProjects(
     args: ListProjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<ListProjectsCommandOutput>;
   listProjects(
     args: ListProjectsCommandInput,
@@ -706,7 +718,7 @@ export interface DataBrew {
   ): void;
   listProjects(
     args: ListProjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: ListProjectsCommandOutput) => void
   ): void;
 
@@ -716,7 +728,7 @@ export interface DataBrew {
   listRecipes(): Promise<ListRecipesCommandOutput>;
   listRecipes(
     args: ListRecipesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<ListRecipesCommandOutput>;
   listRecipes(
     args: ListRecipesCommandInput,
@@ -724,7 +736,7 @@ export interface DataBrew {
   ): void;
   listRecipes(
     args: ListRecipesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: ListRecipesCommandOutput) => void
   ): void;
 
@@ -733,7 +745,7 @@ export interface DataBrew {
    */
   listRecipeVersions(
     args: ListRecipeVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<ListRecipeVersionsCommandOutput>;
   listRecipeVersions(
     args: ListRecipeVersionsCommandInput,
@@ -741,7 +753,7 @@ export interface DataBrew {
   ): void;
   listRecipeVersions(
     args: ListRecipeVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: ListRecipeVersionsCommandOutput) => void
   ): void;
 
@@ -751,7 +763,7 @@ export interface DataBrew {
   listRulesets(): Promise<ListRulesetsCommandOutput>;
   listRulesets(
     args: ListRulesetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<ListRulesetsCommandOutput>;
   listRulesets(
     args: ListRulesetsCommandInput,
@@ -759,7 +771,7 @@ export interface DataBrew {
   ): void;
   listRulesets(
     args: ListRulesetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: ListRulesetsCommandOutput) => void
   ): void;
 
@@ -769,7 +781,7 @@ export interface DataBrew {
   listSchedules(): Promise<ListSchedulesCommandOutput>;
   listSchedules(
     args: ListSchedulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<ListSchedulesCommandOutput>;
   listSchedules(
     args: ListSchedulesCommandInput,
@@ -777,7 +789,7 @@ export interface DataBrew {
   ): void;
   listSchedules(
     args: ListSchedulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: ListSchedulesCommandOutput) => void
   ): void;
 
@@ -786,7 +798,7 @@ export interface DataBrew {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -794,7 +806,7 @@ export interface DataBrew {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -803,7 +815,7 @@ export interface DataBrew {
    */
   publishRecipe(
     args: PublishRecipeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<PublishRecipeCommandOutput>;
   publishRecipe(
     args: PublishRecipeCommandInput,
@@ -811,7 +823,7 @@ export interface DataBrew {
   ): void;
   publishRecipe(
     args: PublishRecipeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: PublishRecipeCommandOutput) => void
   ): void;
 
@@ -820,7 +832,7 @@ export interface DataBrew {
    */
   sendProjectSessionAction(
     args: SendProjectSessionActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<SendProjectSessionActionCommandOutput>;
   sendProjectSessionAction(
     args: SendProjectSessionActionCommandInput,
@@ -828,7 +840,7 @@ export interface DataBrew {
   ): void;
   sendProjectSessionAction(
     args: SendProjectSessionActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: SendProjectSessionActionCommandOutput) => void
   ): void;
 
@@ -837,7 +849,7 @@ export interface DataBrew {
    */
   startJobRun(
     args: StartJobRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<StartJobRunCommandOutput>;
   startJobRun(
     args: StartJobRunCommandInput,
@@ -845,7 +857,7 @@ export interface DataBrew {
   ): void;
   startJobRun(
     args: StartJobRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: StartJobRunCommandOutput) => void
   ): void;
 
@@ -854,7 +866,7 @@ export interface DataBrew {
    */
   startProjectSession(
     args: StartProjectSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<StartProjectSessionCommandOutput>;
   startProjectSession(
     args: StartProjectSessionCommandInput,
@@ -862,7 +874,7 @@ export interface DataBrew {
   ): void;
   startProjectSession(
     args: StartProjectSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: StartProjectSessionCommandOutput) => void
   ): void;
 
@@ -871,7 +883,7 @@ export interface DataBrew {
    */
   stopJobRun(
     args: StopJobRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<StopJobRunCommandOutput>;
   stopJobRun(
     args: StopJobRunCommandInput,
@@ -879,7 +891,7 @@ export interface DataBrew {
   ): void;
   stopJobRun(
     args: StopJobRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: StopJobRunCommandOutput) => void
   ): void;
 
@@ -888,7 +900,7 @@ export interface DataBrew {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -896,7 +908,7 @@ export interface DataBrew {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -905,7 +917,7 @@ export interface DataBrew {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -913,7 +925,7 @@ export interface DataBrew {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -922,7 +934,7 @@ export interface DataBrew {
    */
   updateDataset(
     args: UpdateDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<UpdateDatasetCommandOutput>;
   updateDataset(
     args: UpdateDatasetCommandInput,
@@ -930,7 +942,7 @@ export interface DataBrew {
   ): void;
   updateDataset(
     args: UpdateDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: UpdateDatasetCommandOutput) => void
   ): void;
 
@@ -939,7 +951,7 @@ export interface DataBrew {
    */
   updateProfileJob(
     args: UpdateProfileJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<UpdateProfileJobCommandOutput>;
   updateProfileJob(
     args: UpdateProfileJobCommandInput,
@@ -947,7 +959,7 @@ export interface DataBrew {
   ): void;
   updateProfileJob(
     args: UpdateProfileJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: UpdateProfileJobCommandOutput) => void
   ): void;
 
@@ -956,7 +968,7 @@ export interface DataBrew {
    */
   updateProject(
     args: UpdateProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<UpdateProjectCommandOutput>;
   updateProject(
     args: UpdateProjectCommandInput,
@@ -964,7 +976,7 @@ export interface DataBrew {
   ): void;
   updateProject(
     args: UpdateProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: UpdateProjectCommandOutput) => void
   ): void;
 
@@ -973,7 +985,7 @@ export interface DataBrew {
    */
   updateRecipe(
     args: UpdateRecipeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<UpdateRecipeCommandOutput>;
   updateRecipe(
     args: UpdateRecipeCommandInput,
@@ -981,7 +993,7 @@ export interface DataBrew {
   ): void;
   updateRecipe(
     args: UpdateRecipeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: UpdateRecipeCommandOutput) => void
   ): void;
 
@@ -990,7 +1002,7 @@ export interface DataBrew {
    */
   updateRecipeJob(
     args: UpdateRecipeJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<UpdateRecipeJobCommandOutput>;
   updateRecipeJob(
     args: UpdateRecipeJobCommandInput,
@@ -998,7 +1010,7 @@ export interface DataBrew {
   ): void;
   updateRecipeJob(
     args: UpdateRecipeJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: UpdateRecipeJobCommandOutput) => void
   ): void;
 
@@ -1007,7 +1019,7 @@ export interface DataBrew {
    */
   updateRuleset(
     args: UpdateRulesetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<UpdateRulesetCommandOutput>;
   updateRuleset(
     args: UpdateRulesetCommandInput,
@@ -1015,7 +1027,7 @@ export interface DataBrew {
   ): void;
   updateRuleset(
     args: UpdateRulesetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: UpdateRulesetCommandOutput) => void
   ): void;
 
@@ -1024,7 +1036,7 @@ export interface DataBrew {
    */
   updateSchedule(
     args: UpdateScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataBrewRequestOptions
   ): Promise<UpdateScheduleCommandOutput>;
   updateSchedule(
     args: UpdateScheduleCommandInput,
@@ -1032,7 +1044,7 @@ export interface DataBrew {
   ): void;
   updateSchedule(
     args: UpdateScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataBrewRequestOptions,
     cb: (err: any, data?: UpdateScheduleCommandOutput) => void
   ): void;
 

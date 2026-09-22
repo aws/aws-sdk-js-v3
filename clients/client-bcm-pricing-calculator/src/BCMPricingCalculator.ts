@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BCMPricingCalculatorClient } from "./BCMPricingCalculatorClient";
 import {
@@ -251,13 +256,20 @@ const paginators = {
   paginateListWorkloadEstimateUsage,
 };
 
+/**
+ * @public
+ */
+export interface BCMPricingCalculatorRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface BCMPricingCalculator {
   /**
    * @see {@link BatchCreateBillScenarioCommitmentModificationCommand}
    */
   batchCreateBillScenarioCommitmentModification(
     args: BatchCreateBillScenarioCommitmentModificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<BatchCreateBillScenarioCommitmentModificationCommandOutput>;
   batchCreateBillScenarioCommitmentModification(
     args: BatchCreateBillScenarioCommitmentModificationCommandInput,
@@ -265,7 +277,7 @@ export interface BCMPricingCalculator {
   ): void;
   batchCreateBillScenarioCommitmentModification(
     args: BatchCreateBillScenarioCommitmentModificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: BatchCreateBillScenarioCommitmentModificationCommandOutput) => void
   ): void;
 
@@ -274,7 +286,7 @@ export interface BCMPricingCalculator {
    */
   batchCreateBillScenarioUsageModification(
     args: BatchCreateBillScenarioUsageModificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<BatchCreateBillScenarioUsageModificationCommandOutput>;
   batchCreateBillScenarioUsageModification(
     args: BatchCreateBillScenarioUsageModificationCommandInput,
@@ -282,7 +294,7 @@ export interface BCMPricingCalculator {
   ): void;
   batchCreateBillScenarioUsageModification(
     args: BatchCreateBillScenarioUsageModificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: BatchCreateBillScenarioUsageModificationCommandOutput) => void
   ): void;
 
@@ -291,7 +303,7 @@ export interface BCMPricingCalculator {
    */
   batchCreateWorkloadEstimateUsage(
     args: BatchCreateWorkloadEstimateUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<BatchCreateWorkloadEstimateUsageCommandOutput>;
   batchCreateWorkloadEstimateUsage(
     args: BatchCreateWorkloadEstimateUsageCommandInput,
@@ -299,7 +311,7 @@ export interface BCMPricingCalculator {
   ): void;
   batchCreateWorkloadEstimateUsage(
     args: BatchCreateWorkloadEstimateUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: BatchCreateWorkloadEstimateUsageCommandOutput) => void
   ): void;
 
@@ -308,7 +320,7 @@ export interface BCMPricingCalculator {
    */
   batchDeleteBillScenarioCommitmentModification(
     args: BatchDeleteBillScenarioCommitmentModificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<BatchDeleteBillScenarioCommitmentModificationCommandOutput>;
   batchDeleteBillScenarioCommitmentModification(
     args: BatchDeleteBillScenarioCommitmentModificationCommandInput,
@@ -316,7 +328,7 @@ export interface BCMPricingCalculator {
   ): void;
   batchDeleteBillScenarioCommitmentModification(
     args: BatchDeleteBillScenarioCommitmentModificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: BatchDeleteBillScenarioCommitmentModificationCommandOutput) => void
   ): void;
 
@@ -325,7 +337,7 @@ export interface BCMPricingCalculator {
    */
   batchDeleteBillScenarioUsageModification(
     args: BatchDeleteBillScenarioUsageModificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<BatchDeleteBillScenarioUsageModificationCommandOutput>;
   batchDeleteBillScenarioUsageModification(
     args: BatchDeleteBillScenarioUsageModificationCommandInput,
@@ -333,7 +345,7 @@ export interface BCMPricingCalculator {
   ): void;
   batchDeleteBillScenarioUsageModification(
     args: BatchDeleteBillScenarioUsageModificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: BatchDeleteBillScenarioUsageModificationCommandOutput) => void
   ): void;
 
@@ -342,7 +354,7 @@ export interface BCMPricingCalculator {
    */
   batchDeleteWorkloadEstimateUsage(
     args: BatchDeleteWorkloadEstimateUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<BatchDeleteWorkloadEstimateUsageCommandOutput>;
   batchDeleteWorkloadEstimateUsage(
     args: BatchDeleteWorkloadEstimateUsageCommandInput,
@@ -350,7 +362,7 @@ export interface BCMPricingCalculator {
   ): void;
   batchDeleteWorkloadEstimateUsage(
     args: BatchDeleteWorkloadEstimateUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: BatchDeleteWorkloadEstimateUsageCommandOutput) => void
   ): void;
 
@@ -359,7 +371,7 @@ export interface BCMPricingCalculator {
    */
   batchUpdateBillScenarioCommitmentModification(
     args: BatchUpdateBillScenarioCommitmentModificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<BatchUpdateBillScenarioCommitmentModificationCommandOutput>;
   batchUpdateBillScenarioCommitmentModification(
     args: BatchUpdateBillScenarioCommitmentModificationCommandInput,
@@ -367,7 +379,7 @@ export interface BCMPricingCalculator {
   ): void;
   batchUpdateBillScenarioCommitmentModification(
     args: BatchUpdateBillScenarioCommitmentModificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: BatchUpdateBillScenarioCommitmentModificationCommandOutput) => void
   ): void;
 
@@ -376,7 +388,7 @@ export interface BCMPricingCalculator {
    */
   batchUpdateBillScenarioUsageModification(
     args: BatchUpdateBillScenarioUsageModificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<BatchUpdateBillScenarioUsageModificationCommandOutput>;
   batchUpdateBillScenarioUsageModification(
     args: BatchUpdateBillScenarioUsageModificationCommandInput,
@@ -384,7 +396,7 @@ export interface BCMPricingCalculator {
   ): void;
   batchUpdateBillScenarioUsageModification(
     args: BatchUpdateBillScenarioUsageModificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: BatchUpdateBillScenarioUsageModificationCommandOutput) => void
   ): void;
 
@@ -393,7 +405,7 @@ export interface BCMPricingCalculator {
    */
   batchUpdateWorkloadEstimateUsage(
     args: BatchUpdateWorkloadEstimateUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<BatchUpdateWorkloadEstimateUsageCommandOutput>;
   batchUpdateWorkloadEstimateUsage(
     args: BatchUpdateWorkloadEstimateUsageCommandInput,
@@ -401,7 +413,7 @@ export interface BCMPricingCalculator {
   ): void;
   batchUpdateWorkloadEstimateUsage(
     args: BatchUpdateWorkloadEstimateUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: BatchUpdateWorkloadEstimateUsageCommandOutput) => void
   ): void;
 
@@ -410,7 +422,7 @@ export interface BCMPricingCalculator {
    */
   createBillEstimate(
     args: CreateBillEstimateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<CreateBillEstimateCommandOutput>;
   createBillEstimate(
     args: CreateBillEstimateCommandInput,
@@ -418,7 +430,7 @@ export interface BCMPricingCalculator {
   ): void;
   createBillEstimate(
     args: CreateBillEstimateCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: CreateBillEstimateCommandOutput) => void
   ): void;
 
@@ -427,7 +439,7 @@ export interface BCMPricingCalculator {
    */
   createBillScenario(
     args: CreateBillScenarioCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<CreateBillScenarioCommandOutput>;
   createBillScenario(
     args: CreateBillScenarioCommandInput,
@@ -435,7 +447,7 @@ export interface BCMPricingCalculator {
   ): void;
   createBillScenario(
     args: CreateBillScenarioCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: CreateBillScenarioCommandOutput) => void
   ): void;
 
@@ -444,7 +456,7 @@ export interface BCMPricingCalculator {
    */
   createWorkloadEstimate(
     args: CreateWorkloadEstimateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<CreateWorkloadEstimateCommandOutput>;
   createWorkloadEstimate(
     args: CreateWorkloadEstimateCommandInput,
@@ -452,7 +464,7 @@ export interface BCMPricingCalculator {
   ): void;
   createWorkloadEstimate(
     args: CreateWorkloadEstimateCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: CreateWorkloadEstimateCommandOutput) => void
   ): void;
 
@@ -461,7 +473,7 @@ export interface BCMPricingCalculator {
    */
   deleteBillEstimate(
     args: DeleteBillEstimateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<DeleteBillEstimateCommandOutput>;
   deleteBillEstimate(
     args: DeleteBillEstimateCommandInput,
@@ -469,7 +481,7 @@ export interface BCMPricingCalculator {
   ): void;
   deleteBillEstimate(
     args: DeleteBillEstimateCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: DeleteBillEstimateCommandOutput) => void
   ): void;
 
@@ -478,7 +490,7 @@ export interface BCMPricingCalculator {
    */
   deleteBillScenario(
     args: DeleteBillScenarioCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<DeleteBillScenarioCommandOutput>;
   deleteBillScenario(
     args: DeleteBillScenarioCommandInput,
@@ -486,7 +498,7 @@ export interface BCMPricingCalculator {
   ): void;
   deleteBillScenario(
     args: DeleteBillScenarioCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: DeleteBillScenarioCommandOutput) => void
   ): void;
 
@@ -495,7 +507,7 @@ export interface BCMPricingCalculator {
    */
   deleteWorkloadEstimate(
     args: DeleteWorkloadEstimateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<DeleteWorkloadEstimateCommandOutput>;
   deleteWorkloadEstimate(
     args: DeleteWorkloadEstimateCommandInput,
@@ -503,7 +515,7 @@ export interface BCMPricingCalculator {
   ): void;
   deleteWorkloadEstimate(
     args: DeleteWorkloadEstimateCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: DeleteWorkloadEstimateCommandOutput) => void
   ): void;
 
@@ -512,7 +524,7 @@ export interface BCMPricingCalculator {
    */
   getBillEstimate(
     args: GetBillEstimateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<GetBillEstimateCommandOutput>;
   getBillEstimate(
     args: GetBillEstimateCommandInput,
@@ -520,7 +532,7 @@ export interface BCMPricingCalculator {
   ): void;
   getBillEstimate(
     args: GetBillEstimateCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: GetBillEstimateCommandOutput) => void
   ): void;
 
@@ -529,7 +541,7 @@ export interface BCMPricingCalculator {
    */
   getBillScenario(
     args: GetBillScenarioCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<GetBillScenarioCommandOutput>;
   getBillScenario(
     args: GetBillScenarioCommandInput,
@@ -537,7 +549,7 @@ export interface BCMPricingCalculator {
   ): void;
   getBillScenario(
     args: GetBillScenarioCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: GetBillScenarioCommandOutput) => void
   ): void;
 
@@ -547,7 +559,7 @@ export interface BCMPricingCalculator {
   getPreferences(): Promise<GetPreferencesCommandOutput>;
   getPreferences(
     args: GetPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<GetPreferencesCommandOutput>;
   getPreferences(
     args: GetPreferencesCommandInput,
@@ -555,7 +567,7 @@ export interface BCMPricingCalculator {
   ): void;
   getPreferences(
     args: GetPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: GetPreferencesCommandOutput) => void
   ): void;
 
@@ -564,7 +576,7 @@ export interface BCMPricingCalculator {
    */
   getWorkloadEstimate(
     args: GetWorkloadEstimateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<GetWorkloadEstimateCommandOutput>;
   getWorkloadEstimate(
     args: GetWorkloadEstimateCommandInput,
@@ -572,7 +584,7 @@ export interface BCMPricingCalculator {
   ): void;
   getWorkloadEstimate(
     args: GetWorkloadEstimateCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: GetWorkloadEstimateCommandOutput) => void
   ): void;
 
@@ -581,7 +593,7 @@ export interface BCMPricingCalculator {
    */
   listBillEstimateCommitments(
     args: ListBillEstimateCommitmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<ListBillEstimateCommitmentsCommandOutput>;
   listBillEstimateCommitments(
     args: ListBillEstimateCommitmentsCommandInput,
@@ -589,7 +601,7 @@ export interface BCMPricingCalculator {
   ): void;
   listBillEstimateCommitments(
     args: ListBillEstimateCommitmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: ListBillEstimateCommitmentsCommandOutput) => void
   ): void;
 
@@ -598,7 +610,7 @@ export interface BCMPricingCalculator {
    */
   listBillEstimateInputCommitmentModifications(
     args: ListBillEstimateInputCommitmentModificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<ListBillEstimateInputCommitmentModificationsCommandOutput>;
   listBillEstimateInputCommitmentModifications(
     args: ListBillEstimateInputCommitmentModificationsCommandInput,
@@ -606,7 +618,7 @@ export interface BCMPricingCalculator {
   ): void;
   listBillEstimateInputCommitmentModifications(
     args: ListBillEstimateInputCommitmentModificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: ListBillEstimateInputCommitmentModificationsCommandOutput) => void
   ): void;
 
@@ -615,7 +627,7 @@ export interface BCMPricingCalculator {
    */
   listBillEstimateInputUsageModifications(
     args: ListBillEstimateInputUsageModificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<ListBillEstimateInputUsageModificationsCommandOutput>;
   listBillEstimateInputUsageModifications(
     args: ListBillEstimateInputUsageModificationsCommandInput,
@@ -623,7 +635,7 @@ export interface BCMPricingCalculator {
   ): void;
   listBillEstimateInputUsageModifications(
     args: ListBillEstimateInputUsageModificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: ListBillEstimateInputUsageModificationsCommandOutput) => void
   ): void;
 
@@ -632,7 +644,7 @@ export interface BCMPricingCalculator {
    */
   listBillEstimateLineItems(
     args: ListBillEstimateLineItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<ListBillEstimateLineItemsCommandOutput>;
   listBillEstimateLineItems(
     args: ListBillEstimateLineItemsCommandInput,
@@ -640,7 +652,7 @@ export interface BCMPricingCalculator {
   ): void;
   listBillEstimateLineItems(
     args: ListBillEstimateLineItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: ListBillEstimateLineItemsCommandOutput) => void
   ): void;
 
@@ -650,7 +662,7 @@ export interface BCMPricingCalculator {
   listBillEstimates(): Promise<ListBillEstimatesCommandOutput>;
   listBillEstimates(
     args: ListBillEstimatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<ListBillEstimatesCommandOutput>;
   listBillEstimates(
     args: ListBillEstimatesCommandInput,
@@ -658,7 +670,7 @@ export interface BCMPricingCalculator {
   ): void;
   listBillEstimates(
     args: ListBillEstimatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: ListBillEstimatesCommandOutput) => void
   ): void;
 
@@ -667,7 +679,7 @@ export interface BCMPricingCalculator {
    */
   listBillScenarioCommitmentModifications(
     args: ListBillScenarioCommitmentModificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<ListBillScenarioCommitmentModificationsCommandOutput>;
   listBillScenarioCommitmentModifications(
     args: ListBillScenarioCommitmentModificationsCommandInput,
@@ -675,7 +687,7 @@ export interface BCMPricingCalculator {
   ): void;
   listBillScenarioCommitmentModifications(
     args: ListBillScenarioCommitmentModificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: ListBillScenarioCommitmentModificationsCommandOutput) => void
   ): void;
 
@@ -685,7 +697,7 @@ export interface BCMPricingCalculator {
   listBillScenarios(): Promise<ListBillScenariosCommandOutput>;
   listBillScenarios(
     args: ListBillScenariosCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<ListBillScenariosCommandOutput>;
   listBillScenarios(
     args: ListBillScenariosCommandInput,
@@ -693,7 +705,7 @@ export interface BCMPricingCalculator {
   ): void;
   listBillScenarios(
     args: ListBillScenariosCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: ListBillScenariosCommandOutput) => void
   ): void;
 
@@ -702,7 +714,7 @@ export interface BCMPricingCalculator {
    */
   listBillScenarioUsageModifications(
     args: ListBillScenarioUsageModificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<ListBillScenarioUsageModificationsCommandOutput>;
   listBillScenarioUsageModifications(
     args: ListBillScenarioUsageModificationsCommandInput,
@@ -710,7 +722,7 @@ export interface BCMPricingCalculator {
   ): void;
   listBillScenarioUsageModifications(
     args: ListBillScenarioUsageModificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: ListBillScenarioUsageModificationsCommandOutput) => void
   ): void;
 
@@ -719,7 +731,7 @@ export interface BCMPricingCalculator {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -727,7 +739,7 @@ export interface BCMPricingCalculator {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -737,7 +749,7 @@ export interface BCMPricingCalculator {
   listWorkloadEstimates(): Promise<ListWorkloadEstimatesCommandOutput>;
   listWorkloadEstimates(
     args: ListWorkloadEstimatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<ListWorkloadEstimatesCommandOutput>;
   listWorkloadEstimates(
     args: ListWorkloadEstimatesCommandInput,
@@ -745,7 +757,7 @@ export interface BCMPricingCalculator {
   ): void;
   listWorkloadEstimates(
     args: ListWorkloadEstimatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: ListWorkloadEstimatesCommandOutput) => void
   ): void;
 
@@ -754,7 +766,7 @@ export interface BCMPricingCalculator {
    */
   listWorkloadEstimateUsage(
     args: ListWorkloadEstimateUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<ListWorkloadEstimateUsageCommandOutput>;
   listWorkloadEstimateUsage(
     args: ListWorkloadEstimateUsageCommandInput,
@@ -762,7 +774,7 @@ export interface BCMPricingCalculator {
   ): void;
   listWorkloadEstimateUsage(
     args: ListWorkloadEstimateUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: ListWorkloadEstimateUsageCommandOutput) => void
   ): void;
 
@@ -771,7 +783,7 @@ export interface BCMPricingCalculator {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -779,7 +791,7 @@ export interface BCMPricingCalculator {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -788,7 +800,7 @@ export interface BCMPricingCalculator {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -796,7 +808,7 @@ export interface BCMPricingCalculator {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -805,7 +817,7 @@ export interface BCMPricingCalculator {
    */
   updateBillEstimate(
     args: UpdateBillEstimateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<UpdateBillEstimateCommandOutput>;
   updateBillEstimate(
     args: UpdateBillEstimateCommandInput,
@@ -813,7 +825,7 @@ export interface BCMPricingCalculator {
   ): void;
   updateBillEstimate(
     args: UpdateBillEstimateCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: UpdateBillEstimateCommandOutput) => void
   ): void;
 
@@ -822,7 +834,7 @@ export interface BCMPricingCalculator {
    */
   updateBillScenario(
     args: UpdateBillScenarioCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<UpdateBillScenarioCommandOutput>;
   updateBillScenario(
     args: UpdateBillScenarioCommandInput,
@@ -830,7 +842,7 @@ export interface BCMPricingCalculator {
   ): void;
   updateBillScenario(
     args: UpdateBillScenarioCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: UpdateBillScenarioCommandOutput) => void
   ): void;
 
@@ -840,7 +852,7 @@ export interface BCMPricingCalculator {
   updatePreferences(): Promise<UpdatePreferencesCommandOutput>;
   updatePreferences(
     args: UpdatePreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<UpdatePreferencesCommandOutput>;
   updatePreferences(
     args: UpdatePreferencesCommandInput,
@@ -848,7 +860,7 @@ export interface BCMPricingCalculator {
   ): void;
   updatePreferences(
     args: UpdatePreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: UpdatePreferencesCommandOutput) => void
   ): void;
 
@@ -857,7 +869,7 @@ export interface BCMPricingCalculator {
    */
   updateWorkloadEstimate(
     args: UpdateWorkloadEstimateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMPricingCalculatorRequestOptions
   ): Promise<UpdateWorkloadEstimateCommandOutput>;
   updateWorkloadEstimate(
     args: UpdateWorkloadEstimateCommandInput,
@@ -865,7 +877,7 @@ export interface BCMPricingCalculator {
   ): void;
   updateWorkloadEstimate(
     args: UpdateWorkloadEstimateCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMPricingCalculatorRequestOptions,
     cb: (err: any, data?: UpdateWorkloadEstimateCommandOutput) => void
   ): void;
 

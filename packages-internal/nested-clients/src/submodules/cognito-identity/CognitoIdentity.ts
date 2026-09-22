@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { CognitoIdentityClient } from "./CognitoIdentityClient";
 import {
@@ -15,13 +15,20 @@ const commands = {
   GetIdCommand,
 };
 
+/**
+ * @public
+ */
+export interface CognitoIdentityRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CognitoIdentity {
   /**
    * @see {@link GetCredentialsForIdentityCommand}
    */
   getCredentialsForIdentity(
     args: GetCredentialsForIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityRequestOptions
   ): Promise<GetCredentialsForIdentityCommandOutput>;
   getCredentialsForIdentity(
     args: GetCredentialsForIdentityCommandInput,
@@ -29,7 +36,7 @@ export interface CognitoIdentity {
   ): void;
   getCredentialsForIdentity(
     args: GetCredentialsForIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityRequestOptions,
     cb: (err: any, data?: GetCredentialsForIdentityCommandOutput) => void
   ): void;
 
@@ -38,7 +45,7 @@ export interface CognitoIdentity {
    */
   getId(
     args: GetIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CognitoIdentityRequestOptions
   ): Promise<GetIdCommandOutput>;
   getId(
     args: GetIdCommandInput,
@@ -46,7 +53,7 @@ export interface CognitoIdentity {
   ): void;
   getId(
     args: GetIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: CognitoIdentityRequestOptions,
     cb: (err: any, data?: GetIdCommandOutput) => void
   ): void;
 }

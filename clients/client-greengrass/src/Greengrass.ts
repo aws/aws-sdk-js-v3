@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type AssociateRoleToGroupCommandInput,
@@ -555,13 +555,20 @@ const commands = {
   UpdateThingRuntimeConfigurationCommand,
 };
 
+/**
+ * @public
+ */
+export interface GreengrassRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Greengrass {
   /**
    * @see {@link AssociateRoleToGroupCommand}
    */
   associateRoleToGroup(
     args: AssociateRoleToGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<AssociateRoleToGroupCommandOutput>;
   associateRoleToGroup(
     args: AssociateRoleToGroupCommandInput,
@@ -569,7 +576,7 @@ export interface Greengrass {
   ): void;
   associateRoleToGroup(
     args: AssociateRoleToGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: AssociateRoleToGroupCommandOutput) => void
   ): void;
 
@@ -578,7 +585,7 @@ export interface Greengrass {
    */
   associateServiceRoleToAccount(
     args: AssociateServiceRoleToAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<AssociateServiceRoleToAccountCommandOutput>;
   associateServiceRoleToAccount(
     args: AssociateServiceRoleToAccountCommandInput,
@@ -586,7 +593,7 @@ export interface Greengrass {
   ): void;
   associateServiceRoleToAccount(
     args: AssociateServiceRoleToAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: AssociateServiceRoleToAccountCommandOutput) => void
   ): void;
 
@@ -596,7 +603,7 @@ export interface Greengrass {
   createConnectorDefinition(): Promise<CreateConnectorDefinitionCommandOutput>;
   createConnectorDefinition(
     args: CreateConnectorDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateConnectorDefinitionCommandOutput>;
   createConnectorDefinition(
     args: CreateConnectorDefinitionCommandInput,
@@ -604,7 +611,7 @@ export interface Greengrass {
   ): void;
   createConnectorDefinition(
     args: CreateConnectorDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateConnectorDefinitionCommandOutput) => void
   ): void;
 
@@ -613,7 +620,7 @@ export interface Greengrass {
    */
   createConnectorDefinitionVersion(
     args: CreateConnectorDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateConnectorDefinitionVersionCommandOutput>;
   createConnectorDefinitionVersion(
     args: CreateConnectorDefinitionVersionCommandInput,
@@ -621,7 +628,7 @@ export interface Greengrass {
   ): void;
   createConnectorDefinitionVersion(
     args: CreateConnectorDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateConnectorDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -631,7 +638,7 @@ export interface Greengrass {
   createCoreDefinition(): Promise<CreateCoreDefinitionCommandOutput>;
   createCoreDefinition(
     args: CreateCoreDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateCoreDefinitionCommandOutput>;
   createCoreDefinition(
     args: CreateCoreDefinitionCommandInput,
@@ -639,7 +646,7 @@ export interface Greengrass {
   ): void;
   createCoreDefinition(
     args: CreateCoreDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateCoreDefinitionCommandOutput) => void
   ): void;
 
@@ -648,7 +655,7 @@ export interface Greengrass {
    */
   createCoreDefinitionVersion(
     args: CreateCoreDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateCoreDefinitionVersionCommandOutput>;
   createCoreDefinitionVersion(
     args: CreateCoreDefinitionVersionCommandInput,
@@ -656,7 +663,7 @@ export interface Greengrass {
   ): void;
   createCoreDefinitionVersion(
     args: CreateCoreDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateCoreDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -665,7 +672,7 @@ export interface Greengrass {
    */
   createDeployment(
     args: CreateDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateDeploymentCommandOutput>;
   createDeployment(
     args: CreateDeploymentCommandInput,
@@ -673,7 +680,7 @@ export interface Greengrass {
   ): void;
   createDeployment(
     args: CreateDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): void;
 
@@ -683,7 +690,7 @@ export interface Greengrass {
   createDeviceDefinition(): Promise<CreateDeviceDefinitionCommandOutput>;
   createDeviceDefinition(
     args: CreateDeviceDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateDeviceDefinitionCommandOutput>;
   createDeviceDefinition(
     args: CreateDeviceDefinitionCommandInput,
@@ -691,7 +698,7 @@ export interface Greengrass {
   ): void;
   createDeviceDefinition(
     args: CreateDeviceDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateDeviceDefinitionCommandOutput) => void
   ): void;
 
@@ -700,7 +707,7 @@ export interface Greengrass {
    */
   createDeviceDefinitionVersion(
     args: CreateDeviceDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateDeviceDefinitionVersionCommandOutput>;
   createDeviceDefinitionVersion(
     args: CreateDeviceDefinitionVersionCommandInput,
@@ -708,7 +715,7 @@ export interface Greengrass {
   ): void;
   createDeviceDefinitionVersion(
     args: CreateDeviceDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateDeviceDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -718,7 +725,7 @@ export interface Greengrass {
   createFunctionDefinition(): Promise<CreateFunctionDefinitionCommandOutput>;
   createFunctionDefinition(
     args: CreateFunctionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateFunctionDefinitionCommandOutput>;
   createFunctionDefinition(
     args: CreateFunctionDefinitionCommandInput,
@@ -726,7 +733,7 @@ export interface Greengrass {
   ): void;
   createFunctionDefinition(
     args: CreateFunctionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateFunctionDefinitionCommandOutput) => void
   ): void;
 
@@ -735,7 +742,7 @@ export interface Greengrass {
    */
   createFunctionDefinitionVersion(
     args: CreateFunctionDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateFunctionDefinitionVersionCommandOutput>;
   createFunctionDefinitionVersion(
     args: CreateFunctionDefinitionVersionCommandInput,
@@ -743,7 +750,7 @@ export interface Greengrass {
   ): void;
   createFunctionDefinitionVersion(
     args: CreateFunctionDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateFunctionDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -752,7 +759,7 @@ export interface Greengrass {
    */
   createGroup(
     args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateGroupCommandOutput>;
   createGroup(
     args: CreateGroupCommandInput,
@@ -760,7 +767,7 @@ export interface Greengrass {
   ): void;
   createGroup(
     args: CreateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateGroupCommandOutput) => void
   ): void;
 
@@ -769,7 +776,7 @@ export interface Greengrass {
    */
   createGroupCertificateAuthority(
     args: CreateGroupCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateGroupCertificateAuthorityCommandOutput>;
   createGroupCertificateAuthority(
     args: CreateGroupCertificateAuthorityCommandInput,
@@ -777,7 +784,7 @@ export interface Greengrass {
   ): void;
   createGroupCertificateAuthority(
     args: CreateGroupCertificateAuthorityCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateGroupCertificateAuthorityCommandOutput) => void
   ): void;
 
@@ -786,7 +793,7 @@ export interface Greengrass {
    */
   createGroupVersion(
     args: CreateGroupVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateGroupVersionCommandOutput>;
   createGroupVersion(
     args: CreateGroupVersionCommandInput,
@@ -794,7 +801,7 @@ export interface Greengrass {
   ): void;
   createGroupVersion(
     args: CreateGroupVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateGroupVersionCommandOutput) => void
   ): void;
 
@@ -804,7 +811,7 @@ export interface Greengrass {
   createLoggerDefinition(): Promise<CreateLoggerDefinitionCommandOutput>;
   createLoggerDefinition(
     args: CreateLoggerDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateLoggerDefinitionCommandOutput>;
   createLoggerDefinition(
     args: CreateLoggerDefinitionCommandInput,
@@ -812,7 +819,7 @@ export interface Greengrass {
   ): void;
   createLoggerDefinition(
     args: CreateLoggerDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateLoggerDefinitionCommandOutput) => void
   ): void;
 
@@ -821,7 +828,7 @@ export interface Greengrass {
    */
   createLoggerDefinitionVersion(
     args: CreateLoggerDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateLoggerDefinitionVersionCommandOutput>;
   createLoggerDefinitionVersion(
     args: CreateLoggerDefinitionVersionCommandInput,
@@ -829,7 +836,7 @@ export interface Greengrass {
   ): void;
   createLoggerDefinitionVersion(
     args: CreateLoggerDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateLoggerDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -839,7 +846,7 @@ export interface Greengrass {
   createResourceDefinition(): Promise<CreateResourceDefinitionCommandOutput>;
   createResourceDefinition(
     args: CreateResourceDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateResourceDefinitionCommandOutput>;
   createResourceDefinition(
     args: CreateResourceDefinitionCommandInput,
@@ -847,7 +854,7 @@ export interface Greengrass {
   ): void;
   createResourceDefinition(
     args: CreateResourceDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateResourceDefinitionCommandOutput) => void
   ): void;
 
@@ -856,7 +863,7 @@ export interface Greengrass {
    */
   createResourceDefinitionVersion(
     args: CreateResourceDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateResourceDefinitionVersionCommandOutput>;
   createResourceDefinitionVersion(
     args: CreateResourceDefinitionVersionCommandInput,
@@ -864,7 +871,7 @@ export interface Greengrass {
   ): void;
   createResourceDefinitionVersion(
     args: CreateResourceDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateResourceDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -873,7 +880,7 @@ export interface Greengrass {
    */
   createSoftwareUpdateJob(
     args: CreateSoftwareUpdateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateSoftwareUpdateJobCommandOutput>;
   createSoftwareUpdateJob(
     args: CreateSoftwareUpdateJobCommandInput,
@@ -881,7 +888,7 @@ export interface Greengrass {
   ): void;
   createSoftwareUpdateJob(
     args: CreateSoftwareUpdateJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateSoftwareUpdateJobCommandOutput) => void
   ): void;
 
@@ -891,7 +898,7 @@ export interface Greengrass {
   createSubscriptionDefinition(): Promise<CreateSubscriptionDefinitionCommandOutput>;
   createSubscriptionDefinition(
     args: CreateSubscriptionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateSubscriptionDefinitionCommandOutput>;
   createSubscriptionDefinition(
     args: CreateSubscriptionDefinitionCommandInput,
@@ -899,7 +906,7 @@ export interface Greengrass {
   ): void;
   createSubscriptionDefinition(
     args: CreateSubscriptionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateSubscriptionDefinitionCommandOutput) => void
   ): void;
 
@@ -908,7 +915,7 @@ export interface Greengrass {
    */
   createSubscriptionDefinitionVersion(
     args: CreateSubscriptionDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<CreateSubscriptionDefinitionVersionCommandOutput>;
   createSubscriptionDefinitionVersion(
     args: CreateSubscriptionDefinitionVersionCommandInput,
@@ -916,7 +923,7 @@ export interface Greengrass {
   ): void;
   createSubscriptionDefinitionVersion(
     args: CreateSubscriptionDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: CreateSubscriptionDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -925,7 +932,7 @@ export interface Greengrass {
    */
   deleteConnectorDefinition(
     args: DeleteConnectorDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<DeleteConnectorDefinitionCommandOutput>;
   deleteConnectorDefinition(
     args: DeleteConnectorDefinitionCommandInput,
@@ -933,7 +940,7 @@ export interface Greengrass {
   ): void;
   deleteConnectorDefinition(
     args: DeleteConnectorDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: DeleteConnectorDefinitionCommandOutput) => void
   ): void;
 
@@ -942,7 +949,7 @@ export interface Greengrass {
    */
   deleteCoreDefinition(
     args: DeleteCoreDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<DeleteCoreDefinitionCommandOutput>;
   deleteCoreDefinition(
     args: DeleteCoreDefinitionCommandInput,
@@ -950,7 +957,7 @@ export interface Greengrass {
   ): void;
   deleteCoreDefinition(
     args: DeleteCoreDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: DeleteCoreDefinitionCommandOutput) => void
   ): void;
 
@@ -959,7 +966,7 @@ export interface Greengrass {
    */
   deleteDeviceDefinition(
     args: DeleteDeviceDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<DeleteDeviceDefinitionCommandOutput>;
   deleteDeviceDefinition(
     args: DeleteDeviceDefinitionCommandInput,
@@ -967,7 +974,7 @@ export interface Greengrass {
   ): void;
   deleteDeviceDefinition(
     args: DeleteDeviceDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: DeleteDeviceDefinitionCommandOutput) => void
   ): void;
 
@@ -976,7 +983,7 @@ export interface Greengrass {
    */
   deleteFunctionDefinition(
     args: DeleteFunctionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<DeleteFunctionDefinitionCommandOutput>;
   deleteFunctionDefinition(
     args: DeleteFunctionDefinitionCommandInput,
@@ -984,7 +991,7 @@ export interface Greengrass {
   ): void;
   deleteFunctionDefinition(
     args: DeleteFunctionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: DeleteFunctionDefinitionCommandOutput) => void
   ): void;
 
@@ -993,7 +1000,7 @@ export interface Greengrass {
    */
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<DeleteGroupCommandOutput>;
   deleteGroup(
     args: DeleteGroupCommandInput,
@@ -1001,7 +1008,7 @@ export interface Greengrass {
   ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: DeleteGroupCommandOutput) => void
   ): void;
 
@@ -1010,7 +1017,7 @@ export interface Greengrass {
    */
   deleteLoggerDefinition(
     args: DeleteLoggerDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<DeleteLoggerDefinitionCommandOutput>;
   deleteLoggerDefinition(
     args: DeleteLoggerDefinitionCommandInput,
@@ -1018,7 +1025,7 @@ export interface Greengrass {
   ): void;
   deleteLoggerDefinition(
     args: DeleteLoggerDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: DeleteLoggerDefinitionCommandOutput) => void
   ): void;
 
@@ -1027,7 +1034,7 @@ export interface Greengrass {
    */
   deleteResourceDefinition(
     args: DeleteResourceDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<DeleteResourceDefinitionCommandOutput>;
   deleteResourceDefinition(
     args: DeleteResourceDefinitionCommandInput,
@@ -1035,7 +1042,7 @@ export interface Greengrass {
   ): void;
   deleteResourceDefinition(
     args: DeleteResourceDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: DeleteResourceDefinitionCommandOutput) => void
   ): void;
 
@@ -1044,7 +1051,7 @@ export interface Greengrass {
    */
   deleteSubscriptionDefinition(
     args: DeleteSubscriptionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<DeleteSubscriptionDefinitionCommandOutput>;
   deleteSubscriptionDefinition(
     args: DeleteSubscriptionDefinitionCommandInput,
@@ -1052,7 +1059,7 @@ export interface Greengrass {
   ): void;
   deleteSubscriptionDefinition(
     args: DeleteSubscriptionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: DeleteSubscriptionDefinitionCommandOutput) => void
   ): void;
 
@@ -1061,7 +1068,7 @@ export interface Greengrass {
    */
   disassociateRoleFromGroup(
     args: DisassociateRoleFromGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<DisassociateRoleFromGroupCommandOutput>;
   disassociateRoleFromGroup(
     args: DisassociateRoleFromGroupCommandInput,
@@ -1069,7 +1076,7 @@ export interface Greengrass {
   ): void;
   disassociateRoleFromGroup(
     args: DisassociateRoleFromGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: DisassociateRoleFromGroupCommandOutput) => void
   ): void;
 
@@ -1079,7 +1086,7 @@ export interface Greengrass {
   disassociateServiceRoleFromAccount(): Promise<DisassociateServiceRoleFromAccountCommandOutput>;
   disassociateServiceRoleFromAccount(
     args: DisassociateServiceRoleFromAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<DisassociateServiceRoleFromAccountCommandOutput>;
   disassociateServiceRoleFromAccount(
     args: DisassociateServiceRoleFromAccountCommandInput,
@@ -1087,7 +1094,7 @@ export interface Greengrass {
   ): void;
   disassociateServiceRoleFromAccount(
     args: DisassociateServiceRoleFromAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void
   ): void;
 
@@ -1096,7 +1103,7 @@ export interface Greengrass {
    */
   getAssociatedRole(
     args: GetAssociatedRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetAssociatedRoleCommandOutput>;
   getAssociatedRole(
     args: GetAssociatedRoleCommandInput,
@@ -1104,7 +1111,7 @@ export interface Greengrass {
   ): void;
   getAssociatedRole(
     args: GetAssociatedRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetAssociatedRoleCommandOutput) => void
   ): void;
 
@@ -1113,7 +1120,7 @@ export interface Greengrass {
    */
   getBulkDeploymentStatus(
     args: GetBulkDeploymentStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetBulkDeploymentStatusCommandOutput>;
   getBulkDeploymentStatus(
     args: GetBulkDeploymentStatusCommandInput,
@@ -1121,7 +1128,7 @@ export interface Greengrass {
   ): void;
   getBulkDeploymentStatus(
     args: GetBulkDeploymentStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetBulkDeploymentStatusCommandOutput) => void
   ): void;
 
@@ -1130,7 +1137,7 @@ export interface Greengrass {
    */
   getConnectivityInfo(
     args: GetConnectivityInfoCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetConnectivityInfoCommandOutput>;
   getConnectivityInfo(
     args: GetConnectivityInfoCommandInput,
@@ -1138,7 +1145,7 @@ export interface Greengrass {
   ): void;
   getConnectivityInfo(
     args: GetConnectivityInfoCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetConnectivityInfoCommandOutput) => void
   ): void;
 
@@ -1147,7 +1154,7 @@ export interface Greengrass {
    */
   getConnectorDefinition(
     args: GetConnectorDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetConnectorDefinitionCommandOutput>;
   getConnectorDefinition(
     args: GetConnectorDefinitionCommandInput,
@@ -1155,7 +1162,7 @@ export interface Greengrass {
   ): void;
   getConnectorDefinition(
     args: GetConnectorDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetConnectorDefinitionCommandOutput) => void
   ): void;
 
@@ -1164,7 +1171,7 @@ export interface Greengrass {
    */
   getConnectorDefinitionVersion(
     args: GetConnectorDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetConnectorDefinitionVersionCommandOutput>;
   getConnectorDefinitionVersion(
     args: GetConnectorDefinitionVersionCommandInput,
@@ -1172,7 +1179,7 @@ export interface Greengrass {
   ): void;
   getConnectorDefinitionVersion(
     args: GetConnectorDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetConnectorDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -1181,7 +1188,7 @@ export interface Greengrass {
    */
   getCoreDefinition(
     args: GetCoreDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetCoreDefinitionCommandOutput>;
   getCoreDefinition(
     args: GetCoreDefinitionCommandInput,
@@ -1189,7 +1196,7 @@ export interface Greengrass {
   ): void;
   getCoreDefinition(
     args: GetCoreDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetCoreDefinitionCommandOutput) => void
   ): void;
 
@@ -1198,7 +1205,7 @@ export interface Greengrass {
    */
   getCoreDefinitionVersion(
     args: GetCoreDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetCoreDefinitionVersionCommandOutput>;
   getCoreDefinitionVersion(
     args: GetCoreDefinitionVersionCommandInput,
@@ -1206,7 +1213,7 @@ export interface Greengrass {
   ): void;
   getCoreDefinitionVersion(
     args: GetCoreDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetCoreDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -1215,7 +1222,7 @@ export interface Greengrass {
    */
   getDeploymentStatus(
     args: GetDeploymentStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetDeploymentStatusCommandOutput>;
   getDeploymentStatus(
     args: GetDeploymentStatusCommandInput,
@@ -1223,7 +1230,7 @@ export interface Greengrass {
   ): void;
   getDeploymentStatus(
     args: GetDeploymentStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetDeploymentStatusCommandOutput) => void
   ): void;
 
@@ -1232,7 +1239,7 @@ export interface Greengrass {
    */
   getDeviceDefinition(
     args: GetDeviceDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetDeviceDefinitionCommandOutput>;
   getDeviceDefinition(
     args: GetDeviceDefinitionCommandInput,
@@ -1240,7 +1247,7 @@ export interface Greengrass {
   ): void;
   getDeviceDefinition(
     args: GetDeviceDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetDeviceDefinitionCommandOutput) => void
   ): void;
 
@@ -1249,7 +1256,7 @@ export interface Greengrass {
    */
   getDeviceDefinitionVersion(
     args: GetDeviceDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetDeviceDefinitionVersionCommandOutput>;
   getDeviceDefinitionVersion(
     args: GetDeviceDefinitionVersionCommandInput,
@@ -1257,7 +1264,7 @@ export interface Greengrass {
   ): void;
   getDeviceDefinitionVersion(
     args: GetDeviceDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetDeviceDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -1266,7 +1273,7 @@ export interface Greengrass {
    */
   getFunctionDefinition(
     args: GetFunctionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetFunctionDefinitionCommandOutput>;
   getFunctionDefinition(
     args: GetFunctionDefinitionCommandInput,
@@ -1274,7 +1281,7 @@ export interface Greengrass {
   ): void;
   getFunctionDefinition(
     args: GetFunctionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetFunctionDefinitionCommandOutput) => void
   ): void;
 
@@ -1283,7 +1290,7 @@ export interface Greengrass {
    */
   getFunctionDefinitionVersion(
     args: GetFunctionDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetFunctionDefinitionVersionCommandOutput>;
   getFunctionDefinitionVersion(
     args: GetFunctionDefinitionVersionCommandInput,
@@ -1291,7 +1298,7 @@ export interface Greengrass {
   ): void;
   getFunctionDefinitionVersion(
     args: GetFunctionDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetFunctionDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -1300,7 +1307,7 @@ export interface Greengrass {
    */
   getGroup(
     args: GetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetGroupCommandOutput>;
   getGroup(
     args: GetGroupCommandInput,
@@ -1308,7 +1315,7 @@ export interface Greengrass {
   ): void;
   getGroup(
     args: GetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetGroupCommandOutput) => void
   ): void;
 
@@ -1317,7 +1324,7 @@ export interface Greengrass {
    */
   getGroupCertificateAuthority(
     args: GetGroupCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetGroupCertificateAuthorityCommandOutput>;
   getGroupCertificateAuthority(
     args: GetGroupCertificateAuthorityCommandInput,
@@ -1325,7 +1332,7 @@ export interface Greengrass {
   ): void;
   getGroupCertificateAuthority(
     args: GetGroupCertificateAuthorityCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetGroupCertificateAuthorityCommandOutput) => void
   ): void;
 
@@ -1334,7 +1341,7 @@ export interface Greengrass {
    */
   getGroupCertificateConfiguration(
     args: GetGroupCertificateConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetGroupCertificateConfigurationCommandOutput>;
   getGroupCertificateConfiguration(
     args: GetGroupCertificateConfigurationCommandInput,
@@ -1342,7 +1349,7 @@ export interface Greengrass {
   ): void;
   getGroupCertificateConfiguration(
     args: GetGroupCertificateConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetGroupCertificateConfigurationCommandOutput) => void
   ): void;
 
@@ -1351,7 +1358,7 @@ export interface Greengrass {
    */
   getGroupVersion(
     args: GetGroupVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetGroupVersionCommandOutput>;
   getGroupVersion(
     args: GetGroupVersionCommandInput,
@@ -1359,7 +1366,7 @@ export interface Greengrass {
   ): void;
   getGroupVersion(
     args: GetGroupVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetGroupVersionCommandOutput) => void
   ): void;
 
@@ -1368,7 +1375,7 @@ export interface Greengrass {
    */
   getLoggerDefinition(
     args: GetLoggerDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetLoggerDefinitionCommandOutput>;
   getLoggerDefinition(
     args: GetLoggerDefinitionCommandInput,
@@ -1376,7 +1383,7 @@ export interface Greengrass {
   ): void;
   getLoggerDefinition(
     args: GetLoggerDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetLoggerDefinitionCommandOutput) => void
   ): void;
 
@@ -1385,7 +1392,7 @@ export interface Greengrass {
    */
   getLoggerDefinitionVersion(
     args: GetLoggerDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetLoggerDefinitionVersionCommandOutput>;
   getLoggerDefinitionVersion(
     args: GetLoggerDefinitionVersionCommandInput,
@@ -1393,7 +1400,7 @@ export interface Greengrass {
   ): void;
   getLoggerDefinitionVersion(
     args: GetLoggerDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetLoggerDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -1402,7 +1409,7 @@ export interface Greengrass {
    */
   getResourceDefinition(
     args: GetResourceDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetResourceDefinitionCommandOutput>;
   getResourceDefinition(
     args: GetResourceDefinitionCommandInput,
@@ -1410,7 +1417,7 @@ export interface Greengrass {
   ): void;
   getResourceDefinition(
     args: GetResourceDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetResourceDefinitionCommandOutput) => void
   ): void;
 
@@ -1419,7 +1426,7 @@ export interface Greengrass {
    */
   getResourceDefinitionVersion(
     args: GetResourceDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetResourceDefinitionVersionCommandOutput>;
   getResourceDefinitionVersion(
     args: GetResourceDefinitionVersionCommandInput,
@@ -1427,7 +1434,7 @@ export interface Greengrass {
   ): void;
   getResourceDefinitionVersion(
     args: GetResourceDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetResourceDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -1437,7 +1444,7 @@ export interface Greengrass {
   getServiceRoleForAccount(): Promise<GetServiceRoleForAccountCommandOutput>;
   getServiceRoleForAccount(
     args: GetServiceRoleForAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetServiceRoleForAccountCommandOutput>;
   getServiceRoleForAccount(
     args: GetServiceRoleForAccountCommandInput,
@@ -1445,7 +1452,7 @@ export interface Greengrass {
   ): void;
   getServiceRoleForAccount(
     args: GetServiceRoleForAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetServiceRoleForAccountCommandOutput) => void
   ): void;
 
@@ -1454,7 +1461,7 @@ export interface Greengrass {
    */
   getSubscriptionDefinition(
     args: GetSubscriptionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetSubscriptionDefinitionCommandOutput>;
   getSubscriptionDefinition(
     args: GetSubscriptionDefinitionCommandInput,
@@ -1462,7 +1469,7 @@ export interface Greengrass {
   ): void;
   getSubscriptionDefinition(
     args: GetSubscriptionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetSubscriptionDefinitionCommandOutput) => void
   ): void;
 
@@ -1471,7 +1478,7 @@ export interface Greengrass {
    */
   getSubscriptionDefinitionVersion(
     args: GetSubscriptionDefinitionVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetSubscriptionDefinitionVersionCommandOutput>;
   getSubscriptionDefinitionVersion(
     args: GetSubscriptionDefinitionVersionCommandInput,
@@ -1479,7 +1486,7 @@ export interface Greengrass {
   ): void;
   getSubscriptionDefinitionVersion(
     args: GetSubscriptionDefinitionVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetSubscriptionDefinitionVersionCommandOutput) => void
   ): void;
 
@@ -1488,7 +1495,7 @@ export interface Greengrass {
    */
   getThingRuntimeConfiguration(
     args: GetThingRuntimeConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<GetThingRuntimeConfigurationCommandOutput>;
   getThingRuntimeConfiguration(
     args: GetThingRuntimeConfigurationCommandInput,
@@ -1496,7 +1503,7 @@ export interface Greengrass {
   ): void;
   getThingRuntimeConfiguration(
     args: GetThingRuntimeConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: GetThingRuntimeConfigurationCommandOutput) => void
   ): void;
 
@@ -1505,7 +1512,7 @@ export interface Greengrass {
    */
   listBulkDeploymentDetailedReports(
     args: ListBulkDeploymentDetailedReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListBulkDeploymentDetailedReportsCommandOutput>;
   listBulkDeploymentDetailedReports(
     args: ListBulkDeploymentDetailedReportsCommandInput,
@@ -1513,7 +1520,7 @@ export interface Greengrass {
   ): void;
   listBulkDeploymentDetailedReports(
     args: ListBulkDeploymentDetailedReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListBulkDeploymentDetailedReportsCommandOutput) => void
   ): void;
 
@@ -1523,7 +1530,7 @@ export interface Greengrass {
   listBulkDeployments(): Promise<ListBulkDeploymentsCommandOutput>;
   listBulkDeployments(
     args: ListBulkDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListBulkDeploymentsCommandOutput>;
   listBulkDeployments(
     args: ListBulkDeploymentsCommandInput,
@@ -1531,7 +1538,7 @@ export interface Greengrass {
   ): void;
   listBulkDeployments(
     args: ListBulkDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListBulkDeploymentsCommandOutput) => void
   ): void;
 
@@ -1541,7 +1548,7 @@ export interface Greengrass {
   listConnectorDefinitions(): Promise<ListConnectorDefinitionsCommandOutput>;
   listConnectorDefinitions(
     args: ListConnectorDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListConnectorDefinitionsCommandOutput>;
   listConnectorDefinitions(
     args: ListConnectorDefinitionsCommandInput,
@@ -1549,7 +1556,7 @@ export interface Greengrass {
   ): void;
   listConnectorDefinitions(
     args: ListConnectorDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListConnectorDefinitionsCommandOutput) => void
   ): void;
 
@@ -1558,7 +1565,7 @@ export interface Greengrass {
    */
   listConnectorDefinitionVersions(
     args: ListConnectorDefinitionVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListConnectorDefinitionVersionsCommandOutput>;
   listConnectorDefinitionVersions(
     args: ListConnectorDefinitionVersionsCommandInput,
@@ -1566,7 +1573,7 @@ export interface Greengrass {
   ): void;
   listConnectorDefinitionVersions(
     args: ListConnectorDefinitionVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListConnectorDefinitionVersionsCommandOutput) => void
   ): void;
 
@@ -1576,7 +1583,7 @@ export interface Greengrass {
   listCoreDefinitions(): Promise<ListCoreDefinitionsCommandOutput>;
   listCoreDefinitions(
     args: ListCoreDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListCoreDefinitionsCommandOutput>;
   listCoreDefinitions(
     args: ListCoreDefinitionsCommandInput,
@@ -1584,7 +1591,7 @@ export interface Greengrass {
   ): void;
   listCoreDefinitions(
     args: ListCoreDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListCoreDefinitionsCommandOutput) => void
   ): void;
 
@@ -1593,7 +1600,7 @@ export interface Greengrass {
    */
   listCoreDefinitionVersions(
     args: ListCoreDefinitionVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListCoreDefinitionVersionsCommandOutput>;
   listCoreDefinitionVersions(
     args: ListCoreDefinitionVersionsCommandInput,
@@ -1601,7 +1608,7 @@ export interface Greengrass {
   ): void;
   listCoreDefinitionVersions(
     args: ListCoreDefinitionVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListCoreDefinitionVersionsCommandOutput) => void
   ): void;
 
@@ -1610,7 +1617,7 @@ export interface Greengrass {
    */
   listDeployments(
     args: ListDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListDeploymentsCommandOutput>;
   listDeployments(
     args: ListDeploymentsCommandInput,
@@ -1618,7 +1625,7 @@ export interface Greengrass {
   ): void;
   listDeployments(
     args: ListDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): void;
 
@@ -1628,7 +1635,7 @@ export interface Greengrass {
   listDeviceDefinitions(): Promise<ListDeviceDefinitionsCommandOutput>;
   listDeviceDefinitions(
     args: ListDeviceDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListDeviceDefinitionsCommandOutput>;
   listDeviceDefinitions(
     args: ListDeviceDefinitionsCommandInput,
@@ -1636,7 +1643,7 @@ export interface Greengrass {
   ): void;
   listDeviceDefinitions(
     args: ListDeviceDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListDeviceDefinitionsCommandOutput) => void
   ): void;
 
@@ -1645,7 +1652,7 @@ export interface Greengrass {
    */
   listDeviceDefinitionVersions(
     args: ListDeviceDefinitionVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListDeviceDefinitionVersionsCommandOutput>;
   listDeviceDefinitionVersions(
     args: ListDeviceDefinitionVersionsCommandInput,
@@ -1653,7 +1660,7 @@ export interface Greengrass {
   ): void;
   listDeviceDefinitionVersions(
     args: ListDeviceDefinitionVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListDeviceDefinitionVersionsCommandOutput) => void
   ): void;
 
@@ -1663,7 +1670,7 @@ export interface Greengrass {
   listFunctionDefinitions(): Promise<ListFunctionDefinitionsCommandOutput>;
   listFunctionDefinitions(
     args: ListFunctionDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListFunctionDefinitionsCommandOutput>;
   listFunctionDefinitions(
     args: ListFunctionDefinitionsCommandInput,
@@ -1671,7 +1678,7 @@ export interface Greengrass {
   ): void;
   listFunctionDefinitions(
     args: ListFunctionDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListFunctionDefinitionsCommandOutput) => void
   ): void;
 
@@ -1680,7 +1687,7 @@ export interface Greengrass {
    */
   listFunctionDefinitionVersions(
     args: ListFunctionDefinitionVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListFunctionDefinitionVersionsCommandOutput>;
   listFunctionDefinitionVersions(
     args: ListFunctionDefinitionVersionsCommandInput,
@@ -1688,7 +1695,7 @@ export interface Greengrass {
   ): void;
   listFunctionDefinitionVersions(
     args: ListFunctionDefinitionVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListFunctionDefinitionVersionsCommandOutput) => void
   ): void;
 
@@ -1697,7 +1704,7 @@ export interface Greengrass {
    */
   listGroupCertificateAuthorities(
     args: ListGroupCertificateAuthoritiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListGroupCertificateAuthoritiesCommandOutput>;
   listGroupCertificateAuthorities(
     args: ListGroupCertificateAuthoritiesCommandInput,
@@ -1705,7 +1712,7 @@ export interface Greengrass {
   ): void;
   listGroupCertificateAuthorities(
     args: ListGroupCertificateAuthoritiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListGroupCertificateAuthoritiesCommandOutput) => void
   ): void;
 
@@ -1715,7 +1722,7 @@ export interface Greengrass {
   listGroups(): Promise<ListGroupsCommandOutput>;
   listGroups(
     args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListGroupsCommandOutput>;
   listGroups(
     args: ListGroupsCommandInput,
@@ -1723,7 +1730,7 @@ export interface Greengrass {
   ): void;
   listGroups(
     args: ListGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListGroupsCommandOutput) => void
   ): void;
 
@@ -1732,7 +1739,7 @@ export interface Greengrass {
    */
   listGroupVersions(
     args: ListGroupVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListGroupVersionsCommandOutput>;
   listGroupVersions(
     args: ListGroupVersionsCommandInput,
@@ -1740,7 +1747,7 @@ export interface Greengrass {
   ): void;
   listGroupVersions(
     args: ListGroupVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListGroupVersionsCommandOutput) => void
   ): void;
 
@@ -1750,7 +1757,7 @@ export interface Greengrass {
   listLoggerDefinitions(): Promise<ListLoggerDefinitionsCommandOutput>;
   listLoggerDefinitions(
     args: ListLoggerDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListLoggerDefinitionsCommandOutput>;
   listLoggerDefinitions(
     args: ListLoggerDefinitionsCommandInput,
@@ -1758,7 +1765,7 @@ export interface Greengrass {
   ): void;
   listLoggerDefinitions(
     args: ListLoggerDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListLoggerDefinitionsCommandOutput) => void
   ): void;
 
@@ -1767,7 +1774,7 @@ export interface Greengrass {
    */
   listLoggerDefinitionVersions(
     args: ListLoggerDefinitionVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListLoggerDefinitionVersionsCommandOutput>;
   listLoggerDefinitionVersions(
     args: ListLoggerDefinitionVersionsCommandInput,
@@ -1775,7 +1782,7 @@ export interface Greengrass {
   ): void;
   listLoggerDefinitionVersions(
     args: ListLoggerDefinitionVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListLoggerDefinitionVersionsCommandOutput) => void
   ): void;
 
@@ -1785,7 +1792,7 @@ export interface Greengrass {
   listResourceDefinitions(): Promise<ListResourceDefinitionsCommandOutput>;
   listResourceDefinitions(
     args: ListResourceDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListResourceDefinitionsCommandOutput>;
   listResourceDefinitions(
     args: ListResourceDefinitionsCommandInput,
@@ -1793,7 +1800,7 @@ export interface Greengrass {
   ): void;
   listResourceDefinitions(
     args: ListResourceDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListResourceDefinitionsCommandOutput) => void
   ): void;
 
@@ -1802,7 +1809,7 @@ export interface Greengrass {
    */
   listResourceDefinitionVersions(
     args: ListResourceDefinitionVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListResourceDefinitionVersionsCommandOutput>;
   listResourceDefinitionVersions(
     args: ListResourceDefinitionVersionsCommandInput,
@@ -1810,7 +1817,7 @@ export interface Greengrass {
   ): void;
   listResourceDefinitionVersions(
     args: ListResourceDefinitionVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListResourceDefinitionVersionsCommandOutput) => void
   ): void;
 
@@ -1820,7 +1827,7 @@ export interface Greengrass {
   listSubscriptionDefinitions(): Promise<ListSubscriptionDefinitionsCommandOutput>;
   listSubscriptionDefinitions(
     args: ListSubscriptionDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListSubscriptionDefinitionsCommandOutput>;
   listSubscriptionDefinitions(
     args: ListSubscriptionDefinitionsCommandInput,
@@ -1828,7 +1835,7 @@ export interface Greengrass {
   ): void;
   listSubscriptionDefinitions(
     args: ListSubscriptionDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListSubscriptionDefinitionsCommandOutput) => void
   ): void;
 
@@ -1837,7 +1844,7 @@ export interface Greengrass {
    */
   listSubscriptionDefinitionVersions(
     args: ListSubscriptionDefinitionVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListSubscriptionDefinitionVersionsCommandOutput>;
   listSubscriptionDefinitionVersions(
     args: ListSubscriptionDefinitionVersionsCommandInput,
@@ -1845,7 +1852,7 @@ export interface Greengrass {
   ): void;
   listSubscriptionDefinitionVersions(
     args: ListSubscriptionDefinitionVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListSubscriptionDefinitionVersionsCommandOutput) => void
   ): void;
 
@@ -1854,7 +1861,7 @@ export interface Greengrass {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1862,7 +1869,7 @@ export interface Greengrass {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1871,7 +1878,7 @@ export interface Greengrass {
    */
   resetDeployments(
     args: ResetDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<ResetDeploymentsCommandOutput>;
   resetDeployments(
     args: ResetDeploymentsCommandInput,
@@ -1879,7 +1886,7 @@ export interface Greengrass {
   ): void;
   resetDeployments(
     args: ResetDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: ResetDeploymentsCommandOutput) => void
   ): void;
 
@@ -1888,7 +1895,7 @@ export interface Greengrass {
    */
   startBulkDeployment(
     args: StartBulkDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<StartBulkDeploymentCommandOutput>;
   startBulkDeployment(
     args: StartBulkDeploymentCommandInput,
@@ -1896,7 +1903,7 @@ export interface Greengrass {
   ): void;
   startBulkDeployment(
     args: StartBulkDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: StartBulkDeploymentCommandOutput) => void
   ): void;
 
@@ -1905,7 +1912,7 @@ export interface Greengrass {
    */
   stopBulkDeployment(
     args: StopBulkDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<StopBulkDeploymentCommandOutput>;
   stopBulkDeployment(
     args: StopBulkDeploymentCommandInput,
@@ -1913,7 +1920,7 @@ export interface Greengrass {
   ): void;
   stopBulkDeployment(
     args: StopBulkDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: StopBulkDeploymentCommandOutput) => void
   ): void;
 
@@ -1922,7 +1929,7 @@ export interface Greengrass {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1930,7 +1937,7 @@ export interface Greengrass {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1939,7 +1946,7 @@ export interface Greengrass {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1947,7 +1954,7 @@ export interface Greengrass {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1956,7 +1963,7 @@ export interface Greengrass {
    */
   updateConnectivityInfo(
     args: UpdateConnectivityInfoCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UpdateConnectivityInfoCommandOutput>;
   updateConnectivityInfo(
     args: UpdateConnectivityInfoCommandInput,
@@ -1964,7 +1971,7 @@ export interface Greengrass {
   ): void;
   updateConnectivityInfo(
     args: UpdateConnectivityInfoCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UpdateConnectivityInfoCommandOutput) => void
   ): void;
 
@@ -1973,7 +1980,7 @@ export interface Greengrass {
    */
   updateConnectorDefinition(
     args: UpdateConnectorDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UpdateConnectorDefinitionCommandOutput>;
   updateConnectorDefinition(
     args: UpdateConnectorDefinitionCommandInput,
@@ -1981,7 +1988,7 @@ export interface Greengrass {
   ): void;
   updateConnectorDefinition(
     args: UpdateConnectorDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UpdateConnectorDefinitionCommandOutput) => void
   ): void;
 
@@ -1990,7 +1997,7 @@ export interface Greengrass {
    */
   updateCoreDefinition(
     args: UpdateCoreDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UpdateCoreDefinitionCommandOutput>;
   updateCoreDefinition(
     args: UpdateCoreDefinitionCommandInput,
@@ -1998,7 +2005,7 @@ export interface Greengrass {
   ): void;
   updateCoreDefinition(
     args: UpdateCoreDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UpdateCoreDefinitionCommandOutput) => void
   ): void;
 
@@ -2007,7 +2014,7 @@ export interface Greengrass {
    */
   updateDeviceDefinition(
     args: UpdateDeviceDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UpdateDeviceDefinitionCommandOutput>;
   updateDeviceDefinition(
     args: UpdateDeviceDefinitionCommandInput,
@@ -2015,7 +2022,7 @@ export interface Greengrass {
   ): void;
   updateDeviceDefinition(
     args: UpdateDeviceDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UpdateDeviceDefinitionCommandOutput) => void
   ): void;
 
@@ -2024,7 +2031,7 @@ export interface Greengrass {
    */
   updateFunctionDefinition(
     args: UpdateFunctionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UpdateFunctionDefinitionCommandOutput>;
   updateFunctionDefinition(
     args: UpdateFunctionDefinitionCommandInput,
@@ -2032,7 +2039,7 @@ export interface Greengrass {
   ): void;
   updateFunctionDefinition(
     args: UpdateFunctionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UpdateFunctionDefinitionCommandOutput) => void
   ): void;
 
@@ -2041,7 +2048,7 @@ export interface Greengrass {
    */
   updateGroup(
     args: UpdateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UpdateGroupCommandOutput>;
   updateGroup(
     args: UpdateGroupCommandInput,
@@ -2049,7 +2056,7 @@ export interface Greengrass {
   ): void;
   updateGroup(
     args: UpdateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UpdateGroupCommandOutput) => void
   ): void;
 
@@ -2058,7 +2065,7 @@ export interface Greengrass {
    */
   updateGroupCertificateConfiguration(
     args: UpdateGroupCertificateConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UpdateGroupCertificateConfigurationCommandOutput>;
   updateGroupCertificateConfiguration(
     args: UpdateGroupCertificateConfigurationCommandInput,
@@ -2066,7 +2073,7 @@ export interface Greengrass {
   ): void;
   updateGroupCertificateConfiguration(
     args: UpdateGroupCertificateConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UpdateGroupCertificateConfigurationCommandOutput) => void
   ): void;
 
@@ -2075,7 +2082,7 @@ export interface Greengrass {
    */
   updateLoggerDefinition(
     args: UpdateLoggerDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UpdateLoggerDefinitionCommandOutput>;
   updateLoggerDefinition(
     args: UpdateLoggerDefinitionCommandInput,
@@ -2083,7 +2090,7 @@ export interface Greengrass {
   ): void;
   updateLoggerDefinition(
     args: UpdateLoggerDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UpdateLoggerDefinitionCommandOutput) => void
   ): void;
 
@@ -2092,7 +2099,7 @@ export interface Greengrass {
    */
   updateResourceDefinition(
     args: UpdateResourceDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UpdateResourceDefinitionCommandOutput>;
   updateResourceDefinition(
     args: UpdateResourceDefinitionCommandInput,
@@ -2100,7 +2107,7 @@ export interface Greengrass {
   ): void;
   updateResourceDefinition(
     args: UpdateResourceDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UpdateResourceDefinitionCommandOutput) => void
   ): void;
 
@@ -2109,7 +2116,7 @@ export interface Greengrass {
    */
   updateSubscriptionDefinition(
     args: UpdateSubscriptionDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UpdateSubscriptionDefinitionCommandOutput>;
   updateSubscriptionDefinition(
     args: UpdateSubscriptionDefinitionCommandInput,
@@ -2117,7 +2124,7 @@ export interface Greengrass {
   ): void;
   updateSubscriptionDefinition(
     args: UpdateSubscriptionDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UpdateSubscriptionDefinitionCommandOutput) => void
   ): void;
 
@@ -2126,7 +2133,7 @@ export interface Greengrass {
    */
   updateThingRuntimeConfiguration(
     args: UpdateThingRuntimeConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GreengrassRequestOptions
   ): Promise<UpdateThingRuntimeConfigurationCommandOutput>;
   updateThingRuntimeConfiguration(
     args: UpdateThingRuntimeConfigurationCommandInput,
@@ -2134,7 +2141,7 @@ export interface Greengrass {
   ): void;
   updateThingRuntimeConfiguration(
     args: UpdateThingRuntimeConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GreengrassRequestOptions,
     cb: (err: any, data?: UpdateThingRuntimeConfigurationCommandOutput) => void
   ): void;
 }

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptPredictionsCommandInput,
@@ -1207,13 +1212,20 @@ const paginators = {
   paginateSearchUserProfiles,
 };
 
+/**
+ * @public
+ */
+export interface DataZoneRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DataZone {
   /**
    * @see {@link AcceptPredictionsCommand}
    */
   acceptPredictions(
     args: AcceptPredictionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<AcceptPredictionsCommandOutput>;
   acceptPredictions(
     args: AcceptPredictionsCommandInput,
@@ -1221,7 +1233,7 @@ export interface DataZone {
   ): void;
   acceptPredictions(
     args: AcceptPredictionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: AcceptPredictionsCommandOutput) => void
   ): void;
 
@@ -1230,7 +1242,7 @@ export interface DataZone {
    */
   acceptSubscriptionRequest(
     args: AcceptSubscriptionRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<AcceptSubscriptionRequestCommandOutput>;
   acceptSubscriptionRequest(
     args: AcceptSubscriptionRequestCommandInput,
@@ -1238,7 +1250,7 @@ export interface DataZone {
   ): void;
   acceptSubscriptionRequest(
     args: AcceptSubscriptionRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: AcceptSubscriptionRequestCommandOutput) => void
   ): void;
 
@@ -1247,7 +1259,7 @@ export interface DataZone {
    */
   addEntityOwner(
     args: AddEntityOwnerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<AddEntityOwnerCommandOutput>;
   addEntityOwner(
     args: AddEntityOwnerCommandInput,
@@ -1255,7 +1267,7 @@ export interface DataZone {
   ): void;
   addEntityOwner(
     args: AddEntityOwnerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: AddEntityOwnerCommandOutput) => void
   ): void;
 
@@ -1264,7 +1276,7 @@ export interface DataZone {
    */
   addPolicyGrant(
     args: AddPolicyGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<AddPolicyGrantCommandOutput>;
   addPolicyGrant(
     args: AddPolicyGrantCommandInput,
@@ -1272,7 +1284,7 @@ export interface DataZone {
   ): void;
   addPolicyGrant(
     args: AddPolicyGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: AddPolicyGrantCommandOutput) => void
   ): void;
 
@@ -1281,7 +1293,7 @@ export interface DataZone {
    */
   associateEnvironmentRole(
     args: AssociateEnvironmentRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<AssociateEnvironmentRoleCommandOutput>;
   associateEnvironmentRole(
     args: AssociateEnvironmentRoleCommandInput,
@@ -1289,7 +1301,7 @@ export interface DataZone {
   ): void;
   associateEnvironmentRole(
     args: AssociateEnvironmentRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: AssociateEnvironmentRoleCommandOutput) => void
   ): void;
 
@@ -1298,7 +1310,7 @@ export interface DataZone {
    */
   associateGovernedTerms(
     args: AssociateGovernedTermsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<AssociateGovernedTermsCommandOutput>;
   associateGovernedTerms(
     args: AssociateGovernedTermsCommandInput,
@@ -1306,7 +1318,7 @@ export interface DataZone {
   ): void;
   associateGovernedTerms(
     args: AssociateGovernedTermsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: AssociateGovernedTermsCommandOutput) => void
   ): void;
 
@@ -1315,7 +1327,7 @@ export interface DataZone {
    */
   batchGetAttributesMetadata(
     args: BatchGetAttributesMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<BatchGetAttributesMetadataCommandOutput>;
   batchGetAttributesMetadata(
     args: BatchGetAttributesMetadataCommandInput,
@@ -1323,7 +1335,7 @@ export interface DataZone {
   ): void;
   batchGetAttributesMetadata(
     args: BatchGetAttributesMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: BatchGetAttributesMetadataCommandOutput) => void
   ): void;
 
@@ -1332,7 +1344,7 @@ export interface DataZone {
    */
   batchPutAttributesMetadata(
     args: BatchPutAttributesMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<BatchPutAttributesMetadataCommandOutput>;
   batchPutAttributesMetadata(
     args: BatchPutAttributesMetadataCommandInput,
@@ -1340,7 +1352,7 @@ export interface DataZone {
   ): void;
   batchPutAttributesMetadata(
     args: BatchPutAttributesMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: BatchPutAttributesMetadataCommandOutput) => void
   ): void;
 
@@ -1349,7 +1361,7 @@ export interface DataZone {
    */
   cancelMetadataGenerationRun(
     args: CancelMetadataGenerationRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CancelMetadataGenerationRunCommandOutput>;
   cancelMetadataGenerationRun(
     args: CancelMetadataGenerationRunCommandInput,
@@ -1357,7 +1369,7 @@ export interface DataZone {
   ): void;
   cancelMetadataGenerationRun(
     args: CancelMetadataGenerationRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CancelMetadataGenerationRunCommandOutput) => void
   ): void;
 
@@ -1366,7 +1378,7 @@ export interface DataZone {
    */
   cancelSubscription(
     args: CancelSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CancelSubscriptionCommandOutput>;
   cancelSubscription(
     args: CancelSubscriptionCommandInput,
@@ -1374,7 +1386,7 @@ export interface DataZone {
   ): void;
   cancelSubscription(
     args: CancelSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CancelSubscriptionCommandOutput) => void
   ): void;
 
@@ -1383,7 +1395,7 @@ export interface DataZone {
    */
   createAccountPool(
     args: CreateAccountPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateAccountPoolCommandOutput>;
   createAccountPool(
     args: CreateAccountPoolCommandInput,
@@ -1391,7 +1403,7 @@ export interface DataZone {
   ): void;
   createAccountPool(
     args: CreateAccountPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateAccountPoolCommandOutput) => void
   ): void;
 
@@ -1400,7 +1412,7 @@ export interface DataZone {
    */
   createAsset(
     args: CreateAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateAssetCommandOutput>;
   createAsset(
     args: CreateAssetCommandInput,
@@ -1408,7 +1420,7 @@ export interface DataZone {
   ): void;
   createAsset(
     args: CreateAssetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateAssetCommandOutput) => void
   ): void;
 
@@ -1417,7 +1429,7 @@ export interface DataZone {
    */
   createAssetFilter(
     args: CreateAssetFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateAssetFilterCommandOutput>;
   createAssetFilter(
     args: CreateAssetFilterCommandInput,
@@ -1425,7 +1437,7 @@ export interface DataZone {
   ): void;
   createAssetFilter(
     args: CreateAssetFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateAssetFilterCommandOutput) => void
   ): void;
 
@@ -1434,7 +1446,7 @@ export interface DataZone {
    */
   createAssetRevision(
     args: CreateAssetRevisionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateAssetRevisionCommandOutput>;
   createAssetRevision(
     args: CreateAssetRevisionCommandInput,
@@ -1442,7 +1454,7 @@ export interface DataZone {
   ): void;
   createAssetRevision(
     args: CreateAssetRevisionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateAssetRevisionCommandOutput) => void
   ): void;
 
@@ -1451,7 +1463,7 @@ export interface DataZone {
    */
   createAssetType(
     args: CreateAssetTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateAssetTypeCommandOutput>;
   createAssetType(
     args: CreateAssetTypeCommandInput,
@@ -1459,7 +1471,7 @@ export interface DataZone {
   ): void;
   createAssetType(
     args: CreateAssetTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateAssetTypeCommandOutput) => void
   ): void;
 
@@ -1468,7 +1480,7 @@ export interface DataZone {
    */
   createConnection(
     args: CreateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateConnectionCommandOutput>;
   createConnection(
     args: CreateConnectionCommandInput,
@@ -1476,7 +1488,7 @@ export interface DataZone {
   ): void;
   createConnection(
     args: CreateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateConnectionCommandOutput) => void
   ): void;
 
@@ -1485,7 +1497,7 @@ export interface DataZone {
    */
   createDataProduct(
     args: CreateDataProductCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateDataProductCommandOutput>;
   createDataProduct(
     args: CreateDataProductCommandInput,
@@ -1493,7 +1505,7 @@ export interface DataZone {
   ): void;
   createDataProduct(
     args: CreateDataProductCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateDataProductCommandOutput) => void
   ): void;
 
@@ -1502,7 +1514,7 @@ export interface DataZone {
    */
   createDataProductRevision(
     args: CreateDataProductRevisionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateDataProductRevisionCommandOutput>;
   createDataProductRevision(
     args: CreateDataProductRevisionCommandInput,
@@ -1510,7 +1522,7 @@ export interface DataZone {
   ): void;
   createDataProductRevision(
     args: CreateDataProductRevisionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateDataProductRevisionCommandOutput) => void
   ): void;
 
@@ -1519,7 +1531,7 @@ export interface DataZone {
    */
   createDataSource(
     args: CreateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateDataSourceCommandOutput>;
   createDataSource(
     args: CreateDataSourceCommandInput,
@@ -1527,7 +1539,7 @@ export interface DataZone {
   ): void;
   createDataSource(
     args: CreateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): void;
 
@@ -1536,7 +1548,7 @@ export interface DataZone {
    */
   createDomain(
     args: CreateDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateDomainCommandOutput>;
   createDomain(
     args: CreateDomainCommandInput,
@@ -1544,7 +1556,7 @@ export interface DataZone {
   ): void;
   createDomain(
     args: CreateDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateDomainCommandOutput) => void
   ): void;
 
@@ -1553,7 +1565,7 @@ export interface DataZone {
    */
   createDomainUnit(
     args: CreateDomainUnitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateDomainUnitCommandOutput>;
   createDomainUnit(
     args: CreateDomainUnitCommandInput,
@@ -1561,7 +1573,7 @@ export interface DataZone {
   ): void;
   createDomainUnit(
     args: CreateDomainUnitCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateDomainUnitCommandOutput) => void
   ): void;
 
@@ -1570,7 +1582,7 @@ export interface DataZone {
    */
   createEnvironment(
     args: CreateEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateEnvironmentCommandOutput>;
   createEnvironment(
     args: CreateEnvironmentCommandInput,
@@ -1578,7 +1590,7 @@ export interface DataZone {
   ): void;
   createEnvironment(
     args: CreateEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
   ): void;
 
@@ -1587,7 +1599,7 @@ export interface DataZone {
    */
   createEnvironmentAction(
     args: CreateEnvironmentActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateEnvironmentActionCommandOutput>;
   createEnvironmentAction(
     args: CreateEnvironmentActionCommandInput,
@@ -1595,7 +1607,7 @@ export interface DataZone {
   ): void;
   createEnvironmentAction(
     args: CreateEnvironmentActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateEnvironmentActionCommandOutput) => void
   ): void;
 
@@ -1604,7 +1616,7 @@ export interface DataZone {
    */
   createEnvironmentBlueprint(
     args: CreateEnvironmentBlueprintCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateEnvironmentBlueprintCommandOutput>;
   createEnvironmentBlueprint(
     args: CreateEnvironmentBlueprintCommandInput,
@@ -1612,7 +1624,7 @@ export interface DataZone {
   ): void;
   createEnvironmentBlueprint(
     args: CreateEnvironmentBlueprintCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateEnvironmentBlueprintCommandOutput) => void
   ): void;
 
@@ -1621,7 +1633,7 @@ export interface DataZone {
    */
   createEnvironmentProfile(
     args: CreateEnvironmentProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateEnvironmentProfileCommandOutput>;
   createEnvironmentProfile(
     args: CreateEnvironmentProfileCommandInput,
@@ -1629,7 +1641,7 @@ export interface DataZone {
   ): void;
   createEnvironmentProfile(
     args: CreateEnvironmentProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateEnvironmentProfileCommandOutput) => void
   ): void;
 
@@ -1638,7 +1650,7 @@ export interface DataZone {
    */
   createFormType(
     args: CreateFormTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateFormTypeCommandOutput>;
   createFormType(
     args: CreateFormTypeCommandInput,
@@ -1646,7 +1658,7 @@ export interface DataZone {
   ): void;
   createFormType(
     args: CreateFormTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateFormTypeCommandOutput) => void
   ): void;
 
@@ -1655,7 +1667,7 @@ export interface DataZone {
    */
   createGlossary(
     args: CreateGlossaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateGlossaryCommandOutput>;
   createGlossary(
     args: CreateGlossaryCommandInput,
@@ -1663,7 +1675,7 @@ export interface DataZone {
   ): void;
   createGlossary(
     args: CreateGlossaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateGlossaryCommandOutput) => void
   ): void;
 
@@ -1672,7 +1684,7 @@ export interface DataZone {
    */
   createGlossaryTerm(
     args: CreateGlossaryTermCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateGlossaryTermCommandOutput>;
   createGlossaryTerm(
     args: CreateGlossaryTermCommandInput,
@@ -1680,7 +1692,7 @@ export interface DataZone {
   ): void;
   createGlossaryTerm(
     args: CreateGlossaryTermCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateGlossaryTermCommandOutput) => void
   ): void;
 
@@ -1689,7 +1701,7 @@ export interface DataZone {
    */
   createGroupProfile(
     args: CreateGroupProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateGroupProfileCommandOutput>;
   createGroupProfile(
     args: CreateGroupProfileCommandInput,
@@ -1697,7 +1709,7 @@ export interface DataZone {
   ): void;
   createGroupProfile(
     args: CreateGroupProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateGroupProfileCommandOutput) => void
   ): void;
 
@@ -1706,7 +1718,7 @@ export interface DataZone {
    */
   createListingChangeSet(
     args: CreateListingChangeSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateListingChangeSetCommandOutput>;
   createListingChangeSet(
     args: CreateListingChangeSetCommandInput,
@@ -1714,7 +1726,7 @@ export interface DataZone {
   ): void;
   createListingChangeSet(
     args: CreateListingChangeSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateListingChangeSetCommandOutput) => void
   ): void;
 
@@ -1723,7 +1735,7 @@ export interface DataZone {
    */
   createNotebook(
     args: CreateNotebookCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateNotebookCommandOutput>;
   createNotebook(
     args: CreateNotebookCommandInput,
@@ -1731,7 +1743,7 @@ export interface DataZone {
   ): void;
   createNotebook(
     args: CreateNotebookCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateNotebookCommandOutput) => void
   ): void;
 
@@ -1740,7 +1752,7 @@ export interface DataZone {
    */
   createProject(
     args: CreateProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateProjectCommandOutput>;
   createProject(
     args: CreateProjectCommandInput,
@@ -1748,7 +1760,7 @@ export interface DataZone {
   ): void;
   createProject(
     args: CreateProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateProjectCommandOutput) => void
   ): void;
 
@@ -1757,7 +1769,7 @@ export interface DataZone {
    */
   createProjectMembership(
     args: CreateProjectMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateProjectMembershipCommandOutput>;
   createProjectMembership(
     args: CreateProjectMembershipCommandInput,
@@ -1765,7 +1777,7 @@ export interface DataZone {
   ): void;
   createProjectMembership(
     args: CreateProjectMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateProjectMembershipCommandOutput) => void
   ): void;
 
@@ -1774,7 +1786,7 @@ export interface DataZone {
    */
   createProjectProfile(
     args: CreateProjectProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateProjectProfileCommandOutput>;
   createProjectProfile(
     args: CreateProjectProfileCommandInput,
@@ -1782,7 +1794,7 @@ export interface DataZone {
   ): void;
   createProjectProfile(
     args: CreateProjectProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateProjectProfileCommandOutput) => void
   ): void;
 
@@ -1791,7 +1803,7 @@ export interface DataZone {
    */
   createRule(
     args: CreateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateRuleCommandOutput>;
   createRule(
     args: CreateRuleCommandInput,
@@ -1799,7 +1811,7 @@ export interface DataZone {
   ): void;
   createRule(
     args: CreateRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateRuleCommandOutput) => void
   ): void;
 
@@ -1808,7 +1820,7 @@ export interface DataZone {
    */
   createSubscriptionGrant(
     args: CreateSubscriptionGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateSubscriptionGrantCommandOutput>;
   createSubscriptionGrant(
     args: CreateSubscriptionGrantCommandInput,
@@ -1816,7 +1828,7 @@ export interface DataZone {
   ): void;
   createSubscriptionGrant(
     args: CreateSubscriptionGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateSubscriptionGrantCommandOutput) => void
   ): void;
 
@@ -1825,7 +1837,7 @@ export interface DataZone {
    */
   createSubscriptionRequest(
     args: CreateSubscriptionRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateSubscriptionRequestCommandOutput>;
   createSubscriptionRequest(
     args: CreateSubscriptionRequestCommandInput,
@@ -1833,7 +1845,7 @@ export interface DataZone {
   ): void;
   createSubscriptionRequest(
     args: CreateSubscriptionRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateSubscriptionRequestCommandOutput) => void
   ): void;
 
@@ -1842,7 +1854,7 @@ export interface DataZone {
    */
   createSubscriptionTarget(
     args: CreateSubscriptionTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateSubscriptionTargetCommandOutput>;
   createSubscriptionTarget(
     args: CreateSubscriptionTargetCommandInput,
@@ -1850,7 +1862,7 @@ export interface DataZone {
   ): void;
   createSubscriptionTarget(
     args: CreateSubscriptionTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateSubscriptionTargetCommandOutput) => void
   ): void;
 
@@ -1859,7 +1871,7 @@ export interface DataZone {
    */
   createUserProfile(
     args: CreateUserProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<CreateUserProfileCommandOutput>;
   createUserProfile(
     args: CreateUserProfileCommandInput,
@@ -1867,7 +1879,7 @@ export interface DataZone {
   ): void;
   createUserProfile(
     args: CreateUserProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: CreateUserProfileCommandOutput) => void
   ): void;
 
@@ -1876,7 +1888,7 @@ export interface DataZone {
    */
   deleteAccountPool(
     args: DeleteAccountPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteAccountPoolCommandOutput>;
   deleteAccountPool(
     args: DeleteAccountPoolCommandInput,
@@ -1884,7 +1896,7 @@ export interface DataZone {
   ): void;
   deleteAccountPool(
     args: DeleteAccountPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteAccountPoolCommandOutput) => void
   ): void;
 
@@ -1893,7 +1905,7 @@ export interface DataZone {
    */
   deleteAsset(
     args: DeleteAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteAssetCommandOutput>;
   deleteAsset(
     args: DeleteAssetCommandInput,
@@ -1901,7 +1913,7 @@ export interface DataZone {
   ): void;
   deleteAsset(
     args: DeleteAssetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteAssetCommandOutput) => void
   ): void;
 
@@ -1910,7 +1922,7 @@ export interface DataZone {
    */
   deleteAssetFilter(
     args: DeleteAssetFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteAssetFilterCommandOutput>;
   deleteAssetFilter(
     args: DeleteAssetFilterCommandInput,
@@ -1918,7 +1930,7 @@ export interface DataZone {
   ): void;
   deleteAssetFilter(
     args: DeleteAssetFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteAssetFilterCommandOutput) => void
   ): void;
 
@@ -1927,7 +1939,7 @@ export interface DataZone {
    */
   deleteAssetType(
     args: DeleteAssetTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteAssetTypeCommandOutput>;
   deleteAssetType(
     args: DeleteAssetTypeCommandInput,
@@ -1935,7 +1947,7 @@ export interface DataZone {
   ): void;
   deleteAssetType(
     args: DeleteAssetTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteAssetTypeCommandOutput) => void
   ): void;
 
@@ -1944,7 +1956,7 @@ export interface DataZone {
    */
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteConnectionCommandOutput>;
   deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -1952,7 +1964,7 @@ export interface DataZone {
   ): void;
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): void;
 
@@ -1961,7 +1973,7 @@ export interface DataZone {
    */
   deleteDataExportConfiguration(
     args: DeleteDataExportConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteDataExportConfigurationCommandOutput>;
   deleteDataExportConfiguration(
     args: DeleteDataExportConfigurationCommandInput,
@@ -1969,7 +1981,7 @@ export interface DataZone {
   ): void;
   deleteDataExportConfiguration(
     args: DeleteDataExportConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteDataExportConfigurationCommandOutput) => void
   ): void;
 
@@ -1978,7 +1990,7 @@ export interface DataZone {
    */
   deleteDataProduct(
     args: DeleteDataProductCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteDataProductCommandOutput>;
   deleteDataProduct(
     args: DeleteDataProductCommandInput,
@@ -1986,7 +1998,7 @@ export interface DataZone {
   ): void;
   deleteDataProduct(
     args: DeleteDataProductCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteDataProductCommandOutput) => void
   ): void;
 
@@ -1995,7 +2007,7 @@ export interface DataZone {
    */
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteDataSourceCommandOutput>;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -2003,7 +2015,7 @@ export interface DataZone {
   ): void;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): void;
 
@@ -2012,7 +2024,7 @@ export interface DataZone {
    */
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteDomainCommandOutput>;
   deleteDomain(
     args: DeleteDomainCommandInput,
@@ -2020,7 +2032,7 @@ export interface DataZone {
   ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
   ): void;
 
@@ -2029,7 +2041,7 @@ export interface DataZone {
    */
   deleteDomainUnit(
     args: DeleteDomainUnitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteDomainUnitCommandOutput>;
   deleteDomainUnit(
     args: DeleteDomainUnitCommandInput,
@@ -2037,7 +2049,7 @@ export interface DataZone {
   ): void;
   deleteDomainUnit(
     args: DeleteDomainUnitCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteDomainUnitCommandOutput) => void
   ): void;
 
@@ -2046,7 +2058,7 @@ export interface DataZone {
    */
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteEnvironmentCommandOutput>;
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
@@ -2054,7 +2066,7 @@ export interface DataZone {
   ): void;
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
   ): void;
 
@@ -2063,7 +2075,7 @@ export interface DataZone {
    */
   deleteEnvironmentAction(
     args: DeleteEnvironmentActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteEnvironmentActionCommandOutput>;
   deleteEnvironmentAction(
     args: DeleteEnvironmentActionCommandInput,
@@ -2071,7 +2083,7 @@ export interface DataZone {
   ): void;
   deleteEnvironmentAction(
     args: DeleteEnvironmentActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteEnvironmentActionCommandOutput) => void
   ): void;
 
@@ -2080,7 +2092,7 @@ export interface DataZone {
    */
   deleteEnvironmentBlueprint(
     args: DeleteEnvironmentBlueprintCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteEnvironmentBlueprintCommandOutput>;
   deleteEnvironmentBlueprint(
     args: DeleteEnvironmentBlueprintCommandInput,
@@ -2088,7 +2100,7 @@ export interface DataZone {
   ): void;
   deleteEnvironmentBlueprint(
     args: DeleteEnvironmentBlueprintCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteEnvironmentBlueprintCommandOutput) => void
   ): void;
 
@@ -2097,7 +2109,7 @@ export interface DataZone {
    */
   deleteEnvironmentBlueprintConfiguration(
     args: DeleteEnvironmentBlueprintConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteEnvironmentBlueprintConfigurationCommandOutput>;
   deleteEnvironmentBlueprintConfiguration(
     args: DeleteEnvironmentBlueprintConfigurationCommandInput,
@@ -2105,7 +2117,7 @@ export interface DataZone {
   ): void;
   deleteEnvironmentBlueprintConfiguration(
     args: DeleteEnvironmentBlueprintConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteEnvironmentBlueprintConfigurationCommandOutput) => void
   ): void;
 
@@ -2114,7 +2126,7 @@ export interface DataZone {
    */
   deleteEnvironmentProfile(
     args: DeleteEnvironmentProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteEnvironmentProfileCommandOutput>;
   deleteEnvironmentProfile(
     args: DeleteEnvironmentProfileCommandInput,
@@ -2122,7 +2134,7 @@ export interface DataZone {
   ): void;
   deleteEnvironmentProfile(
     args: DeleteEnvironmentProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteEnvironmentProfileCommandOutput) => void
   ): void;
 
@@ -2131,7 +2143,7 @@ export interface DataZone {
    */
   deleteFormType(
     args: DeleteFormTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteFormTypeCommandOutput>;
   deleteFormType(
     args: DeleteFormTypeCommandInput,
@@ -2139,7 +2151,7 @@ export interface DataZone {
   ): void;
   deleteFormType(
     args: DeleteFormTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteFormTypeCommandOutput) => void
   ): void;
 
@@ -2148,7 +2160,7 @@ export interface DataZone {
    */
   deleteGlossary(
     args: DeleteGlossaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteGlossaryCommandOutput>;
   deleteGlossary(
     args: DeleteGlossaryCommandInput,
@@ -2156,7 +2168,7 @@ export interface DataZone {
   ): void;
   deleteGlossary(
     args: DeleteGlossaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteGlossaryCommandOutput) => void
   ): void;
 
@@ -2165,7 +2177,7 @@ export interface DataZone {
    */
   deleteGlossaryTerm(
     args: DeleteGlossaryTermCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteGlossaryTermCommandOutput>;
   deleteGlossaryTerm(
     args: DeleteGlossaryTermCommandInput,
@@ -2173,7 +2185,7 @@ export interface DataZone {
   ): void;
   deleteGlossaryTerm(
     args: DeleteGlossaryTermCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteGlossaryTermCommandOutput) => void
   ): void;
 
@@ -2182,7 +2194,7 @@ export interface DataZone {
    */
   deleteLineageEvent(
     args: DeleteLineageEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteLineageEventCommandOutput>;
   deleteLineageEvent(
     args: DeleteLineageEventCommandInput,
@@ -2190,7 +2202,7 @@ export interface DataZone {
   ): void;
   deleteLineageEvent(
     args: DeleteLineageEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteLineageEventCommandOutput) => void
   ): void;
 
@@ -2199,7 +2211,7 @@ export interface DataZone {
    */
   deleteListing(
     args: DeleteListingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteListingCommandOutput>;
   deleteListing(
     args: DeleteListingCommandInput,
@@ -2207,7 +2219,7 @@ export interface DataZone {
   ): void;
   deleteListing(
     args: DeleteListingCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteListingCommandOutput) => void
   ): void;
 
@@ -2216,7 +2228,7 @@ export interface DataZone {
    */
   deleteNotebook(
     args: DeleteNotebookCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteNotebookCommandOutput>;
   deleteNotebook(
     args: DeleteNotebookCommandInput,
@@ -2224,7 +2236,7 @@ export interface DataZone {
   ): void;
   deleteNotebook(
     args: DeleteNotebookCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteNotebookCommandOutput) => void
   ): void;
 
@@ -2233,7 +2245,7 @@ export interface DataZone {
    */
   deleteProject(
     args: DeleteProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteProjectCommandOutput>;
   deleteProject(
     args: DeleteProjectCommandInput,
@@ -2241,7 +2253,7 @@ export interface DataZone {
   ): void;
   deleteProject(
     args: DeleteProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteProjectCommandOutput) => void
   ): void;
 
@@ -2250,7 +2262,7 @@ export interface DataZone {
    */
   deleteProjectMembership(
     args: DeleteProjectMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteProjectMembershipCommandOutput>;
   deleteProjectMembership(
     args: DeleteProjectMembershipCommandInput,
@@ -2258,7 +2270,7 @@ export interface DataZone {
   ): void;
   deleteProjectMembership(
     args: DeleteProjectMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteProjectMembershipCommandOutput) => void
   ): void;
 
@@ -2267,7 +2279,7 @@ export interface DataZone {
    */
   deleteProjectProfile(
     args: DeleteProjectProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteProjectProfileCommandOutput>;
   deleteProjectProfile(
     args: DeleteProjectProfileCommandInput,
@@ -2275,7 +2287,7 @@ export interface DataZone {
   ): void;
   deleteProjectProfile(
     args: DeleteProjectProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteProjectProfileCommandOutput) => void
   ): void;
 
@@ -2284,7 +2296,7 @@ export interface DataZone {
    */
   deleteRule(
     args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteRuleCommandOutput>;
   deleteRule(
     args: DeleteRuleCommandInput,
@@ -2292,7 +2304,7 @@ export interface DataZone {
   ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteRuleCommandOutput) => void
   ): void;
 
@@ -2301,7 +2313,7 @@ export interface DataZone {
    */
   deleteSubscriptionGrant(
     args: DeleteSubscriptionGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteSubscriptionGrantCommandOutput>;
   deleteSubscriptionGrant(
     args: DeleteSubscriptionGrantCommandInput,
@@ -2309,7 +2321,7 @@ export interface DataZone {
   ): void;
   deleteSubscriptionGrant(
     args: DeleteSubscriptionGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteSubscriptionGrantCommandOutput) => void
   ): void;
 
@@ -2318,7 +2330,7 @@ export interface DataZone {
    */
   deleteSubscriptionRequest(
     args: DeleteSubscriptionRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteSubscriptionRequestCommandOutput>;
   deleteSubscriptionRequest(
     args: DeleteSubscriptionRequestCommandInput,
@@ -2326,7 +2338,7 @@ export interface DataZone {
   ): void;
   deleteSubscriptionRequest(
     args: DeleteSubscriptionRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteSubscriptionRequestCommandOutput) => void
   ): void;
 
@@ -2335,7 +2347,7 @@ export interface DataZone {
    */
   deleteSubscriptionTarget(
     args: DeleteSubscriptionTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteSubscriptionTargetCommandOutput>;
   deleteSubscriptionTarget(
     args: DeleteSubscriptionTargetCommandInput,
@@ -2343,7 +2355,7 @@ export interface DataZone {
   ): void;
   deleteSubscriptionTarget(
     args: DeleteSubscriptionTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteSubscriptionTargetCommandOutput) => void
   ): void;
 
@@ -2352,7 +2364,7 @@ export interface DataZone {
    */
   deleteTimeSeriesDataPoints(
     args: DeleteTimeSeriesDataPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DeleteTimeSeriesDataPointsCommandOutput>;
   deleteTimeSeriesDataPoints(
     args: DeleteTimeSeriesDataPointsCommandInput,
@@ -2360,7 +2372,7 @@ export interface DataZone {
   ): void;
   deleteTimeSeriesDataPoints(
     args: DeleteTimeSeriesDataPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DeleteTimeSeriesDataPointsCommandOutput) => void
   ): void;
 
@@ -2369,7 +2381,7 @@ export interface DataZone {
    */
   disassociateEnvironmentRole(
     args: DisassociateEnvironmentRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DisassociateEnvironmentRoleCommandOutput>;
   disassociateEnvironmentRole(
     args: DisassociateEnvironmentRoleCommandInput,
@@ -2377,7 +2389,7 @@ export interface DataZone {
   ): void;
   disassociateEnvironmentRole(
     args: DisassociateEnvironmentRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DisassociateEnvironmentRoleCommandOutput) => void
   ): void;
 
@@ -2386,7 +2398,7 @@ export interface DataZone {
    */
   disassociateGovernedTerms(
     args: DisassociateGovernedTermsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<DisassociateGovernedTermsCommandOutput>;
   disassociateGovernedTerms(
     args: DisassociateGovernedTermsCommandInput,
@@ -2394,7 +2406,7 @@ export interface DataZone {
   ): void;
   disassociateGovernedTerms(
     args: DisassociateGovernedTermsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: DisassociateGovernedTermsCommandOutput) => void
   ): void;
 
@@ -2403,7 +2415,7 @@ export interface DataZone {
    */
   getAccountPool(
     args: GetAccountPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetAccountPoolCommandOutput>;
   getAccountPool(
     args: GetAccountPoolCommandInput,
@@ -2411,7 +2423,7 @@ export interface DataZone {
   ): void;
   getAccountPool(
     args: GetAccountPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetAccountPoolCommandOutput) => void
   ): void;
 
@@ -2420,7 +2432,7 @@ export interface DataZone {
    */
   getAsset(
     args: GetAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetAssetCommandOutput>;
   getAsset(
     args: GetAssetCommandInput,
@@ -2428,7 +2440,7 @@ export interface DataZone {
   ): void;
   getAsset(
     args: GetAssetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetAssetCommandOutput) => void
   ): void;
 
@@ -2437,7 +2449,7 @@ export interface DataZone {
    */
   getAssetFilter(
     args: GetAssetFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetAssetFilterCommandOutput>;
   getAssetFilter(
     args: GetAssetFilterCommandInput,
@@ -2445,7 +2457,7 @@ export interface DataZone {
   ): void;
   getAssetFilter(
     args: GetAssetFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetAssetFilterCommandOutput) => void
   ): void;
 
@@ -2454,7 +2466,7 @@ export interface DataZone {
    */
   getAssetType(
     args: GetAssetTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetAssetTypeCommandOutput>;
   getAssetType(
     args: GetAssetTypeCommandInput,
@@ -2462,7 +2474,7 @@ export interface DataZone {
   ): void;
   getAssetType(
     args: GetAssetTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetAssetTypeCommandOutput) => void
   ): void;
 
@@ -2471,7 +2483,7 @@ export interface DataZone {
    */
   getConnection(
     args: GetConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetConnectionCommandOutput>;
   getConnection(
     args: GetConnectionCommandInput,
@@ -2479,7 +2491,7 @@ export interface DataZone {
   ): void;
   getConnection(
     args: GetConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetConnectionCommandOutput) => void
   ): void;
 
@@ -2488,7 +2500,7 @@ export interface DataZone {
    */
   getDataExportConfiguration(
     args: GetDataExportConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetDataExportConfigurationCommandOutput>;
   getDataExportConfiguration(
     args: GetDataExportConfigurationCommandInput,
@@ -2496,7 +2508,7 @@ export interface DataZone {
   ): void;
   getDataExportConfiguration(
     args: GetDataExportConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetDataExportConfigurationCommandOutput) => void
   ): void;
 
@@ -2505,7 +2517,7 @@ export interface DataZone {
    */
   getDataProduct(
     args: GetDataProductCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetDataProductCommandOutput>;
   getDataProduct(
     args: GetDataProductCommandInput,
@@ -2513,7 +2525,7 @@ export interface DataZone {
   ): void;
   getDataProduct(
     args: GetDataProductCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetDataProductCommandOutput) => void
   ): void;
 
@@ -2522,7 +2534,7 @@ export interface DataZone {
    */
   getDataSource(
     args: GetDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetDataSourceCommandOutput>;
   getDataSource(
     args: GetDataSourceCommandInput,
@@ -2530,7 +2542,7 @@ export interface DataZone {
   ): void;
   getDataSource(
     args: GetDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetDataSourceCommandOutput) => void
   ): void;
 
@@ -2539,7 +2551,7 @@ export interface DataZone {
    */
   getDataSourceRun(
     args: GetDataSourceRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetDataSourceRunCommandOutput>;
   getDataSourceRun(
     args: GetDataSourceRunCommandInput,
@@ -2547,7 +2559,7 @@ export interface DataZone {
   ): void;
   getDataSourceRun(
     args: GetDataSourceRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetDataSourceRunCommandOutput) => void
   ): void;
 
@@ -2556,7 +2568,7 @@ export interface DataZone {
    */
   getDomain(
     args: GetDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetDomainCommandOutput>;
   getDomain(
     args: GetDomainCommandInput,
@@ -2564,7 +2576,7 @@ export interface DataZone {
   ): void;
   getDomain(
     args: GetDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetDomainCommandOutput) => void
   ): void;
 
@@ -2573,7 +2585,7 @@ export interface DataZone {
    */
   getDomainUnit(
     args: GetDomainUnitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetDomainUnitCommandOutput>;
   getDomainUnit(
     args: GetDomainUnitCommandInput,
@@ -2581,7 +2593,7 @@ export interface DataZone {
   ): void;
   getDomainUnit(
     args: GetDomainUnitCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetDomainUnitCommandOutput) => void
   ): void;
 
@@ -2590,7 +2602,7 @@ export interface DataZone {
    */
   getEnvironment(
     args: GetEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetEnvironmentCommandOutput>;
   getEnvironment(
     args: GetEnvironmentCommandInput,
@@ -2598,7 +2610,7 @@ export interface DataZone {
   ): void;
   getEnvironment(
     args: GetEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetEnvironmentCommandOutput) => void
   ): void;
 
@@ -2607,7 +2619,7 @@ export interface DataZone {
    */
   getEnvironmentAction(
     args: GetEnvironmentActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetEnvironmentActionCommandOutput>;
   getEnvironmentAction(
     args: GetEnvironmentActionCommandInput,
@@ -2615,7 +2627,7 @@ export interface DataZone {
   ): void;
   getEnvironmentAction(
     args: GetEnvironmentActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetEnvironmentActionCommandOutput) => void
   ): void;
 
@@ -2624,7 +2636,7 @@ export interface DataZone {
    */
   getEnvironmentBlueprint(
     args: GetEnvironmentBlueprintCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetEnvironmentBlueprintCommandOutput>;
   getEnvironmentBlueprint(
     args: GetEnvironmentBlueprintCommandInput,
@@ -2632,7 +2644,7 @@ export interface DataZone {
   ): void;
   getEnvironmentBlueprint(
     args: GetEnvironmentBlueprintCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetEnvironmentBlueprintCommandOutput) => void
   ): void;
 
@@ -2641,7 +2653,7 @@ export interface DataZone {
    */
   getEnvironmentBlueprintConfiguration(
     args: GetEnvironmentBlueprintConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetEnvironmentBlueprintConfigurationCommandOutput>;
   getEnvironmentBlueprintConfiguration(
     args: GetEnvironmentBlueprintConfigurationCommandInput,
@@ -2649,7 +2661,7 @@ export interface DataZone {
   ): void;
   getEnvironmentBlueprintConfiguration(
     args: GetEnvironmentBlueprintConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetEnvironmentBlueprintConfigurationCommandOutput) => void
   ): void;
 
@@ -2658,7 +2670,7 @@ export interface DataZone {
    */
   getEnvironmentCredentials(
     args: GetEnvironmentCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetEnvironmentCredentialsCommandOutput>;
   getEnvironmentCredentials(
     args: GetEnvironmentCredentialsCommandInput,
@@ -2666,7 +2678,7 @@ export interface DataZone {
   ): void;
   getEnvironmentCredentials(
     args: GetEnvironmentCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetEnvironmentCredentialsCommandOutput) => void
   ): void;
 
@@ -2675,7 +2687,7 @@ export interface DataZone {
    */
   getEnvironmentProfile(
     args: GetEnvironmentProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetEnvironmentProfileCommandOutput>;
   getEnvironmentProfile(
     args: GetEnvironmentProfileCommandInput,
@@ -2683,7 +2695,7 @@ export interface DataZone {
   ): void;
   getEnvironmentProfile(
     args: GetEnvironmentProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetEnvironmentProfileCommandOutput) => void
   ): void;
 
@@ -2692,7 +2704,7 @@ export interface DataZone {
    */
   getFormType(
     args: GetFormTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetFormTypeCommandOutput>;
   getFormType(
     args: GetFormTypeCommandInput,
@@ -2700,7 +2712,7 @@ export interface DataZone {
   ): void;
   getFormType(
     args: GetFormTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetFormTypeCommandOutput) => void
   ): void;
 
@@ -2709,7 +2721,7 @@ export interface DataZone {
    */
   getGlossary(
     args: GetGlossaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetGlossaryCommandOutput>;
   getGlossary(
     args: GetGlossaryCommandInput,
@@ -2717,7 +2729,7 @@ export interface DataZone {
   ): void;
   getGlossary(
     args: GetGlossaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetGlossaryCommandOutput) => void
   ): void;
 
@@ -2726,7 +2738,7 @@ export interface DataZone {
    */
   getGlossaryTerm(
     args: GetGlossaryTermCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetGlossaryTermCommandOutput>;
   getGlossaryTerm(
     args: GetGlossaryTermCommandInput,
@@ -2734,7 +2746,7 @@ export interface DataZone {
   ): void;
   getGlossaryTerm(
     args: GetGlossaryTermCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetGlossaryTermCommandOutput) => void
   ): void;
 
@@ -2743,7 +2755,7 @@ export interface DataZone {
    */
   getGroupProfile(
     args: GetGroupProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetGroupProfileCommandOutput>;
   getGroupProfile(
     args: GetGroupProfileCommandInput,
@@ -2751,7 +2763,7 @@ export interface DataZone {
   ): void;
   getGroupProfile(
     args: GetGroupProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetGroupProfileCommandOutput) => void
   ): void;
 
@@ -2760,7 +2772,7 @@ export interface DataZone {
    */
   getIamPortalLoginUrl(
     args: GetIamPortalLoginUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetIamPortalLoginUrlCommandOutput>;
   getIamPortalLoginUrl(
     args: GetIamPortalLoginUrlCommandInput,
@@ -2768,7 +2780,7 @@ export interface DataZone {
   ): void;
   getIamPortalLoginUrl(
     args: GetIamPortalLoginUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetIamPortalLoginUrlCommandOutput) => void
   ): void;
 
@@ -2777,7 +2789,7 @@ export interface DataZone {
    */
   getJobRun(
     args: GetJobRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetJobRunCommandOutput>;
   getJobRun(
     args: GetJobRunCommandInput,
@@ -2785,7 +2797,7 @@ export interface DataZone {
   ): void;
   getJobRun(
     args: GetJobRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetJobRunCommandOutput) => void
   ): void;
 
@@ -2794,7 +2806,7 @@ export interface DataZone {
    */
   getLineageEvent(
     args: GetLineageEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetLineageEventCommandOutput>;
   getLineageEvent(
     args: GetLineageEventCommandInput,
@@ -2802,7 +2814,7 @@ export interface DataZone {
   ): void;
   getLineageEvent(
     args: GetLineageEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetLineageEventCommandOutput) => void
   ): void;
 
@@ -2811,7 +2823,7 @@ export interface DataZone {
    */
   getLineageNode(
     args: GetLineageNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetLineageNodeCommandOutput>;
   getLineageNode(
     args: GetLineageNodeCommandInput,
@@ -2819,7 +2831,7 @@ export interface DataZone {
   ): void;
   getLineageNode(
     args: GetLineageNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetLineageNodeCommandOutput) => void
   ): void;
 
@@ -2828,7 +2840,7 @@ export interface DataZone {
    */
   getListing(
     args: GetListingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetListingCommandOutput>;
   getListing(
     args: GetListingCommandInput,
@@ -2836,7 +2848,7 @@ export interface DataZone {
   ): void;
   getListing(
     args: GetListingCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetListingCommandOutput) => void
   ): void;
 
@@ -2845,7 +2857,7 @@ export interface DataZone {
    */
   getMetadataGenerationRun(
     args: GetMetadataGenerationRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetMetadataGenerationRunCommandOutput>;
   getMetadataGenerationRun(
     args: GetMetadataGenerationRunCommandInput,
@@ -2853,7 +2865,7 @@ export interface DataZone {
   ): void;
   getMetadataGenerationRun(
     args: GetMetadataGenerationRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetMetadataGenerationRunCommandOutput) => void
   ): void;
 
@@ -2862,7 +2874,7 @@ export interface DataZone {
    */
   getNotebook(
     args: GetNotebookCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetNotebookCommandOutput>;
   getNotebook(
     args: GetNotebookCommandInput,
@@ -2870,7 +2882,7 @@ export interface DataZone {
   ): void;
   getNotebook(
     args: GetNotebookCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetNotebookCommandOutput) => void
   ): void;
 
@@ -2879,7 +2891,7 @@ export interface DataZone {
    */
   getNotebookExport(
     args: GetNotebookExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetNotebookExportCommandOutput>;
   getNotebookExport(
     args: GetNotebookExportCommandInput,
@@ -2887,7 +2899,7 @@ export interface DataZone {
   ): void;
   getNotebookExport(
     args: GetNotebookExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetNotebookExportCommandOutput) => void
   ): void;
 
@@ -2896,7 +2908,7 @@ export interface DataZone {
    */
   getNotebookRun(
     args: GetNotebookRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetNotebookRunCommandOutput>;
   getNotebookRun(
     args: GetNotebookRunCommandInput,
@@ -2904,7 +2916,7 @@ export interface DataZone {
   ): void;
   getNotebookRun(
     args: GetNotebookRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetNotebookRunCommandOutput) => void
   ): void;
 
@@ -2913,7 +2925,7 @@ export interface DataZone {
    */
   getProject(
     args: GetProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetProjectCommandOutput>;
   getProject(
     args: GetProjectCommandInput,
@@ -2921,7 +2933,7 @@ export interface DataZone {
   ): void;
   getProject(
     args: GetProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetProjectCommandOutput) => void
   ): void;
 
@@ -2930,7 +2942,7 @@ export interface DataZone {
    */
   getProjectProfile(
     args: GetProjectProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetProjectProfileCommandOutput>;
   getProjectProfile(
     args: GetProjectProfileCommandInput,
@@ -2938,7 +2950,7 @@ export interface DataZone {
   ): void;
   getProjectProfile(
     args: GetProjectProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetProjectProfileCommandOutput) => void
   ): void;
 
@@ -2947,7 +2959,7 @@ export interface DataZone {
    */
   getRule(
     args: GetRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetRuleCommandOutput>;
   getRule(
     args: GetRuleCommandInput,
@@ -2955,7 +2967,7 @@ export interface DataZone {
   ): void;
   getRule(
     args: GetRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetRuleCommandOutput) => void
   ): void;
 
@@ -2964,7 +2976,7 @@ export interface DataZone {
    */
   getSubscription(
     args: GetSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetSubscriptionCommandOutput>;
   getSubscription(
     args: GetSubscriptionCommandInput,
@@ -2972,7 +2984,7 @@ export interface DataZone {
   ): void;
   getSubscription(
     args: GetSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetSubscriptionCommandOutput) => void
   ): void;
 
@@ -2981,7 +2993,7 @@ export interface DataZone {
    */
   getSubscriptionGrant(
     args: GetSubscriptionGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetSubscriptionGrantCommandOutput>;
   getSubscriptionGrant(
     args: GetSubscriptionGrantCommandInput,
@@ -2989,7 +3001,7 @@ export interface DataZone {
   ): void;
   getSubscriptionGrant(
     args: GetSubscriptionGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetSubscriptionGrantCommandOutput) => void
   ): void;
 
@@ -2998,7 +3010,7 @@ export interface DataZone {
    */
   getSubscriptionRequestDetails(
     args: GetSubscriptionRequestDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetSubscriptionRequestDetailsCommandOutput>;
   getSubscriptionRequestDetails(
     args: GetSubscriptionRequestDetailsCommandInput,
@@ -3006,7 +3018,7 @@ export interface DataZone {
   ): void;
   getSubscriptionRequestDetails(
     args: GetSubscriptionRequestDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetSubscriptionRequestDetailsCommandOutput) => void
   ): void;
 
@@ -3015,7 +3027,7 @@ export interface DataZone {
    */
   getSubscriptionTarget(
     args: GetSubscriptionTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetSubscriptionTargetCommandOutput>;
   getSubscriptionTarget(
     args: GetSubscriptionTargetCommandInput,
@@ -3023,7 +3035,7 @@ export interface DataZone {
   ): void;
   getSubscriptionTarget(
     args: GetSubscriptionTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetSubscriptionTargetCommandOutput) => void
   ): void;
 
@@ -3032,7 +3044,7 @@ export interface DataZone {
    */
   getTimeSeriesDataPoint(
     args: GetTimeSeriesDataPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetTimeSeriesDataPointCommandOutput>;
   getTimeSeriesDataPoint(
     args: GetTimeSeriesDataPointCommandInput,
@@ -3040,7 +3052,7 @@ export interface DataZone {
   ): void;
   getTimeSeriesDataPoint(
     args: GetTimeSeriesDataPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetTimeSeriesDataPointCommandOutput) => void
   ): void;
 
@@ -3049,7 +3061,7 @@ export interface DataZone {
    */
   getUserProfile(
     args: GetUserProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<GetUserProfileCommandOutput>;
   getUserProfile(
     args: GetUserProfileCommandInput,
@@ -3057,7 +3069,7 @@ export interface DataZone {
   ): void;
   getUserProfile(
     args: GetUserProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: GetUserProfileCommandOutput) => void
   ): void;
 
@@ -3066,7 +3078,7 @@ export interface DataZone {
    */
   listAccountPools(
     args: ListAccountPoolsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListAccountPoolsCommandOutput>;
   listAccountPools(
     args: ListAccountPoolsCommandInput,
@@ -3074,7 +3086,7 @@ export interface DataZone {
   ): void;
   listAccountPools(
     args: ListAccountPoolsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListAccountPoolsCommandOutput) => void
   ): void;
 
@@ -3083,7 +3095,7 @@ export interface DataZone {
    */
   listAccountsInAccountPool(
     args: ListAccountsInAccountPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListAccountsInAccountPoolCommandOutput>;
   listAccountsInAccountPool(
     args: ListAccountsInAccountPoolCommandInput,
@@ -3091,7 +3103,7 @@ export interface DataZone {
   ): void;
   listAccountsInAccountPool(
     args: ListAccountsInAccountPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListAccountsInAccountPoolCommandOutput) => void
   ): void;
 
@@ -3100,7 +3112,7 @@ export interface DataZone {
    */
   listAssetFilters(
     args: ListAssetFiltersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListAssetFiltersCommandOutput>;
   listAssetFilters(
     args: ListAssetFiltersCommandInput,
@@ -3108,7 +3120,7 @@ export interface DataZone {
   ): void;
   listAssetFilters(
     args: ListAssetFiltersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListAssetFiltersCommandOutput) => void
   ): void;
 
@@ -3117,7 +3129,7 @@ export interface DataZone {
    */
   listAssetRevisions(
     args: ListAssetRevisionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListAssetRevisionsCommandOutput>;
   listAssetRevisions(
     args: ListAssetRevisionsCommandInput,
@@ -3125,7 +3137,7 @@ export interface DataZone {
   ): void;
   listAssetRevisions(
     args: ListAssetRevisionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListAssetRevisionsCommandOutput) => void
   ): void;
 
@@ -3134,7 +3146,7 @@ export interface DataZone {
    */
   listConnections(
     args: ListConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
@@ -3142,7 +3154,7 @@ export interface DataZone {
   ): void;
   listConnections(
     args: ListConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListConnectionsCommandOutput) => void
   ): void;
 
@@ -3151,7 +3163,7 @@ export interface DataZone {
    */
   listDataProductRevisions(
     args: ListDataProductRevisionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListDataProductRevisionsCommandOutput>;
   listDataProductRevisions(
     args: ListDataProductRevisionsCommandInput,
@@ -3159,7 +3171,7 @@ export interface DataZone {
   ): void;
   listDataProductRevisions(
     args: ListDataProductRevisionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListDataProductRevisionsCommandOutput) => void
   ): void;
 
@@ -3168,7 +3180,7 @@ export interface DataZone {
    */
   listDataSourceRunActivities(
     args: ListDataSourceRunActivitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListDataSourceRunActivitiesCommandOutput>;
   listDataSourceRunActivities(
     args: ListDataSourceRunActivitiesCommandInput,
@@ -3176,7 +3188,7 @@ export interface DataZone {
   ): void;
   listDataSourceRunActivities(
     args: ListDataSourceRunActivitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListDataSourceRunActivitiesCommandOutput) => void
   ): void;
 
@@ -3185,7 +3197,7 @@ export interface DataZone {
    */
   listDataSourceRuns(
     args: ListDataSourceRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListDataSourceRunsCommandOutput>;
   listDataSourceRuns(
     args: ListDataSourceRunsCommandInput,
@@ -3193,7 +3205,7 @@ export interface DataZone {
   ): void;
   listDataSourceRuns(
     args: ListDataSourceRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListDataSourceRunsCommandOutput) => void
   ): void;
 
@@ -3202,7 +3214,7 @@ export interface DataZone {
    */
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListDataSourcesCommandOutput>;
   listDataSources(
     args: ListDataSourcesCommandInput,
@@ -3210,7 +3222,7 @@ export interface DataZone {
   ): void;
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): void;
 
@@ -3220,7 +3232,7 @@ export interface DataZone {
   listDomains(): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
@@ -3228,7 +3240,7 @@ export interface DataZone {
   ): void;
   listDomains(
     args: ListDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListDomainsCommandOutput) => void
   ): void;
 
@@ -3237,7 +3249,7 @@ export interface DataZone {
    */
   listDomainUnitsForParent(
     args: ListDomainUnitsForParentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListDomainUnitsForParentCommandOutput>;
   listDomainUnitsForParent(
     args: ListDomainUnitsForParentCommandInput,
@@ -3245,7 +3257,7 @@ export interface DataZone {
   ): void;
   listDomainUnitsForParent(
     args: ListDomainUnitsForParentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListDomainUnitsForParentCommandOutput) => void
   ): void;
 
@@ -3254,7 +3266,7 @@ export interface DataZone {
    */
   listEntityOwners(
     args: ListEntityOwnersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListEntityOwnersCommandOutput>;
   listEntityOwners(
     args: ListEntityOwnersCommandInput,
@@ -3262,7 +3274,7 @@ export interface DataZone {
   ): void;
   listEntityOwners(
     args: ListEntityOwnersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListEntityOwnersCommandOutput) => void
   ): void;
 
@@ -3271,7 +3283,7 @@ export interface DataZone {
    */
   listEnvironmentActions(
     args: ListEnvironmentActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListEnvironmentActionsCommandOutput>;
   listEnvironmentActions(
     args: ListEnvironmentActionsCommandInput,
@@ -3279,7 +3291,7 @@ export interface DataZone {
   ): void;
   listEnvironmentActions(
     args: ListEnvironmentActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListEnvironmentActionsCommandOutput) => void
   ): void;
 
@@ -3288,7 +3300,7 @@ export interface DataZone {
    */
   listEnvironmentBlueprintConfigurations(
     args: ListEnvironmentBlueprintConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListEnvironmentBlueprintConfigurationsCommandOutput>;
   listEnvironmentBlueprintConfigurations(
     args: ListEnvironmentBlueprintConfigurationsCommandInput,
@@ -3296,7 +3308,7 @@ export interface DataZone {
   ): void;
   listEnvironmentBlueprintConfigurations(
     args: ListEnvironmentBlueprintConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListEnvironmentBlueprintConfigurationsCommandOutput) => void
   ): void;
 
@@ -3305,7 +3317,7 @@ export interface DataZone {
    */
   listEnvironmentBlueprints(
     args: ListEnvironmentBlueprintsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListEnvironmentBlueprintsCommandOutput>;
   listEnvironmentBlueprints(
     args: ListEnvironmentBlueprintsCommandInput,
@@ -3313,7 +3325,7 @@ export interface DataZone {
   ): void;
   listEnvironmentBlueprints(
     args: ListEnvironmentBlueprintsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListEnvironmentBlueprintsCommandOutput) => void
   ): void;
 
@@ -3322,7 +3334,7 @@ export interface DataZone {
    */
   listEnvironmentProfiles(
     args: ListEnvironmentProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListEnvironmentProfilesCommandOutput>;
   listEnvironmentProfiles(
     args: ListEnvironmentProfilesCommandInput,
@@ -3330,7 +3342,7 @@ export interface DataZone {
   ): void;
   listEnvironmentProfiles(
     args: ListEnvironmentProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListEnvironmentProfilesCommandOutput) => void
   ): void;
 
@@ -3339,7 +3351,7 @@ export interface DataZone {
    */
   listEnvironments(
     args: ListEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
@@ -3347,7 +3359,7 @@ export interface DataZone {
   ): void;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
   ): void;
 
@@ -3356,7 +3368,7 @@ export interface DataZone {
    */
   listJobRuns(
     args: ListJobRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListJobRunsCommandOutput>;
   listJobRuns(
     args: ListJobRunsCommandInput,
@@ -3364,7 +3376,7 @@ export interface DataZone {
   ): void;
   listJobRuns(
     args: ListJobRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListJobRunsCommandOutput) => void
   ): void;
 
@@ -3373,7 +3385,7 @@ export interface DataZone {
    */
   listLineageEvents(
     args: ListLineageEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListLineageEventsCommandOutput>;
   listLineageEvents(
     args: ListLineageEventsCommandInput,
@@ -3381,7 +3393,7 @@ export interface DataZone {
   ): void;
   listLineageEvents(
     args: ListLineageEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListLineageEventsCommandOutput) => void
   ): void;
 
@@ -3390,7 +3402,7 @@ export interface DataZone {
    */
   listLineageNodeHistory(
     args: ListLineageNodeHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListLineageNodeHistoryCommandOutput>;
   listLineageNodeHistory(
     args: ListLineageNodeHistoryCommandInput,
@@ -3398,7 +3410,7 @@ export interface DataZone {
   ): void;
   listLineageNodeHistory(
     args: ListLineageNodeHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListLineageNodeHistoryCommandOutput) => void
   ): void;
 
@@ -3407,7 +3419,7 @@ export interface DataZone {
    */
   listMetadataGenerationRuns(
     args: ListMetadataGenerationRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListMetadataGenerationRunsCommandOutput>;
   listMetadataGenerationRuns(
     args: ListMetadataGenerationRunsCommandInput,
@@ -3415,7 +3427,7 @@ export interface DataZone {
   ): void;
   listMetadataGenerationRuns(
     args: ListMetadataGenerationRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListMetadataGenerationRunsCommandOutput) => void
   ): void;
 
@@ -3424,7 +3436,7 @@ export interface DataZone {
    */
   listNotebookRuns(
     args: ListNotebookRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListNotebookRunsCommandOutput>;
   listNotebookRuns(
     args: ListNotebookRunsCommandInput,
@@ -3432,7 +3444,7 @@ export interface DataZone {
   ): void;
   listNotebookRuns(
     args: ListNotebookRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListNotebookRunsCommandOutput) => void
   ): void;
 
@@ -3441,7 +3453,7 @@ export interface DataZone {
    */
   listNotebooks(
     args: ListNotebooksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListNotebooksCommandOutput>;
   listNotebooks(
     args: ListNotebooksCommandInput,
@@ -3449,7 +3461,7 @@ export interface DataZone {
   ): void;
   listNotebooks(
     args: ListNotebooksCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListNotebooksCommandOutput) => void
   ): void;
 
@@ -3458,7 +3470,7 @@ export interface DataZone {
    */
   listNotifications(
     args: ListNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListNotificationsCommandOutput>;
   listNotifications(
     args: ListNotificationsCommandInput,
@@ -3466,7 +3478,7 @@ export interface DataZone {
   ): void;
   listNotifications(
     args: ListNotificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListNotificationsCommandOutput) => void
   ): void;
 
@@ -3475,7 +3487,7 @@ export interface DataZone {
    */
   listPolicyGrants(
     args: ListPolicyGrantsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListPolicyGrantsCommandOutput>;
   listPolicyGrants(
     args: ListPolicyGrantsCommandInput,
@@ -3483,7 +3495,7 @@ export interface DataZone {
   ): void;
   listPolicyGrants(
     args: ListPolicyGrantsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListPolicyGrantsCommandOutput) => void
   ): void;
 
@@ -3492,7 +3504,7 @@ export interface DataZone {
    */
   listProjectMemberships(
     args: ListProjectMembershipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListProjectMembershipsCommandOutput>;
   listProjectMemberships(
     args: ListProjectMembershipsCommandInput,
@@ -3500,7 +3512,7 @@ export interface DataZone {
   ): void;
   listProjectMemberships(
     args: ListProjectMembershipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListProjectMembershipsCommandOutput) => void
   ): void;
 
@@ -3509,7 +3521,7 @@ export interface DataZone {
    */
   listProjectProfiles(
     args: ListProjectProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListProjectProfilesCommandOutput>;
   listProjectProfiles(
     args: ListProjectProfilesCommandInput,
@@ -3517,7 +3529,7 @@ export interface DataZone {
   ): void;
   listProjectProfiles(
     args: ListProjectProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListProjectProfilesCommandOutput) => void
   ): void;
 
@@ -3526,7 +3538,7 @@ export interface DataZone {
    */
   listProjects(
     args: ListProjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListProjectsCommandOutput>;
   listProjects(
     args: ListProjectsCommandInput,
@@ -3534,7 +3546,7 @@ export interface DataZone {
   ): void;
   listProjects(
     args: ListProjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListProjectsCommandOutput) => void
   ): void;
 
@@ -3543,7 +3555,7 @@ export interface DataZone {
    */
   listRules(
     args: ListRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListRulesCommandOutput>;
   listRules(
     args: ListRulesCommandInput,
@@ -3551,7 +3563,7 @@ export interface DataZone {
   ): void;
   listRules(
     args: ListRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListRulesCommandOutput) => void
   ): void;
 
@@ -3560,7 +3572,7 @@ export interface DataZone {
    */
   listSubscriptionGrants(
     args: ListSubscriptionGrantsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListSubscriptionGrantsCommandOutput>;
   listSubscriptionGrants(
     args: ListSubscriptionGrantsCommandInput,
@@ -3568,7 +3580,7 @@ export interface DataZone {
   ): void;
   listSubscriptionGrants(
     args: ListSubscriptionGrantsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListSubscriptionGrantsCommandOutput) => void
   ): void;
 
@@ -3577,7 +3589,7 @@ export interface DataZone {
    */
   listSubscriptionRequests(
     args: ListSubscriptionRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListSubscriptionRequestsCommandOutput>;
   listSubscriptionRequests(
     args: ListSubscriptionRequestsCommandInput,
@@ -3585,7 +3597,7 @@ export interface DataZone {
   ): void;
   listSubscriptionRequests(
     args: ListSubscriptionRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListSubscriptionRequestsCommandOutput) => void
   ): void;
 
@@ -3594,7 +3606,7 @@ export interface DataZone {
    */
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListSubscriptionsCommandOutput>;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
@@ -3602,7 +3614,7 @@ export interface DataZone {
   ): void;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
   ): void;
 
@@ -3611,7 +3623,7 @@ export interface DataZone {
    */
   listSubscriptionTargets(
     args: ListSubscriptionTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListSubscriptionTargetsCommandOutput>;
   listSubscriptionTargets(
     args: ListSubscriptionTargetsCommandInput,
@@ -3619,7 +3631,7 @@ export interface DataZone {
   ): void;
   listSubscriptionTargets(
     args: ListSubscriptionTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListSubscriptionTargetsCommandOutput) => void
   ): void;
 
@@ -3628,7 +3640,7 @@ export interface DataZone {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -3636,7 +3648,7 @@ export interface DataZone {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -3645,7 +3657,7 @@ export interface DataZone {
    */
   listTimeSeriesDataPoints(
     args: ListTimeSeriesDataPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<ListTimeSeriesDataPointsCommandOutput>;
   listTimeSeriesDataPoints(
     args: ListTimeSeriesDataPointsCommandInput,
@@ -3653,7 +3665,7 @@ export interface DataZone {
   ): void;
   listTimeSeriesDataPoints(
     args: ListTimeSeriesDataPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: ListTimeSeriesDataPointsCommandOutput) => void
   ): void;
 
@@ -3662,7 +3674,7 @@ export interface DataZone {
    */
   postLineageEvent(
     args: PostLineageEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<PostLineageEventCommandOutput>;
   postLineageEvent(
     args: PostLineageEventCommandInput,
@@ -3670,7 +3682,7 @@ export interface DataZone {
   ): void;
   postLineageEvent(
     args: PostLineageEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: PostLineageEventCommandOutput) => void
   ): void;
 
@@ -3679,7 +3691,7 @@ export interface DataZone {
    */
   postTimeSeriesDataPoints(
     args: PostTimeSeriesDataPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<PostTimeSeriesDataPointsCommandOutput>;
   postTimeSeriesDataPoints(
     args: PostTimeSeriesDataPointsCommandInput,
@@ -3687,7 +3699,7 @@ export interface DataZone {
   ): void;
   postTimeSeriesDataPoints(
     args: PostTimeSeriesDataPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: PostTimeSeriesDataPointsCommandOutput) => void
   ): void;
 
@@ -3696,7 +3708,7 @@ export interface DataZone {
    */
   putDataExportConfiguration(
     args: PutDataExportConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<PutDataExportConfigurationCommandOutput>;
   putDataExportConfiguration(
     args: PutDataExportConfigurationCommandInput,
@@ -3704,7 +3716,7 @@ export interface DataZone {
   ): void;
   putDataExportConfiguration(
     args: PutDataExportConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: PutDataExportConfigurationCommandOutput) => void
   ): void;
 
@@ -3713,7 +3725,7 @@ export interface DataZone {
    */
   putEnvironmentBlueprintConfiguration(
     args: PutEnvironmentBlueprintConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<PutEnvironmentBlueprintConfigurationCommandOutput>;
   putEnvironmentBlueprintConfiguration(
     args: PutEnvironmentBlueprintConfigurationCommandInput,
@@ -3721,7 +3733,7 @@ export interface DataZone {
   ): void;
   putEnvironmentBlueprintConfiguration(
     args: PutEnvironmentBlueprintConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: PutEnvironmentBlueprintConfigurationCommandOutput) => void
   ): void;
 
@@ -3730,7 +3742,7 @@ export interface DataZone {
    */
   queryGraph(
     args: QueryGraphCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<QueryGraphCommandOutput>;
   queryGraph(
     args: QueryGraphCommandInput,
@@ -3738,7 +3750,7 @@ export interface DataZone {
   ): void;
   queryGraph(
     args: QueryGraphCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: QueryGraphCommandOutput) => void
   ): void;
 
@@ -3747,7 +3759,7 @@ export interface DataZone {
    */
   rejectPredictions(
     args: RejectPredictionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<RejectPredictionsCommandOutput>;
   rejectPredictions(
     args: RejectPredictionsCommandInput,
@@ -3755,7 +3767,7 @@ export interface DataZone {
   ): void;
   rejectPredictions(
     args: RejectPredictionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: RejectPredictionsCommandOutput) => void
   ): void;
 
@@ -3764,7 +3776,7 @@ export interface DataZone {
    */
   rejectSubscriptionRequest(
     args: RejectSubscriptionRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<RejectSubscriptionRequestCommandOutput>;
   rejectSubscriptionRequest(
     args: RejectSubscriptionRequestCommandInput,
@@ -3772,7 +3784,7 @@ export interface DataZone {
   ): void;
   rejectSubscriptionRequest(
     args: RejectSubscriptionRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: RejectSubscriptionRequestCommandOutput) => void
   ): void;
 
@@ -3781,7 +3793,7 @@ export interface DataZone {
    */
   removeEntityOwner(
     args: RemoveEntityOwnerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<RemoveEntityOwnerCommandOutput>;
   removeEntityOwner(
     args: RemoveEntityOwnerCommandInput,
@@ -3789,7 +3801,7 @@ export interface DataZone {
   ): void;
   removeEntityOwner(
     args: RemoveEntityOwnerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: RemoveEntityOwnerCommandOutput) => void
   ): void;
 
@@ -3798,7 +3810,7 @@ export interface DataZone {
    */
   removePolicyGrant(
     args: RemovePolicyGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<RemovePolicyGrantCommandOutput>;
   removePolicyGrant(
     args: RemovePolicyGrantCommandInput,
@@ -3806,7 +3818,7 @@ export interface DataZone {
   ): void;
   removePolicyGrant(
     args: RemovePolicyGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: RemovePolicyGrantCommandOutput) => void
   ): void;
 
@@ -3815,7 +3827,7 @@ export interface DataZone {
    */
   revokeSubscription(
     args: RevokeSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<RevokeSubscriptionCommandOutput>;
   revokeSubscription(
     args: RevokeSubscriptionCommandInput,
@@ -3823,7 +3835,7 @@ export interface DataZone {
   ): void;
   revokeSubscription(
     args: RevokeSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: RevokeSubscriptionCommandOutput) => void
   ): void;
 
@@ -3832,7 +3844,7 @@ export interface DataZone {
    */
   search(
     args: SearchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<SearchCommandOutput>;
   search(
     args: SearchCommandInput,
@@ -3840,7 +3852,7 @@ export interface DataZone {
   ): void;
   search(
     args: SearchCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: SearchCommandOutput) => void
   ): void;
 
@@ -3849,7 +3861,7 @@ export interface DataZone {
    */
   searchGroupProfiles(
     args: SearchGroupProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<SearchGroupProfilesCommandOutput>;
   searchGroupProfiles(
     args: SearchGroupProfilesCommandInput,
@@ -3857,7 +3869,7 @@ export interface DataZone {
   ): void;
   searchGroupProfiles(
     args: SearchGroupProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: SearchGroupProfilesCommandOutput) => void
   ): void;
 
@@ -3866,7 +3878,7 @@ export interface DataZone {
    */
   searchListings(
     args: SearchListingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<SearchListingsCommandOutput>;
   searchListings(
     args: SearchListingsCommandInput,
@@ -3874,7 +3886,7 @@ export interface DataZone {
   ): void;
   searchListings(
     args: SearchListingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: SearchListingsCommandOutput) => void
   ): void;
 
@@ -3883,7 +3895,7 @@ export interface DataZone {
    */
   searchTypes(
     args: SearchTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<SearchTypesCommandOutput>;
   searchTypes(
     args: SearchTypesCommandInput,
@@ -3891,7 +3903,7 @@ export interface DataZone {
   ): void;
   searchTypes(
     args: SearchTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: SearchTypesCommandOutput) => void
   ): void;
 
@@ -3900,7 +3912,7 @@ export interface DataZone {
    */
   searchUserProfiles(
     args: SearchUserProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<SearchUserProfilesCommandOutput>;
   searchUserProfiles(
     args: SearchUserProfilesCommandInput,
@@ -3908,7 +3920,7 @@ export interface DataZone {
   ): void;
   searchUserProfiles(
     args: SearchUserProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: SearchUserProfilesCommandOutput) => void
   ): void;
 
@@ -3917,7 +3929,7 @@ export interface DataZone {
    */
   startDataSourceRun(
     args: StartDataSourceRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<StartDataSourceRunCommandOutput>;
   startDataSourceRun(
     args: StartDataSourceRunCommandInput,
@@ -3925,7 +3937,7 @@ export interface DataZone {
   ): void;
   startDataSourceRun(
     args: StartDataSourceRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: StartDataSourceRunCommandOutput) => void
   ): void;
 
@@ -3934,7 +3946,7 @@ export interface DataZone {
    */
   startMetadataGenerationRun(
     args: StartMetadataGenerationRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<StartMetadataGenerationRunCommandOutput>;
   startMetadataGenerationRun(
     args: StartMetadataGenerationRunCommandInput,
@@ -3942,7 +3954,7 @@ export interface DataZone {
   ): void;
   startMetadataGenerationRun(
     args: StartMetadataGenerationRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: StartMetadataGenerationRunCommandOutput) => void
   ): void;
 
@@ -3951,7 +3963,7 @@ export interface DataZone {
    */
   startNotebookExport(
     args: StartNotebookExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<StartNotebookExportCommandOutput>;
   startNotebookExport(
     args: StartNotebookExportCommandInput,
@@ -3959,7 +3971,7 @@ export interface DataZone {
   ): void;
   startNotebookExport(
     args: StartNotebookExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: StartNotebookExportCommandOutput) => void
   ): void;
 
@@ -3968,7 +3980,7 @@ export interface DataZone {
    */
   startNotebookImport(
     args: StartNotebookImportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<StartNotebookImportCommandOutput>;
   startNotebookImport(
     args: StartNotebookImportCommandInput,
@@ -3976,7 +3988,7 @@ export interface DataZone {
   ): void;
   startNotebookImport(
     args: StartNotebookImportCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: StartNotebookImportCommandOutput) => void
   ): void;
 
@@ -3985,7 +3997,7 @@ export interface DataZone {
    */
   startNotebookRun(
     args: StartNotebookRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<StartNotebookRunCommandOutput>;
   startNotebookRun(
     args: StartNotebookRunCommandInput,
@@ -3993,7 +4005,7 @@ export interface DataZone {
   ): void;
   startNotebookRun(
     args: StartNotebookRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: StartNotebookRunCommandOutput) => void
   ): void;
 
@@ -4002,7 +4014,7 @@ export interface DataZone {
    */
   startNotebookSync(
     args: StartNotebookSyncCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<StartNotebookSyncCommandOutput>;
   startNotebookSync(
     args: StartNotebookSyncCommandInput,
@@ -4010,7 +4022,7 @@ export interface DataZone {
   ): void;
   startNotebookSync(
     args: StartNotebookSyncCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: StartNotebookSyncCommandOutput) => void
   ): void;
 
@@ -4019,7 +4031,7 @@ export interface DataZone {
    */
   stopNotebookRun(
     args: StopNotebookRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<StopNotebookRunCommandOutput>;
   stopNotebookRun(
     args: StopNotebookRunCommandInput,
@@ -4027,7 +4039,7 @@ export interface DataZone {
   ): void;
   stopNotebookRun(
     args: StopNotebookRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: StopNotebookRunCommandOutput) => void
   ): void;
 
@@ -4036,7 +4048,7 @@ export interface DataZone {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -4044,7 +4056,7 @@ export interface DataZone {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -4053,7 +4065,7 @@ export interface DataZone {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -4061,7 +4073,7 @@ export interface DataZone {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -4070,7 +4082,7 @@ export interface DataZone {
    */
   updateAccountPool(
     args: UpdateAccountPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateAccountPoolCommandOutput>;
   updateAccountPool(
     args: UpdateAccountPoolCommandInput,
@@ -4078,7 +4090,7 @@ export interface DataZone {
   ): void;
   updateAccountPool(
     args: UpdateAccountPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateAccountPoolCommandOutput) => void
   ): void;
 
@@ -4087,7 +4099,7 @@ export interface DataZone {
    */
   updateAssetFilter(
     args: UpdateAssetFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateAssetFilterCommandOutput>;
   updateAssetFilter(
     args: UpdateAssetFilterCommandInput,
@@ -4095,7 +4107,7 @@ export interface DataZone {
   ): void;
   updateAssetFilter(
     args: UpdateAssetFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateAssetFilterCommandOutput) => void
   ): void;
 
@@ -4104,7 +4116,7 @@ export interface DataZone {
    */
   updateConnection(
     args: UpdateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateConnectionCommandOutput>;
   updateConnection(
     args: UpdateConnectionCommandInput,
@@ -4112,7 +4124,7 @@ export interface DataZone {
   ): void;
   updateConnection(
     args: UpdateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateConnectionCommandOutput) => void
   ): void;
 
@@ -4121,7 +4133,7 @@ export interface DataZone {
    */
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateDataSourceCommandOutput>;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -4129,7 +4141,7 @@ export interface DataZone {
   ): void;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): void;
 
@@ -4138,7 +4150,7 @@ export interface DataZone {
    */
   updateDomain(
     args: UpdateDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateDomainCommandOutput>;
   updateDomain(
     args: UpdateDomainCommandInput,
@@ -4146,7 +4158,7 @@ export interface DataZone {
   ): void;
   updateDomain(
     args: UpdateDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateDomainCommandOutput) => void
   ): void;
 
@@ -4155,7 +4167,7 @@ export interface DataZone {
    */
   updateDomainUnit(
     args: UpdateDomainUnitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateDomainUnitCommandOutput>;
   updateDomainUnit(
     args: UpdateDomainUnitCommandInput,
@@ -4163,7 +4175,7 @@ export interface DataZone {
   ): void;
   updateDomainUnit(
     args: UpdateDomainUnitCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateDomainUnitCommandOutput) => void
   ): void;
 
@@ -4172,7 +4184,7 @@ export interface DataZone {
    */
   updateEnvironment(
     args: UpdateEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateEnvironmentCommandOutput>;
   updateEnvironment(
     args: UpdateEnvironmentCommandInput,
@@ -4180,7 +4192,7 @@ export interface DataZone {
   ): void;
   updateEnvironment(
     args: UpdateEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
   ): void;
 
@@ -4189,7 +4201,7 @@ export interface DataZone {
    */
   updateEnvironmentAction(
     args: UpdateEnvironmentActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateEnvironmentActionCommandOutput>;
   updateEnvironmentAction(
     args: UpdateEnvironmentActionCommandInput,
@@ -4197,7 +4209,7 @@ export interface DataZone {
   ): void;
   updateEnvironmentAction(
     args: UpdateEnvironmentActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateEnvironmentActionCommandOutput) => void
   ): void;
 
@@ -4206,7 +4218,7 @@ export interface DataZone {
    */
   updateEnvironmentBlueprint(
     args: UpdateEnvironmentBlueprintCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateEnvironmentBlueprintCommandOutput>;
   updateEnvironmentBlueprint(
     args: UpdateEnvironmentBlueprintCommandInput,
@@ -4214,7 +4226,7 @@ export interface DataZone {
   ): void;
   updateEnvironmentBlueprint(
     args: UpdateEnvironmentBlueprintCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateEnvironmentBlueprintCommandOutput) => void
   ): void;
 
@@ -4223,7 +4235,7 @@ export interface DataZone {
    */
   updateEnvironmentProfile(
     args: UpdateEnvironmentProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateEnvironmentProfileCommandOutput>;
   updateEnvironmentProfile(
     args: UpdateEnvironmentProfileCommandInput,
@@ -4231,7 +4243,7 @@ export interface DataZone {
   ): void;
   updateEnvironmentProfile(
     args: UpdateEnvironmentProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateEnvironmentProfileCommandOutput) => void
   ): void;
 
@@ -4240,7 +4252,7 @@ export interface DataZone {
    */
   updateGlossary(
     args: UpdateGlossaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateGlossaryCommandOutput>;
   updateGlossary(
     args: UpdateGlossaryCommandInput,
@@ -4248,7 +4260,7 @@ export interface DataZone {
   ): void;
   updateGlossary(
     args: UpdateGlossaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateGlossaryCommandOutput) => void
   ): void;
 
@@ -4257,7 +4269,7 @@ export interface DataZone {
    */
   updateGlossaryTerm(
     args: UpdateGlossaryTermCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateGlossaryTermCommandOutput>;
   updateGlossaryTerm(
     args: UpdateGlossaryTermCommandInput,
@@ -4265,7 +4277,7 @@ export interface DataZone {
   ): void;
   updateGlossaryTerm(
     args: UpdateGlossaryTermCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateGlossaryTermCommandOutput) => void
   ): void;
 
@@ -4274,7 +4286,7 @@ export interface DataZone {
    */
   updateGroupProfile(
     args: UpdateGroupProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateGroupProfileCommandOutput>;
   updateGroupProfile(
     args: UpdateGroupProfileCommandInput,
@@ -4282,7 +4294,7 @@ export interface DataZone {
   ): void;
   updateGroupProfile(
     args: UpdateGroupProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateGroupProfileCommandOutput) => void
   ): void;
 
@@ -4291,7 +4303,7 @@ export interface DataZone {
    */
   updateNotebook(
     args: UpdateNotebookCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateNotebookCommandOutput>;
   updateNotebook(
     args: UpdateNotebookCommandInput,
@@ -4299,7 +4311,7 @@ export interface DataZone {
   ): void;
   updateNotebook(
     args: UpdateNotebookCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateNotebookCommandOutput) => void
   ): void;
 
@@ -4308,7 +4320,7 @@ export interface DataZone {
    */
   updateProject(
     args: UpdateProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateProjectCommandOutput>;
   updateProject(
     args: UpdateProjectCommandInput,
@@ -4316,7 +4328,7 @@ export interface DataZone {
   ): void;
   updateProject(
     args: UpdateProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateProjectCommandOutput) => void
   ): void;
 
@@ -4325,7 +4337,7 @@ export interface DataZone {
    */
   updateProjectProfile(
     args: UpdateProjectProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateProjectProfileCommandOutput>;
   updateProjectProfile(
     args: UpdateProjectProfileCommandInput,
@@ -4333,7 +4345,7 @@ export interface DataZone {
   ): void;
   updateProjectProfile(
     args: UpdateProjectProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateProjectProfileCommandOutput) => void
   ): void;
 
@@ -4342,7 +4354,7 @@ export interface DataZone {
    */
   updateRootDomainUnitOwner(
     args: UpdateRootDomainUnitOwnerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateRootDomainUnitOwnerCommandOutput>;
   updateRootDomainUnitOwner(
     args: UpdateRootDomainUnitOwnerCommandInput,
@@ -4350,7 +4362,7 @@ export interface DataZone {
   ): void;
   updateRootDomainUnitOwner(
     args: UpdateRootDomainUnitOwnerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateRootDomainUnitOwnerCommandOutput) => void
   ): void;
 
@@ -4359,7 +4371,7 @@ export interface DataZone {
    */
   updateRule(
     args: UpdateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateRuleCommandOutput>;
   updateRule(
     args: UpdateRuleCommandInput,
@@ -4367,7 +4379,7 @@ export interface DataZone {
   ): void;
   updateRule(
     args: UpdateRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateRuleCommandOutput) => void
   ): void;
 
@@ -4376,7 +4388,7 @@ export interface DataZone {
    */
   updateSubscriptionGrantStatus(
     args: UpdateSubscriptionGrantStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateSubscriptionGrantStatusCommandOutput>;
   updateSubscriptionGrantStatus(
     args: UpdateSubscriptionGrantStatusCommandInput,
@@ -4384,7 +4396,7 @@ export interface DataZone {
   ): void;
   updateSubscriptionGrantStatus(
     args: UpdateSubscriptionGrantStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateSubscriptionGrantStatusCommandOutput) => void
   ): void;
 
@@ -4393,7 +4405,7 @@ export interface DataZone {
    */
   updateSubscriptionRequest(
     args: UpdateSubscriptionRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateSubscriptionRequestCommandOutput>;
   updateSubscriptionRequest(
     args: UpdateSubscriptionRequestCommandInput,
@@ -4401,7 +4413,7 @@ export interface DataZone {
   ): void;
   updateSubscriptionRequest(
     args: UpdateSubscriptionRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateSubscriptionRequestCommandOutput) => void
   ): void;
 
@@ -4410,7 +4422,7 @@ export interface DataZone {
    */
   updateSubscriptionTarget(
     args: UpdateSubscriptionTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateSubscriptionTargetCommandOutput>;
   updateSubscriptionTarget(
     args: UpdateSubscriptionTargetCommandInput,
@@ -4418,7 +4430,7 @@ export interface DataZone {
   ): void;
   updateSubscriptionTarget(
     args: UpdateSubscriptionTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateSubscriptionTargetCommandOutput) => void
   ): void;
 
@@ -4427,7 +4439,7 @@ export interface DataZone {
    */
   updateUserProfile(
     args: UpdateUserProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataZoneRequestOptions
   ): Promise<UpdateUserProfileCommandOutput>;
   updateUserProfile(
     args: UpdateUserProfileCommandInput,
@@ -4435,7 +4447,7 @@ export interface DataZone {
   ): void;
   updateUserProfile(
     args: UpdateUserProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataZoneRequestOptions,
     cb: (err: any, data?: UpdateUserProfileCommandOutput) => void
   ): void;
 

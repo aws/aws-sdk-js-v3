@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type DeleteLexiconCommandInput,
@@ -71,13 +76,20 @@ const paginators = {
   paginateListSpeechSynthesisTasks,
 };
 
+/**
+ * @public
+ */
+export interface PollyRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Polly {
   /**
    * @see {@link DeleteLexiconCommand}
    */
   deleteLexicon(
     args: DeleteLexiconCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PollyRequestOptions
   ): Promise<DeleteLexiconCommandOutput>;
   deleteLexicon(
     args: DeleteLexiconCommandInput,
@@ -85,7 +97,7 @@ export interface Polly {
   ): void;
   deleteLexicon(
     args: DeleteLexiconCommandInput,
-    options: __HttpHandlerOptions,
+    options: PollyRequestOptions,
     cb: (err: any, data?: DeleteLexiconCommandOutput) => void
   ): void;
 
@@ -95,7 +107,7 @@ export interface Polly {
   describeVoices(): Promise<DescribeVoicesCommandOutput>;
   describeVoices(
     args: DescribeVoicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PollyRequestOptions
   ): Promise<DescribeVoicesCommandOutput>;
   describeVoices(
     args: DescribeVoicesCommandInput,
@@ -103,7 +115,7 @@ export interface Polly {
   ): void;
   describeVoices(
     args: DescribeVoicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PollyRequestOptions,
     cb: (err: any, data?: DescribeVoicesCommandOutput) => void
   ): void;
 
@@ -112,7 +124,7 @@ export interface Polly {
    */
   getLexicon(
     args: GetLexiconCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PollyRequestOptions
   ): Promise<GetLexiconCommandOutput>;
   getLexicon(
     args: GetLexiconCommandInput,
@@ -120,7 +132,7 @@ export interface Polly {
   ): void;
   getLexicon(
     args: GetLexiconCommandInput,
-    options: __HttpHandlerOptions,
+    options: PollyRequestOptions,
     cb: (err: any, data?: GetLexiconCommandOutput) => void
   ): void;
 
@@ -129,7 +141,7 @@ export interface Polly {
    */
   getSpeechSynthesisTask(
     args: GetSpeechSynthesisTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PollyRequestOptions
   ): Promise<GetSpeechSynthesisTaskCommandOutput>;
   getSpeechSynthesisTask(
     args: GetSpeechSynthesisTaskCommandInput,
@@ -137,7 +149,7 @@ export interface Polly {
   ): void;
   getSpeechSynthesisTask(
     args: GetSpeechSynthesisTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PollyRequestOptions,
     cb: (err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void
   ): void;
 
@@ -147,7 +159,7 @@ export interface Polly {
   listLexicons(): Promise<ListLexiconsCommandOutput>;
   listLexicons(
     args: ListLexiconsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PollyRequestOptions
   ): Promise<ListLexiconsCommandOutput>;
   listLexicons(
     args: ListLexiconsCommandInput,
@@ -155,7 +167,7 @@ export interface Polly {
   ): void;
   listLexicons(
     args: ListLexiconsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PollyRequestOptions,
     cb: (err: any, data?: ListLexiconsCommandOutput) => void
   ): void;
 
@@ -165,7 +177,7 @@ export interface Polly {
   listSpeechSynthesisTasks(): Promise<ListSpeechSynthesisTasksCommandOutput>;
   listSpeechSynthesisTasks(
     args: ListSpeechSynthesisTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PollyRequestOptions
   ): Promise<ListSpeechSynthesisTasksCommandOutput>;
   listSpeechSynthesisTasks(
     args: ListSpeechSynthesisTasksCommandInput,
@@ -173,7 +185,7 @@ export interface Polly {
   ): void;
   listSpeechSynthesisTasks(
     args: ListSpeechSynthesisTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: PollyRequestOptions,
     cb: (err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void
   ): void;
 
@@ -182,7 +194,7 @@ export interface Polly {
    */
   putLexicon(
     args: PutLexiconCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PollyRequestOptions
   ): Promise<PutLexiconCommandOutput>;
   putLexicon(
     args: PutLexiconCommandInput,
@@ -190,7 +202,7 @@ export interface Polly {
   ): void;
   putLexicon(
     args: PutLexiconCommandInput,
-    options: __HttpHandlerOptions,
+    options: PollyRequestOptions,
     cb: (err: any, data?: PutLexiconCommandOutput) => void
   ): void;
 
@@ -199,7 +211,7 @@ export interface Polly {
    */
   startSpeechSynthesisStream(
     args: StartSpeechSynthesisStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PollyRequestOptions
   ): Promise<StartSpeechSynthesisStreamCommandOutput>;
   startSpeechSynthesisStream(
     args: StartSpeechSynthesisStreamCommandInput,
@@ -207,7 +219,7 @@ export interface Polly {
   ): void;
   startSpeechSynthesisStream(
     args: StartSpeechSynthesisStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: PollyRequestOptions,
     cb: (err: any, data?: StartSpeechSynthesisStreamCommandOutput) => void
   ): void;
 
@@ -216,7 +228,7 @@ export interface Polly {
    */
   startSpeechSynthesisTask(
     args: StartSpeechSynthesisTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PollyRequestOptions
   ): Promise<StartSpeechSynthesisTaskCommandOutput>;
   startSpeechSynthesisTask(
     args: StartSpeechSynthesisTaskCommandInput,
@@ -224,7 +236,7 @@ export interface Polly {
   ): void;
   startSpeechSynthesisTask(
     args: StartSpeechSynthesisTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PollyRequestOptions,
     cb: (err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void
   ): void;
 
@@ -233,7 +245,7 @@ export interface Polly {
    */
   synthesizeSpeech(
     args: SynthesizeSpeechCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PollyRequestOptions
   ): Promise<SynthesizeSpeechCommandOutput>;
   synthesizeSpeech(
     args: SynthesizeSpeechCommandInput,
@@ -241,7 +253,7 @@ export interface Polly {
   ): void;
   synthesizeSpeech(
     args: SynthesizeSpeechCommandInput,
-    options: __HttpHandlerOptions,
+    options: PollyRequestOptions,
     cb: (err: any, data?: SynthesizeSpeechCommandOutput) => void
   ): void;
 

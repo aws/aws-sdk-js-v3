@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateLicenseCommandInput,
@@ -169,13 +174,20 @@ const paginators = {
   paginateListWorkspaceServiceAccountTokens,
 };
 
+/**
+ * @public
+ */
+export interface GrafanaRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Grafana {
   /**
    * @see {@link AssociateLicenseCommand}
    */
   associateLicense(
     args: AssociateLicenseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<AssociateLicenseCommandOutput>;
   associateLicense(
     args: AssociateLicenseCommandInput,
@@ -183,7 +195,7 @@ export interface Grafana {
   ): void;
   associateLicense(
     args: AssociateLicenseCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: AssociateLicenseCommandOutput) => void
   ): void;
 
@@ -192,7 +204,7 @@ export interface Grafana {
    */
   createWorkspace(
     args: CreateWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<CreateWorkspaceCommandOutput>;
   createWorkspace(
     args: CreateWorkspaceCommandInput,
@@ -200,7 +212,7 @@ export interface Grafana {
   ): void;
   createWorkspace(
     args: CreateWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: CreateWorkspaceCommandOutput) => void
   ): void;
 
@@ -209,7 +221,7 @@ export interface Grafana {
    */
   createWorkspaceApiKey(
     args: CreateWorkspaceApiKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<CreateWorkspaceApiKeyCommandOutput>;
   createWorkspaceApiKey(
     args: CreateWorkspaceApiKeyCommandInput,
@@ -217,7 +229,7 @@ export interface Grafana {
   ): void;
   createWorkspaceApiKey(
     args: CreateWorkspaceApiKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: CreateWorkspaceApiKeyCommandOutput) => void
   ): void;
 
@@ -226,7 +238,7 @@ export interface Grafana {
    */
   createWorkspaceServiceAccount(
     args: CreateWorkspaceServiceAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<CreateWorkspaceServiceAccountCommandOutput>;
   createWorkspaceServiceAccount(
     args: CreateWorkspaceServiceAccountCommandInput,
@@ -234,7 +246,7 @@ export interface Grafana {
   ): void;
   createWorkspaceServiceAccount(
     args: CreateWorkspaceServiceAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: CreateWorkspaceServiceAccountCommandOutput) => void
   ): void;
 
@@ -243,7 +255,7 @@ export interface Grafana {
    */
   createWorkspaceServiceAccountToken(
     args: CreateWorkspaceServiceAccountTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<CreateWorkspaceServiceAccountTokenCommandOutput>;
   createWorkspaceServiceAccountToken(
     args: CreateWorkspaceServiceAccountTokenCommandInput,
@@ -251,7 +263,7 @@ export interface Grafana {
   ): void;
   createWorkspaceServiceAccountToken(
     args: CreateWorkspaceServiceAccountTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: CreateWorkspaceServiceAccountTokenCommandOutput) => void
   ): void;
 
@@ -260,7 +272,7 @@ export interface Grafana {
    */
   deleteWorkspace(
     args: DeleteWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<DeleteWorkspaceCommandOutput>;
   deleteWorkspace(
     args: DeleteWorkspaceCommandInput,
@@ -268,7 +280,7 @@ export interface Grafana {
   ): void;
   deleteWorkspace(
     args: DeleteWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void
   ): void;
 
@@ -277,7 +289,7 @@ export interface Grafana {
    */
   deleteWorkspaceApiKey(
     args: DeleteWorkspaceApiKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<DeleteWorkspaceApiKeyCommandOutput>;
   deleteWorkspaceApiKey(
     args: DeleteWorkspaceApiKeyCommandInput,
@@ -285,7 +297,7 @@ export interface Grafana {
   ): void;
   deleteWorkspaceApiKey(
     args: DeleteWorkspaceApiKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: DeleteWorkspaceApiKeyCommandOutput) => void
   ): void;
 
@@ -294,7 +306,7 @@ export interface Grafana {
    */
   deleteWorkspaceServiceAccount(
     args: DeleteWorkspaceServiceAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<DeleteWorkspaceServiceAccountCommandOutput>;
   deleteWorkspaceServiceAccount(
     args: DeleteWorkspaceServiceAccountCommandInput,
@@ -302,7 +314,7 @@ export interface Grafana {
   ): void;
   deleteWorkspaceServiceAccount(
     args: DeleteWorkspaceServiceAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: DeleteWorkspaceServiceAccountCommandOutput) => void
   ): void;
 
@@ -311,7 +323,7 @@ export interface Grafana {
    */
   deleteWorkspaceServiceAccountToken(
     args: DeleteWorkspaceServiceAccountTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<DeleteWorkspaceServiceAccountTokenCommandOutput>;
   deleteWorkspaceServiceAccountToken(
     args: DeleteWorkspaceServiceAccountTokenCommandInput,
@@ -319,7 +331,7 @@ export interface Grafana {
   ): void;
   deleteWorkspaceServiceAccountToken(
     args: DeleteWorkspaceServiceAccountTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: DeleteWorkspaceServiceAccountTokenCommandOutput) => void
   ): void;
 
@@ -328,7 +340,7 @@ export interface Grafana {
    */
   describeWorkspace(
     args: DescribeWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<DescribeWorkspaceCommandOutput>;
   describeWorkspace(
     args: DescribeWorkspaceCommandInput,
@@ -336,7 +348,7 @@ export interface Grafana {
   ): void;
   describeWorkspace(
     args: DescribeWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: DescribeWorkspaceCommandOutput) => void
   ): void;
 
@@ -345,7 +357,7 @@ export interface Grafana {
    */
   describeWorkspaceAuthentication(
     args: DescribeWorkspaceAuthenticationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<DescribeWorkspaceAuthenticationCommandOutput>;
   describeWorkspaceAuthentication(
     args: DescribeWorkspaceAuthenticationCommandInput,
@@ -353,7 +365,7 @@ export interface Grafana {
   ): void;
   describeWorkspaceAuthentication(
     args: DescribeWorkspaceAuthenticationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: DescribeWorkspaceAuthenticationCommandOutput) => void
   ): void;
 
@@ -362,7 +374,7 @@ export interface Grafana {
    */
   describeWorkspaceConfiguration(
     args: DescribeWorkspaceConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<DescribeWorkspaceConfigurationCommandOutput>;
   describeWorkspaceConfiguration(
     args: DescribeWorkspaceConfigurationCommandInput,
@@ -370,7 +382,7 @@ export interface Grafana {
   ): void;
   describeWorkspaceConfiguration(
     args: DescribeWorkspaceConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: DescribeWorkspaceConfigurationCommandOutput) => void
   ): void;
 
@@ -379,7 +391,7 @@ export interface Grafana {
    */
   disassociateLicense(
     args: DisassociateLicenseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<DisassociateLicenseCommandOutput>;
   disassociateLicense(
     args: DisassociateLicenseCommandInput,
@@ -387,7 +399,7 @@ export interface Grafana {
   ): void;
   disassociateLicense(
     args: DisassociateLicenseCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: DisassociateLicenseCommandOutput) => void
   ): void;
 
@@ -396,7 +408,7 @@ export interface Grafana {
    */
   listPermissions(
     args: ListPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<ListPermissionsCommandOutput>;
   listPermissions(
     args: ListPermissionsCommandInput,
@@ -404,7 +416,7 @@ export interface Grafana {
   ): void;
   listPermissions(
     args: ListPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: ListPermissionsCommandOutput) => void
   ): void;
 
@@ -413,7 +425,7 @@ export interface Grafana {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -421,7 +433,7 @@ export interface Grafana {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -431,7 +443,7 @@ export interface Grafana {
   listVersions(): Promise<ListVersionsCommandOutput>;
   listVersions(
     args: ListVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<ListVersionsCommandOutput>;
   listVersions(
     args: ListVersionsCommandInput,
@@ -439,7 +451,7 @@ export interface Grafana {
   ): void;
   listVersions(
     args: ListVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: ListVersionsCommandOutput) => void
   ): void;
 
@@ -449,7 +461,7 @@ export interface Grafana {
   listWorkspaces(): Promise<ListWorkspacesCommandOutput>;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<ListWorkspacesCommandOutput>;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
@@ -457,7 +469,7 @@ export interface Grafana {
   ): void;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: ListWorkspacesCommandOutput) => void
   ): void;
 
@@ -466,7 +478,7 @@ export interface Grafana {
    */
   listWorkspaceServiceAccounts(
     args: ListWorkspaceServiceAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<ListWorkspaceServiceAccountsCommandOutput>;
   listWorkspaceServiceAccounts(
     args: ListWorkspaceServiceAccountsCommandInput,
@@ -474,7 +486,7 @@ export interface Grafana {
   ): void;
   listWorkspaceServiceAccounts(
     args: ListWorkspaceServiceAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: ListWorkspaceServiceAccountsCommandOutput) => void
   ): void;
 
@@ -483,7 +495,7 @@ export interface Grafana {
    */
   listWorkspaceServiceAccountTokens(
     args: ListWorkspaceServiceAccountTokensCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<ListWorkspaceServiceAccountTokensCommandOutput>;
   listWorkspaceServiceAccountTokens(
     args: ListWorkspaceServiceAccountTokensCommandInput,
@@ -491,7 +503,7 @@ export interface Grafana {
   ): void;
   listWorkspaceServiceAccountTokens(
     args: ListWorkspaceServiceAccountTokensCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: ListWorkspaceServiceAccountTokensCommandOutput) => void
   ): void;
 
@@ -500,7 +512,7 @@ export interface Grafana {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -508,7 +520,7 @@ export interface Grafana {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -517,7 +529,7 @@ export interface Grafana {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -525,7 +537,7 @@ export interface Grafana {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -534,7 +546,7 @@ export interface Grafana {
    */
   updatePermissions(
     args: UpdatePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<UpdatePermissionsCommandOutput>;
   updatePermissions(
     args: UpdatePermissionsCommandInput,
@@ -542,7 +554,7 @@ export interface Grafana {
   ): void;
   updatePermissions(
     args: UpdatePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: UpdatePermissionsCommandOutput) => void
   ): void;
 
@@ -551,7 +563,7 @@ export interface Grafana {
    */
   updateWorkspace(
     args: UpdateWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<UpdateWorkspaceCommandOutput>;
   updateWorkspace(
     args: UpdateWorkspaceCommandInput,
@@ -559,7 +571,7 @@ export interface Grafana {
   ): void;
   updateWorkspace(
     args: UpdateWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: UpdateWorkspaceCommandOutput) => void
   ): void;
 
@@ -568,7 +580,7 @@ export interface Grafana {
    */
   updateWorkspaceAuthentication(
     args: UpdateWorkspaceAuthenticationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<UpdateWorkspaceAuthenticationCommandOutput>;
   updateWorkspaceAuthentication(
     args: UpdateWorkspaceAuthenticationCommandInput,
@@ -576,7 +588,7 @@ export interface Grafana {
   ): void;
   updateWorkspaceAuthentication(
     args: UpdateWorkspaceAuthenticationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: UpdateWorkspaceAuthenticationCommandOutput) => void
   ): void;
 
@@ -585,7 +597,7 @@ export interface Grafana {
    */
   updateWorkspaceConfiguration(
     args: UpdateWorkspaceConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GrafanaRequestOptions
   ): Promise<UpdateWorkspaceConfigurationCommandOutput>;
   updateWorkspaceConfiguration(
     args: UpdateWorkspaceConfigurationCommandInput,
@@ -593,7 +605,7 @@ export interface Grafana {
   ): void;
   updateWorkspaceConfiguration(
     args: UpdateWorkspaceConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GrafanaRequestOptions,
     cb: (err: any, data?: UpdateWorkspaceConfigurationCommandOutput) => void
   ): void;
 

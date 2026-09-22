@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -540,13 +541,20 @@ const waiters = {
   waitUntilOutputUnrouted,
 };
 
+/**
+ * @public
+ */
+export interface MediaConnectRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MediaConnect {
   /**
    * @see {@link AddBridgeOutputsCommand}
    */
   addBridgeOutputs(
     args: AddBridgeOutputsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<AddBridgeOutputsCommandOutput>;
   addBridgeOutputs(
     args: AddBridgeOutputsCommandInput,
@@ -554,7 +562,7 @@ export interface MediaConnect {
   ): void;
   addBridgeOutputs(
     args: AddBridgeOutputsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: AddBridgeOutputsCommandOutput) => void
   ): void;
 
@@ -563,7 +571,7 @@ export interface MediaConnect {
    */
   addBridgeSources(
     args: AddBridgeSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<AddBridgeSourcesCommandOutput>;
   addBridgeSources(
     args: AddBridgeSourcesCommandInput,
@@ -571,7 +579,7 @@ export interface MediaConnect {
   ): void;
   addBridgeSources(
     args: AddBridgeSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: AddBridgeSourcesCommandOutput) => void
   ): void;
 
@@ -580,7 +588,7 @@ export interface MediaConnect {
    */
   addFlowMediaStreams(
     args: AddFlowMediaStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<AddFlowMediaStreamsCommandOutput>;
   addFlowMediaStreams(
     args: AddFlowMediaStreamsCommandInput,
@@ -588,7 +596,7 @@ export interface MediaConnect {
   ): void;
   addFlowMediaStreams(
     args: AddFlowMediaStreamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: AddFlowMediaStreamsCommandOutput) => void
   ): void;
 
@@ -597,7 +605,7 @@ export interface MediaConnect {
    */
   addFlowOutputs(
     args: AddFlowOutputsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<AddFlowOutputsCommandOutput>;
   addFlowOutputs(
     args: AddFlowOutputsCommandInput,
@@ -605,7 +613,7 @@ export interface MediaConnect {
   ): void;
   addFlowOutputs(
     args: AddFlowOutputsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: AddFlowOutputsCommandOutput) => void
   ): void;
 
@@ -614,7 +622,7 @@ export interface MediaConnect {
    */
   addFlowSources(
     args: AddFlowSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<AddFlowSourcesCommandOutput>;
   addFlowSources(
     args: AddFlowSourcesCommandInput,
@@ -622,7 +630,7 @@ export interface MediaConnect {
   ): void;
   addFlowSources(
     args: AddFlowSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: AddFlowSourcesCommandOutput) => void
   ): void;
 
@@ -631,7 +639,7 @@ export interface MediaConnect {
    */
   addFlowVpcInterfaces(
     args: AddFlowVpcInterfacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<AddFlowVpcInterfacesCommandOutput>;
   addFlowVpcInterfaces(
     args: AddFlowVpcInterfacesCommandInput,
@@ -639,7 +647,7 @@ export interface MediaConnect {
   ): void;
   addFlowVpcInterfaces(
     args: AddFlowVpcInterfacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: AddFlowVpcInterfacesCommandOutput) => void
   ): void;
 
@@ -648,7 +656,7 @@ export interface MediaConnect {
    */
   batchGetRouterInput(
     args: BatchGetRouterInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<BatchGetRouterInputCommandOutput>;
   batchGetRouterInput(
     args: BatchGetRouterInputCommandInput,
@@ -656,7 +664,7 @@ export interface MediaConnect {
   ): void;
   batchGetRouterInput(
     args: BatchGetRouterInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: BatchGetRouterInputCommandOutput) => void
   ): void;
 
@@ -665,7 +673,7 @@ export interface MediaConnect {
    */
   batchGetRouterNetworkInterface(
     args: BatchGetRouterNetworkInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<BatchGetRouterNetworkInterfaceCommandOutput>;
   batchGetRouterNetworkInterface(
     args: BatchGetRouterNetworkInterfaceCommandInput,
@@ -673,7 +681,7 @@ export interface MediaConnect {
   ): void;
   batchGetRouterNetworkInterface(
     args: BatchGetRouterNetworkInterfaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: BatchGetRouterNetworkInterfaceCommandOutput) => void
   ): void;
 
@@ -682,7 +690,7 @@ export interface MediaConnect {
    */
   batchGetRouterOutput(
     args: BatchGetRouterOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<BatchGetRouterOutputCommandOutput>;
   batchGetRouterOutput(
     args: BatchGetRouterOutputCommandInput,
@@ -690,7 +698,7 @@ export interface MediaConnect {
   ): void;
   batchGetRouterOutput(
     args: BatchGetRouterOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: BatchGetRouterOutputCommandOutput) => void
   ): void;
 
@@ -699,7 +707,7 @@ export interface MediaConnect {
    */
   createBridge(
     args: CreateBridgeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<CreateBridgeCommandOutput>;
   createBridge(
     args: CreateBridgeCommandInput,
@@ -707,7 +715,7 @@ export interface MediaConnect {
   ): void;
   createBridge(
     args: CreateBridgeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: CreateBridgeCommandOutput) => void
   ): void;
 
@@ -716,7 +724,7 @@ export interface MediaConnect {
    */
   createFlow(
     args: CreateFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<CreateFlowCommandOutput>;
   createFlow(
     args: CreateFlowCommandInput,
@@ -724,7 +732,7 @@ export interface MediaConnect {
   ): void;
   createFlow(
     args: CreateFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: CreateFlowCommandOutput) => void
   ): void;
 
@@ -733,7 +741,7 @@ export interface MediaConnect {
    */
   createGateway(
     args: CreateGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<CreateGatewayCommandOutput>;
   createGateway(
     args: CreateGatewayCommandInput,
@@ -741,7 +749,7 @@ export interface MediaConnect {
   ): void;
   createGateway(
     args: CreateGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: CreateGatewayCommandOutput) => void
   ): void;
 
@@ -750,7 +758,7 @@ export interface MediaConnect {
    */
   createRouterInput(
     args: CreateRouterInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<CreateRouterInputCommandOutput>;
   createRouterInput(
     args: CreateRouterInputCommandInput,
@@ -758,7 +766,7 @@ export interface MediaConnect {
   ): void;
   createRouterInput(
     args: CreateRouterInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: CreateRouterInputCommandOutput) => void
   ): void;
 
@@ -767,7 +775,7 @@ export interface MediaConnect {
    */
   createRouterNetworkInterface(
     args: CreateRouterNetworkInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<CreateRouterNetworkInterfaceCommandOutput>;
   createRouterNetworkInterface(
     args: CreateRouterNetworkInterfaceCommandInput,
@@ -775,7 +783,7 @@ export interface MediaConnect {
   ): void;
   createRouterNetworkInterface(
     args: CreateRouterNetworkInterfaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: CreateRouterNetworkInterfaceCommandOutput) => void
   ): void;
 
@@ -784,7 +792,7 @@ export interface MediaConnect {
    */
   createRouterOutput(
     args: CreateRouterOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<CreateRouterOutputCommandOutput>;
   createRouterOutput(
     args: CreateRouterOutputCommandInput,
@@ -792,7 +800,7 @@ export interface MediaConnect {
   ): void;
   createRouterOutput(
     args: CreateRouterOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: CreateRouterOutputCommandOutput) => void
   ): void;
 
@@ -801,7 +809,7 @@ export interface MediaConnect {
    */
   deleteBridge(
     args: DeleteBridgeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DeleteBridgeCommandOutput>;
   deleteBridge(
     args: DeleteBridgeCommandInput,
@@ -809,7 +817,7 @@ export interface MediaConnect {
   ): void;
   deleteBridge(
     args: DeleteBridgeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DeleteBridgeCommandOutput) => void
   ): void;
 
@@ -818,7 +826,7 @@ export interface MediaConnect {
    */
   deleteFlow(
     args: DeleteFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DeleteFlowCommandOutput>;
   deleteFlow(
     args: DeleteFlowCommandInput,
@@ -826,7 +834,7 @@ export interface MediaConnect {
   ): void;
   deleteFlow(
     args: DeleteFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DeleteFlowCommandOutput) => void
   ): void;
 
@@ -835,7 +843,7 @@ export interface MediaConnect {
    */
   deleteGateway(
     args: DeleteGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DeleteGatewayCommandOutput>;
   deleteGateway(
     args: DeleteGatewayCommandInput,
@@ -843,7 +851,7 @@ export interface MediaConnect {
   ): void;
   deleteGateway(
     args: DeleteGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DeleteGatewayCommandOutput) => void
   ): void;
 
@@ -852,7 +860,7 @@ export interface MediaConnect {
    */
   deleteRouterInput(
     args: DeleteRouterInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DeleteRouterInputCommandOutput>;
   deleteRouterInput(
     args: DeleteRouterInputCommandInput,
@@ -860,7 +868,7 @@ export interface MediaConnect {
   ): void;
   deleteRouterInput(
     args: DeleteRouterInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DeleteRouterInputCommandOutput) => void
   ): void;
 
@@ -869,7 +877,7 @@ export interface MediaConnect {
    */
   deleteRouterNetworkInterface(
     args: DeleteRouterNetworkInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DeleteRouterNetworkInterfaceCommandOutput>;
   deleteRouterNetworkInterface(
     args: DeleteRouterNetworkInterfaceCommandInput,
@@ -877,7 +885,7 @@ export interface MediaConnect {
   ): void;
   deleteRouterNetworkInterface(
     args: DeleteRouterNetworkInterfaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DeleteRouterNetworkInterfaceCommandOutput) => void
   ): void;
 
@@ -886,7 +894,7 @@ export interface MediaConnect {
    */
   deleteRouterOutput(
     args: DeleteRouterOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DeleteRouterOutputCommandOutput>;
   deleteRouterOutput(
     args: DeleteRouterOutputCommandInput,
@@ -894,7 +902,7 @@ export interface MediaConnect {
   ): void;
   deleteRouterOutput(
     args: DeleteRouterOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DeleteRouterOutputCommandOutput) => void
   ): void;
 
@@ -903,7 +911,7 @@ export interface MediaConnect {
    */
   deregisterGatewayInstance(
     args: DeregisterGatewayInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DeregisterGatewayInstanceCommandOutput>;
   deregisterGatewayInstance(
     args: DeregisterGatewayInstanceCommandInput,
@@ -911,7 +919,7 @@ export interface MediaConnect {
   ): void;
   deregisterGatewayInstance(
     args: DeregisterGatewayInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DeregisterGatewayInstanceCommandOutput) => void
   ): void;
 
@@ -920,7 +928,7 @@ export interface MediaConnect {
    */
   describeBridge(
     args: DescribeBridgeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DescribeBridgeCommandOutput>;
   describeBridge(
     args: DescribeBridgeCommandInput,
@@ -928,7 +936,7 @@ export interface MediaConnect {
   ): void;
   describeBridge(
     args: DescribeBridgeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DescribeBridgeCommandOutput) => void
   ): void;
 
@@ -937,7 +945,7 @@ export interface MediaConnect {
    */
   describeFlow(
     args: DescribeFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DescribeFlowCommandOutput>;
   describeFlow(
     args: DescribeFlowCommandInput,
@@ -945,7 +953,7 @@ export interface MediaConnect {
   ): void;
   describeFlow(
     args: DescribeFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DescribeFlowCommandOutput) => void
   ): void;
 
@@ -954,7 +962,7 @@ export interface MediaConnect {
    */
   describeFlowSourceMetadata(
     args: DescribeFlowSourceMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DescribeFlowSourceMetadataCommandOutput>;
   describeFlowSourceMetadata(
     args: DescribeFlowSourceMetadataCommandInput,
@@ -962,7 +970,7 @@ export interface MediaConnect {
   ): void;
   describeFlowSourceMetadata(
     args: DescribeFlowSourceMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DescribeFlowSourceMetadataCommandOutput) => void
   ): void;
 
@@ -971,7 +979,7 @@ export interface MediaConnect {
    */
   describeFlowSourceThumbnail(
     args: DescribeFlowSourceThumbnailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DescribeFlowSourceThumbnailCommandOutput>;
   describeFlowSourceThumbnail(
     args: DescribeFlowSourceThumbnailCommandInput,
@@ -979,7 +987,7 @@ export interface MediaConnect {
   ): void;
   describeFlowSourceThumbnail(
     args: DescribeFlowSourceThumbnailCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DescribeFlowSourceThumbnailCommandOutput) => void
   ): void;
 
@@ -988,7 +996,7 @@ export interface MediaConnect {
    */
   describeGateway(
     args: DescribeGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DescribeGatewayCommandOutput>;
   describeGateway(
     args: DescribeGatewayCommandInput,
@@ -996,7 +1004,7 @@ export interface MediaConnect {
   ): void;
   describeGateway(
     args: DescribeGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DescribeGatewayCommandOutput) => void
   ): void;
 
@@ -1005,7 +1013,7 @@ export interface MediaConnect {
    */
   describeGatewayInstance(
     args: DescribeGatewayInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DescribeGatewayInstanceCommandOutput>;
   describeGatewayInstance(
     args: DescribeGatewayInstanceCommandInput,
@@ -1013,7 +1021,7 @@ export interface MediaConnect {
   ): void;
   describeGatewayInstance(
     args: DescribeGatewayInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DescribeGatewayInstanceCommandOutput) => void
   ): void;
 
@@ -1022,7 +1030,7 @@ export interface MediaConnect {
    */
   describeOffering(
     args: DescribeOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DescribeOfferingCommandOutput>;
   describeOffering(
     args: DescribeOfferingCommandInput,
@@ -1030,7 +1038,7 @@ export interface MediaConnect {
   ): void;
   describeOffering(
     args: DescribeOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DescribeOfferingCommandOutput) => void
   ): void;
 
@@ -1039,7 +1047,7 @@ export interface MediaConnect {
    */
   describeReservation(
     args: DescribeReservationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<DescribeReservationCommandOutput>;
   describeReservation(
     args: DescribeReservationCommandInput,
@@ -1047,7 +1055,7 @@ export interface MediaConnect {
   ): void;
   describeReservation(
     args: DescribeReservationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: DescribeReservationCommandOutput) => void
   ): void;
 
@@ -1056,7 +1064,7 @@ export interface MediaConnect {
    */
   getRouterInput(
     args: GetRouterInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<GetRouterInputCommandOutput>;
   getRouterInput(
     args: GetRouterInputCommandInput,
@@ -1064,7 +1072,7 @@ export interface MediaConnect {
   ): void;
   getRouterInput(
     args: GetRouterInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: GetRouterInputCommandOutput) => void
   ): void;
 
@@ -1073,7 +1081,7 @@ export interface MediaConnect {
    */
   getRouterInputSourceMetadata(
     args: GetRouterInputSourceMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<GetRouterInputSourceMetadataCommandOutput>;
   getRouterInputSourceMetadata(
     args: GetRouterInputSourceMetadataCommandInput,
@@ -1081,7 +1089,7 @@ export interface MediaConnect {
   ): void;
   getRouterInputSourceMetadata(
     args: GetRouterInputSourceMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: GetRouterInputSourceMetadataCommandOutput) => void
   ): void;
 
@@ -1090,7 +1098,7 @@ export interface MediaConnect {
    */
   getRouterInputThumbnail(
     args: GetRouterInputThumbnailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<GetRouterInputThumbnailCommandOutput>;
   getRouterInputThumbnail(
     args: GetRouterInputThumbnailCommandInput,
@@ -1098,7 +1106,7 @@ export interface MediaConnect {
   ): void;
   getRouterInputThumbnail(
     args: GetRouterInputThumbnailCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: GetRouterInputThumbnailCommandOutput) => void
   ): void;
 
@@ -1107,7 +1115,7 @@ export interface MediaConnect {
    */
   getRouterNetworkInterface(
     args: GetRouterNetworkInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<GetRouterNetworkInterfaceCommandOutput>;
   getRouterNetworkInterface(
     args: GetRouterNetworkInterfaceCommandInput,
@@ -1115,7 +1123,7 @@ export interface MediaConnect {
   ): void;
   getRouterNetworkInterface(
     args: GetRouterNetworkInterfaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: GetRouterNetworkInterfaceCommandOutput) => void
   ): void;
 
@@ -1124,7 +1132,7 @@ export interface MediaConnect {
    */
   getRouterOutput(
     args: GetRouterOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<GetRouterOutputCommandOutput>;
   getRouterOutput(
     args: GetRouterOutputCommandInput,
@@ -1132,7 +1140,7 @@ export interface MediaConnect {
   ): void;
   getRouterOutput(
     args: GetRouterOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: GetRouterOutputCommandOutput) => void
   ): void;
 
@@ -1141,7 +1149,7 @@ export interface MediaConnect {
    */
   grantFlowEntitlements(
     args: GrantFlowEntitlementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<GrantFlowEntitlementsCommandOutput>;
   grantFlowEntitlements(
     args: GrantFlowEntitlementsCommandInput,
@@ -1149,7 +1157,7 @@ export interface MediaConnect {
   ): void;
   grantFlowEntitlements(
     args: GrantFlowEntitlementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: GrantFlowEntitlementsCommandOutput) => void
   ): void;
 
@@ -1159,7 +1167,7 @@ export interface MediaConnect {
   listBridges(): Promise<ListBridgesCommandOutput>;
   listBridges(
     args: ListBridgesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListBridgesCommandOutput>;
   listBridges(
     args: ListBridgesCommandInput,
@@ -1167,7 +1175,7 @@ export interface MediaConnect {
   ): void;
   listBridges(
     args: ListBridgesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListBridgesCommandOutput) => void
   ): void;
 
@@ -1177,7 +1185,7 @@ export interface MediaConnect {
   listEntitlements(): Promise<ListEntitlementsCommandOutput>;
   listEntitlements(
     args: ListEntitlementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListEntitlementsCommandOutput>;
   listEntitlements(
     args: ListEntitlementsCommandInput,
@@ -1185,7 +1193,7 @@ export interface MediaConnect {
   ): void;
   listEntitlements(
     args: ListEntitlementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListEntitlementsCommandOutput) => void
   ): void;
 
@@ -1195,7 +1203,7 @@ export interface MediaConnect {
   listFlows(): Promise<ListFlowsCommandOutput>;
   listFlows(
     args: ListFlowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListFlowsCommandOutput>;
   listFlows(
     args: ListFlowsCommandInput,
@@ -1203,7 +1211,7 @@ export interface MediaConnect {
   ): void;
   listFlows(
     args: ListFlowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListFlowsCommandOutput) => void
   ): void;
 
@@ -1213,7 +1221,7 @@ export interface MediaConnect {
   listGatewayInstances(): Promise<ListGatewayInstancesCommandOutput>;
   listGatewayInstances(
     args: ListGatewayInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListGatewayInstancesCommandOutput>;
   listGatewayInstances(
     args: ListGatewayInstancesCommandInput,
@@ -1221,7 +1229,7 @@ export interface MediaConnect {
   ): void;
   listGatewayInstances(
     args: ListGatewayInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListGatewayInstancesCommandOutput) => void
   ): void;
 
@@ -1231,7 +1239,7 @@ export interface MediaConnect {
   listGateways(): Promise<ListGatewaysCommandOutput>;
   listGateways(
     args: ListGatewaysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListGatewaysCommandOutput>;
   listGateways(
     args: ListGatewaysCommandInput,
@@ -1239,7 +1247,7 @@ export interface MediaConnect {
   ): void;
   listGateways(
     args: ListGatewaysCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListGatewaysCommandOutput) => void
   ): void;
 
@@ -1249,7 +1257,7 @@ export interface MediaConnect {
   listOfferings(): Promise<ListOfferingsCommandOutput>;
   listOfferings(
     args: ListOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListOfferingsCommandOutput>;
   listOfferings(
     args: ListOfferingsCommandInput,
@@ -1257,7 +1265,7 @@ export interface MediaConnect {
   ): void;
   listOfferings(
     args: ListOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListOfferingsCommandOutput) => void
   ): void;
 
@@ -1267,7 +1275,7 @@ export interface MediaConnect {
   listReservations(): Promise<ListReservationsCommandOutput>;
   listReservations(
     args: ListReservationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListReservationsCommandOutput>;
   listReservations(
     args: ListReservationsCommandInput,
@@ -1275,7 +1283,7 @@ export interface MediaConnect {
   ): void;
   listReservations(
     args: ListReservationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListReservationsCommandOutput) => void
   ): void;
 
@@ -1285,7 +1293,7 @@ export interface MediaConnect {
   listRouterInputs(): Promise<ListRouterInputsCommandOutput>;
   listRouterInputs(
     args: ListRouterInputsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListRouterInputsCommandOutput>;
   listRouterInputs(
     args: ListRouterInputsCommandInput,
@@ -1293,7 +1301,7 @@ export interface MediaConnect {
   ): void;
   listRouterInputs(
     args: ListRouterInputsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListRouterInputsCommandOutput) => void
   ): void;
 
@@ -1303,7 +1311,7 @@ export interface MediaConnect {
   listRouterNetworkInterfaces(): Promise<ListRouterNetworkInterfacesCommandOutput>;
   listRouterNetworkInterfaces(
     args: ListRouterNetworkInterfacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListRouterNetworkInterfacesCommandOutput>;
   listRouterNetworkInterfaces(
     args: ListRouterNetworkInterfacesCommandInput,
@@ -1311,7 +1319,7 @@ export interface MediaConnect {
   ): void;
   listRouterNetworkInterfaces(
     args: ListRouterNetworkInterfacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListRouterNetworkInterfacesCommandOutput) => void
   ): void;
 
@@ -1321,7 +1329,7 @@ export interface MediaConnect {
   listRouterOutputs(): Promise<ListRouterOutputsCommandOutput>;
   listRouterOutputs(
     args: ListRouterOutputsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListRouterOutputsCommandOutput>;
   listRouterOutputs(
     args: ListRouterOutputsCommandInput,
@@ -1329,7 +1337,7 @@ export interface MediaConnect {
   ): void;
   listRouterOutputs(
     args: ListRouterOutputsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListRouterOutputsCommandOutput) => void
   ): void;
 
@@ -1338,7 +1346,7 @@ export interface MediaConnect {
    */
   listTagsForGlobalResource(
     args: ListTagsForGlobalResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListTagsForGlobalResourceCommandOutput>;
   listTagsForGlobalResource(
     args: ListTagsForGlobalResourceCommandInput,
@@ -1346,7 +1354,7 @@ export interface MediaConnect {
   ): void;
   listTagsForGlobalResource(
     args: ListTagsForGlobalResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListTagsForGlobalResourceCommandOutput) => void
   ): void;
 
@@ -1355,7 +1363,7 @@ export interface MediaConnect {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1363,7 +1371,7 @@ export interface MediaConnect {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1372,7 +1380,7 @@ export interface MediaConnect {
    */
   purchaseOffering(
     args: PurchaseOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<PurchaseOfferingCommandOutput>;
   purchaseOffering(
     args: PurchaseOfferingCommandInput,
@@ -1380,7 +1388,7 @@ export interface MediaConnect {
   ): void;
   purchaseOffering(
     args: PurchaseOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: PurchaseOfferingCommandOutput) => void
   ): void;
 
@@ -1389,7 +1397,7 @@ export interface MediaConnect {
    */
   removeBridgeOutput(
     args: RemoveBridgeOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<RemoveBridgeOutputCommandOutput>;
   removeBridgeOutput(
     args: RemoveBridgeOutputCommandInput,
@@ -1397,7 +1405,7 @@ export interface MediaConnect {
   ): void;
   removeBridgeOutput(
     args: RemoveBridgeOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: RemoveBridgeOutputCommandOutput) => void
   ): void;
 
@@ -1406,7 +1414,7 @@ export interface MediaConnect {
    */
   removeBridgeSource(
     args: RemoveBridgeSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<RemoveBridgeSourceCommandOutput>;
   removeBridgeSource(
     args: RemoveBridgeSourceCommandInput,
@@ -1414,7 +1422,7 @@ export interface MediaConnect {
   ): void;
   removeBridgeSource(
     args: RemoveBridgeSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: RemoveBridgeSourceCommandOutput) => void
   ): void;
 
@@ -1423,7 +1431,7 @@ export interface MediaConnect {
    */
   removeFlowMediaStream(
     args: RemoveFlowMediaStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<RemoveFlowMediaStreamCommandOutput>;
   removeFlowMediaStream(
     args: RemoveFlowMediaStreamCommandInput,
@@ -1431,7 +1439,7 @@ export interface MediaConnect {
   ): void;
   removeFlowMediaStream(
     args: RemoveFlowMediaStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: RemoveFlowMediaStreamCommandOutput) => void
   ): void;
 
@@ -1440,7 +1448,7 @@ export interface MediaConnect {
    */
   removeFlowOutput(
     args: RemoveFlowOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<RemoveFlowOutputCommandOutput>;
   removeFlowOutput(
     args: RemoveFlowOutputCommandInput,
@@ -1448,7 +1456,7 @@ export interface MediaConnect {
   ): void;
   removeFlowOutput(
     args: RemoveFlowOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: RemoveFlowOutputCommandOutput) => void
   ): void;
 
@@ -1457,7 +1465,7 @@ export interface MediaConnect {
    */
   removeFlowSource(
     args: RemoveFlowSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<RemoveFlowSourceCommandOutput>;
   removeFlowSource(
     args: RemoveFlowSourceCommandInput,
@@ -1465,7 +1473,7 @@ export interface MediaConnect {
   ): void;
   removeFlowSource(
     args: RemoveFlowSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: RemoveFlowSourceCommandOutput) => void
   ): void;
 
@@ -1474,7 +1482,7 @@ export interface MediaConnect {
    */
   removeFlowVpcInterface(
     args: RemoveFlowVpcInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<RemoveFlowVpcInterfaceCommandOutput>;
   removeFlowVpcInterface(
     args: RemoveFlowVpcInterfaceCommandInput,
@@ -1482,7 +1490,7 @@ export interface MediaConnect {
   ): void;
   removeFlowVpcInterface(
     args: RemoveFlowVpcInterfaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: RemoveFlowVpcInterfaceCommandOutput) => void
   ): void;
 
@@ -1491,7 +1499,7 @@ export interface MediaConnect {
    */
   restartRouterInput(
     args: RestartRouterInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<RestartRouterInputCommandOutput>;
   restartRouterInput(
     args: RestartRouterInputCommandInput,
@@ -1499,7 +1507,7 @@ export interface MediaConnect {
   ): void;
   restartRouterInput(
     args: RestartRouterInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: RestartRouterInputCommandOutput) => void
   ): void;
 
@@ -1508,7 +1516,7 @@ export interface MediaConnect {
    */
   restartRouterOutput(
     args: RestartRouterOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<RestartRouterOutputCommandOutput>;
   restartRouterOutput(
     args: RestartRouterOutputCommandInput,
@@ -1516,7 +1524,7 @@ export interface MediaConnect {
   ): void;
   restartRouterOutput(
     args: RestartRouterOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: RestartRouterOutputCommandOutput) => void
   ): void;
 
@@ -1525,7 +1533,7 @@ export interface MediaConnect {
    */
   revokeFlowEntitlement(
     args: RevokeFlowEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<RevokeFlowEntitlementCommandOutput>;
   revokeFlowEntitlement(
     args: RevokeFlowEntitlementCommandInput,
@@ -1533,7 +1541,7 @@ export interface MediaConnect {
   ): void;
   revokeFlowEntitlement(
     args: RevokeFlowEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: RevokeFlowEntitlementCommandOutput) => void
   ): void;
 
@@ -1542,7 +1550,7 @@ export interface MediaConnect {
    */
   startFlow(
     args: StartFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<StartFlowCommandOutput>;
   startFlow(
     args: StartFlowCommandInput,
@@ -1550,7 +1558,7 @@ export interface MediaConnect {
   ): void;
   startFlow(
     args: StartFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: StartFlowCommandOutput) => void
   ): void;
 
@@ -1559,7 +1567,7 @@ export interface MediaConnect {
    */
   startRouterInput(
     args: StartRouterInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<StartRouterInputCommandOutput>;
   startRouterInput(
     args: StartRouterInputCommandInput,
@@ -1567,7 +1575,7 @@ export interface MediaConnect {
   ): void;
   startRouterInput(
     args: StartRouterInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: StartRouterInputCommandOutput) => void
   ): void;
 
@@ -1576,7 +1584,7 @@ export interface MediaConnect {
    */
   startRouterOutput(
     args: StartRouterOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<StartRouterOutputCommandOutput>;
   startRouterOutput(
     args: StartRouterOutputCommandInput,
@@ -1584,7 +1592,7 @@ export interface MediaConnect {
   ): void;
   startRouterOutput(
     args: StartRouterOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: StartRouterOutputCommandOutput) => void
   ): void;
 
@@ -1593,7 +1601,7 @@ export interface MediaConnect {
    */
   stopFlow(
     args: StopFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<StopFlowCommandOutput>;
   stopFlow(
     args: StopFlowCommandInput,
@@ -1601,7 +1609,7 @@ export interface MediaConnect {
   ): void;
   stopFlow(
     args: StopFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: StopFlowCommandOutput) => void
   ): void;
 
@@ -1610,7 +1618,7 @@ export interface MediaConnect {
    */
   stopRouterInput(
     args: StopRouterInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<StopRouterInputCommandOutput>;
   stopRouterInput(
     args: StopRouterInputCommandInput,
@@ -1618,7 +1626,7 @@ export interface MediaConnect {
   ): void;
   stopRouterInput(
     args: StopRouterInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: StopRouterInputCommandOutput) => void
   ): void;
 
@@ -1627,7 +1635,7 @@ export interface MediaConnect {
    */
   stopRouterOutput(
     args: StopRouterOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<StopRouterOutputCommandOutput>;
   stopRouterOutput(
     args: StopRouterOutputCommandInput,
@@ -1635,7 +1643,7 @@ export interface MediaConnect {
   ): void;
   stopRouterOutput(
     args: StopRouterOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: StopRouterOutputCommandOutput) => void
   ): void;
 
@@ -1644,7 +1652,7 @@ export interface MediaConnect {
    */
   tagGlobalResource(
     args: TagGlobalResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<TagGlobalResourceCommandOutput>;
   tagGlobalResource(
     args: TagGlobalResourceCommandInput,
@@ -1652,7 +1660,7 @@ export interface MediaConnect {
   ): void;
   tagGlobalResource(
     args: TagGlobalResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: TagGlobalResourceCommandOutput) => void
   ): void;
 
@@ -1661,7 +1669,7 @@ export interface MediaConnect {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1669,7 +1677,7 @@ export interface MediaConnect {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1678,7 +1686,7 @@ export interface MediaConnect {
    */
   takeRouterInput(
     args: TakeRouterInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<TakeRouterInputCommandOutput>;
   takeRouterInput(
     args: TakeRouterInputCommandInput,
@@ -1686,7 +1694,7 @@ export interface MediaConnect {
   ): void;
   takeRouterInput(
     args: TakeRouterInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: TakeRouterInputCommandOutput) => void
   ): void;
 
@@ -1695,7 +1703,7 @@ export interface MediaConnect {
    */
   untagGlobalResource(
     args: UntagGlobalResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UntagGlobalResourceCommandOutput>;
   untagGlobalResource(
     args: UntagGlobalResourceCommandInput,
@@ -1703,7 +1711,7 @@ export interface MediaConnect {
   ): void;
   untagGlobalResource(
     args: UntagGlobalResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UntagGlobalResourceCommandOutput) => void
   ): void;
 
@@ -1712,7 +1720,7 @@ export interface MediaConnect {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1720,7 +1728,7 @@ export interface MediaConnect {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1729,7 +1737,7 @@ export interface MediaConnect {
    */
   updateBridge(
     args: UpdateBridgeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateBridgeCommandOutput>;
   updateBridge(
     args: UpdateBridgeCommandInput,
@@ -1737,7 +1745,7 @@ export interface MediaConnect {
   ): void;
   updateBridge(
     args: UpdateBridgeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateBridgeCommandOutput) => void
   ): void;
 
@@ -1746,7 +1754,7 @@ export interface MediaConnect {
    */
   updateBridgeOutput(
     args: UpdateBridgeOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateBridgeOutputCommandOutput>;
   updateBridgeOutput(
     args: UpdateBridgeOutputCommandInput,
@@ -1754,7 +1762,7 @@ export interface MediaConnect {
   ): void;
   updateBridgeOutput(
     args: UpdateBridgeOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateBridgeOutputCommandOutput) => void
   ): void;
 
@@ -1763,7 +1771,7 @@ export interface MediaConnect {
    */
   updateBridgeSource(
     args: UpdateBridgeSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateBridgeSourceCommandOutput>;
   updateBridgeSource(
     args: UpdateBridgeSourceCommandInput,
@@ -1771,7 +1779,7 @@ export interface MediaConnect {
   ): void;
   updateBridgeSource(
     args: UpdateBridgeSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateBridgeSourceCommandOutput) => void
   ): void;
 
@@ -1780,7 +1788,7 @@ export interface MediaConnect {
    */
   updateBridgeState(
     args: UpdateBridgeStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateBridgeStateCommandOutput>;
   updateBridgeState(
     args: UpdateBridgeStateCommandInput,
@@ -1788,7 +1796,7 @@ export interface MediaConnect {
   ): void;
   updateBridgeState(
     args: UpdateBridgeStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateBridgeStateCommandOutput) => void
   ): void;
 
@@ -1797,7 +1805,7 @@ export interface MediaConnect {
    */
   updateFlow(
     args: UpdateFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateFlowCommandOutput>;
   updateFlow(
     args: UpdateFlowCommandInput,
@@ -1805,7 +1813,7 @@ export interface MediaConnect {
   ): void;
   updateFlow(
     args: UpdateFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateFlowCommandOutput) => void
   ): void;
 
@@ -1814,7 +1822,7 @@ export interface MediaConnect {
    */
   updateFlowEntitlement(
     args: UpdateFlowEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateFlowEntitlementCommandOutput>;
   updateFlowEntitlement(
     args: UpdateFlowEntitlementCommandInput,
@@ -1822,7 +1830,7 @@ export interface MediaConnect {
   ): void;
   updateFlowEntitlement(
     args: UpdateFlowEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateFlowEntitlementCommandOutput) => void
   ): void;
 
@@ -1831,7 +1839,7 @@ export interface MediaConnect {
    */
   updateFlowMediaStream(
     args: UpdateFlowMediaStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateFlowMediaStreamCommandOutput>;
   updateFlowMediaStream(
     args: UpdateFlowMediaStreamCommandInput,
@@ -1839,7 +1847,7 @@ export interface MediaConnect {
   ): void;
   updateFlowMediaStream(
     args: UpdateFlowMediaStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateFlowMediaStreamCommandOutput) => void
   ): void;
 
@@ -1848,7 +1856,7 @@ export interface MediaConnect {
    */
   updateFlowOutput(
     args: UpdateFlowOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateFlowOutputCommandOutput>;
   updateFlowOutput(
     args: UpdateFlowOutputCommandInput,
@@ -1856,7 +1864,7 @@ export interface MediaConnect {
   ): void;
   updateFlowOutput(
     args: UpdateFlowOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateFlowOutputCommandOutput) => void
   ): void;
 
@@ -1865,7 +1873,7 @@ export interface MediaConnect {
    */
   updateFlowSource(
     args: UpdateFlowSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateFlowSourceCommandOutput>;
   updateFlowSource(
     args: UpdateFlowSourceCommandInput,
@@ -1873,7 +1881,7 @@ export interface MediaConnect {
   ): void;
   updateFlowSource(
     args: UpdateFlowSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateFlowSourceCommandOutput) => void
   ): void;
 
@@ -1882,7 +1890,7 @@ export interface MediaConnect {
    */
   updateGatewayInstance(
     args: UpdateGatewayInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateGatewayInstanceCommandOutput>;
   updateGatewayInstance(
     args: UpdateGatewayInstanceCommandInput,
@@ -1890,7 +1898,7 @@ export interface MediaConnect {
   ): void;
   updateGatewayInstance(
     args: UpdateGatewayInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateGatewayInstanceCommandOutput) => void
   ): void;
 
@@ -1899,7 +1907,7 @@ export interface MediaConnect {
    */
   updateRouterInput(
     args: UpdateRouterInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateRouterInputCommandOutput>;
   updateRouterInput(
     args: UpdateRouterInputCommandInput,
@@ -1907,7 +1915,7 @@ export interface MediaConnect {
   ): void;
   updateRouterInput(
     args: UpdateRouterInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateRouterInputCommandOutput) => void
   ): void;
 
@@ -1916,7 +1924,7 @@ export interface MediaConnect {
    */
   updateRouterNetworkInterface(
     args: UpdateRouterNetworkInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateRouterNetworkInterfaceCommandOutput>;
   updateRouterNetworkInterface(
     args: UpdateRouterNetworkInterfaceCommandInput,
@@ -1924,7 +1932,7 @@ export interface MediaConnect {
   ): void;
   updateRouterNetworkInterface(
     args: UpdateRouterNetworkInterfaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateRouterNetworkInterfaceCommandOutput) => void
   ): void;
 
@@ -1933,7 +1941,7 @@ export interface MediaConnect {
    */
   updateRouterOutput(
     args: UpdateRouterOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaConnectRequestOptions
   ): Promise<UpdateRouterOutputCommandOutput>;
   updateRouterOutput(
     args: UpdateRouterOutputCommandInput,
@@ -1941,7 +1949,7 @@ export interface MediaConnect {
   ): void;
   updateRouterOutput(
     args: UpdateRouterOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaConnectRequestOptions,
     cb: (err: any, data?: UpdateRouterOutputCommandOutput) => void
   ): void;
 

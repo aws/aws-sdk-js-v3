@@ -215,10 +215,10 @@ import {
 import { ServiceQuotasServiceException } from "../models/ServiceQuotasServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var ServiceQuotasServiceException$: StaticErrorSchema = [-3, _s, "ServiceQuotasServiceException", 0, [], []];
 _s_registry.registerError(ServiceQuotasServiceException$, ServiceQuotasServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],

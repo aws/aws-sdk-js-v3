@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateCreatedArtifactCommandInput,
@@ -149,13 +154,20 @@ const paginators = {
   paginateListSourceResources,
 };
 
+/**
+ * @public
+ */
+export interface MigrationHubRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MigrationHub {
   /**
    * @see {@link AssociateCreatedArtifactCommand}
    */
   associateCreatedArtifact(
     args: AssociateCreatedArtifactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<AssociateCreatedArtifactCommandOutput>;
   associateCreatedArtifact(
     args: AssociateCreatedArtifactCommandInput,
@@ -163,7 +175,7 @@ export interface MigrationHub {
   ): void;
   associateCreatedArtifact(
     args: AssociateCreatedArtifactCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: AssociateCreatedArtifactCommandOutput) => void
   ): void;
 
@@ -172,7 +184,7 @@ export interface MigrationHub {
    */
   associateDiscoveredResource(
     args: AssociateDiscoveredResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<AssociateDiscoveredResourceCommandOutput>;
   associateDiscoveredResource(
     args: AssociateDiscoveredResourceCommandInput,
@@ -180,7 +192,7 @@ export interface MigrationHub {
   ): void;
   associateDiscoveredResource(
     args: AssociateDiscoveredResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: AssociateDiscoveredResourceCommandOutput) => void
   ): void;
 
@@ -189,7 +201,7 @@ export interface MigrationHub {
    */
   associateSourceResource(
     args: AssociateSourceResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<AssociateSourceResourceCommandOutput>;
   associateSourceResource(
     args: AssociateSourceResourceCommandInput,
@@ -197,7 +209,7 @@ export interface MigrationHub {
   ): void;
   associateSourceResource(
     args: AssociateSourceResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: AssociateSourceResourceCommandOutput) => void
   ): void;
 
@@ -206,7 +218,7 @@ export interface MigrationHub {
    */
   createProgressUpdateStream(
     args: CreateProgressUpdateStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<CreateProgressUpdateStreamCommandOutput>;
   createProgressUpdateStream(
     args: CreateProgressUpdateStreamCommandInput,
@@ -214,7 +226,7 @@ export interface MigrationHub {
   ): void;
   createProgressUpdateStream(
     args: CreateProgressUpdateStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: CreateProgressUpdateStreamCommandOutput) => void
   ): void;
 
@@ -223,7 +235,7 @@ export interface MigrationHub {
    */
   deleteProgressUpdateStream(
     args: DeleteProgressUpdateStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<DeleteProgressUpdateStreamCommandOutput>;
   deleteProgressUpdateStream(
     args: DeleteProgressUpdateStreamCommandInput,
@@ -231,7 +243,7 @@ export interface MigrationHub {
   ): void;
   deleteProgressUpdateStream(
     args: DeleteProgressUpdateStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: DeleteProgressUpdateStreamCommandOutput) => void
   ): void;
 
@@ -240,7 +252,7 @@ export interface MigrationHub {
    */
   describeApplicationState(
     args: DescribeApplicationStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<DescribeApplicationStateCommandOutput>;
   describeApplicationState(
     args: DescribeApplicationStateCommandInput,
@@ -248,7 +260,7 @@ export interface MigrationHub {
   ): void;
   describeApplicationState(
     args: DescribeApplicationStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: DescribeApplicationStateCommandOutput) => void
   ): void;
 
@@ -257,7 +269,7 @@ export interface MigrationHub {
    */
   describeMigrationTask(
     args: DescribeMigrationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<DescribeMigrationTaskCommandOutput>;
   describeMigrationTask(
     args: DescribeMigrationTaskCommandInput,
@@ -265,7 +277,7 @@ export interface MigrationHub {
   ): void;
   describeMigrationTask(
     args: DescribeMigrationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: DescribeMigrationTaskCommandOutput) => void
   ): void;
 
@@ -274,7 +286,7 @@ export interface MigrationHub {
    */
   disassociateCreatedArtifact(
     args: DisassociateCreatedArtifactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<DisassociateCreatedArtifactCommandOutput>;
   disassociateCreatedArtifact(
     args: DisassociateCreatedArtifactCommandInput,
@@ -282,7 +294,7 @@ export interface MigrationHub {
   ): void;
   disassociateCreatedArtifact(
     args: DisassociateCreatedArtifactCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: DisassociateCreatedArtifactCommandOutput) => void
   ): void;
 
@@ -291,7 +303,7 @@ export interface MigrationHub {
    */
   disassociateDiscoveredResource(
     args: DisassociateDiscoveredResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<DisassociateDiscoveredResourceCommandOutput>;
   disassociateDiscoveredResource(
     args: DisassociateDiscoveredResourceCommandInput,
@@ -299,7 +311,7 @@ export interface MigrationHub {
   ): void;
   disassociateDiscoveredResource(
     args: DisassociateDiscoveredResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: DisassociateDiscoveredResourceCommandOutput) => void
   ): void;
 
@@ -308,7 +320,7 @@ export interface MigrationHub {
    */
   disassociateSourceResource(
     args: DisassociateSourceResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<DisassociateSourceResourceCommandOutput>;
   disassociateSourceResource(
     args: DisassociateSourceResourceCommandInput,
@@ -316,7 +328,7 @@ export interface MigrationHub {
   ): void;
   disassociateSourceResource(
     args: DisassociateSourceResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: DisassociateSourceResourceCommandOutput) => void
   ): void;
 
@@ -325,7 +337,7 @@ export interface MigrationHub {
    */
   importMigrationTask(
     args: ImportMigrationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<ImportMigrationTaskCommandOutput>;
   importMigrationTask(
     args: ImportMigrationTaskCommandInput,
@@ -333,7 +345,7 @@ export interface MigrationHub {
   ): void;
   importMigrationTask(
     args: ImportMigrationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: ImportMigrationTaskCommandOutput) => void
   ): void;
 
@@ -343,7 +355,7 @@ export interface MigrationHub {
   listApplicationStates(): Promise<ListApplicationStatesCommandOutput>;
   listApplicationStates(
     args: ListApplicationStatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<ListApplicationStatesCommandOutput>;
   listApplicationStates(
     args: ListApplicationStatesCommandInput,
@@ -351,7 +363,7 @@ export interface MigrationHub {
   ): void;
   listApplicationStates(
     args: ListApplicationStatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: ListApplicationStatesCommandOutput) => void
   ): void;
 
@@ -360,7 +372,7 @@ export interface MigrationHub {
    */
   listCreatedArtifacts(
     args: ListCreatedArtifactsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<ListCreatedArtifactsCommandOutput>;
   listCreatedArtifacts(
     args: ListCreatedArtifactsCommandInput,
@@ -368,7 +380,7 @@ export interface MigrationHub {
   ): void;
   listCreatedArtifacts(
     args: ListCreatedArtifactsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: ListCreatedArtifactsCommandOutput) => void
   ): void;
 
@@ -377,7 +389,7 @@ export interface MigrationHub {
    */
   listDiscoveredResources(
     args: ListDiscoveredResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<ListDiscoveredResourcesCommandOutput>;
   listDiscoveredResources(
     args: ListDiscoveredResourcesCommandInput,
@@ -385,7 +397,7 @@ export interface MigrationHub {
   ): void;
   listDiscoveredResources(
     args: ListDiscoveredResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: ListDiscoveredResourcesCommandOutput) => void
   ): void;
 
@@ -395,7 +407,7 @@ export interface MigrationHub {
   listMigrationTasks(): Promise<ListMigrationTasksCommandOutput>;
   listMigrationTasks(
     args: ListMigrationTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<ListMigrationTasksCommandOutput>;
   listMigrationTasks(
     args: ListMigrationTasksCommandInput,
@@ -403,7 +415,7 @@ export interface MigrationHub {
   ): void;
   listMigrationTasks(
     args: ListMigrationTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: ListMigrationTasksCommandOutput) => void
   ): void;
 
@@ -412,7 +424,7 @@ export interface MigrationHub {
    */
   listMigrationTaskUpdates(
     args: ListMigrationTaskUpdatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<ListMigrationTaskUpdatesCommandOutput>;
   listMigrationTaskUpdates(
     args: ListMigrationTaskUpdatesCommandInput,
@@ -420,7 +432,7 @@ export interface MigrationHub {
   ): void;
   listMigrationTaskUpdates(
     args: ListMigrationTaskUpdatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: ListMigrationTaskUpdatesCommandOutput) => void
   ): void;
 
@@ -430,7 +442,7 @@ export interface MigrationHub {
   listProgressUpdateStreams(): Promise<ListProgressUpdateStreamsCommandOutput>;
   listProgressUpdateStreams(
     args: ListProgressUpdateStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<ListProgressUpdateStreamsCommandOutput>;
   listProgressUpdateStreams(
     args: ListProgressUpdateStreamsCommandInput,
@@ -438,7 +450,7 @@ export interface MigrationHub {
   ): void;
   listProgressUpdateStreams(
     args: ListProgressUpdateStreamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: ListProgressUpdateStreamsCommandOutput) => void
   ): void;
 
@@ -447,7 +459,7 @@ export interface MigrationHub {
    */
   listSourceResources(
     args: ListSourceResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<ListSourceResourcesCommandOutput>;
   listSourceResources(
     args: ListSourceResourcesCommandInput,
@@ -455,7 +467,7 @@ export interface MigrationHub {
   ): void;
   listSourceResources(
     args: ListSourceResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: ListSourceResourcesCommandOutput) => void
   ): void;
 
@@ -464,7 +476,7 @@ export interface MigrationHub {
    */
   notifyApplicationState(
     args: NotifyApplicationStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<NotifyApplicationStateCommandOutput>;
   notifyApplicationState(
     args: NotifyApplicationStateCommandInput,
@@ -472,7 +484,7 @@ export interface MigrationHub {
   ): void;
   notifyApplicationState(
     args: NotifyApplicationStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: NotifyApplicationStateCommandOutput) => void
   ): void;
 
@@ -481,7 +493,7 @@ export interface MigrationHub {
    */
   notifyMigrationTaskState(
     args: NotifyMigrationTaskStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<NotifyMigrationTaskStateCommandOutput>;
   notifyMigrationTaskState(
     args: NotifyMigrationTaskStateCommandInput,
@@ -489,7 +501,7 @@ export interface MigrationHub {
   ): void;
   notifyMigrationTaskState(
     args: NotifyMigrationTaskStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: NotifyMigrationTaskStateCommandOutput) => void
   ): void;
 
@@ -498,7 +510,7 @@ export interface MigrationHub {
    */
   putResourceAttributes(
     args: PutResourceAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRequestOptions
   ): Promise<PutResourceAttributesCommandOutput>;
   putResourceAttributes(
     args: PutResourceAttributesCommandInput,
@@ -506,7 +518,7 @@ export interface MigrationHub {
   ): void;
   putResourceAttributes(
     args: PutResourceAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRequestOptions,
     cb: (err: any, data?: PutResourceAttributesCommandOutput) => void
   ): void;
 

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type DatetimeOffsetsCommandInput,
@@ -145,6 +145,13 @@ const commands = {
   XmlTimestampsCommand,
 };
 
+/**
+ * @public
+ */
+export interface EC2ProtocolRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface EC2Protocol {
   /**
    * @see {@link DatetimeOffsetsCommand}
@@ -152,7 +159,7 @@ export interface EC2Protocol {
   datetimeOffsets(): Promise<DatetimeOffsetsCommandOutput>;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<DatetimeOffsetsCommandOutput>;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
@@ -160,7 +167,7 @@ export interface EC2Protocol {
   ): void;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
   ): void;
 
@@ -170,7 +177,7 @@ export interface EC2Protocol {
   emptyInputAndEmptyOutput(): Promise<EmptyInputAndEmptyOutputCommandOutput>;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<EmptyInputAndEmptyOutputCommandOutput>;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
@@ -178,7 +185,7 @@ export interface EC2Protocol {
   ): void;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: EmptyInputAndEmptyOutputCommandOutput) => void
   ): void;
 
@@ -188,7 +195,7 @@ export interface EC2Protocol {
   endpointOperation(): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
@@ -196,7 +203,7 @@ export interface EC2Protocol {
   ): void;
   endpointOperation(
     args: EndpointOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: EndpointOperationCommandOutput) => void
   ): void;
 
@@ -205,7 +212,7 @@ export interface EC2Protocol {
    */
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<EndpointWithHostLabelOperationCommandOutput>;
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
@@ -213,7 +220,7 @@ export interface EC2Protocol {
   ): void;
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
   ): void;
 
@@ -223,7 +230,7 @@ export interface EC2Protocol {
   fractionalSeconds(): Promise<FractionalSecondsCommandOutput>;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<FractionalSecondsCommandOutput>;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
@@ -231,7 +238,7 @@ export interface EC2Protocol {
   ): void;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: FractionalSecondsCommandOutput) => void
   ): void;
 
@@ -241,7 +248,7 @@ export interface EC2Protocol {
   greetingWithErrors(): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
@@ -249,7 +256,7 @@ export interface EC2Protocol {
   ): void;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: GreetingWithErrorsCommandOutput) => void
   ): void;
 
@@ -259,7 +266,7 @@ export interface EC2Protocol {
   hostWithPathOperation(): Promise<HostWithPathOperationCommandOutput>;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<HostWithPathOperationCommandOutput>;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
@@ -267,7 +274,7 @@ export interface EC2Protocol {
   ): void;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: HostWithPathOperationCommandOutput) => void
   ): void;
 
@@ -277,7 +284,7 @@ export interface EC2Protocol {
   ignoresWrappingXmlName(): Promise<IgnoresWrappingXmlNameCommandOutput>;
   ignoresWrappingXmlName(
     args: IgnoresWrappingXmlNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<IgnoresWrappingXmlNameCommandOutput>;
   ignoresWrappingXmlName(
     args: IgnoresWrappingXmlNameCommandInput,
@@ -285,7 +292,7 @@ export interface EC2Protocol {
   ): void;
   ignoresWrappingXmlName(
     args: IgnoresWrappingXmlNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: IgnoresWrappingXmlNameCommandOutput) => void
   ): void;
 
@@ -295,7 +302,7 @@ export interface EC2Protocol {
   nestedStructures(): Promise<NestedStructuresCommandOutput>;
   nestedStructures(
     args: NestedStructuresCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<NestedStructuresCommandOutput>;
   nestedStructures(
     args: NestedStructuresCommandInput,
@@ -303,7 +310,7 @@ export interface EC2Protocol {
   ): void;
   nestedStructures(
     args: NestedStructuresCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: NestedStructuresCommandOutput) => void
   ): void;
 
@@ -313,7 +320,7 @@ export interface EC2Protocol {
   noInputAndOutput(): Promise<NoInputAndOutputCommandOutput>;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<NoInputAndOutputCommandOutput>;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
@@ -321,7 +328,7 @@ export interface EC2Protocol {
   ): void;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: NoInputAndOutputCommandOutput) => void
   ): void;
 
@@ -331,7 +338,7 @@ export interface EC2Protocol {
   putWithContentEncoding(): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
@@ -339,7 +346,7 @@ export interface EC2Protocol {
   ): void;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
   ): void;
 
@@ -349,7 +356,7 @@ export interface EC2Protocol {
   queryIdempotencyTokenAutoFill(): Promise<QueryIdempotencyTokenAutoFillCommandOutput>;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput>;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
@@ -357,7 +364,7 @@ export interface EC2Protocol {
   ): void;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: QueryIdempotencyTokenAutoFillCommandOutput) => void
   ): void;
 
@@ -367,7 +374,7 @@ export interface EC2Protocol {
   queryLists(): Promise<QueryListsCommandOutput>;
   queryLists(
     args: QueryListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<QueryListsCommandOutput>;
   queryLists(
     args: QueryListsCommandInput,
@@ -375,7 +382,7 @@ export interface EC2Protocol {
   ): void;
   queryLists(
     args: QueryListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: QueryListsCommandOutput) => void
   ): void;
 
@@ -385,7 +392,7 @@ export interface EC2Protocol {
   queryTimestamps(): Promise<QueryTimestampsCommandOutput>;
   queryTimestamps(
     args: QueryTimestampsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<QueryTimestampsCommandOutput>;
   queryTimestamps(
     args: QueryTimestampsCommandInput,
@@ -393,7 +400,7 @@ export interface EC2Protocol {
   ): void;
   queryTimestamps(
     args: QueryTimestampsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: QueryTimestampsCommandOutput) => void
   ): void;
 
@@ -403,7 +410,7 @@ export interface EC2Protocol {
   recursiveXmlShapes(): Promise<RecursiveXmlShapesCommandOutput>;
   recursiveXmlShapes(
     args: RecursiveXmlShapesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<RecursiveXmlShapesCommandOutput>;
   recursiveXmlShapes(
     args: RecursiveXmlShapesCommandInput,
@@ -411,7 +418,7 @@ export interface EC2Protocol {
   ): void;
   recursiveXmlShapes(
     args: RecursiveXmlShapesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: RecursiveXmlShapesCommandOutput) => void
   ): void;
 
@@ -421,7 +428,7 @@ export interface EC2Protocol {
   simpleInputParams(): Promise<SimpleInputParamsCommandOutput>;
   simpleInputParams(
     args: SimpleInputParamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<SimpleInputParamsCommandOutput>;
   simpleInputParams(
     args: SimpleInputParamsCommandInput,
@@ -429,7 +436,7 @@ export interface EC2Protocol {
   ): void;
   simpleInputParams(
     args: SimpleInputParamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: SimpleInputParamsCommandOutput) => void
   ): void;
 
@@ -439,7 +446,7 @@ export interface EC2Protocol {
   simpleScalarXmlProperties(): Promise<SimpleScalarXmlPropertiesCommandOutput>;
   simpleScalarXmlProperties(
     args: SimpleScalarXmlPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<SimpleScalarXmlPropertiesCommandOutput>;
   simpleScalarXmlProperties(
     args: SimpleScalarXmlPropertiesCommandInput,
@@ -447,7 +454,7 @@ export interface EC2Protocol {
   ): void;
   simpleScalarXmlProperties(
     args: SimpleScalarXmlPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: SimpleScalarXmlPropertiesCommandOutput) => void
   ): void;
 
@@ -457,7 +464,7 @@ export interface EC2Protocol {
   xmlBlobs(): Promise<XmlBlobsCommandOutput>;
   xmlBlobs(
     args: XmlBlobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<XmlBlobsCommandOutput>;
   xmlBlobs(
     args: XmlBlobsCommandInput,
@@ -465,7 +472,7 @@ export interface EC2Protocol {
   ): void;
   xmlBlobs(
     args: XmlBlobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: XmlBlobsCommandOutput) => void
   ): void;
 
@@ -475,7 +482,7 @@ export interface EC2Protocol {
   xmlEmptyBlobs(): Promise<XmlEmptyBlobsCommandOutput>;
   xmlEmptyBlobs(
     args: XmlEmptyBlobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<XmlEmptyBlobsCommandOutput>;
   xmlEmptyBlobs(
     args: XmlEmptyBlobsCommandInput,
@@ -483,7 +490,7 @@ export interface EC2Protocol {
   ): void;
   xmlEmptyBlobs(
     args: XmlEmptyBlobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
   ): void;
 
@@ -493,7 +500,7 @@ export interface EC2Protocol {
   xmlEmptyLists(): Promise<XmlEmptyListsCommandOutput>;
   xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<XmlEmptyListsCommandOutput>;
   xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
@@ -501,7 +508,7 @@ export interface EC2Protocol {
   ): void;
   xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: XmlEmptyListsCommandOutput) => void
   ): void;
 
@@ -511,7 +518,7 @@ export interface EC2Protocol {
   xmlEnums(): Promise<XmlEnumsCommandOutput>;
   xmlEnums(
     args: XmlEnumsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<XmlEnumsCommandOutput>;
   xmlEnums(
     args: XmlEnumsCommandInput,
@@ -519,7 +526,7 @@ export interface EC2Protocol {
   ): void;
   xmlEnums(
     args: XmlEnumsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: XmlEnumsCommandOutput) => void
   ): void;
 
@@ -529,7 +536,7 @@ export interface EC2Protocol {
   xmlIntEnums(): Promise<XmlIntEnumsCommandOutput>;
   xmlIntEnums(
     args: XmlIntEnumsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<XmlIntEnumsCommandOutput>;
   xmlIntEnums(
     args: XmlIntEnumsCommandInput,
@@ -537,7 +544,7 @@ export interface EC2Protocol {
   ): void;
   xmlIntEnums(
     args: XmlIntEnumsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: XmlIntEnumsCommandOutput) => void
   ): void;
 
@@ -547,7 +554,7 @@ export interface EC2Protocol {
   xmlLists(): Promise<XmlListsCommandOutput>;
   xmlLists(
     args: XmlListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<XmlListsCommandOutput>;
   xmlLists(
     args: XmlListsCommandInput,
@@ -555,7 +562,7 @@ export interface EC2Protocol {
   ): void;
   xmlLists(
     args: XmlListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: XmlListsCommandOutput) => void
   ): void;
 
@@ -565,7 +572,7 @@ export interface EC2Protocol {
   xmlNamespaces(): Promise<XmlNamespacesCommandOutput>;
   xmlNamespaces(
     args: XmlNamespacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<XmlNamespacesCommandOutput>;
   xmlNamespaces(
     args: XmlNamespacesCommandInput,
@@ -573,7 +580,7 @@ export interface EC2Protocol {
   ): void;
   xmlNamespaces(
     args: XmlNamespacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: XmlNamespacesCommandOutput) => void
   ): void;
 
@@ -583,7 +590,7 @@ export interface EC2Protocol {
   xmlTimestamps(): Promise<XmlTimestampsCommandOutput>;
   xmlTimestamps(
     args: XmlTimestampsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2ProtocolRequestOptions
   ): Promise<XmlTimestampsCommandOutput>;
   xmlTimestamps(
     args: XmlTimestampsCommandInput,
@@ -591,7 +598,7 @@ export interface EC2Protocol {
   ): void;
   xmlTimestamps(
     args: XmlTimestampsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2ProtocolRequestOptions,
     cb: (err: any, data?: XmlTimestampsCommandOutput) => void
   ): void;
 }

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type ListTagsForResourceCommandInput,
@@ -31,13 +31,20 @@ const commands = {
   UntagResourceCommand,
 };
 
+/**
+ * @public
+ */
+export interface MarketplaceDeploymentRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MarketplaceDeployment {
   /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDeploymentRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -45,7 +52,7 @@ export interface MarketplaceDeployment {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDeploymentRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -54,7 +61,7 @@ export interface MarketplaceDeployment {
    */
   putDeploymentParameter(
     args: PutDeploymentParameterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDeploymentRequestOptions
   ): Promise<PutDeploymentParameterCommandOutput>;
   putDeploymentParameter(
     args: PutDeploymentParameterCommandInput,
@@ -62,7 +69,7 @@ export interface MarketplaceDeployment {
   ): void;
   putDeploymentParameter(
     args: PutDeploymentParameterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDeploymentRequestOptions,
     cb: (err: any, data?: PutDeploymentParameterCommandOutput) => void
   ): void;
 
@@ -71,7 +78,7 @@ export interface MarketplaceDeployment {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDeploymentRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -79,7 +86,7 @@ export interface MarketplaceDeployment {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDeploymentRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -88,7 +95,7 @@ export interface MarketplaceDeployment {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDeploymentRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -96,7 +103,7 @@ export interface MarketplaceDeployment {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDeploymentRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 }

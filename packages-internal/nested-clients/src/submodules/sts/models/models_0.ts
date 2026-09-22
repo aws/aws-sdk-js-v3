@@ -317,6 +317,14 @@ export interface AssumeRoleRequest {
    * @public
    */
   ProvidedContexts?: ProvidedContext[] | undefined;
+
+  /**
+   * The minimum size, in bytes, of the session token that STS issues for the request. STS increases
+   *     the session token to at least this size, regardless of its actual content. The value must not
+   *     exceed 4,096 bytes. When set to 0 or not specified, the session token size is unchanged.
+   * @public
+   */
+  MinimumSessionTokenSize?: number | undefined;
 }
 
 /**
@@ -381,6 +389,8 @@ export interface AssumeRoleResponse {
    * <p>A percentage value that indicates the packed size of the session policies and session
    *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
    *       which means the policies and tags exceeded the allowed space.</p>
+   *
+   * @deprecated (since 2026-06-17) Deprecated. Replaced by SessionTokenUtilization.
    * @public
    */
   PackedPolicySize?: number | undefined;
@@ -402,6 +412,19 @@ export interface AssumeRoleResponse {
    * @public
    */
   SourceIdentity?: string | undefined;
+
+  /**
+   * The percentage (0-100) of the maximum allowed session token size that the returned session
+   *     token consumes.
+   * @public
+   */
+  SessionTokenUtilization?: number | undefined;
+
+  /**
+   * The size, in bytes, of the session token returned in the Credentials for this response.
+   * @public
+   */
+  SessionTokenSize?: number | undefined;
 }
 
 /**
@@ -540,6 +563,14 @@ export interface AssumeRoleWithWebIdentityRequest {
    * @public
    */
   DurationSeconds?: number | undefined;
+
+  /**
+   * The minimum size, in bytes, of the session token that STS issues for the request. STS increases
+   *     the session token to at least this size, regardless of its actual content. The value must not
+   *     exceed 4,096 bytes. When set to 0 or not specified, the session token size is unchanged.
+   * @public
+   */
+  MinimumSessionTokenSize?: number | undefined;
 }
 
 /**
@@ -584,6 +615,8 @@ export interface AssumeRoleWithWebIdentityResponse {
    * <p>A percentage value that indicates the packed size of the session policies and session
    *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
    *       which means the policies and tags exceeded the allowed space.</p>
+   *
+   * @deprecated (since 2026-06-17) Deprecated. Replaced by SessionTokenUtilization.
    * @public
    */
   PackedPolicySize?: number | undefined;
@@ -626,4 +659,17 @@ export interface AssumeRoleWithWebIdentityResponse {
    * @public
    */
   SourceIdentity?: string | undefined;
+
+  /**
+   * The percentage (0-100) of the maximum allowed session token size that the returned session
+   *     token consumes.
+   * @public
+   */
+  SessionTokenUtilization?: number | undefined;
+
+  /**
+   * The size, in bytes, of the session token returned in the Credentials for this response.
+   * @public
+   */
+  SessionTokenSize?: number | undefined;
 }

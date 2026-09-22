@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type GetIceServerConfigCommandInput,
@@ -19,13 +19,20 @@ const commands = {
   SendAlexaOfferToMasterCommand,
 };
 
+/**
+ * @public
+ */
+export interface KinesisVideoSignalingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface KinesisVideoSignaling {
   /**
    * @see {@link GetIceServerConfigCommand}
    */
   getIceServerConfig(
     args: GetIceServerConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisVideoSignalingRequestOptions
   ): Promise<GetIceServerConfigCommandOutput>;
   getIceServerConfig(
     args: GetIceServerConfigCommandInput,
@@ -33,7 +40,7 @@ export interface KinesisVideoSignaling {
   ): void;
   getIceServerConfig(
     args: GetIceServerConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisVideoSignalingRequestOptions,
     cb: (err: any, data?: GetIceServerConfigCommandOutput) => void
   ): void;
 
@@ -42,7 +49,7 @@ export interface KinesisVideoSignaling {
    */
   sendAlexaOfferToMaster(
     args: SendAlexaOfferToMasterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisVideoSignalingRequestOptions
   ): Promise<SendAlexaOfferToMasterCommandOutput>;
   sendAlexaOfferToMaster(
     args: SendAlexaOfferToMasterCommandInput,
@@ -50,7 +57,7 @@ export interface KinesisVideoSignaling {
   ): void;
   sendAlexaOfferToMaster(
     args: SendAlexaOfferToMasterCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisVideoSignalingRequestOptions,
     cb: (err: any, data?: SendAlexaOfferToMasterCommandOutput) => void
   ): void;
 }

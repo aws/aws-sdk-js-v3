@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateContainerCommandInput,
@@ -137,13 +142,20 @@ const paginators = {
   paginateListContainers,
 };
 
+/**
+ * @public
+ */
+export interface MediaStoreRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MediaStore {
   /**
    * @see {@link CreateContainerCommand}
    */
   createContainer(
     args: CreateContainerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<CreateContainerCommandOutput>;
   createContainer(
     args: CreateContainerCommandInput,
@@ -151,7 +163,7 @@ export interface MediaStore {
   ): void;
   createContainer(
     args: CreateContainerCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: CreateContainerCommandOutput) => void
   ): void;
 
@@ -160,7 +172,7 @@ export interface MediaStore {
    */
   deleteContainer(
     args: DeleteContainerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<DeleteContainerCommandOutput>;
   deleteContainer(
     args: DeleteContainerCommandInput,
@@ -168,7 +180,7 @@ export interface MediaStore {
   ): void;
   deleteContainer(
     args: DeleteContainerCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: DeleteContainerCommandOutput) => void
   ): void;
 
@@ -177,7 +189,7 @@ export interface MediaStore {
    */
   deleteContainerPolicy(
     args: DeleteContainerPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<DeleteContainerPolicyCommandOutput>;
   deleteContainerPolicy(
     args: DeleteContainerPolicyCommandInput,
@@ -185,7 +197,7 @@ export interface MediaStore {
   ): void;
   deleteContainerPolicy(
     args: DeleteContainerPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: DeleteContainerPolicyCommandOutput) => void
   ): void;
 
@@ -194,7 +206,7 @@ export interface MediaStore {
    */
   deleteCorsPolicy(
     args: DeleteCorsPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<DeleteCorsPolicyCommandOutput>;
   deleteCorsPolicy(
     args: DeleteCorsPolicyCommandInput,
@@ -202,7 +214,7 @@ export interface MediaStore {
   ): void;
   deleteCorsPolicy(
     args: DeleteCorsPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: DeleteCorsPolicyCommandOutput) => void
   ): void;
 
@@ -211,7 +223,7 @@ export interface MediaStore {
    */
   deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<DeleteLifecyclePolicyCommandOutput>;
   deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
@@ -219,7 +231,7 @@ export interface MediaStore {
   ): void;
   deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: DeleteLifecyclePolicyCommandOutput) => void
   ): void;
 
@@ -228,7 +240,7 @@ export interface MediaStore {
    */
   deleteMetricPolicy(
     args: DeleteMetricPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<DeleteMetricPolicyCommandOutput>;
   deleteMetricPolicy(
     args: DeleteMetricPolicyCommandInput,
@@ -236,7 +248,7 @@ export interface MediaStore {
   ): void;
   deleteMetricPolicy(
     args: DeleteMetricPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: DeleteMetricPolicyCommandOutput) => void
   ): void;
 
@@ -246,7 +258,7 @@ export interface MediaStore {
   describeContainer(): Promise<DescribeContainerCommandOutput>;
   describeContainer(
     args: DescribeContainerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<DescribeContainerCommandOutput>;
   describeContainer(
     args: DescribeContainerCommandInput,
@@ -254,7 +266,7 @@ export interface MediaStore {
   ): void;
   describeContainer(
     args: DescribeContainerCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: DescribeContainerCommandOutput) => void
   ): void;
 
@@ -263,7 +275,7 @@ export interface MediaStore {
    */
   getContainerPolicy(
     args: GetContainerPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<GetContainerPolicyCommandOutput>;
   getContainerPolicy(
     args: GetContainerPolicyCommandInput,
@@ -271,7 +283,7 @@ export interface MediaStore {
   ): void;
   getContainerPolicy(
     args: GetContainerPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: GetContainerPolicyCommandOutput) => void
   ): void;
 
@@ -280,7 +292,7 @@ export interface MediaStore {
    */
   getCorsPolicy(
     args: GetCorsPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<GetCorsPolicyCommandOutput>;
   getCorsPolicy(
     args: GetCorsPolicyCommandInput,
@@ -288,7 +300,7 @@ export interface MediaStore {
   ): void;
   getCorsPolicy(
     args: GetCorsPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: GetCorsPolicyCommandOutput) => void
   ): void;
 
@@ -297,7 +309,7 @@ export interface MediaStore {
    */
   getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<GetLifecyclePolicyCommandOutput>;
   getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
@@ -305,7 +317,7 @@ export interface MediaStore {
   ): void;
   getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: GetLifecyclePolicyCommandOutput) => void
   ): void;
 
@@ -314,7 +326,7 @@ export interface MediaStore {
    */
   getMetricPolicy(
     args: GetMetricPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<GetMetricPolicyCommandOutput>;
   getMetricPolicy(
     args: GetMetricPolicyCommandInput,
@@ -322,7 +334,7 @@ export interface MediaStore {
   ): void;
   getMetricPolicy(
     args: GetMetricPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: GetMetricPolicyCommandOutput) => void
   ): void;
 
@@ -332,7 +344,7 @@ export interface MediaStore {
   listContainers(): Promise<ListContainersCommandOutput>;
   listContainers(
     args: ListContainersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<ListContainersCommandOutput>;
   listContainers(
     args: ListContainersCommandInput,
@@ -340,7 +352,7 @@ export interface MediaStore {
   ): void;
   listContainers(
     args: ListContainersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: ListContainersCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface MediaStore {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -357,7 +369,7 @@ export interface MediaStore {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -366,7 +378,7 @@ export interface MediaStore {
    */
   putContainerPolicy(
     args: PutContainerPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<PutContainerPolicyCommandOutput>;
   putContainerPolicy(
     args: PutContainerPolicyCommandInput,
@@ -374,7 +386,7 @@ export interface MediaStore {
   ): void;
   putContainerPolicy(
     args: PutContainerPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: PutContainerPolicyCommandOutput) => void
   ): void;
 
@@ -383,7 +395,7 @@ export interface MediaStore {
    */
   putCorsPolicy(
     args: PutCorsPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<PutCorsPolicyCommandOutput>;
   putCorsPolicy(
     args: PutCorsPolicyCommandInput,
@@ -391,7 +403,7 @@ export interface MediaStore {
   ): void;
   putCorsPolicy(
     args: PutCorsPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: PutCorsPolicyCommandOutput) => void
   ): void;
 
@@ -400,7 +412,7 @@ export interface MediaStore {
    */
   putLifecyclePolicy(
     args: PutLifecyclePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<PutLifecyclePolicyCommandOutput>;
   putLifecyclePolicy(
     args: PutLifecyclePolicyCommandInput,
@@ -408,7 +420,7 @@ export interface MediaStore {
   ): void;
   putLifecyclePolicy(
     args: PutLifecyclePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: PutLifecyclePolicyCommandOutput) => void
   ): void;
 
@@ -417,7 +429,7 @@ export interface MediaStore {
    */
   putMetricPolicy(
     args: PutMetricPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<PutMetricPolicyCommandOutput>;
   putMetricPolicy(
     args: PutMetricPolicyCommandInput,
@@ -425,7 +437,7 @@ export interface MediaStore {
   ): void;
   putMetricPolicy(
     args: PutMetricPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: PutMetricPolicyCommandOutput) => void
   ): void;
 
@@ -434,7 +446,7 @@ export interface MediaStore {
    */
   startAccessLogging(
     args: StartAccessLoggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<StartAccessLoggingCommandOutput>;
   startAccessLogging(
     args: StartAccessLoggingCommandInput,
@@ -442,7 +454,7 @@ export interface MediaStore {
   ): void;
   startAccessLogging(
     args: StartAccessLoggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: StartAccessLoggingCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface MediaStore {
    */
   stopAccessLogging(
     args: StopAccessLoggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<StopAccessLoggingCommandOutput>;
   stopAccessLogging(
     args: StopAccessLoggingCommandInput,
@@ -459,7 +471,7 @@ export interface MediaStore {
   ): void;
   stopAccessLogging(
     args: StopAccessLoggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: StopAccessLoggingCommandOutput) => void
   ): void;
 
@@ -468,7 +480,7 @@ export interface MediaStore {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -476,7 +488,7 @@ export interface MediaStore {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -485,7 +497,7 @@ export interface MediaStore {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -493,7 +505,7 @@ export interface MediaStore {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

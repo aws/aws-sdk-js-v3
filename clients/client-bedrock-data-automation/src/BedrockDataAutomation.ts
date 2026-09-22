@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BedrockDataAutomationClient } from "./BedrockDataAutomationClient";
 import {
@@ -183,13 +188,20 @@ const paginators = {
   paginateListDataAutomationProjects,
 };
 
+/**
+ * @public
+ */
+export interface BedrockDataAutomationRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface BedrockDataAutomation {
   /**
    * @see {@link CopyBlueprintStageCommand}
    */
   copyBlueprintStage(
     args: CopyBlueprintStageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<CopyBlueprintStageCommandOutput>;
   copyBlueprintStage(
     args: CopyBlueprintStageCommandInput,
@@ -197,7 +209,7 @@ export interface BedrockDataAutomation {
   ): void;
   copyBlueprintStage(
     args: CopyBlueprintStageCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: CopyBlueprintStageCommandOutput) => void
   ): void;
 
@@ -206,7 +218,7 @@ export interface BedrockDataAutomation {
    */
   createBlueprint(
     args: CreateBlueprintCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<CreateBlueprintCommandOutput>;
   createBlueprint(
     args: CreateBlueprintCommandInput,
@@ -214,7 +226,7 @@ export interface BedrockDataAutomation {
   ): void;
   createBlueprint(
     args: CreateBlueprintCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: CreateBlueprintCommandOutput) => void
   ): void;
 
@@ -223,7 +235,7 @@ export interface BedrockDataAutomation {
    */
   createBlueprintVersion(
     args: CreateBlueprintVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<CreateBlueprintVersionCommandOutput>;
   createBlueprintVersion(
     args: CreateBlueprintVersionCommandInput,
@@ -231,7 +243,7 @@ export interface BedrockDataAutomation {
   ): void;
   createBlueprintVersion(
     args: CreateBlueprintVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: CreateBlueprintVersionCommandOutput) => void
   ): void;
 
@@ -240,7 +252,7 @@ export interface BedrockDataAutomation {
    */
   createDataAutomationLibrary(
     args: CreateDataAutomationLibraryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<CreateDataAutomationLibraryCommandOutput>;
   createDataAutomationLibrary(
     args: CreateDataAutomationLibraryCommandInput,
@@ -248,7 +260,7 @@ export interface BedrockDataAutomation {
   ): void;
   createDataAutomationLibrary(
     args: CreateDataAutomationLibraryCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: CreateDataAutomationLibraryCommandOutput) => void
   ): void;
 
@@ -257,7 +269,7 @@ export interface BedrockDataAutomation {
    */
   createDataAutomationProject(
     args: CreateDataAutomationProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<CreateDataAutomationProjectCommandOutput>;
   createDataAutomationProject(
     args: CreateDataAutomationProjectCommandInput,
@@ -265,7 +277,7 @@ export interface BedrockDataAutomation {
   ): void;
   createDataAutomationProject(
     args: CreateDataAutomationProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: CreateDataAutomationProjectCommandOutput) => void
   ): void;
 
@@ -274,7 +286,7 @@ export interface BedrockDataAutomation {
    */
   deleteBlueprint(
     args: DeleteBlueprintCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<DeleteBlueprintCommandOutput>;
   deleteBlueprint(
     args: DeleteBlueprintCommandInput,
@@ -282,7 +294,7 @@ export interface BedrockDataAutomation {
   ): void;
   deleteBlueprint(
     args: DeleteBlueprintCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: DeleteBlueprintCommandOutput) => void
   ): void;
 
@@ -291,7 +303,7 @@ export interface BedrockDataAutomation {
    */
   deleteDataAutomationLibrary(
     args: DeleteDataAutomationLibraryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<DeleteDataAutomationLibraryCommandOutput>;
   deleteDataAutomationLibrary(
     args: DeleteDataAutomationLibraryCommandInput,
@@ -299,7 +311,7 @@ export interface BedrockDataAutomation {
   ): void;
   deleteDataAutomationLibrary(
     args: DeleteDataAutomationLibraryCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: DeleteDataAutomationLibraryCommandOutput) => void
   ): void;
 
@@ -308,7 +320,7 @@ export interface BedrockDataAutomation {
    */
   deleteDataAutomationProject(
     args: DeleteDataAutomationProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<DeleteDataAutomationProjectCommandOutput>;
   deleteDataAutomationProject(
     args: DeleteDataAutomationProjectCommandInput,
@@ -316,7 +328,7 @@ export interface BedrockDataAutomation {
   ): void;
   deleteDataAutomationProject(
     args: DeleteDataAutomationProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: DeleteDataAutomationProjectCommandOutput) => void
   ): void;
 
@@ -325,7 +337,7 @@ export interface BedrockDataAutomation {
    */
   getBlueprint(
     args: GetBlueprintCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<GetBlueprintCommandOutput>;
   getBlueprint(
     args: GetBlueprintCommandInput,
@@ -333,7 +345,7 @@ export interface BedrockDataAutomation {
   ): void;
   getBlueprint(
     args: GetBlueprintCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: GetBlueprintCommandOutput) => void
   ): void;
 
@@ -342,7 +354,7 @@ export interface BedrockDataAutomation {
    */
   getBlueprintOptimizationStatus(
     args: GetBlueprintOptimizationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<GetBlueprintOptimizationStatusCommandOutput>;
   getBlueprintOptimizationStatus(
     args: GetBlueprintOptimizationStatusCommandInput,
@@ -350,7 +362,7 @@ export interface BedrockDataAutomation {
   ): void;
   getBlueprintOptimizationStatus(
     args: GetBlueprintOptimizationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: GetBlueprintOptimizationStatusCommandOutput) => void
   ): void;
 
@@ -359,7 +371,7 @@ export interface BedrockDataAutomation {
    */
   getDataAutomationLibrary(
     args: GetDataAutomationLibraryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<GetDataAutomationLibraryCommandOutput>;
   getDataAutomationLibrary(
     args: GetDataAutomationLibraryCommandInput,
@@ -367,7 +379,7 @@ export interface BedrockDataAutomation {
   ): void;
   getDataAutomationLibrary(
     args: GetDataAutomationLibraryCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: GetDataAutomationLibraryCommandOutput) => void
   ): void;
 
@@ -376,7 +388,7 @@ export interface BedrockDataAutomation {
    */
   getDataAutomationLibraryEntity(
     args: GetDataAutomationLibraryEntityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<GetDataAutomationLibraryEntityCommandOutput>;
   getDataAutomationLibraryEntity(
     args: GetDataAutomationLibraryEntityCommandInput,
@@ -384,7 +396,7 @@ export interface BedrockDataAutomation {
   ): void;
   getDataAutomationLibraryEntity(
     args: GetDataAutomationLibraryEntityCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: GetDataAutomationLibraryEntityCommandOutput) => void
   ): void;
 
@@ -393,7 +405,7 @@ export interface BedrockDataAutomation {
    */
   getDataAutomationLibraryIngestionJob(
     args: GetDataAutomationLibraryIngestionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<GetDataAutomationLibraryIngestionJobCommandOutput>;
   getDataAutomationLibraryIngestionJob(
     args: GetDataAutomationLibraryIngestionJobCommandInput,
@@ -401,7 +413,7 @@ export interface BedrockDataAutomation {
   ): void;
   getDataAutomationLibraryIngestionJob(
     args: GetDataAutomationLibraryIngestionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: GetDataAutomationLibraryIngestionJobCommandOutput) => void
   ): void;
 
@@ -410,7 +422,7 @@ export interface BedrockDataAutomation {
    */
   getDataAutomationProject(
     args: GetDataAutomationProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<GetDataAutomationProjectCommandOutput>;
   getDataAutomationProject(
     args: GetDataAutomationProjectCommandInput,
@@ -418,7 +430,7 @@ export interface BedrockDataAutomation {
   ): void;
   getDataAutomationProject(
     args: GetDataAutomationProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: GetDataAutomationProjectCommandOutput) => void
   ): void;
 
@@ -427,7 +439,7 @@ export interface BedrockDataAutomation {
    */
   invokeBlueprintOptimizationAsync(
     args: InvokeBlueprintOptimizationAsyncCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<InvokeBlueprintOptimizationAsyncCommandOutput>;
   invokeBlueprintOptimizationAsync(
     args: InvokeBlueprintOptimizationAsyncCommandInput,
@@ -435,7 +447,7 @@ export interface BedrockDataAutomation {
   ): void;
   invokeBlueprintOptimizationAsync(
     args: InvokeBlueprintOptimizationAsyncCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: InvokeBlueprintOptimizationAsyncCommandOutput) => void
   ): void;
 
@@ -444,7 +456,7 @@ export interface BedrockDataAutomation {
    */
   invokeDataAutomationLibraryIngestionJob(
     args: InvokeDataAutomationLibraryIngestionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<InvokeDataAutomationLibraryIngestionJobCommandOutput>;
   invokeDataAutomationLibraryIngestionJob(
     args: InvokeDataAutomationLibraryIngestionJobCommandInput,
@@ -452,7 +464,7 @@ export interface BedrockDataAutomation {
   ): void;
   invokeDataAutomationLibraryIngestionJob(
     args: InvokeDataAutomationLibraryIngestionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: InvokeDataAutomationLibraryIngestionJobCommandOutput) => void
   ): void;
 
@@ -462,7 +474,7 @@ export interface BedrockDataAutomation {
   listBlueprints(): Promise<ListBlueprintsCommandOutput>;
   listBlueprints(
     args: ListBlueprintsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<ListBlueprintsCommandOutput>;
   listBlueprints(
     args: ListBlueprintsCommandInput,
@@ -470,7 +482,7 @@ export interface BedrockDataAutomation {
   ): void;
   listBlueprints(
     args: ListBlueprintsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: ListBlueprintsCommandOutput) => void
   ): void;
 
@@ -480,7 +492,7 @@ export interface BedrockDataAutomation {
   listDataAutomationLibraries(): Promise<ListDataAutomationLibrariesCommandOutput>;
   listDataAutomationLibraries(
     args: ListDataAutomationLibrariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<ListDataAutomationLibrariesCommandOutput>;
   listDataAutomationLibraries(
     args: ListDataAutomationLibrariesCommandInput,
@@ -488,7 +500,7 @@ export interface BedrockDataAutomation {
   ): void;
   listDataAutomationLibraries(
     args: ListDataAutomationLibrariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: ListDataAutomationLibrariesCommandOutput) => void
   ): void;
 
@@ -497,7 +509,7 @@ export interface BedrockDataAutomation {
    */
   listDataAutomationLibraryEntities(
     args: ListDataAutomationLibraryEntitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<ListDataAutomationLibraryEntitiesCommandOutput>;
   listDataAutomationLibraryEntities(
     args: ListDataAutomationLibraryEntitiesCommandInput,
@@ -505,7 +517,7 @@ export interface BedrockDataAutomation {
   ): void;
   listDataAutomationLibraryEntities(
     args: ListDataAutomationLibraryEntitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: ListDataAutomationLibraryEntitiesCommandOutput) => void
   ): void;
 
@@ -514,7 +526,7 @@ export interface BedrockDataAutomation {
    */
   listDataAutomationLibraryIngestionJobs(
     args: ListDataAutomationLibraryIngestionJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<ListDataAutomationLibraryIngestionJobsCommandOutput>;
   listDataAutomationLibraryIngestionJobs(
     args: ListDataAutomationLibraryIngestionJobsCommandInput,
@@ -522,7 +534,7 @@ export interface BedrockDataAutomation {
   ): void;
   listDataAutomationLibraryIngestionJobs(
     args: ListDataAutomationLibraryIngestionJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: ListDataAutomationLibraryIngestionJobsCommandOutput) => void
   ): void;
 
@@ -532,7 +544,7 @@ export interface BedrockDataAutomation {
   listDataAutomationProjects(): Promise<ListDataAutomationProjectsCommandOutput>;
   listDataAutomationProjects(
     args: ListDataAutomationProjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<ListDataAutomationProjectsCommandOutput>;
   listDataAutomationProjects(
     args: ListDataAutomationProjectsCommandInput,
@@ -540,7 +552,7 @@ export interface BedrockDataAutomation {
   ): void;
   listDataAutomationProjects(
     args: ListDataAutomationProjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: ListDataAutomationProjectsCommandOutput) => void
   ): void;
 
@@ -549,7 +561,7 @@ export interface BedrockDataAutomation {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -557,7 +569,7 @@ export interface BedrockDataAutomation {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -566,7 +578,7 @@ export interface BedrockDataAutomation {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -574,7 +586,7 @@ export interface BedrockDataAutomation {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -583,7 +595,7 @@ export interface BedrockDataAutomation {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -591,7 +603,7 @@ export interface BedrockDataAutomation {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -600,7 +612,7 @@ export interface BedrockDataAutomation {
    */
   updateBlueprint(
     args: UpdateBlueprintCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<UpdateBlueprintCommandOutput>;
   updateBlueprint(
     args: UpdateBlueprintCommandInput,
@@ -608,7 +620,7 @@ export interface BedrockDataAutomation {
   ): void;
   updateBlueprint(
     args: UpdateBlueprintCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: UpdateBlueprintCommandOutput) => void
   ): void;
 
@@ -617,7 +629,7 @@ export interface BedrockDataAutomation {
    */
   updateDataAutomationLibrary(
     args: UpdateDataAutomationLibraryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<UpdateDataAutomationLibraryCommandOutput>;
   updateDataAutomationLibrary(
     args: UpdateDataAutomationLibraryCommandInput,
@@ -625,7 +637,7 @@ export interface BedrockDataAutomation {
   ): void;
   updateDataAutomationLibrary(
     args: UpdateDataAutomationLibraryCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: UpdateDataAutomationLibraryCommandOutput) => void
   ): void;
 
@@ -634,7 +646,7 @@ export interface BedrockDataAutomation {
    */
   updateDataAutomationProject(
     args: UpdateDataAutomationProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRequestOptions
   ): Promise<UpdateDataAutomationProjectCommandOutput>;
   updateDataAutomationProject(
     args: UpdateDataAutomationProjectCommandInput,
@@ -642,7 +654,7 @@ export interface BedrockDataAutomation {
   ): void;
   updateDataAutomationProject(
     args: UpdateDataAutomationProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRequestOptions,
     cb: (err: any, data?: UpdateDataAutomationProjectCommandOutput) => void
   ): void;
 

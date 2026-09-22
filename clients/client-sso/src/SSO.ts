@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type GetRoleCredentialsCommandInput,
@@ -33,13 +38,20 @@ const paginators = {
   paginateListAccounts,
 };
 
+/**
+ * @public
+ */
+export interface SSORequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SSO {
   /**
    * @see {@link GetRoleCredentialsCommand}
    */
   getRoleCredentials(
     args: GetRoleCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSORequestOptions
   ): Promise<GetRoleCredentialsCommandOutput>;
   getRoleCredentials(
     args: GetRoleCredentialsCommandInput,
@@ -47,7 +59,7 @@ export interface SSO {
   ): void;
   getRoleCredentials(
     args: GetRoleCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSORequestOptions,
     cb: (err: any, data?: GetRoleCredentialsCommandOutput) => void
   ): void;
 
@@ -56,7 +68,7 @@ export interface SSO {
    */
   listAccountRoles(
     args: ListAccountRolesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSORequestOptions
   ): Promise<ListAccountRolesCommandOutput>;
   listAccountRoles(
     args: ListAccountRolesCommandInput,
@@ -64,7 +76,7 @@ export interface SSO {
   ): void;
   listAccountRoles(
     args: ListAccountRolesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSORequestOptions,
     cb: (err: any, data?: ListAccountRolesCommandOutput) => void
   ): void;
 
@@ -73,7 +85,7 @@ export interface SSO {
    */
   listAccounts(
     args: ListAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSORequestOptions
   ): Promise<ListAccountsCommandOutput>;
   listAccounts(
     args: ListAccountsCommandInput,
@@ -81,7 +93,7 @@ export interface SSO {
   ): void;
   listAccounts(
     args: ListAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSORequestOptions,
     cb: (err: any, data?: ListAccountsCommandOutput) => void
   ): void;
 
@@ -90,7 +102,7 @@ export interface SSO {
    */
   logout(
     args: LogoutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSORequestOptions
   ): Promise<LogoutCommandOutput>;
   logout(
     args: LogoutCommandInput,
@@ -98,7 +110,7 @@ export interface SSO {
   ): void;
   logout(
     args: LogoutCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSORequestOptions,
     cb: (err: any, data?: LogoutCommandOutput) => void
   ): void;
 

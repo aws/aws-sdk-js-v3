@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { CloudSearchClient } from "./CloudSearchClient";
 import {
@@ -163,13 +163,20 @@ const commands = {
   UpdateServiceAccessPoliciesCommand,
 };
 
+/**
+ * @public
+ */
+export interface CloudSearchRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CloudSearch {
   /**
    * @see {@link BuildSuggestersCommand}
    */
   buildSuggesters(
     args: BuildSuggestersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<BuildSuggestersCommandOutput>;
   buildSuggesters(
     args: BuildSuggestersCommandInput,
@@ -177,7 +184,7 @@ export interface CloudSearch {
   ): void;
   buildSuggesters(
     args: BuildSuggestersCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: BuildSuggestersCommandOutput) => void
   ): void;
 
@@ -186,7 +193,7 @@ export interface CloudSearch {
    */
   createDomain(
     args: CreateDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<CreateDomainCommandOutput>;
   createDomain(
     args: CreateDomainCommandInput,
@@ -194,7 +201,7 @@ export interface CloudSearch {
   ): void;
   createDomain(
     args: CreateDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: CreateDomainCommandOutput) => void
   ): void;
 
@@ -203,7 +210,7 @@ export interface CloudSearch {
    */
   defineAnalysisScheme(
     args: DefineAnalysisSchemeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DefineAnalysisSchemeCommandOutput>;
   defineAnalysisScheme(
     args: DefineAnalysisSchemeCommandInput,
@@ -211,7 +218,7 @@ export interface CloudSearch {
   ): void;
   defineAnalysisScheme(
     args: DefineAnalysisSchemeCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DefineAnalysisSchemeCommandOutput) => void
   ): void;
 
@@ -220,7 +227,7 @@ export interface CloudSearch {
    */
   defineExpression(
     args: DefineExpressionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DefineExpressionCommandOutput>;
   defineExpression(
     args: DefineExpressionCommandInput,
@@ -228,7 +235,7 @@ export interface CloudSearch {
   ): void;
   defineExpression(
     args: DefineExpressionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DefineExpressionCommandOutput) => void
   ): void;
 
@@ -237,7 +244,7 @@ export interface CloudSearch {
    */
   defineIndexField(
     args: DefineIndexFieldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DefineIndexFieldCommandOutput>;
   defineIndexField(
     args: DefineIndexFieldCommandInput,
@@ -245,7 +252,7 @@ export interface CloudSearch {
   ): void;
   defineIndexField(
     args: DefineIndexFieldCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DefineIndexFieldCommandOutput) => void
   ): void;
 
@@ -254,7 +261,7 @@ export interface CloudSearch {
    */
   defineSuggester(
     args: DefineSuggesterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DefineSuggesterCommandOutput>;
   defineSuggester(
     args: DefineSuggesterCommandInput,
@@ -262,7 +269,7 @@ export interface CloudSearch {
   ): void;
   defineSuggester(
     args: DefineSuggesterCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DefineSuggesterCommandOutput) => void
   ): void;
 
@@ -271,7 +278,7 @@ export interface CloudSearch {
    */
   deleteAnalysisScheme(
     args: DeleteAnalysisSchemeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DeleteAnalysisSchemeCommandOutput>;
   deleteAnalysisScheme(
     args: DeleteAnalysisSchemeCommandInput,
@@ -279,7 +286,7 @@ export interface CloudSearch {
   ): void;
   deleteAnalysisScheme(
     args: DeleteAnalysisSchemeCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DeleteAnalysisSchemeCommandOutput) => void
   ): void;
 
@@ -288,7 +295,7 @@ export interface CloudSearch {
    */
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DeleteDomainCommandOutput>;
   deleteDomain(
     args: DeleteDomainCommandInput,
@@ -296,7 +303,7 @@ export interface CloudSearch {
   ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
   ): void;
 
@@ -305,7 +312,7 @@ export interface CloudSearch {
    */
   deleteExpression(
     args: DeleteExpressionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DeleteExpressionCommandOutput>;
   deleteExpression(
     args: DeleteExpressionCommandInput,
@@ -313,7 +320,7 @@ export interface CloudSearch {
   ): void;
   deleteExpression(
     args: DeleteExpressionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DeleteExpressionCommandOutput) => void
   ): void;
 
@@ -322,7 +329,7 @@ export interface CloudSearch {
    */
   deleteIndexField(
     args: DeleteIndexFieldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DeleteIndexFieldCommandOutput>;
   deleteIndexField(
     args: DeleteIndexFieldCommandInput,
@@ -330,7 +337,7 @@ export interface CloudSearch {
   ): void;
   deleteIndexField(
     args: DeleteIndexFieldCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DeleteIndexFieldCommandOutput) => void
   ): void;
 
@@ -339,7 +346,7 @@ export interface CloudSearch {
    */
   deleteSuggester(
     args: DeleteSuggesterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DeleteSuggesterCommandOutput>;
   deleteSuggester(
     args: DeleteSuggesterCommandInput,
@@ -347,7 +354,7 @@ export interface CloudSearch {
   ): void;
   deleteSuggester(
     args: DeleteSuggesterCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DeleteSuggesterCommandOutput) => void
   ): void;
 
@@ -356,7 +363,7 @@ export interface CloudSearch {
    */
   describeAnalysisSchemes(
     args: DescribeAnalysisSchemesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DescribeAnalysisSchemesCommandOutput>;
   describeAnalysisSchemes(
     args: DescribeAnalysisSchemesCommandInput,
@@ -364,7 +371,7 @@ export interface CloudSearch {
   ): void;
   describeAnalysisSchemes(
     args: DescribeAnalysisSchemesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DescribeAnalysisSchemesCommandOutput) => void
   ): void;
 
@@ -373,7 +380,7 @@ export interface CloudSearch {
    */
   describeAvailabilityOptions(
     args: DescribeAvailabilityOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DescribeAvailabilityOptionsCommandOutput>;
   describeAvailabilityOptions(
     args: DescribeAvailabilityOptionsCommandInput,
@@ -381,7 +388,7 @@ export interface CloudSearch {
   ): void;
   describeAvailabilityOptions(
     args: DescribeAvailabilityOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DescribeAvailabilityOptionsCommandOutput) => void
   ): void;
 
@@ -390,7 +397,7 @@ export interface CloudSearch {
    */
   describeDomainEndpointOptions(
     args: DescribeDomainEndpointOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DescribeDomainEndpointOptionsCommandOutput>;
   describeDomainEndpointOptions(
     args: DescribeDomainEndpointOptionsCommandInput,
@@ -398,7 +405,7 @@ export interface CloudSearch {
   ): void;
   describeDomainEndpointOptions(
     args: DescribeDomainEndpointOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DescribeDomainEndpointOptionsCommandOutput) => void
   ): void;
 
@@ -408,7 +415,7 @@ export interface CloudSearch {
   describeDomains(): Promise<DescribeDomainsCommandOutput>;
   describeDomains(
     args: DescribeDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DescribeDomainsCommandOutput>;
   describeDomains(
     args: DescribeDomainsCommandInput,
@@ -416,7 +423,7 @@ export interface CloudSearch {
   ): void;
   describeDomains(
     args: DescribeDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DescribeDomainsCommandOutput) => void
   ): void;
 
@@ -425,7 +432,7 @@ export interface CloudSearch {
    */
   describeExpressions(
     args: DescribeExpressionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DescribeExpressionsCommandOutput>;
   describeExpressions(
     args: DescribeExpressionsCommandInput,
@@ -433,7 +440,7 @@ export interface CloudSearch {
   ): void;
   describeExpressions(
     args: DescribeExpressionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DescribeExpressionsCommandOutput) => void
   ): void;
 
@@ -442,7 +449,7 @@ export interface CloudSearch {
    */
   describeIndexFields(
     args: DescribeIndexFieldsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DescribeIndexFieldsCommandOutput>;
   describeIndexFields(
     args: DescribeIndexFieldsCommandInput,
@@ -450,7 +457,7 @@ export interface CloudSearch {
   ): void;
   describeIndexFields(
     args: DescribeIndexFieldsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DescribeIndexFieldsCommandOutput) => void
   ): void;
 
@@ -459,7 +466,7 @@ export interface CloudSearch {
    */
   describeScalingParameters(
     args: DescribeScalingParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DescribeScalingParametersCommandOutput>;
   describeScalingParameters(
     args: DescribeScalingParametersCommandInput,
@@ -467,7 +474,7 @@ export interface CloudSearch {
   ): void;
   describeScalingParameters(
     args: DescribeScalingParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DescribeScalingParametersCommandOutput) => void
   ): void;
 
@@ -476,7 +483,7 @@ export interface CloudSearch {
    */
   describeServiceAccessPolicies(
     args: DescribeServiceAccessPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DescribeServiceAccessPoliciesCommandOutput>;
   describeServiceAccessPolicies(
     args: DescribeServiceAccessPoliciesCommandInput,
@@ -484,7 +491,7 @@ export interface CloudSearch {
   ): void;
   describeServiceAccessPolicies(
     args: DescribeServiceAccessPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DescribeServiceAccessPoliciesCommandOutput) => void
   ): void;
 
@@ -493,7 +500,7 @@ export interface CloudSearch {
    */
   describeSuggesters(
     args: DescribeSuggestersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<DescribeSuggestersCommandOutput>;
   describeSuggesters(
     args: DescribeSuggestersCommandInput,
@@ -501,7 +508,7 @@ export interface CloudSearch {
   ): void;
   describeSuggesters(
     args: DescribeSuggestersCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: DescribeSuggestersCommandOutput) => void
   ): void;
 
@@ -510,7 +517,7 @@ export interface CloudSearch {
    */
   indexDocuments(
     args: IndexDocumentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<IndexDocumentsCommandOutput>;
   indexDocuments(
     args: IndexDocumentsCommandInput,
@@ -518,7 +525,7 @@ export interface CloudSearch {
   ): void;
   indexDocuments(
     args: IndexDocumentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: IndexDocumentsCommandOutput) => void
   ): void;
 
@@ -528,7 +535,7 @@ export interface CloudSearch {
   listDomainNames(): Promise<ListDomainNamesCommandOutput>;
   listDomainNames(
     args: ListDomainNamesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<ListDomainNamesCommandOutput>;
   listDomainNames(
     args: ListDomainNamesCommandInput,
@@ -536,7 +543,7 @@ export interface CloudSearch {
   ): void;
   listDomainNames(
     args: ListDomainNamesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: ListDomainNamesCommandOutput) => void
   ): void;
 
@@ -545,7 +552,7 @@ export interface CloudSearch {
    */
   updateAvailabilityOptions(
     args: UpdateAvailabilityOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<UpdateAvailabilityOptionsCommandOutput>;
   updateAvailabilityOptions(
     args: UpdateAvailabilityOptionsCommandInput,
@@ -553,7 +560,7 @@ export interface CloudSearch {
   ): void;
   updateAvailabilityOptions(
     args: UpdateAvailabilityOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: UpdateAvailabilityOptionsCommandOutput) => void
   ): void;
 
@@ -562,7 +569,7 @@ export interface CloudSearch {
    */
   updateDomainEndpointOptions(
     args: UpdateDomainEndpointOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<UpdateDomainEndpointOptionsCommandOutput>;
   updateDomainEndpointOptions(
     args: UpdateDomainEndpointOptionsCommandInput,
@@ -570,7 +577,7 @@ export interface CloudSearch {
   ): void;
   updateDomainEndpointOptions(
     args: UpdateDomainEndpointOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: UpdateDomainEndpointOptionsCommandOutput) => void
   ): void;
 
@@ -579,7 +586,7 @@ export interface CloudSearch {
    */
   updateScalingParameters(
     args: UpdateScalingParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<UpdateScalingParametersCommandOutput>;
   updateScalingParameters(
     args: UpdateScalingParametersCommandInput,
@@ -587,7 +594,7 @@ export interface CloudSearch {
   ): void;
   updateScalingParameters(
     args: UpdateScalingParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: UpdateScalingParametersCommandOutput) => void
   ): void;
 
@@ -596,7 +603,7 @@ export interface CloudSearch {
    */
   updateServiceAccessPolicies(
     args: UpdateServiceAccessPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchRequestOptions
   ): Promise<UpdateServiceAccessPoliciesCommandOutput>;
   updateServiceAccessPolicies(
     args: UpdateServiceAccessPoliciesCommandInput,
@@ -604,7 +611,7 @@ export interface CloudSearch {
   ): void;
   updateServiceAccessPolicies(
     args: UpdateServiceAccessPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchRequestOptions,
     cb: (err: any, data?: UpdateServiceAccessPoliciesCommandOutput) => void
   ): void;
 }

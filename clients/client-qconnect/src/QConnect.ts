@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ActivateMessageTemplateCommandInput,
@@ -611,13 +616,20 @@ const paginators = {
   paginateSearchSessions,
 };
 
+/**
+ * @public
+ */
+export interface QConnectRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface QConnect {
   /**
    * @see {@link ActivateMessageTemplateCommand}
    */
   activateMessageTemplate(
     args: ActivateMessageTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ActivateMessageTemplateCommandOutput>;
   activateMessageTemplate(
     args: ActivateMessageTemplateCommandInput,
@@ -625,7 +637,7 @@ export interface QConnect {
   ): void;
   activateMessageTemplate(
     args: ActivateMessageTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ActivateMessageTemplateCommandOutput) => void
   ): void;
 
@@ -634,7 +646,7 @@ export interface QConnect {
    */
   createAIAgent(
     args: CreateAIAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateAIAgentCommandOutput>;
   createAIAgent(
     args: CreateAIAgentCommandInput,
@@ -642,7 +654,7 @@ export interface QConnect {
   ): void;
   createAIAgent(
     args: CreateAIAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateAIAgentCommandOutput) => void
   ): void;
 
@@ -651,7 +663,7 @@ export interface QConnect {
    */
   createAIAgentVersion(
     args: CreateAIAgentVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateAIAgentVersionCommandOutput>;
   createAIAgentVersion(
     args: CreateAIAgentVersionCommandInput,
@@ -659,7 +671,7 @@ export interface QConnect {
   ): void;
   createAIAgentVersion(
     args: CreateAIAgentVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateAIAgentVersionCommandOutput) => void
   ): void;
 
@@ -668,7 +680,7 @@ export interface QConnect {
    */
   createAIGuardrail(
     args: CreateAIGuardrailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateAIGuardrailCommandOutput>;
   createAIGuardrail(
     args: CreateAIGuardrailCommandInput,
@@ -676,7 +688,7 @@ export interface QConnect {
   ): void;
   createAIGuardrail(
     args: CreateAIGuardrailCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateAIGuardrailCommandOutput) => void
   ): void;
 
@@ -685,7 +697,7 @@ export interface QConnect {
    */
   createAIGuardrailVersion(
     args: CreateAIGuardrailVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateAIGuardrailVersionCommandOutput>;
   createAIGuardrailVersion(
     args: CreateAIGuardrailVersionCommandInput,
@@ -693,7 +705,7 @@ export interface QConnect {
   ): void;
   createAIGuardrailVersion(
     args: CreateAIGuardrailVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateAIGuardrailVersionCommandOutput) => void
   ): void;
 
@@ -702,7 +714,7 @@ export interface QConnect {
    */
   createAIPrompt(
     args: CreateAIPromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateAIPromptCommandOutput>;
   createAIPrompt(
     args: CreateAIPromptCommandInput,
@@ -710,7 +722,7 @@ export interface QConnect {
   ): void;
   createAIPrompt(
     args: CreateAIPromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateAIPromptCommandOutput) => void
   ): void;
 
@@ -719,7 +731,7 @@ export interface QConnect {
    */
   createAIPromptVersion(
     args: CreateAIPromptVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateAIPromptVersionCommandOutput>;
   createAIPromptVersion(
     args: CreateAIPromptVersionCommandInput,
@@ -727,7 +739,7 @@ export interface QConnect {
   ): void;
   createAIPromptVersion(
     args: CreateAIPromptVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateAIPromptVersionCommandOutput) => void
   ): void;
 
@@ -736,7 +748,7 @@ export interface QConnect {
    */
   createAssistant(
     args: CreateAssistantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateAssistantCommandOutput>;
   createAssistant(
     args: CreateAssistantCommandInput,
@@ -744,7 +756,7 @@ export interface QConnect {
   ): void;
   createAssistant(
     args: CreateAssistantCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateAssistantCommandOutput) => void
   ): void;
 
@@ -753,7 +765,7 @@ export interface QConnect {
    */
   createAssistantAssociation(
     args: CreateAssistantAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateAssistantAssociationCommandOutput>;
   createAssistantAssociation(
     args: CreateAssistantAssociationCommandInput,
@@ -761,7 +773,7 @@ export interface QConnect {
   ): void;
   createAssistantAssociation(
     args: CreateAssistantAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateAssistantAssociationCommandOutput) => void
   ): void;
 
@@ -770,7 +782,7 @@ export interface QConnect {
    */
   createContent(
     args: CreateContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateContentCommandOutput>;
   createContent(
     args: CreateContentCommandInput,
@@ -778,7 +790,7 @@ export interface QConnect {
   ): void;
   createContent(
     args: CreateContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateContentCommandOutput) => void
   ): void;
 
@@ -787,7 +799,7 @@ export interface QConnect {
    */
   createContentAssociation(
     args: CreateContentAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateContentAssociationCommandOutput>;
   createContentAssociation(
     args: CreateContentAssociationCommandInput,
@@ -795,7 +807,7 @@ export interface QConnect {
   ): void;
   createContentAssociation(
     args: CreateContentAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateContentAssociationCommandOutput) => void
   ): void;
 
@@ -804,7 +816,7 @@ export interface QConnect {
    */
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateKnowledgeBaseCommandOutput>;
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
@@ -812,7 +824,7 @@ export interface QConnect {
   ): void;
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -821,7 +833,7 @@ export interface QConnect {
    */
   createMessageTemplate(
     args: CreateMessageTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateMessageTemplateCommandOutput>;
   createMessageTemplate(
     args: CreateMessageTemplateCommandInput,
@@ -829,7 +841,7 @@ export interface QConnect {
   ): void;
   createMessageTemplate(
     args: CreateMessageTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateMessageTemplateCommandOutput) => void
   ): void;
 
@@ -838,7 +850,7 @@ export interface QConnect {
    */
   createMessageTemplateAttachment(
     args: CreateMessageTemplateAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateMessageTemplateAttachmentCommandOutput>;
   createMessageTemplateAttachment(
     args: CreateMessageTemplateAttachmentCommandInput,
@@ -846,7 +858,7 @@ export interface QConnect {
   ): void;
   createMessageTemplateAttachment(
     args: CreateMessageTemplateAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateMessageTemplateAttachmentCommandOutput) => void
   ): void;
 
@@ -855,7 +867,7 @@ export interface QConnect {
    */
   createMessageTemplateVersion(
     args: CreateMessageTemplateVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateMessageTemplateVersionCommandOutput>;
   createMessageTemplateVersion(
     args: CreateMessageTemplateVersionCommandInput,
@@ -863,7 +875,7 @@ export interface QConnect {
   ): void;
   createMessageTemplateVersion(
     args: CreateMessageTemplateVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateMessageTemplateVersionCommandOutput) => void
   ): void;
 
@@ -872,7 +884,7 @@ export interface QConnect {
    */
   createQuickResponse(
     args: CreateQuickResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateQuickResponseCommandOutput>;
   createQuickResponse(
     args: CreateQuickResponseCommandInput,
@@ -880,7 +892,7 @@ export interface QConnect {
   ): void;
   createQuickResponse(
     args: CreateQuickResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateQuickResponseCommandOutput) => void
   ): void;
 
@@ -889,7 +901,7 @@ export interface QConnect {
    */
   createSession(
     args: CreateSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<CreateSessionCommandOutput>;
   createSession(
     args: CreateSessionCommandInput,
@@ -897,7 +909,7 @@ export interface QConnect {
   ): void;
   createSession(
     args: CreateSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: CreateSessionCommandOutput) => void
   ): void;
 
@@ -906,7 +918,7 @@ export interface QConnect {
    */
   deactivateMessageTemplate(
     args: DeactivateMessageTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeactivateMessageTemplateCommandOutput>;
   deactivateMessageTemplate(
     args: DeactivateMessageTemplateCommandInput,
@@ -914,7 +926,7 @@ export interface QConnect {
   ): void;
   deactivateMessageTemplate(
     args: DeactivateMessageTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeactivateMessageTemplateCommandOutput) => void
   ): void;
 
@@ -923,7 +935,7 @@ export interface QConnect {
    */
   deleteAIAgent(
     args: DeleteAIAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteAIAgentCommandOutput>;
   deleteAIAgent(
     args: DeleteAIAgentCommandInput,
@@ -931,7 +943,7 @@ export interface QConnect {
   ): void;
   deleteAIAgent(
     args: DeleteAIAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteAIAgentCommandOutput) => void
   ): void;
 
@@ -940,7 +952,7 @@ export interface QConnect {
    */
   deleteAIAgentVersion(
     args: DeleteAIAgentVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteAIAgentVersionCommandOutput>;
   deleteAIAgentVersion(
     args: DeleteAIAgentVersionCommandInput,
@@ -948,7 +960,7 @@ export interface QConnect {
   ): void;
   deleteAIAgentVersion(
     args: DeleteAIAgentVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteAIAgentVersionCommandOutput) => void
   ): void;
 
@@ -957,7 +969,7 @@ export interface QConnect {
    */
   deleteAIGuardrail(
     args: DeleteAIGuardrailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteAIGuardrailCommandOutput>;
   deleteAIGuardrail(
     args: DeleteAIGuardrailCommandInput,
@@ -965,7 +977,7 @@ export interface QConnect {
   ): void;
   deleteAIGuardrail(
     args: DeleteAIGuardrailCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteAIGuardrailCommandOutput) => void
   ): void;
 
@@ -974,7 +986,7 @@ export interface QConnect {
    */
   deleteAIGuardrailVersion(
     args: DeleteAIGuardrailVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteAIGuardrailVersionCommandOutput>;
   deleteAIGuardrailVersion(
     args: DeleteAIGuardrailVersionCommandInput,
@@ -982,7 +994,7 @@ export interface QConnect {
   ): void;
   deleteAIGuardrailVersion(
     args: DeleteAIGuardrailVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteAIGuardrailVersionCommandOutput) => void
   ): void;
 
@@ -991,7 +1003,7 @@ export interface QConnect {
    */
   deleteAIPrompt(
     args: DeleteAIPromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteAIPromptCommandOutput>;
   deleteAIPrompt(
     args: DeleteAIPromptCommandInput,
@@ -999,7 +1011,7 @@ export interface QConnect {
   ): void;
   deleteAIPrompt(
     args: DeleteAIPromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteAIPromptCommandOutput) => void
   ): void;
 
@@ -1008,7 +1020,7 @@ export interface QConnect {
    */
   deleteAIPromptVersion(
     args: DeleteAIPromptVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteAIPromptVersionCommandOutput>;
   deleteAIPromptVersion(
     args: DeleteAIPromptVersionCommandInput,
@@ -1016,7 +1028,7 @@ export interface QConnect {
   ): void;
   deleteAIPromptVersion(
     args: DeleteAIPromptVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteAIPromptVersionCommandOutput) => void
   ): void;
 
@@ -1025,7 +1037,7 @@ export interface QConnect {
    */
   deleteAssistant(
     args: DeleteAssistantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteAssistantCommandOutput>;
   deleteAssistant(
     args: DeleteAssistantCommandInput,
@@ -1033,7 +1045,7 @@ export interface QConnect {
   ): void;
   deleteAssistant(
     args: DeleteAssistantCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteAssistantCommandOutput) => void
   ): void;
 
@@ -1042,7 +1054,7 @@ export interface QConnect {
    */
   deleteAssistantAssociation(
     args: DeleteAssistantAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteAssistantAssociationCommandOutput>;
   deleteAssistantAssociation(
     args: DeleteAssistantAssociationCommandInput,
@@ -1050,7 +1062,7 @@ export interface QConnect {
   ): void;
   deleteAssistantAssociation(
     args: DeleteAssistantAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteAssistantAssociationCommandOutput) => void
   ): void;
 
@@ -1059,7 +1071,7 @@ export interface QConnect {
    */
   deleteContent(
     args: DeleteContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteContentCommandOutput>;
   deleteContent(
     args: DeleteContentCommandInput,
@@ -1067,7 +1079,7 @@ export interface QConnect {
   ): void;
   deleteContent(
     args: DeleteContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteContentCommandOutput) => void
   ): void;
 
@@ -1076,7 +1088,7 @@ export interface QConnect {
    */
   deleteContentAssociation(
     args: DeleteContentAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteContentAssociationCommandOutput>;
   deleteContentAssociation(
     args: DeleteContentAssociationCommandInput,
@@ -1084,7 +1096,7 @@ export interface QConnect {
   ): void;
   deleteContentAssociation(
     args: DeleteContentAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteContentAssociationCommandOutput) => void
   ): void;
 
@@ -1093,7 +1105,7 @@ export interface QConnect {
    */
   deleteImportJob(
     args: DeleteImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteImportJobCommandOutput>;
   deleteImportJob(
     args: DeleteImportJobCommandInput,
@@ -1101,7 +1113,7 @@ export interface QConnect {
   ): void;
   deleteImportJob(
     args: DeleteImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteImportJobCommandOutput) => void
   ): void;
 
@@ -1110,7 +1122,7 @@ export interface QConnect {
    */
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteKnowledgeBaseCommandOutput>;
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
@@ -1118,7 +1130,7 @@ export interface QConnect {
   ): void;
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -1127,7 +1139,7 @@ export interface QConnect {
    */
   deleteMessageTemplate(
     args: DeleteMessageTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteMessageTemplateCommandOutput>;
   deleteMessageTemplate(
     args: DeleteMessageTemplateCommandInput,
@@ -1135,7 +1147,7 @@ export interface QConnect {
   ): void;
   deleteMessageTemplate(
     args: DeleteMessageTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteMessageTemplateCommandOutput) => void
   ): void;
 
@@ -1144,7 +1156,7 @@ export interface QConnect {
    */
   deleteMessageTemplateAttachment(
     args: DeleteMessageTemplateAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteMessageTemplateAttachmentCommandOutput>;
   deleteMessageTemplateAttachment(
     args: DeleteMessageTemplateAttachmentCommandInput,
@@ -1152,7 +1164,7 @@ export interface QConnect {
   ): void;
   deleteMessageTemplateAttachment(
     args: DeleteMessageTemplateAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteMessageTemplateAttachmentCommandOutput) => void
   ): void;
 
@@ -1161,7 +1173,7 @@ export interface QConnect {
    */
   deleteQuickResponse(
     args: DeleteQuickResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<DeleteQuickResponseCommandOutput>;
   deleteQuickResponse(
     args: DeleteQuickResponseCommandInput,
@@ -1169,7 +1181,7 @@ export interface QConnect {
   ): void;
   deleteQuickResponse(
     args: DeleteQuickResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: DeleteQuickResponseCommandOutput) => void
   ): void;
 
@@ -1178,7 +1190,7 @@ export interface QConnect {
    */
   getAIAgent(
     args: GetAIAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetAIAgentCommandOutput>;
   getAIAgent(
     args: GetAIAgentCommandInput,
@@ -1186,7 +1198,7 @@ export interface QConnect {
   ): void;
   getAIAgent(
     args: GetAIAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetAIAgentCommandOutput) => void
   ): void;
 
@@ -1195,7 +1207,7 @@ export interface QConnect {
    */
   getAIGuardrail(
     args: GetAIGuardrailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetAIGuardrailCommandOutput>;
   getAIGuardrail(
     args: GetAIGuardrailCommandInput,
@@ -1203,7 +1215,7 @@ export interface QConnect {
   ): void;
   getAIGuardrail(
     args: GetAIGuardrailCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetAIGuardrailCommandOutput) => void
   ): void;
 
@@ -1212,7 +1224,7 @@ export interface QConnect {
    */
   getAIPrompt(
     args: GetAIPromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetAIPromptCommandOutput>;
   getAIPrompt(
     args: GetAIPromptCommandInput,
@@ -1220,7 +1232,7 @@ export interface QConnect {
   ): void;
   getAIPrompt(
     args: GetAIPromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetAIPromptCommandOutput) => void
   ): void;
 
@@ -1229,7 +1241,7 @@ export interface QConnect {
    */
   getAssistant(
     args: GetAssistantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetAssistantCommandOutput>;
   getAssistant(
     args: GetAssistantCommandInput,
@@ -1237,7 +1249,7 @@ export interface QConnect {
   ): void;
   getAssistant(
     args: GetAssistantCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetAssistantCommandOutput) => void
   ): void;
 
@@ -1246,7 +1258,7 @@ export interface QConnect {
    */
   getAssistantAssociation(
     args: GetAssistantAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetAssistantAssociationCommandOutput>;
   getAssistantAssociation(
     args: GetAssistantAssociationCommandInput,
@@ -1254,7 +1266,7 @@ export interface QConnect {
   ): void;
   getAssistantAssociation(
     args: GetAssistantAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetAssistantAssociationCommandOutput) => void
   ): void;
 
@@ -1263,7 +1275,7 @@ export interface QConnect {
    */
   getContent(
     args: GetContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetContentCommandOutput>;
   getContent(
     args: GetContentCommandInput,
@@ -1271,7 +1283,7 @@ export interface QConnect {
   ): void;
   getContent(
     args: GetContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetContentCommandOutput) => void
   ): void;
 
@@ -1280,7 +1292,7 @@ export interface QConnect {
    */
   getContentAssociation(
     args: GetContentAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetContentAssociationCommandOutput>;
   getContentAssociation(
     args: GetContentAssociationCommandInput,
@@ -1288,7 +1300,7 @@ export interface QConnect {
   ): void;
   getContentAssociation(
     args: GetContentAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetContentAssociationCommandOutput) => void
   ): void;
 
@@ -1297,7 +1309,7 @@ export interface QConnect {
    */
   getContentSummary(
     args: GetContentSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetContentSummaryCommandOutput>;
   getContentSummary(
     args: GetContentSummaryCommandInput,
@@ -1305,7 +1317,7 @@ export interface QConnect {
   ): void;
   getContentSummary(
     args: GetContentSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetContentSummaryCommandOutput) => void
   ): void;
 
@@ -1314,7 +1326,7 @@ export interface QConnect {
    */
   getImportJob(
     args: GetImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetImportJobCommandOutput>;
   getImportJob(
     args: GetImportJobCommandInput,
@@ -1322,7 +1334,7 @@ export interface QConnect {
   ): void;
   getImportJob(
     args: GetImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetImportJobCommandOutput) => void
   ): void;
 
@@ -1331,7 +1343,7 @@ export interface QConnect {
    */
   getKnowledgeBase(
     args: GetKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetKnowledgeBaseCommandOutput>;
   getKnowledgeBase(
     args: GetKnowledgeBaseCommandInput,
@@ -1339,7 +1351,7 @@ export interface QConnect {
   ): void;
   getKnowledgeBase(
     args: GetKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -1348,7 +1360,7 @@ export interface QConnect {
    */
   getMessageTemplate(
     args: GetMessageTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetMessageTemplateCommandOutput>;
   getMessageTemplate(
     args: GetMessageTemplateCommandInput,
@@ -1356,7 +1368,7 @@ export interface QConnect {
   ): void;
   getMessageTemplate(
     args: GetMessageTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetMessageTemplateCommandOutput) => void
   ): void;
 
@@ -1365,7 +1377,7 @@ export interface QConnect {
    */
   getNextMessage(
     args: GetNextMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetNextMessageCommandOutput>;
   getNextMessage(
     args: GetNextMessageCommandInput,
@@ -1373,7 +1385,7 @@ export interface QConnect {
   ): void;
   getNextMessage(
     args: GetNextMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetNextMessageCommandOutput) => void
   ): void;
 
@@ -1382,7 +1394,7 @@ export interface QConnect {
    */
   getQuickResponse(
     args: GetQuickResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetQuickResponseCommandOutput>;
   getQuickResponse(
     args: GetQuickResponseCommandInput,
@@ -1390,7 +1402,7 @@ export interface QConnect {
   ): void;
   getQuickResponse(
     args: GetQuickResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetQuickResponseCommandOutput) => void
   ): void;
 
@@ -1399,7 +1411,7 @@ export interface QConnect {
    */
   getRecommendations(
     args: GetRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetRecommendationsCommandOutput>;
   getRecommendations(
     args: GetRecommendationsCommandInput,
@@ -1407,7 +1419,7 @@ export interface QConnect {
   ): void;
   getRecommendations(
     args: GetRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetRecommendationsCommandOutput) => void
   ): void;
 
@@ -1416,7 +1428,7 @@ export interface QConnect {
    */
   getSession(
     args: GetSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<GetSessionCommandOutput>;
   getSession(
     args: GetSessionCommandInput,
@@ -1424,7 +1436,7 @@ export interface QConnect {
   ): void;
   getSession(
     args: GetSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
   ): void;
 
@@ -1433,7 +1445,7 @@ export interface QConnect {
    */
   listAIAgents(
     args: ListAIAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListAIAgentsCommandOutput>;
   listAIAgents(
     args: ListAIAgentsCommandInput,
@@ -1441,7 +1453,7 @@ export interface QConnect {
   ): void;
   listAIAgents(
     args: ListAIAgentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListAIAgentsCommandOutput) => void
   ): void;
 
@@ -1450,7 +1462,7 @@ export interface QConnect {
    */
   listAIAgentVersions(
     args: ListAIAgentVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListAIAgentVersionsCommandOutput>;
   listAIAgentVersions(
     args: ListAIAgentVersionsCommandInput,
@@ -1458,7 +1470,7 @@ export interface QConnect {
   ): void;
   listAIAgentVersions(
     args: ListAIAgentVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListAIAgentVersionsCommandOutput) => void
   ): void;
 
@@ -1467,7 +1479,7 @@ export interface QConnect {
    */
   listAIGuardrails(
     args: ListAIGuardrailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListAIGuardrailsCommandOutput>;
   listAIGuardrails(
     args: ListAIGuardrailsCommandInput,
@@ -1475,7 +1487,7 @@ export interface QConnect {
   ): void;
   listAIGuardrails(
     args: ListAIGuardrailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListAIGuardrailsCommandOutput) => void
   ): void;
 
@@ -1484,7 +1496,7 @@ export interface QConnect {
    */
   listAIGuardrailVersions(
     args: ListAIGuardrailVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListAIGuardrailVersionsCommandOutput>;
   listAIGuardrailVersions(
     args: ListAIGuardrailVersionsCommandInput,
@@ -1492,7 +1504,7 @@ export interface QConnect {
   ): void;
   listAIGuardrailVersions(
     args: ListAIGuardrailVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListAIGuardrailVersionsCommandOutput) => void
   ): void;
 
@@ -1501,7 +1513,7 @@ export interface QConnect {
    */
   listAIPrompts(
     args: ListAIPromptsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListAIPromptsCommandOutput>;
   listAIPrompts(
     args: ListAIPromptsCommandInput,
@@ -1509,7 +1521,7 @@ export interface QConnect {
   ): void;
   listAIPrompts(
     args: ListAIPromptsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListAIPromptsCommandOutput) => void
   ): void;
 
@@ -1518,7 +1530,7 @@ export interface QConnect {
    */
   listAIPromptVersions(
     args: ListAIPromptVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListAIPromptVersionsCommandOutput>;
   listAIPromptVersions(
     args: ListAIPromptVersionsCommandInput,
@@ -1526,7 +1538,7 @@ export interface QConnect {
   ): void;
   listAIPromptVersions(
     args: ListAIPromptVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListAIPromptVersionsCommandOutput) => void
   ): void;
 
@@ -1535,7 +1547,7 @@ export interface QConnect {
    */
   listAssistantAssociations(
     args: ListAssistantAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListAssistantAssociationsCommandOutput>;
   listAssistantAssociations(
     args: ListAssistantAssociationsCommandInput,
@@ -1543,7 +1555,7 @@ export interface QConnect {
   ): void;
   listAssistantAssociations(
     args: ListAssistantAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListAssistantAssociationsCommandOutput) => void
   ): void;
 
@@ -1553,7 +1565,7 @@ export interface QConnect {
   listAssistants(): Promise<ListAssistantsCommandOutput>;
   listAssistants(
     args: ListAssistantsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListAssistantsCommandOutput>;
   listAssistants(
     args: ListAssistantsCommandInput,
@@ -1561,7 +1573,7 @@ export interface QConnect {
   ): void;
   listAssistants(
     args: ListAssistantsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListAssistantsCommandOutput) => void
   ): void;
 
@@ -1570,7 +1582,7 @@ export interface QConnect {
    */
   listContentAssociations(
     args: ListContentAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListContentAssociationsCommandOutput>;
   listContentAssociations(
     args: ListContentAssociationsCommandInput,
@@ -1578,7 +1590,7 @@ export interface QConnect {
   ): void;
   listContentAssociations(
     args: ListContentAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListContentAssociationsCommandOutput) => void
   ): void;
 
@@ -1587,7 +1599,7 @@ export interface QConnect {
    */
   listContents(
     args: ListContentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListContentsCommandOutput>;
   listContents(
     args: ListContentsCommandInput,
@@ -1595,7 +1607,7 @@ export interface QConnect {
   ): void;
   listContents(
     args: ListContentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListContentsCommandOutput) => void
   ): void;
 
@@ -1604,7 +1616,7 @@ export interface QConnect {
    */
   listImportJobs(
     args: ListImportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListImportJobsCommandOutput>;
   listImportJobs(
     args: ListImportJobsCommandInput,
@@ -1612,7 +1624,7 @@ export interface QConnect {
   ): void;
   listImportJobs(
     args: ListImportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListImportJobsCommandOutput) => void
   ): void;
 
@@ -1622,7 +1634,7 @@ export interface QConnect {
   listKnowledgeBases(): Promise<ListKnowledgeBasesCommandOutput>;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListKnowledgeBasesCommandOutput>;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
@@ -1630,7 +1642,7 @@ export interface QConnect {
   ): void;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListKnowledgeBasesCommandOutput) => void
   ): void;
 
@@ -1639,7 +1651,7 @@ export interface QConnect {
    */
   listMessages(
     args: ListMessagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListMessagesCommandOutput>;
   listMessages(
     args: ListMessagesCommandInput,
@@ -1647,7 +1659,7 @@ export interface QConnect {
   ): void;
   listMessages(
     args: ListMessagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListMessagesCommandOutput) => void
   ): void;
 
@@ -1656,7 +1668,7 @@ export interface QConnect {
    */
   listMessageTemplates(
     args: ListMessageTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListMessageTemplatesCommandOutput>;
   listMessageTemplates(
     args: ListMessageTemplatesCommandInput,
@@ -1664,7 +1676,7 @@ export interface QConnect {
   ): void;
   listMessageTemplates(
     args: ListMessageTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListMessageTemplatesCommandOutput) => void
   ): void;
 
@@ -1673,7 +1685,7 @@ export interface QConnect {
    */
   listMessageTemplateVersions(
     args: ListMessageTemplateVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListMessageTemplateVersionsCommandOutput>;
   listMessageTemplateVersions(
     args: ListMessageTemplateVersionsCommandInput,
@@ -1681,7 +1693,7 @@ export interface QConnect {
   ): void;
   listMessageTemplateVersions(
     args: ListMessageTemplateVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListMessageTemplateVersionsCommandOutput) => void
   ): void;
 
@@ -1690,7 +1702,7 @@ export interface QConnect {
    */
   listModels(
     args: ListModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListModelsCommandOutput>;
   listModels(
     args: ListModelsCommandInput,
@@ -1698,7 +1710,7 @@ export interface QConnect {
   ): void;
   listModels(
     args: ListModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListModelsCommandOutput) => void
   ): void;
 
@@ -1707,7 +1719,7 @@ export interface QConnect {
    */
   listQuickResponses(
     args: ListQuickResponsesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListQuickResponsesCommandOutput>;
   listQuickResponses(
     args: ListQuickResponsesCommandInput,
@@ -1715,7 +1727,7 @@ export interface QConnect {
   ): void;
   listQuickResponses(
     args: ListQuickResponsesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListQuickResponsesCommandOutput) => void
   ): void;
 
@@ -1724,7 +1736,7 @@ export interface QConnect {
    */
   listSpans(
     args: ListSpansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListSpansCommandOutput>;
   listSpans(
     args: ListSpansCommandInput,
@@ -1732,7 +1744,7 @@ export interface QConnect {
   ): void;
   listSpans(
     args: ListSpansCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListSpansCommandOutput) => void
   ): void;
 
@@ -1741,7 +1753,7 @@ export interface QConnect {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1749,7 +1761,7 @@ export interface QConnect {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1758,7 +1770,7 @@ export interface QConnect {
    */
   notifyRecommendationsReceived(
     args: NotifyRecommendationsReceivedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<NotifyRecommendationsReceivedCommandOutput>;
   notifyRecommendationsReceived(
     args: NotifyRecommendationsReceivedCommandInput,
@@ -1766,7 +1778,7 @@ export interface QConnect {
   ): void;
   notifyRecommendationsReceived(
     args: NotifyRecommendationsReceivedCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: NotifyRecommendationsReceivedCommandOutput) => void
   ): void;
 
@@ -1775,7 +1787,7 @@ export interface QConnect {
    */
   putFeedback(
     args: PutFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<PutFeedbackCommandOutput>;
   putFeedback(
     args: PutFeedbackCommandInput,
@@ -1783,7 +1795,7 @@ export interface QConnect {
   ): void;
   putFeedback(
     args: PutFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: PutFeedbackCommandOutput) => void
   ): void;
 
@@ -1792,7 +1804,7 @@ export interface QConnect {
    */
   queryAssistant(
     args: QueryAssistantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<QueryAssistantCommandOutput>;
   queryAssistant(
     args: QueryAssistantCommandInput,
@@ -1800,7 +1812,7 @@ export interface QConnect {
   ): void;
   queryAssistant(
     args: QueryAssistantCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: QueryAssistantCommandOutput) => void
   ): void;
 
@@ -1809,7 +1821,7 @@ export interface QConnect {
    */
   removeAssistantAIAgent(
     args: RemoveAssistantAIAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<RemoveAssistantAIAgentCommandOutput>;
   removeAssistantAIAgent(
     args: RemoveAssistantAIAgentCommandInput,
@@ -1817,7 +1829,7 @@ export interface QConnect {
   ): void;
   removeAssistantAIAgent(
     args: RemoveAssistantAIAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: RemoveAssistantAIAgentCommandOutput) => void
   ): void;
 
@@ -1826,7 +1838,7 @@ export interface QConnect {
    */
   removeKnowledgeBaseTemplateUri(
     args: RemoveKnowledgeBaseTemplateUriCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<RemoveKnowledgeBaseTemplateUriCommandOutput>;
   removeKnowledgeBaseTemplateUri(
     args: RemoveKnowledgeBaseTemplateUriCommandInput,
@@ -1834,7 +1846,7 @@ export interface QConnect {
   ): void;
   removeKnowledgeBaseTemplateUri(
     args: RemoveKnowledgeBaseTemplateUriCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: RemoveKnowledgeBaseTemplateUriCommandOutput) => void
   ): void;
 
@@ -1843,7 +1855,7 @@ export interface QConnect {
    */
   renderMessageTemplate(
     args: RenderMessageTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<RenderMessageTemplateCommandOutput>;
   renderMessageTemplate(
     args: RenderMessageTemplateCommandInput,
@@ -1851,7 +1863,7 @@ export interface QConnect {
   ): void;
   renderMessageTemplate(
     args: RenderMessageTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: RenderMessageTemplateCommandOutput) => void
   ): void;
 
@@ -1860,7 +1872,7 @@ export interface QConnect {
    */
   retrieve(
     args: RetrieveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<RetrieveCommandOutput>;
   retrieve(
     args: RetrieveCommandInput,
@@ -1868,7 +1880,7 @@ export interface QConnect {
   ): void;
   retrieve(
     args: RetrieveCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: RetrieveCommandOutput) => void
   ): void;
 
@@ -1877,7 +1889,7 @@ export interface QConnect {
    */
   searchContent(
     args: SearchContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<SearchContentCommandOutput>;
   searchContent(
     args: SearchContentCommandInput,
@@ -1885,7 +1897,7 @@ export interface QConnect {
   ): void;
   searchContent(
     args: SearchContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: SearchContentCommandOutput) => void
   ): void;
 
@@ -1894,7 +1906,7 @@ export interface QConnect {
    */
   searchMessageTemplates(
     args: SearchMessageTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<SearchMessageTemplatesCommandOutput>;
   searchMessageTemplates(
     args: SearchMessageTemplatesCommandInput,
@@ -1902,7 +1914,7 @@ export interface QConnect {
   ): void;
   searchMessageTemplates(
     args: SearchMessageTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: SearchMessageTemplatesCommandOutput) => void
   ): void;
 
@@ -1911,7 +1923,7 @@ export interface QConnect {
    */
   searchQuickResponses(
     args: SearchQuickResponsesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<SearchQuickResponsesCommandOutput>;
   searchQuickResponses(
     args: SearchQuickResponsesCommandInput,
@@ -1919,7 +1931,7 @@ export interface QConnect {
   ): void;
   searchQuickResponses(
     args: SearchQuickResponsesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: SearchQuickResponsesCommandOutput) => void
   ): void;
 
@@ -1928,7 +1940,7 @@ export interface QConnect {
    */
   searchSessions(
     args: SearchSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<SearchSessionsCommandOutput>;
   searchSessions(
     args: SearchSessionsCommandInput,
@@ -1936,7 +1948,7 @@ export interface QConnect {
   ): void;
   searchSessions(
     args: SearchSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: SearchSessionsCommandOutput) => void
   ): void;
 
@@ -1945,7 +1957,7 @@ export interface QConnect {
    */
   sendMessage(
     args: SendMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<SendMessageCommandOutput>;
   sendMessage(
     args: SendMessageCommandInput,
@@ -1953,7 +1965,7 @@ export interface QConnect {
   ): void;
   sendMessage(
     args: SendMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: SendMessageCommandOutput) => void
   ): void;
 
@@ -1962,7 +1974,7 @@ export interface QConnect {
    */
   startContentUpload(
     args: StartContentUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<StartContentUploadCommandOutput>;
   startContentUpload(
     args: StartContentUploadCommandInput,
@@ -1970,7 +1982,7 @@ export interface QConnect {
   ): void;
   startContentUpload(
     args: StartContentUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: StartContentUploadCommandOutput) => void
   ): void;
 
@@ -1979,7 +1991,7 @@ export interface QConnect {
    */
   startImportJob(
     args: StartImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<StartImportJobCommandOutput>;
   startImportJob(
     args: StartImportJobCommandInput,
@@ -1987,7 +1999,7 @@ export interface QConnect {
   ): void;
   startImportJob(
     args: StartImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: StartImportJobCommandOutput) => void
   ): void;
 
@@ -1996,7 +2008,7 @@ export interface QConnect {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2004,7 +2016,7 @@ export interface QConnect {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2013,7 +2025,7 @@ export interface QConnect {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2021,7 +2033,7 @@ export interface QConnect {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2030,7 +2042,7 @@ export interface QConnect {
    */
   updateAIAgent(
     args: UpdateAIAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UpdateAIAgentCommandOutput>;
   updateAIAgent(
     args: UpdateAIAgentCommandInput,
@@ -2038,7 +2050,7 @@ export interface QConnect {
   ): void;
   updateAIAgent(
     args: UpdateAIAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UpdateAIAgentCommandOutput) => void
   ): void;
 
@@ -2047,7 +2059,7 @@ export interface QConnect {
    */
   updateAIGuardrail(
     args: UpdateAIGuardrailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UpdateAIGuardrailCommandOutput>;
   updateAIGuardrail(
     args: UpdateAIGuardrailCommandInput,
@@ -2055,7 +2067,7 @@ export interface QConnect {
   ): void;
   updateAIGuardrail(
     args: UpdateAIGuardrailCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UpdateAIGuardrailCommandOutput) => void
   ): void;
 
@@ -2064,7 +2076,7 @@ export interface QConnect {
    */
   updateAIPrompt(
     args: UpdateAIPromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UpdateAIPromptCommandOutput>;
   updateAIPrompt(
     args: UpdateAIPromptCommandInput,
@@ -2072,7 +2084,7 @@ export interface QConnect {
   ): void;
   updateAIPrompt(
     args: UpdateAIPromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UpdateAIPromptCommandOutput) => void
   ): void;
 
@@ -2081,7 +2093,7 @@ export interface QConnect {
    */
   updateAssistantAIAgent(
     args: UpdateAssistantAIAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UpdateAssistantAIAgentCommandOutput>;
   updateAssistantAIAgent(
     args: UpdateAssistantAIAgentCommandInput,
@@ -2089,7 +2101,7 @@ export interface QConnect {
   ): void;
   updateAssistantAIAgent(
     args: UpdateAssistantAIAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UpdateAssistantAIAgentCommandOutput) => void
   ): void;
 
@@ -2098,7 +2110,7 @@ export interface QConnect {
    */
   updateContent(
     args: UpdateContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UpdateContentCommandOutput>;
   updateContent(
     args: UpdateContentCommandInput,
@@ -2106,7 +2118,7 @@ export interface QConnect {
   ): void;
   updateContent(
     args: UpdateContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UpdateContentCommandOutput) => void
   ): void;
 
@@ -2115,7 +2127,7 @@ export interface QConnect {
    */
   updateKnowledgeBaseTemplateUri(
     args: UpdateKnowledgeBaseTemplateUriCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UpdateKnowledgeBaseTemplateUriCommandOutput>;
   updateKnowledgeBaseTemplateUri(
     args: UpdateKnowledgeBaseTemplateUriCommandInput,
@@ -2123,7 +2135,7 @@ export interface QConnect {
   ): void;
   updateKnowledgeBaseTemplateUri(
     args: UpdateKnowledgeBaseTemplateUriCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UpdateKnowledgeBaseTemplateUriCommandOutput) => void
   ): void;
 
@@ -2132,7 +2144,7 @@ export interface QConnect {
    */
   updateMessageTemplate(
     args: UpdateMessageTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UpdateMessageTemplateCommandOutput>;
   updateMessageTemplate(
     args: UpdateMessageTemplateCommandInput,
@@ -2140,7 +2152,7 @@ export interface QConnect {
   ): void;
   updateMessageTemplate(
     args: UpdateMessageTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UpdateMessageTemplateCommandOutput) => void
   ): void;
 
@@ -2149,7 +2161,7 @@ export interface QConnect {
    */
   updateMessageTemplateMetadata(
     args: UpdateMessageTemplateMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UpdateMessageTemplateMetadataCommandOutput>;
   updateMessageTemplateMetadata(
     args: UpdateMessageTemplateMetadataCommandInput,
@@ -2157,7 +2169,7 @@ export interface QConnect {
   ): void;
   updateMessageTemplateMetadata(
     args: UpdateMessageTemplateMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UpdateMessageTemplateMetadataCommandOutput) => void
   ): void;
 
@@ -2166,7 +2178,7 @@ export interface QConnect {
    */
   updateQuickResponse(
     args: UpdateQuickResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UpdateQuickResponseCommandOutput>;
   updateQuickResponse(
     args: UpdateQuickResponseCommandInput,
@@ -2174,7 +2186,7 @@ export interface QConnect {
   ): void;
   updateQuickResponse(
     args: UpdateQuickResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UpdateQuickResponseCommandOutput) => void
   ): void;
 
@@ -2183,7 +2195,7 @@ export interface QConnect {
    */
   updateSession(
     args: UpdateSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UpdateSessionCommandOutput>;
   updateSession(
     args: UpdateSessionCommandInput,
@@ -2191,7 +2203,7 @@ export interface QConnect {
   ): void;
   updateSession(
     args: UpdateSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UpdateSessionCommandOutput) => void
   ): void;
 
@@ -2200,7 +2212,7 @@ export interface QConnect {
    */
   updateSessionData(
     args: UpdateSessionDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QConnectRequestOptions
   ): Promise<UpdateSessionDataCommandOutput>;
   updateSessionData(
     args: UpdateSessionDataCommandInput,
@@ -2208,7 +2220,7 @@ export interface QConnect {
   ): void;
   updateSessionData(
     args: UpdateSessionDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: QConnectRequestOptions,
     cb: (err: any, data?: UpdateSessionDataCommandOutput) => void
   ): void;
 

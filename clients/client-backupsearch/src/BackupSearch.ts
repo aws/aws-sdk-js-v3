@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BackupSearchClient } from "./BackupSearchClient";
 import {
@@ -89,13 +94,20 @@ const paginators = {
   paginateListSearchResultExportJobs,
 };
 
+/**
+ * @public
+ */
+export interface BackupSearchRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface BackupSearch {
   /**
    * @see {@link GetSearchJobCommand}
    */
   getSearchJob(
     args: GetSearchJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<GetSearchJobCommandOutput>;
   getSearchJob(
     args: GetSearchJobCommandInput,
@@ -103,7 +115,7 @@ export interface BackupSearch {
   ): void;
   getSearchJob(
     args: GetSearchJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: GetSearchJobCommandOutput) => void
   ): void;
 
@@ -112,7 +124,7 @@ export interface BackupSearch {
    */
   getSearchResultExportJob(
     args: GetSearchResultExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<GetSearchResultExportJobCommandOutput>;
   getSearchResultExportJob(
     args: GetSearchResultExportJobCommandInput,
@@ -120,7 +132,7 @@ export interface BackupSearch {
   ): void;
   getSearchResultExportJob(
     args: GetSearchResultExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: GetSearchResultExportJobCommandOutput) => void
   ): void;
 
@@ -129,7 +141,7 @@ export interface BackupSearch {
    */
   listSearchJobBackups(
     args: ListSearchJobBackupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<ListSearchJobBackupsCommandOutput>;
   listSearchJobBackups(
     args: ListSearchJobBackupsCommandInput,
@@ -137,7 +149,7 @@ export interface BackupSearch {
   ): void;
   listSearchJobBackups(
     args: ListSearchJobBackupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: ListSearchJobBackupsCommandOutput) => void
   ): void;
 
@@ -146,7 +158,7 @@ export interface BackupSearch {
    */
   listSearchJobResults(
     args: ListSearchJobResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<ListSearchJobResultsCommandOutput>;
   listSearchJobResults(
     args: ListSearchJobResultsCommandInput,
@@ -154,7 +166,7 @@ export interface BackupSearch {
   ): void;
   listSearchJobResults(
     args: ListSearchJobResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: ListSearchJobResultsCommandOutput) => void
   ): void;
 
@@ -164,7 +176,7 @@ export interface BackupSearch {
   listSearchJobs(): Promise<ListSearchJobsCommandOutput>;
   listSearchJobs(
     args: ListSearchJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<ListSearchJobsCommandOutput>;
   listSearchJobs(
     args: ListSearchJobsCommandInput,
@@ -172,7 +184,7 @@ export interface BackupSearch {
   ): void;
   listSearchJobs(
     args: ListSearchJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: ListSearchJobsCommandOutput) => void
   ): void;
 
@@ -182,7 +194,7 @@ export interface BackupSearch {
   listSearchResultExportJobs(): Promise<ListSearchResultExportJobsCommandOutput>;
   listSearchResultExportJobs(
     args: ListSearchResultExportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<ListSearchResultExportJobsCommandOutput>;
   listSearchResultExportJobs(
     args: ListSearchResultExportJobsCommandInput,
@@ -190,7 +202,7 @@ export interface BackupSearch {
   ): void;
   listSearchResultExportJobs(
     args: ListSearchResultExportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: ListSearchResultExportJobsCommandOutput) => void
   ): void;
 
@@ -199,7 +211,7 @@ export interface BackupSearch {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -207,7 +219,7 @@ export interface BackupSearch {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -216,7 +228,7 @@ export interface BackupSearch {
    */
   startSearchJob(
     args: StartSearchJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<StartSearchJobCommandOutput>;
   startSearchJob(
     args: StartSearchJobCommandInput,
@@ -224,7 +236,7 @@ export interface BackupSearch {
   ): void;
   startSearchJob(
     args: StartSearchJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: StartSearchJobCommandOutput) => void
   ): void;
 
@@ -233,7 +245,7 @@ export interface BackupSearch {
    */
   startSearchResultExportJob(
     args: StartSearchResultExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<StartSearchResultExportJobCommandOutput>;
   startSearchResultExportJob(
     args: StartSearchResultExportJobCommandInput,
@@ -241,7 +253,7 @@ export interface BackupSearch {
   ): void;
   startSearchResultExportJob(
     args: StartSearchResultExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: StartSearchResultExportJobCommandOutput) => void
   ): void;
 
@@ -250,7 +262,7 @@ export interface BackupSearch {
    */
   stopSearchJob(
     args: StopSearchJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<StopSearchJobCommandOutput>;
   stopSearchJob(
     args: StopSearchJobCommandInput,
@@ -258,7 +270,7 @@ export interface BackupSearch {
   ): void;
   stopSearchJob(
     args: StopSearchJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: StopSearchJobCommandOutput) => void
   ): void;
 
@@ -267,7 +279,7 @@ export interface BackupSearch {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -275,7 +287,7 @@ export interface BackupSearch {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -284,7 +296,7 @@ export interface BackupSearch {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupSearchRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -292,7 +304,7 @@ export interface BackupSearch {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupSearchRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

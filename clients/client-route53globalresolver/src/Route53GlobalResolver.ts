@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateHostedZoneCommandInput,
@@ -317,13 +322,20 @@ const paginators = {
   paginateListSharedDNSViews,
 };
 
+/**
+ * @public
+ */
+export interface Route53GlobalResolverRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Route53GlobalResolver {
   /**
    * @see {@link AssociateHostedZoneCommand}
    */
   associateHostedZone(
     args: AssociateHostedZoneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<AssociateHostedZoneCommandOutput>;
   associateHostedZone(
     args: AssociateHostedZoneCommandInput,
@@ -331,7 +343,7 @@ export interface Route53GlobalResolver {
   ): void;
   associateHostedZone(
     args: AssociateHostedZoneCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: AssociateHostedZoneCommandOutput) => void
   ): void;
 
@@ -340,7 +352,7 @@ export interface Route53GlobalResolver {
    */
   batchCreateFirewallRule(
     args: BatchCreateFirewallRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<BatchCreateFirewallRuleCommandOutput>;
   batchCreateFirewallRule(
     args: BatchCreateFirewallRuleCommandInput,
@@ -348,7 +360,7 @@ export interface Route53GlobalResolver {
   ): void;
   batchCreateFirewallRule(
     args: BatchCreateFirewallRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: BatchCreateFirewallRuleCommandOutput) => void
   ): void;
 
@@ -357,7 +369,7 @@ export interface Route53GlobalResolver {
    */
   batchDeleteFirewallRule(
     args: BatchDeleteFirewallRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<BatchDeleteFirewallRuleCommandOutput>;
   batchDeleteFirewallRule(
     args: BatchDeleteFirewallRuleCommandInput,
@@ -365,7 +377,7 @@ export interface Route53GlobalResolver {
   ): void;
   batchDeleteFirewallRule(
     args: BatchDeleteFirewallRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: BatchDeleteFirewallRuleCommandOutput) => void
   ): void;
 
@@ -374,7 +386,7 @@ export interface Route53GlobalResolver {
    */
   batchUpdateFirewallRule(
     args: BatchUpdateFirewallRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<BatchUpdateFirewallRuleCommandOutput>;
   batchUpdateFirewallRule(
     args: BatchUpdateFirewallRuleCommandInput,
@@ -382,7 +394,7 @@ export interface Route53GlobalResolver {
   ): void;
   batchUpdateFirewallRule(
     args: BatchUpdateFirewallRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: BatchUpdateFirewallRuleCommandOutput) => void
   ): void;
 
@@ -391,7 +403,7 @@ export interface Route53GlobalResolver {
    */
   createAccessSource(
     args: CreateAccessSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<CreateAccessSourceCommandOutput>;
   createAccessSource(
     args: CreateAccessSourceCommandInput,
@@ -399,7 +411,7 @@ export interface Route53GlobalResolver {
   ): void;
   createAccessSource(
     args: CreateAccessSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: CreateAccessSourceCommandOutput) => void
   ): void;
 
@@ -408,7 +420,7 @@ export interface Route53GlobalResolver {
    */
   createAccessToken(
     args: CreateAccessTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<CreateAccessTokenCommandOutput>;
   createAccessToken(
     args: CreateAccessTokenCommandInput,
@@ -416,7 +428,7 @@ export interface Route53GlobalResolver {
   ): void;
   createAccessToken(
     args: CreateAccessTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: CreateAccessTokenCommandOutput) => void
   ): void;
 
@@ -425,7 +437,7 @@ export interface Route53GlobalResolver {
    */
   createDNSView(
     args: CreateDNSViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<CreateDNSViewCommandOutput>;
   createDNSView(
     args: CreateDNSViewCommandInput,
@@ -433,7 +445,7 @@ export interface Route53GlobalResolver {
   ): void;
   createDNSView(
     args: CreateDNSViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: CreateDNSViewCommandOutput) => void
   ): void;
 
@@ -442,7 +454,7 @@ export interface Route53GlobalResolver {
    */
   createFirewallDomainList(
     args: CreateFirewallDomainListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<CreateFirewallDomainListCommandOutput>;
   createFirewallDomainList(
     args: CreateFirewallDomainListCommandInput,
@@ -450,7 +462,7 @@ export interface Route53GlobalResolver {
   ): void;
   createFirewallDomainList(
     args: CreateFirewallDomainListCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: CreateFirewallDomainListCommandOutput) => void
   ): void;
 
@@ -459,7 +471,7 @@ export interface Route53GlobalResolver {
    */
   createFirewallRule(
     args: CreateFirewallRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<CreateFirewallRuleCommandOutput>;
   createFirewallRule(
     args: CreateFirewallRuleCommandInput,
@@ -467,7 +479,7 @@ export interface Route53GlobalResolver {
   ): void;
   createFirewallRule(
     args: CreateFirewallRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: CreateFirewallRuleCommandOutput) => void
   ): void;
 
@@ -476,7 +488,7 @@ export interface Route53GlobalResolver {
    */
   createGlobalResolver(
     args: CreateGlobalResolverCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<CreateGlobalResolverCommandOutput>;
   createGlobalResolver(
     args: CreateGlobalResolverCommandInput,
@@ -484,7 +496,7 @@ export interface Route53GlobalResolver {
   ): void;
   createGlobalResolver(
     args: CreateGlobalResolverCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: CreateGlobalResolverCommandOutput) => void
   ): void;
 
@@ -493,7 +505,7 @@ export interface Route53GlobalResolver {
    */
   deleteAccessSource(
     args: DeleteAccessSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<DeleteAccessSourceCommandOutput>;
   deleteAccessSource(
     args: DeleteAccessSourceCommandInput,
@@ -501,7 +513,7 @@ export interface Route53GlobalResolver {
   ): void;
   deleteAccessSource(
     args: DeleteAccessSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: DeleteAccessSourceCommandOutput) => void
   ): void;
 
@@ -510,7 +522,7 @@ export interface Route53GlobalResolver {
    */
   deleteAccessToken(
     args: DeleteAccessTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<DeleteAccessTokenCommandOutput>;
   deleteAccessToken(
     args: DeleteAccessTokenCommandInput,
@@ -518,7 +530,7 @@ export interface Route53GlobalResolver {
   ): void;
   deleteAccessToken(
     args: DeleteAccessTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: DeleteAccessTokenCommandOutput) => void
   ): void;
 
@@ -527,7 +539,7 @@ export interface Route53GlobalResolver {
    */
   deleteDNSView(
     args: DeleteDNSViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<DeleteDNSViewCommandOutput>;
   deleteDNSView(
     args: DeleteDNSViewCommandInput,
@@ -535,7 +547,7 @@ export interface Route53GlobalResolver {
   ): void;
   deleteDNSView(
     args: DeleteDNSViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: DeleteDNSViewCommandOutput) => void
   ): void;
 
@@ -544,7 +556,7 @@ export interface Route53GlobalResolver {
    */
   deleteFirewallDomainList(
     args: DeleteFirewallDomainListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<DeleteFirewallDomainListCommandOutput>;
   deleteFirewallDomainList(
     args: DeleteFirewallDomainListCommandInput,
@@ -552,7 +564,7 @@ export interface Route53GlobalResolver {
   ): void;
   deleteFirewallDomainList(
     args: DeleteFirewallDomainListCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: DeleteFirewallDomainListCommandOutput) => void
   ): void;
 
@@ -561,7 +573,7 @@ export interface Route53GlobalResolver {
    */
   deleteFirewallRule(
     args: DeleteFirewallRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<DeleteFirewallRuleCommandOutput>;
   deleteFirewallRule(
     args: DeleteFirewallRuleCommandInput,
@@ -569,7 +581,7 @@ export interface Route53GlobalResolver {
   ): void;
   deleteFirewallRule(
     args: DeleteFirewallRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: DeleteFirewallRuleCommandOutput) => void
   ): void;
 
@@ -578,7 +590,7 @@ export interface Route53GlobalResolver {
    */
   deleteGlobalResolver(
     args: DeleteGlobalResolverCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<DeleteGlobalResolverCommandOutput>;
   deleteGlobalResolver(
     args: DeleteGlobalResolverCommandInput,
@@ -586,7 +598,7 @@ export interface Route53GlobalResolver {
   ): void;
   deleteGlobalResolver(
     args: DeleteGlobalResolverCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: DeleteGlobalResolverCommandOutput) => void
   ): void;
 
@@ -595,7 +607,7 @@ export interface Route53GlobalResolver {
    */
   disableDNSView(
     args: DisableDNSViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<DisableDNSViewCommandOutput>;
   disableDNSView(
     args: DisableDNSViewCommandInput,
@@ -603,7 +615,7 @@ export interface Route53GlobalResolver {
   ): void;
   disableDNSView(
     args: DisableDNSViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: DisableDNSViewCommandOutput) => void
   ): void;
 
@@ -612,7 +624,7 @@ export interface Route53GlobalResolver {
    */
   disassociateHostedZone(
     args: DisassociateHostedZoneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<DisassociateHostedZoneCommandOutput>;
   disassociateHostedZone(
     args: DisassociateHostedZoneCommandInput,
@@ -620,7 +632,7 @@ export interface Route53GlobalResolver {
   ): void;
   disassociateHostedZone(
     args: DisassociateHostedZoneCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: DisassociateHostedZoneCommandOutput) => void
   ): void;
 
@@ -629,7 +641,7 @@ export interface Route53GlobalResolver {
    */
   enableDNSView(
     args: EnableDNSViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<EnableDNSViewCommandOutput>;
   enableDNSView(
     args: EnableDNSViewCommandInput,
@@ -637,7 +649,7 @@ export interface Route53GlobalResolver {
   ): void;
   enableDNSView(
     args: EnableDNSViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: EnableDNSViewCommandOutput) => void
   ): void;
 
@@ -646,7 +658,7 @@ export interface Route53GlobalResolver {
    */
   getAccessSource(
     args: GetAccessSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<GetAccessSourceCommandOutput>;
   getAccessSource(
     args: GetAccessSourceCommandInput,
@@ -654,7 +666,7 @@ export interface Route53GlobalResolver {
   ): void;
   getAccessSource(
     args: GetAccessSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: GetAccessSourceCommandOutput) => void
   ): void;
 
@@ -663,7 +675,7 @@ export interface Route53GlobalResolver {
    */
   getAccessToken(
     args: GetAccessTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<GetAccessTokenCommandOutput>;
   getAccessToken(
     args: GetAccessTokenCommandInput,
@@ -671,7 +683,7 @@ export interface Route53GlobalResolver {
   ): void;
   getAccessToken(
     args: GetAccessTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: GetAccessTokenCommandOutput) => void
   ): void;
 
@@ -680,7 +692,7 @@ export interface Route53GlobalResolver {
    */
   getDNSView(
     args: GetDNSViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<GetDNSViewCommandOutput>;
   getDNSView(
     args: GetDNSViewCommandInput,
@@ -688,7 +700,7 @@ export interface Route53GlobalResolver {
   ): void;
   getDNSView(
     args: GetDNSViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: GetDNSViewCommandOutput) => void
   ): void;
 
@@ -697,7 +709,7 @@ export interface Route53GlobalResolver {
    */
   getFirewallDomainList(
     args: GetFirewallDomainListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<GetFirewallDomainListCommandOutput>;
   getFirewallDomainList(
     args: GetFirewallDomainListCommandInput,
@@ -705,7 +717,7 @@ export interface Route53GlobalResolver {
   ): void;
   getFirewallDomainList(
     args: GetFirewallDomainListCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: GetFirewallDomainListCommandOutput) => void
   ): void;
 
@@ -714,7 +726,7 @@ export interface Route53GlobalResolver {
    */
   getFirewallRule(
     args: GetFirewallRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<GetFirewallRuleCommandOutput>;
   getFirewallRule(
     args: GetFirewallRuleCommandInput,
@@ -722,7 +734,7 @@ export interface Route53GlobalResolver {
   ): void;
   getFirewallRule(
     args: GetFirewallRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: GetFirewallRuleCommandOutput) => void
   ): void;
 
@@ -731,7 +743,7 @@ export interface Route53GlobalResolver {
    */
   getGlobalResolver(
     args: GetGlobalResolverCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<GetGlobalResolverCommandOutput>;
   getGlobalResolver(
     args: GetGlobalResolverCommandInput,
@@ -739,7 +751,7 @@ export interface Route53GlobalResolver {
   ): void;
   getGlobalResolver(
     args: GetGlobalResolverCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: GetGlobalResolverCommandOutput) => void
   ): void;
 
@@ -748,7 +760,7 @@ export interface Route53GlobalResolver {
    */
   getHostedZoneAssociation(
     args: GetHostedZoneAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<GetHostedZoneAssociationCommandOutput>;
   getHostedZoneAssociation(
     args: GetHostedZoneAssociationCommandInput,
@@ -756,7 +768,7 @@ export interface Route53GlobalResolver {
   ): void;
   getHostedZoneAssociation(
     args: GetHostedZoneAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: GetHostedZoneAssociationCommandOutput) => void
   ): void;
 
@@ -765,7 +777,7 @@ export interface Route53GlobalResolver {
    */
   getManagedFirewallDomainList(
     args: GetManagedFirewallDomainListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<GetManagedFirewallDomainListCommandOutput>;
   getManagedFirewallDomainList(
     args: GetManagedFirewallDomainListCommandInput,
@@ -773,7 +785,7 @@ export interface Route53GlobalResolver {
   ): void;
   getManagedFirewallDomainList(
     args: GetManagedFirewallDomainListCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: GetManagedFirewallDomainListCommandOutput) => void
   ): void;
 
@@ -782,7 +794,7 @@ export interface Route53GlobalResolver {
    */
   importFirewallDomains(
     args: ImportFirewallDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ImportFirewallDomainsCommandOutput>;
   importFirewallDomains(
     args: ImportFirewallDomainsCommandInput,
@@ -790,7 +802,7 @@ export interface Route53GlobalResolver {
   ): void;
   importFirewallDomains(
     args: ImportFirewallDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ImportFirewallDomainsCommandOutput) => void
   ): void;
 
@@ -800,7 +812,7 @@ export interface Route53GlobalResolver {
   listAccessSources(): Promise<ListAccessSourcesCommandOutput>;
   listAccessSources(
     args: ListAccessSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ListAccessSourcesCommandOutput>;
   listAccessSources(
     args: ListAccessSourcesCommandInput,
@@ -808,7 +820,7 @@ export interface Route53GlobalResolver {
   ): void;
   listAccessSources(
     args: ListAccessSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListAccessSourcesCommandOutput) => void
   ): void;
 
@@ -817,7 +829,7 @@ export interface Route53GlobalResolver {
    */
   listAccessTokens(
     args: ListAccessTokensCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ListAccessTokensCommandOutput>;
   listAccessTokens(
     args: ListAccessTokensCommandInput,
@@ -825,7 +837,7 @@ export interface Route53GlobalResolver {
   ): void;
   listAccessTokens(
     args: ListAccessTokensCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListAccessTokensCommandOutput) => void
   ): void;
 
@@ -834,7 +846,7 @@ export interface Route53GlobalResolver {
    */
   listDNSViews(
     args: ListDNSViewsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ListDNSViewsCommandOutput>;
   listDNSViews(
     args: ListDNSViewsCommandInput,
@@ -842,7 +854,7 @@ export interface Route53GlobalResolver {
   ): void;
   listDNSViews(
     args: ListDNSViewsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListDNSViewsCommandOutput) => void
   ): void;
 
@@ -852,7 +864,7 @@ export interface Route53GlobalResolver {
   listFirewallDomainLists(): Promise<ListFirewallDomainListsCommandOutput>;
   listFirewallDomainLists(
     args: ListFirewallDomainListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ListFirewallDomainListsCommandOutput>;
   listFirewallDomainLists(
     args: ListFirewallDomainListsCommandInput,
@@ -860,7 +872,7 @@ export interface Route53GlobalResolver {
   ): void;
   listFirewallDomainLists(
     args: ListFirewallDomainListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListFirewallDomainListsCommandOutput) => void
   ): void;
 
@@ -869,7 +881,7 @@ export interface Route53GlobalResolver {
    */
   listFirewallDomains(
     args: ListFirewallDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ListFirewallDomainsCommandOutput>;
   listFirewallDomains(
     args: ListFirewallDomainsCommandInput,
@@ -877,7 +889,7 @@ export interface Route53GlobalResolver {
   ): void;
   listFirewallDomains(
     args: ListFirewallDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListFirewallDomainsCommandOutput) => void
   ): void;
 
@@ -886,7 +898,7 @@ export interface Route53GlobalResolver {
    */
   listFirewallRules(
     args: ListFirewallRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ListFirewallRulesCommandOutput>;
   listFirewallRules(
     args: ListFirewallRulesCommandInput,
@@ -894,7 +906,7 @@ export interface Route53GlobalResolver {
   ): void;
   listFirewallRules(
     args: ListFirewallRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListFirewallRulesCommandOutput) => void
   ): void;
 
@@ -904,7 +916,7 @@ export interface Route53GlobalResolver {
   listGlobalResolvers(): Promise<ListGlobalResolversCommandOutput>;
   listGlobalResolvers(
     args: ListGlobalResolversCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ListGlobalResolversCommandOutput>;
   listGlobalResolvers(
     args: ListGlobalResolversCommandInput,
@@ -912,7 +924,7 @@ export interface Route53GlobalResolver {
   ): void;
   listGlobalResolvers(
     args: ListGlobalResolversCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListGlobalResolversCommandOutput) => void
   ): void;
 
@@ -922,7 +934,7 @@ export interface Route53GlobalResolver {
   listHostedZoneAssociations(): Promise<ListHostedZoneAssociationsCommandOutput>;
   listHostedZoneAssociations(
     args: ListHostedZoneAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ListHostedZoneAssociationsCommandOutput>;
   listHostedZoneAssociations(
     args: ListHostedZoneAssociationsCommandInput,
@@ -930,7 +942,7 @@ export interface Route53GlobalResolver {
   ): void;
   listHostedZoneAssociations(
     args: ListHostedZoneAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListHostedZoneAssociationsCommandOutput) => void
   ): void;
 
@@ -939,7 +951,7 @@ export interface Route53GlobalResolver {
    */
   listManagedFirewallDomainLists(
     args: ListManagedFirewallDomainListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ListManagedFirewallDomainListsCommandOutput>;
   listManagedFirewallDomainLists(
     args: ListManagedFirewallDomainListsCommandInput,
@@ -947,7 +959,7 @@ export interface Route53GlobalResolver {
   ): void;
   listManagedFirewallDomainLists(
     args: ListManagedFirewallDomainListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListManagedFirewallDomainListsCommandOutput) => void
   ): void;
 
@@ -957,7 +969,7 @@ export interface Route53GlobalResolver {
   listSharedDNSViews(): Promise<ListSharedDNSViewsCommandOutput>;
   listSharedDNSViews(
     args: ListSharedDNSViewsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ListSharedDNSViewsCommandOutput>;
   listSharedDNSViews(
     args: ListSharedDNSViewsCommandInput,
@@ -965,7 +977,7 @@ export interface Route53GlobalResolver {
   ): void;
   listSharedDNSViews(
     args: ListSharedDNSViewsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListSharedDNSViewsCommandOutput) => void
   ): void;
 
@@ -974,7 +986,7 @@ export interface Route53GlobalResolver {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -982,7 +994,7 @@ export interface Route53GlobalResolver {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -991,7 +1003,7 @@ export interface Route53GlobalResolver {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -999,7 +1011,7 @@ export interface Route53GlobalResolver {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1008,7 +1020,7 @@ export interface Route53GlobalResolver {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1016,7 +1028,7 @@ export interface Route53GlobalResolver {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1025,7 +1037,7 @@ export interface Route53GlobalResolver {
    */
   updateAccessSource(
     args: UpdateAccessSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<UpdateAccessSourceCommandOutput>;
   updateAccessSource(
     args: UpdateAccessSourceCommandInput,
@@ -1033,7 +1045,7 @@ export interface Route53GlobalResolver {
   ): void;
   updateAccessSource(
     args: UpdateAccessSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: UpdateAccessSourceCommandOutput) => void
   ): void;
 
@@ -1042,7 +1054,7 @@ export interface Route53GlobalResolver {
    */
   updateAccessToken(
     args: UpdateAccessTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<UpdateAccessTokenCommandOutput>;
   updateAccessToken(
     args: UpdateAccessTokenCommandInput,
@@ -1050,7 +1062,7 @@ export interface Route53GlobalResolver {
   ): void;
   updateAccessToken(
     args: UpdateAccessTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: UpdateAccessTokenCommandOutput) => void
   ): void;
 
@@ -1059,7 +1071,7 @@ export interface Route53GlobalResolver {
    */
   updateDNSView(
     args: UpdateDNSViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<UpdateDNSViewCommandOutput>;
   updateDNSView(
     args: UpdateDNSViewCommandInput,
@@ -1067,7 +1079,7 @@ export interface Route53GlobalResolver {
   ): void;
   updateDNSView(
     args: UpdateDNSViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: UpdateDNSViewCommandOutput) => void
   ): void;
 
@@ -1076,7 +1088,7 @@ export interface Route53GlobalResolver {
    */
   updateFirewallDomains(
     args: UpdateFirewallDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<UpdateFirewallDomainsCommandOutput>;
   updateFirewallDomains(
     args: UpdateFirewallDomainsCommandInput,
@@ -1084,7 +1096,7 @@ export interface Route53GlobalResolver {
   ): void;
   updateFirewallDomains(
     args: UpdateFirewallDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: UpdateFirewallDomainsCommandOutput) => void
   ): void;
 
@@ -1093,7 +1105,7 @@ export interface Route53GlobalResolver {
    */
   updateFirewallRule(
     args: UpdateFirewallRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<UpdateFirewallRuleCommandOutput>;
   updateFirewallRule(
     args: UpdateFirewallRuleCommandInput,
@@ -1101,7 +1113,7 @@ export interface Route53GlobalResolver {
   ): void;
   updateFirewallRule(
     args: UpdateFirewallRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: UpdateFirewallRuleCommandOutput) => void
   ): void;
 
@@ -1110,7 +1122,7 @@ export interface Route53GlobalResolver {
    */
   updateGlobalResolver(
     args: UpdateGlobalResolverCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<UpdateGlobalResolverCommandOutput>;
   updateGlobalResolver(
     args: UpdateGlobalResolverCommandInput,
@@ -1118,7 +1130,7 @@ export interface Route53GlobalResolver {
   ): void;
   updateGlobalResolver(
     args: UpdateGlobalResolverCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: UpdateGlobalResolverCommandOutput) => void
   ): void;
 
@@ -1127,7 +1139,7 @@ export interface Route53GlobalResolver {
    */
   updateHostedZoneAssociation(
     args: UpdateHostedZoneAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53GlobalResolverRequestOptions
   ): Promise<UpdateHostedZoneAssociationCommandOutput>;
   updateHostedZoneAssociation(
     args: UpdateHostedZoneAssociationCommandInput,
@@ -1135,7 +1147,7 @@ export interface Route53GlobalResolver {
   ): void;
   updateHostedZoneAssociation(
     args: UpdateHostedZoneAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53GlobalResolverRequestOptions,
     cb: (err: any, data?: UpdateHostedZoneAssociationCommandOutput) => void
   ): void;
 

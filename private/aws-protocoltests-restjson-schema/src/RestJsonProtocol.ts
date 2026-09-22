@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type AllQueryStringTypesCommandInput,
@@ -669,6 +669,13 @@ const commands = {
   UnitInputAndOutputCommand,
 };
 
+/**
+ * @public
+ */
+export interface RestJsonProtocolRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface RestJsonProtocol {
   /**
    * @see {@link AllQueryStringTypesCommand}
@@ -676,7 +683,7 @@ export interface RestJsonProtocol {
   allQueryStringTypes(): Promise<AllQueryStringTypesCommandOutput>;
   allQueryStringTypes(
     args: AllQueryStringTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<AllQueryStringTypesCommandOutput>;
   allQueryStringTypes(
     args: AllQueryStringTypesCommandInput,
@@ -684,7 +691,7 @@ export interface RestJsonProtocol {
   ): void;
   allQueryStringTypes(
     args: AllQueryStringTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: AllQueryStringTypesCommandOutput) => void
   ): void;
 
@@ -694,7 +701,7 @@ export interface RestJsonProtocol {
   constantAndVariableQueryString(): Promise<ConstantAndVariableQueryStringCommandOutput>;
   constantAndVariableQueryString(
     args: ConstantAndVariableQueryStringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<ConstantAndVariableQueryStringCommandOutput>;
   constantAndVariableQueryString(
     args: ConstantAndVariableQueryStringCommandInput,
@@ -702,7 +709,7 @@ export interface RestJsonProtocol {
   ): void;
   constantAndVariableQueryString(
     args: ConstantAndVariableQueryStringCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: ConstantAndVariableQueryStringCommandOutput) => void
   ): void;
 
@@ -711,7 +718,7 @@ export interface RestJsonProtocol {
    */
   constantQueryString(
     args: ConstantQueryStringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<ConstantQueryStringCommandOutput>;
   constantQueryString(
     args: ConstantQueryStringCommandInput,
@@ -719,7 +726,7 @@ export interface RestJsonProtocol {
   ): void;
   constantQueryString(
     args: ConstantQueryStringCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: ConstantQueryStringCommandOutput) => void
   ): void;
 
@@ -729,7 +736,7 @@ export interface RestJsonProtocol {
   contentTypeParameters(): Promise<ContentTypeParametersCommandOutput>;
   contentTypeParameters(
     args: ContentTypeParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<ContentTypeParametersCommandOutput>;
   contentTypeParameters(
     args: ContentTypeParametersCommandInput,
@@ -737,7 +744,7 @@ export interface RestJsonProtocol {
   ): void;
   contentTypeParameters(
     args: ContentTypeParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: ContentTypeParametersCommandOutput) => void
   ): void;
 
@@ -747,7 +754,7 @@ export interface RestJsonProtocol {
   datetimeOffsets(): Promise<DatetimeOffsetsCommandOutput>;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<DatetimeOffsetsCommandOutput>;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
@@ -755,7 +762,7 @@ export interface RestJsonProtocol {
   ): void;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
   ): void;
 
@@ -765,7 +772,7 @@ export interface RestJsonProtocol {
   documentType(): Promise<DocumentTypeCommandOutput>;
   documentType(
     args: DocumentTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<DocumentTypeCommandOutput>;
   documentType(
     args: DocumentTypeCommandInput,
@@ -773,7 +780,7 @@ export interface RestJsonProtocol {
   ): void;
   documentType(
     args: DocumentTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: DocumentTypeCommandOutput) => void
   ): void;
 
@@ -783,7 +790,7 @@ export interface RestJsonProtocol {
   documentTypeAsMapValue(): Promise<DocumentTypeAsMapValueCommandOutput>;
   documentTypeAsMapValue(
     args: DocumentTypeAsMapValueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<DocumentTypeAsMapValueCommandOutput>;
   documentTypeAsMapValue(
     args: DocumentTypeAsMapValueCommandInput,
@@ -791,7 +798,7 @@ export interface RestJsonProtocol {
   ): void;
   documentTypeAsMapValue(
     args: DocumentTypeAsMapValueCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: DocumentTypeAsMapValueCommandOutput) => void
   ): void;
 
@@ -801,7 +808,7 @@ export interface RestJsonProtocol {
   documentTypeAsPayload(): Promise<DocumentTypeAsPayloadCommandOutput>;
   documentTypeAsPayload(
     args: DocumentTypeAsPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<DocumentTypeAsPayloadCommandOutput>;
   documentTypeAsPayload(
     args: DocumentTypeAsPayloadCommandInput,
@@ -809,7 +816,7 @@ export interface RestJsonProtocol {
   ): void;
   documentTypeAsPayload(
     args: DocumentTypeAsPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: DocumentTypeAsPayloadCommandOutput) => void
   ): void;
 
@@ -819,7 +826,7 @@ export interface RestJsonProtocol {
   duplexStream(): Promise<DuplexStreamCommandOutput>;
   duplexStream(
     args: DuplexStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<DuplexStreamCommandOutput>;
   duplexStream(
     args: DuplexStreamCommandInput,
@@ -827,7 +834,7 @@ export interface RestJsonProtocol {
   ): void;
   duplexStream(
     args: DuplexStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: DuplexStreamCommandOutput) => void
   ): void;
 
@@ -837,7 +844,7 @@ export interface RestJsonProtocol {
   duplexStreamWithDistinctStreams(): Promise<DuplexStreamWithDistinctStreamsCommandOutput>;
   duplexStreamWithDistinctStreams(
     args: DuplexStreamWithDistinctStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<DuplexStreamWithDistinctStreamsCommandOutput>;
   duplexStreamWithDistinctStreams(
     args: DuplexStreamWithDistinctStreamsCommandInput,
@@ -845,7 +852,7 @@ export interface RestJsonProtocol {
   ): void;
   duplexStreamWithDistinctStreams(
     args: DuplexStreamWithDistinctStreamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: DuplexStreamWithDistinctStreamsCommandOutput) => void
   ): void;
 
@@ -854,7 +861,7 @@ export interface RestJsonProtocol {
    */
   duplexStreamWithInitialMessages(
     args: DuplexStreamWithInitialMessagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<DuplexStreamWithInitialMessagesCommandOutput>;
   duplexStreamWithInitialMessages(
     args: DuplexStreamWithInitialMessagesCommandInput,
@@ -862,7 +869,7 @@ export interface RestJsonProtocol {
   ): void;
   duplexStreamWithInitialMessages(
     args: DuplexStreamWithInitialMessagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: DuplexStreamWithInitialMessagesCommandOutput) => void
   ): void;
 
@@ -872,7 +879,7 @@ export interface RestJsonProtocol {
   emptyInputAndEmptyOutput(): Promise<EmptyInputAndEmptyOutputCommandOutput>;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<EmptyInputAndEmptyOutputCommandOutput>;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
@@ -880,7 +887,7 @@ export interface RestJsonProtocol {
   ): void;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: EmptyInputAndEmptyOutputCommandOutput) => void
   ): void;
 
@@ -890,7 +897,7 @@ export interface RestJsonProtocol {
   endpointOperation(): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
@@ -898,7 +905,7 @@ export interface RestJsonProtocol {
   ): void;
   endpointOperation(
     args: EndpointOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: EndpointOperationCommandOutput) => void
   ): void;
 
@@ -907,7 +914,7 @@ export interface RestJsonProtocol {
    */
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<EndpointWithHostLabelOperationCommandOutput>;
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
@@ -915,7 +922,7 @@ export interface RestJsonProtocol {
   ): void;
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
   ): void;
 
@@ -925,7 +932,7 @@ export interface RestJsonProtocol {
   fractionalSeconds(): Promise<FractionalSecondsCommandOutput>;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<FractionalSecondsCommandOutput>;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
@@ -933,7 +940,7 @@ export interface RestJsonProtocol {
   ): void;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: FractionalSecondsCommandOutput) => void
   ): void;
 
@@ -943,7 +950,7 @@ export interface RestJsonProtocol {
   greetingWithErrors(): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
@@ -951,7 +958,7 @@ export interface RestJsonProtocol {
   ): void;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: GreetingWithErrorsCommandOutput) => void
   ): void;
 
@@ -961,7 +968,7 @@ export interface RestJsonProtocol {
   hostWithPathOperation(): Promise<HostWithPathOperationCommandOutput>;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HostWithPathOperationCommandOutput>;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
@@ -969,7 +976,7 @@ export interface RestJsonProtocol {
   ): void;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HostWithPathOperationCommandOutput) => void
   ): void;
 
@@ -979,7 +986,7 @@ export interface RestJsonProtocol {
   httpChecksumRequired(): Promise<HttpChecksumRequiredCommandOutput>;
   httpChecksumRequired(
     args: HttpChecksumRequiredCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpChecksumRequiredCommandOutput>;
   httpChecksumRequired(
     args: HttpChecksumRequiredCommandInput,
@@ -987,7 +994,7 @@ export interface RestJsonProtocol {
   ): void;
   httpChecksumRequired(
     args: HttpChecksumRequiredCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpChecksumRequiredCommandOutput) => void
   ): void;
 
@@ -997,7 +1004,7 @@ export interface RestJsonProtocol {
   httpEmptyPrefixHeaders(): Promise<HttpEmptyPrefixHeadersCommandOutput>;
   httpEmptyPrefixHeaders(
     args: HttpEmptyPrefixHeadersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpEmptyPrefixHeadersCommandOutput>;
   httpEmptyPrefixHeaders(
     args: HttpEmptyPrefixHeadersCommandInput,
@@ -1005,7 +1012,7 @@ export interface RestJsonProtocol {
   ): void;
   httpEmptyPrefixHeaders(
     args: HttpEmptyPrefixHeadersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpEmptyPrefixHeadersCommandOutput) => void
   ): void;
 
@@ -1015,7 +1022,7 @@ export interface RestJsonProtocol {
   httpEnumPayload(): Promise<HttpEnumPayloadCommandOutput>;
   httpEnumPayload(
     args: HttpEnumPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpEnumPayloadCommandOutput>;
   httpEnumPayload(
     args: HttpEnumPayloadCommandInput,
@@ -1023,7 +1030,7 @@ export interface RestJsonProtocol {
   ): void;
   httpEnumPayload(
     args: HttpEnumPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpEnumPayloadCommandOutput) => void
   ): void;
 
@@ -1033,7 +1040,7 @@ export interface RestJsonProtocol {
   httpPayloadTraits(): Promise<HttpPayloadTraitsCommandOutput>;
   httpPayloadTraits(
     args: HttpPayloadTraitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpPayloadTraitsCommandOutput>;
   httpPayloadTraits(
     args: HttpPayloadTraitsCommandInput,
@@ -1041,7 +1048,7 @@ export interface RestJsonProtocol {
   ): void;
   httpPayloadTraits(
     args: HttpPayloadTraitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadTraitsCommandOutput) => void
   ): void;
 
@@ -1051,7 +1058,7 @@ export interface RestJsonProtocol {
   httpPayloadTraitsWithMediaType(): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput>;
   httpPayloadTraitsWithMediaType(
     args: HttpPayloadTraitsWithMediaTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput>;
   httpPayloadTraitsWithMediaType(
     args: HttpPayloadTraitsWithMediaTypeCommandInput,
@@ -1059,7 +1066,7 @@ export interface RestJsonProtocol {
   ): void;
   httpPayloadTraitsWithMediaType(
     args: HttpPayloadTraitsWithMediaTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadTraitsWithMediaTypeCommandOutput) => void
   ): void;
 
@@ -1069,7 +1076,7 @@ export interface RestJsonProtocol {
   httpPayloadWithStructure(): Promise<HttpPayloadWithStructureCommandOutput>;
   httpPayloadWithStructure(
     args: HttpPayloadWithStructureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpPayloadWithStructureCommandOutput>;
   httpPayloadWithStructure(
     args: HttpPayloadWithStructureCommandInput,
@@ -1077,7 +1084,7 @@ export interface RestJsonProtocol {
   ): void;
   httpPayloadWithStructure(
     args: HttpPayloadWithStructureCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadWithStructureCommandOutput) => void
   ): void;
 
@@ -1087,7 +1094,7 @@ export interface RestJsonProtocol {
   httpPayloadWithUnion(): Promise<HttpPayloadWithUnionCommandOutput>;
   httpPayloadWithUnion(
     args: HttpPayloadWithUnionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpPayloadWithUnionCommandOutput>;
   httpPayloadWithUnion(
     args: HttpPayloadWithUnionCommandInput,
@@ -1095,7 +1102,7 @@ export interface RestJsonProtocol {
   ): void;
   httpPayloadWithUnion(
     args: HttpPayloadWithUnionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpPayloadWithUnionCommandOutput) => void
   ): void;
 
@@ -1105,7 +1112,7 @@ export interface RestJsonProtocol {
   httpPrefixHeaders(): Promise<HttpPrefixHeadersCommandOutput>;
   httpPrefixHeaders(
     args: HttpPrefixHeadersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpPrefixHeadersCommandOutput>;
   httpPrefixHeaders(
     args: HttpPrefixHeadersCommandInput,
@@ -1113,7 +1120,7 @@ export interface RestJsonProtocol {
   ): void;
   httpPrefixHeaders(
     args: HttpPrefixHeadersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpPrefixHeadersCommandOutput) => void
   ): void;
 
@@ -1123,7 +1130,7 @@ export interface RestJsonProtocol {
   httpPrefixHeadersInResponse(): Promise<HttpPrefixHeadersInResponseCommandOutput>;
   httpPrefixHeadersInResponse(
     args: HttpPrefixHeadersInResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpPrefixHeadersInResponseCommandOutput>;
   httpPrefixHeadersInResponse(
     args: HttpPrefixHeadersInResponseCommandInput,
@@ -1131,7 +1138,7 @@ export interface RestJsonProtocol {
   ): void;
   httpPrefixHeadersInResponse(
     args: HttpPrefixHeadersInResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpPrefixHeadersInResponseCommandOutput) => void
   ): void;
 
@@ -1141,7 +1148,7 @@ export interface RestJsonProtocol {
   httpQueryParamsOnlyOperation(): Promise<HttpQueryParamsOnlyOperationCommandOutput>;
   httpQueryParamsOnlyOperation(
     args: HttpQueryParamsOnlyOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpQueryParamsOnlyOperationCommandOutput>;
   httpQueryParamsOnlyOperation(
     args: HttpQueryParamsOnlyOperationCommandInput,
@@ -1149,7 +1156,7 @@ export interface RestJsonProtocol {
   ): void;
   httpQueryParamsOnlyOperation(
     args: HttpQueryParamsOnlyOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpQueryParamsOnlyOperationCommandOutput) => void
   ): void;
 
@@ -1158,7 +1165,7 @@ export interface RestJsonProtocol {
    */
   httpRequestWithFloatLabels(
     args: HttpRequestWithFloatLabelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpRequestWithFloatLabelsCommandOutput>;
   httpRequestWithFloatLabels(
     args: HttpRequestWithFloatLabelsCommandInput,
@@ -1166,7 +1173,7 @@ export interface RestJsonProtocol {
   ): void;
   httpRequestWithFloatLabels(
     args: HttpRequestWithFloatLabelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpRequestWithFloatLabelsCommandOutput) => void
   ): void;
 
@@ -1175,7 +1182,7 @@ export interface RestJsonProtocol {
    */
   httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput>;
   httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
@@ -1183,7 +1190,7 @@ export interface RestJsonProtocol {
   ): void;
   httpRequestWithGreedyLabelInPath(
     args: HttpRequestWithGreedyLabelInPathCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpRequestWithGreedyLabelInPathCommandOutput) => void
   ): void;
 
@@ -1192,7 +1199,7 @@ export interface RestJsonProtocol {
    */
   httpRequestWithLabels(
     args: HttpRequestWithLabelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpRequestWithLabelsCommandOutput>;
   httpRequestWithLabels(
     args: HttpRequestWithLabelsCommandInput,
@@ -1200,7 +1207,7 @@ export interface RestJsonProtocol {
   ): void;
   httpRequestWithLabels(
     args: HttpRequestWithLabelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpRequestWithLabelsCommandOutput) => void
   ): void;
 
@@ -1209,7 +1216,7 @@ export interface RestJsonProtocol {
    */
   httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput>;
   httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
@@ -1217,7 +1224,7 @@ export interface RestJsonProtocol {
   ): void;
   httpRequestWithLabelsAndTimestampFormat(
     args: HttpRequestWithLabelsAndTimestampFormatCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
   ): void;
 
@@ -1226,7 +1233,7 @@ export interface RestJsonProtocol {
    */
   httpRequestWithRegexLiteral(
     args: HttpRequestWithRegexLiteralCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpRequestWithRegexLiteralCommandOutput>;
   httpRequestWithRegexLiteral(
     args: HttpRequestWithRegexLiteralCommandInput,
@@ -1234,7 +1241,7 @@ export interface RestJsonProtocol {
   ): void;
   httpRequestWithRegexLiteral(
     args: HttpRequestWithRegexLiteralCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpRequestWithRegexLiteralCommandOutput) => void
   ): void;
 
@@ -1244,7 +1251,7 @@ export interface RestJsonProtocol {
   httpResponseCode(): Promise<HttpResponseCodeCommandOutput>;
   httpResponseCode(
     args: HttpResponseCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpResponseCodeCommandOutput>;
   httpResponseCode(
     args: HttpResponseCodeCommandInput,
@@ -1252,7 +1259,7 @@ export interface RestJsonProtocol {
   ): void;
   httpResponseCode(
     args: HttpResponseCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpResponseCodeCommandOutput) => void
   ): void;
 
@@ -1262,7 +1269,7 @@ export interface RestJsonProtocol {
   httpStringPayload(): Promise<HttpStringPayloadCommandOutput>;
   httpStringPayload(
     args: HttpStringPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<HttpStringPayloadCommandOutput>;
   httpStringPayload(
     args: HttpStringPayloadCommandInput,
@@ -1270,7 +1277,7 @@ export interface RestJsonProtocol {
   ): void;
   httpStringPayload(
     args: HttpStringPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: HttpStringPayloadCommandOutput) => void
   ): void;
 
@@ -1280,7 +1287,7 @@ export interface RestJsonProtocol {
   ignoreQueryParamsInResponse(): Promise<IgnoreQueryParamsInResponseCommandOutput>;
   ignoreQueryParamsInResponse(
     args: IgnoreQueryParamsInResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<IgnoreQueryParamsInResponseCommandOutput>;
   ignoreQueryParamsInResponse(
     args: IgnoreQueryParamsInResponseCommandInput,
@@ -1288,7 +1295,7 @@ export interface RestJsonProtocol {
   ): void;
   ignoreQueryParamsInResponse(
     args: IgnoreQueryParamsInResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: IgnoreQueryParamsInResponseCommandOutput) => void
   ): void;
 
@@ -1298,7 +1305,7 @@ export interface RestJsonProtocol {
   inputAndOutputWithHeaders(): Promise<InputAndOutputWithHeadersCommandOutput>;
   inputAndOutputWithHeaders(
     args: InputAndOutputWithHeadersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<InputAndOutputWithHeadersCommandOutput>;
   inputAndOutputWithHeaders(
     args: InputAndOutputWithHeadersCommandInput,
@@ -1306,7 +1313,7 @@ export interface RestJsonProtocol {
   ): void;
   inputAndOutputWithHeaders(
     args: InputAndOutputWithHeadersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: InputAndOutputWithHeadersCommandOutput) => void
   ): void;
 
@@ -1316,7 +1323,7 @@ export interface RestJsonProtocol {
   inputStream(): Promise<InputStreamCommandOutput>;
   inputStream(
     args: InputStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<InputStreamCommandOutput>;
   inputStream(
     args: InputStreamCommandInput,
@@ -1324,7 +1331,7 @@ export interface RestJsonProtocol {
   ): void;
   inputStream(
     args: InputStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: InputStreamCommandOutput) => void
   ): void;
 
@@ -1333,7 +1340,7 @@ export interface RestJsonProtocol {
    */
   inputStreamWithInitialRequest(
     args: InputStreamWithInitialRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<InputStreamWithInitialRequestCommandOutput>;
   inputStreamWithInitialRequest(
     args: InputStreamWithInitialRequestCommandInput,
@@ -1341,7 +1348,7 @@ export interface RestJsonProtocol {
   ): void;
   inputStreamWithInitialRequest(
     args: InputStreamWithInitialRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: InputStreamWithInitialRequestCommandOutput) => void
   ): void;
 
@@ -1351,7 +1358,7 @@ export interface RestJsonProtocol {
   jsonBlobs(): Promise<JsonBlobsCommandOutput>;
   jsonBlobs(
     args: JsonBlobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<JsonBlobsCommandOutput>;
   jsonBlobs(
     args: JsonBlobsCommandInput,
@@ -1359,7 +1366,7 @@ export interface RestJsonProtocol {
   ): void;
   jsonBlobs(
     args: JsonBlobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: JsonBlobsCommandOutput) => void
   ): void;
 
@@ -1369,7 +1376,7 @@ export interface RestJsonProtocol {
   jsonEnums(): Promise<JsonEnumsCommandOutput>;
   jsonEnums(
     args: JsonEnumsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<JsonEnumsCommandOutput>;
   jsonEnums(
     args: JsonEnumsCommandInput,
@@ -1377,7 +1384,7 @@ export interface RestJsonProtocol {
   ): void;
   jsonEnums(
     args: JsonEnumsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: JsonEnumsCommandOutput) => void
   ): void;
 
@@ -1387,7 +1394,7 @@ export interface RestJsonProtocol {
   jsonIntEnums(): Promise<JsonIntEnumsCommandOutput>;
   jsonIntEnums(
     args: JsonIntEnumsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<JsonIntEnumsCommandOutput>;
   jsonIntEnums(
     args: JsonIntEnumsCommandInput,
@@ -1395,7 +1402,7 @@ export interface RestJsonProtocol {
   ): void;
   jsonIntEnums(
     args: JsonIntEnumsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: JsonIntEnumsCommandOutput) => void
   ): void;
 
@@ -1405,7 +1412,7 @@ export interface RestJsonProtocol {
   jsonLists(): Promise<JsonListsCommandOutput>;
   jsonLists(
     args: JsonListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<JsonListsCommandOutput>;
   jsonLists(
     args: JsonListsCommandInput,
@@ -1413,7 +1420,7 @@ export interface RestJsonProtocol {
   ): void;
   jsonLists(
     args: JsonListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: JsonListsCommandOutput) => void
   ): void;
 
@@ -1423,7 +1430,7 @@ export interface RestJsonProtocol {
   jsonMaps(): Promise<JsonMapsCommandOutput>;
   jsonMaps(
     args: JsonMapsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<JsonMapsCommandOutput>;
   jsonMaps(
     args: JsonMapsCommandInput,
@@ -1431,7 +1438,7 @@ export interface RestJsonProtocol {
   ): void;
   jsonMaps(
     args: JsonMapsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: JsonMapsCommandOutput) => void
   ): void;
 
@@ -1441,7 +1448,7 @@ export interface RestJsonProtocol {
   jsonTimestamps(): Promise<JsonTimestampsCommandOutput>;
   jsonTimestamps(
     args: JsonTimestampsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<JsonTimestampsCommandOutput>;
   jsonTimestamps(
     args: JsonTimestampsCommandInput,
@@ -1449,7 +1456,7 @@ export interface RestJsonProtocol {
   ): void;
   jsonTimestamps(
     args: JsonTimestampsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: JsonTimestampsCommandOutput) => void
   ): void;
 
@@ -1459,7 +1466,7 @@ export interface RestJsonProtocol {
   jsonUnions(): Promise<JsonUnionsCommandOutput>;
   jsonUnions(
     args: JsonUnionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<JsonUnionsCommandOutput>;
   jsonUnions(
     args: JsonUnionsCommandInput,
@@ -1467,7 +1474,7 @@ export interface RestJsonProtocol {
   ): void;
   jsonUnions(
     args: JsonUnionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: JsonUnionsCommandOutput) => void
   ): void;
 
@@ -1477,7 +1484,7 @@ export interface RestJsonProtocol {
   malformedAcceptWithBody(): Promise<MalformedAcceptWithBodyCommandOutput>;
   malformedAcceptWithBody(
     args: MalformedAcceptWithBodyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedAcceptWithBodyCommandOutput>;
   malformedAcceptWithBody(
     args: MalformedAcceptWithBodyCommandInput,
@@ -1485,7 +1492,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedAcceptWithBody(
     args: MalformedAcceptWithBodyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedAcceptWithBodyCommandOutput) => void
   ): void;
 
@@ -1495,7 +1502,7 @@ export interface RestJsonProtocol {
   malformedAcceptWithGenericString(): Promise<MalformedAcceptWithGenericStringCommandOutput>;
   malformedAcceptWithGenericString(
     args: MalformedAcceptWithGenericStringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedAcceptWithGenericStringCommandOutput>;
   malformedAcceptWithGenericString(
     args: MalformedAcceptWithGenericStringCommandInput,
@@ -1503,7 +1510,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedAcceptWithGenericString(
     args: MalformedAcceptWithGenericStringCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedAcceptWithGenericStringCommandOutput) => void
   ): void;
 
@@ -1513,7 +1520,7 @@ export interface RestJsonProtocol {
   malformedAcceptWithPayload(): Promise<MalformedAcceptWithPayloadCommandOutput>;
   malformedAcceptWithPayload(
     args: MalformedAcceptWithPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedAcceptWithPayloadCommandOutput>;
   malformedAcceptWithPayload(
     args: MalformedAcceptWithPayloadCommandInput,
@@ -1521,7 +1528,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedAcceptWithPayload(
     args: MalformedAcceptWithPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedAcceptWithPayloadCommandOutput) => void
   ): void;
 
@@ -1531,7 +1538,7 @@ export interface RestJsonProtocol {
   malformedBlob(): Promise<MalformedBlobCommandOutput>;
   malformedBlob(
     args: MalformedBlobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedBlobCommandOutput>;
   malformedBlob(
     args: MalformedBlobCommandInput,
@@ -1539,7 +1546,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedBlob(
     args: MalformedBlobCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedBlobCommandOutput) => void
   ): void;
 
@@ -1548,7 +1555,7 @@ export interface RestJsonProtocol {
    */
   malformedBoolean(
     args: MalformedBooleanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedBooleanCommandOutput>;
   malformedBoolean(
     args: MalformedBooleanCommandInput,
@@ -1556,7 +1563,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedBoolean(
     args: MalformedBooleanCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedBooleanCommandOutput) => void
   ): void;
 
@@ -1565,7 +1572,7 @@ export interface RestJsonProtocol {
    */
   malformedByte(
     args: MalformedByteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedByteCommandOutput>;
   malformedByte(
     args: MalformedByteCommandInput,
@@ -1573,7 +1580,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedByte(
     args: MalformedByteCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedByteCommandOutput) => void
   ): void;
 
@@ -1583,7 +1590,7 @@ export interface RestJsonProtocol {
   malformedContentTypeWithBody(): Promise<MalformedContentTypeWithBodyCommandOutput>;
   malformedContentTypeWithBody(
     args: MalformedContentTypeWithBodyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedContentTypeWithBodyCommandOutput>;
   malformedContentTypeWithBody(
     args: MalformedContentTypeWithBodyCommandInput,
@@ -1591,7 +1598,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedContentTypeWithBody(
     args: MalformedContentTypeWithBodyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedContentTypeWithBodyCommandOutput) => void
   ): void;
 
@@ -1601,7 +1608,7 @@ export interface RestJsonProtocol {
   malformedContentTypeWithGenericString(): Promise<MalformedContentTypeWithGenericStringCommandOutput>;
   malformedContentTypeWithGenericString(
     args: MalformedContentTypeWithGenericStringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedContentTypeWithGenericStringCommandOutput>;
   malformedContentTypeWithGenericString(
     args: MalformedContentTypeWithGenericStringCommandInput,
@@ -1609,7 +1616,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedContentTypeWithGenericString(
     args: MalformedContentTypeWithGenericStringCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedContentTypeWithGenericStringCommandOutput) => void
   ): void;
 
@@ -1619,7 +1626,7 @@ export interface RestJsonProtocol {
   malformedContentTypeWithoutBody(): Promise<MalformedContentTypeWithoutBodyCommandOutput>;
   malformedContentTypeWithoutBody(
     args: MalformedContentTypeWithoutBodyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedContentTypeWithoutBodyCommandOutput>;
   malformedContentTypeWithoutBody(
     args: MalformedContentTypeWithoutBodyCommandInput,
@@ -1627,7 +1634,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedContentTypeWithoutBody(
     args: MalformedContentTypeWithoutBodyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedContentTypeWithoutBodyCommandOutput) => void
   ): void;
 
@@ -1637,7 +1644,7 @@ export interface RestJsonProtocol {
   malformedContentTypeWithoutBodyEmptyInput(): Promise<MalformedContentTypeWithoutBodyEmptyInputCommandOutput>;
   malformedContentTypeWithoutBodyEmptyInput(
     args: MalformedContentTypeWithoutBodyEmptyInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedContentTypeWithoutBodyEmptyInputCommandOutput>;
   malformedContentTypeWithoutBodyEmptyInput(
     args: MalformedContentTypeWithoutBodyEmptyInputCommandInput,
@@ -1645,7 +1652,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedContentTypeWithoutBodyEmptyInput(
     args: MalformedContentTypeWithoutBodyEmptyInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedContentTypeWithoutBodyEmptyInputCommandOutput) => void
   ): void;
 
@@ -1655,7 +1662,7 @@ export interface RestJsonProtocol {
   malformedContentTypeWithPayload(): Promise<MalformedContentTypeWithPayloadCommandOutput>;
   malformedContentTypeWithPayload(
     args: MalformedContentTypeWithPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedContentTypeWithPayloadCommandOutput>;
   malformedContentTypeWithPayload(
     args: MalformedContentTypeWithPayloadCommandInput,
@@ -1663,7 +1670,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedContentTypeWithPayload(
     args: MalformedContentTypeWithPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedContentTypeWithPayloadCommandOutput) => void
   ): void;
 
@@ -1672,7 +1679,7 @@ export interface RestJsonProtocol {
    */
   malformedDouble(
     args: MalformedDoubleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedDoubleCommandOutput>;
   malformedDouble(
     args: MalformedDoubleCommandInput,
@@ -1680,7 +1687,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedDouble(
     args: MalformedDoubleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedDoubleCommandOutput) => void
   ): void;
 
@@ -1689,7 +1696,7 @@ export interface RestJsonProtocol {
    */
   malformedFloat(
     args: MalformedFloatCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedFloatCommandOutput>;
   malformedFloat(
     args: MalformedFloatCommandInput,
@@ -1697,7 +1704,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedFloat(
     args: MalformedFloatCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedFloatCommandOutput) => void
   ): void;
 
@@ -1706,7 +1713,7 @@ export interface RestJsonProtocol {
    */
   malformedInteger(
     args: MalformedIntegerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedIntegerCommandOutput>;
   malformedInteger(
     args: MalformedIntegerCommandInput,
@@ -1714,7 +1721,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedInteger(
     args: MalformedIntegerCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedIntegerCommandOutput) => void
   ): void;
 
@@ -1724,7 +1731,7 @@ export interface RestJsonProtocol {
   malformedList(): Promise<MalformedListCommandOutput>;
   malformedList(
     args: MalformedListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedListCommandOutput>;
   malformedList(
     args: MalformedListCommandInput,
@@ -1732,7 +1739,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedList(
     args: MalformedListCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedListCommandOutput) => void
   ): void;
 
@@ -1741,7 +1748,7 @@ export interface RestJsonProtocol {
    */
   malformedLong(
     args: MalformedLongCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedLongCommandOutput>;
   malformedLong(
     args: MalformedLongCommandInput,
@@ -1749,7 +1756,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedLong(
     args: MalformedLongCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedLongCommandOutput) => void
   ): void;
 
@@ -1759,7 +1766,7 @@ export interface RestJsonProtocol {
   malformedMap(): Promise<MalformedMapCommandOutput>;
   malformedMap(
     args: MalformedMapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedMapCommandOutput>;
   malformedMap(
     args: MalformedMapCommandInput,
@@ -1767,7 +1774,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedMap(
     args: MalformedMapCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedMapCommandOutput) => void
   ): void;
 
@@ -1777,7 +1784,7 @@ export interface RestJsonProtocol {
   malformedRequestBody(): Promise<MalformedRequestBodyCommandOutput>;
   malformedRequestBody(
     args: MalformedRequestBodyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedRequestBodyCommandOutput>;
   malformedRequestBody(
     args: MalformedRequestBodyCommandInput,
@@ -1785,7 +1792,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedRequestBody(
     args: MalformedRequestBodyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedRequestBodyCommandOutput) => void
   ): void;
 
@@ -1794,7 +1801,7 @@ export interface RestJsonProtocol {
    */
   malformedShort(
     args: MalformedShortCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedShortCommandOutput>;
   malformedShort(
     args: MalformedShortCommandInput,
@@ -1802,7 +1809,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedShort(
     args: MalformedShortCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedShortCommandOutput) => void
   ): void;
 
@@ -1812,7 +1819,7 @@ export interface RestJsonProtocol {
   malformedString(): Promise<MalformedStringCommandOutput>;
   malformedString(
     args: MalformedStringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedStringCommandOutput>;
   malformedString(
     args: MalformedStringCommandInput,
@@ -1820,7 +1827,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedString(
     args: MalformedStringCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedStringCommandOutput) => void
   ): void;
 
@@ -1829,7 +1836,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampBodyDateTime(
     args: MalformedTimestampBodyDateTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampBodyDateTimeCommandOutput>;
   malformedTimestampBodyDateTime(
     args: MalformedTimestampBodyDateTimeCommandInput,
@@ -1837,7 +1844,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampBodyDateTime(
     args: MalformedTimestampBodyDateTimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampBodyDateTimeCommandOutput) => void
   ): void;
 
@@ -1846,7 +1853,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampBodyDefault(
     args: MalformedTimestampBodyDefaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampBodyDefaultCommandOutput>;
   malformedTimestampBodyDefault(
     args: MalformedTimestampBodyDefaultCommandInput,
@@ -1854,7 +1861,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampBodyDefault(
     args: MalformedTimestampBodyDefaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampBodyDefaultCommandOutput) => void
   ): void;
 
@@ -1863,7 +1870,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampBodyHttpDate(
     args: MalformedTimestampBodyHttpDateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampBodyHttpDateCommandOutput>;
   malformedTimestampBodyHttpDate(
     args: MalformedTimestampBodyHttpDateCommandInput,
@@ -1871,7 +1878,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampBodyHttpDate(
     args: MalformedTimestampBodyHttpDateCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampBodyHttpDateCommandOutput) => void
   ): void;
 
@@ -1880,7 +1887,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampHeaderDateTime(
     args: MalformedTimestampHeaderDateTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampHeaderDateTimeCommandOutput>;
   malformedTimestampHeaderDateTime(
     args: MalformedTimestampHeaderDateTimeCommandInput,
@@ -1888,7 +1895,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampHeaderDateTime(
     args: MalformedTimestampHeaderDateTimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampHeaderDateTimeCommandOutput) => void
   ): void;
 
@@ -1897,7 +1904,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampHeaderDefault(
     args: MalformedTimestampHeaderDefaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampHeaderDefaultCommandOutput>;
   malformedTimestampHeaderDefault(
     args: MalformedTimestampHeaderDefaultCommandInput,
@@ -1905,7 +1912,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampHeaderDefault(
     args: MalformedTimestampHeaderDefaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampHeaderDefaultCommandOutput) => void
   ): void;
 
@@ -1914,7 +1921,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampHeaderEpoch(
     args: MalformedTimestampHeaderEpochCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampHeaderEpochCommandOutput>;
   malformedTimestampHeaderEpoch(
     args: MalformedTimestampHeaderEpochCommandInput,
@@ -1922,7 +1929,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampHeaderEpoch(
     args: MalformedTimestampHeaderEpochCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampHeaderEpochCommandOutput) => void
   ): void;
 
@@ -1931,7 +1938,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampPathDefault(
     args: MalformedTimestampPathDefaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampPathDefaultCommandOutput>;
   malformedTimestampPathDefault(
     args: MalformedTimestampPathDefaultCommandInput,
@@ -1939,7 +1946,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampPathDefault(
     args: MalformedTimestampPathDefaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampPathDefaultCommandOutput) => void
   ): void;
 
@@ -1948,7 +1955,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampPathEpoch(
     args: MalformedTimestampPathEpochCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampPathEpochCommandOutput>;
   malformedTimestampPathEpoch(
     args: MalformedTimestampPathEpochCommandInput,
@@ -1956,7 +1963,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampPathEpoch(
     args: MalformedTimestampPathEpochCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampPathEpochCommandOutput) => void
   ): void;
 
@@ -1965,7 +1972,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampPathHttpDate(
     args: MalformedTimestampPathHttpDateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampPathHttpDateCommandOutput>;
   malformedTimestampPathHttpDate(
     args: MalformedTimestampPathHttpDateCommandInput,
@@ -1973,7 +1980,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampPathHttpDate(
     args: MalformedTimestampPathHttpDateCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampPathHttpDateCommandOutput) => void
   ): void;
 
@@ -1982,7 +1989,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampQueryDefault(
     args: MalformedTimestampQueryDefaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampQueryDefaultCommandOutput>;
   malformedTimestampQueryDefault(
     args: MalformedTimestampQueryDefaultCommandInput,
@@ -1990,7 +1997,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampQueryDefault(
     args: MalformedTimestampQueryDefaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampQueryDefaultCommandOutput) => void
   ): void;
 
@@ -1999,7 +2006,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampQueryEpoch(
     args: MalformedTimestampQueryEpochCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampQueryEpochCommandOutput>;
   malformedTimestampQueryEpoch(
     args: MalformedTimestampQueryEpochCommandInput,
@@ -2007,7 +2014,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampQueryEpoch(
     args: MalformedTimestampQueryEpochCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampQueryEpochCommandOutput) => void
   ): void;
 
@@ -2016,7 +2023,7 @@ export interface RestJsonProtocol {
    */
   malformedTimestampQueryHttpDate(
     args: MalformedTimestampQueryHttpDateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedTimestampQueryHttpDateCommandOutput>;
   malformedTimestampQueryHttpDate(
     args: MalformedTimestampQueryHttpDateCommandInput,
@@ -2024,7 +2031,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedTimestampQueryHttpDate(
     args: MalformedTimestampQueryHttpDateCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedTimestampQueryHttpDateCommandOutput) => void
   ): void;
 
@@ -2034,7 +2041,7 @@ export interface RestJsonProtocol {
   malformedUnion(): Promise<MalformedUnionCommandOutput>;
   malformedUnion(
     args: MalformedUnionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MalformedUnionCommandOutput>;
   malformedUnion(
     args: MalformedUnionCommandInput,
@@ -2042,7 +2049,7 @@ export interface RestJsonProtocol {
   ): void;
   malformedUnion(
     args: MalformedUnionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MalformedUnionCommandOutput) => void
   ): void;
 
@@ -2052,7 +2059,7 @@ export interface RestJsonProtocol {
   mediaTypeHeader(): Promise<MediaTypeHeaderCommandOutput>;
   mediaTypeHeader(
     args: MediaTypeHeaderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<MediaTypeHeaderCommandOutput>;
   mediaTypeHeader(
     args: MediaTypeHeaderCommandInput,
@@ -2060,7 +2067,7 @@ export interface RestJsonProtocol {
   ): void;
   mediaTypeHeader(
     args: MediaTypeHeaderCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: MediaTypeHeaderCommandOutput) => void
   ): void;
 
@@ -2070,7 +2077,7 @@ export interface RestJsonProtocol {
   noInputAndNoOutput(): Promise<NoInputAndNoOutputCommandOutput>;
   noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<NoInputAndNoOutputCommandOutput>;
   noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
@@ -2078,7 +2085,7 @@ export interface RestJsonProtocol {
   ): void;
   noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: NoInputAndNoOutputCommandOutput) => void
   ): void;
 
@@ -2088,7 +2095,7 @@ export interface RestJsonProtocol {
   noInputAndOutput(): Promise<NoInputAndOutputCommandOutput>;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<NoInputAndOutputCommandOutput>;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
@@ -2096,7 +2103,7 @@ export interface RestJsonProtocol {
   ): void;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: NoInputAndOutputCommandOutput) => void
   ): void;
 
@@ -2106,7 +2113,7 @@ export interface RestJsonProtocol {
   nullAndEmptyHeadersClient(): Promise<NullAndEmptyHeadersClientCommandOutput>;
   nullAndEmptyHeadersClient(
     args: NullAndEmptyHeadersClientCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<NullAndEmptyHeadersClientCommandOutput>;
   nullAndEmptyHeadersClient(
     args: NullAndEmptyHeadersClientCommandInput,
@@ -2114,7 +2121,7 @@ export interface RestJsonProtocol {
   ): void;
   nullAndEmptyHeadersClient(
     args: NullAndEmptyHeadersClientCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: NullAndEmptyHeadersClientCommandOutput) => void
   ): void;
 
@@ -2124,7 +2131,7 @@ export interface RestJsonProtocol {
   nullAndEmptyHeadersServer(): Promise<NullAndEmptyHeadersServerCommandOutput>;
   nullAndEmptyHeadersServer(
     args: NullAndEmptyHeadersServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<NullAndEmptyHeadersServerCommandOutput>;
   nullAndEmptyHeadersServer(
     args: NullAndEmptyHeadersServerCommandInput,
@@ -2132,7 +2139,7 @@ export interface RestJsonProtocol {
   ): void;
   nullAndEmptyHeadersServer(
     args: NullAndEmptyHeadersServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: NullAndEmptyHeadersServerCommandOutput) => void
   ): void;
 
@@ -2142,7 +2149,7 @@ export interface RestJsonProtocol {
   omitsNullSerializesEmptyString(): Promise<OmitsNullSerializesEmptyStringCommandOutput>;
   omitsNullSerializesEmptyString(
     args: OmitsNullSerializesEmptyStringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<OmitsNullSerializesEmptyStringCommandOutput>;
   omitsNullSerializesEmptyString(
     args: OmitsNullSerializesEmptyStringCommandInput,
@@ -2150,7 +2157,7 @@ export interface RestJsonProtocol {
   ): void;
   omitsNullSerializesEmptyString(
     args: OmitsNullSerializesEmptyStringCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: OmitsNullSerializesEmptyStringCommandOutput) => void
   ): void;
 
@@ -2160,7 +2167,7 @@ export interface RestJsonProtocol {
   omitsSerializingEmptyLists(): Promise<OmitsSerializingEmptyListsCommandOutput>;
   omitsSerializingEmptyLists(
     args: OmitsSerializingEmptyListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<OmitsSerializingEmptyListsCommandOutput>;
   omitsSerializingEmptyLists(
     args: OmitsSerializingEmptyListsCommandInput,
@@ -2168,7 +2175,7 @@ export interface RestJsonProtocol {
   ): void;
   omitsSerializingEmptyLists(
     args: OmitsSerializingEmptyListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: OmitsSerializingEmptyListsCommandOutput) => void
   ): void;
 
@@ -2178,7 +2185,7 @@ export interface RestJsonProtocol {
   operationWithDefaults(): Promise<OperationWithDefaultsCommandOutput>;
   operationWithDefaults(
     args: OperationWithDefaultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<OperationWithDefaultsCommandOutput>;
   operationWithDefaults(
     args: OperationWithDefaultsCommandInput,
@@ -2186,7 +2193,7 @@ export interface RestJsonProtocol {
   ): void;
   operationWithDefaults(
     args: OperationWithDefaultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: OperationWithDefaultsCommandOutput) => void
   ): void;
 
@@ -2195,7 +2202,7 @@ export interface RestJsonProtocol {
    */
   operationWithNestedStructure(
     args: OperationWithNestedStructureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<OperationWithNestedStructureCommandOutput>;
   operationWithNestedStructure(
     args: OperationWithNestedStructureCommandInput,
@@ -2203,7 +2210,7 @@ export interface RestJsonProtocol {
   ): void;
   operationWithNestedStructure(
     args: OperationWithNestedStructureCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: OperationWithNestedStructureCommandOutput) => void
   ): void;
 
@@ -2213,7 +2220,7 @@ export interface RestJsonProtocol {
   outputStream(): Promise<OutputStreamCommandOutput>;
   outputStream(
     args: OutputStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<OutputStreamCommandOutput>;
   outputStream(
     args: OutputStreamCommandInput,
@@ -2221,7 +2228,7 @@ export interface RestJsonProtocol {
   ): void;
   outputStream(
     args: OutputStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: OutputStreamCommandOutput) => void
   ): void;
 
@@ -2231,7 +2238,7 @@ export interface RestJsonProtocol {
   outputStreamWithInitialResponse(): Promise<OutputStreamWithInitialResponseCommandOutput>;
   outputStreamWithInitialResponse(
     args: OutputStreamWithInitialResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<OutputStreamWithInitialResponseCommandOutput>;
   outputStreamWithInitialResponse(
     args: OutputStreamWithInitialResponseCommandInput,
@@ -2239,7 +2246,7 @@ export interface RestJsonProtocol {
   ): void;
   outputStreamWithInitialResponse(
     args: OutputStreamWithInitialResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: OutputStreamWithInitialResponseCommandOutput) => void
   ): void;
 
@@ -2249,7 +2256,7 @@ export interface RestJsonProtocol {
   postPlayerAction(): Promise<PostPlayerActionCommandOutput>;
   postPlayerAction(
     args: PostPlayerActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<PostPlayerActionCommandOutput>;
   postPlayerAction(
     args: PostPlayerActionCommandInput,
@@ -2257,7 +2264,7 @@ export interface RestJsonProtocol {
   ): void;
   postPlayerAction(
     args: PostPlayerActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: PostPlayerActionCommandOutput) => void
   ): void;
 
@@ -2267,7 +2274,7 @@ export interface RestJsonProtocol {
   postUnionWithJsonName(): Promise<PostUnionWithJsonNameCommandOutput>;
   postUnionWithJsonName(
     args: PostUnionWithJsonNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<PostUnionWithJsonNameCommandOutput>;
   postUnionWithJsonName(
     args: PostUnionWithJsonNameCommandInput,
@@ -2275,7 +2282,7 @@ export interface RestJsonProtocol {
   ): void;
   postUnionWithJsonName(
     args: PostUnionWithJsonNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: PostUnionWithJsonNameCommandOutput) => void
   ): void;
 
@@ -2285,7 +2292,7 @@ export interface RestJsonProtocol {
   putWithContentEncoding(): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
@@ -2293,7 +2300,7 @@ export interface RestJsonProtocol {
   ): void;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
   ): void;
 
@@ -2303,7 +2310,7 @@ export interface RestJsonProtocol {
   queryIdempotencyTokenAutoFill(): Promise<QueryIdempotencyTokenAutoFillCommandOutput>;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput>;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
@@ -2311,7 +2318,7 @@ export interface RestJsonProtocol {
   ): void;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: QueryIdempotencyTokenAutoFillCommandOutput) => void
   ): void;
 
@@ -2321,7 +2328,7 @@ export interface RestJsonProtocol {
   queryParamsAsStringListMap(): Promise<QueryParamsAsStringListMapCommandOutput>;
   queryParamsAsStringListMap(
     args: QueryParamsAsStringListMapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<QueryParamsAsStringListMapCommandOutput>;
   queryParamsAsStringListMap(
     args: QueryParamsAsStringListMapCommandInput,
@@ -2329,7 +2336,7 @@ export interface RestJsonProtocol {
   ): void;
   queryParamsAsStringListMap(
     args: QueryParamsAsStringListMapCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: QueryParamsAsStringListMapCommandOutput) => void
   ): void;
 
@@ -2339,7 +2346,7 @@ export interface RestJsonProtocol {
   queryPrecedence(): Promise<QueryPrecedenceCommandOutput>;
   queryPrecedence(
     args: QueryPrecedenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<QueryPrecedenceCommandOutput>;
   queryPrecedence(
     args: QueryPrecedenceCommandInput,
@@ -2347,7 +2354,7 @@ export interface RestJsonProtocol {
   ): void;
   queryPrecedence(
     args: QueryPrecedenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: QueryPrecedenceCommandOutput) => void
   ): void;
 
@@ -2357,7 +2364,7 @@ export interface RestJsonProtocol {
   recursiveShapes(): Promise<RecursiveShapesCommandOutput>;
   recursiveShapes(
     args: RecursiveShapesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<RecursiveShapesCommandOutput>;
   recursiveShapes(
     args: RecursiveShapesCommandInput,
@@ -2365,7 +2372,7 @@ export interface RestJsonProtocol {
   ): void;
   recursiveShapes(
     args: RecursiveShapesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: RecursiveShapesCommandOutput) => void
   ): void;
 
@@ -2375,7 +2382,7 @@ export interface RestJsonProtocol {
   responseCodeHttpFallback(): Promise<ResponseCodeHttpFallbackCommandOutput>;
   responseCodeHttpFallback(
     args: ResponseCodeHttpFallbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<ResponseCodeHttpFallbackCommandOutput>;
   responseCodeHttpFallback(
     args: ResponseCodeHttpFallbackCommandInput,
@@ -2383,7 +2390,7 @@ export interface RestJsonProtocol {
   ): void;
   responseCodeHttpFallback(
     args: ResponseCodeHttpFallbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: ResponseCodeHttpFallbackCommandOutput) => void
   ): void;
 
@@ -2393,7 +2400,7 @@ export interface RestJsonProtocol {
   responseCodeRequired(): Promise<ResponseCodeRequiredCommandOutput>;
   responseCodeRequired(
     args: ResponseCodeRequiredCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<ResponseCodeRequiredCommandOutput>;
   responseCodeRequired(
     args: ResponseCodeRequiredCommandInput,
@@ -2401,7 +2408,7 @@ export interface RestJsonProtocol {
   ): void;
   responseCodeRequired(
     args: ResponseCodeRequiredCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: ResponseCodeRequiredCommandOutput) => void
   ): void;
 
@@ -2411,7 +2418,7 @@ export interface RestJsonProtocol {
   simpleScalarProperties(): Promise<SimpleScalarPropertiesCommandOutput>;
   simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<SimpleScalarPropertiesCommandOutput>;
   simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
@@ -2419,7 +2426,7 @@ export interface RestJsonProtocol {
   ): void;
   simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: SimpleScalarPropertiesCommandOutput) => void
   ): void;
 
@@ -2429,7 +2436,7 @@ export interface RestJsonProtocol {
   sparseJsonLists(): Promise<SparseJsonListsCommandOutput>;
   sparseJsonLists(
     args: SparseJsonListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<SparseJsonListsCommandOutput>;
   sparseJsonLists(
     args: SparseJsonListsCommandInput,
@@ -2437,7 +2444,7 @@ export interface RestJsonProtocol {
   ): void;
   sparseJsonLists(
     args: SparseJsonListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: SparseJsonListsCommandOutput) => void
   ): void;
 
@@ -2447,7 +2454,7 @@ export interface RestJsonProtocol {
   sparseJsonMaps(): Promise<SparseJsonMapsCommandOutput>;
   sparseJsonMaps(
     args: SparseJsonMapsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<SparseJsonMapsCommandOutput>;
   sparseJsonMaps(
     args: SparseJsonMapsCommandInput,
@@ -2455,7 +2462,7 @@ export interface RestJsonProtocol {
   ): void;
   sparseJsonMaps(
     args: SparseJsonMapsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: SparseJsonMapsCommandOutput) => void
   ): void;
 
@@ -2465,7 +2472,7 @@ export interface RestJsonProtocol {
   streamingTraits(): Promise<StreamingTraitsCommandOutput>;
   streamingTraits(
     args: StreamingTraitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<StreamingTraitsCommandOutput>;
   streamingTraits(
     args: StreamingTraitsCommandInput,
@@ -2473,7 +2480,7 @@ export interface RestJsonProtocol {
   ): void;
   streamingTraits(
     args: StreamingTraitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: StreamingTraitsCommandOutput) => void
   ): void;
 
@@ -2483,7 +2490,7 @@ export interface RestJsonProtocol {
   streamingTraitsRequireLength(): Promise<StreamingTraitsRequireLengthCommandOutput>;
   streamingTraitsRequireLength(
     args: StreamingTraitsRequireLengthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<StreamingTraitsRequireLengthCommandOutput>;
   streamingTraitsRequireLength(
     args: StreamingTraitsRequireLengthCommandInput,
@@ -2491,7 +2498,7 @@ export interface RestJsonProtocol {
   ): void;
   streamingTraitsRequireLength(
     args: StreamingTraitsRequireLengthCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: StreamingTraitsRequireLengthCommandOutput) => void
   ): void;
 
@@ -2501,7 +2508,7 @@ export interface RestJsonProtocol {
   streamingTraitsWithMediaType(): Promise<StreamingTraitsWithMediaTypeCommandOutput>;
   streamingTraitsWithMediaType(
     args: StreamingTraitsWithMediaTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<StreamingTraitsWithMediaTypeCommandOutput>;
   streamingTraitsWithMediaType(
     args: StreamingTraitsWithMediaTypeCommandInput,
@@ -2509,7 +2516,7 @@ export interface RestJsonProtocol {
   ): void;
   streamingTraitsWithMediaType(
     args: StreamingTraitsWithMediaTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: StreamingTraitsWithMediaTypeCommandOutput) => void
   ): void;
 
@@ -2519,7 +2526,7 @@ export interface RestJsonProtocol {
   testBodyStructure(): Promise<TestBodyStructureCommandOutput>;
   testBodyStructure(
     args: TestBodyStructureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<TestBodyStructureCommandOutput>;
   testBodyStructure(
     args: TestBodyStructureCommandInput,
@@ -2527,7 +2534,7 @@ export interface RestJsonProtocol {
   ): void;
   testBodyStructure(
     args: TestBodyStructureCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: TestBodyStructureCommandOutput) => void
   ): void;
 
@@ -2537,7 +2544,7 @@ export interface RestJsonProtocol {
   testGetNoInputNoPayload(): Promise<TestGetNoInputNoPayloadCommandOutput>;
   testGetNoInputNoPayload(
     args: TestGetNoInputNoPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<TestGetNoInputNoPayloadCommandOutput>;
   testGetNoInputNoPayload(
     args: TestGetNoInputNoPayloadCommandInput,
@@ -2545,7 +2552,7 @@ export interface RestJsonProtocol {
   ): void;
   testGetNoInputNoPayload(
     args: TestGetNoInputNoPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: TestGetNoInputNoPayloadCommandOutput) => void
   ): void;
 
@@ -2555,7 +2562,7 @@ export interface RestJsonProtocol {
   testGetNoPayload(): Promise<TestGetNoPayloadCommandOutput>;
   testGetNoPayload(
     args: TestGetNoPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<TestGetNoPayloadCommandOutput>;
   testGetNoPayload(
     args: TestGetNoPayloadCommandInput,
@@ -2563,7 +2570,7 @@ export interface RestJsonProtocol {
   ): void;
   testGetNoPayload(
     args: TestGetNoPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: TestGetNoPayloadCommandOutput) => void
   ): void;
 
@@ -2573,7 +2580,7 @@ export interface RestJsonProtocol {
   testPayloadBlob(): Promise<TestPayloadBlobCommandOutput>;
   testPayloadBlob(
     args: TestPayloadBlobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<TestPayloadBlobCommandOutput>;
   testPayloadBlob(
     args: TestPayloadBlobCommandInput,
@@ -2581,7 +2588,7 @@ export interface RestJsonProtocol {
   ): void;
   testPayloadBlob(
     args: TestPayloadBlobCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: TestPayloadBlobCommandOutput) => void
   ): void;
 
@@ -2591,7 +2598,7 @@ export interface RestJsonProtocol {
   testPayloadStructure(): Promise<TestPayloadStructureCommandOutput>;
   testPayloadStructure(
     args: TestPayloadStructureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<TestPayloadStructureCommandOutput>;
   testPayloadStructure(
     args: TestPayloadStructureCommandInput,
@@ -2599,7 +2606,7 @@ export interface RestJsonProtocol {
   ): void;
   testPayloadStructure(
     args: TestPayloadStructureCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: TestPayloadStructureCommandOutput) => void
   ): void;
 
@@ -2609,7 +2616,7 @@ export interface RestJsonProtocol {
   testPostNoInputNoPayload(): Promise<TestPostNoInputNoPayloadCommandOutput>;
   testPostNoInputNoPayload(
     args: TestPostNoInputNoPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<TestPostNoInputNoPayloadCommandOutput>;
   testPostNoInputNoPayload(
     args: TestPostNoInputNoPayloadCommandInput,
@@ -2617,7 +2624,7 @@ export interface RestJsonProtocol {
   ): void;
   testPostNoInputNoPayload(
     args: TestPostNoInputNoPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: TestPostNoInputNoPayloadCommandOutput) => void
   ): void;
 
@@ -2627,7 +2634,7 @@ export interface RestJsonProtocol {
   testPostNoPayload(): Promise<TestPostNoPayloadCommandOutput>;
   testPostNoPayload(
     args: TestPostNoPayloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<TestPostNoPayloadCommandOutput>;
   testPostNoPayload(
     args: TestPostNoPayloadCommandInput,
@@ -2635,7 +2642,7 @@ export interface RestJsonProtocol {
   ): void;
   testPostNoPayload(
     args: TestPostNoPayloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: TestPostNoPayloadCommandOutput) => void
   ): void;
 
@@ -2645,7 +2652,7 @@ export interface RestJsonProtocol {
   timestampFormatHeaders(): Promise<TimestampFormatHeadersCommandOutput>;
   timestampFormatHeaders(
     args: TimestampFormatHeadersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<TimestampFormatHeadersCommandOutput>;
   timestampFormatHeaders(
     args: TimestampFormatHeadersCommandInput,
@@ -2653,7 +2660,7 @@ export interface RestJsonProtocol {
   ): void;
   timestampFormatHeaders(
     args: TimestampFormatHeadersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: TimestampFormatHeadersCommandOutput) => void
   ): void;
 
@@ -2663,7 +2670,7 @@ export interface RestJsonProtocol {
   unitInputAndOutput(): Promise<UnitInputAndOutputCommandOutput>;
   unitInputAndOutput(
     args: UnitInputAndOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RestJsonProtocolRequestOptions
   ): Promise<UnitInputAndOutputCommandOutput>;
   unitInputAndOutput(
     args: UnitInputAndOutputCommandInput,
@@ -2671,7 +2678,7 @@ export interface RestJsonProtocol {
   ): void;
   unitInputAndOutput(
     args: UnitInputAndOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: RestJsonProtocolRequestOptions,
     cb: (err: any, data?: UnitInputAndOutputCommandOutput) => void
   ): void;
 }

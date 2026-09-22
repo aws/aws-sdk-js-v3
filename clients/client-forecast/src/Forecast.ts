@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateAutoPredictorCommandInput,
@@ -415,13 +420,20 @@ const paginators = {
   paginateListWhatIfForecasts,
 };
 
+/**
+ * @public
+ */
+export interface ForecastRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Forecast {
   /**
    * @see {@link CreateAutoPredictorCommand}
    */
   createAutoPredictor(
     args: CreateAutoPredictorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateAutoPredictorCommandOutput>;
   createAutoPredictor(
     args: CreateAutoPredictorCommandInput,
@@ -429,7 +441,7 @@ export interface Forecast {
   ): void;
   createAutoPredictor(
     args: CreateAutoPredictorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateAutoPredictorCommandOutput) => void
   ): void;
 
@@ -438,7 +450,7 @@ export interface Forecast {
    */
   createDataset(
     args: CreateDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateDatasetCommandOutput>;
   createDataset(
     args: CreateDatasetCommandInput,
@@ -446,7 +458,7 @@ export interface Forecast {
   ): void;
   createDataset(
     args: CreateDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateDatasetCommandOutput) => void
   ): void;
 
@@ -455,7 +467,7 @@ export interface Forecast {
    */
   createDatasetGroup(
     args: CreateDatasetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateDatasetGroupCommandOutput>;
   createDatasetGroup(
     args: CreateDatasetGroupCommandInput,
@@ -463,7 +475,7 @@ export interface Forecast {
   ): void;
   createDatasetGroup(
     args: CreateDatasetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateDatasetGroupCommandOutput) => void
   ): void;
 
@@ -472,7 +484,7 @@ export interface Forecast {
    */
   createDatasetImportJob(
     args: CreateDatasetImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateDatasetImportJobCommandOutput>;
   createDatasetImportJob(
     args: CreateDatasetImportJobCommandInput,
@@ -480,7 +492,7 @@ export interface Forecast {
   ): void;
   createDatasetImportJob(
     args: CreateDatasetImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateDatasetImportJobCommandOutput) => void
   ): void;
 
@@ -489,7 +501,7 @@ export interface Forecast {
    */
   createExplainability(
     args: CreateExplainabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateExplainabilityCommandOutput>;
   createExplainability(
     args: CreateExplainabilityCommandInput,
@@ -497,7 +509,7 @@ export interface Forecast {
   ): void;
   createExplainability(
     args: CreateExplainabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateExplainabilityCommandOutput) => void
   ): void;
 
@@ -506,7 +518,7 @@ export interface Forecast {
    */
   createExplainabilityExport(
     args: CreateExplainabilityExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateExplainabilityExportCommandOutput>;
   createExplainabilityExport(
     args: CreateExplainabilityExportCommandInput,
@@ -514,7 +526,7 @@ export interface Forecast {
   ): void;
   createExplainabilityExport(
     args: CreateExplainabilityExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateExplainabilityExportCommandOutput) => void
   ): void;
 
@@ -523,7 +535,7 @@ export interface Forecast {
    */
   createForecast(
     args: CreateForecastCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateForecastCommandOutput>;
   createForecast(
     args: CreateForecastCommandInput,
@@ -531,7 +543,7 @@ export interface Forecast {
   ): void;
   createForecast(
     args: CreateForecastCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateForecastCommandOutput) => void
   ): void;
 
@@ -540,7 +552,7 @@ export interface Forecast {
    */
   createForecastExportJob(
     args: CreateForecastExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateForecastExportJobCommandOutput>;
   createForecastExportJob(
     args: CreateForecastExportJobCommandInput,
@@ -548,7 +560,7 @@ export interface Forecast {
   ): void;
   createForecastExportJob(
     args: CreateForecastExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateForecastExportJobCommandOutput) => void
   ): void;
 
@@ -557,7 +569,7 @@ export interface Forecast {
    */
   createMonitor(
     args: CreateMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateMonitorCommandOutput>;
   createMonitor(
     args: CreateMonitorCommandInput,
@@ -565,7 +577,7 @@ export interface Forecast {
   ): void;
   createMonitor(
     args: CreateMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateMonitorCommandOutput) => void
   ): void;
 
@@ -574,7 +586,7 @@ export interface Forecast {
    */
   createPredictor(
     args: CreatePredictorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreatePredictorCommandOutput>;
   createPredictor(
     args: CreatePredictorCommandInput,
@@ -582,7 +594,7 @@ export interface Forecast {
   ): void;
   createPredictor(
     args: CreatePredictorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreatePredictorCommandOutput) => void
   ): void;
 
@@ -591,7 +603,7 @@ export interface Forecast {
    */
   createPredictorBacktestExportJob(
     args: CreatePredictorBacktestExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreatePredictorBacktestExportJobCommandOutput>;
   createPredictorBacktestExportJob(
     args: CreatePredictorBacktestExportJobCommandInput,
@@ -599,7 +611,7 @@ export interface Forecast {
   ): void;
   createPredictorBacktestExportJob(
     args: CreatePredictorBacktestExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreatePredictorBacktestExportJobCommandOutput) => void
   ): void;
 
@@ -608,7 +620,7 @@ export interface Forecast {
    */
   createWhatIfAnalysis(
     args: CreateWhatIfAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateWhatIfAnalysisCommandOutput>;
   createWhatIfAnalysis(
     args: CreateWhatIfAnalysisCommandInput,
@@ -616,7 +628,7 @@ export interface Forecast {
   ): void;
   createWhatIfAnalysis(
     args: CreateWhatIfAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateWhatIfAnalysisCommandOutput) => void
   ): void;
 
@@ -625,7 +637,7 @@ export interface Forecast {
    */
   createWhatIfForecast(
     args: CreateWhatIfForecastCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateWhatIfForecastCommandOutput>;
   createWhatIfForecast(
     args: CreateWhatIfForecastCommandInput,
@@ -633,7 +645,7 @@ export interface Forecast {
   ): void;
   createWhatIfForecast(
     args: CreateWhatIfForecastCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateWhatIfForecastCommandOutput) => void
   ): void;
 
@@ -642,7 +654,7 @@ export interface Forecast {
    */
   createWhatIfForecastExport(
     args: CreateWhatIfForecastExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<CreateWhatIfForecastExportCommandOutput>;
   createWhatIfForecastExport(
     args: CreateWhatIfForecastExportCommandInput,
@@ -650,7 +662,7 @@ export interface Forecast {
   ): void;
   createWhatIfForecastExport(
     args: CreateWhatIfForecastExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: CreateWhatIfForecastExportCommandOutput) => void
   ): void;
 
@@ -659,7 +671,7 @@ export interface Forecast {
    */
   deleteDataset(
     args: DeleteDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteDatasetCommandOutput>;
   deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -667,7 +679,7 @@ export interface Forecast {
   ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): void;
 
@@ -676,7 +688,7 @@ export interface Forecast {
    */
   deleteDatasetGroup(
     args: DeleteDatasetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteDatasetGroupCommandOutput>;
   deleteDatasetGroup(
     args: DeleteDatasetGroupCommandInput,
@@ -684,7 +696,7 @@ export interface Forecast {
   ): void;
   deleteDatasetGroup(
     args: DeleteDatasetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteDatasetGroupCommandOutput) => void
   ): void;
 
@@ -693,7 +705,7 @@ export interface Forecast {
    */
   deleteDatasetImportJob(
     args: DeleteDatasetImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteDatasetImportJobCommandOutput>;
   deleteDatasetImportJob(
     args: DeleteDatasetImportJobCommandInput,
@@ -701,7 +713,7 @@ export interface Forecast {
   ): void;
   deleteDatasetImportJob(
     args: DeleteDatasetImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteDatasetImportJobCommandOutput) => void
   ): void;
 
@@ -710,7 +722,7 @@ export interface Forecast {
    */
   deleteExplainability(
     args: DeleteExplainabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteExplainabilityCommandOutput>;
   deleteExplainability(
     args: DeleteExplainabilityCommandInput,
@@ -718,7 +730,7 @@ export interface Forecast {
   ): void;
   deleteExplainability(
     args: DeleteExplainabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteExplainabilityCommandOutput) => void
   ): void;
 
@@ -727,7 +739,7 @@ export interface Forecast {
    */
   deleteExplainabilityExport(
     args: DeleteExplainabilityExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteExplainabilityExportCommandOutput>;
   deleteExplainabilityExport(
     args: DeleteExplainabilityExportCommandInput,
@@ -735,7 +747,7 @@ export interface Forecast {
   ): void;
   deleteExplainabilityExport(
     args: DeleteExplainabilityExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteExplainabilityExportCommandOutput) => void
   ): void;
 
@@ -744,7 +756,7 @@ export interface Forecast {
    */
   deleteForecast(
     args: DeleteForecastCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteForecastCommandOutput>;
   deleteForecast(
     args: DeleteForecastCommandInput,
@@ -752,7 +764,7 @@ export interface Forecast {
   ): void;
   deleteForecast(
     args: DeleteForecastCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteForecastCommandOutput) => void
   ): void;
 
@@ -761,7 +773,7 @@ export interface Forecast {
    */
   deleteForecastExportJob(
     args: DeleteForecastExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteForecastExportJobCommandOutput>;
   deleteForecastExportJob(
     args: DeleteForecastExportJobCommandInput,
@@ -769,7 +781,7 @@ export interface Forecast {
   ): void;
   deleteForecastExportJob(
     args: DeleteForecastExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteForecastExportJobCommandOutput) => void
   ): void;
 
@@ -778,7 +790,7 @@ export interface Forecast {
    */
   deleteMonitor(
     args: DeleteMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteMonitorCommandOutput>;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
@@ -786,7 +798,7 @@ export interface Forecast {
   ): void;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteMonitorCommandOutput) => void
   ): void;
 
@@ -795,7 +807,7 @@ export interface Forecast {
    */
   deletePredictor(
     args: DeletePredictorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeletePredictorCommandOutput>;
   deletePredictor(
     args: DeletePredictorCommandInput,
@@ -803,7 +815,7 @@ export interface Forecast {
   ): void;
   deletePredictor(
     args: DeletePredictorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeletePredictorCommandOutput) => void
   ): void;
 
@@ -812,7 +824,7 @@ export interface Forecast {
    */
   deletePredictorBacktestExportJob(
     args: DeletePredictorBacktestExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeletePredictorBacktestExportJobCommandOutput>;
   deletePredictorBacktestExportJob(
     args: DeletePredictorBacktestExportJobCommandInput,
@@ -820,7 +832,7 @@ export interface Forecast {
   ): void;
   deletePredictorBacktestExportJob(
     args: DeletePredictorBacktestExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeletePredictorBacktestExportJobCommandOutput) => void
   ): void;
 
@@ -829,7 +841,7 @@ export interface Forecast {
    */
   deleteResourceTree(
     args: DeleteResourceTreeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteResourceTreeCommandOutput>;
   deleteResourceTree(
     args: DeleteResourceTreeCommandInput,
@@ -837,7 +849,7 @@ export interface Forecast {
   ): void;
   deleteResourceTree(
     args: DeleteResourceTreeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteResourceTreeCommandOutput) => void
   ): void;
 
@@ -846,7 +858,7 @@ export interface Forecast {
    */
   deleteWhatIfAnalysis(
     args: DeleteWhatIfAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteWhatIfAnalysisCommandOutput>;
   deleteWhatIfAnalysis(
     args: DeleteWhatIfAnalysisCommandInput,
@@ -854,7 +866,7 @@ export interface Forecast {
   ): void;
   deleteWhatIfAnalysis(
     args: DeleteWhatIfAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteWhatIfAnalysisCommandOutput) => void
   ): void;
 
@@ -863,7 +875,7 @@ export interface Forecast {
    */
   deleteWhatIfForecast(
     args: DeleteWhatIfForecastCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteWhatIfForecastCommandOutput>;
   deleteWhatIfForecast(
     args: DeleteWhatIfForecastCommandInput,
@@ -871,7 +883,7 @@ export interface Forecast {
   ): void;
   deleteWhatIfForecast(
     args: DeleteWhatIfForecastCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteWhatIfForecastCommandOutput) => void
   ): void;
 
@@ -880,7 +892,7 @@ export interface Forecast {
    */
   deleteWhatIfForecastExport(
     args: DeleteWhatIfForecastExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DeleteWhatIfForecastExportCommandOutput>;
   deleteWhatIfForecastExport(
     args: DeleteWhatIfForecastExportCommandInput,
@@ -888,7 +900,7 @@ export interface Forecast {
   ): void;
   deleteWhatIfForecastExport(
     args: DeleteWhatIfForecastExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DeleteWhatIfForecastExportCommandOutput) => void
   ): void;
 
@@ -897,7 +909,7 @@ export interface Forecast {
    */
   describeAutoPredictor(
     args: DescribeAutoPredictorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeAutoPredictorCommandOutput>;
   describeAutoPredictor(
     args: DescribeAutoPredictorCommandInput,
@@ -905,7 +917,7 @@ export interface Forecast {
   ): void;
   describeAutoPredictor(
     args: DescribeAutoPredictorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeAutoPredictorCommandOutput) => void
   ): void;
 
@@ -914,7 +926,7 @@ export interface Forecast {
    */
   describeDataset(
     args: DescribeDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeDatasetCommandOutput>;
   describeDataset(
     args: DescribeDatasetCommandInput,
@@ -922,7 +934,7 @@ export interface Forecast {
   ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): void;
 
@@ -931,7 +943,7 @@ export interface Forecast {
    */
   describeDatasetGroup(
     args: DescribeDatasetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeDatasetGroupCommandOutput>;
   describeDatasetGroup(
     args: DescribeDatasetGroupCommandInput,
@@ -939,7 +951,7 @@ export interface Forecast {
   ): void;
   describeDatasetGroup(
     args: DescribeDatasetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeDatasetGroupCommandOutput) => void
   ): void;
 
@@ -948,7 +960,7 @@ export interface Forecast {
    */
   describeDatasetImportJob(
     args: DescribeDatasetImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeDatasetImportJobCommandOutput>;
   describeDatasetImportJob(
     args: DescribeDatasetImportJobCommandInput,
@@ -956,7 +968,7 @@ export interface Forecast {
   ): void;
   describeDatasetImportJob(
     args: DescribeDatasetImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeDatasetImportJobCommandOutput) => void
   ): void;
 
@@ -965,7 +977,7 @@ export interface Forecast {
    */
   describeExplainability(
     args: DescribeExplainabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeExplainabilityCommandOutput>;
   describeExplainability(
     args: DescribeExplainabilityCommandInput,
@@ -973,7 +985,7 @@ export interface Forecast {
   ): void;
   describeExplainability(
     args: DescribeExplainabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeExplainabilityCommandOutput) => void
   ): void;
 
@@ -982,7 +994,7 @@ export interface Forecast {
    */
   describeExplainabilityExport(
     args: DescribeExplainabilityExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeExplainabilityExportCommandOutput>;
   describeExplainabilityExport(
     args: DescribeExplainabilityExportCommandInput,
@@ -990,7 +1002,7 @@ export interface Forecast {
   ): void;
   describeExplainabilityExport(
     args: DescribeExplainabilityExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeExplainabilityExportCommandOutput) => void
   ): void;
 
@@ -999,7 +1011,7 @@ export interface Forecast {
    */
   describeForecast(
     args: DescribeForecastCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeForecastCommandOutput>;
   describeForecast(
     args: DescribeForecastCommandInput,
@@ -1007,7 +1019,7 @@ export interface Forecast {
   ): void;
   describeForecast(
     args: DescribeForecastCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeForecastCommandOutput) => void
   ): void;
 
@@ -1016,7 +1028,7 @@ export interface Forecast {
    */
   describeForecastExportJob(
     args: DescribeForecastExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeForecastExportJobCommandOutput>;
   describeForecastExportJob(
     args: DescribeForecastExportJobCommandInput,
@@ -1024,7 +1036,7 @@ export interface Forecast {
   ): void;
   describeForecastExportJob(
     args: DescribeForecastExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeForecastExportJobCommandOutput) => void
   ): void;
 
@@ -1033,7 +1045,7 @@ export interface Forecast {
    */
   describeMonitor(
     args: DescribeMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeMonitorCommandOutput>;
   describeMonitor(
     args: DescribeMonitorCommandInput,
@@ -1041,7 +1053,7 @@ export interface Forecast {
   ): void;
   describeMonitor(
     args: DescribeMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeMonitorCommandOutput) => void
   ): void;
 
@@ -1050,7 +1062,7 @@ export interface Forecast {
    */
   describePredictor(
     args: DescribePredictorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribePredictorCommandOutput>;
   describePredictor(
     args: DescribePredictorCommandInput,
@@ -1058,7 +1070,7 @@ export interface Forecast {
   ): void;
   describePredictor(
     args: DescribePredictorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribePredictorCommandOutput) => void
   ): void;
 
@@ -1067,7 +1079,7 @@ export interface Forecast {
    */
   describePredictorBacktestExportJob(
     args: DescribePredictorBacktestExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribePredictorBacktestExportJobCommandOutput>;
   describePredictorBacktestExportJob(
     args: DescribePredictorBacktestExportJobCommandInput,
@@ -1075,7 +1087,7 @@ export interface Forecast {
   ): void;
   describePredictorBacktestExportJob(
     args: DescribePredictorBacktestExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribePredictorBacktestExportJobCommandOutput) => void
   ): void;
 
@@ -1084,7 +1096,7 @@ export interface Forecast {
    */
   describeWhatIfAnalysis(
     args: DescribeWhatIfAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeWhatIfAnalysisCommandOutput>;
   describeWhatIfAnalysis(
     args: DescribeWhatIfAnalysisCommandInput,
@@ -1092,7 +1104,7 @@ export interface Forecast {
   ): void;
   describeWhatIfAnalysis(
     args: DescribeWhatIfAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeWhatIfAnalysisCommandOutput) => void
   ): void;
 
@@ -1101,7 +1113,7 @@ export interface Forecast {
    */
   describeWhatIfForecast(
     args: DescribeWhatIfForecastCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeWhatIfForecastCommandOutput>;
   describeWhatIfForecast(
     args: DescribeWhatIfForecastCommandInput,
@@ -1109,7 +1121,7 @@ export interface Forecast {
   ): void;
   describeWhatIfForecast(
     args: DescribeWhatIfForecastCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeWhatIfForecastCommandOutput) => void
   ): void;
 
@@ -1118,7 +1130,7 @@ export interface Forecast {
    */
   describeWhatIfForecastExport(
     args: DescribeWhatIfForecastExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<DescribeWhatIfForecastExportCommandOutput>;
   describeWhatIfForecastExport(
     args: DescribeWhatIfForecastExportCommandInput,
@@ -1126,7 +1138,7 @@ export interface Forecast {
   ): void;
   describeWhatIfForecastExport(
     args: DescribeWhatIfForecastExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: DescribeWhatIfForecastExportCommandOutput) => void
   ): void;
 
@@ -1135,7 +1147,7 @@ export interface Forecast {
    */
   getAccuracyMetrics(
     args: GetAccuracyMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<GetAccuracyMetricsCommandOutput>;
   getAccuracyMetrics(
     args: GetAccuracyMetricsCommandInput,
@@ -1143,7 +1155,7 @@ export interface Forecast {
   ): void;
   getAccuracyMetrics(
     args: GetAccuracyMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: GetAccuracyMetricsCommandOutput) => void
   ): void;
 
@@ -1153,7 +1165,7 @@ export interface Forecast {
   listDatasetGroups(): Promise<ListDatasetGroupsCommandOutput>;
   listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListDatasetGroupsCommandOutput>;
   listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
@@ -1161,7 +1173,7 @@ export interface Forecast {
   ): void;
   listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListDatasetGroupsCommandOutput) => void
   ): void;
 
@@ -1171,7 +1183,7 @@ export interface Forecast {
   listDatasetImportJobs(): Promise<ListDatasetImportJobsCommandOutput>;
   listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListDatasetImportJobsCommandOutput>;
   listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
@@ -1179,7 +1191,7 @@ export interface Forecast {
   ): void;
   listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListDatasetImportJobsCommandOutput) => void
   ): void;
 
@@ -1189,7 +1201,7 @@ export interface Forecast {
   listDatasets(): Promise<ListDatasetsCommandOutput>;
   listDatasets(
     args: ListDatasetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListDatasetsCommandOutput>;
   listDatasets(
     args: ListDatasetsCommandInput,
@@ -1197,7 +1209,7 @@ export interface Forecast {
   ): void;
   listDatasets(
     args: ListDatasetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListDatasetsCommandOutput) => void
   ): void;
 
@@ -1207,7 +1219,7 @@ export interface Forecast {
   listExplainabilities(): Promise<ListExplainabilitiesCommandOutput>;
   listExplainabilities(
     args: ListExplainabilitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListExplainabilitiesCommandOutput>;
   listExplainabilities(
     args: ListExplainabilitiesCommandInput,
@@ -1215,7 +1227,7 @@ export interface Forecast {
   ): void;
   listExplainabilities(
     args: ListExplainabilitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListExplainabilitiesCommandOutput) => void
   ): void;
 
@@ -1225,7 +1237,7 @@ export interface Forecast {
   listExplainabilityExports(): Promise<ListExplainabilityExportsCommandOutput>;
   listExplainabilityExports(
     args: ListExplainabilityExportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListExplainabilityExportsCommandOutput>;
   listExplainabilityExports(
     args: ListExplainabilityExportsCommandInput,
@@ -1233,7 +1245,7 @@ export interface Forecast {
   ): void;
   listExplainabilityExports(
     args: ListExplainabilityExportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListExplainabilityExportsCommandOutput) => void
   ): void;
 
@@ -1243,7 +1255,7 @@ export interface Forecast {
   listForecastExportJobs(): Promise<ListForecastExportJobsCommandOutput>;
   listForecastExportJobs(
     args: ListForecastExportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListForecastExportJobsCommandOutput>;
   listForecastExportJobs(
     args: ListForecastExportJobsCommandInput,
@@ -1251,7 +1263,7 @@ export interface Forecast {
   ): void;
   listForecastExportJobs(
     args: ListForecastExportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListForecastExportJobsCommandOutput) => void
   ): void;
 
@@ -1261,7 +1273,7 @@ export interface Forecast {
   listForecasts(): Promise<ListForecastsCommandOutput>;
   listForecasts(
     args: ListForecastsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListForecastsCommandOutput>;
   listForecasts(
     args: ListForecastsCommandInput,
@@ -1269,7 +1281,7 @@ export interface Forecast {
   ): void;
   listForecasts(
     args: ListForecastsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListForecastsCommandOutput) => void
   ): void;
 
@@ -1278,7 +1290,7 @@ export interface Forecast {
    */
   listMonitorEvaluations(
     args: ListMonitorEvaluationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListMonitorEvaluationsCommandOutput>;
   listMonitorEvaluations(
     args: ListMonitorEvaluationsCommandInput,
@@ -1286,7 +1298,7 @@ export interface Forecast {
   ): void;
   listMonitorEvaluations(
     args: ListMonitorEvaluationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListMonitorEvaluationsCommandOutput) => void
   ): void;
 
@@ -1296,7 +1308,7 @@ export interface Forecast {
   listMonitors(): Promise<ListMonitorsCommandOutput>;
   listMonitors(
     args: ListMonitorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListMonitorsCommandOutput>;
   listMonitors(
     args: ListMonitorsCommandInput,
@@ -1304,7 +1316,7 @@ export interface Forecast {
   ): void;
   listMonitors(
     args: ListMonitorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListMonitorsCommandOutput) => void
   ): void;
 
@@ -1314,7 +1326,7 @@ export interface Forecast {
   listPredictorBacktestExportJobs(): Promise<ListPredictorBacktestExportJobsCommandOutput>;
   listPredictorBacktestExportJobs(
     args: ListPredictorBacktestExportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListPredictorBacktestExportJobsCommandOutput>;
   listPredictorBacktestExportJobs(
     args: ListPredictorBacktestExportJobsCommandInput,
@@ -1322,7 +1334,7 @@ export interface Forecast {
   ): void;
   listPredictorBacktestExportJobs(
     args: ListPredictorBacktestExportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListPredictorBacktestExportJobsCommandOutput) => void
   ): void;
 
@@ -1332,7 +1344,7 @@ export interface Forecast {
   listPredictors(): Promise<ListPredictorsCommandOutput>;
   listPredictors(
     args: ListPredictorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListPredictorsCommandOutput>;
   listPredictors(
     args: ListPredictorsCommandInput,
@@ -1340,7 +1352,7 @@ export interface Forecast {
   ): void;
   listPredictors(
     args: ListPredictorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListPredictorsCommandOutput) => void
   ): void;
 
@@ -1349,7 +1361,7 @@ export interface Forecast {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1357,7 +1369,7 @@ export interface Forecast {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1367,7 +1379,7 @@ export interface Forecast {
   listWhatIfAnalyses(): Promise<ListWhatIfAnalysesCommandOutput>;
   listWhatIfAnalyses(
     args: ListWhatIfAnalysesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListWhatIfAnalysesCommandOutput>;
   listWhatIfAnalyses(
     args: ListWhatIfAnalysesCommandInput,
@@ -1375,7 +1387,7 @@ export interface Forecast {
   ): void;
   listWhatIfAnalyses(
     args: ListWhatIfAnalysesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListWhatIfAnalysesCommandOutput) => void
   ): void;
 
@@ -1385,7 +1397,7 @@ export interface Forecast {
   listWhatIfForecastExports(): Promise<ListWhatIfForecastExportsCommandOutput>;
   listWhatIfForecastExports(
     args: ListWhatIfForecastExportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListWhatIfForecastExportsCommandOutput>;
   listWhatIfForecastExports(
     args: ListWhatIfForecastExportsCommandInput,
@@ -1393,7 +1405,7 @@ export interface Forecast {
   ): void;
   listWhatIfForecastExports(
     args: ListWhatIfForecastExportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListWhatIfForecastExportsCommandOutput) => void
   ): void;
 
@@ -1403,7 +1415,7 @@ export interface Forecast {
   listWhatIfForecasts(): Promise<ListWhatIfForecastsCommandOutput>;
   listWhatIfForecasts(
     args: ListWhatIfForecastsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ListWhatIfForecastsCommandOutput>;
   listWhatIfForecasts(
     args: ListWhatIfForecastsCommandInput,
@@ -1411,7 +1423,7 @@ export interface Forecast {
   ): void;
   listWhatIfForecasts(
     args: ListWhatIfForecastsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ListWhatIfForecastsCommandOutput) => void
   ): void;
 
@@ -1420,7 +1432,7 @@ export interface Forecast {
    */
   resumeResource(
     args: ResumeResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<ResumeResourceCommandOutput>;
   resumeResource(
     args: ResumeResourceCommandInput,
@@ -1428,7 +1440,7 @@ export interface Forecast {
   ): void;
   resumeResource(
     args: ResumeResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: ResumeResourceCommandOutput) => void
   ): void;
 
@@ -1437,7 +1449,7 @@ export interface Forecast {
    */
   stopResource(
     args: StopResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<StopResourceCommandOutput>;
   stopResource(
     args: StopResourceCommandInput,
@@ -1445,7 +1457,7 @@ export interface Forecast {
   ): void;
   stopResource(
     args: StopResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: StopResourceCommandOutput) => void
   ): void;
 
@@ -1454,7 +1466,7 @@ export interface Forecast {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1462,7 +1474,7 @@ export interface Forecast {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1471,7 +1483,7 @@ export interface Forecast {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1479,7 +1491,7 @@ export interface Forecast {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1488,7 +1500,7 @@ export interface Forecast {
    */
   updateDatasetGroup(
     args: UpdateDatasetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastRequestOptions
   ): Promise<UpdateDatasetGroupCommandOutput>;
   updateDatasetGroup(
     args: UpdateDatasetGroupCommandInput,
@@ -1496,7 +1508,7 @@ export interface Forecast {
   ): void;
   updateDatasetGroup(
     args: UpdateDatasetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastRequestOptions,
     cb: (err: any, data?: UpdateDatasetGroupCommandOutput) => void
   ): void;
 

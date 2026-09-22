@@ -444,10 +444,10 @@ import { ComplexError, InvalidGreeting } from "../models/errors";
 import { RestXmlProtocolServiceException } from "../models/RestXmlProtocolServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var RestXmlProtocolServiceException$: StaticErrorSchema = [-3, _s, "RestXmlProtocolServiceException", 0, [], []];
 _s_registry.registerError(RestXmlProtocolServiceException$, RestXmlProtocolServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var ComplexError$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 403 },
   [_H, _TL, _N],

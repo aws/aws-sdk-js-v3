@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateApplicationCommandInput,
@@ -99,13 +104,20 @@ const paginators = {
   paginateListApplicationVersions,
 };
 
+/**
+ * @public
+ */
+export interface ServerlessApplicationRepositoryRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ServerlessApplicationRepository {
   /**
    * @see {@link CreateApplicationCommand}
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -113,7 +125,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -122,7 +134,7 @@ export interface ServerlessApplicationRepository {
    */
   createApplicationVersion(
     args: CreateApplicationVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<CreateApplicationVersionCommandOutput>;
   createApplicationVersion(
     args: CreateApplicationVersionCommandInput,
@@ -130,7 +142,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   createApplicationVersion(
     args: CreateApplicationVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: CreateApplicationVersionCommandOutput) => void
   ): void;
 
@@ -139,7 +151,7 @@ export interface ServerlessApplicationRepository {
    */
   createCloudFormationChangeSet(
     args: CreateCloudFormationChangeSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<CreateCloudFormationChangeSetCommandOutput>;
   createCloudFormationChangeSet(
     args: CreateCloudFormationChangeSetCommandInput,
@@ -147,7 +159,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   createCloudFormationChangeSet(
     args: CreateCloudFormationChangeSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: CreateCloudFormationChangeSetCommandOutput) => void
   ): void;
 
@@ -156,7 +168,7 @@ export interface ServerlessApplicationRepository {
    */
   createCloudFormationTemplate(
     args: CreateCloudFormationTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<CreateCloudFormationTemplateCommandOutput>;
   createCloudFormationTemplate(
     args: CreateCloudFormationTemplateCommandInput,
@@ -164,7 +176,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   createCloudFormationTemplate(
     args: CreateCloudFormationTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: CreateCloudFormationTemplateCommandOutput) => void
   ): void;
 
@@ -173,7 +185,7 @@ export interface ServerlessApplicationRepository {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -181,7 +193,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -190,7 +202,7 @@ export interface ServerlessApplicationRepository {
    */
   getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<GetApplicationCommandOutput>;
   getApplication(
     args: GetApplicationCommandInput,
@@ -198,7 +210,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   getApplication(
     args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: GetApplicationCommandOutput) => void
   ): void;
 
@@ -207,7 +219,7 @@ export interface ServerlessApplicationRepository {
    */
   getApplicationPolicy(
     args: GetApplicationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<GetApplicationPolicyCommandOutput>;
   getApplicationPolicy(
     args: GetApplicationPolicyCommandInput,
@@ -215,7 +227,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   getApplicationPolicy(
     args: GetApplicationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: GetApplicationPolicyCommandOutput) => void
   ): void;
 
@@ -224,7 +236,7 @@ export interface ServerlessApplicationRepository {
    */
   getCloudFormationTemplate(
     args: GetCloudFormationTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<GetCloudFormationTemplateCommandOutput>;
   getCloudFormationTemplate(
     args: GetCloudFormationTemplateCommandInput,
@@ -232,7 +244,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   getCloudFormationTemplate(
     args: GetCloudFormationTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: GetCloudFormationTemplateCommandOutput) => void
   ): void;
 
@@ -241,7 +253,7 @@ export interface ServerlessApplicationRepository {
    */
   listApplicationDependencies(
     args: ListApplicationDependenciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<ListApplicationDependenciesCommandOutput>;
   listApplicationDependencies(
     args: ListApplicationDependenciesCommandInput,
@@ -249,7 +261,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   listApplicationDependencies(
     args: ListApplicationDependenciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: ListApplicationDependenciesCommandOutput) => void
   ): void;
 
@@ -259,7 +271,7 @@ export interface ServerlessApplicationRepository {
   listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -267,7 +279,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -276,7 +288,7 @@ export interface ServerlessApplicationRepository {
    */
   listApplicationVersions(
     args: ListApplicationVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<ListApplicationVersionsCommandOutput>;
   listApplicationVersions(
     args: ListApplicationVersionsCommandInput,
@@ -284,7 +296,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   listApplicationVersions(
     args: ListApplicationVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: ListApplicationVersionsCommandOutput) => void
   ): void;
 
@@ -293,7 +305,7 @@ export interface ServerlessApplicationRepository {
    */
   putApplicationPolicy(
     args: PutApplicationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<PutApplicationPolicyCommandOutput>;
   putApplicationPolicy(
     args: PutApplicationPolicyCommandInput,
@@ -301,7 +313,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   putApplicationPolicy(
     args: PutApplicationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: PutApplicationPolicyCommandOutput) => void
   ): void;
 
@@ -310,7 +322,7 @@ export interface ServerlessApplicationRepository {
    */
   unshareApplication(
     args: UnshareApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<UnshareApplicationCommandOutput>;
   unshareApplication(
     args: UnshareApplicationCommandInput,
@@ -318,7 +330,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   unshareApplication(
     args: UnshareApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: UnshareApplicationCommandOutput) => void
   ): void;
 
@@ -327,7 +339,7 @@ export interface ServerlessApplicationRepository {
    */
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ServerlessApplicationRepositoryRequestOptions
   ): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
@@ -335,7 +347,7 @@ export interface ServerlessApplicationRepository {
   ): void;
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ServerlessApplicationRepositoryRequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 

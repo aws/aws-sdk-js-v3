@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { ApplicationSignalsClient } from "./ApplicationSignalsClient";
 import {
@@ -213,13 +218,20 @@ const paginators = {
   paginateListServiceStates,
 };
 
+/**
+ * @public
+ */
+export interface ApplicationSignalsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ApplicationSignals {
   /**
    * @see {@link BatchDeleteInstrumentationConfigurationsCommand}
    */
   batchDeleteInstrumentationConfigurations(
     args: BatchDeleteInstrumentationConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<BatchDeleteInstrumentationConfigurationsCommandOutput>;
   batchDeleteInstrumentationConfigurations(
     args: BatchDeleteInstrumentationConfigurationsCommandInput,
@@ -227,7 +239,7 @@ export interface ApplicationSignals {
   ): void;
   batchDeleteInstrumentationConfigurations(
     args: BatchDeleteInstrumentationConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: BatchDeleteInstrumentationConfigurationsCommandOutput) => void
   ): void;
 
@@ -236,7 +248,7 @@ export interface ApplicationSignals {
    */
   batchGetServiceLevelObjectiveBudgetReport(
     args: BatchGetServiceLevelObjectiveBudgetReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<BatchGetServiceLevelObjectiveBudgetReportCommandOutput>;
   batchGetServiceLevelObjectiveBudgetReport(
     args: BatchGetServiceLevelObjectiveBudgetReportCommandInput,
@@ -244,7 +256,7 @@ export interface ApplicationSignals {
   ): void;
   batchGetServiceLevelObjectiveBudgetReport(
     args: BatchGetServiceLevelObjectiveBudgetReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: BatchGetServiceLevelObjectiveBudgetReportCommandOutput) => void
   ): void;
 
@@ -253,7 +265,7 @@ export interface ApplicationSignals {
    */
   batchUpdateExclusionWindows(
     args: BatchUpdateExclusionWindowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<BatchUpdateExclusionWindowsCommandOutput>;
   batchUpdateExclusionWindows(
     args: BatchUpdateExclusionWindowsCommandInput,
@@ -261,7 +273,7 @@ export interface ApplicationSignals {
   ): void;
   batchUpdateExclusionWindows(
     args: BatchUpdateExclusionWindowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: BatchUpdateExclusionWindowsCommandOutput) => void
   ): void;
 
@@ -270,7 +282,7 @@ export interface ApplicationSignals {
    */
   createInstrumentationConfiguration(
     args: CreateInstrumentationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<CreateInstrumentationConfigurationCommandOutput>;
   createInstrumentationConfiguration(
     args: CreateInstrumentationConfigurationCommandInput,
@@ -278,7 +290,7 @@ export interface ApplicationSignals {
   ): void;
   createInstrumentationConfiguration(
     args: CreateInstrumentationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: CreateInstrumentationConfigurationCommandOutput) => void
   ): void;
 
@@ -287,7 +299,7 @@ export interface ApplicationSignals {
    */
   createServiceLevelObjective(
     args: CreateServiceLevelObjectiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<CreateServiceLevelObjectiveCommandOutput>;
   createServiceLevelObjective(
     args: CreateServiceLevelObjectiveCommandInput,
@@ -295,7 +307,7 @@ export interface ApplicationSignals {
   ): void;
   createServiceLevelObjective(
     args: CreateServiceLevelObjectiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: CreateServiceLevelObjectiveCommandOutput) => void
   ): void;
 
@@ -305,7 +317,7 @@ export interface ApplicationSignals {
   deleteGroupingConfiguration(): Promise<DeleteGroupingConfigurationCommandOutput>;
   deleteGroupingConfiguration(
     args: DeleteGroupingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<DeleteGroupingConfigurationCommandOutput>;
   deleteGroupingConfiguration(
     args: DeleteGroupingConfigurationCommandInput,
@@ -313,7 +325,7 @@ export interface ApplicationSignals {
   ): void;
   deleteGroupingConfiguration(
     args: DeleteGroupingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: DeleteGroupingConfigurationCommandOutput) => void
   ): void;
 
@@ -322,7 +334,7 @@ export interface ApplicationSignals {
    */
   deleteInstrumentationConfiguration(
     args: DeleteInstrumentationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<DeleteInstrumentationConfigurationCommandOutput>;
   deleteInstrumentationConfiguration(
     args: DeleteInstrumentationConfigurationCommandInput,
@@ -330,7 +342,7 @@ export interface ApplicationSignals {
   ): void;
   deleteInstrumentationConfiguration(
     args: DeleteInstrumentationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: DeleteInstrumentationConfigurationCommandOutput) => void
   ): void;
 
@@ -339,7 +351,7 @@ export interface ApplicationSignals {
    */
   deleteServiceLevelObjective(
     args: DeleteServiceLevelObjectiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<DeleteServiceLevelObjectiveCommandOutput>;
   deleteServiceLevelObjective(
     args: DeleteServiceLevelObjectiveCommandInput,
@@ -347,7 +359,7 @@ export interface ApplicationSignals {
   ): void;
   deleteServiceLevelObjective(
     args: DeleteServiceLevelObjectiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: DeleteServiceLevelObjectiveCommandOutput) => void
   ): void;
 
@@ -356,7 +368,7 @@ export interface ApplicationSignals {
    */
   getInstrumentationConfiguration(
     args: GetInstrumentationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<GetInstrumentationConfigurationCommandOutput>;
   getInstrumentationConfiguration(
     args: GetInstrumentationConfigurationCommandInput,
@@ -364,7 +376,7 @@ export interface ApplicationSignals {
   ): void;
   getInstrumentationConfiguration(
     args: GetInstrumentationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: GetInstrumentationConfigurationCommandOutput) => void
   ): void;
 
@@ -373,7 +385,7 @@ export interface ApplicationSignals {
    */
   getInstrumentationConfigurationStatus(
     args: GetInstrumentationConfigurationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<GetInstrumentationConfigurationStatusCommandOutput>;
   getInstrumentationConfigurationStatus(
     args: GetInstrumentationConfigurationStatusCommandInput,
@@ -381,7 +393,7 @@ export interface ApplicationSignals {
   ): void;
   getInstrumentationConfigurationStatus(
     args: GetInstrumentationConfigurationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: GetInstrumentationConfigurationStatusCommandOutput) => void
   ): void;
 
@@ -390,7 +402,7 @@ export interface ApplicationSignals {
    */
   getService(
     args: GetServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<GetServiceCommandOutput>;
   getService(
     args: GetServiceCommandInput,
@@ -398,7 +410,7 @@ export interface ApplicationSignals {
   ): void;
   getService(
     args: GetServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: GetServiceCommandOutput) => void
   ): void;
 
@@ -407,7 +419,7 @@ export interface ApplicationSignals {
    */
   getServiceLevelObjective(
     args: GetServiceLevelObjectiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<GetServiceLevelObjectiveCommandOutput>;
   getServiceLevelObjective(
     args: GetServiceLevelObjectiveCommandInput,
@@ -415,7 +427,7 @@ export interface ApplicationSignals {
   ): void;
   getServiceLevelObjective(
     args: GetServiceLevelObjectiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: GetServiceLevelObjectiveCommandOutput) => void
   ): void;
 
@@ -424,7 +436,7 @@ export interface ApplicationSignals {
    */
   listAuditFindings(
     args: ListAuditFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListAuditFindingsCommandOutput>;
   listAuditFindings(
     args: ListAuditFindingsCommandInput,
@@ -432,7 +444,7 @@ export interface ApplicationSignals {
   ): void;
   listAuditFindings(
     args: ListAuditFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListAuditFindingsCommandOutput) => void
   ): void;
 
@@ -441,7 +453,7 @@ export interface ApplicationSignals {
    */
   listEntityEvents(
     args: ListEntityEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListEntityEventsCommandOutput>;
   listEntityEvents(
     args: ListEntityEventsCommandInput,
@@ -449,7 +461,7 @@ export interface ApplicationSignals {
   ): void;
   listEntityEvents(
     args: ListEntityEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListEntityEventsCommandOutput) => void
   ): void;
 
@@ -459,7 +471,7 @@ export interface ApplicationSignals {
   listGroupingAttributeDefinitions(): Promise<ListGroupingAttributeDefinitionsCommandOutput>;
   listGroupingAttributeDefinitions(
     args: ListGroupingAttributeDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListGroupingAttributeDefinitionsCommandOutput>;
   listGroupingAttributeDefinitions(
     args: ListGroupingAttributeDefinitionsCommandInput,
@@ -467,7 +479,7 @@ export interface ApplicationSignals {
   ): void;
   listGroupingAttributeDefinitions(
     args: ListGroupingAttributeDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListGroupingAttributeDefinitionsCommandOutput) => void
   ): void;
 
@@ -476,7 +488,7 @@ export interface ApplicationSignals {
    */
   listInstrumentationConfigurations(
     args: ListInstrumentationConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListInstrumentationConfigurationsCommandOutput>;
   listInstrumentationConfigurations(
     args: ListInstrumentationConfigurationsCommandInput,
@@ -484,7 +496,7 @@ export interface ApplicationSignals {
   ): void;
   listInstrumentationConfigurations(
     args: ListInstrumentationConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListInstrumentationConfigurationsCommandOutput) => void
   ): void;
 
@@ -493,7 +505,7 @@ export interface ApplicationSignals {
    */
   listServiceDependencies(
     args: ListServiceDependenciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListServiceDependenciesCommandOutput>;
   listServiceDependencies(
     args: ListServiceDependenciesCommandInput,
@@ -501,7 +513,7 @@ export interface ApplicationSignals {
   ): void;
   listServiceDependencies(
     args: ListServiceDependenciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListServiceDependenciesCommandOutput) => void
   ): void;
 
@@ -510,7 +522,7 @@ export interface ApplicationSignals {
    */
   listServiceDependents(
     args: ListServiceDependentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListServiceDependentsCommandOutput>;
   listServiceDependents(
     args: ListServiceDependentsCommandInput,
@@ -518,7 +530,7 @@ export interface ApplicationSignals {
   ): void;
   listServiceDependents(
     args: ListServiceDependentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListServiceDependentsCommandOutput) => void
   ): void;
 
@@ -527,7 +539,7 @@ export interface ApplicationSignals {
    */
   listServiceLevelObjectiveExclusionWindows(
     args: ListServiceLevelObjectiveExclusionWindowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListServiceLevelObjectiveExclusionWindowsCommandOutput>;
   listServiceLevelObjectiveExclusionWindows(
     args: ListServiceLevelObjectiveExclusionWindowsCommandInput,
@@ -535,7 +547,7 @@ export interface ApplicationSignals {
   ): void;
   listServiceLevelObjectiveExclusionWindows(
     args: ListServiceLevelObjectiveExclusionWindowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListServiceLevelObjectiveExclusionWindowsCommandOutput) => void
   ): void;
 
@@ -545,7 +557,7 @@ export interface ApplicationSignals {
   listServiceLevelObjectives(): Promise<ListServiceLevelObjectivesCommandOutput>;
   listServiceLevelObjectives(
     args: ListServiceLevelObjectivesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListServiceLevelObjectivesCommandOutput>;
   listServiceLevelObjectives(
     args: ListServiceLevelObjectivesCommandInput,
@@ -553,7 +565,7 @@ export interface ApplicationSignals {
   ): void;
   listServiceLevelObjectives(
     args: ListServiceLevelObjectivesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListServiceLevelObjectivesCommandOutput) => void
   ): void;
 
@@ -562,7 +574,7 @@ export interface ApplicationSignals {
    */
   listServiceOperations(
     args: ListServiceOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListServiceOperationsCommandOutput>;
   listServiceOperations(
     args: ListServiceOperationsCommandInput,
@@ -570,7 +582,7 @@ export interface ApplicationSignals {
   ): void;
   listServiceOperations(
     args: ListServiceOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListServiceOperationsCommandOutput) => void
   ): void;
 
@@ -579,7 +591,7 @@ export interface ApplicationSignals {
    */
   listServices(
     args: ListServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
@@ -587,7 +599,7 @@ export interface ApplicationSignals {
   ): void;
   listServices(
     args: ListServicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListServicesCommandOutput) => void
   ): void;
 
@@ -596,7 +608,7 @@ export interface ApplicationSignals {
    */
   listServiceStates(
     args: ListServiceStatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListServiceStatesCommandOutput>;
   listServiceStates(
     args: ListServiceStatesCommandInput,
@@ -604,7 +616,7 @@ export interface ApplicationSignals {
   ): void;
   listServiceStates(
     args: ListServiceStatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListServiceStatesCommandOutput) => void
   ): void;
 
@@ -613,7 +625,7 @@ export interface ApplicationSignals {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -621,7 +633,7 @@ export interface ApplicationSignals {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -630,7 +642,7 @@ export interface ApplicationSignals {
    */
   putGroupingConfiguration(
     args: PutGroupingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<PutGroupingConfigurationCommandOutput>;
   putGroupingConfiguration(
     args: PutGroupingConfigurationCommandInput,
@@ -638,7 +650,7 @@ export interface ApplicationSignals {
   ): void;
   putGroupingConfiguration(
     args: PutGroupingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: PutGroupingConfigurationCommandOutput) => void
   ): void;
 
@@ -647,7 +659,7 @@ export interface ApplicationSignals {
    */
   reportInstrumentationConfigurationStatus(
     args: ReportInstrumentationConfigurationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<ReportInstrumentationConfigurationStatusCommandOutput>;
   reportInstrumentationConfigurationStatus(
     args: ReportInstrumentationConfigurationStatusCommandInput,
@@ -655,7 +667,7 @@ export interface ApplicationSignals {
   ): void;
   reportInstrumentationConfigurationStatus(
     args: ReportInstrumentationConfigurationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: ReportInstrumentationConfigurationStatusCommandOutput) => void
   ): void;
 
@@ -665,7 +677,7 @@ export interface ApplicationSignals {
   startDiscovery(): Promise<StartDiscoveryCommandOutput>;
   startDiscovery(
     args: StartDiscoveryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<StartDiscoveryCommandOutput>;
   startDiscovery(
     args: StartDiscoveryCommandInput,
@@ -673,7 +685,7 @@ export interface ApplicationSignals {
   ): void;
   startDiscovery(
     args: StartDiscoveryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: StartDiscoveryCommandOutput) => void
   ): void;
 
@@ -682,7 +694,7 @@ export interface ApplicationSignals {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -690,7 +702,7 @@ export interface ApplicationSignals {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -699,7 +711,7 @@ export interface ApplicationSignals {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -707,7 +719,7 @@ export interface ApplicationSignals {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -716,7 +728,7 @@ export interface ApplicationSignals {
    */
   updateServiceLevelObjective(
     args: UpdateServiceLevelObjectiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationSignalsRequestOptions
   ): Promise<UpdateServiceLevelObjectiveCommandOutput>;
   updateServiceLevelObjective(
     args: UpdateServiceLevelObjectiveCommandInput,
@@ -724,7 +736,7 @@ export interface ApplicationSignals {
   ): void;
   updateServiceLevelObjective(
     args: UpdateServiceLevelObjectiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationSignalsRequestOptions,
     cb: (err: any, data?: UpdateServiceLevelObjectiveCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type GetRequestAuthorizationDetailsCommandInput,
@@ -17,13 +22,20 @@ const paginators = {
   paginateGetRequestAuthorizationDetails,
 };
 
+/**
+ * @public
+ */
+export interface IAMToolboxRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface IAMToolbox {
   /**
    * @see {@link GetRequestAuthorizationDetailsCommand}
    */
   getRequestAuthorizationDetails(
     args: GetRequestAuthorizationDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMToolboxRequestOptions
   ): Promise<GetRequestAuthorizationDetailsCommandOutput>;
   getRequestAuthorizationDetails(
     args: GetRequestAuthorizationDetailsCommandInput,
@@ -31,7 +43,7 @@ export interface IAMToolbox {
   ): void;
   getRequestAuthorizationDetails(
     args: GetRequestAuthorizationDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMToolboxRequestOptions,
     cb: (err: any, data?: GetRequestAuthorizationDetailsCommandOutput) => void
   ): void;
 

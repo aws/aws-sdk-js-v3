@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type CreateDeliveryStreamCommandInput,
@@ -75,13 +75,20 @@ const commands = {
   UpdateDestinationCommand,
 };
 
+/**
+ * @public
+ */
+export interface FirehoseRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Firehose {
   /**
    * @see {@link CreateDeliveryStreamCommand}
    */
   createDeliveryStream(
     args: CreateDeliveryStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<CreateDeliveryStreamCommandOutput>;
   createDeliveryStream(
     args: CreateDeliveryStreamCommandInput,
@@ -89,7 +96,7 @@ export interface Firehose {
   ): void;
   createDeliveryStream(
     args: CreateDeliveryStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: CreateDeliveryStreamCommandOutput) => void
   ): void;
 
@@ -98,7 +105,7 @@ export interface Firehose {
    */
   deleteDeliveryStream(
     args: DeleteDeliveryStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<DeleteDeliveryStreamCommandOutput>;
   deleteDeliveryStream(
     args: DeleteDeliveryStreamCommandInput,
@@ -106,7 +113,7 @@ export interface Firehose {
   ): void;
   deleteDeliveryStream(
     args: DeleteDeliveryStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: DeleteDeliveryStreamCommandOutput) => void
   ): void;
 
@@ -115,7 +122,7 @@ export interface Firehose {
    */
   describeDeliveryStream(
     args: DescribeDeliveryStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<DescribeDeliveryStreamCommandOutput>;
   describeDeliveryStream(
     args: DescribeDeliveryStreamCommandInput,
@@ -123,7 +130,7 @@ export interface Firehose {
   ): void;
   describeDeliveryStream(
     args: DescribeDeliveryStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: DescribeDeliveryStreamCommandOutput) => void
   ): void;
 
@@ -133,7 +140,7 @@ export interface Firehose {
   listDeliveryStreams(): Promise<ListDeliveryStreamsCommandOutput>;
   listDeliveryStreams(
     args: ListDeliveryStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<ListDeliveryStreamsCommandOutput>;
   listDeliveryStreams(
     args: ListDeliveryStreamsCommandInput,
@@ -141,7 +148,7 @@ export interface Firehose {
   ): void;
   listDeliveryStreams(
     args: ListDeliveryStreamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: ListDeliveryStreamsCommandOutput) => void
   ): void;
 
@@ -150,7 +157,7 @@ export interface Firehose {
    */
   listTagsForDeliveryStream(
     args: ListTagsForDeliveryStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<ListTagsForDeliveryStreamCommandOutput>;
   listTagsForDeliveryStream(
     args: ListTagsForDeliveryStreamCommandInput,
@@ -158,7 +165,7 @@ export interface Firehose {
   ): void;
   listTagsForDeliveryStream(
     args: ListTagsForDeliveryStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: ListTagsForDeliveryStreamCommandOutput) => void
   ): void;
 
@@ -167,7 +174,7 @@ export interface Firehose {
    */
   putRecord(
     args: PutRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<PutRecordCommandOutput>;
   putRecord(
     args: PutRecordCommandInput,
@@ -175,7 +182,7 @@ export interface Firehose {
   ): void;
   putRecord(
     args: PutRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: PutRecordCommandOutput) => void
   ): void;
 
@@ -184,7 +191,7 @@ export interface Firehose {
    */
   putRecordBatch(
     args: PutRecordBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<PutRecordBatchCommandOutput>;
   putRecordBatch(
     args: PutRecordBatchCommandInput,
@@ -192,7 +199,7 @@ export interface Firehose {
   ): void;
   putRecordBatch(
     args: PutRecordBatchCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: PutRecordBatchCommandOutput) => void
   ): void;
 
@@ -201,7 +208,7 @@ export interface Firehose {
    */
   startDeliveryStreamEncryption(
     args: StartDeliveryStreamEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<StartDeliveryStreamEncryptionCommandOutput>;
   startDeliveryStreamEncryption(
     args: StartDeliveryStreamEncryptionCommandInput,
@@ -209,7 +216,7 @@ export interface Firehose {
   ): void;
   startDeliveryStreamEncryption(
     args: StartDeliveryStreamEncryptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: StartDeliveryStreamEncryptionCommandOutput) => void
   ): void;
 
@@ -218,7 +225,7 @@ export interface Firehose {
    */
   stopDeliveryStreamEncryption(
     args: StopDeliveryStreamEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<StopDeliveryStreamEncryptionCommandOutput>;
   stopDeliveryStreamEncryption(
     args: StopDeliveryStreamEncryptionCommandInput,
@@ -226,7 +233,7 @@ export interface Firehose {
   ): void;
   stopDeliveryStreamEncryption(
     args: StopDeliveryStreamEncryptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: StopDeliveryStreamEncryptionCommandOutput) => void
   ): void;
 
@@ -235,7 +242,7 @@ export interface Firehose {
    */
   tagDeliveryStream(
     args: TagDeliveryStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<TagDeliveryStreamCommandOutput>;
   tagDeliveryStream(
     args: TagDeliveryStreamCommandInput,
@@ -243,7 +250,7 @@ export interface Firehose {
   ): void;
   tagDeliveryStream(
     args: TagDeliveryStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: TagDeliveryStreamCommandOutput) => void
   ): void;
 
@@ -252,7 +259,7 @@ export interface Firehose {
    */
   untagDeliveryStream(
     args: UntagDeliveryStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<UntagDeliveryStreamCommandOutput>;
   untagDeliveryStream(
     args: UntagDeliveryStreamCommandInput,
@@ -260,7 +267,7 @@ export interface Firehose {
   ): void;
   untagDeliveryStream(
     args: UntagDeliveryStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: UntagDeliveryStreamCommandOutput) => void
   ): void;
 
@@ -269,7 +276,7 @@ export interface Firehose {
    */
   updateDestination(
     args: UpdateDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FirehoseRequestOptions
   ): Promise<UpdateDestinationCommandOutput>;
   updateDestination(
     args: UpdateDestinationCommandInput,
@@ -277,7 +284,7 @@ export interface Firehose {
   ): void;
   updateDestination(
     args: UpdateDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: FirehoseRequestOptions,
     cb: (err: any, data?: UpdateDestinationCommandOutput) => void
   ): void;
 }

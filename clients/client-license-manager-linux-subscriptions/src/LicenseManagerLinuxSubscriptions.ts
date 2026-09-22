@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type DeregisterSubscriptionProviderCommandInput,
@@ -81,13 +86,20 @@ const paginators = {
   paginateListRegisteredSubscriptionProviders,
 };
 
+/**
+ * @public
+ */
+export interface LicenseManagerLinuxSubscriptionsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface LicenseManagerLinuxSubscriptions {
   /**
    * @see {@link DeregisterSubscriptionProviderCommand}
    */
   deregisterSubscriptionProvider(
     args: DeregisterSubscriptionProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerLinuxSubscriptionsRequestOptions
   ): Promise<DeregisterSubscriptionProviderCommandOutput>;
   deregisterSubscriptionProvider(
     args: DeregisterSubscriptionProviderCommandInput,
@@ -95,7 +107,7 @@ export interface LicenseManagerLinuxSubscriptions {
   ): void;
   deregisterSubscriptionProvider(
     args: DeregisterSubscriptionProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerLinuxSubscriptionsRequestOptions,
     cb: (err: any, data?: DeregisterSubscriptionProviderCommandOutput) => void
   ): void;
 
@@ -104,7 +116,7 @@ export interface LicenseManagerLinuxSubscriptions {
    */
   getRegisteredSubscriptionProvider(
     args: GetRegisteredSubscriptionProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerLinuxSubscriptionsRequestOptions
   ): Promise<GetRegisteredSubscriptionProviderCommandOutput>;
   getRegisteredSubscriptionProvider(
     args: GetRegisteredSubscriptionProviderCommandInput,
@@ -112,7 +124,7 @@ export interface LicenseManagerLinuxSubscriptions {
   ): void;
   getRegisteredSubscriptionProvider(
     args: GetRegisteredSubscriptionProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerLinuxSubscriptionsRequestOptions,
     cb: (err: any, data?: GetRegisteredSubscriptionProviderCommandOutput) => void
   ): void;
 
@@ -122,7 +134,7 @@ export interface LicenseManagerLinuxSubscriptions {
   getServiceSettings(): Promise<GetServiceSettingsCommandOutput>;
   getServiceSettings(
     args: GetServiceSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerLinuxSubscriptionsRequestOptions
   ): Promise<GetServiceSettingsCommandOutput>;
   getServiceSettings(
     args: GetServiceSettingsCommandInput,
@@ -130,7 +142,7 @@ export interface LicenseManagerLinuxSubscriptions {
   ): void;
   getServiceSettings(
     args: GetServiceSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerLinuxSubscriptionsRequestOptions,
     cb: (err: any, data?: GetServiceSettingsCommandOutput) => void
   ): void;
 
@@ -140,7 +152,7 @@ export interface LicenseManagerLinuxSubscriptions {
   listLinuxSubscriptionInstances(): Promise<ListLinuxSubscriptionInstancesCommandOutput>;
   listLinuxSubscriptionInstances(
     args: ListLinuxSubscriptionInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerLinuxSubscriptionsRequestOptions
   ): Promise<ListLinuxSubscriptionInstancesCommandOutput>;
   listLinuxSubscriptionInstances(
     args: ListLinuxSubscriptionInstancesCommandInput,
@@ -148,7 +160,7 @@ export interface LicenseManagerLinuxSubscriptions {
   ): void;
   listLinuxSubscriptionInstances(
     args: ListLinuxSubscriptionInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerLinuxSubscriptionsRequestOptions,
     cb: (err: any, data?: ListLinuxSubscriptionInstancesCommandOutput) => void
   ): void;
 
@@ -158,7 +170,7 @@ export interface LicenseManagerLinuxSubscriptions {
   listLinuxSubscriptions(): Promise<ListLinuxSubscriptionsCommandOutput>;
   listLinuxSubscriptions(
     args: ListLinuxSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerLinuxSubscriptionsRequestOptions
   ): Promise<ListLinuxSubscriptionsCommandOutput>;
   listLinuxSubscriptions(
     args: ListLinuxSubscriptionsCommandInput,
@@ -166,7 +178,7 @@ export interface LicenseManagerLinuxSubscriptions {
   ): void;
   listLinuxSubscriptions(
     args: ListLinuxSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerLinuxSubscriptionsRequestOptions,
     cb: (err: any, data?: ListLinuxSubscriptionsCommandOutput) => void
   ): void;
 
@@ -176,7 +188,7 @@ export interface LicenseManagerLinuxSubscriptions {
   listRegisteredSubscriptionProviders(): Promise<ListRegisteredSubscriptionProvidersCommandOutput>;
   listRegisteredSubscriptionProviders(
     args: ListRegisteredSubscriptionProvidersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerLinuxSubscriptionsRequestOptions
   ): Promise<ListRegisteredSubscriptionProvidersCommandOutput>;
   listRegisteredSubscriptionProviders(
     args: ListRegisteredSubscriptionProvidersCommandInput,
@@ -184,7 +196,7 @@ export interface LicenseManagerLinuxSubscriptions {
   ): void;
   listRegisteredSubscriptionProviders(
     args: ListRegisteredSubscriptionProvidersCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerLinuxSubscriptionsRequestOptions,
     cb: (err: any, data?: ListRegisteredSubscriptionProvidersCommandOutput) => void
   ): void;
 
@@ -193,7 +205,7 @@ export interface LicenseManagerLinuxSubscriptions {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerLinuxSubscriptionsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -201,7 +213,7 @@ export interface LicenseManagerLinuxSubscriptions {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerLinuxSubscriptionsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -210,7 +222,7 @@ export interface LicenseManagerLinuxSubscriptions {
    */
   registerSubscriptionProvider(
     args: RegisterSubscriptionProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerLinuxSubscriptionsRequestOptions
   ): Promise<RegisterSubscriptionProviderCommandOutput>;
   registerSubscriptionProvider(
     args: RegisterSubscriptionProviderCommandInput,
@@ -218,7 +230,7 @@ export interface LicenseManagerLinuxSubscriptions {
   ): void;
   registerSubscriptionProvider(
     args: RegisterSubscriptionProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerLinuxSubscriptionsRequestOptions,
     cb: (err: any, data?: RegisterSubscriptionProviderCommandOutput) => void
   ): void;
 
@@ -227,7 +239,7 @@ export interface LicenseManagerLinuxSubscriptions {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerLinuxSubscriptionsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -235,7 +247,7 @@ export interface LicenseManagerLinuxSubscriptions {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerLinuxSubscriptionsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -244,7 +256,7 @@ export interface LicenseManagerLinuxSubscriptions {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerLinuxSubscriptionsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -252,7 +264,7 @@ export interface LicenseManagerLinuxSubscriptions {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerLinuxSubscriptionsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -261,7 +273,7 @@ export interface LicenseManagerLinuxSubscriptions {
    */
   updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerLinuxSubscriptionsRequestOptions
   ): Promise<UpdateServiceSettingsCommandOutput>;
   updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
@@ -269,7 +281,7 @@ export interface LicenseManagerLinuxSubscriptions {
   ): void;
   updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerLinuxSubscriptionsRequestOptions,
     cb: (err: any, data?: UpdateServiceSettingsCommandOutput) => void
   ): void;
 

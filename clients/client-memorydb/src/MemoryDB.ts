@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchUpdateClusterCommandInput,
@@ -289,13 +294,20 @@ const paginators = {
   paginateDescribeUsers,
 };
 
+/**
+ * @public
+ */
+export interface MemoryDBRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MemoryDB {
   /**
    * @see {@link BatchUpdateClusterCommand}
    */
   batchUpdateCluster(
     args: BatchUpdateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<BatchUpdateClusterCommandOutput>;
   batchUpdateCluster(
     args: BatchUpdateClusterCommandInput,
@@ -303,7 +315,7 @@ export interface MemoryDB {
   ): void;
   batchUpdateCluster(
     args: BatchUpdateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: BatchUpdateClusterCommandOutput) => void
   ): void;
 
@@ -312,7 +324,7 @@ export interface MemoryDB {
    */
   copySnapshot(
     args: CopySnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<CopySnapshotCommandOutput>;
   copySnapshot(
     args: CopySnapshotCommandInput,
@@ -320,7 +332,7 @@ export interface MemoryDB {
   ): void;
   copySnapshot(
     args: CopySnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: CopySnapshotCommandOutput) => void
   ): void;
 
@@ -329,7 +341,7 @@ export interface MemoryDB {
    */
   createACL(
     args: CreateACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<CreateACLCommandOutput>;
   createACL(
     args: CreateACLCommandInput,
@@ -337,7 +349,7 @@ export interface MemoryDB {
   ): void;
   createACL(
     args: CreateACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: CreateACLCommandOutput) => void
   ): void;
 
@@ -346,7 +358,7 @@ export interface MemoryDB {
    */
   createCluster(
     args: CreateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<CreateClusterCommandOutput>;
   createCluster(
     args: CreateClusterCommandInput,
@@ -354,7 +366,7 @@ export interface MemoryDB {
   ): void;
   createCluster(
     args: CreateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
   ): void;
 
@@ -363,7 +375,7 @@ export interface MemoryDB {
    */
   createMultiRegionCluster(
     args: CreateMultiRegionClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<CreateMultiRegionClusterCommandOutput>;
   createMultiRegionCluster(
     args: CreateMultiRegionClusterCommandInput,
@@ -371,7 +383,7 @@ export interface MemoryDB {
   ): void;
   createMultiRegionCluster(
     args: CreateMultiRegionClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: CreateMultiRegionClusterCommandOutput) => void
   ): void;
 
@@ -380,7 +392,7 @@ export interface MemoryDB {
    */
   createParameterGroup(
     args: CreateParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<CreateParameterGroupCommandOutput>;
   createParameterGroup(
     args: CreateParameterGroupCommandInput,
@@ -388,7 +400,7 @@ export interface MemoryDB {
   ): void;
   createParameterGroup(
     args: CreateParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: CreateParameterGroupCommandOutput) => void
   ): void;
 
@@ -397,7 +409,7 @@ export interface MemoryDB {
    */
   createSnapshot(
     args: CreateSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<CreateSnapshotCommandOutput>;
   createSnapshot(
     args: CreateSnapshotCommandInput,
@@ -405,7 +417,7 @@ export interface MemoryDB {
   ): void;
   createSnapshot(
     args: CreateSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): void;
 
@@ -414,7 +426,7 @@ export interface MemoryDB {
    */
   createSubnetGroup(
     args: CreateSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<CreateSubnetGroupCommandOutput>;
   createSubnetGroup(
     args: CreateSubnetGroupCommandInput,
@@ -422,7 +434,7 @@ export interface MemoryDB {
   ): void;
   createSubnetGroup(
     args: CreateSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: CreateSubnetGroupCommandOutput) => void
   ): void;
 
@@ -431,7 +443,7 @@ export interface MemoryDB {
    */
   createUser(
     args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<CreateUserCommandOutput>;
   createUser(
     args: CreateUserCommandInput,
@@ -439,7 +451,7 @@ export interface MemoryDB {
   ): void;
   createUser(
     args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: CreateUserCommandOutput) => void
   ): void;
 
@@ -448,7 +460,7 @@ export interface MemoryDB {
    */
   deleteACL(
     args: DeleteACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DeleteACLCommandOutput>;
   deleteACL(
     args: DeleteACLCommandInput,
@@ -456,7 +468,7 @@ export interface MemoryDB {
   ): void;
   deleteACL(
     args: DeleteACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DeleteACLCommandOutput) => void
   ): void;
 
@@ -465,7 +477,7 @@ export interface MemoryDB {
    */
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DeleteClusterCommandOutput>;
   deleteCluster(
     args: DeleteClusterCommandInput,
@@ -473,7 +485,7 @@ export interface MemoryDB {
   ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
 
@@ -482,7 +494,7 @@ export interface MemoryDB {
    */
   deleteMultiRegionCluster(
     args: DeleteMultiRegionClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DeleteMultiRegionClusterCommandOutput>;
   deleteMultiRegionCluster(
     args: DeleteMultiRegionClusterCommandInput,
@@ -490,7 +502,7 @@ export interface MemoryDB {
   ): void;
   deleteMultiRegionCluster(
     args: DeleteMultiRegionClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DeleteMultiRegionClusterCommandOutput) => void
   ): void;
 
@@ -499,7 +511,7 @@ export interface MemoryDB {
    */
   deleteParameterGroup(
     args: DeleteParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DeleteParameterGroupCommandOutput>;
   deleteParameterGroup(
     args: DeleteParameterGroupCommandInput,
@@ -507,7 +519,7 @@ export interface MemoryDB {
   ): void;
   deleteParameterGroup(
     args: DeleteParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DeleteParameterGroupCommandOutput) => void
   ): void;
 
@@ -516,7 +528,7 @@ export interface MemoryDB {
    */
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DeleteSnapshotCommandOutput>;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
@@ -524,7 +536,7 @@ export interface MemoryDB {
   ): void;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
   ): void;
 
@@ -533,7 +545,7 @@ export interface MemoryDB {
    */
   deleteSubnetGroup(
     args: DeleteSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DeleteSubnetGroupCommandOutput>;
   deleteSubnetGroup(
     args: DeleteSubnetGroupCommandInput,
@@ -541,7 +553,7 @@ export interface MemoryDB {
   ): void;
   deleteSubnetGroup(
     args: DeleteSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DeleteSubnetGroupCommandOutput) => void
   ): void;
 
@@ -550,7 +562,7 @@ export interface MemoryDB {
    */
   deleteUser(
     args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DeleteUserCommandOutput>;
   deleteUser(
     args: DeleteUserCommandInput,
@@ -558,7 +570,7 @@ export interface MemoryDB {
   ): void;
   deleteUser(
     args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
 
@@ -568,7 +580,7 @@ export interface MemoryDB {
   describeACLs(): Promise<DescribeACLsCommandOutput>;
   describeACLs(
     args: DescribeACLsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeACLsCommandOutput>;
   describeACLs(
     args: DescribeACLsCommandInput,
@@ -576,7 +588,7 @@ export interface MemoryDB {
   ): void;
   describeACLs(
     args: DescribeACLsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeACLsCommandOutput) => void
   ): void;
 
@@ -586,7 +598,7 @@ export interface MemoryDB {
   describeClusters(): Promise<DescribeClustersCommandOutput>;
   describeClusters(
     args: DescribeClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeClustersCommandOutput>;
   describeClusters(
     args: DescribeClustersCommandInput,
@@ -594,7 +606,7 @@ export interface MemoryDB {
   ): void;
   describeClusters(
     args: DescribeClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeClustersCommandOutput) => void
   ): void;
 
@@ -604,7 +616,7 @@ export interface MemoryDB {
   describeEngineVersions(): Promise<DescribeEngineVersionsCommandOutput>;
   describeEngineVersions(
     args: DescribeEngineVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeEngineVersionsCommandOutput>;
   describeEngineVersions(
     args: DescribeEngineVersionsCommandInput,
@@ -612,7 +624,7 @@ export interface MemoryDB {
   ): void;
   describeEngineVersions(
     args: DescribeEngineVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeEngineVersionsCommandOutput) => void
   ): void;
 
@@ -622,7 +634,7 @@ export interface MemoryDB {
   describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
@@ -630,7 +642,7 @@ export interface MemoryDB {
   ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeEventsCommandOutput) => void
   ): void;
 
@@ -640,7 +652,7 @@ export interface MemoryDB {
   describeMultiRegionClusters(): Promise<DescribeMultiRegionClustersCommandOutput>;
   describeMultiRegionClusters(
     args: DescribeMultiRegionClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeMultiRegionClustersCommandOutput>;
   describeMultiRegionClusters(
     args: DescribeMultiRegionClustersCommandInput,
@@ -648,7 +660,7 @@ export interface MemoryDB {
   ): void;
   describeMultiRegionClusters(
     args: DescribeMultiRegionClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeMultiRegionClustersCommandOutput) => void
   ): void;
 
@@ -658,7 +670,7 @@ export interface MemoryDB {
   describeMultiRegionParameterGroups(): Promise<DescribeMultiRegionParameterGroupsCommandOutput>;
   describeMultiRegionParameterGroups(
     args: DescribeMultiRegionParameterGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeMultiRegionParameterGroupsCommandOutput>;
   describeMultiRegionParameterGroups(
     args: DescribeMultiRegionParameterGroupsCommandInput,
@@ -666,7 +678,7 @@ export interface MemoryDB {
   ): void;
   describeMultiRegionParameterGroups(
     args: DescribeMultiRegionParameterGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeMultiRegionParameterGroupsCommandOutput) => void
   ): void;
 
@@ -675,7 +687,7 @@ export interface MemoryDB {
    */
   describeMultiRegionParameters(
     args: DescribeMultiRegionParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeMultiRegionParametersCommandOutput>;
   describeMultiRegionParameters(
     args: DescribeMultiRegionParametersCommandInput,
@@ -683,7 +695,7 @@ export interface MemoryDB {
   ): void;
   describeMultiRegionParameters(
     args: DescribeMultiRegionParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeMultiRegionParametersCommandOutput) => void
   ): void;
 
@@ -693,7 +705,7 @@ export interface MemoryDB {
   describeParameterGroups(): Promise<DescribeParameterGroupsCommandOutput>;
   describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeParameterGroupsCommandOutput>;
   describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
@@ -701,7 +713,7 @@ export interface MemoryDB {
   ): void;
   describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeParameterGroupsCommandOutput) => void
   ): void;
 
@@ -710,7 +722,7 @@ export interface MemoryDB {
    */
   describeParameters(
     args: DescribeParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeParametersCommandOutput>;
   describeParameters(
     args: DescribeParametersCommandInput,
@@ -718,7 +730,7 @@ export interface MemoryDB {
   ): void;
   describeParameters(
     args: DescribeParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeParametersCommandOutput) => void
   ): void;
 
@@ -728,7 +740,7 @@ export interface MemoryDB {
   describeReservedNodes(): Promise<DescribeReservedNodesCommandOutput>;
   describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeReservedNodesCommandOutput>;
   describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
@@ -736,7 +748,7 @@ export interface MemoryDB {
   ): void;
   describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeReservedNodesCommandOutput) => void
   ): void;
 
@@ -746,7 +758,7 @@ export interface MemoryDB {
   describeReservedNodesOfferings(): Promise<DescribeReservedNodesOfferingsCommandOutput>;
   describeReservedNodesOfferings(
     args: DescribeReservedNodesOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeReservedNodesOfferingsCommandOutput>;
   describeReservedNodesOfferings(
     args: DescribeReservedNodesOfferingsCommandInput,
@@ -754,7 +766,7 @@ export interface MemoryDB {
   ): void;
   describeReservedNodesOfferings(
     args: DescribeReservedNodesOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeReservedNodesOfferingsCommandOutput) => void
   ): void;
 
@@ -764,7 +776,7 @@ export interface MemoryDB {
   describeServiceUpdates(): Promise<DescribeServiceUpdatesCommandOutput>;
   describeServiceUpdates(
     args: DescribeServiceUpdatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeServiceUpdatesCommandOutput>;
   describeServiceUpdates(
     args: DescribeServiceUpdatesCommandInput,
@@ -772,7 +784,7 @@ export interface MemoryDB {
   ): void;
   describeServiceUpdates(
     args: DescribeServiceUpdatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeServiceUpdatesCommandOutput) => void
   ): void;
 
@@ -782,7 +794,7 @@ export interface MemoryDB {
   describeSnapshots(): Promise<DescribeSnapshotsCommandOutput>;
   describeSnapshots(
     args: DescribeSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeSnapshotsCommandOutput>;
   describeSnapshots(
     args: DescribeSnapshotsCommandInput,
@@ -790,7 +802,7 @@ export interface MemoryDB {
   ): void;
   describeSnapshots(
     args: DescribeSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeSnapshotsCommandOutput) => void
   ): void;
 
@@ -800,7 +812,7 @@ export interface MemoryDB {
   describeSubnetGroups(): Promise<DescribeSubnetGroupsCommandOutput>;
   describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeSubnetGroupsCommandOutput>;
   describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
@@ -808,7 +820,7 @@ export interface MemoryDB {
   ): void;
   describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeSubnetGroupsCommandOutput) => void
   ): void;
 
@@ -818,7 +830,7 @@ export interface MemoryDB {
   describeUsers(): Promise<DescribeUsersCommandOutput>;
   describeUsers(
     args: DescribeUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<DescribeUsersCommandOutput>;
   describeUsers(
     args: DescribeUsersCommandInput,
@@ -826,7 +838,7 @@ export interface MemoryDB {
   ): void;
   describeUsers(
     args: DescribeUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: DescribeUsersCommandOutput) => void
   ): void;
 
@@ -835,7 +847,7 @@ export interface MemoryDB {
    */
   failoverShard(
     args: FailoverShardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<FailoverShardCommandOutput>;
   failoverShard(
     args: FailoverShardCommandInput,
@@ -843,7 +855,7 @@ export interface MemoryDB {
   ): void;
   failoverShard(
     args: FailoverShardCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: FailoverShardCommandOutput) => void
   ): void;
 
@@ -852,7 +864,7 @@ export interface MemoryDB {
    */
   listAllowedMultiRegionClusterUpdates(
     args: ListAllowedMultiRegionClusterUpdatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<ListAllowedMultiRegionClusterUpdatesCommandOutput>;
   listAllowedMultiRegionClusterUpdates(
     args: ListAllowedMultiRegionClusterUpdatesCommandInput,
@@ -860,7 +872,7 @@ export interface MemoryDB {
   ): void;
   listAllowedMultiRegionClusterUpdates(
     args: ListAllowedMultiRegionClusterUpdatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: ListAllowedMultiRegionClusterUpdatesCommandOutput) => void
   ): void;
 
@@ -869,7 +881,7 @@ export interface MemoryDB {
    */
   listAllowedNodeTypeUpdates(
     args: ListAllowedNodeTypeUpdatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<ListAllowedNodeTypeUpdatesCommandOutput>;
   listAllowedNodeTypeUpdates(
     args: ListAllowedNodeTypeUpdatesCommandInput,
@@ -877,7 +889,7 @@ export interface MemoryDB {
   ): void;
   listAllowedNodeTypeUpdates(
     args: ListAllowedNodeTypeUpdatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: ListAllowedNodeTypeUpdatesCommandOutput) => void
   ): void;
 
@@ -886,7 +898,7 @@ export interface MemoryDB {
    */
   listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<ListTagsCommandOutput>;
   listTags(
     args: ListTagsCommandInput,
@@ -894,7 +906,7 @@ export interface MemoryDB {
   ): void;
   listTags(
     args: ListTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: ListTagsCommandOutput) => void
   ): void;
 
@@ -903,7 +915,7 @@ export interface MemoryDB {
    */
   purchaseReservedNodesOffering(
     args: PurchaseReservedNodesOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<PurchaseReservedNodesOfferingCommandOutput>;
   purchaseReservedNodesOffering(
     args: PurchaseReservedNodesOfferingCommandInput,
@@ -911,7 +923,7 @@ export interface MemoryDB {
   ): void;
   purchaseReservedNodesOffering(
     args: PurchaseReservedNodesOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: PurchaseReservedNodesOfferingCommandOutput) => void
   ): void;
 
@@ -920,7 +932,7 @@ export interface MemoryDB {
    */
   resetParameterGroup(
     args: ResetParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<ResetParameterGroupCommandOutput>;
   resetParameterGroup(
     args: ResetParameterGroupCommandInput,
@@ -928,7 +940,7 @@ export interface MemoryDB {
   ): void;
   resetParameterGroup(
     args: ResetParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: ResetParameterGroupCommandOutput) => void
   ): void;
 
@@ -937,7 +949,7 @@ export interface MemoryDB {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -945,7 +957,7 @@ export interface MemoryDB {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -954,7 +966,7 @@ export interface MemoryDB {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -962,7 +974,7 @@ export interface MemoryDB {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -971,7 +983,7 @@ export interface MemoryDB {
    */
   updateACL(
     args: UpdateACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<UpdateACLCommandOutput>;
   updateACL(
     args: UpdateACLCommandInput,
@@ -979,7 +991,7 @@ export interface MemoryDB {
   ): void;
   updateACL(
     args: UpdateACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: UpdateACLCommandOutput) => void
   ): void;
 
@@ -988,7 +1000,7 @@ export interface MemoryDB {
    */
   updateCluster(
     args: UpdateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<UpdateClusterCommandOutput>;
   updateCluster(
     args: UpdateClusterCommandInput,
@@ -996,7 +1008,7 @@ export interface MemoryDB {
   ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
 
@@ -1005,7 +1017,7 @@ export interface MemoryDB {
    */
   updateMultiRegionCluster(
     args: UpdateMultiRegionClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<UpdateMultiRegionClusterCommandOutput>;
   updateMultiRegionCluster(
     args: UpdateMultiRegionClusterCommandInput,
@@ -1013,7 +1025,7 @@ export interface MemoryDB {
   ): void;
   updateMultiRegionCluster(
     args: UpdateMultiRegionClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: UpdateMultiRegionClusterCommandOutput) => void
   ): void;
 
@@ -1022,7 +1034,7 @@ export interface MemoryDB {
    */
   updateParameterGroup(
     args: UpdateParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<UpdateParameterGroupCommandOutput>;
   updateParameterGroup(
     args: UpdateParameterGroupCommandInput,
@@ -1030,7 +1042,7 @@ export interface MemoryDB {
   ): void;
   updateParameterGroup(
     args: UpdateParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: UpdateParameterGroupCommandOutput) => void
   ): void;
 
@@ -1039,7 +1051,7 @@ export interface MemoryDB {
    */
   updateSubnetGroup(
     args: UpdateSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<UpdateSubnetGroupCommandOutput>;
   updateSubnetGroup(
     args: UpdateSubnetGroupCommandInput,
@@ -1047,7 +1059,7 @@ export interface MemoryDB {
   ): void;
   updateSubnetGroup(
     args: UpdateSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: UpdateSubnetGroupCommandOutput) => void
   ): void;
 
@@ -1056,7 +1068,7 @@ export interface MemoryDB {
    */
   updateUser(
     args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MemoryDBRequestOptions
   ): Promise<UpdateUserCommandOutput>;
   updateUser(
     args: UpdateUserCommandInput,
@@ -1064,7 +1076,7 @@ export interface MemoryDB {
   ): void;
   updateUser(
     args: UpdateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: MemoryDBRequestOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
 

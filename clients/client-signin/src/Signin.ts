@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateOAuth2TokenCommandInput,
@@ -77,13 +82,20 @@ const paginators = {
   paginateListResourcePermissionStatements,
 };
 
+/**
+ * @public
+ */
+export interface SigninRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Signin {
   /**
    * @see {@link CreateOAuth2TokenCommand}
    */
   createOAuth2Token(
     args: CreateOAuth2TokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<CreateOAuth2TokenCommandOutput>;
   createOAuth2Token(
     args: CreateOAuth2TokenCommandInput,
@@ -91,7 +103,7 @@ export interface Signin {
   ): void;
   createOAuth2Token(
     args: CreateOAuth2TokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: CreateOAuth2TokenCommandOutput) => void
   ): void;
 
@@ -100,7 +112,7 @@ export interface Signin {
    */
   createOAuth2TokenWithIAM(
     args: CreateOAuth2TokenWithIAMCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<CreateOAuth2TokenWithIAMCommandOutput>;
   createOAuth2TokenWithIAM(
     args: CreateOAuth2TokenWithIAMCommandInput,
@@ -108,7 +120,7 @@ export interface Signin {
   ): void;
   createOAuth2TokenWithIAM(
     args: CreateOAuth2TokenWithIAMCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: CreateOAuth2TokenWithIAMCommandOutput) => void
   ): void;
 
@@ -118,7 +130,7 @@ export interface Signin {
   deleteConsoleAuthorizationConfiguration(): Promise<DeleteConsoleAuthorizationConfigurationCommandOutput>;
   deleteConsoleAuthorizationConfiguration(
     args: DeleteConsoleAuthorizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<DeleteConsoleAuthorizationConfigurationCommandOutput>;
   deleteConsoleAuthorizationConfiguration(
     args: DeleteConsoleAuthorizationConfigurationCommandInput,
@@ -126,7 +138,7 @@ export interface Signin {
   ): void;
   deleteConsoleAuthorizationConfiguration(
     args: DeleteConsoleAuthorizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: DeleteConsoleAuthorizationConfigurationCommandOutput) => void
   ): void;
 
@@ -135,7 +147,7 @@ export interface Signin {
    */
   deleteResourcePermissionStatement(
     args: DeleteResourcePermissionStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<DeleteResourcePermissionStatementCommandOutput>;
   deleteResourcePermissionStatement(
     args: DeleteResourcePermissionStatementCommandInput,
@@ -143,7 +155,7 @@ export interface Signin {
   ): void;
   deleteResourcePermissionStatement(
     args: DeleteResourcePermissionStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: DeleteResourcePermissionStatementCommandOutput) => void
   ): void;
 
@@ -153,7 +165,7 @@ export interface Signin {
   getConsoleAuthorizationConfiguration(): Promise<GetConsoleAuthorizationConfigurationCommandOutput>;
   getConsoleAuthorizationConfiguration(
     args: GetConsoleAuthorizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<GetConsoleAuthorizationConfigurationCommandOutput>;
   getConsoleAuthorizationConfiguration(
     args: GetConsoleAuthorizationConfigurationCommandInput,
@@ -161,7 +173,7 @@ export interface Signin {
   ): void;
   getConsoleAuthorizationConfiguration(
     args: GetConsoleAuthorizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: GetConsoleAuthorizationConfigurationCommandOutput) => void
   ): void;
 
@@ -171,7 +183,7 @@ export interface Signin {
   getResourcePolicy(): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -179,7 +191,7 @@ export interface Signin {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -188,7 +200,7 @@ export interface Signin {
    */
   introspectOAuth2TokenWithIAM(
     args: IntrospectOAuth2TokenWithIAMCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<IntrospectOAuth2TokenWithIAMCommandOutput>;
   introspectOAuth2TokenWithIAM(
     args: IntrospectOAuth2TokenWithIAMCommandInput,
@@ -196,7 +208,7 @@ export interface Signin {
   ): void;
   introspectOAuth2TokenWithIAM(
     args: IntrospectOAuth2TokenWithIAMCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: IntrospectOAuth2TokenWithIAMCommandOutput) => void
   ): void;
 
@@ -206,7 +218,7 @@ export interface Signin {
   listResourcePermissionStatements(): Promise<ListResourcePermissionStatementsCommandOutput>;
   listResourcePermissionStatements(
     args: ListResourcePermissionStatementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<ListResourcePermissionStatementsCommandOutput>;
   listResourcePermissionStatements(
     args: ListResourcePermissionStatementsCommandInput,
@@ -214,7 +226,7 @@ export interface Signin {
   ): void;
   listResourcePermissionStatements(
     args: ListResourcePermissionStatementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: ListResourcePermissionStatementsCommandOutput) => void
   ): void;
 
@@ -224,7 +236,7 @@ export interface Signin {
   putConsoleAuthorizationConfiguration(): Promise<PutConsoleAuthorizationConfigurationCommandOutput>;
   putConsoleAuthorizationConfiguration(
     args: PutConsoleAuthorizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<PutConsoleAuthorizationConfigurationCommandOutput>;
   putConsoleAuthorizationConfiguration(
     args: PutConsoleAuthorizationConfigurationCommandInput,
@@ -232,7 +244,7 @@ export interface Signin {
   ): void;
   putConsoleAuthorizationConfiguration(
     args: PutConsoleAuthorizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: PutConsoleAuthorizationConfigurationCommandOutput) => void
   ): void;
 
@@ -242,7 +254,7 @@ export interface Signin {
   putResourcePermissionStatement(): Promise<PutResourcePermissionStatementCommandOutput>;
   putResourcePermissionStatement(
     args: PutResourcePermissionStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<PutResourcePermissionStatementCommandOutput>;
   putResourcePermissionStatement(
     args: PutResourcePermissionStatementCommandInput,
@@ -250,7 +262,7 @@ export interface Signin {
   ): void;
   putResourcePermissionStatement(
     args: PutResourcePermissionStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: PutResourcePermissionStatementCommandOutput) => void
   ): void;
 
@@ -259,7 +271,7 @@ export interface Signin {
    */
   revokeOAuth2TokenWithIAM(
     args: RevokeOAuth2TokenWithIAMCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<RevokeOAuth2TokenWithIAMCommandOutput>;
   revokeOAuth2TokenWithIAM(
     args: RevokeOAuth2TokenWithIAMCommandInput,
@@ -267,7 +279,7 @@ export interface Signin {
   ): void;
   revokeOAuth2TokenWithIAM(
     args: RevokeOAuth2TokenWithIAMCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: RevokeOAuth2TokenWithIAMCommandOutput) => void
   ): void;
 

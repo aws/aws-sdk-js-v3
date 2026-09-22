@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { AccountClient } from "./AccountClient";
 import {
@@ -107,13 +112,20 @@ const paginators = {
   paginateListRegions,
 };
 
+/**
+ * @public
+ */
+export interface AccountRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Account {
   /**
    * @see {@link AcceptPrimaryEmailUpdateCommand}
    */
   acceptPrimaryEmailUpdate(
     args: AcceptPrimaryEmailUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<AcceptPrimaryEmailUpdateCommandOutput>;
   acceptPrimaryEmailUpdate(
     args: AcceptPrimaryEmailUpdateCommandInput,
@@ -121,7 +133,7 @@ export interface Account {
   ): void;
   acceptPrimaryEmailUpdate(
     args: AcceptPrimaryEmailUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: AcceptPrimaryEmailUpdateCommandOutput) => void
   ): void;
 
@@ -130,7 +142,7 @@ export interface Account {
    */
   deleteAlternateContact(
     args: DeleteAlternateContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<DeleteAlternateContactCommandOutput>;
   deleteAlternateContact(
     args: DeleteAlternateContactCommandInput,
@@ -138,7 +150,7 @@ export interface Account {
   ): void;
   deleteAlternateContact(
     args: DeleteAlternateContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: DeleteAlternateContactCommandOutput) => void
   ): void;
 
@@ -147,7 +159,7 @@ export interface Account {
    */
   disableRegion(
     args: DisableRegionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<DisableRegionCommandOutput>;
   disableRegion(
     args: DisableRegionCommandInput,
@@ -155,7 +167,7 @@ export interface Account {
   ): void;
   disableRegion(
     args: DisableRegionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: DisableRegionCommandOutput) => void
   ): void;
 
@@ -164,7 +176,7 @@ export interface Account {
    */
   enableRegion(
     args: EnableRegionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<EnableRegionCommandOutput>;
   enableRegion(
     args: EnableRegionCommandInput,
@@ -172,7 +184,7 @@ export interface Account {
   ): void;
   enableRegion(
     args: EnableRegionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: EnableRegionCommandOutput) => void
   ): void;
 
@@ -182,7 +194,7 @@ export interface Account {
   getAccountInformation(): Promise<GetAccountInformationCommandOutput>;
   getAccountInformation(
     args: GetAccountInformationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<GetAccountInformationCommandOutput>;
   getAccountInformation(
     args: GetAccountInformationCommandInput,
@@ -190,7 +202,7 @@ export interface Account {
   ): void;
   getAccountInformation(
     args: GetAccountInformationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: GetAccountInformationCommandOutput) => void
   ): void;
 
@@ -199,7 +211,7 @@ export interface Account {
    */
   getAlternateContact(
     args: GetAlternateContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<GetAlternateContactCommandOutput>;
   getAlternateContact(
     args: GetAlternateContactCommandInput,
@@ -207,7 +219,7 @@ export interface Account {
   ): void;
   getAlternateContact(
     args: GetAlternateContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: GetAlternateContactCommandOutput) => void
   ): void;
 
@@ -217,7 +229,7 @@ export interface Account {
   getContactInformation(): Promise<GetContactInformationCommandOutput>;
   getContactInformation(
     args: GetContactInformationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<GetContactInformationCommandOutput>;
   getContactInformation(
     args: GetContactInformationCommandInput,
@@ -225,7 +237,7 @@ export interface Account {
   ): void;
   getContactInformation(
     args: GetContactInformationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: GetContactInformationCommandOutput) => void
   ): void;
 
@@ -235,7 +247,7 @@ export interface Account {
   getGovCloudAccountInformation(): Promise<GetGovCloudAccountInformationCommandOutput>;
   getGovCloudAccountInformation(
     args: GetGovCloudAccountInformationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<GetGovCloudAccountInformationCommandOutput>;
   getGovCloudAccountInformation(
     args: GetGovCloudAccountInformationCommandInput,
@@ -243,7 +255,7 @@ export interface Account {
   ): void;
   getGovCloudAccountInformation(
     args: GetGovCloudAccountInformationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: GetGovCloudAccountInformationCommandOutput) => void
   ): void;
 
@@ -252,7 +264,7 @@ export interface Account {
    */
   getPrimaryEmail(
     args: GetPrimaryEmailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<GetPrimaryEmailCommandOutput>;
   getPrimaryEmail(
     args: GetPrimaryEmailCommandInput,
@@ -260,7 +272,7 @@ export interface Account {
   ): void;
   getPrimaryEmail(
     args: GetPrimaryEmailCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: GetPrimaryEmailCommandOutput) => void
   ): void;
 
@@ -270,7 +282,7 @@ export interface Account {
   getPrimaryEmailUpdateStatus(): Promise<GetPrimaryEmailUpdateStatusCommandOutput>;
   getPrimaryEmailUpdateStatus(
     args: GetPrimaryEmailUpdateStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<GetPrimaryEmailUpdateStatusCommandOutput>;
   getPrimaryEmailUpdateStatus(
     args: GetPrimaryEmailUpdateStatusCommandInput,
@@ -278,7 +290,7 @@ export interface Account {
   ): void;
   getPrimaryEmailUpdateStatus(
     args: GetPrimaryEmailUpdateStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: GetPrimaryEmailUpdateStatusCommandOutput) => void
   ): void;
 
@@ -287,7 +299,7 @@ export interface Account {
    */
   getRegionOptStatus(
     args: GetRegionOptStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<GetRegionOptStatusCommandOutput>;
   getRegionOptStatus(
     args: GetRegionOptStatusCommandInput,
@@ -295,7 +307,7 @@ export interface Account {
   ): void;
   getRegionOptStatus(
     args: GetRegionOptStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: GetRegionOptStatusCommandOutput) => void
   ): void;
 
@@ -305,7 +317,7 @@ export interface Account {
   listRegions(): Promise<ListRegionsCommandOutput>;
   listRegions(
     args: ListRegionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<ListRegionsCommandOutput>;
   listRegions(
     args: ListRegionsCommandInput,
@@ -313,7 +325,7 @@ export interface Account {
   ): void;
   listRegions(
     args: ListRegionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: ListRegionsCommandOutput) => void
   ): void;
 
@@ -322,7 +334,7 @@ export interface Account {
    */
   putAccountName(
     args: PutAccountNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<PutAccountNameCommandOutput>;
   putAccountName(
     args: PutAccountNameCommandInput,
@@ -330,7 +342,7 @@ export interface Account {
   ): void;
   putAccountName(
     args: PutAccountNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: PutAccountNameCommandOutput) => void
   ): void;
 
@@ -339,7 +351,7 @@ export interface Account {
    */
   putAlternateContact(
     args: PutAlternateContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<PutAlternateContactCommandOutput>;
   putAlternateContact(
     args: PutAlternateContactCommandInput,
@@ -347,7 +359,7 @@ export interface Account {
   ): void;
   putAlternateContact(
     args: PutAlternateContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: PutAlternateContactCommandOutput) => void
   ): void;
 
@@ -356,7 +368,7 @@ export interface Account {
    */
   putContactInformation(
     args: PutContactInformationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<PutContactInformationCommandOutput>;
   putContactInformation(
     args: PutContactInformationCommandInput,
@@ -364,7 +376,7 @@ export interface Account {
   ): void;
   putContactInformation(
     args: PutContactInformationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: PutContactInformationCommandOutput) => void
   ): void;
 
@@ -373,7 +385,7 @@ export interface Account {
    */
   startPrimaryEmailUpdate(
     args: StartPrimaryEmailUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountRequestOptions
   ): Promise<StartPrimaryEmailUpdateCommandOutput>;
   startPrimaryEmailUpdate(
     args: StartPrimaryEmailUpdateCommandInput,
@@ -381,7 +393,7 @@ export interface Account {
   ): void;
   startPrimaryEmailUpdate(
     args: StartPrimaryEmailUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountRequestOptions,
     cb: (err: any, data?: StartPrimaryEmailUpdateCommandOutput) => void
   ): void;
 

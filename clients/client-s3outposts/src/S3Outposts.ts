@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateEndpointCommandInput,
@@ -45,13 +50,20 @@ const paginators = {
   paginateListSharedEndpoints,
 };
 
+/**
+ * @public
+ */
+export interface S3OutpostsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface S3Outposts {
   /**
    * @see {@link CreateEndpointCommand}
    */
   createEndpoint(
     args: CreateEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3OutpostsRequestOptions
   ): Promise<CreateEndpointCommandOutput>;
   createEndpoint(
     args: CreateEndpointCommandInput,
@@ -59,7 +71,7 @@ export interface S3Outposts {
   ): void;
   createEndpoint(
     args: CreateEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3OutpostsRequestOptions,
     cb: (err: any, data?: CreateEndpointCommandOutput) => void
   ): void;
 
@@ -68,7 +80,7 @@ export interface S3Outposts {
    */
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3OutpostsRequestOptions
   ): Promise<DeleteEndpointCommandOutput>;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -76,7 +88,7 @@ export interface S3Outposts {
   ): void;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3OutpostsRequestOptions,
     cb: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): void;
 
@@ -86,7 +98,7 @@ export interface S3Outposts {
   listEndpoints(): Promise<ListEndpointsCommandOutput>;
   listEndpoints(
     args: ListEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3OutpostsRequestOptions
   ): Promise<ListEndpointsCommandOutput>;
   listEndpoints(
     args: ListEndpointsCommandInput,
@@ -94,7 +106,7 @@ export interface S3Outposts {
   ): void;
   listEndpoints(
     args: ListEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3OutpostsRequestOptions,
     cb: (err: any, data?: ListEndpointsCommandOutput) => void
   ): void;
 
@@ -104,7 +116,7 @@ export interface S3Outposts {
   listOutpostsWithS3(): Promise<ListOutpostsWithS3CommandOutput>;
   listOutpostsWithS3(
     args: ListOutpostsWithS3CommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3OutpostsRequestOptions
   ): Promise<ListOutpostsWithS3CommandOutput>;
   listOutpostsWithS3(
     args: ListOutpostsWithS3CommandInput,
@@ -112,7 +124,7 @@ export interface S3Outposts {
   ): void;
   listOutpostsWithS3(
     args: ListOutpostsWithS3CommandInput,
-    options: __HttpHandlerOptions,
+    options: S3OutpostsRequestOptions,
     cb: (err: any, data?: ListOutpostsWithS3CommandOutput) => void
   ): void;
 
@@ -121,7 +133,7 @@ export interface S3Outposts {
    */
   listSharedEndpoints(
     args: ListSharedEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3OutpostsRequestOptions
   ): Promise<ListSharedEndpointsCommandOutput>;
   listSharedEndpoints(
     args: ListSharedEndpointsCommandInput,
@@ -129,7 +141,7 @@ export interface S3Outposts {
   ): void;
   listSharedEndpoints(
     args: ListSharedEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3OutpostsRequestOptions,
     cb: (err: any, data?: ListSharedEndpointsCommandOutput) => void
   ): void;
 

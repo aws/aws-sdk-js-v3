@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type DecryptDataCommandInput,
@@ -93,13 +93,20 @@ const commands = {
   VerifyPinDataCommand,
 };
 
+/**
+ * @public
+ */
+export interface PaymentCryptographyDataRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PaymentCryptographyData {
   /**
    * @see {@link DecryptDataCommand}
    */
   decryptData(
     args: DecryptDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<DecryptDataCommandOutput>;
   decryptData(
     args: DecryptDataCommandInput,
@@ -107,7 +114,7 @@ export interface PaymentCryptographyData {
   ): void;
   decryptData(
     args: DecryptDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: DecryptDataCommandOutput) => void
   ): void;
 
@@ -116,7 +123,7 @@ export interface PaymentCryptographyData {
    */
   encryptData(
     args: EncryptDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<EncryptDataCommandOutput>;
   encryptData(
     args: EncryptDataCommandInput,
@@ -124,7 +131,7 @@ export interface PaymentCryptographyData {
   ): void;
   encryptData(
     args: EncryptDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: EncryptDataCommandOutput) => void
   ): void;
 
@@ -133,7 +140,7 @@ export interface PaymentCryptographyData {
    */
   generateAs2805KekValidation(
     args: GenerateAs2805KekValidationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<GenerateAs2805KekValidationCommandOutput>;
   generateAs2805KekValidation(
     args: GenerateAs2805KekValidationCommandInput,
@@ -141,7 +148,7 @@ export interface PaymentCryptographyData {
   ): void;
   generateAs2805KekValidation(
     args: GenerateAs2805KekValidationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: GenerateAs2805KekValidationCommandOutput) => void
   ): void;
 
@@ -150,7 +157,7 @@ export interface PaymentCryptographyData {
    */
   generateAuthRequestCryptogram(
     args: GenerateAuthRequestCryptogramCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<GenerateAuthRequestCryptogramCommandOutput>;
   generateAuthRequestCryptogram(
     args: GenerateAuthRequestCryptogramCommandInput,
@@ -158,7 +165,7 @@ export interface PaymentCryptographyData {
   ): void;
   generateAuthRequestCryptogram(
     args: GenerateAuthRequestCryptogramCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: GenerateAuthRequestCryptogramCommandOutput) => void
   ): void;
 
@@ -167,7 +174,7 @@ export interface PaymentCryptographyData {
    */
   generateCardValidationData(
     args: GenerateCardValidationDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<GenerateCardValidationDataCommandOutput>;
   generateCardValidationData(
     args: GenerateCardValidationDataCommandInput,
@@ -175,7 +182,7 @@ export interface PaymentCryptographyData {
   ): void;
   generateCardValidationData(
     args: GenerateCardValidationDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: GenerateCardValidationDataCommandOutput) => void
   ): void;
 
@@ -184,7 +191,7 @@ export interface PaymentCryptographyData {
    */
   generateMac(
     args: GenerateMacCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<GenerateMacCommandOutput>;
   generateMac(
     args: GenerateMacCommandInput,
@@ -192,7 +199,7 @@ export interface PaymentCryptographyData {
   ): void;
   generateMac(
     args: GenerateMacCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: GenerateMacCommandOutput) => void
   ): void;
 
@@ -201,7 +208,7 @@ export interface PaymentCryptographyData {
    */
   generateMacEmvPinChange(
     args: GenerateMacEmvPinChangeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<GenerateMacEmvPinChangeCommandOutput>;
   generateMacEmvPinChange(
     args: GenerateMacEmvPinChangeCommandInput,
@@ -209,7 +216,7 @@ export interface PaymentCryptographyData {
   ): void;
   generateMacEmvPinChange(
     args: GenerateMacEmvPinChangeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: GenerateMacEmvPinChangeCommandOutput) => void
   ): void;
 
@@ -218,7 +225,7 @@ export interface PaymentCryptographyData {
    */
   generatePinData(
     args: GeneratePinDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<GeneratePinDataCommandOutput>;
   generatePinData(
     args: GeneratePinDataCommandInput,
@@ -226,7 +233,7 @@ export interface PaymentCryptographyData {
   ): void;
   generatePinData(
     args: GeneratePinDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: GeneratePinDataCommandOutput) => void
   ): void;
 
@@ -235,7 +242,7 @@ export interface PaymentCryptographyData {
    */
   reEncryptData(
     args: ReEncryptDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<ReEncryptDataCommandOutput>;
   reEncryptData(
     args: ReEncryptDataCommandInput,
@@ -243,7 +250,7 @@ export interface PaymentCryptographyData {
   ): void;
   reEncryptData(
     args: ReEncryptDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: ReEncryptDataCommandOutput) => void
   ): void;
 
@@ -252,7 +259,7 @@ export interface PaymentCryptographyData {
    */
   translateKeyMaterial(
     args: TranslateKeyMaterialCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<TranslateKeyMaterialCommandOutput>;
   translateKeyMaterial(
     args: TranslateKeyMaterialCommandInput,
@@ -260,7 +267,7 @@ export interface PaymentCryptographyData {
   ): void;
   translateKeyMaterial(
     args: TranslateKeyMaterialCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: TranslateKeyMaterialCommandOutput) => void
   ): void;
 
@@ -269,7 +276,7 @@ export interface PaymentCryptographyData {
    */
   translatePinData(
     args: TranslatePinDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<TranslatePinDataCommandOutput>;
   translatePinData(
     args: TranslatePinDataCommandInput,
@@ -277,7 +284,7 @@ export interface PaymentCryptographyData {
   ): void;
   translatePinData(
     args: TranslatePinDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: TranslatePinDataCommandOutput) => void
   ): void;
 
@@ -286,7 +293,7 @@ export interface PaymentCryptographyData {
    */
   verifyAuthRequestCryptogram(
     args: VerifyAuthRequestCryptogramCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<VerifyAuthRequestCryptogramCommandOutput>;
   verifyAuthRequestCryptogram(
     args: VerifyAuthRequestCryptogramCommandInput,
@@ -294,7 +301,7 @@ export interface PaymentCryptographyData {
   ): void;
   verifyAuthRequestCryptogram(
     args: VerifyAuthRequestCryptogramCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: VerifyAuthRequestCryptogramCommandOutput) => void
   ): void;
 
@@ -303,7 +310,7 @@ export interface PaymentCryptographyData {
    */
   verifyCardValidationData(
     args: VerifyCardValidationDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<VerifyCardValidationDataCommandOutput>;
   verifyCardValidationData(
     args: VerifyCardValidationDataCommandInput,
@@ -311,7 +318,7 @@ export interface PaymentCryptographyData {
   ): void;
   verifyCardValidationData(
     args: VerifyCardValidationDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: VerifyCardValidationDataCommandOutput) => void
   ): void;
 
@@ -320,7 +327,7 @@ export interface PaymentCryptographyData {
    */
   verifyMac(
     args: VerifyMacCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<VerifyMacCommandOutput>;
   verifyMac(
     args: VerifyMacCommandInput,
@@ -328,7 +335,7 @@ export interface PaymentCryptographyData {
   ): void;
   verifyMac(
     args: VerifyMacCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: VerifyMacCommandOutput) => void
   ): void;
 
@@ -337,7 +344,7 @@ export interface PaymentCryptographyData {
    */
   verifyPinData(
     args: VerifyPinDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyDataRequestOptions
   ): Promise<VerifyPinDataCommandOutput>;
   verifyPinData(
     args: VerifyPinDataCommandInput,
@@ -345,7 +352,7 @@ export interface PaymentCryptographyData {
   ): void;
   verifyPinData(
     args: VerifyPinDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyDataRequestOptions,
     cb: (err: any, data?: VerifyPinDataCommandOutput) => void
   ): void;
 }

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateConfigurationSetCommandInput,
@@ -269,13 +274,20 @@ const paginators = {
   paginateListEmailIdentities,
 };
 
+/**
+ * @public
+ */
+export interface PinpointEmailRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PinpointEmail {
   /**
    * @see {@link CreateConfigurationSetCommand}
    */
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<CreateConfigurationSetCommandOutput>;
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
@@ -283,7 +295,7 @@ export interface PinpointEmail {
   ): void;
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: CreateConfigurationSetCommandOutput) => void
   ): void;
 
@@ -292,7 +304,7 @@ export interface PinpointEmail {
    */
   createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput>;
   createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
@@ -300,7 +312,7 @@ export interface PinpointEmail {
   ): void;
   createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
 
@@ -309,7 +321,7 @@ export interface PinpointEmail {
    */
   createDedicatedIpPool(
     args: CreateDedicatedIpPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<CreateDedicatedIpPoolCommandOutput>;
   createDedicatedIpPool(
     args: CreateDedicatedIpPoolCommandInput,
@@ -317,7 +329,7 @@ export interface PinpointEmail {
   ): void;
   createDedicatedIpPool(
     args: CreateDedicatedIpPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: CreateDedicatedIpPoolCommandOutput) => void
   ): void;
 
@@ -326,7 +338,7 @@ export interface PinpointEmail {
    */
   createDeliverabilityTestReport(
     args: CreateDeliverabilityTestReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<CreateDeliverabilityTestReportCommandOutput>;
   createDeliverabilityTestReport(
     args: CreateDeliverabilityTestReportCommandInput,
@@ -334,7 +346,7 @@ export interface PinpointEmail {
   ): void;
   createDeliverabilityTestReport(
     args: CreateDeliverabilityTestReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: CreateDeliverabilityTestReportCommandOutput) => void
   ): void;
 
@@ -343,7 +355,7 @@ export interface PinpointEmail {
    */
   createEmailIdentity(
     args: CreateEmailIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<CreateEmailIdentityCommandOutput>;
   createEmailIdentity(
     args: CreateEmailIdentityCommandInput,
@@ -351,7 +363,7 @@ export interface PinpointEmail {
   ): void;
   createEmailIdentity(
     args: CreateEmailIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: CreateEmailIdentityCommandOutput) => void
   ): void;
 
@@ -360,7 +372,7 @@ export interface PinpointEmail {
    */
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<DeleteConfigurationSetCommandOutput>;
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
@@ -368,7 +380,7 @@ export interface PinpointEmail {
   ): void;
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: DeleteConfigurationSetCommandOutput) => void
   ): void;
 
@@ -377,7 +389,7 @@ export interface PinpointEmail {
    */
   deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput>;
   deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
@@ -385,7 +397,7 @@ export interface PinpointEmail {
   ): void;
   deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
 
@@ -394,7 +406,7 @@ export interface PinpointEmail {
    */
   deleteDedicatedIpPool(
     args: DeleteDedicatedIpPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<DeleteDedicatedIpPoolCommandOutput>;
   deleteDedicatedIpPool(
     args: DeleteDedicatedIpPoolCommandInput,
@@ -402,7 +414,7 @@ export interface PinpointEmail {
   ): void;
   deleteDedicatedIpPool(
     args: DeleteDedicatedIpPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: DeleteDedicatedIpPoolCommandOutput) => void
   ): void;
 
@@ -411,7 +423,7 @@ export interface PinpointEmail {
    */
   deleteEmailIdentity(
     args: DeleteEmailIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<DeleteEmailIdentityCommandOutput>;
   deleteEmailIdentity(
     args: DeleteEmailIdentityCommandInput,
@@ -419,7 +431,7 @@ export interface PinpointEmail {
   ): void;
   deleteEmailIdentity(
     args: DeleteEmailIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: DeleteEmailIdentityCommandOutput) => void
   ): void;
 
@@ -429,7 +441,7 @@ export interface PinpointEmail {
   getAccount(): Promise<GetAccountCommandOutput>;
   getAccount(
     args: GetAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<GetAccountCommandOutput>;
   getAccount(
     args: GetAccountCommandInput,
@@ -437,7 +449,7 @@ export interface PinpointEmail {
   ): void;
   getAccount(
     args: GetAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: GetAccountCommandOutput) => void
   ): void;
 
@@ -446,7 +458,7 @@ export interface PinpointEmail {
    */
   getBlacklistReports(
     args: GetBlacklistReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<GetBlacklistReportsCommandOutput>;
   getBlacklistReports(
     args: GetBlacklistReportsCommandInput,
@@ -454,7 +466,7 @@ export interface PinpointEmail {
   ): void;
   getBlacklistReports(
     args: GetBlacklistReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: GetBlacklistReportsCommandOutput) => void
   ): void;
 
@@ -463,7 +475,7 @@ export interface PinpointEmail {
    */
   getConfigurationSet(
     args: GetConfigurationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<GetConfigurationSetCommandOutput>;
   getConfigurationSet(
     args: GetConfigurationSetCommandInput,
@@ -471,7 +483,7 @@ export interface PinpointEmail {
   ): void;
   getConfigurationSet(
     args: GetConfigurationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: GetConfigurationSetCommandOutput) => void
   ): void;
 
@@ -480,7 +492,7 @@ export interface PinpointEmail {
    */
   getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput>;
   getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
@@ -488,7 +500,7 @@ export interface PinpointEmail {
   ): void;
   getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): void;
 
@@ -497,7 +509,7 @@ export interface PinpointEmail {
    */
   getDedicatedIp(
     args: GetDedicatedIpCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<GetDedicatedIpCommandOutput>;
   getDedicatedIp(
     args: GetDedicatedIpCommandInput,
@@ -505,7 +517,7 @@ export interface PinpointEmail {
   ): void;
   getDedicatedIp(
     args: GetDedicatedIpCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: GetDedicatedIpCommandOutput) => void
   ): void;
 
@@ -515,7 +527,7 @@ export interface PinpointEmail {
   getDedicatedIps(): Promise<GetDedicatedIpsCommandOutput>;
   getDedicatedIps(
     args: GetDedicatedIpsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<GetDedicatedIpsCommandOutput>;
   getDedicatedIps(
     args: GetDedicatedIpsCommandInput,
@@ -523,7 +535,7 @@ export interface PinpointEmail {
   ): void;
   getDedicatedIps(
     args: GetDedicatedIpsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: GetDedicatedIpsCommandOutput) => void
   ): void;
 
@@ -533,7 +545,7 @@ export interface PinpointEmail {
   getDeliverabilityDashboardOptions(): Promise<GetDeliverabilityDashboardOptionsCommandOutput>;
   getDeliverabilityDashboardOptions(
     args: GetDeliverabilityDashboardOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<GetDeliverabilityDashboardOptionsCommandOutput>;
   getDeliverabilityDashboardOptions(
     args: GetDeliverabilityDashboardOptionsCommandInput,
@@ -541,7 +553,7 @@ export interface PinpointEmail {
   ): void;
   getDeliverabilityDashboardOptions(
     args: GetDeliverabilityDashboardOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: GetDeliverabilityDashboardOptionsCommandOutput) => void
   ): void;
 
@@ -550,7 +562,7 @@ export interface PinpointEmail {
    */
   getDeliverabilityTestReport(
     args: GetDeliverabilityTestReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<GetDeliverabilityTestReportCommandOutput>;
   getDeliverabilityTestReport(
     args: GetDeliverabilityTestReportCommandInput,
@@ -558,7 +570,7 @@ export interface PinpointEmail {
   ): void;
   getDeliverabilityTestReport(
     args: GetDeliverabilityTestReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: GetDeliverabilityTestReportCommandOutput) => void
   ): void;
 
@@ -567,7 +579,7 @@ export interface PinpointEmail {
    */
   getDomainDeliverabilityCampaign(
     args: GetDomainDeliverabilityCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<GetDomainDeliverabilityCampaignCommandOutput>;
   getDomainDeliverabilityCampaign(
     args: GetDomainDeliverabilityCampaignCommandInput,
@@ -575,7 +587,7 @@ export interface PinpointEmail {
   ): void;
   getDomainDeliverabilityCampaign(
     args: GetDomainDeliverabilityCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: GetDomainDeliverabilityCampaignCommandOutput) => void
   ): void;
 
@@ -584,7 +596,7 @@ export interface PinpointEmail {
    */
   getDomainStatisticsReport(
     args: GetDomainStatisticsReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<GetDomainStatisticsReportCommandOutput>;
   getDomainStatisticsReport(
     args: GetDomainStatisticsReportCommandInput,
@@ -592,7 +604,7 @@ export interface PinpointEmail {
   ): void;
   getDomainStatisticsReport(
     args: GetDomainStatisticsReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: GetDomainStatisticsReportCommandOutput) => void
   ): void;
 
@@ -601,7 +613,7 @@ export interface PinpointEmail {
    */
   getEmailIdentity(
     args: GetEmailIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<GetEmailIdentityCommandOutput>;
   getEmailIdentity(
     args: GetEmailIdentityCommandInput,
@@ -609,7 +621,7 @@ export interface PinpointEmail {
   ): void;
   getEmailIdentity(
     args: GetEmailIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: GetEmailIdentityCommandOutput) => void
   ): void;
 
@@ -619,7 +631,7 @@ export interface PinpointEmail {
   listConfigurationSets(): Promise<ListConfigurationSetsCommandOutput>;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<ListConfigurationSetsCommandOutput>;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
@@ -627,7 +639,7 @@ export interface PinpointEmail {
   ): void;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: ListConfigurationSetsCommandOutput) => void
   ): void;
 
@@ -637,7 +649,7 @@ export interface PinpointEmail {
   listDedicatedIpPools(): Promise<ListDedicatedIpPoolsCommandOutput>;
   listDedicatedIpPools(
     args: ListDedicatedIpPoolsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<ListDedicatedIpPoolsCommandOutput>;
   listDedicatedIpPools(
     args: ListDedicatedIpPoolsCommandInput,
@@ -645,7 +657,7 @@ export interface PinpointEmail {
   ): void;
   listDedicatedIpPools(
     args: ListDedicatedIpPoolsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: ListDedicatedIpPoolsCommandOutput) => void
   ): void;
 
@@ -655,7 +667,7 @@ export interface PinpointEmail {
   listDeliverabilityTestReports(): Promise<ListDeliverabilityTestReportsCommandOutput>;
   listDeliverabilityTestReports(
     args: ListDeliverabilityTestReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<ListDeliverabilityTestReportsCommandOutput>;
   listDeliverabilityTestReports(
     args: ListDeliverabilityTestReportsCommandInput,
@@ -663,7 +675,7 @@ export interface PinpointEmail {
   ): void;
   listDeliverabilityTestReports(
     args: ListDeliverabilityTestReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: ListDeliverabilityTestReportsCommandOutput) => void
   ): void;
 
@@ -672,7 +684,7 @@ export interface PinpointEmail {
    */
   listDomainDeliverabilityCampaigns(
     args: ListDomainDeliverabilityCampaignsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<ListDomainDeliverabilityCampaignsCommandOutput>;
   listDomainDeliverabilityCampaigns(
     args: ListDomainDeliverabilityCampaignsCommandInput,
@@ -680,7 +692,7 @@ export interface PinpointEmail {
   ): void;
   listDomainDeliverabilityCampaigns(
     args: ListDomainDeliverabilityCampaignsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: ListDomainDeliverabilityCampaignsCommandOutput) => void
   ): void;
 
@@ -690,7 +702,7 @@ export interface PinpointEmail {
   listEmailIdentities(): Promise<ListEmailIdentitiesCommandOutput>;
   listEmailIdentities(
     args: ListEmailIdentitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<ListEmailIdentitiesCommandOutput>;
   listEmailIdentities(
     args: ListEmailIdentitiesCommandInput,
@@ -698,7 +710,7 @@ export interface PinpointEmail {
   ): void;
   listEmailIdentities(
     args: ListEmailIdentitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: ListEmailIdentitiesCommandOutput) => void
   ): void;
 
@@ -707,7 +719,7 @@ export interface PinpointEmail {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -715,7 +727,7 @@ export interface PinpointEmail {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -725,7 +737,7 @@ export interface PinpointEmail {
   putAccountDedicatedIpWarmupAttributes(): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput>;
   putAccountDedicatedIpWarmupAttributes(
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput>;
   putAccountDedicatedIpWarmupAttributes(
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
@@ -733,7 +745,7 @@ export interface PinpointEmail {
   ): void;
   putAccountDedicatedIpWarmupAttributes(
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutAccountDedicatedIpWarmupAttributesCommandOutput) => void
   ): void;
 
@@ -743,7 +755,7 @@ export interface PinpointEmail {
   putAccountSendingAttributes(): Promise<PutAccountSendingAttributesCommandOutput>;
   putAccountSendingAttributes(
     args: PutAccountSendingAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutAccountSendingAttributesCommandOutput>;
   putAccountSendingAttributes(
     args: PutAccountSendingAttributesCommandInput,
@@ -751,7 +763,7 @@ export interface PinpointEmail {
   ): void;
   putAccountSendingAttributes(
     args: PutAccountSendingAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutAccountSendingAttributesCommandOutput) => void
   ): void;
 
@@ -760,7 +772,7 @@ export interface PinpointEmail {
    */
   putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput>;
   putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
@@ -768,7 +780,7 @@ export interface PinpointEmail {
   ): void;
   putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void
   ): void;
 
@@ -777,7 +789,7 @@ export interface PinpointEmail {
    */
   putConfigurationSetReputationOptions(
     args: PutConfigurationSetReputationOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutConfigurationSetReputationOptionsCommandOutput>;
   putConfigurationSetReputationOptions(
     args: PutConfigurationSetReputationOptionsCommandInput,
@@ -785,7 +797,7 @@ export interface PinpointEmail {
   ): void;
   putConfigurationSetReputationOptions(
     args: PutConfigurationSetReputationOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutConfigurationSetReputationOptionsCommandOutput) => void
   ): void;
 
@@ -794,7 +806,7 @@ export interface PinpointEmail {
    */
   putConfigurationSetSendingOptions(
     args: PutConfigurationSetSendingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutConfigurationSetSendingOptionsCommandOutput>;
   putConfigurationSetSendingOptions(
     args: PutConfigurationSetSendingOptionsCommandInput,
@@ -802,7 +814,7 @@ export interface PinpointEmail {
   ): void;
   putConfigurationSetSendingOptions(
     args: PutConfigurationSetSendingOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutConfigurationSetSendingOptionsCommandOutput) => void
   ): void;
 
@@ -811,7 +823,7 @@ export interface PinpointEmail {
    */
   putConfigurationSetTrackingOptions(
     args: PutConfigurationSetTrackingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutConfigurationSetTrackingOptionsCommandOutput>;
   putConfigurationSetTrackingOptions(
     args: PutConfigurationSetTrackingOptionsCommandInput,
@@ -819,7 +831,7 @@ export interface PinpointEmail {
   ): void;
   putConfigurationSetTrackingOptions(
     args: PutConfigurationSetTrackingOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
 
@@ -828,7 +840,7 @@ export interface PinpointEmail {
    */
   putDedicatedIpInPool(
     args: PutDedicatedIpInPoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutDedicatedIpInPoolCommandOutput>;
   putDedicatedIpInPool(
     args: PutDedicatedIpInPoolCommandInput,
@@ -836,7 +848,7 @@ export interface PinpointEmail {
   ): void;
   putDedicatedIpInPool(
     args: PutDedicatedIpInPoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutDedicatedIpInPoolCommandOutput) => void
   ): void;
 
@@ -845,7 +857,7 @@ export interface PinpointEmail {
    */
   putDedicatedIpWarmupAttributes(
     args: PutDedicatedIpWarmupAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutDedicatedIpWarmupAttributesCommandOutput>;
   putDedicatedIpWarmupAttributes(
     args: PutDedicatedIpWarmupAttributesCommandInput,
@@ -853,7 +865,7 @@ export interface PinpointEmail {
   ): void;
   putDedicatedIpWarmupAttributes(
     args: PutDedicatedIpWarmupAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutDedicatedIpWarmupAttributesCommandOutput) => void
   ): void;
 
@@ -862,7 +874,7 @@ export interface PinpointEmail {
    */
   putDeliverabilityDashboardOption(
     args: PutDeliverabilityDashboardOptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutDeliverabilityDashboardOptionCommandOutput>;
   putDeliverabilityDashboardOption(
     args: PutDeliverabilityDashboardOptionCommandInput,
@@ -870,7 +882,7 @@ export interface PinpointEmail {
   ): void;
   putDeliverabilityDashboardOption(
     args: PutDeliverabilityDashboardOptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutDeliverabilityDashboardOptionCommandOutput) => void
   ): void;
 
@@ -879,7 +891,7 @@ export interface PinpointEmail {
    */
   putEmailIdentityDkimAttributes(
     args: PutEmailIdentityDkimAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutEmailIdentityDkimAttributesCommandOutput>;
   putEmailIdentityDkimAttributes(
     args: PutEmailIdentityDkimAttributesCommandInput,
@@ -887,7 +899,7 @@ export interface PinpointEmail {
   ): void;
   putEmailIdentityDkimAttributes(
     args: PutEmailIdentityDkimAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutEmailIdentityDkimAttributesCommandOutput) => void
   ): void;
 
@@ -896,7 +908,7 @@ export interface PinpointEmail {
    */
   putEmailIdentityFeedbackAttributes(
     args: PutEmailIdentityFeedbackAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput>;
   putEmailIdentityFeedbackAttributes(
     args: PutEmailIdentityFeedbackAttributesCommandInput,
@@ -904,7 +916,7 @@ export interface PinpointEmail {
   ): void;
   putEmailIdentityFeedbackAttributes(
     args: PutEmailIdentityFeedbackAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutEmailIdentityFeedbackAttributesCommandOutput) => void
   ): void;
 
@@ -913,7 +925,7 @@ export interface PinpointEmail {
    */
   putEmailIdentityMailFromAttributes(
     args: PutEmailIdentityMailFromAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<PutEmailIdentityMailFromAttributesCommandOutput>;
   putEmailIdentityMailFromAttributes(
     args: PutEmailIdentityMailFromAttributesCommandInput,
@@ -921,7 +933,7 @@ export interface PinpointEmail {
   ): void;
   putEmailIdentityMailFromAttributes(
     args: PutEmailIdentityMailFromAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: PutEmailIdentityMailFromAttributesCommandOutput) => void
   ): void;
 
@@ -930,7 +942,7 @@ export interface PinpointEmail {
    */
   sendEmail(
     args: SendEmailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<SendEmailCommandOutput>;
   sendEmail(
     args: SendEmailCommandInput,
@@ -938,7 +950,7 @@ export interface PinpointEmail {
   ): void;
   sendEmail(
     args: SendEmailCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: SendEmailCommandOutput) => void
   ): void;
 
@@ -947,7 +959,7 @@ export interface PinpointEmail {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -955,7 +967,7 @@ export interface PinpointEmail {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -964,7 +976,7 @@ export interface PinpointEmail {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -972,7 +984,7 @@ export interface PinpointEmail {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -981,7 +993,7 @@ export interface PinpointEmail {
    */
   updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointEmailRequestOptions
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput>;
   updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
@@ -989,7 +1001,7 @@ export interface PinpointEmail {
   ): void;
   updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointEmailRequestOptions,
     cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
 

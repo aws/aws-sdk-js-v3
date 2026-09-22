@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -2603,13 +2604,20 @@ const waiters = {
   waitUntilTransformJobCompletedOrStopped,
 };
 
+/**
+ * @public
+ */
+export interface SageMakerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SageMaker {
   /**
    * @see {@link AddAssociationCommand}
    */
   addAssociation(
     args: AddAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<AddAssociationCommandOutput>;
   addAssociation(
     args: AddAssociationCommandInput,
@@ -2617,7 +2625,7 @@ export interface SageMaker {
   ): void;
   addAssociation(
     args: AddAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: AddAssociationCommandOutput) => void
   ): void;
 
@@ -2626,7 +2634,7 @@ export interface SageMaker {
    */
   addTags(
     args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<AddTagsCommandOutput>;
   addTags(
     args: AddTagsCommandInput,
@@ -2634,7 +2642,7 @@ export interface SageMaker {
   ): void;
   addTags(
     args: AddTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: AddTagsCommandOutput) => void
   ): void;
 
@@ -2643,7 +2651,7 @@ export interface SageMaker {
    */
   associateTrialComponent(
     args: AssociateTrialComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<AssociateTrialComponentCommandOutput>;
   associateTrialComponent(
     args: AssociateTrialComponentCommandInput,
@@ -2651,7 +2659,7 @@ export interface SageMaker {
   ): void;
   associateTrialComponent(
     args: AssociateTrialComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: AssociateTrialComponentCommandOutput) => void
   ): void;
 
@@ -2660,7 +2668,7 @@ export interface SageMaker {
    */
   attachClusterNodeNetworkInterface(
     args: AttachClusterNodeNetworkInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<AttachClusterNodeNetworkInterfaceCommandOutput>;
   attachClusterNodeNetworkInterface(
     args: AttachClusterNodeNetworkInterfaceCommandInput,
@@ -2668,7 +2676,7 @@ export interface SageMaker {
   ): void;
   attachClusterNodeNetworkInterface(
     args: AttachClusterNodeNetworkInterfaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: AttachClusterNodeNetworkInterfaceCommandOutput) => void
   ): void;
 
@@ -2677,7 +2685,7 @@ export interface SageMaker {
    */
   attachClusterNodeVolume(
     args: AttachClusterNodeVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<AttachClusterNodeVolumeCommandOutput>;
   attachClusterNodeVolume(
     args: AttachClusterNodeVolumeCommandInput,
@@ -2685,7 +2693,7 @@ export interface SageMaker {
   ): void;
   attachClusterNodeVolume(
     args: AttachClusterNodeVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: AttachClusterNodeVolumeCommandOutput) => void
   ): void;
 
@@ -2694,7 +2702,7 @@ export interface SageMaker {
    */
   batchAddClusterNodes(
     args: BatchAddClusterNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<BatchAddClusterNodesCommandOutput>;
   batchAddClusterNodes(
     args: BatchAddClusterNodesCommandInput,
@@ -2702,7 +2710,7 @@ export interface SageMaker {
   ): void;
   batchAddClusterNodes(
     args: BatchAddClusterNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: BatchAddClusterNodesCommandOutput) => void
   ): void;
 
@@ -2711,7 +2719,7 @@ export interface SageMaker {
    */
   batchDeleteClusterNodes(
     args: BatchDeleteClusterNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<BatchDeleteClusterNodesCommandOutput>;
   batchDeleteClusterNodes(
     args: BatchDeleteClusterNodesCommandInput,
@@ -2719,7 +2727,7 @@ export interface SageMaker {
   ): void;
   batchDeleteClusterNodes(
     args: BatchDeleteClusterNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: BatchDeleteClusterNodesCommandOutput) => void
   ): void;
 
@@ -2728,7 +2736,7 @@ export interface SageMaker {
    */
   batchDescribeModelPackage(
     args: BatchDescribeModelPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<BatchDescribeModelPackageCommandOutput>;
   batchDescribeModelPackage(
     args: BatchDescribeModelPackageCommandInput,
@@ -2736,7 +2744,7 @@ export interface SageMaker {
   ): void;
   batchDescribeModelPackage(
     args: BatchDescribeModelPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: BatchDescribeModelPackageCommandOutput) => void
   ): void;
 
@@ -2745,7 +2753,7 @@ export interface SageMaker {
    */
   batchRebootClusterNodes(
     args: BatchRebootClusterNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<BatchRebootClusterNodesCommandOutput>;
   batchRebootClusterNodes(
     args: BatchRebootClusterNodesCommandInput,
@@ -2753,7 +2761,7 @@ export interface SageMaker {
   ): void;
   batchRebootClusterNodes(
     args: BatchRebootClusterNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: BatchRebootClusterNodesCommandOutput) => void
   ): void;
 
@@ -2762,7 +2770,7 @@ export interface SageMaker {
    */
   batchReplaceClusterNodes(
     args: BatchReplaceClusterNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<BatchReplaceClusterNodesCommandOutput>;
   batchReplaceClusterNodes(
     args: BatchReplaceClusterNodesCommandInput,
@@ -2770,7 +2778,7 @@ export interface SageMaker {
   ): void;
   batchReplaceClusterNodes(
     args: BatchReplaceClusterNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: BatchReplaceClusterNodesCommandOutput) => void
   ): void;
 
@@ -2779,7 +2787,7 @@ export interface SageMaker {
    */
   createAction(
     args: CreateActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateActionCommandOutput>;
   createAction(
     args: CreateActionCommandInput,
@@ -2787,7 +2795,7 @@ export interface SageMaker {
   ): void;
   createAction(
     args: CreateActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateActionCommandOutput) => void
   ): void;
 
@@ -2796,7 +2804,7 @@ export interface SageMaker {
    */
   createAIBenchmarkJob(
     args: CreateAIBenchmarkJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateAIBenchmarkJobCommandOutput>;
   createAIBenchmarkJob(
     args: CreateAIBenchmarkJobCommandInput,
@@ -2804,7 +2812,7 @@ export interface SageMaker {
   ): void;
   createAIBenchmarkJob(
     args: CreateAIBenchmarkJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateAIBenchmarkJobCommandOutput) => void
   ): void;
 
@@ -2813,7 +2821,7 @@ export interface SageMaker {
    */
   createAIRecommendationJob(
     args: CreateAIRecommendationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateAIRecommendationJobCommandOutput>;
   createAIRecommendationJob(
     args: CreateAIRecommendationJobCommandInput,
@@ -2821,7 +2829,7 @@ export interface SageMaker {
   ): void;
   createAIRecommendationJob(
     args: CreateAIRecommendationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateAIRecommendationJobCommandOutput) => void
   ): void;
 
@@ -2830,7 +2838,7 @@ export interface SageMaker {
    */
   createAIWorkloadConfig(
     args: CreateAIWorkloadConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateAIWorkloadConfigCommandOutput>;
   createAIWorkloadConfig(
     args: CreateAIWorkloadConfigCommandInput,
@@ -2838,7 +2846,7 @@ export interface SageMaker {
   ): void;
   createAIWorkloadConfig(
     args: CreateAIWorkloadConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateAIWorkloadConfigCommandOutput) => void
   ): void;
 
@@ -2847,7 +2855,7 @@ export interface SageMaker {
    */
   createAlgorithm(
     args: CreateAlgorithmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateAlgorithmCommandOutput>;
   createAlgorithm(
     args: CreateAlgorithmCommandInput,
@@ -2855,7 +2863,7 @@ export interface SageMaker {
   ): void;
   createAlgorithm(
     args: CreateAlgorithmCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateAlgorithmCommandOutput) => void
   ): void;
 
@@ -2864,7 +2872,7 @@ export interface SageMaker {
    */
   createApp(
     args: CreateAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateAppCommandOutput>;
   createApp(
     args: CreateAppCommandInput,
@@ -2872,7 +2880,7 @@ export interface SageMaker {
   ): void;
   createApp(
     args: CreateAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateAppCommandOutput) => void
   ): void;
 
@@ -2881,7 +2889,7 @@ export interface SageMaker {
    */
   createAppImageConfig(
     args: CreateAppImageConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateAppImageConfigCommandOutput>;
   createAppImageConfig(
     args: CreateAppImageConfigCommandInput,
@@ -2889,7 +2897,7 @@ export interface SageMaker {
   ): void;
   createAppImageConfig(
     args: CreateAppImageConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateAppImageConfigCommandOutput) => void
   ): void;
 
@@ -2898,7 +2906,7 @@ export interface SageMaker {
    */
   createArtifact(
     args: CreateArtifactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateArtifactCommandOutput>;
   createArtifact(
     args: CreateArtifactCommandInput,
@@ -2906,7 +2914,7 @@ export interface SageMaker {
   ): void;
   createArtifact(
     args: CreateArtifactCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateArtifactCommandOutput) => void
   ): void;
 
@@ -2915,7 +2923,7 @@ export interface SageMaker {
    */
   createAutoMLJob(
     args: CreateAutoMLJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateAutoMLJobCommandOutput>;
   createAutoMLJob(
     args: CreateAutoMLJobCommandInput,
@@ -2923,7 +2931,7 @@ export interface SageMaker {
   ): void;
   createAutoMLJob(
     args: CreateAutoMLJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateAutoMLJobCommandOutput) => void
   ): void;
 
@@ -2932,7 +2940,7 @@ export interface SageMaker {
    */
   createAutoMLJobV2(
     args: CreateAutoMLJobV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateAutoMLJobV2CommandOutput>;
   createAutoMLJobV2(
     args: CreateAutoMLJobV2CommandInput,
@@ -2940,7 +2948,7 @@ export interface SageMaker {
   ): void;
   createAutoMLJobV2(
     args: CreateAutoMLJobV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateAutoMLJobV2CommandOutput) => void
   ): void;
 
@@ -2949,7 +2957,7 @@ export interface SageMaker {
    */
   createCluster(
     args: CreateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateClusterCommandOutput>;
   createCluster(
     args: CreateClusterCommandInput,
@@ -2957,7 +2965,7 @@ export interface SageMaker {
   ): void;
   createCluster(
     args: CreateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
   ): void;
 
@@ -2966,7 +2974,7 @@ export interface SageMaker {
    */
   createClusterSchedulerConfig(
     args: CreateClusterSchedulerConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateClusterSchedulerConfigCommandOutput>;
   createClusterSchedulerConfig(
     args: CreateClusterSchedulerConfigCommandInput,
@@ -2974,7 +2982,7 @@ export interface SageMaker {
   ): void;
   createClusterSchedulerConfig(
     args: CreateClusterSchedulerConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateClusterSchedulerConfigCommandOutput) => void
   ): void;
 
@@ -2983,7 +2991,7 @@ export interface SageMaker {
    */
   createCodeRepository(
     args: CreateCodeRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateCodeRepositoryCommandOutput>;
   createCodeRepository(
     args: CreateCodeRepositoryCommandInput,
@@ -2991,7 +2999,7 @@ export interface SageMaker {
   ): void;
   createCodeRepository(
     args: CreateCodeRepositoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateCodeRepositoryCommandOutput) => void
   ): void;
 
@@ -3000,7 +3008,7 @@ export interface SageMaker {
    */
   createCompilationJob(
     args: CreateCompilationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateCompilationJobCommandOutput>;
   createCompilationJob(
     args: CreateCompilationJobCommandInput,
@@ -3008,7 +3016,7 @@ export interface SageMaker {
   ): void;
   createCompilationJob(
     args: CreateCompilationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateCompilationJobCommandOutput) => void
   ): void;
 
@@ -3017,7 +3025,7 @@ export interface SageMaker {
    */
   createComputeQuota(
     args: CreateComputeQuotaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateComputeQuotaCommandOutput>;
   createComputeQuota(
     args: CreateComputeQuotaCommandInput,
@@ -3025,7 +3033,7 @@ export interface SageMaker {
   ): void;
   createComputeQuota(
     args: CreateComputeQuotaCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateComputeQuotaCommandOutput) => void
   ): void;
 
@@ -3034,7 +3042,7 @@ export interface SageMaker {
    */
   createContext(
     args: CreateContextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateContextCommandOutput>;
   createContext(
     args: CreateContextCommandInput,
@@ -3042,7 +3050,7 @@ export interface SageMaker {
   ): void;
   createContext(
     args: CreateContextCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateContextCommandOutput) => void
   ): void;
 
@@ -3051,7 +3059,7 @@ export interface SageMaker {
    */
   createDataQualityJobDefinition(
     args: CreateDataQualityJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateDataQualityJobDefinitionCommandOutput>;
   createDataQualityJobDefinition(
     args: CreateDataQualityJobDefinitionCommandInput,
@@ -3059,7 +3067,7 @@ export interface SageMaker {
   ): void;
   createDataQualityJobDefinition(
     args: CreateDataQualityJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateDataQualityJobDefinitionCommandOutput) => void
   ): void;
 
@@ -3068,7 +3076,7 @@ export interface SageMaker {
    */
   createDeviceFleet(
     args: CreateDeviceFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateDeviceFleetCommandOutput>;
   createDeviceFleet(
     args: CreateDeviceFleetCommandInput,
@@ -3076,7 +3084,7 @@ export interface SageMaker {
   ): void;
   createDeviceFleet(
     args: CreateDeviceFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateDeviceFleetCommandOutput) => void
   ): void;
 
@@ -3085,7 +3093,7 @@ export interface SageMaker {
    */
   createDomain(
     args: CreateDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateDomainCommandOutput>;
   createDomain(
     args: CreateDomainCommandInput,
@@ -3093,7 +3101,7 @@ export interface SageMaker {
   ): void;
   createDomain(
     args: CreateDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateDomainCommandOutput) => void
   ): void;
 
@@ -3102,7 +3110,7 @@ export interface SageMaker {
    */
   createEdgeDeploymentPlan(
     args: CreateEdgeDeploymentPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateEdgeDeploymentPlanCommandOutput>;
   createEdgeDeploymentPlan(
     args: CreateEdgeDeploymentPlanCommandInput,
@@ -3110,7 +3118,7 @@ export interface SageMaker {
   ): void;
   createEdgeDeploymentPlan(
     args: CreateEdgeDeploymentPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateEdgeDeploymentPlanCommandOutput) => void
   ): void;
 
@@ -3119,7 +3127,7 @@ export interface SageMaker {
    */
   createEdgeDeploymentStage(
     args: CreateEdgeDeploymentStageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateEdgeDeploymentStageCommandOutput>;
   createEdgeDeploymentStage(
     args: CreateEdgeDeploymentStageCommandInput,
@@ -3127,7 +3135,7 @@ export interface SageMaker {
   ): void;
   createEdgeDeploymentStage(
     args: CreateEdgeDeploymentStageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateEdgeDeploymentStageCommandOutput) => void
   ): void;
 
@@ -3136,7 +3144,7 @@ export interface SageMaker {
    */
   createEdgePackagingJob(
     args: CreateEdgePackagingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateEdgePackagingJobCommandOutput>;
   createEdgePackagingJob(
     args: CreateEdgePackagingJobCommandInput,
@@ -3144,7 +3152,7 @@ export interface SageMaker {
   ): void;
   createEdgePackagingJob(
     args: CreateEdgePackagingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateEdgePackagingJobCommandOutput) => void
   ): void;
 
@@ -3153,7 +3161,7 @@ export interface SageMaker {
    */
   createEndpoint(
     args: CreateEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateEndpointCommandOutput>;
   createEndpoint(
     args: CreateEndpointCommandInput,
@@ -3161,7 +3169,7 @@ export interface SageMaker {
   ): void;
   createEndpoint(
     args: CreateEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateEndpointCommandOutput) => void
   ): void;
 
@@ -3170,7 +3178,7 @@ export interface SageMaker {
    */
   createEndpointConfig(
     args: CreateEndpointConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateEndpointConfigCommandOutput>;
   createEndpointConfig(
     args: CreateEndpointConfigCommandInput,
@@ -3178,7 +3186,7 @@ export interface SageMaker {
   ): void;
   createEndpointConfig(
     args: CreateEndpointConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateEndpointConfigCommandOutput) => void
   ): void;
 
@@ -3187,7 +3195,7 @@ export interface SageMaker {
    */
   createExperiment(
     args: CreateExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateExperimentCommandOutput>;
   createExperiment(
     args: CreateExperimentCommandInput,
@@ -3195,7 +3203,7 @@ export interface SageMaker {
   ): void;
   createExperiment(
     args: CreateExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateExperimentCommandOutput) => void
   ): void;
 
@@ -3204,7 +3212,7 @@ export interface SageMaker {
    */
   createFeatureGroup(
     args: CreateFeatureGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateFeatureGroupCommandOutput>;
   createFeatureGroup(
     args: CreateFeatureGroupCommandInput,
@@ -3212,7 +3220,7 @@ export interface SageMaker {
   ): void;
   createFeatureGroup(
     args: CreateFeatureGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateFeatureGroupCommandOutput) => void
   ): void;
 
@@ -3221,7 +3229,7 @@ export interface SageMaker {
    */
   createFlowDefinition(
     args: CreateFlowDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateFlowDefinitionCommandOutput>;
   createFlowDefinition(
     args: CreateFlowDefinitionCommandInput,
@@ -3229,7 +3237,7 @@ export interface SageMaker {
   ): void;
   createFlowDefinition(
     args: CreateFlowDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateFlowDefinitionCommandOutput) => void
   ): void;
 
@@ -3238,7 +3246,7 @@ export interface SageMaker {
    */
   createHub(
     args: CreateHubCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateHubCommandOutput>;
   createHub(
     args: CreateHubCommandInput,
@@ -3246,7 +3254,7 @@ export interface SageMaker {
   ): void;
   createHub(
     args: CreateHubCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateHubCommandOutput) => void
   ): void;
 
@@ -3255,7 +3263,7 @@ export interface SageMaker {
    */
   createHubContentPresignedUrls(
     args: CreateHubContentPresignedUrlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateHubContentPresignedUrlsCommandOutput>;
   createHubContentPresignedUrls(
     args: CreateHubContentPresignedUrlsCommandInput,
@@ -3263,7 +3271,7 @@ export interface SageMaker {
   ): void;
   createHubContentPresignedUrls(
     args: CreateHubContentPresignedUrlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateHubContentPresignedUrlsCommandOutput) => void
   ): void;
 
@@ -3272,7 +3280,7 @@ export interface SageMaker {
    */
   createHubContentReference(
     args: CreateHubContentReferenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateHubContentReferenceCommandOutput>;
   createHubContentReference(
     args: CreateHubContentReferenceCommandInput,
@@ -3280,7 +3288,7 @@ export interface SageMaker {
   ): void;
   createHubContentReference(
     args: CreateHubContentReferenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateHubContentReferenceCommandOutput) => void
   ): void;
 
@@ -3289,7 +3297,7 @@ export interface SageMaker {
    */
   createHumanTaskUi(
     args: CreateHumanTaskUiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateHumanTaskUiCommandOutput>;
   createHumanTaskUi(
     args: CreateHumanTaskUiCommandInput,
@@ -3297,7 +3305,7 @@ export interface SageMaker {
   ): void;
   createHumanTaskUi(
     args: CreateHumanTaskUiCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateHumanTaskUiCommandOutput) => void
   ): void;
 
@@ -3306,7 +3314,7 @@ export interface SageMaker {
    */
   createHyperParameterTuningJob(
     args: CreateHyperParameterTuningJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateHyperParameterTuningJobCommandOutput>;
   createHyperParameterTuningJob(
     args: CreateHyperParameterTuningJobCommandInput,
@@ -3314,7 +3322,7 @@ export interface SageMaker {
   ): void;
   createHyperParameterTuningJob(
     args: CreateHyperParameterTuningJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateHyperParameterTuningJobCommandOutput) => void
   ): void;
 
@@ -3323,7 +3331,7 @@ export interface SageMaker {
    */
   createImage(
     args: CreateImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateImageCommandOutput>;
   createImage(
     args: CreateImageCommandInput,
@@ -3331,7 +3339,7 @@ export interface SageMaker {
   ): void;
   createImage(
     args: CreateImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateImageCommandOutput) => void
   ): void;
 
@@ -3340,7 +3348,7 @@ export interface SageMaker {
    */
   createImageVersion(
     args: CreateImageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateImageVersionCommandOutput>;
   createImageVersion(
     args: CreateImageVersionCommandInput,
@@ -3348,7 +3356,7 @@ export interface SageMaker {
   ): void;
   createImageVersion(
     args: CreateImageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateImageVersionCommandOutput) => void
   ): void;
 
@@ -3357,7 +3365,7 @@ export interface SageMaker {
    */
   createInferenceComponent(
     args: CreateInferenceComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateInferenceComponentCommandOutput>;
   createInferenceComponent(
     args: CreateInferenceComponentCommandInput,
@@ -3365,7 +3373,7 @@ export interface SageMaker {
   ): void;
   createInferenceComponent(
     args: CreateInferenceComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateInferenceComponentCommandOutput) => void
   ): void;
 
@@ -3374,7 +3382,7 @@ export interface SageMaker {
    */
   createInferenceExperiment(
     args: CreateInferenceExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateInferenceExperimentCommandOutput>;
   createInferenceExperiment(
     args: CreateInferenceExperimentCommandInput,
@@ -3382,7 +3390,7 @@ export interface SageMaker {
   ): void;
   createInferenceExperiment(
     args: CreateInferenceExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateInferenceExperimentCommandOutput) => void
   ): void;
 
@@ -3391,7 +3399,7 @@ export interface SageMaker {
    */
   createInferenceRecommendationsJob(
     args: CreateInferenceRecommendationsJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateInferenceRecommendationsJobCommandOutput>;
   createInferenceRecommendationsJob(
     args: CreateInferenceRecommendationsJobCommandInput,
@@ -3399,7 +3407,7 @@ export interface SageMaker {
   ): void;
   createInferenceRecommendationsJob(
     args: CreateInferenceRecommendationsJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateInferenceRecommendationsJobCommandOutput) => void
   ): void;
 
@@ -3408,7 +3416,7 @@ export interface SageMaker {
    */
   createJob(
     args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateJobCommandOutput>;
   createJob(
     args: CreateJobCommandInput,
@@ -3416,7 +3424,7 @@ export interface SageMaker {
   ): void;
   createJob(
     args: CreateJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateJobCommandOutput) => void
   ): void;
 
@@ -3425,7 +3433,7 @@ export interface SageMaker {
    */
   createLabelingJob(
     args: CreateLabelingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateLabelingJobCommandOutput>;
   createLabelingJob(
     args: CreateLabelingJobCommandInput,
@@ -3433,7 +3441,7 @@ export interface SageMaker {
   ): void;
   createLabelingJob(
     args: CreateLabelingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateLabelingJobCommandOutput) => void
   ): void;
 
@@ -3442,7 +3450,7 @@ export interface SageMaker {
    */
   createMlflowApp(
     args: CreateMlflowAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateMlflowAppCommandOutput>;
   createMlflowApp(
     args: CreateMlflowAppCommandInput,
@@ -3450,7 +3458,7 @@ export interface SageMaker {
   ): void;
   createMlflowApp(
     args: CreateMlflowAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateMlflowAppCommandOutput) => void
   ): void;
 
@@ -3459,7 +3467,7 @@ export interface SageMaker {
    */
   createMlflowTrackingServer(
     args: CreateMlflowTrackingServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateMlflowTrackingServerCommandOutput>;
   createMlflowTrackingServer(
     args: CreateMlflowTrackingServerCommandInput,
@@ -3467,7 +3475,7 @@ export interface SageMaker {
   ): void;
   createMlflowTrackingServer(
     args: CreateMlflowTrackingServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateMlflowTrackingServerCommandOutput) => void
   ): void;
 
@@ -3476,7 +3484,7 @@ export interface SageMaker {
    */
   createModel(
     args: CreateModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateModelCommandOutput>;
   createModel(
     args: CreateModelCommandInput,
@@ -3484,7 +3492,7 @@ export interface SageMaker {
   ): void;
   createModel(
     args: CreateModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateModelCommandOutput) => void
   ): void;
 
@@ -3493,7 +3501,7 @@ export interface SageMaker {
    */
   createModelBiasJobDefinition(
     args: CreateModelBiasJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateModelBiasJobDefinitionCommandOutput>;
   createModelBiasJobDefinition(
     args: CreateModelBiasJobDefinitionCommandInput,
@@ -3501,7 +3509,7 @@ export interface SageMaker {
   ): void;
   createModelBiasJobDefinition(
     args: CreateModelBiasJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateModelBiasJobDefinitionCommandOutput) => void
   ): void;
 
@@ -3510,7 +3518,7 @@ export interface SageMaker {
    */
   createModelCard(
     args: CreateModelCardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateModelCardCommandOutput>;
   createModelCard(
     args: CreateModelCardCommandInput,
@@ -3518,7 +3526,7 @@ export interface SageMaker {
   ): void;
   createModelCard(
     args: CreateModelCardCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateModelCardCommandOutput) => void
   ): void;
 
@@ -3527,7 +3535,7 @@ export interface SageMaker {
    */
   createModelCardExportJob(
     args: CreateModelCardExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateModelCardExportJobCommandOutput>;
   createModelCardExportJob(
     args: CreateModelCardExportJobCommandInput,
@@ -3535,7 +3543,7 @@ export interface SageMaker {
   ): void;
   createModelCardExportJob(
     args: CreateModelCardExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateModelCardExportJobCommandOutput) => void
   ): void;
 
@@ -3544,7 +3552,7 @@ export interface SageMaker {
    */
   createModelExplainabilityJobDefinition(
     args: CreateModelExplainabilityJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateModelExplainabilityJobDefinitionCommandOutput>;
   createModelExplainabilityJobDefinition(
     args: CreateModelExplainabilityJobDefinitionCommandInput,
@@ -3552,7 +3560,7 @@ export interface SageMaker {
   ): void;
   createModelExplainabilityJobDefinition(
     args: CreateModelExplainabilityJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateModelExplainabilityJobDefinitionCommandOutput) => void
   ): void;
 
@@ -3562,7 +3570,7 @@ export interface SageMaker {
   createModelPackage(): Promise<CreateModelPackageCommandOutput>;
   createModelPackage(
     args: CreateModelPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateModelPackageCommandOutput>;
   createModelPackage(
     args: CreateModelPackageCommandInput,
@@ -3570,7 +3578,7 @@ export interface SageMaker {
   ): void;
   createModelPackage(
     args: CreateModelPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateModelPackageCommandOutput) => void
   ): void;
 
@@ -3579,7 +3587,7 @@ export interface SageMaker {
    */
   createModelPackageGroup(
     args: CreateModelPackageGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateModelPackageGroupCommandOutput>;
   createModelPackageGroup(
     args: CreateModelPackageGroupCommandInput,
@@ -3587,7 +3595,7 @@ export interface SageMaker {
   ): void;
   createModelPackageGroup(
     args: CreateModelPackageGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateModelPackageGroupCommandOutput) => void
   ): void;
 
@@ -3596,7 +3604,7 @@ export interface SageMaker {
    */
   createModelQualityJobDefinition(
     args: CreateModelQualityJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateModelQualityJobDefinitionCommandOutput>;
   createModelQualityJobDefinition(
     args: CreateModelQualityJobDefinitionCommandInput,
@@ -3604,7 +3612,7 @@ export interface SageMaker {
   ): void;
   createModelQualityJobDefinition(
     args: CreateModelQualityJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateModelQualityJobDefinitionCommandOutput) => void
   ): void;
 
@@ -3613,7 +3621,7 @@ export interface SageMaker {
    */
   createMonitoringSchedule(
     args: CreateMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateMonitoringScheduleCommandOutput>;
   createMonitoringSchedule(
     args: CreateMonitoringScheduleCommandInput,
@@ -3621,7 +3629,7 @@ export interface SageMaker {
   ): void;
   createMonitoringSchedule(
     args: CreateMonitoringScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateMonitoringScheduleCommandOutput) => void
   ): void;
 
@@ -3630,7 +3638,7 @@ export interface SageMaker {
    */
   createNotebookInstance(
     args: CreateNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateNotebookInstanceCommandOutput>;
   createNotebookInstance(
     args: CreateNotebookInstanceCommandInput,
@@ -3638,7 +3646,7 @@ export interface SageMaker {
   ): void;
   createNotebookInstance(
     args: CreateNotebookInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateNotebookInstanceCommandOutput) => void
   ): void;
 
@@ -3647,7 +3655,7 @@ export interface SageMaker {
    */
   createNotebookInstanceLifecycleConfig(
     args: CreateNotebookInstanceLifecycleConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput>;
   createNotebookInstanceLifecycleConfig(
     args: CreateNotebookInstanceLifecycleConfigCommandInput,
@@ -3655,7 +3663,7 @@ export interface SageMaker {
   ): void;
   createNotebookInstanceLifecycleConfig(
     args: CreateNotebookInstanceLifecycleConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
 
@@ -3664,7 +3672,7 @@ export interface SageMaker {
    */
   createOptimizationJob(
     args: CreateOptimizationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateOptimizationJobCommandOutput>;
   createOptimizationJob(
     args: CreateOptimizationJobCommandInput,
@@ -3672,7 +3680,7 @@ export interface SageMaker {
   ): void;
   createOptimizationJob(
     args: CreateOptimizationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateOptimizationJobCommandOutput) => void
   ): void;
 
@@ -3681,7 +3689,7 @@ export interface SageMaker {
    */
   createPartnerApp(
     args: CreatePartnerAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreatePartnerAppCommandOutput>;
   createPartnerApp(
     args: CreatePartnerAppCommandInput,
@@ -3689,7 +3697,7 @@ export interface SageMaker {
   ): void;
   createPartnerApp(
     args: CreatePartnerAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreatePartnerAppCommandOutput) => void
   ): void;
 
@@ -3698,7 +3706,7 @@ export interface SageMaker {
    */
   createPartnerAppPresignedUrl(
     args: CreatePartnerAppPresignedUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreatePartnerAppPresignedUrlCommandOutput>;
   createPartnerAppPresignedUrl(
     args: CreatePartnerAppPresignedUrlCommandInput,
@@ -3706,7 +3714,7 @@ export interface SageMaker {
   ): void;
   createPartnerAppPresignedUrl(
     args: CreatePartnerAppPresignedUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreatePartnerAppPresignedUrlCommandOutput) => void
   ): void;
 
@@ -3715,7 +3723,7 @@ export interface SageMaker {
    */
   createPipeline(
     args: CreatePipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreatePipelineCommandOutput>;
   createPipeline(
     args: CreatePipelineCommandInput,
@@ -3723,7 +3731,7 @@ export interface SageMaker {
   ): void;
   createPipeline(
     args: CreatePipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreatePipelineCommandOutput) => void
   ): void;
 
@@ -3732,7 +3740,7 @@ export interface SageMaker {
    */
   createPresignedDomainUrl(
     args: CreatePresignedDomainUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreatePresignedDomainUrlCommandOutput>;
   createPresignedDomainUrl(
     args: CreatePresignedDomainUrlCommandInput,
@@ -3740,7 +3748,7 @@ export interface SageMaker {
   ): void;
   createPresignedDomainUrl(
     args: CreatePresignedDomainUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreatePresignedDomainUrlCommandOutput) => void
   ): void;
 
@@ -3749,7 +3757,7 @@ export interface SageMaker {
    */
   createPresignedMlflowAppUrl(
     args: CreatePresignedMlflowAppUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreatePresignedMlflowAppUrlCommandOutput>;
   createPresignedMlflowAppUrl(
     args: CreatePresignedMlflowAppUrlCommandInput,
@@ -3757,7 +3765,7 @@ export interface SageMaker {
   ): void;
   createPresignedMlflowAppUrl(
     args: CreatePresignedMlflowAppUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreatePresignedMlflowAppUrlCommandOutput) => void
   ): void;
 
@@ -3766,7 +3774,7 @@ export interface SageMaker {
    */
   createPresignedMlflowTrackingServerUrl(
     args: CreatePresignedMlflowTrackingServerUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreatePresignedMlflowTrackingServerUrlCommandOutput>;
   createPresignedMlflowTrackingServerUrl(
     args: CreatePresignedMlflowTrackingServerUrlCommandInput,
@@ -3774,7 +3782,7 @@ export interface SageMaker {
   ): void;
   createPresignedMlflowTrackingServerUrl(
     args: CreatePresignedMlflowTrackingServerUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreatePresignedMlflowTrackingServerUrlCommandOutput) => void
   ): void;
 
@@ -3783,7 +3791,7 @@ export interface SageMaker {
    */
   createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreatePresignedNotebookInstanceUrlCommandOutput>;
   createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
@@ -3791,7 +3799,7 @@ export interface SageMaker {
   ): void;
   createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreatePresignedNotebookInstanceUrlCommandOutput) => void
   ): void;
 
@@ -3800,7 +3808,7 @@ export interface SageMaker {
    */
   createProcessingJob(
     args: CreateProcessingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateProcessingJobCommandOutput>;
   createProcessingJob(
     args: CreateProcessingJobCommandInput,
@@ -3808,7 +3816,7 @@ export interface SageMaker {
   ): void;
   createProcessingJob(
     args: CreateProcessingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateProcessingJobCommandOutput) => void
   ): void;
 
@@ -3817,7 +3825,7 @@ export interface SageMaker {
    */
   createProject(
     args: CreateProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateProjectCommandOutput>;
   createProject(
     args: CreateProjectCommandInput,
@@ -3825,7 +3833,7 @@ export interface SageMaker {
   ): void;
   createProject(
     args: CreateProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateProjectCommandOutput) => void
   ): void;
 
@@ -3834,7 +3842,7 @@ export interface SageMaker {
    */
   createSpace(
     args: CreateSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateSpaceCommandOutput>;
   createSpace(
     args: CreateSpaceCommandInput,
@@ -3842,7 +3850,7 @@ export interface SageMaker {
   ): void;
   createSpace(
     args: CreateSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateSpaceCommandOutput) => void
   ): void;
 
@@ -3851,7 +3859,7 @@ export interface SageMaker {
    */
   createStudioLifecycleConfig(
     args: CreateStudioLifecycleConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateStudioLifecycleConfigCommandOutput>;
   createStudioLifecycleConfig(
     args: CreateStudioLifecycleConfigCommandInput,
@@ -3859,7 +3867,7 @@ export interface SageMaker {
   ): void;
   createStudioLifecycleConfig(
     args: CreateStudioLifecycleConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateStudioLifecycleConfigCommandOutput) => void
   ): void;
 
@@ -3868,7 +3876,7 @@ export interface SageMaker {
    */
   createTrainingJob(
     args: CreateTrainingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateTrainingJobCommandOutput>;
   createTrainingJob(
     args: CreateTrainingJobCommandInput,
@@ -3876,7 +3884,7 @@ export interface SageMaker {
   ): void;
   createTrainingJob(
     args: CreateTrainingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateTrainingJobCommandOutput) => void
   ): void;
 
@@ -3885,7 +3893,7 @@ export interface SageMaker {
    */
   createTrainingPlan(
     args: CreateTrainingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateTrainingPlanCommandOutput>;
   createTrainingPlan(
     args: CreateTrainingPlanCommandInput,
@@ -3893,7 +3901,7 @@ export interface SageMaker {
   ): void;
   createTrainingPlan(
     args: CreateTrainingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateTrainingPlanCommandOutput) => void
   ): void;
 
@@ -3902,7 +3910,7 @@ export interface SageMaker {
    */
   createTransformJob(
     args: CreateTransformJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateTransformJobCommandOutput>;
   createTransformJob(
     args: CreateTransformJobCommandInput,
@@ -3910,7 +3918,7 @@ export interface SageMaker {
   ): void;
   createTransformJob(
     args: CreateTransformJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateTransformJobCommandOutput) => void
   ): void;
 
@@ -3919,7 +3927,7 @@ export interface SageMaker {
    */
   createTrial(
     args: CreateTrialCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateTrialCommandOutput>;
   createTrial(
     args: CreateTrialCommandInput,
@@ -3927,7 +3935,7 @@ export interface SageMaker {
   ): void;
   createTrial(
     args: CreateTrialCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateTrialCommandOutput) => void
   ): void;
 
@@ -3936,7 +3944,7 @@ export interface SageMaker {
    */
   createTrialComponent(
     args: CreateTrialComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateTrialComponentCommandOutput>;
   createTrialComponent(
     args: CreateTrialComponentCommandInput,
@@ -3944,7 +3952,7 @@ export interface SageMaker {
   ): void;
   createTrialComponent(
     args: CreateTrialComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateTrialComponentCommandOutput) => void
   ): void;
 
@@ -3953,7 +3961,7 @@ export interface SageMaker {
    */
   createUserProfile(
     args: CreateUserProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateUserProfileCommandOutput>;
   createUserProfile(
     args: CreateUserProfileCommandInput,
@@ -3961,7 +3969,7 @@ export interface SageMaker {
   ): void;
   createUserProfile(
     args: CreateUserProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateUserProfileCommandOutput) => void
   ): void;
 
@@ -3970,7 +3978,7 @@ export interface SageMaker {
    */
   createWorkforce(
     args: CreateWorkforceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateWorkforceCommandOutput>;
   createWorkforce(
     args: CreateWorkforceCommandInput,
@@ -3978,7 +3986,7 @@ export interface SageMaker {
   ): void;
   createWorkforce(
     args: CreateWorkforceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateWorkforceCommandOutput) => void
   ): void;
 
@@ -3987,7 +3995,7 @@ export interface SageMaker {
    */
   createWorkteam(
     args: CreateWorkteamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<CreateWorkteamCommandOutput>;
   createWorkteam(
     args: CreateWorkteamCommandInput,
@@ -3995,7 +4003,7 @@ export interface SageMaker {
   ): void;
   createWorkteam(
     args: CreateWorkteamCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateWorkteamCommandOutput) => void
   ): void;
 
@@ -4004,7 +4012,7 @@ export interface SageMaker {
    */
   deleteAction(
     args: DeleteActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteActionCommandOutput>;
   deleteAction(
     args: DeleteActionCommandInput,
@@ -4012,7 +4020,7 @@ export interface SageMaker {
   ): void;
   deleteAction(
     args: DeleteActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteActionCommandOutput) => void
   ): void;
 
@@ -4021,7 +4029,7 @@ export interface SageMaker {
    */
   deleteAIBenchmarkJob(
     args: DeleteAIBenchmarkJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteAIBenchmarkJobCommandOutput>;
   deleteAIBenchmarkJob(
     args: DeleteAIBenchmarkJobCommandInput,
@@ -4029,7 +4037,7 @@ export interface SageMaker {
   ): void;
   deleteAIBenchmarkJob(
     args: DeleteAIBenchmarkJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteAIBenchmarkJobCommandOutput) => void
   ): void;
 
@@ -4038,7 +4046,7 @@ export interface SageMaker {
    */
   deleteAIRecommendationJob(
     args: DeleteAIRecommendationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteAIRecommendationJobCommandOutput>;
   deleteAIRecommendationJob(
     args: DeleteAIRecommendationJobCommandInput,
@@ -4046,7 +4054,7 @@ export interface SageMaker {
   ): void;
   deleteAIRecommendationJob(
     args: DeleteAIRecommendationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteAIRecommendationJobCommandOutput) => void
   ): void;
 
@@ -4055,7 +4063,7 @@ export interface SageMaker {
    */
   deleteAIWorkloadConfig(
     args: DeleteAIWorkloadConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteAIWorkloadConfigCommandOutput>;
   deleteAIWorkloadConfig(
     args: DeleteAIWorkloadConfigCommandInput,
@@ -4063,7 +4071,7 @@ export interface SageMaker {
   ): void;
   deleteAIWorkloadConfig(
     args: DeleteAIWorkloadConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteAIWorkloadConfigCommandOutput) => void
   ): void;
 
@@ -4072,7 +4080,7 @@ export interface SageMaker {
    */
   deleteAlgorithm(
     args: DeleteAlgorithmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteAlgorithmCommandOutput>;
   deleteAlgorithm(
     args: DeleteAlgorithmCommandInput,
@@ -4080,7 +4088,7 @@ export interface SageMaker {
   ): void;
   deleteAlgorithm(
     args: DeleteAlgorithmCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteAlgorithmCommandOutput) => void
   ): void;
 
@@ -4089,7 +4097,7 @@ export interface SageMaker {
    */
   deleteApp(
     args: DeleteAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteAppCommandOutput>;
   deleteApp(
     args: DeleteAppCommandInput,
@@ -4097,7 +4105,7 @@ export interface SageMaker {
   ): void;
   deleteApp(
     args: DeleteAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteAppCommandOutput) => void
   ): void;
 
@@ -4106,7 +4114,7 @@ export interface SageMaker {
    */
   deleteAppImageConfig(
     args: DeleteAppImageConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteAppImageConfigCommandOutput>;
   deleteAppImageConfig(
     args: DeleteAppImageConfigCommandInput,
@@ -4114,7 +4122,7 @@ export interface SageMaker {
   ): void;
   deleteAppImageConfig(
     args: DeleteAppImageConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteAppImageConfigCommandOutput) => void
   ): void;
 
@@ -4124,7 +4132,7 @@ export interface SageMaker {
   deleteArtifact(): Promise<DeleteArtifactCommandOutput>;
   deleteArtifact(
     args: DeleteArtifactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteArtifactCommandOutput>;
   deleteArtifact(
     args: DeleteArtifactCommandInput,
@@ -4132,7 +4140,7 @@ export interface SageMaker {
   ): void;
   deleteArtifact(
     args: DeleteArtifactCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteArtifactCommandOutput) => void
   ): void;
 
@@ -4141,7 +4149,7 @@ export interface SageMaker {
    */
   deleteAssociation(
     args: DeleteAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteAssociationCommandOutput>;
   deleteAssociation(
     args: DeleteAssociationCommandInput,
@@ -4149,7 +4157,7 @@ export interface SageMaker {
   ): void;
   deleteAssociation(
     args: DeleteAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteAssociationCommandOutput) => void
   ): void;
 
@@ -4158,7 +4166,7 @@ export interface SageMaker {
    */
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteClusterCommandOutput>;
   deleteCluster(
     args: DeleteClusterCommandInput,
@@ -4166,7 +4174,7 @@ export interface SageMaker {
   ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
 
@@ -4175,7 +4183,7 @@ export interface SageMaker {
    */
   deleteClusterSchedulerConfig(
     args: DeleteClusterSchedulerConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteClusterSchedulerConfigCommandOutput>;
   deleteClusterSchedulerConfig(
     args: DeleteClusterSchedulerConfigCommandInput,
@@ -4183,7 +4191,7 @@ export interface SageMaker {
   ): void;
   deleteClusterSchedulerConfig(
     args: DeleteClusterSchedulerConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteClusterSchedulerConfigCommandOutput) => void
   ): void;
 
@@ -4192,7 +4200,7 @@ export interface SageMaker {
    */
   deleteCodeRepository(
     args: DeleteCodeRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteCodeRepositoryCommandOutput>;
   deleteCodeRepository(
     args: DeleteCodeRepositoryCommandInput,
@@ -4200,7 +4208,7 @@ export interface SageMaker {
   ): void;
   deleteCodeRepository(
     args: DeleteCodeRepositoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteCodeRepositoryCommandOutput) => void
   ): void;
 
@@ -4209,7 +4217,7 @@ export interface SageMaker {
    */
   deleteCompilationJob(
     args: DeleteCompilationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteCompilationJobCommandOutput>;
   deleteCompilationJob(
     args: DeleteCompilationJobCommandInput,
@@ -4217,7 +4225,7 @@ export interface SageMaker {
   ): void;
   deleteCompilationJob(
     args: DeleteCompilationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteCompilationJobCommandOutput) => void
   ): void;
 
@@ -4226,7 +4234,7 @@ export interface SageMaker {
    */
   deleteComputeQuota(
     args: DeleteComputeQuotaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteComputeQuotaCommandOutput>;
   deleteComputeQuota(
     args: DeleteComputeQuotaCommandInput,
@@ -4234,7 +4242,7 @@ export interface SageMaker {
   ): void;
   deleteComputeQuota(
     args: DeleteComputeQuotaCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteComputeQuotaCommandOutput) => void
   ): void;
 
@@ -4243,7 +4251,7 @@ export interface SageMaker {
    */
   deleteContext(
     args: DeleteContextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteContextCommandOutput>;
   deleteContext(
     args: DeleteContextCommandInput,
@@ -4251,7 +4259,7 @@ export interface SageMaker {
   ): void;
   deleteContext(
     args: DeleteContextCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteContextCommandOutput) => void
   ): void;
 
@@ -4260,7 +4268,7 @@ export interface SageMaker {
    */
   deleteDataQualityJobDefinition(
     args: DeleteDataQualityJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteDataQualityJobDefinitionCommandOutput>;
   deleteDataQualityJobDefinition(
     args: DeleteDataQualityJobDefinitionCommandInput,
@@ -4268,7 +4276,7 @@ export interface SageMaker {
   ): void;
   deleteDataQualityJobDefinition(
     args: DeleteDataQualityJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteDataQualityJobDefinitionCommandOutput) => void
   ): void;
 
@@ -4277,7 +4285,7 @@ export interface SageMaker {
    */
   deleteDeviceFleet(
     args: DeleteDeviceFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteDeviceFleetCommandOutput>;
   deleteDeviceFleet(
     args: DeleteDeviceFleetCommandInput,
@@ -4285,7 +4293,7 @@ export interface SageMaker {
   ): void;
   deleteDeviceFleet(
     args: DeleteDeviceFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteDeviceFleetCommandOutput) => void
   ): void;
 
@@ -4294,7 +4302,7 @@ export interface SageMaker {
    */
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteDomainCommandOutput>;
   deleteDomain(
     args: DeleteDomainCommandInput,
@@ -4302,7 +4310,7 @@ export interface SageMaker {
   ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
   ): void;
 
@@ -4311,7 +4319,7 @@ export interface SageMaker {
    */
   deleteEdgeDeploymentPlan(
     args: DeleteEdgeDeploymentPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteEdgeDeploymentPlanCommandOutput>;
   deleteEdgeDeploymentPlan(
     args: DeleteEdgeDeploymentPlanCommandInput,
@@ -4319,7 +4327,7 @@ export interface SageMaker {
   ): void;
   deleteEdgeDeploymentPlan(
     args: DeleteEdgeDeploymentPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteEdgeDeploymentPlanCommandOutput) => void
   ): void;
 
@@ -4328,7 +4336,7 @@ export interface SageMaker {
    */
   deleteEdgeDeploymentStage(
     args: DeleteEdgeDeploymentStageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteEdgeDeploymentStageCommandOutput>;
   deleteEdgeDeploymentStage(
     args: DeleteEdgeDeploymentStageCommandInput,
@@ -4336,7 +4344,7 @@ export interface SageMaker {
   ): void;
   deleteEdgeDeploymentStage(
     args: DeleteEdgeDeploymentStageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteEdgeDeploymentStageCommandOutput) => void
   ): void;
 
@@ -4345,7 +4353,7 @@ export interface SageMaker {
    */
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteEndpointCommandOutput>;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -4353,7 +4361,7 @@ export interface SageMaker {
   ): void;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): void;
 
@@ -4362,7 +4370,7 @@ export interface SageMaker {
    */
   deleteEndpointConfig(
     args: DeleteEndpointConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteEndpointConfigCommandOutput>;
   deleteEndpointConfig(
     args: DeleteEndpointConfigCommandInput,
@@ -4370,7 +4378,7 @@ export interface SageMaker {
   ): void;
   deleteEndpointConfig(
     args: DeleteEndpointConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteEndpointConfigCommandOutput) => void
   ): void;
 
@@ -4379,7 +4387,7 @@ export interface SageMaker {
    */
   deleteExperiment(
     args: DeleteExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteExperimentCommandOutput>;
   deleteExperiment(
     args: DeleteExperimentCommandInput,
@@ -4387,7 +4395,7 @@ export interface SageMaker {
   ): void;
   deleteExperiment(
     args: DeleteExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteExperimentCommandOutput) => void
   ): void;
 
@@ -4396,7 +4404,7 @@ export interface SageMaker {
    */
   deleteFeatureGroup(
     args: DeleteFeatureGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteFeatureGroupCommandOutput>;
   deleteFeatureGroup(
     args: DeleteFeatureGroupCommandInput,
@@ -4404,7 +4412,7 @@ export interface SageMaker {
   ): void;
   deleteFeatureGroup(
     args: DeleteFeatureGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteFeatureGroupCommandOutput) => void
   ): void;
 
@@ -4413,7 +4421,7 @@ export interface SageMaker {
    */
   deleteFlowDefinition(
     args: DeleteFlowDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteFlowDefinitionCommandOutput>;
   deleteFlowDefinition(
     args: DeleteFlowDefinitionCommandInput,
@@ -4421,7 +4429,7 @@ export interface SageMaker {
   ): void;
   deleteFlowDefinition(
     args: DeleteFlowDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteFlowDefinitionCommandOutput) => void
   ): void;
 
@@ -4430,7 +4438,7 @@ export interface SageMaker {
    */
   deleteHub(
     args: DeleteHubCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteHubCommandOutput>;
   deleteHub(
     args: DeleteHubCommandInput,
@@ -4438,7 +4446,7 @@ export interface SageMaker {
   ): void;
   deleteHub(
     args: DeleteHubCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteHubCommandOutput) => void
   ): void;
 
@@ -4447,7 +4455,7 @@ export interface SageMaker {
    */
   deleteHubContent(
     args: DeleteHubContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteHubContentCommandOutput>;
   deleteHubContent(
     args: DeleteHubContentCommandInput,
@@ -4455,7 +4463,7 @@ export interface SageMaker {
   ): void;
   deleteHubContent(
     args: DeleteHubContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteHubContentCommandOutput) => void
   ): void;
 
@@ -4464,7 +4472,7 @@ export interface SageMaker {
    */
   deleteHubContentReference(
     args: DeleteHubContentReferenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteHubContentReferenceCommandOutput>;
   deleteHubContentReference(
     args: DeleteHubContentReferenceCommandInput,
@@ -4472,7 +4480,7 @@ export interface SageMaker {
   ): void;
   deleteHubContentReference(
     args: DeleteHubContentReferenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteHubContentReferenceCommandOutput) => void
   ): void;
 
@@ -4481,7 +4489,7 @@ export interface SageMaker {
    */
   deleteHumanTaskUi(
     args: DeleteHumanTaskUiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteHumanTaskUiCommandOutput>;
   deleteHumanTaskUi(
     args: DeleteHumanTaskUiCommandInput,
@@ -4489,7 +4497,7 @@ export interface SageMaker {
   ): void;
   deleteHumanTaskUi(
     args: DeleteHumanTaskUiCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteHumanTaskUiCommandOutput) => void
   ): void;
 
@@ -4498,7 +4506,7 @@ export interface SageMaker {
    */
   deleteHyperParameterTuningJob(
     args: DeleteHyperParameterTuningJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteHyperParameterTuningJobCommandOutput>;
   deleteHyperParameterTuningJob(
     args: DeleteHyperParameterTuningJobCommandInput,
@@ -4506,7 +4514,7 @@ export interface SageMaker {
   ): void;
   deleteHyperParameterTuningJob(
     args: DeleteHyperParameterTuningJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteHyperParameterTuningJobCommandOutput) => void
   ): void;
 
@@ -4515,7 +4523,7 @@ export interface SageMaker {
    */
   deleteImage(
     args: DeleteImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteImageCommandOutput>;
   deleteImage(
     args: DeleteImageCommandInput,
@@ -4523,7 +4531,7 @@ export interface SageMaker {
   ): void;
   deleteImage(
     args: DeleteImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteImageCommandOutput) => void
   ): void;
 
@@ -4532,7 +4540,7 @@ export interface SageMaker {
    */
   deleteImageVersion(
     args: DeleteImageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteImageVersionCommandOutput>;
   deleteImageVersion(
     args: DeleteImageVersionCommandInput,
@@ -4540,7 +4548,7 @@ export interface SageMaker {
   ): void;
   deleteImageVersion(
     args: DeleteImageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteImageVersionCommandOutput) => void
   ): void;
 
@@ -4549,7 +4557,7 @@ export interface SageMaker {
    */
   deleteInferenceComponent(
     args: DeleteInferenceComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteInferenceComponentCommandOutput>;
   deleteInferenceComponent(
     args: DeleteInferenceComponentCommandInput,
@@ -4557,7 +4565,7 @@ export interface SageMaker {
   ): void;
   deleteInferenceComponent(
     args: DeleteInferenceComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteInferenceComponentCommandOutput) => void
   ): void;
 
@@ -4566,7 +4574,7 @@ export interface SageMaker {
    */
   deleteInferenceExperiment(
     args: DeleteInferenceExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteInferenceExperimentCommandOutput>;
   deleteInferenceExperiment(
     args: DeleteInferenceExperimentCommandInput,
@@ -4574,7 +4582,7 @@ export interface SageMaker {
   ): void;
   deleteInferenceExperiment(
     args: DeleteInferenceExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteInferenceExperimentCommandOutput) => void
   ): void;
 
@@ -4583,7 +4591,7 @@ export interface SageMaker {
    */
   deleteJob(
     args: DeleteJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteJobCommandOutput>;
   deleteJob(
     args: DeleteJobCommandInput,
@@ -4591,7 +4599,7 @@ export interface SageMaker {
   ): void;
   deleteJob(
     args: DeleteJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteJobCommandOutput) => void
   ): void;
 
@@ -4600,7 +4608,7 @@ export interface SageMaker {
    */
   deleteMlflowApp(
     args: DeleteMlflowAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteMlflowAppCommandOutput>;
   deleteMlflowApp(
     args: DeleteMlflowAppCommandInput,
@@ -4608,7 +4616,7 @@ export interface SageMaker {
   ): void;
   deleteMlflowApp(
     args: DeleteMlflowAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteMlflowAppCommandOutput) => void
   ): void;
 
@@ -4617,7 +4625,7 @@ export interface SageMaker {
    */
   deleteMlflowTrackingServer(
     args: DeleteMlflowTrackingServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteMlflowTrackingServerCommandOutput>;
   deleteMlflowTrackingServer(
     args: DeleteMlflowTrackingServerCommandInput,
@@ -4625,7 +4633,7 @@ export interface SageMaker {
   ): void;
   deleteMlflowTrackingServer(
     args: DeleteMlflowTrackingServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteMlflowTrackingServerCommandOutput) => void
   ): void;
 
@@ -4634,7 +4642,7 @@ export interface SageMaker {
    */
   deleteModel(
     args: DeleteModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteModelCommandOutput>;
   deleteModel(
     args: DeleteModelCommandInput,
@@ -4642,7 +4650,7 @@ export interface SageMaker {
   ): void;
   deleteModel(
     args: DeleteModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteModelCommandOutput) => void
   ): void;
 
@@ -4651,7 +4659,7 @@ export interface SageMaker {
    */
   deleteModelBiasJobDefinition(
     args: DeleteModelBiasJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteModelBiasJobDefinitionCommandOutput>;
   deleteModelBiasJobDefinition(
     args: DeleteModelBiasJobDefinitionCommandInput,
@@ -4659,7 +4667,7 @@ export interface SageMaker {
   ): void;
   deleteModelBiasJobDefinition(
     args: DeleteModelBiasJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteModelBiasJobDefinitionCommandOutput) => void
   ): void;
 
@@ -4668,7 +4676,7 @@ export interface SageMaker {
    */
   deleteModelCard(
     args: DeleteModelCardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteModelCardCommandOutput>;
   deleteModelCard(
     args: DeleteModelCardCommandInput,
@@ -4676,7 +4684,7 @@ export interface SageMaker {
   ): void;
   deleteModelCard(
     args: DeleteModelCardCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteModelCardCommandOutput) => void
   ): void;
 
@@ -4685,7 +4693,7 @@ export interface SageMaker {
    */
   deleteModelExplainabilityJobDefinition(
     args: DeleteModelExplainabilityJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteModelExplainabilityJobDefinitionCommandOutput>;
   deleteModelExplainabilityJobDefinition(
     args: DeleteModelExplainabilityJobDefinitionCommandInput,
@@ -4693,7 +4701,7 @@ export interface SageMaker {
   ): void;
   deleteModelExplainabilityJobDefinition(
     args: DeleteModelExplainabilityJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteModelExplainabilityJobDefinitionCommandOutput) => void
   ): void;
 
@@ -4702,7 +4710,7 @@ export interface SageMaker {
    */
   deleteModelPackage(
     args: DeleteModelPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteModelPackageCommandOutput>;
   deleteModelPackage(
     args: DeleteModelPackageCommandInput,
@@ -4710,7 +4718,7 @@ export interface SageMaker {
   ): void;
   deleteModelPackage(
     args: DeleteModelPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteModelPackageCommandOutput) => void
   ): void;
 
@@ -4719,7 +4727,7 @@ export interface SageMaker {
    */
   deleteModelPackageGroup(
     args: DeleteModelPackageGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteModelPackageGroupCommandOutput>;
   deleteModelPackageGroup(
     args: DeleteModelPackageGroupCommandInput,
@@ -4727,7 +4735,7 @@ export interface SageMaker {
   ): void;
   deleteModelPackageGroup(
     args: DeleteModelPackageGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteModelPackageGroupCommandOutput) => void
   ): void;
 
@@ -4736,7 +4744,7 @@ export interface SageMaker {
    */
   deleteModelPackageGroupPolicy(
     args: DeleteModelPackageGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteModelPackageGroupPolicyCommandOutput>;
   deleteModelPackageGroupPolicy(
     args: DeleteModelPackageGroupPolicyCommandInput,
@@ -4744,7 +4752,7 @@ export interface SageMaker {
   ): void;
   deleteModelPackageGroupPolicy(
     args: DeleteModelPackageGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteModelPackageGroupPolicyCommandOutput) => void
   ): void;
 
@@ -4753,7 +4761,7 @@ export interface SageMaker {
    */
   deleteModelQualityJobDefinition(
     args: DeleteModelQualityJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteModelQualityJobDefinitionCommandOutput>;
   deleteModelQualityJobDefinition(
     args: DeleteModelQualityJobDefinitionCommandInput,
@@ -4761,7 +4769,7 @@ export interface SageMaker {
   ): void;
   deleteModelQualityJobDefinition(
     args: DeleteModelQualityJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteModelQualityJobDefinitionCommandOutput) => void
   ): void;
 
@@ -4770,7 +4778,7 @@ export interface SageMaker {
    */
   deleteMonitoringSchedule(
     args: DeleteMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteMonitoringScheduleCommandOutput>;
   deleteMonitoringSchedule(
     args: DeleteMonitoringScheduleCommandInput,
@@ -4778,7 +4786,7 @@ export interface SageMaker {
   ): void;
   deleteMonitoringSchedule(
     args: DeleteMonitoringScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteMonitoringScheduleCommandOutput) => void
   ): void;
 
@@ -4787,7 +4795,7 @@ export interface SageMaker {
    */
   deleteNotebookInstance(
     args: DeleteNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteNotebookInstanceCommandOutput>;
   deleteNotebookInstance(
     args: DeleteNotebookInstanceCommandInput,
@@ -4795,7 +4803,7 @@ export interface SageMaker {
   ): void;
   deleteNotebookInstance(
     args: DeleteNotebookInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteNotebookInstanceCommandOutput) => void
   ): void;
 
@@ -4804,7 +4812,7 @@ export interface SageMaker {
    */
   deleteNotebookInstanceLifecycleConfig(
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput>;
   deleteNotebookInstanceLifecycleConfig(
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
@@ -4812,7 +4820,7 @@ export interface SageMaker {
   ): void;
   deleteNotebookInstanceLifecycleConfig(
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
 
@@ -4821,7 +4829,7 @@ export interface SageMaker {
    */
   deleteOptimizationJob(
     args: DeleteOptimizationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteOptimizationJobCommandOutput>;
   deleteOptimizationJob(
     args: DeleteOptimizationJobCommandInput,
@@ -4829,7 +4837,7 @@ export interface SageMaker {
   ): void;
   deleteOptimizationJob(
     args: DeleteOptimizationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteOptimizationJobCommandOutput) => void
   ): void;
 
@@ -4838,7 +4846,7 @@ export interface SageMaker {
    */
   deletePartnerApp(
     args: DeletePartnerAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeletePartnerAppCommandOutput>;
   deletePartnerApp(
     args: DeletePartnerAppCommandInput,
@@ -4846,7 +4854,7 @@ export interface SageMaker {
   ): void;
   deletePartnerApp(
     args: DeletePartnerAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeletePartnerAppCommandOutput) => void
   ): void;
 
@@ -4855,7 +4863,7 @@ export interface SageMaker {
    */
   deletePipeline(
     args: DeletePipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeletePipelineCommandOutput>;
   deletePipeline(
     args: DeletePipelineCommandInput,
@@ -4863,7 +4871,7 @@ export interface SageMaker {
   ): void;
   deletePipeline(
     args: DeletePipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeletePipelineCommandOutput) => void
   ): void;
 
@@ -4872,7 +4880,7 @@ export interface SageMaker {
    */
   deleteProcessingJob(
     args: DeleteProcessingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteProcessingJobCommandOutput>;
   deleteProcessingJob(
     args: DeleteProcessingJobCommandInput,
@@ -4880,7 +4888,7 @@ export interface SageMaker {
   ): void;
   deleteProcessingJob(
     args: DeleteProcessingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteProcessingJobCommandOutput) => void
   ): void;
 
@@ -4889,7 +4897,7 @@ export interface SageMaker {
    */
   deleteProject(
     args: DeleteProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteProjectCommandOutput>;
   deleteProject(
     args: DeleteProjectCommandInput,
@@ -4897,7 +4905,7 @@ export interface SageMaker {
   ): void;
   deleteProject(
     args: DeleteProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteProjectCommandOutput) => void
   ): void;
 
@@ -4906,7 +4914,7 @@ export interface SageMaker {
    */
   deleteSpace(
     args: DeleteSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteSpaceCommandOutput>;
   deleteSpace(
     args: DeleteSpaceCommandInput,
@@ -4914,7 +4922,7 @@ export interface SageMaker {
   ): void;
   deleteSpace(
     args: DeleteSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteSpaceCommandOutput) => void
   ): void;
 
@@ -4923,7 +4931,7 @@ export interface SageMaker {
    */
   deleteStudioLifecycleConfig(
     args: DeleteStudioLifecycleConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteStudioLifecycleConfigCommandOutput>;
   deleteStudioLifecycleConfig(
     args: DeleteStudioLifecycleConfigCommandInput,
@@ -4931,7 +4939,7 @@ export interface SageMaker {
   ): void;
   deleteStudioLifecycleConfig(
     args: DeleteStudioLifecycleConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteStudioLifecycleConfigCommandOutput) => void
   ): void;
 
@@ -4940,7 +4948,7 @@ export interface SageMaker {
    */
   deleteTags(
     args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteTagsCommandOutput>;
   deleteTags(
     args: DeleteTagsCommandInput,
@@ -4948,7 +4956,7 @@ export interface SageMaker {
   ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteTagsCommandOutput) => void
   ): void;
 
@@ -4957,7 +4965,7 @@ export interface SageMaker {
    */
   deleteTrainingJob(
     args: DeleteTrainingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteTrainingJobCommandOutput>;
   deleteTrainingJob(
     args: DeleteTrainingJobCommandInput,
@@ -4965,7 +4973,7 @@ export interface SageMaker {
   ): void;
   deleteTrainingJob(
     args: DeleteTrainingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteTrainingJobCommandOutput) => void
   ): void;
 
@@ -4974,7 +4982,7 @@ export interface SageMaker {
    */
   deleteTrial(
     args: DeleteTrialCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteTrialCommandOutput>;
   deleteTrial(
     args: DeleteTrialCommandInput,
@@ -4982,7 +4990,7 @@ export interface SageMaker {
   ): void;
   deleteTrial(
     args: DeleteTrialCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteTrialCommandOutput) => void
   ): void;
 
@@ -4991,7 +4999,7 @@ export interface SageMaker {
    */
   deleteTrialComponent(
     args: DeleteTrialComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteTrialComponentCommandOutput>;
   deleteTrialComponent(
     args: DeleteTrialComponentCommandInput,
@@ -4999,7 +5007,7 @@ export interface SageMaker {
   ): void;
   deleteTrialComponent(
     args: DeleteTrialComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteTrialComponentCommandOutput) => void
   ): void;
 
@@ -5008,7 +5016,7 @@ export interface SageMaker {
    */
   deleteUserProfile(
     args: DeleteUserProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteUserProfileCommandOutput>;
   deleteUserProfile(
     args: DeleteUserProfileCommandInput,
@@ -5016,7 +5024,7 @@ export interface SageMaker {
   ): void;
   deleteUserProfile(
     args: DeleteUserProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteUserProfileCommandOutput) => void
   ): void;
 
@@ -5025,7 +5033,7 @@ export interface SageMaker {
    */
   deleteWorkforce(
     args: DeleteWorkforceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteWorkforceCommandOutput>;
   deleteWorkforce(
     args: DeleteWorkforceCommandInput,
@@ -5033,7 +5041,7 @@ export interface SageMaker {
   ): void;
   deleteWorkforce(
     args: DeleteWorkforceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteWorkforceCommandOutput) => void
   ): void;
 
@@ -5042,7 +5050,7 @@ export interface SageMaker {
    */
   deleteWorkteam(
     args: DeleteWorkteamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeleteWorkteamCommandOutput>;
   deleteWorkteam(
     args: DeleteWorkteamCommandInput,
@@ -5050,7 +5058,7 @@ export interface SageMaker {
   ): void;
   deleteWorkteam(
     args: DeleteWorkteamCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeleteWorkteamCommandOutput) => void
   ): void;
 
@@ -5059,7 +5067,7 @@ export interface SageMaker {
    */
   deregisterDevices(
     args: DeregisterDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DeregisterDevicesCommandOutput>;
   deregisterDevices(
     args: DeregisterDevicesCommandInput,
@@ -5067,7 +5075,7 @@ export interface SageMaker {
   ): void;
   deregisterDevices(
     args: DeregisterDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DeregisterDevicesCommandOutput) => void
   ): void;
 
@@ -5076,7 +5084,7 @@ export interface SageMaker {
    */
   describeAction(
     args: DescribeActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeActionCommandOutput>;
   describeAction(
     args: DescribeActionCommandInput,
@@ -5084,7 +5092,7 @@ export interface SageMaker {
   ): void;
   describeAction(
     args: DescribeActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeActionCommandOutput) => void
   ): void;
 
@@ -5093,7 +5101,7 @@ export interface SageMaker {
    */
   describeAIBenchmarkJob(
     args: DescribeAIBenchmarkJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeAIBenchmarkJobCommandOutput>;
   describeAIBenchmarkJob(
     args: DescribeAIBenchmarkJobCommandInput,
@@ -5101,7 +5109,7 @@ export interface SageMaker {
   ): void;
   describeAIBenchmarkJob(
     args: DescribeAIBenchmarkJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeAIBenchmarkJobCommandOutput) => void
   ): void;
 
@@ -5110,7 +5118,7 @@ export interface SageMaker {
    */
   describeAIRecommendationJob(
     args: DescribeAIRecommendationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeAIRecommendationJobCommandOutput>;
   describeAIRecommendationJob(
     args: DescribeAIRecommendationJobCommandInput,
@@ -5118,7 +5126,7 @@ export interface SageMaker {
   ): void;
   describeAIRecommendationJob(
     args: DescribeAIRecommendationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeAIRecommendationJobCommandOutput) => void
   ): void;
 
@@ -5127,7 +5135,7 @@ export interface SageMaker {
    */
   describeAIWorkloadConfig(
     args: DescribeAIWorkloadConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeAIWorkloadConfigCommandOutput>;
   describeAIWorkloadConfig(
     args: DescribeAIWorkloadConfigCommandInput,
@@ -5135,7 +5143,7 @@ export interface SageMaker {
   ): void;
   describeAIWorkloadConfig(
     args: DescribeAIWorkloadConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeAIWorkloadConfigCommandOutput) => void
   ): void;
 
@@ -5144,7 +5152,7 @@ export interface SageMaker {
    */
   describeAlgorithm(
     args: DescribeAlgorithmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeAlgorithmCommandOutput>;
   describeAlgorithm(
     args: DescribeAlgorithmCommandInput,
@@ -5152,7 +5160,7 @@ export interface SageMaker {
   ): void;
   describeAlgorithm(
     args: DescribeAlgorithmCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeAlgorithmCommandOutput) => void
   ): void;
 
@@ -5161,7 +5169,7 @@ export interface SageMaker {
    */
   describeApp(
     args: DescribeAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeAppCommandOutput>;
   describeApp(
     args: DescribeAppCommandInput,
@@ -5169,7 +5177,7 @@ export interface SageMaker {
   ): void;
   describeApp(
     args: DescribeAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeAppCommandOutput) => void
   ): void;
 
@@ -5178,7 +5186,7 @@ export interface SageMaker {
    */
   describeAppImageConfig(
     args: DescribeAppImageConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeAppImageConfigCommandOutput>;
   describeAppImageConfig(
     args: DescribeAppImageConfigCommandInput,
@@ -5186,7 +5194,7 @@ export interface SageMaker {
   ): void;
   describeAppImageConfig(
     args: DescribeAppImageConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeAppImageConfigCommandOutput) => void
   ): void;
 
@@ -5195,7 +5203,7 @@ export interface SageMaker {
    */
   describeArtifact(
     args: DescribeArtifactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeArtifactCommandOutput>;
   describeArtifact(
     args: DescribeArtifactCommandInput,
@@ -5203,7 +5211,7 @@ export interface SageMaker {
   ): void;
   describeArtifact(
     args: DescribeArtifactCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeArtifactCommandOutput) => void
   ): void;
 
@@ -5212,7 +5220,7 @@ export interface SageMaker {
    */
   describeAutoMLJob(
     args: DescribeAutoMLJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeAutoMLJobCommandOutput>;
   describeAutoMLJob(
     args: DescribeAutoMLJobCommandInput,
@@ -5220,7 +5228,7 @@ export interface SageMaker {
   ): void;
   describeAutoMLJob(
     args: DescribeAutoMLJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeAutoMLJobCommandOutput) => void
   ): void;
 
@@ -5229,7 +5237,7 @@ export interface SageMaker {
    */
   describeAutoMLJobV2(
     args: DescribeAutoMLJobV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeAutoMLJobV2CommandOutput>;
   describeAutoMLJobV2(
     args: DescribeAutoMLJobV2CommandInput,
@@ -5237,7 +5245,7 @@ export interface SageMaker {
   ): void;
   describeAutoMLJobV2(
     args: DescribeAutoMLJobV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeAutoMLJobV2CommandOutput) => void
   ): void;
 
@@ -5246,7 +5254,7 @@ export interface SageMaker {
    */
   describeCluster(
     args: DescribeClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeClusterCommandOutput>;
   describeCluster(
     args: DescribeClusterCommandInput,
@@ -5254,7 +5262,7 @@ export interface SageMaker {
   ): void;
   describeCluster(
     args: DescribeClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeClusterCommandOutput) => void
   ): void;
 
@@ -5263,7 +5271,7 @@ export interface SageMaker {
    */
   describeClusterEvent(
     args: DescribeClusterEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeClusterEventCommandOutput>;
   describeClusterEvent(
     args: DescribeClusterEventCommandInput,
@@ -5271,7 +5279,7 @@ export interface SageMaker {
   ): void;
   describeClusterEvent(
     args: DescribeClusterEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeClusterEventCommandOutput) => void
   ): void;
 
@@ -5280,7 +5288,7 @@ export interface SageMaker {
    */
   describeClusterNode(
     args: DescribeClusterNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeClusterNodeCommandOutput>;
   describeClusterNode(
     args: DescribeClusterNodeCommandInput,
@@ -5288,7 +5296,7 @@ export interface SageMaker {
   ): void;
   describeClusterNode(
     args: DescribeClusterNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeClusterNodeCommandOutput) => void
   ): void;
 
@@ -5297,7 +5305,7 @@ export interface SageMaker {
    */
   describeClusterSchedulerConfig(
     args: DescribeClusterSchedulerConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeClusterSchedulerConfigCommandOutput>;
   describeClusterSchedulerConfig(
     args: DescribeClusterSchedulerConfigCommandInput,
@@ -5305,7 +5313,7 @@ export interface SageMaker {
   ): void;
   describeClusterSchedulerConfig(
     args: DescribeClusterSchedulerConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeClusterSchedulerConfigCommandOutput) => void
   ): void;
 
@@ -5314,7 +5322,7 @@ export interface SageMaker {
    */
   describeCodeRepository(
     args: DescribeCodeRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeCodeRepositoryCommandOutput>;
   describeCodeRepository(
     args: DescribeCodeRepositoryCommandInput,
@@ -5322,7 +5330,7 @@ export interface SageMaker {
   ): void;
   describeCodeRepository(
     args: DescribeCodeRepositoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeCodeRepositoryCommandOutput) => void
   ): void;
 
@@ -5331,7 +5339,7 @@ export interface SageMaker {
    */
   describeCompilationJob(
     args: DescribeCompilationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeCompilationJobCommandOutput>;
   describeCompilationJob(
     args: DescribeCompilationJobCommandInput,
@@ -5339,7 +5347,7 @@ export interface SageMaker {
   ): void;
   describeCompilationJob(
     args: DescribeCompilationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeCompilationJobCommandOutput) => void
   ): void;
 
@@ -5348,7 +5356,7 @@ export interface SageMaker {
    */
   describeComputeQuota(
     args: DescribeComputeQuotaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeComputeQuotaCommandOutput>;
   describeComputeQuota(
     args: DescribeComputeQuotaCommandInput,
@@ -5356,7 +5364,7 @@ export interface SageMaker {
   ): void;
   describeComputeQuota(
     args: DescribeComputeQuotaCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeComputeQuotaCommandOutput) => void
   ): void;
 
@@ -5365,7 +5373,7 @@ export interface SageMaker {
    */
   describeContext(
     args: DescribeContextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeContextCommandOutput>;
   describeContext(
     args: DescribeContextCommandInput,
@@ -5373,7 +5381,7 @@ export interface SageMaker {
   ): void;
   describeContext(
     args: DescribeContextCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeContextCommandOutput) => void
   ): void;
 
@@ -5382,7 +5390,7 @@ export interface SageMaker {
    */
   describeDataQualityJobDefinition(
     args: DescribeDataQualityJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeDataQualityJobDefinitionCommandOutput>;
   describeDataQualityJobDefinition(
     args: DescribeDataQualityJobDefinitionCommandInput,
@@ -5390,7 +5398,7 @@ export interface SageMaker {
   ): void;
   describeDataQualityJobDefinition(
     args: DescribeDataQualityJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeDataQualityJobDefinitionCommandOutput) => void
   ): void;
 
@@ -5399,7 +5407,7 @@ export interface SageMaker {
    */
   describeDevice(
     args: DescribeDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeDeviceCommandOutput>;
   describeDevice(
     args: DescribeDeviceCommandInput,
@@ -5407,7 +5415,7 @@ export interface SageMaker {
   ): void;
   describeDevice(
     args: DescribeDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeDeviceCommandOutput) => void
   ): void;
 
@@ -5416,7 +5424,7 @@ export interface SageMaker {
    */
   describeDeviceFleet(
     args: DescribeDeviceFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeDeviceFleetCommandOutput>;
   describeDeviceFleet(
     args: DescribeDeviceFleetCommandInput,
@@ -5424,7 +5432,7 @@ export interface SageMaker {
   ): void;
   describeDeviceFleet(
     args: DescribeDeviceFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeDeviceFleetCommandOutput) => void
   ): void;
 
@@ -5433,7 +5441,7 @@ export interface SageMaker {
    */
   describeDomain(
     args: DescribeDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeDomainCommandOutput>;
   describeDomain(
     args: DescribeDomainCommandInput,
@@ -5441,7 +5449,7 @@ export interface SageMaker {
   ): void;
   describeDomain(
     args: DescribeDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeDomainCommandOutput) => void
   ): void;
 
@@ -5450,7 +5458,7 @@ export interface SageMaker {
    */
   describeEdgeDeploymentPlan(
     args: DescribeEdgeDeploymentPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeEdgeDeploymentPlanCommandOutput>;
   describeEdgeDeploymentPlan(
     args: DescribeEdgeDeploymentPlanCommandInput,
@@ -5458,7 +5466,7 @@ export interface SageMaker {
   ): void;
   describeEdgeDeploymentPlan(
     args: DescribeEdgeDeploymentPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeEdgeDeploymentPlanCommandOutput) => void
   ): void;
 
@@ -5467,7 +5475,7 @@ export interface SageMaker {
    */
   describeEdgePackagingJob(
     args: DescribeEdgePackagingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeEdgePackagingJobCommandOutput>;
   describeEdgePackagingJob(
     args: DescribeEdgePackagingJobCommandInput,
@@ -5475,7 +5483,7 @@ export interface SageMaker {
   ): void;
   describeEdgePackagingJob(
     args: DescribeEdgePackagingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeEdgePackagingJobCommandOutput) => void
   ): void;
 
@@ -5484,7 +5492,7 @@ export interface SageMaker {
    */
   describeEndpoint(
     args: DescribeEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeEndpointCommandOutput>;
   describeEndpoint(
     args: DescribeEndpointCommandInput,
@@ -5492,7 +5500,7 @@ export interface SageMaker {
   ): void;
   describeEndpoint(
     args: DescribeEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeEndpointCommandOutput) => void
   ): void;
 
@@ -5501,7 +5509,7 @@ export interface SageMaker {
    */
   describeEndpointConfig(
     args: DescribeEndpointConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeEndpointConfigCommandOutput>;
   describeEndpointConfig(
     args: DescribeEndpointConfigCommandInput,
@@ -5509,7 +5517,7 @@ export interface SageMaker {
   ): void;
   describeEndpointConfig(
     args: DescribeEndpointConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeEndpointConfigCommandOutput) => void
   ): void;
 
@@ -5518,7 +5526,7 @@ export interface SageMaker {
    */
   describeExperiment(
     args: DescribeExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeExperimentCommandOutput>;
   describeExperiment(
     args: DescribeExperimentCommandInput,
@@ -5526,7 +5534,7 @@ export interface SageMaker {
   ): void;
   describeExperiment(
     args: DescribeExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeExperimentCommandOutput) => void
   ): void;
 
@@ -5535,7 +5543,7 @@ export interface SageMaker {
    */
   describeFeatureGroup(
     args: DescribeFeatureGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeFeatureGroupCommandOutput>;
   describeFeatureGroup(
     args: DescribeFeatureGroupCommandInput,
@@ -5543,7 +5551,7 @@ export interface SageMaker {
   ): void;
   describeFeatureGroup(
     args: DescribeFeatureGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeFeatureGroupCommandOutput) => void
   ): void;
 
@@ -5552,7 +5560,7 @@ export interface SageMaker {
    */
   describeFeatureMetadata(
     args: DescribeFeatureMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeFeatureMetadataCommandOutput>;
   describeFeatureMetadata(
     args: DescribeFeatureMetadataCommandInput,
@@ -5560,7 +5568,7 @@ export interface SageMaker {
   ): void;
   describeFeatureMetadata(
     args: DescribeFeatureMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeFeatureMetadataCommandOutput) => void
   ): void;
 
@@ -5569,7 +5577,7 @@ export interface SageMaker {
    */
   describeFlowDefinition(
     args: DescribeFlowDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeFlowDefinitionCommandOutput>;
   describeFlowDefinition(
     args: DescribeFlowDefinitionCommandInput,
@@ -5577,7 +5585,7 @@ export interface SageMaker {
   ): void;
   describeFlowDefinition(
     args: DescribeFlowDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeFlowDefinitionCommandOutput) => void
   ): void;
 
@@ -5586,7 +5594,7 @@ export interface SageMaker {
    */
   describeHub(
     args: DescribeHubCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeHubCommandOutput>;
   describeHub(
     args: DescribeHubCommandInput,
@@ -5594,7 +5602,7 @@ export interface SageMaker {
   ): void;
   describeHub(
     args: DescribeHubCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeHubCommandOutput) => void
   ): void;
 
@@ -5603,7 +5611,7 @@ export interface SageMaker {
    */
   describeHubContent(
     args: DescribeHubContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeHubContentCommandOutput>;
   describeHubContent(
     args: DescribeHubContentCommandInput,
@@ -5611,7 +5619,7 @@ export interface SageMaker {
   ): void;
   describeHubContent(
     args: DescribeHubContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeHubContentCommandOutput) => void
   ): void;
 
@@ -5620,7 +5628,7 @@ export interface SageMaker {
    */
   describeHumanTaskUi(
     args: DescribeHumanTaskUiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeHumanTaskUiCommandOutput>;
   describeHumanTaskUi(
     args: DescribeHumanTaskUiCommandInput,
@@ -5628,7 +5636,7 @@ export interface SageMaker {
   ): void;
   describeHumanTaskUi(
     args: DescribeHumanTaskUiCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeHumanTaskUiCommandOutput) => void
   ): void;
 
@@ -5637,7 +5645,7 @@ export interface SageMaker {
    */
   describeHyperParameterTuningJob(
     args: DescribeHyperParameterTuningJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeHyperParameterTuningJobCommandOutput>;
   describeHyperParameterTuningJob(
     args: DescribeHyperParameterTuningJobCommandInput,
@@ -5645,7 +5653,7 @@ export interface SageMaker {
   ): void;
   describeHyperParameterTuningJob(
     args: DescribeHyperParameterTuningJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeHyperParameterTuningJobCommandOutput) => void
   ): void;
 
@@ -5654,7 +5662,7 @@ export interface SageMaker {
    */
   describeImage(
     args: DescribeImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeImageCommandOutput>;
   describeImage(
     args: DescribeImageCommandInput,
@@ -5662,7 +5670,7 @@ export interface SageMaker {
   ): void;
   describeImage(
     args: DescribeImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeImageCommandOutput) => void
   ): void;
 
@@ -5671,7 +5679,7 @@ export interface SageMaker {
    */
   describeImageVersion(
     args: DescribeImageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeImageVersionCommandOutput>;
   describeImageVersion(
     args: DescribeImageVersionCommandInput,
@@ -5679,7 +5687,7 @@ export interface SageMaker {
   ): void;
   describeImageVersion(
     args: DescribeImageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeImageVersionCommandOutput) => void
   ): void;
 
@@ -5688,7 +5696,7 @@ export interface SageMaker {
    */
   describeInferenceComponent(
     args: DescribeInferenceComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeInferenceComponentCommandOutput>;
   describeInferenceComponent(
     args: DescribeInferenceComponentCommandInput,
@@ -5696,7 +5704,7 @@ export interface SageMaker {
   ): void;
   describeInferenceComponent(
     args: DescribeInferenceComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeInferenceComponentCommandOutput) => void
   ): void;
 
@@ -5705,7 +5713,7 @@ export interface SageMaker {
    */
   describeInferenceExperiment(
     args: DescribeInferenceExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeInferenceExperimentCommandOutput>;
   describeInferenceExperiment(
     args: DescribeInferenceExperimentCommandInput,
@@ -5713,7 +5721,7 @@ export interface SageMaker {
   ): void;
   describeInferenceExperiment(
     args: DescribeInferenceExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeInferenceExperimentCommandOutput) => void
   ): void;
 
@@ -5722,7 +5730,7 @@ export interface SageMaker {
    */
   describeInferenceRecommendationsJob(
     args: DescribeInferenceRecommendationsJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeInferenceRecommendationsJobCommandOutput>;
   describeInferenceRecommendationsJob(
     args: DescribeInferenceRecommendationsJobCommandInput,
@@ -5730,7 +5738,7 @@ export interface SageMaker {
   ): void;
   describeInferenceRecommendationsJob(
     args: DescribeInferenceRecommendationsJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeInferenceRecommendationsJobCommandOutput) => void
   ): void;
 
@@ -5739,7 +5747,7 @@ export interface SageMaker {
    */
   describeJob(
     args: DescribeJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeJobCommandOutput>;
   describeJob(
     args: DescribeJobCommandInput,
@@ -5747,7 +5755,7 @@ export interface SageMaker {
   ): void;
   describeJob(
     args: DescribeJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeJobCommandOutput) => void
   ): void;
 
@@ -5756,7 +5764,7 @@ export interface SageMaker {
    */
   describeJobSchemaVersion(
     args: DescribeJobSchemaVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeJobSchemaVersionCommandOutput>;
   describeJobSchemaVersion(
     args: DescribeJobSchemaVersionCommandInput,
@@ -5764,7 +5772,7 @@ export interface SageMaker {
   ): void;
   describeJobSchemaVersion(
     args: DescribeJobSchemaVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeJobSchemaVersionCommandOutput) => void
   ): void;
 
@@ -5773,7 +5781,7 @@ export interface SageMaker {
    */
   describeLabelingJob(
     args: DescribeLabelingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeLabelingJobCommandOutput>;
   describeLabelingJob(
     args: DescribeLabelingJobCommandInput,
@@ -5781,7 +5789,7 @@ export interface SageMaker {
   ): void;
   describeLabelingJob(
     args: DescribeLabelingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeLabelingJobCommandOutput) => void
   ): void;
 
@@ -5790,7 +5798,7 @@ export interface SageMaker {
    */
   describeLineageGroup(
     args: DescribeLineageGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeLineageGroupCommandOutput>;
   describeLineageGroup(
     args: DescribeLineageGroupCommandInput,
@@ -5798,7 +5806,7 @@ export interface SageMaker {
   ): void;
   describeLineageGroup(
     args: DescribeLineageGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeLineageGroupCommandOutput) => void
   ): void;
 
@@ -5807,7 +5815,7 @@ export interface SageMaker {
    */
   describeMlflowApp(
     args: DescribeMlflowAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeMlflowAppCommandOutput>;
   describeMlflowApp(
     args: DescribeMlflowAppCommandInput,
@@ -5815,7 +5823,7 @@ export interface SageMaker {
   ): void;
   describeMlflowApp(
     args: DescribeMlflowAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeMlflowAppCommandOutput) => void
   ): void;
 
@@ -5824,7 +5832,7 @@ export interface SageMaker {
    */
   describeMlflowTrackingServer(
     args: DescribeMlflowTrackingServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeMlflowTrackingServerCommandOutput>;
   describeMlflowTrackingServer(
     args: DescribeMlflowTrackingServerCommandInput,
@@ -5832,7 +5840,7 @@ export interface SageMaker {
   ): void;
   describeMlflowTrackingServer(
     args: DescribeMlflowTrackingServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeMlflowTrackingServerCommandOutput) => void
   ): void;
 
@@ -5841,7 +5849,7 @@ export interface SageMaker {
    */
   describeModel(
     args: DescribeModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeModelCommandOutput>;
   describeModel(
     args: DescribeModelCommandInput,
@@ -5849,7 +5857,7 @@ export interface SageMaker {
   ): void;
   describeModel(
     args: DescribeModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeModelCommandOutput) => void
   ): void;
 
@@ -5858,7 +5866,7 @@ export interface SageMaker {
    */
   describeModelBiasJobDefinition(
     args: DescribeModelBiasJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeModelBiasJobDefinitionCommandOutput>;
   describeModelBiasJobDefinition(
     args: DescribeModelBiasJobDefinitionCommandInput,
@@ -5866,7 +5874,7 @@ export interface SageMaker {
   ): void;
   describeModelBiasJobDefinition(
     args: DescribeModelBiasJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeModelBiasJobDefinitionCommandOutput) => void
   ): void;
 
@@ -5875,7 +5883,7 @@ export interface SageMaker {
    */
   describeModelCard(
     args: DescribeModelCardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeModelCardCommandOutput>;
   describeModelCard(
     args: DescribeModelCardCommandInput,
@@ -5883,7 +5891,7 @@ export interface SageMaker {
   ): void;
   describeModelCard(
     args: DescribeModelCardCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeModelCardCommandOutput) => void
   ): void;
 
@@ -5892,7 +5900,7 @@ export interface SageMaker {
    */
   describeModelCardExportJob(
     args: DescribeModelCardExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeModelCardExportJobCommandOutput>;
   describeModelCardExportJob(
     args: DescribeModelCardExportJobCommandInput,
@@ -5900,7 +5908,7 @@ export interface SageMaker {
   ): void;
   describeModelCardExportJob(
     args: DescribeModelCardExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeModelCardExportJobCommandOutput) => void
   ): void;
 
@@ -5909,7 +5917,7 @@ export interface SageMaker {
    */
   describeModelExplainabilityJobDefinition(
     args: DescribeModelExplainabilityJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeModelExplainabilityJobDefinitionCommandOutput>;
   describeModelExplainabilityJobDefinition(
     args: DescribeModelExplainabilityJobDefinitionCommandInput,
@@ -5917,7 +5925,7 @@ export interface SageMaker {
   ): void;
   describeModelExplainabilityJobDefinition(
     args: DescribeModelExplainabilityJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeModelExplainabilityJobDefinitionCommandOutput) => void
   ): void;
 
@@ -5926,7 +5934,7 @@ export interface SageMaker {
    */
   describeModelPackage(
     args: DescribeModelPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeModelPackageCommandOutput>;
   describeModelPackage(
     args: DescribeModelPackageCommandInput,
@@ -5934,7 +5942,7 @@ export interface SageMaker {
   ): void;
   describeModelPackage(
     args: DescribeModelPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeModelPackageCommandOutput) => void
   ): void;
 
@@ -5943,7 +5951,7 @@ export interface SageMaker {
    */
   describeModelPackageGroup(
     args: DescribeModelPackageGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeModelPackageGroupCommandOutput>;
   describeModelPackageGroup(
     args: DescribeModelPackageGroupCommandInput,
@@ -5951,7 +5959,7 @@ export interface SageMaker {
   ): void;
   describeModelPackageGroup(
     args: DescribeModelPackageGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeModelPackageGroupCommandOutput) => void
   ): void;
 
@@ -5960,7 +5968,7 @@ export interface SageMaker {
    */
   describeModelQualityJobDefinition(
     args: DescribeModelQualityJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeModelQualityJobDefinitionCommandOutput>;
   describeModelQualityJobDefinition(
     args: DescribeModelQualityJobDefinitionCommandInput,
@@ -5968,7 +5976,7 @@ export interface SageMaker {
   ): void;
   describeModelQualityJobDefinition(
     args: DescribeModelQualityJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeModelQualityJobDefinitionCommandOutput) => void
   ): void;
 
@@ -5977,7 +5985,7 @@ export interface SageMaker {
    */
   describeMonitoringSchedule(
     args: DescribeMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeMonitoringScheduleCommandOutput>;
   describeMonitoringSchedule(
     args: DescribeMonitoringScheduleCommandInput,
@@ -5985,7 +5993,7 @@ export interface SageMaker {
   ): void;
   describeMonitoringSchedule(
     args: DescribeMonitoringScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeMonitoringScheduleCommandOutput) => void
   ): void;
 
@@ -5994,7 +6002,7 @@ export interface SageMaker {
    */
   describeNotebookInstance(
     args: DescribeNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeNotebookInstanceCommandOutput>;
   describeNotebookInstance(
     args: DescribeNotebookInstanceCommandInput,
@@ -6002,7 +6010,7 @@ export interface SageMaker {
   ): void;
   describeNotebookInstance(
     args: DescribeNotebookInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeNotebookInstanceCommandOutput) => void
   ): void;
 
@@ -6011,7 +6019,7 @@ export interface SageMaker {
    */
   describeNotebookInstanceLifecycleConfig(
     args: DescribeNotebookInstanceLifecycleConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput>;
   describeNotebookInstanceLifecycleConfig(
     args: DescribeNotebookInstanceLifecycleConfigCommandInput,
@@ -6019,7 +6027,7 @@ export interface SageMaker {
   ): void;
   describeNotebookInstanceLifecycleConfig(
     args: DescribeNotebookInstanceLifecycleConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
 
@@ -6028,7 +6036,7 @@ export interface SageMaker {
    */
   describeOptimizationJob(
     args: DescribeOptimizationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeOptimizationJobCommandOutput>;
   describeOptimizationJob(
     args: DescribeOptimizationJobCommandInput,
@@ -6036,7 +6044,7 @@ export interface SageMaker {
   ): void;
   describeOptimizationJob(
     args: DescribeOptimizationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeOptimizationJobCommandOutput) => void
   ): void;
 
@@ -6045,7 +6053,7 @@ export interface SageMaker {
    */
   describePartnerApp(
     args: DescribePartnerAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribePartnerAppCommandOutput>;
   describePartnerApp(
     args: DescribePartnerAppCommandInput,
@@ -6053,7 +6061,7 @@ export interface SageMaker {
   ): void;
   describePartnerApp(
     args: DescribePartnerAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribePartnerAppCommandOutput) => void
   ): void;
 
@@ -6062,7 +6070,7 @@ export interface SageMaker {
    */
   describePipeline(
     args: DescribePipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribePipelineCommandOutput>;
   describePipeline(
     args: DescribePipelineCommandInput,
@@ -6070,7 +6078,7 @@ export interface SageMaker {
   ): void;
   describePipeline(
     args: DescribePipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribePipelineCommandOutput) => void
   ): void;
 
@@ -6079,7 +6087,7 @@ export interface SageMaker {
    */
   describePipelineDefinitionForExecution(
     args: DescribePipelineDefinitionForExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribePipelineDefinitionForExecutionCommandOutput>;
   describePipelineDefinitionForExecution(
     args: DescribePipelineDefinitionForExecutionCommandInput,
@@ -6087,7 +6095,7 @@ export interface SageMaker {
   ): void;
   describePipelineDefinitionForExecution(
     args: DescribePipelineDefinitionForExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribePipelineDefinitionForExecutionCommandOutput) => void
   ): void;
 
@@ -6096,7 +6104,7 @@ export interface SageMaker {
    */
   describePipelineExecution(
     args: DescribePipelineExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribePipelineExecutionCommandOutput>;
   describePipelineExecution(
     args: DescribePipelineExecutionCommandInput,
@@ -6104,7 +6112,7 @@ export interface SageMaker {
   ): void;
   describePipelineExecution(
     args: DescribePipelineExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribePipelineExecutionCommandOutput) => void
   ): void;
 
@@ -6113,7 +6121,7 @@ export interface SageMaker {
    */
   describeProcessingJob(
     args: DescribeProcessingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeProcessingJobCommandOutput>;
   describeProcessingJob(
     args: DescribeProcessingJobCommandInput,
@@ -6121,7 +6129,7 @@ export interface SageMaker {
   ): void;
   describeProcessingJob(
     args: DescribeProcessingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeProcessingJobCommandOutput) => void
   ): void;
 
@@ -6130,7 +6138,7 @@ export interface SageMaker {
    */
   describeProject(
     args: DescribeProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeProjectCommandOutput>;
   describeProject(
     args: DescribeProjectCommandInput,
@@ -6138,7 +6146,7 @@ export interface SageMaker {
   ): void;
   describeProject(
     args: DescribeProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeProjectCommandOutput) => void
   ): void;
 
@@ -6147,7 +6155,7 @@ export interface SageMaker {
    */
   describeReservedCapacity(
     args: DescribeReservedCapacityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeReservedCapacityCommandOutput>;
   describeReservedCapacity(
     args: DescribeReservedCapacityCommandInput,
@@ -6155,7 +6163,7 @@ export interface SageMaker {
   ): void;
   describeReservedCapacity(
     args: DescribeReservedCapacityCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeReservedCapacityCommandOutput) => void
   ): void;
 
@@ -6164,7 +6172,7 @@ export interface SageMaker {
    */
   describeSpace(
     args: DescribeSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeSpaceCommandOutput>;
   describeSpace(
     args: DescribeSpaceCommandInput,
@@ -6172,7 +6180,7 @@ export interface SageMaker {
   ): void;
   describeSpace(
     args: DescribeSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeSpaceCommandOutput) => void
   ): void;
 
@@ -6181,7 +6189,7 @@ export interface SageMaker {
    */
   describeStudioLifecycleConfig(
     args: DescribeStudioLifecycleConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeStudioLifecycleConfigCommandOutput>;
   describeStudioLifecycleConfig(
     args: DescribeStudioLifecycleConfigCommandInput,
@@ -6189,7 +6197,7 @@ export interface SageMaker {
   ): void;
   describeStudioLifecycleConfig(
     args: DescribeStudioLifecycleConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeStudioLifecycleConfigCommandOutput) => void
   ): void;
 
@@ -6198,7 +6206,7 @@ export interface SageMaker {
    */
   describeSubscribedWorkteam(
     args: DescribeSubscribedWorkteamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeSubscribedWorkteamCommandOutput>;
   describeSubscribedWorkteam(
     args: DescribeSubscribedWorkteamCommandInput,
@@ -6206,7 +6214,7 @@ export interface SageMaker {
   ): void;
   describeSubscribedWorkteam(
     args: DescribeSubscribedWorkteamCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeSubscribedWorkteamCommandOutput) => void
   ): void;
 
@@ -6215,7 +6223,7 @@ export interface SageMaker {
    */
   describeTrainingJob(
     args: DescribeTrainingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeTrainingJobCommandOutput>;
   describeTrainingJob(
     args: DescribeTrainingJobCommandInput,
@@ -6223,7 +6231,7 @@ export interface SageMaker {
   ): void;
   describeTrainingJob(
     args: DescribeTrainingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeTrainingJobCommandOutput) => void
   ): void;
 
@@ -6232,7 +6240,7 @@ export interface SageMaker {
    */
   describeTrainingPlan(
     args: DescribeTrainingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeTrainingPlanCommandOutput>;
   describeTrainingPlan(
     args: DescribeTrainingPlanCommandInput,
@@ -6240,7 +6248,7 @@ export interface SageMaker {
   ): void;
   describeTrainingPlan(
     args: DescribeTrainingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeTrainingPlanCommandOutput) => void
   ): void;
 
@@ -6249,7 +6257,7 @@ export interface SageMaker {
    */
   describeTrainingPlanExtensionHistory(
     args: DescribeTrainingPlanExtensionHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeTrainingPlanExtensionHistoryCommandOutput>;
   describeTrainingPlanExtensionHistory(
     args: DescribeTrainingPlanExtensionHistoryCommandInput,
@@ -6257,7 +6265,7 @@ export interface SageMaker {
   ): void;
   describeTrainingPlanExtensionHistory(
     args: DescribeTrainingPlanExtensionHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeTrainingPlanExtensionHistoryCommandOutput) => void
   ): void;
 
@@ -6266,7 +6274,7 @@ export interface SageMaker {
    */
   describeTransformJob(
     args: DescribeTransformJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeTransformJobCommandOutput>;
   describeTransformJob(
     args: DescribeTransformJobCommandInput,
@@ -6274,7 +6282,7 @@ export interface SageMaker {
   ): void;
   describeTransformJob(
     args: DescribeTransformJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeTransformJobCommandOutput) => void
   ): void;
 
@@ -6283,7 +6291,7 @@ export interface SageMaker {
    */
   describeTrial(
     args: DescribeTrialCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeTrialCommandOutput>;
   describeTrial(
     args: DescribeTrialCommandInput,
@@ -6291,7 +6299,7 @@ export interface SageMaker {
   ): void;
   describeTrial(
     args: DescribeTrialCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeTrialCommandOutput) => void
   ): void;
 
@@ -6300,7 +6308,7 @@ export interface SageMaker {
    */
   describeTrialComponent(
     args: DescribeTrialComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeTrialComponentCommandOutput>;
   describeTrialComponent(
     args: DescribeTrialComponentCommandInput,
@@ -6308,7 +6316,7 @@ export interface SageMaker {
   ): void;
   describeTrialComponent(
     args: DescribeTrialComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeTrialComponentCommandOutput) => void
   ): void;
 
@@ -6317,7 +6325,7 @@ export interface SageMaker {
    */
   describeUserProfile(
     args: DescribeUserProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeUserProfileCommandOutput>;
   describeUserProfile(
     args: DescribeUserProfileCommandInput,
@@ -6325,7 +6333,7 @@ export interface SageMaker {
   ): void;
   describeUserProfile(
     args: DescribeUserProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeUserProfileCommandOutput) => void
   ): void;
 
@@ -6334,7 +6342,7 @@ export interface SageMaker {
    */
   describeWorkforce(
     args: DescribeWorkforceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeWorkforceCommandOutput>;
   describeWorkforce(
     args: DescribeWorkforceCommandInput,
@@ -6342,7 +6350,7 @@ export interface SageMaker {
   ): void;
   describeWorkforce(
     args: DescribeWorkforceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeWorkforceCommandOutput) => void
   ): void;
 
@@ -6351,7 +6359,7 @@ export interface SageMaker {
    */
   describeWorkteam(
     args: DescribeWorkteamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DescribeWorkteamCommandOutput>;
   describeWorkteam(
     args: DescribeWorkteamCommandInput,
@@ -6359,7 +6367,7 @@ export interface SageMaker {
   ): void;
   describeWorkteam(
     args: DescribeWorkteamCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeWorkteamCommandOutput) => void
   ): void;
 
@@ -6368,7 +6376,7 @@ export interface SageMaker {
    */
   detachClusterNodeVolume(
     args: DetachClusterNodeVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DetachClusterNodeVolumeCommandOutput>;
   detachClusterNodeVolume(
     args: DetachClusterNodeVolumeCommandInput,
@@ -6376,7 +6384,7 @@ export interface SageMaker {
   ): void;
   detachClusterNodeVolume(
     args: DetachClusterNodeVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DetachClusterNodeVolumeCommandOutput) => void
   ): void;
 
@@ -6386,7 +6394,7 @@ export interface SageMaker {
   disableSagemakerServicecatalogPortfolio(): Promise<DisableSagemakerServicecatalogPortfolioCommandOutput>;
   disableSagemakerServicecatalogPortfolio(
     args: DisableSagemakerServicecatalogPortfolioCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DisableSagemakerServicecatalogPortfolioCommandOutput>;
   disableSagemakerServicecatalogPortfolio(
     args: DisableSagemakerServicecatalogPortfolioCommandInput,
@@ -6394,7 +6402,7 @@ export interface SageMaker {
   ): void;
   disableSagemakerServicecatalogPortfolio(
     args: DisableSagemakerServicecatalogPortfolioCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DisableSagemakerServicecatalogPortfolioCommandOutput) => void
   ): void;
 
@@ -6403,7 +6411,7 @@ export interface SageMaker {
    */
   disassociateTrialComponent(
     args: DisassociateTrialComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<DisassociateTrialComponentCommandOutput>;
   disassociateTrialComponent(
     args: DisassociateTrialComponentCommandInput,
@@ -6411,7 +6419,7 @@ export interface SageMaker {
   ): void;
   disassociateTrialComponent(
     args: DisassociateTrialComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: DisassociateTrialComponentCommandOutput) => void
   ): void;
 
@@ -6421,7 +6429,7 @@ export interface SageMaker {
   enableSagemakerServicecatalogPortfolio(): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput>;
   enableSagemakerServicecatalogPortfolio(
     args: EnableSagemakerServicecatalogPortfolioCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput>;
   enableSagemakerServicecatalogPortfolio(
     args: EnableSagemakerServicecatalogPortfolioCommandInput,
@@ -6429,7 +6437,7 @@ export interface SageMaker {
   ): void;
   enableSagemakerServicecatalogPortfolio(
     args: EnableSagemakerServicecatalogPortfolioCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: EnableSagemakerServicecatalogPortfolioCommandOutput) => void
   ): void;
 
@@ -6438,7 +6446,7 @@ export interface SageMaker {
    */
   extendTrainingPlan(
     args: ExtendTrainingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ExtendTrainingPlanCommandOutput>;
   extendTrainingPlan(
     args: ExtendTrainingPlanCommandInput,
@@ -6446,7 +6454,7 @@ export interface SageMaker {
   ): void;
   extendTrainingPlan(
     args: ExtendTrainingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ExtendTrainingPlanCommandOutput) => void
   ): void;
 
@@ -6455,7 +6463,7 @@ export interface SageMaker {
    */
   getDeviceFleetReport(
     args: GetDeviceFleetReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<GetDeviceFleetReportCommandOutput>;
   getDeviceFleetReport(
     args: GetDeviceFleetReportCommandInput,
@@ -6463,7 +6471,7 @@ export interface SageMaker {
   ): void;
   getDeviceFleetReport(
     args: GetDeviceFleetReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: GetDeviceFleetReportCommandOutput) => void
   ): void;
 
@@ -6472,7 +6480,7 @@ export interface SageMaker {
    */
   getLineageGroupPolicy(
     args: GetLineageGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<GetLineageGroupPolicyCommandOutput>;
   getLineageGroupPolicy(
     args: GetLineageGroupPolicyCommandInput,
@@ -6480,7 +6488,7 @@ export interface SageMaker {
   ): void;
   getLineageGroupPolicy(
     args: GetLineageGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: GetLineageGroupPolicyCommandOutput) => void
   ): void;
 
@@ -6489,7 +6497,7 @@ export interface SageMaker {
    */
   getModelPackageGroupPolicy(
     args: GetModelPackageGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<GetModelPackageGroupPolicyCommandOutput>;
   getModelPackageGroupPolicy(
     args: GetModelPackageGroupPolicyCommandInput,
@@ -6497,7 +6505,7 @@ export interface SageMaker {
   ): void;
   getModelPackageGroupPolicy(
     args: GetModelPackageGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: GetModelPackageGroupPolicyCommandOutput) => void
   ): void;
 
@@ -6507,7 +6515,7 @@ export interface SageMaker {
   getSagemakerServicecatalogPortfolioStatus(): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput>;
   getSagemakerServicecatalogPortfolioStatus(
     args: GetSagemakerServicecatalogPortfolioStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput>;
   getSagemakerServicecatalogPortfolioStatus(
     args: GetSagemakerServicecatalogPortfolioStatusCommandInput,
@@ -6515,7 +6523,7 @@ export interface SageMaker {
   ): void;
   getSagemakerServicecatalogPortfolioStatus(
     args: GetSagemakerServicecatalogPortfolioStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: GetSagemakerServicecatalogPortfolioStatusCommandOutput) => void
   ): void;
 
@@ -6524,7 +6532,7 @@ export interface SageMaker {
    */
   getScalingConfigurationRecommendation(
     args: GetScalingConfigurationRecommendationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<GetScalingConfigurationRecommendationCommandOutput>;
   getScalingConfigurationRecommendation(
     args: GetScalingConfigurationRecommendationCommandInput,
@@ -6532,7 +6540,7 @@ export interface SageMaker {
   ): void;
   getScalingConfigurationRecommendation(
     args: GetScalingConfigurationRecommendationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: GetScalingConfigurationRecommendationCommandOutput) => void
   ): void;
 
@@ -6541,7 +6549,7 @@ export interface SageMaker {
    */
   getSearchSuggestions(
     args: GetSearchSuggestionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<GetSearchSuggestionsCommandOutput>;
   getSearchSuggestions(
     args: GetSearchSuggestionsCommandInput,
@@ -6549,7 +6557,7 @@ export interface SageMaker {
   ): void;
   getSearchSuggestions(
     args: GetSearchSuggestionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: GetSearchSuggestionsCommandOutput) => void
   ): void;
 
@@ -6558,7 +6566,7 @@ export interface SageMaker {
    */
   importHubContent(
     args: ImportHubContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ImportHubContentCommandOutput>;
   importHubContent(
     args: ImportHubContentCommandInput,
@@ -6566,7 +6574,7 @@ export interface SageMaker {
   ): void;
   importHubContent(
     args: ImportHubContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ImportHubContentCommandOutput) => void
   ): void;
 
@@ -6576,7 +6584,7 @@ export interface SageMaker {
   listActions(): Promise<ListActionsCommandOutput>;
   listActions(
     args: ListActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListActionsCommandOutput>;
   listActions(
     args: ListActionsCommandInput,
@@ -6584,7 +6592,7 @@ export interface SageMaker {
   ): void;
   listActions(
     args: ListActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListActionsCommandOutput) => void
   ): void;
 
@@ -6594,7 +6602,7 @@ export interface SageMaker {
   listAIBenchmarkJobs(): Promise<ListAIBenchmarkJobsCommandOutput>;
   listAIBenchmarkJobs(
     args: ListAIBenchmarkJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListAIBenchmarkJobsCommandOutput>;
   listAIBenchmarkJobs(
     args: ListAIBenchmarkJobsCommandInput,
@@ -6602,7 +6610,7 @@ export interface SageMaker {
   ): void;
   listAIBenchmarkJobs(
     args: ListAIBenchmarkJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListAIBenchmarkJobsCommandOutput) => void
   ): void;
 
@@ -6612,7 +6620,7 @@ export interface SageMaker {
   listAIRecommendationJobs(): Promise<ListAIRecommendationJobsCommandOutput>;
   listAIRecommendationJobs(
     args: ListAIRecommendationJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListAIRecommendationJobsCommandOutput>;
   listAIRecommendationJobs(
     args: ListAIRecommendationJobsCommandInput,
@@ -6620,7 +6628,7 @@ export interface SageMaker {
   ): void;
   listAIRecommendationJobs(
     args: ListAIRecommendationJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListAIRecommendationJobsCommandOutput) => void
   ): void;
 
@@ -6630,7 +6638,7 @@ export interface SageMaker {
   listAIWorkloadConfigs(): Promise<ListAIWorkloadConfigsCommandOutput>;
   listAIWorkloadConfigs(
     args: ListAIWorkloadConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListAIWorkloadConfigsCommandOutput>;
   listAIWorkloadConfigs(
     args: ListAIWorkloadConfigsCommandInput,
@@ -6638,7 +6646,7 @@ export interface SageMaker {
   ): void;
   listAIWorkloadConfigs(
     args: ListAIWorkloadConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListAIWorkloadConfigsCommandOutput) => void
   ): void;
 
@@ -6648,7 +6656,7 @@ export interface SageMaker {
   listAlgorithms(): Promise<ListAlgorithmsCommandOutput>;
   listAlgorithms(
     args: ListAlgorithmsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListAlgorithmsCommandOutput>;
   listAlgorithms(
     args: ListAlgorithmsCommandInput,
@@ -6656,7 +6664,7 @@ export interface SageMaker {
   ): void;
   listAlgorithms(
     args: ListAlgorithmsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListAlgorithmsCommandOutput) => void
   ): void;
 
@@ -6665,7 +6673,7 @@ export interface SageMaker {
    */
   listAliases(
     args: ListAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListAliasesCommandOutput>;
   listAliases(
     args: ListAliasesCommandInput,
@@ -6673,7 +6681,7 @@ export interface SageMaker {
   ): void;
   listAliases(
     args: ListAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListAliasesCommandOutput) => void
   ): void;
 
@@ -6683,7 +6691,7 @@ export interface SageMaker {
   listAppImageConfigs(): Promise<ListAppImageConfigsCommandOutput>;
   listAppImageConfigs(
     args: ListAppImageConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListAppImageConfigsCommandOutput>;
   listAppImageConfigs(
     args: ListAppImageConfigsCommandInput,
@@ -6691,7 +6699,7 @@ export interface SageMaker {
   ): void;
   listAppImageConfigs(
     args: ListAppImageConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListAppImageConfigsCommandOutput) => void
   ): void;
 
@@ -6701,7 +6709,7 @@ export interface SageMaker {
   listApps(): Promise<ListAppsCommandOutput>;
   listApps(
     args: ListAppsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListAppsCommandOutput>;
   listApps(
     args: ListAppsCommandInput,
@@ -6709,7 +6717,7 @@ export interface SageMaker {
   ): void;
   listApps(
     args: ListAppsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListAppsCommandOutput) => void
   ): void;
 
@@ -6719,7 +6727,7 @@ export interface SageMaker {
   listArtifacts(): Promise<ListArtifactsCommandOutput>;
   listArtifacts(
     args: ListArtifactsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListArtifactsCommandOutput>;
   listArtifacts(
     args: ListArtifactsCommandInput,
@@ -6727,7 +6735,7 @@ export interface SageMaker {
   ): void;
   listArtifacts(
     args: ListArtifactsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListArtifactsCommandOutput) => void
   ): void;
 
@@ -6737,7 +6745,7 @@ export interface SageMaker {
   listAssociations(): Promise<ListAssociationsCommandOutput>;
   listAssociations(
     args: ListAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListAssociationsCommandOutput>;
   listAssociations(
     args: ListAssociationsCommandInput,
@@ -6745,7 +6753,7 @@ export interface SageMaker {
   ): void;
   listAssociations(
     args: ListAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListAssociationsCommandOutput) => void
   ): void;
 
@@ -6755,7 +6763,7 @@ export interface SageMaker {
   listAutoMLJobs(): Promise<ListAutoMLJobsCommandOutput>;
   listAutoMLJobs(
     args: ListAutoMLJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListAutoMLJobsCommandOutput>;
   listAutoMLJobs(
     args: ListAutoMLJobsCommandInput,
@@ -6763,7 +6771,7 @@ export interface SageMaker {
   ): void;
   listAutoMLJobs(
     args: ListAutoMLJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListAutoMLJobsCommandOutput) => void
   ): void;
 
@@ -6772,7 +6780,7 @@ export interface SageMaker {
    */
   listCandidatesForAutoMLJob(
     args: ListCandidatesForAutoMLJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListCandidatesForAutoMLJobCommandOutput>;
   listCandidatesForAutoMLJob(
     args: ListCandidatesForAutoMLJobCommandInput,
@@ -6780,7 +6788,7 @@ export interface SageMaker {
   ): void;
   listCandidatesForAutoMLJob(
     args: ListCandidatesForAutoMLJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListCandidatesForAutoMLJobCommandOutput) => void
   ): void;
 
@@ -6789,7 +6797,7 @@ export interface SageMaker {
    */
   listClusterEvents(
     args: ListClusterEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListClusterEventsCommandOutput>;
   listClusterEvents(
     args: ListClusterEventsCommandInput,
@@ -6797,7 +6805,7 @@ export interface SageMaker {
   ): void;
   listClusterEvents(
     args: ListClusterEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListClusterEventsCommandOutput) => void
   ): void;
 
@@ -6806,7 +6814,7 @@ export interface SageMaker {
    */
   listClusterNodes(
     args: ListClusterNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListClusterNodesCommandOutput>;
   listClusterNodes(
     args: ListClusterNodesCommandInput,
@@ -6814,7 +6822,7 @@ export interface SageMaker {
   ): void;
   listClusterNodes(
     args: ListClusterNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListClusterNodesCommandOutput) => void
   ): void;
 
@@ -6824,7 +6832,7 @@ export interface SageMaker {
   listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
@@ -6832,7 +6840,7 @@ export interface SageMaker {
   ): void;
   listClusters(
     args: ListClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListClustersCommandOutput) => void
   ): void;
 
@@ -6842,7 +6850,7 @@ export interface SageMaker {
   listClusterSchedulerConfigs(): Promise<ListClusterSchedulerConfigsCommandOutput>;
   listClusterSchedulerConfigs(
     args: ListClusterSchedulerConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListClusterSchedulerConfigsCommandOutput>;
   listClusterSchedulerConfigs(
     args: ListClusterSchedulerConfigsCommandInput,
@@ -6850,7 +6858,7 @@ export interface SageMaker {
   ): void;
   listClusterSchedulerConfigs(
     args: ListClusterSchedulerConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListClusterSchedulerConfigsCommandOutput) => void
   ): void;
 
@@ -6860,7 +6868,7 @@ export interface SageMaker {
   listCodeRepositories(): Promise<ListCodeRepositoriesCommandOutput>;
   listCodeRepositories(
     args: ListCodeRepositoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListCodeRepositoriesCommandOutput>;
   listCodeRepositories(
     args: ListCodeRepositoriesCommandInput,
@@ -6868,7 +6876,7 @@ export interface SageMaker {
   ): void;
   listCodeRepositories(
     args: ListCodeRepositoriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListCodeRepositoriesCommandOutput) => void
   ): void;
 
@@ -6878,7 +6886,7 @@ export interface SageMaker {
   listCompilationJobs(): Promise<ListCompilationJobsCommandOutput>;
   listCompilationJobs(
     args: ListCompilationJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListCompilationJobsCommandOutput>;
   listCompilationJobs(
     args: ListCompilationJobsCommandInput,
@@ -6886,7 +6894,7 @@ export interface SageMaker {
   ): void;
   listCompilationJobs(
     args: ListCompilationJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListCompilationJobsCommandOutput) => void
   ): void;
 
@@ -6896,7 +6904,7 @@ export interface SageMaker {
   listComputeQuotas(): Promise<ListComputeQuotasCommandOutput>;
   listComputeQuotas(
     args: ListComputeQuotasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListComputeQuotasCommandOutput>;
   listComputeQuotas(
     args: ListComputeQuotasCommandInput,
@@ -6904,7 +6912,7 @@ export interface SageMaker {
   ): void;
   listComputeQuotas(
     args: ListComputeQuotasCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListComputeQuotasCommandOutput) => void
   ): void;
 
@@ -6914,7 +6922,7 @@ export interface SageMaker {
   listContexts(): Promise<ListContextsCommandOutput>;
   listContexts(
     args: ListContextsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListContextsCommandOutput>;
   listContexts(
     args: ListContextsCommandInput,
@@ -6922,7 +6930,7 @@ export interface SageMaker {
   ): void;
   listContexts(
     args: ListContextsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListContextsCommandOutput) => void
   ): void;
 
@@ -6932,7 +6940,7 @@ export interface SageMaker {
   listDataQualityJobDefinitions(): Promise<ListDataQualityJobDefinitionsCommandOutput>;
   listDataQualityJobDefinitions(
     args: ListDataQualityJobDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListDataQualityJobDefinitionsCommandOutput>;
   listDataQualityJobDefinitions(
     args: ListDataQualityJobDefinitionsCommandInput,
@@ -6940,7 +6948,7 @@ export interface SageMaker {
   ): void;
   listDataQualityJobDefinitions(
     args: ListDataQualityJobDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListDataQualityJobDefinitionsCommandOutput) => void
   ): void;
 
@@ -6950,7 +6958,7 @@ export interface SageMaker {
   listDeviceFleets(): Promise<ListDeviceFleetsCommandOutput>;
   listDeviceFleets(
     args: ListDeviceFleetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListDeviceFleetsCommandOutput>;
   listDeviceFleets(
     args: ListDeviceFleetsCommandInput,
@@ -6958,7 +6966,7 @@ export interface SageMaker {
   ): void;
   listDeviceFleets(
     args: ListDeviceFleetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListDeviceFleetsCommandOutput) => void
   ): void;
 
@@ -6968,7 +6976,7 @@ export interface SageMaker {
   listDevices(): Promise<ListDevicesCommandOutput>;
   listDevices(
     args: ListDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListDevicesCommandOutput>;
   listDevices(
     args: ListDevicesCommandInput,
@@ -6976,7 +6984,7 @@ export interface SageMaker {
   ): void;
   listDevices(
     args: ListDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListDevicesCommandOutput) => void
   ): void;
 
@@ -6986,7 +6994,7 @@ export interface SageMaker {
   listDomains(): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
@@ -6994,7 +7002,7 @@ export interface SageMaker {
   ): void;
   listDomains(
     args: ListDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListDomainsCommandOutput) => void
   ): void;
 
@@ -7004,7 +7012,7 @@ export interface SageMaker {
   listEdgeDeploymentPlans(): Promise<ListEdgeDeploymentPlansCommandOutput>;
   listEdgeDeploymentPlans(
     args: ListEdgeDeploymentPlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListEdgeDeploymentPlansCommandOutput>;
   listEdgeDeploymentPlans(
     args: ListEdgeDeploymentPlansCommandInput,
@@ -7012,7 +7020,7 @@ export interface SageMaker {
   ): void;
   listEdgeDeploymentPlans(
     args: ListEdgeDeploymentPlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListEdgeDeploymentPlansCommandOutput) => void
   ): void;
 
@@ -7022,7 +7030,7 @@ export interface SageMaker {
   listEdgePackagingJobs(): Promise<ListEdgePackagingJobsCommandOutput>;
   listEdgePackagingJobs(
     args: ListEdgePackagingJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListEdgePackagingJobsCommandOutput>;
   listEdgePackagingJobs(
     args: ListEdgePackagingJobsCommandInput,
@@ -7030,7 +7038,7 @@ export interface SageMaker {
   ): void;
   listEdgePackagingJobs(
     args: ListEdgePackagingJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListEdgePackagingJobsCommandOutput) => void
   ): void;
 
@@ -7040,7 +7048,7 @@ export interface SageMaker {
   listEndpointConfigs(): Promise<ListEndpointConfigsCommandOutput>;
   listEndpointConfigs(
     args: ListEndpointConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListEndpointConfigsCommandOutput>;
   listEndpointConfigs(
     args: ListEndpointConfigsCommandInput,
@@ -7048,7 +7056,7 @@ export interface SageMaker {
   ): void;
   listEndpointConfigs(
     args: ListEndpointConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListEndpointConfigsCommandOutput) => void
   ): void;
 
@@ -7058,7 +7066,7 @@ export interface SageMaker {
   listEndpoints(): Promise<ListEndpointsCommandOutput>;
   listEndpoints(
     args: ListEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListEndpointsCommandOutput>;
   listEndpoints(
     args: ListEndpointsCommandInput,
@@ -7066,7 +7074,7 @@ export interface SageMaker {
   ): void;
   listEndpoints(
     args: ListEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListEndpointsCommandOutput) => void
   ): void;
 
@@ -7076,7 +7084,7 @@ export interface SageMaker {
   listExperiments(): Promise<ListExperimentsCommandOutput>;
   listExperiments(
     args: ListExperimentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListExperimentsCommandOutput>;
   listExperiments(
     args: ListExperimentsCommandInput,
@@ -7084,7 +7092,7 @@ export interface SageMaker {
   ): void;
   listExperiments(
     args: ListExperimentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListExperimentsCommandOutput) => void
   ): void;
 
@@ -7094,7 +7102,7 @@ export interface SageMaker {
   listFeatureGroups(): Promise<ListFeatureGroupsCommandOutput>;
   listFeatureGroups(
     args: ListFeatureGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListFeatureGroupsCommandOutput>;
   listFeatureGroups(
     args: ListFeatureGroupsCommandInput,
@@ -7102,7 +7110,7 @@ export interface SageMaker {
   ): void;
   listFeatureGroups(
     args: ListFeatureGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListFeatureGroupsCommandOutput) => void
   ): void;
 
@@ -7112,7 +7120,7 @@ export interface SageMaker {
   listFlowDefinitions(): Promise<ListFlowDefinitionsCommandOutput>;
   listFlowDefinitions(
     args: ListFlowDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListFlowDefinitionsCommandOutput>;
   listFlowDefinitions(
     args: ListFlowDefinitionsCommandInput,
@@ -7120,7 +7128,7 @@ export interface SageMaker {
   ): void;
   listFlowDefinitions(
     args: ListFlowDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListFlowDefinitionsCommandOutput) => void
   ): void;
 
@@ -7129,7 +7137,7 @@ export interface SageMaker {
    */
   listHubContents(
     args: ListHubContentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListHubContentsCommandOutput>;
   listHubContents(
     args: ListHubContentsCommandInput,
@@ -7137,7 +7145,7 @@ export interface SageMaker {
   ): void;
   listHubContents(
     args: ListHubContentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListHubContentsCommandOutput) => void
   ): void;
 
@@ -7146,7 +7154,7 @@ export interface SageMaker {
    */
   listHubContentVersions(
     args: ListHubContentVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListHubContentVersionsCommandOutput>;
   listHubContentVersions(
     args: ListHubContentVersionsCommandInput,
@@ -7154,7 +7162,7 @@ export interface SageMaker {
   ): void;
   listHubContentVersions(
     args: ListHubContentVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListHubContentVersionsCommandOutput) => void
   ): void;
 
@@ -7164,7 +7172,7 @@ export interface SageMaker {
   listHubs(): Promise<ListHubsCommandOutput>;
   listHubs(
     args: ListHubsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListHubsCommandOutput>;
   listHubs(
     args: ListHubsCommandInput,
@@ -7172,7 +7180,7 @@ export interface SageMaker {
   ): void;
   listHubs(
     args: ListHubsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListHubsCommandOutput) => void
   ): void;
 
@@ -7182,7 +7190,7 @@ export interface SageMaker {
   listHumanTaskUis(): Promise<ListHumanTaskUisCommandOutput>;
   listHumanTaskUis(
     args: ListHumanTaskUisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListHumanTaskUisCommandOutput>;
   listHumanTaskUis(
     args: ListHumanTaskUisCommandInput,
@@ -7190,7 +7198,7 @@ export interface SageMaker {
   ): void;
   listHumanTaskUis(
     args: ListHumanTaskUisCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListHumanTaskUisCommandOutput) => void
   ): void;
 
@@ -7200,7 +7208,7 @@ export interface SageMaker {
   listHyperParameterTuningJobs(): Promise<ListHyperParameterTuningJobsCommandOutput>;
   listHyperParameterTuningJobs(
     args: ListHyperParameterTuningJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListHyperParameterTuningJobsCommandOutput>;
   listHyperParameterTuningJobs(
     args: ListHyperParameterTuningJobsCommandInput,
@@ -7208,7 +7216,7 @@ export interface SageMaker {
   ): void;
   listHyperParameterTuningJobs(
     args: ListHyperParameterTuningJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListHyperParameterTuningJobsCommandOutput) => void
   ): void;
 
@@ -7218,7 +7226,7 @@ export interface SageMaker {
   listImages(): Promise<ListImagesCommandOutput>;
   listImages(
     args: ListImagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListImagesCommandOutput>;
   listImages(
     args: ListImagesCommandInput,
@@ -7226,7 +7234,7 @@ export interface SageMaker {
   ): void;
   listImages(
     args: ListImagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListImagesCommandOutput) => void
   ): void;
 
@@ -7235,7 +7243,7 @@ export interface SageMaker {
    */
   listImageVersions(
     args: ListImageVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListImageVersionsCommandOutput>;
   listImageVersions(
     args: ListImageVersionsCommandInput,
@@ -7243,7 +7251,7 @@ export interface SageMaker {
   ): void;
   listImageVersions(
     args: ListImageVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListImageVersionsCommandOutput) => void
   ): void;
 
@@ -7253,7 +7261,7 @@ export interface SageMaker {
   listInferenceComponents(): Promise<ListInferenceComponentsCommandOutput>;
   listInferenceComponents(
     args: ListInferenceComponentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListInferenceComponentsCommandOutput>;
   listInferenceComponents(
     args: ListInferenceComponentsCommandInput,
@@ -7261,7 +7269,7 @@ export interface SageMaker {
   ): void;
   listInferenceComponents(
     args: ListInferenceComponentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListInferenceComponentsCommandOutput) => void
   ): void;
 
@@ -7271,7 +7279,7 @@ export interface SageMaker {
   listInferenceExperiments(): Promise<ListInferenceExperimentsCommandOutput>;
   listInferenceExperiments(
     args: ListInferenceExperimentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListInferenceExperimentsCommandOutput>;
   listInferenceExperiments(
     args: ListInferenceExperimentsCommandInput,
@@ -7279,7 +7287,7 @@ export interface SageMaker {
   ): void;
   listInferenceExperiments(
     args: ListInferenceExperimentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListInferenceExperimentsCommandOutput) => void
   ): void;
 
@@ -7289,7 +7297,7 @@ export interface SageMaker {
   listInferenceRecommendationsJobs(): Promise<ListInferenceRecommendationsJobsCommandOutput>;
   listInferenceRecommendationsJobs(
     args: ListInferenceRecommendationsJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListInferenceRecommendationsJobsCommandOutput>;
   listInferenceRecommendationsJobs(
     args: ListInferenceRecommendationsJobsCommandInput,
@@ -7297,7 +7305,7 @@ export interface SageMaker {
   ): void;
   listInferenceRecommendationsJobs(
     args: ListInferenceRecommendationsJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListInferenceRecommendationsJobsCommandOutput) => void
   ): void;
 
@@ -7306,7 +7314,7 @@ export interface SageMaker {
    */
   listInferenceRecommendationsJobSteps(
     args: ListInferenceRecommendationsJobStepsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListInferenceRecommendationsJobStepsCommandOutput>;
   listInferenceRecommendationsJobSteps(
     args: ListInferenceRecommendationsJobStepsCommandInput,
@@ -7314,7 +7322,7 @@ export interface SageMaker {
   ): void;
   listInferenceRecommendationsJobSteps(
     args: ListInferenceRecommendationsJobStepsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListInferenceRecommendationsJobStepsCommandOutput) => void
   ): void;
 
@@ -7323,7 +7331,7 @@ export interface SageMaker {
    */
   listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
@@ -7331,7 +7339,7 @@ export interface SageMaker {
   ): void;
   listJobs(
     args: ListJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListJobsCommandOutput) => void
   ): void;
 
@@ -7340,7 +7348,7 @@ export interface SageMaker {
    */
   listJobSchemaVersions(
     args: ListJobSchemaVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListJobSchemaVersionsCommandOutput>;
   listJobSchemaVersions(
     args: ListJobSchemaVersionsCommandInput,
@@ -7348,7 +7356,7 @@ export interface SageMaker {
   ): void;
   listJobSchemaVersions(
     args: ListJobSchemaVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListJobSchemaVersionsCommandOutput) => void
   ): void;
 
@@ -7358,7 +7366,7 @@ export interface SageMaker {
   listLabelingJobs(): Promise<ListLabelingJobsCommandOutput>;
   listLabelingJobs(
     args: ListLabelingJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListLabelingJobsCommandOutput>;
   listLabelingJobs(
     args: ListLabelingJobsCommandInput,
@@ -7366,7 +7374,7 @@ export interface SageMaker {
   ): void;
   listLabelingJobs(
     args: ListLabelingJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListLabelingJobsCommandOutput) => void
   ): void;
 
@@ -7375,7 +7383,7 @@ export interface SageMaker {
    */
   listLabelingJobsForWorkteam(
     args: ListLabelingJobsForWorkteamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListLabelingJobsForWorkteamCommandOutput>;
   listLabelingJobsForWorkteam(
     args: ListLabelingJobsForWorkteamCommandInput,
@@ -7383,7 +7391,7 @@ export interface SageMaker {
   ): void;
   listLabelingJobsForWorkteam(
     args: ListLabelingJobsForWorkteamCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListLabelingJobsForWorkteamCommandOutput) => void
   ): void;
 
@@ -7393,7 +7401,7 @@ export interface SageMaker {
   listLineageGroups(): Promise<ListLineageGroupsCommandOutput>;
   listLineageGroups(
     args: ListLineageGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListLineageGroupsCommandOutput>;
   listLineageGroups(
     args: ListLineageGroupsCommandInput,
@@ -7401,7 +7409,7 @@ export interface SageMaker {
   ): void;
   listLineageGroups(
     args: ListLineageGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListLineageGroupsCommandOutput) => void
   ): void;
 
@@ -7411,7 +7419,7 @@ export interface SageMaker {
   listMlflowApps(): Promise<ListMlflowAppsCommandOutput>;
   listMlflowApps(
     args: ListMlflowAppsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListMlflowAppsCommandOutput>;
   listMlflowApps(
     args: ListMlflowAppsCommandInput,
@@ -7419,7 +7427,7 @@ export interface SageMaker {
   ): void;
   listMlflowApps(
     args: ListMlflowAppsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListMlflowAppsCommandOutput) => void
   ): void;
 
@@ -7429,7 +7437,7 @@ export interface SageMaker {
   listMlflowTrackingServers(): Promise<ListMlflowTrackingServersCommandOutput>;
   listMlflowTrackingServers(
     args: ListMlflowTrackingServersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListMlflowTrackingServersCommandOutput>;
   listMlflowTrackingServers(
     args: ListMlflowTrackingServersCommandInput,
@@ -7437,7 +7445,7 @@ export interface SageMaker {
   ): void;
   listMlflowTrackingServers(
     args: ListMlflowTrackingServersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListMlflowTrackingServersCommandOutput) => void
   ): void;
 
@@ -7447,7 +7455,7 @@ export interface SageMaker {
   listModelBiasJobDefinitions(): Promise<ListModelBiasJobDefinitionsCommandOutput>;
   listModelBiasJobDefinitions(
     args: ListModelBiasJobDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListModelBiasJobDefinitionsCommandOutput>;
   listModelBiasJobDefinitions(
     args: ListModelBiasJobDefinitionsCommandInput,
@@ -7455,7 +7463,7 @@ export interface SageMaker {
   ): void;
   listModelBiasJobDefinitions(
     args: ListModelBiasJobDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListModelBiasJobDefinitionsCommandOutput) => void
   ): void;
 
@@ -7464,7 +7472,7 @@ export interface SageMaker {
    */
   listModelCardExportJobs(
     args: ListModelCardExportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListModelCardExportJobsCommandOutput>;
   listModelCardExportJobs(
     args: ListModelCardExportJobsCommandInput,
@@ -7472,7 +7480,7 @@ export interface SageMaker {
   ): void;
   listModelCardExportJobs(
     args: ListModelCardExportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListModelCardExportJobsCommandOutput) => void
   ): void;
 
@@ -7482,7 +7490,7 @@ export interface SageMaker {
   listModelCards(): Promise<ListModelCardsCommandOutput>;
   listModelCards(
     args: ListModelCardsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListModelCardsCommandOutput>;
   listModelCards(
     args: ListModelCardsCommandInput,
@@ -7490,7 +7498,7 @@ export interface SageMaker {
   ): void;
   listModelCards(
     args: ListModelCardsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListModelCardsCommandOutput) => void
   ): void;
 
@@ -7499,7 +7507,7 @@ export interface SageMaker {
    */
   listModelCardVersions(
     args: ListModelCardVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListModelCardVersionsCommandOutput>;
   listModelCardVersions(
     args: ListModelCardVersionsCommandInput,
@@ -7507,7 +7515,7 @@ export interface SageMaker {
   ): void;
   listModelCardVersions(
     args: ListModelCardVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListModelCardVersionsCommandOutput) => void
   ): void;
 
@@ -7517,7 +7525,7 @@ export interface SageMaker {
   listModelExplainabilityJobDefinitions(): Promise<ListModelExplainabilityJobDefinitionsCommandOutput>;
   listModelExplainabilityJobDefinitions(
     args: ListModelExplainabilityJobDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListModelExplainabilityJobDefinitionsCommandOutput>;
   listModelExplainabilityJobDefinitions(
     args: ListModelExplainabilityJobDefinitionsCommandInput,
@@ -7525,7 +7533,7 @@ export interface SageMaker {
   ): void;
   listModelExplainabilityJobDefinitions(
     args: ListModelExplainabilityJobDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListModelExplainabilityJobDefinitionsCommandOutput) => void
   ): void;
 
@@ -7535,7 +7543,7 @@ export interface SageMaker {
   listModelMetadata(): Promise<ListModelMetadataCommandOutput>;
   listModelMetadata(
     args: ListModelMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListModelMetadataCommandOutput>;
   listModelMetadata(
     args: ListModelMetadataCommandInput,
@@ -7543,7 +7551,7 @@ export interface SageMaker {
   ): void;
   listModelMetadata(
     args: ListModelMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListModelMetadataCommandOutput) => void
   ): void;
 
@@ -7553,7 +7561,7 @@ export interface SageMaker {
   listModelPackageGroups(): Promise<ListModelPackageGroupsCommandOutput>;
   listModelPackageGroups(
     args: ListModelPackageGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListModelPackageGroupsCommandOutput>;
   listModelPackageGroups(
     args: ListModelPackageGroupsCommandInput,
@@ -7561,7 +7569,7 @@ export interface SageMaker {
   ): void;
   listModelPackageGroups(
     args: ListModelPackageGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListModelPackageGroupsCommandOutput) => void
   ): void;
 
@@ -7571,7 +7579,7 @@ export interface SageMaker {
   listModelPackages(): Promise<ListModelPackagesCommandOutput>;
   listModelPackages(
     args: ListModelPackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListModelPackagesCommandOutput>;
   listModelPackages(
     args: ListModelPackagesCommandInput,
@@ -7579,7 +7587,7 @@ export interface SageMaker {
   ): void;
   listModelPackages(
     args: ListModelPackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListModelPackagesCommandOutput) => void
   ): void;
 
@@ -7589,7 +7597,7 @@ export interface SageMaker {
   listModelQualityJobDefinitions(): Promise<ListModelQualityJobDefinitionsCommandOutput>;
   listModelQualityJobDefinitions(
     args: ListModelQualityJobDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListModelQualityJobDefinitionsCommandOutput>;
   listModelQualityJobDefinitions(
     args: ListModelQualityJobDefinitionsCommandInput,
@@ -7597,7 +7605,7 @@ export interface SageMaker {
   ): void;
   listModelQualityJobDefinitions(
     args: ListModelQualityJobDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListModelQualityJobDefinitionsCommandOutput) => void
   ): void;
 
@@ -7607,7 +7615,7 @@ export interface SageMaker {
   listModels(): Promise<ListModelsCommandOutput>;
   listModels(
     args: ListModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListModelsCommandOutput>;
   listModels(
     args: ListModelsCommandInput,
@@ -7615,7 +7623,7 @@ export interface SageMaker {
   ): void;
   listModels(
     args: ListModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListModelsCommandOutput) => void
   ): void;
 
@@ -7625,7 +7633,7 @@ export interface SageMaker {
   listMonitoringAlertHistory(): Promise<ListMonitoringAlertHistoryCommandOutput>;
   listMonitoringAlertHistory(
     args: ListMonitoringAlertHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListMonitoringAlertHistoryCommandOutput>;
   listMonitoringAlertHistory(
     args: ListMonitoringAlertHistoryCommandInput,
@@ -7633,7 +7641,7 @@ export interface SageMaker {
   ): void;
   listMonitoringAlertHistory(
     args: ListMonitoringAlertHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListMonitoringAlertHistoryCommandOutput) => void
   ): void;
 
@@ -7642,7 +7650,7 @@ export interface SageMaker {
    */
   listMonitoringAlerts(
     args: ListMonitoringAlertsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListMonitoringAlertsCommandOutput>;
   listMonitoringAlerts(
     args: ListMonitoringAlertsCommandInput,
@@ -7650,7 +7658,7 @@ export interface SageMaker {
   ): void;
   listMonitoringAlerts(
     args: ListMonitoringAlertsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListMonitoringAlertsCommandOutput) => void
   ): void;
 
@@ -7660,7 +7668,7 @@ export interface SageMaker {
   listMonitoringExecutions(): Promise<ListMonitoringExecutionsCommandOutput>;
   listMonitoringExecutions(
     args: ListMonitoringExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListMonitoringExecutionsCommandOutput>;
   listMonitoringExecutions(
     args: ListMonitoringExecutionsCommandInput,
@@ -7668,7 +7676,7 @@ export interface SageMaker {
   ): void;
   listMonitoringExecutions(
     args: ListMonitoringExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListMonitoringExecutionsCommandOutput) => void
   ): void;
 
@@ -7678,7 +7686,7 @@ export interface SageMaker {
   listMonitoringSchedules(): Promise<ListMonitoringSchedulesCommandOutput>;
   listMonitoringSchedules(
     args: ListMonitoringSchedulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListMonitoringSchedulesCommandOutput>;
   listMonitoringSchedules(
     args: ListMonitoringSchedulesCommandInput,
@@ -7686,7 +7694,7 @@ export interface SageMaker {
   ): void;
   listMonitoringSchedules(
     args: ListMonitoringSchedulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListMonitoringSchedulesCommandOutput) => void
   ): void;
 
@@ -7696,7 +7704,7 @@ export interface SageMaker {
   listNotebookInstanceLifecycleConfigs(): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput>;
   listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput>;
   listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
@@ -7704,7 +7712,7 @@ export interface SageMaker {
   ): void;
   listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListNotebookInstanceLifecycleConfigsCommandOutput) => void
   ): void;
 
@@ -7714,7 +7722,7 @@ export interface SageMaker {
   listNotebookInstances(): Promise<ListNotebookInstancesCommandOutput>;
   listNotebookInstances(
     args: ListNotebookInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListNotebookInstancesCommandOutput>;
   listNotebookInstances(
     args: ListNotebookInstancesCommandInput,
@@ -7722,7 +7730,7 @@ export interface SageMaker {
   ): void;
   listNotebookInstances(
     args: ListNotebookInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListNotebookInstancesCommandOutput) => void
   ): void;
 
@@ -7732,7 +7740,7 @@ export interface SageMaker {
   listOptimizationJobs(): Promise<ListOptimizationJobsCommandOutput>;
   listOptimizationJobs(
     args: ListOptimizationJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListOptimizationJobsCommandOutput>;
   listOptimizationJobs(
     args: ListOptimizationJobsCommandInput,
@@ -7740,7 +7748,7 @@ export interface SageMaker {
   ): void;
   listOptimizationJobs(
     args: ListOptimizationJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListOptimizationJobsCommandOutput) => void
   ): void;
 
@@ -7750,7 +7758,7 @@ export interface SageMaker {
   listPartnerApps(): Promise<ListPartnerAppsCommandOutput>;
   listPartnerApps(
     args: ListPartnerAppsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListPartnerAppsCommandOutput>;
   listPartnerApps(
     args: ListPartnerAppsCommandInput,
@@ -7758,7 +7766,7 @@ export interface SageMaker {
   ): void;
   listPartnerApps(
     args: ListPartnerAppsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListPartnerAppsCommandOutput) => void
   ): void;
 
@@ -7767,7 +7775,7 @@ export interface SageMaker {
    */
   listPipelineExecutions(
     args: ListPipelineExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListPipelineExecutionsCommandOutput>;
   listPipelineExecutions(
     args: ListPipelineExecutionsCommandInput,
@@ -7775,7 +7783,7 @@ export interface SageMaker {
   ): void;
   listPipelineExecutions(
     args: ListPipelineExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListPipelineExecutionsCommandOutput) => void
   ): void;
 
@@ -7785,7 +7793,7 @@ export interface SageMaker {
   listPipelineExecutionSteps(): Promise<ListPipelineExecutionStepsCommandOutput>;
   listPipelineExecutionSteps(
     args: ListPipelineExecutionStepsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListPipelineExecutionStepsCommandOutput>;
   listPipelineExecutionSteps(
     args: ListPipelineExecutionStepsCommandInput,
@@ -7793,7 +7801,7 @@ export interface SageMaker {
   ): void;
   listPipelineExecutionSteps(
     args: ListPipelineExecutionStepsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListPipelineExecutionStepsCommandOutput) => void
   ): void;
 
@@ -7802,7 +7810,7 @@ export interface SageMaker {
    */
   listPipelineParametersForExecution(
     args: ListPipelineParametersForExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListPipelineParametersForExecutionCommandOutput>;
   listPipelineParametersForExecution(
     args: ListPipelineParametersForExecutionCommandInput,
@@ -7810,7 +7818,7 @@ export interface SageMaker {
   ): void;
   listPipelineParametersForExecution(
     args: ListPipelineParametersForExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListPipelineParametersForExecutionCommandOutput) => void
   ): void;
 
@@ -7820,7 +7828,7 @@ export interface SageMaker {
   listPipelines(): Promise<ListPipelinesCommandOutput>;
   listPipelines(
     args: ListPipelinesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListPipelinesCommandOutput>;
   listPipelines(
     args: ListPipelinesCommandInput,
@@ -7828,7 +7836,7 @@ export interface SageMaker {
   ): void;
   listPipelines(
     args: ListPipelinesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListPipelinesCommandOutput) => void
   ): void;
 
@@ -7837,7 +7845,7 @@ export interface SageMaker {
    */
   listPipelineVersions(
     args: ListPipelineVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListPipelineVersionsCommandOutput>;
   listPipelineVersions(
     args: ListPipelineVersionsCommandInput,
@@ -7845,7 +7853,7 @@ export interface SageMaker {
   ): void;
   listPipelineVersions(
     args: ListPipelineVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListPipelineVersionsCommandOutput) => void
   ): void;
 
@@ -7855,7 +7863,7 @@ export interface SageMaker {
   listProcessingJobs(): Promise<ListProcessingJobsCommandOutput>;
   listProcessingJobs(
     args: ListProcessingJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListProcessingJobsCommandOutput>;
   listProcessingJobs(
     args: ListProcessingJobsCommandInput,
@@ -7863,7 +7871,7 @@ export interface SageMaker {
   ): void;
   listProcessingJobs(
     args: ListProcessingJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListProcessingJobsCommandOutput) => void
   ): void;
 
@@ -7873,7 +7881,7 @@ export interface SageMaker {
   listProjects(): Promise<ListProjectsCommandOutput>;
   listProjects(
     args: ListProjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListProjectsCommandOutput>;
   listProjects(
     args: ListProjectsCommandInput,
@@ -7881,7 +7889,7 @@ export interface SageMaker {
   ): void;
   listProjects(
     args: ListProjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListProjectsCommandOutput) => void
   ): void;
 
@@ -7891,7 +7899,7 @@ export interface SageMaker {
   listResourceCatalogs(): Promise<ListResourceCatalogsCommandOutput>;
   listResourceCatalogs(
     args: ListResourceCatalogsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListResourceCatalogsCommandOutput>;
   listResourceCatalogs(
     args: ListResourceCatalogsCommandInput,
@@ -7899,7 +7907,7 @@ export interface SageMaker {
   ): void;
   listResourceCatalogs(
     args: ListResourceCatalogsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListResourceCatalogsCommandOutput) => void
   ): void;
 
@@ -7909,7 +7917,7 @@ export interface SageMaker {
   listSpaces(): Promise<ListSpacesCommandOutput>;
   listSpaces(
     args: ListSpacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListSpacesCommandOutput>;
   listSpaces(
     args: ListSpacesCommandInput,
@@ -7917,7 +7925,7 @@ export interface SageMaker {
   ): void;
   listSpaces(
     args: ListSpacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListSpacesCommandOutput) => void
   ): void;
 
@@ -7926,7 +7934,7 @@ export interface SageMaker {
    */
   listStageDevices(
     args: ListStageDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListStageDevicesCommandOutput>;
   listStageDevices(
     args: ListStageDevicesCommandInput,
@@ -7934,7 +7942,7 @@ export interface SageMaker {
   ): void;
   listStageDevices(
     args: ListStageDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListStageDevicesCommandOutput) => void
   ): void;
 
@@ -7944,7 +7952,7 @@ export interface SageMaker {
   listStudioLifecycleConfigs(): Promise<ListStudioLifecycleConfigsCommandOutput>;
   listStudioLifecycleConfigs(
     args: ListStudioLifecycleConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListStudioLifecycleConfigsCommandOutput>;
   listStudioLifecycleConfigs(
     args: ListStudioLifecycleConfigsCommandInput,
@@ -7952,7 +7960,7 @@ export interface SageMaker {
   ): void;
   listStudioLifecycleConfigs(
     args: ListStudioLifecycleConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListStudioLifecycleConfigsCommandOutput) => void
   ): void;
 
@@ -7962,7 +7970,7 @@ export interface SageMaker {
   listSubscribedWorkteams(): Promise<ListSubscribedWorkteamsCommandOutput>;
   listSubscribedWorkteams(
     args: ListSubscribedWorkteamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListSubscribedWorkteamsCommandOutput>;
   listSubscribedWorkteams(
     args: ListSubscribedWorkteamsCommandInput,
@@ -7970,7 +7978,7 @@ export interface SageMaker {
   ): void;
   listSubscribedWorkteams(
     args: ListSubscribedWorkteamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListSubscribedWorkteamsCommandOutput) => void
   ): void;
 
@@ -7979,7 +7987,7 @@ export interface SageMaker {
    */
   listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListTagsCommandOutput>;
   listTags(
     args: ListTagsCommandInput,
@@ -7987,7 +7995,7 @@ export interface SageMaker {
   ): void;
   listTags(
     args: ListTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListTagsCommandOutput) => void
   ): void;
 
@@ -7997,7 +8005,7 @@ export interface SageMaker {
   listTrainingJobs(): Promise<ListTrainingJobsCommandOutput>;
   listTrainingJobs(
     args: ListTrainingJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListTrainingJobsCommandOutput>;
   listTrainingJobs(
     args: ListTrainingJobsCommandInput,
@@ -8005,7 +8013,7 @@ export interface SageMaker {
   ): void;
   listTrainingJobs(
     args: ListTrainingJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListTrainingJobsCommandOutput) => void
   ): void;
 
@@ -8014,7 +8022,7 @@ export interface SageMaker {
    */
   listTrainingJobsForHyperParameterTuningJob(
     args: ListTrainingJobsForHyperParameterTuningJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput>;
   listTrainingJobsForHyperParameterTuningJob(
     args: ListTrainingJobsForHyperParameterTuningJobCommandInput,
@@ -8022,7 +8030,7 @@ export interface SageMaker {
   ): void;
   listTrainingJobsForHyperParameterTuningJob(
     args: ListTrainingJobsForHyperParameterTuningJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput) => void
   ): void;
 
@@ -8032,7 +8040,7 @@ export interface SageMaker {
   listTrainingPlans(): Promise<ListTrainingPlansCommandOutput>;
   listTrainingPlans(
     args: ListTrainingPlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListTrainingPlansCommandOutput>;
   listTrainingPlans(
     args: ListTrainingPlansCommandInput,
@@ -8040,7 +8048,7 @@ export interface SageMaker {
   ): void;
   listTrainingPlans(
     args: ListTrainingPlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListTrainingPlansCommandOutput) => void
   ): void;
 
@@ -8050,7 +8058,7 @@ export interface SageMaker {
   listTransformJobs(): Promise<ListTransformJobsCommandOutput>;
   listTransformJobs(
     args: ListTransformJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListTransformJobsCommandOutput>;
   listTransformJobs(
     args: ListTransformJobsCommandInput,
@@ -8058,7 +8066,7 @@ export interface SageMaker {
   ): void;
   listTransformJobs(
     args: ListTransformJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListTransformJobsCommandOutput) => void
   ): void;
 
@@ -8068,7 +8076,7 @@ export interface SageMaker {
   listTrialComponents(): Promise<ListTrialComponentsCommandOutput>;
   listTrialComponents(
     args: ListTrialComponentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListTrialComponentsCommandOutput>;
   listTrialComponents(
     args: ListTrialComponentsCommandInput,
@@ -8076,7 +8084,7 @@ export interface SageMaker {
   ): void;
   listTrialComponents(
     args: ListTrialComponentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListTrialComponentsCommandOutput) => void
   ): void;
 
@@ -8086,7 +8094,7 @@ export interface SageMaker {
   listTrials(): Promise<ListTrialsCommandOutput>;
   listTrials(
     args: ListTrialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListTrialsCommandOutput>;
   listTrials(
     args: ListTrialsCommandInput,
@@ -8094,7 +8102,7 @@ export interface SageMaker {
   ): void;
   listTrials(
     args: ListTrialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListTrialsCommandOutput) => void
   ): void;
 
@@ -8103,7 +8111,7 @@ export interface SageMaker {
    */
   listUltraServersByReservedCapacity(
     args: ListUltraServersByReservedCapacityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListUltraServersByReservedCapacityCommandOutput>;
   listUltraServersByReservedCapacity(
     args: ListUltraServersByReservedCapacityCommandInput,
@@ -8111,7 +8119,7 @@ export interface SageMaker {
   ): void;
   listUltraServersByReservedCapacity(
     args: ListUltraServersByReservedCapacityCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListUltraServersByReservedCapacityCommandOutput) => void
   ): void;
 
@@ -8121,7 +8129,7 @@ export interface SageMaker {
   listUserProfiles(): Promise<ListUserProfilesCommandOutput>;
   listUserProfiles(
     args: ListUserProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListUserProfilesCommandOutput>;
   listUserProfiles(
     args: ListUserProfilesCommandInput,
@@ -8129,7 +8137,7 @@ export interface SageMaker {
   ): void;
   listUserProfiles(
     args: ListUserProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListUserProfilesCommandOutput) => void
   ): void;
 
@@ -8139,7 +8147,7 @@ export interface SageMaker {
   listWorkforces(): Promise<ListWorkforcesCommandOutput>;
   listWorkforces(
     args: ListWorkforcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListWorkforcesCommandOutput>;
   listWorkforces(
     args: ListWorkforcesCommandInput,
@@ -8147,7 +8155,7 @@ export interface SageMaker {
   ): void;
   listWorkforces(
     args: ListWorkforcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListWorkforcesCommandOutput) => void
   ): void;
 
@@ -8157,7 +8165,7 @@ export interface SageMaker {
   listWorkteams(): Promise<ListWorkteamsCommandOutput>;
   listWorkteams(
     args: ListWorkteamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<ListWorkteamsCommandOutput>;
   listWorkteams(
     args: ListWorkteamsCommandInput,
@@ -8165,7 +8173,7 @@ export interface SageMaker {
   ): void;
   listWorkteams(
     args: ListWorkteamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: ListWorkteamsCommandOutput) => void
   ): void;
 
@@ -8174,7 +8182,7 @@ export interface SageMaker {
    */
   putModelPackageGroupPolicy(
     args: PutModelPackageGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<PutModelPackageGroupPolicyCommandOutput>;
   putModelPackageGroupPolicy(
     args: PutModelPackageGroupPolicyCommandInput,
@@ -8182,7 +8190,7 @@ export interface SageMaker {
   ): void;
   putModelPackageGroupPolicy(
     args: PutModelPackageGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: PutModelPackageGroupPolicyCommandOutput) => void
   ): void;
 
@@ -8192,7 +8200,7 @@ export interface SageMaker {
   queryLineage(): Promise<QueryLineageCommandOutput>;
   queryLineage(
     args: QueryLineageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<QueryLineageCommandOutput>;
   queryLineage(
     args: QueryLineageCommandInput,
@@ -8200,7 +8208,7 @@ export interface SageMaker {
   ): void;
   queryLineage(
     args: QueryLineageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: QueryLineageCommandOutput) => void
   ): void;
 
@@ -8209,7 +8217,7 @@ export interface SageMaker {
    */
   registerDevices(
     args: RegisterDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<RegisterDevicesCommandOutput>;
   registerDevices(
     args: RegisterDevicesCommandInput,
@@ -8217,7 +8225,7 @@ export interface SageMaker {
   ): void;
   registerDevices(
     args: RegisterDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: RegisterDevicesCommandOutput) => void
   ): void;
 
@@ -8226,7 +8234,7 @@ export interface SageMaker {
    */
   renderUiTemplate(
     args: RenderUiTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<RenderUiTemplateCommandOutput>;
   renderUiTemplate(
     args: RenderUiTemplateCommandInput,
@@ -8234,7 +8242,7 @@ export interface SageMaker {
   ): void;
   renderUiTemplate(
     args: RenderUiTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: RenderUiTemplateCommandOutput) => void
   ): void;
 
@@ -8243,7 +8251,7 @@ export interface SageMaker {
    */
   retryPipelineExecution(
     args: RetryPipelineExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<RetryPipelineExecutionCommandOutput>;
   retryPipelineExecution(
     args: RetryPipelineExecutionCommandInput,
@@ -8251,7 +8259,7 @@ export interface SageMaker {
   ): void;
   retryPipelineExecution(
     args: RetryPipelineExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: RetryPipelineExecutionCommandOutput) => void
   ): void;
 
@@ -8260,7 +8268,7 @@ export interface SageMaker {
    */
   search(
     args: SearchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<SearchCommandOutput>;
   search(
     args: SearchCommandInput,
@@ -8268,7 +8276,7 @@ export interface SageMaker {
   ): void;
   search(
     args: SearchCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: SearchCommandOutput) => void
   ): void;
 
@@ -8278,7 +8286,7 @@ export interface SageMaker {
   searchTrainingPlanOfferings(): Promise<SearchTrainingPlanOfferingsCommandOutput>;
   searchTrainingPlanOfferings(
     args: SearchTrainingPlanOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<SearchTrainingPlanOfferingsCommandOutput>;
   searchTrainingPlanOfferings(
     args: SearchTrainingPlanOfferingsCommandInput,
@@ -8286,7 +8294,7 @@ export interface SageMaker {
   ): void;
   searchTrainingPlanOfferings(
     args: SearchTrainingPlanOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: SearchTrainingPlanOfferingsCommandOutput) => void
   ): void;
 
@@ -8295,7 +8303,7 @@ export interface SageMaker {
    */
   sendPipelineExecutionStepFailure(
     args: SendPipelineExecutionStepFailureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<SendPipelineExecutionStepFailureCommandOutput>;
   sendPipelineExecutionStepFailure(
     args: SendPipelineExecutionStepFailureCommandInput,
@@ -8303,7 +8311,7 @@ export interface SageMaker {
   ): void;
   sendPipelineExecutionStepFailure(
     args: SendPipelineExecutionStepFailureCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: SendPipelineExecutionStepFailureCommandOutput) => void
   ): void;
 
@@ -8312,7 +8320,7 @@ export interface SageMaker {
    */
   sendPipelineExecutionStepSuccess(
     args: SendPipelineExecutionStepSuccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<SendPipelineExecutionStepSuccessCommandOutput>;
   sendPipelineExecutionStepSuccess(
     args: SendPipelineExecutionStepSuccessCommandInput,
@@ -8320,7 +8328,7 @@ export interface SageMaker {
   ): void;
   sendPipelineExecutionStepSuccess(
     args: SendPipelineExecutionStepSuccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: SendPipelineExecutionStepSuccessCommandOutput) => void
   ): void;
 
@@ -8329,7 +8337,7 @@ export interface SageMaker {
    */
   startClusterHealthCheck(
     args: StartClusterHealthCheckCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StartClusterHealthCheckCommandOutput>;
   startClusterHealthCheck(
     args: StartClusterHealthCheckCommandInput,
@@ -8337,7 +8345,7 @@ export interface SageMaker {
   ): void;
   startClusterHealthCheck(
     args: StartClusterHealthCheckCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StartClusterHealthCheckCommandOutput) => void
   ): void;
 
@@ -8346,7 +8354,7 @@ export interface SageMaker {
    */
   startEdgeDeploymentStage(
     args: StartEdgeDeploymentStageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StartEdgeDeploymentStageCommandOutput>;
   startEdgeDeploymentStage(
     args: StartEdgeDeploymentStageCommandInput,
@@ -8354,7 +8362,7 @@ export interface SageMaker {
   ): void;
   startEdgeDeploymentStage(
     args: StartEdgeDeploymentStageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StartEdgeDeploymentStageCommandOutput) => void
   ): void;
 
@@ -8363,7 +8371,7 @@ export interface SageMaker {
    */
   startInferenceExperiment(
     args: StartInferenceExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StartInferenceExperimentCommandOutput>;
   startInferenceExperiment(
     args: StartInferenceExperimentCommandInput,
@@ -8371,7 +8379,7 @@ export interface SageMaker {
   ): void;
   startInferenceExperiment(
     args: StartInferenceExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StartInferenceExperimentCommandOutput) => void
   ): void;
 
@@ -8380,7 +8388,7 @@ export interface SageMaker {
    */
   startMlflowTrackingServer(
     args: StartMlflowTrackingServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StartMlflowTrackingServerCommandOutput>;
   startMlflowTrackingServer(
     args: StartMlflowTrackingServerCommandInput,
@@ -8388,7 +8396,7 @@ export interface SageMaker {
   ): void;
   startMlflowTrackingServer(
     args: StartMlflowTrackingServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StartMlflowTrackingServerCommandOutput) => void
   ): void;
 
@@ -8397,7 +8405,7 @@ export interface SageMaker {
    */
   startMonitoringSchedule(
     args: StartMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StartMonitoringScheduleCommandOutput>;
   startMonitoringSchedule(
     args: StartMonitoringScheduleCommandInput,
@@ -8405,7 +8413,7 @@ export interface SageMaker {
   ): void;
   startMonitoringSchedule(
     args: StartMonitoringScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StartMonitoringScheduleCommandOutput) => void
   ): void;
 
@@ -8414,7 +8422,7 @@ export interface SageMaker {
    */
   startNotebookInstance(
     args: StartNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StartNotebookInstanceCommandOutput>;
   startNotebookInstance(
     args: StartNotebookInstanceCommandInput,
@@ -8422,7 +8430,7 @@ export interface SageMaker {
   ): void;
   startNotebookInstance(
     args: StartNotebookInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StartNotebookInstanceCommandOutput) => void
   ): void;
 
@@ -8431,7 +8439,7 @@ export interface SageMaker {
    */
   startPipelineExecution(
     args: StartPipelineExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StartPipelineExecutionCommandOutput>;
   startPipelineExecution(
     args: StartPipelineExecutionCommandInput,
@@ -8439,7 +8447,7 @@ export interface SageMaker {
   ): void;
   startPipelineExecution(
     args: StartPipelineExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StartPipelineExecutionCommandOutput) => void
   ): void;
 
@@ -8448,7 +8456,7 @@ export interface SageMaker {
    */
   startSession(
     args: StartSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StartSessionCommandOutput>;
   startSession(
     args: StartSessionCommandInput,
@@ -8456,7 +8464,7 @@ export interface SageMaker {
   ): void;
   startSession(
     args: StartSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StartSessionCommandOutput) => void
   ): void;
 
@@ -8465,7 +8473,7 @@ export interface SageMaker {
    */
   stopAIBenchmarkJob(
     args: StopAIBenchmarkJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopAIBenchmarkJobCommandOutput>;
   stopAIBenchmarkJob(
     args: StopAIBenchmarkJobCommandInput,
@@ -8473,7 +8481,7 @@ export interface SageMaker {
   ): void;
   stopAIBenchmarkJob(
     args: StopAIBenchmarkJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopAIBenchmarkJobCommandOutput) => void
   ): void;
 
@@ -8482,7 +8490,7 @@ export interface SageMaker {
    */
   stopAIRecommendationJob(
     args: StopAIRecommendationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopAIRecommendationJobCommandOutput>;
   stopAIRecommendationJob(
     args: StopAIRecommendationJobCommandInput,
@@ -8490,7 +8498,7 @@ export interface SageMaker {
   ): void;
   stopAIRecommendationJob(
     args: StopAIRecommendationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopAIRecommendationJobCommandOutput) => void
   ): void;
 
@@ -8499,7 +8507,7 @@ export interface SageMaker {
    */
   stopAutoMLJob(
     args: StopAutoMLJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopAutoMLJobCommandOutput>;
   stopAutoMLJob(
     args: StopAutoMLJobCommandInput,
@@ -8507,7 +8515,7 @@ export interface SageMaker {
   ): void;
   stopAutoMLJob(
     args: StopAutoMLJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopAutoMLJobCommandOutput) => void
   ): void;
 
@@ -8516,7 +8524,7 @@ export interface SageMaker {
    */
   stopCompilationJob(
     args: StopCompilationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopCompilationJobCommandOutput>;
   stopCompilationJob(
     args: StopCompilationJobCommandInput,
@@ -8524,7 +8532,7 @@ export interface SageMaker {
   ): void;
   stopCompilationJob(
     args: StopCompilationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopCompilationJobCommandOutput) => void
   ): void;
 
@@ -8533,7 +8541,7 @@ export interface SageMaker {
    */
   stopEdgeDeploymentStage(
     args: StopEdgeDeploymentStageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopEdgeDeploymentStageCommandOutput>;
   stopEdgeDeploymentStage(
     args: StopEdgeDeploymentStageCommandInput,
@@ -8541,7 +8549,7 @@ export interface SageMaker {
   ): void;
   stopEdgeDeploymentStage(
     args: StopEdgeDeploymentStageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopEdgeDeploymentStageCommandOutput) => void
   ): void;
 
@@ -8550,7 +8558,7 @@ export interface SageMaker {
    */
   stopEdgePackagingJob(
     args: StopEdgePackagingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopEdgePackagingJobCommandOutput>;
   stopEdgePackagingJob(
     args: StopEdgePackagingJobCommandInput,
@@ -8558,7 +8566,7 @@ export interface SageMaker {
   ): void;
   stopEdgePackagingJob(
     args: StopEdgePackagingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopEdgePackagingJobCommandOutput) => void
   ): void;
 
@@ -8567,7 +8575,7 @@ export interface SageMaker {
    */
   stopHyperParameterTuningJob(
     args: StopHyperParameterTuningJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopHyperParameterTuningJobCommandOutput>;
   stopHyperParameterTuningJob(
     args: StopHyperParameterTuningJobCommandInput,
@@ -8575,7 +8583,7 @@ export interface SageMaker {
   ): void;
   stopHyperParameterTuningJob(
     args: StopHyperParameterTuningJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopHyperParameterTuningJobCommandOutput) => void
   ): void;
 
@@ -8584,7 +8592,7 @@ export interface SageMaker {
    */
   stopInferenceExperiment(
     args: StopInferenceExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopInferenceExperimentCommandOutput>;
   stopInferenceExperiment(
     args: StopInferenceExperimentCommandInput,
@@ -8592,7 +8600,7 @@ export interface SageMaker {
   ): void;
   stopInferenceExperiment(
     args: StopInferenceExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopInferenceExperimentCommandOutput) => void
   ): void;
 
@@ -8601,7 +8609,7 @@ export interface SageMaker {
    */
   stopInferenceRecommendationsJob(
     args: StopInferenceRecommendationsJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopInferenceRecommendationsJobCommandOutput>;
   stopInferenceRecommendationsJob(
     args: StopInferenceRecommendationsJobCommandInput,
@@ -8609,7 +8617,7 @@ export interface SageMaker {
   ): void;
   stopInferenceRecommendationsJob(
     args: StopInferenceRecommendationsJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopInferenceRecommendationsJobCommandOutput) => void
   ): void;
 
@@ -8618,7 +8626,7 @@ export interface SageMaker {
    */
   stopJob(
     args: StopJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopJobCommandOutput>;
   stopJob(
     args: StopJobCommandInput,
@@ -8626,7 +8634,7 @@ export interface SageMaker {
   ): void;
   stopJob(
     args: StopJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopJobCommandOutput) => void
   ): void;
 
@@ -8635,7 +8643,7 @@ export interface SageMaker {
    */
   stopLabelingJob(
     args: StopLabelingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopLabelingJobCommandOutput>;
   stopLabelingJob(
     args: StopLabelingJobCommandInput,
@@ -8643,7 +8651,7 @@ export interface SageMaker {
   ): void;
   stopLabelingJob(
     args: StopLabelingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopLabelingJobCommandOutput) => void
   ): void;
 
@@ -8652,7 +8660,7 @@ export interface SageMaker {
    */
   stopMlflowTrackingServer(
     args: StopMlflowTrackingServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopMlflowTrackingServerCommandOutput>;
   stopMlflowTrackingServer(
     args: StopMlflowTrackingServerCommandInput,
@@ -8660,7 +8668,7 @@ export interface SageMaker {
   ): void;
   stopMlflowTrackingServer(
     args: StopMlflowTrackingServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopMlflowTrackingServerCommandOutput) => void
   ): void;
 
@@ -8669,7 +8677,7 @@ export interface SageMaker {
    */
   stopMonitoringSchedule(
     args: StopMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopMonitoringScheduleCommandOutput>;
   stopMonitoringSchedule(
     args: StopMonitoringScheduleCommandInput,
@@ -8677,7 +8685,7 @@ export interface SageMaker {
   ): void;
   stopMonitoringSchedule(
     args: StopMonitoringScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopMonitoringScheduleCommandOutput) => void
   ): void;
 
@@ -8686,7 +8694,7 @@ export interface SageMaker {
    */
   stopNotebookInstance(
     args: StopNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopNotebookInstanceCommandOutput>;
   stopNotebookInstance(
     args: StopNotebookInstanceCommandInput,
@@ -8694,7 +8702,7 @@ export interface SageMaker {
   ): void;
   stopNotebookInstance(
     args: StopNotebookInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopNotebookInstanceCommandOutput) => void
   ): void;
 
@@ -8703,7 +8711,7 @@ export interface SageMaker {
    */
   stopOptimizationJob(
     args: StopOptimizationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopOptimizationJobCommandOutput>;
   stopOptimizationJob(
     args: StopOptimizationJobCommandInput,
@@ -8711,7 +8719,7 @@ export interface SageMaker {
   ): void;
   stopOptimizationJob(
     args: StopOptimizationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopOptimizationJobCommandOutput) => void
   ): void;
 
@@ -8720,7 +8728,7 @@ export interface SageMaker {
    */
   stopPipelineExecution(
     args: StopPipelineExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopPipelineExecutionCommandOutput>;
   stopPipelineExecution(
     args: StopPipelineExecutionCommandInput,
@@ -8728,7 +8736,7 @@ export interface SageMaker {
   ): void;
   stopPipelineExecution(
     args: StopPipelineExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopPipelineExecutionCommandOutput) => void
   ): void;
 
@@ -8737,7 +8745,7 @@ export interface SageMaker {
    */
   stopProcessingJob(
     args: StopProcessingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopProcessingJobCommandOutput>;
   stopProcessingJob(
     args: StopProcessingJobCommandInput,
@@ -8745,7 +8753,7 @@ export interface SageMaker {
   ): void;
   stopProcessingJob(
     args: StopProcessingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopProcessingJobCommandOutput) => void
   ): void;
 
@@ -8754,7 +8762,7 @@ export interface SageMaker {
    */
   stopTrainingJob(
     args: StopTrainingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopTrainingJobCommandOutput>;
   stopTrainingJob(
     args: StopTrainingJobCommandInput,
@@ -8762,7 +8770,7 @@ export interface SageMaker {
   ): void;
   stopTrainingJob(
     args: StopTrainingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopTrainingJobCommandOutput) => void
   ): void;
 
@@ -8771,7 +8779,7 @@ export interface SageMaker {
    */
   stopTransformJob(
     args: StopTransformJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<StopTransformJobCommandOutput>;
   stopTransformJob(
     args: StopTransformJobCommandInput,
@@ -8779,7 +8787,7 @@ export interface SageMaker {
   ): void;
   stopTransformJob(
     args: StopTransformJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: StopTransformJobCommandOutput) => void
   ): void;
 
@@ -8788,7 +8796,7 @@ export interface SageMaker {
    */
   updateAction(
     args: UpdateActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateActionCommandOutput>;
   updateAction(
     args: UpdateActionCommandInput,
@@ -8796,7 +8804,7 @@ export interface SageMaker {
   ): void;
   updateAction(
     args: UpdateActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateActionCommandOutput) => void
   ): void;
 
@@ -8805,7 +8813,7 @@ export interface SageMaker {
    */
   updateAppImageConfig(
     args: UpdateAppImageConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateAppImageConfigCommandOutput>;
   updateAppImageConfig(
     args: UpdateAppImageConfigCommandInput,
@@ -8813,7 +8821,7 @@ export interface SageMaker {
   ): void;
   updateAppImageConfig(
     args: UpdateAppImageConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateAppImageConfigCommandOutput) => void
   ): void;
 
@@ -8822,7 +8830,7 @@ export interface SageMaker {
    */
   updateArtifact(
     args: UpdateArtifactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateArtifactCommandOutput>;
   updateArtifact(
     args: UpdateArtifactCommandInput,
@@ -8830,7 +8838,7 @@ export interface SageMaker {
   ): void;
   updateArtifact(
     args: UpdateArtifactCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateArtifactCommandOutput) => void
   ): void;
 
@@ -8839,7 +8847,7 @@ export interface SageMaker {
    */
   updateCluster(
     args: UpdateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateClusterCommandOutput>;
   updateCluster(
     args: UpdateClusterCommandInput,
@@ -8847,7 +8855,7 @@ export interface SageMaker {
   ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
 
@@ -8856,7 +8864,7 @@ export interface SageMaker {
    */
   updateClusterSchedulerConfig(
     args: UpdateClusterSchedulerConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateClusterSchedulerConfigCommandOutput>;
   updateClusterSchedulerConfig(
     args: UpdateClusterSchedulerConfigCommandInput,
@@ -8864,7 +8872,7 @@ export interface SageMaker {
   ): void;
   updateClusterSchedulerConfig(
     args: UpdateClusterSchedulerConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateClusterSchedulerConfigCommandOutput) => void
   ): void;
 
@@ -8873,7 +8881,7 @@ export interface SageMaker {
    */
   updateClusterSoftware(
     args: UpdateClusterSoftwareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateClusterSoftwareCommandOutput>;
   updateClusterSoftware(
     args: UpdateClusterSoftwareCommandInput,
@@ -8881,7 +8889,7 @@ export interface SageMaker {
   ): void;
   updateClusterSoftware(
     args: UpdateClusterSoftwareCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateClusterSoftwareCommandOutput) => void
   ): void;
 
@@ -8890,7 +8898,7 @@ export interface SageMaker {
    */
   updateCodeRepository(
     args: UpdateCodeRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateCodeRepositoryCommandOutput>;
   updateCodeRepository(
     args: UpdateCodeRepositoryCommandInput,
@@ -8898,7 +8906,7 @@ export interface SageMaker {
   ): void;
   updateCodeRepository(
     args: UpdateCodeRepositoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateCodeRepositoryCommandOutput) => void
   ): void;
 
@@ -8907,7 +8915,7 @@ export interface SageMaker {
    */
   updateComputeQuota(
     args: UpdateComputeQuotaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateComputeQuotaCommandOutput>;
   updateComputeQuota(
     args: UpdateComputeQuotaCommandInput,
@@ -8915,7 +8923,7 @@ export interface SageMaker {
   ): void;
   updateComputeQuota(
     args: UpdateComputeQuotaCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateComputeQuotaCommandOutput) => void
   ): void;
 
@@ -8924,7 +8932,7 @@ export interface SageMaker {
    */
   updateContext(
     args: UpdateContextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateContextCommandOutput>;
   updateContext(
     args: UpdateContextCommandInput,
@@ -8932,7 +8940,7 @@ export interface SageMaker {
   ): void;
   updateContext(
     args: UpdateContextCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateContextCommandOutput) => void
   ): void;
 
@@ -8941,7 +8949,7 @@ export interface SageMaker {
    */
   updateDeviceFleet(
     args: UpdateDeviceFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateDeviceFleetCommandOutput>;
   updateDeviceFleet(
     args: UpdateDeviceFleetCommandInput,
@@ -8949,7 +8957,7 @@ export interface SageMaker {
   ): void;
   updateDeviceFleet(
     args: UpdateDeviceFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateDeviceFleetCommandOutput) => void
   ): void;
 
@@ -8958,7 +8966,7 @@ export interface SageMaker {
    */
   updateDevices(
     args: UpdateDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateDevicesCommandOutput>;
   updateDevices(
     args: UpdateDevicesCommandInput,
@@ -8966,7 +8974,7 @@ export interface SageMaker {
   ): void;
   updateDevices(
     args: UpdateDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateDevicesCommandOutput) => void
   ): void;
 
@@ -8975,7 +8983,7 @@ export interface SageMaker {
    */
   updateDomain(
     args: UpdateDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateDomainCommandOutput>;
   updateDomain(
     args: UpdateDomainCommandInput,
@@ -8983,7 +8991,7 @@ export interface SageMaker {
   ): void;
   updateDomain(
     args: UpdateDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateDomainCommandOutput) => void
   ): void;
 
@@ -8992,7 +9000,7 @@ export interface SageMaker {
    */
   updateEndpoint(
     args: UpdateEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateEndpointCommandOutput>;
   updateEndpoint(
     args: UpdateEndpointCommandInput,
@@ -9000,7 +9008,7 @@ export interface SageMaker {
   ): void;
   updateEndpoint(
     args: UpdateEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateEndpointCommandOutput) => void
   ): void;
 
@@ -9009,7 +9017,7 @@ export interface SageMaker {
    */
   updateEndpointWeightsAndCapacities(
     args: UpdateEndpointWeightsAndCapacitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateEndpointWeightsAndCapacitiesCommandOutput>;
   updateEndpointWeightsAndCapacities(
     args: UpdateEndpointWeightsAndCapacitiesCommandInput,
@@ -9017,7 +9025,7 @@ export interface SageMaker {
   ): void;
   updateEndpointWeightsAndCapacities(
     args: UpdateEndpointWeightsAndCapacitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateEndpointWeightsAndCapacitiesCommandOutput) => void
   ): void;
 
@@ -9026,7 +9034,7 @@ export interface SageMaker {
    */
   updateExperiment(
     args: UpdateExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateExperimentCommandOutput>;
   updateExperiment(
     args: UpdateExperimentCommandInput,
@@ -9034,7 +9042,7 @@ export interface SageMaker {
   ): void;
   updateExperiment(
     args: UpdateExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateExperimentCommandOutput) => void
   ): void;
 
@@ -9043,7 +9051,7 @@ export interface SageMaker {
    */
   updateFeatureGroup(
     args: UpdateFeatureGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateFeatureGroupCommandOutput>;
   updateFeatureGroup(
     args: UpdateFeatureGroupCommandInput,
@@ -9051,7 +9059,7 @@ export interface SageMaker {
   ): void;
   updateFeatureGroup(
     args: UpdateFeatureGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateFeatureGroupCommandOutput) => void
   ): void;
 
@@ -9060,7 +9068,7 @@ export interface SageMaker {
    */
   updateFeatureMetadata(
     args: UpdateFeatureMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateFeatureMetadataCommandOutput>;
   updateFeatureMetadata(
     args: UpdateFeatureMetadataCommandInput,
@@ -9068,7 +9076,7 @@ export interface SageMaker {
   ): void;
   updateFeatureMetadata(
     args: UpdateFeatureMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateFeatureMetadataCommandOutput) => void
   ): void;
 
@@ -9077,7 +9085,7 @@ export interface SageMaker {
    */
   updateHub(
     args: UpdateHubCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateHubCommandOutput>;
   updateHub(
     args: UpdateHubCommandInput,
@@ -9085,7 +9093,7 @@ export interface SageMaker {
   ): void;
   updateHub(
     args: UpdateHubCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateHubCommandOutput) => void
   ): void;
 
@@ -9094,7 +9102,7 @@ export interface SageMaker {
    */
   updateHubContent(
     args: UpdateHubContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateHubContentCommandOutput>;
   updateHubContent(
     args: UpdateHubContentCommandInput,
@@ -9102,7 +9110,7 @@ export interface SageMaker {
   ): void;
   updateHubContent(
     args: UpdateHubContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateHubContentCommandOutput) => void
   ): void;
 
@@ -9111,7 +9119,7 @@ export interface SageMaker {
    */
   updateHubContentReference(
     args: UpdateHubContentReferenceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateHubContentReferenceCommandOutput>;
   updateHubContentReference(
     args: UpdateHubContentReferenceCommandInput,
@@ -9119,7 +9127,7 @@ export interface SageMaker {
   ): void;
   updateHubContentReference(
     args: UpdateHubContentReferenceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateHubContentReferenceCommandOutput) => void
   ): void;
 
@@ -9128,7 +9136,7 @@ export interface SageMaker {
    */
   updateImage(
     args: UpdateImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateImageCommandOutput>;
   updateImage(
     args: UpdateImageCommandInput,
@@ -9136,7 +9144,7 @@ export interface SageMaker {
   ): void;
   updateImage(
     args: UpdateImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateImageCommandOutput) => void
   ): void;
 
@@ -9145,7 +9153,7 @@ export interface SageMaker {
    */
   updateImageVersion(
     args: UpdateImageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateImageVersionCommandOutput>;
   updateImageVersion(
     args: UpdateImageVersionCommandInput,
@@ -9153,7 +9161,7 @@ export interface SageMaker {
   ): void;
   updateImageVersion(
     args: UpdateImageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateImageVersionCommandOutput) => void
   ): void;
 
@@ -9162,7 +9170,7 @@ export interface SageMaker {
    */
   updateInferenceComponent(
     args: UpdateInferenceComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateInferenceComponentCommandOutput>;
   updateInferenceComponent(
     args: UpdateInferenceComponentCommandInput,
@@ -9170,7 +9178,7 @@ export interface SageMaker {
   ): void;
   updateInferenceComponent(
     args: UpdateInferenceComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateInferenceComponentCommandOutput) => void
   ): void;
 
@@ -9179,7 +9187,7 @@ export interface SageMaker {
    */
   updateInferenceComponentRuntimeConfig(
     args: UpdateInferenceComponentRuntimeConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateInferenceComponentRuntimeConfigCommandOutput>;
   updateInferenceComponentRuntimeConfig(
     args: UpdateInferenceComponentRuntimeConfigCommandInput,
@@ -9187,7 +9195,7 @@ export interface SageMaker {
   ): void;
   updateInferenceComponentRuntimeConfig(
     args: UpdateInferenceComponentRuntimeConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateInferenceComponentRuntimeConfigCommandOutput) => void
   ): void;
 
@@ -9196,7 +9204,7 @@ export interface SageMaker {
    */
   updateInferenceExperiment(
     args: UpdateInferenceExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateInferenceExperimentCommandOutput>;
   updateInferenceExperiment(
     args: UpdateInferenceExperimentCommandInput,
@@ -9204,7 +9212,7 @@ export interface SageMaker {
   ): void;
   updateInferenceExperiment(
     args: UpdateInferenceExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateInferenceExperimentCommandOutput) => void
   ): void;
 
@@ -9213,7 +9221,7 @@ export interface SageMaker {
    */
   updateMlflowApp(
     args: UpdateMlflowAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateMlflowAppCommandOutput>;
   updateMlflowApp(
     args: UpdateMlflowAppCommandInput,
@@ -9221,7 +9229,7 @@ export interface SageMaker {
   ): void;
   updateMlflowApp(
     args: UpdateMlflowAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateMlflowAppCommandOutput) => void
   ): void;
 
@@ -9230,7 +9238,7 @@ export interface SageMaker {
    */
   updateMlflowTrackingServer(
     args: UpdateMlflowTrackingServerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateMlflowTrackingServerCommandOutput>;
   updateMlflowTrackingServer(
     args: UpdateMlflowTrackingServerCommandInput,
@@ -9238,7 +9246,7 @@ export interface SageMaker {
   ): void;
   updateMlflowTrackingServer(
     args: UpdateMlflowTrackingServerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateMlflowTrackingServerCommandOutput) => void
   ): void;
 
@@ -9247,7 +9255,7 @@ export interface SageMaker {
    */
   updateModelCard(
     args: UpdateModelCardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateModelCardCommandOutput>;
   updateModelCard(
     args: UpdateModelCardCommandInput,
@@ -9255,7 +9263,7 @@ export interface SageMaker {
   ): void;
   updateModelCard(
     args: UpdateModelCardCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateModelCardCommandOutput) => void
   ): void;
 
@@ -9264,7 +9272,7 @@ export interface SageMaker {
    */
   updateModelPackage(
     args: UpdateModelPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateModelPackageCommandOutput>;
   updateModelPackage(
     args: UpdateModelPackageCommandInput,
@@ -9272,7 +9280,7 @@ export interface SageMaker {
   ): void;
   updateModelPackage(
     args: UpdateModelPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateModelPackageCommandOutput) => void
   ): void;
 
@@ -9281,7 +9289,7 @@ export interface SageMaker {
    */
   updateMonitoringAlert(
     args: UpdateMonitoringAlertCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateMonitoringAlertCommandOutput>;
   updateMonitoringAlert(
     args: UpdateMonitoringAlertCommandInput,
@@ -9289,7 +9297,7 @@ export interface SageMaker {
   ): void;
   updateMonitoringAlert(
     args: UpdateMonitoringAlertCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateMonitoringAlertCommandOutput) => void
   ): void;
 
@@ -9298,7 +9306,7 @@ export interface SageMaker {
    */
   updateMonitoringSchedule(
     args: UpdateMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateMonitoringScheduleCommandOutput>;
   updateMonitoringSchedule(
     args: UpdateMonitoringScheduleCommandInput,
@@ -9306,7 +9314,7 @@ export interface SageMaker {
   ): void;
   updateMonitoringSchedule(
     args: UpdateMonitoringScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateMonitoringScheduleCommandOutput) => void
   ): void;
 
@@ -9315,7 +9323,7 @@ export interface SageMaker {
    */
   updateNotebookInstance(
     args: UpdateNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateNotebookInstanceCommandOutput>;
   updateNotebookInstance(
     args: UpdateNotebookInstanceCommandInput,
@@ -9323,7 +9331,7 @@ export interface SageMaker {
   ): void;
   updateNotebookInstance(
     args: UpdateNotebookInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateNotebookInstanceCommandOutput) => void
   ): void;
 
@@ -9332,7 +9340,7 @@ export interface SageMaker {
    */
   updateNotebookInstanceLifecycleConfig(
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput>;
   updateNotebookInstanceLifecycleConfig(
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
@@ -9340,7 +9348,7 @@ export interface SageMaker {
   ): void;
   updateNotebookInstanceLifecycleConfig(
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void
   ): void;
 
@@ -9349,7 +9357,7 @@ export interface SageMaker {
    */
   updatePartnerApp(
     args: UpdatePartnerAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdatePartnerAppCommandOutput>;
   updatePartnerApp(
     args: UpdatePartnerAppCommandInput,
@@ -9357,7 +9365,7 @@ export interface SageMaker {
   ): void;
   updatePartnerApp(
     args: UpdatePartnerAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdatePartnerAppCommandOutput) => void
   ): void;
 
@@ -9366,7 +9374,7 @@ export interface SageMaker {
    */
   updatePipeline(
     args: UpdatePipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdatePipelineCommandOutput>;
   updatePipeline(
     args: UpdatePipelineCommandInput,
@@ -9374,7 +9382,7 @@ export interface SageMaker {
   ): void;
   updatePipeline(
     args: UpdatePipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): void;
 
@@ -9383,7 +9391,7 @@ export interface SageMaker {
    */
   updatePipelineExecution(
     args: UpdatePipelineExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdatePipelineExecutionCommandOutput>;
   updatePipelineExecution(
     args: UpdatePipelineExecutionCommandInput,
@@ -9391,7 +9399,7 @@ export interface SageMaker {
   ): void;
   updatePipelineExecution(
     args: UpdatePipelineExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdatePipelineExecutionCommandOutput) => void
   ): void;
 
@@ -9400,7 +9408,7 @@ export interface SageMaker {
    */
   updatePipelineVersion(
     args: UpdatePipelineVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdatePipelineVersionCommandOutput>;
   updatePipelineVersion(
     args: UpdatePipelineVersionCommandInput,
@@ -9408,7 +9416,7 @@ export interface SageMaker {
   ): void;
   updatePipelineVersion(
     args: UpdatePipelineVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdatePipelineVersionCommandOutput) => void
   ): void;
 
@@ -9417,7 +9425,7 @@ export interface SageMaker {
    */
   updateProject(
     args: UpdateProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateProjectCommandOutput>;
   updateProject(
     args: UpdateProjectCommandInput,
@@ -9425,7 +9433,7 @@ export interface SageMaker {
   ): void;
   updateProject(
     args: UpdateProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateProjectCommandOutput) => void
   ): void;
 
@@ -9434,7 +9442,7 @@ export interface SageMaker {
    */
   updateSpace(
     args: UpdateSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateSpaceCommandOutput>;
   updateSpace(
     args: UpdateSpaceCommandInput,
@@ -9442,7 +9450,7 @@ export interface SageMaker {
   ): void;
   updateSpace(
     args: UpdateSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateSpaceCommandOutput) => void
   ): void;
 
@@ -9451,7 +9459,7 @@ export interface SageMaker {
    */
   updateTrainingJob(
     args: UpdateTrainingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateTrainingJobCommandOutput>;
   updateTrainingJob(
     args: UpdateTrainingJobCommandInput,
@@ -9459,7 +9467,7 @@ export interface SageMaker {
   ): void;
   updateTrainingJob(
     args: UpdateTrainingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateTrainingJobCommandOutput) => void
   ): void;
 
@@ -9468,7 +9476,7 @@ export interface SageMaker {
    */
   updateTrial(
     args: UpdateTrialCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateTrialCommandOutput>;
   updateTrial(
     args: UpdateTrialCommandInput,
@@ -9476,7 +9484,7 @@ export interface SageMaker {
   ): void;
   updateTrial(
     args: UpdateTrialCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateTrialCommandOutput) => void
   ): void;
 
@@ -9485,7 +9493,7 @@ export interface SageMaker {
    */
   updateTrialComponent(
     args: UpdateTrialComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateTrialComponentCommandOutput>;
   updateTrialComponent(
     args: UpdateTrialComponentCommandInput,
@@ -9493,7 +9501,7 @@ export interface SageMaker {
   ): void;
   updateTrialComponent(
     args: UpdateTrialComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateTrialComponentCommandOutput) => void
   ): void;
 
@@ -9502,7 +9510,7 @@ export interface SageMaker {
    */
   updateUserProfile(
     args: UpdateUserProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateUserProfileCommandOutput>;
   updateUserProfile(
     args: UpdateUserProfileCommandInput,
@@ -9510,7 +9518,7 @@ export interface SageMaker {
   ): void;
   updateUserProfile(
     args: UpdateUserProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateUserProfileCommandOutput) => void
   ): void;
 
@@ -9519,7 +9527,7 @@ export interface SageMaker {
    */
   updateWorkforce(
     args: UpdateWorkforceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateWorkforceCommandOutput>;
   updateWorkforce(
     args: UpdateWorkforceCommandInput,
@@ -9527,7 +9535,7 @@ export interface SageMaker {
   ): void;
   updateWorkforce(
     args: UpdateWorkforceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateWorkforceCommandOutput) => void
   ): void;
 
@@ -9536,7 +9544,7 @@ export interface SageMaker {
    */
   updateWorkteam(
     args: UpdateWorkteamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRequestOptions
   ): Promise<UpdateWorkteamCommandOutput>;
   updateWorkteam(
     args: UpdateWorkteamCommandInput,
@@ -9544,7 +9552,7 @@ export interface SageMaker {
   ): void;
   updateWorkteam(
     args: UpdateWorkteamCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateWorkteamCommandOutput) => void
   ): void;
 

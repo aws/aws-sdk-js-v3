@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type CreateTokenCommandInput,
@@ -13,13 +13,20 @@ const commands = {
   CreateTokenCommand,
 };
 
+/**
+ * @public
+ */
+export interface SSOOIDCRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SSOOIDC {
   /**
    * @see {@link CreateTokenCommand}
    */
   createToken(
     args: CreateTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOOIDCRequestOptions
   ): Promise<CreateTokenCommandOutput>;
   createToken(
     args: CreateTokenCommandInput,
@@ -27,7 +34,7 @@ export interface SSOOIDC {
   ): void;
   createToken(
     args: CreateTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOOIDCRequestOptions,
     cb: (err: any, data?: CreateTokenCommandOutput) => void
   ): void;
 }

@@ -118,10 +118,10 @@ import {
 import { OAMServiceException } from "../models/OAMServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var OAMServiceException$: StaticErrorSchema = [-3, _s, "OAMServiceException", 0, [], []];
 _s_registry.registerError(OAMServiceException$, OAMServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _aET],

@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -115,13 +116,20 @@ const waiters = {
   waitUntilRegistryRecordApproved,
 };
 
+/**
+ * @public
+ */
+export interface AgentRegistryControlRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface AgentRegistryControl {
   /**
    * @see {@link CreateRegistryCommand}
    */
   createRegistry(
     args: CreateRegistryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<CreateRegistryCommandOutput>;
   createRegistry(
     args: CreateRegistryCommandInput,
@@ -129,7 +137,7 @@ export interface AgentRegistryControl {
   ): void;
   createRegistry(
     args: CreateRegistryCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: CreateRegistryCommandOutput) => void
   ): void;
 
@@ -138,7 +146,7 @@ export interface AgentRegistryControl {
    */
   createRegistryRecord(
     args: CreateRegistryRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<CreateRegistryRecordCommandOutput>;
   createRegistryRecord(
     args: CreateRegistryRecordCommandInput,
@@ -146,7 +154,7 @@ export interface AgentRegistryControl {
   ): void;
   createRegistryRecord(
     args: CreateRegistryRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: CreateRegistryRecordCommandOutput) => void
   ): void;
 
@@ -155,7 +163,7 @@ export interface AgentRegistryControl {
    */
   deleteRegistry(
     args: DeleteRegistryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<DeleteRegistryCommandOutput>;
   deleteRegistry(
     args: DeleteRegistryCommandInput,
@@ -163,7 +171,7 @@ export interface AgentRegistryControl {
   ): void;
   deleteRegistry(
     args: DeleteRegistryCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: DeleteRegistryCommandOutput) => void
   ): void;
 
@@ -172,7 +180,7 @@ export interface AgentRegistryControl {
    */
   deleteRegistryRecord(
     args: DeleteRegistryRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<DeleteRegistryRecordCommandOutput>;
   deleteRegistryRecord(
     args: DeleteRegistryRecordCommandInput,
@@ -180,7 +188,7 @@ export interface AgentRegistryControl {
   ): void;
   deleteRegistryRecord(
     args: DeleteRegistryRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: DeleteRegistryRecordCommandOutput) => void
   ): void;
 
@@ -189,7 +197,7 @@ export interface AgentRegistryControl {
    */
   getRegistry(
     args: GetRegistryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<GetRegistryCommandOutput>;
   getRegistry(
     args: GetRegistryCommandInput,
@@ -197,7 +205,7 @@ export interface AgentRegistryControl {
   ): void;
   getRegistry(
     args: GetRegistryCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: GetRegistryCommandOutput) => void
   ): void;
 
@@ -206,7 +214,7 @@ export interface AgentRegistryControl {
    */
   getRegistryRecord(
     args: GetRegistryRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<GetRegistryRecordCommandOutput>;
   getRegistryRecord(
     args: GetRegistryRecordCommandInput,
@@ -214,7 +222,7 @@ export interface AgentRegistryControl {
   ): void;
   getRegistryRecord(
     args: GetRegistryRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: GetRegistryRecordCommandOutput) => void
   ): void;
 
@@ -224,7 +232,7 @@ export interface AgentRegistryControl {
   listRegistries(): Promise<ListRegistriesCommandOutput>;
   listRegistries(
     args: ListRegistriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<ListRegistriesCommandOutput>;
   listRegistries(
     args: ListRegistriesCommandInput,
@@ -232,7 +240,7 @@ export interface AgentRegistryControl {
   ): void;
   listRegistries(
     args: ListRegistriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: ListRegistriesCommandOutput) => void
   ): void;
 
@@ -241,7 +249,7 @@ export interface AgentRegistryControl {
    */
   listRegistryRecords(
     args: ListRegistryRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<ListRegistryRecordsCommandOutput>;
   listRegistryRecords(
     args: ListRegistryRecordsCommandInput,
@@ -249,7 +257,7 @@ export interface AgentRegistryControl {
   ): void;
   listRegistryRecords(
     args: ListRegistryRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: ListRegistryRecordsCommandOutput) => void
   ): void;
 
@@ -258,7 +266,7 @@ export interface AgentRegistryControl {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -266,7 +274,7 @@ export interface AgentRegistryControl {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -275,7 +283,7 @@ export interface AgentRegistryControl {
    */
   submitRegistryRecordForApproval(
     args: SubmitRegistryRecordForApprovalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<SubmitRegistryRecordForApprovalCommandOutput>;
   submitRegistryRecordForApproval(
     args: SubmitRegistryRecordForApprovalCommandInput,
@@ -283,7 +291,7 @@ export interface AgentRegistryControl {
   ): void;
   submitRegistryRecordForApproval(
     args: SubmitRegistryRecordForApprovalCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: SubmitRegistryRecordForApprovalCommandOutput) => void
   ): void;
 
@@ -292,7 +300,7 @@ export interface AgentRegistryControl {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -300,7 +308,7 @@ export interface AgentRegistryControl {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -309,7 +317,7 @@ export interface AgentRegistryControl {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -317,7 +325,7 @@ export interface AgentRegistryControl {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -326,7 +334,7 @@ export interface AgentRegistryControl {
    */
   updateRegistry(
     args: UpdateRegistryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<UpdateRegistryCommandOutput>;
   updateRegistry(
     args: UpdateRegistryCommandInput,
@@ -334,7 +342,7 @@ export interface AgentRegistryControl {
   ): void;
   updateRegistry(
     args: UpdateRegistryCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: UpdateRegistryCommandOutput) => void
   ): void;
 
@@ -343,7 +351,7 @@ export interface AgentRegistryControl {
    */
   updateRegistryRecord(
     args: UpdateRegistryRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<UpdateRegistryRecordCommandOutput>;
   updateRegistryRecord(
     args: UpdateRegistryRecordCommandInput,
@@ -351,7 +359,7 @@ export interface AgentRegistryControl {
   ): void;
   updateRegistryRecord(
     args: UpdateRegistryRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: UpdateRegistryRecordCommandOutput) => void
   ): void;
 
@@ -360,7 +368,7 @@ export interface AgentRegistryControl {
    */
   updateRegistryRecordStatus(
     args: UpdateRegistryRecordStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AgentRegistryControlRequestOptions
   ): Promise<UpdateRegistryRecordStatusCommandOutput>;
   updateRegistryRecordStatus(
     args: UpdateRegistryRecordStatusCommandInput,
@@ -368,7 +376,7 @@ export interface AgentRegistryControl {
   ): void;
   updateRegistryRecordStatus(
     args: UpdateRegistryRecordStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: AgentRegistryControlRequestOptions,
     cb: (err: any, data?: UpdateRegistryRecordStatusCommandOutput) => void
   ): void;
 

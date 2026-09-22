@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type CreateConfigurationSetCommandInput,
@@ -55,6 +55,13 @@ const commands = {
   UpdateConfigurationSetEventDestinationCommand,
 };
 
+/**
+ * @public
+ */
+export interface PinpointSMSVoiceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PinpointSMSVoice {
   /**
    * @see {@link CreateConfigurationSetCommand}
@@ -62,7 +69,7 @@ export interface PinpointSMSVoice {
   createConfigurationSet(): Promise<CreateConfigurationSetCommandOutput>;
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceRequestOptions
   ): Promise<CreateConfigurationSetCommandOutput>;
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
@@ -70,7 +77,7 @@ export interface PinpointSMSVoice {
   ): void;
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceRequestOptions,
     cb: (err: any, data?: CreateConfigurationSetCommandOutput) => void
   ): void;
 
@@ -79,7 +86,7 @@ export interface PinpointSMSVoice {
    */
   createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceRequestOptions
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput>;
   createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
@@ -87,7 +94,7 @@ export interface PinpointSMSVoice {
   ): void;
   createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceRequestOptions,
     cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
 
@@ -96,7 +103,7 @@ export interface PinpointSMSVoice {
    */
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceRequestOptions
   ): Promise<DeleteConfigurationSetCommandOutput>;
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
@@ -104,7 +111,7 @@ export interface PinpointSMSVoice {
   ): void;
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceRequestOptions,
     cb: (err: any, data?: DeleteConfigurationSetCommandOutput) => void
   ): void;
 
@@ -113,7 +120,7 @@ export interface PinpointSMSVoice {
    */
   deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceRequestOptions
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput>;
   deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
@@ -121,7 +128,7 @@ export interface PinpointSMSVoice {
   ): void;
   deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceRequestOptions,
     cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
 
@@ -130,7 +137,7 @@ export interface PinpointSMSVoice {
    */
   getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceRequestOptions
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput>;
   getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
@@ -138,7 +145,7 @@ export interface PinpointSMSVoice {
   ): void;
   getConfigurationSetEventDestinations(
     args: GetConfigurationSetEventDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceRequestOptions,
     cb: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): void;
 
@@ -148,7 +155,7 @@ export interface PinpointSMSVoice {
   listConfigurationSets(): Promise<ListConfigurationSetsCommandOutput>;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceRequestOptions
   ): Promise<ListConfigurationSetsCommandOutput>;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
@@ -156,7 +163,7 @@ export interface PinpointSMSVoice {
   ): void;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceRequestOptions,
     cb: (err: any, data?: ListConfigurationSetsCommandOutput) => void
   ): void;
 
@@ -166,7 +173,7 @@ export interface PinpointSMSVoice {
   sendVoiceMessage(): Promise<SendVoiceMessageCommandOutput>;
   sendVoiceMessage(
     args: SendVoiceMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceRequestOptions
   ): Promise<SendVoiceMessageCommandOutput>;
   sendVoiceMessage(
     args: SendVoiceMessageCommandInput,
@@ -174,7 +181,7 @@ export interface PinpointSMSVoice {
   ): void;
   sendVoiceMessage(
     args: SendVoiceMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceRequestOptions,
     cb: (err: any, data?: SendVoiceMessageCommandOutput) => void
   ): void;
 
@@ -183,7 +190,7 @@ export interface PinpointSMSVoice {
    */
   updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceRequestOptions
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput>;
   updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
@@ -191,7 +198,7 @@ export interface PinpointSMSVoice {
   ): void;
   updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceRequestOptions,
     cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
 }

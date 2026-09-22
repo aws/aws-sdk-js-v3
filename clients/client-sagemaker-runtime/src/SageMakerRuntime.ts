@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type InvokeEndpointAsyncCommandInput,
@@ -25,13 +25,20 @@ const commands = {
   InvokeEndpointWithResponseStreamCommand,
 };
 
+/**
+ * @public
+ */
+export interface SageMakerRuntimeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SageMakerRuntime {
   /**
    * @see {@link InvokeEndpointCommand}
    */
   invokeEndpoint(
     args: InvokeEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRuntimeRequestOptions
   ): Promise<InvokeEndpointCommandOutput>;
   invokeEndpoint(
     args: InvokeEndpointCommandInput,
@@ -39,7 +46,7 @@ export interface SageMakerRuntime {
   ): void;
   invokeEndpoint(
     args: InvokeEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRuntimeRequestOptions,
     cb: (err: any, data?: InvokeEndpointCommandOutput) => void
   ): void;
 
@@ -48,7 +55,7 @@ export interface SageMakerRuntime {
    */
   invokeEndpointAsync(
     args: InvokeEndpointAsyncCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRuntimeRequestOptions
   ): Promise<InvokeEndpointAsyncCommandOutput>;
   invokeEndpointAsync(
     args: InvokeEndpointAsyncCommandInput,
@@ -56,7 +63,7 @@ export interface SageMakerRuntime {
   ): void;
   invokeEndpointAsync(
     args: InvokeEndpointAsyncCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRuntimeRequestOptions,
     cb: (err: any, data?: InvokeEndpointAsyncCommandOutput) => void
   ): void;
 
@@ -65,7 +72,7 @@ export interface SageMakerRuntime {
    */
   invokeEndpointWithResponseStream(
     args: InvokeEndpointWithResponseStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRuntimeRequestOptions
   ): Promise<InvokeEndpointWithResponseStreamCommandOutput>;
   invokeEndpointWithResponseStream(
     args: InvokeEndpointWithResponseStreamCommandInput,
@@ -73,7 +80,7 @@ export interface SageMakerRuntime {
   ): void;
   invokeEndpointWithResponseStream(
     args: InvokeEndpointWithResponseStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRuntimeRequestOptions,
     cb: (err: any, data?: InvokeEndpointWithResponseStreamCommandOutput) => void
   ): void;
 }

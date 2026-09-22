@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type GetControlCommandInput,
@@ -55,13 +60,20 @@ const paginators = {
   paginateListObjectives,
 };
 
+/**
+ * @public
+ */
+export interface ControlCatalogRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ControlCatalog {
   /**
    * @see {@link GetControlCommand}
    */
   getControl(
     args: GetControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ControlCatalogRequestOptions
   ): Promise<GetControlCommandOutput>;
   getControl(
     args: GetControlCommandInput,
@@ -69,7 +81,7 @@ export interface ControlCatalog {
   ): void;
   getControl(
     args: GetControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: ControlCatalogRequestOptions,
     cb: (err: any, data?: GetControlCommandOutput) => void
   ): void;
 
@@ -79,7 +91,7 @@ export interface ControlCatalog {
   listCommonControls(): Promise<ListCommonControlsCommandOutput>;
   listCommonControls(
     args: ListCommonControlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ControlCatalogRequestOptions
   ): Promise<ListCommonControlsCommandOutput>;
   listCommonControls(
     args: ListCommonControlsCommandInput,
@@ -87,7 +99,7 @@ export interface ControlCatalog {
   ): void;
   listCommonControls(
     args: ListCommonControlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ControlCatalogRequestOptions,
     cb: (err: any, data?: ListCommonControlsCommandOutput) => void
   ): void;
 
@@ -97,7 +109,7 @@ export interface ControlCatalog {
   listControlMappings(): Promise<ListControlMappingsCommandOutput>;
   listControlMappings(
     args: ListControlMappingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ControlCatalogRequestOptions
   ): Promise<ListControlMappingsCommandOutput>;
   listControlMappings(
     args: ListControlMappingsCommandInput,
@@ -105,7 +117,7 @@ export interface ControlCatalog {
   ): void;
   listControlMappings(
     args: ListControlMappingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ControlCatalogRequestOptions,
     cb: (err: any, data?: ListControlMappingsCommandOutput) => void
   ): void;
 
@@ -115,7 +127,7 @@ export interface ControlCatalog {
   listControls(): Promise<ListControlsCommandOutput>;
   listControls(
     args: ListControlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ControlCatalogRequestOptions
   ): Promise<ListControlsCommandOutput>;
   listControls(
     args: ListControlsCommandInput,
@@ -123,7 +135,7 @@ export interface ControlCatalog {
   ): void;
   listControls(
     args: ListControlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ControlCatalogRequestOptions,
     cb: (err: any, data?: ListControlsCommandOutput) => void
   ): void;
 
@@ -133,7 +145,7 @@ export interface ControlCatalog {
   listDomains(): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ControlCatalogRequestOptions
   ): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
@@ -141,7 +153,7 @@ export interface ControlCatalog {
   ): void;
   listDomains(
     args: ListDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ControlCatalogRequestOptions,
     cb: (err: any, data?: ListDomainsCommandOutput) => void
   ): void;
 
@@ -151,7 +163,7 @@ export interface ControlCatalog {
   listObjectives(): Promise<ListObjectivesCommandOutput>;
   listObjectives(
     args: ListObjectivesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ControlCatalogRequestOptions
   ): Promise<ListObjectivesCommandOutput>;
   listObjectives(
     args: ListObjectivesCommandInput,
@@ -159,7 +171,7 @@ export interface ControlCatalog {
   ): void;
   listObjectives(
     args: ListObjectivesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ControlCatalogRequestOptions,
     cb: (err: any, data?: ListObjectivesCommandOutput) => void
   ): void;
 

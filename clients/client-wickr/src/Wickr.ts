@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchCreateUserCommandInput,
@@ -261,13 +266,20 @@ const paginators = {
   paginateListUsers,
 };
 
+/**
+ * @public
+ */
+export interface WickrRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Wickr {
   /**
    * @see {@link BatchCreateUserCommand}
    */
   batchCreateUser(
     args: BatchCreateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<BatchCreateUserCommandOutput>;
   batchCreateUser(
     args: BatchCreateUserCommandInput,
@@ -275,7 +287,7 @@ export interface Wickr {
   ): void;
   batchCreateUser(
     args: BatchCreateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: BatchCreateUserCommandOutput) => void
   ): void;
 
@@ -284,7 +296,7 @@ export interface Wickr {
    */
   batchDeleteUser(
     args: BatchDeleteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<BatchDeleteUserCommandOutput>;
   batchDeleteUser(
     args: BatchDeleteUserCommandInput,
@@ -292,7 +304,7 @@ export interface Wickr {
   ): void;
   batchDeleteUser(
     args: BatchDeleteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: BatchDeleteUserCommandOutput) => void
   ): void;
 
@@ -301,7 +313,7 @@ export interface Wickr {
    */
   batchLookupUserUname(
     args: BatchLookupUserUnameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<BatchLookupUserUnameCommandOutput>;
   batchLookupUserUname(
     args: BatchLookupUserUnameCommandInput,
@@ -309,7 +321,7 @@ export interface Wickr {
   ): void;
   batchLookupUserUname(
     args: BatchLookupUserUnameCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: BatchLookupUserUnameCommandOutput) => void
   ): void;
 
@@ -318,7 +330,7 @@ export interface Wickr {
    */
   batchReinviteUser(
     args: BatchReinviteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<BatchReinviteUserCommandOutput>;
   batchReinviteUser(
     args: BatchReinviteUserCommandInput,
@@ -326,7 +338,7 @@ export interface Wickr {
   ): void;
   batchReinviteUser(
     args: BatchReinviteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: BatchReinviteUserCommandOutput) => void
   ): void;
 
@@ -335,7 +347,7 @@ export interface Wickr {
    */
   batchResetDevicesForUser(
     args: BatchResetDevicesForUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<BatchResetDevicesForUserCommandOutput>;
   batchResetDevicesForUser(
     args: BatchResetDevicesForUserCommandInput,
@@ -343,7 +355,7 @@ export interface Wickr {
   ): void;
   batchResetDevicesForUser(
     args: BatchResetDevicesForUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: BatchResetDevicesForUserCommandOutput) => void
   ): void;
 
@@ -352,7 +364,7 @@ export interface Wickr {
    */
   batchToggleUserSuspendStatus(
     args: BatchToggleUserSuspendStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<BatchToggleUserSuspendStatusCommandOutput>;
   batchToggleUserSuspendStatus(
     args: BatchToggleUserSuspendStatusCommandInput,
@@ -360,7 +372,7 @@ export interface Wickr {
   ): void;
   batchToggleUserSuspendStatus(
     args: BatchToggleUserSuspendStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: BatchToggleUserSuspendStatusCommandOutput) => void
   ): void;
 
@@ -369,7 +381,7 @@ export interface Wickr {
    */
   createBot(
     args: CreateBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<CreateBotCommandOutput>;
   createBot(
     args: CreateBotCommandInput,
@@ -377,7 +389,7 @@ export interface Wickr {
   ): void;
   createBot(
     args: CreateBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: CreateBotCommandOutput) => void
   ): void;
 
@@ -386,7 +398,7 @@ export interface Wickr {
    */
   createDataRetentionBot(
     args: CreateDataRetentionBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<CreateDataRetentionBotCommandOutput>;
   createDataRetentionBot(
     args: CreateDataRetentionBotCommandInput,
@@ -394,7 +406,7 @@ export interface Wickr {
   ): void;
   createDataRetentionBot(
     args: CreateDataRetentionBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: CreateDataRetentionBotCommandOutput) => void
   ): void;
 
@@ -403,7 +415,7 @@ export interface Wickr {
    */
   createDataRetentionBotChallenge(
     args: CreateDataRetentionBotChallengeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<CreateDataRetentionBotChallengeCommandOutput>;
   createDataRetentionBotChallenge(
     args: CreateDataRetentionBotChallengeCommandInput,
@@ -411,7 +423,7 @@ export interface Wickr {
   ): void;
   createDataRetentionBotChallenge(
     args: CreateDataRetentionBotChallengeCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: CreateDataRetentionBotChallengeCommandOutput) => void
   ): void;
 
@@ -420,7 +432,7 @@ export interface Wickr {
    */
   createNetwork(
     args: CreateNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<CreateNetworkCommandOutput>;
   createNetwork(
     args: CreateNetworkCommandInput,
@@ -428,7 +440,7 @@ export interface Wickr {
   ): void;
   createNetwork(
     args: CreateNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: CreateNetworkCommandOutput) => void
   ): void;
 
@@ -437,7 +449,7 @@ export interface Wickr {
    */
   createSecurityGroup(
     args: CreateSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<CreateSecurityGroupCommandOutput>;
   createSecurityGroup(
     args: CreateSecurityGroupCommandInput,
@@ -445,7 +457,7 @@ export interface Wickr {
   ): void;
   createSecurityGroup(
     args: CreateSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: CreateSecurityGroupCommandOutput) => void
   ): void;
 
@@ -454,7 +466,7 @@ export interface Wickr {
    */
   deleteBot(
     args: DeleteBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<DeleteBotCommandOutput>;
   deleteBot(
     args: DeleteBotCommandInput,
@@ -462,7 +474,7 @@ export interface Wickr {
   ): void;
   deleteBot(
     args: DeleteBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: DeleteBotCommandOutput) => void
   ): void;
 
@@ -471,7 +483,7 @@ export interface Wickr {
    */
   deleteDataRetentionBot(
     args: DeleteDataRetentionBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<DeleteDataRetentionBotCommandOutput>;
   deleteDataRetentionBot(
     args: DeleteDataRetentionBotCommandInput,
@@ -479,7 +491,7 @@ export interface Wickr {
   ): void;
   deleteDataRetentionBot(
     args: DeleteDataRetentionBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: DeleteDataRetentionBotCommandOutput) => void
   ): void;
 
@@ -488,7 +500,7 @@ export interface Wickr {
    */
   deleteNetwork(
     args: DeleteNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<DeleteNetworkCommandOutput>;
   deleteNetwork(
     args: DeleteNetworkCommandInput,
@@ -496,7 +508,7 @@ export interface Wickr {
   ): void;
   deleteNetwork(
     args: DeleteNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: DeleteNetworkCommandOutput) => void
   ): void;
 
@@ -505,7 +517,7 @@ export interface Wickr {
    */
   deleteSecurityGroup(
     args: DeleteSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<DeleteSecurityGroupCommandOutput>;
   deleteSecurityGroup(
     args: DeleteSecurityGroupCommandInput,
@@ -513,7 +525,7 @@ export interface Wickr {
   ): void;
   deleteSecurityGroup(
     args: DeleteSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: DeleteSecurityGroupCommandOutput) => void
   ): void;
 
@@ -522,7 +534,7 @@ export interface Wickr {
    */
   getBot(
     args: GetBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<GetBotCommandOutput>;
   getBot(
     args: GetBotCommandInput,
@@ -530,7 +542,7 @@ export interface Wickr {
   ): void;
   getBot(
     args: GetBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: GetBotCommandOutput) => void
   ): void;
 
@@ -539,7 +551,7 @@ export interface Wickr {
    */
   getBotsCount(
     args: GetBotsCountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<GetBotsCountCommandOutput>;
   getBotsCount(
     args: GetBotsCountCommandInput,
@@ -547,7 +559,7 @@ export interface Wickr {
   ): void;
   getBotsCount(
     args: GetBotsCountCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: GetBotsCountCommandOutput) => void
   ): void;
 
@@ -556,7 +568,7 @@ export interface Wickr {
    */
   getDataRetentionBot(
     args: GetDataRetentionBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<GetDataRetentionBotCommandOutput>;
   getDataRetentionBot(
     args: GetDataRetentionBotCommandInput,
@@ -564,7 +576,7 @@ export interface Wickr {
   ): void;
   getDataRetentionBot(
     args: GetDataRetentionBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: GetDataRetentionBotCommandOutput) => void
   ): void;
 
@@ -573,7 +585,7 @@ export interface Wickr {
    */
   getGuestUserHistoryCount(
     args: GetGuestUserHistoryCountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<GetGuestUserHistoryCountCommandOutput>;
   getGuestUserHistoryCount(
     args: GetGuestUserHistoryCountCommandInput,
@@ -581,7 +593,7 @@ export interface Wickr {
   ): void;
   getGuestUserHistoryCount(
     args: GetGuestUserHistoryCountCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: GetGuestUserHistoryCountCommandOutput) => void
   ): void;
 
@@ -590,7 +602,7 @@ export interface Wickr {
    */
   getNetwork(
     args: GetNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<GetNetworkCommandOutput>;
   getNetwork(
     args: GetNetworkCommandInput,
@@ -598,7 +610,7 @@ export interface Wickr {
   ): void;
   getNetwork(
     args: GetNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: GetNetworkCommandOutput) => void
   ): void;
 
@@ -607,7 +619,7 @@ export interface Wickr {
    */
   getNetworkSettings(
     args: GetNetworkSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<GetNetworkSettingsCommandOutput>;
   getNetworkSettings(
     args: GetNetworkSettingsCommandInput,
@@ -615,7 +627,7 @@ export interface Wickr {
   ): void;
   getNetworkSettings(
     args: GetNetworkSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: GetNetworkSettingsCommandOutput) => void
   ): void;
 
@@ -624,7 +636,7 @@ export interface Wickr {
    */
   getOidcInfo(
     args: GetOidcInfoCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<GetOidcInfoCommandOutput>;
   getOidcInfo(
     args: GetOidcInfoCommandInput,
@@ -632,7 +644,7 @@ export interface Wickr {
   ): void;
   getOidcInfo(
     args: GetOidcInfoCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: GetOidcInfoCommandOutput) => void
   ): void;
 
@@ -641,7 +653,7 @@ export interface Wickr {
    */
   getOpentdfConfig(
     args: GetOpentdfConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<GetOpentdfConfigCommandOutput>;
   getOpentdfConfig(
     args: GetOpentdfConfigCommandInput,
@@ -649,7 +661,7 @@ export interface Wickr {
   ): void;
   getOpentdfConfig(
     args: GetOpentdfConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: GetOpentdfConfigCommandOutput) => void
   ): void;
 
@@ -658,7 +670,7 @@ export interface Wickr {
    */
   getSecurityGroup(
     args: GetSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<GetSecurityGroupCommandOutput>;
   getSecurityGroup(
     args: GetSecurityGroupCommandInput,
@@ -666,7 +678,7 @@ export interface Wickr {
   ): void;
   getSecurityGroup(
     args: GetSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: GetSecurityGroupCommandOutput) => void
   ): void;
 
@@ -675,7 +687,7 @@ export interface Wickr {
    */
   getUser(
     args: GetUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<GetUserCommandOutput>;
   getUser(
     args: GetUserCommandInput,
@@ -683,7 +695,7 @@ export interface Wickr {
   ): void;
   getUser(
     args: GetUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: GetUserCommandOutput) => void
   ): void;
 
@@ -692,7 +704,7 @@ export interface Wickr {
    */
   getUsersCount(
     args: GetUsersCountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<GetUsersCountCommandOutput>;
   getUsersCount(
     args: GetUsersCountCommandInput,
@@ -700,7 +712,7 @@ export interface Wickr {
   ): void;
   getUsersCount(
     args: GetUsersCountCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: GetUsersCountCommandOutput) => void
   ): void;
 
@@ -709,7 +721,7 @@ export interface Wickr {
    */
   listBlockedGuestUsers(
     args: ListBlockedGuestUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<ListBlockedGuestUsersCommandOutput>;
   listBlockedGuestUsers(
     args: ListBlockedGuestUsersCommandInput,
@@ -717,7 +729,7 @@ export interface Wickr {
   ): void;
   listBlockedGuestUsers(
     args: ListBlockedGuestUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: ListBlockedGuestUsersCommandOutput) => void
   ): void;
 
@@ -726,7 +738,7 @@ export interface Wickr {
    */
   listBots(
     args: ListBotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<ListBotsCommandOutput>;
   listBots(
     args: ListBotsCommandInput,
@@ -734,7 +746,7 @@ export interface Wickr {
   ): void;
   listBots(
     args: ListBotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: ListBotsCommandOutput) => void
   ): void;
 
@@ -743,7 +755,7 @@ export interface Wickr {
    */
   listDevicesForUser(
     args: ListDevicesForUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<ListDevicesForUserCommandOutput>;
   listDevicesForUser(
     args: ListDevicesForUserCommandInput,
@@ -751,7 +763,7 @@ export interface Wickr {
   ): void;
   listDevicesForUser(
     args: ListDevicesForUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: ListDevicesForUserCommandOutput) => void
   ): void;
 
@@ -760,7 +772,7 @@ export interface Wickr {
    */
   listGuestUsers(
     args: ListGuestUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<ListGuestUsersCommandOutput>;
   listGuestUsers(
     args: ListGuestUsersCommandInput,
@@ -768,7 +780,7 @@ export interface Wickr {
   ): void;
   listGuestUsers(
     args: ListGuestUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: ListGuestUsersCommandOutput) => void
   ): void;
 
@@ -778,7 +790,7 @@ export interface Wickr {
   listNetworks(): Promise<ListNetworksCommandOutput>;
   listNetworks(
     args: ListNetworksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<ListNetworksCommandOutput>;
   listNetworks(
     args: ListNetworksCommandInput,
@@ -786,7 +798,7 @@ export interface Wickr {
   ): void;
   listNetworks(
     args: ListNetworksCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: ListNetworksCommandOutput) => void
   ): void;
 
@@ -795,7 +807,7 @@ export interface Wickr {
    */
   listSecurityGroups(
     args: ListSecurityGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<ListSecurityGroupsCommandOutput>;
   listSecurityGroups(
     args: ListSecurityGroupsCommandInput,
@@ -803,7 +815,7 @@ export interface Wickr {
   ): void;
   listSecurityGroups(
     args: ListSecurityGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: ListSecurityGroupsCommandOutput) => void
   ): void;
 
@@ -812,7 +824,7 @@ export interface Wickr {
    */
   listSecurityGroupUsers(
     args: ListSecurityGroupUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<ListSecurityGroupUsersCommandOutput>;
   listSecurityGroupUsers(
     args: ListSecurityGroupUsersCommandInput,
@@ -820,7 +832,7 @@ export interface Wickr {
   ): void;
   listSecurityGroupUsers(
     args: ListSecurityGroupUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: ListSecurityGroupUsersCommandOutput) => void
   ): void;
 
@@ -829,7 +841,7 @@ export interface Wickr {
    */
   listUsers(
     args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<ListUsersCommandOutput>;
   listUsers(
     args: ListUsersCommandInput,
@@ -837,7 +849,7 @@ export interface Wickr {
   ): void;
   listUsers(
     args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
   ): void;
 
@@ -846,7 +858,7 @@ export interface Wickr {
    */
   registerOidcConfig(
     args: RegisterOidcConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<RegisterOidcConfigCommandOutput>;
   registerOidcConfig(
     args: RegisterOidcConfigCommandInput,
@@ -854,7 +866,7 @@ export interface Wickr {
   ): void;
   registerOidcConfig(
     args: RegisterOidcConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: RegisterOidcConfigCommandOutput) => void
   ): void;
 
@@ -863,7 +875,7 @@ export interface Wickr {
    */
   registerOidcConfigTest(
     args: RegisterOidcConfigTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<RegisterOidcConfigTestCommandOutput>;
   registerOidcConfigTest(
     args: RegisterOidcConfigTestCommandInput,
@@ -871,7 +883,7 @@ export interface Wickr {
   ): void;
   registerOidcConfigTest(
     args: RegisterOidcConfigTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: RegisterOidcConfigTestCommandOutput) => void
   ): void;
 
@@ -880,7 +892,7 @@ export interface Wickr {
    */
   registerOpentdfConfig(
     args: RegisterOpentdfConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<RegisterOpentdfConfigCommandOutput>;
   registerOpentdfConfig(
     args: RegisterOpentdfConfigCommandInput,
@@ -888,7 +900,7 @@ export interface Wickr {
   ): void;
   registerOpentdfConfig(
     args: RegisterOpentdfConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: RegisterOpentdfConfigCommandOutput) => void
   ): void;
 
@@ -897,7 +909,7 @@ export interface Wickr {
    */
   updateBot(
     args: UpdateBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<UpdateBotCommandOutput>;
   updateBot(
     args: UpdateBotCommandInput,
@@ -905,7 +917,7 @@ export interface Wickr {
   ): void;
   updateBot(
     args: UpdateBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: UpdateBotCommandOutput) => void
   ): void;
 
@@ -914,7 +926,7 @@ export interface Wickr {
    */
   updateDataRetention(
     args: UpdateDataRetentionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<UpdateDataRetentionCommandOutput>;
   updateDataRetention(
     args: UpdateDataRetentionCommandInput,
@@ -922,7 +934,7 @@ export interface Wickr {
   ): void;
   updateDataRetention(
     args: UpdateDataRetentionCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: UpdateDataRetentionCommandOutput) => void
   ): void;
 
@@ -931,7 +943,7 @@ export interface Wickr {
    */
   updateGuestUser(
     args: UpdateGuestUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<UpdateGuestUserCommandOutput>;
   updateGuestUser(
     args: UpdateGuestUserCommandInput,
@@ -939,7 +951,7 @@ export interface Wickr {
   ): void;
   updateGuestUser(
     args: UpdateGuestUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: UpdateGuestUserCommandOutput) => void
   ): void;
 
@@ -948,7 +960,7 @@ export interface Wickr {
    */
   updateNetwork(
     args: UpdateNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<UpdateNetworkCommandOutput>;
   updateNetwork(
     args: UpdateNetworkCommandInput,
@@ -956,7 +968,7 @@ export interface Wickr {
   ): void;
   updateNetwork(
     args: UpdateNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: UpdateNetworkCommandOutput) => void
   ): void;
 
@@ -965,7 +977,7 @@ export interface Wickr {
    */
   updateNetworkSettings(
     args: UpdateNetworkSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<UpdateNetworkSettingsCommandOutput>;
   updateNetworkSettings(
     args: UpdateNetworkSettingsCommandInput,
@@ -973,7 +985,7 @@ export interface Wickr {
   ): void;
   updateNetworkSettings(
     args: UpdateNetworkSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: UpdateNetworkSettingsCommandOutput) => void
   ): void;
 
@@ -982,7 +994,7 @@ export interface Wickr {
    */
   updateSecurityGroup(
     args: UpdateSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<UpdateSecurityGroupCommandOutput>;
   updateSecurityGroup(
     args: UpdateSecurityGroupCommandInput,
@@ -990,7 +1002,7 @@ export interface Wickr {
   ): void;
   updateSecurityGroup(
     args: UpdateSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: UpdateSecurityGroupCommandOutput) => void
   ): void;
 
@@ -999,7 +1011,7 @@ export interface Wickr {
    */
   updateUser(
     args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WickrRequestOptions
   ): Promise<UpdateUserCommandOutput>;
   updateUser(
     args: UpdateUserCommandInput,
@@ -1007,7 +1019,7 @@ export interface Wickr {
   ): void;
   updateUser(
     args: UpdateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: WickrRequestOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
 

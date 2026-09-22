@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptDomainTransferFromAnotherAwsAccountCommandInput,
@@ -221,13 +226,20 @@ const paginators = {
   paginateViewBilling,
 };
 
+/**
+ * @public
+ */
+export interface Route53DomainsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Route53Domains {
   /**
    * @see {@link AcceptDomainTransferFromAnotherAwsAccountCommand}
    */
   acceptDomainTransferFromAnotherAwsAccount(
     args: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<AcceptDomainTransferFromAnotherAwsAccountCommandOutput>;
   acceptDomainTransferFromAnotherAwsAccount(
     args: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
@@ -235,7 +247,7 @@ export interface Route53Domains {
   ): void;
   acceptDomainTransferFromAnotherAwsAccount(
     args: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: AcceptDomainTransferFromAnotherAwsAccountCommandOutput) => void
   ): void;
 
@@ -244,7 +256,7 @@ export interface Route53Domains {
    */
   associateDelegationSignerToDomain(
     args: AssociateDelegationSignerToDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<AssociateDelegationSignerToDomainCommandOutput>;
   associateDelegationSignerToDomain(
     args: AssociateDelegationSignerToDomainCommandInput,
@@ -252,7 +264,7 @@ export interface Route53Domains {
   ): void;
   associateDelegationSignerToDomain(
     args: AssociateDelegationSignerToDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: AssociateDelegationSignerToDomainCommandOutput) => void
   ): void;
 
@@ -261,7 +273,7 @@ export interface Route53Domains {
    */
   cancelDomainTransferToAnotherAwsAccount(
     args: CancelDomainTransferToAnotherAwsAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<CancelDomainTransferToAnotherAwsAccountCommandOutput>;
   cancelDomainTransferToAnotherAwsAccount(
     args: CancelDomainTransferToAnotherAwsAccountCommandInput,
@@ -269,7 +281,7 @@ export interface Route53Domains {
   ): void;
   cancelDomainTransferToAnotherAwsAccount(
     args: CancelDomainTransferToAnotherAwsAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: CancelDomainTransferToAnotherAwsAccountCommandOutput) => void
   ): void;
 
@@ -278,7 +290,7 @@ export interface Route53Domains {
    */
   checkDomainAvailability(
     args: CheckDomainAvailabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<CheckDomainAvailabilityCommandOutput>;
   checkDomainAvailability(
     args: CheckDomainAvailabilityCommandInput,
@@ -286,7 +298,7 @@ export interface Route53Domains {
   ): void;
   checkDomainAvailability(
     args: CheckDomainAvailabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: CheckDomainAvailabilityCommandOutput) => void
   ): void;
 
@@ -295,7 +307,7 @@ export interface Route53Domains {
    */
   checkDomainTransferability(
     args: CheckDomainTransferabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<CheckDomainTransferabilityCommandOutput>;
   checkDomainTransferability(
     args: CheckDomainTransferabilityCommandInput,
@@ -303,7 +315,7 @@ export interface Route53Domains {
   ): void;
   checkDomainTransferability(
     args: CheckDomainTransferabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: CheckDomainTransferabilityCommandOutput) => void
   ): void;
 
@@ -312,7 +324,7 @@ export interface Route53Domains {
    */
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<DeleteDomainCommandOutput>;
   deleteDomain(
     args: DeleteDomainCommandInput,
@@ -320,7 +332,7 @@ export interface Route53Domains {
   ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
   ): void;
 
@@ -329,7 +341,7 @@ export interface Route53Domains {
    */
   deleteTagsForDomain(
     args: DeleteTagsForDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<DeleteTagsForDomainCommandOutput>;
   deleteTagsForDomain(
     args: DeleteTagsForDomainCommandInput,
@@ -337,7 +349,7 @@ export interface Route53Domains {
   ): void;
   deleteTagsForDomain(
     args: DeleteTagsForDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: DeleteTagsForDomainCommandOutput) => void
   ): void;
 
@@ -346,7 +358,7 @@ export interface Route53Domains {
    */
   disableDomainAutoRenew(
     args: DisableDomainAutoRenewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<DisableDomainAutoRenewCommandOutput>;
   disableDomainAutoRenew(
     args: DisableDomainAutoRenewCommandInput,
@@ -354,7 +366,7 @@ export interface Route53Domains {
   ): void;
   disableDomainAutoRenew(
     args: DisableDomainAutoRenewCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: DisableDomainAutoRenewCommandOutput) => void
   ): void;
 
@@ -363,7 +375,7 @@ export interface Route53Domains {
    */
   disableDomainTransferLock(
     args: DisableDomainTransferLockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<DisableDomainTransferLockCommandOutput>;
   disableDomainTransferLock(
     args: DisableDomainTransferLockCommandInput,
@@ -371,7 +383,7 @@ export interface Route53Domains {
   ): void;
   disableDomainTransferLock(
     args: DisableDomainTransferLockCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: DisableDomainTransferLockCommandOutput) => void
   ): void;
 
@@ -380,7 +392,7 @@ export interface Route53Domains {
    */
   disassociateDelegationSignerFromDomain(
     args: DisassociateDelegationSignerFromDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<DisassociateDelegationSignerFromDomainCommandOutput>;
   disassociateDelegationSignerFromDomain(
     args: DisassociateDelegationSignerFromDomainCommandInput,
@@ -388,7 +400,7 @@ export interface Route53Domains {
   ): void;
   disassociateDelegationSignerFromDomain(
     args: DisassociateDelegationSignerFromDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: DisassociateDelegationSignerFromDomainCommandOutput) => void
   ): void;
 
@@ -397,7 +409,7 @@ export interface Route53Domains {
    */
   enableDomainAutoRenew(
     args: EnableDomainAutoRenewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<EnableDomainAutoRenewCommandOutput>;
   enableDomainAutoRenew(
     args: EnableDomainAutoRenewCommandInput,
@@ -405,7 +417,7 @@ export interface Route53Domains {
   ): void;
   enableDomainAutoRenew(
     args: EnableDomainAutoRenewCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: EnableDomainAutoRenewCommandOutput) => void
   ): void;
 
@@ -414,7 +426,7 @@ export interface Route53Domains {
    */
   enableDomainTransferLock(
     args: EnableDomainTransferLockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<EnableDomainTransferLockCommandOutput>;
   enableDomainTransferLock(
     args: EnableDomainTransferLockCommandInput,
@@ -422,7 +434,7 @@ export interface Route53Domains {
   ): void;
   enableDomainTransferLock(
     args: EnableDomainTransferLockCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: EnableDomainTransferLockCommandOutput) => void
   ): void;
 
@@ -432,7 +444,7 @@ export interface Route53Domains {
   getContactReachabilityStatus(): Promise<GetContactReachabilityStatusCommandOutput>;
   getContactReachabilityStatus(
     args: GetContactReachabilityStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<GetContactReachabilityStatusCommandOutput>;
   getContactReachabilityStatus(
     args: GetContactReachabilityStatusCommandInput,
@@ -440,7 +452,7 @@ export interface Route53Domains {
   ): void;
   getContactReachabilityStatus(
     args: GetContactReachabilityStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: GetContactReachabilityStatusCommandOutput) => void
   ): void;
 
@@ -449,7 +461,7 @@ export interface Route53Domains {
    */
   getDomainDetail(
     args: GetDomainDetailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<GetDomainDetailCommandOutput>;
   getDomainDetail(
     args: GetDomainDetailCommandInput,
@@ -457,7 +469,7 @@ export interface Route53Domains {
   ): void;
   getDomainDetail(
     args: GetDomainDetailCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: GetDomainDetailCommandOutput) => void
   ): void;
 
@@ -466,7 +478,7 @@ export interface Route53Domains {
    */
   getDomainSuggestions(
     args: GetDomainSuggestionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<GetDomainSuggestionsCommandOutput>;
   getDomainSuggestions(
     args: GetDomainSuggestionsCommandInput,
@@ -474,7 +486,7 @@ export interface Route53Domains {
   ): void;
   getDomainSuggestions(
     args: GetDomainSuggestionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: GetDomainSuggestionsCommandOutput) => void
   ): void;
 
@@ -483,7 +495,7 @@ export interface Route53Domains {
    */
   getOperationDetail(
     args: GetOperationDetailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<GetOperationDetailCommandOutput>;
   getOperationDetail(
     args: GetOperationDetailCommandInput,
@@ -491,7 +503,7 @@ export interface Route53Domains {
   ): void;
   getOperationDetail(
     args: GetOperationDetailCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: GetOperationDetailCommandOutput) => void
   ): void;
 
@@ -501,7 +513,7 @@ export interface Route53Domains {
   listDomains(): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
@@ -509,7 +521,7 @@ export interface Route53Domains {
   ): void;
   listDomains(
     args: ListDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: ListDomainsCommandOutput) => void
   ): void;
 
@@ -519,7 +531,7 @@ export interface Route53Domains {
   listOperations(): Promise<ListOperationsCommandOutput>;
   listOperations(
     args: ListOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<ListOperationsCommandOutput>;
   listOperations(
     args: ListOperationsCommandInput,
@@ -527,7 +539,7 @@ export interface Route53Domains {
   ): void;
   listOperations(
     args: ListOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: ListOperationsCommandOutput) => void
   ): void;
 
@@ -537,7 +549,7 @@ export interface Route53Domains {
   listPrices(): Promise<ListPricesCommandOutput>;
   listPrices(
     args: ListPricesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<ListPricesCommandOutput>;
   listPrices(
     args: ListPricesCommandInput,
@@ -545,7 +557,7 @@ export interface Route53Domains {
   ): void;
   listPrices(
     args: ListPricesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: ListPricesCommandOutput) => void
   ): void;
 
@@ -554,7 +566,7 @@ export interface Route53Domains {
    */
   listTagsForDomain(
     args: ListTagsForDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<ListTagsForDomainCommandOutput>;
   listTagsForDomain(
     args: ListTagsForDomainCommandInput,
@@ -562,7 +574,7 @@ export interface Route53Domains {
   ): void;
   listTagsForDomain(
     args: ListTagsForDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: ListTagsForDomainCommandOutput) => void
   ): void;
 
@@ -571,7 +583,7 @@ export interface Route53Domains {
    */
   pushDomain(
     args: PushDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<PushDomainCommandOutput>;
   pushDomain(
     args: PushDomainCommandInput,
@@ -579,7 +591,7 @@ export interface Route53Domains {
   ): void;
   pushDomain(
     args: PushDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: PushDomainCommandOutput) => void
   ): void;
 
@@ -588,7 +600,7 @@ export interface Route53Domains {
    */
   registerDomain(
     args: RegisterDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<RegisterDomainCommandOutput>;
   registerDomain(
     args: RegisterDomainCommandInput,
@@ -596,7 +608,7 @@ export interface Route53Domains {
   ): void;
   registerDomain(
     args: RegisterDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: RegisterDomainCommandOutput) => void
   ): void;
 
@@ -605,7 +617,7 @@ export interface Route53Domains {
    */
   rejectDomainTransferFromAnotherAwsAccount(
     args: RejectDomainTransferFromAnotherAwsAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<RejectDomainTransferFromAnotherAwsAccountCommandOutput>;
   rejectDomainTransferFromAnotherAwsAccount(
     args: RejectDomainTransferFromAnotherAwsAccountCommandInput,
@@ -613,7 +625,7 @@ export interface Route53Domains {
   ): void;
   rejectDomainTransferFromAnotherAwsAccount(
     args: RejectDomainTransferFromAnotherAwsAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: RejectDomainTransferFromAnotherAwsAccountCommandOutput) => void
   ): void;
 
@@ -622,7 +634,7 @@ export interface Route53Domains {
    */
   renewDomain(
     args: RenewDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<RenewDomainCommandOutput>;
   renewDomain(
     args: RenewDomainCommandInput,
@@ -630,7 +642,7 @@ export interface Route53Domains {
   ): void;
   renewDomain(
     args: RenewDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: RenewDomainCommandOutput) => void
   ): void;
 
@@ -640,7 +652,7 @@ export interface Route53Domains {
   resendContactReachabilityEmail(): Promise<ResendContactReachabilityEmailCommandOutput>;
   resendContactReachabilityEmail(
     args: ResendContactReachabilityEmailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<ResendContactReachabilityEmailCommandOutput>;
   resendContactReachabilityEmail(
     args: ResendContactReachabilityEmailCommandInput,
@@ -648,7 +660,7 @@ export interface Route53Domains {
   ): void;
   resendContactReachabilityEmail(
     args: ResendContactReachabilityEmailCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: ResendContactReachabilityEmailCommandOutput) => void
   ): void;
 
@@ -657,7 +669,7 @@ export interface Route53Domains {
    */
   resendOperationAuthorization(
     args: ResendOperationAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<ResendOperationAuthorizationCommandOutput>;
   resendOperationAuthorization(
     args: ResendOperationAuthorizationCommandInput,
@@ -665,7 +677,7 @@ export interface Route53Domains {
   ): void;
   resendOperationAuthorization(
     args: ResendOperationAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: ResendOperationAuthorizationCommandOutput) => void
   ): void;
 
@@ -674,7 +686,7 @@ export interface Route53Domains {
    */
   retrieveDomainAuthCode(
     args: RetrieveDomainAuthCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<RetrieveDomainAuthCodeCommandOutput>;
   retrieveDomainAuthCode(
     args: RetrieveDomainAuthCodeCommandInput,
@@ -682,7 +694,7 @@ export interface Route53Domains {
   ): void;
   retrieveDomainAuthCode(
     args: RetrieveDomainAuthCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: RetrieveDomainAuthCodeCommandOutput) => void
   ): void;
 
@@ -691,7 +703,7 @@ export interface Route53Domains {
    */
   transferDomain(
     args: TransferDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<TransferDomainCommandOutput>;
   transferDomain(
     args: TransferDomainCommandInput,
@@ -699,7 +711,7 @@ export interface Route53Domains {
   ): void;
   transferDomain(
     args: TransferDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: TransferDomainCommandOutput) => void
   ): void;
 
@@ -708,7 +720,7 @@ export interface Route53Domains {
    */
   transferDomainToAnotherAwsAccount(
     args: TransferDomainToAnotherAwsAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<TransferDomainToAnotherAwsAccountCommandOutput>;
   transferDomainToAnotherAwsAccount(
     args: TransferDomainToAnotherAwsAccountCommandInput,
@@ -716,7 +728,7 @@ export interface Route53Domains {
   ): void;
   transferDomainToAnotherAwsAccount(
     args: TransferDomainToAnotherAwsAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: TransferDomainToAnotherAwsAccountCommandOutput) => void
   ): void;
 
@@ -725,7 +737,7 @@ export interface Route53Domains {
    */
   updateDomainContact(
     args: UpdateDomainContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<UpdateDomainContactCommandOutput>;
   updateDomainContact(
     args: UpdateDomainContactCommandInput,
@@ -733,7 +745,7 @@ export interface Route53Domains {
   ): void;
   updateDomainContact(
     args: UpdateDomainContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: UpdateDomainContactCommandOutput) => void
   ): void;
 
@@ -742,7 +754,7 @@ export interface Route53Domains {
    */
   updateDomainContactPrivacy(
     args: UpdateDomainContactPrivacyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<UpdateDomainContactPrivacyCommandOutput>;
   updateDomainContactPrivacy(
     args: UpdateDomainContactPrivacyCommandInput,
@@ -750,7 +762,7 @@ export interface Route53Domains {
   ): void;
   updateDomainContactPrivacy(
     args: UpdateDomainContactPrivacyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: UpdateDomainContactPrivacyCommandOutput) => void
   ): void;
 
@@ -759,7 +771,7 @@ export interface Route53Domains {
    */
   updateDomainNameservers(
     args: UpdateDomainNameserversCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<UpdateDomainNameserversCommandOutput>;
   updateDomainNameservers(
     args: UpdateDomainNameserversCommandInput,
@@ -767,7 +779,7 @@ export interface Route53Domains {
   ): void;
   updateDomainNameservers(
     args: UpdateDomainNameserversCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: UpdateDomainNameserversCommandOutput) => void
   ): void;
 
@@ -776,7 +788,7 @@ export interface Route53Domains {
    */
   updateTagsForDomain(
     args: UpdateTagsForDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<UpdateTagsForDomainCommandOutput>;
   updateTagsForDomain(
     args: UpdateTagsForDomainCommandInput,
@@ -784,7 +796,7 @@ export interface Route53Domains {
   ): void;
   updateTagsForDomain(
     args: UpdateTagsForDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: UpdateTagsForDomainCommandOutput) => void
   ): void;
 
@@ -794,7 +806,7 @@ export interface Route53Domains {
   viewBilling(): Promise<ViewBillingCommandOutput>;
   viewBilling(
     args: ViewBillingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53DomainsRequestOptions
   ): Promise<ViewBillingCommandOutput>;
   viewBilling(
     args: ViewBillingCommandInput,
@@ -802,7 +814,7 @@ export interface Route53Domains {
   ): void;
   viewBilling(
     args: ViewBillingCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53DomainsRequestOptions,
     cb: (err: any, data?: ViewBillingCommandOutput) => void
   ): void;
 

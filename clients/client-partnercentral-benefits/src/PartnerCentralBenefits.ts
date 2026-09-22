@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AmendBenefitApplicationCommandInput,
@@ -117,13 +122,20 @@ const paginators = {
   paginateListBenefits,
 };
 
+/**
+ * @public
+ */
+export interface PartnerCentralBenefitsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PartnerCentralBenefits {
   /**
    * @see {@link AmendBenefitApplicationCommand}
    */
   amendBenefitApplication(
     args: AmendBenefitApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<AmendBenefitApplicationCommandOutput>;
   amendBenefitApplication(
     args: AmendBenefitApplicationCommandInput,
@@ -131,7 +143,7 @@ export interface PartnerCentralBenefits {
   ): void;
   amendBenefitApplication(
     args: AmendBenefitApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: AmendBenefitApplicationCommandOutput) => void
   ): void;
 
@@ -140,7 +152,7 @@ export interface PartnerCentralBenefits {
    */
   associateBenefitApplicationResource(
     args: AssociateBenefitApplicationResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<AssociateBenefitApplicationResourceCommandOutput>;
   associateBenefitApplicationResource(
     args: AssociateBenefitApplicationResourceCommandInput,
@@ -148,7 +160,7 @@ export interface PartnerCentralBenefits {
   ): void;
   associateBenefitApplicationResource(
     args: AssociateBenefitApplicationResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: AssociateBenefitApplicationResourceCommandOutput) => void
   ): void;
 
@@ -157,7 +169,7 @@ export interface PartnerCentralBenefits {
    */
   cancelBenefitApplication(
     args: CancelBenefitApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<CancelBenefitApplicationCommandOutput>;
   cancelBenefitApplication(
     args: CancelBenefitApplicationCommandInput,
@@ -165,7 +177,7 @@ export interface PartnerCentralBenefits {
   ): void;
   cancelBenefitApplication(
     args: CancelBenefitApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: CancelBenefitApplicationCommandOutput) => void
   ): void;
 
@@ -174,7 +186,7 @@ export interface PartnerCentralBenefits {
    */
   createBenefitApplication(
     args: CreateBenefitApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<CreateBenefitApplicationCommandOutput>;
   createBenefitApplication(
     args: CreateBenefitApplicationCommandInput,
@@ -182,7 +194,7 @@ export interface PartnerCentralBenefits {
   ): void;
   createBenefitApplication(
     args: CreateBenefitApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: CreateBenefitApplicationCommandOutput) => void
   ): void;
 
@@ -191,7 +203,7 @@ export interface PartnerCentralBenefits {
    */
   disassociateBenefitApplicationResource(
     args: DisassociateBenefitApplicationResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<DisassociateBenefitApplicationResourceCommandOutput>;
   disassociateBenefitApplicationResource(
     args: DisassociateBenefitApplicationResourceCommandInput,
@@ -199,7 +211,7 @@ export interface PartnerCentralBenefits {
   ): void;
   disassociateBenefitApplicationResource(
     args: DisassociateBenefitApplicationResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: DisassociateBenefitApplicationResourceCommandOutput) => void
   ): void;
 
@@ -208,7 +220,7 @@ export interface PartnerCentralBenefits {
    */
   getBenefit(
     args: GetBenefitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<GetBenefitCommandOutput>;
   getBenefit(
     args: GetBenefitCommandInput,
@@ -216,7 +228,7 @@ export interface PartnerCentralBenefits {
   ): void;
   getBenefit(
     args: GetBenefitCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: GetBenefitCommandOutput) => void
   ): void;
 
@@ -225,7 +237,7 @@ export interface PartnerCentralBenefits {
    */
   getBenefitAllocation(
     args: GetBenefitAllocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<GetBenefitAllocationCommandOutput>;
   getBenefitAllocation(
     args: GetBenefitAllocationCommandInput,
@@ -233,7 +245,7 @@ export interface PartnerCentralBenefits {
   ): void;
   getBenefitAllocation(
     args: GetBenefitAllocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: GetBenefitAllocationCommandOutput) => void
   ): void;
 
@@ -242,7 +254,7 @@ export interface PartnerCentralBenefits {
    */
   getBenefitApplication(
     args: GetBenefitApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<GetBenefitApplicationCommandOutput>;
   getBenefitApplication(
     args: GetBenefitApplicationCommandInput,
@@ -250,7 +262,7 @@ export interface PartnerCentralBenefits {
   ): void;
   getBenefitApplication(
     args: GetBenefitApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: GetBenefitApplicationCommandOutput) => void
   ): void;
 
@@ -259,7 +271,7 @@ export interface PartnerCentralBenefits {
    */
   listBenefitAllocations(
     args: ListBenefitAllocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<ListBenefitAllocationsCommandOutput>;
   listBenefitAllocations(
     args: ListBenefitAllocationsCommandInput,
@@ -267,7 +279,7 @@ export interface PartnerCentralBenefits {
   ): void;
   listBenefitAllocations(
     args: ListBenefitAllocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: ListBenefitAllocationsCommandOutput) => void
   ): void;
 
@@ -276,7 +288,7 @@ export interface PartnerCentralBenefits {
    */
   listBenefitApplications(
     args: ListBenefitApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<ListBenefitApplicationsCommandOutput>;
   listBenefitApplications(
     args: ListBenefitApplicationsCommandInput,
@@ -284,7 +296,7 @@ export interface PartnerCentralBenefits {
   ): void;
   listBenefitApplications(
     args: ListBenefitApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: ListBenefitApplicationsCommandOutput) => void
   ): void;
 
@@ -293,7 +305,7 @@ export interface PartnerCentralBenefits {
    */
   listBenefits(
     args: ListBenefitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<ListBenefitsCommandOutput>;
   listBenefits(
     args: ListBenefitsCommandInput,
@@ -301,7 +313,7 @@ export interface PartnerCentralBenefits {
   ): void;
   listBenefits(
     args: ListBenefitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: ListBenefitsCommandOutput) => void
   ): void;
 
@@ -310,7 +322,7 @@ export interface PartnerCentralBenefits {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -318,7 +330,7 @@ export interface PartnerCentralBenefits {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -327,7 +339,7 @@ export interface PartnerCentralBenefits {
    */
   recallBenefitApplication(
     args: RecallBenefitApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<RecallBenefitApplicationCommandOutput>;
   recallBenefitApplication(
     args: RecallBenefitApplicationCommandInput,
@@ -335,7 +347,7 @@ export interface PartnerCentralBenefits {
   ): void;
   recallBenefitApplication(
     args: RecallBenefitApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: RecallBenefitApplicationCommandOutput) => void
   ): void;
 
@@ -344,7 +356,7 @@ export interface PartnerCentralBenefits {
    */
   submitBenefitApplication(
     args: SubmitBenefitApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<SubmitBenefitApplicationCommandOutput>;
   submitBenefitApplication(
     args: SubmitBenefitApplicationCommandInput,
@@ -352,7 +364,7 @@ export interface PartnerCentralBenefits {
   ): void;
   submitBenefitApplication(
     args: SubmitBenefitApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: SubmitBenefitApplicationCommandOutput) => void
   ): void;
 
@@ -361,7 +373,7 @@ export interface PartnerCentralBenefits {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -369,7 +381,7 @@ export interface PartnerCentralBenefits {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -378,7 +390,7 @@ export interface PartnerCentralBenefits {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -386,7 +398,7 @@ export interface PartnerCentralBenefits {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -395,7 +407,7 @@ export interface PartnerCentralBenefits {
    */
   updateBenefitApplication(
     args: UpdateBenefitApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralBenefitsRequestOptions
   ): Promise<UpdateBenefitApplicationCommandOutput>;
   updateBenefitApplication(
     args: UpdateBenefitApplicationCommandInput,
@@ -403,7 +415,7 @@ export interface PartnerCentralBenefits {
   ): void;
   updateBenefitApplication(
     args: UpdateBenefitApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralBenefitsRequestOptions,
     cb: (err: any, data?: UpdateBenefitApplicationCommandOutput) => void
   ): void;
 

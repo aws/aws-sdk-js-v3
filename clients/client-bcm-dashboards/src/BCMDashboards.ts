@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BCMDashboardsClient } from "./BCMDashboardsClient";
 import {
@@ -103,13 +108,20 @@ const paginators = {
   paginateListScheduledReports,
 };
 
+/**
+ * @public
+ */
+export interface BCMDashboardsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface BCMDashboards {
   /**
    * @see {@link CreateDashboardCommand}
    */
   createDashboard(
     args: CreateDashboardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<CreateDashboardCommandOutput>;
   createDashboard(
     args: CreateDashboardCommandInput,
@@ -117,7 +129,7 @@ export interface BCMDashboards {
   ): void;
   createDashboard(
     args: CreateDashboardCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: CreateDashboardCommandOutput) => void
   ): void;
 
@@ -126,7 +138,7 @@ export interface BCMDashboards {
    */
   createScheduledReport(
     args: CreateScheduledReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<CreateScheduledReportCommandOutput>;
   createScheduledReport(
     args: CreateScheduledReportCommandInput,
@@ -134,7 +146,7 @@ export interface BCMDashboards {
   ): void;
   createScheduledReport(
     args: CreateScheduledReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: CreateScheduledReportCommandOutput) => void
   ): void;
 
@@ -143,7 +155,7 @@ export interface BCMDashboards {
    */
   deleteDashboard(
     args: DeleteDashboardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<DeleteDashboardCommandOutput>;
   deleteDashboard(
     args: DeleteDashboardCommandInput,
@@ -151,7 +163,7 @@ export interface BCMDashboards {
   ): void;
   deleteDashboard(
     args: DeleteDashboardCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: DeleteDashboardCommandOutput) => void
   ): void;
 
@@ -160,7 +172,7 @@ export interface BCMDashboards {
    */
   deleteScheduledReport(
     args: DeleteScheduledReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<DeleteScheduledReportCommandOutput>;
   deleteScheduledReport(
     args: DeleteScheduledReportCommandInput,
@@ -168,7 +180,7 @@ export interface BCMDashboards {
   ): void;
   deleteScheduledReport(
     args: DeleteScheduledReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: DeleteScheduledReportCommandOutput) => void
   ): void;
 
@@ -177,7 +189,7 @@ export interface BCMDashboards {
    */
   executeScheduledReport(
     args: ExecuteScheduledReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<ExecuteScheduledReportCommandOutput>;
   executeScheduledReport(
     args: ExecuteScheduledReportCommandInput,
@@ -185,7 +197,7 @@ export interface BCMDashboards {
   ): void;
   executeScheduledReport(
     args: ExecuteScheduledReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: ExecuteScheduledReportCommandOutput) => void
   ): void;
 
@@ -194,7 +206,7 @@ export interface BCMDashboards {
    */
   getDashboard(
     args: GetDashboardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<GetDashboardCommandOutput>;
   getDashboard(
     args: GetDashboardCommandInput,
@@ -202,7 +214,7 @@ export interface BCMDashboards {
   ): void;
   getDashboard(
     args: GetDashboardCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: GetDashboardCommandOutput) => void
   ): void;
 
@@ -211,7 +223,7 @@ export interface BCMDashboards {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -219,7 +231,7 @@ export interface BCMDashboards {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -228,7 +240,7 @@ export interface BCMDashboards {
    */
   getScheduledReport(
     args: GetScheduledReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<GetScheduledReportCommandOutput>;
   getScheduledReport(
     args: GetScheduledReportCommandInput,
@@ -236,7 +248,7 @@ export interface BCMDashboards {
   ): void;
   getScheduledReport(
     args: GetScheduledReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: GetScheduledReportCommandOutput) => void
   ): void;
 
@@ -246,7 +258,7 @@ export interface BCMDashboards {
   listDashboards(): Promise<ListDashboardsCommandOutput>;
   listDashboards(
     args: ListDashboardsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<ListDashboardsCommandOutput>;
   listDashboards(
     args: ListDashboardsCommandInput,
@@ -254,7 +266,7 @@ export interface BCMDashboards {
   ): void;
   listDashboards(
     args: ListDashboardsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: ListDashboardsCommandOutput) => void
   ): void;
 
@@ -264,7 +276,7 @@ export interface BCMDashboards {
   listScheduledReports(): Promise<ListScheduledReportsCommandOutput>;
   listScheduledReports(
     args: ListScheduledReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<ListScheduledReportsCommandOutput>;
   listScheduledReports(
     args: ListScheduledReportsCommandInput,
@@ -272,7 +284,7 @@ export interface BCMDashboards {
   ): void;
   listScheduledReports(
     args: ListScheduledReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: ListScheduledReportsCommandOutput) => void
   ): void;
 
@@ -281,7 +293,7 @@ export interface BCMDashboards {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -289,7 +301,7 @@ export interface BCMDashboards {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -298,7 +310,7 @@ export interface BCMDashboards {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -306,7 +318,7 @@ export interface BCMDashboards {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -315,7 +327,7 @@ export interface BCMDashboards {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -323,7 +335,7 @@ export interface BCMDashboards {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -332,7 +344,7 @@ export interface BCMDashboards {
    */
   updateDashboard(
     args: UpdateDashboardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<UpdateDashboardCommandOutput>;
   updateDashboard(
     args: UpdateDashboardCommandInput,
@@ -340,7 +352,7 @@ export interface BCMDashboards {
   ): void;
   updateDashboard(
     args: UpdateDashboardCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: UpdateDashboardCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface BCMDashboards {
    */
   updateScheduledReport(
     args: UpdateScheduledReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BCMDashboardsRequestOptions
   ): Promise<UpdateScheduledReportCommandOutput>;
   updateScheduledReport(
     args: UpdateScheduledReportCommandInput,
@@ -357,7 +369,7 @@ export interface BCMDashboards {
   ): void;
   updateScheduledReport(
     args: UpdateScheduledReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: BCMDashboardsRequestOptions,
     cb: (err: any, data?: UpdateScheduledReportCommandOutput) => void
   ): void;
 

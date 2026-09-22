@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type CreateOAuth2TokenCommandInput,
@@ -19,13 +19,20 @@ const commands = {
   CreateOAuth2TokenWithIAMCommand,
 };
 
+/**
+ * @public
+ */
+export interface SigninRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Signin {
   /**
    * @see {@link CreateOAuth2TokenCommand}
    */
   createOAuth2Token(
     args: CreateOAuth2TokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<CreateOAuth2TokenCommandOutput>;
   createOAuth2Token(
     args: CreateOAuth2TokenCommandInput,
@@ -33,7 +40,7 @@ export interface Signin {
   ): void;
   createOAuth2Token(
     args: CreateOAuth2TokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: CreateOAuth2TokenCommandOutput) => void
   ): void;
 
@@ -42,7 +49,7 @@ export interface Signin {
    */
   createOAuth2TokenWithIAM(
     args: CreateOAuth2TokenWithIAMCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SigninRequestOptions
   ): Promise<CreateOAuth2TokenWithIAMCommandOutput>;
   createOAuth2TokenWithIAM(
     args: CreateOAuth2TokenWithIAMCommandInput,
@@ -50,7 +57,7 @@ export interface Signin {
   ): void;
   createOAuth2TokenWithIAM(
     args: CreateOAuth2TokenWithIAMCommandInput,
-    options: __HttpHandlerOptions,
+    options: SigninRequestOptions,
     cb: (err: any, data?: CreateOAuth2TokenWithIAMCommandOutput) => void
   ): void;
 }

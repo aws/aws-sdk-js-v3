@@ -5231,7 +5231,7 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
     const _uV = "unionValue";
     const _v = "value";
     const _va = "values";
-    const _ve = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+    const _ve = "<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>";
     const _xa = "x-a";
     const _xaai = "x-amz-account-id";
     const _xb = "x-byte";

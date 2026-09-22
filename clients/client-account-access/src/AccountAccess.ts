@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -89,13 +90,20 @@ const waiters = {
   waitUntilApplicationActive,
 };
 
+/**
+ * @public
+ */
+export interface AccountAccessRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface AccountAccess {
   /**
    * @see {@link CreateApplicationCommand}
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountAccessRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -103,7 +111,7 @@ export interface AccountAccess {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountAccessRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -112,7 +120,7 @@ export interface AccountAccess {
    */
   createEntitlement(
     args: CreateEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountAccessRequestOptions
   ): Promise<CreateEntitlementCommandOutput>;
   createEntitlement(
     args: CreateEntitlementCommandInput,
@@ -120,7 +128,7 @@ export interface AccountAccess {
   ): void;
   createEntitlement(
     args: CreateEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountAccessRequestOptions,
     cb: (err: any, data?: CreateEntitlementCommandOutput) => void
   ): void;
 
@@ -129,7 +137,7 @@ export interface AccountAccess {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountAccessRequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -137,7 +145,7 @@ export interface AccountAccess {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountAccessRequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -146,7 +154,7 @@ export interface AccountAccess {
    */
   deleteEntitlement(
     args: DeleteEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountAccessRequestOptions
   ): Promise<DeleteEntitlementCommandOutput>;
   deleteEntitlement(
     args: DeleteEntitlementCommandInput,
@@ -154,7 +162,7 @@ export interface AccountAccess {
   ): void;
   deleteEntitlement(
     args: DeleteEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountAccessRequestOptions,
     cb: (err: any, data?: DeleteEntitlementCommandOutput) => void
   ): void;
 
@@ -163,7 +171,7 @@ export interface AccountAccess {
    */
   getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountAccessRequestOptions
   ): Promise<GetApplicationCommandOutput>;
   getApplication(
     args: GetApplicationCommandInput,
@@ -171,7 +179,7 @@ export interface AccountAccess {
   ): void;
   getApplication(
     args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountAccessRequestOptions,
     cb: (err: any, data?: GetApplicationCommandOutput) => void
   ): void;
 
@@ -180,7 +188,7 @@ export interface AccountAccess {
    */
   getEntitlement(
     args: GetEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountAccessRequestOptions
   ): Promise<GetEntitlementCommandOutput>;
   getEntitlement(
     args: GetEntitlementCommandInput,
@@ -188,7 +196,7 @@ export interface AccountAccess {
   ): void;
   getEntitlement(
     args: GetEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountAccessRequestOptions,
     cb: (err: any, data?: GetEntitlementCommandOutput) => void
   ): void;
 
@@ -198,7 +206,7 @@ export interface AccountAccess {
   listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountAccessRequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -206,7 +214,7 @@ export interface AccountAccess {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountAccessRequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -215,7 +223,7 @@ export interface AccountAccess {
    */
   listEntitlements(
     args: ListEntitlementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountAccessRequestOptions
   ): Promise<ListEntitlementsCommandOutput>;
   listEntitlements(
     args: ListEntitlementsCommandInput,
@@ -223,7 +231,7 @@ export interface AccountAccess {
   ): void;
   listEntitlements(
     args: ListEntitlementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountAccessRequestOptions,
     cb: (err: any, data?: ListEntitlementsCommandOutput) => void
   ): void;
 
@@ -232,7 +240,7 @@ export interface AccountAccess {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountAccessRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -240,7 +248,7 @@ export interface AccountAccess {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountAccessRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -249,7 +257,7 @@ export interface AccountAccess {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountAccessRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -257,7 +265,7 @@ export interface AccountAccess {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountAccessRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -266,7 +274,7 @@ export interface AccountAccess {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AccountAccessRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -274,7 +282,7 @@ export interface AccountAccess {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AccountAccessRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

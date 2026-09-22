@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type DeleteHumanLoopCommandInput,
@@ -41,13 +46,20 @@ const paginators = {
   paginateListHumanLoops,
 };
 
+/**
+ * @public
+ */
+export interface SageMakerA2IRuntimeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SageMakerA2IRuntime {
   /**
    * @see {@link DeleteHumanLoopCommand}
    */
   deleteHumanLoop(
     args: DeleteHumanLoopCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerA2IRuntimeRequestOptions
   ): Promise<DeleteHumanLoopCommandOutput>;
   deleteHumanLoop(
     args: DeleteHumanLoopCommandInput,
@@ -55,7 +67,7 @@ export interface SageMakerA2IRuntime {
   ): void;
   deleteHumanLoop(
     args: DeleteHumanLoopCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerA2IRuntimeRequestOptions,
     cb: (err: any, data?: DeleteHumanLoopCommandOutput) => void
   ): void;
 
@@ -64,7 +76,7 @@ export interface SageMakerA2IRuntime {
    */
   describeHumanLoop(
     args: DescribeHumanLoopCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerA2IRuntimeRequestOptions
   ): Promise<DescribeHumanLoopCommandOutput>;
   describeHumanLoop(
     args: DescribeHumanLoopCommandInput,
@@ -72,7 +84,7 @@ export interface SageMakerA2IRuntime {
   ): void;
   describeHumanLoop(
     args: DescribeHumanLoopCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerA2IRuntimeRequestOptions,
     cb: (err: any, data?: DescribeHumanLoopCommandOutput) => void
   ): void;
 
@@ -81,7 +93,7 @@ export interface SageMakerA2IRuntime {
    */
   listHumanLoops(
     args: ListHumanLoopsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerA2IRuntimeRequestOptions
   ): Promise<ListHumanLoopsCommandOutput>;
   listHumanLoops(
     args: ListHumanLoopsCommandInput,
@@ -89,7 +101,7 @@ export interface SageMakerA2IRuntime {
   ): void;
   listHumanLoops(
     args: ListHumanLoopsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerA2IRuntimeRequestOptions,
     cb: (err: any, data?: ListHumanLoopsCommandOutput) => void
   ): void;
 
@@ -98,7 +110,7 @@ export interface SageMakerA2IRuntime {
    */
   startHumanLoop(
     args: StartHumanLoopCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerA2IRuntimeRequestOptions
   ): Promise<StartHumanLoopCommandOutput>;
   startHumanLoop(
     args: StartHumanLoopCommandInput,
@@ -106,7 +118,7 @@ export interface SageMakerA2IRuntime {
   ): void;
   startHumanLoop(
     args: StartHumanLoopCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerA2IRuntimeRequestOptions,
     cb: (err: any, data?: StartHumanLoopCommandOutput) => void
   ): void;
 
@@ -115,7 +127,7 @@ export interface SageMakerA2IRuntime {
    */
   stopHumanLoop(
     args: StopHumanLoopCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerA2IRuntimeRequestOptions
   ): Promise<StopHumanLoopCommandOutput>;
   stopHumanLoop(
     args: StopHumanLoopCommandInput,
@@ -123,7 +135,7 @@ export interface SageMakerA2IRuntime {
   ): void;
   stopHumanLoop(
     args: StopHumanLoopCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerA2IRuntimeRequestOptions,
     cb: (err: any, data?: StopHumanLoopCommandOutput) => void
   ): void;
 

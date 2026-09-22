@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type SendSerialConsoleSSHPublicKeyCommandInput,
@@ -19,13 +19,20 @@ const commands = {
   SendSSHPublicKeyCommand,
 };
 
+/**
+ * @public
+ */
+export interface EC2InstanceConnectRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface EC2InstanceConnect {
   /**
    * @see {@link SendSerialConsoleSSHPublicKeyCommand}
    */
   sendSerialConsoleSSHPublicKey(
     args: SendSerialConsoleSSHPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2InstanceConnectRequestOptions
   ): Promise<SendSerialConsoleSSHPublicKeyCommandOutput>;
   sendSerialConsoleSSHPublicKey(
     args: SendSerialConsoleSSHPublicKeyCommandInput,
@@ -33,7 +40,7 @@ export interface EC2InstanceConnect {
   ): void;
   sendSerialConsoleSSHPublicKey(
     args: SendSerialConsoleSSHPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2InstanceConnectRequestOptions,
     cb: (err: any, data?: SendSerialConsoleSSHPublicKeyCommandOutput) => void
   ): void;
 
@@ -42,7 +49,7 @@ export interface EC2InstanceConnect {
    */
   sendSSHPublicKey(
     args: SendSSHPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EC2InstanceConnectRequestOptions
   ): Promise<SendSSHPublicKeyCommandOutput>;
   sendSSHPublicKey(
     args: SendSSHPublicKeyCommandInput,
@@ -50,7 +57,7 @@ export interface EC2InstanceConnect {
   ): void;
   sendSSHPublicKey(
     args: SendSSHPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EC2InstanceConnectRequestOptions,
     cb: (err: any, data?: SendSSHPublicKeyCommandOutput) => void
   ): void;
 }

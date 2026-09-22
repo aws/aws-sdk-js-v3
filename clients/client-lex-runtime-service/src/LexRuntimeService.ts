@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type DeleteSessionCommandInput,
@@ -33,13 +33,20 @@ const commands = {
   PutSessionCommand,
 };
 
+/**
+ * @public
+ */
+export interface LexRuntimeServiceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface LexRuntimeService {
   /**
    * @see {@link DeleteSessionCommand}
    */
   deleteSession(
     args: DeleteSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LexRuntimeServiceRequestOptions
   ): Promise<DeleteSessionCommandOutput>;
   deleteSession(
     args: DeleteSessionCommandInput,
@@ -47,7 +54,7 @@ export interface LexRuntimeService {
   ): void;
   deleteSession(
     args: DeleteSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LexRuntimeServiceRequestOptions,
     cb: (err: any, data?: DeleteSessionCommandOutput) => void
   ): void;
 
@@ -56,7 +63,7 @@ export interface LexRuntimeService {
    */
   getSession(
     args: GetSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LexRuntimeServiceRequestOptions
   ): Promise<GetSessionCommandOutput>;
   getSession(
     args: GetSessionCommandInput,
@@ -64,7 +71,7 @@ export interface LexRuntimeService {
   ): void;
   getSession(
     args: GetSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LexRuntimeServiceRequestOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
   ): void;
 
@@ -73,7 +80,7 @@ export interface LexRuntimeService {
    */
   postContent(
     args: PostContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LexRuntimeServiceRequestOptions
   ): Promise<PostContentCommandOutput>;
   postContent(
     args: PostContentCommandInput,
@@ -81,7 +88,7 @@ export interface LexRuntimeService {
   ): void;
   postContent(
     args: PostContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: LexRuntimeServiceRequestOptions,
     cb: (err: any, data?: PostContentCommandOutput) => void
   ): void;
 
@@ -90,7 +97,7 @@ export interface LexRuntimeService {
    */
   postText(
     args: PostTextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LexRuntimeServiceRequestOptions
   ): Promise<PostTextCommandOutput>;
   postText(
     args: PostTextCommandInput,
@@ -98,7 +105,7 @@ export interface LexRuntimeService {
   ): void;
   postText(
     args: PostTextCommandInput,
-    options: __HttpHandlerOptions,
+    options: LexRuntimeServiceRequestOptions,
     cb: (err: any, data?: PostTextCommandOutput) => void
   ): void;
 
@@ -107,7 +114,7 @@ export interface LexRuntimeService {
    */
   putSession(
     args: PutSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LexRuntimeServiceRequestOptions
   ): Promise<PutSessionCommandOutput>;
   putSession(
     args: PutSessionCommandInput,
@@ -115,7 +122,7 @@ export interface LexRuntimeService {
   ): void;
   putSession(
     args: PutSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LexRuntimeServiceRequestOptions,
     cb: (err: any, data?: PutSessionCommandOutput) => void
   ): void;
 }

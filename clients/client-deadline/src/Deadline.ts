@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -790,13 +791,20 @@ const waiters = {
   waitUntilQueueLimitAssociationStopped,
 };
 
+/**
+ * @public
+ */
+export interface DeadlineRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Deadline {
   /**
    * @see {@link AssociateMemberToFarmCommand}
    */
   associateMemberToFarm(
     args: AssociateMemberToFarmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<AssociateMemberToFarmCommandOutput>;
   associateMemberToFarm(
     args: AssociateMemberToFarmCommandInput,
@@ -804,7 +812,7 @@ export interface Deadline {
   ): void;
   associateMemberToFarm(
     args: AssociateMemberToFarmCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: AssociateMemberToFarmCommandOutput) => void
   ): void;
 
@@ -813,7 +821,7 @@ export interface Deadline {
    */
   associateMemberToFleet(
     args: AssociateMemberToFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<AssociateMemberToFleetCommandOutput>;
   associateMemberToFleet(
     args: AssociateMemberToFleetCommandInput,
@@ -821,7 +829,7 @@ export interface Deadline {
   ): void;
   associateMemberToFleet(
     args: AssociateMemberToFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: AssociateMemberToFleetCommandOutput) => void
   ): void;
 
@@ -830,7 +838,7 @@ export interface Deadline {
    */
   associateMemberToJob(
     args: AssociateMemberToJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<AssociateMemberToJobCommandOutput>;
   associateMemberToJob(
     args: AssociateMemberToJobCommandInput,
@@ -838,7 +846,7 @@ export interface Deadline {
   ): void;
   associateMemberToJob(
     args: AssociateMemberToJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: AssociateMemberToJobCommandOutput) => void
   ): void;
 
@@ -847,7 +855,7 @@ export interface Deadline {
    */
   associateMemberToQueue(
     args: AssociateMemberToQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<AssociateMemberToQueueCommandOutput>;
   associateMemberToQueue(
     args: AssociateMemberToQueueCommandInput,
@@ -855,7 +863,7 @@ export interface Deadline {
   ): void;
   associateMemberToQueue(
     args: AssociateMemberToQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: AssociateMemberToQueueCommandOutput) => void
   ): void;
 
@@ -864,7 +872,7 @@ export interface Deadline {
    */
   assumeFleetRoleForRead(
     args: AssumeFleetRoleForReadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<AssumeFleetRoleForReadCommandOutput>;
   assumeFleetRoleForRead(
     args: AssumeFleetRoleForReadCommandInput,
@@ -872,7 +880,7 @@ export interface Deadline {
   ): void;
   assumeFleetRoleForRead(
     args: AssumeFleetRoleForReadCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: AssumeFleetRoleForReadCommandOutput) => void
   ): void;
 
@@ -881,7 +889,7 @@ export interface Deadline {
    */
   assumeFleetRoleForWorker(
     args: AssumeFleetRoleForWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<AssumeFleetRoleForWorkerCommandOutput>;
   assumeFleetRoleForWorker(
     args: AssumeFleetRoleForWorkerCommandInput,
@@ -889,7 +897,7 @@ export interface Deadline {
   ): void;
   assumeFleetRoleForWorker(
     args: AssumeFleetRoleForWorkerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: AssumeFleetRoleForWorkerCommandOutput) => void
   ): void;
 
@@ -898,7 +906,7 @@ export interface Deadline {
    */
   assumeQueueRoleForRead(
     args: AssumeQueueRoleForReadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<AssumeQueueRoleForReadCommandOutput>;
   assumeQueueRoleForRead(
     args: AssumeQueueRoleForReadCommandInput,
@@ -906,7 +914,7 @@ export interface Deadline {
   ): void;
   assumeQueueRoleForRead(
     args: AssumeQueueRoleForReadCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: AssumeQueueRoleForReadCommandOutput) => void
   ): void;
 
@@ -915,7 +923,7 @@ export interface Deadline {
    */
   assumeQueueRoleForUser(
     args: AssumeQueueRoleForUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<AssumeQueueRoleForUserCommandOutput>;
   assumeQueueRoleForUser(
     args: AssumeQueueRoleForUserCommandInput,
@@ -923,7 +931,7 @@ export interface Deadline {
   ): void;
   assumeQueueRoleForUser(
     args: AssumeQueueRoleForUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: AssumeQueueRoleForUserCommandOutput) => void
   ): void;
 
@@ -932,7 +940,7 @@ export interface Deadline {
    */
   assumeQueueRoleForWorker(
     args: AssumeQueueRoleForWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<AssumeQueueRoleForWorkerCommandOutput>;
   assumeQueueRoleForWorker(
     args: AssumeQueueRoleForWorkerCommandInput,
@@ -940,7 +948,7 @@ export interface Deadline {
   ): void;
   assumeQueueRoleForWorker(
     args: AssumeQueueRoleForWorkerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: AssumeQueueRoleForWorkerCommandOutput) => void
   ): void;
 
@@ -949,7 +957,7 @@ export interface Deadline {
    */
   batchGetJob(
     args: BatchGetJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<BatchGetJobCommandOutput>;
   batchGetJob(
     args: BatchGetJobCommandInput,
@@ -957,7 +965,7 @@ export interface Deadline {
   ): void;
   batchGetJob(
     args: BatchGetJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: BatchGetJobCommandOutput) => void
   ): void;
 
@@ -966,7 +974,7 @@ export interface Deadline {
    */
   batchGetJobEntity(
     args: BatchGetJobEntityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<BatchGetJobEntityCommandOutput>;
   batchGetJobEntity(
     args: BatchGetJobEntityCommandInput,
@@ -974,7 +982,7 @@ export interface Deadline {
   ): void;
   batchGetJobEntity(
     args: BatchGetJobEntityCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: BatchGetJobEntityCommandOutput) => void
   ): void;
 
@@ -983,7 +991,7 @@ export interface Deadline {
    */
   batchGetSession(
     args: BatchGetSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<BatchGetSessionCommandOutput>;
   batchGetSession(
     args: BatchGetSessionCommandInput,
@@ -991,7 +999,7 @@ export interface Deadline {
   ): void;
   batchGetSession(
     args: BatchGetSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: BatchGetSessionCommandOutput) => void
   ): void;
 
@@ -1000,7 +1008,7 @@ export interface Deadline {
    */
   batchGetSessionAction(
     args: BatchGetSessionActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<BatchGetSessionActionCommandOutput>;
   batchGetSessionAction(
     args: BatchGetSessionActionCommandInput,
@@ -1008,7 +1016,7 @@ export interface Deadline {
   ): void;
   batchGetSessionAction(
     args: BatchGetSessionActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: BatchGetSessionActionCommandOutput) => void
   ): void;
 
@@ -1017,7 +1025,7 @@ export interface Deadline {
    */
   batchGetStep(
     args: BatchGetStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<BatchGetStepCommandOutput>;
   batchGetStep(
     args: BatchGetStepCommandInput,
@@ -1025,7 +1033,7 @@ export interface Deadline {
   ): void;
   batchGetStep(
     args: BatchGetStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: BatchGetStepCommandOutput) => void
   ): void;
 
@@ -1034,7 +1042,7 @@ export interface Deadline {
    */
   batchGetTask(
     args: BatchGetTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<BatchGetTaskCommandOutput>;
   batchGetTask(
     args: BatchGetTaskCommandInput,
@@ -1042,7 +1050,7 @@ export interface Deadline {
   ): void;
   batchGetTask(
     args: BatchGetTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: BatchGetTaskCommandOutput) => void
   ): void;
 
@@ -1051,7 +1059,7 @@ export interface Deadline {
    */
   batchGetWorker(
     args: BatchGetWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<BatchGetWorkerCommandOutput>;
   batchGetWorker(
     args: BatchGetWorkerCommandInput,
@@ -1059,7 +1067,7 @@ export interface Deadline {
   ): void;
   batchGetWorker(
     args: BatchGetWorkerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: BatchGetWorkerCommandOutput) => void
   ): void;
 
@@ -1068,7 +1076,7 @@ export interface Deadline {
    */
   batchUpdateJob(
     args: BatchUpdateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<BatchUpdateJobCommandOutput>;
   batchUpdateJob(
     args: BatchUpdateJobCommandInput,
@@ -1076,7 +1084,7 @@ export interface Deadline {
   ): void;
   batchUpdateJob(
     args: BatchUpdateJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: BatchUpdateJobCommandOutput) => void
   ): void;
 
@@ -1085,7 +1093,7 @@ export interface Deadline {
    */
   batchUpdateTask(
     args: BatchUpdateTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<BatchUpdateTaskCommandOutput>;
   batchUpdateTask(
     args: BatchUpdateTaskCommandInput,
@@ -1093,7 +1101,7 @@ export interface Deadline {
   ): void;
   batchUpdateTask(
     args: BatchUpdateTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: BatchUpdateTaskCommandOutput) => void
   ): void;
 
@@ -1102,7 +1110,7 @@ export interface Deadline {
    */
   copyJobTemplate(
     args: CopyJobTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CopyJobTemplateCommandOutput>;
   copyJobTemplate(
     args: CopyJobTemplateCommandInput,
@@ -1110,7 +1118,7 @@ export interface Deadline {
   ): void;
   copyJobTemplate(
     args: CopyJobTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CopyJobTemplateCommandOutput) => void
   ): void;
 
@@ -1119,7 +1127,7 @@ export interface Deadline {
    */
   createBudget(
     args: CreateBudgetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateBudgetCommandOutput>;
   createBudget(
     args: CreateBudgetCommandInput,
@@ -1127,7 +1135,7 @@ export interface Deadline {
   ): void;
   createBudget(
     args: CreateBudgetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateBudgetCommandOutput) => void
   ): void;
 
@@ -1136,7 +1144,7 @@ export interface Deadline {
    */
   createFarm(
     args: CreateFarmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateFarmCommandOutput>;
   createFarm(
     args: CreateFarmCommandInput,
@@ -1144,7 +1152,7 @@ export interface Deadline {
   ): void;
   createFarm(
     args: CreateFarmCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateFarmCommandOutput) => void
   ): void;
 
@@ -1153,7 +1161,7 @@ export interface Deadline {
    */
   createFleet(
     args: CreateFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateFleetCommandOutput>;
   createFleet(
     args: CreateFleetCommandInput,
@@ -1161,7 +1169,7 @@ export interface Deadline {
   ): void;
   createFleet(
     args: CreateFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateFleetCommandOutput) => void
   ): void;
 
@@ -1170,7 +1178,7 @@ export interface Deadline {
    */
   createJob(
     args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateJobCommandOutput>;
   createJob(
     args: CreateJobCommandInput,
@@ -1178,7 +1186,7 @@ export interface Deadline {
   ): void;
   createJob(
     args: CreateJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateJobCommandOutput) => void
   ): void;
 
@@ -1187,7 +1195,7 @@ export interface Deadline {
    */
   createLicenseEndpoint(
     args: CreateLicenseEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateLicenseEndpointCommandOutput>;
   createLicenseEndpoint(
     args: CreateLicenseEndpointCommandInput,
@@ -1195,7 +1203,7 @@ export interface Deadline {
   ): void;
   createLicenseEndpoint(
     args: CreateLicenseEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateLicenseEndpointCommandOutput) => void
   ): void;
 
@@ -1204,7 +1212,7 @@ export interface Deadline {
    */
   createLimit(
     args: CreateLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateLimitCommandOutput>;
   createLimit(
     args: CreateLimitCommandInput,
@@ -1212,7 +1220,7 @@ export interface Deadline {
   ): void;
   createLimit(
     args: CreateLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateLimitCommandOutput) => void
   ): void;
 
@@ -1221,7 +1229,7 @@ export interface Deadline {
    */
   createMonitor(
     args: CreateMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateMonitorCommandOutput>;
   createMonitor(
     args: CreateMonitorCommandInput,
@@ -1229,7 +1237,7 @@ export interface Deadline {
   ): void;
   createMonitor(
     args: CreateMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateMonitorCommandOutput) => void
   ): void;
 
@@ -1238,7 +1246,7 @@ export interface Deadline {
    */
   createQueue(
     args: CreateQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateQueueCommandOutput>;
   createQueue(
     args: CreateQueueCommandInput,
@@ -1246,7 +1254,7 @@ export interface Deadline {
   ): void;
   createQueue(
     args: CreateQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateQueueCommandOutput) => void
   ): void;
 
@@ -1255,7 +1263,7 @@ export interface Deadline {
    */
   createQueueEnvironment(
     args: CreateQueueEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateQueueEnvironmentCommandOutput>;
   createQueueEnvironment(
     args: CreateQueueEnvironmentCommandInput,
@@ -1263,7 +1271,7 @@ export interface Deadline {
   ): void;
   createQueueEnvironment(
     args: CreateQueueEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateQueueEnvironmentCommandOutput) => void
   ): void;
 
@@ -1272,7 +1280,7 @@ export interface Deadline {
    */
   createQueueFleetAssociation(
     args: CreateQueueFleetAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateQueueFleetAssociationCommandOutput>;
   createQueueFleetAssociation(
     args: CreateQueueFleetAssociationCommandInput,
@@ -1280,7 +1288,7 @@ export interface Deadline {
   ): void;
   createQueueFleetAssociation(
     args: CreateQueueFleetAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateQueueFleetAssociationCommandOutput) => void
   ): void;
 
@@ -1289,7 +1297,7 @@ export interface Deadline {
    */
   createQueueLimitAssociation(
     args: CreateQueueLimitAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateQueueLimitAssociationCommandOutput>;
   createQueueLimitAssociation(
     args: CreateQueueLimitAssociationCommandInput,
@@ -1297,7 +1305,7 @@ export interface Deadline {
   ): void;
   createQueueLimitAssociation(
     args: CreateQueueLimitAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateQueueLimitAssociationCommandOutput) => void
   ): void;
 
@@ -1306,7 +1314,7 @@ export interface Deadline {
    */
   createStorageProfile(
     args: CreateStorageProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateStorageProfileCommandOutput>;
   createStorageProfile(
     args: CreateStorageProfileCommandInput,
@@ -1314,7 +1322,7 @@ export interface Deadline {
   ): void;
   createStorageProfile(
     args: CreateStorageProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateStorageProfileCommandOutput) => void
   ): void;
 
@@ -1323,7 +1331,7 @@ export interface Deadline {
    */
   createWorker(
     args: CreateWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<CreateWorkerCommandOutput>;
   createWorker(
     args: CreateWorkerCommandInput,
@@ -1331,7 +1339,7 @@ export interface Deadline {
   ): void;
   createWorker(
     args: CreateWorkerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: CreateWorkerCommandOutput) => void
   ): void;
 
@@ -1340,7 +1348,7 @@ export interface Deadline {
    */
   deleteBudget(
     args: DeleteBudgetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteBudgetCommandOutput>;
   deleteBudget(
     args: DeleteBudgetCommandInput,
@@ -1348,7 +1356,7 @@ export interface Deadline {
   ): void;
   deleteBudget(
     args: DeleteBudgetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteBudgetCommandOutput) => void
   ): void;
 
@@ -1357,7 +1365,7 @@ export interface Deadline {
    */
   deleteFarm(
     args: DeleteFarmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteFarmCommandOutput>;
   deleteFarm(
     args: DeleteFarmCommandInput,
@@ -1365,7 +1373,7 @@ export interface Deadline {
   ): void;
   deleteFarm(
     args: DeleteFarmCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteFarmCommandOutput) => void
   ): void;
 
@@ -1374,7 +1382,7 @@ export interface Deadline {
    */
   deleteFleet(
     args: DeleteFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteFleetCommandOutput>;
   deleteFleet(
     args: DeleteFleetCommandInput,
@@ -1382,7 +1390,7 @@ export interface Deadline {
   ): void;
   deleteFleet(
     args: DeleteFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteFleetCommandOutput) => void
   ): void;
 
@@ -1391,7 +1399,7 @@ export interface Deadline {
    */
   deleteLicenseEndpoint(
     args: DeleteLicenseEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteLicenseEndpointCommandOutput>;
   deleteLicenseEndpoint(
     args: DeleteLicenseEndpointCommandInput,
@@ -1399,7 +1407,7 @@ export interface Deadline {
   ): void;
   deleteLicenseEndpoint(
     args: DeleteLicenseEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteLicenseEndpointCommandOutput) => void
   ): void;
 
@@ -1408,7 +1416,7 @@ export interface Deadline {
    */
   deleteLimit(
     args: DeleteLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteLimitCommandOutput>;
   deleteLimit(
     args: DeleteLimitCommandInput,
@@ -1416,7 +1424,7 @@ export interface Deadline {
   ): void;
   deleteLimit(
     args: DeleteLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteLimitCommandOutput) => void
   ): void;
 
@@ -1425,7 +1433,7 @@ export interface Deadline {
    */
   deleteMeteredProduct(
     args: DeleteMeteredProductCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteMeteredProductCommandOutput>;
   deleteMeteredProduct(
     args: DeleteMeteredProductCommandInput,
@@ -1433,7 +1441,7 @@ export interface Deadline {
   ): void;
   deleteMeteredProduct(
     args: DeleteMeteredProductCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteMeteredProductCommandOutput) => void
   ): void;
 
@@ -1442,7 +1450,7 @@ export interface Deadline {
    */
   deleteMonitor(
     args: DeleteMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteMonitorCommandOutput>;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
@@ -1450,7 +1458,7 @@ export interface Deadline {
   ): void;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteMonitorCommandOutput) => void
   ): void;
 
@@ -1459,7 +1467,7 @@ export interface Deadline {
    */
   deleteQueue(
     args: DeleteQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteQueueCommandOutput>;
   deleteQueue(
     args: DeleteQueueCommandInput,
@@ -1467,7 +1475,7 @@ export interface Deadline {
   ): void;
   deleteQueue(
     args: DeleteQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteQueueCommandOutput) => void
   ): void;
 
@@ -1476,7 +1484,7 @@ export interface Deadline {
    */
   deleteQueueEnvironment(
     args: DeleteQueueEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteQueueEnvironmentCommandOutput>;
   deleteQueueEnvironment(
     args: DeleteQueueEnvironmentCommandInput,
@@ -1484,7 +1492,7 @@ export interface Deadline {
   ): void;
   deleteQueueEnvironment(
     args: DeleteQueueEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteQueueEnvironmentCommandOutput) => void
   ): void;
 
@@ -1493,7 +1501,7 @@ export interface Deadline {
    */
   deleteQueueFleetAssociation(
     args: DeleteQueueFleetAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteQueueFleetAssociationCommandOutput>;
   deleteQueueFleetAssociation(
     args: DeleteQueueFleetAssociationCommandInput,
@@ -1501,7 +1509,7 @@ export interface Deadline {
   ): void;
   deleteQueueFleetAssociation(
     args: DeleteQueueFleetAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteQueueFleetAssociationCommandOutput) => void
   ): void;
 
@@ -1510,7 +1518,7 @@ export interface Deadline {
    */
   deleteQueueLimitAssociation(
     args: DeleteQueueLimitAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteQueueLimitAssociationCommandOutput>;
   deleteQueueLimitAssociation(
     args: DeleteQueueLimitAssociationCommandInput,
@@ -1518,7 +1526,7 @@ export interface Deadline {
   ): void;
   deleteQueueLimitAssociation(
     args: DeleteQueueLimitAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteQueueLimitAssociationCommandOutput) => void
   ): void;
 
@@ -1527,7 +1535,7 @@ export interface Deadline {
    */
   deleteStorageProfile(
     args: DeleteStorageProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteStorageProfileCommandOutput>;
   deleteStorageProfile(
     args: DeleteStorageProfileCommandInput,
@@ -1535,7 +1543,7 @@ export interface Deadline {
   ): void;
   deleteStorageProfile(
     args: DeleteStorageProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteStorageProfileCommandOutput) => void
   ): void;
 
@@ -1544,7 +1552,7 @@ export interface Deadline {
    */
   deleteVolume(
     args: DeleteVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteVolumeCommandOutput>;
   deleteVolume(
     args: DeleteVolumeCommandInput,
@@ -1552,7 +1560,7 @@ export interface Deadline {
   ): void;
   deleteVolume(
     args: DeleteVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteVolumeCommandOutput) => void
   ): void;
 
@@ -1561,7 +1569,7 @@ export interface Deadline {
    */
   deleteWorker(
     args: DeleteWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DeleteWorkerCommandOutput>;
   deleteWorker(
     args: DeleteWorkerCommandInput,
@@ -1569,7 +1577,7 @@ export interface Deadline {
   ): void;
   deleteWorker(
     args: DeleteWorkerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DeleteWorkerCommandOutput) => void
   ): void;
 
@@ -1578,7 +1586,7 @@ export interface Deadline {
    */
   disassociateMemberFromFarm(
     args: DisassociateMemberFromFarmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DisassociateMemberFromFarmCommandOutput>;
   disassociateMemberFromFarm(
     args: DisassociateMemberFromFarmCommandInput,
@@ -1586,7 +1594,7 @@ export interface Deadline {
   ): void;
   disassociateMemberFromFarm(
     args: DisassociateMemberFromFarmCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DisassociateMemberFromFarmCommandOutput) => void
   ): void;
 
@@ -1595,7 +1603,7 @@ export interface Deadline {
    */
   disassociateMemberFromFleet(
     args: DisassociateMemberFromFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DisassociateMemberFromFleetCommandOutput>;
   disassociateMemberFromFleet(
     args: DisassociateMemberFromFleetCommandInput,
@@ -1603,7 +1611,7 @@ export interface Deadline {
   ): void;
   disassociateMemberFromFleet(
     args: DisassociateMemberFromFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DisassociateMemberFromFleetCommandOutput) => void
   ): void;
 
@@ -1612,7 +1620,7 @@ export interface Deadline {
    */
   disassociateMemberFromJob(
     args: DisassociateMemberFromJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DisassociateMemberFromJobCommandOutput>;
   disassociateMemberFromJob(
     args: DisassociateMemberFromJobCommandInput,
@@ -1620,7 +1628,7 @@ export interface Deadline {
   ): void;
   disassociateMemberFromJob(
     args: DisassociateMemberFromJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DisassociateMemberFromJobCommandOutput) => void
   ): void;
 
@@ -1629,7 +1637,7 @@ export interface Deadline {
    */
   disassociateMemberFromQueue(
     args: DisassociateMemberFromQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<DisassociateMemberFromQueueCommandOutput>;
   disassociateMemberFromQueue(
     args: DisassociateMemberFromQueueCommandInput,
@@ -1637,7 +1645,7 @@ export interface Deadline {
   ): void;
   disassociateMemberFromQueue(
     args: DisassociateMemberFromQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: DisassociateMemberFromQueueCommandOutput) => void
   ): void;
 
@@ -1646,7 +1654,7 @@ export interface Deadline {
    */
   getBudget(
     args: GetBudgetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetBudgetCommandOutput>;
   getBudget(
     args: GetBudgetCommandInput,
@@ -1654,7 +1662,7 @@ export interface Deadline {
   ): void;
   getBudget(
     args: GetBudgetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetBudgetCommandOutput) => void
   ): void;
 
@@ -1663,7 +1671,7 @@ export interface Deadline {
    */
   getFarm(
     args: GetFarmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetFarmCommandOutput>;
   getFarm(
     args: GetFarmCommandInput,
@@ -1671,7 +1679,7 @@ export interface Deadline {
   ): void;
   getFarm(
     args: GetFarmCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetFarmCommandOutput) => void
   ): void;
 
@@ -1680,7 +1688,7 @@ export interface Deadline {
    */
   getFleet(
     args: GetFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetFleetCommandOutput>;
   getFleet(
     args: GetFleetCommandInput,
@@ -1688,7 +1696,7 @@ export interface Deadline {
   ): void;
   getFleet(
     args: GetFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetFleetCommandOutput) => void
   ): void;
 
@@ -1697,7 +1705,7 @@ export interface Deadline {
    */
   getJob(
     args: GetJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetJobCommandOutput>;
   getJob(
     args: GetJobCommandInput,
@@ -1705,7 +1713,7 @@ export interface Deadline {
   ): void;
   getJob(
     args: GetJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetJobCommandOutput) => void
   ): void;
 
@@ -1714,7 +1722,7 @@ export interface Deadline {
    */
   getLicenseEndpoint(
     args: GetLicenseEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetLicenseEndpointCommandOutput>;
   getLicenseEndpoint(
     args: GetLicenseEndpointCommandInput,
@@ -1722,7 +1730,7 @@ export interface Deadline {
   ): void;
   getLicenseEndpoint(
     args: GetLicenseEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetLicenseEndpointCommandOutput) => void
   ): void;
 
@@ -1731,7 +1739,7 @@ export interface Deadline {
    */
   getLimit(
     args: GetLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetLimitCommandOutput>;
   getLimit(
     args: GetLimitCommandInput,
@@ -1739,7 +1747,7 @@ export interface Deadline {
   ): void;
   getLimit(
     args: GetLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetLimitCommandOutput) => void
   ): void;
 
@@ -1748,7 +1756,7 @@ export interface Deadline {
    */
   getMonitor(
     args: GetMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetMonitorCommandOutput>;
   getMonitor(
     args: GetMonitorCommandInput,
@@ -1756,7 +1764,7 @@ export interface Deadline {
   ): void;
   getMonitor(
     args: GetMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetMonitorCommandOutput) => void
   ): void;
 
@@ -1765,7 +1773,7 @@ export interface Deadline {
    */
   getMonitorSettings(
     args: GetMonitorSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetMonitorSettingsCommandOutput>;
   getMonitorSettings(
     args: GetMonitorSettingsCommandInput,
@@ -1773,7 +1781,7 @@ export interface Deadline {
   ): void;
   getMonitorSettings(
     args: GetMonitorSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetMonitorSettingsCommandOutput) => void
   ): void;
 
@@ -1782,7 +1790,7 @@ export interface Deadline {
    */
   getQueue(
     args: GetQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetQueueCommandOutput>;
   getQueue(
     args: GetQueueCommandInput,
@@ -1790,7 +1798,7 @@ export interface Deadline {
   ): void;
   getQueue(
     args: GetQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetQueueCommandOutput) => void
   ): void;
 
@@ -1799,7 +1807,7 @@ export interface Deadline {
    */
   getQueueEnvironment(
     args: GetQueueEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetQueueEnvironmentCommandOutput>;
   getQueueEnvironment(
     args: GetQueueEnvironmentCommandInput,
@@ -1807,7 +1815,7 @@ export interface Deadline {
   ): void;
   getQueueEnvironment(
     args: GetQueueEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetQueueEnvironmentCommandOutput) => void
   ): void;
 
@@ -1816,7 +1824,7 @@ export interface Deadline {
    */
   getQueueFleetAssociation(
     args: GetQueueFleetAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetQueueFleetAssociationCommandOutput>;
   getQueueFleetAssociation(
     args: GetQueueFleetAssociationCommandInput,
@@ -1824,7 +1832,7 @@ export interface Deadline {
   ): void;
   getQueueFleetAssociation(
     args: GetQueueFleetAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetQueueFleetAssociationCommandOutput) => void
   ): void;
 
@@ -1833,7 +1841,7 @@ export interface Deadline {
    */
   getQueueLimitAssociation(
     args: GetQueueLimitAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetQueueLimitAssociationCommandOutput>;
   getQueueLimitAssociation(
     args: GetQueueLimitAssociationCommandInput,
@@ -1841,7 +1849,7 @@ export interface Deadline {
   ): void;
   getQueueLimitAssociation(
     args: GetQueueLimitAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetQueueLimitAssociationCommandOutput) => void
   ): void;
 
@@ -1850,7 +1858,7 @@ export interface Deadline {
    */
   getSession(
     args: GetSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetSessionCommandOutput>;
   getSession(
     args: GetSessionCommandInput,
@@ -1858,7 +1866,7 @@ export interface Deadline {
   ): void;
   getSession(
     args: GetSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
   ): void;
 
@@ -1867,7 +1875,7 @@ export interface Deadline {
    */
   getSessionAction(
     args: GetSessionActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetSessionActionCommandOutput>;
   getSessionAction(
     args: GetSessionActionCommandInput,
@@ -1875,7 +1883,7 @@ export interface Deadline {
   ): void;
   getSessionAction(
     args: GetSessionActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetSessionActionCommandOutput) => void
   ): void;
 
@@ -1884,7 +1892,7 @@ export interface Deadline {
    */
   getSessionsStatisticsAggregation(
     args: GetSessionsStatisticsAggregationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetSessionsStatisticsAggregationCommandOutput>;
   getSessionsStatisticsAggregation(
     args: GetSessionsStatisticsAggregationCommandInput,
@@ -1892,7 +1900,7 @@ export interface Deadline {
   ): void;
   getSessionsStatisticsAggregation(
     args: GetSessionsStatisticsAggregationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetSessionsStatisticsAggregationCommandOutput) => void
   ): void;
 
@@ -1901,7 +1909,7 @@ export interface Deadline {
    */
   getStep(
     args: GetStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetStepCommandOutput>;
   getStep(
     args: GetStepCommandInput,
@@ -1909,7 +1917,7 @@ export interface Deadline {
   ): void;
   getStep(
     args: GetStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetStepCommandOutput) => void
   ): void;
 
@@ -1918,7 +1926,7 @@ export interface Deadline {
    */
   getStorageProfile(
     args: GetStorageProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetStorageProfileCommandOutput>;
   getStorageProfile(
     args: GetStorageProfileCommandInput,
@@ -1926,7 +1934,7 @@ export interface Deadline {
   ): void;
   getStorageProfile(
     args: GetStorageProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetStorageProfileCommandOutput) => void
   ): void;
 
@@ -1935,7 +1943,7 @@ export interface Deadline {
    */
   getStorageProfileForQueue(
     args: GetStorageProfileForQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetStorageProfileForQueueCommandOutput>;
   getStorageProfileForQueue(
     args: GetStorageProfileForQueueCommandInput,
@@ -1943,7 +1951,7 @@ export interface Deadline {
   ): void;
   getStorageProfileForQueue(
     args: GetStorageProfileForQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetStorageProfileForQueueCommandOutput) => void
   ): void;
 
@@ -1952,7 +1960,7 @@ export interface Deadline {
    */
   getTask(
     args: GetTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetTaskCommandOutput>;
   getTask(
     args: GetTaskCommandInput,
@@ -1960,7 +1968,7 @@ export interface Deadline {
   ): void;
   getTask(
     args: GetTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetTaskCommandOutput) => void
   ): void;
 
@@ -1969,7 +1977,7 @@ export interface Deadline {
    */
   getVolume(
     args: GetVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetVolumeCommandOutput>;
   getVolume(
     args: GetVolumeCommandInput,
@@ -1977,7 +1985,7 @@ export interface Deadline {
   ): void;
   getVolume(
     args: GetVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetVolumeCommandOutput) => void
   ): void;
 
@@ -1986,7 +1994,7 @@ export interface Deadline {
    */
   getWorker(
     args: GetWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<GetWorkerCommandOutput>;
   getWorker(
     args: GetWorkerCommandInput,
@@ -1994,7 +2002,7 @@ export interface Deadline {
   ): void;
   getWorker(
     args: GetWorkerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: GetWorkerCommandOutput) => void
   ): void;
 
@@ -2004,7 +2012,7 @@ export interface Deadline {
   listAvailableMeteredProducts(): Promise<ListAvailableMeteredProductsCommandOutput>;
   listAvailableMeteredProducts(
     args: ListAvailableMeteredProductsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListAvailableMeteredProductsCommandOutput>;
   listAvailableMeteredProducts(
     args: ListAvailableMeteredProductsCommandInput,
@@ -2012,7 +2020,7 @@ export interface Deadline {
   ): void;
   listAvailableMeteredProducts(
     args: ListAvailableMeteredProductsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListAvailableMeteredProductsCommandOutput) => void
   ): void;
 
@@ -2021,7 +2029,7 @@ export interface Deadline {
    */
   listBudgets(
     args: ListBudgetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListBudgetsCommandOutput>;
   listBudgets(
     args: ListBudgetsCommandInput,
@@ -2029,7 +2037,7 @@ export interface Deadline {
   ): void;
   listBudgets(
     args: ListBudgetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListBudgetsCommandOutput) => void
   ): void;
 
@@ -2038,7 +2046,7 @@ export interface Deadline {
    */
   listFarmMembers(
     args: ListFarmMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListFarmMembersCommandOutput>;
   listFarmMembers(
     args: ListFarmMembersCommandInput,
@@ -2046,7 +2054,7 @@ export interface Deadline {
   ): void;
   listFarmMembers(
     args: ListFarmMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListFarmMembersCommandOutput) => void
   ): void;
 
@@ -2056,7 +2064,7 @@ export interface Deadline {
   listFarms(): Promise<ListFarmsCommandOutput>;
   listFarms(
     args: ListFarmsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListFarmsCommandOutput>;
   listFarms(
     args: ListFarmsCommandInput,
@@ -2064,7 +2072,7 @@ export interface Deadline {
   ): void;
   listFarms(
     args: ListFarmsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListFarmsCommandOutput) => void
   ): void;
 
@@ -2073,7 +2081,7 @@ export interface Deadline {
    */
   listFleetMembers(
     args: ListFleetMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListFleetMembersCommandOutput>;
   listFleetMembers(
     args: ListFleetMembersCommandInput,
@@ -2081,7 +2089,7 @@ export interface Deadline {
   ): void;
   listFleetMembers(
     args: ListFleetMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListFleetMembersCommandOutput) => void
   ): void;
 
@@ -2090,7 +2098,7 @@ export interface Deadline {
    */
   listFleets(
     args: ListFleetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListFleetsCommandOutput>;
   listFleets(
     args: ListFleetsCommandInput,
@@ -2098,7 +2106,7 @@ export interface Deadline {
   ): void;
   listFleets(
     args: ListFleetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListFleetsCommandOutput) => void
   ): void;
 
@@ -2107,7 +2115,7 @@ export interface Deadline {
    */
   listJobMembers(
     args: ListJobMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListJobMembersCommandOutput>;
   listJobMembers(
     args: ListJobMembersCommandInput,
@@ -2115,7 +2123,7 @@ export interface Deadline {
   ): void;
   listJobMembers(
     args: ListJobMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListJobMembersCommandOutput) => void
   ): void;
 
@@ -2124,7 +2132,7 @@ export interface Deadline {
    */
   listJobParameterDefinitions(
     args: ListJobParameterDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListJobParameterDefinitionsCommandOutput>;
   listJobParameterDefinitions(
     args: ListJobParameterDefinitionsCommandInput,
@@ -2132,7 +2140,7 @@ export interface Deadline {
   ): void;
   listJobParameterDefinitions(
     args: ListJobParameterDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListJobParameterDefinitionsCommandOutput) => void
   ): void;
 
@@ -2141,7 +2149,7 @@ export interface Deadline {
    */
   listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
@@ -2149,7 +2157,7 @@ export interface Deadline {
   ): void;
   listJobs(
     args: ListJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListJobsCommandOutput) => void
   ): void;
 
@@ -2159,7 +2167,7 @@ export interface Deadline {
   listLicenseEndpoints(): Promise<ListLicenseEndpointsCommandOutput>;
   listLicenseEndpoints(
     args: ListLicenseEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListLicenseEndpointsCommandOutput>;
   listLicenseEndpoints(
     args: ListLicenseEndpointsCommandInput,
@@ -2167,7 +2175,7 @@ export interface Deadline {
   ): void;
   listLicenseEndpoints(
     args: ListLicenseEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListLicenseEndpointsCommandOutput) => void
   ): void;
 
@@ -2176,7 +2184,7 @@ export interface Deadline {
    */
   listLimits(
     args: ListLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListLimitsCommandOutput>;
   listLimits(
     args: ListLimitsCommandInput,
@@ -2184,7 +2192,7 @@ export interface Deadline {
   ): void;
   listLimits(
     args: ListLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListLimitsCommandOutput) => void
   ): void;
 
@@ -2193,7 +2201,7 @@ export interface Deadline {
    */
   listMeteredProducts(
     args: ListMeteredProductsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListMeteredProductsCommandOutput>;
   listMeteredProducts(
     args: ListMeteredProductsCommandInput,
@@ -2201,7 +2209,7 @@ export interface Deadline {
   ): void;
   listMeteredProducts(
     args: ListMeteredProductsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListMeteredProductsCommandOutput) => void
   ): void;
 
@@ -2211,7 +2219,7 @@ export interface Deadline {
   listMonitors(): Promise<ListMonitorsCommandOutput>;
   listMonitors(
     args: ListMonitorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListMonitorsCommandOutput>;
   listMonitors(
     args: ListMonitorsCommandInput,
@@ -2219,7 +2227,7 @@ export interface Deadline {
   ): void;
   listMonitors(
     args: ListMonitorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListMonitorsCommandOutput) => void
   ): void;
 
@@ -2228,7 +2236,7 @@ export interface Deadline {
    */
   listQueueEnvironments(
     args: ListQueueEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListQueueEnvironmentsCommandOutput>;
   listQueueEnvironments(
     args: ListQueueEnvironmentsCommandInput,
@@ -2236,7 +2244,7 @@ export interface Deadline {
   ): void;
   listQueueEnvironments(
     args: ListQueueEnvironmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListQueueEnvironmentsCommandOutput) => void
   ): void;
 
@@ -2245,7 +2253,7 @@ export interface Deadline {
    */
   listQueueFleetAssociations(
     args: ListQueueFleetAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListQueueFleetAssociationsCommandOutput>;
   listQueueFleetAssociations(
     args: ListQueueFleetAssociationsCommandInput,
@@ -2253,7 +2261,7 @@ export interface Deadline {
   ): void;
   listQueueFleetAssociations(
     args: ListQueueFleetAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListQueueFleetAssociationsCommandOutput) => void
   ): void;
 
@@ -2262,7 +2270,7 @@ export interface Deadline {
    */
   listQueueLimitAssociations(
     args: ListQueueLimitAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListQueueLimitAssociationsCommandOutput>;
   listQueueLimitAssociations(
     args: ListQueueLimitAssociationsCommandInput,
@@ -2270,7 +2278,7 @@ export interface Deadline {
   ): void;
   listQueueLimitAssociations(
     args: ListQueueLimitAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListQueueLimitAssociationsCommandOutput) => void
   ): void;
 
@@ -2279,7 +2287,7 @@ export interface Deadline {
    */
   listQueueMembers(
     args: ListQueueMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListQueueMembersCommandOutput>;
   listQueueMembers(
     args: ListQueueMembersCommandInput,
@@ -2287,7 +2295,7 @@ export interface Deadline {
   ): void;
   listQueueMembers(
     args: ListQueueMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListQueueMembersCommandOutput) => void
   ): void;
 
@@ -2296,7 +2304,7 @@ export interface Deadline {
    */
   listQueues(
     args: ListQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListQueuesCommandOutput>;
   listQueues(
     args: ListQueuesCommandInput,
@@ -2304,7 +2312,7 @@ export interface Deadline {
   ): void;
   listQueues(
     args: ListQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListQueuesCommandOutput) => void
   ): void;
 
@@ -2313,7 +2321,7 @@ export interface Deadline {
    */
   listSessionActions(
     args: ListSessionActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListSessionActionsCommandOutput>;
   listSessionActions(
     args: ListSessionActionsCommandInput,
@@ -2321,7 +2329,7 @@ export interface Deadline {
   ): void;
   listSessionActions(
     args: ListSessionActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListSessionActionsCommandOutput) => void
   ): void;
 
@@ -2330,7 +2338,7 @@ export interface Deadline {
    */
   listSessions(
     args: ListSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListSessionsCommandOutput>;
   listSessions(
     args: ListSessionsCommandInput,
@@ -2338,7 +2346,7 @@ export interface Deadline {
   ): void;
   listSessions(
     args: ListSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
@@ -2347,7 +2355,7 @@ export interface Deadline {
    */
   listSessionsForWorker(
     args: ListSessionsForWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListSessionsForWorkerCommandOutput>;
   listSessionsForWorker(
     args: ListSessionsForWorkerCommandInput,
@@ -2355,7 +2363,7 @@ export interface Deadline {
   ): void;
   listSessionsForWorker(
     args: ListSessionsForWorkerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListSessionsForWorkerCommandOutput) => void
   ): void;
 
@@ -2364,7 +2372,7 @@ export interface Deadline {
    */
   listStepConsumers(
     args: ListStepConsumersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListStepConsumersCommandOutput>;
   listStepConsumers(
     args: ListStepConsumersCommandInput,
@@ -2372,7 +2380,7 @@ export interface Deadline {
   ): void;
   listStepConsumers(
     args: ListStepConsumersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListStepConsumersCommandOutput) => void
   ): void;
 
@@ -2381,7 +2389,7 @@ export interface Deadline {
    */
   listStepDependencies(
     args: ListStepDependenciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListStepDependenciesCommandOutput>;
   listStepDependencies(
     args: ListStepDependenciesCommandInput,
@@ -2389,7 +2397,7 @@ export interface Deadline {
   ): void;
   listStepDependencies(
     args: ListStepDependenciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListStepDependenciesCommandOutput) => void
   ): void;
 
@@ -2398,7 +2406,7 @@ export interface Deadline {
    */
   listSteps(
     args: ListStepsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListStepsCommandOutput>;
   listSteps(
     args: ListStepsCommandInput,
@@ -2406,7 +2414,7 @@ export interface Deadline {
   ): void;
   listSteps(
     args: ListStepsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListStepsCommandOutput) => void
   ): void;
 
@@ -2415,7 +2423,7 @@ export interface Deadline {
    */
   listStorageProfiles(
     args: ListStorageProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListStorageProfilesCommandOutput>;
   listStorageProfiles(
     args: ListStorageProfilesCommandInput,
@@ -2423,7 +2431,7 @@ export interface Deadline {
   ): void;
   listStorageProfiles(
     args: ListStorageProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListStorageProfilesCommandOutput) => void
   ): void;
 
@@ -2432,7 +2440,7 @@ export interface Deadline {
    */
   listStorageProfilesForQueue(
     args: ListStorageProfilesForQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListStorageProfilesForQueueCommandOutput>;
   listStorageProfilesForQueue(
     args: ListStorageProfilesForQueueCommandInput,
@@ -2440,7 +2448,7 @@ export interface Deadline {
   ): void;
   listStorageProfilesForQueue(
     args: ListStorageProfilesForQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListStorageProfilesForQueueCommandOutput) => void
   ): void;
 
@@ -2449,7 +2457,7 @@ export interface Deadline {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2457,7 +2465,7 @@ export interface Deadline {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -2466,7 +2474,7 @@ export interface Deadline {
    */
   listTasks(
     args: ListTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListTasksCommandOutput>;
   listTasks(
     args: ListTasksCommandInput,
@@ -2474,7 +2482,7 @@ export interface Deadline {
   ): void;
   listTasks(
     args: ListTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListTasksCommandOutput) => void
   ): void;
 
@@ -2483,7 +2491,7 @@ export interface Deadline {
    */
   listVolumes(
     args: ListVolumesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListVolumesCommandOutput>;
   listVolumes(
     args: ListVolumesCommandInput,
@@ -2491,7 +2499,7 @@ export interface Deadline {
   ): void;
   listVolumes(
     args: ListVolumesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListVolumesCommandOutput) => void
   ): void;
 
@@ -2500,7 +2508,7 @@ export interface Deadline {
    */
   listWorkers(
     args: ListWorkersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<ListWorkersCommandOutput>;
   listWorkers(
     args: ListWorkersCommandInput,
@@ -2508,7 +2516,7 @@ export interface Deadline {
   ): void;
   listWorkers(
     args: ListWorkersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: ListWorkersCommandOutput) => void
   ): void;
 
@@ -2517,7 +2525,7 @@ export interface Deadline {
    */
   putMeteredProduct(
     args: PutMeteredProductCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<PutMeteredProductCommandOutput>;
   putMeteredProduct(
     args: PutMeteredProductCommandInput,
@@ -2525,7 +2533,7 @@ export interface Deadline {
   ): void;
   putMeteredProduct(
     args: PutMeteredProductCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: PutMeteredProductCommandOutput) => void
   ): void;
 
@@ -2534,7 +2542,7 @@ export interface Deadline {
    */
   searchJobs(
     args: SearchJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<SearchJobsCommandOutput>;
   searchJobs(
     args: SearchJobsCommandInput,
@@ -2542,7 +2550,7 @@ export interface Deadline {
   ): void;
   searchJobs(
     args: SearchJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: SearchJobsCommandOutput) => void
   ): void;
 
@@ -2551,7 +2559,7 @@ export interface Deadline {
    */
   searchSteps(
     args: SearchStepsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<SearchStepsCommandOutput>;
   searchSteps(
     args: SearchStepsCommandInput,
@@ -2559,7 +2567,7 @@ export interface Deadline {
   ): void;
   searchSteps(
     args: SearchStepsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: SearchStepsCommandOutput) => void
   ): void;
 
@@ -2568,7 +2576,7 @@ export interface Deadline {
    */
   searchTasks(
     args: SearchTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<SearchTasksCommandOutput>;
   searchTasks(
     args: SearchTasksCommandInput,
@@ -2576,7 +2584,7 @@ export interface Deadline {
   ): void;
   searchTasks(
     args: SearchTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: SearchTasksCommandOutput) => void
   ): void;
 
@@ -2585,7 +2593,7 @@ export interface Deadline {
    */
   searchWorkers(
     args: SearchWorkersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<SearchWorkersCommandOutput>;
   searchWorkers(
     args: SearchWorkersCommandInput,
@@ -2593,7 +2601,7 @@ export interface Deadline {
   ): void;
   searchWorkers(
     args: SearchWorkersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: SearchWorkersCommandOutput) => void
   ): void;
 
@@ -2602,7 +2610,7 @@ export interface Deadline {
    */
   startSessionsStatisticsAggregation(
     args: StartSessionsStatisticsAggregationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<StartSessionsStatisticsAggregationCommandOutput>;
   startSessionsStatisticsAggregation(
     args: StartSessionsStatisticsAggregationCommandInput,
@@ -2610,7 +2618,7 @@ export interface Deadline {
   ): void;
   startSessionsStatisticsAggregation(
     args: StartSessionsStatisticsAggregationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: StartSessionsStatisticsAggregationCommandOutput) => void
   ): void;
 
@@ -2619,7 +2627,7 @@ export interface Deadline {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2627,7 +2635,7 @@ export interface Deadline {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2636,7 +2644,7 @@ export interface Deadline {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2644,7 +2652,7 @@ export interface Deadline {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2653,7 +2661,7 @@ export interface Deadline {
    */
   updateBudget(
     args: UpdateBudgetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateBudgetCommandOutput>;
   updateBudget(
     args: UpdateBudgetCommandInput,
@@ -2661,7 +2669,7 @@ export interface Deadline {
   ): void;
   updateBudget(
     args: UpdateBudgetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateBudgetCommandOutput) => void
   ): void;
 
@@ -2670,7 +2678,7 @@ export interface Deadline {
    */
   updateFarm(
     args: UpdateFarmCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateFarmCommandOutput>;
   updateFarm(
     args: UpdateFarmCommandInput,
@@ -2678,7 +2686,7 @@ export interface Deadline {
   ): void;
   updateFarm(
     args: UpdateFarmCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateFarmCommandOutput) => void
   ): void;
 
@@ -2687,7 +2695,7 @@ export interface Deadline {
    */
   updateFleet(
     args: UpdateFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateFleetCommandOutput>;
   updateFleet(
     args: UpdateFleetCommandInput,
@@ -2695,7 +2703,7 @@ export interface Deadline {
   ): void;
   updateFleet(
     args: UpdateFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateFleetCommandOutput) => void
   ): void;
 
@@ -2704,7 +2712,7 @@ export interface Deadline {
    */
   updateJob(
     args: UpdateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateJobCommandOutput>;
   updateJob(
     args: UpdateJobCommandInput,
@@ -2712,7 +2720,7 @@ export interface Deadline {
   ): void;
   updateJob(
     args: UpdateJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateJobCommandOutput) => void
   ): void;
 
@@ -2721,7 +2729,7 @@ export interface Deadline {
    */
   updateLimit(
     args: UpdateLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateLimitCommandOutput>;
   updateLimit(
     args: UpdateLimitCommandInput,
@@ -2729,7 +2737,7 @@ export interface Deadline {
   ): void;
   updateLimit(
     args: UpdateLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateLimitCommandOutput) => void
   ): void;
 
@@ -2738,7 +2746,7 @@ export interface Deadline {
    */
   updateMonitor(
     args: UpdateMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateMonitorCommandOutput>;
   updateMonitor(
     args: UpdateMonitorCommandInput,
@@ -2746,7 +2754,7 @@ export interface Deadline {
   ): void;
   updateMonitor(
     args: UpdateMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateMonitorCommandOutput) => void
   ): void;
 
@@ -2755,7 +2763,7 @@ export interface Deadline {
    */
   updateMonitorSettings(
     args: UpdateMonitorSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateMonitorSettingsCommandOutput>;
   updateMonitorSettings(
     args: UpdateMonitorSettingsCommandInput,
@@ -2763,7 +2771,7 @@ export interface Deadline {
   ): void;
   updateMonitorSettings(
     args: UpdateMonitorSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateMonitorSettingsCommandOutput) => void
   ): void;
 
@@ -2772,7 +2780,7 @@ export interface Deadline {
    */
   updateQueue(
     args: UpdateQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateQueueCommandOutput>;
   updateQueue(
     args: UpdateQueueCommandInput,
@@ -2780,7 +2788,7 @@ export interface Deadline {
   ): void;
   updateQueue(
     args: UpdateQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateQueueCommandOutput) => void
   ): void;
 
@@ -2789,7 +2797,7 @@ export interface Deadline {
    */
   updateQueueEnvironment(
     args: UpdateQueueEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateQueueEnvironmentCommandOutput>;
   updateQueueEnvironment(
     args: UpdateQueueEnvironmentCommandInput,
@@ -2797,7 +2805,7 @@ export interface Deadline {
   ): void;
   updateQueueEnvironment(
     args: UpdateQueueEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateQueueEnvironmentCommandOutput) => void
   ): void;
 
@@ -2806,7 +2814,7 @@ export interface Deadline {
    */
   updateQueueFleetAssociation(
     args: UpdateQueueFleetAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateQueueFleetAssociationCommandOutput>;
   updateQueueFleetAssociation(
     args: UpdateQueueFleetAssociationCommandInput,
@@ -2814,7 +2822,7 @@ export interface Deadline {
   ): void;
   updateQueueFleetAssociation(
     args: UpdateQueueFleetAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateQueueFleetAssociationCommandOutput) => void
   ): void;
 
@@ -2823,7 +2831,7 @@ export interface Deadline {
    */
   updateQueueLimitAssociation(
     args: UpdateQueueLimitAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateQueueLimitAssociationCommandOutput>;
   updateQueueLimitAssociation(
     args: UpdateQueueLimitAssociationCommandInput,
@@ -2831,7 +2839,7 @@ export interface Deadline {
   ): void;
   updateQueueLimitAssociation(
     args: UpdateQueueLimitAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateQueueLimitAssociationCommandOutput) => void
   ): void;
 
@@ -2840,7 +2848,7 @@ export interface Deadline {
    */
   updateSession(
     args: UpdateSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateSessionCommandOutput>;
   updateSession(
     args: UpdateSessionCommandInput,
@@ -2848,7 +2856,7 @@ export interface Deadline {
   ): void;
   updateSession(
     args: UpdateSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateSessionCommandOutput) => void
   ): void;
 
@@ -2857,7 +2865,7 @@ export interface Deadline {
    */
   updateStep(
     args: UpdateStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateStepCommandOutput>;
   updateStep(
     args: UpdateStepCommandInput,
@@ -2865,7 +2873,7 @@ export interface Deadline {
   ): void;
   updateStep(
     args: UpdateStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateStepCommandOutput) => void
   ): void;
 
@@ -2874,7 +2882,7 @@ export interface Deadline {
    */
   updateStorageProfile(
     args: UpdateStorageProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateStorageProfileCommandOutput>;
   updateStorageProfile(
     args: UpdateStorageProfileCommandInput,
@@ -2882,7 +2890,7 @@ export interface Deadline {
   ): void;
   updateStorageProfile(
     args: UpdateStorageProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateStorageProfileCommandOutput) => void
   ): void;
 
@@ -2891,7 +2899,7 @@ export interface Deadline {
    */
   updateTask(
     args: UpdateTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateTaskCommandOutput>;
   updateTask(
     args: UpdateTaskCommandInput,
@@ -2899,7 +2907,7 @@ export interface Deadline {
   ): void;
   updateTask(
     args: UpdateTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateTaskCommandOutput) => void
   ): void;
 
@@ -2908,7 +2916,7 @@ export interface Deadline {
    */
   updateWorker(
     args: UpdateWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateWorkerCommandOutput>;
   updateWorker(
     args: UpdateWorkerCommandInput,
@@ -2916,7 +2924,7 @@ export interface Deadline {
   ): void;
   updateWorker(
     args: UpdateWorkerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateWorkerCommandOutput) => void
   ): void;
 
@@ -2925,7 +2933,7 @@ export interface Deadline {
    */
   updateWorkerSchedule(
     args: UpdateWorkerScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DeadlineRequestOptions
   ): Promise<UpdateWorkerScheduleCommandOutput>;
   updateWorkerSchedule(
     args: UpdateWorkerScheduleCommandInput,
@@ -2933,7 +2941,7 @@ export interface Deadline {
   ): void;
   updateWorkerSchedule(
     args: UpdateWorkerScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: DeadlineRequestOptions,
     cb: (err: any, data?: UpdateWorkerScheduleCommandOutput) => void
   ): void;
 

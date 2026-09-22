@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type GetListingCommandInput,
@@ -69,13 +74,20 @@ const paginators = {
   paginateSearchListings,
 };
 
+/**
+ * @public
+ */
+export interface MarketplaceDiscoveryRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MarketplaceDiscovery {
   /**
    * @see {@link GetListingCommand}
    */
   getListing(
     args: GetListingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDiscoveryRequestOptions
   ): Promise<GetListingCommandOutput>;
   getListing(
     args: GetListingCommandInput,
@@ -83,7 +95,7 @@ export interface MarketplaceDiscovery {
   ): void;
   getListing(
     args: GetListingCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDiscoveryRequestOptions,
     cb: (err: any, data?: GetListingCommandOutput) => void
   ): void;
 
@@ -92,7 +104,7 @@ export interface MarketplaceDiscovery {
    */
   getOffer(
     args: GetOfferCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDiscoveryRequestOptions
   ): Promise<GetOfferCommandOutput>;
   getOffer(
     args: GetOfferCommandInput,
@@ -100,7 +112,7 @@ export interface MarketplaceDiscovery {
   ): void;
   getOffer(
     args: GetOfferCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDiscoveryRequestOptions,
     cb: (err: any, data?: GetOfferCommandOutput) => void
   ): void;
 
@@ -109,7 +121,7 @@ export interface MarketplaceDiscovery {
    */
   getOfferSet(
     args: GetOfferSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDiscoveryRequestOptions
   ): Promise<GetOfferSetCommandOutput>;
   getOfferSet(
     args: GetOfferSetCommandInput,
@@ -117,7 +129,7 @@ export interface MarketplaceDiscovery {
   ): void;
   getOfferSet(
     args: GetOfferSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDiscoveryRequestOptions,
     cb: (err: any, data?: GetOfferSetCommandOutput) => void
   ): void;
 
@@ -126,7 +138,7 @@ export interface MarketplaceDiscovery {
    */
   getOfferTerms(
     args: GetOfferTermsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDiscoveryRequestOptions
   ): Promise<GetOfferTermsCommandOutput>;
   getOfferTerms(
     args: GetOfferTermsCommandInput,
@@ -134,7 +146,7 @@ export interface MarketplaceDiscovery {
   ): void;
   getOfferTerms(
     args: GetOfferTermsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDiscoveryRequestOptions,
     cb: (err: any, data?: GetOfferTermsCommandOutput) => void
   ): void;
 
@@ -143,7 +155,7 @@ export interface MarketplaceDiscovery {
    */
   getProduct(
     args: GetProductCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDiscoveryRequestOptions
   ): Promise<GetProductCommandOutput>;
   getProduct(
     args: GetProductCommandInput,
@@ -151,7 +163,7 @@ export interface MarketplaceDiscovery {
   ): void;
   getProduct(
     args: GetProductCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDiscoveryRequestOptions,
     cb: (err: any, data?: GetProductCommandOutput) => void
   ): void;
 
@@ -160,7 +172,7 @@ export interface MarketplaceDiscovery {
    */
   listFulfillmentOptions(
     args: ListFulfillmentOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDiscoveryRequestOptions
   ): Promise<ListFulfillmentOptionsCommandOutput>;
   listFulfillmentOptions(
     args: ListFulfillmentOptionsCommandInput,
@@ -168,7 +180,7 @@ export interface MarketplaceDiscovery {
   ): void;
   listFulfillmentOptions(
     args: ListFulfillmentOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDiscoveryRequestOptions,
     cb: (err: any, data?: ListFulfillmentOptionsCommandOutput) => void
   ): void;
 
@@ -178,7 +190,7 @@ export interface MarketplaceDiscovery {
   listPurchaseOptions(): Promise<ListPurchaseOptionsCommandOutput>;
   listPurchaseOptions(
     args: ListPurchaseOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDiscoveryRequestOptions
   ): Promise<ListPurchaseOptionsCommandOutput>;
   listPurchaseOptions(
     args: ListPurchaseOptionsCommandInput,
@@ -186,7 +198,7 @@ export interface MarketplaceDiscovery {
   ): void;
   listPurchaseOptions(
     args: ListPurchaseOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDiscoveryRequestOptions,
     cb: (err: any, data?: ListPurchaseOptionsCommandOutput) => void
   ): void;
 
@@ -196,7 +208,7 @@ export interface MarketplaceDiscovery {
   searchFacets(): Promise<SearchFacetsCommandOutput>;
   searchFacets(
     args: SearchFacetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDiscoveryRequestOptions
   ): Promise<SearchFacetsCommandOutput>;
   searchFacets(
     args: SearchFacetsCommandInput,
@@ -204,7 +216,7 @@ export interface MarketplaceDiscovery {
   ): void;
   searchFacets(
     args: SearchFacetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDiscoveryRequestOptions,
     cb: (err: any, data?: SearchFacetsCommandOutput) => void
   ): void;
 
@@ -214,7 +226,7 @@ export interface MarketplaceDiscovery {
   searchListings(): Promise<SearchListingsCommandOutput>;
   searchListings(
     args: SearchListingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceDiscoveryRequestOptions
   ): Promise<SearchListingsCommandOutput>;
   searchListings(
     args: SearchListingsCommandInput,
@@ -222,7 +234,7 @@ export interface MarketplaceDiscovery {
   ): void;
   searchListings(
     args: SearchListingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceDiscoveryRequestOptions,
     cb: (err: any, data?: SearchListingsCommandOutput) => void
   ): void;
 

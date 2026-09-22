@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type InvokeEndpointWithBidirectionalStreamCommandInput,
@@ -13,13 +13,20 @@ const commands = {
   InvokeEndpointWithBidirectionalStreamCommand,
 };
 
+/**
+ * @public
+ */
+export interface SageMakerRuntimeHTTP2RequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SageMakerRuntimeHTTP2 {
   /**
    * @see {@link InvokeEndpointWithBidirectionalStreamCommand}
    */
   invokeEndpointWithBidirectionalStream(
     args: InvokeEndpointWithBidirectionalStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerRuntimeHTTP2RequestOptions
   ): Promise<InvokeEndpointWithBidirectionalStreamCommandOutput>;
   invokeEndpointWithBidirectionalStream(
     args: InvokeEndpointWithBidirectionalStreamCommandInput,
@@ -27,7 +34,7 @@ export interface SageMakerRuntimeHTTP2 {
   ): void;
   invokeEndpointWithBidirectionalStream(
     args: InvokeEndpointWithBidirectionalStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerRuntimeHTTP2RequestOptions,
     cb: (err: any, data?: InvokeEndpointWithBidirectionalStreamCommandOutput) => void
   ): void;
 }

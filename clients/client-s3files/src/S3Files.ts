@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateAccessPointCommandInput,
@@ -143,13 +148,20 @@ const paginators = {
   paginateListTagsForResource,
 };
 
+/**
+ * @public
+ */
+export interface S3FilesRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface S3Files {
   /**
    * @see {@link CreateAccessPointCommand}
    */
   createAccessPoint(
     args: CreateAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<CreateAccessPointCommandOutput>;
   createAccessPoint(
     args: CreateAccessPointCommandInput,
@@ -157,7 +169,7 @@ export interface S3Files {
   ): void;
   createAccessPoint(
     args: CreateAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: CreateAccessPointCommandOutput) => void
   ): void;
 
@@ -166,7 +178,7 @@ export interface S3Files {
    */
   createFileSystem(
     args: CreateFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<CreateFileSystemCommandOutput>;
   createFileSystem(
     args: CreateFileSystemCommandInput,
@@ -174,7 +186,7 @@ export interface S3Files {
   ): void;
   createFileSystem(
     args: CreateFileSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: CreateFileSystemCommandOutput) => void
   ): void;
 
@@ -183,7 +195,7 @@ export interface S3Files {
    */
   createMountTarget(
     args: CreateMountTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<CreateMountTargetCommandOutput>;
   createMountTarget(
     args: CreateMountTargetCommandInput,
@@ -191,7 +203,7 @@ export interface S3Files {
   ): void;
   createMountTarget(
     args: CreateMountTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: CreateMountTargetCommandOutput) => void
   ): void;
 
@@ -200,7 +212,7 @@ export interface S3Files {
    */
   deleteAccessPoint(
     args: DeleteAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<DeleteAccessPointCommandOutput>;
   deleteAccessPoint(
     args: DeleteAccessPointCommandInput,
@@ -208,7 +220,7 @@ export interface S3Files {
   ): void;
   deleteAccessPoint(
     args: DeleteAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: DeleteAccessPointCommandOutput) => void
   ): void;
 
@@ -217,7 +229,7 @@ export interface S3Files {
    */
   deleteFileSystem(
     args: DeleteFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<DeleteFileSystemCommandOutput>;
   deleteFileSystem(
     args: DeleteFileSystemCommandInput,
@@ -225,7 +237,7 @@ export interface S3Files {
   ): void;
   deleteFileSystem(
     args: DeleteFileSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: DeleteFileSystemCommandOutput) => void
   ): void;
 
@@ -234,7 +246,7 @@ export interface S3Files {
    */
   deleteFileSystemPolicy(
     args: DeleteFileSystemPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<DeleteFileSystemPolicyCommandOutput>;
   deleteFileSystemPolicy(
     args: DeleteFileSystemPolicyCommandInput,
@@ -242,7 +254,7 @@ export interface S3Files {
   ): void;
   deleteFileSystemPolicy(
     args: DeleteFileSystemPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: DeleteFileSystemPolicyCommandOutput) => void
   ): void;
 
@@ -251,7 +263,7 @@ export interface S3Files {
    */
   deleteMountTarget(
     args: DeleteMountTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<DeleteMountTargetCommandOutput>;
   deleteMountTarget(
     args: DeleteMountTargetCommandInput,
@@ -259,7 +271,7 @@ export interface S3Files {
   ): void;
   deleteMountTarget(
     args: DeleteMountTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: DeleteMountTargetCommandOutput) => void
   ): void;
 
@@ -268,7 +280,7 @@ export interface S3Files {
    */
   getAccessPoint(
     args: GetAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<GetAccessPointCommandOutput>;
   getAccessPoint(
     args: GetAccessPointCommandInput,
@@ -276,7 +288,7 @@ export interface S3Files {
   ): void;
   getAccessPoint(
     args: GetAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: GetAccessPointCommandOutput) => void
   ): void;
 
@@ -285,7 +297,7 @@ export interface S3Files {
    */
   getFileSystem(
     args: GetFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<GetFileSystemCommandOutput>;
   getFileSystem(
     args: GetFileSystemCommandInput,
@@ -293,7 +305,7 @@ export interface S3Files {
   ): void;
   getFileSystem(
     args: GetFileSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: GetFileSystemCommandOutput) => void
   ): void;
 
@@ -302,7 +314,7 @@ export interface S3Files {
    */
   getFileSystemPolicy(
     args: GetFileSystemPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<GetFileSystemPolicyCommandOutput>;
   getFileSystemPolicy(
     args: GetFileSystemPolicyCommandInput,
@@ -310,7 +322,7 @@ export interface S3Files {
   ): void;
   getFileSystemPolicy(
     args: GetFileSystemPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: GetFileSystemPolicyCommandOutput) => void
   ): void;
 
@@ -319,7 +331,7 @@ export interface S3Files {
    */
   getMountTarget(
     args: GetMountTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<GetMountTargetCommandOutput>;
   getMountTarget(
     args: GetMountTargetCommandInput,
@@ -327,7 +339,7 @@ export interface S3Files {
   ): void;
   getMountTarget(
     args: GetMountTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: GetMountTargetCommandOutput) => void
   ): void;
 
@@ -336,7 +348,7 @@ export interface S3Files {
    */
   getSynchronizationConfiguration(
     args: GetSynchronizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<GetSynchronizationConfigurationCommandOutput>;
   getSynchronizationConfiguration(
     args: GetSynchronizationConfigurationCommandInput,
@@ -344,7 +356,7 @@ export interface S3Files {
   ): void;
   getSynchronizationConfiguration(
     args: GetSynchronizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: GetSynchronizationConfigurationCommandOutput) => void
   ): void;
 
@@ -353,7 +365,7 @@ export interface S3Files {
    */
   listAccessPoints(
     args: ListAccessPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<ListAccessPointsCommandOutput>;
   listAccessPoints(
     args: ListAccessPointsCommandInput,
@@ -361,7 +373,7 @@ export interface S3Files {
   ): void;
   listAccessPoints(
     args: ListAccessPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: ListAccessPointsCommandOutput) => void
   ): void;
 
@@ -371,7 +383,7 @@ export interface S3Files {
   listFileSystems(): Promise<ListFileSystemsCommandOutput>;
   listFileSystems(
     args: ListFileSystemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<ListFileSystemsCommandOutput>;
   listFileSystems(
     args: ListFileSystemsCommandInput,
@@ -379,7 +391,7 @@ export interface S3Files {
   ): void;
   listFileSystems(
     args: ListFileSystemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: ListFileSystemsCommandOutput) => void
   ): void;
 
@@ -389,7 +401,7 @@ export interface S3Files {
   listMountTargets(): Promise<ListMountTargetsCommandOutput>;
   listMountTargets(
     args: ListMountTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<ListMountTargetsCommandOutput>;
   listMountTargets(
     args: ListMountTargetsCommandInput,
@@ -397,7 +409,7 @@ export interface S3Files {
   ): void;
   listMountTargets(
     args: ListMountTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: ListMountTargetsCommandOutput) => void
   ): void;
 
@@ -406,7 +418,7 @@ export interface S3Files {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -414,7 +426,7 @@ export interface S3Files {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -423,7 +435,7 @@ export interface S3Files {
    */
   putFileSystemPolicy(
     args: PutFileSystemPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<PutFileSystemPolicyCommandOutput>;
   putFileSystemPolicy(
     args: PutFileSystemPolicyCommandInput,
@@ -431,7 +443,7 @@ export interface S3Files {
   ): void;
   putFileSystemPolicy(
     args: PutFileSystemPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: PutFileSystemPolicyCommandOutput) => void
   ): void;
 
@@ -440,7 +452,7 @@ export interface S3Files {
    */
   putSynchronizationConfiguration(
     args: PutSynchronizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<PutSynchronizationConfigurationCommandOutput>;
   putSynchronizationConfiguration(
     args: PutSynchronizationConfigurationCommandInput,
@@ -448,7 +460,7 @@ export interface S3Files {
   ): void;
   putSynchronizationConfiguration(
     args: PutSynchronizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: PutSynchronizationConfigurationCommandOutput) => void
   ): void;
 
@@ -457,7 +469,7 @@ export interface S3Files {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -465,7 +477,7 @@ export interface S3Files {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -474,7 +486,7 @@ export interface S3Files {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -482,7 +494,7 @@ export interface S3Files {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -491,7 +503,7 @@ export interface S3Files {
    */
   updateMountTarget(
     args: UpdateMountTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: S3FilesRequestOptions
   ): Promise<UpdateMountTargetCommandOutput>;
   updateMountTarget(
     args: UpdateMountTargetCommandInput,
@@ -499,7 +511,7 @@ export interface S3Files {
   ): void;
   updateMountTarget(
     args: UpdateMountTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: S3FilesRequestOptions,
     cb: (err: any, data?: UpdateMountTargetCommandOutput) => void
   ): void;
 

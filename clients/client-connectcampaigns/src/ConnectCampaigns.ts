@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateCampaignCommandInput,
@@ -143,13 +148,20 @@ const paginators = {
   paginateListCampaigns,
 };
 
+/**
+ * @public
+ */
+export interface ConnectCampaignsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ConnectCampaigns {
   /**
    * @see {@link CreateCampaignCommand}
    */
   createCampaign(
     args: CreateCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<CreateCampaignCommandOutput>;
   createCampaign(
     args: CreateCampaignCommandInput,
@@ -157,7 +169,7 @@ export interface ConnectCampaigns {
   ): void;
   createCampaign(
     args: CreateCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: CreateCampaignCommandOutput) => void
   ): void;
 
@@ -166,7 +178,7 @@ export interface ConnectCampaigns {
    */
   deleteCampaign(
     args: DeleteCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<DeleteCampaignCommandOutput>;
   deleteCampaign(
     args: DeleteCampaignCommandInput,
@@ -174,7 +186,7 @@ export interface ConnectCampaigns {
   ): void;
   deleteCampaign(
     args: DeleteCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: DeleteCampaignCommandOutput) => void
   ): void;
 
@@ -183,7 +195,7 @@ export interface ConnectCampaigns {
    */
   deleteConnectInstanceConfig(
     args: DeleteConnectInstanceConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<DeleteConnectInstanceConfigCommandOutput>;
   deleteConnectInstanceConfig(
     args: DeleteConnectInstanceConfigCommandInput,
@@ -191,7 +203,7 @@ export interface ConnectCampaigns {
   ): void;
   deleteConnectInstanceConfig(
     args: DeleteConnectInstanceConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: DeleteConnectInstanceConfigCommandOutput) => void
   ): void;
 
@@ -200,7 +212,7 @@ export interface ConnectCampaigns {
    */
   deleteInstanceOnboardingJob(
     args: DeleteInstanceOnboardingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<DeleteInstanceOnboardingJobCommandOutput>;
   deleteInstanceOnboardingJob(
     args: DeleteInstanceOnboardingJobCommandInput,
@@ -208,7 +220,7 @@ export interface ConnectCampaigns {
   ): void;
   deleteInstanceOnboardingJob(
     args: DeleteInstanceOnboardingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: DeleteInstanceOnboardingJobCommandOutput) => void
   ): void;
 
@@ -217,7 +229,7 @@ export interface ConnectCampaigns {
    */
   describeCampaign(
     args: DescribeCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<DescribeCampaignCommandOutput>;
   describeCampaign(
     args: DescribeCampaignCommandInput,
@@ -225,7 +237,7 @@ export interface ConnectCampaigns {
   ): void;
   describeCampaign(
     args: DescribeCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: DescribeCampaignCommandOutput) => void
   ): void;
 
@@ -234,7 +246,7 @@ export interface ConnectCampaigns {
    */
   getCampaignState(
     args: GetCampaignStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<GetCampaignStateCommandOutput>;
   getCampaignState(
     args: GetCampaignStateCommandInput,
@@ -242,7 +254,7 @@ export interface ConnectCampaigns {
   ): void;
   getCampaignState(
     args: GetCampaignStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: GetCampaignStateCommandOutput) => void
   ): void;
 
@@ -251,7 +263,7 @@ export interface ConnectCampaigns {
    */
   getCampaignStateBatch(
     args: GetCampaignStateBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<GetCampaignStateBatchCommandOutput>;
   getCampaignStateBatch(
     args: GetCampaignStateBatchCommandInput,
@@ -259,7 +271,7 @@ export interface ConnectCampaigns {
   ): void;
   getCampaignStateBatch(
     args: GetCampaignStateBatchCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: GetCampaignStateBatchCommandOutput) => void
   ): void;
 
@@ -268,7 +280,7 @@ export interface ConnectCampaigns {
    */
   getConnectInstanceConfig(
     args: GetConnectInstanceConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<GetConnectInstanceConfigCommandOutput>;
   getConnectInstanceConfig(
     args: GetConnectInstanceConfigCommandInput,
@@ -276,7 +288,7 @@ export interface ConnectCampaigns {
   ): void;
   getConnectInstanceConfig(
     args: GetConnectInstanceConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: GetConnectInstanceConfigCommandOutput) => void
   ): void;
 
@@ -285,7 +297,7 @@ export interface ConnectCampaigns {
    */
   getInstanceOnboardingJobStatus(
     args: GetInstanceOnboardingJobStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<GetInstanceOnboardingJobStatusCommandOutput>;
   getInstanceOnboardingJobStatus(
     args: GetInstanceOnboardingJobStatusCommandInput,
@@ -293,7 +305,7 @@ export interface ConnectCampaigns {
   ): void;
   getInstanceOnboardingJobStatus(
     args: GetInstanceOnboardingJobStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: GetInstanceOnboardingJobStatusCommandOutput) => void
   ): void;
 
@@ -303,7 +315,7 @@ export interface ConnectCampaigns {
   listCampaigns(): Promise<ListCampaignsCommandOutput>;
   listCampaigns(
     args: ListCampaignsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<ListCampaignsCommandOutput>;
   listCampaigns(
     args: ListCampaignsCommandInput,
@@ -311,7 +323,7 @@ export interface ConnectCampaigns {
   ): void;
   listCampaigns(
     args: ListCampaignsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: ListCampaignsCommandOutput) => void
   ): void;
 
@@ -320,7 +332,7 @@ export interface ConnectCampaigns {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -328,7 +340,7 @@ export interface ConnectCampaigns {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -337,7 +349,7 @@ export interface ConnectCampaigns {
    */
   pauseCampaign(
     args: PauseCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<PauseCampaignCommandOutput>;
   pauseCampaign(
     args: PauseCampaignCommandInput,
@@ -345,7 +357,7 @@ export interface ConnectCampaigns {
   ): void;
   pauseCampaign(
     args: PauseCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: PauseCampaignCommandOutput) => void
   ): void;
 
@@ -354,7 +366,7 @@ export interface ConnectCampaigns {
    */
   putDialRequestBatch(
     args: PutDialRequestBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<PutDialRequestBatchCommandOutput>;
   putDialRequestBatch(
     args: PutDialRequestBatchCommandInput,
@@ -362,7 +374,7 @@ export interface ConnectCampaigns {
   ): void;
   putDialRequestBatch(
     args: PutDialRequestBatchCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: PutDialRequestBatchCommandOutput) => void
   ): void;
 
@@ -371,7 +383,7 @@ export interface ConnectCampaigns {
    */
   resumeCampaign(
     args: ResumeCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<ResumeCampaignCommandOutput>;
   resumeCampaign(
     args: ResumeCampaignCommandInput,
@@ -379,7 +391,7 @@ export interface ConnectCampaigns {
   ): void;
   resumeCampaign(
     args: ResumeCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: ResumeCampaignCommandOutput) => void
   ): void;
 
@@ -388,7 +400,7 @@ export interface ConnectCampaigns {
    */
   startCampaign(
     args: StartCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<StartCampaignCommandOutput>;
   startCampaign(
     args: StartCampaignCommandInput,
@@ -396,7 +408,7 @@ export interface ConnectCampaigns {
   ): void;
   startCampaign(
     args: StartCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: StartCampaignCommandOutput) => void
   ): void;
 
@@ -405,7 +417,7 @@ export interface ConnectCampaigns {
    */
   startInstanceOnboardingJob(
     args: StartInstanceOnboardingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<StartInstanceOnboardingJobCommandOutput>;
   startInstanceOnboardingJob(
     args: StartInstanceOnboardingJobCommandInput,
@@ -413,7 +425,7 @@ export interface ConnectCampaigns {
   ): void;
   startInstanceOnboardingJob(
     args: StartInstanceOnboardingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: StartInstanceOnboardingJobCommandOutput) => void
   ): void;
 
@@ -422,7 +434,7 @@ export interface ConnectCampaigns {
    */
   stopCampaign(
     args: StopCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<StopCampaignCommandOutput>;
   stopCampaign(
     args: StopCampaignCommandInput,
@@ -430,7 +442,7 @@ export interface ConnectCampaigns {
   ): void;
   stopCampaign(
     args: StopCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: StopCampaignCommandOutput) => void
   ): void;
 
@@ -439,7 +451,7 @@ export interface ConnectCampaigns {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -447,7 +459,7 @@ export interface ConnectCampaigns {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -456,7 +468,7 @@ export interface ConnectCampaigns {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -464,7 +476,7 @@ export interface ConnectCampaigns {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -473,7 +485,7 @@ export interface ConnectCampaigns {
    */
   updateCampaignDialerConfig(
     args: UpdateCampaignDialerConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<UpdateCampaignDialerConfigCommandOutput>;
   updateCampaignDialerConfig(
     args: UpdateCampaignDialerConfigCommandInput,
@@ -481,7 +493,7 @@ export interface ConnectCampaigns {
   ): void;
   updateCampaignDialerConfig(
     args: UpdateCampaignDialerConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: UpdateCampaignDialerConfigCommandOutput) => void
   ): void;
 
@@ -490,7 +502,7 @@ export interface ConnectCampaigns {
    */
   updateCampaignName(
     args: UpdateCampaignNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<UpdateCampaignNameCommandOutput>;
   updateCampaignName(
     args: UpdateCampaignNameCommandInput,
@@ -498,7 +510,7 @@ export interface ConnectCampaigns {
   ): void;
   updateCampaignName(
     args: UpdateCampaignNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: UpdateCampaignNameCommandOutput) => void
   ): void;
 
@@ -507,7 +519,7 @@ export interface ConnectCampaigns {
    */
   updateCampaignOutboundCallConfig(
     args: UpdateCampaignOutboundCallConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectCampaignsRequestOptions
   ): Promise<UpdateCampaignOutboundCallConfigCommandOutput>;
   updateCampaignOutboundCallConfig(
     args: UpdateCampaignOutboundCallConfigCommandInput,
@@ -515,7 +527,7 @@ export interface ConnectCampaigns {
   ): void;
   updateCampaignOutboundCallConfig(
     args: UpdateCampaignOutboundCallConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectCampaignsRequestOptions,
     cb: (err: any, data?: UpdateCampaignOutboundCallConfigCommandOutput) => void
   ): void;
 

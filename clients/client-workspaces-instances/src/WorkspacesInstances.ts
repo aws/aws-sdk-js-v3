@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateVolumeCommandInput,
@@ -93,13 +98,20 @@ const paginators = {
   paginateListWorkspaceInstances,
 };
 
+/**
+ * @public
+ */
+export interface WorkspacesInstancesRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface WorkspacesInstances {
   /**
    * @see {@link AssociateVolumeCommand}
    */
   associateVolume(
     args: AssociateVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<AssociateVolumeCommandOutput>;
   associateVolume(
     args: AssociateVolumeCommandInput,
@@ -107,7 +119,7 @@ export interface WorkspacesInstances {
   ): void;
   associateVolume(
     args: AssociateVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: AssociateVolumeCommandOutput) => void
   ): void;
 
@@ -116,7 +128,7 @@ export interface WorkspacesInstances {
    */
   createVolume(
     args: CreateVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<CreateVolumeCommandOutput>;
   createVolume(
     args: CreateVolumeCommandInput,
@@ -124,7 +136,7 @@ export interface WorkspacesInstances {
   ): void;
   createVolume(
     args: CreateVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: CreateVolumeCommandOutput) => void
   ): void;
 
@@ -133,7 +145,7 @@ export interface WorkspacesInstances {
    */
   createWorkspaceInstance(
     args: CreateWorkspaceInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<CreateWorkspaceInstanceCommandOutput>;
   createWorkspaceInstance(
     args: CreateWorkspaceInstanceCommandInput,
@@ -141,7 +153,7 @@ export interface WorkspacesInstances {
   ): void;
   createWorkspaceInstance(
     args: CreateWorkspaceInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: CreateWorkspaceInstanceCommandOutput) => void
   ): void;
 
@@ -150,7 +162,7 @@ export interface WorkspacesInstances {
    */
   deleteVolume(
     args: DeleteVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<DeleteVolumeCommandOutput>;
   deleteVolume(
     args: DeleteVolumeCommandInput,
@@ -158,7 +170,7 @@ export interface WorkspacesInstances {
   ): void;
   deleteVolume(
     args: DeleteVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: DeleteVolumeCommandOutput) => void
   ): void;
 
@@ -167,7 +179,7 @@ export interface WorkspacesInstances {
    */
   deleteWorkspaceInstance(
     args: DeleteWorkspaceInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<DeleteWorkspaceInstanceCommandOutput>;
   deleteWorkspaceInstance(
     args: DeleteWorkspaceInstanceCommandInput,
@@ -175,7 +187,7 @@ export interface WorkspacesInstances {
   ): void;
   deleteWorkspaceInstance(
     args: DeleteWorkspaceInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: DeleteWorkspaceInstanceCommandOutput) => void
   ): void;
 
@@ -184,7 +196,7 @@ export interface WorkspacesInstances {
    */
   disassociateVolume(
     args: DisassociateVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<DisassociateVolumeCommandOutput>;
   disassociateVolume(
     args: DisassociateVolumeCommandInput,
@@ -192,7 +204,7 @@ export interface WorkspacesInstances {
   ): void;
   disassociateVolume(
     args: DisassociateVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: DisassociateVolumeCommandOutput) => void
   ): void;
 
@@ -201,7 +213,7 @@ export interface WorkspacesInstances {
    */
   getWorkspaceInstance(
     args: GetWorkspaceInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<GetWorkspaceInstanceCommandOutput>;
   getWorkspaceInstance(
     args: GetWorkspaceInstanceCommandInput,
@@ -209,7 +221,7 @@ export interface WorkspacesInstances {
   ): void;
   getWorkspaceInstance(
     args: GetWorkspaceInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: GetWorkspaceInstanceCommandOutput) => void
   ): void;
 
@@ -219,7 +231,7 @@ export interface WorkspacesInstances {
   listInstanceTypes(): Promise<ListInstanceTypesCommandOutput>;
   listInstanceTypes(
     args: ListInstanceTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<ListInstanceTypesCommandOutput>;
   listInstanceTypes(
     args: ListInstanceTypesCommandInput,
@@ -227,7 +239,7 @@ export interface WorkspacesInstances {
   ): void;
   listInstanceTypes(
     args: ListInstanceTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: ListInstanceTypesCommandOutput) => void
   ): void;
 
@@ -237,7 +249,7 @@ export interface WorkspacesInstances {
   listRegions(): Promise<ListRegionsCommandOutput>;
   listRegions(
     args: ListRegionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<ListRegionsCommandOutput>;
   listRegions(
     args: ListRegionsCommandInput,
@@ -245,7 +257,7 @@ export interface WorkspacesInstances {
   ): void;
   listRegions(
     args: ListRegionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: ListRegionsCommandOutput) => void
   ): void;
 
@@ -254,7 +266,7 @@ export interface WorkspacesInstances {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -262,7 +274,7 @@ export interface WorkspacesInstances {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -272,7 +284,7 @@ export interface WorkspacesInstances {
   listWorkspaceInstances(): Promise<ListWorkspaceInstancesCommandOutput>;
   listWorkspaceInstances(
     args: ListWorkspaceInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<ListWorkspaceInstancesCommandOutput>;
   listWorkspaceInstances(
     args: ListWorkspaceInstancesCommandInput,
@@ -280,7 +292,7 @@ export interface WorkspacesInstances {
   ): void;
   listWorkspaceInstances(
     args: ListWorkspaceInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: ListWorkspaceInstancesCommandOutput) => void
   ): void;
 
@@ -289,7 +301,7 @@ export interface WorkspacesInstances {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -297,7 +309,7 @@ export interface WorkspacesInstances {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -306,7 +318,7 @@ export interface WorkspacesInstances {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkspacesInstancesRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -314,7 +326,7 @@ export interface WorkspacesInstances {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkspacesInstancesRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

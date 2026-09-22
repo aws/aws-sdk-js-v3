@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -1071,13 +1072,20 @@ const waiters = {
   waitUntilStreamingDistributionDeployed,
 };
 
+/**
+ * @public
+ */
+export interface CloudFrontRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CloudFront {
   /**
    * @see {@link AssociateAliasCommand}
    */
   associateAlias(
     args: AssociateAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<AssociateAliasCommandOutput>;
   associateAlias(
     args: AssociateAliasCommandInput,
@@ -1085,7 +1093,7 @@ export interface CloudFront {
   ): void;
   associateAlias(
     args: AssociateAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: AssociateAliasCommandOutput) => void
   ): void;
 
@@ -1094,7 +1102,7 @@ export interface CloudFront {
    */
   associateDistributionTenantWebACL(
     args: AssociateDistributionTenantWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<AssociateDistributionTenantWebACLCommandOutput>;
   associateDistributionTenantWebACL(
     args: AssociateDistributionTenantWebACLCommandInput,
@@ -1102,7 +1110,7 @@ export interface CloudFront {
   ): void;
   associateDistributionTenantWebACL(
     args: AssociateDistributionTenantWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: AssociateDistributionTenantWebACLCommandOutput) => void
   ): void;
 
@@ -1111,7 +1119,7 @@ export interface CloudFront {
    */
   associateDistributionWebACL(
     args: AssociateDistributionWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<AssociateDistributionWebACLCommandOutput>;
   associateDistributionWebACL(
     args: AssociateDistributionWebACLCommandInput,
@@ -1119,7 +1127,7 @@ export interface CloudFront {
   ): void;
   associateDistributionWebACL(
     args: AssociateDistributionWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: AssociateDistributionWebACLCommandOutput) => void
   ): void;
 
@@ -1128,7 +1136,7 @@ export interface CloudFront {
    */
   copyDistribution(
     args: CopyDistributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CopyDistributionCommandOutput>;
   copyDistribution(
     args: CopyDistributionCommandInput,
@@ -1136,7 +1144,7 @@ export interface CloudFront {
   ): void;
   copyDistribution(
     args: CopyDistributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CopyDistributionCommandOutput) => void
   ): void;
 
@@ -1145,7 +1153,7 @@ export interface CloudFront {
    */
   createAnycastIpList(
     args: CreateAnycastIpListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateAnycastIpListCommandOutput>;
   createAnycastIpList(
     args: CreateAnycastIpListCommandInput,
@@ -1153,7 +1161,7 @@ export interface CloudFront {
   ): void;
   createAnycastIpList(
     args: CreateAnycastIpListCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateAnycastIpListCommandOutput) => void
   ): void;
 
@@ -1162,7 +1170,7 @@ export interface CloudFront {
    */
   createCachePolicy(
     args: CreateCachePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateCachePolicyCommandOutput>;
   createCachePolicy(
     args: CreateCachePolicyCommandInput,
@@ -1170,7 +1178,7 @@ export interface CloudFront {
   ): void;
   createCachePolicy(
     args: CreateCachePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateCachePolicyCommandOutput) => void
   ): void;
 
@@ -1179,7 +1187,7 @@ export interface CloudFront {
    */
   createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput>;
   createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityCommandInput,
@@ -1187,7 +1195,7 @@ export interface CloudFront {
   ): void;
   createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
 
@@ -1196,7 +1204,7 @@ export interface CloudFront {
    */
   createConnectionFunction(
     args: CreateConnectionFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateConnectionFunctionCommandOutput>;
   createConnectionFunction(
     args: CreateConnectionFunctionCommandInput,
@@ -1204,7 +1212,7 @@ export interface CloudFront {
   ): void;
   createConnectionFunction(
     args: CreateConnectionFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateConnectionFunctionCommandOutput) => void
   ): void;
 
@@ -1213,7 +1221,7 @@ export interface CloudFront {
    */
   createConnectionGroup(
     args: CreateConnectionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateConnectionGroupCommandOutput>;
   createConnectionGroup(
     args: CreateConnectionGroupCommandInput,
@@ -1221,7 +1229,7 @@ export interface CloudFront {
   ): void;
   createConnectionGroup(
     args: CreateConnectionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateConnectionGroupCommandOutput) => void
   ): void;
 
@@ -1230,7 +1238,7 @@ export interface CloudFront {
    */
   createContinuousDeploymentPolicy(
     args: CreateContinuousDeploymentPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateContinuousDeploymentPolicyCommandOutput>;
   createContinuousDeploymentPolicy(
     args: CreateContinuousDeploymentPolicyCommandInput,
@@ -1238,7 +1246,7 @@ export interface CloudFront {
   ): void;
   createContinuousDeploymentPolicy(
     args: CreateContinuousDeploymentPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateContinuousDeploymentPolicyCommandOutput) => void
   ): void;
 
@@ -1247,7 +1255,7 @@ export interface CloudFront {
    */
   createDistribution(
     args: CreateDistributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateDistributionCommandOutput>;
   createDistribution(
     args: CreateDistributionCommandInput,
@@ -1255,7 +1263,7 @@ export interface CloudFront {
   ): void;
   createDistribution(
     args: CreateDistributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateDistributionCommandOutput) => void
   ): void;
 
@@ -1264,7 +1272,7 @@ export interface CloudFront {
    */
   createDistributionTenant(
     args: CreateDistributionTenantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateDistributionTenantCommandOutput>;
   createDistributionTenant(
     args: CreateDistributionTenantCommandInput,
@@ -1272,7 +1280,7 @@ export interface CloudFront {
   ): void;
   createDistributionTenant(
     args: CreateDistributionTenantCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateDistributionTenantCommandOutput) => void
   ): void;
 
@@ -1281,7 +1289,7 @@ export interface CloudFront {
    */
   createDistributionWithTags(
     args: CreateDistributionWithTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateDistributionWithTagsCommandOutput>;
   createDistributionWithTags(
     args: CreateDistributionWithTagsCommandInput,
@@ -1289,7 +1297,7 @@ export interface CloudFront {
   ): void;
   createDistributionWithTags(
     args: CreateDistributionWithTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateDistributionWithTagsCommandOutput) => void
   ): void;
 
@@ -1298,7 +1306,7 @@ export interface CloudFront {
    */
   createFieldLevelEncryptionConfig(
     args: CreateFieldLevelEncryptionConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateFieldLevelEncryptionConfigCommandOutput>;
   createFieldLevelEncryptionConfig(
     args: CreateFieldLevelEncryptionConfigCommandInput,
@@ -1306,7 +1314,7 @@ export interface CloudFront {
   ): void;
   createFieldLevelEncryptionConfig(
     args: CreateFieldLevelEncryptionConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateFieldLevelEncryptionConfigCommandOutput) => void
   ): void;
 
@@ -1315,7 +1323,7 @@ export interface CloudFront {
    */
   createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateFieldLevelEncryptionProfileCommandOutput>;
   createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileCommandInput,
@@ -1323,7 +1331,7 @@ export interface CloudFront {
   ): void;
   createFieldLevelEncryptionProfile(
     args: CreateFieldLevelEncryptionProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
 
@@ -1332,7 +1340,7 @@ export interface CloudFront {
    */
   createFunction(
     args: CreateFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateFunctionCommandOutput>;
   createFunction(
     args: CreateFunctionCommandInput,
@@ -1340,7 +1348,7 @@ export interface CloudFront {
   ): void;
   createFunction(
     args: CreateFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateFunctionCommandOutput) => void
   ): void;
 
@@ -1349,7 +1357,7 @@ export interface CloudFront {
    */
   createInvalidation(
     args: CreateInvalidationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateInvalidationCommandOutput>;
   createInvalidation(
     args: CreateInvalidationCommandInput,
@@ -1357,7 +1365,7 @@ export interface CloudFront {
   ): void;
   createInvalidation(
     args: CreateInvalidationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateInvalidationCommandOutput) => void
   ): void;
 
@@ -1366,7 +1374,7 @@ export interface CloudFront {
    */
   createInvalidationForDistributionTenant(
     args: CreateInvalidationForDistributionTenantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateInvalidationForDistributionTenantCommandOutput>;
   createInvalidationForDistributionTenant(
     args: CreateInvalidationForDistributionTenantCommandInput,
@@ -1374,7 +1382,7 @@ export interface CloudFront {
   ): void;
   createInvalidationForDistributionTenant(
     args: CreateInvalidationForDistributionTenantCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateInvalidationForDistributionTenantCommandOutput) => void
   ): void;
 
@@ -1383,7 +1391,7 @@ export interface CloudFront {
    */
   createKeyGroup(
     args: CreateKeyGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateKeyGroupCommandOutput>;
   createKeyGroup(
     args: CreateKeyGroupCommandInput,
@@ -1391,7 +1399,7 @@ export interface CloudFront {
   ): void;
   createKeyGroup(
     args: CreateKeyGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateKeyGroupCommandOutput) => void
   ): void;
 
@@ -1400,7 +1408,7 @@ export interface CloudFront {
    */
   createKeyValueStore(
     args: CreateKeyValueStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateKeyValueStoreCommandOutput>;
   createKeyValueStore(
     args: CreateKeyValueStoreCommandInput,
@@ -1408,7 +1416,7 @@ export interface CloudFront {
   ): void;
   createKeyValueStore(
     args: CreateKeyValueStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateKeyValueStoreCommandOutput) => void
   ): void;
 
@@ -1417,7 +1425,7 @@ export interface CloudFront {
    */
   createMonitoringSubscription(
     args: CreateMonitoringSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateMonitoringSubscriptionCommandOutput>;
   createMonitoringSubscription(
     args: CreateMonitoringSubscriptionCommandInput,
@@ -1425,7 +1433,7 @@ export interface CloudFront {
   ): void;
   createMonitoringSubscription(
     args: CreateMonitoringSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateMonitoringSubscriptionCommandOutput) => void
   ): void;
 
@@ -1434,7 +1442,7 @@ export interface CloudFront {
    */
   createOriginAccessControl(
     args: CreateOriginAccessControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateOriginAccessControlCommandOutput>;
   createOriginAccessControl(
     args: CreateOriginAccessControlCommandInput,
@@ -1442,7 +1450,7 @@ export interface CloudFront {
   ): void;
   createOriginAccessControl(
     args: CreateOriginAccessControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateOriginAccessControlCommandOutput) => void
   ): void;
 
@@ -1451,7 +1459,7 @@ export interface CloudFront {
    */
   createOriginRequestPolicy(
     args: CreateOriginRequestPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateOriginRequestPolicyCommandOutput>;
   createOriginRequestPolicy(
     args: CreateOriginRequestPolicyCommandInput,
@@ -1459,7 +1467,7 @@ export interface CloudFront {
   ): void;
   createOriginRequestPolicy(
     args: CreateOriginRequestPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateOriginRequestPolicyCommandOutput) => void
   ): void;
 
@@ -1468,7 +1476,7 @@ export interface CloudFront {
    */
   createPublicKey(
     args: CreatePublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreatePublicKeyCommandOutput>;
   createPublicKey(
     args: CreatePublicKeyCommandInput,
@@ -1476,7 +1484,7 @@ export interface CloudFront {
   ): void;
   createPublicKey(
     args: CreatePublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreatePublicKeyCommandOutput) => void
   ): void;
 
@@ -1485,7 +1493,7 @@ export interface CloudFront {
    */
   createRealtimeLogConfig(
     args: CreateRealtimeLogConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateRealtimeLogConfigCommandOutput>;
   createRealtimeLogConfig(
     args: CreateRealtimeLogConfigCommandInput,
@@ -1493,7 +1501,7 @@ export interface CloudFront {
   ): void;
   createRealtimeLogConfig(
     args: CreateRealtimeLogConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateRealtimeLogConfigCommandOutput) => void
   ): void;
 
@@ -1502,7 +1510,7 @@ export interface CloudFront {
    */
   createResponseHeadersPolicy(
     args: CreateResponseHeadersPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateResponseHeadersPolicyCommandOutput>;
   createResponseHeadersPolicy(
     args: CreateResponseHeadersPolicyCommandInput,
@@ -1510,7 +1518,7 @@ export interface CloudFront {
   ): void;
   createResponseHeadersPolicy(
     args: CreateResponseHeadersPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateResponseHeadersPolicyCommandOutput) => void
   ): void;
 
@@ -1519,7 +1527,7 @@ export interface CloudFront {
    */
   createStreamingDistribution(
     args: CreateStreamingDistributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateStreamingDistributionCommandOutput>;
   createStreamingDistribution(
     args: CreateStreamingDistributionCommandInput,
@@ -1527,7 +1535,7 @@ export interface CloudFront {
   ): void;
   createStreamingDistribution(
     args: CreateStreamingDistributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateStreamingDistributionCommandOutput) => void
   ): void;
 
@@ -1536,7 +1544,7 @@ export interface CloudFront {
    */
   createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateStreamingDistributionWithTagsCommandOutput>;
   createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsCommandInput,
@@ -1544,7 +1552,7 @@ export interface CloudFront {
   ): void;
   createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateStreamingDistributionWithTagsCommandOutput) => void
   ): void;
 
@@ -1553,7 +1561,7 @@ export interface CloudFront {
    */
   createTrustStore(
     args: CreateTrustStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateTrustStoreCommandOutput>;
   createTrustStore(
     args: CreateTrustStoreCommandInput,
@@ -1561,7 +1569,7 @@ export interface CloudFront {
   ): void;
   createTrustStore(
     args: CreateTrustStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateTrustStoreCommandOutput) => void
   ): void;
 
@@ -1570,7 +1578,7 @@ export interface CloudFront {
    */
   createVpcOrigin(
     args: CreateVpcOriginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<CreateVpcOriginCommandOutput>;
   createVpcOrigin(
     args: CreateVpcOriginCommandInput,
@@ -1578,7 +1586,7 @@ export interface CloudFront {
   ): void;
   createVpcOrigin(
     args: CreateVpcOriginCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: CreateVpcOriginCommandOutput) => void
   ): void;
 
@@ -1587,7 +1595,7 @@ export interface CloudFront {
    */
   deleteAnycastIpList(
     args: DeleteAnycastIpListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteAnycastIpListCommandOutput>;
   deleteAnycastIpList(
     args: DeleteAnycastIpListCommandInput,
@@ -1595,7 +1603,7 @@ export interface CloudFront {
   ): void;
   deleteAnycastIpList(
     args: DeleteAnycastIpListCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteAnycastIpListCommandOutput) => void
   ): void;
 
@@ -1604,7 +1612,7 @@ export interface CloudFront {
    */
   deleteCachePolicy(
     args: DeleteCachePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteCachePolicyCommandOutput>;
   deleteCachePolicy(
     args: DeleteCachePolicyCommandInput,
@@ -1612,7 +1620,7 @@ export interface CloudFront {
   ): void;
   deleteCachePolicy(
     args: DeleteCachePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteCachePolicyCommandOutput) => void
   ): void;
 
@@ -1621,7 +1629,7 @@ export interface CloudFront {
    */
   deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput>;
   deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityCommandInput,
@@ -1629,7 +1637,7 @@ export interface CloudFront {
   ): void;
   deleteCloudFrontOriginAccessIdentity(
     args: DeleteCloudFrontOriginAccessIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
 
@@ -1638,7 +1646,7 @@ export interface CloudFront {
    */
   deleteConnectionFunction(
     args: DeleteConnectionFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteConnectionFunctionCommandOutput>;
   deleteConnectionFunction(
     args: DeleteConnectionFunctionCommandInput,
@@ -1646,7 +1654,7 @@ export interface CloudFront {
   ): void;
   deleteConnectionFunction(
     args: DeleteConnectionFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteConnectionFunctionCommandOutput) => void
   ): void;
 
@@ -1655,7 +1663,7 @@ export interface CloudFront {
    */
   deleteConnectionGroup(
     args: DeleteConnectionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteConnectionGroupCommandOutput>;
   deleteConnectionGroup(
     args: DeleteConnectionGroupCommandInput,
@@ -1663,7 +1671,7 @@ export interface CloudFront {
   ): void;
   deleteConnectionGroup(
     args: DeleteConnectionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteConnectionGroupCommandOutput) => void
   ): void;
 
@@ -1672,7 +1680,7 @@ export interface CloudFront {
    */
   deleteContinuousDeploymentPolicy(
     args: DeleteContinuousDeploymentPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteContinuousDeploymentPolicyCommandOutput>;
   deleteContinuousDeploymentPolicy(
     args: DeleteContinuousDeploymentPolicyCommandInput,
@@ -1680,7 +1688,7 @@ export interface CloudFront {
   ): void;
   deleteContinuousDeploymentPolicy(
     args: DeleteContinuousDeploymentPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteContinuousDeploymentPolicyCommandOutput) => void
   ): void;
 
@@ -1689,7 +1697,7 @@ export interface CloudFront {
    */
   deleteDistribution(
     args: DeleteDistributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteDistributionCommandOutput>;
   deleteDistribution(
     args: DeleteDistributionCommandInput,
@@ -1697,7 +1705,7 @@ export interface CloudFront {
   ): void;
   deleteDistribution(
     args: DeleteDistributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteDistributionCommandOutput) => void
   ): void;
 
@@ -1706,7 +1714,7 @@ export interface CloudFront {
    */
   deleteDistributionTenant(
     args: DeleteDistributionTenantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteDistributionTenantCommandOutput>;
   deleteDistributionTenant(
     args: DeleteDistributionTenantCommandInput,
@@ -1714,7 +1722,7 @@ export interface CloudFront {
   ): void;
   deleteDistributionTenant(
     args: DeleteDistributionTenantCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteDistributionTenantCommandOutput) => void
   ): void;
 
@@ -1723,7 +1731,7 @@ export interface CloudFront {
    */
   deleteFieldLevelEncryptionConfig(
     args: DeleteFieldLevelEncryptionConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteFieldLevelEncryptionConfigCommandOutput>;
   deleteFieldLevelEncryptionConfig(
     args: DeleteFieldLevelEncryptionConfigCommandInput,
@@ -1731,7 +1739,7 @@ export interface CloudFront {
   ): void;
   deleteFieldLevelEncryptionConfig(
     args: DeleteFieldLevelEncryptionConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteFieldLevelEncryptionConfigCommandOutput) => void
   ): void;
 
@@ -1740,7 +1748,7 @@ export interface CloudFront {
    */
   deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput>;
   deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileCommandInput,
@@ -1748,7 +1756,7 @@ export interface CloudFront {
   ): void;
   deleteFieldLevelEncryptionProfile(
     args: DeleteFieldLevelEncryptionProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
 
@@ -1757,7 +1765,7 @@ export interface CloudFront {
    */
   deleteFunction(
     args: DeleteFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteFunctionCommandOutput>;
   deleteFunction(
     args: DeleteFunctionCommandInput,
@@ -1765,7 +1773,7 @@ export interface CloudFront {
   ): void;
   deleteFunction(
     args: DeleteFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteFunctionCommandOutput) => void
   ): void;
 
@@ -1774,7 +1782,7 @@ export interface CloudFront {
    */
   deleteKeyGroup(
     args: DeleteKeyGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteKeyGroupCommandOutput>;
   deleteKeyGroup(
     args: DeleteKeyGroupCommandInput,
@@ -1782,7 +1790,7 @@ export interface CloudFront {
   ): void;
   deleteKeyGroup(
     args: DeleteKeyGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteKeyGroupCommandOutput) => void
   ): void;
 
@@ -1791,7 +1799,7 @@ export interface CloudFront {
    */
   deleteKeyValueStore(
     args: DeleteKeyValueStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteKeyValueStoreCommandOutput>;
   deleteKeyValueStore(
     args: DeleteKeyValueStoreCommandInput,
@@ -1799,7 +1807,7 @@ export interface CloudFront {
   ): void;
   deleteKeyValueStore(
     args: DeleteKeyValueStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteKeyValueStoreCommandOutput) => void
   ): void;
 
@@ -1808,7 +1816,7 @@ export interface CloudFront {
    */
   deleteMonitoringSubscription(
     args: DeleteMonitoringSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteMonitoringSubscriptionCommandOutput>;
   deleteMonitoringSubscription(
     args: DeleteMonitoringSubscriptionCommandInput,
@@ -1816,7 +1824,7 @@ export interface CloudFront {
   ): void;
   deleteMonitoringSubscription(
     args: DeleteMonitoringSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteMonitoringSubscriptionCommandOutput) => void
   ): void;
 
@@ -1825,7 +1833,7 @@ export interface CloudFront {
    */
   deleteOriginAccessControl(
     args: DeleteOriginAccessControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteOriginAccessControlCommandOutput>;
   deleteOriginAccessControl(
     args: DeleteOriginAccessControlCommandInput,
@@ -1833,7 +1841,7 @@ export interface CloudFront {
   ): void;
   deleteOriginAccessControl(
     args: DeleteOriginAccessControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteOriginAccessControlCommandOutput) => void
   ): void;
 
@@ -1842,7 +1850,7 @@ export interface CloudFront {
    */
   deleteOriginRequestPolicy(
     args: DeleteOriginRequestPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteOriginRequestPolicyCommandOutput>;
   deleteOriginRequestPolicy(
     args: DeleteOriginRequestPolicyCommandInput,
@@ -1850,7 +1858,7 @@ export interface CloudFront {
   ): void;
   deleteOriginRequestPolicy(
     args: DeleteOriginRequestPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteOriginRequestPolicyCommandOutput) => void
   ): void;
 
@@ -1859,7 +1867,7 @@ export interface CloudFront {
    */
   deletePublicKey(
     args: DeletePublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeletePublicKeyCommandOutput>;
   deletePublicKey(
     args: DeletePublicKeyCommandInput,
@@ -1867,7 +1875,7 @@ export interface CloudFront {
   ): void;
   deletePublicKey(
     args: DeletePublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeletePublicKeyCommandOutput) => void
   ): void;
 
@@ -1877,7 +1885,7 @@ export interface CloudFront {
   deleteRealtimeLogConfig(): Promise<DeleteRealtimeLogConfigCommandOutput>;
   deleteRealtimeLogConfig(
     args: DeleteRealtimeLogConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteRealtimeLogConfigCommandOutput>;
   deleteRealtimeLogConfig(
     args: DeleteRealtimeLogConfigCommandInput,
@@ -1885,7 +1893,7 @@ export interface CloudFront {
   ): void;
   deleteRealtimeLogConfig(
     args: DeleteRealtimeLogConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteRealtimeLogConfigCommandOutput) => void
   ): void;
 
@@ -1894,7 +1902,7 @@ export interface CloudFront {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -1902,7 +1910,7 @@ export interface CloudFront {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1911,7 +1919,7 @@ export interface CloudFront {
    */
   deleteResponseHeadersPolicy(
     args: DeleteResponseHeadersPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteResponseHeadersPolicyCommandOutput>;
   deleteResponseHeadersPolicy(
     args: DeleteResponseHeadersPolicyCommandInput,
@@ -1919,7 +1927,7 @@ export interface CloudFront {
   ): void;
   deleteResponseHeadersPolicy(
     args: DeleteResponseHeadersPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteResponseHeadersPolicyCommandOutput) => void
   ): void;
 
@@ -1928,7 +1936,7 @@ export interface CloudFront {
    */
   deleteStreamingDistribution(
     args: DeleteStreamingDistributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteStreamingDistributionCommandOutput>;
   deleteStreamingDistribution(
     args: DeleteStreamingDistributionCommandInput,
@@ -1936,7 +1944,7 @@ export interface CloudFront {
   ): void;
   deleteStreamingDistribution(
     args: DeleteStreamingDistributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteStreamingDistributionCommandOutput) => void
   ): void;
 
@@ -1945,7 +1953,7 @@ export interface CloudFront {
    */
   deleteTrustStore(
     args: DeleteTrustStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteTrustStoreCommandOutput>;
   deleteTrustStore(
     args: DeleteTrustStoreCommandInput,
@@ -1953,7 +1961,7 @@ export interface CloudFront {
   ): void;
   deleteTrustStore(
     args: DeleteTrustStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteTrustStoreCommandOutput) => void
   ): void;
 
@@ -1962,7 +1970,7 @@ export interface CloudFront {
    */
   deleteVpcOrigin(
     args: DeleteVpcOriginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DeleteVpcOriginCommandOutput>;
   deleteVpcOrigin(
     args: DeleteVpcOriginCommandInput,
@@ -1970,7 +1978,7 @@ export interface CloudFront {
   ): void;
   deleteVpcOrigin(
     args: DeleteVpcOriginCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DeleteVpcOriginCommandOutput) => void
   ): void;
 
@@ -1979,7 +1987,7 @@ export interface CloudFront {
    */
   describeConnectionFunction(
     args: DescribeConnectionFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DescribeConnectionFunctionCommandOutput>;
   describeConnectionFunction(
     args: DescribeConnectionFunctionCommandInput,
@@ -1987,7 +1995,7 @@ export interface CloudFront {
   ): void;
   describeConnectionFunction(
     args: DescribeConnectionFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DescribeConnectionFunctionCommandOutput) => void
   ): void;
 
@@ -1996,7 +2004,7 @@ export interface CloudFront {
    */
   describeFunction(
     args: DescribeFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DescribeFunctionCommandOutput>;
   describeFunction(
     args: DescribeFunctionCommandInput,
@@ -2004,7 +2012,7 @@ export interface CloudFront {
   ): void;
   describeFunction(
     args: DescribeFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DescribeFunctionCommandOutput) => void
   ): void;
 
@@ -2013,7 +2021,7 @@ export interface CloudFront {
    */
   describeKeyValueStore(
     args: DescribeKeyValueStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DescribeKeyValueStoreCommandOutput>;
   describeKeyValueStore(
     args: DescribeKeyValueStoreCommandInput,
@@ -2021,7 +2029,7 @@ export interface CloudFront {
   ): void;
   describeKeyValueStore(
     args: DescribeKeyValueStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DescribeKeyValueStoreCommandOutput) => void
   ): void;
 
@@ -2030,7 +2038,7 @@ export interface CloudFront {
    */
   disassociateDistributionTenantWebACL(
     args: DisassociateDistributionTenantWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DisassociateDistributionTenantWebACLCommandOutput>;
   disassociateDistributionTenantWebACL(
     args: DisassociateDistributionTenantWebACLCommandInput,
@@ -2038,7 +2046,7 @@ export interface CloudFront {
   ): void;
   disassociateDistributionTenantWebACL(
     args: DisassociateDistributionTenantWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DisassociateDistributionTenantWebACLCommandOutput) => void
   ): void;
 
@@ -2047,7 +2055,7 @@ export interface CloudFront {
    */
   disassociateDistributionWebACL(
     args: DisassociateDistributionWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<DisassociateDistributionWebACLCommandOutput>;
   disassociateDistributionWebACL(
     args: DisassociateDistributionWebACLCommandInput,
@@ -2055,7 +2063,7 @@ export interface CloudFront {
   ): void;
   disassociateDistributionWebACL(
     args: DisassociateDistributionWebACLCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: DisassociateDistributionWebACLCommandOutput) => void
   ): void;
 
@@ -2064,7 +2072,7 @@ export interface CloudFront {
    */
   getAnycastIpList(
     args: GetAnycastIpListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetAnycastIpListCommandOutput>;
   getAnycastIpList(
     args: GetAnycastIpListCommandInput,
@@ -2072,7 +2080,7 @@ export interface CloudFront {
   ): void;
   getAnycastIpList(
     args: GetAnycastIpListCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetAnycastIpListCommandOutput) => void
   ): void;
 
@@ -2081,7 +2089,7 @@ export interface CloudFront {
    */
   getCachePolicy(
     args: GetCachePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetCachePolicyCommandOutput>;
   getCachePolicy(
     args: GetCachePolicyCommandInput,
@@ -2089,7 +2097,7 @@ export interface CloudFront {
   ): void;
   getCachePolicy(
     args: GetCachePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetCachePolicyCommandOutput) => void
   ): void;
 
@@ -2098,7 +2106,7 @@ export interface CloudFront {
    */
   getCachePolicyConfig(
     args: GetCachePolicyConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetCachePolicyConfigCommandOutput>;
   getCachePolicyConfig(
     args: GetCachePolicyConfigCommandInput,
@@ -2106,7 +2114,7 @@ export interface CloudFront {
   ): void;
   getCachePolicyConfig(
     args: GetCachePolicyConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetCachePolicyConfigCommandOutput) => void
   ): void;
 
@@ -2115,7 +2123,7 @@ export interface CloudFront {
    */
   getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput>;
   getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityCommandInput,
@@ -2123,7 +2131,7 @@ export interface CloudFront {
   ): void;
   getCloudFrontOriginAccessIdentity(
     args: GetCloudFrontOriginAccessIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
 
@@ -2132,7 +2140,7 @@ export interface CloudFront {
    */
   getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput>;
   getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
@@ -2140,7 +2148,7 @@ export interface CloudFront {
   ): void;
   getCloudFrontOriginAccessIdentityConfig(
     args: GetCloudFrontOriginAccessIdentityConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput) => void
   ): void;
 
@@ -2149,7 +2157,7 @@ export interface CloudFront {
    */
   getConnectionFunction(
     args: GetConnectionFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetConnectionFunctionCommandOutput>;
   getConnectionFunction(
     args: GetConnectionFunctionCommandInput,
@@ -2157,7 +2165,7 @@ export interface CloudFront {
   ): void;
   getConnectionFunction(
     args: GetConnectionFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetConnectionFunctionCommandOutput) => void
   ): void;
 
@@ -2166,7 +2174,7 @@ export interface CloudFront {
    */
   getConnectionGroup(
     args: GetConnectionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetConnectionGroupCommandOutput>;
   getConnectionGroup(
     args: GetConnectionGroupCommandInput,
@@ -2174,7 +2182,7 @@ export interface CloudFront {
   ): void;
   getConnectionGroup(
     args: GetConnectionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetConnectionGroupCommandOutput) => void
   ): void;
 
@@ -2183,7 +2191,7 @@ export interface CloudFront {
    */
   getConnectionGroupByRoutingEndpoint(
     args: GetConnectionGroupByRoutingEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetConnectionGroupByRoutingEndpointCommandOutput>;
   getConnectionGroupByRoutingEndpoint(
     args: GetConnectionGroupByRoutingEndpointCommandInput,
@@ -2191,7 +2199,7 @@ export interface CloudFront {
   ): void;
   getConnectionGroupByRoutingEndpoint(
     args: GetConnectionGroupByRoutingEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetConnectionGroupByRoutingEndpointCommandOutput) => void
   ): void;
 
@@ -2200,7 +2208,7 @@ export interface CloudFront {
    */
   getContinuousDeploymentPolicy(
     args: GetContinuousDeploymentPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetContinuousDeploymentPolicyCommandOutput>;
   getContinuousDeploymentPolicy(
     args: GetContinuousDeploymentPolicyCommandInput,
@@ -2208,7 +2216,7 @@ export interface CloudFront {
   ): void;
   getContinuousDeploymentPolicy(
     args: GetContinuousDeploymentPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetContinuousDeploymentPolicyCommandOutput) => void
   ): void;
 
@@ -2217,7 +2225,7 @@ export interface CloudFront {
    */
   getContinuousDeploymentPolicyConfig(
     args: GetContinuousDeploymentPolicyConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetContinuousDeploymentPolicyConfigCommandOutput>;
   getContinuousDeploymentPolicyConfig(
     args: GetContinuousDeploymentPolicyConfigCommandInput,
@@ -2225,7 +2233,7 @@ export interface CloudFront {
   ): void;
   getContinuousDeploymentPolicyConfig(
     args: GetContinuousDeploymentPolicyConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetContinuousDeploymentPolicyConfigCommandOutput) => void
   ): void;
 
@@ -2234,7 +2242,7 @@ export interface CloudFront {
    */
   getDistribution(
     args: GetDistributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetDistributionCommandOutput>;
   getDistribution(
     args: GetDistributionCommandInput,
@@ -2242,7 +2250,7 @@ export interface CloudFront {
   ): void;
   getDistribution(
     args: GetDistributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetDistributionCommandOutput) => void
   ): void;
 
@@ -2251,7 +2259,7 @@ export interface CloudFront {
    */
   getDistributionConfig(
     args: GetDistributionConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetDistributionConfigCommandOutput>;
   getDistributionConfig(
     args: GetDistributionConfigCommandInput,
@@ -2259,7 +2267,7 @@ export interface CloudFront {
   ): void;
   getDistributionConfig(
     args: GetDistributionConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetDistributionConfigCommandOutput) => void
   ): void;
 
@@ -2268,7 +2276,7 @@ export interface CloudFront {
    */
   getDistributionTenant(
     args: GetDistributionTenantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetDistributionTenantCommandOutput>;
   getDistributionTenant(
     args: GetDistributionTenantCommandInput,
@@ -2276,7 +2284,7 @@ export interface CloudFront {
   ): void;
   getDistributionTenant(
     args: GetDistributionTenantCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetDistributionTenantCommandOutput) => void
   ): void;
 
@@ -2285,7 +2293,7 @@ export interface CloudFront {
    */
   getDistributionTenantByDomain(
     args: GetDistributionTenantByDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetDistributionTenantByDomainCommandOutput>;
   getDistributionTenantByDomain(
     args: GetDistributionTenantByDomainCommandInput,
@@ -2293,7 +2301,7 @@ export interface CloudFront {
   ): void;
   getDistributionTenantByDomain(
     args: GetDistributionTenantByDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetDistributionTenantByDomainCommandOutput) => void
   ): void;
 
@@ -2302,7 +2310,7 @@ export interface CloudFront {
    */
   getFieldLevelEncryption(
     args: GetFieldLevelEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetFieldLevelEncryptionCommandOutput>;
   getFieldLevelEncryption(
     args: GetFieldLevelEncryptionCommandInput,
@@ -2310,7 +2318,7 @@ export interface CloudFront {
   ): void;
   getFieldLevelEncryption(
     args: GetFieldLevelEncryptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetFieldLevelEncryptionCommandOutput) => void
   ): void;
 
@@ -2319,7 +2327,7 @@ export interface CloudFront {
    */
   getFieldLevelEncryptionConfig(
     args: GetFieldLevelEncryptionConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetFieldLevelEncryptionConfigCommandOutput>;
   getFieldLevelEncryptionConfig(
     args: GetFieldLevelEncryptionConfigCommandInput,
@@ -2327,7 +2335,7 @@ export interface CloudFront {
   ): void;
   getFieldLevelEncryptionConfig(
     args: GetFieldLevelEncryptionConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetFieldLevelEncryptionConfigCommandOutput) => void
   ): void;
 
@@ -2336,7 +2344,7 @@ export interface CloudFront {
    */
   getFieldLevelEncryptionProfile(
     args: GetFieldLevelEncryptionProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetFieldLevelEncryptionProfileCommandOutput>;
   getFieldLevelEncryptionProfile(
     args: GetFieldLevelEncryptionProfileCommandInput,
@@ -2344,7 +2352,7 @@ export interface CloudFront {
   ): void;
   getFieldLevelEncryptionProfile(
     args: GetFieldLevelEncryptionProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
 
@@ -2353,7 +2361,7 @@ export interface CloudFront {
    */
   getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput>;
   getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigCommandInput,
@@ -2361,7 +2369,7 @@ export interface CloudFront {
   ): void;
   getFieldLevelEncryptionProfileConfig(
     args: GetFieldLevelEncryptionProfileConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetFieldLevelEncryptionProfileConfigCommandOutput) => void
   ): void;
 
@@ -2370,7 +2378,7 @@ export interface CloudFront {
    */
   getFunction(
     args: GetFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetFunctionCommandOutput>;
   getFunction(
     args: GetFunctionCommandInput,
@@ -2378,7 +2386,7 @@ export interface CloudFront {
   ): void;
   getFunction(
     args: GetFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetFunctionCommandOutput) => void
   ): void;
 
@@ -2387,7 +2395,7 @@ export interface CloudFront {
    */
   getInvalidation(
     args: GetInvalidationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetInvalidationCommandOutput>;
   getInvalidation(
     args: GetInvalidationCommandInput,
@@ -2395,7 +2403,7 @@ export interface CloudFront {
   ): void;
   getInvalidation(
     args: GetInvalidationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetInvalidationCommandOutput) => void
   ): void;
 
@@ -2404,7 +2412,7 @@ export interface CloudFront {
    */
   getInvalidationForDistributionTenant(
     args: GetInvalidationForDistributionTenantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetInvalidationForDistributionTenantCommandOutput>;
   getInvalidationForDistributionTenant(
     args: GetInvalidationForDistributionTenantCommandInput,
@@ -2412,7 +2420,7 @@ export interface CloudFront {
   ): void;
   getInvalidationForDistributionTenant(
     args: GetInvalidationForDistributionTenantCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetInvalidationForDistributionTenantCommandOutput) => void
   ): void;
 
@@ -2421,7 +2429,7 @@ export interface CloudFront {
    */
   getKeyGroup(
     args: GetKeyGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetKeyGroupCommandOutput>;
   getKeyGroup(
     args: GetKeyGroupCommandInput,
@@ -2429,7 +2437,7 @@ export interface CloudFront {
   ): void;
   getKeyGroup(
     args: GetKeyGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetKeyGroupCommandOutput) => void
   ): void;
 
@@ -2438,7 +2446,7 @@ export interface CloudFront {
    */
   getKeyGroupConfig(
     args: GetKeyGroupConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetKeyGroupConfigCommandOutput>;
   getKeyGroupConfig(
     args: GetKeyGroupConfigCommandInput,
@@ -2446,7 +2454,7 @@ export interface CloudFront {
   ): void;
   getKeyGroupConfig(
     args: GetKeyGroupConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetKeyGroupConfigCommandOutput) => void
   ): void;
 
@@ -2455,7 +2463,7 @@ export interface CloudFront {
    */
   getManagedCertificateDetails(
     args: GetManagedCertificateDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetManagedCertificateDetailsCommandOutput>;
   getManagedCertificateDetails(
     args: GetManagedCertificateDetailsCommandInput,
@@ -2463,7 +2471,7 @@ export interface CloudFront {
   ): void;
   getManagedCertificateDetails(
     args: GetManagedCertificateDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetManagedCertificateDetailsCommandOutput) => void
   ): void;
 
@@ -2472,7 +2480,7 @@ export interface CloudFront {
    */
   getMonitoringSubscription(
     args: GetMonitoringSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetMonitoringSubscriptionCommandOutput>;
   getMonitoringSubscription(
     args: GetMonitoringSubscriptionCommandInput,
@@ -2480,7 +2488,7 @@ export interface CloudFront {
   ): void;
   getMonitoringSubscription(
     args: GetMonitoringSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetMonitoringSubscriptionCommandOutput) => void
   ): void;
 
@@ -2489,7 +2497,7 @@ export interface CloudFront {
    */
   getOriginAccessControl(
     args: GetOriginAccessControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetOriginAccessControlCommandOutput>;
   getOriginAccessControl(
     args: GetOriginAccessControlCommandInput,
@@ -2497,7 +2505,7 @@ export interface CloudFront {
   ): void;
   getOriginAccessControl(
     args: GetOriginAccessControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetOriginAccessControlCommandOutput) => void
   ): void;
 
@@ -2506,7 +2514,7 @@ export interface CloudFront {
    */
   getOriginAccessControlConfig(
     args: GetOriginAccessControlConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetOriginAccessControlConfigCommandOutput>;
   getOriginAccessControlConfig(
     args: GetOriginAccessControlConfigCommandInput,
@@ -2514,7 +2522,7 @@ export interface CloudFront {
   ): void;
   getOriginAccessControlConfig(
     args: GetOriginAccessControlConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetOriginAccessControlConfigCommandOutput) => void
   ): void;
 
@@ -2523,7 +2531,7 @@ export interface CloudFront {
    */
   getOriginRequestPolicy(
     args: GetOriginRequestPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetOriginRequestPolicyCommandOutput>;
   getOriginRequestPolicy(
     args: GetOriginRequestPolicyCommandInput,
@@ -2531,7 +2539,7 @@ export interface CloudFront {
   ): void;
   getOriginRequestPolicy(
     args: GetOriginRequestPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetOriginRequestPolicyCommandOutput) => void
   ): void;
 
@@ -2540,7 +2548,7 @@ export interface CloudFront {
    */
   getOriginRequestPolicyConfig(
     args: GetOriginRequestPolicyConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetOriginRequestPolicyConfigCommandOutput>;
   getOriginRequestPolicyConfig(
     args: GetOriginRequestPolicyConfigCommandInput,
@@ -2548,7 +2556,7 @@ export interface CloudFront {
   ): void;
   getOriginRequestPolicyConfig(
     args: GetOriginRequestPolicyConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetOriginRequestPolicyConfigCommandOutput) => void
   ): void;
 
@@ -2557,7 +2565,7 @@ export interface CloudFront {
    */
   getPublicKey(
     args: GetPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetPublicKeyCommandOutput>;
   getPublicKey(
     args: GetPublicKeyCommandInput,
@@ -2565,7 +2573,7 @@ export interface CloudFront {
   ): void;
   getPublicKey(
     args: GetPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetPublicKeyCommandOutput) => void
   ): void;
 
@@ -2574,7 +2582,7 @@ export interface CloudFront {
    */
   getPublicKeyConfig(
     args: GetPublicKeyConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetPublicKeyConfigCommandOutput>;
   getPublicKeyConfig(
     args: GetPublicKeyConfigCommandInput,
@@ -2582,7 +2590,7 @@ export interface CloudFront {
   ): void;
   getPublicKeyConfig(
     args: GetPublicKeyConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetPublicKeyConfigCommandOutput) => void
   ): void;
 
@@ -2592,7 +2600,7 @@ export interface CloudFront {
   getRealtimeLogConfig(): Promise<GetRealtimeLogConfigCommandOutput>;
   getRealtimeLogConfig(
     args: GetRealtimeLogConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetRealtimeLogConfigCommandOutput>;
   getRealtimeLogConfig(
     args: GetRealtimeLogConfigCommandInput,
@@ -2600,7 +2608,7 @@ export interface CloudFront {
   ): void;
   getRealtimeLogConfig(
     args: GetRealtimeLogConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetRealtimeLogConfigCommandOutput) => void
   ): void;
 
@@ -2609,7 +2617,7 @@ export interface CloudFront {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -2617,7 +2625,7 @@ export interface CloudFront {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -2626,7 +2634,7 @@ export interface CloudFront {
    */
   getResponseHeadersPolicy(
     args: GetResponseHeadersPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetResponseHeadersPolicyCommandOutput>;
   getResponseHeadersPolicy(
     args: GetResponseHeadersPolicyCommandInput,
@@ -2634,7 +2642,7 @@ export interface CloudFront {
   ): void;
   getResponseHeadersPolicy(
     args: GetResponseHeadersPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetResponseHeadersPolicyCommandOutput) => void
   ): void;
 
@@ -2643,7 +2651,7 @@ export interface CloudFront {
    */
   getResponseHeadersPolicyConfig(
     args: GetResponseHeadersPolicyConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetResponseHeadersPolicyConfigCommandOutput>;
   getResponseHeadersPolicyConfig(
     args: GetResponseHeadersPolicyConfigCommandInput,
@@ -2651,7 +2659,7 @@ export interface CloudFront {
   ): void;
   getResponseHeadersPolicyConfig(
     args: GetResponseHeadersPolicyConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetResponseHeadersPolicyConfigCommandOutput) => void
   ): void;
 
@@ -2660,7 +2668,7 @@ export interface CloudFront {
    */
   getStreamingDistribution(
     args: GetStreamingDistributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetStreamingDistributionCommandOutput>;
   getStreamingDistribution(
     args: GetStreamingDistributionCommandInput,
@@ -2668,7 +2676,7 @@ export interface CloudFront {
   ): void;
   getStreamingDistribution(
     args: GetStreamingDistributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetStreamingDistributionCommandOutput) => void
   ): void;
 
@@ -2677,7 +2685,7 @@ export interface CloudFront {
    */
   getStreamingDistributionConfig(
     args: GetStreamingDistributionConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetStreamingDistributionConfigCommandOutput>;
   getStreamingDistributionConfig(
     args: GetStreamingDistributionConfigCommandInput,
@@ -2685,7 +2693,7 @@ export interface CloudFront {
   ): void;
   getStreamingDistributionConfig(
     args: GetStreamingDistributionConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetStreamingDistributionConfigCommandOutput) => void
   ): void;
 
@@ -2694,7 +2702,7 @@ export interface CloudFront {
    */
   getTrustStore(
     args: GetTrustStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetTrustStoreCommandOutput>;
   getTrustStore(
     args: GetTrustStoreCommandInput,
@@ -2702,7 +2710,7 @@ export interface CloudFront {
   ): void;
   getTrustStore(
     args: GetTrustStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetTrustStoreCommandOutput) => void
   ): void;
 
@@ -2711,7 +2719,7 @@ export interface CloudFront {
    */
   getVpcOrigin(
     args: GetVpcOriginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<GetVpcOriginCommandOutput>;
   getVpcOrigin(
     args: GetVpcOriginCommandInput,
@@ -2719,7 +2727,7 @@ export interface CloudFront {
   ): void;
   getVpcOrigin(
     args: GetVpcOriginCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: GetVpcOriginCommandOutput) => void
   ): void;
 
@@ -2729,7 +2737,7 @@ export interface CloudFront {
   listAnycastIpLists(): Promise<ListAnycastIpListsCommandOutput>;
   listAnycastIpLists(
     args: ListAnycastIpListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListAnycastIpListsCommandOutput>;
   listAnycastIpLists(
     args: ListAnycastIpListsCommandInput,
@@ -2737,7 +2745,7 @@ export interface CloudFront {
   ): void;
   listAnycastIpLists(
     args: ListAnycastIpListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListAnycastIpListsCommandOutput) => void
   ): void;
 
@@ -2747,7 +2755,7 @@ export interface CloudFront {
   listCachePolicies(): Promise<ListCachePoliciesCommandOutput>;
   listCachePolicies(
     args: ListCachePoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListCachePoliciesCommandOutput>;
   listCachePolicies(
     args: ListCachePoliciesCommandInput,
@@ -2755,7 +2763,7 @@ export interface CloudFront {
   ): void;
   listCachePolicies(
     args: ListCachePoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListCachePoliciesCommandOutput) => void
   ): void;
 
@@ -2765,7 +2773,7 @@ export interface CloudFront {
   listCloudFrontOriginAccessIdentities(): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput>;
   listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput>;
   listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesCommandInput,
@@ -2773,7 +2781,7 @@ export interface CloudFront {
   ): void;
   listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListCloudFrontOriginAccessIdentitiesCommandOutput) => void
   ): void;
 
@@ -2782,7 +2790,7 @@ export interface CloudFront {
    */
   listConflictingAliases(
     args: ListConflictingAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListConflictingAliasesCommandOutput>;
   listConflictingAliases(
     args: ListConflictingAliasesCommandInput,
@@ -2790,7 +2798,7 @@ export interface CloudFront {
   ): void;
   listConflictingAliases(
     args: ListConflictingAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListConflictingAliasesCommandOutput) => void
   ): void;
 
@@ -2800,7 +2808,7 @@ export interface CloudFront {
   listConnectionFunctions(): Promise<ListConnectionFunctionsCommandOutput>;
   listConnectionFunctions(
     args: ListConnectionFunctionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListConnectionFunctionsCommandOutput>;
   listConnectionFunctions(
     args: ListConnectionFunctionsCommandInput,
@@ -2808,7 +2816,7 @@ export interface CloudFront {
   ): void;
   listConnectionFunctions(
     args: ListConnectionFunctionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListConnectionFunctionsCommandOutput) => void
   ): void;
 
@@ -2818,7 +2826,7 @@ export interface CloudFront {
   listConnectionGroups(): Promise<ListConnectionGroupsCommandOutput>;
   listConnectionGroups(
     args: ListConnectionGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListConnectionGroupsCommandOutput>;
   listConnectionGroups(
     args: ListConnectionGroupsCommandInput,
@@ -2826,7 +2834,7 @@ export interface CloudFront {
   ): void;
   listConnectionGroups(
     args: ListConnectionGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListConnectionGroupsCommandOutput) => void
   ): void;
 
@@ -2836,7 +2844,7 @@ export interface CloudFront {
   listContinuousDeploymentPolicies(): Promise<ListContinuousDeploymentPoliciesCommandOutput>;
   listContinuousDeploymentPolicies(
     args: ListContinuousDeploymentPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListContinuousDeploymentPoliciesCommandOutput>;
   listContinuousDeploymentPolicies(
     args: ListContinuousDeploymentPoliciesCommandInput,
@@ -2844,7 +2852,7 @@ export interface CloudFront {
   ): void;
   listContinuousDeploymentPolicies(
     args: ListContinuousDeploymentPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListContinuousDeploymentPoliciesCommandOutput) => void
   ): void;
 
@@ -2854,7 +2862,7 @@ export interface CloudFront {
   listDistributions(): Promise<ListDistributionsCommandOutput>;
   listDistributions(
     args: ListDistributionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsCommandOutput>;
   listDistributions(
     args: ListDistributionsCommandInput,
@@ -2862,7 +2870,7 @@ export interface CloudFront {
   ): void;
   listDistributions(
     args: ListDistributionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsCommandOutput) => void
   ): void;
 
@@ -2871,7 +2879,7 @@ export interface CloudFront {
    */
   listDistributionsByAnycastIpListId(
     args: ListDistributionsByAnycastIpListIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByAnycastIpListIdCommandOutput>;
   listDistributionsByAnycastIpListId(
     args: ListDistributionsByAnycastIpListIdCommandInput,
@@ -2879,7 +2887,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByAnycastIpListId(
     args: ListDistributionsByAnycastIpListIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByAnycastIpListIdCommandOutput) => void
   ): void;
 
@@ -2888,7 +2896,7 @@ export interface CloudFront {
    */
   listDistributionsByCachePolicyId(
     args: ListDistributionsByCachePolicyIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByCachePolicyIdCommandOutput>;
   listDistributionsByCachePolicyId(
     args: ListDistributionsByCachePolicyIdCommandInput,
@@ -2896,7 +2904,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByCachePolicyId(
     args: ListDistributionsByCachePolicyIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByCachePolicyIdCommandOutput) => void
   ): void;
 
@@ -2905,7 +2913,7 @@ export interface CloudFront {
    */
   listDistributionsByConnectionFunction(
     args: ListDistributionsByConnectionFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByConnectionFunctionCommandOutput>;
   listDistributionsByConnectionFunction(
     args: ListDistributionsByConnectionFunctionCommandInput,
@@ -2913,7 +2921,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByConnectionFunction(
     args: ListDistributionsByConnectionFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByConnectionFunctionCommandOutput) => void
   ): void;
 
@@ -2922,7 +2930,7 @@ export interface CloudFront {
    */
   listDistributionsByConnectionMode(
     args: ListDistributionsByConnectionModeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByConnectionModeCommandOutput>;
   listDistributionsByConnectionMode(
     args: ListDistributionsByConnectionModeCommandInput,
@@ -2930,7 +2938,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByConnectionMode(
     args: ListDistributionsByConnectionModeCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByConnectionModeCommandOutput) => void
   ): void;
 
@@ -2939,7 +2947,7 @@ export interface CloudFront {
    */
   listDistributionsByKeyGroup(
     args: ListDistributionsByKeyGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByKeyGroupCommandOutput>;
   listDistributionsByKeyGroup(
     args: ListDistributionsByKeyGroupCommandInput,
@@ -2947,7 +2955,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByKeyGroup(
     args: ListDistributionsByKeyGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByKeyGroupCommandOutput) => void
   ): void;
 
@@ -2956,7 +2964,7 @@ export interface CloudFront {
    */
   listDistributionsByOriginRequestPolicyId(
     args: ListDistributionsByOriginRequestPolicyIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByOriginRequestPolicyIdCommandOutput>;
   listDistributionsByOriginRequestPolicyId(
     args: ListDistributionsByOriginRequestPolicyIdCommandInput,
@@ -2964,7 +2972,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByOriginRequestPolicyId(
     args: ListDistributionsByOriginRequestPolicyIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByOriginRequestPolicyIdCommandOutput) => void
   ): void;
 
@@ -2973,7 +2981,7 @@ export interface CloudFront {
    */
   listDistributionsByOwnedResource(
     args: ListDistributionsByOwnedResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByOwnedResourceCommandOutput>;
   listDistributionsByOwnedResource(
     args: ListDistributionsByOwnedResourceCommandInput,
@@ -2981,7 +2989,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByOwnedResource(
     args: ListDistributionsByOwnedResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByOwnedResourceCommandOutput) => void
   ): void;
 
@@ -2991,7 +2999,7 @@ export interface CloudFront {
   listDistributionsByRealtimeLogConfig(): Promise<ListDistributionsByRealtimeLogConfigCommandOutput>;
   listDistributionsByRealtimeLogConfig(
     args: ListDistributionsByRealtimeLogConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByRealtimeLogConfigCommandOutput>;
   listDistributionsByRealtimeLogConfig(
     args: ListDistributionsByRealtimeLogConfigCommandInput,
@@ -2999,7 +3007,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByRealtimeLogConfig(
     args: ListDistributionsByRealtimeLogConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByRealtimeLogConfigCommandOutput) => void
   ): void;
 
@@ -3008,7 +3016,7 @@ export interface CloudFront {
    */
   listDistributionsByResponseHeadersPolicyId(
     args: ListDistributionsByResponseHeadersPolicyIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByResponseHeadersPolicyIdCommandOutput>;
   listDistributionsByResponseHeadersPolicyId(
     args: ListDistributionsByResponseHeadersPolicyIdCommandInput,
@@ -3016,7 +3024,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByResponseHeadersPolicyId(
     args: ListDistributionsByResponseHeadersPolicyIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByResponseHeadersPolicyIdCommandOutput) => void
   ): void;
 
@@ -3025,7 +3033,7 @@ export interface CloudFront {
    */
   listDistributionsByTrustStore(
     args: ListDistributionsByTrustStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByTrustStoreCommandOutput>;
   listDistributionsByTrustStore(
     args: ListDistributionsByTrustStoreCommandInput,
@@ -3033,7 +3041,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByTrustStore(
     args: ListDistributionsByTrustStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByTrustStoreCommandOutput) => void
   ): void;
 
@@ -3042,7 +3050,7 @@ export interface CloudFront {
    */
   listDistributionsByVpcOriginId(
     args: ListDistributionsByVpcOriginIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByVpcOriginIdCommandOutput>;
   listDistributionsByVpcOriginId(
     args: ListDistributionsByVpcOriginIdCommandInput,
@@ -3050,7 +3058,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByVpcOriginId(
     args: ListDistributionsByVpcOriginIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByVpcOriginIdCommandOutput) => void
   ): void;
 
@@ -3059,7 +3067,7 @@ export interface CloudFront {
    */
   listDistributionsByWebACLId(
     args: ListDistributionsByWebACLIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionsByWebACLIdCommandOutput>;
   listDistributionsByWebACLId(
     args: ListDistributionsByWebACLIdCommandInput,
@@ -3067,7 +3075,7 @@ export interface CloudFront {
   ): void;
   listDistributionsByWebACLId(
     args: ListDistributionsByWebACLIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionsByWebACLIdCommandOutput) => void
   ): void;
 
@@ -3077,7 +3085,7 @@ export interface CloudFront {
   listDistributionTenants(): Promise<ListDistributionTenantsCommandOutput>;
   listDistributionTenants(
     args: ListDistributionTenantsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionTenantsCommandOutput>;
   listDistributionTenants(
     args: ListDistributionTenantsCommandInput,
@@ -3085,7 +3093,7 @@ export interface CloudFront {
   ): void;
   listDistributionTenants(
     args: ListDistributionTenantsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionTenantsCommandOutput) => void
   ): void;
 
@@ -3095,7 +3103,7 @@ export interface CloudFront {
   listDistributionTenantsByCustomization(): Promise<ListDistributionTenantsByCustomizationCommandOutput>;
   listDistributionTenantsByCustomization(
     args: ListDistributionTenantsByCustomizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDistributionTenantsByCustomizationCommandOutput>;
   listDistributionTenantsByCustomization(
     args: ListDistributionTenantsByCustomizationCommandInput,
@@ -3103,7 +3111,7 @@ export interface CloudFront {
   ): void;
   listDistributionTenantsByCustomization(
     args: ListDistributionTenantsByCustomizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDistributionTenantsByCustomizationCommandOutput) => void
   ): void;
 
@@ -3112,7 +3120,7 @@ export interface CloudFront {
    */
   listDomainConflicts(
     args: ListDomainConflictsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListDomainConflictsCommandOutput>;
   listDomainConflicts(
     args: ListDomainConflictsCommandInput,
@@ -3120,7 +3128,7 @@ export interface CloudFront {
   ): void;
   listDomainConflicts(
     args: ListDomainConflictsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListDomainConflictsCommandOutput) => void
   ): void;
 
@@ -3130,7 +3138,7 @@ export interface CloudFront {
   listFieldLevelEncryptionConfigs(): Promise<ListFieldLevelEncryptionConfigsCommandOutput>;
   listFieldLevelEncryptionConfigs(
     args: ListFieldLevelEncryptionConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListFieldLevelEncryptionConfigsCommandOutput>;
   listFieldLevelEncryptionConfigs(
     args: ListFieldLevelEncryptionConfigsCommandInput,
@@ -3138,7 +3146,7 @@ export interface CloudFront {
   ): void;
   listFieldLevelEncryptionConfigs(
     args: ListFieldLevelEncryptionConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListFieldLevelEncryptionConfigsCommandOutput) => void
   ): void;
 
@@ -3148,7 +3156,7 @@ export interface CloudFront {
   listFieldLevelEncryptionProfiles(): Promise<ListFieldLevelEncryptionProfilesCommandOutput>;
   listFieldLevelEncryptionProfiles(
     args: ListFieldLevelEncryptionProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListFieldLevelEncryptionProfilesCommandOutput>;
   listFieldLevelEncryptionProfiles(
     args: ListFieldLevelEncryptionProfilesCommandInput,
@@ -3156,7 +3164,7 @@ export interface CloudFront {
   ): void;
   listFieldLevelEncryptionProfiles(
     args: ListFieldLevelEncryptionProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListFieldLevelEncryptionProfilesCommandOutput) => void
   ): void;
 
@@ -3166,7 +3174,7 @@ export interface CloudFront {
   listFunctions(): Promise<ListFunctionsCommandOutput>;
   listFunctions(
     args: ListFunctionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListFunctionsCommandOutput>;
   listFunctions(
     args: ListFunctionsCommandInput,
@@ -3174,7 +3182,7 @@ export interface CloudFront {
   ): void;
   listFunctions(
     args: ListFunctionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListFunctionsCommandOutput) => void
   ): void;
 
@@ -3183,7 +3191,7 @@ export interface CloudFront {
    */
   listInvalidations(
     args: ListInvalidationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListInvalidationsCommandOutput>;
   listInvalidations(
     args: ListInvalidationsCommandInput,
@@ -3191,7 +3199,7 @@ export interface CloudFront {
   ): void;
   listInvalidations(
     args: ListInvalidationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListInvalidationsCommandOutput) => void
   ): void;
 
@@ -3200,7 +3208,7 @@ export interface CloudFront {
    */
   listInvalidationsForDistributionTenant(
     args: ListInvalidationsForDistributionTenantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListInvalidationsForDistributionTenantCommandOutput>;
   listInvalidationsForDistributionTenant(
     args: ListInvalidationsForDistributionTenantCommandInput,
@@ -3208,7 +3216,7 @@ export interface CloudFront {
   ): void;
   listInvalidationsForDistributionTenant(
     args: ListInvalidationsForDistributionTenantCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListInvalidationsForDistributionTenantCommandOutput) => void
   ): void;
 
@@ -3218,7 +3226,7 @@ export interface CloudFront {
   listKeyGroups(): Promise<ListKeyGroupsCommandOutput>;
   listKeyGroups(
     args: ListKeyGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListKeyGroupsCommandOutput>;
   listKeyGroups(
     args: ListKeyGroupsCommandInput,
@@ -3226,7 +3234,7 @@ export interface CloudFront {
   ): void;
   listKeyGroups(
     args: ListKeyGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListKeyGroupsCommandOutput) => void
   ): void;
 
@@ -3236,7 +3244,7 @@ export interface CloudFront {
   listKeyValueStores(): Promise<ListKeyValueStoresCommandOutput>;
   listKeyValueStores(
     args: ListKeyValueStoresCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListKeyValueStoresCommandOutput>;
   listKeyValueStores(
     args: ListKeyValueStoresCommandInput,
@@ -3244,7 +3252,7 @@ export interface CloudFront {
   ): void;
   listKeyValueStores(
     args: ListKeyValueStoresCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListKeyValueStoresCommandOutput) => void
   ): void;
 
@@ -3254,7 +3262,7 @@ export interface CloudFront {
   listOriginAccessControls(): Promise<ListOriginAccessControlsCommandOutput>;
   listOriginAccessControls(
     args: ListOriginAccessControlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListOriginAccessControlsCommandOutput>;
   listOriginAccessControls(
     args: ListOriginAccessControlsCommandInput,
@@ -3262,7 +3270,7 @@ export interface CloudFront {
   ): void;
   listOriginAccessControls(
     args: ListOriginAccessControlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListOriginAccessControlsCommandOutput) => void
   ): void;
 
@@ -3272,7 +3280,7 @@ export interface CloudFront {
   listOriginRequestPolicies(): Promise<ListOriginRequestPoliciesCommandOutput>;
   listOriginRequestPolicies(
     args: ListOriginRequestPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListOriginRequestPoliciesCommandOutput>;
   listOriginRequestPolicies(
     args: ListOriginRequestPoliciesCommandInput,
@@ -3280,7 +3288,7 @@ export interface CloudFront {
   ): void;
   listOriginRequestPolicies(
     args: ListOriginRequestPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListOriginRequestPoliciesCommandOutput) => void
   ): void;
 
@@ -3290,7 +3298,7 @@ export interface CloudFront {
   listPublicKeys(): Promise<ListPublicKeysCommandOutput>;
   listPublicKeys(
     args: ListPublicKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListPublicKeysCommandOutput>;
   listPublicKeys(
     args: ListPublicKeysCommandInput,
@@ -3298,7 +3306,7 @@ export interface CloudFront {
   ): void;
   listPublicKeys(
     args: ListPublicKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListPublicKeysCommandOutput) => void
   ): void;
 
@@ -3308,7 +3316,7 @@ export interface CloudFront {
   listRealtimeLogConfigs(): Promise<ListRealtimeLogConfigsCommandOutput>;
   listRealtimeLogConfigs(
     args: ListRealtimeLogConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListRealtimeLogConfigsCommandOutput>;
   listRealtimeLogConfigs(
     args: ListRealtimeLogConfigsCommandInput,
@@ -3316,7 +3324,7 @@ export interface CloudFront {
   ): void;
   listRealtimeLogConfigs(
     args: ListRealtimeLogConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListRealtimeLogConfigsCommandOutput) => void
   ): void;
 
@@ -3326,7 +3334,7 @@ export interface CloudFront {
   listResponseHeadersPolicies(): Promise<ListResponseHeadersPoliciesCommandOutput>;
   listResponseHeadersPolicies(
     args: ListResponseHeadersPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListResponseHeadersPoliciesCommandOutput>;
   listResponseHeadersPolicies(
     args: ListResponseHeadersPoliciesCommandInput,
@@ -3334,7 +3342,7 @@ export interface CloudFront {
   ): void;
   listResponseHeadersPolicies(
     args: ListResponseHeadersPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListResponseHeadersPoliciesCommandOutput) => void
   ): void;
 
@@ -3344,7 +3352,7 @@ export interface CloudFront {
   listStreamingDistributions(): Promise<ListStreamingDistributionsCommandOutput>;
   listStreamingDistributions(
     args: ListStreamingDistributionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListStreamingDistributionsCommandOutput>;
   listStreamingDistributions(
     args: ListStreamingDistributionsCommandInput,
@@ -3352,7 +3360,7 @@ export interface CloudFront {
   ): void;
   listStreamingDistributions(
     args: ListStreamingDistributionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListStreamingDistributionsCommandOutput) => void
   ): void;
 
@@ -3361,7 +3369,7 @@ export interface CloudFront {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -3369,7 +3377,7 @@ export interface CloudFront {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -3379,7 +3387,7 @@ export interface CloudFront {
   listTrustStores(): Promise<ListTrustStoresCommandOutput>;
   listTrustStores(
     args: ListTrustStoresCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListTrustStoresCommandOutput>;
   listTrustStores(
     args: ListTrustStoresCommandInput,
@@ -3387,7 +3395,7 @@ export interface CloudFront {
   ): void;
   listTrustStores(
     args: ListTrustStoresCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListTrustStoresCommandOutput) => void
   ): void;
 
@@ -3397,7 +3405,7 @@ export interface CloudFront {
   listVpcOrigins(): Promise<ListVpcOriginsCommandOutput>;
   listVpcOrigins(
     args: ListVpcOriginsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<ListVpcOriginsCommandOutput>;
   listVpcOrigins(
     args: ListVpcOriginsCommandInput,
@@ -3405,7 +3413,7 @@ export interface CloudFront {
   ): void;
   listVpcOrigins(
     args: ListVpcOriginsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: ListVpcOriginsCommandOutput) => void
   ): void;
 
@@ -3414,7 +3422,7 @@ export interface CloudFront {
    */
   publishConnectionFunction(
     args: PublishConnectionFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<PublishConnectionFunctionCommandOutput>;
   publishConnectionFunction(
     args: PublishConnectionFunctionCommandInput,
@@ -3422,7 +3430,7 @@ export interface CloudFront {
   ): void;
   publishConnectionFunction(
     args: PublishConnectionFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: PublishConnectionFunctionCommandOutput) => void
   ): void;
 
@@ -3431,7 +3439,7 @@ export interface CloudFront {
    */
   publishFunction(
     args: PublishFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<PublishFunctionCommandOutput>;
   publishFunction(
     args: PublishFunctionCommandInput,
@@ -3439,7 +3447,7 @@ export interface CloudFront {
   ): void;
   publishFunction(
     args: PublishFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: PublishFunctionCommandOutput) => void
   ): void;
 
@@ -3448,7 +3456,7 @@ export interface CloudFront {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -3456,7 +3464,7 @@ export interface CloudFront {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -3465,7 +3473,7 @@ export interface CloudFront {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -3473,7 +3481,7 @@ export interface CloudFront {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -3482,7 +3490,7 @@ export interface CloudFront {
    */
   testConnectionFunction(
     args: TestConnectionFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<TestConnectionFunctionCommandOutput>;
   testConnectionFunction(
     args: TestConnectionFunctionCommandInput,
@@ -3490,7 +3498,7 @@ export interface CloudFront {
   ): void;
   testConnectionFunction(
     args: TestConnectionFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: TestConnectionFunctionCommandOutput) => void
   ): void;
 
@@ -3499,7 +3507,7 @@ export interface CloudFront {
    */
   testFunction(
     args: TestFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<TestFunctionCommandOutput>;
   testFunction(
     args: TestFunctionCommandInput,
@@ -3507,7 +3515,7 @@ export interface CloudFront {
   ): void;
   testFunction(
     args: TestFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: TestFunctionCommandOutput) => void
   ): void;
 
@@ -3516,7 +3524,7 @@ export interface CloudFront {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -3524,7 +3532,7 @@ export interface CloudFront {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -3533,7 +3541,7 @@ export interface CloudFront {
    */
   updateAnycastIpList(
     args: UpdateAnycastIpListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateAnycastIpListCommandOutput>;
   updateAnycastIpList(
     args: UpdateAnycastIpListCommandInput,
@@ -3541,7 +3549,7 @@ export interface CloudFront {
   ): void;
   updateAnycastIpList(
     args: UpdateAnycastIpListCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateAnycastIpListCommandOutput) => void
   ): void;
 
@@ -3550,7 +3558,7 @@ export interface CloudFront {
    */
   updateCachePolicy(
     args: UpdateCachePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateCachePolicyCommandOutput>;
   updateCachePolicy(
     args: UpdateCachePolicyCommandInput,
@@ -3558,7 +3566,7 @@ export interface CloudFront {
   ): void;
   updateCachePolicy(
     args: UpdateCachePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateCachePolicyCommandOutput) => void
   ): void;
 
@@ -3567,7 +3575,7 @@ export interface CloudFront {
    */
   updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateCloudFrontOriginAccessIdentityCommandOutput>;
   updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityCommandInput,
@@ -3575,7 +3583,7 @@ export interface CloudFront {
   ): void;
   updateCloudFrontOriginAccessIdentity(
     args: UpdateCloudFrontOriginAccessIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateCloudFrontOriginAccessIdentityCommandOutput) => void
   ): void;
 
@@ -3584,7 +3592,7 @@ export interface CloudFront {
    */
   updateConnectionFunction(
     args: UpdateConnectionFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateConnectionFunctionCommandOutput>;
   updateConnectionFunction(
     args: UpdateConnectionFunctionCommandInput,
@@ -3592,7 +3600,7 @@ export interface CloudFront {
   ): void;
   updateConnectionFunction(
     args: UpdateConnectionFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateConnectionFunctionCommandOutput) => void
   ): void;
 
@@ -3601,7 +3609,7 @@ export interface CloudFront {
    */
   updateConnectionGroup(
     args: UpdateConnectionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateConnectionGroupCommandOutput>;
   updateConnectionGroup(
     args: UpdateConnectionGroupCommandInput,
@@ -3609,7 +3617,7 @@ export interface CloudFront {
   ): void;
   updateConnectionGroup(
     args: UpdateConnectionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateConnectionGroupCommandOutput) => void
   ): void;
 
@@ -3618,7 +3626,7 @@ export interface CloudFront {
    */
   updateContinuousDeploymentPolicy(
     args: UpdateContinuousDeploymentPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateContinuousDeploymentPolicyCommandOutput>;
   updateContinuousDeploymentPolicy(
     args: UpdateContinuousDeploymentPolicyCommandInput,
@@ -3626,7 +3634,7 @@ export interface CloudFront {
   ): void;
   updateContinuousDeploymentPolicy(
     args: UpdateContinuousDeploymentPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateContinuousDeploymentPolicyCommandOutput) => void
   ): void;
 
@@ -3635,7 +3643,7 @@ export interface CloudFront {
    */
   updateDistribution(
     args: UpdateDistributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateDistributionCommandOutput>;
   updateDistribution(
     args: UpdateDistributionCommandInput,
@@ -3643,7 +3651,7 @@ export interface CloudFront {
   ): void;
   updateDistribution(
     args: UpdateDistributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateDistributionCommandOutput) => void
   ): void;
 
@@ -3652,7 +3660,7 @@ export interface CloudFront {
    */
   updateDistributionTenant(
     args: UpdateDistributionTenantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateDistributionTenantCommandOutput>;
   updateDistributionTenant(
     args: UpdateDistributionTenantCommandInput,
@@ -3660,7 +3668,7 @@ export interface CloudFront {
   ): void;
   updateDistributionTenant(
     args: UpdateDistributionTenantCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateDistributionTenantCommandOutput) => void
   ): void;
 
@@ -3669,7 +3677,7 @@ export interface CloudFront {
    */
   updateDistributionWithStagingConfig(
     args: UpdateDistributionWithStagingConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateDistributionWithStagingConfigCommandOutput>;
   updateDistributionWithStagingConfig(
     args: UpdateDistributionWithStagingConfigCommandInput,
@@ -3677,7 +3685,7 @@ export interface CloudFront {
   ): void;
   updateDistributionWithStagingConfig(
     args: UpdateDistributionWithStagingConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateDistributionWithStagingConfigCommandOutput) => void
   ): void;
 
@@ -3686,7 +3694,7 @@ export interface CloudFront {
    */
   updateDomainAssociation(
     args: UpdateDomainAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateDomainAssociationCommandOutput>;
   updateDomainAssociation(
     args: UpdateDomainAssociationCommandInput,
@@ -3694,7 +3702,7 @@ export interface CloudFront {
   ): void;
   updateDomainAssociation(
     args: UpdateDomainAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateDomainAssociationCommandOutput) => void
   ): void;
 
@@ -3703,7 +3711,7 @@ export interface CloudFront {
    */
   updateFieldLevelEncryptionConfig(
     args: UpdateFieldLevelEncryptionConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateFieldLevelEncryptionConfigCommandOutput>;
   updateFieldLevelEncryptionConfig(
     args: UpdateFieldLevelEncryptionConfigCommandInput,
@@ -3711,7 +3719,7 @@ export interface CloudFront {
   ): void;
   updateFieldLevelEncryptionConfig(
     args: UpdateFieldLevelEncryptionConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateFieldLevelEncryptionConfigCommandOutput) => void
   ): void;
 
@@ -3720,7 +3728,7 @@ export interface CloudFront {
    */
   updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput>;
   updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileCommandInput,
@@ -3728,7 +3736,7 @@ export interface CloudFront {
   ): void;
   updateFieldLevelEncryptionProfile(
     args: UpdateFieldLevelEncryptionProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void
   ): void;
 
@@ -3737,7 +3745,7 @@ export interface CloudFront {
    */
   updateFunction(
     args: UpdateFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateFunctionCommandOutput>;
   updateFunction(
     args: UpdateFunctionCommandInput,
@@ -3745,7 +3753,7 @@ export interface CloudFront {
   ): void;
   updateFunction(
     args: UpdateFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateFunctionCommandOutput) => void
   ): void;
 
@@ -3754,7 +3762,7 @@ export interface CloudFront {
    */
   updateKeyGroup(
     args: UpdateKeyGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateKeyGroupCommandOutput>;
   updateKeyGroup(
     args: UpdateKeyGroupCommandInput,
@@ -3762,7 +3770,7 @@ export interface CloudFront {
   ): void;
   updateKeyGroup(
     args: UpdateKeyGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateKeyGroupCommandOutput) => void
   ): void;
 
@@ -3771,7 +3779,7 @@ export interface CloudFront {
    */
   updateKeyValueStore(
     args: UpdateKeyValueStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateKeyValueStoreCommandOutput>;
   updateKeyValueStore(
     args: UpdateKeyValueStoreCommandInput,
@@ -3779,7 +3787,7 @@ export interface CloudFront {
   ): void;
   updateKeyValueStore(
     args: UpdateKeyValueStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateKeyValueStoreCommandOutput) => void
   ): void;
 
@@ -3788,7 +3796,7 @@ export interface CloudFront {
    */
   updateOriginAccessControl(
     args: UpdateOriginAccessControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateOriginAccessControlCommandOutput>;
   updateOriginAccessControl(
     args: UpdateOriginAccessControlCommandInput,
@@ -3796,7 +3804,7 @@ export interface CloudFront {
   ): void;
   updateOriginAccessControl(
     args: UpdateOriginAccessControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateOriginAccessControlCommandOutput) => void
   ): void;
 
@@ -3805,7 +3813,7 @@ export interface CloudFront {
    */
   updateOriginRequestPolicy(
     args: UpdateOriginRequestPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateOriginRequestPolicyCommandOutput>;
   updateOriginRequestPolicy(
     args: UpdateOriginRequestPolicyCommandInput,
@@ -3813,7 +3821,7 @@ export interface CloudFront {
   ): void;
   updateOriginRequestPolicy(
     args: UpdateOriginRequestPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateOriginRequestPolicyCommandOutput) => void
   ): void;
 
@@ -3822,7 +3830,7 @@ export interface CloudFront {
    */
   updatePublicKey(
     args: UpdatePublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdatePublicKeyCommandOutput>;
   updatePublicKey(
     args: UpdatePublicKeyCommandInput,
@@ -3830,7 +3838,7 @@ export interface CloudFront {
   ): void;
   updatePublicKey(
     args: UpdatePublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdatePublicKeyCommandOutput) => void
   ): void;
 
@@ -3840,7 +3848,7 @@ export interface CloudFront {
   updateRealtimeLogConfig(): Promise<UpdateRealtimeLogConfigCommandOutput>;
   updateRealtimeLogConfig(
     args: UpdateRealtimeLogConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateRealtimeLogConfigCommandOutput>;
   updateRealtimeLogConfig(
     args: UpdateRealtimeLogConfigCommandInput,
@@ -3848,7 +3856,7 @@ export interface CloudFront {
   ): void;
   updateRealtimeLogConfig(
     args: UpdateRealtimeLogConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateRealtimeLogConfigCommandOutput) => void
   ): void;
 
@@ -3857,7 +3865,7 @@ export interface CloudFront {
    */
   updateResponseHeadersPolicy(
     args: UpdateResponseHeadersPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateResponseHeadersPolicyCommandOutput>;
   updateResponseHeadersPolicy(
     args: UpdateResponseHeadersPolicyCommandInput,
@@ -3865,7 +3873,7 @@ export interface CloudFront {
   ): void;
   updateResponseHeadersPolicy(
     args: UpdateResponseHeadersPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateResponseHeadersPolicyCommandOutput) => void
   ): void;
 
@@ -3874,7 +3882,7 @@ export interface CloudFront {
    */
   updateStreamingDistribution(
     args: UpdateStreamingDistributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateStreamingDistributionCommandOutput>;
   updateStreamingDistribution(
     args: UpdateStreamingDistributionCommandInput,
@@ -3882,7 +3890,7 @@ export interface CloudFront {
   ): void;
   updateStreamingDistribution(
     args: UpdateStreamingDistributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateStreamingDistributionCommandOutput) => void
   ): void;
 
@@ -3891,7 +3899,7 @@ export interface CloudFront {
    */
   updateTrustStore(
     args: UpdateTrustStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateTrustStoreCommandOutput>;
   updateTrustStore(
     args: UpdateTrustStoreCommandInput,
@@ -3899,7 +3907,7 @@ export interface CloudFront {
   ): void;
   updateTrustStore(
     args: UpdateTrustStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateTrustStoreCommandOutput) => void
   ): void;
 
@@ -3908,7 +3916,7 @@ export interface CloudFront {
    */
   updateVpcOrigin(
     args: UpdateVpcOriginCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<UpdateVpcOriginCommandOutput>;
   updateVpcOrigin(
     args: UpdateVpcOriginCommandInput,
@@ -3916,7 +3924,7 @@ export interface CloudFront {
   ): void;
   updateVpcOrigin(
     args: UpdateVpcOriginCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: UpdateVpcOriginCommandOutput) => void
   ): void;
 
@@ -3925,7 +3933,7 @@ export interface CloudFront {
    */
   verifyDnsConfiguration(
     args: VerifyDnsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudFrontRequestOptions
   ): Promise<VerifyDnsConfigurationCommandOutput>;
   verifyDnsConfiguration(
     args: VerifyDnsConfigurationCommandInput,
@@ -3933,7 +3941,7 @@ export interface CloudFront {
   ): void;
   verifyDnsConfiguration(
     args: VerifyDnsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudFrontRequestOptions,
     cb: (err: any, data?: VerifyDnsConfigurationCommandOutput) => void
   ): void;
 

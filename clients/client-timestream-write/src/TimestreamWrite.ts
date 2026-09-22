@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateBatchLoadTaskCommandInput,
@@ -129,13 +134,20 @@ const paginators = {
   paginateListTables,
 };
 
+/**
+ * @public
+ */
+export interface TimestreamWriteRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface TimestreamWrite {
   /**
    * @see {@link CreateBatchLoadTaskCommand}
    */
   createBatchLoadTask(
     args: CreateBatchLoadTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<CreateBatchLoadTaskCommandOutput>;
   createBatchLoadTask(
     args: CreateBatchLoadTaskCommandInput,
@@ -143,7 +155,7 @@ export interface TimestreamWrite {
   ): void;
   createBatchLoadTask(
     args: CreateBatchLoadTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: CreateBatchLoadTaskCommandOutput) => void
   ): void;
 
@@ -152,7 +164,7 @@ export interface TimestreamWrite {
    */
   createDatabase(
     args: CreateDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<CreateDatabaseCommandOutput>;
   createDatabase(
     args: CreateDatabaseCommandInput,
@@ -160,7 +172,7 @@ export interface TimestreamWrite {
   ): void;
   createDatabase(
     args: CreateDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: CreateDatabaseCommandOutput) => void
   ): void;
 
@@ -169,7 +181,7 @@ export interface TimestreamWrite {
    */
   createTable(
     args: CreateTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<CreateTableCommandOutput>;
   createTable(
     args: CreateTableCommandInput,
@@ -177,7 +189,7 @@ export interface TimestreamWrite {
   ): void;
   createTable(
     args: CreateTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: CreateTableCommandOutput) => void
   ): void;
 
@@ -186,7 +198,7 @@ export interface TimestreamWrite {
    */
   deleteDatabase(
     args: DeleteDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<DeleteDatabaseCommandOutput>;
   deleteDatabase(
     args: DeleteDatabaseCommandInput,
@@ -194,7 +206,7 @@ export interface TimestreamWrite {
   ): void;
   deleteDatabase(
     args: DeleteDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: DeleteDatabaseCommandOutput) => void
   ): void;
 
@@ -203,7 +215,7 @@ export interface TimestreamWrite {
    */
   deleteTable(
     args: DeleteTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<DeleteTableCommandOutput>;
   deleteTable(
     args: DeleteTableCommandInput,
@@ -211,7 +223,7 @@ export interface TimestreamWrite {
   ): void;
   deleteTable(
     args: DeleteTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: DeleteTableCommandOutput) => void
   ): void;
 
@@ -220,7 +232,7 @@ export interface TimestreamWrite {
    */
   describeBatchLoadTask(
     args: DescribeBatchLoadTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<DescribeBatchLoadTaskCommandOutput>;
   describeBatchLoadTask(
     args: DescribeBatchLoadTaskCommandInput,
@@ -228,7 +240,7 @@ export interface TimestreamWrite {
   ): void;
   describeBatchLoadTask(
     args: DescribeBatchLoadTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: DescribeBatchLoadTaskCommandOutput) => void
   ): void;
 
@@ -237,7 +249,7 @@ export interface TimestreamWrite {
    */
   describeDatabase(
     args: DescribeDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<DescribeDatabaseCommandOutput>;
   describeDatabase(
     args: DescribeDatabaseCommandInput,
@@ -245,7 +257,7 @@ export interface TimestreamWrite {
   ): void;
   describeDatabase(
     args: DescribeDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: DescribeDatabaseCommandOutput) => void
   ): void;
 
@@ -255,7 +267,7 @@ export interface TimestreamWrite {
   describeEndpoints(): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
@@ -263,7 +275,7 @@ export interface TimestreamWrite {
   ): void;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: DescribeEndpointsCommandOutput) => void
   ): void;
 
@@ -272,7 +284,7 @@ export interface TimestreamWrite {
    */
   describeTable(
     args: DescribeTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<DescribeTableCommandOutput>;
   describeTable(
     args: DescribeTableCommandInput,
@@ -280,7 +292,7 @@ export interface TimestreamWrite {
   ): void;
   describeTable(
     args: DescribeTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: DescribeTableCommandOutput) => void
   ): void;
 
@@ -290,7 +302,7 @@ export interface TimestreamWrite {
   listBatchLoadTasks(): Promise<ListBatchLoadTasksCommandOutput>;
   listBatchLoadTasks(
     args: ListBatchLoadTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<ListBatchLoadTasksCommandOutput>;
   listBatchLoadTasks(
     args: ListBatchLoadTasksCommandInput,
@@ -298,7 +310,7 @@ export interface TimestreamWrite {
   ): void;
   listBatchLoadTasks(
     args: ListBatchLoadTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: ListBatchLoadTasksCommandOutput) => void
   ): void;
 
@@ -308,7 +320,7 @@ export interface TimestreamWrite {
   listDatabases(): Promise<ListDatabasesCommandOutput>;
   listDatabases(
     args: ListDatabasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<ListDatabasesCommandOutput>;
   listDatabases(
     args: ListDatabasesCommandInput,
@@ -316,7 +328,7 @@ export interface TimestreamWrite {
   ): void;
   listDatabases(
     args: ListDatabasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: ListDatabasesCommandOutput) => void
   ): void;
 
@@ -326,7 +338,7 @@ export interface TimestreamWrite {
   listTables(): Promise<ListTablesCommandOutput>;
   listTables(
     args: ListTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<ListTablesCommandOutput>;
   listTables(
     args: ListTablesCommandInput,
@@ -334,7 +346,7 @@ export interface TimestreamWrite {
   ): void;
   listTables(
     args: ListTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: ListTablesCommandOutput) => void
   ): void;
 
@@ -343,7 +355,7 @@ export interface TimestreamWrite {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -351,7 +363,7 @@ export interface TimestreamWrite {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -360,7 +372,7 @@ export interface TimestreamWrite {
    */
   resumeBatchLoadTask(
     args: ResumeBatchLoadTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<ResumeBatchLoadTaskCommandOutput>;
   resumeBatchLoadTask(
     args: ResumeBatchLoadTaskCommandInput,
@@ -368,7 +380,7 @@ export interface TimestreamWrite {
   ): void;
   resumeBatchLoadTask(
     args: ResumeBatchLoadTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: ResumeBatchLoadTaskCommandOutput) => void
   ): void;
 
@@ -377,7 +389,7 @@ export interface TimestreamWrite {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -385,7 +397,7 @@ export interface TimestreamWrite {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -394,7 +406,7 @@ export interface TimestreamWrite {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -402,7 +414,7 @@ export interface TimestreamWrite {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -411,7 +423,7 @@ export interface TimestreamWrite {
    */
   updateDatabase(
     args: UpdateDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<UpdateDatabaseCommandOutput>;
   updateDatabase(
     args: UpdateDatabaseCommandInput,
@@ -419,7 +431,7 @@ export interface TimestreamWrite {
   ): void;
   updateDatabase(
     args: UpdateDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: UpdateDatabaseCommandOutput) => void
   ): void;
 
@@ -428,7 +440,7 @@ export interface TimestreamWrite {
    */
   updateTable(
     args: UpdateTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<UpdateTableCommandOutput>;
   updateTable(
     args: UpdateTableCommandInput,
@@ -436,7 +448,7 @@ export interface TimestreamWrite {
   ): void;
   updateTable(
     args: UpdateTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: UpdateTableCommandOutput) => void
   ): void;
 
@@ -445,7 +457,7 @@ export interface TimestreamWrite {
    */
   writeRecords(
     args: WriteRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamWriteRequestOptions
   ): Promise<WriteRecordsCommandOutput>;
   writeRecords(
     args: WriteRecordsCommandInput,
@@ -453,7 +465,7 @@ export interface TimestreamWrite {
   ): void;
   writeRecords(
     args: WriteRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamWriteRequestOptions,
     cb: (err: any, data?: WriteRecordsCommandOutput) => void
   ): void;
 

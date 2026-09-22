@@ -23,10 +23,10 @@ import { EchoServiceServiceException } from "../models/EchoServiceServiceExcepti
 import { PalindromeException } from "../models/errors";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var EchoServiceServiceException$: StaticErrorSchema = [-3, _s, "EchoServiceServiceException", 0, [], []];
 _s_registry.registerError(EchoServiceServiceException$, EchoServiceServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var PalindromeException$: StaticErrorSchema = [-3, n0, _PE,
   { [_e]: _c, [_hE]: 400 },
   [_m],

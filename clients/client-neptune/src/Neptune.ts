@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -474,13 +475,20 @@ const waiters = {
   waitUntilDBInstanceDeleted,
 };
 
+/**
+ * @public
+ */
+export interface NeptuneRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Neptune {
   /**
    * @see {@link AddRoleToDBClusterCommand}
    */
   addRoleToDBCluster(
     args: AddRoleToDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<AddRoleToDBClusterCommandOutput>;
   addRoleToDBCluster(
     args: AddRoleToDBClusterCommandInput,
@@ -488,7 +496,7 @@ export interface Neptune {
   ): void;
   addRoleToDBCluster(
     args: AddRoleToDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: AddRoleToDBClusterCommandOutput) => void
   ): void;
 
@@ -497,7 +505,7 @@ export interface Neptune {
    */
   addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput>;
   addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
@@ -505,7 +513,7 @@ export interface Neptune {
   ): void;
   addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
   ): void;
 
@@ -514,7 +522,7 @@ export interface Neptune {
    */
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<AddTagsToResourceCommandOutput>;
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -522,7 +530,7 @@ export interface Neptune {
   ): void;
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): void;
 
@@ -531,7 +539,7 @@ export interface Neptune {
    */
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ApplyPendingMaintenanceActionCommandOutput>;
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
@@ -539,7 +547,7 @@ export interface Neptune {
   ): void;
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void
   ): void;
 
@@ -548,7 +556,7 @@ export interface Neptune {
    */
   copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CopyDBClusterParameterGroupCommandOutput>;
   copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
@@ -556,7 +564,7 @@ export interface Neptune {
   ): void;
   copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CopyDBClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -565,7 +573,7 @@ export interface Neptune {
    */
   copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CopyDBClusterSnapshotCommandOutput>;
   copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
@@ -573,7 +581,7 @@ export interface Neptune {
   ): void;
   copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CopyDBClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -582,7 +590,7 @@ export interface Neptune {
    */
   copyDBParameterGroup(
     args: CopyDBParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CopyDBParameterGroupCommandOutput>;
   copyDBParameterGroup(
     args: CopyDBParameterGroupCommandInput,
@@ -590,7 +598,7 @@ export interface Neptune {
   ): void;
   copyDBParameterGroup(
     args: CopyDBParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CopyDBParameterGroupCommandOutput) => void
   ): void;
 
@@ -599,7 +607,7 @@ export interface Neptune {
    */
   createDBCluster(
     args: CreateDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CreateDBClusterCommandOutput>;
   createDBCluster(
     args: CreateDBClusterCommandInput,
@@ -607,7 +615,7 @@ export interface Neptune {
   ): void;
   createDBCluster(
     args: CreateDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CreateDBClusterCommandOutput) => void
   ): void;
 
@@ -616,7 +624,7 @@ export interface Neptune {
    */
   createDBClusterEndpoint(
     args: CreateDBClusterEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CreateDBClusterEndpointCommandOutput>;
   createDBClusterEndpoint(
     args: CreateDBClusterEndpointCommandInput,
@@ -624,7 +632,7 @@ export interface Neptune {
   ): void;
   createDBClusterEndpoint(
     args: CreateDBClusterEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CreateDBClusterEndpointCommandOutput) => void
   ): void;
 
@@ -633,7 +641,7 @@ export interface Neptune {
    */
   createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CreateDBClusterParameterGroupCommandOutput>;
   createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
@@ -641,7 +649,7 @@ export interface Neptune {
   ): void;
   createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CreateDBClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -650,7 +658,7 @@ export interface Neptune {
    */
   createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CreateDBClusterSnapshotCommandOutput>;
   createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
@@ -658,7 +666,7 @@ export interface Neptune {
   ): void;
   createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CreateDBClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -667,7 +675,7 @@ export interface Neptune {
    */
   createDBInstance(
     args: CreateDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CreateDBInstanceCommandOutput>;
   createDBInstance(
     args: CreateDBInstanceCommandInput,
@@ -675,7 +683,7 @@ export interface Neptune {
   ): void;
   createDBInstance(
     args: CreateDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CreateDBInstanceCommandOutput) => void
   ): void;
 
@@ -684,7 +692,7 @@ export interface Neptune {
    */
   createDBParameterGroup(
     args: CreateDBParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CreateDBParameterGroupCommandOutput>;
   createDBParameterGroup(
     args: CreateDBParameterGroupCommandInput,
@@ -692,7 +700,7 @@ export interface Neptune {
   ): void;
   createDBParameterGroup(
     args: CreateDBParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CreateDBParameterGroupCommandOutput) => void
   ): void;
 
@@ -701,7 +709,7 @@ export interface Neptune {
    */
   createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CreateDBSubnetGroupCommandOutput>;
   createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
@@ -709,7 +717,7 @@ export interface Neptune {
   ): void;
   createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CreateDBSubnetGroupCommandOutput) => void
   ): void;
 
@@ -718,7 +726,7 @@ export interface Neptune {
    */
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CreateEventSubscriptionCommandOutput>;
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
@@ -726,7 +734,7 @@ export interface Neptune {
   ): void;
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -735,7 +743,7 @@ export interface Neptune {
    */
   createGlobalCluster(
     args: CreateGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<CreateGlobalClusterCommandOutput>;
   createGlobalCluster(
     args: CreateGlobalClusterCommandInput,
@@ -743,7 +751,7 @@ export interface Neptune {
   ): void;
   createGlobalCluster(
     args: CreateGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: CreateGlobalClusterCommandOutput) => void
   ): void;
 
@@ -752,7 +760,7 @@ export interface Neptune {
    */
   deleteDBCluster(
     args: DeleteDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DeleteDBClusterCommandOutput>;
   deleteDBCluster(
     args: DeleteDBClusterCommandInput,
@@ -760,7 +768,7 @@ export interface Neptune {
   ): void;
   deleteDBCluster(
     args: DeleteDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DeleteDBClusterCommandOutput) => void
   ): void;
 
@@ -769,7 +777,7 @@ export interface Neptune {
    */
   deleteDBClusterEndpoint(
     args: DeleteDBClusterEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DeleteDBClusterEndpointCommandOutput>;
   deleteDBClusterEndpoint(
     args: DeleteDBClusterEndpointCommandInput,
@@ -777,7 +785,7 @@ export interface Neptune {
   ): void;
   deleteDBClusterEndpoint(
     args: DeleteDBClusterEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DeleteDBClusterEndpointCommandOutput) => void
   ): void;
 
@@ -786,7 +794,7 @@ export interface Neptune {
    */
   deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DeleteDBClusterParameterGroupCommandOutput>;
   deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
@@ -794,7 +802,7 @@ export interface Neptune {
   ): void;
   deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DeleteDBClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -803,7 +811,7 @@ export interface Neptune {
    */
   deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DeleteDBClusterSnapshotCommandOutput>;
   deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
@@ -811,7 +819,7 @@ export interface Neptune {
   ): void;
   deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DeleteDBClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -820,7 +828,7 @@ export interface Neptune {
    */
   deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DeleteDBInstanceCommandOutput>;
   deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
@@ -828,7 +836,7 @@ export interface Neptune {
   ): void;
   deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DeleteDBInstanceCommandOutput) => void
   ): void;
 
@@ -837,7 +845,7 @@ export interface Neptune {
    */
   deleteDBParameterGroup(
     args: DeleteDBParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DeleteDBParameterGroupCommandOutput>;
   deleteDBParameterGroup(
     args: DeleteDBParameterGroupCommandInput,
@@ -845,7 +853,7 @@ export interface Neptune {
   ): void;
   deleteDBParameterGroup(
     args: DeleteDBParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DeleteDBParameterGroupCommandOutput) => void
   ): void;
 
@@ -854,7 +862,7 @@ export interface Neptune {
    */
   deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DeleteDBSubnetGroupCommandOutput>;
   deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
@@ -862,7 +870,7 @@ export interface Neptune {
   ): void;
   deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DeleteDBSubnetGroupCommandOutput) => void
   ): void;
 
@@ -871,7 +879,7 @@ export interface Neptune {
    */
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DeleteEventSubscriptionCommandOutput>;
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
@@ -879,7 +887,7 @@ export interface Neptune {
   ): void;
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -888,7 +896,7 @@ export interface Neptune {
    */
   deleteGlobalCluster(
     args: DeleteGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DeleteGlobalClusterCommandOutput>;
   deleteGlobalCluster(
     args: DeleteGlobalClusterCommandInput,
@@ -896,7 +904,7 @@ export interface Neptune {
   ): void;
   deleteGlobalCluster(
     args: DeleteGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DeleteGlobalClusterCommandOutput) => void
   ): void;
 
@@ -906,7 +914,7 @@ export interface Neptune {
   describeDBClusterEndpoints(): Promise<DescribeDBClusterEndpointsCommandOutput>;
   describeDBClusterEndpoints(
     args: DescribeDBClusterEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeDBClusterEndpointsCommandOutput>;
   describeDBClusterEndpoints(
     args: DescribeDBClusterEndpointsCommandInput,
@@ -914,7 +922,7 @@ export interface Neptune {
   ): void;
   describeDBClusterEndpoints(
     args: DescribeDBClusterEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeDBClusterEndpointsCommandOutput) => void
   ): void;
 
@@ -924,7 +932,7 @@ export interface Neptune {
   describeDBClusterParameterGroups(): Promise<DescribeDBClusterParameterGroupsCommandOutput>;
   describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput>;
   describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
@@ -932,7 +940,7 @@ export interface Neptune {
   ): void;
   describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeDBClusterParameterGroupsCommandOutput) => void
   ): void;
 
@@ -941,7 +949,7 @@ export interface Neptune {
    */
   describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeDBClusterParametersCommandOutput>;
   describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
@@ -949,7 +957,7 @@ export interface Neptune {
   ): void;
   describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeDBClusterParametersCommandOutput) => void
   ): void;
 
@@ -959,7 +967,7 @@ export interface Neptune {
   describeDBClusters(): Promise<DescribeDBClustersCommandOutput>;
   describeDBClusters(
     args: DescribeDBClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeDBClustersCommandOutput>;
   describeDBClusters(
     args: DescribeDBClustersCommandInput,
@@ -967,7 +975,7 @@ export interface Neptune {
   ): void;
   describeDBClusters(
     args: DescribeDBClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
   ): void;
 
@@ -976,7 +984,7 @@ export interface Neptune {
    */
   describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput>;
   describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
@@ -984,7 +992,7 @@ export interface Neptune {
   ): void;
   describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): void;
 
@@ -994,7 +1002,7 @@ export interface Neptune {
   describeDBClusterSnapshots(): Promise<DescribeDBClusterSnapshotsCommandOutput>;
   describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeDBClusterSnapshotsCommandOutput>;
   describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
@@ -1002,7 +1010,7 @@ export interface Neptune {
   ): void;
   describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeDBClusterSnapshotsCommandOutput) => void
   ): void;
 
@@ -1012,7 +1020,7 @@ export interface Neptune {
   describeDBEngineVersions(): Promise<DescribeDBEngineVersionsCommandOutput>;
   describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeDBEngineVersionsCommandOutput>;
   describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
@@ -1020,7 +1028,7 @@ export interface Neptune {
   ): void;
   describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeDBEngineVersionsCommandOutput) => void
   ): void;
 
@@ -1030,7 +1038,7 @@ export interface Neptune {
   describeDBInstances(): Promise<DescribeDBInstancesCommandOutput>;
   describeDBInstances(
     args: DescribeDBInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeDBInstancesCommandOutput>;
   describeDBInstances(
     args: DescribeDBInstancesCommandInput,
@@ -1038,7 +1046,7 @@ export interface Neptune {
   ): void;
   describeDBInstances(
     args: DescribeDBInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeDBInstancesCommandOutput) => void
   ): void;
 
@@ -1048,7 +1056,7 @@ export interface Neptune {
   describeDBParameterGroups(): Promise<DescribeDBParameterGroupsCommandOutput>;
   describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeDBParameterGroupsCommandOutput>;
   describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
@@ -1056,7 +1064,7 @@ export interface Neptune {
   ): void;
   describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeDBParameterGroupsCommandOutput) => void
   ): void;
 
@@ -1065,7 +1073,7 @@ export interface Neptune {
    */
   describeDBParameters(
     args: DescribeDBParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeDBParametersCommandOutput>;
   describeDBParameters(
     args: DescribeDBParametersCommandInput,
@@ -1073,7 +1081,7 @@ export interface Neptune {
   ): void;
   describeDBParameters(
     args: DescribeDBParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeDBParametersCommandOutput) => void
   ): void;
 
@@ -1083,7 +1091,7 @@ export interface Neptune {
   describeDBSubnetGroups(): Promise<DescribeDBSubnetGroupsCommandOutput>;
   describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeDBSubnetGroupsCommandOutput>;
   describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
@@ -1091,7 +1099,7 @@ export interface Neptune {
   ): void;
   describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeDBSubnetGroupsCommandOutput) => void
   ): void;
 
@@ -1100,7 +1108,7 @@ export interface Neptune {
    */
   describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput>;
   describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
@@ -1108,7 +1116,7 @@ export interface Neptune {
   ): void;
   describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): void;
 
@@ -1117,7 +1125,7 @@ export interface Neptune {
    */
   describeEngineDefaultParameters(
     args: DescribeEngineDefaultParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeEngineDefaultParametersCommandOutput>;
   describeEngineDefaultParameters(
     args: DescribeEngineDefaultParametersCommandInput,
@@ -1125,7 +1133,7 @@ export interface Neptune {
   ): void;
   describeEngineDefaultParameters(
     args: DescribeEngineDefaultParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void
   ): void;
 
@@ -1135,7 +1143,7 @@ export interface Neptune {
   describeEventCategories(): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
@@ -1143,7 +1151,7 @@ export interface Neptune {
   ): void;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeEventCategoriesCommandOutput) => void
   ): void;
 
@@ -1153,7 +1161,7 @@ export interface Neptune {
   describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
@@ -1161,7 +1169,7 @@ export interface Neptune {
   ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeEventsCommandOutput) => void
   ): void;
 
@@ -1171,7 +1179,7 @@ export interface Neptune {
   describeEventSubscriptions(): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
@@ -1179,7 +1187,7 @@ export interface Neptune {
   ): void;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
   ): void;
 
@@ -1189,7 +1197,7 @@ export interface Neptune {
   describeGlobalClusters(): Promise<DescribeGlobalClustersCommandOutput>;
   describeGlobalClusters(
     args: DescribeGlobalClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeGlobalClustersCommandOutput>;
   describeGlobalClusters(
     args: DescribeGlobalClustersCommandInput,
@@ -1197,7 +1205,7 @@ export interface Neptune {
   ): void;
   describeGlobalClusters(
     args: DescribeGlobalClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeGlobalClustersCommandOutput) => void
   ): void;
 
@@ -1206,7 +1214,7 @@ export interface Neptune {
    */
   describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput>;
   describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
@@ -1214,7 +1222,7 @@ export interface Neptune {
   ): void;
   describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): void;
 
@@ -1224,7 +1232,7 @@ export interface Neptune {
   describePendingMaintenanceActions(): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
@@ -1232,7 +1240,7 @@ export interface Neptune {
   ): void;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
 
@@ -1241,7 +1249,7 @@ export interface Neptune {
    */
   describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput>;
   describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
@@ -1249,7 +1257,7 @@ export interface Neptune {
   ): void;
   describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void
   ): void;
 
@@ -1259,7 +1267,7 @@ export interface Neptune {
   failoverDBCluster(): Promise<FailoverDBClusterCommandOutput>;
   failoverDBCluster(
     args: FailoverDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<FailoverDBClusterCommandOutput>;
   failoverDBCluster(
     args: FailoverDBClusterCommandInput,
@@ -1267,7 +1275,7 @@ export interface Neptune {
   ): void;
   failoverDBCluster(
     args: FailoverDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: FailoverDBClusterCommandOutput) => void
   ): void;
 
@@ -1276,7 +1284,7 @@ export interface Neptune {
    */
   failoverGlobalCluster(
     args: FailoverGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<FailoverGlobalClusterCommandOutput>;
   failoverGlobalCluster(
     args: FailoverGlobalClusterCommandInput,
@@ -1284,7 +1292,7 @@ export interface Neptune {
   ): void;
   failoverGlobalCluster(
     args: FailoverGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: FailoverGlobalClusterCommandOutput) => void
   ): void;
 
@@ -1293,7 +1301,7 @@ export interface Neptune {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1301,7 +1309,7 @@ export interface Neptune {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1310,7 +1318,7 @@ export interface Neptune {
    */
   modifyDBCluster(
     args: ModifyDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ModifyDBClusterCommandOutput>;
   modifyDBCluster(
     args: ModifyDBClusterCommandInput,
@@ -1318,7 +1326,7 @@ export interface Neptune {
   ): void;
   modifyDBCluster(
     args: ModifyDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ModifyDBClusterCommandOutput) => void
   ): void;
 
@@ -1327,7 +1335,7 @@ export interface Neptune {
    */
   modifyDBClusterEndpoint(
     args: ModifyDBClusterEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ModifyDBClusterEndpointCommandOutput>;
   modifyDBClusterEndpoint(
     args: ModifyDBClusterEndpointCommandInput,
@@ -1335,7 +1343,7 @@ export interface Neptune {
   ): void;
   modifyDBClusterEndpoint(
     args: ModifyDBClusterEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ModifyDBClusterEndpointCommandOutput) => void
   ): void;
 
@@ -1344,7 +1352,7 @@ export interface Neptune {
    */
   modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ModifyDBClusterParameterGroupCommandOutput>;
   modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
@@ -1352,7 +1360,7 @@ export interface Neptune {
   ): void;
   modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ModifyDBClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -1361,7 +1369,7 @@ export interface Neptune {
    */
   modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput>;
   modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
@@ -1369,7 +1377,7 @@ export interface Neptune {
   ): void;
   modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ModifyDBClusterSnapshotAttributeCommandOutput) => void
   ): void;
 
@@ -1378,7 +1386,7 @@ export interface Neptune {
    */
   modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ModifyDBInstanceCommandOutput>;
   modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
@@ -1386,7 +1394,7 @@ export interface Neptune {
   ): void;
   modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ModifyDBInstanceCommandOutput) => void
   ): void;
 
@@ -1395,7 +1403,7 @@ export interface Neptune {
    */
   modifyDBParameterGroup(
     args: ModifyDBParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ModifyDBParameterGroupCommandOutput>;
   modifyDBParameterGroup(
     args: ModifyDBParameterGroupCommandInput,
@@ -1403,7 +1411,7 @@ export interface Neptune {
   ): void;
   modifyDBParameterGroup(
     args: ModifyDBParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ModifyDBParameterGroupCommandOutput) => void
   ): void;
 
@@ -1412,7 +1420,7 @@ export interface Neptune {
    */
   modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ModifyDBSubnetGroupCommandOutput>;
   modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
@@ -1420,7 +1428,7 @@ export interface Neptune {
   ): void;
   modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ModifyDBSubnetGroupCommandOutput) => void
   ): void;
 
@@ -1429,7 +1437,7 @@ export interface Neptune {
    */
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ModifyEventSubscriptionCommandOutput>;
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
@@ -1437,7 +1445,7 @@ export interface Neptune {
   ): void;
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -1446,7 +1454,7 @@ export interface Neptune {
    */
   modifyGlobalCluster(
     args: ModifyGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ModifyGlobalClusterCommandOutput>;
   modifyGlobalCluster(
     args: ModifyGlobalClusterCommandInput,
@@ -1454,7 +1462,7 @@ export interface Neptune {
   ): void;
   modifyGlobalCluster(
     args: ModifyGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ModifyGlobalClusterCommandOutput) => void
   ): void;
 
@@ -1463,7 +1471,7 @@ export interface Neptune {
    */
   promoteReadReplicaDBCluster(
     args: PromoteReadReplicaDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<PromoteReadReplicaDBClusterCommandOutput>;
   promoteReadReplicaDBCluster(
     args: PromoteReadReplicaDBClusterCommandInput,
@@ -1471,7 +1479,7 @@ export interface Neptune {
   ): void;
   promoteReadReplicaDBCluster(
     args: PromoteReadReplicaDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: PromoteReadReplicaDBClusterCommandOutput) => void
   ): void;
 
@@ -1480,7 +1488,7 @@ export interface Neptune {
    */
   rebootDBInstance(
     args: RebootDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<RebootDBInstanceCommandOutput>;
   rebootDBInstance(
     args: RebootDBInstanceCommandInput,
@@ -1488,7 +1496,7 @@ export interface Neptune {
   ): void;
   rebootDBInstance(
     args: RebootDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: RebootDBInstanceCommandOutput) => void
   ): void;
 
@@ -1497,7 +1505,7 @@ export interface Neptune {
    */
   removeFromGlobalCluster(
     args: RemoveFromGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<RemoveFromGlobalClusterCommandOutput>;
   removeFromGlobalCluster(
     args: RemoveFromGlobalClusterCommandInput,
@@ -1505,7 +1513,7 @@ export interface Neptune {
   ): void;
   removeFromGlobalCluster(
     args: RemoveFromGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: RemoveFromGlobalClusterCommandOutput) => void
   ): void;
 
@@ -1514,7 +1522,7 @@ export interface Neptune {
    */
   removeRoleFromDBCluster(
     args: RemoveRoleFromDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<RemoveRoleFromDBClusterCommandOutput>;
   removeRoleFromDBCluster(
     args: RemoveRoleFromDBClusterCommandInput,
@@ -1522,7 +1530,7 @@ export interface Neptune {
   ): void;
   removeRoleFromDBCluster(
     args: RemoveRoleFromDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: RemoveRoleFromDBClusterCommandOutput) => void
   ): void;
 
@@ -1531,7 +1539,7 @@ export interface Neptune {
    */
   removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput>;
   removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
@@ -1539,7 +1547,7 @@ export interface Neptune {
   ): void;
   removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
   ): void;
 
@@ -1548,7 +1556,7 @@ export interface Neptune {
    */
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<RemoveTagsFromResourceCommandOutput>;
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -1556,7 +1564,7 @@ export interface Neptune {
   ): void;
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): void;
 
@@ -1565,7 +1573,7 @@ export interface Neptune {
    */
   resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ResetDBClusterParameterGroupCommandOutput>;
   resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
@@ -1573,7 +1581,7 @@ export interface Neptune {
   ): void;
   resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ResetDBClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -1582,7 +1590,7 @@ export interface Neptune {
    */
   resetDBParameterGroup(
     args: ResetDBParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<ResetDBParameterGroupCommandOutput>;
   resetDBParameterGroup(
     args: ResetDBParameterGroupCommandInput,
@@ -1590,7 +1598,7 @@ export interface Neptune {
   ): void;
   resetDBParameterGroup(
     args: ResetDBParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: ResetDBParameterGroupCommandOutput) => void
   ): void;
 
@@ -1599,7 +1607,7 @@ export interface Neptune {
    */
   restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<RestoreDBClusterFromSnapshotCommandOutput>;
   restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
@@ -1607,7 +1615,7 @@ export interface Neptune {
   ): void;
   restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: RestoreDBClusterFromSnapshotCommandOutput) => void
   ): void;
 
@@ -1616,7 +1624,7 @@ export interface Neptune {
    */
   restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<RestoreDBClusterToPointInTimeCommandOutput>;
   restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,
@@ -1624,7 +1632,7 @@ export interface Neptune {
   ): void;
   restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: RestoreDBClusterToPointInTimeCommandOutput) => void
   ): void;
 
@@ -1633,7 +1641,7 @@ export interface Neptune {
    */
   startDBCluster(
     args: StartDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<StartDBClusterCommandOutput>;
   startDBCluster(
     args: StartDBClusterCommandInput,
@@ -1641,7 +1649,7 @@ export interface Neptune {
   ): void;
   startDBCluster(
     args: StartDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: StartDBClusterCommandOutput) => void
   ): void;
 
@@ -1650,7 +1658,7 @@ export interface Neptune {
    */
   stopDBCluster(
     args: StopDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<StopDBClusterCommandOutput>;
   stopDBCluster(
     args: StopDBClusterCommandInput,
@@ -1658,7 +1666,7 @@ export interface Neptune {
   ): void;
   stopDBCluster(
     args: StopDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: StopDBClusterCommandOutput) => void
   ): void;
 
@@ -1667,7 +1675,7 @@ export interface Neptune {
    */
   switchoverGlobalCluster(
     args: SwitchoverGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NeptuneRequestOptions
   ): Promise<SwitchoverGlobalClusterCommandOutput>;
   switchoverGlobalCluster(
     args: SwitchoverGlobalClusterCommandInput,
@@ -1675,7 +1683,7 @@ export interface Neptune {
   ): void;
   switchoverGlobalCluster(
     args: SwitchoverGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: NeptuneRequestOptions,
     cb: (err: any, data?: SwitchoverGlobalClusterCommandOutput) => void
   ): void;
 

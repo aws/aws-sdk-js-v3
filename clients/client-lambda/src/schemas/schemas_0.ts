@@ -821,10 +821,10 @@ import {
 import { LambdaServiceException } from "../models/LambdaServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var LambdaServiceException$: StaticErrorSchema = [-3, _s, "LambdaServiceException", 0, [], []];
 _s_registry.registerError(LambdaServiceException$, LambdaServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var AliasLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEE,
   { [_e]: _c, [_hE]: 400 },
   [_T, _m],

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type DatetimeOffsetsCommandInput,
@@ -185,6 +185,13 @@ const commands = {
   XmlTimestampsCommand,
 };
 
+/**
+ * @public
+ */
+export interface QueryProtocolRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface QueryProtocol {
   /**
    * @see {@link DatetimeOffsetsCommand}
@@ -192,7 +199,7 @@ export interface QueryProtocol {
   datetimeOffsets(): Promise<DatetimeOffsetsCommandOutput>;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<DatetimeOffsetsCommandOutput>;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
@@ -200,7 +207,7 @@ export interface QueryProtocol {
   ): void;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
   ): void;
 
@@ -210,7 +217,7 @@ export interface QueryProtocol {
   emptyInputAndEmptyOutput(): Promise<EmptyInputAndEmptyOutputCommandOutput>;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<EmptyInputAndEmptyOutputCommandOutput>;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
@@ -218,7 +225,7 @@ export interface QueryProtocol {
   ): void;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: EmptyInputAndEmptyOutputCommandOutput) => void
   ): void;
 
@@ -228,7 +235,7 @@ export interface QueryProtocol {
   endpointOperation(): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
@@ -236,7 +243,7 @@ export interface QueryProtocol {
   ): void;
   endpointOperation(
     args: EndpointOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: EndpointOperationCommandOutput) => void
   ): void;
 
@@ -245,7 +252,7 @@ export interface QueryProtocol {
    */
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<EndpointWithHostLabelOperationCommandOutput>;
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
@@ -253,7 +260,7 @@ export interface QueryProtocol {
   ): void;
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
   ): void;
 
@@ -263,7 +270,7 @@ export interface QueryProtocol {
   flattenedXmlMap(): Promise<FlattenedXmlMapCommandOutput>;
   flattenedXmlMap(
     args: FlattenedXmlMapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<FlattenedXmlMapCommandOutput>;
   flattenedXmlMap(
     args: FlattenedXmlMapCommandInput,
@@ -271,7 +278,7 @@ export interface QueryProtocol {
   ): void;
   flattenedXmlMap(
     args: FlattenedXmlMapCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: FlattenedXmlMapCommandOutput) => void
   ): void;
 
@@ -281,7 +288,7 @@ export interface QueryProtocol {
   flattenedXmlMapWithXmlName(): Promise<FlattenedXmlMapWithXmlNameCommandOutput>;
   flattenedXmlMapWithXmlName(
     args: FlattenedXmlMapWithXmlNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<FlattenedXmlMapWithXmlNameCommandOutput>;
   flattenedXmlMapWithXmlName(
     args: FlattenedXmlMapWithXmlNameCommandInput,
@@ -289,7 +296,7 @@ export interface QueryProtocol {
   ): void;
   flattenedXmlMapWithXmlName(
     args: FlattenedXmlMapWithXmlNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: FlattenedXmlMapWithXmlNameCommandOutput) => void
   ): void;
 
@@ -299,7 +306,7 @@ export interface QueryProtocol {
   flattenedXmlMapWithXmlNamespace(): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput>;
   flattenedXmlMapWithXmlNamespace(
     args: FlattenedXmlMapWithXmlNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput>;
   flattenedXmlMapWithXmlNamespace(
     args: FlattenedXmlMapWithXmlNamespaceCommandInput,
@@ -307,7 +314,7 @@ export interface QueryProtocol {
   ): void;
   flattenedXmlMapWithXmlNamespace(
     args: FlattenedXmlMapWithXmlNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: FlattenedXmlMapWithXmlNamespaceCommandOutput) => void
   ): void;
 
@@ -317,7 +324,7 @@ export interface QueryProtocol {
   fractionalSeconds(): Promise<FractionalSecondsCommandOutput>;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<FractionalSecondsCommandOutput>;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
@@ -325,7 +332,7 @@ export interface QueryProtocol {
   ): void;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: FractionalSecondsCommandOutput) => void
   ): void;
 
@@ -335,7 +342,7 @@ export interface QueryProtocol {
   greetingWithErrors(): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
@@ -343,7 +350,7 @@ export interface QueryProtocol {
   ): void;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: GreetingWithErrorsCommandOutput) => void
   ): void;
 
@@ -353,7 +360,7 @@ export interface QueryProtocol {
   hostWithPathOperation(): Promise<HostWithPathOperationCommandOutput>;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<HostWithPathOperationCommandOutput>;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
@@ -361,7 +368,7 @@ export interface QueryProtocol {
   ): void;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: HostWithPathOperationCommandOutput) => void
   ): void;
 
@@ -371,7 +378,7 @@ export interface QueryProtocol {
   ignoresWrappingXmlName(): Promise<IgnoresWrappingXmlNameCommandOutput>;
   ignoresWrappingXmlName(
     args: IgnoresWrappingXmlNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<IgnoresWrappingXmlNameCommandOutput>;
   ignoresWrappingXmlName(
     args: IgnoresWrappingXmlNameCommandInput,
@@ -379,7 +386,7 @@ export interface QueryProtocol {
   ): void;
   ignoresWrappingXmlName(
     args: IgnoresWrappingXmlNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: IgnoresWrappingXmlNameCommandOutput) => void
   ): void;
 
@@ -389,7 +396,7 @@ export interface QueryProtocol {
   nestedStructures(): Promise<NestedStructuresCommandOutput>;
   nestedStructures(
     args: NestedStructuresCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<NestedStructuresCommandOutput>;
   nestedStructures(
     args: NestedStructuresCommandInput,
@@ -397,7 +404,7 @@ export interface QueryProtocol {
   ): void;
   nestedStructures(
     args: NestedStructuresCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: NestedStructuresCommandOutput) => void
   ): void;
 
@@ -407,7 +414,7 @@ export interface QueryProtocol {
   noInputAndNoOutput(): Promise<NoInputAndNoOutputCommandOutput>;
   noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<NoInputAndNoOutputCommandOutput>;
   noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
@@ -415,7 +422,7 @@ export interface QueryProtocol {
   ): void;
   noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: NoInputAndNoOutputCommandOutput) => void
   ): void;
 
@@ -425,7 +432,7 @@ export interface QueryProtocol {
   noInputAndOutput(): Promise<NoInputAndOutputCommandOutput>;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<NoInputAndOutputCommandOutput>;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
@@ -433,7 +440,7 @@ export interface QueryProtocol {
   ): void;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: NoInputAndOutputCommandOutput) => void
   ): void;
 
@@ -443,7 +450,7 @@ export interface QueryProtocol {
   putWithContentEncoding(): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
@@ -451,7 +458,7 @@ export interface QueryProtocol {
   ): void;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
   ): void;
 
@@ -461,7 +468,7 @@ export interface QueryProtocol {
   queryIdempotencyTokenAutoFill(): Promise<QueryIdempotencyTokenAutoFillCommandOutput>;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput>;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
@@ -469,7 +476,7 @@ export interface QueryProtocol {
   ): void;
   queryIdempotencyTokenAutoFill(
     args: QueryIdempotencyTokenAutoFillCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: QueryIdempotencyTokenAutoFillCommandOutput) => void
   ): void;
 
@@ -479,7 +486,7 @@ export interface QueryProtocol {
   queryLists(): Promise<QueryListsCommandOutput>;
   queryLists(
     args: QueryListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<QueryListsCommandOutput>;
   queryLists(
     args: QueryListsCommandInput,
@@ -487,7 +494,7 @@ export interface QueryProtocol {
   ): void;
   queryLists(
     args: QueryListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: QueryListsCommandOutput) => void
   ): void;
 
@@ -497,7 +504,7 @@ export interface QueryProtocol {
   queryMaps(): Promise<QueryMapsCommandOutput>;
   queryMaps(
     args: QueryMapsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<QueryMapsCommandOutput>;
   queryMaps(
     args: QueryMapsCommandInput,
@@ -505,7 +512,7 @@ export interface QueryProtocol {
   ): void;
   queryMaps(
     args: QueryMapsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: QueryMapsCommandOutput) => void
   ): void;
 
@@ -515,7 +522,7 @@ export interface QueryProtocol {
   queryTimestamps(): Promise<QueryTimestampsCommandOutput>;
   queryTimestamps(
     args: QueryTimestampsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<QueryTimestampsCommandOutput>;
   queryTimestamps(
     args: QueryTimestampsCommandInput,
@@ -523,7 +530,7 @@ export interface QueryProtocol {
   ): void;
   queryTimestamps(
     args: QueryTimestampsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: QueryTimestampsCommandOutput) => void
   ): void;
 
@@ -533,7 +540,7 @@ export interface QueryProtocol {
   recursiveXmlShapes(): Promise<RecursiveXmlShapesCommandOutput>;
   recursiveXmlShapes(
     args: RecursiveXmlShapesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<RecursiveXmlShapesCommandOutput>;
   recursiveXmlShapes(
     args: RecursiveXmlShapesCommandInput,
@@ -541,7 +548,7 @@ export interface QueryProtocol {
   ): void;
   recursiveXmlShapes(
     args: RecursiveXmlShapesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: RecursiveXmlShapesCommandOutput) => void
   ): void;
 
@@ -551,7 +558,7 @@ export interface QueryProtocol {
   simpleInputParams(): Promise<SimpleInputParamsCommandOutput>;
   simpleInputParams(
     args: SimpleInputParamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<SimpleInputParamsCommandOutput>;
   simpleInputParams(
     args: SimpleInputParamsCommandInput,
@@ -559,7 +566,7 @@ export interface QueryProtocol {
   ): void;
   simpleInputParams(
     args: SimpleInputParamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: SimpleInputParamsCommandOutput) => void
   ): void;
 
@@ -569,7 +576,7 @@ export interface QueryProtocol {
   simpleScalarXmlProperties(): Promise<SimpleScalarXmlPropertiesCommandOutput>;
   simpleScalarXmlProperties(
     args: SimpleScalarXmlPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<SimpleScalarXmlPropertiesCommandOutput>;
   simpleScalarXmlProperties(
     args: SimpleScalarXmlPropertiesCommandInput,
@@ -577,7 +584,7 @@ export interface QueryProtocol {
   ): void;
   simpleScalarXmlProperties(
     args: SimpleScalarXmlPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: SimpleScalarXmlPropertiesCommandOutput) => void
   ): void;
 
@@ -587,7 +594,7 @@ export interface QueryProtocol {
   xmlBlobs(): Promise<XmlBlobsCommandOutput>;
   xmlBlobs(
     args: XmlBlobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<XmlBlobsCommandOutput>;
   xmlBlobs(
     args: XmlBlobsCommandInput,
@@ -595,7 +602,7 @@ export interface QueryProtocol {
   ): void;
   xmlBlobs(
     args: XmlBlobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: XmlBlobsCommandOutput) => void
   ): void;
 
@@ -605,7 +612,7 @@ export interface QueryProtocol {
   xmlEmptyBlobs(): Promise<XmlEmptyBlobsCommandOutput>;
   xmlEmptyBlobs(
     args: XmlEmptyBlobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<XmlEmptyBlobsCommandOutput>;
   xmlEmptyBlobs(
     args: XmlEmptyBlobsCommandInput,
@@ -613,7 +620,7 @@ export interface QueryProtocol {
   ): void;
   xmlEmptyBlobs(
     args: XmlEmptyBlobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: XmlEmptyBlobsCommandOutput) => void
   ): void;
 
@@ -623,7 +630,7 @@ export interface QueryProtocol {
   xmlEmptyLists(): Promise<XmlEmptyListsCommandOutput>;
   xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<XmlEmptyListsCommandOutput>;
   xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
@@ -631,7 +638,7 @@ export interface QueryProtocol {
   ): void;
   xmlEmptyLists(
     args: XmlEmptyListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: XmlEmptyListsCommandOutput) => void
   ): void;
 
@@ -641,7 +648,7 @@ export interface QueryProtocol {
   xmlEmptyMaps(): Promise<XmlEmptyMapsCommandOutput>;
   xmlEmptyMaps(
     args: XmlEmptyMapsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<XmlEmptyMapsCommandOutput>;
   xmlEmptyMaps(
     args: XmlEmptyMapsCommandInput,
@@ -649,7 +656,7 @@ export interface QueryProtocol {
   ): void;
   xmlEmptyMaps(
     args: XmlEmptyMapsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: XmlEmptyMapsCommandOutput) => void
   ): void;
 
@@ -659,7 +666,7 @@ export interface QueryProtocol {
   xmlEnums(): Promise<XmlEnumsCommandOutput>;
   xmlEnums(
     args: XmlEnumsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<XmlEnumsCommandOutput>;
   xmlEnums(
     args: XmlEnumsCommandInput,
@@ -667,7 +674,7 @@ export interface QueryProtocol {
   ): void;
   xmlEnums(
     args: XmlEnumsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: XmlEnumsCommandOutput) => void
   ): void;
 
@@ -677,7 +684,7 @@ export interface QueryProtocol {
   xmlIntEnums(): Promise<XmlIntEnumsCommandOutput>;
   xmlIntEnums(
     args: XmlIntEnumsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<XmlIntEnumsCommandOutput>;
   xmlIntEnums(
     args: XmlIntEnumsCommandInput,
@@ -685,7 +692,7 @@ export interface QueryProtocol {
   ): void;
   xmlIntEnums(
     args: XmlIntEnumsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: XmlIntEnumsCommandOutput) => void
   ): void;
 
@@ -695,7 +702,7 @@ export interface QueryProtocol {
   xmlLists(): Promise<XmlListsCommandOutput>;
   xmlLists(
     args: XmlListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<XmlListsCommandOutput>;
   xmlLists(
     args: XmlListsCommandInput,
@@ -703,7 +710,7 @@ export interface QueryProtocol {
   ): void;
   xmlLists(
     args: XmlListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: XmlListsCommandOutput) => void
   ): void;
 
@@ -713,7 +720,7 @@ export interface QueryProtocol {
   xmlMaps(): Promise<XmlMapsCommandOutput>;
   xmlMaps(
     args: XmlMapsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<XmlMapsCommandOutput>;
   xmlMaps(
     args: XmlMapsCommandInput,
@@ -721,7 +728,7 @@ export interface QueryProtocol {
   ): void;
   xmlMaps(
     args: XmlMapsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: XmlMapsCommandOutput) => void
   ): void;
 
@@ -731,7 +738,7 @@ export interface QueryProtocol {
   xmlMapsXmlName(): Promise<XmlMapsXmlNameCommandOutput>;
   xmlMapsXmlName(
     args: XmlMapsXmlNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<XmlMapsXmlNameCommandOutput>;
   xmlMapsXmlName(
     args: XmlMapsXmlNameCommandInput,
@@ -739,7 +746,7 @@ export interface QueryProtocol {
   ): void;
   xmlMapsXmlName(
     args: XmlMapsXmlNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: XmlMapsXmlNameCommandOutput) => void
   ): void;
 
@@ -749,7 +756,7 @@ export interface QueryProtocol {
   xmlNamespaces(): Promise<XmlNamespacesCommandOutput>;
   xmlNamespaces(
     args: XmlNamespacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<XmlNamespacesCommandOutput>;
   xmlNamespaces(
     args: XmlNamespacesCommandInput,
@@ -757,7 +764,7 @@ export interface QueryProtocol {
   ): void;
   xmlNamespaces(
     args: XmlNamespacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: XmlNamespacesCommandOutput) => void
   ): void;
 
@@ -767,7 +774,7 @@ export interface QueryProtocol {
   xmlTimestamps(): Promise<XmlTimestampsCommandOutput>;
   xmlTimestamps(
     args: XmlTimestampsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QueryProtocolRequestOptions
   ): Promise<XmlTimestampsCommandOutput>;
   xmlTimestamps(
     args: XmlTimestampsCommandInput,
@@ -775,7 +782,7 @@ export interface QueryProtocol {
   ): void;
   xmlTimestamps(
     args: XmlTimestampsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QueryProtocolRequestOptions,
     cb: (err: any, data?: XmlTimestampsCommandOutput) => void
   ): void;
 }

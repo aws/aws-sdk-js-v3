@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchGetChannelCommandInput,
@@ -267,13 +272,20 @@ const paginators = {
   paginateListStreamSessions,
 };
 
+/**
+ * @public
+ */
+export interface IvsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Ivs {
   /**
    * @see {@link BatchGetChannelCommand}
    */
   batchGetChannel(
     args: BatchGetChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<BatchGetChannelCommandOutput>;
   batchGetChannel(
     args: BatchGetChannelCommandInput,
@@ -281,7 +293,7 @@ export interface Ivs {
   ): void;
   batchGetChannel(
     args: BatchGetChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: BatchGetChannelCommandOutput) => void
   ): void;
 
@@ -290,7 +302,7 @@ export interface Ivs {
    */
   batchGetStreamKey(
     args: BatchGetStreamKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<BatchGetStreamKeyCommandOutput>;
   batchGetStreamKey(
     args: BatchGetStreamKeyCommandInput,
@@ -298,7 +310,7 @@ export interface Ivs {
   ): void;
   batchGetStreamKey(
     args: BatchGetStreamKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: BatchGetStreamKeyCommandOutput) => void
   ): void;
 
@@ -307,7 +319,7 @@ export interface Ivs {
    */
   batchStartViewerSessionRevocation(
     args: BatchStartViewerSessionRevocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<BatchStartViewerSessionRevocationCommandOutput>;
   batchStartViewerSessionRevocation(
     args: BatchStartViewerSessionRevocationCommandInput,
@@ -315,7 +327,7 @@ export interface Ivs {
   ): void;
   batchStartViewerSessionRevocation(
     args: BatchStartViewerSessionRevocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: BatchStartViewerSessionRevocationCommandOutput) => void
   ): void;
 
@@ -324,7 +336,7 @@ export interface Ivs {
    */
   createAdConfiguration(
     args: CreateAdConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<CreateAdConfigurationCommandOutput>;
   createAdConfiguration(
     args: CreateAdConfigurationCommandInput,
@@ -332,7 +344,7 @@ export interface Ivs {
   ): void;
   createAdConfiguration(
     args: CreateAdConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: CreateAdConfigurationCommandOutput) => void
   ): void;
 
@@ -342,7 +354,7 @@ export interface Ivs {
   createChannel(): Promise<CreateChannelCommandOutput>;
   createChannel(
     args: CreateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<CreateChannelCommandOutput>;
   createChannel(
     args: CreateChannelCommandInput,
@@ -350,7 +362,7 @@ export interface Ivs {
   ): void;
   createChannel(
     args: CreateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: CreateChannelCommandOutput) => void
   ): void;
 
@@ -360,7 +372,7 @@ export interface Ivs {
   createPlaybackRestrictionPolicy(): Promise<CreatePlaybackRestrictionPolicyCommandOutput>;
   createPlaybackRestrictionPolicy(
     args: CreatePlaybackRestrictionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<CreatePlaybackRestrictionPolicyCommandOutput>;
   createPlaybackRestrictionPolicy(
     args: CreatePlaybackRestrictionPolicyCommandInput,
@@ -368,7 +380,7 @@ export interface Ivs {
   ): void;
   createPlaybackRestrictionPolicy(
     args: CreatePlaybackRestrictionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: CreatePlaybackRestrictionPolicyCommandOutput) => void
   ): void;
 
@@ -377,7 +389,7 @@ export interface Ivs {
    */
   createRecordingConfiguration(
     args: CreateRecordingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<CreateRecordingConfigurationCommandOutput>;
   createRecordingConfiguration(
     args: CreateRecordingConfigurationCommandInput,
@@ -385,7 +397,7 @@ export interface Ivs {
   ): void;
   createRecordingConfiguration(
     args: CreateRecordingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: CreateRecordingConfigurationCommandOutput) => void
   ): void;
 
@@ -394,7 +406,7 @@ export interface Ivs {
    */
   createStreamKey(
     args: CreateStreamKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<CreateStreamKeyCommandOutput>;
   createStreamKey(
     args: CreateStreamKeyCommandInput,
@@ -402,7 +414,7 @@ export interface Ivs {
   ): void;
   createStreamKey(
     args: CreateStreamKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: CreateStreamKeyCommandOutput) => void
   ): void;
 
@@ -411,7 +423,7 @@ export interface Ivs {
    */
   deleteAdConfiguration(
     args: DeleteAdConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<DeleteAdConfigurationCommandOutput>;
   deleteAdConfiguration(
     args: DeleteAdConfigurationCommandInput,
@@ -419,7 +431,7 @@ export interface Ivs {
   ): void;
   deleteAdConfiguration(
     args: DeleteAdConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: DeleteAdConfigurationCommandOutput) => void
   ): void;
 
@@ -428,7 +440,7 @@ export interface Ivs {
    */
   deleteChannel(
     args: DeleteChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<DeleteChannelCommandOutput>;
   deleteChannel(
     args: DeleteChannelCommandInput,
@@ -436,7 +448,7 @@ export interface Ivs {
   ): void;
   deleteChannel(
     args: DeleteChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: DeleteChannelCommandOutput) => void
   ): void;
 
@@ -445,7 +457,7 @@ export interface Ivs {
    */
   deletePlaybackKeyPair(
     args: DeletePlaybackKeyPairCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<DeletePlaybackKeyPairCommandOutput>;
   deletePlaybackKeyPair(
     args: DeletePlaybackKeyPairCommandInput,
@@ -453,7 +465,7 @@ export interface Ivs {
   ): void;
   deletePlaybackKeyPair(
     args: DeletePlaybackKeyPairCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: DeletePlaybackKeyPairCommandOutput) => void
   ): void;
 
@@ -462,7 +474,7 @@ export interface Ivs {
    */
   deletePlaybackRestrictionPolicy(
     args: DeletePlaybackRestrictionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<DeletePlaybackRestrictionPolicyCommandOutput>;
   deletePlaybackRestrictionPolicy(
     args: DeletePlaybackRestrictionPolicyCommandInput,
@@ -470,7 +482,7 @@ export interface Ivs {
   ): void;
   deletePlaybackRestrictionPolicy(
     args: DeletePlaybackRestrictionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: DeletePlaybackRestrictionPolicyCommandOutput) => void
   ): void;
 
@@ -479,7 +491,7 @@ export interface Ivs {
    */
   deleteRecordingConfiguration(
     args: DeleteRecordingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<DeleteRecordingConfigurationCommandOutput>;
   deleteRecordingConfiguration(
     args: DeleteRecordingConfigurationCommandInput,
@@ -487,7 +499,7 @@ export interface Ivs {
   ): void;
   deleteRecordingConfiguration(
     args: DeleteRecordingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: DeleteRecordingConfigurationCommandOutput) => void
   ): void;
 
@@ -496,7 +508,7 @@ export interface Ivs {
    */
   deleteStreamKey(
     args: DeleteStreamKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<DeleteStreamKeyCommandOutput>;
   deleteStreamKey(
     args: DeleteStreamKeyCommandInput,
@@ -504,7 +516,7 @@ export interface Ivs {
   ): void;
   deleteStreamKey(
     args: DeleteStreamKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: DeleteStreamKeyCommandOutput) => void
   ): void;
 
@@ -513,7 +525,7 @@ export interface Ivs {
    */
   getAdConfiguration(
     args: GetAdConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<GetAdConfigurationCommandOutput>;
   getAdConfiguration(
     args: GetAdConfigurationCommandInput,
@@ -521,7 +533,7 @@ export interface Ivs {
   ): void;
   getAdConfiguration(
     args: GetAdConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: GetAdConfigurationCommandOutput) => void
   ): void;
 
@@ -530,7 +542,7 @@ export interface Ivs {
    */
   getChannel(
     args: GetChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<GetChannelCommandOutput>;
   getChannel(
     args: GetChannelCommandInput,
@@ -538,7 +550,7 @@ export interface Ivs {
   ): void;
   getChannel(
     args: GetChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: GetChannelCommandOutput) => void
   ): void;
 
@@ -547,7 +559,7 @@ export interface Ivs {
    */
   getPlaybackKeyPair(
     args: GetPlaybackKeyPairCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<GetPlaybackKeyPairCommandOutput>;
   getPlaybackKeyPair(
     args: GetPlaybackKeyPairCommandInput,
@@ -555,7 +567,7 @@ export interface Ivs {
   ): void;
   getPlaybackKeyPair(
     args: GetPlaybackKeyPairCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: GetPlaybackKeyPairCommandOutput) => void
   ): void;
 
@@ -564,7 +576,7 @@ export interface Ivs {
    */
   getPlaybackRestrictionPolicy(
     args: GetPlaybackRestrictionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<GetPlaybackRestrictionPolicyCommandOutput>;
   getPlaybackRestrictionPolicy(
     args: GetPlaybackRestrictionPolicyCommandInput,
@@ -572,7 +584,7 @@ export interface Ivs {
   ): void;
   getPlaybackRestrictionPolicy(
     args: GetPlaybackRestrictionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: GetPlaybackRestrictionPolicyCommandOutput) => void
   ): void;
 
@@ -581,7 +593,7 @@ export interface Ivs {
    */
   getRecordingConfiguration(
     args: GetRecordingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<GetRecordingConfigurationCommandOutput>;
   getRecordingConfiguration(
     args: GetRecordingConfigurationCommandInput,
@@ -589,7 +601,7 @@ export interface Ivs {
   ): void;
   getRecordingConfiguration(
     args: GetRecordingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: GetRecordingConfigurationCommandOutput) => void
   ): void;
 
@@ -598,7 +610,7 @@ export interface Ivs {
    */
   getStream(
     args: GetStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<GetStreamCommandOutput>;
   getStream(
     args: GetStreamCommandInput,
@@ -606,7 +618,7 @@ export interface Ivs {
   ): void;
   getStream(
     args: GetStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: GetStreamCommandOutput) => void
   ): void;
 
@@ -615,7 +627,7 @@ export interface Ivs {
    */
   getStreamKey(
     args: GetStreamKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<GetStreamKeyCommandOutput>;
   getStreamKey(
     args: GetStreamKeyCommandInput,
@@ -623,7 +635,7 @@ export interface Ivs {
   ): void;
   getStreamKey(
     args: GetStreamKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: GetStreamKeyCommandOutput) => void
   ): void;
 
@@ -632,7 +644,7 @@ export interface Ivs {
    */
   getStreamSession(
     args: GetStreamSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<GetStreamSessionCommandOutput>;
   getStreamSession(
     args: GetStreamSessionCommandInput,
@@ -640,7 +652,7 @@ export interface Ivs {
   ): void;
   getStreamSession(
     args: GetStreamSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: GetStreamSessionCommandOutput) => void
   ): void;
 
@@ -649,7 +661,7 @@ export interface Ivs {
    */
   importPlaybackKeyPair(
     args: ImportPlaybackKeyPairCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<ImportPlaybackKeyPairCommandOutput>;
   importPlaybackKeyPair(
     args: ImportPlaybackKeyPairCommandInput,
@@ -657,7 +669,7 @@ export interface Ivs {
   ): void;
   importPlaybackKeyPair(
     args: ImportPlaybackKeyPairCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: ImportPlaybackKeyPairCommandOutput) => void
   ): void;
 
@@ -666,7 +678,7 @@ export interface Ivs {
    */
   insertAdBreak(
     args: InsertAdBreakCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<InsertAdBreakCommandOutput>;
   insertAdBreak(
     args: InsertAdBreakCommandInput,
@@ -674,7 +686,7 @@ export interface Ivs {
   ): void;
   insertAdBreak(
     args: InsertAdBreakCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: InsertAdBreakCommandOutput) => void
   ): void;
 
@@ -684,7 +696,7 @@ export interface Ivs {
   listAdConfigurations(): Promise<ListAdConfigurationsCommandOutput>;
   listAdConfigurations(
     args: ListAdConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<ListAdConfigurationsCommandOutput>;
   listAdConfigurations(
     args: ListAdConfigurationsCommandInput,
@@ -692,7 +704,7 @@ export interface Ivs {
   ): void;
   listAdConfigurations(
     args: ListAdConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: ListAdConfigurationsCommandOutput) => void
   ): void;
 
@@ -702,7 +714,7 @@ export interface Ivs {
   listChannels(): Promise<ListChannelsCommandOutput>;
   listChannels(
     args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<ListChannelsCommandOutput>;
   listChannels(
     args: ListChannelsCommandInput,
@@ -710,7 +722,7 @@ export interface Ivs {
   ): void;
   listChannels(
     args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
 
@@ -720,7 +732,7 @@ export interface Ivs {
   listPlaybackKeyPairs(): Promise<ListPlaybackKeyPairsCommandOutput>;
   listPlaybackKeyPairs(
     args: ListPlaybackKeyPairsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<ListPlaybackKeyPairsCommandOutput>;
   listPlaybackKeyPairs(
     args: ListPlaybackKeyPairsCommandInput,
@@ -728,7 +740,7 @@ export interface Ivs {
   ): void;
   listPlaybackKeyPairs(
     args: ListPlaybackKeyPairsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: ListPlaybackKeyPairsCommandOutput) => void
   ): void;
 
@@ -738,7 +750,7 @@ export interface Ivs {
   listPlaybackRestrictionPolicies(): Promise<ListPlaybackRestrictionPoliciesCommandOutput>;
   listPlaybackRestrictionPolicies(
     args: ListPlaybackRestrictionPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<ListPlaybackRestrictionPoliciesCommandOutput>;
   listPlaybackRestrictionPolicies(
     args: ListPlaybackRestrictionPoliciesCommandInput,
@@ -746,7 +758,7 @@ export interface Ivs {
   ): void;
   listPlaybackRestrictionPolicies(
     args: ListPlaybackRestrictionPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: ListPlaybackRestrictionPoliciesCommandOutput) => void
   ): void;
 
@@ -756,7 +768,7 @@ export interface Ivs {
   listRecordingConfigurations(): Promise<ListRecordingConfigurationsCommandOutput>;
   listRecordingConfigurations(
     args: ListRecordingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<ListRecordingConfigurationsCommandOutput>;
   listRecordingConfigurations(
     args: ListRecordingConfigurationsCommandInput,
@@ -764,7 +776,7 @@ export interface Ivs {
   ): void;
   listRecordingConfigurations(
     args: ListRecordingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: ListRecordingConfigurationsCommandOutput) => void
   ): void;
 
@@ -773,7 +785,7 @@ export interface Ivs {
    */
   listStreamKeys(
     args: ListStreamKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<ListStreamKeysCommandOutput>;
   listStreamKeys(
     args: ListStreamKeysCommandInput,
@@ -781,7 +793,7 @@ export interface Ivs {
   ): void;
   listStreamKeys(
     args: ListStreamKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: ListStreamKeysCommandOutput) => void
   ): void;
 
@@ -791,7 +803,7 @@ export interface Ivs {
   listStreams(): Promise<ListStreamsCommandOutput>;
   listStreams(
     args: ListStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<ListStreamsCommandOutput>;
   listStreams(
     args: ListStreamsCommandInput,
@@ -799,7 +811,7 @@ export interface Ivs {
   ): void;
   listStreams(
     args: ListStreamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: ListStreamsCommandOutput) => void
   ): void;
 
@@ -808,7 +820,7 @@ export interface Ivs {
    */
   listStreamSessions(
     args: ListStreamSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<ListStreamSessionsCommandOutput>;
   listStreamSessions(
     args: ListStreamSessionsCommandInput,
@@ -816,7 +828,7 @@ export interface Ivs {
   ): void;
   listStreamSessions(
     args: ListStreamSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: ListStreamSessionsCommandOutput) => void
   ): void;
 
@@ -825,7 +837,7 @@ export interface Ivs {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -833,7 +845,7 @@ export interface Ivs {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -842,7 +854,7 @@ export interface Ivs {
    */
   putMetadata(
     args: PutMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<PutMetadataCommandOutput>;
   putMetadata(
     args: PutMetadataCommandInput,
@@ -850,7 +862,7 @@ export interface Ivs {
   ): void;
   putMetadata(
     args: PutMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: PutMetadataCommandOutput) => void
   ): void;
 
@@ -859,7 +871,7 @@ export interface Ivs {
    */
   startViewerSessionRevocation(
     args: StartViewerSessionRevocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<StartViewerSessionRevocationCommandOutput>;
   startViewerSessionRevocation(
     args: StartViewerSessionRevocationCommandInput,
@@ -867,7 +879,7 @@ export interface Ivs {
   ): void;
   startViewerSessionRevocation(
     args: StartViewerSessionRevocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: StartViewerSessionRevocationCommandOutput) => void
   ): void;
 
@@ -876,7 +888,7 @@ export interface Ivs {
    */
   stopStream(
     args: StopStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<StopStreamCommandOutput>;
   stopStream(
     args: StopStreamCommandInput,
@@ -884,7 +896,7 @@ export interface Ivs {
   ): void;
   stopStream(
     args: StopStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: StopStreamCommandOutput) => void
   ): void;
 
@@ -893,7 +905,7 @@ export interface Ivs {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -901,7 +913,7 @@ export interface Ivs {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -910,7 +922,7 @@ export interface Ivs {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -918,7 +930,7 @@ export interface Ivs {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -927,7 +939,7 @@ export interface Ivs {
    */
   updateAdConfiguration(
     args: UpdateAdConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<UpdateAdConfigurationCommandOutput>;
   updateAdConfiguration(
     args: UpdateAdConfigurationCommandInput,
@@ -935,7 +947,7 @@ export interface Ivs {
   ): void;
   updateAdConfiguration(
     args: UpdateAdConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: UpdateAdConfigurationCommandOutput) => void
   ): void;
 
@@ -944,7 +956,7 @@ export interface Ivs {
    */
   updateChannel(
     args: UpdateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<UpdateChannelCommandOutput>;
   updateChannel(
     args: UpdateChannelCommandInput,
@@ -952,7 +964,7 @@ export interface Ivs {
   ): void;
   updateChannel(
     args: UpdateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: UpdateChannelCommandOutput) => void
   ): void;
 
@@ -961,7 +973,7 @@ export interface Ivs {
    */
   updatePlaybackRestrictionPolicy(
     args: UpdatePlaybackRestrictionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvsRequestOptions
   ): Promise<UpdatePlaybackRestrictionPolicyCommandOutput>;
   updatePlaybackRestrictionPolicy(
     args: UpdatePlaybackRestrictionPolicyCommandInput,
@@ -969,7 +981,7 @@ export interface Ivs {
   ): void;
   updatePlaybackRestrictionPolicy(
     args: UpdatePlaybackRestrictionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvsRequestOptions,
     cb: (err: any, data?: UpdatePlaybackRestrictionPolicyCommandOutput) => void
   ): void;
 

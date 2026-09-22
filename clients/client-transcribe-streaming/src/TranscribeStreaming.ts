@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type GetMedicalScribeStreamCommandInput,
@@ -37,13 +37,20 @@ const commands = {
   StartStreamTranscriptionCommand,
 };
 
+/**
+ * @public
+ */
+export interface TranscribeStreamingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface TranscribeStreaming {
   /**
    * @see {@link GetMedicalScribeStreamCommand}
    */
   getMedicalScribeStream(
     args: GetMedicalScribeStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeStreamingRequestOptions
   ): Promise<GetMedicalScribeStreamCommandOutput>;
   getMedicalScribeStream(
     args: GetMedicalScribeStreamCommandInput,
@@ -51,7 +58,7 @@ export interface TranscribeStreaming {
   ): void;
   getMedicalScribeStream(
     args: GetMedicalScribeStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeStreamingRequestOptions,
     cb: (err: any, data?: GetMedicalScribeStreamCommandOutput) => void
   ): void;
 
@@ -60,7 +67,7 @@ export interface TranscribeStreaming {
    */
   startCallAnalyticsStreamTranscription(
     args: StartCallAnalyticsStreamTranscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeStreamingRequestOptions
   ): Promise<StartCallAnalyticsStreamTranscriptionCommandOutput>;
   startCallAnalyticsStreamTranscription(
     args: StartCallAnalyticsStreamTranscriptionCommandInput,
@@ -68,7 +75,7 @@ export interface TranscribeStreaming {
   ): void;
   startCallAnalyticsStreamTranscription(
     args: StartCallAnalyticsStreamTranscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeStreamingRequestOptions,
     cb: (err: any, data?: StartCallAnalyticsStreamTranscriptionCommandOutput) => void
   ): void;
 
@@ -77,7 +84,7 @@ export interface TranscribeStreaming {
    */
   startMedicalScribeStream(
     args: StartMedicalScribeStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeStreamingRequestOptions
   ): Promise<StartMedicalScribeStreamCommandOutput>;
   startMedicalScribeStream(
     args: StartMedicalScribeStreamCommandInput,
@@ -85,7 +92,7 @@ export interface TranscribeStreaming {
   ): void;
   startMedicalScribeStream(
     args: StartMedicalScribeStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeStreamingRequestOptions,
     cb: (err: any, data?: StartMedicalScribeStreamCommandOutput) => void
   ): void;
 
@@ -94,7 +101,7 @@ export interface TranscribeStreaming {
    */
   startMedicalStreamTranscription(
     args: StartMedicalStreamTranscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeStreamingRequestOptions
   ): Promise<StartMedicalStreamTranscriptionCommandOutput>;
   startMedicalStreamTranscription(
     args: StartMedicalStreamTranscriptionCommandInput,
@@ -102,7 +109,7 @@ export interface TranscribeStreaming {
   ): void;
   startMedicalStreamTranscription(
     args: StartMedicalStreamTranscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeStreamingRequestOptions,
     cb: (err: any, data?: StartMedicalStreamTranscriptionCommandOutput) => void
   ): void;
 
@@ -111,7 +118,7 @@ export interface TranscribeStreaming {
    */
   startStreamTranscription(
     args: StartStreamTranscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeStreamingRequestOptions
   ): Promise<StartStreamTranscriptionCommandOutput>;
   startStreamTranscription(
     args: StartStreamTranscriptionCommandInput,
@@ -119,7 +126,7 @@ export interface TranscribeStreaming {
   ): void;
   startStreamTranscription(
     args: StartStreamTranscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeStreamingRequestOptions,
     cb: (err: any, data?: StartStreamTranscriptionCommandOutput) => void
   ): void;
 }
