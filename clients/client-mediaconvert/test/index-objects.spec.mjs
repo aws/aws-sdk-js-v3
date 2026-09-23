@@ -60,6 +60,7 @@ import {
   AudioSelector$,
   AudioSelectorGroup$,
   AudioSelectorType,
+  AudioSmpte337Passthrough,
   AudioTypeControl,
   AutomatedAbrRule$,
   AutomatedAbrSettings$,
@@ -651,6 +652,7 @@ import {
   paginateListVersions,
   paginateSearchJobs,
   PartnerWatermarking$,
+  PassthroughSegmentationMode,
   PassthroughSettings$,
   Policy$,
   Preset$,
@@ -1258,6 +1260,7 @@ assert(typeof AudioNormalizationAlgorithmControl === "object");
 assert(typeof AudioNormalizationLoudnessLogging === "object");
 assert(typeof AudioNormalizationPeakCalculation === "object");
 assert(typeof AudioSelectorType === "object");
+assert(typeof AudioSmpte337Passthrough === "object");
 assert(typeof AudioTypeControl === "object");
 assert(typeof Av1AdaptiveQuantization === "object");
 assert(typeof Av1BitDepth === "object");
@@ -1592,6 +1595,7 @@ assert(typeof Order === "object");
 assert(typeof OutputGroupType === "object");
 assert(typeof OutputSdt === "object");
 assert(typeof PadVideo === "object");
+assert(typeof PassthroughSegmentationMode === "object");
 assert(typeof PresetListBy === "object");
 assert(typeof PresetSpeke20Audio === "object");
 assert(typeof PresetSpeke20Video === "object");

@@ -23,7 +23,7 @@ export interface ProbeCommandInput extends ProbeRequest {}
 export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
 
 /**
- * Use Probe to obtain detailed information about your input media files. Probe returns a JSON that includes container, codec, frame rate, resolution, track count, audio layout, captions, and more. You can use this information to learn more about your media files, or to help make decisions while automating your transcoding workflow.
+ * Use Probe to obtain detailed information about your input media files. Probe returns a JSON that includes container, codec, frame rate, resolution, track count, audio layout, captions, and more. You can use this information to learn more about your media files, or to help make decisions while automating your transcoding workflow. Probe supports the following input container formats: MP4, QuickTime (MOV), 3GP, 3G2, Matroska (MKV), WebM, MXF, MPEG-TS, MPEG-PS, AVI, WAV, MP3, FLAC, Ogg, and ASF (Windows Media / WMA). The fields that Probe returns vary by container and codec. A field isn't returned when the source doesn't contain it, or when it isn't available for that container and codec.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,7 +47,7 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //       Container: { // Container
  * //         BitRate: Number("long"),
  * //         Duration: Number("double"),
- * //         Format: "mp4" || "quicktime" || "matroska" || "webm" || "mxf" || "wave" || "avi" || "mpegts" || "mpegps" || "mp3" || "flac" || "asf" || "ogg",
+ * //         Format: "mp4" || "quicktime" || "matroska" || "webm" || "mxf" || "wave" || "avi" || "mpegts" || "mpegps" || "mp3" || "flac" || "asf" || "ogg" || "three_gp" || "three_g2" || "aac" || "ac3" || "eac3",
  * //         StartTimecode: "STRING_VALUE",
  * //         Tracks: [ // __listOfTrack
  * //           { // Track
