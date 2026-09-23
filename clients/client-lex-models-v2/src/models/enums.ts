@@ -636,6 +636,7 @@ export type SpeechDetectionSensitivity = (typeof SpeechDetectionSensitivity)[key
  * @enum
  */
 export const SpeechModelPreference = {
+  Advanced: "Advanced",
   Deepgram: "Deepgram",
   Neural: "Neural",
   Standard: "Standard",

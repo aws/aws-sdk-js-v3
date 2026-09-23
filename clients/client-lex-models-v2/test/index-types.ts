@@ -819,6 +819,7 @@ export type {
   SlotValueOverride,
   SlotValueRegexFilter,
   SlotValueSelectionSetting,
+  SpeakerDiarizationSettings,
   Specifications,
   SpeechFoundationModel,
   SpeechModelConfig,

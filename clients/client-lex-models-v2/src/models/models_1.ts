@@ -15,6 +15,8 @@ import type {
   ExportStatus,
   GenerationStatus,
   ImportExportFileFormat,
+  ImportFilterName,
+  ImportFilterOperator,
   ImportResourceType,
   ImportSortAttribute,
   ImportStatus,
@@ -123,7 +125,6 @@ import type {
   GenerationSummary,
   GenerativeAISettings,
   ImageResponseCard,
-  ImportFilter,
   ImportResourceSpecification,
   InputContext,
   KendraConfiguration,
@@ -142,6 +143,7 @@ import type {
   SlotTypeValue,
   SlotValue,
   SlotValueSelectionSetting,
+  SpeakerDiarizationSettings,
   SpeechRecognitionSettings,
   SubSlotSetting,
   TestExecutionTarget,
@@ -152,6 +154,36 @@ import type {
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+/**
+ * <p>Filters the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html">ListImports</a> operation.</p>
+ * @public
+ */
+export interface ImportFilter {
+  /**
+   * <p>The name of the field to use for filtering.</p>
+   * @public
+   */
+  name: ImportFilterName | undefined;
+
+  /**
+   * <p>The values to use to filter the response. The values must be
+   *          <code>Bot</code>, <code>BotLocale</code>, or
+   *          <code>CustomVocabulary</code>.</p>
+   * @public
+   */
+  values: string[] | undefined;
+
+  /**
+   * <p>The operator to use for the filter. Specify EQ when the
+   *          <code>ListImports</code> operation should return only resource types
+   *          that equal the specified value. Specify CO when the
+   *          <code>ListImports</code> operation should return resource types that
+   *          contain the specified value.</p>
+   * @public
+   */
+  operator: ImportFilterOperator | undefined;
+}
 
 /**
  * <p>Provides information for sorting a list of imports.</p>
@@ -5177,6 +5209,15 @@ export interface UpdateBotLocaleRequest {
    * @public
    */
   speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
+
+  /**
+   * <p>The updated speaker diarization settings to apply to the bot locale.
+   *          If you omit this field, Amazon Lex keeps the setting currently stored on the
+   *          bot locale. To turn speaker diarization off, set <code>enabled</code>
+   *          to <code>false</code> explicitly.</p>
+   * @public
+   */
+  speakerDiarizationSettings?: SpeakerDiarizationSettings | undefined;
 }
 
 /**
@@ -5293,6 +5334,12 @@ export interface UpdateBotLocaleResponse {
    * @public
    */
   speechDetectionSensitivity?: SpeechDetectionSensitivity | undefined;
+
+  /**
+   * <p>The updated speaker diarization settings for the bot locale.</p>
+   * @public
+   */
+  speakerDiarizationSettings?: SpeakerDiarizationSettings | undefined;
 }
 
 /**

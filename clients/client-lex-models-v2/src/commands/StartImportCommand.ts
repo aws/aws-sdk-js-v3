@@ -63,7 +63,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *         voiceId: "STRING_VALUE", // required
  *       },
  *       speechRecognitionSettings: { // SpeechRecognitionSettings
- *         speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ *         speechModelPreference: "Standard" || "Neural" || "Deepgram" || "Advanced",
  *         speechModelConfig: { // SpeechModelConfig
  *           deepgramConfig: { // DeepgramSpeechModelConfig
  *             apiTokenSecretArn: "STRING_VALUE", // required
@@ -84,6 +84,9 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *         startDelayInMilliseconds: Number("int"),
  *         minimumPlayDurationInMilliseconds: Number("int"),
  *         responseDeliveryDelayInMilliseconds: Number("int"),
+ *       },
+ *       speakerDiarizationSettings: { // SpeakerDiarizationSettings
+ *         enabled: true || false, // required
  *       },
  *     },
  *     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
@@ -145,7 +148,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * //         voiceId: "STRING_VALUE", // required
  * //       },
  * //       speechRecognitionSettings: { // SpeechRecognitionSettings
- * //         speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ * //         speechModelPreference: "Standard" || "Neural" || "Deepgram" || "Advanced",
  * //         speechModelConfig: { // SpeechModelConfig
  * //           deepgramConfig: { // DeepgramSpeechModelConfig
  * //             apiTokenSecretArn: "STRING_VALUE", // required
@@ -166,6 +169,9 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * //         startDelayInMilliseconds: Number("int"),
  * //         minimumPlayDurationInMilliseconds: Number("int"),
  * //         responseDeliveryDelayInMilliseconds: Number("int"),
+ * //       },
+ * //       speakerDiarizationSettings: { // SpeakerDiarizationSettings
+ * //         enabled: true || false, // required
  * //       },
  * //     },
  * //     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification

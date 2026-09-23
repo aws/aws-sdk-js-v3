@@ -556,6 +556,7 @@ const _SBRRtop = "StopBotRecommendationResponse";
 const _SBRt = "StopBotRecommendation";
 const _SBTS = "S3BucketTranscriptSource";
 const _SCS = "SlotCaptureSetting";
+const _SDS = "SpeakerDiarizationSettings";
 const _SDSB = "SessionDataSortBy";
 const _SDV = "SlotDefaultValue";
 const _SDVL = "SlotDefaultValueList";
@@ -1101,6 +1102,7 @@ const _sCl = "slotConstraint";
 const _sD = "startDate";
 const _sDIM = "startDelayInMilliseconds";
 const _sDS = "speechDetectionSensitivity";
+const _sDSp = "speakerDiarizationSettings";
 const _sDT = "startDateTime";
 const _sDl = "slotDiscrepancies";
 const _sFIS = "slotsFilledInSession";
@@ -1664,8 +1666,8 @@ export var BotLocaleHistoryEvent$: StaticStructureSchema = [3, n0, _BLHE,
 ];
 export var BotLocaleImportSpecification$: StaticStructureSchema = [3, n0, _BLIS,
   0,
-  [_bI, _bV, _lI, _nICT, _vS, _sRS, _sDS, _uSS, _aFS],
-  [0, 0, 0, 1, () => VoiceSettings$, () => SpeechRecognitionSettings$, 0, () => UnifiedSpeechSettings$, () => AudioFillerSettings$], 3
+  [_bI, _bV, _lI, _nICT, _vS, _sRS, _sDS, _uSS, _aFS, _sDSp],
+  [0, 0, 0, 1, () => VoiceSettings$, () => SpeechRecognitionSettings$, 0, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeakerDiarizationSettings$], 3
 ];
 export var BotLocaleSortBy$: StaticStructureSchema = [3, n0, _BLSB,
   0,
@@ -1864,13 +1866,13 @@ export var CreateBotAliasResponse$: StaticStructureSchema = [3, n0, _CBARr,
 ];
 export var CreateBotLocaleRequest$: StaticStructureSchema = [3, n0, _CBLR,
   0,
-  [_bI, _bV, _lI, _nICT, _de, _vS, _uSS, _aFS, _sRS, _gAIS, _sDS],
-  [[0, 1], [0, 1], 0, 1, 0, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, () => GenerativeAISettings$, 0], 4
+  [_bI, _bV, _lI, _nICT, _de, _vS, _uSS, _aFS, _sRS, _gAIS, _sDS, _sDSp],
+  [[0, 1], [0, 1], 0, 1, 0, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, () => GenerativeAISettings$, 0, () => SpeakerDiarizationSettings$], 4
 ];
 export var CreateBotLocaleResponse$: StaticStructureSchema = [3, n0, _CBLRr,
   0,
-  [_bI, _bV, _lN, _lI, _de, _nICT, _vS, _uSS, _aFS, _sRS, _bLS, _cDT, _gAIS, _sDS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, 0, 4, () => GenerativeAISettings$, 0]
+  [_bI, _bV, _lN, _lI, _de, _nICT, _vS, _uSS, _aFS, _sRS, _bLS, _cDT, _gAIS, _sDS, _sDSp],
+  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, 0, 4, () => GenerativeAISettings$, 0, () => SpeakerDiarizationSettings$]
 ];
 export var CreateBotReplicaRequest$: StaticStructureSchema = [3, n0, _CBRR,
   0,
@@ -2199,8 +2201,8 @@ export var DescribeBotLocaleRequest$: StaticStructureSchema = [3, n0, _DBLRes,
 ];
 export var DescribeBotLocaleResponse$: StaticStructureSchema = [3, n0, _DBLResc,
   0,
-  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _uSS, _aFS, _sRS, _iCnt, _sTC, _bLS, _fR, _cDT, _lUDT, _lBSDT, _bLHE, _rAec, _gAIS, _sDS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, 1, 1, 0, 64 | 0, 4, 4, 4, () => BotLocaleHistoryEventsList, 64 | 0, () => GenerativeAISettings$, 0]
+  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _uSS, _aFS, _sRS, _iCnt, _sTC, _bLS, _fR, _cDT, _lUDT, _lBSDT, _bLHE, _rAec, _gAIS, _sDS, _sDSp],
+  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, 1, 1, 0, 64 | 0, 4, 4, 4, () => BotLocaleHistoryEventsList, 64 | 0, () => GenerativeAISettings$, 0, () => SpeakerDiarizationSettings$]
 ];
 export var DescribeBotRecommendationRequest$: StaticStructureSchema = [3, n0, _DBRRes,
   0,
@@ -3262,6 +3264,11 @@ export var SlotValueSelectionSetting$: StaticStructureSchema = [3, n0, _SVSS,
   [_rSe, _rF, _aRSd],
   [0, () => SlotValueRegexFilter$, () => AdvancedRecognitionSetting$], 1
 ];
+export var SpeakerDiarizationSettings$: StaticStructureSchema = [3, n0, _SDS,
+  0,
+  [_en],
+  [2], 1
+];
 export var Specifications$: StaticStructureSchema = [3, n0, _S,
   0,
   [_sTI, _vES],
@@ -3549,13 +3556,13 @@ export var UpdateBotAliasResponse$: StaticStructureSchema = [3, n0, _UBARp,
 ];
 export var UpdateBotLocaleRequest$: StaticStructureSchema = [3, n0, _UBLR,
   0,
-  [_bI, _bV, _lI, _nICT, _de, _vS, _uSS, _aFS, _sRS, _gAIS, _sDS],
-  [[0, 1], [0, 1], [0, 1], 1, 0, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, () => GenerativeAISettings$, 0], 4
+  [_bI, _bV, _lI, _nICT, _de, _vS, _uSS, _aFS, _sRS, _gAIS, _sDS, _sDSp],
+  [[0, 1], [0, 1], [0, 1], 1, 0, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, () => GenerativeAISettings$, 0, () => SpeakerDiarizationSettings$], 4
 ];
 export var UpdateBotLocaleResponse$: StaticStructureSchema = [3, n0, _UBLRp,
   0,
-  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _uSS, _aFS, _sRS, _bLS, _fR, _cDT, _lUDT, _rAec, _gAIS, _sDS],
-  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, 0, 64 | 0, 4, 4, 64 | 0, () => GenerativeAISettings$, 0]
+  [_bI, _bV, _lI, _lN, _de, _nICT, _vS, _uSS, _aFS, _sRS, _bLS, _fR, _cDT, _lUDT, _rAec, _gAIS, _sDS, _sDSp],
+  [0, 0, 0, 0, 0, 1, () => VoiceSettings$, () => UnifiedSpeechSettings$, () => AudioFillerSettings$, () => SpeechRecognitionSettings$, 0, 64 | 0, 4, 4, 64 | 0, () => GenerativeAISettings$, 0, () => SpeakerDiarizationSettings$]
 ];
 export var UpdateBotRecommendationRequest$: StaticStructureSchema = [3, n0, _UBRR,
   0,

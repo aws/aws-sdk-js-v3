@@ -695,6 +695,7 @@ import {
   SlotValueResolutionStrategy,
   SlotValueSelectionSetting$,
   SortOrder,
+  SpeakerDiarizationSettings$,
   Specifications$,
   SpeechDetectionSensitivity,
   SpeechFoundationModel$,
@@ -1472,6 +1473,7 @@ assert(typeof SlotValueElicitationSetting$ === "object");
 assert(typeof SlotValueOverride$ === "object");
 assert(typeof SlotValueRegexFilter$ === "object");
 assert(typeof SlotValueSelectionSetting$ === "object");
+assert(typeof SpeakerDiarizationSettings$ === "object");
 assert(typeof Specifications$ === "object");
 assert(typeof SpeechFoundationModel$ === "object");
 assert(typeof SpeechModelConfig$ === "object");
