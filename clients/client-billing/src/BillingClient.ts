@@ -94,6 +94,10 @@ import type {
 } from "./commands/GetResourcePolicyCommand";
 import type { ListBillingViewsCommandInput, ListBillingViewsCommandOutput } from "./commands/ListBillingViewsCommand";
 import type {
+  ListBillingViewSegmentsCommandInput,
+  ListBillingViewSegmentsCommandOutput,
+} from "./commands/ListBillingViewSegmentsCommand";
+import type {
   ListEnterpriseSupportLinkedAccountChargesCommandInput,
   ListEnterpriseSupportLinkedAccountChargesCommandOutput,
 } from "./commands/ListEnterpriseSupportLinkedAccountChargesCommand";
@@ -142,6 +146,7 @@ export type ServiceInputTypes =
   | GetEnterpriseSupportChargeSummaryCommandInput
   | GetEnterpriseSupportContractDetailsCommandInput
   | GetResourcePolicyCommandInput
+  | ListBillingViewSegmentsCommandInput
   | ListBillingViewsCommandInput
   | ListEnterpriseSupportLinkedAccountChargesCommandInput
   | ListSourceViewsForBillingViewCommandInput
@@ -167,6 +172,7 @@ export type ServiceOutputTypes =
   | GetEnterpriseSupportChargeSummaryCommandOutput
   | GetEnterpriseSupportContractDetailsCommandOutput
   | GetResourcePolicyCommandOutput
+  | ListBillingViewSegmentsCommandOutput
   | ListBillingViewsCommandOutput
   | ListEnterpriseSupportLinkedAccountChargesCommandOutput
   | ListSourceViewsForBillingViewCommandOutput

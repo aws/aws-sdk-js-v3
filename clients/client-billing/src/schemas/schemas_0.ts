@@ -20,6 +20,9 @@ const _BVHSE = "BillingViewHealthStatusException";
 const _BVL = "BillingViewList";
 const _BVLE = "BillingViewListElement";
 const _BVN = "BillingViewName";
+const _BVSL = "BillingViewSegmentsList";
+const _BVSLE = "BillingViewSegmentsListElement";
+const _BVSTR = "BillingViewSegmentTimeRange";
 const _CA = "ChargeAccount";
 const _CAHE = "CreditAllocationHistoryEntry";
 const _CAHL = "CreditAllocationHistoryList";
@@ -69,6 +72,9 @@ const _LACL = "LinkedAccountChargeList";
 const _LBV = "ListBillingViews";
 const _LBVR = "ListBillingViewsRequest";
 const _LBVRi = "ListBillingViewsResponse";
+const _LBVS = "ListBillingViewSegments";
+const _LBVSR = "ListBillingViewSegmentsRequest";
+const _LBVSRi = "ListBillingViewSegmentsResponse";
 const _LESLAC = "ListEnterpriseSupportLinkedAccountCharges";
 const _LESLACR = "ListEnterpriseSupportLinkedAccountChargesRequest";
 const _LESLACRi = "ListEnterpriseSupportLinkedAccountChargesResponse";
@@ -135,6 +141,7 @@ const _bC = "baseCharge";
 const _bD = "beginDate";
 const _bDI = "beginDateInclusive";
 const _bDi = "billDate";
+const _bGPAI = "billingGroupPrimaryAccountId";
 const _bM = "billingMonth";
 const _bP = "billingPeriod";
 const _bPED = "billingPeriodEndDate";
@@ -142,6 +149,7 @@ const _bPPK = "billingPreferencesPerKey";
 const _bPSD = "billingPeriodStartDate";
 const _bPi = "billingPreferences";
 const _bS = "billableSeconds";
+const _bTAI = "billingTransferAccountId";
 const _bV = "billingView";
 const _bVT = "billingViewType";
 const _bVTi = "billingViewTypes";
@@ -170,9 +178,11 @@ const _dATMC = "discountAppliesToMinimumCharge";
 const _dFE = "dataFilterExpression";
 const _dVC = "derivedViewCount";
 const _di = "dimensions";
+const _do = "domain";
 const _e = "error";
 const _eA = "estimatedAmount";
 const _eD = "endDate";
+const _eDE = "endDateExclusive";
 const _eDI = "endDateInclusive";
 const _eDx = "exhaustDate";
 const _f = "feature";
@@ -185,7 +195,7 @@ const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hS = "healthStatus";
-const _i = "incremental";
+const _i = "items";
 const _iA = "initialAmount";
 const _iC = "incrementCharge";
 const _iCA = "isContractActive";
@@ -193,11 +203,13 @@ const _iE = "isEstimated";
 const _iEB = "isEstimatedBill";
 const _iG = "isGdn";
 const _iT = "idempotencyToken";
-const _in = "increment";
+const _in = "incremental";
+const _inc = "increment";
 const _k = "key";
 const _lA = "linkedAccount";
 const _lTP = "linkedTimePeriods";
 const _m = "message";
+const _mAI = "managementAccountId";
 const _mC = "minimumCharge";
 const _mR = "maxResults";
 const _mo = "month";
@@ -413,6 +425,16 @@ export var BillingViewListElement$: StaticStructureSchema = [3, n0, _BVLE,
   [_ar, _n, _d, _oAI, _sAI, _bVT, _hS],
   [0, [() => BillingViewName, 0], [() => BillingViewDescription, 0], 0, 0, 0, () => BillingViewHealthStatus$]
 ];
+export var BillingViewSegmentsListElement$: StaticStructureSchema = [3, n0, _BVSLE,
+  0,
+  [_do, _tR, _bTAI, _mAI, _bGPAI],
+  [0, () => BillingViewSegmentTimeRange$, 0, 0, 0]
+];
+export var BillingViewSegmentTimeRange$: StaticStructureSchema = [3, n0, _BVSTR,
+  0,
+  [_bDI, _eDE],
+  [4, 4]
+];
 export var ChargeAccount$: StaticStructureSchema = [3, n0, _CA,
   0,
   [_aI, _cP],
@@ -558,6 +580,16 @@ export var LinkedAccountCharge$: StaticStructureSchema = [3, n0, _LAC,
   [_aI, _pAI, _bS, _tS, _tSES, _pTSES, _aTc, _lTP, _sTP, _tSERIS, _tSESPS, _sESBS],
   [0, 0, 1, 1, 0, 0, 0, () => TimePeriodList, () => TimePeriodList, 0, 0, () => ServiceLevelAccountUsageList], 6
 ];
+export var ListBillingViewSegmentsRequest$: StaticStructureSchema = [3, n0, _LBVSR,
+  0,
+  [_tR, _ar, _mR, _nT],
+  [() => BillingViewSegmentTimeRange$, 0, 1, 0]
+];
+export var ListBillingViewSegmentsResponse$: StaticStructureSchema = [3, n0, _LBVSRi,
+  0,
+  [_i, _nT],
+  [() => BillingViewSegmentsList, 0], 1
+];
 export var ListBillingViewsRequest$: StaticStructureSchema = [3, n0, _LBVR,
   0,
   [_aTR, _arn, _bVTi, _na, _oAI, _sAI, _mR, _nT],
@@ -605,7 +637,7 @@ export var PricingPlan$: StaticStructureSchema = [3, n0, _PP,
 ];
 export var PricingPlanTier$: StaticStructureSchema = [3, n0, _PPT,
   0,
-  [_tM, _bC, _aPOAC, _aCA, _i, _tMi, _in, _iC],
+  [_tM, _bC, _aPOAC, _aCA, _in, _tMi, _inc, _iC],
   [0, 0, 0, 0, 2, 0, 0, 0], 5
 ];
 export var RedeemCreditsRequest$: StaticStructureSchema = [3, n0, _RCR,
@@ -707,6 +739,9 @@ var BillingViewList: StaticListSchema = [1, n0, _BVL,
   0, [() => BillingViewListElement$,
     0]
 ];
+var BillingViewSegmentsList: StaticListSchema = [1, n0, _BVSL,
+  0, () => BillingViewSegmentsListElement$
+];
 var BillingViewSourceViewsList = 64 | 0;
 var BillingViewStatusReasons = 64 | 0;
 var BillingViewTypeList = 64 | 0;
@@ -787,6 +822,9 @@ export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
 ];
 export var ListBillingViews$: StaticOperationSchema = [9, n0, _LBV,
   { [_h]: ["POST", "/", 200] }, () => ListBillingViewsRequest$, () => ListBillingViewsResponse$
+];
+export var ListBillingViewSegments$: StaticOperationSchema = [9, n0, _LBVS,
+  0, () => ListBillingViewSegmentsRequest$, () => ListBillingViewSegmentsResponse$
 ];
 export var ListEnterpriseSupportLinkedAccountCharges$: StaticOperationSchema = [9, n0, _LESLAC,
   0, () => ListEnterpriseSupportLinkedAccountChargesRequest$, () => ListEnterpriseSupportLinkedAccountChargesResponse$

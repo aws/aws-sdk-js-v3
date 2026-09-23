@@ -265,6 +265,13 @@ ListBillingViews
 </details>
 <details>
 <summary>
+ListBillingViewSegments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/ListBillingViewSegmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/ListBillingViewSegmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/ListBillingViewSegmentsCommandOutput/)
+</details>
+<details>
+<summary>
 ListEnterpriseSupportLinkedAccountCharges
 </summary>
 

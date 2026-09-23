@@ -10,6 +10,7 @@ export * from "./GetCreditsCommand";
 export * from "./GetEnterpriseSupportChargeSummaryCommand";
 export * from "./GetEnterpriseSupportContractDetailsCommand";
 export * from "./GetResourcePolicyCommand";
+export * from "./ListBillingViewSegmentsCommand";
 export * from "./ListBillingViewsCommand";
 export * from "./ListEnterpriseSupportLinkedAccountChargesCommand";
 export * from "./ListSourceViewsForBillingViewCommand";

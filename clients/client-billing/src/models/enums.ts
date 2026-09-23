@@ -171,3 +171,16 @@ export const SearchOption = {
  * @public
  */
 export type SearchOption = (typeof SearchOption)[keyof typeof SearchOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const BillingDomain = {
+  BILLABLE: "BILLABLE",
+  PRO_FORMA: "PRO_FORMA",
+} as const;
+/**
+ * @public
+ */
+export type BillingDomain = (typeof BillingDomain)[keyof typeof BillingDomain];

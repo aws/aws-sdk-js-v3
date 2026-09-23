@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   ApplicationType,
+  BillingDomain,
   BillingFeature,
   BillingFeatureFilterName,
   BillingViewStatus,
@@ -1398,6 +1399,106 @@ export interface ListBillingViewsResponse {
 
   /**
    * <p>The pagination token to use on subsequent calls to list billing views. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p> Specifies a time range with an inclusive begin date and an exclusive end date. </p>
+ * @public
+ */
+export interface BillingViewSegmentTimeRange {
+  /**
+   * <p> The inclusive start of the time range. This value can't be in the future. </p>
+   * @public
+   */
+  beginDateInclusive?: Date | undefined;
+
+  /**
+   * <p> The exclusive end of the time range. This value must be after <code>beginDateInclusive</code>. </p>
+   * @public
+   */
+  endDateExclusive?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBillingViewSegmentsRequest {
+  /**
+   * <p> The billing period to query. If you don't provide a time range, the current billing period, which is the calendar month in UTC, is used. </p>
+   * @public
+   */
+  timeRange?: BillingViewSegmentTimeRange | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) that uniquely identifies the billing view to query. If you don't provide an ARN, the caller's <code>PRIMARY</code> billing view is used. The ARN must reference a primary billing view. Custom billing views aren't supported. </p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p> The number of entries a paginated response contains. Valid values range from 1 to 100. The default is 100. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p> The pagination token that is used on subsequent calls to list billing view segments. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p> A billing view segment. A segment represents a time range during which the billing domain and account relationships for a billing view remained unchanged. </p>
+ * @public
+ */
+export interface BillingViewSegmentsListElement {
+  /**
+   * <p>The billing domain for this segment. The following values are valid:</p> <ul> <li> <p> <code>PRO_FORMA</code> - Data shaped by Billing Conductor that doesn't reflect the final charges owed to Amazon Web Services.</p> </li> <li> <p> <code>BILLABLE</code> - Data that represents the final charges owed to Amazon Web Services.</p> </li> </ul>
+   * @public
+   */
+  domain?: BillingDomain | undefined;
+
+  /**
+   * <p> The time range during which this segment is effective. </p>
+   * @public
+   */
+  timeRange?: BillingViewSegmentTimeRange | undefined;
+
+  /**
+   * <p> The billing transfer account ID. The response includes this field only when the caller is a billing transfer source account. The response omits this field for billing group billing views. </p>
+   * @public
+   */
+  billingTransferAccountId?: string | undefined;
+
+  /**
+   * <p> The management account ID of the organization. The response includes this field for organization member accounts. </p>
+   * @public
+   */
+  managementAccountId?: string | undefined;
+
+  /**
+   * <p> The billing group primary account ID. The response includes this field for billing group members. Compare this value to your own account ID to determine whether you are the primary account. </p>
+   * @public
+   */
+  billingGroupPrimaryAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBillingViewSegmentsResponse {
+  /**
+   * <p> A list of billing view segments. Each segment covers a portion of the requested time period. The response omits hidden segments, so the segments it returns might not cover the entire requested time period. </p>
+   * @public
+   */
+  items: BillingViewSegmentsListElement[] | undefined;
+
+  /**
+   * <p> The pagination token that is used on subsequent calls to list billing view segments. </p>
    * @public
    */
   nextToken?: string | undefined;
