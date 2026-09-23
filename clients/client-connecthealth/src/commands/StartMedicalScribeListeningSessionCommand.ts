@@ -39,7 +39,7 @@ export interface StartMedicalScribeListeningSessionCommandOutput extends StartMe
  *   sessionId: "STRING_VALUE", // required
  *   domainId: "STRING_VALUE", // required
  *   subscriptionId: "STRING_VALUE", // required
- *   languageCode: "en-US", // required
+ *   languageCode: "en-US" || "multi", // required
  *   mediaSampleRateHertz: Number("int"), // required
  *   mediaEncoding: "pcm" || "flac", // required
  *   inputStream: { // MedicalScribeInputStream Union: only one key present
@@ -91,7 +91,7 @@ export interface StartMedicalScribeListeningSessionCommandOutput extends StartMe
  * //   domainId: "STRING_VALUE",
  * //   subscriptionId: "STRING_VALUE",
  * //   requestId: "STRING_VALUE",
- * //   languageCode: "en-US",
+ * //   languageCode: "en-US" || "multi",
  * //   mediaSampleRateHertz: Number("int"),
  * //   mediaEncoding: "pcm" || "flac",
  * //   responseStream: { // MedicalScribeOutputStream Union: only one key present
