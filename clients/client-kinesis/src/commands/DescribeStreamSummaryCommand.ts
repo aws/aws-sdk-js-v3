@@ -79,6 +79,7 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * //     },
  * //     MaxRecordSizeInKiB: Number("int"),
  * //     ChannelCount: Number("int"),
+ * //     RecordDistributionStrategy: "AUTO" || "USER_PARTITION_KEY",
  * //   },
  * // };
  *

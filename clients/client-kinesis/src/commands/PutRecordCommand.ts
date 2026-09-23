@@ -75,7 +75,7 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * const input = { // PutRecordInput
  *   StreamName: "STRING_VALUE",
  *   Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
- *   PartitionKey: "STRING_VALUE", // required
+ *   PartitionKey: "STRING_VALUE",
  *   ExplicitHashKey: "STRING_VALUE",
  *   SequenceNumberForOrdering: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",

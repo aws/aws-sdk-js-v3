@@ -107,6 +107,8 @@ import {
   UpdateShardCountCommand,
   UpdateStreamMode$,
   UpdateStreamModeCommand,
+  UpdateStreamRecordDistributionStrategy$,
+  UpdateStreamRecordDistributionStrategyCommand,
   UpdateStreamWarmThroughput$,
   UpdateStreamWarmThroughputCommand,
   ValidationException$,
@@ -173,6 +175,7 @@ describe("KinesisClient" + ` (${mode})`, () => {
       [UpdateMaxRecordSize$, UpdateMaxRecordSizeCommand],
       [UpdateShardCount$, UpdateShardCountCommand],
       [UpdateStreamMode$, UpdateStreamModeCommand],
+      [UpdateStreamRecordDistributionStrategy$, UpdateStreamRecordDistributionStrategyCommand],
       [UpdateStreamWarmThroughput$, UpdateStreamWarmThroughputCommand],
     ]),
     errors: [

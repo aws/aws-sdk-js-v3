@@ -24,7 +24,7 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified channel. Deleting a channel stops delivery from the source stream to the destination. Data already delivered to the destination is not deleted.</p>
- *          <p>A stream cannot be deleted while it has active channels. To delete the stream, first delete all channels attached to it. To find them, use <a>ListChannels</a> with a stream filter.</p>
+ *          <p>A stream cannot be deleted while it has active channels. Use <a>ListChannels</a> with a stream filter to find the channels attached to a stream before deleting it.</p>
  *          <p>This operation has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. Exceeding 5 TPS results in a <code>LimitExceededException</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

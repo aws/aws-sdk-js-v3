@@ -220,6 +220,11 @@ import {
   UpdateStreamModeCommand,
 } from "./commands/UpdateStreamModeCommand";
 import {
+  type UpdateStreamRecordDistributionStrategyCommandInput,
+  type UpdateStreamRecordDistributionStrategyCommandOutput,
+  UpdateStreamRecordDistributionStrategyCommand,
+} from "./commands/UpdateStreamRecordDistributionStrategyCommand";
+import {
   type UpdateStreamWarmThroughputCommandInput,
   type UpdateStreamWarmThroughputCommandOutput,
   UpdateStreamWarmThroughputCommand,
@@ -278,6 +283,7 @@ const commands = {
   UpdateMaxRecordSizeCommand,
   UpdateShardCountCommand,
   UpdateStreamModeCommand,
+  UpdateStreamRecordDistributionStrategyCommand,
   UpdateStreamWarmThroughputCommand,
 };
 const paginators = {
@@ -1039,6 +1045,23 @@ export interface Kinesis {
     args: UpdateStreamModeCommandInput,
     options: KinesisRequestOptions,
     cb: (err: any, data?: UpdateStreamModeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateStreamRecordDistributionStrategyCommand}
+   */
+  updateStreamRecordDistributionStrategy(
+    args: UpdateStreamRecordDistributionStrategyCommandInput,
+    options?: KinesisRequestOptions
+  ): Promise<UpdateStreamRecordDistributionStrategyCommandOutput>;
+  updateStreamRecordDistributionStrategy(
+    args: UpdateStreamRecordDistributionStrategyCommandInput,
+    cb: (err: any, data?: UpdateStreamRecordDistributionStrategyCommandOutput) => void
+  ): void;
+  updateStreamRecordDistributionStrategy(
+    args: UpdateStreamRecordDistributionStrategyCommandInput,
+    options: KinesisRequestOptions,
+    cb: (err: any, data?: UpdateStreamRecordDistributionStrategyCommandOutput) => void
   ): void;
 
   /**

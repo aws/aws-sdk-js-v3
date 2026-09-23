@@ -42,4 +42,5 @@ export * from "./UpdateChannelCommand";
 export * from "./UpdateMaxRecordSizeCommand";
 export * from "./UpdateShardCountCommand";
 export * from "./UpdateStreamModeCommand";
+export * from "./UpdateStreamRecordDistributionStrategyCommand";
 export * from "./UpdateStreamWarmThroughputCommand";

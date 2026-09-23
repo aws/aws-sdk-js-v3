@@ -9,6 +9,7 @@ import type {
   MinimumThroughputBillingCommitmentInputStatus,
   MinimumThroughputBillingCommitmentOutputStatus,
   PartitionTransform,
+  RecordDistributionStrategy,
   RecordFormatType,
   S3CompressionType,
   S3StorageClass,
@@ -167,7 +168,7 @@ export interface S3StorageConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>STANDARD</code> - Default storage class for frequently accessed data. (default)</p>
+   *                   <code>STANDARD</code> - The default storage class, for frequently accessed data.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -361,7 +362,7 @@ export interface RecordConfiguration {
   RecordFormatType: RecordFormatType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Glue Schema Registry schema used to validate records. Required when the channel destination is a streaming table (Amazon S3 Tables), for both the <code>JSON</code> and <code>GSR_JSON</code> record formats.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Glue Schema Registry schema used to validate records. Required when the channel destination is a streaming table.</p>
    * @public
    */
   GSRSchemaARN?: string | undefined;
@@ -479,7 +480,7 @@ export interface ChannelDescription {
   S3TablesDestinationConfiguration?: S3TablesDestinationDescription | undefined;
 
   /**
-   * <p>The server-side encryption configuration for the channel.</p>
+   * <p>The Amazon Web Services KMS key configuration that Amazon Kinesis Data Streams uses to encrypt data delivered to the channel's destination.</p>
    * @public
    */
   EncryptionConfiguration?: ChannelEncryptionConfiguration | undefined;
@@ -521,7 +522,7 @@ export interface CloudWatchLogsUpdateInput {
  */
 export interface ChannelLoggingUpdateInput {
   /**
-   * <p>The updated Amazon CloudWatch Logs settings for the channel.</p>
+   * <p>The updated Amazon CloudWatch Logs settings, including whether logging is enabled and the target log group and log stream.</p>
    * @public
    */
   CloudWatchLogs: CloudWatchLogsUpdateInput | undefined;
@@ -780,7 +781,7 @@ export interface ConsumerDescription {
  */
 export interface S3DestinationConfiguration {
   /**
-   * <p>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds (5 to 15 minutes). The default value is 300 seconds.</p>
+   * <p>The maximum age, in seconds, of undelivered data before the channel delivers it to the destination. The default value is 300 seconds.</p>
    * @public
    */
   DataFreshnessInSeconds?: number | undefined;
@@ -804,7 +805,7 @@ export interface S3DestinationConfiguration {
  */
 export interface S3TablesDestinationConfiguration {
   /**
-   * <p>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds (5 to 15 minutes). The default value is 300 seconds.</p>
+   * <p>The maximum age, in seconds, of undelivered data before the channel delivers it to the destination. The default value is 300 seconds.</p>
    * @public
    */
   DataFreshnessInSeconds?: number | undefined;
@@ -845,13 +846,13 @@ export interface CreateChannelInput {
   StreamConfigurationList: ChannelStreamConfiguration[] | undefined;
 
   /**
-   * <p>The configuration for delivery to a general purpose Amazon S3 bucket. You must specify either <code>S3DestinationConfiguration</code> or <code>S3TablesDestinationConfiguration</code>, but not both.</p>
+   * <p>The configuration for delivery to a general purpose Amazon S3 bucket. Specify this parameter when <code>S3TablesDestinationConfiguration</code> is not specified.</p>
    * @public
    */
   S3DestinationConfiguration?: S3DestinationConfiguration | undefined;
 
   /**
-   * <p>The configuration for delivery to streaming tables on Apache Iceberg in Amazon S3 Tables. You must specify either <code>S3DestinationConfiguration</code> or <code>S3TablesDestinationConfiguration</code>, but not both.</p>
+   * <p>The configuration for delivery to streaming tables on Apache Iceberg in Amazon S3 Tables. Specify this parameter when <code>S3DestinationConfiguration</code> is not specified.</p>
    * @public
    */
   S3TablesDestinationConfiguration?: S3TablesDestinationConfiguration | undefined;
@@ -880,7 +881,7 @@ export interface CreateChannelInput {
  */
 export interface CreateChannelOutput {
   /**
-   * <p>The configuration and current status of the channel.</p>
+   * <p>The configuration and current status of the channel, including its ARN, destination configuration, and lifecycle state. Immediately after creation, the state is <code>CREATING</code>.</p>
    * @public
    */
   ChannelDescription: ChannelDescription | undefined;
@@ -948,6 +949,32 @@ export interface CreateStreamInput {
    * @public
    */
   MaxRecordSizeInKiB?: number | undefined;
+
+  /**
+   * <p>The record distribution strategy for the stream, which determines how Amazon Kinesis
+   *             Data Streams distributes records across shards. Specify one of the following
+   *             values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO</code> – Amazon Kinesis Data Streams distributes records evenly
+   *                     across shards and ignores any partition key and <code>ExplicitHashKey</code>
+   *                     that producers supply. Use this value for stateless workloads that do not
+   *                     require partition-key ordering.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>USER_PARTITION_KEY</code> – Producers must supply a partition key, which
+   *                     Amazon Kinesis Data Streams uses to determine shard placement. This is the
+   *                     default.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The record distribution strategy is only supported for streams that use the on-demand
+   *             capacity mode. If you do not specify this parameter, the stream uses
+   *             <code>USER_PARTITION_KEY</code>.</p>
+   * @public
+   */
+  RecordDistributionStrategy?: RecordDistributionStrategy | undefined;
 }
 
 /**
@@ -1138,7 +1165,7 @@ export interface DescribeChannelInput {
  */
 export interface DescribeChannelOutput {
   /**
-   * <p>The configuration and current status of the channel.</p>
+   * <p>The configuration and current status of the channel, including its ARN, source stream, destination configuration, and lifecycle state.</p>
    * @public
    */
   ChannelDescription: ChannelDescription | undefined;
@@ -1751,6 +1778,16 @@ export interface StreamDescriptionSummary {
    * @public
    */
   ChannelCount?: number | undefined;
+
+  /**
+   * <p>The record distribution strategy that the stream currently uses. A value of
+   *             <code>AUTO</code> indicates that Amazon Kinesis Data Streams distributes records across
+   *             shards using service-managed algorithms. A value of <code>USER_PARTITION_KEY</code>
+   *             indicates that shard placement is determined by the partition key that producers supply.
+   *             This field is only present for streams that use the on-demand capacity mode.</p>
+   * @public
+   */
+  RecordDistributionStrategy?: RecordDistributionStrategy | undefined;
 }
 
 /**
@@ -2021,9 +2058,13 @@ export interface _Record {
 
   /**
    * <p>Identifies which shard in the stream the data record is assigned to.</p>
+   *          <p>For a stream that uses the <code>AUTO</code> record distribution strategy, this value
+   *             is not returned if the producer did not provide a partition key when writing the record.
+   *             If the producer provided a partition key, the original value is returned even though it
+   *             was not used to determine shard placement.</p>
    * @public
    */
-  PartitionKey: string | undefined;
+  PartitionKey?: string | undefined;
 
   /**
    * <p>The encryption type used on the record. This parameter can be one of the following
@@ -2276,7 +2317,7 @@ export interface ListChannelsInput {
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token returned by a previous call. Specify this token to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * <p>The pagination token returned by a previous call. Specify this token to retrieve the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -2873,9 +2914,16 @@ export interface PutRecordInput {
    *             function is used to map partition keys to 128-bit integer values and to map associated
    *             data records to shards. As a result of this hashing mechanism, all data records with the
    *             same partition key map to the same shard within the stream.</p>
+   *          <p>If the stream uses the <code>USER_PARTITION_KEY</code> record distribution strategy
+   *             (the default), a partition key is required. If the stream uses the <code>AUTO</code>
+   *             record distribution strategy, the partition key is optional and any value you provide is
+   *             ignored, along with any <code>ExplicitHashKey</code> you provide. In that case, Amazon
+   *             Kinesis Data Streams distributes the record across shards using service-managed
+   *             algorithms. For more information, see
+   *             <code>UpdateStreamRecordDistributionStrategy</code>.</p>
    * @public
    */
-  PartitionKey: string | undefined;
+  PartitionKey?: string | undefined;
 
   /**
    * <p>The hash value used to explicitly determine the shard the data record is assigned to
@@ -2981,9 +3029,16 @@ export interface PutRecordsRequestEntry {
    *             function is used to map partition keys to 128-bit integer values and to map associated
    *             data records to shards. As a result of this hashing mechanism, all data records with the
    *             same partition key map to the same shard within the stream.</p>
+   *          <p>If the stream uses the <code>USER_PARTITION_KEY</code> record distribution strategy
+   *             (the default), a partition key is required for each record. If the stream uses the
+   *             <code>AUTO</code> record distribution strategy, the partition key is optional and any
+   *             value you provide is ignored, along with any <code>ExplicitHashKey</code> you provide.
+   *             In that case, Amazon Kinesis Data Streams distributes records across shards using
+   *             service-managed algorithms. For more information, see
+   *             <code>UpdateStreamRecordDistributionStrategy</code>.</p>
    * @public
    */
-  PartitionKey: string | undefined;
+  PartitionKey?: string | undefined;
 }
 
 /**
@@ -3859,7 +3914,7 @@ export interface UpdateAccountSettingsOutput {
  */
 export interface S3DestinationUpdateInput {
   /**
-   * <p>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds (5 to 15 minutes).</p>
+   * <p>The maximum age, in seconds, of undelivered data before the channel delivers it to the destination.</p>
    * @public
    */
   DataFreshnessInSeconds: number | undefined;
@@ -3871,7 +3926,7 @@ export interface S3DestinationUpdateInput {
  */
 export interface S3TablesDestinationUpdateInput {
   /**
-   * <p>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds (5 to 15 minutes).</p>
+   * <p>The maximum age, in seconds, of undelivered data before the channel delivers it to the destination.</p>
    * @public
    */
   DataFreshnessInSeconds: number | undefined;
@@ -3888,13 +3943,13 @@ export interface UpdateChannelInput {
   ChannelARN: string | undefined;
 
   /**
-   * <p>The updated configuration for a general purpose Amazon S3 destination. Only <code>DataFreshnessInSeconds</code> can be updated.</p>
+   * <p>The updated configuration for a general purpose Amazon S3 destination. Specify this parameter when the channel delivers to a general purpose Amazon S3 bucket. Only <code>DataFreshnessInSeconds</code> can be updated.</p>
    * @public
    */
   S3DestinationConfiguration?: S3DestinationUpdateInput | undefined;
 
   /**
-   * <p>The updated configuration for a streaming table destination. Only <code>DataFreshnessInSeconds</code> can be updated.</p>
+   * <p>The updated configuration for a streaming table destination. Specify this parameter when the channel delivers to streaming tables on Apache Iceberg in Amazon S3 Tables. Only <code>DataFreshnessInSeconds</code> can be updated.</p>
    * @public
    */
   S3TablesDestinationConfiguration?: S3TablesDestinationUpdateInput | undefined;
@@ -3911,7 +3966,7 @@ export interface UpdateChannelInput {
  */
 export interface UpdateChannelOutput {
   /**
-   * <p>The configuration and current status of the updated channel.</p>
+   * <p>The configuration and current status of the channel after the update, including its ARN, destination configuration, and lifecycle state. Immediately after the request, the state is <code>UPDATING</code>.</p>
    * @public
    */
   ChannelDescription: ChannelDescription | undefined;
@@ -4051,6 +4106,44 @@ export interface UpdateStreamModeInput {
    * @public
    */
   WarmThroughputMiBps?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStreamRecordDistributionStrategyInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream to update.</p>
+   * @public
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>Not Implemented. Reserved for future use.</p>
+   * @public
+   */
+  StreamId?: string | undefined;
+
+  /**
+   * <p>The record distribution strategy to apply to the stream. Specify one of the following
+   *             values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO</code> – Amazon Kinesis Data Streams distributes records evenly
+   *                     across shards and ignores any partition key and <code>ExplicitHashKey</code>
+   *                     that producers supply.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>USER_PARTITION_KEY</code> – Producers must supply a partition key, which
+   *                     Amazon Kinesis Data Streams uses to determine shard placement. This is the
+   *                     default.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RecordDistributionStrategy: RecordDistributionStrategy | undefined;
 }
 
 /**

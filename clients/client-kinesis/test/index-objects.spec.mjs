@@ -175,6 +175,7 @@ import {
   PutResourcePolicyCommand,
   PutResourcePolicyInput$,
   RecordConfiguration$,
+  RecordDistributionStrategy,
   RecordFormatType,
   RegisterStreamConsumer$,
   RegisterStreamConsumerCommand,
@@ -252,6 +253,9 @@ import {
   UpdateStreamMode$,
   UpdateStreamModeCommand,
   UpdateStreamModeInput$,
+  UpdateStreamRecordDistributionStrategy$,
+  UpdateStreamRecordDistributionStrategyCommand,
+  UpdateStreamRecordDistributionStrategyInput$,
   UpdateStreamWarmThroughput$,
   UpdateStreamWarmThroughputCommand,
   UpdateStreamWarmThroughputInput$,
@@ -357,6 +361,8 @@ assert(typeof UpdateShardCountCommand === "function");
 assert(typeof UpdateShardCount$ === "object");
 assert(typeof UpdateStreamModeCommand === "function");
 assert(typeof UpdateStreamMode$ === "object");
+assert(typeof UpdateStreamRecordDistributionStrategyCommand === "function");
+assert(typeof UpdateStreamRecordDistributionStrategy$ === "object");
 assert(typeof UpdateStreamWarmThroughputCommand === "function");
 assert(typeof UpdateStreamWarmThroughput$ === "object");
 // structural schemas
@@ -471,6 +477,7 @@ assert(typeof UpdateMaxRecordSizeInput$ === "object");
 assert(typeof UpdateShardCountInput$ === "object");
 assert(typeof UpdateShardCountOutput$ === "object");
 assert(typeof UpdateStreamModeInput$ === "object");
+assert(typeof UpdateStreamRecordDistributionStrategyInput$ === "object");
 assert(typeof UpdateStreamWarmThroughputInput$ === "object");
 assert(typeof UpdateStreamWarmThroughputOutput$ === "object");
 assert(typeof WarmThroughputObject$ === "object");
@@ -484,6 +491,7 @@ assert(typeof MetricsName === "object");
 assert(typeof MinimumThroughputBillingCommitmentInputStatus === "object");
 assert(typeof MinimumThroughputBillingCommitmentOutputStatus === "object");
 assert(typeof PartitionTransform === "object");
+assert(typeof RecordDistributionStrategy === "object");
 assert(typeof RecordFormatType === "object");
 assert(typeof S3CompressionType === "object");
 assert(typeof S3StorageClass === "object");

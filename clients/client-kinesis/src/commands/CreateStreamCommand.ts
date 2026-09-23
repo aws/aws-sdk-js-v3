@@ -77,6 +77,7 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *   },
  *   WarmThroughputMiBps: Number("int"),
  *   MaxRecordSizeInKiB: Number("int"),
+ *   RecordDistributionStrategy: "AUTO" || "USER_PARTITION_KEY",
  * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
