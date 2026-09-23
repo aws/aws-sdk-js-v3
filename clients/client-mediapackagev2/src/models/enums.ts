@@ -68,6 +68,8 @@ export const ValidationExceptionType = {
   CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST: "CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST",
   CMAF_EXCLUDE_SEGMENT_DRM_METADATA_INCOMPATIBLE_CONTAINER_TYPE: "CMAF_EXCLUDE_SEGMENT_DRM_METADATA_INCOMPATIBLE_CONTAINER_TYPE",
   CONTAINER_TYPE_IMMUTABLE: "CONTAINER_TYPE_IMMUTABLE",
+  CONTENT_KEY_PERIOD_TIMING_REQUIRES_SPEKE_V2_1: "CONTENT_KEY_PERIOD_TIMING_REQUIRES_SPEKE_V2_1",
+  CONTENT_KEY_PERIOD_TIMING_WITHOUT_KEY_ROTATION: "CONTENT_KEY_PERIOD_TIMING_WITHOUT_KEY_ROTATION",
   CUSTOM_AD_TYPES_INVALID_CONFIGURATION: "CUSTOM_AD_TYPES_INVALID_CONFIGURATION",
   DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE: "DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE",
   DECRYPT_SECRET_FAILED: "DECRYPT_SECRET_FAILED",
@@ -457,6 +459,20 @@ export type TsEncryptionMethod = (typeof TsEncryptionMethod)[keyof typeof TsEncr
  * @public
  * @enum
  */
+export const ContentKeyPeriodTiming = {
+  INDEX_ONLY: "INDEX_ONLY",
+  INDEX_WITH_START_END: "INDEX_WITH_START_END",
+  START_END_ONLY: "START_END_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type ContentKeyPeriodTiming = (typeof ContentKeyPeriodTiming)[keyof typeof ContentKeyPeriodTiming];
+
+/**
+ * @public
+ * @enum
+ */
 export const DrmSystem = {
   CLEAR_KEY_AES_128: "CLEAR_KEY_AES_128",
   FAIRPLAY: "FAIRPLAY",
@@ -505,6 +521,19 @@ export const PresetSpeke20Video = {
  * @public
  */
 export type PresetSpeke20Video = (typeof PresetSpeke20Video)[keyof typeof PresetSpeke20Video];
+
+/**
+ * @public
+ * @enum
+ */
+export const SpekeVersion = {
+  V2_0: "V2_0",
+  V2_1: "V2_1",
+} as const;
+/**
+ * @public
+ */
+export type SpekeVersion = (typeof SpekeVersion)[keyof typeof SpekeVersion];
 
 /**
  * @public

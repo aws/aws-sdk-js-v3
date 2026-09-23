@@ -73,6 +73,10 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         RoleArn: "STRING_VALUE", // required
  *         Url: "STRING_VALUE", // required
  *         CertificateArn: "STRING_VALUE",
+ *         SpekeVersion: "V2_0" || "V2_1",
+ *         ContentKeyPeriodConfiguration: { // ContentKeyPeriodConfiguration
+ *           ContentKeyPeriodTiming: "INDEX_ONLY" || "START_END_ONLY" || "INDEX_WITH_START_END",
+ *         },
  *       },
  *     },
  *     OutputTimestampMode: "PASSTHROUGH" || "REBASED_TO_CHANNEL_START",
@@ -271,6 +275,10 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         RoleArn: "STRING_VALUE", // required
  * //         Url: "STRING_VALUE", // required
  * //         CertificateArn: "STRING_VALUE",
+ * //         SpekeVersion: "V2_0" || "V2_1",
+ * //         ContentKeyPeriodConfiguration: { // ContentKeyPeriodConfiguration
+ * //           ContentKeyPeriodTiming: "INDEX_ONLY" || "START_END_ONLY" || "INDEX_WITH_START_END",
+ * //         },
  * //       },
  * //     },
  * //     OutputTimestampMode: "PASSTHROUGH" || "REBASED_TO_CHANNEL_START",

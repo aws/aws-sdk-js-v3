@@ -15,6 +15,8 @@ import {
   ConflictException$,
   ConflictExceptionType,
   ContainerType,
+  ContentKeyPeriodConfiguration$,
+  ContentKeyPeriodTiming,
   CreateChannel$,
   CreateChannelCommand,
   CreateChannelGroup$,
@@ -192,6 +194,7 @@ import {
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   SpekeKeyProvider$,
+  SpekeVersion,
   StartTag$,
   StreamNameOutputMode,
   TagResource$,
@@ -294,6 +297,7 @@ assert(typeof CancelHarvestJobResponse$ === "object");
 assert(typeof CdnAuthConfiguration$ === "object");
 assert(typeof ChannelGroupListConfiguration$ === "object");
 assert(typeof ChannelListConfiguration$ === "object");
+assert(typeof ContentKeyPeriodConfiguration$ === "object");
 assert(typeof CreateChannelGroupRequest$ === "object");
 assert(typeof CreateChannelGroupResponse$ === "object");
 assert(typeof CreateChannelRequest$ === "object");
@@ -401,6 +405,7 @@ assert(typeof AdMarkerHls === "object");
 assert(typeof CmafEncryptionMethod === "object");
 assert(typeof ConflictExceptionType === "object");
 assert(typeof ContainerType === "object");
+assert(typeof ContentKeyPeriodTiming === "object");
 assert(typeof CustomAdType === "object");
 assert(typeof DashAudioTimelinePattern === "object");
 assert(typeof DashCompactness === "object");
@@ -425,6 +430,7 @@ assert(typeof ResourceTypeNotFound === "object");
 assert(typeof ScteFilter === "object");
 assert(typeof ScteInManifests === "object");
 assert(typeof ScteInSegments === "object");
+assert(typeof SpekeVersion === "object");
 assert(typeof StreamNameOutputMode === "object");
 assert(typeof TsEncryptionMethod === "object");
 assert(typeof UriPathType === "object");

@@ -4,6 +4,7 @@ import type {
   AdMarkerHls,
   CmafEncryptionMethod,
   ContainerType,
+  ContentKeyPeriodTiming,
   CustomAdType,
   DashAudioTimelinePattern,
   DashCompactness,
@@ -27,6 +28,7 @@ import type {
   ScteFilter,
   ScteInManifests,
   ScteInSegments,
+  SpekeVersion,
   StreamNameOutputMode,
   TsEncryptionMethod,
   UriPathType,
@@ -1305,6 +1307,18 @@ export interface EncryptionMethod {
 }
 
 /**
+ * <p>The configuration that controls the content key period timing information that MediaPackage signals to your DRM key provider.</p>
+ * @public
+ */
+export interface ContentKeyPeriodConfiguration {
+  /**
+   * <p>Specifies what timing information MediaPackage signals in the <code>ContentKeyPeriod</code> to your DRM key provider. If you don't specify a value, the default is <code>INDEX_ONLY</code>. Signaling start and end times (<code>START_END_ONLY</code> or <code>INDEX_WITH_START_END</code>) also requires key rotation to be enabled.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>INDEX_ONLY</code> - Signals only the content key index. This is the default and matches the current behavior. It's supported for both SPEKE Version 2.0 and 2.1.</p> </li> <li> <p> <code>START_END_ONLY</code> - Signals only the start and end times the key is used for. Requires <code>SpekeVersion</code> <code>V2_1</code>.</p> </li> <li> <p> <code>INDEX_WITH_START_END</code> - Signals both the content key index and the start and end times the key is used for. Requires <code>SpekeVersion</code> <code>V2_1</code>.</p> </li> </ul>
+   * @public
+   */
+  ContentKeyPeriodTiming?: ContentKeyPeriodTiming | undefined;
+}
+
+/**
  * <p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>
  * @public
  */
@@ -1362,6 +1376,18 @@ export interface SpekeKeyProvider {
    * @public
    */
   CertificateArn?: string | undefined;
+
+  /**
+   * <p>Specifies the SPEKE version used with your DRM key provider. If you don't specify a value, the default is <code>V2_0</code>.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>V2_0</code> - Follows the SPEKE Version 2.0 contract and signals only the content key index in key requests. This is the default.</p> </li> <li> <p> <code>V2_1</code> - Follows the SPEKE Version 2.1 contract and additionally supports signaling the start and end times a content key is used for, using <code>ContentKeyPeriodConfiguration</code>.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/speke/latest/documentation/standard-payload-components-v2.html">SPEKE Version 2.0 payload</a>.</p>
+   * @public
+   */
+  SpekeVersion?: SpekeVersion | undefined;
+
+  /**
+   * <p>The configuration that controls whether MediaPackage signals the start and end times a content key is used for, in the <code>ContentKeyPeriod</code> sent to your DRM key provider. Signaling this timing is supported only when key rotation is enabled (<code>KeyRotationIntervalSeconds</code> is set to a non-zero value) and <code>SpekeVersion</code> is <code>V2_1</code>. You can update these settings on an existing origin endpoint.</p>
+   * @public
+   */
+  ContentKeyPeriodConfiguration?: ContentKeyPeriodConfiguration | undefined;
 }
 
 /**

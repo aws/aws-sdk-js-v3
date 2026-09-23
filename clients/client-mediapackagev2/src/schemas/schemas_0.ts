@@ -39,6 +39,8 @@ const _CHM = "CreateHlsManifests";
 const _CHMC = "CreateHlsManifestConfiguration";
 const _CISA = "CdnIdentifierSecretArns";
 const _CIV = "ConstantInitializationVector";
+const _CKPC = "ContentKeyPeriodConfiguration";
+const _CKPT = "ContentKeyPeriodTiming";
 const _CL = "ChannelList";
 const _CLC = "ChannelListConfiguration";
 const _CLLHM = "CreateLowLatencyHlsManifests";
@@ -251,6 +253,7 @@ const _SRA = "SecretsRoleArn";
 const _ST = "StartTag";
 const _STF = "SegmentTemplateFormat";
 const _STt = "StartTime";
+const _SV = "SpekeVersion";
 const _SWS = "StartoverWindowSeconds";
 const _Sc = "Scte";
 const _Se = "Segment";
@@ -412,6 +415,11 @@ export var ChannelListConfiguration$: StaticStructureSchema = [3, n0, _CLC,
   0,
   [_A, _CN, _CGN, _CA, _MA, _D, _IT, _OLM, _MC, _AMC],
   [0, 0, 0, 4, 4, 0, 0, 0, () => MultiviewConfiguration$, 64 | 0], 5
+];
+export var ContentKeyPeriodConfiguration$: StaticStructureSchema = [3, n0, _CKPC,
+  0,
+  [_CKPT],
+  [0]
 ];
 export var CreateChannelGroupRequest$: StaticStructureSchema = [3, n0, _CCGR,
   0,
@@ -865,8 +873,8 @@ export var Segment$: StaticStructureSchema = [3, n0, _Se,
 ];
 export var SpekeKeyProvider$: StaticStructureSchema = [3, n0, _SKP,
   0,
-  [_ECC, _RI, _DSrm, _RAo, _U, _CAe],
-  [() => EncryptionContractConfiguration$, 0, 64 | 0, 0, 0, 0], 5
+  [_ECC, _RI, _DSrm, _RAo, _U, _CAe, _SV, _CKPC],
+  [() => EncryptionContractConfiguration$, 0, 64 | 0, 0, 0, 0, 0, () => ContentKeyPeriodConfiguration$], 5
 ];
 export var StartTag$: StaticStructureSchema = [3, n0, _ST,
   0,
