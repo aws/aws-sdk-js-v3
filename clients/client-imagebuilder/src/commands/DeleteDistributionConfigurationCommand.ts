@@ -26,7 +26,10 @@ export interface DeleteDistributionConfigurationCommandInput extends DeleteDistr
 export interface DeleteDistributionConfigurationCommandOutput extends DeleteDistributionConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a distribution configuration.</p>
+ * <p>Deletes a distribution configuration. You can't delete a configuration
+ * 			that an image pipeline still references. The request fails with
+ * 			<code>ResourceDependencyException</code>. Update or delete the referencing
+ * 			pipelines first.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,26 +57,29 @@ export interface DeleteDistributionConfigurationCommandOutput extends DeleteDist
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ResourceDependencyException} (client fault)
  *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits
  * 			this action. See the error message for more details.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -81,6 +87,22 @@ export interface DeleteDistributionConfigurationCommandOutput extends DeleteDist
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example Delete a distribution configuration
+ * ```javascript
+ * // The following example deletes the specified distribution configuration.
+ * const input = {
+ *   distributionConfigurationArn: "arn:aws:imagebuilder:us-west-2:111122223333:distribution-configuration/my-example-distribution-configuration"
+ * };
+ * const command = new DeleteDistributionConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   distributionConfigurationArn: "arn:aws:imagebuilder:us-west-2:111122223333:distribution-configuration/my-example-distribution-configuration",
+ *   requestId: "2b752b77-2038-40f4-996a-0a6da1be5e92"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

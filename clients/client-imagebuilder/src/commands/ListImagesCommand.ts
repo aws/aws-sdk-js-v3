@@ -23,8 +23,7 @@ export interface ListImagesCommandInput extends ListImagesRequest {}
 export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the list of images that you have access to. Newly created images can take up
- * 			to two minutes to appear in the ListImages API Results.</p>
+ * <p>Returns the list of images that you have access to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,12 +77,14 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -92,11 +93,12 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -104,6 +106,57 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example List images that you own
+ * ```javascript
+ * // The following example lists the image versions that you own. Setting byName to false returns each image version as its own entry, instead of grouping build versions under their image name.
+ * const input = {
+ *   byName: false,
+ *   owner: "Self"
+ * };
+ * const command = new ListImagesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   imageVersionList: [
+ *     {
+ *       arn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0",
+ *       buildType: "USER_INITIATED",
+ *       dateCreated: "2026-09-09T19:12:18.677Z",
+ *       name: "my-example-recipe",
+ *       osVersion: "Amazon Linux 2023",
+ *       owner: "111122223333",
+ *       platform: "Linux",
+ *       type: "AMI",
+ *       version: "1.0.0"
+ *     },
+ *     {
+ *       arn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-windows-image/1.0.0",
+ *       buildType: "USER_INITIATED",
+ *       dateCreated: "2026-03-10T19:57:27.323Z",
+ *       name: "my-example-windows-image",
+ *       osVersion: "Microsoft Windows Server 2025",
+ *       owner: "111122223333",
+ *       platform: "Windows",
+ *       type: "AMI",
+ *       version: "1.0.0"
+ *     },
+ *     {
+ *       arn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-windows-image/1.0.1",
+ *       buildType: "USER_INITIATED",
+ *       dateCreated: "2026-03-10T20:32:31.795Z",
+ *       name: "my-example-windows-image",
+ *       osVersion: "Microsoft Windows Server 2025",
+ *       owner: "111122223333",
+ *       platform: "Windows",
+ *       type: "AMI",
+ *       version: "1.0.1"
+ *     }
+ *   ],
+ *   requestId: "19794296-a45f-4079-8741-e00d3c916318"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

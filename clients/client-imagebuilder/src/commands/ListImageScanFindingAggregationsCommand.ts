@@ -35,11 +35,6 @@ export interface ListImageScanFindingAggregationsCommandOutput extends ListImage
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>accountId</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
  *                   <code>imageBuildVersionArn</code>
  *                </p>
  *             </li>
@@ -128,12 +123,14 @@ export interface ListImageScanFindingAggregationsCommandOutput extends ListImage
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -142,11 +139,12 @@ export interface ListImageScanFindingAggregationsCommandOutput extends ListImage
  *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -154,6 +152,40 @@ export interface ListImageScanFindingAggregationsCommandOutput extends ListImage
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example List image scan finding aggregations for an image pipeline
+ * ```javascript
+ * // The following example aggregates vulnerability findings for images that the specified pipeline created, with counts grouped by severity level.
+ * const input = {
+ *   filter: {
+ *     name: "imagePipelineArn",
+ *     values: [
+ *       "arn:aws:imagebuilder:us-west-2:111122223333:image-pipeline/my-example-pipeline"
+ *     ]
+ *   }
+ * };
+ * const command = new ListImageScanFindingAggregationsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   aggregationType: "imagePipelineArn",
+ *   requestId: "b1c9dd23-7a9c-4a52-a1f7-3b8e9e17b2c4",
+ *   responses: [
+ *     {
+ *       imagePipelineAggregation: {
+ *         imagePipelineArn: "arn:aws:imagebuilder:us-west-2:111122223333:image-pipeline/my-example-pipeline",
+ *         severityCounts: {
+ *           all: 25,
+ *           critical: 1,
+ *           high: 7,
+ *           medium: 12
+ *         }
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

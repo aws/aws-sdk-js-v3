@@ -23,9 +23,10 @@ export interface ListComponentsCommandInput extends ListComponentsRequest {}
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the list of components that can be filtered by name, or by using the listed
- * 				<code>filters</code> to streamline results. Newly created components can take up to
- * 			two minutes to appear in the ListComponents API Results.</p>
+ * <p>Returns the list of components that you have access to. By default, the
+ * 			response doesn't include components in the
+ * 			<code>DEPRECATED</code> state. To list deprecated components, use the
+ * 			<code>status</code> filter with the value <code>DEPRECATED</code>.</p>
  *          <note>
  *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
  * 	You can assign values for the first three, and can filter on all of them.</p>
@@ -94,12 +95,14 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -108,11 +111,12 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -120,6 +124,67 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example List components that you own
+ * ```javascript
+ * // The following example lists the component versions that your account owns, filtered to components for the Linux platform.
+ * const input = {
+ *   filters: [
+ *     {
+ *       name: "platform",
+ *       values: [
+ *         "Linux"
+ *       ]
+ *     }
+ *   ],
+ *   owner: "Self"
+ * };
+ * const command = new ListComponentsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   componentVersionList: [
+ *     {
+ *       arn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-component/1.0.0",
+ *       dateCreated: "2026-09-09T18:31:49.661Z",
+ *       description: "Installs my example application",
+ *       name: "my-example-component",
+ *       owner: "111122223333",
+ *       platform: "Linux",
+ *       status: "ACTIVE",
+ *       supportedOsVersions: [
+ *         "Amazon Linux 2023"
+ *       ],
+ *       type: "BUILD",
+ *       version: "1.0.0"
+ *     },
+ *     {
+ *       arn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-imported-component/1.0.0",
+ *       dateCreated: "2026-09-09T18:31:21.941Z",
+ *       description: "Installs my application from an imported shell script",
+ *       name: "my-example-imported-component",
+ *       owner: "111122223333",
+ *       platform: "Linux",
+ *       status: "ACTIVE",
+ *       type: "BUILD",
+ *       version: "1.0.0"
+ *     },
+ *     {
+ *       arn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-test-component/1.0.0",
+ *       dateCreated: "2026-09-09T18:31:52.888Z",
+ *       description: "Verifies that my example application is installed",
+ *       name: "my-example-test-component",
+ *       owner: "111122223333",
+ *       platform: "Linux",
+ *       status: "ACTIVE",
+ *       type: "TEST",
+ *       version: "1.0.0"
+ *     }
+ *   ],
+ *   requestId: "fc51d989-ca0a-4ac7-9ca6-fb7786e70955"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

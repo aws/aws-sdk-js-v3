@@ -106,12 +106,14 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link DryRunOperationException} (client fault)
  *  <p>The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.</p>
@@ -124,7 +126,8 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * 			from a previous request that used the same client token.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource that you are trying to create already exists.</p>
@@ -134,8 +137,8 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * 			details and retry later.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the number of permitted resources or operations for this service.
@@ -148,6 +151,92 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example Create a lifecycle policy
+ * ```javascript
+ * // The following example creates a lifecycle policy that deletes AMI-based images six months after they were created, selecting the images that match the specified resource tags.
+ * const input = {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE13579",
+ *   executionRole: "arn:aws:iam::111122223333:role/my-example-lifecycle-role",
+ *   name: "my-example-lifecycle-policy",
+ *   policyDetails: [
+ *     {
+ *       action: {
+ *         type: "DELETE"
+ *       },
+ *       filter: {
+ *         type: "AGE",
+ *         unit: "MONTHS",
+ *         value: 6
+ *       }
+ *     }
+ *   ],
+ *   resourceSelection: {
+ *     tagMap: {
+ *       Environment: "test"
+ *     }
+ *   },
+ *   resourceType: "AMI_IMAGE"
+ * };
+ * const command = new CreateLifecyclePolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE13579",
+ *   lifecyclePolicyArn: "arn:aws:imagebuilder:us-west-2:111122223333:lifecycle-policy/my-example-lifecycle-policy"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Create a lifecycle policy with exclusion rules
+ * ```javascript
+ * // The following example creates a lifecycle policy that deletes images created from the specified recipe version after six months. The policy excludes images whose AMIs launched an instance within the last 30 days or are tagged to be retained.
+ * const input = {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE43210",
+ *   executionRole: "arn:aws:iam::111122223333:role/my-example-lifecycle-role",
+ *   name: "my-example-lifecycle-policy",
+ *   policyDetails: [
+ *     {
+ *       action: {
+ *         type: "DELETE"
+ *       },
+ *       exclusionRules: {
+ *         amis: {
+ *           lastLaunched: {
+ *             unit: "DAYS",
+ *             value: 30
+ *           },
+ *           tagMap: {
+ *             Retention: "keep"
+ *           }
+ *         }
+ *       },
+ *       filter: {
+ *         type: "AGE",
+ *         unit: "MONTHS",
+ *         value: 6
+ *       }
+ *     }
+ *   ],
+ *   resourceSelection: {
+ *     recipes: [
+ *       {
+ *         name: "my-example-recipe",
+ *         semanticVersion: "1.0.0"
+ *       }
+ *     ]
+ *   },
+ *   resourceType: "AMI_IMAGE"
+ * };
+ * const command = new CreateLifecyclePolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE43210",
+ *   lifecyclePolicyArn: "arn:aws:imagebuilder:us-west-2:111122223333:lifecycle-policy/my-example-lifecycle-policy"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

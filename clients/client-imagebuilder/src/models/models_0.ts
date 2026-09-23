@@ -94,16 +94,19 @@ export interface AccountAggregation {
 }
 
 /**
- * <p>Contains settings for the Systems Manager agent on your build instance.</p>
+ * <p>Contains settings for the Systems Manager agent on your build instance. This setting
+ * 			applies to Linux and macOS build instances only. Requests that set it for a
+ * 			recipe with a Windows base image are rejected.</p>
  * @public
  */
 export interface SystemsManagerAgent {
   /**
-   * <p>Controls whether the Systems Manager agent is removed from your final build image, prior to
-   * 			creating the new AMI. If this is set to true, then the agent is removed from the final
-   * 			image. If it's set to false, then the agent is left in, so that it is included in the
-   * 			new AMI. default value is false.</p>
-   *          <p>The default behavior of uninstallAfterBuild is to remove the SSM Agent if it was installed by EC2 Image Builder</p>
+   * <p>Specifies whether the Systems Manager agent is removed from your final build image
+   * 			before Image Builder creates the new AMI. If <code>true</code>, the agent is
+   * 			removed. If <code>false</code>, the agent is kept, so that it's
+   * 			included in the AMI. If you don't set this property, Image Builder removes the
+   * 			agent only if Image Builder installed the agent during the build. An agent that was
+   * 			pre-installed on the base image is kept.</p>
    * @public
    */
   uninstallAfterBuild?: boolean | undefined;
@@ -122,7 +125,9 @@ export interface SystemsManagerAgent {
  */
 export interface AdditionalInstanceConfiguration {
   /**
-   * <p>Contains settings for the Systems Manager agent on your build instance.</p>
+   * <p>The Systems Manager agent settings for your build instance. This setting
+   * 			applies to Linux and macOS build instances only. Requests that set it for a
+   * 			recipe with a Windows base image are rejected.</p>
    * @public
    */
   systemsManagerAgent?: SystemsManagerAgent | undefined;
@@ -137,7 +142,7 @@ export interface AdditionalInstanceConfiguration {
    *          <note>
    *             <p>The user data is always base 64 encoded. For example, the following commands are
    * 				encoded as
-   * 				<code>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$</code>:</p>
+   * 				<code>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhcg==</code>:</p>
    *             <p>
    *                <i>#!/bin/bash</i>
    *             </p>
@@ -314,7 +319,12 @@ export interface ImageFailureContext {
  */
 export interface ImageState {
   /**
-   * <p>The status of the image.</p>
+   * <p>The status of the image. A new image moves through build, test, and
+   * 			distribution statuses during creation, and ends in the
+   * 			<code>AVAILABLE</code>, <code>FAILED</code>, or <code>CANCELLED</code>
+   * 			state. The <code>DEPRECATED</code>, <code>DISABLED</code>, and
+   * 			<code>DELETED</code> statuses come from later resource management
+   * 			actions.</p>
    * @public
    */
   status?: ImageStatus | undefined;
@@ -363,7 +373,8 @@ export interface Ami {
   description?: string | undefined;
 
   /**
-   * <p>Image status and the reason for that status.</p>
+   * <p>The state of the AMI, which includes the status and, if applicable,
+   * 			the reason for that status.</p>
    * @public
    */
   state?: ImageState | undefined;
@@ -379,21 +390,24 @@ export interface Ami {
  * <p>Describes the configuration for a launch permission. The launch permission
  * 			modification request is sent to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2
  * 				ModifyImageAttribute</a> API on behalf of the user for each Region they have
- * 			selected to distribute the AMI. To make an AMI public, set the launch permission
- * 			authorized accounts to <code>all</code>. See the examples for making an AMI public at
+ * 			selected to distribute the AMI. To make an AMI public, set <code>userGroups</code>
+ * 			to the value <code>all</code>. See the examples for making an AMI public at
  * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2
  * 				ModifyImageAttribute</a>.</p>
  * @public
  */
 export interface LaunchPermissionConfiguration {
   /**
-   * <p>The Amazon Web Services account ID.</p>
+   * <p>The Amazon Web Services account IDs to grant launch permission to. Each listed account can
+   * 			use the distributed AMI to launch instances.</p>
    * @public
    */
   userIds?: string[] | undefined;
 
   /**
-   * <p>The name of the group.</p>
+   * <p>The name of the group that you want to grant launch permission to. The only
+   * 			supported value is <code>all</code>, which makes the distributed AMI
+   * 			public.</p>
    * @public
    */
   userGroups?: string[] | undefined;
@@ -421,20 +435,30 @@ export interface LaunchPermissionConfiguration {
  */
 export interface AmiDistributionConfiguration {
   /**
-   * <p>The name of the output AMI.</p>
+   * <p>The name of the output AMI. The name must include the
+   * 			<code>\{\{ imagebuilder:buildDate \}\}</code> dynamic tag so that each build
+   * 			produces a uniquely named AMI. If you don't specify a name, Image Builder
+   * 			names the output AMI with the image name followed by the build timestamp,
+   * 			for example <code>my-image 2022-10-26T22-30-05.912619Z</code>.</p>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the AMI distribution configuration. Minimum and maximum length are
-   * 			in characters.</p>
+   * <p>The description to apply to the distributed AMI. Image Builder sets this as the
+   * 			output AMI's description in each target Region and account. If you
+   * 			don't specify a description, the AMI in the build Region uses the
+   * 			image recipe's description, if the recipe has one. Copies distributed
+   * 			to other Regions and accounts don't receive a default
+   * 			description.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ID of an account to which you want to distribute an image.</p>
+   * <p>The Amazon Web Services account IDs to distribute the AMI to in this Region. Each listed
+   * 			account receives its own copy of the output AMI. If you don't specify
+   * 			accounts, Image Builder distributes the AMI only to your own account.</p>
    * @public
    */
   targetAccountIds?: string[] | undefined;
@@ -462,7 +486,10 @@ export interface AmiDistributionConfiguration {
 }
 
 /**
- * <p>Defines the rules by which an image pipeline is automatically disabled when it fails.</p>
+ * <p>Defines the rules by which an image pipeline is automatically disabled when
+ * 			it fails. By default, if the schedule doesn't include an auto-disable
+ * 			policy, Image Builder disables the pipeline after 5 consecutive failed scheduled
+ * 			builds.</p>
  * @public
  */
 export interface AutoDisablePolicy {
@@ -487,8 +514,9 @@ export interface CancelImageCreationRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -530,8 +558,9 @@ export interface CancelLifecycleExecutionRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -543,7 +572,8 @@ export interface CancelLifecycleExecutionRequest {
  */
 export interface CancelLifecycleExecutionResponse {
   /**
-   * <p>The unique identifier for the image lifecycle runtime instance that was canceled.</p>
+   * <p>The unique identifier of the lifecycle execution that the cancellation
+   * 			request applies to. The cancellation completes asynchronously.</p>
    * @public
    */
   lifecycleExecutionId?: string | undefined;
@@ -608,7 +638,9 @@ export interface ProductCodeListItem {
  */
 export interface ComponentState {
   /**
-   * <p>The current state of the component.</p>
+   * <p>The current state of the component. Components with a status of
+   * 			<code>DEPRECATED</code> or <code>DISABLED</code> can't be added to new
+   * 			recipes.</p>
    * @public
    */
   status?: ComponentStatus | undefined;
@@ -691,7 +723,9 @@ export interface Component {
   parameters?: ComponentParameterDetail[] | undefined;
 
   /**
-   * <p>The owner of the component.</p>
+   * <p>The owner of the component. The value is your account ID for components
+   * 			that you own, the sharing account's ID for shared components, or
+   * 			<code>Amazon</code>, <code>ThirdParty</code>, or <code>AWSMarketplace</code>.</p>
    * @public
    */
   owner?: string | undefined;
@@ -710,7 +744,9 @@ export interface Component {
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The encryption status of the component.</p>
+   * <p>Indicates whether the component data is encrypted at rest. Image Builder encrypts
+   * 			all component data at rest, so this value is always <code>true</code>. This
+   * 			field is retained for backward compatibility.</p>
    * @public
    */
   encrypted?: boolean | undefined;
@@ -767,19 +803,26 @@ export interface ComponentParameter {
 }
 
 /**
- * <p>Configuration details of the component.</p>
+ * <p>Configuration details of the component. You can specify each component only
+ * 			once in a recipe, regardless of version. Components with a status of
+ * 			<code>DEPRECATED</code> or <code>DISABLED</code> can't be added to new
+ * 			recipes.</p>
  * @public
  */
 export interface ComponentConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the component.</p>
+   * <p>The Amazon Resource Name (ARN) of the component. You can specify a build version ARN, or a
+   * 			component version ARN whose version segments can use <code>x</code>
+   * 			wildcards, for example <code>1.x.x</code>.</p>
    * @public
    */
   componentArn: string | undefined;
 
   /**
-   * <p>A group of parameter settings that Image Builder uses to configure the component for a specific
-   * 			recipe.</p>
+   * <p>A group of parameter settings that Image Builder uses to configure the component for
+   * 			a specific recipe. You must supply a value for every component parameter
+   * 			that has no default value, and you can only supply parameters that the
+   * 			component defines.</p>
    * @public
    */
   parameters?: ComponentParameter[] | undefined;
@@ -836,7 +879,9 @@ export interface ComponentSummary {
   type?: ComponentType | undefined;
 
   /**
-   * <p>The owner of the component.</p>
+   * <p>The owner of the component. The value is your account ID for components
+   * 			that you own, the sharing account's ID for shared components, or
+   * 			<code>Amazon</code>, <code>ThirdParty</code>, or <code>AWSMarketplace</code>.</p>
    * @public
    */
   owner?: string | undefined;
@@ -848,13 +893,13 @@ export interface ComponentSummary {
   description?: string | undefined;
 
   /**
-   * <p>The change description for the current version of the component.</p>
+   * <p>The change description for this version of the component.</p>
    * @public
    */
   changeDescription?: string | undefined;
 
   /**
-   * <p>The original creation date of the component.</p>
+   * <p>The date that Image Builder created this version of the component.</p>
    * @public
    */
   dateCreated?: string | undefined;
@@ -881,7 +926,7 @@ export interface ComponentSummary {
 }
 
 /**
- * <p>The defining characteristics of a specific version of an Amazon Web Services TOE component.</p>
+ * <p>The defining characteristics of a specific version of a component.</p>
  * @public
  */
 export interface ComponentVersion {
@@ -963,7 +1008,9 @@ export interface ComponentVersion {
   type?: ComponentType | undefined;
 
   /**
-   * <p>The owner of the component.</p>
+   * <p>The owner of the component. The value is your account ID for components
+   * 			that you own, the sharing account's ID for shared components, or
+   * 			<code>Amazon</code>, <code>ThirdParty</code>, or <code>AWSMarketplace</code>.</p>
    * @public
    */
   owner?: string | undefined;
@@ -988,7 +1035,9 @@ export interface ComponentVersion {
 }
 
 /**
- * <p>A container encapsulates the runtime environment for an application.</p>
+ * <p>Details of the container images that are output resources of an image build
+ * 			in a given Amazon Web Services Region: the Region, and the URIs of the container
+ * 			images.</p>
  * @public
  */
 export interface Container {
@@ -1018,17 +1067,19 @@ export interface TargetContainerRepository {
   service: ContainerRepositoryService | undefined;
 
   /**
-   * <p>The name of the container repository where the output container image is stored.
-   * 			This name is prefixed by the repository location. For example,
-   * 			<code><repository location url>/repository_name</code>.</p>
+   * <p>The name of the container repository where the output container image is
+   * 			stored. Provide the repository name only (a namespace path such as
+   * 			<code>team-a/my-repo</code> is allowed, but not the registry
+   * 			hostname).</p>
    * @public
    */
   repositoryName: string | undefined;
 }
 
 /**
- * <p>Container distribution settings for encryption, licensing, and sharing in a specific
- * 			Region.</p>
+ * <p>Defines how the output container image is distributed in a specific
+ * 			Amazon Web Services Region: the target repository, the image tags to apply to the
+ * 			distributed image, and an optional description.</p>
  * @public
  */
 export interface ContainerDistributionConfiguration {
@@ -1039,7 +1090,8 @@ export interface ContainerDistributionConfiguration {
   description?: string | undefined;
 
   /**
-   * <p>Tags that are attached to the container distribution configuration.</p>
+   * <p>Tags that Image Builder applies to the distributed container image in the target
+   * 			repository. These are repository image tags, not resource tags.</p>
    * @public
    */
   containerTags?: string[] | undefined;
@@ -1155,15 +1207,17 @@ export interface InstanceConfiguration {
   image?: string | undefined;
 
   /**
-   * <p>Defines the block devices to attach for building an instance from this Image Builder
-   * 			AMI.</p>
+   * <p>Defines the block device mappings for the EC2 instance that Image Builder launches
+   * 			to build and test your container image.</p>
    * @public
    */
   blockDeviceMappings?: InstanceBlockDeviceMapping[] | undefined;
 }
 
 /**
- * <p>A container recipe.</p>
+ * <p>Defines how Image Builder builds and tests a container image: the base image,
+ * 			components to apply, the Dockerfile template, the build and test instance
+ * 			configuration, and the target repository for the output image.</p>
  * @public
  */
 export interface ContainerRecipe {
@@ -1208,7 +1262,8 @@ export interface ContainerRecipe {
   description?: string | undefined;
 
   /**
-   * <p>The system platform for the container, such as Windows or Linux.</p>
+   * <p>The system platform for the container. Container recipes support only the
+   * 			Linux and Windows platforms.</p>
    * @public
    */
   platform?: Platform | undefined;
@@ -1243,8 +1298,10 @@ export interface ContainerRecipe {
 
   /**
    * <p>Build and test components that are included in the container recipe.
-   * 			Recipes require a minimum of one build component, and can
-   * 			have a maximum of 20 build and test components in any combination.</p>
+   * 			A recipe can contain a maximum of 20 build and test components
+   * 			in any combination, by default. This maximum is an adjustable quota. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html">EC2 Image Builder endpoints and quotas</a>
+   * 			in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   components?: ComponentConfiguration[] | undefined;
@@ -1257,24 +1314,31 @@ export interface ContainerRecipe {
   instanceConfiguration?: InstanceConfiguration | undefined;
 
   /**
-   * <p>Dockerfiles are text documents that are used to build Docker containers, and ensure
-   * 			that they contain all of the elements required by the application running inside. The
-   * 			template data consists of contextual variables where Image Builder places build information or
-   * 			scripts, based on your container image recipe.</p>
+   * <p>The Dockerfile template that Image Builder uses to build the container image. The
+   * 			template can include contextual variables that Image Builder replaces with build
+   * 			information at build time. For the contextual variables that the template
+   * 			can include, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/create-container-recipes.html">Create
+   * 				a new version of a container recipe</a> in the
+   * 			<i>EC2 Image Builder User Guide</i>.</p>
    * @public
    */
   dockerfileTemplateData?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies which KMS key is used to encrypt the container image
-   * 			for distribution to the target Region. This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
-   * 			in the <i>Key Management Service Developer Guide</i>.</p>
+   * <p>The KMS key that Image Builder uses to encrypt the recipe's Dockerfile template
+   * 			data at rest. This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>. If you don't specify a key, Image Builder
+   * 			encrypts the template data with a KMS key that Image Builder owns. This key
+   * 			isn't used to encrypt the output container image.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>A flag that indicates if the target container is encrypted.</p>
+   * <p>Specifies whether the recipe's Dockerfile template data is encrypted at
+   * 			rest. Image Builder encrypts all Dockerfile template data at rest, so this value is
+   * 			always <code>true</code>. This field is retained for backward compatibility,
+   * 			and doesn't describe encryption of the output container image.</p>
    * @public
    */
   encrypted?: boolean | undefined;
@@ -1313,7 +1377,7 @@ export interface ContainerRecipe {
 }
 
 /**
- * <p>A summary of a container recipe</p>
+ * <p>A summary of a container recipe.</p>
  * @public
  */
 export interface ContainerRecipeSummary {
@@ -1336,7 +1400,8 @@ export interface ContainerRecipeSummary {
   name?: string | undefined;
 
   /**
-   * <p>The system platform for the container, such as Windows or Linux.</p>
+   * <p>The system platform for the container. Container recipes support only the
+   * 			Linux and Windows platforms.</p>
    * @public
    */
   platform?: Platform | undefined;
@@ -1380,7 +1445,13 @@ export interface ContainerRecipeSummary {
  */
 export interface CreateComponentRequest {
   /**
-   * <p>The name of the component.</p>
+   * <p>The name of the component. Image Builder generates the component ARN from a
+   * 			normalized form of the name, so names that differ only in case, spaces, or
+   * 			underscores count as the same name. If a component with the same name and
+   * 			semantic version already exists in your account in the same Amazon Web Services Region,
+   * 			the request creates a new build version for it. If the content is also
+   * 			identical to the latest build version, the request fails because the
+   * 			component already exists.</p>
    * @public
    */
   name: string | undefined;
@@ -1444,7 +1515,7 @@ export interface CreateComponentRequest {
    * <p>The <code>uri</code> of a YAML component document file. This must be an S3 URL
    * 				(<code>s3://bucket/key</code>), and you must have permission to access the
    * 			S3 bucket it points to. If you use Amazon S3, you can specify component content up to your
-   * 			service quota.</p>
+   * 			service quota for component size, which is 64 KB by default.</p>
    *          <p>Alternatively, you can specify the YAML document inline, using the component
    * 				<code>data</code> property. You cannot specify both properties.</p>
    * @public
@@ -1452,8 +1523,10 @@ export interface CreateComponentRequest {
   uri?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt this component. This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
-   * 			in the <i>Key Management Service Developer Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt this component.
+   * 			This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>. If you don't specify a key, Image Builder encrypts the
+   * 			component data with a KMS key that Image Builder owns.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -1466,22 +1539,25 @@ export interface CreateComponentRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * <p>Validates the required permissions and request parameters without performing the operation. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
    * @public
    */
   dryRun?: boolean | undefined;
 }
 
 /**
- * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+ * <p>A set of wildcard version ARNs that always reference the latest
+ * 			version of the resource. ARNs are included for the latest version overall, and for the latest
+ * 			versions within the same major, minor, and patch levels.</p>
  * @public
  */
 export interface LatestVersionReferences {
@@ -1533,7 +1609,9 @@ export interface CreateComponentResponse {
   componentBuildVersionArn?: string | undefined;
 
   /**
-   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * <p>A set of wildcard version ARNs that always reference the latest
+   * 			version of the resource. ARNs are included for the latest version overall, and for the latest
+   * 			versions within the same major, minor, and patch levels.</p>
    * @public
    */
   latestVersionReferences?: LatestVersionReferences | undefined;
@@ -1550,7 +1628,11 @@ export interface CreateContainerRecipeRequest {
   containerType: ContainerType | undefined;
 
   /**
-   * <p>The name of the container recipe.</p>
+   * <p>The name of the container recipe. The recipe name, combined with the
+   * 			semantic version, must be unique to your account in each Amazon Web Services Region.
+   * 			Image Builder generates the container recipe ARN from a normalized form of the
+   * 			name, so names that differ only in case, spaces, or underscores count as
+   * 			the same name.</p>
    * @public
    */
   name: string | undefined;
@@ -1581,7 +1663,8 @@ export interface CreateContainerRecipeRequest {
   semanticVersion: string | undefined;
 
   /**
-   * <p>The components included in the container recipe.</p>
+   * <p>The components included in the container recipe. You can specify each
+   * 			component only one time in a recipe.</p>
    * @public
    */
   components?: ComponentConfiguration[] | undefined;
@@ -1594,32 +1677,47 @@ export interface CreateContainerRecipeRequest {
   instanceConfiguration?: InstanceConfiguration | undefined;
 
   /**
-   * <p>The Dockerfile template used to build your image as an inline data blob.</p>
+   * <p>The Dockerfile template used to build your image, as an inline data blob.
+   * 			You must specify exactly one of the <code>dockerfileTemplateData</code> or
+   * 			<code>dockerfileTemplateUri</code> properties. For the contextual variables
+   * 			that the template can include, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/create-container-recipes.html">Create
+   * 				a new version of a container recipe</a> in the
+   * 			<i>EC2 Image Builder User Guide</i>.</p>
    * @public
    */
   dockerfileTemplateData?: string | undefined;
 
   /**
-   * <p>The Amazon S3 URI for the Dockerfile that is used to build your container
-   * 			image.</p>
+   * <p>The Amazon S3 URI for the Dockerfile template that is used to build your container
+   * 			image. You must have permission to read the object. Image Builder reads the object
+   * 			once, when it creates the recipe, and stores its content in the recipe.
+   * 			Later changes to the S3 object don't affect the recipe. You must specify
+   * 			exactly one of the <code>dockerfileTemplateData</code> or
+   * 			<code>dockerfileTemplateUri</code> properties.</p>
    * @public
    */
   dockerfileTemplateUri?: string | undefined;
 
   /**
-   * <p>Specifies the operating system platform when you use a custom base image.</p>
+   * <p>Specifies the operating system platform when you use a custom base image.
+   * 			Container recipes support only the Linux and Windows platforms.</p>
    * @public
    */
   platformOverride?: Platform | undefined;
 
   /**
-   * <p>Specifies the operating system version for the base image.</p>
+   * <p>Specifies the operating system version for the base image. Use this property
+   * 			only when the base image is a container image from a registry. When the base
+   * 			image is an Image Builder image, the operating system version comes from the parent
+   * 			image.</p>
    * @public
    */
   imageOsVersionOverride?: string | undefined;
 
   /**
-   * <p>The base image for the container recipe.</p>
+   * <p>The base image for the container recipe. This can be an Image Builder image resource
+   * 			ARN or a container image URI from a registry, for example
+   * 			<code>amazonlinux:latest</code>.</p>
    * @public
    */
   parentImage: string | undefined;
@@ -1637,7 +1735,8 @@ export interface CreateContainerRecipeRequest {
   workingDirectory?: string | undefined;
 
   /**
-   * <p>The destination repository for the container image.</p>
+   * <p>The destination repository for the container image. The Amazon ECR repository
+   * 			must already exist in the Amazon Web Services Region where the build runs.</p>
    * @public
    */
   targetRepository: TargetContainerRepository | undefined;
@@ -1652,15 +1751,16 @@ export interface CreateContainerRecipeRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * <p>Validates the required permissions and request parameters without performing the operation. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
    * @public
    */
   dryRun?: boolean | undefined;
@@ -1690,7 +1790,9 @@ export interface CreateContainerRecipeResponse {
   containerRecipeArn?: string | undefined;
 
   /**
-   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * <p>A set of wildcard version ARNs that always reference the latest
+   * 			version of the resource. ARNs are included for the latest version overall, and for the latest
+   * 			versions within the same major, minor, and patch levels.</p>
    * @public
    */
   latestVersionReferences?: LatestVersionReferences | undefined;
@@ -1698,7 +1800,7 @@ export interface CreateContainerRecipeResponse {
 
 /**
  * <p>Identifies the launch template that the associated Windows AMI uses for launching an
- * 			instance when faster launching is enabled.</p>
+ * 			instance when Windows fast launch is enabled.</p>
  *          <note>
  *             <p>You can specify either the <code>launchTemplateName</code> or the
  * 					<code>launchTemplateId</code>, but not both.</p>
@@ -1707,19 +1809,19 @@ export interface CreateContainerRecipeResponse {
  */
 export interface FastLaunchLaunchTemplateSpecification {
   /**
-   * <p>The ID of the launch template to use for faster launching for a Windows AMI.</p>
+   * <p>The ID of the launch template to use for Windows fast launch for a Windows AMI.</p>
    * @public
    */
   launchTemplateId?: string | undefined;
 
   /**
-   * <p>The name of the launch template to use for faster launching for a Windows AMI.</p>
+   * <p>The name of the launch template to use for Windows fast launch for a Windows AMI.</p>
    * @public
    */
   launchTemplateName?: string | undefined;
 
   /**
-   * <p>The version of the launch template to use for faster launching for a Windows
+   * <p>The version of the launch template to use for Windows fast launch for a Windows
    * 			AMI.</p>
    * @public
    */
@@ -1741,21 +1843,21 @@ export interface FastLaunchSnapshotConfiguration {
 }
 
 /**
- * <p>Define and configure faster launching for output Windows AMIs.</p>
+ * <p>Defines and configures EC2 Fast Launch for output Windows AMIs.</p>
  * @public
  */
 export interface FastLaunchConfiguration {
   /**
-   * <p>A Boolean that represents the current state of faster launching for the Windows AMI.
-   * 			Set to <code>true</code> to start using Windows faster launching, or <code>false</code>
-   * 			to stop using it.</p>
+   * <p>Specifies whether to enable Windows fast launch on the output AMI during
+   * 			distribution. A value of <code>false</code> means Image Builder takes no
+   * 			fast-launch action for this configuration.</p>
    * @public
    */
   enabled: boolean | undefined;
 
   /**
    * <p>Configuration settings for managing the number of snapshots that are created from
-   * 			pre-provisioned instances for the Windows AMI when faster launching is enabled.</p>
+   * 			pre-provisioned instances for the Windows AMI when Windows fast launch is enabled.</p>
    * @public
    */
   snapshotConfiguration?: FastLaunchSnapshotConfiguration | undefined;
@@ -1799,16 +1901,17 @@ export interface LaunchTemplateConfiguration {
   accountId?: string | undefined;
 
   /**
-   * <p>Set the specified Amazon EC2 launch template as the default launch template for the
-   * 			specified account.</p>
+   * <p>Specifies whether to make the new launch template version that Image Builder creates
+   * 			the default version of the launch template. If you don't set a value,
+   * 			Image Builder treats it as <code>true</code>.</p>
    * @public
    */
   setDefaultVersion?: boolean | undefined;
 }
 
 /**
- * <p>Properties that configure export from your build instance to a compatible file format
- * 			for your VM.</p>
+ * <p>Properties that configure exporting the output image to a disk image file in
+ * 			an Amazon S3 bucket, in a format that's compatible with your VMs.</p>
  * @public
  */
 export interface S3ExportConfiguration {
@@ -1950,7 +2053,11 @@ export interface Distribution {
  */
 export interface CreateDistributionConfigurationRequest {
   /**
-   * <p>The name of the distribution configuration.</p>
+   * <p>The name of the distribution configuration. Distribution configuration
+   * 			names must be unique to your account in each Amazon Web Services Region. Image Builder generates
+   * 			the distribution configuration ARN from a normalized form of the name, so
+   * 			names that differ only in case, spaces, or underscores count as the same
+   * 			name.</p>
    * @public
    */
   name: string | undefined;
@@ -1962,7 +2069,9 @@ export interface CreateDistributionConfigurationRequest {
   description?: string | undefined;
 
   /**
-   * <p>The distributions of the distribution configuration.</p>
+   * <p>The distribution settings for the configuration. Each entry defines how
+   * 			output images are distributed in one target Amazon Web Services Region. A Region can
+   * 			appear at most once in the list.</p>
    * @public
    */
   distributions: Distribution[] | undefined;
@@ -1975,15 +2084,16 @@ export interface CreateDistributionConfigurationRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * <p>Validates the required permissions and request parameters without performing the operation. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
    * @public
    */
   dryRun?: boolean | undefined;
@@ -2020,11 +2130,12 @@ export interface CreateDistributionConfigurationResponse {
  */
 export interface EcrConfiguration {
   /**
-   * <p>The name of the container repository that Amazon Inspector scans to identify findings for your
-   * 			container images. The name includes the path for the repository location. If you don’t
-   * 			provide this information, Image Builder creates a repository in your account named
-   * 				<code>image-builder-image-scanning-repository</code> for vulnerability scans of your
-   * 			output container images.</p>
+   * <p>The name of the container repository where Image Builder pushes the container
+   * 			image for the vulnerability scan. Provide the repository name only (a
+   * 			namespace path is allowed, but not the registry hostname); the repository
+   * 			must already exist in your account. If you don't specify a repository
+   * 			name, Image Builder creates the default repository
+   * 			<code>image-builder-image-scanning-repository</code> in your account.</p>
    * @public
    */
   repositoryName?: string | undefined;
@@ -2043,8 +2154,12 @@ export interface EcrConfiguration {
  */
 export interface ImageScanningConfiguration {
   /**
-   * <p>A setting that indicates whether Image Builder keeps a snapshot of the vulnerability scans that
-   * 			Amazon Inspector runs against the build instance when you create a new image.</p>
+   * <p>Specifies whether Amazon Inspector scans for vulnerabilities when you create a new
+   * 			image, and whether Image Builder saves the findings. Amazon Inspector must be enabled in the
+   * 			account. Image tests must also be enabled. For AMI output, Amazon Inspector scans the
+   * 			test instance. For container output, Amazon Inspector scans the container image that
+   * 			Image Builder pushes to the Amazon ECR repository from your <code>ecrConfiguration</code>
+   * 			settings.</p>
    * @public
    */
   imageScanningEnabled?: boolean | undefined;
@@ -2071,7 +2186,8 @@ export interface ImageTestsConfiguration {
   imageTestsEnabled?: boolean | undefined;
 
   /**
-   * <p>The maximum time in minutes that tests are permitted to run.</p>
+   * <p>The maximum time in minutes that tests are permitted to run. If you don't
+   * 			specify a value, Image Builder stores and returns 720.</p>
    *          <note>
    *             <p>The timeout property is not currently active. This value is
    * 				ignored.</p>
@@ -2144,7 +2260,10 @@ export interface WorkflowConfiguration {
   parallelGroup?: string | undefined;
 
   /**
-   * <p>The action to take if the workflow fails.</p>
+   * <p>The action to take if the workflow fails. With <code>CONTINUE</code>, a
+   * 			failed workflow is logged and image creation proceeds to the next workflow.
+   * 			If you don't set a value, the image build fails when the workflow fails.
+   * 			You can only set this property for test workflows.</p>
    * @public
    */
   onFailure?: OnWorkflowFailure | undefined;
@@ -2156,21 +2275,25 @@ export interface WorkflowConfiguration {
 export interface CreateImageRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that defines how images are
-   * 			configured, tested, and assessed.</p>
+   * 			configured, tested, and assessed. You must specify either this property or
+   * 			<code>containerRecipeArn</code>, but not both.</p>
    * @public
    */
   imageRecipeArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the container recipe that defines how images are
-   * 			configured and tested.</p>
+   * 			configured and tested. You must specify either this property or
+   * 			<code>imageRecipeArn</code>, but not both.</p>
    * @public
    */
   containerRecipeArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that defines and
-   * 			configures the outputs of your pipeline.</p>
+   * 			configures the outputs of the image build. If you don't specify a
+   * 			distribution configuration, Image Builder creates the output image only in the
+   * 			account and Amazon Web Services Region where the build runs.</p>
    * @public
    */
   distributionConfigurationArn?: string | undefined;
@@ -2183,7 +2306,8 @@ export interface CreateImageRequest {
   infrastructureConfigurationArn: string | undefined;
 
   /**
-   * <p>The image tests configuration of the image.</p>
+   * <p>Settings that determine whether Image Builder runs tests on the image after
+   * 			building it. Image tests are enabled by default.</p>
    * @public
    */
   imageTestsConfiguration?: ImageTestsConfiguration | undefined;
@@ -2203,34 +2327,46 @@ export interface CreateImageRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Contains settings for vulnerability scans.</p>
+   * <p>Settings for vulnerability scans that Amazon Inspector runs during image
+   * 			creation. For AMI output, Amazon Inspector scans the test instance. For container
+   * 			output, Amazon Inspector scans the container image that Image Builder pushes to the Amazon ECR
+   * 			repository specified in <code>ecrConfiguration</code>.</p>
    * @public
    */
   imageScanningConfiguration?: ImageScanningConfiguration | undefined;
 
   /**
-   * <p>Contains an array of workflow configuration objects.</p>
+   * <p>The array of workflow configuration objects for the build. If you specify
+   * 			workflows, they replace the default workflows that Image Builder otherwise runs for
+   * 			the build, and you must also provide an <code>executionRole</code>.</p>
    * @public
    */
   workflows?: WorkflowConfiguration[] | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants
-   * 			Image Builder access to perform workflow actions.</p>
+   * 			Image Builder access to perform workflow actions. This property is required if you
+   * 			specify <code>workflows</code>. If you don't provide a role, Image Builder uses the
+   * 			Image Builder service-linked role in your account, and creates it if it doesn't
+   * 			exist.</p>
    * @public
    */
   executionRole?: string | undefined;
 
   /**
-   * <p>The logging configuration for the image build process.</p>
+   * <p>The CloudWatch Logs log group where Image Builder sends the image build logs. If
+   * 			you specify a log group name outside of the <code>/aws/imagebuilder/</code>
+   * 			namespace, you must also provide an <code>executionRole</code> that has
+   * 			permission to write to that log group.</p>
    * @public
    */
   loggingConfiguration?: ImageLoggingConfiguration | undefined;
@@ -2259,7 +2395,9 @@ export interface CreateImageResponse {
   imageBuildVersionArn?: string | undefined;
 
   /**
-   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * <p>A set of wildcard version ARNs that always reference the latest
+   * 			version of the resource. ARNs are included for the latest version overall, and for the latest
+   * 			versions within the same major, minor, and patch levels.</p>
    * @public
    */
   latestVersionReferences?: LatestVersionReferences | undefined;
@@ -2302,8 +2440,9 @@ export interface PipelineLoggingConfiguration {
  */
 export interface Schedule {
   /**
-   * <p>The cron expression determines how often EC2 Image Builder evaluates your
-   * 				<code>pipelineExecutionStartCondition</code>.</p>
+   * <p>The expression determines how often EC2 Image Builder evaluates your
+   * 				<code>pipelineExecutionStartCondition</code>. You can specify a cron
+   * 				expression, or a rate expression such as <code>rate(1 day)</code>.</p>
    *          <p>For information on how to format a cron expression in Image Builder, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html">Use
    * 				cron expressions in EC2 Image Builder</a>.</p>
    * @public
@@ -2311,8 +2450,10 @@ export interface Schedule {
   scheduleExpression?: string | undefined;
 
   /**
-   * <p>The timezone that applies to the scheduling expression. For example, "Etc/UTC",
-   * 			"America/Los_Angeles" in the <a href="https://www.joda.org/joda-time/timezones.html">IANA timezone format</a>. If not specified this defaults to UTC.</p>
+   * <p>The timezone that applies to the scheduling expression. Specify a value in
+   * 			<a href="https://www.joda.org/joda-time/timezones.html">IANA timezone
+   * 				format</a>, for example <code>Etc/UTC</code> or
+   * 			<code>America/Los_Angeles</code>. If not specified, this defaults to UTC.</p>
    * @public
    */
   timezone?: string | undefined;
@@ -2329,7 +2470,8 @@ export interface Schedule {
    * 					image recipe, EC2 Image Builder builds a new image only when there are new versions of
    * 					the base image or components in your recipe that match the filter.</p>
    *                <note>
-   *                   <p>For semantic version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a>.</p>
+   *                   <p>For semantic version syntax, see
+   * 						<a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a>.</p>
    *                </note>
    *             </li>
    *             <li>
@@ -2338,6 +2480,11 @@ export interface Schedule {
    * 					image every time the CRON expression matches the current time.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>If the recipe references its base image through an Amazon Web Services Systems Manager Parameter
+   * 				Store parameter, a change in the parameter's value also counts as an
+   * 				available dependency update.</p>
+   *          </note>
    * @public
    */
   pipelineExecutionStartCondition?: PipelineExecutionStartCondition | undefined;
@@ -2355,7 +2502,10 @@ export interface Schedule {
  */
 export interface CreateImagePipelineRequest {
   /**
-   * <p>The name of the image pipeline.</p>
+   * <p>The name of the image pipeline. Pipeline names must be unique to your
+   * 			account in each Amazon Web Services Region. Image Builder generates the pipeline ARN from a
+   * 			normalized form of the name, so names that differ only in case, spaces, or
+   * 			underscores count as the same name.</p>
    * @public
    */
   name: string | undefined;
@@ -2368,14 +2518,16 @@ export interface CreateImagePipelineRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that configures
-   * 			images created by this image pipeline.</p>
+   * 			images created by this image pipeline. You must specify either this property
+   * 			or <code>containerRecipeArn</code>, but not both.</p>
    * @public
    */
   imageRecipeArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the container recipe that is used to configure
-   * 			images created by this container pipeline.</p>
+   * 			images created by this container pipeline. You must specify either this
+   * 			property or <code>imageRecipeArn</code>, but not both.</p>
    * @public
    */
   containerRecipeArn?: string | undefined;
@@ -2395,7 +2547,9 @@ export interface CreateImagePipelineRequest {
   distributionConfigurationArn?: string | undefined;
 
   /**
-   * <p>The image test configuration of the image pipeline.</p>
+   * <p>Specifies the test settings that Image Builder applies to images that this
+   * 			pipeline creates. If you don't provide test settings, Image Builder stores a default
+   * 			configuration with image tests enabled.</p>
    * @public
    */
   imageTestsConfiguration?: ImageTestsConfiguration | undefined;
@@ -2408,13 +2562,17 @@ export interface CreateImagePipelineRequest {
   enhancedImageMetadataEnabled?: boolean | undefined;
 
   /**
-   * <p>The schedule of the image pipeline.</p>
+   * <p>The schedule of the image pipeline. If you don't provide a schedule, the
+   * 			pipeline runs only when you call
+   * 			<a>StartImagePipelineExecution</a>.</p>
    * @public
    */
   schedule?: Schedule | undefined;
 
   /**
-   * <p>The status of the image pipeline.</p>
+   * <p>The status of the image pipeline. If you don't specify a status, it
+   * 			defaults to <code>ENABLED</code>. A disabled pipeline doesn't run on its
+   * 			schedule, but you can still start builds manually.</p>
    * @public
    */
   status?: PipelineStatus | undefined;
@@ -2426,28 +2584,35 @@ export interface CreateImagePipelineRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The tags to be applied to the images produced by this pipeline.</p>
+   * <p>The tags that Image Builder applies to the Image Builder image resource that this
+   * 			pipeline's scheduled executions create. These tags don't apply to the
+   * 			output AMI. To tag output AMIs, use <code>amiTags</code> in the
+   * 			pipeline's distribution configuration.</p>
    * @public
    */
   imageTags?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Contains settings for vulnerability scans.</p>
+   * <p>Contains settings for vulnerability scans that Amazon Inspector runs against the test instance
+   * 			during image creation.</p>
    * @public
    */
   imageScanningConfiguration?: ImageScanningConfiguration | undefined;
 
   /**
-   * <p>Contains an array of workflow configuration objects.</p>
+   * <p>The array of workflow configuration objects for builds that this pipeline
+   * 			starts. You must also specify <code>executionRole</code> when you provide
+   * 			workflows.</p>
    * @public
    */
   workflows?: WorkflowConfiguration[] | undefined;
@@ -2471,7 +2636,7 @@ export interface CreateImagePipelineRequest {
   loggingConfiguration?: PipelineLoggingConfiguration | undefined;
 
   /**
-   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * <p>Validates the required permissions and request parameters without performing the operation. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
    * @public
    */
   dryRun?: boolean | undefined;
@@ -2506,7 +2671,11 @@ export interface CreateImagePipelineResponse {
  */
 export interface CreateImageRecipeRequest {
   /**
-   * <p>The name of the image recipe.</p>
+   * <p>The name of the image recipe. The recipe name, combined with the semantic
+   * 			version, must be unique to your account in each Amazon Web Services Region. Image Builder
+   * 			generates the image recipe ARN from a normalized form of the name, so
+   * 			names that differ only in case, spaces, or underscores count as the same
+   * 			name.</p>
    * @public
    */
   name: string | undefined;
@@ -2537,7 +2706,12 @@ export interface CreateImageRecipeRequest {
   semanticVersion: string | undefined;
 
   /**
-   * <p>The components included in the image recipe.</p>
+   * <p>The components included in the image recipe. Components are optional. A
+   * 			recipe with no components bakes the base image without additional
+   * 			customization. You can
+   * 			specify each component only one time in a recipe. Components with a status
+   * 			of <code>DEPRECATED</code> or <code>DISABLED</code> can't be added to
+   * 			new recipes.</p>
    * @public
    */
   components?: ComponentConfiguration[] | undefined;
@@ -2561,13 +2735,16 @@ export interface CreateImageRecipeRequest {
    *             </li>
    *          </ul>
    *          <p>If you enter an AMI ID or an SSM parameter that contains the AMI ID, you must have access
-   * 			to the AMI, and the AMI must be in the source Region.</p>
+   * 			to the AMI. The AMI must also be in the Region where you're creating
+   * 			the recipe.</p>
    * @public
    */
   parentImage: string | undefined;
 
   /**
-   * <p>The block device mappings of the image recipe.</p>
+   * <p>The block device mappings that Image Builder applies to the build instance and the
+   * 			output AMI. For example, you can override the size of the base image's
+   * 			root volume or attach additional EBS volumes.</p>
    * @public
    */
   blockDeviceMappings?: InstanceBlockDeviceMapping[] | undefined;
@@ -2579,7 +2756,10 @@ export interface CreateImageRecipeRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The working directory used during build and test workflows.</p>
+   * <p>The working directory used during build and test workflows. If you
+   * 			don't specify a working directory, Image Builder uses <code>/tmp</code> for
+   * 			Linux and macOS build instances, and <code>C:/</code> for Windows build
+   * 			instances.</p>
    * @public
    */
   workingDirectory?: string | undefined;
@@ -2612,15 +2792,16 @@ export interface CreateImageRecipeRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * <p>Validates the required permissions and request parameters without performing the operation. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
    * @public
    */
   dryRun?: boolean | undefined;
@@ -2650,22 +2831,19 @@ export interface CreateImageRecipeResponse {
   imageRecipeArn?: string | undefined;
 
   /**
-   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * <p>A set of wildcard version ARNs that always reference the latest
+   * 			version of the resource. ARNs are included for the latest version overall, and for the latest
+   * 			versions within the same major, minor, and patch levels.</p>
    * @public
    */
   latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
- * <p>The instance metadata options that apply to the HTTP requests that pipeline builds use
- * 			to launch EC2 build and test instances. For more information about instance metadata
- * 			options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
- * 				<i>
- *                <i>Amazon EC2 User Guide</i>
- *             </i> for Linux instances, or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
- * 				<i>
- *                <i>Amazon EC2 Windows Guide</i>
- *             </i> for Windows instances.</p>
+ * <p>The instance metadata service (IMDS) settings that Image Builder applies to the EC2
+ * 			build and test instances it launches. These settings control how software
+ * 			on those instances retrieves instance metadata and IAM role
+ * 			credentials.</p>
  * @public
  */
 export interface InstanceMetadataOptions {
@@ -2686,15 +2864,21 @@ export interface InstanceMetadataOptions {
    * 					Otherwise, version 1.0 credentials are returned.</p>
    *             </li>
    *          </ul>
-   *          <p>The default setting is <b>optional</b>.</p>
+   *          <p>If you don't set a value, the EC2 launch default applies to the
+   * 			build and test instances. That default depends on the base AMI and any
+   * 			account-level instance metadata defaults. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
+   * 				<i>
+   *                <i>Amazon EC2 User Guide</i>
+   *             </i>.</p>
    * @public
    */
   httpTokens?: string | undefined;
 
   /**
-   * <p>Limit the number of hops that an instance metadata request can traverse to reach its
-   * 			destination. The default is one hop. However, if HTTP tokens are required, container
-   * 			image builds need a minimum of two hops.</p>
+   * <p>Limit the number of hops that an instance metadata request can traverse to
+   * 			reach its destination. If you don't set a value, the EC2 launch default
+   * 			for the instance applies. If HTTP tokens are required, container image
+   * 			builds need a minimum of two hops.</p>
    * @public
    */
   httpPutResponseHopLimit?: number | undefined;
@@ -2706,13 +2890,18 @@ export interface InstanceMetadataOptions {
  */
 export interface S3Logs {
   /**
-   * <p>The S3 bucket in which to store the logs.</p>
+   * <p>The name of an existing Amazon S3 bucket where Image Builder saves build logs. The bucket
+   * 			isn't validated when you create or update the configuration, and Image Builder
+   * 			doesn't create it. The instance profile associated with this
+   * 			infrastructure configuration must have permission to write to the
+   * 			bucket.</p>
    * @public
    */
   s3BucketName?: string | undefined;
 
   /**
-   * <p>The Amazon S3 path to the bucket where the logs are stored.</p>
+   * <p>The Amazon S3 key prefix under which Image Builder writes build and test logs in the
+   * 			bucket.</p>
    * @public
    */
   s3KeyPrefix?: string | undefined;
@@ -2759,16 +2948,14 @@ export interface Placement {
 
   /**
    * <p>The ID of the Dedicated Host on which build and test instances run. This only
-   * 			applies if <code>tenancy</code> is <code>host</code>. If you specify the host ID, you
-   * 			must not specify the resource group ARN. If you specify both, Image Builder returns an error.</p>
+   * 			applies if <code>tenancy</code> is <code>host</code>.</p>
    * @public
    */
   hostId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the host resource group in which to launch build and test instances.
-   * 			This only applies if <code>tenancy</code> is <code>host</code>. If you specify the resource
-   * 			group ARN, you must not specify the host ID. If you specify both, Image Builder returns an error.</p>
+   * 			This only applies if <code>tenancy</code> is <code>host</code>.</p>
    * @public
    */
   hostResourceGroupArn?: string | undefined;
@@ -2779,7 +2966,11 @@ export interface Placement {
  */
 export interface CreateInfrastructureConfigurationRequest {
   /**
-   * <p>The name of the infrastructure configuration.</p>
+   * <p>The name of the infrastructure configuration. Infrastructure configuration
+   * 			names must be unique to your account in each Amazon Web Services Region. Image Builder generates
+   * 			the infrastructure configuration ARN from a normalized form of the name, so
+   * 			names that differ only in case, spaces, or underscores count as the same
+   * 			name.</p>
    * @public
    */
   name: string | undefined;
@@ -2793,14 +2984,16 @@ export interface CreateInfrastructureConfigurationRequest {
   /**
    * <p>The instance types of the infrastructure configuration. You can specify one or more
    * 			instance types to use for this build. Image Builder picks one of these instance types
-   * 			based on availability.</p>
+   * 			based on availability. If you don't specify instance types, Image Builder selects
+   * 			compatible instance types automatically. If you specify a Dedicated Host,
+   * 			Image Builder uses only instance types that the host supports.</p>
    * @public
    */
   instanceTypes?: string[] | undefined;
 
   /**
    * <p>The instance profile to associate with the instance used to customize your Amazon EC2
-   * 			AMI.</p>
+   * 			AMI. The instance profile must exist in your account.</p>
    * @public
    */
   instanceProfileName: string | undefined;
@@ -2813,13 +3006,18 @@ export interface CreateInfrastructureConfigurationRequest {
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The subnet ID in which to place the instance used to customize your Amazon EC2 AMI.</p>
+   * <p>The subnet ID in which to place the instance used to customize your Amazon EC2
+   * 			AMI. If you specify <code>subnetId</code>, you must also specify one or
+   * 			more security group IDs in <code>securityGroupIds</code>. Otherwise, the
+   * 			request fails.</p>
    * @public
    */
   subnetId?: string | undefined;
 
   /**
-   * <p>The logging configuration of the infrastructure configuration.</p>
+   * <p>The logging configuration of the infrastructure configuration. When you
+   * 			configure S3 logs, Image Builder writes logs from the build and test process to the
+   * 			specified bucket under the key prefix.</p>
    * @public
    */
   logging?: Logging | undefined;
@@ -2840,26 +3038,51 @@ export interface CreateInfrastructureConfigurationRequest {
   terminateInstanceOnFailure?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic to which Image Builder sends image build event notifications.</p>
+   * <p>The Amazon Resource Name (ARN) of the SNS topic to which Image Builder sends image build event notifications.
+   * 			Specify a standard topic. Image Builder doesn't support FIFO topics.
+   * 			Image Builder validates the topic when you create or update the configuration. You
+   * 			must have permission to publish to the topic.</p>
    *          <note>
-   *             <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
-   * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
-   * 				account that the Image Builder service runs under.</p>
+   *             <p>EC2 Image Builder can't send notifications to SNS topics that are encrypted using keys
+   * 				from other accounts. If your SNS topic is encrypted, the key must be owned by the
+   * 				same account that owns your Image Builder resources.</p>
    *          </note>
    * @public
    */
   snsTopicArn?: string | undefined;
 
   /**
-   * <p>The metadata tags to assign to the Amazon EC2 instance that Image Builder launches during the build process.
-   * 			Tags are formatted as key value pairs.</p>
+   * <p>The metadata tags to assign to the Amazon EC2 instance that Image Builder launches during
+   * 			the build process. Tags are formatted as key value pairs. Tag keys can't
+   * 			begin with <code>aws:</code> or match one of the following reserved keys: <code>CreatedBy</code>,
+   * 			<code>Ec2ImageBuilderArn</code>, <code>Name</code>, or
+   * 			<code>Tags</code>.</p>
    * @public
    */
   resourceTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The instance metadata options that you can set for the HTTP requests that pipeline
-   * 			builds use to launch EC2 build and test instances.</p>
+   * <p>The instance metadata service (IMDS) settings that Image Builder applies to the EC2
+   * 			build and test instances it launches during image creation. If you don't
+   * 			set these options, the EC2 launch defaults for the instance apply. For more
+   * 			information about instance metadata options, see one of the following
+   * 			links:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
+   * 						<i>
+   *                      <i>Amazon EC2 User Guide</i>
+   *                   </i> for Linux instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure the instance metadata options</a> in the
+   * 						<i>
+   *                      <i>Amazon EC2 Windows Guide</i>
+   *                   </i> for Windows instances.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   instanceMetadataOptions?: InstanceMetadataOptions | undefined;
@@ -2872,23 +3095,25 @@ export interface CreateInfrastructureConfigurationRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The instance placement settings that define where the instances that are launched
-   * 			from your image run.</p>
+   * <p>The instance placement settings that define where the build and test
+   * 			instances that Image Builder launches during image creation run. These settings
+   * 			don't affect instances that you launch from the output image.</p>
    * @public
    */
   placement?: Placement | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * <p>Validates the required permissions and request parameters without performing the operation. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
    * @public
    */
   dryRun?: boolean | undefined;
@@ -2943,18 +3168,27 @@ export interface LifecyclePolicyDetailActionIncludeResources {
 }
 
 /**
- * <p>Contains selection criteria for the lifecycle policy.</p>
+ * <p>Contains the action configuration for a lifecycle policy rule: the action to
+ * 			take, and which underlying resources the action extends to.</p>
  * @public
  */
 export interface LifecyclePolicyDetailAction {
   /**
-   * <p>Specifies the lifecycle action to take.</p>
+   * <p>Specifies the lifecycle action to take. <code>DELETE</code> deletes the
+   * 			image resource and, with <code>includeResources</code>, also removes
+   * 			distributed AMIs, snapshots, or container images. <code>DEPRECATE</code> and
+   * 			<code>DISABLE</code> set the corresponding status on the image resource and,
+   * 			if <code>includeResources.amis</code> is set, on its distributed AMIs.</p>
    * @public
    */
   type: LifecyclePolicyDetailActionType | undefined;
 
   /**
-   * <p>Specifies the resources that the lifecycle policy applies to.</p>
+   * <p>Specifies which underlying resources the action extends to beyond the Image Builder
+   * 			image resource itself: distributed AMIs, their snapshots, or distributed
+   * 			container images. <code>DELETE</code> rules can include all three,
+   * 			<code>DEPRECATE</code> and <code>DISABLE</code> rules can include AMIs only,
+   * 			and you can only include snapshots together with AMIs.</p>
    * @public
    */
   includeResources?: LifecyclePolicyDetailActionIncludeResources | undefined;
@@ -2973,8 +3207,8 @@ export interface LifecyclePolicyDetailExclusionRulesAmisLastLaunched {
   value: number | undefined;
 
   /**
-   * <p>Defines the unit of time that the lifecycle policy uses to calculate elapsed time
-   * 			since the last instance launched from the AMI. For example: days, weeks, months, or years.</p>
+   * <p>Defines the unit of time that the lifecycle policy uses to calculate elapsed
+   * 			time since the last launch.</p>
    * @public
    */
   unit: LifecyclePolicyTimeUnit | undefined;
@@ -2998,20 +3232,23 @@ export interface LifecyclePolicyDetailExclusionRulesAmis {
   regions?: string[] | undefined;
 
   /**
-   * <p>Specifies Amazon Web Services accounts whose resources are excluded from the lifecycle action.</p>
+   * <p>The lifecycle action doesn't apply to AMIs that are shared with any of
+   * 			the specified Amazon Web Services accounts.</p>
    * @public
    */
   sharedAccounts?: string[] | undefined;
 
   /**
-   * <p>Specifies configuration details for Image Builder to exclude the most recent resources
-   * 			from lifecycle actions.</p>
+   * <p>Configures Image Builder to exclude AMIs that were launched within the specified time
+   * 			period from lifecycle actions. AMIs with no recorded last-launched time
+   * 			aren't excluded by this rule.</p>
    * @public
    */
   lastLaunched?: LifecyclePolicyDetailExclusionRulesAmisLastLaunched | undefined;
 
   /**
-   * <p>Lists tags that should be excluded from lifecycle actions for the AMIs that have them.</p>
+   * <p>Lifecycle actions don't apply to AMIs that have any of these tags. Both
+   * 			the key and the value must match.</p>
    * @public
    */
   tagMap?: Record<string, string> | undefined;
@@ -3043,7 +3280,9 @@ export interface LifecyclePolicyDetailExclusionRules {
  */
 export interface LifecyclePolicyDetailFilter {
   /**
-   * <p>Filter resources based on either <code>age</code> or <code>count</code>.</p>
+   * <p>Filter resources based on either <code>AGE</code> or <code>COUNT</code>.
+   * 			You can only use the count filter with the <code>DELETE</code> action
+   * 			type.</p>
    * @public
    */
   type: LifecyclePolicyDetailFilterType | undefined;
@@ -3078,7 +3317,9 @@ export interface LifecyclePolicyDetailFilter {
 }
 
 /**
- * <p>The configuration details for a lifecycle policy resource.</p>
+ * <p>Defines one lifecycle policy rule: the action to take, the filter that
+ * 			determines which resources the rule applies to, and optional exclusion
+ * 			rules.</p>
  * @public
  */
 export interface LifecyclePolicyDetail {
@@ -3120,7 +3361,8 @@ export interface LifecyclePolicyResourceSelectionRecipe {
 }
 
 /**
- * <p>Resource selection criteria for the lifecycle policy.</p>
+ * <p>Resource selection criteria for the lifecycle policy. You must provide
+ * 			exactly one selection criteria: either recipes or a tag map, not both.</p>
  * @public
  */
 export interface LifecyclePolicyResourceSelection {
@@ -3144,7 +3386,11 @@ export interface LifecyclePolicyResourceSelection {
  */
 export interface CreateLifecyclePolicyRequest {
   /**
-   * <p>The name of the lifecycle policy to create.</p>
+   * <p>The name of the lifecycle policy to create. Policy names must be unique to
+   * 			your account in each Amazon Web Services Region. Image Builder generates the policy ARN from a
+   * 			normalized form of the name, so names that differ only in case, spaces, or
+   * 			underscores count as the same name. You can't change the name after
+   * 			creation.</p>
    * @public
    */
   name: string | undefined;
@@ -3156,32 +3402,44 @@ export interface CreateLifecyclePolicyRequest {
   description?: string | undefined;
 
   /**
-   * <p>Indicates whether the lifecycle policy resource is enabled.</p>
+   * <p>Indicates whether the lifecycle policy resource is enabled. If you don't
+   * 			specify a status, it defaults to <code>ENABLED</code>. Only enabled policies
+   * 			run on their schedule.</p>
    * @public
    */
   status?: LifecyclePolicyStatus | undefined;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants
-   * 			Image Builder access to run lifecycle actions.</p>
+   * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run
+   * 			lifecycle actions. You must have permission to pass the role, and the
+   * 			role's trust policy must allow the Image Builder service principal to assume it.</p>
    * @public
    */
   executionRole: string | undefined;
 
   /**
-   * <p>The type of Image Builder resource that the lifecycle policy applies to.</p>
+   * <p>The type of Image Builder resource that the lifecycle policy applies to. The resource
+   * 			type determines the allowed rule actions: policies for AMI-based Image Builder images
+   * 			support <code>DELETE</code>, <code>DEPRECATE</code>, and
+   * 			<code>DISABLE</code>, and policies for container-based Image Builder images support
+   * 			only <code>DELETE</code>. You can't
+   * 			change the resource type after creation.</p>
    * @public
    */
   resourceType: LifecyclePolicyResourceType | undefined;
 
   /**
-   * <p>Configuration details for the lifecycle policy rules.</p>
+   * <p>Configuration details for the lifecycle policy rules. A policy can contain
+   * 			at most one rule per action type: one <code>DELETE</code>, one
+   * 			<code>DEPRECATE</code>, and one <code>DISABLE</code>.</p>
    * @public
    */
   policyDetails: LifecyclePolicyDetail[] | undefined;
 
   /**
-   * <p>Selection criteria for the resources that the lifecycle policy applies to. </p>
+   * <p>Selection criteria for the resources that the lifecycle policy applies to.
+   * 			You must specify exactly one selection criteria: either recipes or a tag
+   * 			map, not both.</p>
    * @public
    */
   resourceSelection: LifecyclePolicyResourceSelection | undefined;
@@ -3194,15 +3452,16 @@ export interface CreateLifecyclePolicyRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * <p>Validates the required permissions and request parameters without performing the operation. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
    * @public
    */
   dryRun?: boolean | undefined;
@@ -3230,7 +3489,13 @@ export interface CreateLifecyclePolicyResponse {
  */
 export interface CreateWorkflowRequest {
   /**
-   * <p>The name of the workflow to create.</p>
+   * <p>The name of the workflow to create. Image Builder generates the workflow ARN from a
+   * 			normalized form of the name, so names that differ only in case, spaces, or
+   * 			underscores count as the same name. If a workflow with the same name and
+   * 			semantic version already exists in your account in the same Amazon Web Services Region,
+   * 			the request creates a new build version for it. If the content is also
+   * 			identical to the latest build version, the request fails because the
+   * 			workflow already exists.</p>
    * @public
    */
   name: string | undefined;
@@ -3268,20 +3533,22 @@ export interface CreateWorkflowRequest {
   changeDescription?: string | undefined;
 
   /**
-   * <p>Contains the UTF-8 encoded YAML document content for the workflow.
-   * 			Alternatively, you can specify the <code>uri</code> of a YAML document file stored in
-   * 			Amazon S3. However, you cannot specify both properties.</p>
+   * <p>The UTF-8 encoded YAML document content for the workflow, up to
+   * 			16,000 characters. For larger documents, store the document in Amazon S3 and specify
+   * 			the <code>uri</code> property instead. You must specify exactly one of the
+   * 			<code>data</code> or <code>uri</code> properties.</p>
    * @public
    */
   data?: string | undefined;
 
   /**
-   * <p>The <code>uri</code> of a YAML component document file. This must be an S3 URL
-   * 			(<code>s3://bucket/key</code>), and you must have permission to access the
-   * 			S3 bucket it points to. If you use Amazon S3, you can specify component content up to your
-   * 			service quota.</p>
-   *          <p>Alternatively, you can specify the YAML document inline, using the component
-   * 			<code>data</code> property. You cannot specify both properties.</p>
+   * <p>The <code>uri</code> of a YAML workflow document file stored in Amazon S3. This must
+   * 			be an S3 URL (<code>s3://bucket/key</code>), and you must have permission to
+   * 			access the S3 bucket it points to. A workflow document that you provide from
+   * 			Amazon S3 can be up to your service quota for workflow size.</p>
+   *          <p>Alternatively, you can specify the YAML document inline, using the workflow
+   * 			<code>data</code> property. You must specify exactly one of the <code>data</code>
+   * 			or <code>uri</code> properties.</p>
    * @public
    */
   uri?: string | undefined;
@@ -3289,7 +3556,8 @@ export interface CreateWorkflowRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt this workflow resource.
    * 			This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
-   * 			in the <i>Key Management Service Developer Guide</i>.</p>
+   * 			in the <i>Key Management Service Developer Guide</i>. If you don't specify a key, Image Builder encrypts the workflow
+   * 			document with a KMS key that Image Builder owns.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -3302,22 +3570,23 @@ export interface CreateWorkflowRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The phase in the image build process for which the workflow resource
-   * 			is responsible.</p>
+   * <p>The image creation stage that this workflow applies to. Image Builder validates the
+   * 			workflow document steps against the stage you specify.</p>
    * @public
    */
   type: WorkflowType | undefined;
 
   /**
-   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * <p>Validates the required permissions and request parameters without performing the operation. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
    * @public
    */
   dryRun?: boolean | undefined;
@@ -3340,19 +3609,19 @@ export interface CreateWorkflowResponse {
   workflowBuildVersionArn?: string | undefined;
 
   /**
-   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * <p>A set of wildcard version ARNs that always reference the latest
+   * 			version of the resource. ARNs are included for the latest version overall, and for the latest
+   * 			versions within the same major, minor, and patch levels.</p>
    * @public
    */
   latestVersionReferences?: LatestVersionReferences | undefined;
 }
 
 /**
- * <p>Amazon Inspector generates a risk score for each finding. This score helps you to prioritize
- * 			findings, to focus on the most critical findings and the most vulnerable resources. The
- * 			score uses the Common Vulnerability Scoring System (CVSS) format. This format is a
- * 			modification of the base CVSS score that the National Vulnerability Database (NVD)
- * 			provides. For more information about severity levels, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Severity levels for Amazon Inspector findings</a> in the <i>Amazon Inspector User
- * 				Guide</i>.</p>
+ * <p>A CVSS score for the vulnerability, as published by the vulnerability
+ * 			source. Sources include the National Vulnerability Database (NVD) and the
+ * 			operating system vendor's security feed. A finding can include CVSS scores
+ * 			from multiple sources and CVSS versions.</p>
  * @public
  */
 export interface CvssScore {
@@ -3412,7 +3681,8 @@ export interface CvssScoreDetails {
   scoreSource?: string | undefined;
 
   /**
-   * <p>The source of the finding.</p>
+   * <p>The source of the CVSS data that the Amazon Inspector score for the finding is based
+   * 			on, for example NVD or a vendor security feed.</p>
    * @public
    */
   cvssSource?: string | undefined;
@@ -3436,8 +3706,9 @@ export interface CvssScoreDetails {
   scoringVector?: string | undefined;
 
   /**
-   * <p>An object that contains details about an adjustment that Amazon Inspector made to the CVSS score
-   * 			for the finding.</p>
+   * <p>The adjustments that Amazon Inspector applied to the base CVSS score to produce its own
+   * 			score for the finding. The list is empty when Amazon Inspector made no
+   * 			adjustments.</p>
    * @public
    */
   adjustments?: CvssScoreAdjustment[] | undefined;
@@ -3690,10 +3961,23 @@ export interface DeleteWorkflowResponse {
  */
 export interface DistributeImageRequest {
   /**
-   * <p>The source image to distribute. Specify an AMI identifier,
-   * 			SSM parameter path, or Image Builder image Amazon Resource Name (ARN). When you specify an
-   * 			Image Builder image Amazon Resource Name (ARN), the image must be in the <code>AVAILABLE</code>
-   * 			state.</p>
+   * <p>The source image to distribute. You can specify the source in any of the
+   * 			following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An AMI ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Amazon Web Services Systems Manager Parameter Store reference, prefixed by
+   * 					<code>ssm:</code>, followed by the parameter name or ARN.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Image Builder image Amazon Resource Name (ARN). An image version ARN resolves to the latest
+   * 					available build version.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Whichever format you use, the source must resolve to an AMI in the current
+   * 			Amazon Web Services Region.</p>
    * @public
    */
   sourceImage: string | undefined;
@@ -3714,15 +3998,18 @@ export interface DistributeImageRequest {
   executionRole: string | undefined;
 
   /**
-   * <p>The tags to apply to the distributed image.</p>
+   * <p>The tags to apply to the new Image Builder image resource that this operation
+   * 			creates. To tag the output AMIs, use <code>amiTags</code> in the
+   * 			distribution configuration.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -3746,14 +4033,27 @@ export interface DistributeImageResponse {
   clientToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image to be distributed.</p>
+   * <p>The Amazon Resource Name (ARN) of the new Image Builder image resource that this operation creates to
+   * 			track the distribution. Use this ARN with <a>GetImage</a> to
+   * 			monitor distribution progress.</p>
    * @public
    */
   imageBuildVersionArn?: string | undefined;
 }
 
 /**
- * <p>A distribution configuration.</p>
+ * <p>Defines how Image Builder distributes the output of an image build. You can
+ * 			configure:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The Regions to distribute the image to.</p>
+ *             </li>
+ *             <li>
+ *                <p>The Region-specific settings to apply, such as output AMI names,
+ * 					launch permissions for other Amazon Web Services accounts, and target container
+ * 					repositories.</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface DistributionConfiguration {
@@ -3783,7 +4083,9 @@ export interface DistributionConfiguration {
   distributions?: Distribution[] | undefined;
 
   /**
-   * <p>The maximum duration in minutes for this distribution configuration.</p>
+   * <p>A property that Image Builder doesn't use. You can't set this property
+   * 			when you create or update a distribution configuration, and it has no
+   * 			effect on distribution behavior.</p>
    * @public
    */
   timeoutMinutes: number | undefined;
@@ -3849,7 +4151,8 @@ export interface DistributionConfigurationSummary {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of Regions where the container image is distributed to.</p>
+   * <p>A list of the Regions that the distribution configuration distributes
+   * 			images to.</p>
    * @public
    */
   regions?: string[] | undefined;
@@ -3880,8 +4183,11 @@ export interface Filter {
  */
 export interface GetComponentRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the component that you want to get. Regex requires
-   * 			the suffix <code>/\d+$</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the component that you want to get. You can specify a build
+   * 			version ARN, or a component version ARN. The version can use the
+   * 			<code>x</code> wildcard in trailing positions, for example
+   * 			<code>1.0.x</code> or <code>1.x.x</code>. Version ARNs resolve to the
+   * 			latest available matching component build version.</p>
    * @public
    */
   componentBuildVersionArn: string | undefined;
@@ -3904,7 +4210,9 @@ export interface GetComponentResponse {
   component?: Component | undefined;
 
   /**
-   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * <p>A set of wildcard version ARNs that always reference the latest
+   * 			version of the resource. ARNs are included for the latest version overall, and for the latest
+   * 			versions within the same major, minor, and patch levels.</p>
    * @public
    */
   latestVersionReferences?: LatestVersionReferences | undefined;
@@ -3967,7 +4275,9 @@ export interface GetContainerRecipeResponse {
   containerRecipe?: ContainerRecipe | undefined;
 
   /**
-   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * <p>A set of wildcard version ARNs that always reference the latest
+   * 			version of the resource. ARNs are included for the latest version overall, and for the latest
+   * 			versions within the same major, minor, and patch levels.</p>
    * @public
    */
   latestVersionReferences?: LatestVersionReferences | undefined;
@@ -3996,7 +4306,9 @@ export interface GetContainerRecipePolicyResponse {
   requestId?: string | undefined;
 
   /**
-   * <p>The container recipe policy object that is returned.</p>
+   * <p>The resource policy for the container recipe, as a JSON policy document. If
+   * 			no policy has been applied, the response contains an empty JSON object
+   * 			(<code>\{\}</code>).</p>
    * @public
    */
   policy?: string | undefined;
@@ -4036,7 +4348,13 @@ export interface GetDistributionConfigurationResponse {
  */
 export interface GetImageRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image that you want to get.</p>
+   * <p>The Amazon Resource Name (ARN) of the image that you want to get. You can specify a full build
+   * 			version ARN, or a version ARN with or without wildcards
+   * 			(<code>x.x.x</code>, <code>1.x.x</code>, or <code>1.0.x</code>). A version or
+   * 			wildcard ARN resolves to the latest matching build version that has reached
+   * 			<code>AVAILABLE</code> status. Builds that were later deprecated, disabled,
+   * 			or deleted don't resolve. To get an image in any other state, such as a
+   * 			failed or in-progress build, specify the full build version ARN.</p>
    * @public
    */
   imageBuildVersionArn: string | undefined;
@@ -4054,8 +4372,9 @@ export interface ImageRecipe {
   arn?: string | undefined;
 
   /**
-   * <p>Specifies which type of image is created by the recipe - an AMI or a container
-   * 			image.</p>
+   * <p>The output image type. For an image recipe, this is always AMI. Container
+   * 			images are built from container recipes, a separate resource. This field
+   * 			isn't currently returned in responses.</p>
    * @public
    */
   type?: ImageType | undefined;
@@ -4091,8 +4410,10 @@ export interface ImageRecipe {
   version?: string | undefined;
 
   /**
-   * <p>The components that are included in the image recipe. Recipes require a minimum of one build component, and can
-   * 			have a maximum of 20 build and test components in any combination.</p>
+   * <p>The components that are included in the image recipe. A recipe can contain a maximum of 20 build and test components
+   * 			in any combination, by default. This maximum is an adjustable quota. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html">EC2 Image Builder endpoints and quotas</a>
+   * 			in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   components?: ComponentConfiguration[] | undefined;
@@ -4138,7 +4459,10 @@ export interface ImageRecipe {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The working directory to be used during build and test workflows.</p>
+   * <p>The working directory used during build and test workflows. If you
+   * 			don't specify a working directory, Image Builder uses <code>/tmp</code> for
+   * 			Linux and macOS build instances, and <code>C:/</code> for Windows build
+   * 			instances.</p>
    * @public
    */
   workingDirectory?: string | undefined;
@@ -4146,8 +4470,8 @@ export interface ImageRecipe {
   /**
    * <p>Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test
    * 			your image configuration. Instance configuration adds a layer of control over those
-   * 			instances. You can define settings and add scripts to run when an instance is launched
-   * 			from your AMI.</p>
+   * 			instances. You can define settings and add scripts to run when Image Builder launches
+   * 			your build instance.</p>
    * @public
    */
   additionalInstanceConfiguration?: AdditionalInstanceConfiguration | undefined;
@@ -4216,7 +4540,9 @@ export interface InfrastructureConfiguration {
   subnetId?: string | undefined;
 
   /**
-   * <p>The logging configuration of the infrastructure configuration.</p>
+   * <p>The logging configuration of the infrastructure configuration. When you
+   * 			configure S3 logs, Image Builder writes logs from the build and test process to the
+   * 			specified bucket under the key prefix.</p>
    * @public
    */
   logging?: Logging | undefined;
@@ -4228,19 +4554,21 @@ export interface InfrastructureConfiguration {
   keyPair?: string | undefined;
 
   /**
-   * <p>The terminate instance on failure configuration of the infrastructure
-   * 			configuration.</p>
+   * <p>Indicates whether Image Builder terminates the build and test instances when the image
+   * 			build fails. When <code>false</code>, Image Builder retains the instance so that you
+   * 			can debug it.</p>
    * @public
    */
   terminateInstanceOnFailure?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the SNS topic to which Image Builder
-   * 			sends image build event notifications.</p>
+   * 			sends image build event notifications. Specify a standard topic. Image Builder doesn't support FIFO
+   * 			topics.</p>
    *          <note>
-   *             <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
-   * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
-   * 				account that the Image Builder service runs under.</p>
+   *             <p>EC2 Image Builder can't send notifications to SNS topics that are encrypted using keys
+   * 				from other accounts. If your SNS topic is encrypted, the key must be owned by the
+   * 				same account that owns your Image Builder resources.</p>
    *          </note>
    * @public
    */
@@ -4259,7 +4587,8 @@ export interface InfrastructureConfiguration {
   dateUpdated?: string | undefined;
 
   /**
-   * <p>The tags attached to the resource created by Image Builder.</p>
+   * <p>The metadata tags assigned to the Amazon EC2 build and test instances that Image Builder
+   * 			launches during image creation.</p>
    * @public
    */
   resourceTags?: Record<string, string> | undefined;
@@ -4277,8 +4606,9 @@ export interface InfrastructureConfiguration {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The instance placement settings that define where the instances that are launched
-   * 			from your image run.</p>
+   * <p>The instance placement settings that define where the build and test
+   * 			instances that Image Builder launches during image creation run. These settings
+   * 			don't affect instances that you launch from the output image.</p>
    * @public
    */
   placement?: Placement | undefined;
@@ -4290,14 +4620,16 @@ export interface InfrastructureConfiguration {
  */
 export interface OutputResources {
   /**
-   * <p>The Amazon EC2 AMIs created by this image.</p>
+   * <p>The Amazon EC2 AMIs created by this image. The list contains one entry per
+   * 			AMI, including copies that distribution created in each target
+   * 			Amazon Web Services Region and account.</p>
    * @public
    */
   amis?: Ami[] | undefined;
 
   /**
-   * <p>Container images that the pipeline has generated and stored in the output
-   * 			repository.</p>
+   * <p>The container images that Image Builder created when it built this image, stored in
+   * 			the output Amazon ECR repository.</p>
    * @public
    */
   containers?: Container[] | undefined;
@@ -4310,7 +4642,12 @@ export interface OutputResources {
  */
 export interface ImageScanState {
   /**
-   * <p>The current state of vulnerability scans for the image.</p>
+   * <p>The current state of vulnerability scans for the image. The scan starts as
+   * 			<code>PENDING</code> and moves through <code>SCANNING</code> and
+   * 			<code>COLLECTING</code> to <code>COMPLETED</code>. Image Builder sets the status to
+   * 			<code>ABANDONED</code> if the image reaches a terminal state before the scan
+   * 			finding collection completes. A scan can also end as <code>FAILED</code> or
+   * 			<code>TIMED_OUT</code>.</p>
    * @public
    */
   status?: ImageScanStatus | undefined;
@@ -4323,10 +4660,12 @@ export interface ImageScanState {
 }
 
 /**
- * <p>An Image Builder image resource that keeps track of all of the settings used to create, configure,
- * 			and distribute output for that image. You must specify exactly one recipe for the image –
- * 			either a container recipe (<code>containerRecipe</code>), which creates a container image, or an
- * 			image recipe (<code>imageRecipe</code>), which creates an AMI.</p>
+ * <p>An Image Builder image resource that keeps track of all of the settings used to create,
+ * 			configure, and distribute output for that image. An image that Image Builder built
+ * 			from a recipe contains exactly one recipe – either a container recipe
+ * 			(<code>containerRecipe</code>), which creates a container image, or an image
+ * 			recipe (<code>imageRecipe</code>), which creates an AMI. Imported images
+ * 			don't contain a recipe.</p>
  * @public
  */
 export interface Image {
@@ -4427,13 +4766,15 @@ export interface Image {
   containerRecipe?: ContainerRecipe | undefined;
 
   /**
-   * <p>The name of the image pipeline that created this image.</p>
+   * <p>The name of the image pipeline that created this image. Image Builder doesn't return
+   * 			this field for new images. Use <code>sourcePipelineArn</code> instead.</p>
    * @public
    */
   sourcePipelineName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image pipeline that created this image.</p>
+   * <p>The Amazon Resource Name (ARN) of the image pipeline that created this image. This field is only
+   * 			present for images that a pipeline execution created.</p>
    * @public
    */
   sourcePipelineArn?: string | undefined;
@@ -4451,7 +4792,7 @@ export interface Image {
   distributionConfiguration?: DistributionConfiguration | undefined;
 
   /**
-   * <p>The image tests that ran when that Image Builder created this image.</p>
+   * <p>The image test settings that Image Builder used when it created this image.</p>
    * @public
    */
   imageTestsConfiguration?: ImageTestsConfiguration | undefined;
@@ -4516,7 +4857,10 @@ export interface Image {
   scanState?: ImageScanState | undefined;
 
   /**
-   * <p>Contains settings for vulnerability scans.</p>
+   * <p>Settings for the vulnerability scans that Amazon Inspector runs for this
+   * 			image. For AMI output, Amazon Inspector scans the test instance during image creation.
+   * 			For container output, Amazon Inspector scans the container image in its Amazon ECR
+   * 			repository.</p>
    * @public
    */
   imageScanningConfiguration?: ImageScanningConfiguration | undefined;
@@ -4541,7 +4885,8 @@ export interface Image {
   executionRole?: string | undefined;
 
   /**
-   * <p>Contains the build and test workflows that are associated with the image.</p>
+   * <p>The build, test, and distribution workflow configurations that are
+   * 			associated with the image.</p>
    * @public
    */
   workflows?: WorkflowConfiguration[] | undefined;
@@ -4571,7 +4916,9 @@ export interface GetImageResponse {
   image?: Image | undefined;
 
   /**
-   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * <p>A set of wildcard version ARNs that always reference the latest
+   * 			version of the resource. ARNs are included for the latest version overall, and for the latest
+   * 			versions within the same major, minor, and patch levels.</p>
    * @public
    */
   latestVersionReferences?: LatestVersionReferences | undefined;
@@ -4589,7 +4936,11 @@ export interface GetImagePipelineRequest {
 }
 
 /**
- * <p>Details of an image pipeline.</p>
+ * <p>Defines the automation configuration for building, testing, and
+ * 			distributing images. A pipeline references the resources that its builds
+ * 			use, such as the recipe and infrastructure configuration. It also holds
+ * 			the settings that control its builds, such as the schedule and custom
+ * 			workflows.</p>
  * @public
  */
 export interface ImagePipeline {
@@ -4612,7 +4963,8 @@ export interface ImagePipeline {
   description?: string | undefined;
 
   /**
-   * <p>The platform of the image pipeline.</p>
+   * <p>The platform of the image pipeline, inherited from the recipe that the
+   * 			pipeline uses.</p>
    * @public
    */
   platform?: Platform | undefined;
@@ -4665,7 +5017,9 @@ export interface ImagePipeline {
   schedule?: Schedule | undefined;
 
   /**
-   * <p>The status of the image pipeline.</p>
+   * <p>The status of the image pipeline. A disabled pipeline doesn't run on its
+   * 			schedule, but you can still start builds manually. Image Builder can also disable a
+   * 			pipeline automatically when consecutive scheduled builds fail.</p>
    * @public
    */
   status?: PipelineStatus | undefined;
@@ -4683,7 +5037,7 @@ export interface ImagePipeline {
   dateUpdated?: string | undefined;
 
   /**
-   * <p>This is no longer supported, and does not return a value.</p>
+   * <p>The date on which this image pipeline was last run.</p>
    * @public
    */
   dateLastRun?: string | undefined;
@@ -4709,13 +5063,17 @@ export interface ImagePipeline {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Contains settings for vulnerability scans.</p>
+   * <p>Contains settings for vulnerability scans that Amazon Inspector runs against the test instance
+   * 			during image creation.</p>
    * @public
    */
   imageScanningConfiguration?: ImageScanningConfiguration | undefined;
 
   /**
-   * <p>The tags to be applied to the images produced by this pipeline.</p>
+   * <p>The tags that Image Builder applies to the Image Builder image resource that this
+   * 			pipeline's scheduled executions create. These tags don't apply to the
+   * 			output AMI. Builds that you start manually use the tags from the
+   * 			<a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_StartImagePipelineExecution.html">StartImagePipelineExecution</a> request instead.</p>
    * @public
    */
   imageTags?: Record<string, string> | undefined;
@@ -4734,7 +5092,8 @@ export interface ImagePipeline {
   workflows?: WorkflowConfiguration[] | undefined;
 
   /**
-   * <p>Defines logging configuration for the output image.</p>
+   * <p>The CloudWatch Logs configuration for the pipeline: the log group for
+   * 			image build logs and the log group for pipeline execution logs.</p>
    * @public
    */
   loggingConfiguration?: PipelineLoggingConfiguration | undefined;
@@ -4749,8 +5108,8 @@ export interface ImagePipeline {
    *             </li>
    *             <li>
    *                <p>If the pipeline execution fails, Image Builder increments the number of
-   * 					consecutive failures. If the failure count exceeds the limit defined in the
-   * 					<code>AutoDisablePolicy</code>, Image Builder disables the pipeline.</p>
+   * 					consecutive failures. If the failure count reaches the limit defined in the
+   * 					<a>AutoDisablePolicy</a>, Image Builder disables the pipeline.</p>
    *             </li>
    *          </ul>
    *          <p>The consecutive failure count is also reset to zero under the following
@@ -4809,7 +5168,9 @@ export interface GetImagePolicyResponse {
   requestId?: string | undefined;
 
   /**
-   * <p>The image policy object.</p>
+   * <p>The resource policy for the image, as a JSON policy document. If the image
+   * 			has no policy applied, the response contains an empty JSON object
+   * 			(<code>\{\}</code>).</p>
    * @public
    */
   policy?: string | undefined;
@@ -4820,7 +5181,9 @@ export interface GetImagePolicyResponse {
  */
 export interface GetImageRecipeRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image recipe that you want to retrieve.</p>
+   * <p>The Amazon Resource Name (ARN) of the image recipe that you want to retrieve. You can use the
+   * 			<code>x</code> wildcard in trailing version positions to retrieve the latest
+   * 			matching version, for example <code>x.x.x</code> or <code>1.x.x</code>.</p>
    * @public
    */
   imageRecipeArn: string | undefined;
@@ -4843,7 +5206,9 @@ export interface GetImageRecipeResponse {
   imageRecipe?: ImageRecipe | undefined;
 
   /**
-   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * <p>A set of wildcard version ARNs that always reference the latest
+   * 			version of the resource. ARNs are included for the latest version overall, and for the latest
+   * 			versions within the same major, minor, and patch levels.</p>
    * @public
    */
   latestVersionReferences?: LatestVersionReferences | undefined;
@@ -4872,7 +5237,9 @@ export interface GetImageRecipePolicyResponse {
   requestId?: string | undefined;
 
   /**
-   * <p>The image recipe policy object.</p>
+   * <p>The resource policy for the image recipe, as a JSON policy document. If no
+   * 			policy has been applied, the response contains an empty JSON object
+   * 			(<code>\{\}</code>).</p>
    * @public
    */
   policy?: string | undefined;
@@ -4921,13 +5288,14 @@ export interface GetLifecycleExecutionRequest {
 }
 
 /**
- * <p>Contains details for an image resource that was identified for a lifecycle action.</p>
+ * <p>Contains an indicator that shows whether the lifecycle execution identified
+ * 			any resources to take lifecycle actions on.</p>
  * @public
  */
 export interface LifecycleExecutionResourcesImpactedSummary {
   /**
-   * <p>Indicates whether an image resource that was identified for a lifecycle action has
-   * 			associated resources that are also impacted.</p>
+   * <p>Indicates whether the lifecycle execution identified any resources to take
+   * 			lifecycle actions on.</p>
    * @public
    */
   hasImpactedResources?: boolean | undefined;
@@ -4969,15 +5337,15 @@ export interface LifecycleExecution {
   lifecyclePolicyArn?: string | undefined;
 
   /**
-   * <p>Contains information about associated resources that are identified for action by
-   * 			the runtime instance of the lifecycle policy.</p>
+   * <p>A summary flag that indicates whether the lifecycle execution identified any
+   * 			resources to take lifecycle actions on.</p>
    * @public
    */
   resourcesImpactedSummary?: LifecycleExecutionResourcesImpactedSummary | undefined;
 
   /**
-   * <p>Runtime state that reports if the policy action ran successfully,
-   * 			failed, or was skipped.</p>
+   * <p>Runtime state that reports whether the lifecycle execution is in progress,
+   * 			succeeded, or failed.</p>
    * @public
    */
   state?: LifecycleExecutionState | undefined;
@@ -5018,7 +5386,8 @@ export interface GetLifecyclePolicyRequest {
 }
 
 /**
- * <p>The configuration details for a lifecycle policy resource.</p>
+ * <p>Defines a lifecycle policy resource: its identity, status, execution role,
+ * 			resource type, rules, resource selection, timestamps, and tags.</p>
  * @public
  */
 export interface LifecyclePolicy {
@@ -5041,7 +5410,9 @@ export interface LifecyclePolicy {
   description?: string | undefined;
 
   /**
-   * <p>Indicates whether the lifecycle policy resource is enabled.</p>
+   * <p>Indicates whether the lifecycle policy resource is enabled. Only enabled
+   * 			policies run on their schedule. Disabling or deleting a policy removes its
+   * 			schedule and cancels any in-flight lifecycle execution.</p>
    * @public
    */
   status?: LifecyclePolicyStatus | undefined;
@@ -5060,7 +5431,9 @@ export interface LifecyclePolicy {
   resourceType?: LifecyclePolicyResourceType | undefined;
 
   /**
-   * <p>The configuration details for a lifecycle policy resource.</p>
+   * <p>The list of rules for the lifecycle policy. Each rule pairs an action with a
+   * 			filter and optional exclusion rules. A policy can contain at most one rule
+   * 			per action type.</p>
    * @public
    */
   policyDetails?: LifecyclePolicyDetail[] | undefined;
@@ -5103,7 +5476,7 @@ export interface LifecyclePolicy {
  */
 export interface GetLifecyclePolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image lifecycle policy resource that was returned.</p>
+   * <p>The details of the lifecycle policy that the request retrieved.</p>
    * @public
    */
   lifecyclePolicy?: LifecyclePolicy | undefined;
@@ -5126,7 +5499,8 @@ export interface GetMarketplaceResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>The bucket path that you can specify to download the resource from Amazon S3.</p>
+   * <p>The Amazon S3 location of the component artifact to retrieve, in
+   * 			<code>s3://bucket/key</code> form.</p>
    * @public
    */
   resourceLocation?: string | undefined;
@@ -5143,7 +5517,8 @@ export interface GetMarketplaceResourceResponse {
   resourceArn?: string | undefined;
 
   /**
-   * <p>The obfuscated S3 URL to download the component artifact from.</p>
+   * <p>A time-limited presigned URL for downloading the component artifact from
+   * 			Amazon S3.</p>
    * @public
    */
   url?: string | undefined;
@@ -5160,7 +5535,10 @@ export interface GetMarketplaceResourceResponse {
  */
 export interface GetWorkflowRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow resource that you want to get.</p>
+   * <p>The Amazon Resource Name (ARN) of the workflow resource that you want to get. You can specify a
+   * 			build version ARN, or a version ARN with or without wildcards (<code>x</code>)
+   * 			in its version segments. Image Builder resolves version and wildcard ARNs to the most
+   * 			recent matching build version.</p>
    * @public
    */
   workflowBuildVersionArn: string | undefined;
@@ -5179,8 +5557,9 @@ export interface WorkflowParameterDetail {
   name: string | undefined;
 
   /**
-   * <p>The type of input this parameter provides. The currently supported value is
-   * 			"string".</p>
+   * <p>The type of input this parameter provides. Supported values are
+   * 			<code>string</code>, <code>integer</code>, <code>boolean</code>, and
+   * 			<code>stringList</code>.</p>
    * @public
    */
   type: string | undefined;
@@ -5199,7 +5578,7 @@ export interface WorkflowParameterDetail {
 }
 
 /**
- * <p>A group of fields that describe the current status of workflow.</p>
+ * <p>A group of fields that describe the current status of the workflow.</p>
  * @public
  */
 export interface WorkflowState {
@@ -5217,8 +5596,8 @@ export interface WorkflowState {
 }
 
 /**
- * <p>Defines a process that Image Builder uses to build and test images during
- * 			the image creation process.</p>
+ * <p>Defines a process that Image Builder runs during the build, test, or distribution
+ * 			stage of the image creation process.</p>
  * @public
  */
 export interface Workflow {
@@ -5255,8 +5634,7 @@ export interface Workflow {
   changeDescription?: string | undefined;
 
   /**
-   * <p>Specifies the image creation stage that the workflow applies to. Image Builder
-   * 			currently supports build and test workflows.</p>
+   * <p>The image creation stage that the workflow applies to.</p>
    * @public
    */
   type?: WorkflowType | undefined;
@@ -5294,13 +5672,13 @@ export interface Workflow {
   dateCreated?: string | undefined;
 
   /**
-   * <p>The tags that apply to the workflow resource</p>
+   * <p>The tags that apply to the workflow resource.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>An array of input parameters that that the image workflow uses
+   * <p>An array of input parameters that the image workflow uses
    * 			to control actions or configure settings.</p>
    * @public
    */
@@ -5318,7 +5696,9 @@ export interface GetWorkflowResponse {
   workflow?: Workflow | undefined;
 
   /**
-   * <p>The resource ARNs with different wildcard variations of semantic versioning.</p>
+   * <p>A set of wildcard version ARNs that always reference the latest
+   * 			version of the resource. ARNs are included for the latest version overall, and for the latest
+   * 			versions within the same major, minor, and patch levels.</p>
    * @public
    */
   latestVersionReferences?: LatestVersionReferences | undefined;
@@ -5361,8 +5741,8 @@ export interface GetWorkflowExecutionResponse {
   workflowExecutionId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image resource build version that the specified
-   * 			runtime instance of the workflow created.</p>
+   * <p>The Amazon Resource Name (ARN) of the image build version that owns the specified runtime
+   * 			instance of the workflow.</p>
    * @public
    */
   imageBuildVersionArn?: string | undefined;
@@ -5374,7 +5754,9 @@ export interface GetWorkflowExecutionResponse {
   type?: WorkflowType | undefined;
 
   /**
-   * <p>The current runtime status for the specified runtime instance of the workflow.</p>
+   * <p>The current runtime status for the specified runtime instance of the workflow.
+   * 			<code>COMPLETED</code>, <code>FAILED</code>, <code>ROLLBACK_COMPLETED</code>,
+   * 			<code>CANCELLED</code>, and <code>SKIPPED</code> are terminal states.</p>
    * @public
    */
   status?: WorkflowExecutionStatus | undefined;
@@ -5386,9 +5768,10 @@ export interface GetWorkflowExecutionResponse {
   message?: string | undefined;
 
   /**
-   * <p>The total number of steps in the specified runtime instance of the workflow that ran.
-   * 			This number should equal the sum of the step counts for steps that succeeded, were skipped,
-   * 			and failed.</p>
+   * <p>The total number of steps that the workflow document defines for this runtime
+   * 			instance of the workflow. Image Builder sets this count before any steps run. The sum of
+   * 			succeeded, skipped, and failed steps only reaches this total if every step
+   * 			finishes in one of those states.</p>
    * @public
    */
   totalStepCount?: number | undefined;
@@ -5427,8 +5810,8 @@ export interface GetWorkflowExecutionResponse {
   endTime?: string | undefined;
 
   /**
-   * <p>Test workflows are defined within named runtime groups. The parallel group
-   * 			is a named group that contains one or more test workflows.</p>
+   * <p>The name of the parallel group that this runtime instance of the workflow
+   * 			ran in, if configured. Parallel groups apply only to test workflows.</p>
    * @public
    */
   parallelGroup?: string | undefined;
@@ -5439,8 +5822,9 @@ export interface GetWorkflowExecutionResponse {
  */
 export interface GetWorkflowStepExecutionRequest {
   /**
-   * <p>Use the unique identifier for a specific runtime instance of the workflow step to
-   * 			get runtime details for that step.</p>
+   * <p>The unique identifier for the runtime instance of the workflow step that you
+   * 			want to get runtime details for. To get the identifiers for the steps that ran
+   * 			in a workflow, call <a>ListWorkflowStepExecutions</a>.</p>
    * @public
    */
   stepExecutionId: string | undefined;
@@ -5457,7 +5841,7 @@ export interface GetWorkflowStepExecutionResponse {
   requestId?: string | undefined;
 
   /**
-   * <p>The unique identifier for the runtime version of the workflow step that you specified
+   * <p>The unique identifier for the runtime instance of the workflow step that you specified
    * 			in the request.</p>
    * @public
    */
@@ -5478,8 +5862,8 @@ export interface GetWorkflowStepExecutionResponse {
   workflowExecutionId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image resource build version that the specified
-   * 			runtime instance of the workflow step creates.</p>
+   * <p>The Amazon Resource Name (ARN) of the image build version that owns the specified runtime
+   * 			instance of the workflow step.</p>
    * @public
    */
   imageBuildVersionArn?: string | undefined;
@@ -5503,14 +5887,15 @@ export interface GetWorkflowStepExecutionResponse {
   action?: string | undefined;
 
   /**
-   * <p>The current status for the specified runtime version of the workflow step.</p>
+   * <p>The current status for the specified runtime instance of the workflow step.</p>
    * @public
    */
   status?: WorkflowStepExecutionStatus | undefined;
 
   /**
-   * <p>Reports on the rollback status of the specified runtime version of the workflow step,
-   * 			if applicable.</p>
+   * <p>Reports on the rollback status of the specified runtime instance of the
+   * 			workflow step, if applicable. Rollback runs when the workflow execution fails,
+   * 			and undoes the work that completed steps performed.</p>
    * @public
    */
   rollbackStatus?: WorkflowStepExecutionRollbackStatus | undefined;
@@ -5523,19 +5908,22 @@ export interface GetWorkflowStepExecutionResponse {
 
   /**
    * <p>Input parameters that Image Builder provided for the specified runtime instance of
-   * 			the workflow step.</p>
+   * 			the workflow step, as a JSON-encoded string.</p>
    * @public
    */
   inputs?: string | undefined;
 
   /**
-   * <p>The file names that the specified runtime version of the workflow step created as output.</p>
+   * <p>The output values that the specified runtime instance of the workflow step
+   * 			produced, as a JSON-encoded string. For example, a step that launches an
+   * 			instance outputs the instance ID. If the step failed, this field contains the
+   * 			error message.</p>
    * @public
    */
   outputs?: string | undefined;
 
   /**
-   * <p>The timestamp when the specified runtime version of the workflow step started.</p>
+   * <p>The timestamp when the specified runtime instance of the workflow step started.</p>
    * @public
    */
   startTime?: string | undefined;
@@ -5547,13 +5935,18 @@ export interface GetWorkflowStepExecutionResponse {
   endTime?: string | undefined;
 
   /**
-   * <p>The action to perform if the workflow step fails.</p>
+   * <p>The action that the workflow takes if this step fails, as configured in the
+   * 			workflow document. <code>Abort</code> fails the workflow and rolls back
+   * 			completed steps. <code>Continue</code> proceeds to the next step. If the
+   * 			step doesn't set a value, it defaults to <code>Abort</code>.</p>
    * @public
    */
   onFailure?: string | undefined;
 
   /**
-   * <p>The maximum duration in seconds for this step to complete its action.</p>
+   * <p>The maximum duration in seconds for this step to complete its action. If the
+   * 			workflow document doesn't set a timeout for the step, Image Builder applies the
+   * 			default timeout for the step's action. This field returns that value.</p>
    * @public
    */
   timeoutSeconds?: number | undefined;
@@ -5598,7 +5991,13 @@ export interface ImageAggregation {
  */
 export interface ImportComponentRequest {
   /**
-   * <p>The name of the component.</p>
+   * <p>The name of the component. Image Builder generates the component ARN from a
+   * 			normalized form of the name, so names that differ only in case, spaces, or
+   * 			underscores count as the same name. If a component with the same name and
+   * 			semantic version already exists in your account in the same Amazon Web Services Region,
+   * 			the request creates a new build version for it. If the content is also
+   * 			identical to the latest build version, the request fails because the
+   * 			component already exists.</p>
    * @public
    */
   name: string | undefined;
@@ -5610,9 +6009,13 @@ export interface ImportComponentRequest {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Filtering:</b> You can use wildcards (x) to specify the most recent versions or nodes when
-   * 	selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes
-   * 	to the right of the first wildcard must also be wildcards.</p>
+   *                <b>Assignment:</b> For the first three nodes, you can assign any positive integer value, including
+   * 	zero. The upper limit is 2^30-1, or 1073741823, for each node. Image Builder automatically assigns the
+   * 	build number to the fourth node.</p>
+   *             <p>
+   *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
+   * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
+   * 	a date, such as 2021.01.01.</p>
    *          </note>
    * @public
    */
@@ -5652,8 +6055,10 @@ export interface ImportComponentRequest {
   platform: Platform | undefined;
 
   /**
-   * <p>The data of the component. Used to specify the data inline. Either <code>data</code>
-   * 			or <code>uri</code> can be used to specify the data within the component.</p>
+   * <p>The data of the component. For the <code>SHELL</code> format, this is the
+   * 			plain script content. You must specify exactly one of the <code>data</code>
+   * 			or <code>uri</code> properties. For scripts that exceed the inline length
+   * 			constraint, use the <code>uri</code> property.</p>
    * @public
    */
   data?: string | undefined;
@@ -5668,8 +6073,10 @@ export interface ImportComponentRequest {
   uri?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the KMS key used to encrypt this component. This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
-   * 			in the <i>Key Management Service Developer Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key that is used to encrypt this component.
+   * 			This can be either the Key ARN or the Alias ARN. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">Key identifiers (KeyId)</a>
+   * 			in the <i>Key Management Service Developer Guide</i>. If you don't specify a key, Image Builder encrypts the
+   * 			component data with a KMS key that Image Builder owns.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -5682,8 +6089,9 @@ export interface ImportComponentRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -5764,7 +6172,12 @@ export interface WindowsConfiguration {
  */
 export interface ImportDiskImageRequest {
   /**
-   * <p>The name of the image resource that's created from the import.</p>
+   * <p>The name of the image resource that's created from the import. Image Builder
+   * 			generates the image ARN from a normalized form of the name, so names that
+   * 			differ only in case, spaces, or underscores count as the same name. If an
+   * 			image with the same name and semantic version already exists in your
+   * 			account in the same Amazon Web Services Region, the import creates a new build version
+   * 			for it.</p>
    * @public
    */
   name: string | undefined;
@@ -5790,15 +6203,17 @@ export interface ImportDiskImageRequest {
   platform: string | undefined;
 
   /**
-   * <p>The operating system version for the imported image. Allowed values include
-   * 			the following: <code>Microsoft Windows 11</code>.</p>
+   * <p>The operating system version for the imported image. The only supported
+   * 			value is <code>Microsoft Windows 11</code>.</p>
    * @public
    */
   osVersion: string | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access
-   * 			to perform workflow actions to import an image from a Microsoft ISO file.</p>
+   * 			to perform workflow actions to import an image from a Microsoft ISO file.
+   * 			If you don't provide a role, Image Builder uses the Image Builder service-linked role in your
+   * 			account, and creates it if it doesn't exist.</p>
    * @public
    */
   executionRole?: string | undefined;
@@ -5811,13 +6226,19 @@ export interface ImportDiskImageRequest {
   infrastructureConfigurationArn: string | undefined;
 
   /**
-   * <p>The <code>uri</code> of the ISO disk file that's stored in Amazon S3.</p>
+   * <p>The <code>uri</code> of the ISO disk file that's stored in Amazon S3, in
+   * 			<code>s3://bucket/key</code> format. The key must end with the
+   * 			<code>.iso</code>, <code>.ISO</code>, or <code>.Iso</code> extension, and the
+   * 			bucket must be owned by the account that makes the request.</p>
    * @public
    */
   uri: string | undefined;
 
   /**
-   * <p>The logging configuration for the image build process.</p>
+   * <p>The CloudWatch Logs log group where Image Builder sends the import logs. If you
+   * 			specify a log group name outside of the <code>/aws/imagebuilder/</code>
+   * 			namespace, you must also provide an <code>executionRole</code> that has
+   * 			permission to write to that log group.</p>
    * @public
    */
   loggingConfiguration?: ImageLoggingConfiguration | undefined;
@@ -5843,8 +6264,9 @@ export interface ImportDiskImageRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -5862,7 +6284,10 @@ export interface ImportDiskImageResponse {
   clientToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the output AMI that was created from the ISO disk file.</p>
+   * <p>The Amazon Resource Name (ARN) of the Image Builder image resource that this request created. The AMI
+   * 			doesn't exist yet when the response returns. The import runs asynchronously,
+   * 			and the output AMI appears in the image's output resources when the import
+   * 			completes.</p>
    * @public
    */
   imageBuildVersionArn?: string | undefined;
@@ -5873,7 +6298,12 @@ export interface ImportDiskImageResponse {
  */
 export interface ImportVmImageRequest {
   /**
-   * <p>The name of the base image that is created by the import process.</p>
+   * <p>The name of the base image that is created by the import process. Image Builder
+   * 			generates the image ARN from a normalized form of the name, so names that
+   * 			differ only in case, spaces, or underscores count as the same name. If an
+   * 			image with the same name and semantic version already exists in your
+   * 			account in the same Amazon Web Services Region, the import creates a new build version
+   * 			for it.</p>
    * @public
    */
   name: string | undefined;
@@ -5917,14 +6347,17 @@ export interface ImportVmImageRequest {
 
   /**
    * <p>The <code>importTaskId</code> (API) or <code>ImportTaskId</code> (CLI) from the
-   * 			Amazon EC2 VM import process. Image Builder retrieves information from the import process to pull in
-   * 			the AMI that is created from the VM source as the base image for your recipe.</p>
+   * 			Amazon EC2 VM import process. The import task doesn't need to be complete when you
+   * 			call ImportVmImage - Image Builder monitors the task and finishes creating the image
+   * 			when the task completes.</p>
    * @public
    */
   vmImportTaskId: string | undefined;
 
   /**
-   * <p>The logging configuration for the image build process.</p>
+   * <p>The CloudWatch Logs log group where Image Builder sends the import logs. For
+   * 			ImportVmImage, the log group name must be within the
+   * 			<code>/aws/imagebuilder/</code> namespace.</p>
    * @public
    */
   loggingConfiguration?: ImageLoggingConfiguration | undefined;
@@ -5937,8 +6370,9 @@ export interface ImportVmImageRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -5956,8 +6390,9 @@ export interface ImportVmImageResponse {
   requestId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AMI that was created during the VM import
-   * 			process. This AMI is used as the base image for the recipe that imported the VM.</p>
+   * <p>The Amazon Resource Name (ARN) of the Image Builder image resource that this request created. Image Builder
+   * 			records the AMI from the VM import task in the image's output resources
+   * 			after the task completes.</p>
    * @public
    */
   imageArn?: string | undefined;
@@ -5974,8 +6409,10 @@ export interface ImportVmImageResponse {
  */
 export interface ListComponentBuildVersionsRequest {
   /**
-   * <p>The component version Amazon Resource Name (ARN) whose versions you want to
-   * 			list.</p>
+   * <p>The component version ARN whose build versions you want to list. The ARN
+   * 			must specify an exact version, without a build number suffix. If you
+   * 			don't specify an ARN, Image Builder returns build versions for the components
+   * 			that your account owns.</p>
    * @public
    */
   componentVersionArn?: string | undefined;
@@ -6005,7 +6442,10 @@ export interface ListComponentBuildVersionsResponse {
   requestId?: string | undefined;
 
   /**
-   * <p>The list of component summaries for the specified semantic version.</p>
+   * <p>The list of component summaries. Each summary represents one build version
+   * 			of the specified component version, or of the components that your account
+   * 			owns if you didn't specify an ARN. Deprecated build versions aren't
+   * 			included.</p>
    * @public
    */
   componentSummaryList?: ComponentSummary[] | undefined;
@@ -6026,8 +6466,9 @@ export interface ListComponentsRequest {
   /**
    * <p>Filters results based on the type of owner for the component. By default, this request
    * 			returns a list of components that your account owns. To see results for other types of
-   * 			owners, you can specify components that Amazon manages, third party components, or
-   * 			components that other accounts have shared with you.</p>
+   * 			owners, you can specify components that Amazon manages, components from the
+   * 			Amazon Web Services Marketplace, third party components, or components that other accounts have shared
+   * 			with you.</p>
    * @public
    */
   owner?: Ownership | undefined;
@@ -6052,6 +6493,16 @@ export interface ListComponentsRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>productCodes</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>supportedOsVersion</code>
    *                </p>
    *             </li>
@@ -6071,7 +6522,10 @@ export interface ListComponentsRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>Returns the list of components for the specified name.</p>
+   * <p>Specifies whether to return one entry per component name, with all versions
+   * 			of each component aggregated. Defaults to <code>false</code>, which returns
+   * 			one entry per component version. You can't combine this option with the
+   * 			<code>version</code> filter.</p>
    * @public
    */
   byName?: boolean | undefined;
@@ -6124,9 +6578,10 @@ export interface ListComponentsResponse {
  */
 export interface ListContainerRecipesRequest {
   /**
-   * <p>Returns container recipes belonging to the specified owner, that have been shared with
-   * 			you. You can omit this field to return container recipes belonging to your
-   * 			account.</p>
+   * <p>Returns container recipes belonging to the specified owner, that have been
+   * 			shared with you. You can omit this field to return container recipes
+   * 			belonging to your account. For container recipes, the valid owner values are
+   * 			<code>Self</code>, <code>Shared</code>, and <code>Amazon</code>.</p>
    * @public
    */
   owner?: Ownership | undefined;
@@ -6252,8 +6707,11 @@ export interface ListDistributionConfigurationsResponse {
  */
 export interface ListImageBuildVersionsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image whose build versions you want to
-   * 			retrieve.</p>
+   * <p>The Amazon Resource Name (ARN) of the image version whose build versions you want to retrieve.
+   * 			The ARN must specify an exact version
+   * 			(<code><major>.<minor>.<patch></code>) - wildcards aren't allowed.
+   * 			This parameter is optional. If you don't specify it, Image Builder returns build
+   * 			versions for all of the images in your account.</p>
    * @public
    */
   imageVersionArn?: string | undefined;
@@ -6461,7 +6919,8 @@ export interface ListImageBuildVersionsResponse {
  */
 export interface ListImagePackagesRequest {
   /**
-   * <p>Filter results for the ListImagePackages request by the Image Build Version ARN</p>
+   * <p>The Amazon Resource Name (ARN) of the image build version whose packages you want to list. The
+   * 			value must be a full build version ARN.</p>
    * @public
    */
   imageBuildVersionArn: string | undefined;
@@ -6481,8 +6940,9 @@ export interface ListImagePackagesRequest {
 }
 
 /**
- * <p>A software package that's installed on top of the base image to create a
- * 			customized image.</p>
+ * <p>A software package that's installed on an image, as detected by Amazon Web Services Systems Manager
+ * 			Inventory at build time. The list includes packages that shipped with the
+ * 			base image.</p>
  * @public
  */
 export interface ImagePackage {
@@ -6843,7 +7303,10 @@ export interface ListImagesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>Requests a list of images with a specific recipe name.</p>
+   * <p>Specifies whether to return one entry per image name, with all versions of
+   * 			each image aggregated. Defaults to <code>false</code>, which returns one
+   * 			entry per image version. You can't combine this option with the
+   * 			<code>version</code> filter.</p>
    * @public
    */
   byName?: boolean | undefined;
@@ -6862,7 +7325,9 @@ export interface ListImagesRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>Includes deprecated images in the response list.</p>
+   * <p>Specifies whether to include deprecated Amazon-managed images in the
+   * 			results. Deprecated images that you own are always returned. Defaults to
+   * 			<code>false</code>.</p>
    * @public
    */
   includeDeprecated?: boolean | undefined;
@@ -6908,7 +7373,7 @@ export interface ImageVersion {
   type?: ImageType | undefined;
 
   /**
-   * <p>Details for a specific version of an Image Builder image. This version follows the semantic
+   * <p>The semantic version of the image. This version follows the semantic
    * 			version syntax.</p>
    *          <note>
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
@@ -6938,8 +7403,8 @@ export interface ImageVersion {
   platform?: Platform | undefined;
 
   /**
-   * <p>The operating system version of the Amazon EC2 build instance. For example, Amazon Linux 2,
-   * 			Ubuntu 18, or Microsoft Windows Server 2019.</p>
+   * <p>The operating system version of the image. For example, Amazon Linux 2023
+   * 			or Microsoft Windows Server 2022.</p>
    * @public
    */
   osVersion?: string | undefined;
@@ -7030,9 +7495,26 @@ export interface ListImagesResponse {
  */
 export interface ListImageScanFindingAggregationsRequest {
   /**
-   * <p>A filter name and value pair that is used to return a more specific list of results
-   * 			from a list operation. Filters can be used to match a set of resources by specific
-   * 			criteria, such as tags, attributes, or IDs.</p>
+   * <p>A filter name and value pair that determines the type of aggregation
+   * 			that Image Builder returns. Use one of the following filter names:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>imageBuildVersionArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>imagePipelineArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vulnerabilityId</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a filter, Image Builder returns an aggregation for your account.</p>
    * @public
    */
   filter?: Filter | undefined;
@@ -7174,7 +7656,30 @@ export interface ListImageScanFindingAggregationsResponse {
  */
 export interface ImageScanFindingsFilter {
   /**
-   * <p>The name of the image scan finding filter. Filter names are case-sensitive.</p>
+   * <p>The name of the image scan finding filter. Filter names are case-sensitive.
+   * 			Valid filter names are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>imageBuildVersionArn</code> – Filters findings by the
+   * 					image build version that was scanned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>imagePipelineArn</code> – Filters findings by the
+   * 					pipeline that created the scanned image.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vulnerabilityId</code> – Filters findings by
+   * 					vulnerability ID, for example a CVE ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>severity</code> – Filters findings by severity
+   * 					level.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   name?: string | undefined;
@@ -7196,23 +7701,23 @@ export interface ListImageScanFindingsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>imageBuildVersionArn</code>
-   *                </p>
+   *                   <code>imageBuildVersionArn</code> – Filters findings by the
+   * 					image build version that was scanned.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>imagePipelineArn</code>
-   *                </p>
+   *                   <code>imagePipelineArn</code> – Filters findings by the
+   * 					pipeline that created the scanned image.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>vulnerabilityId</code>
-   *                </p>
+   *                   <code>vulnerabilityId</code> – Filters findings by
+   * 					vulnerability ID, for example a CVE ID.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>severity</code>
-   *                </p>
+   *                   <code>severity</code> – Filters findings by severity
+   * 					level.</p>
    *             </li>
    *          </ul>
    *          <p>If you don't request a filter, then all findings in your account are listed.</p>
@@ -7241,8 +7746,9 @@ export interface ListImageScanFindingsRequest {
  */
 export interface InspectorScoreDetails {
   /**
-   * <p>An object that contains details about an adjustment that Amazon Inspector made to the CVSS score
-   * 			for the finding.</p>
+   * <p>The CVSS score that Amazon Inspector assigned to the finding after applying its
+   * 			adjustments. It includes the score source, CVSS version, scoring vector,
+   * 			and the adjustments applied.</p>
    * @public
    */
   adjustedCvss?: CvssScoreDetails | undefined;
@@ -7338,8 +7844,9 @@ export interface PackageVulnerabilityDetails {
   source?: string | undefined;
 
   /**
-   * <p>CVSS scores for one or more vulnerabilities that Amazon Inspector identified for a
-   * 			package.</p>
+   * <p>The CVSS scores for the vulnerability in this finding, as published
+   * 			by the vulnerability sources. Sources include NVD and the operating system
+   * 			vendor, and scores can span CVSS versions.</p>
    * @public
    */
   cvss?: CvssScore[] | undefined;
@@ -7417,7 +7924,8 @@ export interface Remediation {
 }
 
 /**
- * <p>Contains details about a vulnerability scan finding.</p>
+ * <p>Contains details about a vulnerability scan finding that Amazon Inspector generated
+ * 			for an image.</p>
  * @public
  */
 export interface ImageScanFinding {
@@ -7468,7 +7976,8 @@ export interface ImageScanFinding {
   remediation?: Remediation | undefined;
 
   /**
-   * <p>The severity of the finding.</p>
+   * <p>The severity of the finding. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Severity levels for Amazon Inspector findings</a> in the
+   * 				<i>Amazon Inspector User Guide</i>.</p>
    * @public
    */
   severity?: string | undefined;
@@ -7505,7 +8014,23 @@ export interface ImageScanFinding {
 
   /**
    * <p>Details about whether a fix is available for any of the packages that are identified
-   * 			in the finding through a version update.</p>
+   * 			in the finding through a version update. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YES</code> – A fix is available for all of the packages
+   * 					identified in the finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO</code> – No fix is available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIAL</code> – A fix is available for some, but not
+   * 					all, of the packages identified in the finding.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   fixAvailable?: string | undefined;
@@ -7562,7 +8087,8 @@ export interface ListInfrastructureConfigurationsRequest {
 }
 
 /**
- * <p>The infrastructure used when building Amazon EC2 AMIs.</p>
+ * <p>Contains a high-level summary of an infrastructure configuration, including
+ * 			the environment settings that Image Builder uses to build and test images.</p>
  * @public
  */
 export interface InfrastructureConfigurationSummary {
@@ -7597,7 +8123,8 @@ export interface InfrastructureConfigurationSummary {
   dateUpdated?: string | undefined;
 
   /**
-   * <p>The tags attached to the image created by Image Builder.</p>
+   * <p>The metadata tags assigned to the Amazon EC2 build and test instances that Image Builder
+   * 			launches during image creation.</p>
    * @public
    */
   resourceTags?: Record<string, string> | undefined;
@@ -7621,8 +8148,9 @@ export interface InfrastructureConfigurationSummary {
   instanceProfileName?: string | undefined;
 
   /**
-   * <p>The instance placement settings that define where the instances that are launched
-   * 			from your image run.</p>
+   * <p>The instance placement settings that define where the build and test
+   * 			instances that Image Builder launches during image creation run. These settings
+   * 			don't affect instances that you launch from the output image.</p>
    * @public
    */
   placement?: Placement | undefined;
@@ -7664,10 +8192,13 @@ export interface ListLifecycleExecutionResourcesRequest {
   lifecycleExecutionId: string | undefined;
 
   /**
-   * <p>You can leave this empty to get a list of Image Builder resources that were identified for lifecycle actions.</p>
-   *          <p>To get a list of associated resources that are impacted for an individual resource (the parent), specify
-   * 			its Amazon Resource Name (ARN). Associated resources are produced from your image and distributed when you run a build, such as
-   * 			AMIs or container images stored in ECR repositories.</p>
+   * <p>The Amazon Resource Name (ARN) of an image build version to get the output resources for,
+   * 			such as AMIs or container images in Amazon ECR. You can get this value from the
+   * 			<code>resourceId</code> in the top-level response. If you leave this
+   * 			property empty, the response lists the Image Builder resources that the lifecycle
+   * 			execution identified for lifecycle actions. If the image build version that
+   * 			you specify in <code>parentResourceId</code> wasn't part of this
+   * 			lifecycle execution, the response contains an empty list.</p>
    * @public
    */
   parentResourceId?: string | undefined;
@@ -7692,7 +8223,7 @@ export interface ListLifecycleExecutionResourcesRequest {
  */
 export interface LifecycleExecutionResourceAction {
   /**
-   * <p>The name of the resource that was identified for a lifecycle policy action.</p>
+   * <p>The name of the lifecycle action that was identified for the resource.</p>
    * @public
    */
   name?: LifecycleExecutionResourceActionName | undefined;
@@ -7774,7 +8305,7 @@ export interface LifecycleExecutionResource {
   resourceId?: string | undefined;
 
   /**
-   * <p>The runtime state for the lifecycle execution.</p>
+   * <p>The runtime state of the lifecycle action for this resource.</p>
    * @public
    */
   state?: LifecycleExecutionResourceState | undefined;
@@ -7823,7 +8354,7 @@ export interface LifecycleExecutionResource {
  */
 export interface ListLifecycleExecutionResourcesResponse {
   /**
-   * <p>Runtime details for the specified runtime instance of the lifecycle policy.</p>
+   * <p>The unique identifier for the runtime instance of the lifecycle policy.</p>
    * @public
    */
   lifecycleExecutionId?: string | undefined;
@@ -7867,7 +8398,11 @@ export interface ListLifecycleExecutionsRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to get a list of lifecycle runtime instances.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource for which to list lifecycle executions. Specify a
+   * 			lifecycle policy ARN to list its executions, or an image build version ARN
+   * 			to list the executions that <a>StartResourceStateUpdate</a>
+   * 			started for that image. Other ARN types aren't valid for this
+   * 			request.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -7897,8 +8432,9 @@ export interface ListLifecycleExecutionsResponse {
  */
 export interface ListLifecyclePoliciesRequest {
   /**
-   * <p>Streamline results based on one of the following values: <code>Name</code>,
-   * 			<code>Status</code>.</p>
+   * <p>Use the following filters to streamline results: <code>name</code>,
+   * 			<code>resourceType</code>, and <code>status</code>. Filter names are
+   * 			matched exactly as shown.</p>
    * @public
    */
   filters?: Filter[] | undefined;
@@ -7923,7 +8459,7 @@ export interface ListLifecyclePoliciesRequest {
  */
 export interface LifecyclePolicySummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the lifecycle policy summary resource.</p>
+   * <p>The Amazon Resource Name (ARN) of the lifecycle policy.</p>
    * @public
    */
   arn?: string | undefined;
@@ -8046,8 +8582,8 @@ export interface ListWaitingWorkflowStepsRequest {
 }
 
 /**
- * <p>Contains runtime details for an instance of a workflow that ran for the
- * 			associated image build version.</p>
+ * <p>Contains runtime details for a workflow step that has paused at a
+ * 			<code>WaitForAction</code> step, and is waiting for you to send an action.</p>
  * @public
  */
 export interface WorkflowStepExecution {
@@ -8102,7 +8638,9 @@ export interface WorkflowStepExecution {
 export interface ListWaitingWorkflowStepsResponse {
   /**
    * <p>An array of the workflow steps that are waiting for action in your
-   * 			Amazon Web Services account.</p>
+   * 			Amazon Web Services account. Each step is paused at a <code>WaitForAction</code> step, and
+   * 			remains in the list until you respond with
+   * 			<a>SendWorkflowStepAction</a> or the wait times out.</p>
    * @public
    */
   steps?: WorkflowStepExecution[] | undefined;
@@ -8121,7 +8659,10 @@ export interface ListWaitingWorkflowStepsResponse {
  */
 export interface ListWorkflowBuildVersionsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the workflow resource for which to get a list of build versions.</p>
+   * <p>The Amazon Resource Name (ARN) of the workflow resource for which to get a list of build versions.
+   * 			The version segments can contain wildcards (<code>x</code>) to match multiple
+   * 			versions of the workflow. If you don't specify an ARN, the response lists build
+   * 			versions for all of the workflows in your account.</p>
    * @public
    */
   workflowVersionArn?: string | undefined;
@@ -8176,8 +8717,7 @@ export interface WorkflowSummary {
   changeDescription?: string | undefined;
 
   /**
-   * <p>The image creation stage that this workflow applies to. Image Builder currently
-   * 			supports build and test stage workflows.</p>
+   * <p>The image creation stage that this workflow applies to.</p>
    * @public
    */
   type?: WorkflowType | undefined;
@@ -8212,8 +8752,8 @@ export interface WorkflowSummary {
  */
 export interface ListWorkflowBuildVersionsResponse {
   /**
-   * <p>A list that contains metadata for the workflow builds that have run for
-   * 			the workflow resource specified in the request.</p>
+   * <p>A list that contains metadata for the build versions of the workflow
+   * 			resource specified in the request.</p>
    * @public
    */
   workflowSummaryList?: WorkflowSummary[] | undefined;
@@ -8289,8 +8829,10 @@ export interface WorkflowExecutionMetadata {
   message?: string | undefined;
 
   /**
-   * <p>The total number of steps in the workflow. This should equal the sum of the step
-   * 			counts for steps that succeeded, were skipped, and failed.</p>
+   * <p>The total number of steps that the workflow document defines for this runtime
+   * 			instance of the workflow. Image Builder sets this count before any steps run. The sum of
+   * 			succeeded, skipped, and failed steps only reaches this total if every step
+   * 			finishes in one of those states.</p>
    * @public
    */
   totalStepCount?: number | undefined;
@@ -8332,7 +8874,9 @@ export interface WorkflowExecutionMetadata {
   parallelGroup?: string | undefined;
 
   /**
-   * <p>Indicates retry status for this runtime instance of the workflow.</p>
+   * <p>Indicates whether a retry of the image build superseded this runtime instance
+   *          of the workflow. When you retry a failed image build, Image Builder sets this flag to
+   *          <code>true</code> on the original workflow executions that the retry re-ran.</p>
    * @public
    */
   retried?: boolean | undefined;
@@ -8349,8 +8893,10 @@ export interface ListWorkflowExecutionsResponse {
   requestId?: string | undefined;
 
   /**
-   * <p>Contains an array of runtime details that represents each time a workflow ran for
-   * 			the requested image build version.</p>
+   * <p>An array of runtime details that represents each time a workflow ran for
+   * 			the requested image build version. Image Builder retains workflow execution records
+   * 			for a limited time, so this array can be empty for older image build
+   * 			versions.</p>
    * @public
    */
   workflowExecutions?: WorkflowExecutionMetadata[] | undefined;
@@ -8363,7 +8909,9 @@ export interface ListWorkflowExecutionsResponse {
   imageBuildVersionArn?: string | undefined;
 
   /**
-   * <p>The output message from the list action, if applicable.</p>
+   * <p>The failure reason for the image build version, if it's in a failed state.
+   * 			This comes from the image itself, not from an individual workflow, so it's
+   * 			available even when no workflow executions remain for the image.</p>
    * @public
    */
   message?: string | undefined;
@@ -8382,19 +8930,28 @@ export interface ListWorkflowExecutionsResponse {
  */
 export interface ListWorkflowsRequest {
   /**
-   * <p>Used to get a list of workflow build version filtered by the identity of the creator.</p>
+   * <p>Filters results based on the workflow owner. By default, this request returns
+   * 			the workflows that your account owns (<code>Self</code>). Specify
+   * 			<code>Amazon</code> to list the workflows that Image Builder manages. Image Builder rejects
+   * 			the <code>Shared</code> and <code>ThirdParty</code> owner values for
+   * 			workflows, and <code>AWSMarketplace</code> returns no results.</p>
    * @public
    */
   owner?: Ownership | undefined;
 
   /**
-   * <p>Used to streamline search results.</p>
+   * <p>Filters to narrow the list of workflows. You can filter on
+   * 			<code>name</code>, <code>version</code>, <code>description</code>, and
+   * 			<code>type</code>.</p>
    * @public
    */
   filters?: Filter[] | undefined;
 
   /**
-   * <p>Specify all or part of the workflow name to streamline results.</p>
+   * <p>Specifies whether to return one entry per workflow name, with all versions of
+   * 			each workflow aggregated. Defaults to <code>false</code>, which returns one
+   * 			entry per workflow version. You can't combine this option with the
+   * 			<code>version</code> filter.</p>
    * @public
    */
   byName?: boolean | undefined;
@@ -8443,8 +9000,7 @@ export interface WorkflowVersion {
   description?: string | undefined;
 
   /**
-   * <p>The image creation stage that this workflow applies to. Image Builder currently
-   * 			supports build and test stage workflows.</p>
+   * <p>The image creation stage that this workflow applies to.</p>
    * @public
    */
   type?: WorkflowType | undefined;
@@ -8467,7 +9023,7 @@ export interface WorkflowVersion {
  */
 export interface ListWorkflowsResponse {
   /**
-   * <p>A list of workflow build versions that match the request criteria.</p>
+   * <p>A list of workflow versions that match the request criteria.</p>
    * @public
    */
   workflowVersionList?: WorkflowVersion[] | undefined;
@@ -8554,13 +9110,17 @@ export interface WorkflowStepMetadata {
   message?: string | undefined;
 
   /**
-   * <p>Input parameters that Image Builder provides for the workflow step.</p>
+   * <p>Input parameters that Image Builder provides for the workflow step, as a JSON-encoded
+   * 			string.</p>
    * @public
    */
   inputs?: string | undefined;
 
   /**
-   * <p>The file names that the workflow step created as output for this runtime instance of the workflow.</p>
+   * <p>The output values that the workflow step produced for this runtime instance
+   * 			of the workflow, as a JSON-encoded string. For example, a step that launches
+   * 			an instance outputs the instance ID. If the step failed, this field contains
+   * 			the error message.</p>
    * @public
    */
   outputs?: string | undefined;
@@ -8730,7 +9290,9 @@ export interface PutImagePolicyRequest {
   imageArn: string | undefined;
 
   /**
-   * <p>The policy to apply.</p>
+   * <p>The resource policy to apply to the image, as a JSON policy document.
+   * 			Image Builder validates the policy with Amazon Web Services RAM before applying it, and rejects
+   * 			invalid policies with <code>InvalidParameterValueException</code>.</p>
    * @public
    */
   policy: string | undefined;
@@ -8794,15 +9356,17 @@ export interface PutImageRecipePolicyResponse {
  */
 export interface RetryImageRequest {
   /**
-   * <p>The source image Amazon Resource Name (ARN) to retry.</p>
+   * <p>The Amazon Resource Name (ARN) of the image build version that you want to retry. The image
+   * 			must be in the <code>FAILED</code> or <code>CANCELLED</code> state.</p>
    * @public
    */
   imageBuildVersionArn: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -8831,7 +9395,8 @@ export interface RetryImageResponse {
  */
 export interface SendWorkflowStepActionRequest {
   /**
-   * <p>Uniquely identifies the workflow step that sent the step action.</p>
+   * <p>Uniquely identifies the waiting workflow step that you send the action to.
+   * 			To get this identifier, call <a>ListWaitingWorkflowSteps</a>.</p>
    * @public
    */
   stepExecutionId: string | undefined;
@@ -8846,9 +9411,12 @@ export interface SendWorkflowStepActionRequest {
   imageBuildVersionArn: string | undefined;
 
   /**
-   * <p>The action to perform on the paused workflow step. The workflow
-   * 			step must be in a waiting state to accept an action. The request
-   * 			fails if the step has already timed out or been actioned.</p>
+   * <p>The action to perform on the paused workflow step.
+   * 			<code>RESUME</code> completes the waiting step, and the workflow continues.
+   * 			<code>STOP</code> fails the step, and the step's <code>onFailure</code>
+   * 			setting determines whether the workflow continues or aborts. The workflow
+   * 			step must be in a waiting state to accept an action. The request fails if
+   * 			the step has already timed out or been actioned.</p>
    * @public
    */
   action: WorkflowStepActionType | undefined;
@@ -8863,8 +9431,9 @@ export interface SendWorkflowStepActionRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -8876,7 +9445,8 @@ export interface SendWorkflowStepActionRequest {
  */
 export interface SendWorkflowStepActionResponse {
   /**
-   * <p>The workflow step that sent the step action.</p>
+   * <p>The unique identifier for the workflow step that received the action, as
+   * 			specified in the request.</p>
    * @public
    */
   stepExecutionId?: string | undefined;
@@ -8908,8 +9478,9 @@ export interface StartImagePipelineExecutionRequest {
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -8952,19 +9523,23 @@ export interface StartImagePipelineExecutionResponse {
  */
 export interface ResourceStateUpdateExclusionRules {
   /**
-   * <p>Defines criteria for AMIs that are excluded from lifecycle actions.</p>
+   * <p>Defines criteria for AMIs that Image Builder should exclude from the resource
+   * 			state update.</p>
    * @public
    */
   amis?: LifecyclePolicyDetailExclusionRulesAmis | undefined;
 }
 
 /**
- * <p>Specifies if the lifecycle policy should apply actions to selected resources.</p>
+ * <p>Specifies which underlying resources the resource state update applies to,
+ * 			in addition to the Image Builder image resource itself: distributed AMIs and their
+ * 			snapshots for AMI images, or distributed container images for container
+ * 			images.</p>
  * @public
  */
 export interface ResourceStateUpdateIncludeResources {
   /**
-   * <p>Specifies whether the lifecycle action should apply to distributed AMIs</p>
+   * <p>Specifies whether the lifecycle action should apply to distributed AMIs.</p>
    * @public
    */
   amis?: boolean | undefined;
@@ -8983,12 +9558,15 @@ export interface ResourceStateUpdateIncludeResources {
 }
 
 /**
- * <p>The current state of an impacted resource.</p>
+ * <p>The state to apply to the image resource in a resource state update
+ * 			request.</p>
  * @public
  */
 export interface ResourceState {
   /**
-   * <p>Shows the current lifecycle policy action that was applied to an impacted resource.</p>
+   * <p>The status to which you want to move the image resource. Set the status to
+   * 			<code>AVAILABLE</code> to restore an image that's currently deprecated
+   * 			or disabled.</p>
    * @public
    */
   status?: ResourceStatus | undefined;
@@ -9020,43 +9598,52 @@ export interface StartResourceStateUpdateRequest {
   state: ResourceState | undefined;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role that’s used to update image state.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role that's used to update image state. You
+   * 			must provide this property together with <code>includeResources</code>.
+   * 			Neither is valid without the other.</p>
    * @public
    */
   executionRole?: string | undefined;
 
   /**
-   * <p>Specifies which image resources to include in the state update.
-   * 			When specified, the lifecycle action applies to underlying resources.
-   * 			These resources include AMIs, snapshots, and containers in addition
-   * 			to the Image Builder image resource. Requires <code>executionRole</code> to
-   * 			also be specified. To delete an image and its underlying resources, you must
-   * 			specify <code>includeResources</code>. To delete only the Image Builder
-   * 			image record without affecting underlying resources, use the
-   * 			<code>DeleteImage</code> API instead.</p>
+   * <p>Specifies which underlying resources to update, in addition to the Image Builder
+   * 			image resource itself. Snapshots and containers are only valid for the
+   * 			<code>DELETED</code> state. To set an image to <code>DELETED</code>, you
+   * 			must include its underlying resources. To delete only the Image Builder image
+   * 			record, use the <a>DeleteImage</a> operation instead.</p>
    * @public
    */
   includeResources?: ResourceStateUpdateIncludeResources | undefined;
 
   /**
-   * <p>Skip action on the image resource and associated resources if specified
-   * 			exclusion rules are met.</p>
+   * <p>Rules that Image Builder evaluates against each of the image's AMIs. Matching
+   * 			AMIs and their snapshots are skipped. Exclusion rules only take effect when
+   * 			the request includes AMIs. If the target state is <code>DELETED</code> and
+   * 			any resource was skipped, the Image Builder image resource itself is also retained.
+   * 			For the <code>DEPRECATED</code> and <code>DISABLED</code> target states,
+   * 			Image Builder updates the image resource's state regardless of
+   * 			exclusions.</p>
    * @public
    */
   exclusionRules?: ResourceStateUpdateExclusionRules | undefined;
 
   /**
-   * <p>Specifies the timestamp when the state transition takes
-   * 			effect. Use this parameter only when the target status is
-   * 			<code>DEPRECATED</code>. The value must be a future time.</p>
+   * <p>The timestamp that indicates when resources are updated by a lifecycle
+   * 			action. This property is valid only when the target status is
+   * 			<code>DEPRECATED</code>, and the value must be a future time. If you
+   * 			don't specify a value, Image Builder begins the state update right away. For a
+   * 			scheduled deprecation, included AMIs get their EC2 deprecation time set
+   * 			immediately, and Image Builder schedules the image resource to transition to
+   * 			<code>DEPRECATED</code> at that time.</p>
    * @public
    */
   updateAt?: Date | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -9068,8 +9655,10 @@ export interface StartResourceStateUpdateRequest {
  */
 export interface StartResourceStateUpdateResponse {
   /**
-   * <p>Identifies the lifecycle runtime instance that started the resource
-   * 			state update.</p>
+   * <p>Identifies the lifecycle execution that performs the resource state update.
+   * 			Image Builder only returns this field when it started a lifecycle execution for the
+   * 			update. Use it with <a>GetLifecycleExecution</a> to track
+   * 			progress.</p>
    * @public
    */
   lifecycleExecutionId?: string | undefined;
@@ -9143,15 +9732,19 @@ export interface UpdateDistributionConfigurationRequest {
   description?: string | undefined;
 
   /**
-   * <p>The distributions of the distribution configuration.</p>
+   * <p>The distribution settings for the configuration. Each entry defines how
+   * 			output images are distributed in one target Amazon Web Services Region. A Region can
+   * 			appear at most once in the list. This list replaces the configuration's existing
+   * 			distributions entirely.</p>
    * @public
    */
   distributions: Distribution[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -9200,33 +9793,38 @@ export interface UpdateImagePipelineRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that configures
-   * 			images updated by this image pipeline.</p>
+   * 			images created by this image pipeline. You must specify either this property
+   * 			or <code>containerRecipeArn</code>, but not both.</p>
    * @public
    */
   imageRecipeArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the container pipeline to update.</p>
+   * <p>The Amazon Resource Name (ARN) of the container recipe that is used to configure images
+   * 			created by this container pipeline. You must specify either this property or
+   * 			<code>imageRecipeArn</code>, but not both.</p>
    * @public
    */
   containerRecipeArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that Image Builder uses to
-   * 			build images that this image pipeline has updated.</p>
+   * 			build images created by this image pipeline.</p>
    * @public
    */
   infrastructureConfigurationArn: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that Image Builder uses to
-   * 			configure and distribute images that this image pipeline has updated.</p>
+   * 			configure and distribute images created by this image pipeline.</p>
    * @public
    */
   distributionConfigurationArn?: string | undefined;
 
   /**
-   * <p>The image test configuration of the image pipeline.</p>
+   * <p>Specifies the test settings that Image Builder applies to images that this
+   * 			pipeline creates. If you don't provide test settings, Image Builder stores a default
+   * 			configuration with image tests enabled.</p>
    * @public
    */
   imageTestsConfiguration?: ImageTestsConfiguration | undefined;
@@ -9239,54 +9837,71 @@ export interface UpdateImagePipelineRequest {
   enhancedImageMetadataEnabled?: boolean | undefined;
 
   /**
-   * <p>The schedule of the image pipeline.</p>
+   * <p>The schedule of the image pipeline. Because the update replaces the entire
+   * 			configuration, omitting this property removes any existing schedule. The
+   * 			pipeline then runs only when you call
+   * 			<a>StartImagePipelineExecution</a>.</p>
    * @public
    */
   schedule?: Schedule | undefined;
 
   /**
-   * <p>The status of the image pipeline.</p>
+   * <p>The status of the image pipeline. Defaults to <code>ENABLED</code> when
+   * 			omitted. To keep a pipeline disabled, include this property set to
+   * 			<code>DISABLED</code> in your update request.</p>
    * @public
    */
   status?: PipelineStatus | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Contains settings for vulnerability scans.</p>
+   * <p>Contains settings for vulnerability scans that Amazon Inspector runs against the test instance
+   * 			during image creation.</p>
    * @public
    */
   imageScanningConfiguration?: ImageScanningConfiguration | undefined;
 
   /**
-   * <p>Contains the workflows to run for the pipeline.</p>
+   * <p>The array of workflow configuration objects for builds that this pipeline
+   * 			starts. You must also specify <code>executionRole</code> when you provide
+   * 			workflows.</p>
    * @public
    */
   workflows?: WorkflowConfiguration[] | undefined;
 
   /**
-   * <p>Update logging configuration for the output image that's created when
-   * 			the pipeline runs.</p>
+   * <p>Specifies the logging configuration for the image pipeline. Use this
+   * 			to define custom CloudWatch Logs log groups for your pipeline execution
+   * 			logs and image build logs. The service manages log groups with names
+   * 			starting with <code>/aws/imagebuilder/</code> using the service-linked
+   * 			role. For custom log group names outside of this prefix, you must also
+   * 			provide an <code>executionRole</code>.</p>
    * @public
    */
   loggingConfiguration?: PipelineLoggingConfiguration | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants
-   * 			Image Builder access to perform workflow actions.</p>
+   * 			Image Builder access to perform workflow actions. If you omit this property, the
+   * 			pipeline reverts to the Image Builder service-linked role.</p>
    * @public
    */
   executionRole?: string | undefined;
 
   /**
-   * <p>The tags to be applied to the images produced by this pipeline.</p>
+   * <p>The tags that Image Builder applies to the Image Builder image resource that this
+   * 			pipeline's scheduled executions create. These tags don't apply to the
+   * 			output AMI. To tag output AMIs, use <code>amiTags</code> in the
+   * 			pipeline's distribution configuration.</p>
    * @public
    */
   imageTags?: Record<string, string> | undefined;
@@ -9336,14 +9951,16 @@ export interface UpdateInfrastructureConfigurationRequest {
   /**
    * <p>The instance types of the infrastructure configuration. You can specify one or more
    * 			instance types to use for this build. Image Builder picks one of these instance types
-   * 			based on availability.</p>
+   * 			based on availability. If you don't specify instance types, Image Builder selects
+   * 			compatible instance types automatically. If you specify a Dedicated Host,
+   * 			Image Builder uses only instance types that the host supports.</p>
    * @public
    */
   instanceTypes?: string[] | undefined;
 
   /**
    * <p>The instance profile to associate with the instance used to customize your Amazon EC2
-   * 			AMI.</p>
+   * 			AMI. The instance profile must exist in your account.</p>
    * @public
    */
   instanceProfileName: string | undefined;
@@ -9356,13 +9973,18 @@ export interface UpdateInfrastructureConfigurationRequest {
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The subnet ID to place the instance used to customize your Amazon EC2 AMI in.</p>
+   * <p>The subnet ID in which to place the instance used to customize your Amazon EC2
+   * 			AMI. If you specify <code>subnetId</code>, you must also specify one or
+   * 			more security group IDs in <code>securityGroupIds</code>. Otherwise, the
+   * 			request fails.</p>
    * @public
    */
   subnetId?: string | undefined;
 
   /**
-   * <p>The logging configuration of the infrastructure configuration.</p>
+   * <p>The logging configuration of the infrastructure configuration. When you
+   * 			configure S3 logs, Image Builder writes logs from the build and test process to the
+   * 			specified bucket under the key prefix.</p>
    * @public
    */
   logging?: Logging | undefined;
@@ -9384,26 +10006,34 @@ export interface UpdateInfrastructureConfigurationRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the SNS topic to which Image Builder
-   * 			sends image build event notifications.</p>
+   * 			sends image build event notifications. Specify a standard topic. Image Builder doesn't support FIFO
+   * 			topics. Image Builder validates the topic when you create or update the configuration.
+   * 			You must have permission to publish to the topic.</p>
    *          <note>
-   *             <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
-   * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
-   * 				account that the Image Builder service runs under.</p>
+   *             <p>EC2 Image Builder can't send notifications to SNS topics that are encrypted using keys
+   * 				from other accounts. If your SNS topic is encrypted, the key must be owned by the
+   * 				same account that owns your Image Builder resources.</p>
    *          </note>
    * @public
    */
   snsTopicArn?: string | undefined;
 
   /**
-   * <p>The tags attached to the resource created by Image Builder.</p>
+   * <p>The metadata tags to assign to the Amazon EC2 instance that Image Builder launches during
+   * 			the build process. Tags are formatted as key value pairs. Tag keys can't
+   * 			begin with <code>aws:</code> or match one of the following reserved keys:
+   * 			<code>CreatedBy</code>, <code>Ec2ImageBuilderArn</code>, <code>Name</code>,
+   * 			or <code>Tags</code>.</p>
    * @public
    */
   resourceTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The instance metadata options that you can set for the HTTP requests that pipeline
-   * 			builds use to launch EC2 build and test instances. For more information about instance
-   * 			metadata options, see one of the following links:</p>
+   * <p>The instance metadata service (IMDS) settings that Image Builder applies to the EC2
+   * 			build and test instances it launches during image creation. If you don't
+   * 			set these options, the EC2 launch defaults for the instance apply. For more
+   * 			information about instance metadata options, see one of the following
+   * 			links:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -9425,16 +10055,18 @@ export interface UpdateInfrastructureConfigurationRequest {
   instanceMetadataOptions?: InstanceMetadataOptions | undefined;
 
   /**
-   * <p>The instance placement settings that define where the instances that are launched
-   * 			from your image run.</p>
+   * <p>The instance placement settings that define where the build and test
+   * 			instances that Image Builder launches during image creation run. These settings
+   * 			don't affect instances that you launch from the output image.</p>
    * @public
    */
   placement?: Placement | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -9476,26 +10108,32 @@ export interface UpdateLifecyclePolicyRequest {
   lifecyclePolicyArn: string | undefined;
 
   /**
-   * <p>Optional description for the lifecycle policy.</p>
+   * <p>Optional description for the lifecycle policy. Because the update replaces the
+   * 			entire configuration, omitting this property removes any existing
+   * 			description.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Indicates whether the lifecycle policy resource is enabled.</p>
+   * <p>Indicates whether the lifecycle policy resource is enabled. Defaults to
+   * 			<code>ENABLED</code> when omitted, so updating a disabled policy without
+   * 			setting this property re-enables it.</p>
    * @public
    */
   status?: LifecyclePolicyStatus | undefined;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to update the
-   * 			lifecycle policy.</p>
+   * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access
+   * 			to run lifecycle actions.</p>
    * @public
    */
   executionRole: string | undefined;
 
   /**
-   * <p>The type of image resource that the lifecycle policy applies to.</p>
+   * <p>The type of image resource that the lifecycle policy applies to. The value
+   * 			must match the policy's existing resource type. You can't change the
+   * 			resource type of an existing lifecycle policy.</p>
    * @public
    */
   resourceType: LifecyclePolicyResourceType | undefined;
@@ -9507,15 +10145,18 @@ export interface UpdateLifecyclePolicyRequest {
   policyDetails: LifecyclePolicyDetail[] | undefined;
 
   /**
-   * <p>Selection criteria for resources that the lifecycle policy applies to.</p>
+   * <p>Selection criteria for resources that the lifecycle policy applies to. You
+   * 			must specify exactly one selection criteria: either recipes or a tag map,
+   * 			not both.</p>
    * @public
    */
   resourceSelection: LifecyclePolicyResourceSelection | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
-   *        that the operation completes no more than one time. If this token matches a previous request,
-   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        that the operation runs no more than one time. If you retry a request with the same client
+   * 	   token, Image Builder returns the original response without running the operation again. For more
+   * 	   information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */

@@ -59,12 +59,30 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example List the tags for a resource
+ * ```javascript
+ * // The following example lists the tags that are assigned to an existing component build version.
+ * const input = {
+ *   resourceArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-component/1.0.0/1"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   tags: {
+ *     CostCenter: "12345",
+ *     Environment: "Production"
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
