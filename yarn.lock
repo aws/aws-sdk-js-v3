@@ -6581,6 +6581,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/client-network-security-manager@workspace:clients/client-network-security-manager":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-network-security-manager@workspace:clients/client-network-security-manager"
+  dependencies:
+    "@aws-sdk/core": "workspace:^3.978.1"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.84"
+    "@aws-sdk/types": "workspace:^3.974.6"
+    "@smithy/core": "npm:^3.35.0"
+    "@smithy/fetch-http-handler": "npm:^5.8.0"
+    "@smithy/node-http-handler": "npm:^4.12.1"
+    "@smithy/types": "npm:^4.19.0"
+    "@tsconfig/node20": "npm:20.1.8"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~7.0.2"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/client-networkflowmonitor@workspace:clients/client-networkflowmonitor":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-networkflowmonitor@workspace:clients/client-networkflowmonitor"
