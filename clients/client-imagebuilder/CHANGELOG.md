@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1138.0...v3.1139.0) (2026-09-23)
+
+
+### Features
+
+* **client-imagebuilder:** Documentation update for EC2 Image Builder - adds API request and response examples for all operations, improves descriptions throughout, and corrects response field patterns for image versions and workflow ARNs. ([12a03c0](https://github.com/aws/aws-sdk-js-v3/commit/12a03c026bfa76142063ee9243222587d74ead93))
+
+
+
+
+
 # [3.1138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1137.0...v3.1138.0) (2026-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-imagebuilder

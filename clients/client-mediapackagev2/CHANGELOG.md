@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1138.0...v3.1139.0) (2026-09-23)
+
+
+### Features
+
+* **client-mediapackagev2:** This release adds support for signalling start and end in the ContentKeyPeriod element in key request from MediaPackageV2 ([608b4b1](https://github.com/aws/aws-sdk-js-v3/commit/608b4b1ea7aea7c30831ef7ba0b8f947e9a29a52))
+
+
+
+
+
 # [3.1138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1137.0...v3.1138.0) (2026-09-22)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackagev2

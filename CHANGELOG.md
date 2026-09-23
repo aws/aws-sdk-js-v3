@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1138.0...v3.1139.0) (2026-09-23)
+
+
+### Features
+
+* **client-billing:** Added the ListBillingViewSegments API, which returns billing view segment information for a specified billing view ARN and time range. This API enables customers and integrated tools to programmatically determine the billing context of their accounts. ([aa679a9](https://github.com/aws/aws-sdk-js-v3/commit/aa679a98e3d7322be725c7721475bcef011e3316))
+* **client-connecthealth:** Multi language support with code switching, custom template sectionHeader now allows underscores. ([b4256a3](https://github.com/aws/aws-sdk-js-v3/commit/b4256a32ba77349dfc669cef3ab7f4d4861324b0))
+* **client-imagebuilder:** Documentation update for EC2 Image Builder - adds API request and response examples for all operations, improves descriptions throughout, and corrects response field patterns for image versions and workflow ARNs. ([12a03c0](https://github.com/aws/aws-sdk-js-v3/commit/12a03c026bfa76142063ee9243222587d74ead93))
+* **client-kinesis:** Amazon Kinesis Data Streams now supports service managed record distribution for on demand streams. Set the record distribution strategy to AUTO to evenly distribute records across shards. Configure it at stream creation with CreateStream or update anytime with UpdateStreamRecordDistributionStrategy ([c556a9e](https://github.com/aws/aws-sdk-js-v3/commit/c556a9e4ed257dceac78b2deb44667f5fce88dd9))
+* **client-lex-models-v2:** Adds support for speaker diarization on Amazon Lex V2 bot locales. Speaker diarization keeps your bot on the primary (loudest) speaker during a streaming voice conversation, so background voices do not start a turn or interrupt a prompt. ([6da3358](https://github.com/aws/aws-sdk-js-v3/commit/6da335812792134c613ac97fd1db5e047c691c51))
+* **client-mediaconvert:** This release adds support for SMPTE 337M audio passthrough, compositing up to five motion graphic overlays in a single output, and controlling how passthrough video is segmented in ABR outputs. It also adds 3GP, 3G2, AAC, AC-3, and E-AC-3 as supported input containers for the Probe operation. ([bed45e6](https://github.com/aws/aws-sdk-js-v3/commit/bed45e63c34442bab2f8e9af9494269260bfb507))
+* **client-mediapackagev2:** This release adds support for signalling start and end in the ContentKeyPeriod element in key request from MediaPackageV2 ([608b4b1](https://github.com/aws/aws-sdk-js-v3/commit/608b4b1ea7aea7c30831ef7ba0b8f947e9a29a52))
+* **client-network-security-manager:** AWS Network Security Manager is a new service that helps you centrally configure, deploy, and continuously enforce security policies on network security services across the accounts and resources in your AWS Organization. ([e07a9b6](https://github.com/aws/aws-sdk-js-v3/commit/e07a9b6d95e58fda11c0534093b3b42394d5cd9a))
+* **client-payment-cryptography-data:** Adds asymmetric key support to ReEncryptData for re-encrypting data between RSA and symmetric data encryption keys. ([3ce6258](https://github.com/aws/aws-sdk-js-v3/commit/3ce62583a5de5b25107cdd4dcda63227154cb6a3))
+* **clients:** update client endpoints as of 2026-09-23 ([557cad5](https://github.com/aws/aws-sdk-js-v3/commit/557cad5373a10c82e4c0e2b774d0d7fe55742491))
+
+
+
+
+
 # [3.1138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1137.0...v3.1138.0) (2026-09-22)
 
 
