@@ -883,7 +883,7 @@ export interface DeadLetterConfig {
 
 /**
  * <p>The logging configuration settings for the event bus.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
  * @public
  */
 export interface LogConfig {
@@ -998,7 +998,7 @@ export interface CreateEventBusRequest {
 
   /**
    * <p>The logging configuration settings for the event bus.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
    * @public
    */
   LogConfig?: LogConfig | undefined;
@@ -1045,7 +1045,7 @@ export interface CreateEventBusResponse {
 
   /**
    * <p>The logging configuration settings for the event bus.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
    * @public
    */
   LogConfig?: LogConfig | undefined;
@@ -1877,7 +1877,7 @@ export interface DescribeEventBusResponse {
 
   /**
    * <p>The logging configuration settings for the event bus.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
    * @public
    */
   LogConfig?: LogConfig | undefined;
@@ -1893,6 +1893,13 @@ export interface DescribeEventBusResponse {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>If the event bus was created on behalf of your account by an Amazon Web Services service,
+   *       this field displays the principal name of the service that created the event bus.</p>
+   * @public
+   */
+  ManagedBy?: string | undefined;
 }
 
 /**
@@ -2661,6 +2668,13 @@ export interface EventBus {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>If the event bus was created on behalf of your account by an Amazon Web Services service,
+   *       this field displays the principal name of the service that created the event bus.</p>
+   * @public
+   */
+  ManagedBy?: string | undefined;
 }
 
 /**
@@ -3904,13 +3918,13 @@ export interface SageMakerPipelineParameters {
 }
 
 /**
- * <p>This structure includes the custom parameter to be used when the target is an SQS FIFO
- *       queue.</p>
+ * <p>The custom parameters for EventBridge to use for a target that is an Amazon SQS fair or FIFO queue. </p>
+ *          <p></p>
  * @public
  */
 export interface SqsParameters {
   /**
-   * <p>The FIFO message group ID to use as the target.</p>
+   * <p>The ID of the message group to use as the target.</p>
    * @public
    */
   MessageGroupId?: string | undefined;
@@ -4003,8 +4017,8 @@ export interface Target {
   BatchParameters?: BatchParameters | undefined;
 
   /**
-   * <p>Contains the message group ID to use when the target is a FIFO queue.</p>
-   *          <p>If you specify an SQS FIFO queue as a target, the queue must have content-based
+   * <p>Contains the message group ID to use when the target is an Amazon SQS fair or FIFO queue.</p>
+   *          <p>If you specify a fair or FIFO queue as a target, the queue must have content-based
    *       deduplication enabled.</p>
    * @public
    */
@@ -5505,7 +5519,7 @@ export interface UpdateEventBusRequest {
 
   /**
    * <p>The logging configuration settings for the event bus.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
    * @public
    */
   LogConfig?: LogConfig | undefined;
@@ -5552,7 +5566,7 @@ export interface UpdateEventBusResponse {
 
   /**
    * <p>The logging configuration settings for the event bus.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html">Configuring logs for event buses</a> in the <i>EventBridge User Guide</i>.</p>
    * @public
    */
   LogConfig?: LogConfig | undefined;
