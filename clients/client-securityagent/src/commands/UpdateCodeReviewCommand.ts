@@ -97,6 +97,34 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  *   codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
  *   validationMode: "DISABLED" || "SIMULATED",
  *   maxTaskHours: Number("double"),
+ *   reportDestination: { // ReportDestination
+ *     integrationId: "STRING_VALUE", // required
+ *     containerId: "STRING_VALUE", // required
+ *     parentId: "STRING_VALUE",
+ *     documentId: "STRING_VALUE",
+ *   },
+ *   reportFilters: { // ReportFilters
+ *     riskLevels: [ // RiskLevelFilterList
+ *       "UNKNOWN" || "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
+ *     ],
+ *     confidenceLevels: [ // ConfidenceLevelFilterList
+ *       "FALSE_POSITIVE" || "UNCONFIRMED" || "LOW" || "MEDIUM" || "HIGH",
+ *     ],
+ *     statuses: [ // FindingStatusFilterList
+ *       "ACTIVE" || "RESOLVED" || "ACCEPTED" || "FALSE_POSITIVE",
+ *     ],
+ *     riskTypes: [ // RiskTypeFilterList
+ *       "CROSS_SITE_SCRIPTING" || "DEFAULT_CREDENTIALS" || "INSECURE_DIRECT_OBJECT_REFERENCE" || "PRIVILEGE_ESCALATION" || "SERVER_SIDE_TEMPLATE_INJECTION" || "COMMAND_INJECTION" || "CODE_INJECTION" || "SQL_INJECTION" || "ARBITRARY_FILE_UPLOAD" || "INSECURE_DESERIALIZATION" || "LOCAL_FILE_INCLUSION" || "INFORMATION_DISCLOSURE" || "PATH_TRAVERSAL" || "SERVER_SIDE_REQUEST_FORGERY" || "JSON_WEB_TOKEN_VULNERABILITIES" || "XML_EXTERNAL_ENTITY" || "FILE_DELETION" || "OTHER" || "GRAPHQL_VULNERABILITIES" || "BUSINESS_LOGIC_VULNERABILITIES" || "CRYPTOGRAPHIC_VULNERABILITIES" || "DENIAL_OF_SERVICE" || "FILE_ACCESS" || "FILE_CREATION" || "DATABASE_MODIFICATION" || "DATABASE_ACCESS" || "OUTBOUND_SERVICE_REQUEST" || "UNKNOWN",
+ *     ],
+ *     findingTypes: [ // ReportFilterList
+ *       "STRING_VALUE",
+ *     ],
+ *     taskStatuses: [ // TaskExecutionStatusFilterList
+ *       "IN_PROGRESS" || "ABORTED" || "COMPLETED" || "INTERNAL_ERROR" || "FAILED",
+ *     ],
+ *     annotationNotes: true || false,
+ *     complianceReport: true || false,
+ *   },
  * };
  * const command = new UpdateCodeReviewCommand(input);
  * const response = await client.send(command);
@@ -167,6 +195,34 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  * //   codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
  * //   validationMode: "DISABLED" || "SIMULATED",
  * //   maxTaskHours: Number("double"),
+ * //   reportDestination: { // ReportDestination
+ * //     integrationId: "STRING_VALUE", // required
+ * //     containerId: "STRING_VALUE", // required
+ * //     parentId: "STRING_VALUE",
+ * //     documentId: "STRING_VALUE",
+ * //   },
+ * //   reportFilters: { // ReportFilters
+ * //     riskLevels: [ // RiskLevelFilterList
+ * //       "UNKNOWN" || "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
+ * //     ],
+ * //     confidenceLevels: [ // ConfidenceLevelFilterList
+ * //       "FALSE_POSITIVE" || "UNCONFIRMED" || "LOW" || "MEDIUM" || "HIGH",
+ * //     ],
+ * //     statuses: [ // FindingStatusFilterList
+ * //       "ACTIVE" || "RESOLVED" || "ACCEPTED" || "FALSE_POSITIVE",
+ * //     ],
+ * //     riskTypes: [ // RiskTypeFilterList
+ * //       "CROSS_SITE_SCRIPTING" || "DEFAULT_CREDENTIALS" || "INSECURE_DIRECT_OBJECT_REFERENCE" || "PRIVILEGE_ESCALATION" || "SERVER_SIDE_TEMPLATE_INJECTION" || "COMMAND_INJECTION" || "CODE_INJECTION" || "SQL_INJECTION" || "ARBITRARY_FILE_UPLOAD" || "INSECURE_DESERIALIZATION" || "LOCAL_FILE_INCLUSION" || "INFORMATION_DISCLOSURE" || "PATH_TRAVERSAL" || "SERVER_SIDE_REQUEST_FORGERY" || "JSON_WEB_TOKEN_VULNERABILITIES" || "XML_EXTERNAL_ENTITY" || "FILE_DELETION" || "OTHER" || "GRAPHQL_VULNERABILITIES" || "BUSINESS_LOGIC_VULNERABILITIES" || "CRYPTOGRAPHIC_VULNERABILITIES" || "DENIAL_OF_SERVICE" || "FILE_ACCESS" || "FILE_CREATION" || "DATABASE_MODIFICATION" || "DATABASE_ACCESS" || "OUTBOUND_SERVICE_REQUEST" || "UNKNOWN",
+ * //     ],
+ * //     findingTypes: [ // ReportFilterList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     taskStatuses: [ // TaskExecutionStatusFilterList
+ * //       "IN_PROGRESS" || "ABORTED" || "COMPLETED" || "INTERNAL_ERROR" || "FAILED",
+ * //     ],
+ * //     annotationNotes: true || false,
+ * //     complianceReport: true || false,
+ * //   },
  * // };
  *
  * ```

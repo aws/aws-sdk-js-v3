@@ -419,6 +419,7 @@ import {
   ProviderResourceCapabilities$,
   ProviderType,
   ReportDestination$,
+  ReportFilters$,
   ResourceConfigDnsResolution,
   ResourceNotFoundException,
   ResourceNotFoundException$,
@@ -978,6 +979,7 @@ assert(typeof PrivateConnectionSummary$ === "object");
 assert(typeof ProviderInput$ === "object");
 assert(typeof ProviderResourceCapabilities$ === "object");
 assert(typeof ReportDestination$ === "object");
+assert(typeof ReportFilters$ === "object");
 assert(typeof SecurityRequirementArtifact$ === "object");
 assert(typeof SecurityRequirementPackSummary$ === "object");
 assert(typeof SecurityRequirementSummary$ === "object");

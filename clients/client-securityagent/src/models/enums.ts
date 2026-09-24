@@ -283,6 +283,85 @@ export type NetworkTrafficRuleType = (typeof NetworkTrafficRuleType)[keyof typeo
  * @public
  * @enum
  */
+export const ConfidenceLevel = {
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNCONFIRMED: "UNCONFIRMED",
+} as const;
+/**
+ * @public
+ */
+export type ConfidenceLevel = (typeof ConfidenceLevel)[keyof typeof ConfidenceLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const RiskLevel = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type RiskLevel = (typeof RiskLevel)[keyof typeof RiskLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingStatus = {
+  ACCEPTED: "ACCEPTED",
+  ACTIVE: "ACTIVE",
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  RESOLVED: "RESOLVED",
+} as const;
+/**
+ * @public
+ */
+export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskExecutionStatus = {
+  /**
+   * <p>Task was aborted.</p>
+   */
+  ABORTED: "ABORTED",
+  /**
+   * <p>Task completed successfully.</p>
+   */
+  COMPLETED: "COMPLETED",
+  /**
+   * <p>Task failed during execution.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>Task failed due to an internal error.</p>
+   */
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  /**
+   * <p>Task is currently running.</p>
+   */
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type TaskExecutionStatus = (typeof TaskExecutionStatus)[keyof typeof TaskExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ErrorCode = {
   /**
    * <p>Failure caused by a client-side error.</p>
@@ -426,37 +505,6 @@ export type StepStatus = (typeof StepStatus)[keyof typeof StepStatus];
  * @public
  * @enum
  */
-export const TaskExecutionStatus = {
-  /**
-   * <p>Task was aborted.</p>
-   */
-  ABORTED: "ABORTED",
-  /**
-   * <p>Task completed successfully.</p>
-   */
-  COMPLETED: "COMPLETED",
-  /**
-   * <p>Task failed during execution.</p>
-   */
-  FAILED: "FAILED",
-  /**
-   * <p>Task failed due to an internal error.</p>
-   */
-  INTERNAL_ERROR: "INTERNAL_ERROR",
-  /**
-   * <p>Task is currently running.</p>
-   */
-  IN_PROGRESS: "IN_PROGRESS",
-} as const;
-/**
- * @public
- */
-export type TaskExecutionStatus = (typeof TaskExecutionStatus)[keyof typeof TaskExecutionStatus];
-
-/**
- * @public
- * @enum
- */
 export const LogType = {
   /**
    * <p>Logs stored in CloudWatch.</p>
@@ -494,54 +542,6 @@ export const CodeRemediationTaskStatus = {
  * @public
  */
 export type CodeRemediationTaskStatus = (typeof CodeRemediationTaskStatus)[keyof typeof CodeRemediationTaskStatus];
-
-/**
- * @public
- * @enum
- */
-export const ConfidenceLevel = {
-  FALSE_POSITIVE: "FALSE_POSITIVE",
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  UNCONFIRMED: "UNCONFIRMED",
-} as const;
-/**
- * @public
- */
-export type ConfidenceLevel = (typeof ConfidenceLevel)[keyof typeof ConfidenceLevel];
-
-/**
- * @public
- * @enum
- */
-export const RiskLevel = {
-  CRITICAL: "CRITICAL",
-  HIGH: "HIGH",
-  INFORMATIONAL: "INFORMATIONAL",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-  UNKNOWN: "UNKNOWN",
-} as const;
-/**
- * @public
- */
-export type RiskLevel = (typeof RiskLevel)[keyof typeof RiskLevel];
-
-/**
- * @public
- * @enum
- */
-export const FindingStatus = {
-  ACCEPTED: "ACCEPTED",
-  ACTIVE: "ACTIVE",
-  FALSE_POSITIVE: "FALSE_POSITIVE",
-  RESOLVED: "RESOLVED",
-} as const;
-/**
- * @public
- */
-export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
 
 /**
  * @public

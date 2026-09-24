@@ -89,6 +89,12 @@ export interface BatchGetThreatModelJobsCommandOutput extends BatchGetThreatMode
  * //         message: "STRING_VALUE",
  * //       },
  * //       systemOverview: "STRING_VALUE",
+ * //       reportDestination: { // ReportDestination
+ * //         integrationId: "STRING_VALUE", // required
+ * //         containerId: "STRING_VALUE", // required
+ * //         parentId: "STRING_VALUE",
+ * //         documentId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   notFound: [ // ThreatModelJobIdList

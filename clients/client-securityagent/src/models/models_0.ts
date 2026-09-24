@@ -171,19 +171,19 @@ export interface ValidationExceptionField {
  */
 export interface VpcConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the VPC.</p>
+   * <p>The Amazon Resource Name (ARN) or ID of the VPC.</p>
    * @public
    */
   vpcArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the security groups for the VPC configuration.</p>
+   * <p>The Amazon Resource Names (ARNs) or IDs of the security groups for the VPC configuration.</p>
    * @public
    */
   securityGroupArns?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the subnets for the VPC configuration.</p>
+   * <p>The Amazon Resource Names (ARNs) or IDs of the subnets for the VPC configuration.</p>
    * @public
    */
   subnetArns?: string[] | undefined;
@@ -1089,7 +1089,7 @@ export namespace CaCertificateSource {
  */
 export interface TrustedCaCertificate {
   /**
-   * <p>The source that AWS Security Agent reads the certificate from.</p>
+   * <p>The source that Security Agent reads the certificate from.</p>
    * @public
    */
   source: CaCertificateSource | undefined;
@@ -1436,6 +1436,90 @@ export interface NetworkTrafficConfig {
 }
 
 /**
+ * <p>Destination for publishing scan reports to an integrated document provider.</p>
+ * @public
+ */
+export interface ReportDestination {
+  /**
+   * <p>The integration identifier for the document provider.</p>
+   * @public
+   */
+  integrationId: string | undefined;
+
+  /**
+   * <p>The container identifier where the report will be published.</p>
+   * @public
+   */
+  containerId: string | undefined;
+
+  /**
+   * <p>The parent document identifier under which the report will be created.</p>
+   * @public
+   */
+  parentId?: string | undefined;
+
+  /**
+   * <p>The existing document identifier to update instead of creating a new document.</p>
+   * @public
+   */
+  documentId?: string | undefined;
+}
+
+/**
+ * <p>The report-generation filters applied when a pentest or code review report is exported.</p>
+ * @public
+ */
+export interface ReportFilters {
+  /**
+   * <p>The severity levels to include in the report.</p>
+   * @public
+   */
+  riskLevels?: RiskLevel[] | undefined;
+
+  /**
+   * <p>The confidence levels to include in the report.</p>
+   * @public
+   */
+  confidenceLevels?: ConfidenceLevel[] | undefined;
+
+  /**
+   * <p>The finding statuses to include in the report.</p>
+   * @public
+   */
+  statuses?: FindingStatus[] | undefined;
+
+  /**
+   * <p>The risk types to include in the report.</p>
+   * @public
+   */
+  riskTypes?: RiskType[] | undefined;
+
+  /**
+   * <p>The finding types to include in the report.</p>
+   * @public
+   */
+  findingTypes?: string[] | undefined;
+
+  /**
+   * <p>The task execution statuses to include in the report's task table.</p>
+   * @public
+   */
+  taskStatuses?: TaskExecutionStatus[] | undefined;
+
+  /**
+   * <p>Whether to include reviewer annotation notes under each finding.</p>
+   * @public
+   */
+  annotationNotes?: boolean | undefined;
+
+  /**
+   * <p>Whether to include the compliance-ready report additions.</p>
+   * @public
+   */
+  complianceReport?: boolean | undefined;
+}
+
+/**
  * <p>Represents a pentest configuration that defines the parameters for security testing, including target assets, risk type exclusions, and infrastructure settings.</p>
  * @public
  */
@@ -1517,6 +1601,18 @@ export interface Pentest {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 
   /**
    * <p>The date and time the pentest was created, in UTC format.</p>
@@ -1869,6 +1965,12 @@ export interface CodeReviewJob {
   maxTaskHours?: number | undefined;
 
   /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
    * <p>The date and time the code review job was created, in UTC format.</p>
    * @public
    */
@@ -2125,6 +2227,18 @@ export interface CodeReview {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 
   /**
    * <p>The date and time the code review was created, in UTC format.</p>
@@ -2673,6 +2787,12 @@ export interface PentestJob {
   selectedFindingIds?: string[] | undefined;
 
   /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
    * <p>The date and time the pentest job was created, in UTC format.</p>
    * @public
    */
@@ -3209,6 +3329,12 @@ export interface ThreatModelJob {
    * @public
    */
   systemOverview?: string | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
 }
 
 /**
@@ -3401,6 +3527,12 @@ export interface ThreatModel {
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
 
   /**
    * <p>The date and time the threat model was created, in UTC format.</p>
@@ -4131,6 +4263,18 @@ export interface CreateCodeReviewInput {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 }
 
 /**
@@ -4203,6 +4347,18 @@ export interface CreateCodeReviewOutput {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 }
 
 /**
@@ -4573,6 +4729,18 @@ export interface CreatePentestInput {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 }
 
 /**
@@ -4633,6 +4801,18 @@ export interface CreatePentestOutput {
    * @public
    */
   agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 }
 
 /**
@@ -5225,36 +5405,6 @@ export interface CreateThreatOutput {
 }
 
 /**
- * <p>Destination for publishing scan reports to an integrated document provider.</p>
- * @public
- */
-export interface ReportDestination {
-  /**
-   * <p>The integration identifier for the document provider.</p>
-   * @public
-   */
-  integrationId: string | undefined;
-
-  /**
-   * <p>The container identifier where the report will be published.</p>
-   * @public
-   */
-  containerId: string | undefined;
-
-  /**
-   * <p>The parent document identifier under which the report will be created.</p>
-   * @public
-   */
-  parentId?: string | undefined;
-
-  /**
-   * <p>The existing document identifier to update instead of creating a new document.</p>
-   * @public
-   */
-  documentId?: string | undefined;
-}
-
-/**
  * <p>Input for creating a new threat model.</p>
  * @public
  */
@@ -5372,6 +5522,12 @@ export interface CreateThreatModelOutput {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
 }
 
 /**
@@ -8989,6 +9145,18 @@ export interface UpdateCodeReviewInput {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 }
 
 /**
@@ -9061,6 +9229,18 @@ export interface UpdateCodeReviewOutput {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 }
 
 /**
@@ -9245,6 +9425,18 @@ export interface UpdatePentestInput {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 }
 
 /**
@@ -9305,6 +9497,18 @@ export interface UpdatePentestOutput {
    * @public
    */
   agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 }
 
 /**
@@ -9593,6 +9797,12 @@ export interface UpdateThreatModelInput {
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
 }
 
 /**
@@ -9659,6 +9869,12 @@ export interface UpdateThreatModelOutput {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
 }
 
 /**

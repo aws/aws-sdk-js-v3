@@ -547,6 +547,7 @@ export type {
   ProviderInput,
   ProviderResourceCapabilities,
   ReportDestination,
+  ReportFilters,
   SecurityRequirementArtifact,
   SecurityRequirementPackSummary,
   SecurityRequirementSummary,
