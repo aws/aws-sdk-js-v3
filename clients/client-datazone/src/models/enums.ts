@@ -239,6 +239,18 @@ export type AuthType = (typeof AuthType)[keyof typeof AuthType];
  * @public
  * @enum
  */
+export const BlueprintCategory = {
+  TOOLING: "TOOLING",
+} as const;
+/**
+ * @public
+ */
+export type BlueprintCategory = (typeof BlueprintCategory)[keyof typeof BlueprintCategory];
+
+/**
+ * @public
+ * @enum
+ */
 export const SubscriptionStatus = {
   APPROVED: "APPROVED",
   CANCELLED: "CANCELLED",

@@ -576,6 +576,7 @@ export type {
   AttributeEntityType,
   AuthenticationType,
   AuthType,
+  BlueprintCategory,
   ChangeAction,
   ComputeEnvironments,
   ConfigurableActionTypeAuthorization,

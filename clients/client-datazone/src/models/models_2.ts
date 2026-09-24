@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  BlueprintCategory,
   ConnectionScope,
   ConnectionType,
   DataZoneEntityType,
@@ -3836,6 +3837,12 @@ export interface UpdateEnvironmentBlueprintInput {
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
+
+  /**
+   * <p>The category to update. The only valid value is <code>TOOLING</code>.</p>
+   * @public
+   */
+  blueprintCategory?: BlueprintCategory | undefined;
 }
 
 /**
@@ -3889,6 +3896,12 @@ export interface UpdateEnvironmentBlueprintOutput {
    * @public
    */
   glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The category of the environment blueprint. The only valid value is <code>TOOLING</code>.</p>
+   * @public
+   */
+  blueprintCategory?: BlueprintCategory | undefined;
 
   /**
    * <p>The timestamp of when the environment blueprint was created.</p>

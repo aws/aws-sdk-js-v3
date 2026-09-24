@@ -52,6 +52,7 @@ export interface CreateEnvironmentBlueprintCommandOutput extends CreateEnvironme
  *       isUpdateSupported: true || false,
  *     },
  *   ],
+ *   blueprintCategory: "TOOLING",
  * };
  * const command = new CreateEnvironmentBlueprintCommand(input);
  * const response = await client.send(command);
@@ -83,6 +84,7 @@ export interface CreateEnvironmentBlueprintCommandOutput extends CreateEnvironme
  * //   glossaryTerms: [ // GlossaryTerms
  * //     "STRING_VALUE",
  * //   ],
+ * //   blueprintCategory: "TOOLING",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
  * // };

@@ -55,6 +55,7 @@ export interface ListEnvironmentBlueprintsCommandOutput extends ListEnvironmentB
  * //       },
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
+ * //       blueprintCategory: "TOOLING",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

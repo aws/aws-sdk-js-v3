@@ -84,6 +84,7 @@ import {
   BatchPutAttributesMetadataCommand,
   BatchPutAttributesMetadataInput$,
   BatchPutAttributesMetadataOutput$,
+  BlueprintCategory,
   BusinessNameGenerationConfiguration$,
   CancelMetadataGenerationRun$,
   CancelMetadataGenerationRunCommand,
@@ -2383,6 +2384,7 @@ assert(typeof AcceptRuleBehavior === "object");
 assert(typeof AttributeEntityType === "object");
 assert(typeof AuthenticationType === "object");
 assert(typeof AuthType === "object");
+assert(typeof BlueprintCategory === "object");
 assert(typeof ChangeAction === "object");
 assert(typeof ComputeEnvironments === "object");
 assert(typeof ConfigurableActionTypeAuthorization === "object");

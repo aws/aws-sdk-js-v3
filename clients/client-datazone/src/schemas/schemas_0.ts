@@ -1158,6 +1158,7 @@ const _at = "attributes";
 const _au = "auth";
 const _b = "branch";
 const _bAC = "basicAuthenticationCredentials";
+const _bC = "blueprintCategory";
 const _bNG = "businessNameGeneration";
 const _bT = "beforeTimestamp";
 const _bV = "blueprintVersion";
@@ -1588,8 +1589,9 @@ const _prov = "provider";
 const _qET = "queryEndTime";
 const _qST = "queryStartTime";
 const _r = "revision";
-const _rA = "ruleAction";
+const _rA = "roleArn";
 const _rAe = "resourceArn";
+const _rAu = "ruleAction";
 const _rC = "resourceConfigurations";
 const _rCC = "redshiftCredentialConfiguration";
 const _rCS = "redshiftClusterSource";
@@ -2435,13 +2437,13 @@ export var CreateEnvironmentActionOutput$: StaticStructureSchema = [3, n0, _CEAO
 ];
 export var CreateEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _CEBI,
   0,
-  [_dI, _n, _pPr, _de, _uP],
-  [[0, 1], 0, () => ProvisioningProperties$, [() => Description, 0], [() => CustomParameterList, 0]], 3
+  [_dI, _n, _pPr, _de, _uP, _bC],
+  [[0, 1], 0, () => ProvisioningProperties$, [() => Description, 0], [() => CustomParameterList, 0], 0], 3
 ];
 export var CreateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _CEBO,
   0,
-  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _cA, _uA],
-  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
+  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _bC, _cA, _uA],
+  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 0, 5, 5], 4
 ];
 export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
   0,
@@ -3050,8 +3052,8 @@ export var EnvironmentBlueprintConfigurationItem$: StaticStructureSchema = [3, n
 ];
 export var EnvironmentBlueprintSummary$: StaticStructureSchema = [3, n0, _EBS,
   0,
-  [_id, _n, _prov, _pPr, _de, _cA, _uA],
-  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], 5, 5], 4
+  [_id, _n, _prov, _pPr, _de, _cA, _uA, _bC],
+  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], 5, 5, 0], 4
 ];
 export var EnvironmentConfig$: StaticStructureSchema = [3, n0, _ECn,
   0,
@@ -3295,8 +3297,8 @@ export var GetEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _GEBI,
 ];
 export var GetEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _GEBO,
   0,
-  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _cA, _uA],
-  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
+  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _bC, _cA, _uA],
+  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 0, 5, 5], 4
 ];
 export var GetEnvironmentCredentialsInput$: StaticStructureSchema = [3, n0, _GECI,
   0,
@@ -3675,8 +3677,8 @@ export var HyperPodPropertiesOutput$: StaticStructureSchema = [3, n0, _HPPO,
 ];
 export var IamPropertiesInput$: StaticStructureSchema = [3, n0, _IPI,
   0,
-  [_gLSE],
-  [2]
+  [_gLSE, _rA],
+  [2, 0]
 ];
 export var IamPropertiesOutput$: StaticStructureSchema = [3, n0, _IPO,
   0,
@@ -4121,7 +4123,7 @@ export var ListProjectsOutput$: StaticStructureSchema = [3, n0, _LPOi,
 export var ListRulesInput$: StaticStructureSchema = [3, n0, _LRIi,
   0,
   [_dI, _tT, _tIa, _rTu, _ac, _pIro, _aTs, _dPa, _iC, _mRa, _nT],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _rTu }], [0, { [_hQ]: _rA }], [64 | 0, { [_hQ]: _pIro }], [64 | 0, { [_hQ]: _aTs }], [2, { [_hQ]: _dPa }], [2, { [_hQ]: _iC }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 3
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _rTu }], [0, { [_hQ]: _rAu }], [64 | 0, { [_hQ]: _pIro }], [64 | 0, { [_hQ]: _aTs }], [2, { [_hQ]: _dPa }], [2, { [_hQ]: _iC }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 3
 ];
 export var ListRulesOutput$: StaticStructureSchema = [3, n0, _LRO,
   0,
@@ -5090,13 +5092,13 @@ export var UpdateEnvironmentActionOutput$: StaticStructureSchema = [3, n0, _UEAO
 ];
 export var UpdateEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _UEBI,
   0,
-  [_dI, _i, _de, _pPr, _uP],
-  [[0, 1], [0, 1], 0, () => ProvisioningProperties$, [() => CustomParameterList, 0]], 2
+  [_dI, _i, _de, _pPr, _uP, _bC],
+  [[0, 1], [0, 1], 0, () => ProvisioningProperties$, [() => CustomParameterList, 0], 0], 2
 ];
 export var UpdateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _UEBO,
   0,
-  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _cA, _uA],
-  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
+  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _bC, _cA, _uA],
+  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 0, 5, 5], 4
 ];
 export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
   0,
