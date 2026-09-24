@@ -87,6 +87,26 @@ export class CacheSubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
+ * <p>The Global datastore does not exist</p>
+ * @public
+ */
+export class GlobalReplicationGroupNotFoundFault extends __BaseException {
+  readonly name = "GlobalReplicationGroupNotFoundFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlobalReplicationGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "GlobalReplicationGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlobalReplicationGroupNotFoundFault.prototype);
+  }
+}
+
+/**
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing
  *             resource.</p>
  * @public
@@ -104,6 +124,26 @@ export class InvalidARNFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidARNFault.prototype);
+  }
+}
+
+/**
+ * <p>The value for a parameter is invalid.</p>
+ * @public
+ */
+export class InvalidParameterValueException extends __BaseException {
+  readonly name = "InvalidParameterValueException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
   }
 }
 
@@ -387,26 +427,6 @@ export class InvalidParameterCombinationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidParameterCombinationException.prototype);
-  }
-}
-
-/**
- * <p>The value for a parameter is invalid.</p>
- * @public
- */
-export class InvalidParameterValueException extends __BaseException {
-  readonly name = "InvalidParameterValueException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
-    super({
-      name: "InvalidParameterValueException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
   }
 }
 
@@ -922,26 +942,6 @@ export class GlobalReplicationGroupAlreadyExistsFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, GlobalReplicationGroupAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The Global datastore does not exist</p>
- * @public
- */
-export class GlobalReplicationGroupNotFoundFault extends __BaseException {
-  readonly name = "GlobalReplicationGroupNotFoundFault" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GlobalReplicationGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "GlobalReplicationGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GlobalReplicationGroupNotFoundFault.prototype);
   }
 }
 

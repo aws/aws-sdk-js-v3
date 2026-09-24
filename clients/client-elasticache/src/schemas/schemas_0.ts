@@ -1501,8 +1501,8 @@ export var CreateCacheSubnetGroupResult$: StaticStructureSchema = [3, n0, _CCSGR
 ];
 export var CreateGlobalReplicationGroupMessage$: StaticStructureSchema = [3, n0, _CGRGM,
   0,
-  [_GRGIS, _PRGI, _GRGD],
-  [0, 0, 0], 2
+  [_GRGIS, _PRGI, _GRGD, _T],
+  [0, 0, 0, [() => TagList, 0]], 2
 ];
 export var CreateGlobalReplicationGroupResult$: StaticStructureSchema = [3, n0, _CGRGR,
   0,

@@ -25,8 +25,8 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
 /**
  * <p>Lists all tags currently on a named resource.</p>
  *          <p> A tag is a key-value pair where the key and value are case-sensitive. You can use
- *             tags to categorize and track all your ElastiCache resources, with the exception of
- *             global replication group. When you add or remove tags on replication groups, those
+ *             tags to categorize and track all your ElastiCache resources.
+ *             When you add or remove tags on replication groups, those
  *             actions will be replicated to all nodes in the replication group. For more information,
  *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
  *          <p>If the cluster is not in the <i>available</i> state,
@@ -76,9 +76,15 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *  <p>The requested cache subnet group name does not refer to an existing cache subnet
  *             group.</p>
  *
+ * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
+ *  <p>The Global datastore does not exist</p>
+ *
  * @throws {@link InvalidARNFault} (client fault)
  *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
  *             resource.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
  *
  * @throws {@link InvalidReplicationGroupStateFault} (client fault)
  *  <p>The requested replication group is not in the <code>available</code> state.</p>

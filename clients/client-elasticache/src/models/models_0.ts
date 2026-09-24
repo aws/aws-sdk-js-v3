@@ -36,7 +36,7 @@ import type {
 /**
  * <p>A tag that can be added to an ElastiCache cluster or replication group. Tags are
  *             composed of a Key/Value pair. You can use tags to categorize and track all your
- *             ElastiCache resources, with the exception of global replication group. When you add or
+ *             ElastiCache resources. When you add or
  *             remove tags on replication groups, those actions will be replicated to all nodes in the
  *             replication group. A tag with a null Value is permitted.</p>
  * @public
@@ -3618,6 +3618,13 @@ export interface CreateGlobalReplicationGroupMessage {
    * @public
    */
   PrimaryReplicationGroupId: string | undefined;
+
+  /**
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must
+   *             be accompanied by a tag value, although null is accepted.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
