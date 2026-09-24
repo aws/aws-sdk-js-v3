@@ -33,6 +33,7 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * const config = {}; // type is MarketplaceDiscoveryClientConfig
  * const client = new MarketplaceDiscoveryClient(config);
  * const input = { // GetOfferTermsInput
+ *   locale: "STRING_VALUE",
  *   offerId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
@@ -40,6 +41,7 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * // { // GetOfferTermsOutput
+ * //   locale: "STRING_VALUE",
  * //   offerTerms: [ // OfferTermsList // required
  * //     { // OfferTerm Union: only one key present
  * //       byolPricingTerm: { // ByolPricingTerm
@@ -266,12 +268,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleUsageBasedId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       usageBasedPricingTerm: {
@@ -450,12 +454,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleByolId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       byolPricingTerm: {
@@ -484,12 +490,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleConfigUpfrontId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       configurableUpfrontPricingTerm: {
@@ -547,12 +555,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleFreeTrialId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       freeTrialPricingTerm: {
@@ -585,12 +595,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleRecurringId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       recurringPaymentTerm: {
@@ -610,12 +622,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleVariableId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       variablePaymentTerm: {
@@ -634,12 +648,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleRenewalId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       renewalTerm: {
@@ -688,12 +704,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleRenewalFixedId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       renewalTerm: {
@@ -717,12 +735,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleRenewalNoPriceIncreaseId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       renewalTerm: {
@@ -741,12 +761,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleSupportId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       supportTerm: {
@@ -764,12 +786,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleValidityId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       validityTerm: {
@@ -789,12 +813,14 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleNetPaymentId"
  * };
  * const command = new GetOfferTermsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
+ *   locale: "en-US",
  *   offerTerms: [
  *     {
  *       netPaymentTerm: {

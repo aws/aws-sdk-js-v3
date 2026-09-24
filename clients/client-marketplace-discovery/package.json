@@ -48,6 +48,7 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.978.1",
     "@aws-sdk/credential-provider-node": "workspace:^3.972.84",
+    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.47",
     "@aws-sdk/types": "workspace:^3.974.6",
     "@smithy/core": "^3.35.0",
     "@smithy/fetch-http-handler": "^5.8.0",

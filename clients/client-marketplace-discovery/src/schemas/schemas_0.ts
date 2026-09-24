@@ -1,9 +1,12 @@
 const _ADE = "AccessDeniedException";
 const _AFO = "ApiFulfillmentOption";
+const _AMIEV = "AmazonMachineImageEbsVolume";
 const _AMIFO = "AmazonMachineImageFulfillmentOption";
 const _AMIOS = "AmazonMachineImageOperatingSystem";
 const _AMIOSL = "AmazonMachineImageOperatingSystemList";
 const _AMIR = "AmazonMachineImageRecommendation";
+const _AMISG = "AmazonMachineImageSecurityGroup";
+const _AMISGL = "AmazonMachineImageSecurityGroupList";
 const _ASS = "AwsSupportedService";
 const _ASSL = "AwsSupportedServiceList";
 const _BPT = "ByolPricingTerm";
@@ -149,6 +152,8 @@ const _UCL = "UseCaseList";
 const _VE = "ValidationException";
 const _VPT = "VariablePaymentTerm";
 const _VT = "ValidityTerm";
+const _a = "architecture";
+const _aA = "amiAlias";
 const _aD = "adjustmentDeadline";
 const _aDg = "agreementDuration";
 const _aE = "associatedEntities";
@@ -160,6 +165,7 @@ const _aPI = "agreementProposalId";
 const _aR = "averageRating";
 const _aSD = "agreementStartDate";
 const _aSS = "awsSupportedServices";
+const _aUT = "accessUrlTemplate";
 const _b = "badges";
 const _bN = "buyerNotes";
 const _bP = "billingPeriod";
@@ -173,6 +179,7 @@ const _cDO = "chargeDateOffset";
 const _cFFO = "cloudFormationFulfillmentOption";
 const _cFO = "containerFulfillmentOption";
 const _cI = "categoryId";
+const _cIA = "cidrIpAddresses";
 const _cP = "chargePercentage";
 const _cT = "contentType";
 const _cUPT = "configurableUpfrontPricingTerm";
@@ -198,7 +205,8 @@ const _eI = "embeddedImage";
 const _eIBCFO = "ec2ImageBuilderComponentFulfillmentOption";
 const _eT = "expirationTime";
 const _eTn = "engagementType";
-const _eV = "embeddedVideo";
+const _eV = "ebsVolume";
+const _eVm = "embeddedVideo";
 const _f = "filters";
 const _fO = "fulfillmentOptions";
 const _fODN = "fulfillmentOptionDisplayName";
@@ -207,7 +215,8 @@ const _fON = "fulfillmentOptionName";
 const _fOS = "fulfillmentOptionSummaries";
 const _fOT = "fulfillmentOptionType";
 const _fOV = "fulfillmentOptionVersion";
-const _fP = "fixedPercentage";
+const _fP = "fromPort";
+const _fPi = "fixedPercentage";
 const _fT = "filterType";
 const _fTPT = "freeTrialPricingTerm";
 const _fTa = "facetTypes";
@@ -219,9 +228,11 @@ const _h = "highlights";
 const _hE = "httpError";
 const _hFO = "helmFulfillmentOption";
 const _ht = "http";
-const _i = "id";
+const _i = "iops";
 const _iG = "integrationGuide";
 const _iT = "instanceType";
+const _id = "id";
+const _l = "locale";
 const _lD = "longDescription";
 const _lF = "listingFacets";
 const _lI = "listingId";
@@ -231,6 +242,7 @@ const _lS = "listingSummaries";
 const _lT = "labelType";
 const _lTU = "logoThumbnailUrl";
 const _lTe = "legalTerm";
+const _lU = "launchUrl";
 const _lV = "labelValue";
 const _m = "message";
 const _mDS = "multipleDimensionSelection";
@@ -254,7 +266,7 @@ const _oSNf = "offerSetName";
 const _oSV = "operatingSystemVersion";
 const _oSf = "offerSet";
 const _oT = "offerTerms";
-const _p = "price";
+const _p = "protocol";
 const _pDP = "paymentDuePeriod";
 const _pI = "productId";
 const _pIr = "priceIncrease";
@@ -275,10 +287,12 @@ const _pU = "pricingUnits";
 const _pUT = "pricingUnitType";
 const _pV = "percentageValue";
 const _pa = "parent";
-const _pr = "product";
+const _pr = "price";
 const _pre = "preview";
+const _pro = "product";
 const _pu = "publisher";
 const _qC = "quantityConfiguration";
+const _qL = "quickLaunch";
 const _r = "reason";
 const _rA = "resourceArn";
 const _rAI = "replacementAgreementId";
@@ -298,9 +312,11 @@ const _re = "recommendation";
 const _res = "resources";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.marketplacediscovery";
 const _sB = "sortBy";
+const _sCT = "supportedContentTypes";
 const _sD = "shortDescription";
 const _sE = "sellerEngagements";
 const _sFO = "saasFulfillmentOption";
+const _sG = "securityGroups";
 const _sI = "sourceId";
 const _sMAFO = "sageMakerAlgorithmFulfillmentOption";
 const _sMMFO = "sageMakerModelFulfillmentOption";
@@ -308,6 +324,7 @@ const _sN = "sourceName";
 const _sO = "sortOrder";
 const _sOR = "sellerOfRecord";
 const _sPI = "sellerProfileId";
+const _sRMT = "supportedResponseMimeTypes";
 const _sST = "supportedServiceType";
 const _sT = "searchText";
 const _sTu = "supportTerm";
@@ -316,6 +333,7 @@ const _sc = "schedule";
 const _se = "server";
 const _sel = "selector";
 const _t = "type";
+const _tP = "toPort";
 const _tR = "totalReviews";
 const _tRo = "totalResults";
 const _tT = "termTemplates";
@@ -329,7 +347,8 @@ const _uI = "usageInstructions";
 const _un = "unit";
 const _v = "version";
 const _vPT = "variablePaymentTerm";
-const _vT = "validityTerm";
+const _vT = "volumeTypes";
+const _vTa = "validityTerm";
 const _va = "value";
 const n0 = "com.amazonaws.marketplacediscovery";
 
@@ -397,10 +416,15 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+export var AmazonMachineImageEbsVolume$: StaticStructureSchema = [3, n0, _AMIEV,
+  0,
+  [_vT, _i],
+  [64 | 0, 1], 1
+];
 export var AmazonMachineImageFulfillmentOption$: StaticStructureSchema = [3, n0, _AMIFO,
   0,
-  [_fOI, _fON, _fOT, _fODN, _oS, _fOV, _re, _rN, _uI],
-  [0, 0, 0, 0, () => AmazonMachineImageOperatingSystemList, 0, () => AmazonMachineImageRecommendation$, 0, 0], 5
+  [_fOI, _fON, _fOT, _fODN, _oS, _a, _fOV, _re, _rN, _uI, _aFT, _aUT, _aA, _eV, _sD],
+  [0, 0, 0, 0, () => AmazonMachineImageOperatingSystemList, 0, 0, () => AmazonMachineImageRecommendation$, 0, 0, 4, 0, 0, () => AmazonMachineImageEbsVolume$, 0], 6
 ];
 export var AmazonMachineImageOperatingSystem$: StaticStructureSchema = [3, n0, _AMIOS,
   0,
@@ -409,8 +433,13 @@ export var AmazonMachineImageOperatingSystem$: StaticStructureSchema = [3, n0, _
 ];
 export var AmazonMachineImageRecommendation$: StaticStructureSchema = [3, n0, _AMIR,
   0,
-  [_iT],
-  [0], 1
+  [_iT, _sG],
+  [0, () => AmazonMachineImageSecurityGroupList], 1
+];
+export var AmazonMachineImageSecurityGroup$: StaticStructureSchema = [3, n0, _AMISG,
+  0,
+  [_p, _fP, _tP, _cIA],
+  [0, 1, 1, 64 | 0], 4
 ];
 export var ApiFulfillmentOption$: StaticStructureSchema = [3, n0, _AFO,
   0,
@@ -424,7 +453,7 @@ export var AwsSupportedService$: StaticStructureSchema = [3, n0, _ASS,
 ];
 export var ByolPricingTerm$: StaticStructureSchema = [3, n0, _BPT,
   0,
-  [_i, _t],
+  [_id, _t],
   [0, 0], 2
 ];
 export var Category$: StaticStructureSchema = [3, n0, _C,
@@ -434,12 +463,12 @@ export var Category$: StaticStructureSchema = [3, n0, _C,
 ];
 export var CloudFormationFulfillmentOption$: StaticStructureSchema = [3, n0, _CFFO,
   0,
-  [_fOI, _fON, _fOT, _fODN, _fOV, _rN, _uI],
-  [0, 0, 0, 0, 0, 0, 0], 4
+  [_fOI, _fON, _fOT, _fODN, _fOV, _rN, _uI, _aFT, _sD, _lD],
+  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0], 4
 ];
 export var ConfigurableUpfrontPricingTerm$: StaticStructureSchema = [3, n0, _CUPT,
   0,
-  [_i, _t, _cC, _rC],
+  [_id, _t, _cC, _rC],
   [0, 0, 0, () => ConfigurableUpfrontRateCardList], 3
 ];
 export var ConfigurableUpfrontRateCardItem$: StaticStructureSchema = [3, n0, _CURCI,
@@ -504,12 +533,12 @@ export var FixedPercentage$: StaticStructureSchema = [3, n0, _FP,
 ];
 export var FixedUpfrontPricingTerm$: StaticStructureSchema = [3, n0, _FUPT,
   0,
-  [_i, _t, _cC, _p, _g, _du],
+  [_id, _t, _cC, _pr, _g, _du],
   [0, 0, 0, 0, () => GrantList, 0], 5
 ];
 export var FreeTrialPricingTerm$: StaticStructureSchema = [3, n0, _FTPT,
   0,
-  [_i, _t, _g, _du],
+  [_id, _t, _g, _du],
   [0, 0, () => GrantList, 0], 3
 ];
 export var FulfillmentOptionSummary$: StaticStructureSchema = [3, n0, _FOS,
@@ -519,53 +548,53 @@ export var FulfillmentOptionSummary$: StaticStructureSchema = [3, n0, _FOS,
 ];
 export var GetListingInput$: StaticStructureSchema = [3, n0, _GLI,
   0,
-  [_lI],
-  [0], 1
+  [_lI, _l],
+  [0, 0], 1
 ];
 export var GetListingOutput$: StaticStructureSchema = [3, n0, _GLO,
   0,
-  [_aE, _b, _ca, _cat, _fOS, _h, _lI, _lN, _lTU, _lD, _pM, _pU, _pMr, _pu, _res, _sE, _sD, _uC, _iG, _rS],
-  [() => ListingAssociatedEntityList, () => ListingBadgeList, 0, () => CategoryList, () => FulfillmentOptionSummaryList, 64 | 0, 0, 0, 0, 0, () => PricingModelList, () => PricingUnitList, () => PromotionalMediaList, () => SellerInformation$, () => ResourceList, () => SellerEngagementList, 0, () => UseCaseList, 0, () => ReviewSummary$], 18
+  [_aE, _b, _ca, _cat, _fOS, _h, _lI, _lN, _lTU, _lD, _pM, _pU, _pMr, _pu, _res, _sE, _sD, _uC, _l, _iG, _rS],
+  [() => ListingAssociatedEntityList, () => ListingBadgeList, 0, () => CategoryList, () => FulfillmentOptionSummaryList, 64 | 0, 0, 0, 0, 0, () => PricingModelList, () => PricingUnitList, () => PromotionalMediaList, () => SellerInformation$, () => ResourceList, () => SellerEngagementList, 0, () => UseCaseList, 0, 0, () => ReviewSummary$], 18
 ];
 export var GetOfferInput$: StaticStructureSchema = [3, n0, _GOI,
   0,
-  [_oI],
-  [0], 1
+  [_oI, _l],
+  [0, 0], 1
 ];
 export var GetOfferOutput$: StaticStructureSchema = [3, n0, _GOO,
   0,
-  [_oI, _ca, _sOR, _aE, _aPI, _pMri, _b, _oN, _eT, _aFT, _rAI],
-  [0, 0, () => SellerInformation$, () => OfferAssociatedEntityList, 0, () => PricingModel$, () => PurchaseOptionBadgeList, 0, 4, 4, 0], 7
+  [_oI, _ca, _sOR, _aE, _aPI, _pMri, _b, _l, _oN, _eT, _aFT, _rAI],
+  [0, 0, () => SellerInformation$, () => OfferAssociatedEntityList, 0, () => PricingModel$, () => PurchaseOptionBadgeList, 0, 0, 4, 4, 0], 7
 ];
 export var GetOfferSetInput$: StaticStructureSchema = [3, n0, _GOSI,
   0,
-  [_oSI],
-  [0], 1
+  [_oSI, _l],
+  [0, 0], 1
 ];
 export var GetOfferSetOutput$: StaticStructureSchema = [3, n0, _GOSO,
   0,
-  [_oSI, _ca, _sOR, _b, _aE, _oSNf, _aFT, _eT, _bN],
-  [0, 0, () => SellerInformation$, () => PurchaseOptionBadgeList, () => OfferSetAssociatedEntityList, 0, 4, 4, 0], 5
+  [_oSI, _ca, _sOR, _b, _aE, _l, _oSNf, _aFT, _eT, _bN],
+  [0, 0, () => SellerInformation$, () => PurchaseOptionBadgeList, () => OfferSetAssociatedEntityList, 0, 0, 4, 4, 0], 5
 ];
 export var GetOfferTermsInput$: StaticStructureSchema = [3, n0, _GOTI,
   0,
-  [_oI, _mR, _nT],
-  [0, 1, 0], 1
+  [_oI, _l, _mR, _nT],
+  [0, 0, 1, 0], 1
 ];
 export var GetOfferTermsOutput$: StaticStructureSchema = [3, n0, _GOTO,
   0,
-  [_oT, _nT],
-  [() => OfferTermsList, 0], 1
+  [_oT, _l, _nT],
+  [() => OfferTermsList, 0, 0], 1
 ];
 export var GetProductInput$: StaticStructureSchema = [3, n0, _GPI,
   0,
-  [_pI],
-  [0], 1
+  [_pI, _l],
+  [0, 0], 1
 ];
 export var GetProductOutput$: StaticStructureSchema = [3, n0, _GPO,
   0,
-  [_pI, _ca, _pN, _ma, _dOA, _sD, _lD, _lTU, _fOS, _cat, _h, _pMr, _res, _sE],
-  [0, 0, 0, () => SellerInformation$, 0, 0, 0, 0, () => FulfillmentOptionSummaryList, () => CategoryList, 64 | 0, () => PromotionalMediaList, () => ResourceList, () => SellerEngagementList], 14
+  [_pI, _ca, _pN, _ma, _dOA, _sD, _lD, _lTU, _fOS, _cat, _h, _pMr, _res, _sE, _lI, _l],
+  [0, 0, 0, () => SellerInformation$, 0, 0, 0, 0, () => FulfillmentOptionSummaryList, () => CategoryList, 64 | 0, () => PromotionalMediaList, () => ResourceList, () => SellerEngagementList, 0, 0], 15
 ];
 export var GrantItem$: StaticStructureSchema = [3, n0, _GI,
   0,
@@ -584,22 +613,22 @@ export var HelmOperatingSystem$: StaticStructureSchema = [3, n0, _HOS,
 ];
 export var LegalTerm$: StaticStructureSchema = [3, n0, _LT,
   0,
-  [_i, _t, _do],
+  [_id, _t, _do],
   [0, 0, () => DocumentList], 3
 ];
 export var ListFulfillmentOptionsInput$: StaticStructureSchema = [3, n0, _LFOI,
   0,
-  [_pI, _mR, _nT],
-  [0, 1, 0], 1
+  [_pI, _l, _mR, _nT],
+  [0, 0, 1, 0], 1
 ];
 export var ListFulfillmentOptionsOutput$: StaticStructureSchema = [3, n0, _LFOO,
   0,
-  [_fO, _nT],
-  [() => FulfillmentOptionsList, 0], 1
+  [_fO, _l, _nT],
+  [() => FulfillmentOptionsList, 0, 0], 1
 ];
 export var ListingAssociatedEntity$: StaticStructureSchema = [3, n0, _LAE,
   0,
-  [_pr, _o],
+  [_pro, _o],
   [() => ProductInformation$, () => OfferInformation$]
 ];
 export var ListingBadge$: StaticStructureSchema = [3, n0, _LB,
@@ -619,13 +648,13 @@ export var ListingSummary$: StaticStructureSchema = [3, n0, _LS,
 ];
 export var ListingSummaryAssociatedEntity$: StaticStructureSchema = [3, n0, _LSAE,
   0,
-  [_pr],
+  [_pro],
   [() => ProductInformation$]
 ];
 export var ListPurchaseOptionsInput$: StaticStructureSchema = [3, n0, _LPOI,
   0,
-  [_f, _mR, _nT],
-  [() => PurchaseOptionFilterList, 1, 0]
+  [_l, _f, _mR, _nT],
+  [0, () => PurchaseOptionFilterList, 1, 0]
 ];
 export var ListPurchaseOptionsOutput$: StaticStructureSchema = [3, n0, _LPOO,
   0,
@@ -634,12 +663,12 @@ export var ListPurchaseOptionsOutput$: StaticStructureSchema = [3, n0, _LPOO,
 ];
 export var NetPaymentTerm$: StaticStructureSchema = [3, n0, _NPT,
   0,
-  [_i, _t, _pDP],
+  [_id, _t, _pDP],
   [0, 0, 0], 3
 ];
 export var OfferAssociatedEntity$: StaticStructureSchema = [3, n0, _OAE,
   0,
-  [_pr, _oSf],
+  [_pro, _oSf],
   [() => ProductInformation$, () => OfferSetInformation$], 1
 ];
 export var OfferInformation$: StaticStructureSchema = [3, n0, _OI,
@@ -649,7 +678,7 @@ export var OfferInformation$: StaticStructureSchema = [3, n0, _OI,
 ];
 export var OfferSetAssociatedEntity$: StaticStructureSchema = [3, n0, _OSAE,
   0,
-  [_pr, _o],
+  [_pro, _o],
   [() => ProductInformation$, () => OfferInformation$], 2
 ];
 export var OfferSetInformation$: StaticStructureSchema = [3, n0, _OSI,
@@ -664,7 +693,7 @@ export var PaymentScheduleEntry$: StaticStructureSchema = [3, n0, _PSE,
 ];
 export var PaymentScheduleTerm$: StaticStructureSchema = [3, n0, _PST,
   0,
-  [_i, _t, _cC, _sc],
+  [_id, _t, _cC, _sc],
   [0, 0, 0, () => ScheduleList], 4
 ];
 export var PaymentScheduleTermTemplate$: StaticStructureSchema = [3, n0, _PSTT,
@@ -709,7 +738,7 @@ export var PromotionalEmbeddedVideo$: StaticStructureSchema = [3, n0, _PEV,
 ];
 export var PurchaseOptionAssociatedEntity$: StaticStructureSchema = [3, n0, _POAE,
   0,
-  [_pr, _o, _oSf],
+  [_pro, _o, _oSf],
   [() => ProductInformation$, () => OfferInformation$, () => OfferSetInformation$], 2
 ];
 export var PurchaseOptionBadge$: StaticStructureSchema = [3, n0, _POB,
@@ -729,17 +758,17 @@ export var PurchaseOptionSummary$: StaticStructureSchema = [3, n0, _POS,
 ];
 export var RateCardItem$: StaticStructureSchema = [3, n0, _RCI,
   0,
-  [_dK, _dN, _un, _p, _d, _dL],
+  [_dK, _dN, _un, _pr, _d, _dL],
   [0, 0, 0, 0, 0, () => DimensionLabelList], 4
 ];
 export var RecurringPaymentTerm$: StaticStructureSchema = [3, n0, _RPT,
   0,
-  [_i, _t, _cC, _bP, _p],
+  [_id, _t, _cC, _bP, _pr],
   [0, 0, 0, 0, 0], 5
 ];
 export var RenewalTerm$: StaticStructureSchema = [3, n0, _RT,
   0,
-  [_i, _t, _mRa, _lP, _aD, _pIr, _tT],
+  [_id, _t, _mRa, _lP, _aD, _pIr, _tT],
   [0, 0, 1, 0, 0, () => PriceIncrease$, () => TermTemplateList], 2
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
@@ -759,8 +788,8 @@ export var ReviewSummary$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var SaasFulfillmentOption$: StaticStructureSchema = [3, n0, _SFO,
   0,
-  [_fOI, _fOT, _fODN, _fU, _uI],
-  [0, 0, 0, 0, 0], 3
+  [_fOI, _fOT, _fODN, _qL, _fU, _uI, _aFT, _lU],
+  [0, 0, 0, 0, 0, 0, 4, 0], 4
 ];
 export var SageMakerAlgorithmFulfillmentOption$: StaticStructureSchema = [3, n0, _SMAFO,
   0,
@@ -774,8 +803,8 @@ export var SageMakerAlgorithmRecommendation$: StaticStructureSchema = [3, n0, _S
 ];
 export var SageMakerModelFulfillmentOption$: StaticStructureSchema = [3, n0, _SMMFO,
   0,
-  [_fOI, _fOT, _fODN, _fOV, _rN, _uI, _re],
-  [0, 0, 0, 0, 0, 0, () => SageMakerModelRecommendation$], 3
+  [_fOI, _fOT, _fODN, _fOV, _rN, _uI, _re, _sCT, _sRMT],
+  [0, 0, 0, 0, 0, 0, () => SageMakerModelRecommendation$, 64 | 0, 64 | 0], 3
 ];
 export var SageMakerModelRecommendation$: StaticStructureSchema = [3, n0, _SMMR,
   0,
@@ -789,8 +818,8 @@ export var ScheduleItem$: StaticStructureSchema = [3, n0, _SI,
 ];
 export var SearchFacetsInput$: StaticStructureSchema = [3, n0, _SFI,
   0,
-  [_sT, _f, _fTa, _nT],
-  [0, () => SearchFilterList, 64 | 0, 0]
+  [_l, _sT, _f, _fTa, _nT],
+  [0, 0, () => SearchFilterList, 64 | 0, 0]
 ];
 export var SearchFacetsOutput$: StaticStructureSchema = [3, n0, _SFOe,
   0,
@@ -804,8 +833,8 @@ export var SearchFilter$: StaticStructureSchema = [3, n0, _SF,
 ];
 export var SearchListingsInput$: StaticStructureSchema = [3, n0, _SLI,
   0,
-  [_sT, _f, _mR, _sB, _sO, _nT],
-  [0, () => SearchFilterList, 1, 0, 0, 0]
+  [_l, _sT, _f, _mR, _sB, _sO, _nT],
+  [0, 0, () => SearchFilterList, 1, 0, 0, 0]
 ];
 export var SearchListingsOutput$: StaticStructureSchema = [3, n0, _SLO,
   0,
@@ -829,12 +858,12 @@ export var SellerInformation$: StaticStructureSchema = [3, n0, _SIe,
 ];
 export var SupportTerm$: StaticStructureSchema = [3, n0, _ST,
   0,
-  [_i, _t, _rP],
+  [_id, _t, _rP],
   [0, 0, 0], 3
 ];
 export var UsageBasedPricingTerm$: StaticStructureSchema = [3, n0, _UBPT,
   0,
-  [_i, _t, _cC, _rC],
+  [_id, _t, _cC, _rC],
   [0, 0, 0, () => UsageBasedRateCardList], 4
 ];
 export var UsageBasedRateCardItem$: StaticStructureSchema = [3, n0, _UBRCI,
@@ -854,16 +883,21 @@ export var UseCaseEntry$: StaticStructureSchema = [3, n0, _UCE,
 ];
 export var ValidityTerm$: StaticStructureSchema = [3, n0, _VT,
   0,
-  [_i, _t, _aDg, _aED, _aSD],
+  [_id, _t, _aDg, _aED, _aSD],
   [0, 0, 0, 4, 4], 2
 ];
 export var VariablePaymentTerm$: StaticStructureSchema = [3, n0, _VPT,
   0,
-  [_i, _t, _cC, _mTCA],
+  [_id, _t, _cC, _mTCA],
   [0, 0, 0, 0], 4
 ];
+var AmazonMachineImageCidrIpAddressList = 64 | 0;
+var AmazonMachineImageEbsVolumeTypeList = 64 | 0;
 var AmazonMachineImageOperatingSystemList: StaticListSchema = [1, n0, _AMIOSL,
   0, () => AmazonMachineImageOperatingSystem$
+];
+var AmazonMachineImageSecurityGroupList: StaticListSchema = [1, n0, _AMISGL,
+  0, () => AmazonMachineImageSecurityGroup$
 ];
 var AwsSupportedServiceList: StaticListSchema = [1, n0, _ASSL,
   0, () => AwsSupportedService$
@@ -961,6 +995,8 @@ var ResourceList: StaticListSchema = [1, n0, _RL,
 var ReviewSourceSummaryList: StaticListSchema = [1, n0, _RSSL,
   0, () => ReviewSourceSummary$
 ];
+var SageMakerModelContentTypeList = 64 | 0;
+var SageMakerModelResponseMimeTypeList = 64 | 0;
 var ScheduleList: StaticListSchema = [1, n0, _SL,
   0, () => ScheduleItem$
 ];
@@ -990,17 +1026,17 @@ export var FulfillmentOption$: StaticUnionSchema = [4, n0, _FO,
 ];
 export var OfferTerm$: StaticUnionSchema = [4, n0, _OT,
   0,
-  [_bPT, _cUPT, _fUPT, _fTPT, _lTe, _pST, _rPT, _rTe, _sTu, _uBPT, _vT, _vPT, _nPT],
+  [_bPT, _cUPT, _fUPT, _fTPT, _lTe, _pST, _rPT, _rTe, _sTu, _uBPT, _vTa, _vPT, _nPT],
   [() => ByolPricingTerm$, () => ConfigurableUpfrontPricingTerm$, () => FixedUpfrontPricingTerm$, () => FreeTrialPricingTerm$, () => LegalTerm$, () => PaymentScheduleTerm$, () => RecurringPaymentTerm$, () => RenewalTerm$, () => SupportTerm$, () => UsageBasedPricingTerm$, () => ValidityTerm$, () => VariablePaymentTerm$, () => NetPaymentTerm$]
 ];
 export var PriceIncrease$: StaticUnionSchema = [4, n0, _PIr,
   0,
-  [_fP, _pR],
+  [_fPi, _pR],
   [() => FixedPercentage$, () => PercentageRange$]
 ];
 export var PromotionalMedia$: StaticUnionSchema = [4, n0, _PMr,
   0,
-  [_eI, _eV],
+  [_eI, _eVm],
   [() => PromotionalEmbeddedImage$, () => PromotionalEmbeddedVideo$]
 ];
 export var TermTemplate$: StaticUnionSchema = [4, n0, _TT,

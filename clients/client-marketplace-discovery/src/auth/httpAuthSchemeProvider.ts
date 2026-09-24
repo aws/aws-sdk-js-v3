@@ -1,30 +1,48 @@
 // smithy-typescript generated code
 import {
+  AwsSdkSigV4AAuthInputConfig,
+  AwsSdkSigV4AAuthResolvedConfig,
+  AwsSdkSigV4APreviouslyResolved,
   AwsSdkSigV4AuthInputConfig,
   AwsSdkSigV4AuthResolvedConfig,
   AwsSdkSigV4PreviouslyResolved,
+  resolveAwsSdkSigV4AConfig,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
+import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { getSmithyContext, normalizeProvider } from "@smithy/core/client";
+import { type EndpointParameterInstructions, resolveParams } from "@smithy/core/endpoints";
 import type {
+  EndpointV2,
   HandlerExecutionContext,
   HttpAuthOption,
   HttpAuthScheme,
+  HttpAuthSchemeId,
   HttpAuthSchemeParameters,
   HttpAuthSchemeParametersProvider,
   HttpAuthSchemeProvider,
+  Logger,
   Provider,
 } from "@smithy/types";
 
+import { EndpointParameters } from "../endpoint/EndpointParameters";
+import { defaultEndpointResolver } from "../endpoint/endpointResolver";
 import {
-  type MarketplaceDiscoveryClientResolvedConfig,
   MarketplaceDiscoveryClientConfig,
+  MarketplaceDiscoveryClientResolvedConfig,
 } from "../MarketplaceDiscoveryClient";
 
 /**
  * @internal
  */
-export interface MarketplaceDiscoveryHttpAuthSchemeParameters extends HttpAuthSchemeParameters {
+interface _MarketplaceDiscoveryHttpAuthSchemeParameters extends HttpAuthSchemeParameters {
+  region?: string;
+}
+
+/**
+ * @internal
+ */
+export interface MarketplaceDiscoveryHttpAuthSchemeParameters extends _MarketplaceDiscoveryHttpAuthSchemeParameters, EndpointParameters {
   region?: string;
 }
 
@@ -42,11 +60,71 @@ export interface MarketplaceDiscoveryHttpAuthSchemeParametersProvider
 /**
  * @internal
  */
-export const defaultMarketplaceDiscoveryHttpAuthSchemeParametersProvider = async (
+interface EndpointRuleSetSmithyContext {
+  commandInstance?: {
+    constructor?: {
+      getEndpointParameterInstructions(): EndpointParameterInstructions;
+    };
+  };
+}
+/**
+ * @internal
+ */
+interface EndpointRuleSetHttpAuthSchemeParametersProvider<
+  TConfig extends object,
+  TContext extends HandlerExecutionContext,
+  TParameters extends HttpAuthSchemeParameters & EndpointParameters,
+  TInput extends object
+> extends HttpAuthSchemeParametersProvider<TConfig, TContext, TParameters, TInput> {}
+/**
+ * @internal
+ */
+const createEndpointRuleSetHttpAuthSchemeParametersProvider =
+  <
+    TConfig extends object,
+    TContext extends HandlerExecutionContext,
+    THttpAuthSchemeParameters extends HttpAuthSchemeParameters,
+    TEndpointParameters extends EndpointParameters,
+    TParameters extends THttpAuthSchemeParameters & TEndpointParameters,
+    TInput extends object
+  >(
+    defaultHttpAuthSchemeParametersProvider: HttpAuthSchemeParametersProvider<
+      TConfig,
+      TContext,
+      THttpAuthSchemeParameters,
+      TInput
+    >
+  ): EndpointRuleSetHttpAuthSchemeParametersProvider<
+    TConfig,
+    TContext,
+    THttpAuthSchemeParameters & TEndpointParameters,
+    TInput
+  > =>
+  async (config: TConfig, context: TContext, input: TInput): Promise<TParameters> => {
+    if (!input) {
+      throw new Error("Could not find `input` for `defaultEndpointRuleSetHttpAuthSchemeParametersProvider`");
+    }
+    const defaultParameters = await defaultHttpAuthSchemeParametersProvider(config, context, input);
+    const instructionsFn = (getSmithyContext(context) as EndpointRuleSetSmithyContext)?.commandInstance?.constructor
+      ?.getEndpointParameterInstructions;
+    if (!instructionsFn) {
+      throw new Error(`getEndpointParameterInstructions() is not defined on '${context.commandName!}'`);
+    }
+    const endpointParameters = await resolveParams(
+      input as Record<string, unknown>,
+      { getEndpointParameterInstructions: instructionsFn! },
+      config as Record<string, unknown>
+    );
+    return Object.assign(defaultParameters, endpointParameters) as TParameters;
+  };
+/**
+ * @internal
+ */
+const _defaultMarketplaceDiscoveryHttpAuthSchemeParametersProvider = async (
   config: MarketplaceDiscoveryClientResolvedConfig,
   context: HandlerExecutionContext,
   input: object
-): Promise<MarketplaceDiscoveryHttpAuthSchemeParameters> => {
+): Promise<_MarketplaceDiscoveryHttpAuthSchemeParameters> => {
   return {
     operation: getSmithyContext(context).operation as string,
     region: await normalizeProvider(config.region)() || (() => {
@@ -54,6 +132,11 @@ export const defaultMarketplaceDiscoveryHttpAuthSchemeParametersProvider = async
     })(),
   };
 };
+/**
+ * @internal
+ */
+export const defaultMarketplaceDiscoveryHttpAuthSchemeParametersProvider: MarketplaceDiscoveryHttpAuthSchemeParametersProvider =
+  createEndpointRuleSetHttpAuthSchemeParametersProvider(_defaultMarketplaceDiscoveryHttpAuthSchemeParametersProvider);
 
 function createAwsAuthSigv4HttpAuthOption(authParameters: MarketplaceDiscoveryHttpAuthSchemeParameters): HttpAuthOption {
   return {
@@ -74,29 +157,135 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: MarketplaceDiscoveryHt
   };
 }
 
-/**
- * @internal
- */
-export interface MarketplaceDiscoveryHttpAuthSchemeProvider
-  extends HttpAuthSchemeProvider<MarketplaceDiscoveryHttpAuthSchemeParameters> {}
+function createAwsAuthSigv4aHttpAuthOption(authParameters: MarketplaceDiscoveryHttpAuthSchemeParameters): HttpAuthOption {
+  return {
+    schemeId: "aws.auth#sigv4a",
+    signingProperties: {
+      name: "aws-marketplace",
+      region: authParameters.region,
+    },
+    propertiesExtractor: (config: Partial<MarketplaceDiscoveryClientConfig>, context) => ({
+      /**
+       * @internal
+       */
+      signingProperties: {
+        config,
+        context,
+      },
+    }),
+  };
+}
 
 /**
  * @internal
  */
-export const defaultMarketplaceDiscoveryHttpAuthSchemeProvider: MarketplaceDiscoveryHttpAuthSchemeProvider = (authParameters) => {
+interface _MarketplaceDiscoveryHttpAuthSchemeProvider extends HttpAuthSchemeProvider<MarketplaceDiscoveryHttpAuthSchemeParameters> {}
+
+/**
+ * @internal
+ */
+export interface MarketplaceDiscoveryHttpAuthSchemeProvider extends HttpAuthSchemeProvider<MarketplaceDiscoveryHttpAuthSchemeParameters> {}
+
+/**
+ * @internal
+ */
+interface EndpointRuleSetHttpAuthSchemeProvider<
+  EndpointParametersT extends EndpointParameters,
+  HttpAuthSchemeParametersT extends HttpAuthSchemeParameters
+> extends HttpAuthSchemeProvider<EndpointParametersT & HttpAuthSchemeParametersT> {}
+/**
+ * @internal
+ */
+interface DefaultEndpointResolver<EndpointParametersT extends EndpointParameters> {
+  (params: EndpointParametersT, context?: { logger?: Logger }): EndpointV2;
+}
+/**
+ * @internal
+ */
+const createEndpointRuleSetHttpAuthSchemeProvider = <
+  EndpointParametersT extends EndpointParameters,
+  HttpAuthSchemeParametersT extends HttpAuthSchemeParameters
+>(
+  defaultEndpointResolver: DefaultEndpointResolver<EndpointParametersT>,
+  defaultHttpAuthSchemeResolver: HttpAuthSchemeProvider<HttpAuthSchemeParametersT>,
+  createHttpAuthOptionFunctions: Record<
+    HttpAuthSchemeId,
+    (authParameters: EndpointParametersT & HttpAuthSchemeParametersT) => HttpAuthOption
+  >
+): EndpointRuleSetHttpAuthSchemeProvider<EndpointParametersT, HttpAuthSchemeParametersT> => {
+  const endpointRuleSetHttpAuthSchemeProvider: EndpointRuleSetHttpAuthSchemeProvider<
+    EndpointParametersT,
+    HttpAuthSchemeParametersT
+  > = (authParameters) => {
+    const endpoint: EndpointV2 = defaultEndpointResolver(authParameters);
+    const authSchemes = endpoint.properties?.authSchemes;
+    if (!authSchemes) {
+      return defaultHttpAuthSchemeResolver(authParameters);
+    }
+    const options: HttpAuthOption[] = [];
+    for (const scheme of authSchemes) {
+      const { name: resolvedName, properties = {}, ...rest } = scheme;
+      const name = resolvedName.toLowerCase();
+      if (resolvedName !== name) {
+        console.warn(`HttpAuthScheme has been normalized with lowercasing: '${resolvedName}' to '${name}'`);
+      }
+      let schemeId;
+      if (name === "sigv4a") {
+        schemeId = "aws.auth#sigv4a";
+        const sigv4Present = authSchemes.find((s) => {
+          const name = s.name.toLowerCase();
+          return name !== "sigv4a" && name.startsWith("sigv4");
+        });
+        if (SignatureV4MultiRegion.sigv4aDependency() === "none" && sigv4Present) {
+          // sigv4a -> sigv4 fallback.
+          continue;
+        }
+      } else if (name.startsWith("sigv4")) {
+        schemeId = "aws.auth#sigv4";
+      } else {
+        throw new Error(`Unknown HttpAuthScheme found in '@smithy.rules#endpointRuleSet': '${name}'`);
+      }
+      const createOption = createHttpAuthOptionFunctions[schemeId];
+      if (!createOption) {
+        throw new Error(`Could not find HttpAuthOption create function for '${schemeId}'`);
+      }
+      const option = createOption(authParameters);
+      option.schemeId = schemeId;
+      option.signingProperties = { ...(option.signingProperties || {}), ...rest, ...properties };
+      options.push(option);
+    }
+    return options;
+  };
+
+  return endpointRuleSetHttpAuthSchemeProvider;
+};
+/**
+ * @internal
+ */
+const _defaultMarketplaceDiscoveryHttpAuthSchemeProvider: _MarketplaceDiscoveryHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
+      options.push(createAwsAuthSigv4aHttpAuthOption(authParameters));
     }
   }
   return options;
 };
+/**
+ * @internal
+ */
+export const defaultMarketplaceDiscoveryHttpAuthSchemeProvider: MarketplaceDiscoveryHttpAuthSchemeProvider = createEndpointRuleSetHttpAuthSchemeProvider(
+  defaultEndpointResolver,
+  _defaultMarketplaceDiscoveryHttpAuthSchemeProvider, {
+    "aws.auth#sigv4": createAwsAuthSigv4HttpAuthOption,
+    "aws.auth#sigv4a": createAwsAuthSigv4aHttpAuthOption,
+  });
 
 /**
  * @public
  */
-export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
+export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig, AwsSdkSigV4AAuthInputConfig {
   /**
    * A comma-separated list of case-sensitive auth scheme names.
    * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
@@ -121,7 +310,7 @@ export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
 /**
  * @internal
  */
-export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {
+export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig, AwsSdkSigV4AAuthResolvedConfig {
   /**
    * A comma-separated list of case-sensitive auth scheme names.
    * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
@@ -147,10 +336,11 @@ export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedCon
  * @internal
  */
 export const resolveHttpAuthSchemeConfig = <T>(
-  config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
+  config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved & AwsSdkSigV4APreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
   const config_0 = resolveAwsSdkSigV4Config(config);
-  return Object.assign(config_0, {
+  const config_1 = resolveAwsSdkSigV4AConfig(config_0);
+  return Object.assign(config_1, {
     authSchemePreference: normalizeProvider(config.authSchemePreference ?? []),
   }) as T & HttpAuthSchemeResolvedConfig;
 };

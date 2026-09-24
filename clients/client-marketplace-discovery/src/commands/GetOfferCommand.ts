@@ -33,11 +33,13 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  * const config = {}; // type is MarketplaceDiscoveryClientConfig
  * const client = new MarketplaceDiscoveryClient(config);
  * const input = { // GetOfferInput
+ *   locale: "STRING_VALUE",
  *   offerId: "STRING_VALUE", // required
  * };
  * const command = new GetOfferCommand(input);
  * const response = await client.send(command);
  * // { // GetOfferOutput
+ * //   locale: "STRING_VALUE",
  * //   offerId: "STRING_VALUE", // required
  * //   catalog: "STRING_VALUE", // required
  * //   offerName: "STRING_VALUE",
@@ -111,6 +113,7 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleContractId"
  * };
  * const command = new GetOfferCommand(input);
@@ -150,6 +153,7 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  *   ],
  *   catalog: "AWSMarketplace",
  *   expirationTime: "2023-10-08T21:40:43.644Z",
+ *   locale: "en-US",
  *   offerId: "offer-sampleContractId",
  *   offerName: "sample contract offer",
  *   pricingModel: {
@@ -169,6 +173,7 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleUsageId"
  * };
  * const command = new GetOfferCommand(input);
@@ -196,6 +201,7 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  *   ],
  *   catalog: "AWSMarketplace",
  *   expirationTime: "2022-03-29T23:59:59.999Z",
+ *   locale: "en-US",
  *   offerId: "offer-sampleUsageId",
  *   offerName: "sample usage offer",
  *   pricingModel: {
@@ -215,6 +221,7 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleByolId"
  * };
  * const command = new GetOfferCommand(input);
@@ -237,6 +244,7 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  *   badges:   [],
  *   catalog: "AWSMarketplace",
  *   expirationTime: "2022-03-29T23:59:59.999Z",
+ *   locale: "en-US",
  *   offerId: "offer-sampleByolId",
  *   offerName: "sample BYOL offer",
  *   pricingModel: {
@@ -256,6 +264,7 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   offerId: "offer-sampleFreeId"
  * };
  * const command = new GetOfferCommand(input);
@@ -278,6 +287,7 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  *   badges:   [],
  *   catalog: "AWSMarketplace",
  *   expirationTime: "2022-03-29T23:59:59.999Z",
+ *   locale: "en-US",
  *   offerId: "offer-sampleFreeId",
  *   offerName: "sample free offer",
  *   pricingModel: {

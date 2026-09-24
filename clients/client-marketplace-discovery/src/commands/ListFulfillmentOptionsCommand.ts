@@ -33,6 +33,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * const config = {}; // type is MarketplaceDiscoveryClientConfig
  * const client = new MarketplaceDiscoveryClient(config);
  * const input = { // ListFulfillmentOptionsInput
+ *   locale: "STRING_VALUE",
  *   productId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
@@ -40,6 +41,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * const command = new ListFulfillmentOptionsCommand(input);
  * const response = await client.send(command);
  * // { // ListFulfillmentOptionsOutput
+ * //   locale: "STRING_VALUE",
  * //   fulfillmentOptions: [ // FulfillmentOptionsList // required
  * //     { // FulfillmentOption Union: only one key present
  * //       amazonMachineImageFulfillmentOption: { // AmazonMachineImageFulfillmentOption
@@ -57,9 +59,30 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * //         ],
  * //         recommendation: { // AmazonMachineImageRecommendation
  * //           instanceType: "STRING_VALUE", // required
+ * //           securityGroups: [ // AmazonMachineImageSecurityGroupList
+ * //             { // AmazonMachineImageSecurityGroup
+ * //               protocol: "STRING_VALUE", // required
+ * //               fromPort: Number("int"), // required
+ * //               toPort: Number("int"), // required
+ * //               cidrIpAddresses: [ // AmazonMachineImageCidrIpAddressList // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //         releaseNotes: "STRING_VALUE",
  * //         usageInstructions: "STRING_VALUE",
+ * //         availableFromTime: new Date("TIMESTAMP"),
+ * //         accessUrlTemplate: "STRING_VALUE",
+ * //         architecture: "STRING_VALUE", // required
+ * //         amiAlias: "STRING_VALUE",
+ * //         ebsVolume: { // AmazonMachineImageEbsVolume
+ * //           volumeTypes: [ // AmazonMachineImageEbsVolumeTypeList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           iops: Number("int"),
+ * //         },
+ * //         shortDescription: "STRING_VALUE",
  * //       },
  * //       apiFulfillmentOption: { // ApiFulfillmentOption
  * //         fulfillmentOptionId: "STRING_VALUE", // required
@@ -82,6 +105,9 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * //         fulfillmentOptionVersion: "STRING_VALUE",
  * //         releaseNotes: "STRING_VALUE",
  * //         usageInstructions: "STRING_VALUE",
+ * //         availableFromTime: new Date("TIMESTAMP"),
+ * //         shortDescription: "STRING_VALUE",
+ * //         longDescription: "STRING_VALUE",
  * //       },
  * //       containerFulfillmentOption: { // ContainerFulfillmentOption
  * //         fulfillmentOptionId: "STRING_VALUE", // required
@@ -195,6 +221,9 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * //         fulfillmentOptionDisplayName: "STRING_VALUE", // required
  * //         fulfillmentUrl: "STRING_VALUE",
  * //         usageInstructions: "STRING_VALUE",
+ * //         availableFromTime: new Date("TIMESTAMP"),
+ * //         launchUrl: "STRING_VALUE",
+ * //         quickLaunch: "ENABLED" || "DISABLED", // required
  * //       },
  * //       sageMakerAlgorithmFulfillmentOption: { // SageMakerAlgorithmFulfillmentOption
  * //         fulfillmentOptionId: "STRING_VALUE", // required
@@ -220,6 +249,12 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * //           recommendedBatchTransformInstanceType: "STRING_VALUE", // required
  * //           recommendedRealtimeInferenceInstanceType: "STRING_VALUE",
  * //         },
+ * //         supportedContentTypes: [ // SageMakerModelContentTypeList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         supportedResponseMimeTypes: [ // SageMakerModelResponseMimeTypeList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     },
  * //   ],
@@ -257,6 +292,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleAmiId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -266,6 +302,15 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *   fulfillmentOptions: [
  *     {
  *       amazonMachineImageFulfillmentOption: {
+ *         accessUrlTemplate: "http://{0}:8888/",
+ *         amiAlias: "/aws/service/marketplace/prod-sampleAmiId/2.0.20260120.1",
+ *         architecture: "x86_64",
+ *         availableFromTime: "2022-03-07T00:00:00Z",
+ *         ebsVolume: {
+ *           volumeTypes: [
+ *             "gp2"
+ *           ]
+ *         },
  *         fulfillmentOptionDisplayName: "Amazon Machine Image",
  *         fulfillmentOptionId: "fo-sampleAmiId",
  *         fulfillmentOptionName: "64-bit (x86) Amazon Machine Image (AMI)",
@@ -279,13 +324,25 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *           }
  *         ],
  *         recommendation: {
- *           instanceType: "t3a.medium"
+ *           instanceType: "t3a.medium",
+ *           securityGroups: [
+ *             {
+ *               cidrIpAddresses: [
+ *                 "0.0.0.0/0"
+ *               ],
+ *               fromPort: 22,
+ *               protocol: "tcp",
+ *               toPort: 22
+ *             }
+ *           ]
  *         },
  *         releaseNotes: "https://aws.amazon.com/amazon-linux-2/release-notes/",
+ *         shortDescription: "Amazon Linux 2 AMI for x86_64 EC2 instances.",
  *         usageInstructions: "The Amazon Linux 2 AMI can be launched through the EC2 console's Quick Launch page."
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```
@@ -294,6 +351,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleApiId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -316,7 +374,41 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *         usageInstructions: "Please refer to the MCP usage instructions."
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
+ * }
+ * *\/
+ * ```
+ *
+ * @example List API Fulfillment Options with Dynamic Endpoint
+ * ```javascript
+ * //
+ * const input = {
+ *   locale: "en-US",
+ *   productId: "prod-sampleApiDynamicId"
+ * };
+ * const command = new ListFulfillmentOptionsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   fulfillmentOptions: [
+ *     {
+ *       apiFulfillmentOption: {
+ *         awsSupportedServices: [
+ *           {
+ *             description: "A managed service that enables you to develop, deploy, and maintain AI agents seamlessly.",
+ *             displayName: "Amazon Bedrock AgentCore",
+ *             supportedServiceType: "BEDROCK_AGENTCORE"
+ *           }
+ *         ],
+ *         fulfillmentOptionDisplayName: "API-Based Agents & Tools",
+ *         fulfillmentOptionId: "fo-sampleApiDynamicId",
+ *         fulfillmentOptionType: "API",
+ *         usageInstructions: "Deploy to your preferred region using the dynamic endpoint."
+ *       }
+ *     }
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```
@@ -325,6 +417,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleCftId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -334,16 +427,20 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *   fulfillmentOptions: [
  *     {
  *       cloudFormationFulfillmentOption: {
+ *         availableFromTime: "2021-12-15T00:00:00Z",
  *         fulfillmentOptionDisplayName: "CloudFormation Template",
  *         fulfillmentOptionId: "fo-sampleCftId",
  *         fulfillmentOptionName: "Sophos Standalone Firewall for AWS",
  *         fulfillmentOptionType: "CLOUDFORMATION_TEMPLATE",
  *         fulfillmentOptionVersion: "21.5 MR1",
+ *         longDescription: "This CloudFormation template deploys the Sophos XG Firewall with auto-scaling and load balancing for enterprise environments.",
  *         releaseNotes: "https://community.sophos.com/products/xg-firewall/b/blog",
+ *         shortDescription: "Deploy Sophos XG Firewall on AWS with high availability.",
  *         usageInstructions: "You can manage your Sophos XG Firewall on AWS from the Web Interface using HTTPS (TCP port 4444)."
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```
@@ -352,6 +449,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleContainerId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -383,7 +481,8 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *         usageInstructions: "See Elastic MCP GitHub instructions"
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```
@@ -392,6 +491,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleHelmId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -423,7 +523,8 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *         usageInstructions: "helm install nginx-ingress"
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```
@@ -432,6 +533,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleEksId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -463,7 +565,8 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *         usageInstructions: "https://help.splunk.com/en/splunk-observability-cloud/manage-data/splunk-distribution-of-the-opentelemetry-collector/get-started-with-the-splunk-distribution-of-the-opentelemetry-collector/collector-for-kubernetes/kubernetes-eks-add-on"
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```
@@ -472,6 +575,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleImageBuilderId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -503,7 +607,8 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *         usageInstructions: "https://github.com/CrowdStrike/aws-ec2-image-builder"
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```
@@ -512,6 +617,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleDataExchangeId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -534,7 +640,8 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *         fulfillmentOptionType: "DATA_EXCHANGE"
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```
@@ -543,6 +650,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleProServId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -557,7 +665,8 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *         fulfillmentOptionType: "PROFESSIONAL_SERVICES"
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```
@@ -566,6 +675,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleSaasId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -575,13 +685,18 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *   fulfillmentOptions: [
  *     {
  *       saasFulfillmentOption: {
+ *         availableFromTime: "2018-08-07T00:00:00.000Z",
  *         fulfillmentOptionDisplayName: "SaaS",
  *         fulfillmentOptionId: "fo-sampleSaasId",
  *         fulfillmentOptionType: "SAAS",
- *         fulfillmentUrl: "https://example.com/order/SAMPLE123"
+ *         fulfillmentUrl: "https://example.com/order/SAMPLE123",
+ *         launchUrl: "https://example.com/saas/launch",
+ *         quickLaunch: "ENABLED",
+ *         usageInstructions: "Refer to the seller's setup guide to configure and start using this SaaS product."
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```
@@ -590,6 +705,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleSmAlgoId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -612,7 +728,8 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *         usageInstructions: "A zip file called train should be provided."
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```
@@ -621,6 +738,7 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * ```javascript
  * //
  * const input = {
+ *   locale: "en-US",
  *   productId: "prod-sampleSmModelId"
  * };
  * const command = new ListFulfillmentOptionsCommand(input);
@@ -639,10 +757,18 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *           recommendedRealtimeInferenceInstanceType: "ml.g5.12xlarge"
  *         },
  *         releaseNotes: "Initial release",
+ *         supportedContentTypes: [
+ *           "application/json",
+ *           "text/csv"
+ *         ],
+ *         supportedResponseMimeTypes: [
+ *           "application/json"
+ *         ],
  *         usageInstructions: "See Input Summary"
  *       }
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * }
  * *\/
  * ```

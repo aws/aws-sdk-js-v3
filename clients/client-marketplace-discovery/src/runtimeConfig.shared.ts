@@ -1,6 +1,7 @@
 // smithy-typescript generated code
-import { AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
+import { AwsSdkSigV4ASigner, AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
 import { AwsRestJsonProtocol } from "@aws-sdk/core/protocols";
+import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { Sha256 } from "@smithy/core/checksum";
 import { NoOpLogger } from "@smithy/core/client";
 import { parseUrl } from "@smithy/core/protocols";
@@ -31,6 +32,12 @@ export const getRuntimeConfig = (config: MarketplaceDiscoveryClientConfig) => {
           ipc.getIdentityProvider("aws.auth#sigv4"),
         signer: new AwsSdkSigV4Signer(),
       },
+      {
+        schemeId: "aws.auth#sigv4a",
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4a"),
+        signer: new AwsSdkSigV4ASigner(),
+      },
     ],
     logger: config?.logger ?? new NoOpLogger(),
     protocol: config?.protocol ?? AwsRestJsonProtocol,
@@ -42,6 +49,7 @@ export const getRuntimeConfig = (config: MarketplaceDiscoveryClientConfig) => {
     },
     serviceId: config?.serviceId ?? "Marketplace Discovery",
     sha256: config?.sha256 ?? Sha256,
+    signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
     urlParser: config?.urlParser ?? parseUrl,
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,

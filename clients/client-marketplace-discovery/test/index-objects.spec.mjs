@@ -1,9 +1,11 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  AmazonMachineImageEbsVolume$,
   AmazonMachineImageFulfillmentOption$,
   AmazonMachineImageOperatingSystem$,
   AmazonMachineImageRecommendation$,
+  AmazonMachineImageSecurityGroup$,
   ApiFulfillmentOption$,
   AwsSupportedService$,
   BillingPeriodType,
@@ -119,6 +121,7 @@ import {
   ReviewSourceSummary$,
   ReviewSummary$,
   SaasFulfillmentOption$,
+  SaasQuickLaunchStatus,
   SageMakerAlgorithmFulfillmentOption$,
   SageMakerAlgorithmRecommendation$,
   SageMakerModelFulfillmentOption$,
@@ -182,9 +185,11 @@ assert(typeof SearchFacets$ === "object");
 assert(typeof SearchListingsCommand === "function");
 assert(typeof SearchListings$ === "object");
 // structural schemas
+assert(typeof AmazonMachineImageEbsVolume$ === "object");
 assert(typeof AmazonMachineImageFulfillmentOption$ === "object");
 assert(typeof AmazonMachineImageOperatingSystem$ === "object");
 assert(typeof AmazonMachineImageRecommendation$ === "object");
+assert(typeof AmazonMachineImageSecurityGroup$ === "object");
 assert(typeof ApiFulfillmentOption$ === "object");
 assert(typeof AwsSupportedService$ === "object");
 assert(typeof ByolPricingTerm$ === "object");
@@ -296,6 +301,7 @@ assert(typeof RateCardConstraintType === "object");
 assert(typeof ResourceContentType === "object");
 assert(typeof ResourceType === "object");
 assert(typeof ReviewSourceId === "object");
+assert(typeof SaasQuickLaunchStatus === "object");
 assert(typeof SearchFacetType === "object");
 assert(typeof SearchFilterType === "object");
 assert(typeof SearchListingsSortBy === "object");

@@ -15,6 +15,7 @@ import type {
   ResourceContentType,
   ResourceType,
   ReviewSourceId,
+  SaasQuickLaunchStatus,
   SearchFacetType,
   SearchFilterType,
   SearchListingsSortBy,
@@ -24,6 +25,24 @@ import type {
   SellerEngagementType,
   TermType,
 } from "./enums";
+
+/**
+ * <p>Contains supported Amazon EBS volume information for an AMI fulfillment option.</p>
+ * @public
+ */
+export interface AmazonMachineImageEbsVolume {
+  /**
+   * <p>The supported Amazon EBS volume types.</p>
+   * @public
+   */
+  volumeTypes: string[] | undefined;
+
+  /**
+   * <p>The total number of provisioned IOPS supported.</p>
+   * @public
+   */
+  iops?: number | undefined;
+}
 
 /**
  * <p>Describes an operating system supported by an AMI fulfillment option.</p>
@@ -50,6 +69,36 @@ export interface AmazonMachineImageOperatingSystem {
 }
 
 /**
+ * <p>Contains a recommended security group configuration for an AMI fulfillment option.</p>
+ * @public
+ */
+export interface AmazonMachineImageSecurityGroup {
+  /**
+   * <p>The IP protocol name, such as <code>tcp</code>.</p>
+   * @public
+   */
+  protocol: string | undefined;
+
+  /**
+   * <p>The start of the port range.</p>
+   * @public
+   */
+  fromPort: number | undefined;
+
+  /**
+   * <p>The end of the port range.</p>
+   * @public
+   */
+  toPort: number | undefined;
+
+  /**
+   * <p>The IP address ranges in CIDR format.</p>
+   * @public
+   */
+  cidrIpAddresses: string[] | undefined;
+}
+
+/**
  * <p>Recommended instance types for running an AMI fulfillment option.</p>
  * @public
  */
@@ -59,6 +108,12 @@ export interface AmazonMachineImageRecommendation {
    * @public
    */
   instanceType: string | undefined;
+
+  /**
+   * <p>The recommended security group configurations for this AMI.</p>
+   * @public
+   */
+  securityGroups?: AmazonMachineImageSecurityGroup[] | undefined;
 }
 
 /**
@@ -119,6 +174,42 @@ export interface AmazonMachineImageFulfillmentOption {
    * @public
    */
   usageInstructions?: string | undefined;
+
+  /**
+   * <p>The date and time when the AMI became available for fulfillment.</p>
+   * @public
+   */
+  availableFromTime?: Date | undefined;
+
+  /**
+   * <p>The URL pattern for accessing the product when an instance is running.</p>
+   * @public
+   */
+  accessUrlTemplate?: string | undefined;
+
+  /**
+   * <p>The architecture of the AMI, such as <code>x86_64</code>.</p>
+   * @public
+   */
+  architecture: string | undefined;
+
+  /**
+   * <p>The alias of the AMI associated with this fulfillment option.</p>
+   * @public
+   */
+  amiAlias?: string | undefined;
+
+  /**
+   * <p>The supported Amazon EBS volume configuration for the AMI.</p>
+   * @public
+   */
+  ebsVolume?: AmazonMachineImageEbsVolume | undefined;
+
+  /**
+   * <p>A short description of the fulfillment option.</p>
+   * @public
+   */
+  shortDescription?: string | undefined;
 }
 
 /**
@@ -185,6 +276,12 @@ export interface ApiFulfillmentOption {
  * @public
  */
 export interface GetListingInput {
+  /**
+   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
   /**
    * <p>The unique identifier of the listing to retrieve.</p>
    * @public
@@ -622,6 +719,12 @@ export interface UseCaseEntry {
  */
 export interface GetListingOutput {
   /**
+   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
+  /**
    * <p>The products and offers associated with this listing. Each entity contains product and offer information.</p>
    * @public
    */
@@ -747,6 +850,12 @@ export interface GetListingOutput {
  */
 export interface GetOfferInput {
   /**
+   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
+  /**
    * <p>The unique identifier of the offer to retrieve.</p>
    * @public
    */
@@ -811,6 +920,12 @@ export interface PurchaseOptionBadge {
  * @public
  */
 export interface GetOfferOutput {
+  /**
+   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
   /**
    * <p>The unique identifier of the offer.</p>
    * @public
@@ -883,6 +998,12 @@ export interface GetOfferOutput {
  */
 export interface GetOfferSetInput {
   /**
+   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
+  /**
    * <p>The unique identifier of the offer set to retrieve.</p>
    * @public
    */
@@ -911,6 +1032,12 @@ export interface OfferSetAssociatedEntity {
  * @public
  */
 export interface GetOfferSetOutput {
+  /**
+   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
   /**
    * <p>The unique identifier of the offer set.</p>
    * @public
@@ -970,6 +1097,12 @@ export interface GetOfferSetOutput {
  * @public
  */
 export interface GetOfferTermsInput {
+  /**
+   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
   /**
    * <p>The unique identifier of the offer whose terms to retrieve.</p>
    * @public
@@ -1528,19 +1661,19 @@ export namespace PriceIncrease {
  */
 export interface PaymentScheduleEntry {
   /**
-   * <p>The relative offset from the renewal agreement start date when this installment is due, in ISO 8601 duration format. The offset uses months only or days only (for example, P1M or P30D); mixed units are not supported, and every offset in a schedule uses the same unit.</p>
+   * <p>The relative offset from the renewal agreement start date when this installment is due, represented in ISO 8601 duration format (for example, P1M or P30D).</p>
    * @public
    */
   chargeDateOffset: string | undefined;
 
   /**
-   * <p>The percentage of the increased TCV to charge in this installment. All entries in a schedule sum to 100.00.</p>
+   * <p>The percentage of the increased Total Contract Value (TCV) to charge in this installment. All entries in a schedule sum to 100.00.</p>
    * @public
    */
   chargePercentage: string | undefined;
 
   /**
-   * <p>The optional calendar day of month on which the charge occurs. When absent, the charge day is derived from <code>chargeDateOffset</code>, and this field does not apply when <code>chargeDateOffset</code> is expressed in days. For months with fewer days than the specified day, the charge occurs on the last day of the month. For example, if <code>dayOfMonth</code> is 31, the charge in April occurs on April 30.</p>
+   * <p>The optional calendar day of month on which the charge occurs. When absent, the charge day is derived from <code>chargeDateOffset</code>. For months with fewer days than the specified day, the charge occurs on the last day of the month. For example, if <code>dayOfMonth</code> is 31, the charge in April occurs on April 30.</p>
    * @public
    */
   dayOfMonth?: number | undefined;
@@ -2121,6 +2254,12 @@ export namespace OfferTerm {
  */
 export interface GetOfferTermsOutput {
   /**
+   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
+  /**
    * <p>The terms attached to the offer. Each element contains exactly one term type.</p>
    * @public
    */
@@ -2138,6 +2277,12 @@ export interface GetOfferTermsOutput {
  */
 export interface GetProductInput {
   /**
+   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
+  /**
    * <p>The unique identifier of the product to retrieve.</p>
    * @public
    */
@@ -2148,6 +2293,12 @@ export interface GetProductInput {
  * @public
  */
 export interface GetProductOutput {
+  /**
+   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
   /**
    * <p>The unique identifier of the product.</p>
    * @public
@@ -2231,12 +2382,24 @@ export interface GetProductOutput {
    * @public
    */
   sellerEngagements: SellerEngagement[] | undefined;
+
+  /**
+   * <p>The default listing identifier associated with the product.</p>
+   * @public
+   */
+  listingId: string | undefined;
 }
 
 /**
  * @public
  */
 export interface ListFulfillmentOptionsInput {
+  /**
+   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
   /**
    * <p>The unique identifier of the product for which to list fulfillment options.</p>
    * @public
@@ -2302,6 +2465,24 @@ export interface CloudFormationFulfillmentOption {
    * @public
    */
   usageInstructions?: string | undefined;
+
+  /**
+   * <p>The date and time when the CloudFormation fulfillment option became available for fulfillment.</p>
+   * @public
+   */
+  availableFromTime?: Date | undefined;
+
+  /**
+   * <p>A short description of the fulfillment option.</p>
+   * @public
+   */
+  shortDescription?: string | undefined;
+
+  /**
+   * <p>A detailed description of the fulfillment option.</p>
+   * @public
+   */
+  longDescription?: string | undefined;
 }
 
 /**
@@ -2716,6 +2897,24 @@ export interface SaasFulfillmentOption {
    * @public
    */
   usageInstructions?: string | undefined;
+
+  /**
+   * <p>The date and time when the SaaS product became available for fulfillment.</p>
+   * @public
+   */
+  availableFromTime?: Date | undefined;
+
+  /**
+   * <p>The URL that a buyer uses to launch the seller's SaaS product. This URL is distinct from <code>fulfillmentUrl</code>, which is the seller's software registration landing page.</p>
+   * @public
+   */
+  launchUrl?: string | undefined;
+
+  /**
+   * <p>Specifies whether the SaaS product supports quick-launch deployment.</p>
+   * @public
+   */
+  quickLaunch: SaasQuickLaunchStatus | undefined;
 }
 
 /**
@@ -2854,6 +3053,18 @@ export interface SageMakerModelFulfillmentOption {
    * @public
    */
   recommendation?: SageMakerModelRecommendation | undefined;
+
+  /**
+   * <p>The MIME types that this model accepts as input.</p>
+   * @public
+   */
+  supportedContentTypes?: string[] | undefined;
+
+  /**
+   * <p>The MIME types that this model returns as output.</p>
+   * @public
+   */
+  supportedResponseMimeTypes?: string[] | undefined;
 }
 
 /**
@@ -3164,6 +3375,12 @@ export namespace FulfillmentOption {
  */
 export interface ListFulfillmentOptionsOutput {
   /**
+   * <p>A BCP 47 language tag or comma-separated priority list of language tags that specifies the preferred locale for response content. The field accepts a maximum of two language tags.</p> <p>The service resolves a locale string to the nearest supported locale. If no supported locale matches, the service applies the fallback behavior described below.</p> <ul> <li> <p> <b>Preferred locale</b> (first tag) – The locale you want the service to return content in.</p> </li> <li> <p> <b>Fallback locale</b> (optional, second tag) – The service default locale (<code>en-US</code> or <code>en</code>). The service returns content in this locale when translated content for the preferred locale is unavailable.</p> </li> </ul> <p>The field is optional. If omitted or null, the service returns content in the default locale (<code>en-US</code>).</p> <p> <b>Supported locales:</b> </p> <ul> <li> <p> <code>en-US</code> – English (service default, also resolves from <code>en</code>)</p> </li> <li> <p> <code>fr</code> – French</p> </li> <li> <p> <code>es</code> – Spanish</p> </li> <li> <p> <code>ko</code> – Korean</p> </li> <li> <p> <code>ja</code> – Japanese</p> </li> </ul> <p> <b>Fallback behavior:</b> </p> <ul> <li> <p>If translated content for the preferred locale is unavailable, the service returns content in the default locale.</p> </li> <li> <p>If the preferred locale is not supported and no fallback is provided, the service returns a <code>ValidationException</code>.</p> </li> <li> <p>If you provide an unsupported locale with the default locale as fallback (for example, <code>xx, en-US</code>), the service returns content in the default locale.</p> </li> </ul> <p> <b>Response locale field (Get APIs):</b> The <code>locale</code> field in Get API responses indicates the locale of the returned content. You can use this field to determine whether the response contains content in the requested locale or the default locale.</p> <p> <b>Examples:</b> </p> <ul> <li> <p> <code>fr</code> – Request French content. If unavailable, falls back to <code>en-US</code>.</p> </li> <li> <p> <code>fr, en-US</code> – Request French content with explicit fallback to English.</p> </li> <li> <p> <code>en-US</code> – Request content in the default locale.</p> </li> </ul>
+   * @public
+   */
+  locale?: string | undefined;
+
+  /**
    * <p>The fulfillment options available for the product. Each option describes how the buyer can deploy or access the product.</p>
    * @public
    */
@@ -3188,7 +3405,7 @@ export interface PurchaseOptionFilter {
   filterType: PurchaseOptionFilterType | undefined;
 
   /**
-   * <p>The values to filter by. Multiple values within the same filter are combined with OR logic.</p>
+   * <p>The values to filter by. Supported values depend on <code>filterType</code>:</p> <ul> <li> <p> <code>PRODUCT_ID</code> – One or more product identifiers to filter by.</p> </li> <li> <p> <code>SELLER_OF_RECORD_PROFILE_ID</code> – One or more seller profile identifiers to filter by.</p> </li> <li> <p> <code>PURCHASE_OPTION_TYPE</code> – One or more purchase option types to filter by: <code>OFFER</code> or <code>OFFERSET</code>.</p> </li> <li> <p> <code>VISIBILITY_SCOPE</code> – The visibility scope to filter by: <code>PRIVATE</code>.</p> </li> <li> <p> <code>AVAILABILITY_STATUS</code> – One or more availability statuses to filter by: <code>AVAILABLE</code> or <code>EXPIRED</code>.</p> </li> </ul> <p>To retrieve private offers and offer sets visible to you, use <code>VISIBILITY_SCOPE</code> with <code>PRIVATE</code>. OR logic combines multiple values within the same filter.</p>
    * @public
    */
   filterValues: string[] | undefined;
@@ -3198,6 +3415,12 @@ export interface PurchaseOptionFilter {
  * @public
  */
 export interface ListPurchaseOptionsInput {
+  /**
+   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
   /**
    * <p>Filters to narrow the results. Multiple filters are combined with AND logic. Multiple values within the same filter are combined with OR logic.</p>
    * @public
@@ -3341,6 +3564,12 @@ export interface SearchFilter {
  */
 export interface SearchFacetsInput {
   /**
+   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
+  /**
    * <p>The search query text to filter listings before retrieving facets.</p>
    * @public
    */
@@ -3422,6 +3651,12 @@ export interface SearchFacetsOutput {
  * @public
  */
 export interface SearchListingsInput {
+  /**
+   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
   /**
    * <p>The search query text to find relevant listings.</p>
    * @public
