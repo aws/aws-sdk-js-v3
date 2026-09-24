@@ -837,6 +837,95 @@ export interface CompositeAlarm {
 }
 
 /**
+ * <p>Specifies which metrics Amazon CloudWatch collects for a resource metrics
+ *             configuration. Include this in a <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_CreateResourceMetricsConfiguration.html">CreateResourceMetricsConfiguration</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateResourceMetricsConfiguration.html">UpdateResourceMetricsConfiguration</a> request to limit collection to a specific
+ *             set of metrics. If you omit metric selections, Amazon CloudWatch collects all
+ *             available detailed metrics for the resource.</p>
+ * @public
+ */
+export interface ResourceMetricSelection {
+  /**
+   * <p>The names of the metrics to collect for the resource. Amazon CloudWatch collects
+   *             only the metrics that you list here.</p>
+   * @public
+   */
+  IncludeMetrics: string[] | undefined;
+}
+
+/**
+ * <p>Specifies the resource ARN and optional metric selections for a
+ *             <code>CreateResourceMetricsConfiguration</code> request.</p>
+ * @public
+ */
+export interface CreateResourceMetricsConfigurationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services resource to enable detailed
+   *             monitoring for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Specifies which metrics Amazon CloudWatch collects for the resource. If you omit
+   *             this parameter, Amazon CloudWatch collects all available detailed metrics for the
+   *             resource.</p>
+   * @public
+   */
+  MetricSelections?: ResourceMetricSelection[] | undefined;
+}
+
+/**
+ * <p>Represents a resource metrics configuration for an Amazon Web Services resource. A
+ *             resource metrics configuration enables detailed metric collection for the resource that
+ *             is identified by its Amazon Resource Name (ARN). Each Amazon Web Services resource can
+ *             have only one resource metrics configuration.</p>
+ *          <p>This structure is returned by the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_CreateResourceMetricsConfiguration.html">CreateResourceMetricsConfiguration</a>, <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateResourceMetricsConfiguration.html">UpdateResourceMetricsConfiguration</a>, and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetResourceMetricsConfiguration.html">GetResourceMetricsConfiguration</a> operations.</p>
+ * @public
+ */
+export interface ResourceMetricsConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services resource that this
+   *             configuration applies to.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The date and time that the resource metrics configuration was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the resource metrics configuration was last updated. When the
+   *             configuration is first created, this value is the same as
+   *             <code>CreatedAt</code>.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The metrics that Amazon CloudWatch collects for the resource. If this field is not
+   *             present, Amazon CloudWatch collects all available detailed metrics for the
+   *             resource.</p>
+   * @public
+   */
+  MetricSelections?: ResourceMetricSelection[] | undefined;
+}
+
+/**
+ * <p>Returns the newly created resource metrics configuration.</p>
+ * @public
+ */
+export interface CreateResourceMetricsConfigurationOutput {
+  /**
+   * <p>The resource metrics configuration that was created by this operation.</p>
+   * @public
+   */
+  ResourceMetricsConfiguration: ResourceMetricsConfiguration | undefined;
+}
+
+/**
  * <p>Represents a specific dashboard.</p>
  * @public
  */
@@ -1140,6 +1229,26 @@ export interface DeleteMetricStreamInput {
  * @public
  */
 export interface DeleteMetricStreamOutput {}
+
+/**
+ * <p>Specifies the resource ARN for a <code>DeleteResourceMetricsConfiguration</code>
+ *             request.</p>
+ * @public
+ */
+export interface DeleteResourceMetricsConfigurationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services resource to delete the
+   *             resource metrics configuration for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * <p>No data is returned.</p>
+ * @public
+ */
+export interface DeleteResourceMetricsConfigurationOutput {}
 
 /**
  * @public
@@ -3810,6 +3919,31 @@ export interface GetMetricWidgetImageOutput {
 export interface GetOTelEnrichmentInput {}
 
 /**
+ * <p>Selects the metrics in one namespace, for use in the <code>IncludeFilters</code> or
+ *                 <code>ExcludeFilters</code> parameter of <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_StartOTelEnrichment.html">StartOTelEnrichment</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateOTelEnrichment.html">UpdateOTelEnrichment</a>.</p>
+ *          <p>A maximum of 100 selectors is allowed across <code>IncludeFilters</code> and
+ *                 <code>ExcludeFilters</code> combined.</p>
+ * @public
+ */
+export interface OTelEnrichmentMetricSelector {
+  /**
+   * <p>The namespace of the metrics to select. Namespaces are matched exactly and are
+   *             case-sensitive.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The names of the metrics to select within the namespace. Metric names are matched
+   *             exactly and are case-sensitive. If this parameter is omitted, every metric in the
+   *             namespace is selected.</p>
+   *          <p>A maximum of 100 metric names is allowed for each selector.</p>
+   * @public
+   */
+  MetricNames?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface GetOTelEnrichmentOutput {
@@ -3820,6 +3954,62 @@ export interface GetOTelEnrichmentOutput {
    * @public
    */
   Status: OTelEnrichmentStatus | undefined;
+
+  /**
+   * <p>The metric namespaces, and the metric names, that are enriched. This parameter is
+   *             omitted when enrichment is stopped, and when enrichment is running with no include
+   *             filters, which means that every supported namespace is in scope.</p>
+   * @public
+   */
+  IncludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+
+  /**
+   * <p>The metric namespaces, and the metric names, that are left unenriched. This
+   *             parameter is omitted when enrichment is stopped, and when enrichment is running with no
+   *             exclude filters, which means that nothing is excluded.</p>
+   * @public
+   */
+  ExcludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+
+  /**
+   * <p>The date and time that enrichment started for the account. This parameter is
+   *             omitted when enrichment is stopped.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the enrichment configuration for the account was last
+   *             stored.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Specifies the resource ARN for a <code>GetResourceMetricsConfiguration</code>
+ *             request.</p>
+ * @public
+ */
+export interface GetResourceMetricsConfigurationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services resource to retrieve the
+   *             resource metrics configuration for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * <p>Returns the current resource metrics configuration for the specified resource.</p>
+ * @public
+ */
+export interface GetResourceMetricsConfigurationOutput {
+  /**
+   * <p>The resource metrics configuration for the specified resource.</p>
+   * @public
+   */
+  ResourceMetricsConfiguration: ResourceMetricsConfiguration | undefined;
 }
 
 /**
@@ -6030,12 +6220,59 @@ export interface StartMetricStreamsOutput {}
 /**
  * @public
  */
-export interface StartOTelEnrichmentInput {}
+export interface StartOTelEnrichmentInput {
+  /**
+   * <p>The metric namespaces, and the metric names, to enrich. If this parameter is
+   *             omitted, every namespace that Amazon CloudWatch supports for enrichment is in
+   *             scope.</p>
+   *          <p>A maximum of 100 filters is allowed across <code>IncludeFilters</code> and
+   *                 <code>ExcludeFilters</code> combined.</p>
+   * @public
+   */
+  IncludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+
+  /**
+   * <p>The metric namespaces, and the metric names, to leave unenriched. If this parameter
+   *             is omitted, nothing is excluded.</p>
+   *          <p>Amazon CloudWatch applies <code>ExcludeFilters</code> after
+   *                 <code>IncludeFilters</code>, so a metric that both parameters match is not
+   *             enriched.</p>
+   *          <p>A maximum of 100 filters is allowed across <code>IncludeFilters</code> and
+   *                 <code>ExcludeFilters</code> combined.</p>
+   * @public
+   */
+  ExcludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+}
 
 /**
  * @public
  */
-export interface StartOTelEnrichmentOutput {}
+export interface StartOTelEnrichmentOutput {
+  /**
+   * <p>The include filters that are stored for the account.</p>
+   * @public
+   */
+  IncludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+
+  /**
+   * <p>The exclude filters that are stored for the account.</p>
+   * @public
+   */
+  ExcludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+
+  /**
+   * <p>The date and time that enrichment started for the account.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the enrichment configuration for the account was last
+   *             stored.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
 
 /**
  * @public
@@ -6145,3 +6382,99 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
+
+/**
+ * @public
+ */
+export interface UpdateOTelEnrichmentInput {
+  /**
+   * <p>The metric namespaces, and the metric names, to enrich. If this parameter is
+   *             omitted, every namespace that Amazon CloudWatch supports for enrichment is in
+   *             scope.</p>
+   *          <p>A maximum of 100 filters is allowed across <code>IncludeFilters</code> and
+   *                 <code>ExcludeFilters</code> combined.</p>
+   * @public
+   */
+  IncludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+
+  /**
+   * <p>The metric namespaces, and the metric names, to leave unenriched. If this parameter
+   *             is omitted, nothing is excluded.</p>
+   *          <p>Amazon CloudWatch applies <code>ExcludeFilters</code> after
+   *                 <code>IncludeFilters</code>, so a metric that both parameters match is not
+   *             enriched.</p>
+   *          <p>A maximum of 100 filters is allowed across <code>IncludeFilters</code> and
+   *                 <code>ExcludeFilters</code> combined.</p>
+   * @public
+   */
+  ExcludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateOTelEnrichmentOutput {
+  /**
+   * <p>The include filters that are stored for the account after the replacement. This
+   *             parameter is omitted when the request cleared the include filters, which means that
+   *             every supported namespace is in scope.</p>
+   * @public
+   */
+  IncludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+
+  /**
+   * <p>The exclude filters that are stored for the account after the replacement. This
+   *             parameter is omitted when the request cleared the exclude filters, which means that
+   *             nothing is excluded.</p>
+   * @public
+   */
+  ExcludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+
+  /**
+   * <p>The date and time that enrichment started for the account.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time that the enrichment configuration for the account was last
+   *             stored.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Specifies the resource ARN and optional replacement metric selections for an
+ *             <code>UpdateResourceMetricsConfiguration</code> request.</p>
+ * @public
+ */
+export interface UpdateResourceMetricsConfigurationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services resource to update the
+   *             resource metrics configuration for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Specifies which metrics Amazon CloudWatch collects for the resource. The selections
+   *             that you provide completely replace any existing metric selections.</p>
+   *          <p>If you omit this parameter, Amazon CloudWatch removes any existing metric selection
+   *             filter and collects all available detailed metrics for the resource.</p>
+   * @public
+   */
+  MetricSelections?: ResourceMetricSelection[] | undefined;
+}
+
+/**
+ * <p>Returns the updated resource metrics configuration.</p>
+ * @public
+ */
+export interface UpdateResourceMetricsConfigurationOutput {
+  /**
+   * <p>The resource metrics configuration after the update was applied.</p>
+   * @public
+   */
+  ResourceMetricsConfiguration: ResourceMetricsConfiguration | undefined;
+}

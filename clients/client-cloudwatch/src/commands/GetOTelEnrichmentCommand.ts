@@ -39,6 +39,24 @@ export interface GetOTelEnrichmentCommandOutput extends GetOTelEnrichmentOutput,
  * const response = await client.send(command);
  * // { // GetOTelEnrichmentOutput
  * //   Status: "Running" || "Stopped", // required
+ * //   IncludeFilters: [ // OTelEnrichmentMetricSelectorList
+ * //     { // OTelEnrichmentMetricSelector
+ * //       Namespace: "STRING_VALUE", // required
+ * //       MetricNames: [ // OTelEnrichmentMetricNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   ExcludeFilters: [
+ * //     {
+ * //       Namespace: "STRING_VALUE", // required
+ * //       MetricNames: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   UpdatedAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```

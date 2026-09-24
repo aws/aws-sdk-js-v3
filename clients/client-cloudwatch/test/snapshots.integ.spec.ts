@@ -9,6 +9,8 @@ import {
   CloudWatchClient,
   ConcurrentModificationException$,
   ConflictException$,
+  CreateResourceMetricsConfiguration$,
+  CreateResourceMetricsConfigurationCommand,
   DashboardInvalidInputError$,
   DashboardNotFoundError$,
   DeleteAlarmMuteRule$,
@@ -23,6 +25,8 @@ import {
   DeleteInsightRulesCommand,
   DeleteMetricStream$,
   DeleteMetricStreamCommand,
+  DeleteResourceMetricsConfiguration$,
+  DeleteResourceMetricsConfigurationCommand,
   DescribeAlarmContributors$,
   DescribeAlarmContributorsCommand,
   DescribeAlarmHistory$,
@@ -63,6 +67,8 @@ import {
   GetMetricWidgetImageCommand,
   GetOTelEnrichment$,
   GetOTelEnrichmentCommand,
+  GetResourceMetricsConfiguration$,
+  GetResourceMetricsConfigurationCommand,
   InternalServiceFault$,
   InvalidFormatFault$,
   InvalidNextToken$,
@@ -123,6 +129,11 @@ import {
   TagResourceCommand,
   UntagResource$,
   UntagResourceCommand,
+  UpdateOTelEnrichment$,
+  UpdateOTelEnrichmentCommand,
+  UpdateResourceMetricsConfiguration$,
+  UpdateResourceMetricsConfigurationCommand,
+  ValidationException$,
 } from "../src";
 
 vi.setSystemTime(new Date(946702799999));
@@ -144,12 +155,14 @@ describe("CloudWatchClient" + ` (${mode})`, () => {
     },
     schemas: new Map<any, any>([
       [AssociateDatasetKmsKey$, AssociateDatasetKmsKeyCommand],
+      [CreateResourceMetricsConfiguration$, CreateResourceMetricsConfigurationCommand],
       [DeleteAlarmMuteRule$, DeleteAlarmMuteRuleCommand],
       [DeleteAlarms$, DeleteAlarmsCommand],
       [DeleteAnomalyDetector$, DeleteAnomalyDetectorCommand],
       [DeleteDashboards$, DeleteDashboardsCommand],
       [DeleteInsightRules$, DeleteInsightRulesCommand],
       [DeleteMetricStream$, DeleteMetricStreamCommand],
+      [DeleteResourceMetricsConfiguration$, DeleteResourceMetricsConfigurationCommand],
       [DescribeAlarmContributors$, DescribeAlarmContributorsCommand],
       [DescribeAlarmHistory$, DescribeAlarmHistoryCommand],
       [DescribeAlarms$, DescribeAlarmsCommand],
@@ -170,6 +183,7 @@ describe("CloudWatchClient" + ` (${mode})`, () => {
       [GetMetricStream$, GetMetricStreamCommand],
       [GetMetricWidgetImage$, GetMetricWidgetImageCommand],
       [GetOTelEnrichment$, GetOTelEnrichmentCommand],
+      [GetResourceMetricsConfiguration$, GetResourceMetricsConfigurationCommand],
       [ListAlarmMuteRules$, ListAlarmMuteRulesCommand],
       [ListDashboards$, ListDashboardsCommand],
       [ListManagedInsightRules$, ListManagedInsightRulesCommand],
@@ -193,6 +207,8 @@ describe("CloudWatchClient" + ` (${mode})`, () => {
       [StopOTelEnrichment$, StopOTelEnrichmentCommand],
       [TagResource$, TagResourceCommand],
       [UntagResource$, UntagResourceCommand],
+      [UpdateOTelEnrichment$, UpdateOTelEnrichmentCommand],
+      [UpdateResourceMetricsConfiguration$, UpdateResourceMetricsConfigurationCommand],
     ]),
     errors: [
       ConcurrentModificationException$,
@@ -213,6 +229,7 @@ describe("CloudWatchClient" + ` (${mode})`, () => {
       ResourceConflict$,
       ResourceNotFound$,
       ResourceNotFoundException$,
+      ValidationException$,
     ],
   });
   runner.run();

@@ -6,13 +6,121 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 [Uint8Array (json)]
 {
-  "Status": "__Status__"
+  "Status": "__Status__",
+  "IncludeFilters": [
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  "ExcludeFilters": [
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  "CreatedAt": 946702799.999,
+  "UpdatedAt": 946702799.999
 }
 
 
 --- [output object] ---
 {
   Status: "__Status__",
+  IncludeFilters: [
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  ExcludeFilters: [
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  UpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -31,13 +139,121 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 [Uint8Array (json)]
 {
-  "Status": "__Status__"
+  "Status": "__Status__",
+  "IncludeFilters": [
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  "ExcludeFilters": [
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "Namespace": "__Namespace__",
+      "MetricNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  "CreatedAt": 946702799.999,
+  "UpdatedAt": 946702799.999
 }
 
 
 --- [output object] ---
 {
   Status: "__Status__",
+  IncludeFilters: [
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  ExcludeFilters: [
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      Namespace: "__Namespace__",
+      MetricNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  UpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

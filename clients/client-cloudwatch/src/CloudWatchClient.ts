@@ -64,6 +64,10 @@ import type {
   AssociateDatasetKmsKeyCommandOutput,
 } from "./commands/AssociateDatasetKmsKeyCommand";
 import type {
+  CreateResourceMetricsConfigurationCommandInput,
+  CreateResourceMetricsConfigurationCommandOutput,
+} from "./commands/CreateResourceMetricsConfigurationCommand";
+import type {
   DeleteAlarmMuteRuleCommandInput,
   DeleteAlarmMuteRuleCommandOutput,
 } from "./commands/DeleteAlarmMuteRuleCommand";
@@ -81,6 +85,10 @@ import type {
   DeleteMetricStreamCommandInput,
   DeleteMetricStreamCommandOutput,
 } from "./commands/DeleteMetricStreamCommand";
+import type {
+  DeleteResourceMetricsConfigurationCommandInput,
+  DeleteResourceMetricsConfigurationCommandOutput,
+} from "./commands/DeleteResourceMetricsConfigurationCommand";
 import type {
   DescribeAlarmContributorsCommandInput,
   DescribeAlarmContributorsCommandOutput,
@@ -144,6 +152,10 @@ import type {
   GetOTelEnrichmentCommandOutput,
 } from "./commands/GetOTelEnrichmentCommand";
 import type {
+  GetResourceMetricsConfigurationCommandInput,
+  GetResourceMetricsConfigurationCommandOutput,
+} from "./commands/GetResourceMetricsConfigurationCommand";
+import type {
   ListAlarmMuteRulesCommandInput,
   ListAlarmMuteRulesCommandOutput,
 } from "./commands/ListAlarmMuteRulesCommand";
@@ -199,6 +211,14 @@ import type {
 } from "./commands/StopOTelEnrichmentCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateOTelEnrichmentCommandInput,
+  UpdateOTelEnrichmentCommandOutput,
+} from "./commands/UpdateOTelEnrichmentCommand";
+import type {
+  UpdateResourceMetricsConfigurationCommandInput,
+  UpdateResourceMetricsConfigurationCommandOutput,
+} from "./commands/UpdateResourceMetricsConfigurationCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -215,12 +235,14 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateDatasetKmsKeyCommandInput
+  | CreateResourceMetricsConfigurationCommandInput
   | DeleteAlarmMuteRuleCommandInput
   | DeleteAlarmsCommandInput
   | DeleteAnomalyDetectorCommandInput
   | DeleteDashboardsCommandInput
   | DeleteInsightRulesCommandInput
   | DeleteMetricStreamCommandInput
+  | DeleteResourceMetricsConfigurationCommandInput
   | DescribeAlarmContributorsCommandInput
   | DescribeAlarmHistoryCommandInput
   | DescribeAlarmsCommandInput
@@ -241,6 +263,7 @@ export type ServiceInputTypes =
   | GetMetricStreamCommandInput
   | GetMetricWidgetImageCommandInput
   | GetOTelEnrichmentCommandInput
+  | GetResourceMetricsConfigurationCommandInput
   | ListAlarmMuteRulesCommandInput
   | ListDashboardsCommandInput
   | ListManagedInsightRulesCommandInput
@@ -263,19 +286,23 @@ export type ServiceInputTypes =
   | StopMetricStreamsCommandInput
   | StopOTelEnrichmentCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateOTelEnrichmentCommandInput
+  | UpdateResourceMetricsConfigurationCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | AssociateDatasetKmsKeyCommandOutput
+  | CreateResourceMetricsConfigurationCommandOutput
   | DeleteAlarmMuteRuleCommandOutput
   | DeleteAlarmsCommandOutput
   | DeleteAnomalyDetectorCommandOutput
   | DeleteDashboardsCommandOutput
   | DeleteInsightRulesCommandOutput
   | DeleteMetricStreamCommandOutput
+  | DeleteResourceMetricsConfigurationCommandOutput
   | DescribeAlarmContributorsCommandOutput
   | DescribeAlarmHistoryCommandOutput
   | DescribeAlarmsCommandOutput
@@ -296,6 +323,7 @@ export type ServiceOutputTypes =
   | GetMetricStreamCommandOutput
   | GetMetricWidgetImageCommandOutput
   | GetOTelEnrichmentCommandOutput
+  | GetResourceMetricsConfigurationCommandOutput
   | ListAlarmMuteRulesCommandOutput
   | ListDashboardsCommandOutput
   | ListManagedInsightRulesCommandOutput
@@ -318,7 +346,9 @@ export type ServiceOutputTypes =
   | StopMetricStreamsCommandOutput
   | StopOTelEnrichmentCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateOTelEnrichmentCommandOutput
+  | UpdateResourceMetricsConfigurationCommandOutput;
 
 /**
  * @public

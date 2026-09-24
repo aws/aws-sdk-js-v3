@@ -402,3 +402,24 @@ export class InvalidFormatFault extends __BaseException {
     Object.setPrototypeOf(this, InvalidFormatFault.prototype);
   }
 }
+
+/**
+ * <p>The request failed validation. One or more input parameters do not satisfy the
+ *             constraints that the operation requires.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name = "ValidationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}

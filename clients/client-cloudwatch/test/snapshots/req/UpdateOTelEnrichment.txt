@@ -2,7 +2,7 @@ POST https://monitoring.us-east-1.amazonaws.com
 /
 
 content-type: application/x-amz-json-1.0
-x-amz-target: GraniteServiceVersion20100801.StartOTelEnrichment
+x-amz-target: GraniteServiceVersion20100801.UpdateOTelEnrichment
 x-amzn-query-mode: true
 content-length: 549
 x-amz-user-agent: aws-sdk-js/3.___._

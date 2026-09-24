@@ -1,11 +1,13 @@
 // smithy-typescript generated code
 export * from "./AssociateDatasetKmsKeyCommand";
+export * from "./CreateResourceMetricsConfigurationCommand";
 export * from "./DeleteAlarmMuteRuleCommand";
 export * from "./DeleteAlarmsCommand";
 export * from "./DeleteAnomalyDetectorCommand";
 export * from "./DeleteDashboardsCommand";
 export * from "./DeleteInsightRulesCommand";
 export * from "./DeleteMetricStreamCommand";
+export * from "./DeleteResourceMetricsConfigurationCommand";
 export * from "./DescribeAlarmContributorsCommand";
 export * from "./DescribeAlarmHistoryCommand";
 export * from "./DescribeAlarmsCommand";
@@ -26,6 +28,7 @@ export * from "./GetMetricStatisticsCommand";
 export * from "./GetMetricStreamCommand";
 export * from "./GetMetricWidgetImageCommand";
 export * from "./GetOTelEnrichmentCommand";
+export * from "./GetResourceMetricsConfigurationCommand";
 export * from "./ListAlarmMuteRulesCommand";
 export * from "./ListDashboardsCommand";
 export * from "./ListManagedInsightRulesCommand";
@@ -49,3 +52,5 @@ export * from "./StopMetricStreamsCommand";
 export * from "./StopOTelEnrichmentCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateOTelEnrichmentCommand";
+export * from "./UpdateResourceMetricsConfigurationCommand";

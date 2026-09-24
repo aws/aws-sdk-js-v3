@@ -15,6 +15,11 @@ import {
   AssociateDatasetKmsKeyCommand,
 } from "./commands/AssociateDatasetKmsKeyCommand";
 import {
+  type CreateResourceMetricsConfigurationCommandInput,
+  type CreateResourceMetricsConfigurationCommandOutput,
+  CreateResourceMetricsConfigurationCommand,
+} from "./commands/CreateResourceMetricsConfigurationCommand";
+import {
   type DeleteAlarmMuteRuleCommandInput,
   type DeleteAlarmMuteRuleCommandOutput,
   DeleteAlarmMuteRuleCommand,
@@ -44,6 +49,11 @@ import {
   type DeleteMetricStreamCommandOutput,
   DeleteMetricStreamCommand,
 } from "./commands/DeleteMetricStreamCommand";
+import {
+  type DeleteResourceMetricsConfigurationCommandInput,
+  type DeleteResourceMetricsConfigurationCommandOutput,
+  DeleteResourceMetricsConfigurationCommand,
+} from "./commands/DeleteResourceMetricsConfigurationCommand";
 import {
   type DescribeAlarmContributorsCommandInput,
   type DescribeAlarmContributorsCommandOutput,
@@ -144,6 +154,11 @@ import {
   type GetOTelEnrichmentCommandOutput,
   GetOTelEnrichmentCommand,
 } from "./commands/GetOTelEnrichmentCommand";
+import {
+  type GetResourceMetricsConfigurationCommandInput,
+  type GetResourceMetricsConfigurationCommandOutput,
+  GetResourceMetricsConfigurationCommand,
+} from "./commands/GetResourceMetricsConfigurationCommand";
 import {
   type ListAlarmMuteRulesCommandInput,
   type ListAlarmMuteRulesCommandOutput,
@@ -259,6 +274,16 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import {
+  type UpdateOTelEnrichmentCommandInput,
+  type UpdateOTelEnrichmentCommandOutput,
+  UpdateOTelEnrichmentCommand,
+} from "./commands/UpdateOTelEnrichmentCommand";
+import {
+  type UpdateResourceMetricsConfigurationCommandInput,
+  type UpdateResourceMetricsConfigurationCommandOutput,
+  UpdateResourceMetricsConfigurationCommand,
+} from "./commands/UpdateResourceMetricsConfigurationCommand";
 import type { CloudWatchServiceException } from "./models/CloudWatchServiceException";
 import { paginateDescribeAlarmHistory } from "./pagination/DescribeAlarmHistoryPaginator";
 import { paginateDescribeAlarms } from "./pagination/DescribeAlarmsPaginator";
@@ -277,12 +302,14 @@ import { waitUntilLogAlarmExists } from "./waiters/waitForLogAlarmExists";
 
 const commands = {
   AssociateDatasetKmsKeyCommand,
+  CreateResourceMetricsConfigurationCommand,
   DeleteAlarmMuteRuleCommand,
   DeleteAlarmsCommand,
   DeleteAnomalyDetectorCommand,
   DeleteDashboardsCommand,
   DeleteInsightRulesCommand,
   DeleteMetricStreamCommand,
+  DeleteResourceMetricsConfigurationCommand,
   DescribeAlarmContributorsCommand,
   DescribeAlarmHistoryCommand,
   DescribeAlarmsCommand,
@@ -303,6 +330,7 @@ const commands = {
   GetMetricStreamCommand,
   GetMetricWidgetImageCommand,
   GetOTelEnrichmentCommand,
+  GetResourceMetricsConfigurationCommand,
   ListAlarmMuteRulesCommand,
   ListDashboardsCommand,
   ListManagedInsightRulesCommand,
@@ -326,6 +354,8 @@ const commands = {
   StopOTelEnrichmentCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateOTelEnrichmentCommand,
+  UpdateResourceMetricsConfigurationCommand,
 };
 const paginators = {
   paginateDescribeAlarmHistory,
@@ -369,6 +399,23 @@ export interface CloudWatch {
     args: AssociateDatasetKmsKeyCommandInput,
     options: CloudWatchRequestOptions,
     cb: (err: any, data?: AssociateDatasetKmsKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateResourceMetricsConfigurationCommand}
+   */
+  createResourceMetricsConfiguration(
+    args: CreateResourceMetricsConfigurationCommandInput,
+    options?: CloudWatchRequestOptions
+  ): Promise<CreateResourceMetricsConfigurationCommandOutput>;
+  createResourceMetricsConfiguration(
+    args: CreateResourceMetricsConfigurationCommandInput,
+    cb: (err: any, data?: CreateResourceMetricsConfigurationCommandOutput) => void
+  ): void;
+  createResourceMetricsConfiguration(
+    args: CreateResourceMetricsConfigurationCommandInput,
+    options: CloudWatchRequestOptions,
+    cb: (err: any, data?: CreateResourceMetricsConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -472,6 +519,23 @@ export interface CloudWatch {
     args: DeleteMetricStreamCommandInput,
     options: CloudWatchRequestOptions,
     cb: (err: any, data?: DeleteMetricStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourceMetricsConfigurationCommand}
+   */
+  deleteResourceMetricsConfiguration(
+    args: DeleteResourceMetricsConfigurationCommandInput,
+    options?: CloudWatchRequestOptions
+  ): Promise<DeleteResourceMetricsConfigurationCommandOutput>;
+  deleteResourceMetricsConfiguration(
+    args: DeleteResourceMetricsConfigurationCommandInput,
+    cb: (err: any, data?: DeleteResourceMetricsConfigurationCommandOutput) => void
+  ): void;
+  deleteResourceMetricsConfiguration(
+    args: DeleteResourceMetricsConfigurationCommandInput,
+    options: CloudWatchRequestOptions,
+    cb: (err: any, data?: DeleteResourceMetricsConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -817,6 +881,23 @@ export interface CloudWatch {
     args: GetOTelEnrichmentCommandInput,
     options: CloudWatchRequestOptions,
     cb: (err: any, data?: GetOTelEnrichmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourceMetricsConfigurationCommand}
+   */
+  getResourceMetricsConfiguration(
+    args: GetResourceMetricsConfigurationCommandInput,
+    options?: CloudWatchRequestOptions
+  ): Promise<GetResourceMetricsConfigurationCommandOutput>;
+  getResourceMetricsConfiguration(
+    args: GetResourceMetricsConfigurationCommandInput,
+    cb: (err: any, data?: GetResourceMetricsConfigurationCommandOutput) => void
+  ): void;
+  getResourceMetricsConfiguration(
+    args: GetResourceMetricsConfigurationCommandInput,
+    options: CloudWatchRequestOptions,
+    cb: (err: any, data?: GetResourceMetricsConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1215,6 +1296,41 @@ export interface CloudWatch {
     args: UntagResourceCommandInput,
     options: CloudWatchRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateOTelEnrichmentCommand}
+   */
+  updateOTelEnrichment(): Promise<UpdateOTelEnrichmentCommandOutput>;
+  updateOTelEnrichment(
+    args: UpdateOTelEnrichmentCommandInput,
+    options?: CloudWatchRequestOptions
+  ): Promise<UpdateOTelEnrichmentCommandOutput>;
+  updateOTelEnrichment(
+    args: UpdateOTelEnrichmentCommandInput,
+    cb: (err: any, data?: UpdateOTelEnrichmentCommandOutput) => void
+  ): void;
+  updateOTelEnrichment(
+    args: UpdateOTelEnrichmentCommandInput,
+    options: CloudWatchRequestOptions,
+    cb: (err: any, data?: UpdateOTelEnrichmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateResourceMetricsConfigurationCommand}
+   */
+  updateResourceMetricsConfiguration(
+    args: UpdateResourceMetricsConfigurationCommandInput,
+    options?: CloudWatchRequestOptions
+  ): Promise<UpdateResourceMetricsConfigurationCommandOutput>;
+  updateResourceMetricsConfiguration(
+    args: UpdateResourceMetricsConfigurationCommandInput,
+    cb: (err: any, data?: UpdateResourceMetricsConfigurationCommandOutput) => void
+  ): void;
+  updateResourceMetricsConfiguration(
+    args: UpdateResourceMetricsConfigurationCommandInput,
+    options: CloudWatchRequestOptions,
+    cb: (err: any, data?: UpdateResourceMetricsConfigurationCommandOutput) => void
   ): void;
 
   /**

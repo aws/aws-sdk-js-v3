@@ -23,6 +23,10 @@ import {
   ConcurrentModificationException$,
   ConflictException,
   ConflictException$,
+  CreateResourceMetricsConfiguration$,
+  CreateResourceMetricsConfigurationCommand,
+  CreateResourceMetricsConfigurationInput$,
+  CreateResourceMetricsConfigurationOutput$,
   DashboardEntry$,
   DashboardInvalidInputError,
   DashboardInvalidInputError$,
@@ -52,6 +56,10 @@ import {
   DeleteMetricStreamCommand,
   DeleteMetricStreamInput$,
   DeleteMetricStreamOutput$,
+  DeleteResourceMetricsConfiguration$,
+  DeleteResourceMetricsConfigurationCommand,
+  DeleteResourceMetricsConfigurationInput$,
+  DeleteResourceMetricsConfigurationOutput$,
   DescribeAlarmContributors$,
   DescribeAlarmContributorsCommand,
   DescribeAlarmContributorsInput$,
@@ -137,6 +145,10 @@ import {
   GetOTelEnrichmentCommand,
   GetOTelEnrichmentInput$,
   GetOTelEnrichmentOutput$,
+  GetResourceMetricsConfiguration$,
+  GetResourceMetricsConfigurationCommand,
+  GetResourceMetricsConfigurationInput$,
+  GetResourceMetricsConfigurationOutput$,
   HistoryItemType,
   InsightRule$,
   InsightRuleContributor$,
@@ -208,6 +220,7 @@ import {
   MissingRequiredParameterException,
   MissingRequiredParameterException$,
   MuteTargets$,
+  OTelEnrichmentMetricSelector$,
   OTelEnrichmentStatus,
   paginateDescribeAlarmHistory,
   paginateDescribeAlarms,
@@ -259,6 +272,8 @@ import {
   RecentlyActive,
   ResourceConflict,
   ResourceConflict$,
+  ResourceMetricsConfiguration$,
+  ResourceMetricSelection$,
   ResourceNotFound,
   ResourceNotFound$,
   ResourceNotFoundException,
@@ -303,6 +318,16 @@ import {
   UntagResourceCommand,
   UntagResourceInput$,
   UntagResourceOutput$,
+  UpdateOTelEnrichment$,
+  UpdateOTelEnrichmentCommand,
+  UpdateOTelEnrichmentInput$,
+  UpdateOTelEnrichmentOutput$,
+  UpdateResourceMetricsConfiguration$,
+  UpdateResourceMetricsConfigurationCommand,
+  UpdateResourceMetricsConfigurationInput$,
+  UpdateResourceMetricsConfigurationOutput$,
+  ValidationException,
+  ValidationException$,
   waitForAlarmExists,
   waitForAlarmMuteRuleExists,
   waitForCompositeAlarmExists,
@@ -321,6 +346,8 @@ assert(typeof CloudWatch === "function");
 // commands
 assert(typeof AssociateDatasetKmsKeyCommand === "function");
 assert(typeof AssociateDatasetKmsKey$ === "object");
+assert(typeof CreateResourceMetricsConfigurationCommand === "function");
+assert(typeof CreateResourceMetricsConfiguration$ === "object");
 assert(typeof DeleteAlarmMuteRuleCommand === "function");
 assert(typeof DeleteAlarmMuteRule$ === "object");
 assert(typeof DeleteAlarmsCommand === "function");
@@ -333,6 +360,8 @@ assert(typeof DeleteInsightRulesCommand === "function");
 assert(typeof DeleteInsightRules$ === "object");
 assert(typeof DeleteMetricStreamCommand === "function");
 assert(typeof DeleteMetricStream$ === "object");
+assert(typeof DeleteResourceMetricsConfigurationCommand === "function");
+assert(typeof DeleteResourceMetricsConfiguration$ === "object");
 assert(typeof DescribeAlarmContributorsCommand === "function");
 assert(typeof DescribeAlarmContributors$ === "object");
 assert(typeof DescribeAlarmHistoryCommand === "function");
@@ -373,6 +402,8 @@ assert(typeof GetMetricWidgetImageCommand === "function");
 assert(typeof GetMetricWidgetImage$ === "object");
 assert(typeof GetOTelEnrichmentCommand === "function");
 assert(typeof GetOTelEnrichment$ === "object");
+assert(typeof GetResourceMetricsConfigurationCommand === "function");
+assert(typeof GetResourceMetricsConfiguration$ === "object");
 assert(typeof ListAlarmMuteRulesCommand === "function");
 assert(typeof ListAlarmMuteRules$ === "object");
 assert(typeof ListDashboardsCommand === "function");
@@ -419,6 +450,10 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateOTelEnrichmentCommand === "function");
+assert(typeof UpdateOTelEnrichment$ === "object");
+assert(typeof UpdateResourceMetricsConfigurationCommand === "function");
+assert(typeof UpdateResourceMetricsConfiguration$ === "object");
 // structural schemas
 assert(typeof AlarmContributor$ === "object");
 assert(typeof AlarmHistoryItem$ === "object");
@@ -429,6 +464,8 @@ assert(typeof AnomalyDetectorConfiguration$ === "object");
 assert(typeof AssociateDatasetKmsKeyInput$ === "object");
 assert(typeof AssociateDatasetKmsKeyOutput$ === "object");
 assert(typeof CompositeAlarm$ === "object");
+assert(typeof CreateResourceMetricsConfigurationInput$ === "object");
+assert(typeof CreateResourceMetricsConfigurationOutput$ === "object");
 assert(typeof DashboardEntry$ === "object");
 assert(typeof DashboardValidationMessage$ === "object");
 assert(typeof Datapoint$ === "object");
@@ -442,6 +479,8 @@ assert(typeof DeleteInsightRulesInput$ === "object");
 assert(typeof DeleteInsightRulesOutput$ === "object");
 assert(typeof DeleteMetricStreamInput$ === "object");
 assert(typeof DeleteMetricStreamOutput$ === "object");
+assert(typeof DeleteResourceMetricsConfigurationInput$ === "object");
+assert(typeof DeleteResourceMetricsConfigurationOutput$ === "object");
 assert(typeof DescribeAlarmContributorsInput$ === "object");
 assert(typeof DescribeAlarmContributorsOutput$ === "object");
 assert(typeof DescribeAlarmHistoryInput$ === "object");
@@ -486,6 +525,8 @@ assert(typeof GetMetricWidgetImageInput$ === "object");
 assert(typeof GetMetricWidgetImageOutput$ === "object");
 assert(typeof GetOTelEnrichmentInput$ === "object");
 assert(typeof GetOTelEnrichmentOutput$ === "object");
+assert(typeof GetResourceMetricsConfigurationInput$ === "object");
+assert(typeof GetResourceMetricsConfigurationOutput$ === "object");
 assert(typeof InsightRule$ === "object");
 assert(typeof InsightRuleContributor$ === "object");
 assert(typeof InsightRuleContributorDatapoint$ === "object");
@@ -521,6 +562,7 @@ assert(typeof MetricStreamFilter$ === "object");
 assert(typeof MetricStreamStatisticsConfiguration$ === "object");
 assert(typeof MetricStreamStatisticsMetric$ === "object");
 assert(typeof MuteTargets$ === "object");
+assert(typeof OTelEnrichmentMetricSelector$ === "object");
 assert(typeof PartialFailure$ === "object");
 assert(typeof PutAlarmMuteRuleInput$ === "object");
 assert(typeof PutAnomalyDetectorInput$ === "object");
@@ -538,6 +580,8 @@ assert(typeof PutMetricDataInput$ === "object");
 assert(typeof PutMetricStreamInput$ === "object");
 assert(typeof PutMetricStreamOutput$ === "object");
 assert(typeof Range$ === "object");
+assert(typeof ResourceMetricsConfiguration$ === "object");
+assert(typeof ResourceMetricSelection$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof Schedule$ === "object");
 assert(typeof ScheduleConfiguration$ === "object");
@@ -559,6 +603,10 @@ assert(typeof TagResourceInput$ === "object");
 assert(typeof TagResourceOutput$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
+assert(typeof UpdateOTelEnrichmentInput$ === "object");
+assert(typeof UpdateOTelEnrichmentOutput$ === "object");
+assert(typeof UpdateResourceMetricsConfigurationInput$ === "object");
+assert(typeof UpdateResourceMetricsConfigurationOutput$ === "object");
 assert(typeof WallClockWindow$ === "object");
 assert(typeof WarmUpConfiguration$ === "object");
 // enums
@@ -615,6 +663,8 @@ assert(ResourceNotFound.prototype instanceof CloudWatchServiceException);
 assert(typeof ResourceNotFound$ === "object");
 assert(ResourceNotFoundException.prototype instanceof CloudWatchServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
+assert(ValidationException.prototype instanceof CloudWatchServiceException);
+assert(typeof ValidationException$ === "object");
 assert(CloudWatchServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForAlarmExists === "function");
