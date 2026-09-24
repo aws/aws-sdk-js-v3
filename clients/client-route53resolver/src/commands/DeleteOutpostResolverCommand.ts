@@ -24,6 +24,11 @@ export interface DeleteOutpostResolverCommandOutput extends DeleteOutpostResolve
 
 /**
  * <p>Deletes a Resolver on the Outpost.</p>
+ *          <note>
+ *             <p>This operation applies to first-generation Outposts only. On second-generation Outposts, Resolver
+ * 				is managed automatically by Amazon Web Services and can't be deleted directly. To opt out of Resolver on
+ * 				second-generation Outposts, contact Amazon Web Services Support.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

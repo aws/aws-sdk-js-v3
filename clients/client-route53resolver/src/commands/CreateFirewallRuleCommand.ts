@@ -27,7 +27,7 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>FirewallDomainListId</code> — match a customer-managed or AWS-managed domain list.</p>
+ *                   <code>FirewallDomainListId</code> — match a customer-managed or Amazon Web Services-managed domain list.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -35,7 +35,7 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  *             </li>
  *             <li>
  *                <p>
- *                   <code>FirewallRuleType</code> — match one of the rule-type variants returned by <a>ListFirewallRuleTypes</a>: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, or <code>PartnerThreatProtection</code>. The <code>PartnerThreatProtection</code> variant requires an active AWS Marketplace subscription to the named partner product.</p>
+ *                   <code>FirewallRuleType</code> — match one of the rule-type variants returned by <a>ListFirewallRuleTypes</a>: <code>FirewallAdvancedContentCategory</code>, <code>FirewallAdvancedThreatCategory</code>, <code>DnsThreatProtection</code>, or <code>PartnerThreatProtection</code>. The <code>PartnerThreatProtection</code> variant requires an active Amazon Web Services Marketplace subscription to the named partner product.</p>
  *             </li>
  *          </ul>
  *          <p>For rules that require asynchronous provisioning (today, the <code>PartnerThreatProtection</code> rule type), the rule's <code>Status</code> begins at <code>CREATING</code> and transitions to <code>COMPLETE</code> once the rule is provisioned and the marketplace entitlement is verified. If provisioning fails, <code>Status</code> becomes <code>CREATION_FAILED</code> and <code>StatusMessage</code> contains a human-readable reason; the rule is then immutable and must be removed with <a>DeleteFirewallRule</a>.</p>
