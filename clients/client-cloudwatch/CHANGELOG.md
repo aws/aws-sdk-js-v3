@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1139.0...v3.1140.0) (2026-09-24)
+
+
+### Features
+
+* **client-cloudwatch:** This release adds Create, Get, Update, and DeleteResourceMetricsConfiguration to enable detailed metric collection for an AWS resource, and adds UpdateOTelEnrichment plus include and exclude filters on StartOTelEnrichment so you can choose which metric namespaces CloudWatch enriches. ([765cc1c](https://github.com/aws/aws-sdk-js-v3/commit/765cc1ce8f95a4f62d83dc07b81a927d74e09b52))
+
+
+
+
+
 # [3.1139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1138.0...v3.1139.0) (2026-09-23)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch

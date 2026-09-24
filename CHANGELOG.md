@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1139.0...v3.1140.0) (2026-09-24)
+
+
+### Features
+
+* **client-cloudwatch:** This release adds Create, Get, Update, and DeleteResourceMetricsConfiguration to enable detailed metric collection for an AWS resource, and adds UpdateOTelEnrichment plus include and exclude filters on StartOTelEnrichment so you can choose which metric namespaces CloudWatch enriches. ([765cc1c](https://github.com/aws/aws-sdk-js-v3/commit/765cc1ce8f95a4f62d83dc07b81a927d74e09b52))
+* **client-datazone:** Amazon DataZone now supports the TOOLING blueprint category on CreateEnvironmentBlueprint, UpdateEnvironmentBlueprint, GetEnvironmentBlueprint, and ListEnvironmentBlueprints, for custom tooling blueprints. CreateConnection now accepts roleArn in iamProperties. ([591cd6f](https://github.com/aws/aws-sdk-js-v3/commit/591cd6f5a7b714427cbe87b36b13357d560d48ea))
+* **client-elasticache:** Added tagging support for ElastiCache Global DataStore. ([0fa9da5](https://github.com/aws/aws-sdk-js-v3/commit/0fa9da5946312f09942dad6f711885855f0d0b8e))
+* **client-eventbridge:** Adds a ManagedBy field to the DescribeEventBus and ListEventBuses responses, identifying the AWS service that created an event bus on your behalf. ([28a639b](https://github.com/aws/aws-sdk-js-v3/commit/28a639b27585c85376a4b5db528c31efb80e874d))
+* **client-eventbridgev2:** Introducing Amazon EventBridge enhanced Custom event bus, a new shareable event bus for organizational-scale event-driven applications feature ordered delivery, deduplication, open event formats, and cross-account bus sharing. ([69fbe6a](https://github.com/aws/aws-sdk-js-v3/commit/69fbe6a22fd7810332b0b0356803a0eee3f563cf))
+* **client-marketplace-discovery:** AWS Marketplace Discovery API now supports localized responses and SigV4a request signing. It returns new fulfillment details, including AMI architecture, EBS volume and security group information, SaaS quick-launch status, and SageMaker input and output MIME types. ([510673e](https://github.com/aws/aws-sdk-js-v3/commit/510673e376bbc578d318308136ecb5a841416bc3))
+* **client-redshift-data:** Updates to the ListDatabases and WorkgroupName validation ([218c24e](https://github.com/aws/aws-sdk-js-v3/commit/218c24e106efe1ad64658984123af6634fc7278d))
+* **client-securityagent:** Added support for Confluence export, enabling customers to publish security findings to Confluence pages. ([8140852](https://github.com/aws/aws-sdk-js-v3/commit/81408527778af52f0c604a4eaca440f445082f78))
+* **clients:** update client endpoints as of 2026-09-24 ([29a8566](https://github.com/aws/aws-sdk-js-v3/commit/29a8566cb4c6eeb0cc554f4ae9bf985160556523))
+
+
+
+
+
 # [3.1139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1138.0...v3.1139.0) (2026-09-23)
 
 

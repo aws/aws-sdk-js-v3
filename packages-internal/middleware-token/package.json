@@ -53,7 +53,7 @@
     "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.mts"
   },
   "dependencies": {
-    "@aws-sdk/token-providers": "workspace:3.1139.0",
+    "@aws-sdk/token-providers": "workspace:3.1140.0",
     "@aws-sdk/types": "workspace:^3.974.6",
     "@smithy/core": "^3.35.0",
     "@smithy/types": "^4.19.0",

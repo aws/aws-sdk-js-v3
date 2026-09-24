@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1139.0...v3.1140.0) (2026-09-24)
+
+
+### Features
+
+* **client-marketplace-discovery:** AWS Marketplace Discovery API now supports localized responses and SigV4a request signing. It returns new fulfillment details, including AMI architecture, EBS volume and security group information, SaaS quick-launch status, and SageMaker input and output MIME types. ([510673e](https://github.com/aws/aws-sdk-js-v3/commit/510673e376bbc578d318308136ecb5a841416bc3))
+
+
+
+
+
 # [3.1139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1138.0...v3.1139.0) (2026-09-23)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-discovery

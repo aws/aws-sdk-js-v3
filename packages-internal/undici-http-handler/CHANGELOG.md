@@ -14,6 +14,13 @@
 
 
 
+
+# 3.0.8 (2026-09-24)
+### Tests
+* **undici-http-handler:** update bidi stream e2e test to nova-2-sonic model ([#8313](https://github.com/aws/aws-sdk-js-v3/issues/8313)) ([d9a37d9](https://github.com/aws/aws-sdk-js-v3/commit/d9a37d9d318f2ef7f5bcf6286bf3c7b475e4175b))
+
+
+
 # 3.0.7 (2026-09-22)
 ### Chores
 * **codegen:** sync for MetricsRecorder support and core error/retry fixes ([#8312](https://github.com/aws/aws-sdk-js-v3/issues/8312)) ([9a10476](https://github.com/aws/aws-sdk-js-v3/commit/9a104768684e8f22d4373fcc5d910711e62676d6))

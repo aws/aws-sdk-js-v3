@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1139.0...v3.1140.0) (2026-09-24)
+
+
+### Features
+
+* **client-redshift-data:** Updates to the ListDatabases and WorkgroupName validation ([218c24e](https://github.com/aws/aws-sdk-js-v3/commit/218c24e106efe1ad64658984123af6634fc7278d))
+
+
+
+
+
 # [3.1139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1138.0...v3.1139.0) (2026-09-23)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift-data
