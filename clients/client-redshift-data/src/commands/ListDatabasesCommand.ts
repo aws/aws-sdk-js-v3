@@ -34,7 +34,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * const client = new RedshiftDataClient(config);
  * const input = { // ListDatabasesRequest
  *   ClusterIdentifier: "STRING_VALUE",
- *   Database: "STRING_VALUE", // required
+ *   Database: "STRING_VALUE",
  *   SecretArn: "STRING_VALUE",
  *   DbUser: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",

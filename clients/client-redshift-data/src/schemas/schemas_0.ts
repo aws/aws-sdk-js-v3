@@ -322,8 +322,8 @@ export var GetStatementResultV2Response$: StaticStructureSchema = [3, n0, _GSRVR
 ];
 export var ListDatabasesRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
-  [_D, _CI, _SA, _DU, _NT, _MR, _WN],
-  [0, 0, 0, 0, 0, 1, 0], 1
+  [_CI, _D, _SA, _DU, _NT, _MR, _WN],
+  [0, 0, 0, 0, 0, 1, 0]
 ];
 export var ListDatabasesResponse$: StaticStructureSchema = [3, n0, _LDRi,
   0,

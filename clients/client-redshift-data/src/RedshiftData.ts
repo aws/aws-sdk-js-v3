@@ -232,6 +232,7 @@ export interface RedshiftData {
   /**
    * @see {@link ListDatabasesCommand}
    */
+  listDatabases(): Promise<ListDatabasesCommandOutput>;
   listDatabases(
     args: ListDatabasesCommandInput,
     options?: RedshiftDataRequestOptions
@@ -356,7 +357,7 @@ export interface RedshiftData {
    * @returns AsyncIterable of {@link ListDatabasesCommandOutput}.
    */
   paginateListDatabases(
-    args: ListDatabasesCommandInput,
+    args?: ListDatabasesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListDatabasesCommandOutput>;
 
