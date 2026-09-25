@@ -6,11 +6,16 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.PaginatedIndex;
+import software.amazon.smithy.model.knowledge.PaginationInfo;
+import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.traits.PaginatedTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -20,6 +25,9 @@ final class DocumentClientPaginationGenerator implements Runnable {
 
     static final String PAGINATION_FOLDER = "pagination";
 
+    private final Model model;
+    private final ServiceShape service;
+    private final OperationShape operation;
     private final TypeScriptWriter writer;
 
     private final String operationTypeName;
@@ -37,6 +45,9 @@ final class DocumentClientPaginationGenerator implements Runnable {
         SymbolProvider symbolProvider,
         TypeScriptWriter writer
     ) {
+        this.model = model;
+        this.service = service;
+        this.operation = operation;
         this.writer = writer;
 
         Symbol operationSymbol = symbolProvider.toSymbol(operation);
@@ -82,6 +93,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
         writer.write("export type { Paginator };");
 
         writePager();
+        writeItemsPager();
     }
 
     static String getOutputFilelocation(OperationShape operation) {
@@ -144,5 +156,50 @@ final class DocumentClientPaginationGenerator implements Runnable {
                        $4L
                      >(DynamoDBDocumentClient, $1LCommand, "ExclusiveStartKey", "LastEvaluatedKey", "Limit");
                              """, operationName, paginationType, inputTypeName, outputTypeName);
+    }
+
+    /**
+     * Emits an item-level paginator when the @paginated trait declares an items member.
+     * List items yield their elements; map items yield [key, value] entries.
+     */
+    private void writeItemsPager() {
+        List<MemberShape> itemsPath = PaginatedIndex.of(model)
+            .getPaginationInfo(service, operation)
+            .map(PaginationInfo::getItemsMemberPath)
+            .orElse(List.of());
+        if (itemsPath.isEmpty()) {
+            return;
+        }
+
+        String itemsPathString = operation.expectTrait(PaginatedTrait.class).getItems().get();
+        MemberShape itemsMember = itemsPath.get(itemsPath.size() - 1);
+        String accessPath = itemsPath.stream()
+            .map(MemberShape::getMemberName)
+            .reduce(outputTypeName, (acc, name) -> "NonNullable<" + acc + "[\"" + name + "\"]>");
+        String itemType = model.expectShape(itemsMember.getTarget()).isMapShape()
+            ? "[string, " + accessPath + "[string]]"
+            : accessPath + "[number]";
+
+        writer.addImport("createItemsPaginator", "createItemsPaginator", TypeScriptDependency.SMITHY_CORE);
+
+        writer.writeDocs("@public");
+        writer.write(
+            """
+            export const paginate$1LItems: (
+              config: $2L,
+              input: $3L,
+              ...additionalArguments: any
+            ) => Paginator<$4L> = createItemsPaginator<
+              $2L,
+              $3L,
+              $4L
+            >(paginate$1L, $5S);
+                    """,
+            operationName,
+            paginationType,
+            inputTypeName,
+            itemType,
+            itemsPathString
+        );
     }
 }
