@@ -3,10 +3,8 @@ import { bindS3TransferManager } from "./S3TransferManager";
 import { createEmptyReadable, defaultWorkerCount, WorkerHttpHandler } from "./worker-http-handler";
 
 /**
- * Binds the Node.js implementations of the environment-specific runtime
- * dependencies (worker-thread HTTP handler and Node.js stream join/destroy
- * helpers) into the shared transfer manager implementation via
- * {@link bindS3TransferManager}.
+ * Node.js version of the TransferManager, providing high-level upload and download
+ * operations for Amazon S3 with multipart parallelism and worker-based multi-threading.
  *
  * @alpha
  */

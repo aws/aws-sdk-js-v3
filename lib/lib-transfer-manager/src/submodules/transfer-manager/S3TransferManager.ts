@@ -84,8 +84,6 @@ export interface IWorkerHttpHandler {
 }
 
 /**
- * Constructor contract for {@link IWorkerHttpHandler}.
- *
  * @internal
  */
 export interface WorkerHttpHandlerConstructor {
@@ -97,10 +95,6 @@ export interface WorkerHttpHandlerConstructor {
 }
 
 /**
- * Environment-specific runtime dependencies injected via the entry point
- * (`index.ts` for Node.js, `index.browser.ts` for the browser) so one
- * implementation can serve both environments without duplicating the class.
- *
  * @internal
  */
 export interface S3TransferManagerRuntimeDependencies {
@@ -112,10 +106,6 @@ export interface S3TransferManagerRuntimeDependencies {
 }
 
 /**
- * Constructor returned by {@link bindS3TransferManager}. Exposes only the
- * public {@link IS3TransferManager} surface, keeping the base class's
- * private/protected members out of the emitted declaration types.
- *
  * @internal
  */
 export interface S3TransferManagerConstructor {
@@ -123,21 +113,9 @@ export interface S3TransferManagerConstructor {
 }
 
 /**
- * Client for efficient transfer of objects to and from Amazon S3.
- * Provides methods to optimize uploading and downloading individual objects
- * as well as entire directories, with support for multipart operations,
- * concurrency control, and request cancellation.
- * Implements an eventTarget-based progress tracking system with methods to register,
- * dispatch, and remove listeners for transfer lifecycle events.
- *
- * Environment-agnostic implementation. Not exported directly; entry points
- * create a bound subclass via {@link bindS3TransferManager}, injecting the
- * Node.js or browser runtime dependencies (mirrors `bindUint8ArrayBlobAdapter`
- * in `@smithy/core`).
- *
  * @internal
  */
-class S3TransferManagerBase implements IS3TransferManager {
+abstract class S3TransferManagerBase implements IS3TransferManager {
   protected static MIN_PART_SIZE = 5 * 1024 * 1024; // 5MB
 
   private readonly s3: S3Client;
@@ -155,17 +133,10 @@ class S3TransferManagerBase implements IS3TransferManager {
   private readonly logger: Logger;
 
   /**
-   * Injected environment-specific runtime dependencies.
-   *
    * @internal
    */
   protected readonly deps: S3TransferManagerRuntimeDependencies;
 
-  /**
-   * Protected so instances can only be created through
-   * {@link bindS3TransferManager}, which guarantees `config` and `deps` are
-   * supplied (the `config = {}` default lives on the bound subclass).
-   */
   protected constructor(config: S3TransferManagerConfig, deps: S3TransferManagerRuntimeDependencies) {
     this.deps = deps;
     this.requestChecksumCalculation = config.requestChecksumCalculation ?? "WHEN_SUPPORTED";
@@ -3320,10 +3291,7 @@ class S3TransferManagerBase implements IS3TransferManager {
 }
 
 /**
- * Binds environment-specific runtime dependencies to {@link S3TransferManagerBase}
- * and returns a ready-to-use `S3TransferManager` class. Entry points extend the
- * result, e.g. `export class S3TransferManager extends bindS3TransferManager({ ... }) {}`.
- * Mirrors the `bindUint8ArrayBlobAdapter` pattern in `@smithy/core`.
+ * Binds environment runtime dependencies.
  *
  * @internal
  */
