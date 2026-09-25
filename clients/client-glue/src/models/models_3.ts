@@ -131,6 +131,7 @@ import type {
   ColumnStatistics,
   ConnectionInput,
   DatabaseInput,
+  FederatedTable,
   IcebergPartitionSpec,
   IcebergSchema,
   IcebergSortOrder,
@@ -148,7 +149,6 @@ import type {
 import type {
   ColumnRowFilter,
   DataQualityRuleRecommendationRunAdditionalRunOptions,
-  FederatedTable,
   IcebergTableMetadata,
   JobBookmarkEntry,
   SchemaVersionNumber,

@@ -42,6 +42,7 @@ import type {
   StatisticEvaluationLevel,
   TableAttributes,
   TableOptimizerType,
+  TableResourceShareType,
   TaskRunSortColumnType,
   TaskStatusType,
   TaskType,
@@ -85,7 +86,6 @@ import type {
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
-  ConnectionPasswordEncryption,
   ConnectorProperty,
   DataQualityTargetTable,
   EncryptionConfiguration,
@@ -108,6 +108,37 @@ import type {
   TransformEncryption,
   TransformParameters,
 } from "./models_1";
+
+/**
+ * <p>The data structure used by the Data Catalog to encrypt the password as part of
+ *         <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the
+ *         <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog
+ *       encryption or only password encryption.</p>
+ *          <p>When a <code>CreationConnection</code> request arrives containing a password, the Data
+ *       Catalog first encrypts the password using your KMS key. It then encrypts the whole
+ *       connection object again if catalog encryption is also enabled.</p>
+ *          <p>This encryption requires that you set KMS key permissions to enable or restrict access
+ *       on the password key according to your security requirements. For example, you might want only
+ *       administrators to have decrypt permission on the password key.</p>
+ * @public
+ */
+export interface ConnectionPasswordEncryption {
+  /**
+   * <p>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to "true", passwords remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>. This encryption takes effect independently from catalog encryption. </p>
+   * @public
+   */
+  ReturnConnectionPasswordEncrypted: boolean | undefined;
+
+  /**
+   * <p>An KMS key that is used to encrypt the connection password. </p>
+   *          <p>If connection password protection is enabled, the caller of <code>CreateConnection</code>
+   *       and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission on the
+   *       specified KMS key, to encrypt passwords before storing them in the Data Catalog. </p>
+   *          <p>You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.</p>
+   * @public
+   */
+  AwsKmsKeyId?: string | undefined;
+}
 
 /**
  * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
@@ -3855,36 +3886,6 @@ export interface GetTableRequest {
 }
 
 /**
- * <p>A table that points to an entity outside the Glue Data Catalog.</p>
- * @public
- */
-export interface FederatedTable {
-  /**
-   * <p>A unique identifier for the federated table.</p>
-   * @public
-   */
-  Identifier?: string | undefined;
-
-  /**
-   * <p>A unique identifier for the federated database.</p>
-   * @public
-   */
-  DatabaseIdentifier?: string | undefined;
-
-  /**
-   * <p>The name of the connection to the external metastore.</p>
-   * @public
-   */
-  ConnectionName?: string | undefined;
-
-  /**
-   * <p>The type of connection used to access the federated table, specifying the protocol or method for connecting to the external data source.</p>
-   * @public
-   */
-  ConnectionType?: string | undefined;
-}
-
-/**
  * <p>The Apache Iceberg table metadata, including format version, table identifier, schemas, partition specifications, sort orders, and table properties. This structure captures the current state of an Iceberg table's metadata as managed by the Glue Data Catalog.</p>
  * @public
  */
@@ -4240,6 +4241,20 @@ export interface GetTablesRequest {
    * @public
    */
   AuditContext?: AuditContext | undefined;
+
+  /**
+   * <p>Specifies which tables the <code>GetTables</code> call returns. The allowable values are <code>FEDERATED</code> or <code>ALL</code>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>If set to <code>FEDERATED</code>, returns only federated tables, which reference an entity outside the Glue Data Catalog.</p>
+   *             </li>
+   *             <li>
+   *                <p>If set to <code>ALL</code>, returns all tables in the database, both federated and non-federated. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceShareType?: TableResourceShareType | undefined;
 
   /**
    * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>

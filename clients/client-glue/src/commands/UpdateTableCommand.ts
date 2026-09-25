@@ -119,6 +119,12 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *       Name: "STRING_VALUE",
  *       Region: "STRING_VALUE",
  *     },
+ *     FederatedTable: { // FederatedTable
+ *       Identifier: "STRING_VALUE",
+ *       DatabaseIdentifier: "STRING_VALUE",
+ *       ConnectionName: "STRING_VALUE",
+ *       ConnectionType: "STRING_VALUE",
+ *     },
  *     ViewDefinition: { // ViewDefinitionInput
  *       IsProtected: true || false,
  *       Definer: "STRING_VALUE",

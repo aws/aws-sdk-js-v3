@@ -5771,8 +5771,8 @@ export var GetTableResponse$: StaticStructureSchema = [3, n0, _GTRe,
 ];
 export var GetTablesRequest$: StaticStructureSchema = [3, n0, _GTRet,
   0,
-  [_DN, _CI, _Ex, _NTe, _MRax, _TI, _QAOT, _ACu, _ISD, _ATG],
-  [0, 0, 0, 0, 1, 0, 4, () => AuditContext$, 2, 64 | 0], 1
+  [_DN, _CI, _Ex, _NTe, _MRax, _TI, _QAOT, _ACu, _RST, _ISD, _ATG],
+  [0, 0, 0, 0, 1, 0, 4, () => AuditContext$, 0, 2, 64 | 0], 1
 ];
 export var GetTablesResponse$: StaticStructureSchema = [3, n0, _GTReta,
   0,
@@ -7791,8 +7791,8 @@ export var TableIdentifier$: StaticStructureSchema = [3, n0, _TIab,
 ];
 export var TableInput$: StaticStructureSchema = [3, n0, _TIa,
   0,
-  [_N, _D, _Ow, _LAT, _LATa, _Ret, _SDto, _PK, _VOT, _VET, _TTab, _Par, _TT, _VD],
-  [0, 0, 0, 4, 4, 1, () => StorageDescriptor$, () => ColumnList, 0, 0, 0, 128 | 0, () => TableIdentifier$, () => ViewDefinitionInput$], 1
+  [_N, _D, _Ow, _LAT, _LATa, _Ret, _SDto, _PK, _VOT, _VET, _TTab, _Par, _TT, _FT, _VD],
+  [0, 0, 0, 4, 4, 1, () => StorageDescriptor$, () => ColumnList, 0, 0, 0, 128 | 0, () => TableIdentifier$, () => FederatedTable$, () => ViewDefinitionInput$], 1
 ];
 export var TableOptimizer$: StaticStructureSchema = [3, n0, _TOa,
   0,

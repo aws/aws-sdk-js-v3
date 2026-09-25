@@ -3175,6 +3175,36 @@ export interface OpenTableFormatInput {
 }
 
 /**
+ * <p>A table that points to an entity outside the Glue Data Catalog.</p>
+ * @public
+ */
+export interface FederatedTable {
+  /**
+   * <p>A unique identifier for the federated table.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the federated database.</p>
+   * @public
+   */
+  DatabaseIdentifier?: string | undefined;
+
+  /**
+   * <p>The name of the connection to the external metastore.</p>
+   * @public
+   */
+  ConnectionName?: string | undefined;
+
+  /**
+   * <p>The type of connection used to access the federated table, specifying the protocol or method for connecting to the external data source.</p>
+   * @public
+   */
+  ConnectionType?: string | undefined;
+}
+
+/**
  * <p>A structure that describes a target table for resource linking.</p>
  * @public
  */
@@ -3465,6 +3495,12 @@ export interface TableInput {
    * @public
    */
   TargetTable?: TableIdentifier | undefined;
+
+  /**
+   * <p>A <code>FederatedTable</code> structure that references an entity outside the Glue Data Catalog. Specify this field to create a federated table, which points to a table in an external metastore instead of describing data managed in the Glue Data Catalog.</p>
+   * @public
+   */
+  FederatedTable?: FederatedTable | undefined;
 
   /**
    * <p>A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query.</p>
@@ -8616,35 +8652,4 @@ export interface GetDataCatalogEncryptionSettingsRequest {
    * @public
    */
   CatalogId?: string | undefined;
-}
-
-/**
- * <p>The data structure used by the Data Catalog to encrypt the password as part of
- *         <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the
- *         <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog
- *       encryption or only password encryption.</p>
- *          <p>When a <code>CreationConnection</code> request arrives containing a password, the Data
- *       Catalog first encrypts the password using your KMS key. It then encrypts the whole
- *       connection object again if catalog encryption is also enabled.</p>
- *          <p>This encryption requires that you set KMS key permissions to enable or restrict access
- *       on the password key according to your security requirements. For example, you might want only
- *       administrators to have decrypt permission on the password key.</p>
- * @public
- */
-export interface ConnectionPasswordEncryption {
-  /**
-   * <p>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to "true", passwords remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>. This encryption takes effect independently from catalog encryption. </p>
-   * @public
-   */
-  ReturnConnectionPasswordEncrypted: boolean | undefined;
-
-  /**
-   * <p>An KMS key that is used to encrypt the connection password. </p>
-   *          <p>If connection password protection is enabled, the caller of <code>CreateConnection</code>
-   *       and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission on the
-   *       specified KMS key, to encrypt passwords before storing them in the Data Catalog. </p>
-   *          <p>You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.</p>
-   * @public
-   */
-  AwsKmsKeyId?: string | undefined;
 }

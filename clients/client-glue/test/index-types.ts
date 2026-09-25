@@ -1034,6 +1034,7 @@ export type {
   TableAttributes,
   TableOptimizerEventType,
   TableOptimizerType,
+  TableResourceShareType,
   TargetFormat,
   TaskRunSortColumnType,
   TaskStatusType,

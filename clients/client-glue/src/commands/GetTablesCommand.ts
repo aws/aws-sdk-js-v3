@@ -49,6 +49,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  *     ],
  *     AllColumnsRequested: true || false,
  *   },
+ *   ResourceShareType: "FEDERATED" || "ALL",
  *   IncludeStatusDetails: true || false,
  *   AttributesToGet: [ // TableAttributesList
  *     "NAME" || "TABLE_TYPE" || "DEFAULT" || "LATEST_ICEBERG_METADATA",

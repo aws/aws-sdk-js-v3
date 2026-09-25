@@ -2146,6 +2146,19 @@ export type ResourceState = (typeof ResourceState)[keyof typeof ResourceState];
  * @public
  * @enum
  */
+export const TableResourceShareType = {
+  ALL: "ALL",
+  FEDERATED: "FEDERATED",
+} as const;
+/**
+ * @public
+ */
+export type TableResourceShareType = (typeof TableResourceShareType)[keyof typeof TableResourceShareType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PermissionType = {
   CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
   COLUMN_PERMISSION: "COLUMN_PERMISSION",

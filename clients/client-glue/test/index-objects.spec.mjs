@@ -1760,6 +1760,7 @@ import {
   TableOptimizerRun$,
   TableOptimizerType,
   TableOptimizerVpcConfiguration$,
+  TableResourceShareType,
   TableStatus$,
   TableVersion$,
   TableVersionError$,
@@ -3771,6 +3772,7 @@ assert(typeof SubObjectSourceType === "object");
 assert(typeof TableAttributes === "object");
 assert(typeof TableOptimizerEventType === "object");
 assert(typeof TableOptimizerType === "object");
+assert(typeof TableResourceShareType === "object");
 assert(typeof TargetFormat === "object");
 assert(typeof TaskRunSortColumnType === "object");
 assert(typeof TaskStatusType === "object");
