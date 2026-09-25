@@ -864,7 +864,7 @@ export interface McpServerTargetConfiguration {
   endpoint: string | undefined;
 
   /**
-   * <p>The tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. Dynamic tool discovery/synchronization will be disabled when target is configured with mcpToolSchema.</p>
+   * <p>A static tool list for the MCP server target. It is supported for all credential providers. Dynamic tool discovery/synchronization will be disabled when a target is configured with mcpToolSchema.</p>
    * @public
    */
   mcpToolSchema?: McpToolSchemaConfiguration | undefined;

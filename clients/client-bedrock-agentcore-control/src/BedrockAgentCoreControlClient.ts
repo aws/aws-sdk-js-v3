@@ -482,6 +482,10 @@ import type {
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
+import type {
+  RotatePaymentConnectorCredentialsCommandInput,
+  RotatePaymentConnectorCredentialsCommandOutput,
+} from "./commands/RotatePaymentConnectorCredentialsCommand";
 import type { SetTokenVaultCMKCommandInput, SetTokenVaultCMKCommandOutput } from "./commands/SetTokenVaultCMKCommand";
 import type {
   StartPolicyGenerationCommandInput,
@@ -736,6 +740,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListWorkloadIdentitiesCommandInput
   | PutResourcePolicyCommandInput
+  | RotatePaymentConnectorCredentialsCommandInput
   | SetTokenVaultCMKCommandInput
   | StartPolicyGenerationCommandInput
   | SubmitRegistryRecordForApprovalCommandInput
@@ -911,6 +916,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListWorkloadIdentitiesCommandOutput
   | PutResourcePolicyCommandOutput
+  | RotatePaymentConnectorCredentialsCommandOutput
   | SetTokenVaultCMKCommandOutput
   | StartPolicyGenerationCommandOutput
   | SubmitRegistryRecordForApprovalCommandOutput

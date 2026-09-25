@@ -1140,6 +1140,13 @@ PutResourcePolicy
 </details>
 <details>
 <summary>
+RotatePaymentConnectorCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore-control/command/RotatePaymentConnectorCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/RotatePaymentConnectorCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore-control/Interface/RotatePaymentConnectorCredentialsCommandOutput/)
+</details>
+<details>
+<summary>
 SetTokenVaultCMK
 </summary>
 

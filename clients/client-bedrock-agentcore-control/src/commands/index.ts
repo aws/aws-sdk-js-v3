@@ -136,6 +136,7 @@ export * from "./ListRegistryRecordsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListWorkloadIdentitiesCommand";
 export * from "./PutResourcePolicyCommand";
+export * from "./RotatePaymentConnectorCredentialsCommand";
 export * from "./SetTokenVaultCMKCommand";
 export * from "./StartPolicyGenerationCommand";
 export * from "./SubmitRegistryRecordForApprovalCommand";

@@ -91,6 +91,7 @@ const _CCPO = "CreateCapacityProviderOutput";
 const _CCPR = "CreateConsentPortalRequest";
 const _CCPRr = "CreateConsentPortalResponse";
 const _CCPr = "CreateConsentPortal";
+const _CCRT = "CoinbaseCdpRotationTargets";
 const _CCVT = "CustomClaimValidationType";
 const _CCVTu = "CustomClaimValidationsType";
 const _CCo = "CodeConfiguration";
@@ -184,8 +185,9 @@ const _CPVC = "CapacityProviderVolumeConfiguration";
 const _CPr = "CredentialProvider";
 const _CPre = "CreatePolicy";
 const _CR = "CreateRegistry";
-const _CRC = "CustomReflectionConfiguration";
+const _CRC = "CredentialRotationConfig";
 const _CRCI = "CustomReflectionConfigurationInput";
+const _CRCu = "CustomReflectionConfiguration";
 const _CRR = "CreateRegistryRequest";
 const _CRRR = "CreateRegistryRecordRequest";
 const _CRRRr = "CreateRegistryRecordResponse";
@@ -825,6 +827,9 @@ const _RL = "ResourceLocation";
 const _RLEE = "ResourceLimitExceededException";
 const _RMC = "RuntimeMetadataConfiguration";
 const _RNFE = "ResourceNotFoundException";
+const _RPCC = "RotatePaymentConnectorCredentials";
+const _RPCCR = "RotatePaymentConnectorCredentialsRequest";
+const _RPCCRo = "RotatePaymentConnectorCredentialsResponse";
 const _RRCPC = "RegistryRecordCredentialProviderConfiguration";
 const _RRCPCL = "RegistryRecordCredentialProviderConfigurationList";
 const _RRCPU = "RegistryRecordCredentialProviderUnion";
@@ -1227,8 +1232,10 @@ const _cSJK = "clientSecretJsonKey";
 const _cSS = "clientSecretSource";
 const _cT = "clientToken";
 const _cTC = "customTransformConfiguration";
+const _cTR = "credentialsToRotate";
 const _cTr = "createdTime";
 const _cU = "containerUri";
+const _cUA = "credentialsUpdatedAt";
 const _cUa = "callbackUrl";
 const _cWC = "cloudWatchConfig";
 const _cWL = "cloudWatchLogs";
@@ -1686,6 +1693,7 @@ const _s_ = "s3";
 const _sc = "scopes";
 const _sch = "schema";
 const _se = "server";
+const _sec = "secrets";
 const _sep = "separator";
 const _ser = "service";
 const _sk = "skills";
@@ -2172,6 +2180,11 @@ export var CoinbaseCdpConfigurationOutput$: StaticStructureSchema = [3, n0, _CCC
   0,
   [_aKI, _aKSA, _wSA, _aKSJK, _aKSS, _wSJK, _wSS],
   [0, () => Secret$, () => Secret$, 0, 0, 0, 0], 3
+];
+export var CoinbaseCdpRotationTargets$: StaticStructureSchema = [3, n0, _CCRT,
+  0,
+  [_sec],
+  [64 | 0], 1
 ];
 export var ComponentConfiguration$: StaticStructureSchema = [3, n0, _CCom,
   8,
@@ -3245,8 +3258,8 @@ export var GetPaymentConnectorRequest$: StaticStructureSchema = [3, n0, _GPCR,
 ];
 export var GetPaymentConnectorResponse$: StaticStructureSchema = [3, n0, _GPCRe,
   0,
-  [_pCI, _n, _t, _cPCr, _cA, _lUA, _st, _d, _aU],
-  [0, 0, 0, () => CredentialsProviderConfigurations, 5, 5, 0, 0, 0], 7
+  [_pCI, _n, _t, _cPCr, _cA, _lUA, _st, _d, _pM, _aU, _cUA],
+  [0, 0, 0, () => CredentialsProviderConfigurations, 5, 5, 0, 0, 0, 0, 5], 7
 ];
 export var GetPaymentCredentialProviderRequest$: StaticStructureSchema = [3, n0, _GPCPR,
   0,
@@ -4345,8 +4358,8 @@ export var PassthroughTargetConfiguration$: StaticStructureSchema = [3, n0, _PTC
 ];
 export var PaymentConnectorSummary$: StaticStructureSchema = [3, n0, _PCS,
   0,
-  [_pCI, _n, _t, _st, _lUA],
-  [0, 0, 0, 0, 5], 5
+  [_pCI, _n, _t, _st, _lUA, _pM],
+  [0, 0, 0, 0, 5, 0], 5
 ];
 export var PaymentCredentialProviderConfiguration$: StaticStructureSchema = [3, n0, _PCPC,
   0,
@@ -4487,6 +4500,16 @@ export var RootVolumeConfiguration$: StaticStructureSchema = [3, n0, _RVC,
   0,
   [_vT, _io, _th, _enc, _kKI, _fSGB],
   [0, 1, 1, 2, 0, 1]
+];
+export var RotatePaymentConnectorCredentialsRequest$: StaticStructureSchema = [3, n0, _RPCCR,
+  0,
+  [_pMI, _pCI, _cTR, _cT],
+  [[0, 1], [0, 1], () => CredentialRotationConfig$, [0, 4]], 3
+];
+export var RotatePaymentConnectorCredentialsResponse$: StaticStructureSchema = [3, n0, _RPCCRo,
+  0,
+  [_pCI, _pMI, _lUA, _st],
+  [0, 0, 5, 0], 4
 ];
 export var Rule$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -5344,6 +5367,7 @@ var CodeInterpreterSummaries: StaticListSchema = [1, n0, _CISo,
   0, [() => CodeInterpreterSummary$,
     0]
 ];
+var CoinbaseCdpSecrets = 64 | 0;
 var CompositeIdentifierList = 64 | 0;
 var Conditions: StaticListSchema = [1, n0, _Co,
   0, () => Condition$
@@ -5756,6 +5780,11 @@ export var CredentialProvider$: StaticUnionSchema = [4, n0, _CPr,
   [_oCP, _aKCP, _iCP],
   [[() => OAuthCredentialProvider$, 0], () => GatewayApiKeyCredentialProvider$, () => IamCredentialProvider$]
 ];
+export var CredentialRotationConfig$: StaticUnionSchema = [4, n0, _CRC,
+  0,
+  [_cCDP],
+  [() => CoinbaseCdpRotationTargets$]
+];
 export var CredentialsProviderConfiguration$: StaticUnionSchema = [4, n0, _CPCrede,
   0,
   [_cCDP, _sPt],
@@ -5786,7 +5815,7 @@ export var CustomExtractionConfigurationInput$: StaticUnionSchema = [4, n0, _CEC
   [_sEO, _uPEO, _eEO],
   [[() => SemanticOverrideExtractionConfigurationInput$, 0], [() => UserPreferenceOverrideExtractionConfigurationInput$, 0], [() => EpisodicOverrideExtractionConfigurationInput$, 0]]
 ];
-export var CustomReflectionConfiguration$: StaticUnionSchema = [4, n0, _CRC,
+export var CustomReflectionConfiguration$: StaticUnionSchema = [4, n0, _CRCu,
   0,
   [_eRO],
   [[() => EpisodicReflectionOverride$, 0]]
@@ -6496,6 +6525,9 @@ export var ListWorkloadIdentities$: StaticOperationSchema = [9, n0, _LWI,
 ];
 export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
   { [_ht]: ["PUT", "/resourcepolicy/{resourceArn}", 201] }, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
+];
+export var RotatePaymentConnectorCredentials$: StaticOperationSchema = [9, n0, _RPCC,
+  { [_ht]: ["POST", "/payments/managers/{paymentManagerId}/connectors/{paymentConnectorId}/rotate-credentials", 202] }, () => RotatePaymentConnectorCredentialsRequest$, () => RotatePaymentConnectorCredentialsResponse$
 ];
 export var SetTokenVaultCMK$: StaticOperationSchema = [9, n0, _STVCMK,
   { [_ht]: ["POST", "/identities/set-token-vault-cmk", 200] }, () => SetTokenVaultCMKRequest$, () => SetTokenVaultCMKResponse$

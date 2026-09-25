@@ -687,6 +687,11 @@ import {
   PutResourcePolicyCommand,
 } from "./commands/PutResourcePolicyCommand";
 import {
+  type RotatePaymentConnectorCredentialsCommandInput,
+  type RotatePaymentConnectorCredentialsCommandOutput,
+  RotatePaymentConnectorCredentialsCommand,
+} from "./commands/RotatePaymentConnectorCredentialsCommand";
+import {
   type SetTokenVaultCMKCommandInput,
   type SetTokenVaultCMKCommandOutput,
   SetTokenVaultCMKCommand,
@@ -1039,6 +1044,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListWorkloadIdentitiesCommand,
   PutResourcePolicyCommand,
+  RotatePaymentConnectorCredentialsCommand,
   SetTokenVaultCMKCommand,
   StartPolicyGenerationCommand,
   SubmitRegistryRecordForApprovalCommand,
@@ -3480,6 +3486,23 @@ export interface BedrockAgentCoreControl {
     args: PutResourcePolicyCommandInput,
     options: BedrockAgentCoreControlRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RotatePaymentConnectorCredentialsCommand}
+   */
+  rotatePaymentConnectorCredentials(
+    args: RotatePaymentConnectorCredentialsCommandInput,
+    options?: BedrockAgentCoreControlRequestOptions
+  ): Promise<RotatePaymentConnectorCredentialsCommandOutput>;
+  rotatePaymentConnectorCredentials(
+    args: RotatePaymentConnectorCredentialsCommandInput,
+    cb: (err: any, data?: RotatePaymentConnectorCredentialsCommandOutput) => void
+  ): void;
+  rotatePaymentConnectorCredentials(
+    args: RotatePaymentConnectorCredentialsCommandInput,
+    options: BedrockAgentCoreControlRequestOptions,
+    cb: (err: any, data?: RotatePaymentConnectorCredentialsCommandOutput) => void
   ): void;
 
   /**
