@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1140.0...v3.1141.0) (2026-09-25)
+
+
+### Features
+
+* **client-securityagent:** This release adds the ListActorMessages operation, which returns the multi-factor authentication messages received at an actor's server-generated email address ([10e53d5](https://github.com/aws/aws-sdk-js-v3/commit/10e53d506db74c48b09b94d9b9387b84dd40ed58))
+
+
+
+
+
 # [3.1140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1139.0...v3.1140.0) (2026-09-24)
 
 

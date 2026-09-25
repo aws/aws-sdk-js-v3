@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1140.0...v3.1141.0) (2026-09-25)
+
+
+### Features
+
+* **client-arc-region-switch:** Adds a service quota checker to Region switch to verify quota parity between your primary and standby Region, and automatically submit quota limit increases. Adds an optional EC2 Auto Scaling and ECS setting that waits for instances or tasks in the scaled-up Region to be healthy in target groups. ([cca33e3](https://github.com/aws/aws-sdk-js-v3/commit/cca33e380a8985e23a0e3fbb420577aab4b60ac7))
+* **client-bedrock-agent:** Adds support for calling VPC configuration API's in Bedrock. These configurations allow the use of On Prem connectors in Bedrock Managed Knowledge bases ([18524dc](https://github.com/aws/aws-sdk-js-v3/commit/18524dc69cf36ebbb8bc7bc33e0bce6311dcdb23))
+* **client-bedrock-agentcore-control:** Amazon Bedrock AgentCore Payments now supports credential rotation for payment connectors, letting you rotate API and wallet secrets for Quick Create payment auths from the console. This release also adds Type and Creation type columns to the payment managers views. ([adca591](https://github.com/aws/aws-sdk-js-v3/commit/adca591f07c448603de2876faaf7914cad441436))
+* **client-connect:** Agent Privacy During Hold is a new privacy capability for Amazon Connect Voice that prevents agent audio from being captured in call recordings or Contact Lens conversational analytics during hold. When enabled, agents are automatically muted on entering hold and unmuted on resuming the contact ([03527f9](https://github.com/aws/aws-sdk-js-v3/commit/03527f9ea153365c1e3654ac6d3f3e064d06b5d0))
+* **client-glue:** add support for table level federation ([a44458b](https://github.com/aws/aws-sdk-js-v3/commit/a44458b77853cbb25a9fcb362b0a275d7dc1c69b))
+* **client-mediaconnect:** This release adds support for RTMP push router outputs in AWS Elemental MediaConnect. ([5bd8d80](https://github.com/aws/aws-sdk-js-v3/commit/5bd8d80bbca2c1c2545521b03d741b46fccd09b4))
+* **client-neptune-graph:** Add GraphIdentifier filter for ListImportTasks ([9b9aea9](https://github.com/aws/aws-sdk-js-v3/commit/9b9aea9b553ba84f006f95da5d8ffd5381cc8a17))
+* **client-qconnect:** Release shapes for the proactive agentic recommendations and the multi-knowledge base search features. Increases the maximum length of QuickResponseContent. ([e008332](https://github.com/aws/aws-sdk-js-v3/commit/e008332b0b70c55d22dfca8a9c2317b67d06a5f3))
+* **client-rekognition:** This release adds support for Feedback and Metadata in the GetFaceLivenessSessionResults response. Feedback returns codes explaining why a Face Liveness check produced its result. Metadata includes the client SDK type. ([0831c36](https://github.com/aws/aws-sdk-js-v3/commit/0831c361bb69d44357ff57360db39afdbb149337))
+* **client-securityagent:** This release adds the ListActorMessages operation, which returns the multi-factor authentication messages received at an actor's server-generated email address ([10e53d5](https://github.com/aws/aws-sdk-js-v3/commit/10e53d506db74c48b09b94d9b9387b84dd40ed58))
+* **client-wellarchitected:** This change releases the Well-Architected Agent, a generative AI service that analyzes a customer's AWS environment and delivers personalized, prioritized recommendations across cost, security, performance, and resilience. ([d065658](https://github.com/aws/aws-sdk-js-v3/commit/d0656586067f70b8d50000300f04512dd089df96))
+
+
+
+
+
 # [3.1140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1139.0...v3.1140.0) (2026-09-24)
 
 
