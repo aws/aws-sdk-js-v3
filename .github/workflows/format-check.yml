@@ -1,0 +1,52 @@
+name: format-check
+
+on:
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: format-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  lint-and-format:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out PR head
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Rebase onto latest main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch --no-tags origin main
+          if ! git rebase origin/main; then
+            git rebase --abort || true
+            echo "::error::Could not rebase this PR onto the latest main. Please rebase locally and push again."
+            exit 1
+          fi
+
+      - name: Set up Node.js
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint (oxlint)
+        # report and fail on lint errors rather than mutating.
+        run: npx oxlint packages/ packages-internal/ lib/ clients/ scripts/
+
+      - name: Check formatting (oxfmt)
+        # --check is non-mutating and exits non-zero when files are not formatted.
+        run: npx oxfmt --check .
