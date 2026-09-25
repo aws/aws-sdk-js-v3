@@ -59,6 +59,7 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  *   aiAgentConfiguration: { // AIAgentConfigurationMap
  *     "<keys>": { // AIAgentConfigurationData
  *       aiAgentId: "STRING_VALUE", // required
+ *       enabled: true || false,
  *     },
  *   },
  *   orchestratorConfigurationList: [ // OrchestratorConfigurationList
@@ -106,6 +107,7 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  * //     aiAgentConfiguration: { // AIAgentConfigurationMap
  * //       "<keys>": { // AIAgentConfigurationData
  * //         aiAgentId: "STRING_VALUE", // required
+ * //         enabled: true || false,
  * //       },
  * //     },
  * //     origin: "STRING_VALUE",

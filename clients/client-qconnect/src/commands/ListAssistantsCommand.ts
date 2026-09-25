@@ -62,6 +62,7 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  * //       aiAgentConfiguration: { // AIAgentConfigurationMap
  * //         "<keys>": { // AIAgentConfigurationData
  * //           aiAgentId: "STRING_VALUE", // required
+ * //           enabled: true || false,
  * //         },
  * //       },
  * //       orchestratorConfigurationList: [ // OrchestratorConfigurationList

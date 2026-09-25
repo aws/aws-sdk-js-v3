@@ -69,6 +69,7 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  * //     aiAgentConfiguration: { // AIAgentConfigurationMap
  * //       "<keys>": { // AIAgentConfigurationData
  * //         aiAgentId: "STRING_VALUE", // required
+ * //         enabled: true || false,
  * //       },
  * //     },
  * //     orchestratorConfigurationList: [ // OrchestratorConfigurationList

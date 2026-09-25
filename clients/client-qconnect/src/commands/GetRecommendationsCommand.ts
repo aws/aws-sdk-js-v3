@@ -219,6 +219,9 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //                     completion: "STRING_VALUE",
  * //                     nextChunkToken: "STRING_VALUE",
  * //                   },
+ * //                   proactiveRecommendationData: { // ProactiveRecommendationDataDetails
+ * //                     nextMessageToken: "STRING_VALUE", // required
+ * //                   },
  * //                 },
  * //               },
  * //             ],
@@ -278,6 +281,9 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //           notesChunkData: {
  * //             completion: "STRING_VALUE",
  * //             nextChunkToken: "STRING_VALUE",
+ * //           },
+ * //           proactiveRecommendationData: {
+ * //             nextMessageToken: "STRING_VALUE", // required
  * //           },
  * //         },
  * //       },

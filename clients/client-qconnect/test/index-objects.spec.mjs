@@ -483,6 +483,7 @@ import {
   PreconditionFailedException,
   PreconditionFailedException$,
   Priority,
+  ProactiveRecommendationDataDetails$,
   PushADMMessageTemplateContent$,
   PushAPNSMessageTemplateContent$,
   PushBaiduMessageTemplateContent$,
@@ -553,6 +554,8 @@ import {
   RetrievalFilterConfiguration$,
   Retrieve$,
   RetrieveCommand,
+  RetrieveError$,
+  RetrieveErrorCode,
   RetrieveRequest$,
   RetrieveResponse$,
   RetrieveResult$,
@@ -1176,6 +1179,7 @@ assert(typeof OrchestratorConfigurationEntry$ === "object");
 assert(typeof OrCondition$ === "object");
 assert(typeof ParsingConfiguration$ === "object");
 assert(typeof ParsingPrompt$ === "object");
+assert(typeof ProactiveRecommendationDataDetails$ === "object");
 assert(typeof PushADMMessageTemplateContent$ === "object");
 assert(typeof PushAPNSMessageTemplateContent$ === "object");
 assert(typeof PushBaiduMessageTemplateContent$ === "object");
@@ -1214,6 +1218,7 @@ assert(typeof RenderMessageTemplateResponse$ === "object");
 assert(typeof ResultData$ === "object");
 assert(typeof RetrievalConfiguration$ === "object");
 assert(typeof RetrievalFilterConfiguration$ === "object");
+assert(typeof RetrieveError$ === "object");
 assert(typeof RetrieveRequest$ === "object");
 assert(typeof RetrieveResponse$ === "object");
 assert(typeof RetrieveResult$ === "object");
@@ -1368,6 +1373,7 @@ assert(typeof RecommendationType === "object");
 assert(typeof ReferenceType === "object");
 assert(typeof Relevance === "object");
 assert(typeof RelevanceLevel === "object");
+assert(typeof RetrieveErrorCode === "object");
 assert(typeof ReturnReason === "object");
 assert(typeof SessionDataNamespace === "object");
 assert(typeof SourceContentType === "object");
