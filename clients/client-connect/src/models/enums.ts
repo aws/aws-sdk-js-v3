@@ -1977,6 +1977,7 @@ export type InstanceReplicationStatus = (typeof InstanceReplicationStatus)[keyof
  * @enum
  */
 export const InstanceAttributeType = {
+  AUTO_MUTE_AGENT_ON_HOLD: "AUTO_MUTE_AGENT_ON_HOLD",
   AUTO_RESOLVE_BEST_VOICES: "AUTO_RESOLVE_BEST_VOICES",
   CONTACTFLOW_LOGS: "CONTACTFLOW_LOGS",
   CONTACT_LENS: "CONTACT_LENS",

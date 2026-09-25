@@ -6833,6 +6833,11 @@ export interface UpdateInstanceAttributeRequest {
    *     based policy to include the <code>lex:RecognizeMessageAsync</code> action for the connect instance ARN
    *     resource.</p>
    *          </note>
+   *          <note>
+   *             <p>If you set the attribute type <code>AUTO_MUTE_AGENT_ON_HOLD</code> to <code>true</code>, the system
+   *     automatically mutes agents while they're on hold and unmutes them when they resume the contact. Agents can't
+   *     change their mute state while on hold.</p>
+   *          </note>
    * @public
    */
   AttributeType: InstanceAttributeType | undefined;
