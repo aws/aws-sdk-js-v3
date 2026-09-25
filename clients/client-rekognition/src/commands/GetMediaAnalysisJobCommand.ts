@@ -23,7 +23,14 @@ export interface GetMediaAnalysisJobCommandInput extends GetMediaAnalysisJobRequ
 export interface GetMediaAnalysisJobCommandOutput extends GetMediaAnalysisJobResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the results for a given media analysis job.
+ * <important>
+ *             <p>Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
+ * <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition feature availability changes</a>.</p>
+ *             <p>
+ *                <b>This change does not impact the availability of other Amazon Rekognition features.</b>
+ *             </p>
+ *          </important>
+ *          <p>Retrieves the results for a given media analysis job.
  *         Takes a <code>JobId</code> returned by StartMediaAnalysisJob.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

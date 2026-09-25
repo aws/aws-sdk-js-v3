@@ -33,6 +33,12 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  *       when <code>GetFaceLivenessSessionResults</code> is called. This number is between 0 and 4. By
  *       default, it is set to 0. The limit is best effort and based on the duration of the
  *       selfie-video. </p>
+ *          <p>You can use the <code>ChallengePreferences</code> option in the <code>Settings</code> parameter to choose between the
+ *       'FaceMovementAndLightChallenge' or FaceMovementChallenge' settings. See the
+ *       <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-liveness-shared-responsibility-model.html">Shared Responsibility</a>
+ *       page for details on guidance for which setting to choose between these two settings depending on
+ *       your use case and preferences. This parameter is optional and if no parameter is provided, then
+ *       the 'FaceMovementAndLightChallenge' settings is applied by default.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

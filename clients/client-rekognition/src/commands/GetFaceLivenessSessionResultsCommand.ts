@@ -32,6 +32,9 @@ export interface GetFaceLivenessSessionResultsCommandOutput extends GetFaceLiven
  *       defined by the <code>AuditImagesLimit</code> paramater when calling
  *         <code>CreateFaceLivenessSession</code>. Reference images are always returned when
  *       possible.</p>
+ *          <p>For a session that has completed, the response can also include a <code>Feedback</code>
+ *       list describing conditions that were detected in the selfie-video, such as low lighting or an
+ *       obstructed face, and <code>Metadata</code> about the client that streamed the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +85,15 @@ export interface GetFaceLivenessSessionResultsCommandOutput extends GetFaceLiven
  * //   Challenge: { // Challenge
  * //     Type: "FaceMovementAndLightChallenge" || "FaceMovementChallenge", // required
  * //     Version: "STRING_VALUE", // required
+ * //   },
+ * //   Feedback: [ // FeedbackList
+ * //     { // FeedbackItem
+ * //       Code: "FACE_NOT_VISIBLE" || "FACE_OBSTRUCTION_DETECTED" || "LOW_VIDEO_QUALITY_DETECTED" || "FACE_NOT_ALIGNED" || "EYES_CLOSED_DETECTED" || "LOW_LIGHTING_DETECTED" || "HIGH_LIGHTING_DETECTED", // required
+ * //       Message: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   Metadata: { // SessionMetadata
+ * //     SDKType: "STRING_VALUE", // required
  * //   },
  * // };
  *

@@ -23,7 +23,14 @@ export interface DeleteStreamProcessorCommandInput extends DeleteStreamProcessor
 export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcessorResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the stream processor identified by <code>Name</code>. You assign the value for <code>Name</code> when you create the stream processor with
+ * <important>
+ *             <p>Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
+ * <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition feature availability changes</a>.</p>
+ *             <p>
+ *                <b>This change does not impact the availability of other Amazon Rekognition features.</b>
+ *             </p>
+ *          </important>
+ *          <p>Deletes the stream processor identified by <code>Name</code>. You assign the value for <code>Name</code> when you create the stream processor with
  *             <a>CreateStreamProcessor</a>. You might not be able to use the same name for a stream processor for a few seconds after calling <code>DeleteStreamProcessor</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

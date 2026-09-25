@@ -23,7 +23,14 @@ export interface DescribeStreamProcessorCommandInput extends DescribeStreamProce
 export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProcessorResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about a stream processor created by <a>CreateStreamProcessor</a>. You can get information about the input and output streams, the input parameters for the face recognition being performed,
+ * <important>
+ *             <p>Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
+ * <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition feature availability changes</a>.</p>
+ *             <p>
+ *                <b>This change does not impact the availability of other Amazon Rekognition features.</b>
+ *             </p>
+ *          </important>
+ *          <p>Provides information about a stream processor created by <a>CreateStreamProcessor</a>. You can get information about the input and output streams, the input parameters for the face recognition being performed,
  *             and the current status of the stream processor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

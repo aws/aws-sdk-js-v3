@@ -23,7 +23,14 @@ export interface ListStreamProcessorsCommandInput extends ListStreamProcessorsRe
 export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>. </p>
+ * <important>
+ *             <p>Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
+ * <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition feature availability changes</a>.</p>
+ *             <p>
+ *                <b>This change does not impact the availability of other Amazon Rekognition features.</b>
+ *             </p>
+ *          </important>
+ *          <p>Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
