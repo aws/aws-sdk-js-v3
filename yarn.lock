@@ -10442,6 +10442,7 @@ __metadata:
   dependencies:
     "@aws-sdk/checksums": "workspace:^3.1001.1"
     "@aws-sdk/client-s3": "workspace:3.1140.0"
+    "@aws-sdk/xhr-http-handler": "workspace:^3.1140.0"
     "@smithy/core": "npm:^3.35.0"
     "@smithy/node-http-handler": "npm:^4.12.1"
     "@smithy/types": "npm:^4.19.0"
@@ -11309,7 +11310,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/xhr-http-handler@workspace:packages/xhr-http-handler":
+"@aws-sdk/xhr-http-handler@workspace:^3.1140.0, @aws-sdk/xhr-http-handler@workspace:packages/xhr-http-handler":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/xhr-http-handler@workspace:packages/xhr-http-handler"
   dependencies:

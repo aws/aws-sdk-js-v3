@@ -7,7 +7,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
-import { internalEventHandler, S3TransferManager } from "./S3TransferManager";
+import { S3TransferManager } from "./index";
+import { internalEventHandler } from "./S3TransferManager";
 import type { CannedFailurePolicy, DirectoryProgressSnapshot, S3TransferManagerConfig } from "./types";
 
 describe(S3TransferManager.name, () => {
