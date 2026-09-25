@@ -21,6 +21,9 @@ import type {
   RedshiftQueryEngineType,
   RedshiftServerlessAuthType,
   SupplementalDataStorageLocationType,
+  VpcConfigurationStatus,
+  VpcProtocol,
+  VpcResolutionMode,
 } from "./enums";
 import type {
   AgentFlowNodeConfiguration,
@@ -28,7 +31,6 @@ import type {
   AgentKnowledgeBaseSummary,
   AgentVersion,
   AgentVersionSummary,
-  AudioConfiguration,
   CollectorFlowNodeConfiguration,
   ConditionFlowNodeConfiguration,
   FlowConnection,
@@ -38,7 +40,7 @@ import type {
   InlineCodeFlowNodeConfiguration,
   InputFlowNodeConfiguration,
   IteratorFlowNodeConfiguration,
-  KendraKnowledgeBaseConfiguration,
+  KnowledgeBaseDocumentDetail,
   KnowledgeBaseFlowNodeConfiguration,
   LambdaFunctionFlowNodeConfiguration,
   LexFlowNodeConfiguration,
@@ -53,6 +55,134 @@ import type {
   ServerSideEncryptionConfiguration,
   StorageFlowNodeConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBaseDocumentsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source that contains the documents.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListKnowledgeBaseDocumentsResponse {
+  /**
+   * <p>A list of objects, each of which contains information about the documents that were retrieved.</p>
+   * @public
+   */
+  documentDetails: KnowledgeBaseDocumentDetail[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateAgentKnowledgeBaseRequest {
+  /**
+   * <p>The unique identifier of the agent with which you want to associate the knowledge base.</p>
+   * @public
+   */
+  agentId: string | undefined;
+
+  /**
+   * <p>The version of the agent with which you want to associate the knowledge base.</p>
+   * @public
+   */
+  agentVersion: string | undefined;
+
+  /**
+   * <p>The unique identifier of the knowledge base to associate with the agent.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>A description of what the agent should use the knowledge base for.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>Specifies whether to use the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
+   * @public
+   */
+  knowledgeBaseState?: KnowledgeBaseState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateAgentKnowledgeBaseResponse {
+  /**
+   * <p>Contains details about the knowledge base that has been associated with the agent.</p>
+   * @public
+   */
+  agentKnowledgeBase: AgentKnowledgeBase | undefined;
+}
+
+/**
+ * <p>Settings for an Amazon Kendra knowledge base.</p>
+ * @public
+ */
+export interface KendraKnowledgeBaseConfiguration {
+  /**
+   * <p>The ARN of the Amazon Kendra index.</p>
+   * @public
+   */
+  kendraIndexArn: string | undefined;
+}
+
+/**
+ * <p>Configuration for segmenting audio content during multimodal knowledge base ingestion. Determines how audio files are divided into chunks for processing.</p>
+ * @public
+ */
+export interface AudioSegmentationConfiguration {
+  /**
+   * <p>The duration in seconds for each audio segment. Audio files will be divided into chunks of this length for processing.</p>
+   * @public
+   */
+  fixedLengthDuration: number | undefined;
+}
+
+/**
+ * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
+ * @public
+ */
+export interface AudioConfiguration {
+  /**
+   * <p>Configuration for segmenting audio content during processing.</p>
+   * @public
+   */
+  segmentationConfiguration: AudioSegmentationConfiguration | undefined;
+}
 
 /**
  * <p>Configuration for segmenting video content during multimodal knowledge base ingestion. Determines how video files are divided into chunks for processing.</p>
@@ -112,7 +242,7 @@ export interface BedrockEmbeddingModelConfiguration {
   video?: VideoConfiguration[] | undefined;
 
   /**
-   * <p>Model-specific configuration for the embedding model, provided as a JSON object. Use this field to specify settings that apply to the embedding model that you selected, such as how audio and video files are divided into segments.</p> <p>The fields that this object accepts depend on the embedding model. For the settings that each model accepts, see the documentation for that model.</p>
+   * <p>Model-specific configuration for the embedding model, provided as a JSON object. Use this field to specify settings that apply to the embedding model that you selected, such as how audio and video files are divided into segments.</p> <p>The fields that this object accepts depend on the embedding model. For the settings that each model accepts, see the documentation for that model.</p> <p>For an example of a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html">CreateKnowledgeBase</a> request that uses this field to configure a multimodal embedding model, see the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html#API_agent_CreateKnowledgeBase_Examples">Examples</a> section of <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html">CreateKnowledgeBase</a>.</p>
    * @public
    */
   modelConfiguration?: __DocumentType | undefined;
@@ -1484,6 +1614,136 @@ export interface UpdateKnowledgeBaseResponse {
    * @public
    */
   knowledgeBase: KnowledgeBase | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcConfigurationsRequest {
+  /**
+   * <p>The unique identifier of the knowledge base whose VPC configurations you want to list.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The status to filter the results by. Only VPC configurations with the specified status are returned.</p>
+   * @public
+   */
+  statusFilter?: VpcConfigurationStatus | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If more results are available, the response returns a <code>nextToken</code>.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A pagination token to retrieve the next page of results, returned in a previous response when more results are available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A summary of a VPC configuration returned by <code>ListVpcConfigurations</code>.</p>
+ * @public
+ */
+export interface VpcConfigurationSummary {
+  /**
+   * <p>The unique identifier of the VPC configuration.</p>
+   * @public
+   */
+  vpcConfigurationId: string | undefined;
+
+  /**
+   * <p>The current lifecycle status of the VPC configuration.</p>
+   * @public
+   */
+  status: VpcConfigurationStatus | undefined;
+
+  /**
+   * <p>Additional detail about the current status, such as the cause of a failure.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The identifier of the VPC that the knowledge base connects through to reach the resource.</p>
+   * @public
+   */
+  vpcId: string | undefined;
+
+  /**
+   * <p>The private IPv4 address or DNS name of the resource.</p>
+   * @public
+   */
+  resourceTarget: string | undefined;
+
+  /**
+   * <p>The port on which the resource is reached.</p>
+   * @public
+   */
+  port: number | undefined;
+
+  /**
+   * <p>The protocol used to connect to the resource.</p>
+   * @public
+   */
+  protocol: VpcProtocol | undefined;
+
+  /**
+   * <p>Specifies how the resource target is resolved.</p>
+   * @public
+   */
+  resolutionMode: VpcResolutionMode | undefined;
+
+  /**
+   * <p>The HTTP <code>Host</code> header value sent when invoking the resource, if configured.</p>
+   * @public
+   */
+  hostHeader?: string | undefined;
+
+  /**
+   * <p>The expected TLS server name that the service matches against the Subject Alternative Names on the resource's TLS certificate. Present when <code>protocol</code> is <code>HTTPS</code>.</p>
+   * @public
+   */
+  tlsServerName?: string | undefined;
+
+  /**
+   * <p>The human-readable name of the VPC configuration, if provided.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the VPC configuration, if provided.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The time at which the VPC configuration was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcConfigurationsResponse {
+  /**
+   * <p>A list of VPC configuration summaries.</p>
+   * @public
+   */
+  items: VpcConfigurationSummary[] | undefined;
+
+  /**
+   * <p>A pagination token to retrieve the next page of results, present when the total number of results exceeds the maximum number of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**

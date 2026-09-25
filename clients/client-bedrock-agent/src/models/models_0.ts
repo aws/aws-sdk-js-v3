@@ -65,6 +65,9 @@ import type {
   SupportedLanguages,
   Type,
   VectorSearchRerankingConfigurationType,
+  VpcConfigurationStatus,
+  VpcProtocol,
+  VpcResolutionMode,
   WebScopeType,
 } from "./enums";
 
@@ -2461,6 +2464,100 @@ export interface UpdateAgentAliasResponse {
 }
 
 /**
+ * @public
+ */
+export interface CreateVpcConfigurationRequest {
+  /**
+   * <p>The unique identifier of the knowledge base to associate this VPC configuration with.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of the VPC that the knowledge base connects through to reach the resource.</p>
+   * @public
+   */
+  vpcId: string | undefined;
+
+  /**
+   * <p>The subnets, in the VPC identified by <code>vpcId</code>, that the knowledge base uses to connect to the resource.</p>
+   * @public
+   */
+  subnetIds: string[] | undefined;
+
+  /**
+   * <p>The private IPv4 address or DNS name of the resource you want the knowledge base to reach. The target must be privately reachable from inside your VPC, such as an internal load balancer or a private IP. The following are not supported:</p> <ul> <li> <p>Internet-facing endpoints</p> </li> <li> <p>Loopback addresses</p> </li> <li> <p>Link-local addresses</p> </li> <li> <p>Wildcard addresses</p> </li> <li> <p>Multicast addresses</p> </li> <li> <p>IPv6 literals</p> </li> </ul>
+   * @public
+   */
+  resourceTarget: string | undefined;
+
+  /**
+   * <p>The port on which to reach the resource.</p>
+   * @public
+   */
+  port: number | undefined;
+
+  /**
+   * <p>The protocol used to connect to the resource. Specify <code>HTTP</code> for plaintext or <code>HTTPS</code> for TLS. When you specify <code>HTTPS</code>, you must also provide <code>tlsServerName</code>.</p>
+   * @public
+   */
+  protocol: VpcProtocol | undefined;
+
+  /**
+   * <p>Controls how a domain-name <code>resourceTarget</code> is resolved. This applies only when the target is a domain name; it has no effect for IP-address targets, which have no name to resolve. In all cases the resolved address must be reachable from inside your VPC. Valid values:</p> <ul> <li> <p> <code>IN_VPC</code> (default, recommended) – The target domain name is resolved privately, using the DNS resolvers of the VPC, such as private Route 53 hosted zones or on-premises DNS reachable from the VPC. Use this for targets that are private to your VPC, such as internal load balancers, private hosted-zone names, or on-premises hosts.</p> </li> <li> <p> <code>PUBLIC</code> – The target domain name is resolved against public DNS resolvers. Select this only when the target's domain name must be resolved through public DNS and the resulting address is still reachable from the VPC, an uncommon split-horizon configuration. If you are unsure, use <code>IN_VPC</code>.</p> </li> </ul>
+   * @public
+   */
+  resolutionMode: VpcResolutionMode | undefined;
+
+  /**
+   * <p>An optional HTTP <code>Host</code> header value to send when invoking the resource. Set this only if your resource (or an upstream router or ingress) routes by the <code>Host</code> header and that host differs from the target. This setting is independent of <code>tlsServerName</code>.</p>
+   * @public
+   */
+  hostHeader?: string | undefined;
+
+  /**
+   * <p>The expected TLS server name. The service matches this value against the Subject Alternative Names on your resource's TLS certificate during invocation. This field is required when <code>protocol</code> is <code>HTTPS</code>. Set it to a hostname on your certificate, such as <code>app.internal.example.com</code>. You can use a single leftmost wildcard, such as <code>*.example.com</code>. The value must be a hostname without a port.</p>
+   * @public
+   */
+  tlsServerName?: string | undefined;
+
+  /**
+   * <p>An optional human-readable name for the VPC configuration. If you don't specify a name, the VPC configuration has no name.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>An optional description of the VPC configuration. If you don't specify a description, the VPC configuration has no description.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcConfigurationResponse {
+  /**
+   * <p>The unique identifier of the VPC configuration that was created.</p>
+   * @public
+   */
+  vpcConfigurationId: string | undefined;
+
+  /**
+   * <p>The current status of the VPC configuration. Immediately after creation this is <code>CREATING</code>.</p>
+   * @public
+   */
+  status: VpcConfigurationStatus | undefined;
+}
+
+/**
  * <p>The specific filters applied to your data source content. You can filter out or include certain content.</p>
  * @public
  */
@@ -3888,6 +3985,40 @@ export interface DeleteResourcePolicyResponse {
    * @public
    */
   revisionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVpcConfigurationRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that owns the VPC configuration.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the VPC configuration to delete.</p>
+   * @public
+   */
+  vpcConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVpcConfigurationResponse {
+  /**
+   * <p>The unique identifier of the VPC configuration being deleted.</p>
+   * @public
+   */
+  vpcConfigurationId: string | undefined;
+
+  /**
+   * <p>The current status of the VPC configuration. Immediately after a delete request this is <code>DELETING</code>.</p>
+   * @public
+   */
+  status: VpcConfigurationStatus | undefined;
 }
 
 /**
@@ -8049,6 +8180,130 @@ export interface GetResourcePolicyResponse {
 /**
  * @public
  */
+export interface GetVpcConfigurationRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that owns the VPC configuration.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the VPC configuration to retrieve.</p>
+   * @public
+   */
+  vpcConfigurationId: string | undefined;
+}
+
+/**
+ * <p>Contains the details of a VPC configuration, including its connection settings, resolution mode, and current lifecycle status.</p>
+ * @public
+ */
+export interface VpcConfiguration {
+  /**
+   * <p>The unique identifier of the VPC configuration.</p>
+   * @public
+   */
+  vpcConfigurationId: string | undefined;
+
+  /**
+   * <p>The current lifecycle status of the VPC configuration.</p>
+   * @public
+   */
+  status: VpcConfigurationStatus | undefined;
+
+  /**
+   * <p>Additional detail about the current status, such as the cause of a <code>CREATE_FAILED</code> or <code>DELETE_FAILED</code> status.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The identifier of the VPC that the knowledge base connects through to reach the resource.</p>
+   * @public
+   */
+  vpcId: string | undefined;
+
+  /**
+   * <p>The subnets that the knowledge base uses to connect to the resource.</p>
+   * @public
+   */
+  subnetIds: string[] | undefined;
+
+  /**
+   * <p>The private IPv4 address or DNS name of the resource.</p>
+   * @public
+   */
+  resourceTarget: string | undefined;
+
+  /**
+   * <p>The port on which the resource is reached.</p>
+   * @public
+   */
+  port: number | undefined;
+
+  /**
+   * <p>The protocol used to connect to the resource.</p>
+   * @public
+   */
+  protocol: VpcProtocol | undefined;
+
+  /**
+   * <p>Specifies how the resource target is resolved.</p>
+   * @public
+   */
+  resolutionMode: VpcResolutionMode | undefined;
+
+  /**
+   * <p>The HTTP <code>Host</code> header value sent when invoking the resource, if configured.</p>
+   * @public
+   */
+  hostHeader?: string | undefined;
+
+  /**
+   * <p>The expected TLS server name that the service matches against the Subject Alternative Names on the resource's TLS certificate. Present when <code>protocol</code> is <code>HTTPS</code>.</p>
+   * @public
+   */
+  tlsServerName?: string | undefined;
+
+  /**
+   * <p>The human-readable name of the VPC configuration, if provided.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the VPC configuration, if provided.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The time at which the VPC configuration was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time at which the VPC configuration was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpcConfigurationResponse {
+  /**
+   * <p>The VPC configuration, including its connection settings, resolution mode, and current lifecycle status.</p>
+   * @public
+   */
+  vpcConfiguration: VpcConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetIngestionJobRequest {
   /**
    * <p>The unique identifier of the knowledge base for the data ingestion job you want to get information on.</p>
@@ -8876,132 +9131,4 @@ export interface IngestKnowledgeBaseDocumentsResponse {
    * @public
    */
   documentDetails?: KnowledgeBaseDocumentDetail[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBaseDocumentsRequest {
-  /**
-   * <p>The unique identifier of the knowledge base that is connected to the data source.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the data source that contains the documents.</p>
-   * @public
-   */
-  dataSourceId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBaseDocumentsResponse {
-  /**
-   * <p>A list of objects, each of which contains information about the documents that were retrieved.</p>
-   * @public
-   */
-  documentDetails: KnowledgeBaseDocumentDetail[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface AssociateAgentKnowledgeBaseRequest {
-  /**
-   * <p>The unique identifier of the agent with which you want to associate the knowledge base.</p>
-   * @public
-   */
-  agentId: string | undefined;
-
-  /**
-   * <p>The version of the agent with which you want to associate the knowledge base.</p>
-   * @public
-   */
-  agentVersion: string | undefined;
-
-  /**
-   * <p>The unique identifier of the knowledge base to associate with the agent.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>A description of what the agent should use the knowledge base for.</p>
-   * @public
-   */
-  description: string | undefined;
-
-  /**
-   * <p>Specifies whether to use the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
-   * @public
-   */
-  knowledgeBaseState?: KnowledgeBaseState | undefined;
-}
-
-/**
- * @public
- */
-export interface AssociateAgentKnowledgeBaseResponse {
-  /**
-   * <p>Contains details about the knowledge base that has been associated with the agent.</p>
-   * @public
-   */
-  agentKnowledgeBase: AgentKnowledgeBase | undefined;
-}
-
-/**
- * <p>Settings for an Amazon Kendra knowledge base.</p>
- * @public
- */
-export interface KendraKnowledgeBaseConfiguration {
-  /**
-   * <p>The ARN of the Amazon Kendra index.</p>
-   * @public
-   */
-  kendraIndexArn: string | undefined;
-}
-
-/**
- * <p>Configuration for segmenting audio content during multimodal knowledge base ingestion. Determines how audio files are divided into chunks for processing.</p>
- * @public
- */
-export interface AudioSegmentationConfiguration {
-  /**
-   * <p>The duration in seconds for each audio segment. Audio files will be divided into chunks of this length for processing.</p>
-   * @public
-   */
-  fixedLengthDuration: number | undefined;
-}
-
-/**
- * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
- * @public
- */
-export interface AudioConfiguration {
-  /**
-   * <p>Configuration for segmenting audio content during processing.</p>
-   * @public
-   */
-  segmentationConfiguration: AudioSegmentationConfiguration | undefined;
 }

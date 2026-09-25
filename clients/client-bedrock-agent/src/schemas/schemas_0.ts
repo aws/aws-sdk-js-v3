@@ -96,6 +96,9 @@ const _CQu = "CuratedQueries";
 const _CSC = "ConfluenceSourceConfiguration";
 const _CSL = "CustomS3Location";
 const _CTC = "CustomTransformationConfiguration";
+const _CVC = "CreateVpcConfiguration";
+const _CVCR = "CreateVpcConfigurationRequest";
+const _CVCRr = "CreateVpcConfigurationResponse";
 const _D = "Data";
 const _DA = "DeleteAgent";
 const _DAA = "DeleteAgentAlias";
@@ -154,6 +157,9 @@ const _DSC = "DataSourceConfiguration";
 const _DSS = "DataSourceSummary";
 const _DSSa = "DataSourceSummaries";
 const _DSa = "DataSource";
+const _DVC = "DeleteVpcConfiguration";
+const _DVCR = "DeleteVpcConfigurationRequest";
+const _DVCRe = "DeleteVpcConfigurationResponse";
 const _EMC = "EmbeddingModelConfiguration";
 const _ESC = "EnrichmentStrategyConfiguration";
 const _F = "Function";
@@ -241,6 +247,9 @@ const _GPRe = "GetPromptResponse";
 const _GRP = "GetResourcePolicy";
 const _GRPR = "GetResourcePolicyRequest";
 const _GRPRe = "GetResourcePolicyResponse";
+const _GVC = "GetVpcConfiguration";
+const _GVCR = "GetVpcConfigurationRequest";
+const _GVCRe = "GetVpcConfigurationResponse";
 const _HCC = "HierarchicalChunkingConfiguration";
 const _HCLC = "HierarchicalChunkingLevelConfiguration";
 const _HCLCi = "HierarchicalChunkingLevelConfigurations";
@@ -334,6 +343,9 @@ const _LPRi = "ListPromptsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _LVC = "ListVpcConfigurations";
+const _LVCR = "ListVpcConfigurationsRequest";
+const _LVCRi = "ListVpcConfigurationsResponse";
 const _M = "Message";
 const _MA = "MetadataAttribute";
 const _MAV = "MetadataAttributeValue";
@@ -546,7 +558,10 @@ const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _VBA = "VectorBucketArn";
 const _VC = "VideoConfiguration";
+const _VCS = "VpcConfigurationSummary";
+const _VCSL = "VpcConfigurationSummaryList";
 const _VCi = "VideoConfigurations";
+const _VCp = "VpcConfiguration";
 const _VE = "ValidationException";
 const _VEC = "VideoExtractionConfiguration";
 const _VEF = "ValidationExceptionField";
@@ -742,6 +757,7 @@ const _gV = "guardrailVersion";
 const _h = "http";
 const _hCC = "hierarchicalChunkingConfiguration";
 const _hE = "httpError";
+const _hH = "hostHeader";
 const _hQ = "httpQuery";
 const _hT = "hostType";
 const _hU = "hostUrl";
@@ -775,7 +791,8 @@ const _in = "inputs";
 const _inc = "inclusion";
 const _inl = "inline";
 const _inp = "input";
-const _it = "iterator";
+const _it = "items";
+const _ite = "iterator";
 const _j = "json";
 const _k = "key";
 const _kB = "knowledgeBase";
@@ -873,7 +890,7 @@ const _oTv = "overlapTokens";
 const _op = "operator";
 const _or = "order";
 const _ou = "output";
-const _p = "parameters";
+const _p = "port";
 const _pA = "preparedAt";
 const _pAGS = "parentActionGroupSignature";
 const _pAGSP = "parentActionGroupSignatureParams";
@@ -900,9 +917,11 @@ const _pT = "provisionedThroughput";
 const _pTr = "promptTemplate";
 const _pTro = "promptType";
 const _pV = "promptVersion";
-const _pa = "payload";
+const _pa = "parameters";
+const _pay = "payload";
 const _po = "policy";
-const _pr = "prompt";
+const _pr = "protocol";
+const _pro = "prompt";
 const _qEC = "queryEngineConfiguration";
 const _qGC = "queryGenerationConfiguration";
 const _r = "role";
@@ -918,6 +937,8 @@ const _rCer = "rerankingConfiguration";
 const _rECC = "redisEnterpriseCloudConfiguration";
 const _rI = "revisionId";
 const _rL = "rateLimit";
+const _rM = "resolutionMode";
+const _rT = "resourceTarget";
 const _re = "required";
 const _res = "resource";
 const _ret = "retrieval";
@@ -937,12 +958,15 @@ const _sCto = "storageConfigurations";
 const _sD = "startDate";
 const _sDSC = "supplementalDataStorageConfiguration";
 const _sDt = "storageDays";
+const _sF = "statusFilter";
+const _sI = "subnetIds";
 const _sKBC = "sqlKnowledgeBaseConfiguration";
 const _sL = "s3Location";
 const _sLV = "stringListValue";
 const _sLt = "storageLocations";
 const _sM = "selectionMode";
 const _sMC = "selectiveModeConfiguration";
+const _sMt = "statusMessage";
 const _sO = "sourceOutput";
 const _sOK = "s3ObjectKey";
 const _sPC = "sharePointConfiguration";
@@ -987,6 +1011,7 @@ const _tNa = "tableNames";
 const _tP = "topP";
 const _tPT = "textPromptTemplate";
 const _tS = "toolSpec";
+const _tSN = "tlsServerName";
 const _tT = "templateType";
 const _ta = "tags";
 const _tab = "tables";
@@ -1016,9 +1041,12 @@ const _un = "unspecified";
 const _ur = "url";
 const _v = "version";
 const _vBA = "vectorBucketArn";
+const _vC = "vpcConfiguration";
+const _vCI = "vpcConfigurationId";
 const _vEC = "videoExtractionConfiguration";
 const _vES = "videoExtractionStatus";
 const _vF = "vectorField";
+const _vI = "vpcId";
 const _vIC = "vectorIngestionConfiguration";
 const _vIN = "vectorIndexName";
 const _vKBC = "vectorKnowledgeBaseConfiguration";
@@ -1438,6 +1466,16 @@ export var CreatePromptVersionResponse$: StaticStructureSchema = [3, n0, _CPVRr,
   [_n, _id, _ar, _v, _cA, _uA, _d, _cEKA, _dV, _va],
   [0, 0, 0, 0, 5, 5, 0, 0, 0, [() => PromptVariantList, 0]], 6
 ];
+export var CreateVpcConfigurationRequest$: StaticStructureSchema = [3, n0, _CVCR,
+  0,
+  [_kBI, _vI, _sI, _rT, _p, _pr, _rM, _cT, _hH, _tSN, _n, _d],
+  [[0, 1], 0, 64 | 0, 0, 1, 0, 0, [0, 4], 0, 0, 0, 0], 7
+];
+export var CreateVpcConfigurationResponse$: StaticStructureSchema = [3, n0, _CVCRr,
+  0,
+  [_vCI, _st],
+  [0, 0], 2
+];
 export var CuratedQuery$: StaticStructureSchema = [3, n0, _CQ,
   0,
   [_nL, _sq],
@@ -1613,6 +1651,16 @@ export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
   [_rAe, _rI],
   [0, 0], 1
 ];
+export var DeleteVpcConfigurationRequest$: StaticStructureSchema = [3, n0, _DVCR,
+  0,
+  [_kBI, _vCI],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteVpcConfigurationResponse$: StaticStructureSchema = [3, n0, _DVCRe,
+  0,
+  [_vCI, _st],
+  [0, 0], 2
+];
 export var DeletionProtectionConfiguration$: StaticStructureSchema = [3, n0, _DPC,
   0,
   [_dPS, _dPT],
@@ -1760,7 +1808,7 @@ export var FlowVersionSummary$: StaticStructureSchema = [3, n0, _FVS,
 ];
 export var Function$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_n, _d, _p, _rCe],
+  [_n, _d, _pa, _rCe],
   [0, 0, () => ParameterMap, 0], 1
 ];
 export var GetAgentActionGroupRequest$: StaticStructureSchema = [3, n0, _GAAGR,
@@ -1912,6 +1960,16 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
   [_rAe, _po, _rI],
   [0, [() => ResourcePolicy, 0], 0], 3
+];
+export var GetVpcConfigurationRequest$: StaticStructureSchema = [3, n0, _GVCR,
+  0,
+  [_kBI, _vCI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetVpcConfigurationResponse$: StaticStructureSchema = [3, n0, _GVCRe,
+  0,
+  [_vC],
+  [() => VpcConfiguration$], 1
 ];
 export var GuardrailConfiguration$: StaticStructureSchema = [3, n0, _GC,
   0,
@@ -2217,6 +2275,16 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   0,
   [_ta],
   [128 | 0]
+];
+export var ListVpcConfigurationsRequest$: StaticStructureSchema = [3, n0, _LVCR,
+  0,
+  [_kBI, _sF, _mR, _nT],
+  [[0, 1], [0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListVpcConfigurationsResponse$: StaticStructureSchema = [3, n0, _LVCRi,
+  0,
+  [_it, _nT],
+  [() => VpcConfigurationSummaryList, 0], 1
 ];
 export var LoopControllerFlowNodeConfiguration$: StaticStructureSchema = [3, n0, _LCFNC,
   0,
@@ -3028,6 +3096,16 @@ export var VideoSegmentationConfiguration$: StaticStructureSchema = [3, n0, _VSC
   [_fLD],
   [1], 1
 ];
+export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VCp,
+  0,
+  [_vCI, _st, _vI, _sI, _rT, _p, _pr, _rM, _cA, _uA, _sMt, _hH, _tSN, _n, _d],
+  [0, 0, 0, 64 | 0, 0, 1, 0, 0, 5, 5, 0, 0, 0, 0, 0], 10
+];
+export var VpcConfigurationSummary$: StaticStructureSchema = [3, n0, _VCS,
+  0,
+  [_vCI, _st, _vI, _rT, _p, _pr, _rM, _cA, _sMt, _hH, _tSN, _n, _d],
+  [0, 0, 0, 0, 1, 0, 0, 5, 0, 0, 0, 0, 0], 8
+];
 export var WebCrawlerConfiguration$: StaticStructureSchema = [3, n0, _WCC,
   0,
   [_cL, _iF, _eF, _sc, _uAs, _uAH],
@@ -3218,6 +3296,7 @@ var StringListValue: StaticListSchema = [1, n0, _SLV,
   0, [() => StringValue,
     0]
 ];
+var SubnetIdList = 64 | 0;
 var SupplementalDataStorageLocations: StaticListSchema = [1, n0, _SDSLu,
   0, () => SupplementalDataStorageLocation$
 ];
@@ -3238,6 +3317,9 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
 var VideoConfigurations: StaticListSchema = [1, n0, _VCi,
   0, () => VideoConfiguration$
 ];
+var VpcConfigurationSummaryList: StaticListSchema = [1, n0, _VCSL,
+  0, () => VpcConfigurationSummary$
+];
 var ActionGroupSignatureParams = 128 | 0;
 var AdditionalModelRequestFields = 128 | 15;
 var ParameterMap: StaticMapSchema = [2, n0, _PM,
@@ -3251,7 +3333,7 @@ export var ActionGroupExecutor$: StaticUnionSchema = [4, n0, _AGE,
 ];
 export var APISchema$: StaticUnionSchema = [4, n0, _APIS,
   0,
-  [_s_, _pa],
+  [_s_, _pay],
   [() => S3Identifier$, [() => Payload, 0]]
 ];
 export var ContentBlock$: StaticUnionSchema = [4, n0, _CBo,
@@ -3271,7 +3353,7 @@ export var FlowConnectionConfiguration$: StaticUnionSchema = [4, n0, _FCC,
 ];
 export var FlowNodeConfiguration$: StaticUnionSchema = [4, n0, _FNC,
   0,
-  [_inp, _ou, _kB, _cond, _le, _pr, _lF, _sto, _ag, _ret, _it, _coll, _iCnl, _lo, _lIo, _lCo],
+  [_inp, _ou, _kB, _cond, _le, _pro, _lF, _sto, _ag, _ret, _ite, _coll, _iCnl, _lo, _lIo, _lCo],
   [() => InputFlowNodeConfiguration$, () => OutputFlowNodeConfiguration$, [() => KnowledgeBaseFlowNodeConfiguration$, 0], [() => ConditionFlowNodeConfiguration$, 0], () => LexFlowNodeConfiguration$, [() => PromptFlowNodeConfiguration$, 0], () => LambdaFunctionFlowNodeConfiguration$, () => StorageFlowNodeConfiguration$, () => AgentFlowNodeConfiguration$, () => RetrievalFlowNodeConfiguration$, () => IteratorFlowNodeConfiguration$, () => CollectorFlowNodeConfiguration$, [() => InlineCodeFlowNodeConfiguration$, 0], [() => LoopFlowNodeConfiguration$, 0], () => LoopInputFlowNodeConfiguration$, [() => LoopControllerFlowNodeConfiguration$, 0]]
 ];
 export var FlowValidationDetails$: StaticUnionSchema = [4, n0, _FVD,
@@ -3385,6 +3467,9 @@ export var CreatePrompt$: StaticOperationSchema = [9, n0, _CP,
 export var CreatePromptVersion$: StaticOperationSchema = [9, n0, _CPV,
   { [_h]: ["POST", "/prompts/{promptIdentifier}/versions", 201] }, () => CreatePromptVersionRequest$, () => CreatePromptVersionResponse$
 ];
+export var CreateVpcConfiguration$: StaticOperationSchema = [9, n0, _CVC,
+  { [_h]: ["POST", "/knowledgebases/{knowledgeBaseId}/vpcconfigurations/", 202] }, () => CreateVpcConfigurationRequest$, () => CreateVpcConfigurationResponse$
+];
 export var DeleteAgent$: StaticOperationSchema = [9, n0, _DA,
   { [_h]: ["DELETE", "/agents/{agentId}/", 202] }, () => DeleteAgentRequest$, () => DeleteAgentResponse$
 ];
@@ -3420,6 +3505,9 @@ export var DeletePrompt$: StaticOperationSchema = [9, n0, _DP,
 ];
 export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
   { [_h]: ["DELETE", "/resourcepolicy/{resourceArn}", 200] }, () => DeleteResourcePolicyRequest$, () => DeleteResourcePolicyResponse$
+];
+export var DeleteVpcConfiguration$: StaticOperationSchema = [9, n0, _DVC,
+  { [_h]: ["DELETE", "/knowledgebases/{knowledgeBaseId}/vpcconfigurations/{vpcConfigurationId}", 202] }, () => DeleteVpcConfigurationRequest$, () => DeleteVpcConfigurationResponse$
 ];
 export var DisassociateAgentCollaborator$: StaticOperationSchema = [9, n0, _DAC,
   { [_h]: ["DELETE", "/agents/{agentId}/agentversions/{agentVersion}/agentcollaborators/{collaboratorId}/", 204] }, () => DisassociateAgentCollaboratorRequest$, () => DisassociateAgentCollaboratorResponse$
@@ -3472,6 +3560,9 @@ export var GetPrompt$: StaticOperationSchema = [9, n0, _GP,
 export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
   { [_h]: ["GET", "/resourcepolicy/{resourceArn}", 200] }, () => GetResourcePolicyRequest$, () => GetResourcePolicyResponse$
 ];
+export var GetVpcConfiguration$: StaticOperationSchema = [9, n0, _GVC,
+  { [_h]: ["GET", "/knowledgebases/{knowledgeBaseId}/vpcconfigurations/{vpcConfigurationId}", 200] }, () => GetVpcConfigurationRequest$, () => GetVpcConfigurationResponse$
+];
 export var IngestKnowledgeBaseDocuments$: StaticOperationSchema = [9, n0, _IKBD,
   { [_h]: ["PUT", "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/documents", 202] }, () => IngestKnowledgeBaseDocumentsRequest$, () => IngestKnowledgeBaseDocumentsResponse$
 ];
@@ -3519,6 +3610,9 @@ export var ListPrompts$: StaticOperationSchema = [9, n0, _LP,
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var ListVpcConfigurations$: StaticOperationSchema = [9, n0, _LVC,
+  { [_h]: ["GET", "/knowledgebases/{knowledgeBaseId}/vpcconfigurations/", 200] }, () => ListVpcConfigurationsRequest$, () => ListVpcConfigurationsResponse$
 ];
 export var PrepareAgent$: StaticOperationSchema = [9, n0, _PA,
   { [_h]: ["POST", "/agents/{agentId}/", 202] }, () => PrepareAgentRequest$, () => PrepareAgentResponse$

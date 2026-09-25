@@ -110,6 +110,10 @@ import {
   CreatePromptVersionCommand,
   CreatePromptVersionRequest$,
   CreatePromptVersionResponse$,
+  CreateVpcConfiguration$,
+  CreateVpcConfigurationCommand,
+  CreateVpcConfigurationRequest$,
+  CreateVpcConfigurationResponse$,
   CreationMode,
   CuratedQuery$,
   CustomContent$,
@@ -177,6 +181,10 @@ import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyRequest$,
   DeleteResourcePolicyResponse$,
+  DeleteVpcConfiguration$,
+  DeleteVpcConfigurationCommand,
+  DeleteVpcConfigurationRequest$,
+  DeleteVpcConfigurationResponse$,
   DeletionProtectionConfiguration$,
   DisassociateAgentCollaborator$,
   DisassociateAgentCollaboratorCommand,
@@ -287,6 +295,10 @@ import {
   GetResourcePolicyCommand,
   GetResourcePolicyRequest$,
   GetResourcePolicyResponse$,
+  GetVpcConfiguration$,
+  GetVpcConfigurationCommand,
+  GetVpcConfigurationRequest$,
+  GetVpcConfigurationResponse$,
   GuardrailConfiguration$,
   HierarchicalChunkingConfiguration$,
   HierarchicalChunkingLevelConfiguration$,
@@ -394,6 +406,10 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  ListVpcConfigurations$,
+  ListVpcConfigurationsCommand,
+  ListVpcConfigurationsRequest$,
+  ListVpcConfigurationsResponse$,
   LoopControllerFlowNodeConfiguration$,
   LoopFlowNodeConfiguration$,
   LoopIncompatibleNodeTypeFlowValidationDetails$,
@@ -451,6 +467,7 @@ import {
   paginateListKnowledgeBaseDocuments,
   paginateListKnowledgeBases,
   paginateListPrompts,
+  paginateListVpcConfigurations,
   ParameterDetail$,
   ParsingConfiguration$,
   ParsingModality,
@@ -654,6 +671,11 @@ import {
   VideoConfiguration$,
   VideoExtractionConfiguration$,
   VideoSegmentationConfiguration$,
+  VpcConfiguration$,
+  VpcConfigurationStatus,
+  VpcConfigurationSummary$,
+  VpcProtocol,
+  VpcResolutionMode,
   WebCrawlerConfiguration$,
   WebCrawlerLimits$,
   WebDataSourceConfiguration$,
@@ -690,6 +712,8 @@ assert(typeof CreatePromptCommand === "function");
 assert(typeof CreatePrompt$ === "object");
 assert(typeof CreatePromptVersionCommand === "function");
 assert(typeof CreatePromptVersion$ === "object");
+assert(typeof CreateVpcConfigurationCommand === "function");
+assert(typeof CreateVpcConfiguration$ === "object");
 assert(typeof DeleteAgentCommand === "function");
 assert(typeof DeleteAgent$ === "object");
 assert(typeof DeleteAgentActionGroupCommand === "function");
@@ -714,6 +738,8 @@ assert(typeof DeletePromptCommand === "function");
 assert(typeof DeletePrompt$ === "object");
 assert(typeof DeleteResourcePolicyCommand === "function");
 assert(typeof DeleteResourcePolicy$ === "object");
+assert(typeof DeleteVpcConfigurationCommand === "function");
+assert(typeof DeleteVpcConfiguration$ === "object");
 assert(typeof DisassociateAgentCollaboratorCommand === "function");
 assert(typeof DisassociateAgentCollaborator$ === "object");
 assert(typeof DisassociateAgentKnowledgeBaseCommand === "function");
@@ -748,6 +774,8 @@ assert(typeof GetPromptCommand === "function");
 assert(typeof GetPrompt$ === "object");
 assert(typeof GetResourcePolicyCommand === "function");
 assert(typeof GetResourcePolicy$ === "object");
+assert(typeof GetVpcConfigurationCommand === "function");
+assert(typeof GetVpcConfiguration$ === "object");
 assert(typeof IngestKnowledgeBaseDocumentsCommand === "function");
 assert(typeof IngestKnowledgeBaseDocuments$ === "object");
 assert(typeof ListAgentActionGroupsCommand === "function");
@@ -780,6 +808,8 @@ assert(typeof ListPromptsCommand === "function");
 assert(typeof ListPrompts$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof ListVpcConfigurationsCommand === "function");
+assert(typeof ListVpcConfigurations$ === "object");
 assert(typeof PrepareAgentCommand === "function");
 assert(typeof PrepareAgent$ === "object");
 assert(typeof PrepareFlowCommand === "function");
@@ -880,6 +910,8 @@ assert(typeof CreatePromptRequest$ === "object");
 assert(typeof CreatePromptResponse$ === "object");
 assert(typeof CreatePromptVersionRequest$ === "object");
 assert(typeof CreatePromptVersionResponse$ === "object");
+assert(typeof CreateVpcConfigurationRequest$ === "object");
+assert(typeof CreateVpcConfigurationResponse$ === "object");
 assert(typeof CuratedQuery$ === "object");
 assert(typeof CustomContent$ === "object");
 assert(typeof CustomDocumentIdentifier$ === "object");
@@ -916,6 +948,8 @@ assert(typeof DeletePromptRequest$ === "object");
 assert(typeof DeletePromptResponse$ === "object");
 assert(typeof DeleteResourcePolicyRequest$ === "object");
 assert(typeof DeleteResourcePolicyResponse$ === "object");
+assert(typeof DeleteVpcConfigurationRequest$ === "object");
+assert(typeof DeleteVpcConfigurationResponse$ === "object");
 assert(typeof DeletionProtectionConfiguration$ === "object");
 assert(typeof DisassociateAgentCollaboratorRequest$ === "object");
 assert(typeof DisassociateAgentCollaboratorResponse$ === "object");
@@ -980,6 +1014,8 @@ assert(typeof GetPromptRequest$ === "object");
 assert(typeof GetPromptResponse$ === "object");
 assert(typeof GetResourcePolicyRequest$ === "object");
 assert(typeof GetResourcePolicyResponse$ === "object");
+assert(typeof GetVpcConfigurationRequest$ === "object");
+assert(typeof GetVpcConfigurationResponse$ === "object");
 assert(typeof GuardrailConfiguration$ === "object");
 assert(typeof HierarchicalChunkingConfiguration$ === "object");
 assert(typeof HierarchicalChunkingLevelConfiguration$ === "object");
@@ -1041,6 +1077,8 @@ assert(typeof ListPromptsRequest$ === "object");
 assert(typeof ListPromptsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof ListVpcConfigurationsRequest$ === "object");
+assert(typeof ListVpcConfigurationsResponse$ === "object");
 assert(typeof LoopControllerFlowNodeConfiguration$ === "object");
 assert(typeof LoopFlowNodeConfiguration$ === "object");
 assert(typeof LoopIncompatibleNodeTypeFlowValidationDetails$ === "object");
@@ -1216,6 +1254,8 @@ assert(typeof VectorSearchRerankingConfiguration$ === "object");
 assert(typeof VideoConfiguration$ === "object");
 assert(typeof VideoExtractionConfiguration$ === "object");
 assert(typeof VideoSegmentationConfiguration$ === "object");
+assert(typeof VpcConfiguration$ === "object");
+assert(typeof VpcConfigurationSummary$ === "object");
 assert(typeof WebCrawlerConfiguration$ === "object");
 assert(typeof WebCrawlerLimits$ === "object");
 assert(typeof WebDataSourceConfiguration$ === "object");
@@ -1297,6 +1337,9 @@ assert(typeof SupplementalDataStorageLocationType === "object");
 assert(typeof SupportedLanguages === "object");
 assert(typeof Type === "object");
 assert(typeof VectorSearchRerankingConfigurationType === "object");
+assert(typeof VpcConfigurationStatus === "object");
+assert(typeof VpcProtocol === "object");
+assert(typeof VpcResolutionMode === "object");
 assert(typeof WebScopeType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof BedrockAgentServiceException);
@@ -1329,4 +1372,5 @@ assert(typeof paginateListIngestionJobs === "function");
 assert(typeof paginateListKnowledgeBaseDocuments === "function");
 assert(typeof paginateListKnowledgeBases === "function");
 assert(typeof paginateListPrompts === "function");
+assert(typeof paginateListVpcConfigurations === "function");
 console.log(`BedrockAgent index test passed.`);
