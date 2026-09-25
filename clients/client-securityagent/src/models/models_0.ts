@@ -108,6 +108,36 @@ export interface Actor {
 }
 
 /**
+ * <p>A message received at an actor's server-generated email MFA address.</p>
+ * @public
+ */
+export interface ActorMessage {
+  /**
+   * <p>The address the message was sent from.</p>
+   * @public
+   */
+  sender?: string | undefined;
+
+  /**
+   * <p>The subject line of the message.</p>
+   * @public
+   */
+  subject?: string | undefined;
+
+  /**
+   * <p>The plain-text body of the message, containing the MFA code or verification link.</p>
+   * @public
+   */
+  body?: string | undefined;
+
+  /**
+   * <p>The time the message was received.</p>
+   * @public
+   */
+  receivedAt?: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface AddArtifactInput {
@@ -6870,6 +6900,58 @@ export interface ListIntegrationsOutput {
    * @public
    */
   integrationSummaries: IntegrationSummary[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListActorMessagesInput {
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that owns the pentest.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the pentest that the actor belongs to.</p>
+   * @public
+   */
+  pentestId: string | undefined;
+
+  /**
+   * <p>The identifier of the actor whose messages to list. The identifier is case-insensitive.</p>
+   * @public
+   */
+  actorIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListActorMessagesOutput {
+  /**
+   * <p>The list of messages received for the actor, most recent first.</p>
+   * @public
+   */
+  messages?: ActorMessage[] | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>

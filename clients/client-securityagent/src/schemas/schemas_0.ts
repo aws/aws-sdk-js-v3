@@ -4,8 +4,10 @@ const _AAI = "AddArtifactInput";
 const _AAO = "AddArtifactOutput";
 const _ADE = "AccessDeniedException";
 const _AL = "ActorList";
+const _AM = "ActorMessage";
 const _AMI = "ArtifactMetadataItem";
-const _AML = "ArtifactMetadataList";
+const _AML = "ActorMessageList";
+const _AMLr = "ArtifactMetadataList";
 const _AS = "AgentSpace";
 const _ASL = "AgentSpaceList";
 const _ASLp = "ApplicationSummaryList";
@@ -249,6 +251,9 @@ const _ISRO = "ImportSecurityRequirementsOutput";
 const _ISm = "ImportSource";
 const _LA = "ListApplications";
 const _LAI = "ListArtifactsInput";
+const _LAM = "ListActorMessages";
+const _LAMI = "ListActorMessagesInput";
+const _LAMO = "ListActorMessagesOutput";
 const _LAO = "ListArtifactsOutput";
 const _LAR = "ListApplicationsRequest";
 const _LARi = "ListApplicationsResponse";
@@ -355,8 +360,11 @@ const _SCRO = "StartCodeRemediationOutput";
 const _SCRt = "StartCodeRemediation";
 const _SEA = "SensitiveEmailAddress";
 const _SL = "StepList";
+const _SMB = "SensitiveMessageBody";
 const _SMI = "SelfManagedInput";
 const _SMIe = "ServiceManagedInput";
+const _SMS = "SensitiveMessageSender";
+const _SMSe = "SensitiveMessageSubject";
 const _SPJ = "StartPentestJob";
 const _SPJI = "StartPentestJobInput";
 const _SPJIt = "StopPentestJobInput";
@@ -466,6 +474,7 @@ const _a = "authentication";
 const _aC = "artifactContent";
 const _aD = "allowedDomains";
 const _aI = "artifactId";
+const _aIc = "actorIdentifier";
 const _aIp = "applicationId";
 const _aIr = "artifactIds";
 const _aML = "artifactMetadataList";
@@ -487,9 +496,10 @@ const _ac = "actors";
 const _an = "anchor";
 const _ar = "artifact";
 const _as = "assets";
-const _b = "branch";
+const _b = "body";
 const _bR = "bitbucketRepository";
 const _bi = "bitbucket";
+const _br = "branch";
 const _c = "client";
 const _cA = "createdAt";
 const _cB = "createdBy";
@@ -636,8 +646,9 @@ const _mS = "membershipSummaries";
 const _mT = "memberType";
 const _mTH = "maxTaskHours";
 const _mTa = "managementType";
-const _me = "metadata";
-const _met = "method";
+const _me = "messages";
+const _met = "metadata";
+const _meth = "method";
 const _mo = "mode";
 const _n = "name";
 const _nF = "notFound";
@@ -675,8 +686,9 @@ const _pre = "prerequisites";
 const _pref = "prefix";
 const _qC = "quotaCode";
 const _r = "remediation";
-const _rA = "roleArn";
+const _rA = "receivedAt";
 const _rAe = "resourceArn";
+const _rAo = "roleArn";
 const _rC = "remediateCode";
 const _rCI = "resourceConfigurationId";
 const _rD = "reportDestination";
@@ -729,6 +741,7 @@ const _sU = "siteUrl";
 const _sUc = "scriptUrl";
 const _sUr = "s3Uri";
 const _se = "server";
+const _sen = "sender";
 const _sev = "severity";
 const _so = "source";
 const _st = "state";
@@ -737,6 +750,7 @@ const _stat = "statement";
 const _statu = "statuses";
 const _ste = "steps";
 const _str = "stride";
+const _su = "subject";
 const _t = "type";
 const _tA = "threatAction";
 const _tCC = "trustedCaCertificates";
@@ -886,10 +900,18 @@ var CaCertificatePem: StaticSimpleSchema = [0, n0, _CCP, 8, 0];
 var CertificateChain: StaticSimpleSchema = [0, n0, _CC, 8, 0];
 var SecurityRequirementDocumentContent: StaticSimpleSchema = [0, n0, _SRDC, 8, 21];
 var SensitiveEmailAddress: StaticSimpleSchema = [0, n0, _SEA, 8, 0];
+var SensitiveMessageBody: StaticSimpleSchema = [0, n0, _SMB, 8, 0];
+var SensitiveMessageSender: StaticSimpleSchema = [0, n0, _SMS, 8, 0];
+var SensitiveMessageSubject: StaticSimpleSchema = [0, n0, _SMSe, 8, 0];
 export var Actor$: StaticStructureSchema = [3, n0, _A,
   0,
   [_i, _u, _a, _d, _eEM, _mFA],
   [0, 64 | 0, () => Authentication$, 0, 2, [() => SensitiveEmailAddress, 0]]
+];
+export var ActorMessage$: StaticStructureSchema = [3, n0, _AM,
+  0,
+  [_sen, _su, _b, _rA],
+  [[() => SensitiveMessageSender, 0], [() => SensitiveMessageSubject, 0], [() => SensitiveMessageBody, 0], 5]
 ];
 export var AddArtifactInput$: StaticStructureSchema = [3, n0, _AAI,
   0,
@@ -1283,7 +1305,7 @@ export var CreateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _CASO,
 ];
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_iIA, _rA, _dKKI, _tag],
+  [_iIA, _rAo, _dKKI, _tag],
   [0, 0, 0, 128 | 0]
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
@@ -1538,7 +1560,7 @@ export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_aIp, _do, _aN, _iC, _rA, _dKKI],
+  [_aIp, _do, _aN, _iC, _rAo, _dKKI],
   [0, 0, 0, () => IdCConfiguration$, 0, 0], 2
 ];
 export var GetArtifactInput$: StaticStructureSchema = [3, n0, _GAI,
@@ -1648,7 +1670,7 @@ export var IntegratedDocument$: StaticStructureSchema = [3, n0, _ID,
 ];
 export var IntegratedRepository$: StaticStructureSchema = [3, n0, _IR,
   0,
-  [_iIn, _pRI, _b],
+  [_iIn, _pRI, _br],
   [0, 0, 0], 2
 ];
 export var IntegratedResourceInputItem$: StaticStructureSchema = [3, n0, _IRII,
@@ -1665,6 +1687,16 @@ export var IntegrationSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
   [_iIn, _iI, _pr, _pT, _dNi, _tU, _pCN],
   [0, 0, 0, 0, 0, 0, 0], 5
+];
+export var ListActorMessagesInput$: StaticStructureSchema = [3, n0, _LAMI,
+  0,
+  [_aSI, _pIen, _aIc, _mR, _nT],
+  [0, 0, 0, 1, 0], 3
+];
+export var ListActorMessagesOutput$: StaticStructureSchema = [3, n0, _LAMO,
+  0,
+  [_me, _nT],
+  [[() => ActorMessageList, 0], 0]
 ];
 export var ListAgentSpacesInput$: StaticStructureSchema = [3, n0, _LASI,
   0,
@@ -1908,7 +1940,7 @@ export var LogLocation$: StaticStructureSchema = [3, n0, _LL,
 ];
 export var MembershipSummary$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_mI, _aIp, _aSI, _mT, _cA, _uA, _cB, _uB, _con, _me],
+  [_mI, _aIp, _aSI, _mT, _cA, _uA, _cB, _uB, _con, _met],
   [0, 0, 0, 0, 5, 5, 0, 0, () => MembershipConfig$, () => MemberMetadata$], 8
 ];
 export var NetworkTrafficConfig$: StaticStructureSchema = [3, n0, _NTC,
@@ -2168,7 +2200,7 @@ export var UpdateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _UASO,
 ];
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
-  [_aIp, _rA, _dKKI],
+  [_aIp, _rAo, _dKKI],
   [0, 0, 0], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
@@ -2288,7 +2320,7 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 ];
 export var VerificationDetails$: StaticStructureSchema = [3, n0, _VD,
   0,
-  [_met, _dT, _hR],
+  [_meth, _dT, _hR],
   [0, () => DnsVerification$, () => HttpVerification$]
 ];
 export var VerificationScript$: StaticStructureSchema = [3, n0, _VS,
@@ -2321,6 +2353,10 @@ var ActorList: StaticListSchema = [1, n0, _AL,
   0, [() => Actor$,
     0]
 ];
+var ActorMessageList: StaticListSchema = [1, n0, _AML,
+  0, [() => ActorMessage$,
+    0]
+];
 var AgentSpaceIdList = 64 | 0;
 var AgentSpaceList: StaticListSchema = [1, n0, _ASL,
   0, () => AgentSpace$
@@ -2332,7 +2368,7 @@ var ApplicationSummaryList: StaticListSchema = [1, n0, _ASLp,
   0, () => ApplicationSummary$
 ];
 var ArtifactIds = 64 | 0;
-var ArtifactMetadataList: StaticListSchema = [1, n0, _AML,
+var ArtifactMetadataList: StaticListSchema = [1, n0, _AMLr,
   0, () => ArtifactMetadataItem$
 ];
 var ArtifactSummaryList: StaticListSchema = [1, n0, _ASLr,
@@ -2747,6 +2783,9 @@ export var ImportSecurityRequirements$: StaticOperationSchema = [9, n0, _ISR,
 ];
 export var InitiateProviderRegistration$: StaticOperationSchema = [9, n0, _IPR,
   { [_h]: ["POST", "/oauth2/provider/register", 200] }, () => InitiateProviderRegistrationInput$, () => InitiateProviderRegistrationOutput$
+];
+export var ListActorMessages$: StaticOperationSchema = [9, n0, _LAM,
+  { [_h]: ["POST", "/ListActorMessages", 200] }, () => ListActorMessagesInput$, () => ListActorMessagesOutput$
 ];
 export var ListAgentSpaces$: StaticOperationSchema = [9, n0, _LAS,
   { [_h]: ["POST", "/ListAgentSpaces", 200] }, () => ListAgentSpacesInput$, () => ListAgentSpacesOutput$

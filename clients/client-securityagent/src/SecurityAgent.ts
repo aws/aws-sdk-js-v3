@@ -248,6 +248,11 @@ import {
   InitiateProviderRegistrationCommand,
 } from "./commands/InitiateProviderRegistrationCommand";
 import {
+  type ListActorMessagesCommandInput,
+  type ListActorMessagesCommandOutput,
+  ListActorMessagesCommand,
+} from "./commands/ListActorMessagesCommand";
+import {
   type ListAgentSpacesCommandInput,
   type ListAgentSpacesCommandOutput,
   ListAgentSpacesCommand,
@@ -467,6 +472,7 @@ import {
   type VerifyTargetDomainCommandOutput,
   VerifyTargetDomainCommand,
 } from "./commands/VerifyTargetDomainCommand";
+import { paginateListActorMessages } from "./pagination/ListActorMessagesPaginator";
 import { paginateListAgentSpaces } from "./pagination/ListAgentSpacesPaginator";
 import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListArtifacts } from "./pagination/ListArtifactsPaginator";
@@ -540,6 +546,7 @@ const commands = {
   GetSecurityRequirementPackCommand,
   ImportSecurityRequirementsCommand,
   InitiateProviderRegistrationCommand,
+  ListActorMessagesCommand,
   ListAgentSpacesCommand,
   ListApplicationsCommand,
   ListArtifactsCommand,
@@ -586,6 +593,7 @@ const commands = {
   VerifyTargetDomainCommand,
 };
 const paginators = {
+  paginateListActorMessages,
   paginateListAgentSpaces,
   paginateListApplications,
   paginateListArtifacts,
@@ -1436,6 +1444,23 @@ export interface SecurityAgent {
   ): void;
 
   /**
+   * @see {@link ListActorMessagesCommand}
+   */
+  listActorMessages(
+    args: ListActorMessagesCommandInput,
+    options?: SecurityAgentRequestOptions
+  ): Promise<ListActorMessagesCommandOutput>;
+  listActorMessages(
+    args: ListActorMessagesCommandInput,
+    cb: (err: any, data?: ListActorMessagesCommandOutput) => void
+  ): void;
+  listActorMessages(
+    args: ListActorMessagesCommandInput,
+    options: SecurityAgentRequestOptions,
+    cb: (err: any, data?: ListActorMessagesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAgentSpacesCommand}
    */
   listAgentSpaces(): Promise<ListAgentSpacesCommandOutput>;
@@ -2188,6 +2213,17 @@ export interface SecurityAgent {
     options: SecurityAgentRequestOptions,
     cb: (err: any, data?: VerifyTargetDomainCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListActorMessagesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListActorMessagesCommandOutput}.
+   */
+  paginateListActorMessages(
+    args: ListActorMessagesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListActorMessagesCommandOutput>;
 
   /**
    * @see {@link ListAgentSpacesCommand}

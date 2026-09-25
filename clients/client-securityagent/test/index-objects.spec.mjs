@@ -3,6 +3,7 @@ import {
   AccessDeniedException$,
   AccessType,
   Actor$,
+  ActorMessage$,
   AddArtifact$,
   AddArtifactCommand,
   AddArtifactInput$,
@@ -279,6 +280,10 @@ import {
   IpAddressType,
   JobStatus,
   JobType,
+  ListActorMessages$,
+  ListActorMessagesCommand,
+  ListActorMessagesInput$,
+  ListActorMessagesOutput$,
   ListAgentSpaces$,
   ListAgentSpacesCommand,
   ListAgentSpacesInput$,
@@ -384,6 +389,7 @@ import {
   NetworkTrafficRule$,
   NetworkTrafficRuleEffect,
   NetworkTrafficRuleType,
+  paginateListActorMessages,
   paginateListAgentSpaces,
   paginateListApplications,
   paginateListArtifacts,
@@ -666,6 +672,8 @@ assert(typeof ImportSecurityRequirementsCommand === "function");
 assert(typeof ImportSecurityRequirements$ === "object");
 assert(typeof InitiateProviderRegistrationCommand === "function");
 assert(typeof InitiateProviderRegistration$ === "object");
+assert(typeof ListActorMessagesCommand === "function");
+assert(typeof ListActorMessages$ === "object");
 assert(typeof ListAgentSpacesCommand === "function");
 assert(typeof ListAgentSpaces$ === "object");
 assert(typeof ListApplicationsCommand === "function");
@@ -756,6 +764,7 @@ assert(typeof VerifyTargetDomainCommand === "function");
 assert(typeof VerifyTargetDomain$ === "object");
 // structural schemas
 assert(typeof Actor$ === "object");
+assert(typeof ActorMessage$ === "object");
 assert(typeof AddArtifactInput$ === "object");
 assert(typeof AddArtifactOutput$ === "object");
 assert(typeof AgentSpace$ === "object");
@@ -917,6 +926,8 @@ assert(typeof IntegratedResourceMetadata$ === "object");
 assert(typeof IntegratedResourceSummary$ === "object");
 assert(typeof IntegrationFilter$ === "object");
 assert(typeof IntegrationSummary$ === "object");
+assert(typeof ListActorMessagesInput$ === "object");
+assert(typeof ListActorMessagesOutput$ === "object");
 assert(typeof ListAgentSpacesInput$ === "object");
 assert(typeof ListAgentSpacesOutput$ === "object");
 assert(typeof ListApplicationsRequest$ === "object");
@@ -1115,6 +1126,7 @@ assert(ValidationException.prototype instanceof SecurityAgentServiceException);
 assert(typeof ValidationException$ === "object");
 assert(SecurityAgentServiceException.prototype instanceof Error);
 // paginators
+assert(typeof paginateListActorMessages === "function");
 assert(typeof paginateListAgentSpaces === "function");
 assert(typeof paginateListApplications === "function");
 assert(typeof paginateListArtifacts === "function");

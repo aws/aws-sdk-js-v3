@@ -201,6 +201,10 @@ import type {
   InitiateProviderRegistrationCommandInput,
   InitiateProviderRegistrationCommandOutput,
 } from "./commands/InitiateProviderRegistrationCommand";
+import type {
+  ListActorMessagesCommandInput,
+  ListActorMessagesCommandOutput,
+} from "./commands/ListActorMessagesCommand";
 import type { ListAgentSpacesCommandInput, ListAgentSpacesCommandOutput } from "./commands/ListAgentSpacesCommand";
 import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import type { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand";
@@ -383,6 +387,7 @@ export type ServiceInputTypes =
   | GetSecurityRequirementPackCommandInput
   | ImportSecurityRequirementsCommandInput
   | InitiateProviderRegistrationCommandInput
+  | ListActorMessagesCommandInput
   | ListAgentSpacesCommandInput
   | ListApplicationsCommandInput
   | ListArtifactsCommandInput
@@ -480,6 +485,7 @@ export type ServiceOutputTypes =
   | GetSecurityRequirementPackCommandOutput
   | ImportSecurityRequirementsCommandOutput
   | InitiateProviderRegistrationCommandOutput
+  | ListActorMessagesCommandOutput
   | ListAgentSpacesCommandOutput
   | ListApplicationsCommandOutput
   | ListArtifactsCommandOutput

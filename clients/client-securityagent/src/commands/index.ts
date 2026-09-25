@@ -47,6 +47,7 @@ export * from "./GetIntegrationCommand";
 export * from "./GetSecurityRequirementPackCommand";
 export * from "./ImportSecurityRequirementsCommand";
 export * from "./InitiateProviderRegistrationCommand";
+export * from "./ListActorMessagesCommand";
 export * from "./ListAgentSpacesCommand";
 export * from "./ListApplicationsCommand";
 export * from "./ListArtifactsCommand";
