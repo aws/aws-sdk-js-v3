@@ -71,6 +71,7 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  *               },
  *               targetPercent: Number("int"),
  *               capacityMonitoringApproach: "sampledMaxInLast24Hours" || "autoscalingMaxInLast24Hours",
+ *               waitELBTargetGroupHealthy: "enabled" || "disabled",
  *             },
  *             executionApprovalConfig: { // ExecutionApprovalConfiguration
  *               timeoutMinutes: Number("int"),
@@ -137,6 +138,7 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  *                       },
  *                       targetPercent: Number("int"),
  *                       capacityMonitoringApproach: "sampledMaxInLast24Hours" || "autoscalingMaxInLast24Hours",
+ *                       waitELBTargetGroupHealthy: "enabled" || "disabled",
  *                     },
  *                     executionApprovalConfig: {
  *                       timeoutMinutes: Number("int"),
@@ -191,6 +193,7 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  *                       },
  *                       targetPercent: Number("int"),
  *                       capacityMonitoringApproach: "sampledMaxInLast24Hours" || "containerInsightsMaxInLast24Hours",
+ *                       waitELBTargetGroupHealthy: "enabled" || "disabled",
  *                     },
  *                     eksResourceScalingConfig: { // EksResourceScalingConfiguration
  *                       timeoutMinutes: Number("int"),
@@ -349,6 +352,7 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  *               },
  *               targetPercent: Number("int"),
  *               capacityMonitoringApproach: "sampledMaxInLast24Hours" || "containerInsightsMaxInLast24Hours",
+ *               waitELBTargetGroupHealthy: "enabled" || "disabled",
  *             },
  *             eksResourceScalingConfig: {
  *               timeoutMinutes: Number("int"),
@@ -523,6 +527,7 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  *       },
  *     ],
  *   },
+ *   serviceQuotaChecksEnabled: true || false,
  * };
  * const command = new UpdatePlanCommand(input);
  * const response = await client.send(command);
@@ -566,6 +571,7 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  * //                 },
  * //                 targetPercent: Number("int"),
  * //                 capacityMonitoringApproach: "sampledMaxInLast24Hours" || "autoscalingMaxInLast24Hours",
+ * //                 waitELBTargetGroupHealthy: "enabled" || "disabled",
  * //               },
  * //               executionApprovalConfig: { // ExecutionApprovalConfiguration
  * //                 timeoutMinutes: Number("int"),
@@ -632,6 +638,7 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  * //                         },
  * //                         targetPercent: Number("int"),
  * //                         capacityMonitoringApproach: "sampledMaxInLast24Hours" || "autoscalingMaxInLast24Hours",
+ * //                         waitELBTargetGroupHealthy: "enabled" || "disabled",
  * //                       },
  * //                       executionApprovalConfig: {
  * //                         timeoutMinutes: Number("int"),
@@ -686,6 +693,7 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  * //                         },
  * //                         targetPercent: Number("int"),
  * //                         capacityMonitoringApproach: "sampledMaxInLast24Hours" || "containerInsightsMaxInLast24Hours",
+ * //                         waitELBTargetGroupHealthy: "enabled" || "disabled",
  * //                       },
  * //                       eksResourceScalingConfig: { // EksResourceScalingConfiguration
  * //                         timeoutMinutes: Number("int"),
@@ -844,6 +852,7 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  * //                 },
  * //                 targetPercent: Number("int"),
  * //                 capacityMonitoringApproach: "sampledMaxInLast24Hours" || "containerInsightsMaxInLast24Hours",
+ * //                 waitELBTargetGroupHealthy: "enabled" || "disabled",
  * //               },
  * //               eksResourceScalingConfig: {
  * //                 timeoutMinutes: Number("int"),
@@ -1018,6 +1027,7 @@ export interface UpdatePlanCommandOutput extends UpdatePlanResponse, __MetadataB
  * //         },
  * //       ],
  * //     },
+ * //     serviceQuotaChecksEnabled: true || false,
  * //     name: "STRING_VALUE", // required
  * //     regions: [ // RegionList // required
  * //       "STRING_VALUE",

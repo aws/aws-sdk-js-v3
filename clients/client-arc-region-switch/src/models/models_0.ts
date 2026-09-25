@@ -28,9 +28,11 @@ import type {
   ResourceWarningStatus,
   Route53HealthCheckStatus,
   RoutingControlStateChange,
+  ServiceQuotaWarningStatus,
   StepStatus,
   UpdatePlanExecutionAction,
   UpdatePlanExecutionStepAction,
+  WaitELBTargetGroupHealthy,
   WorkflowTargetAction,
 } from "./enums";
 
@@ -1017,6 +1019,12 @@ export interface Ec2AsgCapacityIncreaseConfiguration {
    * @public
    */
   capacityMonitoringApproach?: Ec2AsgCapacityMonitoringApproach | undefined;
+
+  /**
+   * <p>If enabled, the step completes only after each attached ELB target group reports a healthy target count that matches the group's new desired capacity calculated in the step.</p>
+   * @public
+   */
+  waitELBTargetGroupHealthy?: WaitELBTargetGroupHealthy | undefined;
 }
 
 /**
@@ -1095,6 +1103,12 @@ export interface EcsCapacityIncreaseConfiguration {
    * @public
    */
   capacityMonitoringApproach?: EcsCapacityMonitoringApproach | undefined;
+
+  /**
+   * <p>If enabled, the step completes only after each attached ELB target group reports a healthy target count that matches the service's new desired task count calculated in the step.</p>
+   * @public
+   */
+  waitELBTargetGroupHealthy?: WaitELBTargetGroupHealthy | undefined;
 }
 
 /**
@@ -1990,6 +2004,124 @@ export interface ListRoute53HealthChecksInRegionResponse {
    * @public
    */
   healthChecks?: Route53HealthCheck[] | undefined;
+
+  /**
+   * <p>A pagination token. A response may contain no results while still including a <code>nextToken</code>. Continue paginating until <code>nextToken</code> is null to retrieve all results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceQuotaWarningsRequest {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the plans to return service quota warnings for. You can specify up to 100 plan ARNs. Region switch ignores any plan ARN that you can't access. If you omit this parameter, Region switch returns the warnings for all of your accessible plans.</p>
+   * @public
+   */
+  planArns?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with this call. Valid values are <code>1</code> to <code>100</code>. If you don't specify a value, the operation returns up to the maximum number of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A service quota warning for a plan. Region switch creates a warning when the applied quota value in one Region of a plan is lower than the value for the matching resource in another Region or account in the plan, or when it can't complete a service quota check.</p>
+ * @public
+ */
+export interface ServiceQuotaWarningSummary {
+  /**
+   * <p>The Amazon Web Services account ID that owns the plan that the warning applies to.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region that the quota applies to.</p>
+   * @public
+   */
+  quotaRegion: string | undefined;
+
+  /**
+   * <p>The service code of the service that the quota belongs to, as defined in Service Quotas. For example, <code>ec2</code>.</p>
+   * @public
+   */
+  serviceCode?: string | undefined;
+
+  /**
+   * <p>The quota code of the quota that the warning applies to, as defined in Service Quotas.</p>
+   * @public
+   */
+  quotaCode?: string | undefined;
+
+  /**
+   * <p>The name of the quota that the warning applies to, as defined in Service Quotas.</p>
+   * @public
+   */
+  quotaName?: string | undefined;
+
+  /**
+   * <p>The status of the service quota warning.</p>
+   * @public
+   */
+  status: ServiceQuotaWarningStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the plan that the warning applies to.</p>
+   * @public
+   */
+  planArn: string | undefined;
+
+  /**
+   * <p>The ID of the quota increase request that Region switch submitted, if it submitted one for this quota.</p>
+   * @public
+   */
+  requestId?: string | undefined;
+
+  /**
+   * <p>The ID of the support case associated with the quota increase request, if Region switch submitted one for this quota.</p>
+   * @public
+   */
+  caseId?: string | undefined;
+
+  /**
+   * <p>A message that describes the service quota warning.</p>
+   * @public
+   */
+  warningMessage?: string | undefined;
+
+  /**
+   * <p>The time (UTC) when Region switch last checked this quota.</p>
+   * @public
+   */
+  lastCheckedAt?: Date | undefined;
+
+  /**
+   * <p>The time (UTC) when Region switch created this warning.</p>
+   * @public
+   */
+  warningCreatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceQuotaWarningsResponse {
+  /**
+   * <p>The service quota warnings for the plans that you can access.</p>
+   * @public
+   */
+  serviceQuotaWarningSummaries: ServiceQuotaWarningSummary[] | undefined;
 
   /**
    * <p>A pagination token. A response may contain no results while still including a <code>nextToken</code>. Continue paginating until <code>nextToken</code> is null to retrieve all results.</p>
@@ -2955,6 +3087,12 @@ export interface CreatePlanRequest {
   reportConfiguration?: ReportConfiguration | undefined;
 
   /**
+   * <p>Specifies whether to enable service quota checks for the Region switch plan.</p>
+   * @public
+   */
+  serviceQuotaChecksEnabled?: boolean | undefined;
+
+  /**
    * <p>The name of a Region switch plan.</p>
    * @public
    */
@@ -3037,6 +3175,12 @@ export interface Plan {
    * @public
    */
   reportConfiguration?: ReportConfiguration | undefined;
+
+  /**
+   * <p>Indicates whether service quota checks are enabled for the Region switch plan. When enabled, Region switch compares the applied service quota values across the plan's Amazon Web Services Regions and creates a warning when a quota in one Region is lower than the value required for the matching resource in another Region. Service quota checks are advisory and don't prevent you from creating, evaluating, or executing a plan.</p>
+   * @public
+   */
+  serviceQuotaChecksEnabled?: boolean | undefined;
 
   /**
    * <p>The name for a plan.</p>
@@ -3132,6 +3276,12 @@ export interface UpdatePlanRequest {
    * @public
    */
   reportConfiguration?: ReportConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether service quota checks are enabled for the Region switch plan.</p>
+   * @public
+   */
+  serviceQuotaChecksEnabled?: boolean | undefined;
 }
 
 /**

@@ -318,6 +318,13 @@ ListRoute53HealthChecksInRegion
 </details>
 <details>
 <summary>
+ListServiceQuotaWarnings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/arc-region-switch/command/ListServiceQuotaWarningsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-region-switch/Interface/ListServiceQuotaWarningsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-arc-region-switch/Interface/ListServiceQuotaWarningsCommandOutput/)
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 

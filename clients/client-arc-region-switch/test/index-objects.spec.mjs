@@ -120,6 +120,10 @@ import {
   ListRoute53HealthChecksInRegionResponse$,
   ListRoute53HealthChecksRequest$,
   ListRoute53HealthChecksResponse$,
+  ListServiceQuotaWarnings$,
+  ListServiceQuotaWarningsCommand,
+  ListServiceQuotaWarningsRequest$,
+  ListServiceQuotaWarningsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -137,6 +141,7 @@ import {
   paginateListPlansInRegion,
   paginateListRoute53HealthChecks,
   paginateListRoute53HealthChecksInRegion,
+  paginateListServiceQuotaWarnings,
   ParallelExecutionBlockConfiguration$,
   Plan$,
   RdsCreateCrossRegionReplicaConfiguration$,
@@ -162,6 +167,8 @@ import {
   S3ReportOutput$,
   S3ReportOutputConfiguration$,
   Service$,
+  ServiceQuotaWarningStatus,
+  ServiceQuotaWarningSummary$,
   StartPlanExecution$,
   StartPlanExecutionCommand,
   StartPlanExecutionRequest$,
@@ -193,6 +200,7 @@ import {
   UpdatePlanExecutionStepResponse$,
   UpdatePlanRequest$,
   UpdatePlanResponse$,
+  WaitELBTargetGroupHealthy,
   waitForPlanEvaluationStatusPassed,
   waitForPlanExecutionCompleted,
   waitUntilPlanEvaluationStatusPassed,
@@ -233,6 +241,8 @@ assert(typeof ListRoute53HealthChecksCommand === "function");
 assert(typeof ListRoute53HealthChecks$ === "object");
 assert(typeof ListRoute53HealthChecksInRegionCommand === "function");
 assert(typeof ListRoute53HealthChecksInRegion$ === "object");
+assert(typeof ListServiceQuotaWarningsCommand === "function");
+assert(typeof ListServiceQuotaWarnings$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof StartPlanExecutionCommand === "function");
@@ -308,6 +318,8 @@ assert(typeof ListRoute53HealthChecksInRegionRequest$ === "object");
 assert(typeof ListRoute53HealthChecksInRegionResponse$ === "object");
 assert(typeof ListRoute53HealthChecksRequest$ === "object");
 assert(typeof ListRoute53HealthChecksResponse$ === "object");
+assert(typeof ListServiceQuotaWarningsRequest$ === "object");
+assert(typeof ListServiceQuotaWarningsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof MinimalWorkflow$ === "object");
@@ -330,6 +342,7 @@ assert(typeof Route53ResourceRecordSet$ === "object");
 assert(typeof S3ReportOutput$ === "object");
 assert(typeof S3ReportOutputConfiguration$ === "object");
 assert(typeof Service$ === "object");
+assert(typeof ServiceQuotaWarningSummary$ === "object");
 assert(typeof StartPlanExecutionRequest$ === "object");
 assert(typeof StartPlanExecutionResponse$ === "object");
 assert(typeof Step$ === "object");
@@ -376,9 +389,11 @@ assert(typeof RegionToRunIn === "object");
 assert(typeof ResourceWarningStatus === "object");
 assert(typeof Route53HealthCheckStatus === "object");
 assert(typeof RoutingControlStateChange === "object");
+assert(typeof ServiceQuotaWarningStatus === "object");
 assert(typeof StepStatus === "object");
 assert(typeof UpdatePlanExecutionAction === "object");
 assert(typeof UpdatePlanExecutionStepAction === "object");
+assert(typeof WaitELBTargetGroupHealthy === "object");
 assert(typeof WorkflowTargetAction === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof ARCRegionSwitchServiceException);
@@ -408,4 +423,5 @@ assert(typeof paginateListPlans === "function");
 assert(typeof paginateListPlansInRegion === "function");
 assert(typeof paginateListRoute53HealthChecks === "function");
 assert(typeof paginateListRoute53HealthChecksInRegion === "function");
+assert(typeof paginateListServiceQuotaWarnings === "function");
 console.log(`ARCRegionSwitch index test passed.`);

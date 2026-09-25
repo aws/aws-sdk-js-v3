@@ -8,3 +8,4 @@ export * from "./ListPlansPaginator";
 export * from "./ListPlansInRegionPaginator";
 export * from "./ListRoute53HealthChecksPaginator";
 export * from "./ListRoute53HealthChecksInRegionPaginator";
+export * from "./ListServiceQuotaWarningsPaginator";
