@@ -33,6 +33,7 @@ export interface ListImportTasksCommandOutput extends ListImportTasksOutput, __M
  * const config = {}; // type is NeptuneGraphClientConfig
  * const client = new NeptuneGraphClient(config);
  * const input = { // ListImportTasksInput
+ *   graphIdentifier: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
