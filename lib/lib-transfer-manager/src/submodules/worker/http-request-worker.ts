@@ -27,6 +27,48 @@ import { parentPort } from "node:worker_threads";
 const DNS_TTL_MS = 1000;
 const dnsCache = new Map<string, { ips: string[]; ts: number }>();
 
+const MAX_ERROR_BODY_BYTES = 16 * 1024;
+
+/**
+ * Reads an error body to bytes to forward to the main thread. Bounded, since
+ * S3 XML error bodies are tiny.
+ * @internal
+ */
+const readErrorBodyBytes = async (body: any): Promise<Uint8Array | undefined> => {
+  if (!body) return undefined;
+  try {
+    const chunks: Buffer[] = [];
+    let total = 0;
+    for await (const chunk of body) {
+      const buf = typeof chunk === "string" ? Buffer.from(chunk) : Buffer.from(chunk);
+      chunks.push(buf);
+      total += buf.length;
+      if (total >= MAX_ERROR_BODY_BYTES) break;
+    }
+    return new Uint8Array(Buffer.concat(chunks));
+  } catch {
+    return undefined;
+  }
+};
+
+/**
+ * Builds the non-2xx message forwarding the raw status/headers/body for the
+ * main thread to return as an HttpResponse. Shared by the file/stream handlers.
+ * @internal
+ */
+const buildHttpStatusError = async (
+  id: number,
+  response: { statusCode: number; headers: Record<string, string>; body?: any }
+): Promise<HttpWorkerDownloadHttpErrorMessage> => {
+  return {
+    type: "httpDownloadHttpError",
+    id,
+    statusCode: response.statusCode,
+    headers: response.headers,
+    body: await readErrorBodyBytes(response.body),
+  };
+};
+
 /**
  * Resolves all A records for a hostname, picks one at random per connection
  * to spread load across S3's fleet. Falls back to dns.lookup for IPv6 or
@@ -182,7 +224,8 @@ interface HttpWorkerDownloadStreamResultMessage {
 }
 
 /**
- * Worker → Main thread: a download request (file or transfer) failed.
+ * Worker → Main thread: download failed with no HTTP response
+ * (checksum/length mismatch, socket error).
  */
 interface HttpWorkerDownloadErrorMessage {
   type: "httpDownloadError";
@@ -190,6 +233,18 @@ interface HttpWorkerDownloadErrorMessage {
   error: string;
   code?: string;
   name?: string;
+}
+
+/**
+ * Worker → Main thread: download GET returned a non-2xx response. Carries the
+ * raw status/headers/body for the main thread to return as an HttpResponse.
+ */
+interface HttpWorkerDownloadHttpErrorMessage {
+  type: "httpDownloadHttpError";
+  id: number;
+  statusCode: number;
+  headers: Record<string, string>;
+  body?: Uint8Array;
 }
 
 /**
@@ -437,6 +492,13 @@ if (parentPort) {
 
       const { response } = await handler!.handle(request);
 
+      // Non-2xx: forward the error response instead of writing its XML body to
+      // disk; the SDK deserializes and retries it on the main thread.
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        port.postMessage(await buildHttpStatusError(id, response));
+        return;
+      }
+
       // Resolve where and how much to write from the response's ContentRange.
       //
       // ContentRange is the source of truth since S3 multipart objects can
@@ -586,6 +648,13 @@ if (parentPort) {
       });
 
       const { response } = await handler!.handle(request);
+
+      // Non-2xx: forward the error response instead of assembling its XML body
+      // into the buffer; the SDK deserializes and retries it on the main thread.
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        port.postMessage(await buildHttpStatusError(id, response));
+        return;
+      }
 
       // 2. Acquire a buffer for assembling the response body
       const ab = acquireTransferBuffer(expectedSize);
