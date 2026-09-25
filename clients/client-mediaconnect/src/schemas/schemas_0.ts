@@ -31,6 +31,7 @@ const _AM = "AddMaintenance";
 const _AMS = "AudioMonitoringSetting";
 const _AMSR = "AddMediaStreamRequest";
 const _AMSu = "AudioMonitoringSettings";
+const _AN = "ApplicationName";
 const _AOC = "AssociatedOutputCount";
 const _AOR = "AddOutputRequest";
 const _AR = "AllowRules";
@@ -204,6 +205,7 @@ const _EPn = "EncodingParameters";
 const _EPnc = "EncoderProfile";
 const _ES = "EntitlementStatus";
 const _ET = "EntitlementTags";
+const _ETn = "EncryptionType";
 const _En = "Entitlements";
 const _End = "End";
 const _Ent = "Entitlement";
@@ -467,6 +469,7 @@ const _PRNIC = "PublicRouterNetworkInterfaceConfiguration";
 const _PRNIR = "PublicRouterNetworkInterfaceRule";
 const _PS = "PrimarySource";
 const _PSI = "PrimarySourceIndex";
+const _PTEC = "PublicTlsEncryptionConfiguration";
 const _PU = "PriceUnits";
 const _Pa = "Par";
 const _Pi = "Pid";
@@ -553,6 +556,8 @@ const _ROSD = "RouterOutputStreamDetails";
 const _ROSQEE = "RouterOutputServiceQuotaExceededException";
 const _ROo = "RouterOutput";
 const _ROou = "RoutedOutputs";
+const _RP = "RtmpPush";
+const _RPROC = "RtmpPushRouterOutputConfiguration";
 const _RRI = "RestartRouterInput";
 const _RRIC = "RistRouterInputConfiguration";
 const _RRICt = "RtpRouterInputConfiguration";
@@ -617,6 +622,7 @@ const _SMEKC = "SecretsManagerEncryptionKeyConfiguration";
 const _SMM = "SourceMetadataMessages";
 const _SMe = "SecretsManager";
 const _SN = "SourceName";
+const _SNt = "StreamName";
 const _SP = "SourcePriority";
 const _SPM = "SourcePriorityMode";
 const _SPo = "SourcePort";
@@ -655,6 +661,8 @@ const _Su = "Subscribers";
 const _T = "Ttl";
 const _TD = "ThumbnailDetails";
 const _TE = "TransitEncryption";
+const _TEC = "TlsEncryptionConfiguration";
+const _TEl = "TlsEncryption";
 const _TGR = "TagGlobalResource";
 const _TGRR = "TagGlobalResourceRequest";
 const _TK = "TagKeys";
@@ -752,6 +760,7 @@ const _WMS = "WindowMaintenanceSchedule";
 const _a = "attributes";
 const _aIC = "associatedInputCount";
 const _aMS = "audioMonitoringSettings";
+const _aN = "applicationName";
 const _aOC = "associatedOutputCount";
 const _aR = "allowRules";
 const _aS = "activeSource";
@@ -830,6 +839,7 @@ const _ePn = "encoderProfile";
 const _ePnc = "encodingParameters";
 const _eS = "entitlementStatus";
 const _eT = "entitlementTags";
+const _eTn = "encryptionType";
 const _en = "encryption";
 const _end = "end";
 const _ent = "entitlements";
@@ -1054,6 +1064,7 @@ const _rOA = "routerOutputArn";
 const _rON = "routerOutputName";
 const _rOo = "routerOutput";
 const _rOou = "routedOutputs";
+const _rP = "rtmpPush";
 const _rS = "routingScope";
 const _rSe = "resourceSpecification";
 const _rSes = "reservationState";
@@ -1093,6 +1104,7 @@ const _sMD = "sourceMetadataDetails";
 const _sMM = "sourceMetadataMessages";
 const _sMe = "secretsManager";
 const _sN = "sourceName";
+const _sNt = "streamName";
 const _sP = "sourcePriority";
 const _sPM = "sourcePriorityMode";
 const _sPo = "sourcePort";
@@ -1115,6 +1127,7 @@ const _su = "subscribers";
 const _t = "ttl";
 const _tD = "thumbnailDetails";
 const _tE = "transitEncryption";
+const _tEl = "tlsEncryption";
 const _tK = "tagKeys";
 const _tM = "thumbnailMessages";
 const _tMI = "transportMediaInfo";
@@ -2258,6 +2271,11 @@ export var PublicRouterNetworkInterfaceRule$: StaticStructureSchema = [3, n0, _P
   [_Ci],
   [[0, { [_jN]: _ci }]], 1
 ];
+export var PublicTlsEncryptionConfiguration$: StaticStructureSchema = [3, n0, _PTEC,
+  0,
+  [],
+  []
+];
 export var PurchaseOfferingRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
   [_OAf, _RNes, _Star],
@@ -2417,6 +2435,11 @@ export var RouterOutputMessage$: StaticStructureSchema = [3, n0, _ROM,
   0,
   [_C, _M],
   [[0, { [_jN]: _co }], [0, { [_jN]: _m }]], 2
+];
+export var RtmpPushRouterOutputConfiguration$: StaticStructureSchema = [3, n0, _RPROC,
+  0,
+  [_DA, _DP, _AN, _SNt, _TEl],
+  [[0, { [_jN]: _dA }], [1, { [_jN]: _dP }], [0, { [_jN]: _aN }], [0, { [_jN]: _sNt }], [() => TlsEncryption$, { [_jN]: _tEl }]], 4
 ];
 export var RtpRouterInputConfiguration$: StaticStructureSchema = [3, n0, _RRICt,
   0,
@@ -2597,6 +2620,11 @@ export var ThumbnailDetails$: StaticStructureSchema = [3, n0, _TD,
   0,
   [_FA, _TM, _Th, _Timec, _Tim],
   [[0, { [_jN]: _fA }], [() => __listOfMessageDetail, { [_jN]: _tM }], [0, { [_jN]: _th }], [0, { [_jN]: _timec }], [5, { [_jN]: _tim }]], 2
+];
+export var TlsEncryption$: StaticStructureSchema = [3, n0, _TEl,
+  0,
+  [_ECn, _ETn],
+  [[() => TlsEncryptionConfiguration$, { [_jN]: _eCn }], [0, { [_jN]: _eTn }]], 1
 ];
 export var Transport$: StaticStructureSchema = [3, n0, _Tr,
   0,
@@ -3153,13 +3181,18 @@ export var RouterOutputFilter$: StaticUnionSchema = [4, n0, _ROF,
 ];
 export var RouterOutputProtocolConfiguration$: StaticUnionSchema = [4, n0, _ROPC,
   0,
-  [_Ri, _SLr, _SC, _Rt],
-  [[() => RistRouterOutputConfiguration$, { [_jN]: _ri }], [() => SrtListenerRouterOutputConfiguration$, { [_jN]: _sLr }], [() => SrtCallerRouterOutputConfiguration$, { [_jN]: _sC }], [() => RtpRouterOutputConfiguration$, { [_jN]: _rt }]]
+  [_Ri, _SLr, _RP, _SC, _Rt],
+  [[() => RistRouterOutputConfiguration$, { [_jN]: _ri }], [() => SrtListenerRouterOutputConfiguration$, { [_jN]: _sLr }], [() => RtmpPushRouterOutputConfiguration$, { [_jN]: _rP }], [() => SrtCallerRouterOutputConfiguration$, { [_jN]: _sC }], [() => RtpRouterOutputConfiguration$, { [_jN]: _rt }]]
 ];
 export var RouterOutputStreamDetails$: StaticUnionSchema = [4, n0, _ROSD,
   0,
   [_Stan, _MCF, _MLI],
   [[() => StandardRouterOutputStreamDetails$, { [_jN]: _stan }], [() => MediaConnectFlowRouterOutputStreamDetails$, { [_jN]: _mCF }], [() => MediaLiveInputRouterOutputStreamDetails$, { [_jN]: _mLI }]]
+];
+export var TlsEncryptionConfiguration$: StaticUnionSchema = [4, n0, _TEC,
+  0,
+  [_Pu],
+  [[() => PublicTlsEncryptionConfiguration$, { [_jN]: _pu }]]
 ];
 export var AddBridgeOutputs$: StaticOperationSchema = [9, n0, _ABO,
   { [_h]: ["POST", "/v1/bridges/{BridgeArn}/outputs", 202] }, () => AddBridgeOutputsRequest$, () => AddBridgeOutputsResponse$

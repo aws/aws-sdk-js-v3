@@ -662,6 +662,7 @@ export type MediaLiveInputPipelineId = (typeof MediaLiveInputPipelineId)[keyof t
  */
 export const RouterOutputProtocol = {
   RIST: "RIST",
+  RTMP_PUSH: "RTMP_PUSH",
   RTP: "RTP",
   SRT_CALLER: "SRT_CALLER",
   SRT_LISTENER: "SRT_LISTENER",
@@ -670,6 +671,18 @@ export const RouterOutputProtocol = {
  * @public
  */
 export type RouterOutputProtocol = (typeof RouterOutputProtocol)[keyof typeof RouterOutputProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const TlsEncryptionType = {
+  PUBLIC: "PUBLIC",
+} as const;
+/**
+ * @public
+ */
+export type TlsEncryptionType = (typeof TlsEncryptionType)[keyof typeof TlsEncryptionType];
 
 /**
  * @public

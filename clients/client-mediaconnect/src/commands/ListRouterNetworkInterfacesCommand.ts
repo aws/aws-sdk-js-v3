@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListRouterNetworkInterfacesRequest, ListRouterNetworkInterfacesResponse } from "../models/models_0";
+import type { ListRouterNetworkInterfacesRequest } from "../models/models_0";
+import type { ListRouterNetworkInterfacesResponse } from "../models/models_1";
 import { ListRouterNetworkInterfaces$ } from "../schemas/schemas_0";
 
 /**

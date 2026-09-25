@@ -365,6 +365,7 @@ import {
   Protocol,
   PublicRouterNetworkInterfaceConfiguration$,
   PublicRouterNetworkInterfaceRule$,
+  PublicTlsEncryptionConfiguration$,
   PurchaseOffering$,
   PurchaseOfferingCommand,
   PurchaseOfferingRequest$,
@@ -453,6 +454,7 @@ import {
   RouterOutputTier,
   RouterOutputType,
   RoutingScope,
+  RtmpPushRouterOutputConfiguration$,
   RtpRouterInputConfiguration$,
   RtpRouterOutputConfiguration$,
   ScanMode,
@@ -515,6 +517,9 @@ import {
   Tcs,
   ThumbnailDetails$,
   ThumbnailState,
+  TlsEncryption$,
+  TlsEncryptionConfiguration$,
+  TlsEncryptionType,
   TooManyRequestsException,
   TooManyRequestsException$,
   Transport$,
@@ -989,6 +994,7 @@ assert(typeof Output$ === "object");
 assert(typeof PreferredDayTimeMaintenanceConfiguration$ === "object");
 assert(typeof PublicRouterNetworkInterfaceConfiguration$ === "object");
 assert(typeof PublicRouterNetworkInterfaceRule$ === "object");
+assert(typeof PublicTlsEncryptionConfiguration$ === "object");
 assert(typeof PurchaseOfferingRequest$ === "object");
 assert(typeof PurchaseOfferingResponse$ === "object");
 assert(typeof RemoveBridgeOutputRequest$ === "object");
@@ -1034,6 +1040,7 @@ assert(typeof RouterOutputFilter$ === "object");
 assert(typeof RouterOutputMessage$ === "object");
 assert(typeof RouterOutputProtocolConfiguration$ === "object");
 assert(typeof RouterOutputStreamDetails$ === "object");
+assert(typeof RtmpPushRouterOutputConfiguration$ === "object");
 assert(typeof RtpRouterInputConfiguration$ === "object");
 assert(typeof RtpRouterOutputConfiguration$ === "object");
 assert(typeof SecretsManagerEncryptionKeyConfiguration$ === "object");
@@ -1070,6 +1077,8 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TakeRouterInputRequest$ === "object");
 assert(typeof TakeRouterInputResponse$ === "object");
 assert(typeof ThumbnailDetails$ === "object");
+assert(typeof TlsEncryption$ === "object");
+assert(typeof TlsEncryptionConfiguration$ === "object");
 assert(typeof Transport$ === "object");
 assert(typeof TransportMediaInfo$ === "object");
 assert(typeof TransportStream$ === "object");
@@ -1176,6 +1185,7 @@ assert(typeof State === "object");
 assert(typeof Status === "object");
 assert(typeof Tcs === "object");
 assert(typeof ThumbnailState === "object");
+assert(typeof TlsEncryptionType === "object");
 // errors
 assert(AddFlowOutputs420Exception.prototype instanceof MediaConnectServiceException);
 assert(typeof AddFlowOutputs420Exception$ === "object");
