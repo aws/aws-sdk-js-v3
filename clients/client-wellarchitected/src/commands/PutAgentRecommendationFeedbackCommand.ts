@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { PutAgentRecommendationFeedbackRequest, PutAgentRecommendationFeedbackResponse } from "../models/models_0";
 import { PutAgentRecommendationFeedback$ } from "../schemas/schemas_0";
 
@@ -72,7 +72,7 @@ export interface PutAgentRecommendationFeedbackCommandOutput extends PutAgentRec
  * @public
  */
 export class PutAgentRecommendationFeedbackCommand extends command<PutAgentRecommendationFeedbackCommandInput, PutAgentRecommendationFeedbackCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "PutAgentRecommendationFeedback",
   PutAgentRecommendationFeedback$

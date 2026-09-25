@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { GetAgentRecommendationRequest, GetAgentRecommendationResponse } from "../models/models_0";
 import { GetAgentRecommendation$ } from "../schemas/schemas_0";
 
@@ -41,6 +41,7 @@ export interface GetAgentRecommendationCommandOutput extends GetAgentRecommendat
  * // { // GetAgentRecommendationResponse
  * //   recommendationArn: "STRING_VALUE", // required
  * //   profileArn: "STRING_VALUE", // required
+ * //   generationId: "STRING_VALUE",
  * //   title: "STRING_VALUE", // required
  * //   description: "STRING_VALUE", // required
  * //   type: "RESOURCE" || "ARCHITECTURE" || "APPLICATION", // required
@@ -173,7 +174,7 @@ export interface GetAgentRecommendationCommandOutput extends GetAgentRecommendat
  * @public
  */
 export class GetAgentRecommendationCommand extends command<GetAgentRecommendationCommandInput, GetAgentRecommendationCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "GetAgentRecommendation",
   GetAgentRecommendation$

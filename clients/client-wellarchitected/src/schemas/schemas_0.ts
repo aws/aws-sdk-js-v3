@@ -787,8 +787,8 @@ export var AgentRecommendationRemediation$: StaticStructureSchema = [3, n0, _ARR
 ];
 export var AgentRecommendationSummary$: StaticStructureSchema = [3, n0, _ARS,
   0,
-  [_rA, _pA, _ti, _d, _ty, _pi, _pr, _ef, _st, _sta, _im, _r, _cB, _cA, _uR, _nOR, _aS, _bU, _ap, _lMB, _lMA],
-  [0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 0, 0, 0, () => Roi$, 0, 5, [() => SensitiveString, 0], 1, 64 | 0, 64 | 0, 64 | 0, 0, 5], 14
+  [_rA, _pA, _ti, _d, _ty, _pi, _pr, _ef, _st, _sta, _im, _r, _cB, _cA, _gI, _uR, _nOR, _aS, _bU, _ap, _lMB, _lMA],
+  [0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 0, 0, 0, () => Roi$, 0, 5, 0, [() => SensitiveString, 0], 1, 64 | 0, 64 | 0, 64 | 0, 0, 5], 14
 ];
 export var AggregationConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
@@ -1147,8 +1147,8 @@ export var GetAgentRecommendationRequest$: StaticStructureSchema = [3, n0, _GARR
 ];
 export var GetAgentRecommendationResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
-  [_rA, _pA, _ti, _d, _ty, _pi, _pr, _ef, _st, _sta, _im, _r, _iD, _ins, _h, _rS, _cB, _cA, _uR, _nOR, _aS, _bU, _ap, _cPB, _tO, _so, _go, _t, _lMB, _lMA, _rem],
-  [0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 0, 0, 0, () => Roi$, 64 | 0, () => InsightList, 64 | 0, () => RemediationSummary$, 0, 5, [() => SensitiveString, 0], 1, 64 | 0, 64 | 0, 64 | 0, () => CrossPillarBenefits, () => TradeOffs, 64 | 0, () => RecommendationGoals, () => Tags, 0, 5, [() => AgentRecommendationRemediations, 0]], 18
+  [_rA, _pA, _ti, _d, _ty, _pi, _pr, _ef, _st, _sta, _im, _r, _iD, _ins, _h, _rS, _cB, _cA, _gI, _uR, _nOR, _aS, _bU, _ap, _cPB, _tO, _so, _go, _t, _lMB, _lMA, _rem],
+  [0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 0, 0, 0, () => Roi$, 64 | 0, () => InsightList, 64 | 0, () => RemediationSummary$, 0, 5, 0, [() => SensitiveString, 0], 1, 64 | 0, 64 | 0, 64 | 0, () => CrossPillarBenefits, () => TradeOffs, 64 | 0, () => RecommendationGoals, () => Tags, 0, 5, [() => AgentRecommendationRemediations, 0]], 18
 ];
 export var GetAnswerInput$: StaticStructureSchema = [3, n0, _GAI,
   0,

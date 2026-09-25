@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { ListAgentRecommendationsRequest, ListAgentRecommendationsResponse } from "../models/models_0";
 import { ListAgentRecommendations$ } from "../schemas/schemas_0";
 
@@ -46,6 +46,7 @@ export interface ListAgentRecommendationsCommandOutput extends ListAgentRecommen
  * //     { // AgentRecommendationSummary
  * //       recommendationArn: "STRING_VALUE", // required
  * //       profileArn: "STRING_VALUE", // required
+ * //       generationId: "STRING_VALUE",
  * //       title: "STRING_VALUE", // required
  * //       description: "STRING_VALUE", // required
  * //       type: "RESOURCE" || "ARCHITECTURE" || "APPLICATION", // required
@@ -109,7 +110,7 @@ export interface ListAgentRecommendationsCommandOutput extends ListAgentRecommen
  * @public
  */
 export class ListAgentRecommendationsCommand extends command<ListAgentRecommendationsCommandInput, ListAgentRecommendationsCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "ListAgentRecommendations",
   ListAgentRecommendations$

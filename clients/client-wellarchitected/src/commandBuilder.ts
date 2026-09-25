@@ -24,5 +24,12 @@ export const _ep0: EndpointParameterInstructions = {};
 /**
  * @internal
  */
+export const _ep1: EndpointParameterInstructions = {
+  SubServiceType: { type: "staticContextParams", value: `AGENT` },
+};
+
+/**
+ * @internal
+ */
 export const _mw0 = (Command: any, cs: any, config: any, o: any) => [
 ];

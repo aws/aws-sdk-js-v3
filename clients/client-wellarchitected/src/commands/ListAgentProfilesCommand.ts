@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { ListAgentProfilesRequest, ListAgentProfilesResponse } from "../models/models_0";
 import { ListAgentProfiles$ } from "../schemas/schemas_0";
 
@@ -107,7 +107,7 @@ export interface ListAgentProfilesCommandOutput extends ListAgentProfilesRespons
  * @public
  */
 export class ListAgentProfilesCommand extends command<ListAgentProfilesCommandInput, ListAgentProfilesCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "ListAgentProfiles",
   ListAgentProfiles$
