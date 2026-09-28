@@ -17,6 +17,7 @@ import type {
   CalendarState,
   CommandInvocationStatus,
   ConnectionStatus,
+  DeletionMode,
   DescribeActivationsFilterKeys,
   DocumentFormat,
   DocumentHashType,
@@ -3716,6 +3717,26 @@ export interface DeleteResourcePolicyRequest {
    * @public
    */
   PolicyHash: string | undefined;
+
+  /**
+   * <p>Specifies the intended outcome of the operation. Applies only to the <code>Document</code>
+   *    resource type. The operation ignores this parameter for other resource types. Optional. Defaults
+   *    to <code>RemoveSharing</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RemoveSharing</code> – Deletes the resource policy and removes sharing of the
+   *      document.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RollbackMigration</code> – Reverts the document to Custom sharing, preserving
+   *      existing consumer access, instead of removing the policy.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DeletionMode?: DeletionMode | undefined;
 }
 
 /**

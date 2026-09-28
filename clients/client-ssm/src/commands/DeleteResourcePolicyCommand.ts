@@ -38,6 +38,11 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  *      cross-account sharing of parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working with
  *       shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Document</code> – Shares the document using Resource Access Manager (RAM). For more information about sharing documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-ssm-sharing.html">Sharing
+ *       Systems Manager documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +56,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  *   ResourceArn: "STRING_VALUE", // required
  *   PolicyId: "STRING_VALUE", // required
  *   PolicyHash: "STRING_VALUE", // required
+ *   DeletionMode: "RemoveSharing" || "RollbackMigration",
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
