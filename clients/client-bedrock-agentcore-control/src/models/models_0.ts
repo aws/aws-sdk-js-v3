@@ -8161,6 +8161,12 @@ export interface MCPGatewayConfiguration {
    * @public
    */
   streamingConfiguration?: StreamingConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether pagination is disabled for the Model Context Protocol (MCP) <code>tools/list</code> operation. When set to <code>true</code>, the gateway returns the complete list of tools in a single response without a pagination cursor. When set to <code>false</code> or omitted, the gateway returns tools in paginated responses.</p>
+   * @public
+   */
+  disableMcpListToolsPagination?: boolean | undefined;
 }
 
 /**

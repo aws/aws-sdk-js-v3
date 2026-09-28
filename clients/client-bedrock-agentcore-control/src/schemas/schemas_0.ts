@@ -1258,6 +1258,7 @@ const _dA = "datasetArn";
 const _dC = "deletedCount";
 const _dI = "datasetId";
 const _dK = "dimensionKeys";
+const _dMLTP = "disableMcpListToolsPagination";
 const _dMM = "deleteManagedMemory";
 const _dMS = "deleteMemoryStrategies";
 const _dN = "datasetName";
@@ -4188,8 +4189,8 @@ export var McpDescriptor$: StaticStructureSchema = [3, n0, _MD,
 ];
 export var MCPGatewayConfiguration$: StaticStructureSchema = [3, n0, _MCPGC,
   0,
-  [_sVu, _ins, _sTe, _sCe, _sCtr],
-  [64 | 0, [() => McpInstructions, 0], 0, () => SessionConfiguration$, () => StreamingConfiguration$]
+  [_sVu, _ins, _sTe, _sCe, _sCtr, _dMLTP],
+  [64 | 0, [() => McpInstructions, 0], 0, () => SessionConfiguration$, () => StreamingConfiguration$, 2]
 ];
 export var McpLambdaTargetConfiguration$: StaticStructureSchema = [3, n0, _MLTC,
   0,
