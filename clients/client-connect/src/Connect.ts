@@ -2001,6 +2001,7 @@ import { paginateListDataTables } from "./pagination/ListDataTablesPaginator";
 import { paginateListDataTableValues } from "./pagination/ListDataTableValuesPaginator";
 import { paginateListDefaultVocabularies } from "./pagination/ListDefaultVocabulariesPaginator";
 import { paginateListEntitySecurityProfiles } from "./pagination/ListEntitySecurityProfilesPaginator";
+import { paginateListEvaluationFormAIVersions } from "./pagination/ListEvaluationFormAIVersionsPaginator";
 import { paginateListEvaluationForms } from "./pagination/ListEvaluationFormsPaginator";
 import { paginateListEvaluationFormVersions } from "./pagination/ListEvaluationFormVersionsPaginator";
 import { paginateListExtractionDefinitions } from "./pagination/ListExtractionDefinitionsPaginator";
@@ -2497,6 +2498,7 @@ const paginators = {
   paginateListDataTableValues,
   paginateListDefaultVocabularies,
   paginateListEntitySecurityProfiles,
+  paginateListEvaluationFormAIVersions,
   paginateListEvaluationForms,
   paginateListEvaluationFormVersions,
   paginateListExtractionDefinitions,
@@ -9591,6 +9593,17 @@ export interface Connect {
     args: ListEntitySecurityProfilesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListEntitySecurityProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListEvaluationFormAIVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEvaluationFormAIVersionsCommandOutput}.
+   */
+  paginateListEvaluationFormAIVersions(
+    args: ListEvaluationFormAIVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEvaluationFormAIVersionsCommandOutput>;
 
   /**
    * @see {@link ListEvaluationFormsCommand}

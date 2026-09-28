@@ -369,7 +369,8 @@ const _CCTIM = "ConversationCloseTimeInMillis";
 const _CCWB = "CrossChannelWorkloadBehavior";
 const _CCa = "CalculationComponents";
 const _CCh = "ChannelConfiguration";
-const _CCo = "ContactConfiguration";
+const _CCo = "ConnectionCredentials";
+const _CCon = "ContactConfiguration";
 const _CCr = "CreateContact";
 const _CD = "ConnectionData";
 const _CDIM = "ChatDurationInMinutes";
@@ -403,6 +404,7 @@ const _CEPP = "ChatEntryPointParameters";
 const _CEh = "ChatEvent";
 const _CEo = "ContactEvaluations";
 const _CEon = "ContactEvaluation";
+const _CEonn = "ConnectionExpiry";
 const _CEu = "CustomerEndpoint";
 const _CF = "ContactFilter";
 const _CFA = "ContactFlowArn";
@@ -569,6 +571,8 @@ const _CTTRr = "CreateTaskTemplateResponse";
 const _CTo = "ComparisonType";
 const _CTon = "ContentType";
 const _CTond = "ConditionType";
+const _CTonn = "ConnectionToken";
+const _CTonne = "ConnectionTypes";
 const _CTont = "ContrastText";
 const _CTonta = "ContactTags";
 const _CTr = "CreationTime";
@@ -3004,6 +3008,7 @@ const _WTP = "WorkspaceThemePalette";
 const _WTT = "WorkspaceThemeTypography";
 const _WTo = "WorkspaceTheme";
 const _We = "Weight";
+const _Web = "Websocket";
 const _Wo = "Workspaces";
 const _aQE = "awsQueryError";
 const _aRA = "associatedResourceArn";
@@ -3973,6 +3978,11 @@ export var Condition$: StaticStructureSchema = [3, n0, _Con,
   [_SC, _NC],
   [() => StringCondition$, () => NumberCondition$]
 ];
+export var ConnectionCredentials$: StaticStructureSchema = [3, n0, _CCo,
+  0,
+  [_CTonn, _Exp],
+  [0, 0]
+];
 export var ConnectionData$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_At, _Me],
@@ -3993,7 +4003,7 @@ export var ContactAnalysisReference$: StaticStructureSchema = [3, n0, _CAR,
   [_N, _V, _St, _A, _AMn, _IR],
   [0, 0, 0, 0, 0, 2]
 ];
-export var ContactConfiguration$: StaticStructureSchema = [3, n0, _CCo,
+export var ContactConfiguration$: StaticStructureSchema = [3, n0, _CCon,
   0,
   [_CI, _PR, _IRM],
   [0, 0, 2], 1
@@ -4410,7 +4420,7 @@ export var CreatePromptResponse$: StaticStructureSchema = [3, n0, _CPRrea,
 ];
 export var CreatePushNotificationRegistrationRequest$: StaticStructureSchema = [3, n0, _CPNRR,
   0,
-  [_II, _PAA, _DTev, _DTevi, _CCo, _CT],
+  [_II, _PAA, _DTev, _DTevi, _CCon, _CT],
   [[0, 1], 0, 0, 0, () => ContactConfiguration$, [0, 4]], 5
 ];
 export var CreatePushNotificationRegistrationResponse$: StaticStructureSchema = [3, n0, _CPNRRr,
@@ -8520,13 +8530,13 @@ export var StartAttachedFileUploadResponse$: StaticStructureSchema = [3, n0, _SA
 ];
 export var StartChatContactRequest$: StaticStructureSchema = [3, n0, _SCCR,
   0,
-  [_II, _CFI, _PD, _Attr, _PCart, _IMni, _CT, _CDIM, _SMCT, _PCer, _RCI, _SAe, _CIu, _DOCE],
-  [0, 0, () => ParticipantDetails$, 128 | 0, () => ParticipantConfiguration$, () => ChatMessage$, [0, 4], 1, 64 | 0, () => PersistentChat$, 0, () => SegmentAttributes, [() => CustomerIdNonEmpty, 0], 64 | 0], 3
+  [_II, _CFI, _PD, _Attr, _PCart, _IMni, _CT, _CDIM, _SMCT, _PCer, _RCI, _SAe, _CIu, _DOCE, _CTonne, _CSCh],
+  [0, 0, () => ParticipantDetails$, 128 | 0, () => ParticipantConfiguration$, () => ChatMessage$, [0, 4], 1, 64 | 0, () => PersistentChat$, 0, () => SegmentAttributes, [() => CustomerIdNonEmpty, 0], 64 | 0, 64 | 0, () => ChatStreamingConfiguration$], 3
 ];
 export var StartChatContactResponse$: StaticStructureSchema = [3, n0, _SCCRt,
   0,
-  [_CI, _PI, _PTa, _CFCI],
-  [0, 0, 0, 0]
+  [_CI, _PI, _PTa, _CFCI, _CCo, _Web, _SIt],
+  [0, 0, 0, 0, () => ConnectionCredentials$, () => Websocket$, 0]
 ];
 export var StartContactConversationalAnalyticsJobRequest$: StaticStructureSchema = [3, n0, _SCCAJR,
   0,
@@ -9678,6 +9688,11 @@ export var WebNotificationSource$: StaticStructureSchema = [3, n0, _WNS,
   [_SCou],
   [() => SourceCampaign$], 1
 ];
+export var Websocket$: StaticStructureSchema = [3, n0, _Web,
+  0,
+  [_Ur, _CEonn],
+  [0, 0]
+];
 export var WidgetDestination$: StaticStructureSchema = [3, n0, _WD,
   0,
   [_WIid, _PIro],
@@ -9893,6 +9908,7 @@ var CommonAttributeOrConditionList: StaticListSchema = [1, n0, _CAOCL,
 var Conditions: StaticListSchema = [1, n0, _Cond,
   0, () => Condition$
 ];
+var ConnectionTypeList = 64 | 0;
 var ContactDataRequestList: StaticListSchema = [1, n0, _CDRL,
   0, () => ContactDataRequest$
 ];

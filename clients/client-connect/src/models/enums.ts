@@ -3123,6 +3123,21 @@ export type NotificationType = (typeof NotificationType)[keyof typeof Notificati
  * @public
  * @enum
  */
+export const ConnectionType = {
+  AUTHENTICATION_SESSION: "AUTHENTICATION_SESSION",
+  CONNECTION_CREDENTIALS: "CONNECTION_CREDENTIALS",
+  WEBRTC_CONNECTION: "WEBRTC_CONNECTION",
+  WEBSOCKET: "WEBSOCKET",
+} as const;
+/**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DisconnectOnCustomerExitParticipantType = {
   AGENT: "AGENT",
 } as const;
