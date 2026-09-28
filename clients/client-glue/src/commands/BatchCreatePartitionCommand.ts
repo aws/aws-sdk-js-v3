@@ -132,6 +132,9 @@ export interface BatchCreatePartitionCommandOutput extends BatchCreatePartitionR
  * @throws {@link AlreadyExistsException} (client fault)
  *  <p>A resource to be created or added already exists.</p>
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
  *
