@@ -148,7 +148,7 @@ export interface DownloadToFileResponse extends Omit<DownloadResponse, "Body"> {
 export type TransferOptions = HttpHandlerOptions & { eventListeners?: TransferEventListeners };
 
 /**
- * Client for efficient transfer of objects to and from Amazon S3.
+ * High-level utility for efficient transfer of objects to and from Amazon S3.
  * Provides methods to optimize uploading and downloading individual objects
  * as well as entire directories, with support for multipart operations,
  * concurrency control, and request cancellation.
