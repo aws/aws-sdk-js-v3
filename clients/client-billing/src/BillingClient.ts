@@ -98,6 +98,14 @@ import type {
   ListBillingViewSegmentsCommandOutput,
 } from "./commands/ListBillingViewSegmentsCommand";
 import type {
+  ListBusinessSupportAccountChargesCommandInput,
+  ListBusinessSupportAccountChargesCommandOutput,
+} from "./commands/ListBusinessSupportAccountChargesCommand";
+import type {
+  ListBusinessSupportSubscriptionHistoryCommandInput,
+  ListBusinessSupportSubscriptionHistoryCommandOutput,
+} from "./commands/ListBusinessSupportSubscriptionHistoryCommand";
+import type {
   ListEnterpriseSupportLinkedAccountChargesCommandInput,
   ListEnterpriseSupportLinkedAccountChargesCommandOutput,
 } from "./commands/ListEnterpriseSupportLinkedAccountChargesCommand";
@@ -148,6 +156,8 @@ export type ServiceInputTypes =
   | GetResourcePolicyCommandInput
   | ListBillingViewSegmentsCommandInput
   | ListBillingViewsCommandInput
+  | ListBusinessSupportAccountChargesCommandInput
+  | ListBusinessSupportSubscriptionHistoryCommandInput
   | ListEnterpriseSupportLinkedAccountChargesCommandInput
   | ListSourceViewsForBillingViewCommandInput
   | ListTagsForResourceCommandInput
@@ -174,6 +184,8 @@ export type ServiceOutputTypes =
   | GetResourcePolicyCommandOutput
   | ListBillingViewSegmentsCommandOutput
   | ListBillingViewsCommandOutput
+  | ListBusinessSupportAccountChargesCommandOutput
+  | ListBusinessSupportSubscriptionHistoryCommandOutput
   | ListEnterpriseSupportLinkedAccountChargesCommandOutput
   | ListSourceViewsForBillingViewCommandOutput
   | ListTagsForResourceCommandOutput

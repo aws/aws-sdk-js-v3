@@ -29,6 +29,11 @@ import {
   BillingViewStatus,
   BillingViewStatusReason,
   BillingViewType,
+  BusinessSupportAccountCharge$,
+  BusinessSupportDiscount$,
+  BusinessSupportServiceSpend$,
+  BusinessSupportSubscriptionContract$,
+  BusinessSupportTierCharge$,
   ChargeAccount$,
   ConflictException,
   ConflictException$,
@@ -93,6 +98,14 @@ import {
   ListBillingViewSegmentsResponse$,
   ListBillingViewsRequest$,
   ListBillingViewsResponse$,
+  ListBusinessSupportAccountCharges$,
+  ListBusinessSupportAccountChargesCommand,
+  ListBusinessSupportAccountChargesRequest$,
+  ListBusinessSupportAccountChargesResponse$,
+  ListBusinessSupportSubscriptionHistory$,
+  ListBusinessSupportSubscriptionHistoryCommand,
+  ListBusinessSupportSubscriptionHistoryRequest$,
+  ListBusinessSupportSubscriptionHistoryResponse$,
   ListEnterpriseSupportLinkedAccountCharges$,
   ListEnterpriseSupportLinkedAccountChargesCommand,
   ListEnterpriseSupportLinkedAccountChargesRequest$,
@@ -108,6 +121,8 @@ import {
   paginateGetCreditAllocationHistory,
   paginateListBillingViews,
   paginateListBillingViewSegments,
+  paginateListBusinessSupportAccountCharges,
+  paginateListBusinessSupportSubscriptionHistory,
   paginateListEnterpriseSupportLinkedAccountCharges,
   paginateListSourceViewsForBillingView,
   PreferenceValue,
@@ -181,6 +196,10 @@ assert(typeof ListBillingViewsCommand === "function");
 assert(typeof ListBillingViews$ === "object");
 assert(typeof ListBillingViewSegmentsCommand === "function");
 assert(typeof ListBillingViewSegments$ === "object");
+assert(typeof ListBusinessSupportAccountChargesCommand === "function");
+assert(typeof ListBusinessSupportAccountCharges$ === "object");
+assert(typeof ListBusinessSupportSubscriptionHistoryCommand === "function");
+assert(typeof ListBusinessSupportSubscriptionHistory$ === "object");
 assert(typeof ListEnterpriseSupportLinkedAccountChargesCommand === "function");
 assert(typeof ListEnterpriseSupportLinkedAccountCharges$ === "object");
 assert(typeof ListSourceViewsForBillingViewCommand === "function");
@@ -212,6 +231,11 @@ assert(typeof BillingViewHealthStatus$ === "object");
 assert(typeof BillingViewListElement$ === "object");
 assert(typeof BillingViewSegmentsListElement$ === "object");
 assert(typeof BillingViewSegmentTimeRange$ === "object");
+assert(typeof BusinessSupportAccountCharge$ === "object");
+assert(typeof BusinessSupportDiscount$ === "object");
+assert(typeof BusinessSupportServiceSpend$ === "object");
+assert(typeof BusinessSupportSubscriptionContract$ === "object");
+assert(typeof BusinessSupportTierCharge$ === "object");
 assert(typeof ChargeAccount$ === "object");
 assert(typeof ContractAccount$ === "object");
 assert(typeof CostCategoryValues$ === "object");
@@ -245,6 +269,10 @@ assert(typeof ListBillingViewSegmentsRequest$ === "object");
 assert(typeof ListBillingViewSegmentsResponse$ === "object");
 assert(typeof ListBillingViewsRequest$ === "object");
 assert(typeof ListBillingViewsResponse$ === "object");
+assert(typeof ListBusinessSupportAccountChargesRequest$ === "object");
+assert(typeof ListBusinessSupportAccountChargesResponse$ === "object");
+assert(typeof ListBusinessSupportSubscriptionHistoryRequest$ === "object");
+assert(typeof ListBusinessSupportSubscriptionHistoryResponse$ === "object");
 assert(typeof ListEnterpriseSupportLinkedAccountChargesRequest$ === "object");
 assert(typeof ListEnterpriseSupportLinkedAccountChargesResponse$ === "object");
 assert(typeof ListSourceViewsForBillingViewRequest$ === "object");
@@ -305,6 +333,8 @@ assert(BillingServiceException.prototype instanceof Error);
 assert(typeof paginateGetCreditAllocationHistory === "function");
 assert(typeof paginateListBillingViewSegments === "function");
 assert(typeof paginateListBillingViews === "function");
+assert(typeof paginateListBusinessSupportAccountCharges === "function");
+assert(typeof paginateListBusinessSupportSubscriptionHistory === "function");
 assert(typeof paginateListEnterpriseSupportLinkedAccountCharges === "function");
 assert(typeof paginateListSourceViewsForBillingView === "function");
 console.log(`Billing index test passed.`);

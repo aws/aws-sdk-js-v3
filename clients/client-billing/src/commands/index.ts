@@ -12,6 +12,8 @@ export * from "./GetEnterpriseSupportContractDetailsCommand";
 export * from "./GetResourcePolicyCommand";
 export * from "./ListBillingViewSegmentsCommand";
 export * from "./ListBillingViewsCommand";
+export * from "./ListBusinessSupportAccountChargesCommand";
+export * from "./ListBusinessSupportSubscriptionHistoryCommand";
 export * from "./ListEnterpriseSupportLinkedAccountChargesCommand";
 export * from "./ListSourceViewsForBillingViewCommand";
 export * from "./ListTagsForResourceCommand";

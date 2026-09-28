@@ -272,6 +272,20 @@ ListBillingViewSegments
 </details>
 <details>
 <summary>
+ListBusinessSupportAccountCharges
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/ListBusinessSupportAccountChargesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/ListBusinessSupportAccountChargesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/ListBusinessSupportAccountChargesCommandOutput/)
+</details>
+<details>
+<summary>
+ListBusinessSupportSubscriptionHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/ListBusinessSupportSubscriptionHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/ListBusinessSupportSubscriptionHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/ListBusinessSupportSubscriptionHistoryCommandOutput/)
+</details>
+<details>
+<summary>
 ListEnterpriseSupportLinkedAccountCharges
 </summary>
 

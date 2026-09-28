@@ -1048,7 +1048,7 @@ export interface GetEnterpriseSupportChargeSummaryResponse {
   billingPeriodEndDate: Date | undefined;
 
   /**
-   * <p>When true, the Support charge amount is estimated. When false, the Support charge amount is finalized.</p>
+   * <p>Specifies whether the Support charge amount is estimated. When false, the charge amount is finalized.</p>
    * @public
    */
   isEstimated: boolean | undefined;
@@ -1505,6 +1505,330 @@ export interface ListBillingViewSegmentsResponse {
 }
 
 /**
+ * <p>Contains the billing month and optional filters used to retrieve Business Support charges broken down by linked account.</p>
+ * @public
+ */
+export interface ListBusinessSupportAccountChargesRequest {
+  /**
+   * <p>The billing month to retrieve Business Support charges for, in YYYY-MM format. You can request the current month (charges will be estimated) or a past month (charges will be finalized).</p>
+   * @public
+   */
+  billingMonth: string | undefined;
+
+  /**
+   * <p>The linked account ID to filter results to a specific account. If you don't specify a value, the response includes charges for all linked accounts.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. Default is 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A discount applied to a Business Support account charge, including the discount amount, percentage, type, and source.</p>
+ * @public
+ */
+export interface BusinessSupportDiscount {
+  /**
+   * <p>The discount amount applied to the Business Support charge. This value is negative, representing a reduction in the charge.</p>
+   * @public
+   */
+  discountAmount?: string | undefined;
+
+  /**
+   * <p>The discount percentage applied to the Business Support charge, expressed as a decimal (for example, <code>0.12</code> for a 12% discount).</p>
+   * @public
+   */
+  discountPercentage?: string | undefined;
+
+  /**
+   * <p>The type of discount applied. Valid values: <code>Distributor_Discount</code> (a discount applied through a distributor arrangement), <code>SPP_Discount</code> (a discount applied through the Solution Provider Program).</p>
+   * @public
+   */
+  discountType?: string | undefined;
+
+  /**
+   * <p>The source or program through which the discount was applied.</p>
+   * @public
+   */
+  discountSource?: string | undefined;
+}
+
+/**
+ * <p>A service-level spend entry contributing to Business Support eligible spend.</p>
+ * @public
+ */
+export interface BusinessSupportServiceSpend {
+  /**
+   * <p>The name of the Amazon Web Services service contributing to the Support-eligible spend.</p>
+   * @public
+   */
+  contributingService: string | undefined;
+
+  /**
+   * <p>The type of the line item. Valid values: <code>Usage</code>.</p>
+   * @public
+   */
+  itemType: string | undefined;
+
+  /**
+   * <p>A human-readable description of the service spend entry.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Support-eligible spend amount for this service.</p>
+   * @public
+   */
+  chargeAmount: string | undefined;
+
+  /**
+   * <p>The ISO 4217 currency code for the charge amount (for example, <code>USD</code>).</p>
+   * @public
+   */
+  currency: string | undefined;
+}
+
+/**
+ * <p>A tier-level charge within a Business Support pricing plan. Business Support uses tiered pricing where different percentage rates apply to different ranges of Support-eligible spend.</p>
+ * @public
+ */
+export interface BusinessSupportTierCharge {
+  /**
+   * <p>A human-readable description of the pricing tier, including the spend range and percentage rate applied.</p>
+   * @public
+   */
+  tierDescription: string | undefined;
+
+  /**
+   * <p>The percentage rate applied to Support-eligible spend within this pricing tier.</p>
+   * @public
+   */
+  tierRate: string | undefined;
+
+  /**
+   * <p>The amount of Support-eligible spend that falls within this pricing tier.</p>
+   * @public
+   */
+  usageSlice: string | undefined;
+
+  /**
+   * <p>The Business Support charge amount calculated for this pricing tier.</p>
+   * @public
+   */
+  tierCharge: string | undefined;
+
+  /**
+   * <p>The start date of the charge period for this tier charge.</p>
+   * @public
+   */
+  chargePeriodStartDate?: Date | undefined;
+
+  /**
+   * <p>The end date of the charge period for this tier charge.</p>
+   * @public
+   */
+  chargePeriodEndDate?: Date | undefined;
+}
+
+/**
+ * <p>Business Support charges for a linked account.</p>
+ * @public
+ */
+export interface BusinessSupportAccountCharge {
+  /**
+   * <p>The linked account ID.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The Support plan name for this account. Valid values: <code>AWSSupportBusiness</code> (Business Support plan), <code>AWSSupportDeveloper</code> (Developer Support plan), <code>AWSSupportEssential</code> (Basic Support plan).</p>
+   * @public
+   */
+  supportPlanName: string | undefined;
+
+  /**
+   * <p>The total Business Support charge amount for this account in the billing month.</p>
+   * @public
+   */
+  totalCharge: string | undefined;
+
+  /**
+   * <p>The total Support-eligible spend used as the basis for calculating the Business Support charge for this account.</p>
+   * @public
+   */
+  totalUsageBasis: string | undefined;
+
+  /**
+   * <p>The tier-level charges that make up the total Business Support charge for this account. Each tier represents a spend range with its own rate.</p>
+   * @public
+   */
+  tierCharges?: BusinessSupportTierCharge[] | undefined;
+
+  /**
+   * <p>The discount applied to the Business Support charge for this account, if any. This field is absent when no discount applies.</p>
+   * @public
+   */
+  supportDiscount?: BusinessSupportDiscount | undefined;
+
+  /**
+   * <p>The Support-eligible spend broken down by contributing service for this account.</p>
+   * @public
+   */
+  supportEligibleSpendByService?: BusinessSupportServiceSpend[] | undefined;
+}
+
+/**
+ * <p>Contains the Business Support charges broken down by linked account for the specified billing month, along with account and spend totals.</p>
+ * @public
+ */
+export interface ListBusinessSupportAccountChargesResponse {
+  /**
+   * <p>The billing month for the returned charges, in YYYY-MM format.</p>
+   * @public
+   */
+  billingMonth: string | undefined;
+
+  /**
+   * <p>Specifies whether the Support charge amount is estimated. When false, the charge amount is finalized.</p>
+   * @public
+   */
+  isEstimated: boolean | undefined;
+
+  /**
+   * <p>The total Business Support charge amount for all accounts in the billing month.</p>
+   * @public
+   */
+  totalSupportCharge: string | undefined;
+
+  /**
+   * <p>The total Support-eligible spend from all accounts in the billing month. This includes eligible spend from usage of Amazon Web Services.</p>
+   * @public
+   */
+  totalSupportEligibleSpend: string | undefined;
+
+  /**
+   * <p>The total number of linked accounts with Business Support charges in the billing month.</p>
+   * @public
+   */
+  accountCount: number | undefined;
+
+  /**
+   * <p>The list of Business Support charges per linked account.</p>
+   * @public
+   */
+  accountCharges: BusinessSupportAccountCharge[] | undefined;
+
+  /**
+   * <p>The pagination token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the optional filters used to retrieve the history of Business Support subscription contracts across accounts.</p>
+ * @public
+ */
+export interface ListBusinessSupportSubscriptionHistoryRequest {
+  /**
+   * <p>The billing month to retrieve subscription contracts for, in YYYY-MM format. If you don't specify a value, defaults to the current month.</p>
+   * @public
+   */
+  billingMonth?: string | undefined;
+
+  /**
+   * <p>The account ID to filter results to a specific account. If you don't specify a value, the response includes subscription history for all accounts.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>The start date to filter subscription contracts from.</p>
+   * @public
+   */
+  startDate?: Date | undefined;
+
+  /**
+   * <p>The end date to filter subscription contracts to.</p>
+   * @public
+   */
+  endDate?: Date | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. Default is 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A Business Support subscription contract for an account.</p>
+ * @public
+ */
+export interface BusinessSupportSubscriptionContract {
+  /**
+   * <p>The account ID associated with this subscription contract.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The name of the Support plan for this subscription contract. Valid values: <code>AWSSupportBusiness</code> (Business Support plan), <code>AWSSupportDeveloper</code> (Developer Support plan), <code>AWSSupportEssential</code> (Basic Support plan).</p>
+   * @public
+   */
+  planName: string | undefined;
+
+  /**
+   * <p>The start date of the subscription contract.</p>
+   * @public
+   */
+  contractStartDate: Date | undefined;
+
+  /**
+   * <p>The end date of the subscription contract.</p>
+   * @public
+   */
+  contractEndDate: Date | undefined;
+}
+
+/**
+ * <p>Contains the list of Business Support subscription contracts that match the request filters.</p>
+ * @public
+ */
+export interface ListBusinessSupportSubscriptionHistoryResponse {
+  /**
+   * <p>The list of Business Support subscription contracts.</p>
+   * @public
+   */
+  subscriptionContracts: BusinessSupportSubscriptionContract[] | undefined;
+
+  /**
+   * <p>The pagination token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>The request structure for ListEnterpriseSupportLinkedAccountCharges.</p>
  * @public
  */
@@ -1516,13 +1840,13 @@ export interface ListEnterpriseSupportLinkedAccountChargesRequest {
   billingMonth: string | undefined;
 
   /**
-   * <p>An optional linked account ID to filter results to a specific account.</p>
+   * <p>The linked account ID to filter results to a specific account. If you don't specify a value, the response includes charges for all linked accounts.</p>
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. Default is 100.</p>
    * @public
    */
   maxResults?: number | undefined;
