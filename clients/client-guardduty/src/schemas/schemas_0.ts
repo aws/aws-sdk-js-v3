@@ -57,6 +57,7 @@ const _AR = "AffectedResources";
 const _AS = "AccountStatistics";
 const _ASC = "ActiveServicesCount";
 const _ASL = "AssociationSummaryList";
+const _ASN = "AwsServiceName";
 const _AST = "AdditionalSequenceTypes";
 const _ASd = "AddonStatus";
 const _ASdm = "AdminStatus";
@@ -1176,6 +1177,7 @@ const _aPWA = "allowsPublicWriteAccess";
 const _aR = "affectedResources";
 const _aS = "addonStatus";
 const _aSC = "activeServicesCount";
+const _aSN = "awsServiceName";
 const _aST = "additionalSequenceTypes";
 const _aSd = "adminStatus";
 const _aSu = "autonomousSystem";
@@ -3652,8 +3654,8 @@ export var RecoveryPointDetails$: StaticStructureSchema = [3, n0, _RPDe,
 ];
 export var RemoteAccountDetails$: StaticStructureSchema = [3, n0, _RAD,
   0,
-  [_AIc, _Af],
-  [[0, { [_jN]: _aIc }], [2, { [_jN]: _af }]]
+  [_AIc, _Af, _ASN],
+  [[0, { [_jN]: _aIc }], [2, { [_jN]: _af }], [0, { [_jN]: _aSN }]]
 ];
 export var RemoteIpDetails$: StaticStructureSchema = [3, n0, _RID,
   0,

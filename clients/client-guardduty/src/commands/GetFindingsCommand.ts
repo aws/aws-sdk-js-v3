@@ -464,6 +464,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             RemoteAccountDetails: { // RemoteAccountDetails
  * //               AccountId: "STRING_VALUE",
  * //               Affiliated: true || false,
+ * //               AwsServiceName: "STRING_VALUE",
  * //             },
  * //             AffectedResources: { // AffectedResources
  * //               "<keys>": "STRING_VALUE",

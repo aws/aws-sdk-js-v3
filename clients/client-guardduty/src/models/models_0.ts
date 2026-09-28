@@ -447,6 +447,12 @@ export interface RemoteAccountDetails {
    * @public
    */
   Affiliated?: boolean | undefined;
+
+  /**
+   * <p>If the remote account belongs to an Amazon Web Services service, this field indicates which service the remote account belongs to.</p>
+   * @public
+   */
+  AwsServiceName?: string | undefined;
 }
 
 /**
