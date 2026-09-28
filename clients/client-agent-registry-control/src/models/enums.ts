@@ -176,6 +176,20 @@ export type RegistryRecordStatus = (typeof RegistryRecordStatus)[keyof typeof Re
  * @public
  * @enum
  */
+export const CustomMetadataSchemaComplianceStatus = {
+  COMPLIANT: "COMPLIANT",
+  NON_COMPLIANT: "NON_COMPLIANT",
+} as const;
+/**
+ * @public
+ */
+export type CustomMetadataSchemaComplianceStatus =
+  (typeof CustomMetadataSchemaComplianceStatus)[keyof typeof CustomMetadataSchemaComplianceStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const RegistryRecordFilterName = {
   NAME: "name",
   RECORD_TYPE: "recordType",

@@ -120,6 +120,15 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  *       "APPROVE_ALL",
  *     ],
  *   },
+ *   customMetadataSchemaConfiguration: { // CustomMetadataSchemaConfiguration
+ *     defaultSchema: "STRING_VALUE",
+ *     recordTypeSchemaOverrides: [ // RecordTypeSchemaOverrideList
+ *       { // RecordTypeSchemaOverride
+ *         recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
+ *         schema: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  *   autoDetectionConfiguration: { // AutoDetectionConfiguration
  *     scope: "ORGANIZATION", // required
  *     enabled: true || false, // required

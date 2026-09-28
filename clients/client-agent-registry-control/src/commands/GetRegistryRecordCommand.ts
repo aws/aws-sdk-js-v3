@@ -389,6 +389,8 @@ export interface GetRegistryRecordCommandOutput extends GetRegistryRecordRespons
  * //   ],
  * //   createdByAutoDetection: true || false,
  * //   createdBy: "STRING_VALUE",
+ * //   customMetadata: "DOCUMENT_VALUE",
+ * //   customMetadataSchemaComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  * // };
  *
  * ```

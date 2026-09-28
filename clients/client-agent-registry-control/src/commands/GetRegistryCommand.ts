@@ -125,6 +125,15 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * //       "APPROVE_ALL",
  * //     ],
  * //   },
+ * //   customMetadataSchemaConfiguration: { // CustomMetadataSchemaConfiguration
+ * //     defaultSchema: "STRING_VALUE",
+ * //     recordTypeSchemaOverrides: [ // RecordTypeSchemaOverrideList
+ * //       { // RecordTypeSchemaOverride
+ * //         recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
+ * //         schema: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
  * //   status: "CREATING" || "READY" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED", // required
  * //   statusReason: "STRING_VALUE",
  * //   autoDetection: { // AutoDetection
