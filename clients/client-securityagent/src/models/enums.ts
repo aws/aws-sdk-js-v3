@@ -565,6 +565,10 @@ export type ValidationStatus = (typeof ValidationStatus)[keyof typeof Validation
  */
 export const JobType = {
   /**
+   * <p>A CI/CD pentest job that tests only the code changes in a single pipeline run, as determined by the scope changes supplied when the job is started.</p>
+   */
+  CICD: "CICD",
+  /**
    * <p>A full pentest job that executes all phases including scanning, managed execution, and guided exploration.</p>
    */
   FULL: "FULL",
@@ -577,6 +581,29 @@ export const JobType = {
  * @public
  */
 export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScopeDecision = {
+  /**
+   * <p>The code changes are in scope and are tested by the pentest job.</p>
+   */
+  IN_SCOPE: "IN_SCOPE",
+  /**
+   * <p>The code changes are out of scope and are not tested. No pentest is run for the changes.</p>
+   */
+  SCOPED_OUT: "SCOPED_OUT",
+  /**
+   * <p>The code changes could not be conclusively scoped because of a conflict in the scoping inputs.</p>
+   */
+  SCOPE_CONFLICT: "SCOPE_CONFLICT",
+} as const;
+/**
+ * @public
+ */
+export type ScopeDecision = (typeof ScopeDecision)[keyof typeof ScopeDecision];
 
 /**
  * @public

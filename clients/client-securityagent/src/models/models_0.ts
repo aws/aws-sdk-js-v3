@@ -30,6 +30,7 @@ import type {
   ResourceType,
   RiskLevel,
   RiskType,
+  ScopeDecision,
   SecurityRequirementArtifactFormat,
   SecurityRequirementPackImportStatus,
   SecurityRequirementPackStatus,
@@ -1388,6 +1389,18 @@ export interface BatchDeletePentestsInput {
 }
 
 /**
+ * <p>The configuration that enables a pentest to run as part of a CI/CD pipeline, scoped to the code changes in each pipeline run.</p>
+ * @public
+ */
+export interface CiCdConfiguration {
+  /**
+   * <p>Whether CI/CD pentesting is enabled for this pentest.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
  * <p>The Amazon CloudWatch Logs configuration for pentest job logging.</p>
  * @public
  */
@@ -1643,6 +1656,12 @@ export interface Pentest {
    * @public
    */
   reportFilters?: ReportFilters | undefined;
+
+  /**
+   * <p>The CI/CD pentesting configuration for this pentest. Present when the pentest is set up to run from a CI/CD pipeline.</p>
+   * @public
+   */
+  cicdConfiguration?: CiCdConfiguration | undefined;
 
   /**
    * <p>The date and time the pentest was created, in UTC format.</p>
@@ -2650,6 +2669,60 @@ export interface BatchGetPentestJobsInput {
 }
 
 /**
+ * <p>A code change in a CI/CD pipeline run that defines what a CI/CD pentest job tests. Each scope change identifies an integrated repository and the commit range for the change.</p>
+ * @public
+ */
+export interface ScopeChange {
+  /**
+   * <p>The identifier of the integration for the source-code provider that hosts the repository.</p>
+   * @public
+   */
+  integrationId: string | undefined;
+
+  /**
+   * <p>The provider-specific identifier of the repository the change belongs to.</p>
+   * @public
+   */
+  providerResourceId: string | undefined;
+
+  /**
+   * <p>The commit SHA that the change is compared against. When omitted, the change is evaluated against the head commit alone.</p>
+   * @public
+   */
+  baseCommitSha?: string | undefined;
+
+  /**
+   * <p>The commit SHA at the tip of the change to be tested.</p>
+   * @public
+   */
+  headCommitSha: string | undefined;
+
+  /**
+   * <p>The identifier of the CI/CD pipeline run that triggered this pentest job.</p>
+   * @public
+   */
+  triggerRunId?: string | undefined;
+}
+
+/**
+ * <p>The outcome of scoping a CI/CD pentest job's code changes, including the decision and the reason for it.</p>
+ * @public
+ */
+export interface ScopeResult {
+  /**
+   * <p>The scoping decision for the job's code changes.</p>
+   * @public
+   */
+  decision: ScopeDecision | undefined;
+
+  /**
+   * <p>A human-readable explanation of the scoping decision.</p>
+   * @public
+   */
+  reason: string | undefined;
+}
+
+/**
  * <p>Represents a pentest job, which is an execution instance of a pentest. A pentest job progresses through preflight, static analysis, pentest, and finalizing steps.</p>
  * @public
  */
@@ -2805,7 +2878,7 @@ export interface PentestJob {
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The type of the pentest job. Valid values are FULL and REVALIDATION.</p>
+   * <p>The type of the pentest job. Valid values are FULL, REVALIDATION, and CICD.</p>
    * @public
    */
   jobType?: JobType | undefined;
@@ -2821,6 +2894,30 @@ export interface PentestJob {
    * @public
    */
   reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The URL to view this pentest job's findings report in the console.</p>
+   * @public
+   */
+  reportUrl?: string | undefined;
+
+  /**
+   * <p>The scoping outcome for this CI/CD pentest job. Present only for jobs of type CICD.</p>
+   * @public
+   */
+  scopeResult?: ScopeResult | undefined;
+
+  /**
+   * <p>The code changes that defined the scope of this CI/CD pentest job. Present only for jobs of type CICD.</p>
+   * @public
+   */
+  scopeChanges?: ScopeChange[] | undefined;
+
+  /**
+   * <p>The configuration that enables a pentest to run as part of a CI/CD pipeline, scoped to the code changes in each pipeline run.</p>
+   * @public
+   */
+  cicdConfiguration?: CiCdConfiguration | undefined;
 
   /**
    * <p>The date and time the pentest job was created, in UTC format.</p>
@@ -4771,6 +4868,12 @@ export interface CreatePentestInput {
    * @public
    */
   reportFilters?: ReportFilters | undefined;
+
+  /**
+   * <p>The CI/CD pentesting configuration to apply to the pentest.</p>
+   * @public
+   */
+  cicdConfiguration?: CiCdConfiguration | undefined;
 }
 
 /**
@@ -4843,6 +4946,12 @@ export interface CreatePentestOutput {
    * @public
    */
   reportFilters?: ReportFilters | undefined;
+
+  /**
+   * <p>The CI/CD pentesting configuration applied to the pentest.</p>
+   * @public
+   */
+  cicdConfiguration?: CiCdConfiguration | undefined;
 }
 
 /**
@@ -7545,6 +7654,12 @@ export interface ListPentestJobsForPentestInput {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>Filters the returned pentest jobs to only those of the specified job type.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
 }
 
 /**
@@ -7587,6 +7702,18 @@ export interface PentestJobSummary {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The type of the pentest job. Valid values are FULL, REVALIDATION, and CICD.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
+
+  /**
+   * <p>The URL to view this pentest job's findings report in the console.</p>
+   * @public
+   */
+  reportUrl?: string | undefined;
 }
 
 /**
@@ -8857,7 +8984,7 @@ export interface StartPentestJobInput {
   pentestId: string | undefined;
 
   /**
-   * <p>The type of pentest job to start. Valid values are FULL and REVALIDATION. When set to REVALIDATION, the selectedFindingIds parameter is required.</p>
+   * <p>The type of pentest job to start. Valid values are FULL, REVALIDATION, and CICD. When set to REVALIDATION, the selectedFindingIds parameter is required. When set to CICD, the scopeChanges parameter defines the code changes to test.</p>
    * @public
    */
   jobType?: JobType | undefined;
@@ -8867,6 +8994,12 @@ export interface StartPentestJobInput {
    * @public
    */
   selectedFindingIds?: string[] | undefined;
+
+  /**
+   * <p>The code changes that define the scope of a CI/CD pentest job. Provide this when starting a job with jobType CICD to test only the changes in the current pipeline run.</p>
+   * @public
+   */
+  scopeChanges?: ScopeChange[] | undefined;
 }
 
 /**
@@ -9519,6 +9652,12 @@ export interface UpdatePentestInput {
    * @public
    */
   reportFilters?: ReportFilters | undefined;
+
+  /**
+   * <p>The updated CI/CD pentesting configuration to apply to the pentest.</p>
+   * @public
+   */
+  cicdConfiguration?: CiCdConfiguration | undefined;
 }
 
 /**
@@ -9591,6 +9730,12 @@ export interface UpdatePentestOutput {
    * @public
    */
   reportFilters?: ReportFilters | undefined;
+
+  /**
+   * <p>The CI/CD pentesting configuration applied to the pentest.</p>
+   * @public
+   */
+  cicdConfiguration?: CiCdConfiguration | undefined;
 }
 
 /**
@@ -9885,136 +10030,4 @@ export interface UpdateThreatModelInput {
    * @public
    */
   reportDestination?: ReportDestination | undefined;
-}
-
-/**
- * <p>Output for the UpdateThreatModel operation.</p>
- * @public
- */
-export interface UpdateThreatModelOutput {
-  /**
-   * <p>The unique identifier of the threat model.</p>
-   * @public
-   */
-  threatModelId: string | undefined;
-
-  /**
-   * <p>The title of the threat model.</p>
-   * @public
-   */
-  title?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the agent space that contains the threat model.</p>
-   * @public
-   */
-  agentSpaceId?: string | undefined;
-
-  /**
-   * <p>A description of the application or system being threat modeled.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The assets included in the threat model.</p>
-   * @public
-   */
-  assets?: Assets | undefined;
-
-  /**
-   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
-   * @public
-   */
-  scopeDocs?: DocumentInfo[] | undefined;
-
-  /**
-   * <p>The IAM service role used for the threat model.</p>
-   * @public
-   */
-  serviceRole?: string | undefined;
-
-  /**
-   * <p>The CloudWatch Logs configuration for the threat model.</p>
-   * @public
-   */
-  logConfig?: CloudWatchLog | undefined;
-
-  /**
-   * <p>The date and time the threat model was created, in UTC format.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the threat model was last updated, in UTC format.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
-   * @public
-   */
-  reportDestination?: ReportDestination | undefined;
-}
-
-/**
- * <p>Input for verifying ownership for a registered target domain in an agent space.</p>
- * @public
- */
-export interface VerifyTargetDomainInput {
-  /**
-   * <p>The unique identifier of the target domain to verify.</p>
-   * @public
-   */
-  targetDomainId: string | undefined;
-}
-
-/**
- * <p>Output for verifying ownership for a registered target domain in an agent space.</p>
- * @public
- */
-export interface VerifyTargetDomainOutput {
-  /**
-   * <p>The unique identifier of the target domain.</p>
-   * @public
-   */
-  targetDomainId?: string | undefined;
-
-  /**
-   * <p>The domain name of the target domain.</p>
-   * @public
-   */
-  domainName?: string | undefined;
-
-  /**
-   * <p>The date and time the target domain was created, in UTC format.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the target domain was last updated, in UTC format.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the target domain was verified, in UTC format.</p>
-   * @public
-   */
-  verifiedAt?: Date | undefined;
-
-  /**
-   * <p>The verification status of the target domain.</p>
-   * @public
-   */
-  status?: TargetDomainStatus | undefined;
-
-  /**
-   * <p>The reason for the current target domain verification status.</p>
-   * @public
-   */
-  verificationStatusReason?: string | undefined;
 }

@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateThreatModelInput, UpdateThreatModelOutput } from "../models/models_0";
+import type { UpdateThreatModelInput } from "../models/models_0";
+import type { UpdateThreatModelOutput } from "../models/models_1";
 import { UpdateThreatModel$ } from "../schemas/schemas_0";
 
 /**

@@ -112,6 +112,7 @@ import {
   BitbucketResourceCapabilities$,
   CaCertificateSource$,
   Category$,
+  CiCdConfiguration$,
   CleanUpStrategy,
   CloudWatchLog$,
   CodeLocation$,
@@ -432,6 +433,9 @@ import {
   ResourceType,
   RiskLevel,
   RiskType,
+  ScopeChange$,
+  ScopeDecision,
+  ScopeResult$,
   SecurityAgent,
   SecurityAgentClient,
   SecurityAgentServiceException,
@@ -827,6 +831,7 @@ assert(typeof BitbucketRepositoryResource$ === "object");
 assert(typeof BitbucketResourceCapabilities$ === "object");
 assert(typeof CaCertificateSource$ === "object");
 assert(typeof Category$ === "object");
+assert(typeof CiCdConfiguration$ === "object");
 assert(typeof CloudWatchLog$ === "object");
 assert(typeof CodeLocation$ === "object");
 assert(typeof CodeRemediationTask$ === "object");
@@ -991,6 +996,8 @@ assert(typeof ProviderInput$ === "object");
 assert(typeof ProviderResourceCapabilities$ === "object");
 assert(typeof ReportDestination$ === "object");
 assert(typeof ReportFilters$ === "object");
+assert(typeof ScopeChange$ === "object");
+assert(typeof ScopeResult$ === "object");
 assert(typeof SecurityRequirementArtifact$ === "object");
 assert(typeof SecurityRequirementPackSummary$ === "object");
 assert(typeof SecurityRequirementSummary$ === "object");
@@ -1094,6 +1101,7 @@ assert(typeof ResourceConfigDnsResolution === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RiskLevel === "object");
 assert(typeof RiskType === "object");
+assert(typeof ScopeDecision === "object");
 assert(typeof SecurityRequirementArtifactFormat === "object");
 assert(typeof SecurityRequirementPackImportStatus === "object");
 assert(typeof SecurityRequirementPackStatus === "object");
