@@ -10,6 +10,7 @@ const _BGDRREL = "BatchGetDiscoverableRegistryRecordErrorList";
 const _BGDRRR = "BatchGetDiscoverableRegistryRecordRequest";
 const _BGDRRRa = "BatchGetDiscoverableRegistryRecordResponse";
 const _CD = "CustomDescriptor";
+const _CMD = "CustomMetadataDocument";
 const _D = "Description";
 const _DD = "DescriptorData";
 const _DRRS = "DiscoverableRegistryRecordSummary";
@@ -48,6 +49,7 @@ const _aD = "additionalData";
 const _aSD = "agentSkillsDefinition";
 const _c = "client";
 const _cA = "createdAt";
+const _cM = "customMetadata";
 const _cu = "custom";
 const _d = "data";
 const _dN = "displayName";
@@ -161,6 +163,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var CustomMetadataDocument: StaticSimpleSchema = [0, n0, _CMD, 8, 15];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var DescriptorData: StaticSimpleSchema = [0, n0, _DD, 8, 0];
 var MetadataFilterExpression: StaticSimpleSchema = [0, n0, _MFE, 8, 15];
@@ -272,8 +275,8 @@ export var RegistryRecordsEntry$: StaticStructureSchema = [3, n0, _RRE,
 ];
 export var RegistryRecordSummary$: StaticStructureSchema = [3, n0, _RRS,
   0,
-  [_rA, _rAe, _rIe, _n, _rT, _des, _rV, _st, _cA, _uA, _de, _dN],
-  [0, 0, 0, 0, 0, [() => Descriptors$, 0], 0, 0, 5, 5, [() => Description, 0], 0], 10
+  [_rA, _rAe, _rIe, _n, _rT, _des, _rV, _st, _cA, _uA, _de, _dN, _cM],
+  [0, 0, 0, 0, 0, [() => Descriptors$, 0], 0, 0, 5, 5, [() => Description, 0], 0, [() => CustomMetadataDocument, 0]], 10
 ];
 export var SearchDiscoverableRegistryRecordsRequest$: StaticStructureSchema = [3, n0, _SDRRR,
   0,

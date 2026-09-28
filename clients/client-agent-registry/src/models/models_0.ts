@@ -389,6 +389,12 @@ export interface RegistryRecordSummary {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p> The custom metadata attached to this registry record. Values are strings (maximum 128 characters) or booleans. This field is only present if the registry has a custom metadata schema configured.</p>
+   * @public
+   */
+  customMetadata?: __DocumentType | undefined;
 }
 
 /**
@@ -591,7 +597,7 @@ export interface SearchDiscoverableRegistryRecordsRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p> An optional structured JSON metadata filter that narrows the search results. Supports the field-level operators <code>$eq</code>, <code>$ne</code>, and <code>$in</code>, and the logical operators <code>$and</code> and <code>$or</code> on filterable fields.</p>
+   * <p> An optional structured JSON metadata filter that narrows the search results. Supports the field-level operators <code>$eq</code>, <code>$ne</code>, and <code>$in</code>, and the logical operators <code>$and</code> and <code>$or</code> on filterable fields.</p> <p> You can also filter on custom metadata fields using the <code>customMetadata.\{key\}</code> prefix. For example, to filter by a custom metadata field: <code>\{"customMetadata.environment": \{"$eq": "production"\}\}</code>. Filter values must be strings, so match a boolean field on its string form: <code>\{"customMetadata.requiresApproval": \{"$eq": "true"\}\}</code>.</p>
    * @public
    */
   filters?: __DocumentType | undefined;

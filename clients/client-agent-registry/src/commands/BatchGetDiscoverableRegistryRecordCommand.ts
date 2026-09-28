@@ -119,6 +119,7 @@ export interface BatchGetDiscoverableRegistryRecordCommandOutput extends BatchGe
  * //       status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       customMetadata: "DOCUMENT_VALUE",
  * //     },
  * //   ],
  * //   errors: [ // BatchGetDiscoverableRegistryRecordErrorList // required
