@@ -1486,6 +1486,13 @@ DeleteClientVpnEndpoint
 </details>
 <details>
 <summary>
+DeleteClientVpnEndpointAuthorizationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteClientVpnEndpointAuthorizationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteClientVpnEndpointAuthorizationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteClientVpnEndpointAuthorizationPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteClientVpnRoute
 </summary>
 
@@ -4160,6 +4167,13 @@ GetCapacityReservationUsage
 </details>
 <details>
 <summary>
+GetClientVpnEndpointAuthorizationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetClientVpnEndpointAuthorizationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetClientVpnEndpointAuthorizationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetClientVpnEndpointAuthorizationPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 GetCoipPoolUsage
 </summary>
 
@@ -4745,6 +4759,13 @@ ModifyClientVpnEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyClientVpnEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyClientVpnEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyClientVpnEndpointCommandOutput/)
+</details>
+<details>
+<summary>
+ModifyClientVpnEndpointAuthorizationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyClientVpnEndpointAuthorizationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyClientVpnEndpointAuthorizationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyClientVpnEndpointAuthorizationPolicyCommandOutput/)
 </details>
 <details>
 <summary>

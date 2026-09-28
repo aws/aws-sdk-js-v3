@@ -56,6 +56,7 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  *     Enabled: true || false,
  *     CloudwatchLogGroup: "STRING_VALUE",
  *     CloudwatchLogStream: "STRING_VALUE",
+ *     IncludeAuthorizationPolicyContext: true || false,
  *   },
  *   DnsServers: [ // ValueStringList
  *     "STRING_VALUE",
@@ -105,6 +106,16 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  *     AvailabilityZoneIds: [ // ClientVpnAvailabilityZoneIdSet
  *       "STRING_VALUE",
  *     ],
+ *   },
+ *   DevicePostureOptions: { // DevicePostureOptions
+ *     TrustProviders: [ // ClientVpnTrustProviderRequestList
+ *       { // ClientVpnTrustProviderRequest
+ *         TrustProviderType: "crowdstrike" || "jamf" || "jumpcloud",
+ *         TenantId: "STRING_VALUE",
+ *         PublicSigningKeyUrl: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Enabled: true || false,
  *   },
  * };
  * const command = new CreateClientVpnEndpointCommand(input);

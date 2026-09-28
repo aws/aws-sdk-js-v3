@@ -9,6 +9,8 @@ import type {
   CapacityTenancy,
   ChronologicalOrder,
   ClientCertificateRevocationListStatusCode,
+  ClientVpnAuthorizationPolicyShadowMode,
+  ClientVpnAuthorizationPolicyStatus,
   Comparison,
   CurrencyCodeValues,
   DeviceTrustProviderType,
@@ -82,7 +84,10 @@ import type {
   Tag,
   TagSpecification,
   TargetConfigurationRequest,
+  TransitGatewayAssociation,
   TransitGatewayPolicyTableAssociation,
+  VpcCidrBlockAssociation,
+  VpcIpv6CidrBlockAssociation,
 } from "./models_0";
 import type {
   InstanceRequirementsRequest,
@@ -112,6 +117,122 @@ import type {
   TransitGatewayPropagation,
   UnsuccessfulSuppressionResponseObject,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayRouteTableResult {
+  /**
+   * <p>Information about the association.</p>
+   * @public
+   */
+  Association?: TransitGatewayAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTrunkInterfaceRequest {
+  /**
+   * <p>The ID of the association</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTrunkInterfaceResult {
+  /**
+   * <p>Is <code>true</code> if the request succeeds and an error otherwise.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateVpcCidrBlockRequest {
+  /**
+   * <p>The association ID for the CIDR block.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateVpcCidrBlockResult {
+  /**
+   * <p>Information about the IPv6 CIDR block association.</p>
+   * @public
+   */
+  Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation | undefined;
+
+  /**
+   * <p>Information about the IPv4 CIDR block association.</p>
+   * @public
+   */
+  CidrBlockAssociation?: VpcCidrBlockAssociation | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableAddressTransferRequest {
+  /**
+   * <p>The allocation ID of an Elastic IP address.</p>
+   * @public
+   */
+  AllocationId: string | undefined;
+
+  /**
+   * <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
+   * @public
+   */
+  TransferAccountId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -3151,6 +3272,68 @@ export interface GetCapacityReservationUsageResult {
    * @public
    */
   InterruptionInfo?: InterruptionInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClientVpnEndpointAuthorizationPolicyRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClientVpnEndpointAuthorizationPolicyResult {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnEndpointId?: string | undefined;
+
+  /**
+   * <p>The authorization policy document, written in the Cedar policy language.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+
+  /**
+   * <p>A brief description of the authorization policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Specifies whether the authorization policy is evaluated in shadow mode. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>enabled</code> - The authorization policy is evaluated and the results are logged, but access is not enforced.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code> - The authorization policy is enforced.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShadowMode?: ClientVpnAuthorizationPolicyShadowMode | undefined;
+
+  /**
+   * <p>The current state of the authorization policy.</p>
+   * @public
+   */
+  Status?: ClientVpnAuthorizationPolicyStatus | undefined;
 }
 
 /**
@@ -9052,209 +9235,4 @@ export interface GetVpnTunnelReplacementStatusRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Details for Site-to-Site VPN tunnel endpoint maintenance events.</p>
- * @public
- */
-export interface MaintenanceDetails {
-  /**
-   * <p>Verify existence of a pending maintenance.</p>
-   * @public
-   */
-  PendingMaintenance?: string | undefined;
-
-  /**
-   * <p>The timestamp after which Amazon Web Services will automatically apply maintenance.</p>
-   * @public
-   */
-  MaintenanceAutoAppliedAfter?: Date | undefined;
-
-  /**
-   * <p>Timestamp of last applied maintenance.</p>
-   * @public
-   */
-  LastMaintenanceApplied?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface GetVpnTunnelReplacementStatusResult {
-  /**
-   * <p>The ID of the Site-to-Site VPN connection. </p>
-   * @public
-   */
-  VpnConnectionId?: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway associated with the VPN connection.</p>
-   * @public
-   */
-  TransitGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the customer gateway.</p>
-   * @public
-   */
-  CustomerGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   * @public
-   */
-  VpnGatewayId?: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress?: string | undefined;
-
-  /**
-   * <p>Get details of pending tunnel endpoint maintenance.</p>
-   * @public
-   */
-  MaintenanceDetails?: MaintenanceDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportClientVpnClientCertificateRevocationListRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The client certificate revocation list file. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate">Generate a Client Certificate Revocation List</a> in the
-   * 				<i>Client VPN Administrator Guide</i>.</p>
-   * @public
-   */
-  CertificateRevocationList: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportClientVpnClientCertificateRevocationListResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * <p>Describes the client-specific data.</p>
- * @public
- */
-export interface ClientData {
-  /**
-   * <p>A user-defined comment about the disk upload.</p>
-   * @public
-   */
-  Comment?: string | undefined;
-
-  /**
-   * <p>The time that the disk upload ends.</p>
-   * @public
-   */
-  UploadEnd?: Date | undefined;
-
-  /**
-   * <p>The size of the uploaded disk image, in GiB.</p>
-   * @public
-   */
-  UploadSize?: number | undefined;
-
-  /**
-   * <p>The time that the disk upload starts.</p>
-   * @public
-   */
-  UploadStart?: Date | undefined;
-}
-
-/**
- * <p>Describes the Amazon S3 bucket for the disk image.</p>
- * @public
- */
-export interface UserBucket {
-  /**
-   * <p>The name of the Amazon S3 bucket where the disk image is located.</p>
-   * @public
-   */
-  S3Bucket?: string | undefined;
-
-  /**
-   * <p>The file name of the disk image.</p>
-   * @public
-   */
-  S3Key?: string | undefined;
-}
-
-/**
- * <p>Describes the disk container object for an import image task.</p>
- * @public
- */
-export interface ImageDiskContainer {
-  /**
-   * <p>The description of the disk image.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The block device mapping for the disk.</p>
-   * @public
-   */
-  DeviceName?: string | undefined;
-
-  /**
-   * <p>The format of the disk image being imported.</p>
-   *          <p>Valid values: <code>OVA</code> | <code>VHD</code> | <code>VHDX</code> | <code>VMDK</code> | <code>RAW</code>
-   *          </p>
-   * @public
-   */
-  Format?: string | undefined;
-
-  /**
-   * <p>The ID of the EBS snapshot to be used for importing the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https://..) or an
-   *    Amazon S3 URL (s3://..)</p>
-   * @public
-   */
-  Url?: string | undefined;
-
-  /**
-   * <p>The S3 bucket for the disk image.</p>
-   * @public
-   */
-  UserBucket?: UserBucket | undefined;
-}
-
-/**
- * <p>The request information of license configurations.</p>
- * @public
- */
-export interface ImportImageLicenseConfigurationRequest {
-  /**
-   * <p>The ARN of a license configuration.</p>
-   * @public
-   */
-  LicenseConfigurationArn?: string | undefined;
 }

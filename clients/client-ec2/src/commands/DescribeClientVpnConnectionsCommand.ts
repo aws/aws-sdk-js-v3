@@ -72,6 +72,7 @@ export interface DescribeClientVpnConnectionsCommandOutput extends DescribeClien
  * //       PostureComplianceStatuses: [ // ValueStringList
  * //         "STRING_VALUE",
  * //       ],
+ * //       AuthorizationPolicyLastEvaluatedTime: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

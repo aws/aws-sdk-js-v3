@@ -3110,6 +3110,21 @@ export type ClientVpnAuthenticationType =
  * @public
  * @enum
  */
+export const ClientVpnDeviceTrustProviderType = {
+  crowdstrike: "crowdstrike",
+  jamf: "jamf",
+  jumpcloud: "jumpcloud",
+} as const;
+/**
+ * @public
+ */
+export type ClientVpnDeviceTrustProviderType =
+  (typeof ClientVpnDeviceTrustProviderType)[keyof typeof ClientVpnDeviceTrustProviderType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EndpointIpAddressType = {
   dual_stack: "dual-stack",
   ipv4: "ipv4",
@@ -3930,6 +3945,7 @@ export const Rir = {
   apnic: "apnic",
   arin: "arin",
   lacnic: "lacnic",
+  nicbr: "nicbr",
   ripe: "ripe",
 } as const;
 /**
@@ -3947,6 +3963,9 @@ export const IpamInternetRegistryAssociationState = {
   delete_complete: "delete-complete",
   delete_failed: "delete-failed",
   delete_in_progress: "delete-in-progress",
+  disable_complete: "disable-complete",
+  disable_failed: "disable-failed",
+  disable_in_progress: "disable-in-progress",
   enable_complete: "enable-complete",
   enable_failed: "enable-failed",
   enable_in_progress: "enable-in-progress",
@@ -5944,6 +5963,23 @@ export const TelemetryStatus = {
  * @public
  */
 export type TelemetryStatus = (typeof TelemetryStatus)[keyof typeof TelemetryStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientVpnAuthorizationPolicyStatus = {
+  active: "active",
+  creating: "creating",
+  deleting: "deleting",
+  failed: "failed",
+  updating: "updating",
+} as const;
+/**
+ * @public
+ */
+export type ClientVpnAuthorizationPolicyStatus =
+  (typeof ClientVpnAuthorizationPolicyStatus)[keyof typeof ClientVpnAuthorizationPolicyStatus];
 
 /**
  * @public
@@ -8059,6 +8095,20 @@ export const CapacityManagerMonitoredTagKeyStatus = {
  */
 export type CapacityManagerMonitoredTagKeyStatus =
   (typeof CapacityManagerMonitoredTagKeyStatus)[keyof typeof CapacityManagerMonitoredTagKeyStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientVpnAuthorizationPolicyShadowMode = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
+/**
+ * @public
+ */
+export type ClientVpnAuthorizationPolicyShadowMode =
+  (typeof ClientVpnAuthorizationPolicyShadowMode)[keyof typeof ClientVpnAuthorizationPolicyShadowMode];
 
 /**
  * @public

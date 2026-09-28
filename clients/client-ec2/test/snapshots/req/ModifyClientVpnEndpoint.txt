@@ -2,14 +2,14 @@ POST https://ec2.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 1368
+content-length: 2115
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
 host: ec2.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: a628af482c4499b2098127e521f530019064a744880f60901aef0ce0c8da288e
+x-amz-content-sha256: b1f7ddd8ec6d02a962612a4726ac2cba29e5a57521dde3d2042c9474fb9ec52f
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -20,6 +20,7 @@ ServerCertificateArn=__ServerCertificateArn__&
 ConnectionLogOptions.Enabled=false&
 ConnectionLogOptions.CloudwatchLogGroup=__CloudwatchLogGroup__&
 ConnectionLogOptions.CloudwatchLogStream=__CloudwatchLogStream__&
+ConnectionLogOptions.IncludeAuthorizationPolicyContext=false&
 DnsServers.CustomDnsServers.1=__member__&
 DnsServers.CustomDnsServers.2=__member__&
 DnsServers.CustomDnsServers.3=__member__&
@@ -46,4 +47,14 @@ TransitGatewayConfiguration.AvailabilityZone.2=__member__&
 TransitGatewayConfiguration.AvailabilityZone.3=__member__&
 TransitGatewayConfiguration.AvailabilityZoneId.1=__member__&
 TransitGatewayConfiguration.AvailabilityZoneId.2=__member__&
-TransitGatewayConfiguration.AvailabilityZoneId.3=__member__
+TransitGatewayConfiguration.AvailabilityZoneId.3=__member__&
+DevicePostureOptions.TrustProvider.1.TrustProviderType=__TrustProviderType__&
+DevicePostureOptions.TrustProvider.1.TenantId=__TenantId__&
+DevicePostureOptions.TrustProvider.1.PublicSigningKeyUrl=__PublicSigningKeyUrl__&
+DevicePostureOptions.TrustProvider.2.TrustProviderType=__TrustProviderType__&
+DevicePostureOptions.TrustProvider.2.TenantId=__TenantId__&
+DevicePostureOptions.TrustProvider.2.PublicSigningKeyUrl=__PublicSigningKeyUrl__&
+DevicePostureOptions.TrustProvider.3.TrustProviderType=__TrustProviderType__&
+DevicePostureOptions.TrustProvider.3.TenantId=__TenantId__&
+DevicePostureOptions.TrustProvider.3.PublicSigningKeyUrl=__PublicSigningKeyUrl__&
+DevicePostureOptions.Enabled=false

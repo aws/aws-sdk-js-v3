@@ -39,6 +39,7 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  *     Enabled: true || false,
  *     CloudwatchLogGroup: "STRING_VALUE",
  *     CloudwatchLogStream: "STRING_VALUE",
+ *     IncludeAuthorizationPolicyContext: true || false,
  *   },
  *   DnsServers: { // DnsServersOptionsModifyStructure
  *     CustomDnsServers: [ // ValueStringList
@@ -76,6 +77,16 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  *     AvailabilityZoneIds: [ // ClientVpnAvailabilityZoneIdSet
  *       "STRING_VALUE",
  *     ],
+ *   },
+ *   DevicePostureOptions: { // DevicePostureOptions
+ *     TrustProviders: [ // ClientVpnTrustProviderRequestList
+ *       { // ClientVpnTrustProviderRequest
+ *         TrustProviderType: "crowdstrike" || "jamf" || "jumpcloud",
+ *         TenantId: "STRING_VALUE",
+ *         PublicSigningKeyUrl: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Enabled: true || false,
  *   },
  * };
  * const command = new ModifyClientVpnEndpointCommand(input);

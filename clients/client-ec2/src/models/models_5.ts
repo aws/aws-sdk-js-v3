@@ -7,6 +7,7 @@ import type {
   AttachmentStatus,
   BatchState,
   CapacityManagerStatus,
+  CurrencyCodeValues,
   DnsNameState,
   EventType,
   ExcessCapacityTerminationPolicy,
@@ -21,6 +22,8 @@ import type {
   IpAddressType,
   ManagedBy,
   MetricType,
+  OfferingClassType,
+  OfferingTypeValues,
   OnDemandAllocationStrategy,
   PayerResponsibility,
   PermissionGroup,
@@ -28,6 +31,7 @@ import type {
   ResourceType,
   RIProductDescription,
   RouteServerPropagationState,
+  Scope,
   SecondaryInterfaceStatus,
   SecondaryInterfaceType,
   SecondaryNetworkType,
@@ -79,7 +83,6 @@ import type {
   SuccessfulAssociationResponseObject,
   Tag,
   TagSpecification,
-  TransitGatewayAssociation,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
   TransitGatewayPolicyTableAssociation,
@@ -90,8 +93,6 @@ import type {
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
   Volume,
-  VpcCidrBlockAssociation,
-  VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
 } from "./models_0";
 import type {
@@ -114,6 +115,7 @@ import type {
   GroupIdentifier,
   PayerResponsibilityEntry,
   RouteServer,
+  RouteServerEndpoint,
   RouteServerPeer,
   RouteTable,
   SecondaryNetwork,
@@ -149,7 +151,245 @@ import type {
   FastLaunchSnapshotConfigurationResponse,
   Filter,
 } from "./models_3";
-import type { AttributeBooleanValue, ProductCode, RegisteredInstance } from "./models_4";
+import type { AttributeBooleanValue, ProductCode, RecurringCharge, RegisteredInstance } from "./models_4";
+
+/**
+ * <p>Describes a Reserved Instance offering.</p>
+ * @public
+ */
+export interface PricingDetail {
+  /**
+   * <p>The number of reservations available for the price.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The price per instance.</p>
+   * @public
+   */
+  Price?: number | undefined;
+}
+
+/**
+ * <p>Describes a Reserved Instance offering.</p>
+ * @public
+ */
+export interface ReservedInstancesOffering {
+  /**
+   * <p>The currency of the Reserved Instance offering you are purchasing. It's specified using
+   *       ISO 4217 standard currency codes. At this time, the only supported currency is
+   *         <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues | undefined;
+
+  /**
+   * <p>The tenancy of the instance.</p>
+   * @public
+   */
+  InstanceTenancy?: Tenancy | undefined;
+
+  /**
+   * <p>Indicates whether the offering is available through the Reserved Instance Marketplace
+   *       (resale) or Amazon Web Services. If it's a Reserved Instance Marketplace offering, this is
+   *       <code>true</code>.</p>
+   * @public
+   */
+  Marketplace?: boolean | undefined;
+
+  /**
+   * <p>If <code>convertible</code> it can be exchanged for Reserved Instances of the same or
+   *       higher monetary value, with different configurations. If <code>standard</code>, it is not
+   *       possible to perform an exchange.</p>
+   * @public
+   */
+  OfferingClass?: OfferingClassType | undefined;
+
+  /**
+   * <p>The Reserved Instance offering type.</p>
+   * @public
+   */
+  OfferingType?: OfferingTypeValues | undefined;
+
+  /**
+   * <p>The pricing details of the Reserved Instance offering.</p>
+   * @public
+   */
+  PricingDetails?: PricingDetail[] | undefined;
+
+  /**
+   * <p>The recurring charge tag assigned to the resource.</p>
+   * @public
+   */
+  RecurringCharges?: RecurringCharge[] | undefined;
+
+  /**
+   * <p>Whether the Reserved Instance is applied to instances in a Region or an Availability
+   *       Zone.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The ID of the Reserved Instance offering. This is the offering ID used in <a>GetReservedInstancesExchangeQuote</a> to confirm that an exchange can be
+   *       made.</p>
+   * @public
+   */
+  ReservedInstancesOfferingId?: string | undefined;
+
+  /**
+   * <p>The instance type on which the Reserved Instance can be used.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The duration of the Reserved Instance, in seconds.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The usage price of the Reserved Instance, per hour.</p>
+   * @public
+   */
+  UsagePrice?: number | undefined;
+
+  /**
+   * <p>The purchase price of the Reserved Instance.</p>
+   * @public
+   */
+  FixedPrice?: number | undefined;
+
+  /**
+   * <p>The Reserved Instance product platform description.</p>
+   * @public
+   */
+  ProductDescription?: RIProductDescription | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeReservedInstancesOfferings.</p>
+ * @public
+ */
+export interface DescribeReservedInstancesOfferingsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *       when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of Reserved Instances offerings.</p>
+   * @public
+   */
+  ReservedInstancesOfferings?: ReservedInstancesOffering[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRouteServerEndpointsRequest {
+  /**
+   * <p>The IDs of the route server endpoints to describe.</p>
+   * @public
+   */
+  RouteServerEndpointIds?: string[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters to apply to the describe request.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRouteServerEndpointsResult {
+  /**
+   * <p>Information about the described route server endpoints.</p>
+   * @public
+   */
+  RouteServerEndpoints?: RouteServerEndpoint[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRouteServerPeersRequest {
+  /**
+   * <p>The IDs of the route server peers to describe.</p>
+   * @public
+   */
+  RouteServerPeerIds?: string[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters to apply to the describe request.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -8462,7 +8702,7 @@ export interface DescribeVpcEndpointsRequest {
    *                <p>
    *                   <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> |
    *                     <code>Gateway</code> | <code>GatewayLoadBalancer</code> | <code>Resource</code> |
-   *                     <code>ServiceNetwork</code>).</p>
+   *                     <code>ServiceNetwork</code> | <code>Tunnel</code>).</p>
    *             </li>
    *          </ul>
    * @public
@@ -11270,122 +11510,6 @@ export interface DisassociateTransitGatewayRouteTableRequest {
    * @public
    */
   TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTransitGatewayRouteTableResult {
-  /**
-   * <p>Information about the association.</p>
-   * @public
-   */
-  Association?: TransitGatewayAssociation | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTrunkInterfaceRequest {
-  /**
-   * <p>The ID of the association</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
-   *                 idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTrunkInterfaceResult {
-  /**
-   * <p>Is <code>true</code> if the request succeeds and an error otherwise.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring
-   *                 idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateVpcCidrBlockRequest {
-  /**
-   * <p>The association ID for the CIDR block.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateVpcCidrBlockResult {
-  /**
-   * <p>Information about the IPv6 CIDR block association.</p>
-   * @public
-   */
-  Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation | undefined;
-
-  /**
-   * <p>Information about the IPv4 CIDR block association.</p>
-   * @public
-   */
-  CidrBlockAssociation?: VpcCidrBlockAssociation | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAddressTransferRequest {
-  /**
-   * <p>The allocation ID of an Elastic IP address.</p>
-   * @public
-   */
-  AllocationId: string | undefined;
-
-  /**
-   * <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
-   * @public
-   */
-  TransferAccountId: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,

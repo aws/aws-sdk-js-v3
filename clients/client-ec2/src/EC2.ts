@@ -891,6 +891,11 @@ import {
   DeleteCarrierGatewayCommand,
 } from "./commands/DeleteCarrierGatewayCommand";
 import {
+  type DeleteClientVpnEndpointAuthorizationPolicyCommandInput,
+  type DeleteClientVpnEndpointAuthorizationPolicyCommandOutput,
+  DeleteClientVpnEndpointAuthorizationPolicyCommand,
+} from "./commands/DeleteClientVpnEndpointAuthorizationPolicyCommand";
+import {
   type DeleteClientVpnEndpointCommandInput,
   type DeleteClientVpnEndpointCommandOutput,
   DeleteClientVpnEndpointCommand,
@@ -2802,6 +2807,11 @@ import {
   GetCapacityReservationUsageCommand,
 } from "./commands/GetCapacityReservationUsageCommand";
 import {
+  type GetClientVpnEndpointAuthorizationPolicyCommandInput,
+  type GetClientVpnEndpointAuthorizationPolicyCommandOutput,
+  GetClientVpnEndpointAuthorizationPolicyCommand,
+} from "./commands/GetClientVpnEndpointAuthorizationPolicyCommand";
+import {
   type GetCoipPoolUsageCommandInput,
   type GetCoipPoolUsageCommandOutput,
   GetCoipPoolUsageCommand,
@@ -3216,6 +3226,11 @@ import {
   type ModifyCapacityReservationFleetCommandOutput,
   ModifyCapacityReservationFleetCommand,
 } from "./commands/ModifyCapacityReservationFleetCommand";
+import {
+  type ModifyClientVpnEndpointAuthorizationPolicyCommandInput,
+  type ModifyClientVpnEndpointAuthorizationPolicyCommandOutput,
+  ModifyClientVpnEndpointAuthorizationPolicyCommand,
+} from "./commands/ModifyClientVpnEndpointAuthorizationPolicyCommand";
 import {
   type ModifyClientVpnEndpointCommandInput,
   type ModifyClientVpnEndpointCommandOutput,
@@ -4485,6 +4500,7 @@ const commands = {
   DeleteCapacityManagerDataExportCommand,
   DeleteCarrierGatewayCommand,
   DeleteClientVpnEndpointCommand,
+  DeleteClientVpnEndpointAuthorizationPolicyCommand,
   DeleteClientVpnRouteCommand,
   DeleteCoipCidrCommand,
   DeleteCoipPoolCommand,
@@ -4867,6 +4883,7 @@ const commands = {
   GetCapacityManagerMetricDimensionsCommand,
   GetCapacityManagerMonitoredTagKeysCommand,
   GetCapacityReservationUsageCommand,
+  GetClientVpnEndpointAuthorizationPolicyCommand,
   GetCoipPoolUsageCommand,
   GetConsoleOutputCommand,
   GetConsoleScreenshotCommand,
@@ -4951,6 +4968,7 @@ const commands = {
   ModifyCapacityReservationCommand,
   ModifyCapacityReservationFleetCommand,
   ModifyClientVpnEndpointCommand,
+  ModifyClientVpnEndpointAuthorizationPolicyCommand,
   ModifyDefaultCreditSpecificationCommand,
   ModifyEbsDefaultKmsKeyIdCommand,
   ModifyFleetCommand,
@@ -8401,6 +8419,23 @@ export interface EC2 {
     args: DeleteClientVpnEndpointCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: DeleteClientVpnEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteClientVpnEndpointAuthorizationPolicyCommand}
+   */
+  deleteClientVpnEndpointAuthorizationPolicy(
+    args: DeleteClientVpnEndpointAuthorizationPolicyCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<DeleteClientVpnEndpointAuthorizationPolicyCommandOutput>;
+  deleteClientVpnEndpointAuthorizationPolicy(
+    args: DeleteClientVpnEndpointAuthorizationPolicyCommandInput,
+    cb: (err: any, data?: DeleteClientVpnEndpointAuthorizationPolicyCommandOutput) => void
+  ): void;
+  deleteClientVpnEndpointAuthorizationPolicy(
+    args: DeleteClientVpnEndpointAuthorizationPolicyCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: DeleteClientVpnEndpointAuthorizationPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -15093,6 +15128,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetClientVpnEndpointAuthorizationPolicyCommand}
+   */
+  getClientVpnEndpointAuthorizationPolicy(
+    args: GetClientVpnEndpointAuthorizationPolicyCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<GetClientVpnEndpointAuthorizationPolicyCommandOutput>;
+  getClientVpnEndpointAuthorizationPolicy(
+    args: GetClientVpnEndpointAuthorizationPolicyCommandInput,
+    cb: (err: any, data?: GetClientVpnEndpointAuthorizationPolicyCommandOutput) => void
+  ): void;
+  getClientVpnEndpointAuthorizationPolicy(
+    args: GetClientVpnEndpointAuthorizationPolicyCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: GetClientVpnEndpointAuthorizationPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCoipPoolUsageCommand}
    */
   getCoipPoolUsage(
@@ -16533,6 +16585,23 @@ export interface EC2 {
     args: ModifyClientVpnEndpointCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: ModifyClientVpnEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyClientVpnEndpointAuthorizationPolicyCommand}
+   */
+  modifyClientVpnEndpointAuthorizationPolicy(
+    args: ModifyClientVpnEndpointAuthorizationPolicyCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<ModifyClientVpnEndpointAuthorizationPolicyCommandOutput>;
+  modifyClientVpnEndpointAuthorizationPolicy(
+    args: ModifyClientVpnEndpointAuthorizationPolicyCommandInput,
+    cb: (err: any, data?: ModifyClientVpnEndpointAuthorizationPolicyCommandOutput) => void
+  ): void;
+  modifyClientVpnEndpointAuthorizationPolicy(
+    args: ModifyClientVpnEndpointAuthorizationPolicyCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: ModifyClientVpnEndpointAuthorizationPolicyCommandOutput) => void
   ): void;
 
   /**

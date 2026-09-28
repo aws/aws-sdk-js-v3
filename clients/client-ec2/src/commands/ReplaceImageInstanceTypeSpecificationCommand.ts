@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ReplaceImageInstanceTypeSpecificationRequest,
   ReplaceImageInstanceTypeSpecificationResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import { ReplaceImageInstanceTypeSpecification$ } from "../schemas/schemas_0";
 
 /**

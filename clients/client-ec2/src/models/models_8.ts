@@ -66,7 +66,318 @@ import type {
   SpotPlacement,
 } from "./models_5";
 import type { CapacityManagerMonitoredTagKey } from "./models_6";
-import type { CapacityReservationSpecification, EnclaveOptionsRequest, InstanceMonitoring } from "./models_7";
+import type {
+  CapacityReservationSpecification,
+  CreationDateConditionRequest,
+  EnclaveOptionsRequest,
+  InstanceMonitoring,
+} from "./models_7";
+
+/**
+ * <p>The maximum period since deprecation for allowed images.</p>
+ * @public
+ */
+export interface DeprecationTimeConditionRequest {
+  /**
+   * <p>The maximum number of days that have elapsed since the image was deprecated. Set to
+   *       <code>0</code> to exclude all deprecated images.</p>
+   * @public
+   */
+  MaximumDaysSinceDeprecated?: number | undefined;
+}
+
+/**
+ * <p>The watermark filter criteria for an allowed image. Each entry can specify one or more
+ *       fields. All specified fields must match the same watermark on the image.</p>
+ * @public
+ */
+export interface ImageWatermarkFilterRequest {
+  /**
+   * <p>The <code>accountId:name</code> of the watermark. Supports wildcards (<code>*</code>,
+   *       <code>?</code>).</p>
+   * @public
+   */
+  WatermarkKey?: string | undefined;
+
+  /**
+   * <p>The Region where the watermark was originally created. Supports wildcards (<code>*</code>,
+   *       <code>?</code>).</p>
+   * @public
+   */
+  SourceImageRegion?: string | undefined;
+
+  /**
+   * <p>The maximum number of days that have elapsed since the source image was
+   *       created.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaximumDaysSinceSourceImageCreated?: number | undefined;
+
+  /**
+   * <p>The maximum number of days that have elapsed since the watermark was attached to the
+   *       image.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaximumDaysSinceWatermarkCreated?: number | undefined;
+}
+
+/**
+ * <p>The criteria that are evaluated to determine which AMIs are discoverable and usable in
+ *       your account for the specified Amazon Web Services Region.</p>
+ *          <p>The <code>ImageCriteria</code> can include up to:</p>
+ *          <ul>
+ *             <li>
+ *                <p>10 <code>ImageCriterion</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Each <code>ImageCriterion</code> can include up to:</p>
+ *          <ul>
+ *             <li>
+ *                <p>200 values for <code>ImageProviders</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>50 values for <code>ImageNames</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>50 values for <code>MarketplaceProductCodes</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>50 values for <code>ImageWatermarks</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#how-allowed-amis-works">How Allowed AMIs
+ *         works</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface ImageCriterionRequest {
+  /**
+   * <p>The image providers whose images are allowed.</p>
+   *          <p>Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>amazon</code>: Allow AMIs created by Amazon or verified providers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-marketplace</code>: Allow AMIs created by verified providers in the Amazon Web Services
+   *           Marketplace.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-backup-vault</code>: Allow AMIs created by Amazon Web Services Backup. </p>
+   *             </li>
+   *             <li>
+   *                <p>12-digit account ID: Allow AMIs created by the specified accounts. One or more account IDs can be
+   *           specified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>: Allow AMIs created by your own account only. When <code>none</code> is
+   *           specified, no other values can be specified.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Maximum: 200 values</p>
+   * @public
+   */
+  ImageProviders?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Marketplace product codes for allowed images.</p>
+   *          <p>Length: 1-25 characters</p>
+   *          <p>Valid characters: Letters (<code>A–Z, a–z</code>) and numbers (<code>0–9</code>)</p>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  MarketplaceProductCodes?: string[] | undefined;
+
+  /**
+   * <p>The names of allowed images. Names can include wildcards (<code>?</code> and
+   *         <code>*</code>).</p>
+   *          <p>Length: 1–128 characters. With <code>?</code>, the minimum is 3 characters.</p>
+   *          <p>Valid characters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Letters: <code>A–Z, a–z</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Numbers: <code>0–9</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Special characters: <code>( ) [ ] . / - ' @ _ * ?</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Spaces</p>
+   *             </li>
+   *          </ul>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  ImageNames?: string[] | undefined;
+
+  /**
+   * <p>The maximum period since deprecation for allowed images.</p>
+   * @public
+   */
+  DeprecationTimeCondition?: DeprecationTimeConditionRequest | undefined;
+
+  /**
+   * <p>The maximum age for allowed images.</p>
+   * @public
+   */
+  CreationDateCondition?: CreationDateConditionRequest | undefined;
+
+  /**
+   * <p>The watermark criteria that an AMI must match to be allowed. An AMI is allowed if it
+   *       carries at least one watermark that satisfies an ImageWatermarkFilter. A watermark satisfies a
+   *       filter when all specified fields in the ImageWatermarkFilter match the corresponding values on
+   *       the watermark of the AMI.</p>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  ImageWatermarks?: ImageWatermarkFilterRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceImageCriteriaInAllowedImagesSettingsRequest {
+  /**
+   * <p>The list of criteria that are evaluated to determine whether AMIs are discoverable and
+   *       usable in the account in the specified Amazon Web Services Region.</p>
+   * @public
+   */
+  ImageCriteria?: ImageCriterionRequest[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceImageCriteriaInAllowedImagesSettingsResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  ReturnValue?: boolean | undefined;
+}
+
+/**
+ * <p>The instance type specification for an AMI, which contains lists of supported and
+ *       unsupported instance types that define which instance types are compatible with the AMI.</p>
+ * @public
+ */
+export interface InstanceTypeSpecificationRequest {
+  /**
+   * <p>The instance types that the AMI supports. You can specify instance type names or use
+   *       wildcard patterns (for example, <code>t3.*</code>).</p>
+   *          <p>Constraints: Maximum 100 entries. Each entry must be 1-24 characters and match the pattern
+   *         <code>^[A-Za-z0-9_.*-]+$</code>. Consecutive wildcard characters (<code>**</code>) are not
+   *       allowed. Entries must be unique within each list and across both lists; duplicate entries cause the request to fail.</p>
+   * @public
+   */
+  SupportedInstanceTypes?: string[] | undefined;
+
+  /**
+   * <p>The instance types that the AMI does not support. You can specify instance type names or
+   *       use wildcard patterns (for example, <code>t3.*</code>).</p>
+   *          <p>Constraints: Maximum 100 entries. Each entry must be 1-24 characters and match the pattern
+   *         <code>^[A-Za-z0-9_.*-]+$</code>. Consecutive wildcard characters (<code>**</code>) are not
+   *       allowed. Entries must be unique within each list and across both lists; duplicate entries cause the request to fail.</p>
+   * @public
+   */
+  UnsupportedInstanceTypes?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceImageInstanceTypeSpecificationRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The instance type specification to set on the AMI. Omit this parameter to remove the
+   *       existing instance type specification.</p>
+   * @public
+   */
+  InstanceTypeSpecification?: InstanceTypeSpecificationRequest | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceImageInstanceTypeSpecificationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  ReturnValue?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceNetworkAclAssociationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the current association between the original network ACL and the subnet.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>The ID of the new network ACL to associate with the subnet.</p>
+   * @public
+   */
+  NetworkAclId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceNetworkAclAssociationResult {
+  /**
+   * <p>The ID of the new association.</p>
+   * @public
+   */
+  NewAssociationId?: string | undefined;
+}
 
 /**
  * @public
