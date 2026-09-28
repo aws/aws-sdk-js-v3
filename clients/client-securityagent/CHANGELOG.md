@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1141.0...v3.1142.0) (2026-09-28)
+
+
+### Features
+
+* **client-securityagent:** Run automated penetration tests directly from your CI-CD pipeline to scan code changes before they ship, gating deployments on the findings ([907d2ca](https://github.com/aws/aws-sdk-js-v3/commit/907d2cace328cde542260b7ba66ee359376266ed))
+
+
+
+
+
 # [3.1141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1140.0...v3.1141.0) (2026-09-25)
 
 

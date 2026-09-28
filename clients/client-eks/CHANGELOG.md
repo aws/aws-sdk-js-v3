@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1141.0...v3.1142.0) (2026-09-28)
+
+
+### Features
+
+* **client-eks:** An optional customer provided prefix used to construct the hostname of the Argo CD server endpoint for EKS Argo CD Capability. ([373ebbd](https://github.com/aws/aws-sdk-js-v3/commit/373ebbd8a9b9b6adddadc8c12e935782357c74e2))
+
+
+
+
+
 # [3.1141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1140.0...v3.1141.0) (2026-09-25)
 
 **Note:** Version bump only for package @aws-sdk/client-eks

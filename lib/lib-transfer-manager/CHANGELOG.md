@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1141.0...v3.1142.0) (2026-09-28)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** bind browser deps via dependency injection ([#8305](https://github.com/aws/aws-sdk-js-v3/issues/8305)) ([aa6819c](https://github.com/aws/aws-sdk-js-v3/commit/aa6819c317895d74a2c5900dcd18192894479db1))
+
+
+
+
+
 # [3.1141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1140.0...v3.1141.0) (2026-09-25)
 
 **Note:** Version bump only for package @aws-sdk/lib-transfer-manager

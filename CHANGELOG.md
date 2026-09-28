@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1141.0...v3.1142.0) (2026-09-28)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** bind browser deps via dependency injection ([#8305](https://github.com/aws/aws-sdk-js-v3/issues/8305)) ([aa6819c](https://github.com/aws/aws-sdk-js-v3/commit/aa6819c317895d74a2c5900dcd18192894479db1))
+
+
+### Features
+
+* **client-agent-registry-control:** AWS Agent Registry adds support for custom metadata. Define a typed metadata schema on your registry and attach structured key-value metadata to registry records. Schemas are additive only. Enforcement is progressive. Records show a compliance status computed against the current schema. ([19adcfe](https://github.com/aws/aws-sdk-js-v3/commit/19adcfee1c1c18c21ccc32cbff2c8f1e4347cad7))
+* **client-agent-registry:** AWS Agent Registry adds support for custom metadata. Discovery APIs now return custom metadata on registry records and support filtering by metadata fields. Semantic search includes custom metadata for improved relevance. Filter customMetadata fields using eq, ne, and in operators. ([ebaf33f](https://github.com/aws/aws-sdk-js-v3/commit/ebaf33f959bac71b93a7e07aa24bb4565a14732a))
+* **client-bedrock-agentcore-control:** Amazon Bedrock AgentCore Gateway now supports returning the complete MCP tools list in a single response by disabling pagination for the tools list operation. This feature is available in limited preview. ([be1e12e](https://github.com/aws/aws-sdk-js-v3/commit/be1e12efd43f30e5daece61e2d1f91f418ba7acb))
+* **client-billing:** Adds support for (a) listing Business Support account charges via ListBusinessSupportAccountCharges and (b) subscription history via ListBusinessSupportSubscriptionHistory through the AWS Billing API. ([6352ff0](https://github.com/aws/aws-sdk-js-v3/commit/6352ff06030a0253a1175853aa1723fa05b9de8a))
+* **client-connect:** This release adds ConnectionTypes and ChatStreamingConfiguration to StartChatContact, and ConnectionCredentials, Websocket, and StreamingId to its response, so customers can request connection information and chat streaming in the same call that starts the chat. ([21e76d1](https://github.com/aws/aws-sdk-js-v3/commit/21e76d11be702bb166ef281ac2e14b56e290c13a))
+* **client-ec2:** API changes to AWS Client VPN to support device posture assessment and Cedar authorization policies ([6afa3ce](https://github.com/aws/aws-sdk-js-v3/commit/6afa3ce42e13620f18ae182d0fc1ab2fb91bc742))
+* **client-eks:** An optional customer provided prefix used to construct the hostname of the Argo CD server endpoint for EKS Argo CD Capability. ([373ebbd](https://github.com/aws/aws-sdk-js-v3/commit/373ebbd8a9b9b6adddadc8c12e935782357c74e2))
+* **client-fsx:** Amazon FSx has expanded the model-level maximum on the ThroughputCapacity, ThroughputCapacityPerHAPair, and Iops API parameters. Actual supported values are unchanged and depend on file system type and configuration. ([3a08cd3](https://github.com/aws/aws-sdk-js-v3/commit/3a08cd30f1154cb00b65db67fb832ff98eff5e55))
+* **client-glue:** Added a new exception to several batch APIs ([54624e3](https://github.com/aws/aws-sdk-js-v3/commit/54624e315ae7e093beda0d5b6dbdefc07439bb98))
+* **client-guardduty:** Adding awsServiceName field to GuardDuty Findings ([f466e44](https://github.com/aws/aws-sdk-js-v3/commit/f466e44ecbad61490397a2ecd51d8ea197c76ded))
+* **client-securityagent:** Run automated penetration tests directly from your CI-CD pipeline to scan code changes before they ship, gating deployments on the findings ([907d2ca](https://github.com/aws/aws-sdk-js-v3/commit/907d2cace328cde542260b7ba66ee359376266ed))
+* **client-ssm:** Add support for sharing SSM documents with organizations and OUs using RAM. ([4affe98](https://github.com/aws/aws-sdk-js-v3/commit/4affe98db8761372ad0ffc8abd6fd91e2d910a2c))
+
+
+
+
+
 # [3.1141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1140.0...v3.1141.0) (2026-09-25)
 
 
