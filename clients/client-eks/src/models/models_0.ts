@@ -972,6 +972,12 @@ export interface ArgoCdConfigRequest {
    * @public
    */
   networkAccess?: ArgoCdNetworkAccessConfigRequest | undefined;
+
+  /**
+   * <p>An optional prefix used to construct the hostname of the Argo CD server endpoint. If not specified, Amazon EKS automatically generates the endpoint. This value can't be changed after the capability is created.</p>
+   * @public
+   */
+  endpointPrefix?: string | undefined;
 }
 
 /**
@@ -1020,6 +1026,12 @@ export interface ArgoCdConfigResponse {
    * @public
    */
   serverUrl?: string | undefined;
+
+  /**
+   * <p>The prefix that was configured for the hostname of the Argo CD server endpoint when the capability was created.</p>
+   * @public
+   */
+  endpointPrefix?: string | undefined;
 }
 
 /**

@@ -528,9 +528,10 @@ const _eLB = "elasticLoadBalancing";
 const _eM = "errorMessage";
 const _eOESD = "endOfExtendedSupportDate";
 const _eOSSD = "endOfStandardSupportDate";
-const _eP = "etcdPlacement";
+const _eP = "endpointPrefix";
 const _ePA = "endpointPublicAccess";
 const _ePAn = "endpointPrivateAccess";
+const _ePt = "etcdPlacement";
 const _eSK = "ec2SshKey";
 const _eT = "eventTtl";
 const _ef = "effect";
@@ -990,13 +991,13 @@ export var ArgoCdAwsIdcConfigResponse$: StaticStructureSchema = [3, n0, _ACAICRr
 ];
 export var ArgoCdConfigRequest$: StaticStructureSchema = [3, n0, _ACCR,
   0,
-  [_aI, _nam, _rRM, _nA],
-  [() => ArgoCdAwsIdcConfigRequest$, 0, () => ArgoCdRoleMappingList, () => ArgoCdNetworkAccessConfigRequest$], 1
+  [_aI, _nam, _rRM, _nA, _eP],
+  [() => ArgoCdAwsIdcConfigRequest$, 0, () => ArgoCdRoleMappingList, () => ArgoCdNetworkAccessConfigRequest$, 0], 1
 ];
 export var ArgoCdConfigResponse$: StaticStructureSchema = [3, n0, _ACCRr,
   0,
-  [_nam, _aI, _rRM, _nA, _sU],
-  [0, () => ArgoCdAwsIdcConfigResponse$, () => ArgoCdRoleMappingList, () => ArgoCdNetworkAccessConfigResponse$, 0]
+  [_nam, _aI, _rRM, _nA, _sU, _eP],
+  [0, () => ArgoCdAwsIdcConfigResponse$, () => ArgoCdRoleMappingList, () => ArgoCdNetworkAccessConfigResponse$, 0, 0]
 ];
 export var ArgoCdNetworkAccessConfigRequest$: StaticStructureSchema = [3, n0, _ACNACR,
   0,
@@ -2020,12 +2021,12 @@ export var OidcIdentityProviderConfigRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var OutpostConfigRequest$: StaticStructureSchema = [3, n0, _OCR,
   0,
-  [_oA, _cPIT, _cPP, _eIT, _eP],
+  [_oA, _cPIT, _cPP, _eIT, _ePt],
   [64 | 0, 0, () => ControlPlanePlacementRequest$, 0, () => EtcdPlacementRequest$], 2
 ];
 export var OutpostConfigResponse$: StaticStructureSchema = [3, n0, _OCRu,
   0,
-  [_oA, _cPIT, _cPP, _eIT, _eP],
+  [_oA, _cPIT, _cPP, _eIT, _ePt],
   [64 | 0, 0, () => ControlPlanePlacementResponse$, 0, () => EtcdPlacementResponse$], 2
 ];
 export var PodGcControllerConfigRequest$: StaticStructureSchema = [3, n0, _PGCCR,

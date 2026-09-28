@@ -73,6 +73,7 @@ export interface DeleteCapabilityCommandOutput extends DeleteCapabilityResponse,
  * //           ],
  * //         },
  * //         serverUrl: "STRING_VALUE",
+ * //         endpointPrefix: "STRING_VALUE",
  * //       },
  * //     },
  * //     tags: { // TagMap

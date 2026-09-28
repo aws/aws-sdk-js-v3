@@ -72,6 +72,7 @@ export interface DescribeCapabilityCommandOutput extends DescribeCapabilityRespo
  * //           ],
  * //         },
  * //         serverUrl: "STRING_VALUE",
+ * //         endpointPrefix: "STRING_VALUE",
  * //       },
  * //     },
  * //     tags: { // TagMap
