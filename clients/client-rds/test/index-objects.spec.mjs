@@ -1104,6 +1104,7 @@ import {
   TargetConnectionNetworkType,
   TargetHealth$,
   TargetHealthReason,
+  TargetResourceConfiguration$,
   TargetRole,
   TargetState,
   TargetType,
@@ -1905,6 +1906,7 @@ assert(typeof Tag$ === "object");
 assert(typeof TagListMessage$ === "object");
 assert(typeof TagSpecification$ === "object");
 assert(typeof TargetHealth$ === "object");
+assert(typeof TargetResourceConfiguration$ === "object");
 assert(typeof TenantDatabase$ === "object");
 assert(typeof TenantDatabasePendingModifiedValues$ === "object");
 assert(typeof TenantDatabasesMessage$ === "object");

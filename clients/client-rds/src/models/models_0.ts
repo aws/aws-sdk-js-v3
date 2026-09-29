@@ -1777,6 +1777,24 @@ export interface CopyOptionGroupResult {
 }
 
 /**
+ * <p>The configuration for a single resource in the green environment of a blue/green deployment.</p> <p>Use <code>SourceArn</code> to identify a resource in the blue environment. Amazon RDS creates the corresponding resource in the green environment using this configuration.</p> <p>This data type is a request parameter of the <code>CreateBlueGreenDeployment</code> operation.</p>
+ * @public
+ */
+export interface TargetResourceConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DB cluster or DB instance in the blue environment to which this configuration applies.</p>
+   * @public
+   */
+  SourceArn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier for encryption of the corresponding resource in the green environment.</p> <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p> <p>Specify this setting in either of the following cases:</p> <ul> <li> <p>You want the green resource to use a different KMS key than the blue resource.</p> </li> <li> <p>The blue resource is unencrypted and you want to encrypt the green resource.</p> </li> </ul> <p>For Aurora, encryption applies at the DB cluster level. Specify a DB cluster ARN in <code>SourceArn</code>. All DB instances in that cluster use the same KMS key.</p> <p>For RDS, encryption applies at the DB instance level. Specify a DB instance ARN in <code>SourceArn</code>. To encrypt read replicas, include a separate entry for each one. Each entry can specify a different KMS key.</p>
+   * @public
+   */
+  TargetKmsKeyId?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateBlueGreenDeploymentRequest {
@@ -1851,6 +1869,12 @@ export interface CreateBlueGreenDeploymentRequest {
    * @public
    */
   TargetStorageThroughput?: number | undefined;
+
+  /**
+   * <p>Specifies resource-level configuration overrides for the green environment.</p> <p>Each entry identifies a resource in the blue environment by its Amazon Resource Name (ARN). It defines the desired configuration for the corresponding resource in the green environment. Any resource that you don't include in this parameter retains the same configuration as its counterpart in the blue environment.</p> <p>Use this parameter when one or more resources in the green environment require a different configuration than what they have in the blue environment.</p> <p>Constraints:</p> <ul> <li> <p>You can't specify the same <code>SourceArn</code> in more than one entry.</p> </li> </ul>
+   * @public
+   */
+  TargetResourceConfigurations?: TargetResourceConfiguration[] | undefined;
 }
 
 /**
@@ -12067,22 +12091,4 @@ export interface ServerlessV2PlatformVersionInfo {
    * @public
    */
   IsDefault?: boolean | undefined;
-}
-
-/**
- * <p>Contains the result of a successful invocation of the <code>DescribeServerlessV2PlatformVersions</code> action.</p>
- * @public
- */
-export interface ServerlessV2PlatformVersionsMessage {
-  /**
-   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>A list of <code>ServerlessV2PlatformVersionInfo</code> elements.</p>
-   * @public
-   */
-  ServerlessV2PlatformVersions?: ServerlessV2PlatformVersionInfo[] | undefined;
 }

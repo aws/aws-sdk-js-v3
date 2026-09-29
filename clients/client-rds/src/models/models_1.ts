@@ -40,12 +40,31 @@ import type {
   RdsCustomClusterConfiguration,
   ReservedDBInstance,
   ScalingConfiguration,
+  ServerlessV2PlatformVersionInfo,
   ServerlessV2ScalingConfiguration,
   Tag,
   TagSpecification,
   TenantDatabase,
   UserAuthConfig,
 } from "./models_0";
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeServerlessV2PlatformVersions</code> action.</p>
+ * @public
+ */
+export interface ServerlessV2PlatformVersionsMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of <code>ServerlessV2PlatformVersionInfo</code> elements.</p>
+   * @public
+   */
+  ServerlessV2PlatformVersions?: ServerlessV2PlatformVersionInfo[] | undefined;
+}
 
 /**
  * <p/>

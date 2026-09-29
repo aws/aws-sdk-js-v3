@@ -1467,6 +1467,7 @@ const _TH = "TargetHealth";
 const _TI = "TargetIops";
 const _TIy = "TypeId";
 const _TK = "TagKeys";
+const _TKKI = "TargetKmsKeyId";
 const _TL = "TagList";
 const _TLM = "TagListMessage";
 const _TLa = "TargetList";
@@ -1475,6 +1476,9 @@ const _TN = "TimezoneName";
 const _TOGD = "TargetOptionGroupDescription";
 const _TOGI = "TargetOptionGroupIdentifier";
 const _TR = "TargetRole";
+const _TRC = "TargetResourceConfigurations";
+const _TRCL = "TargetResourceConfigurationList";
+const _TRCa = "TargetResourceConfiguration";
 const _TRy = "TypeRecommendation";
 const _TS = "TagSpecifications";
 const _TSL = "TagSpecificationList";
@@ -2805,8 +2809,8 @@ export var CopyOptionGroupResult$: StaticStructureSchema = [3, n0, _COGR,
 ];
 export var CreateBlueGreenDeploymentRequest$: StaticStructureSchema = [3, n0, _CBGDR,
   0,
-  [_BGDN, _S, _TEV, _TDBPGN, _TDBCPGN, _T, _TDBIC, _UTSC, _TI, _TST, _TAS, _TSTa],
-  [0, 0, 0, 0, 0, [() => TagList, 0], 0, 2, 1, 0, 1, 1], 2
+  [_BGDN, _S, _TEV, _TDBPGN, _TDBCPGN, _T, _TDBIC, _UTSC, _TI, _TST, _TAS, _TSTa, _TRC],
+  [0, 0, 0, 0, 0, [() => TagList, 0], 0, 2, 1, 0, 1, 1, [() => TargetResourceConfigurationList, 0]], 2
 ];
 export var CreateBlueGreenDeploymentResponse$: StaticStructureSchema = [3, n0, _CBGDRr,
   0,
@@ -4703,6 +4707,11 @@ export var TargetHealth$: StaticStructureSchema = [3, n0, _TH,
   [_Sta, _Rea, _D],
   [0, 0, 0]
 ];
+export var TargetResourceConfiguration$: StaticStructureSchema = [3, n0, _TRCa,
+  0,
+  [_SA, _TKKI],
+  [0, 0], 1
+];
 export var TenantDatabase$: StaticStructureSchema = [3, n0, _TD,
   0,
   [_TDCT, _DBII, _TDBN, _St, _MU, _DRI, _TDRI, _TDARN, _CSN, _NCSN, _DP, _PMV, _MUS, _TL],
@@ -5171,6 +5180,10 @@ var TargetGroupList: StaticListSchema = [1, n0, _TGL,
 ];
 var TargetList: StaticListSchema = [1, n0, _TLa,
   0, () => DBProxyTarget$
+];
+var TargetResourceConfigurationList: StaticListSchema = [1, n0, _TRCL,
+  0, [() => TargetResourceConfiguration$,
+    { [_xN]: _TRCa }]
 ];
 var TenantDatabasesList: StaticListSchema = [1, n0, _TDL,
   0, [() => TenantDatabase$,
