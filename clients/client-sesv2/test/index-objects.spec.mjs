@@ -38,6 +38,7 @@ import {
   ConcurrentModificationException,
   ConcurrentModificationException$,
   ConfigurationOverrides$,
+  ConfigurationSetFilterKey,
   ConflictException,
   ConflictException$,
   Contact$,
@@ -312,6 +313,7 @@ import {
   HttpsPolicy,
   IdentityCertificate$,
   IdentityCertificateStatus,
+  IdentityFilterKey,
   IdentityInfo$,
   IdentityType,
   ImportDataSource$,
@@ -411,6 +413,7 @@ import {
   ListTenantResourcesResponse$,
   ListTenants$,
   ListTenantsCommand,
+  ListTenantsFilterKey,
   ListTenantsRequest$,
   ListTenantsResponse$,
   MailboxValidation$,
@@ -1286,6 +1289,7 @@ assert(typeof AttachmentContentTransferEncoding === "object");
 assert(typeof BehaviorOnMxFailure === "object");
 assert(typeof BounceType === "object");
 assert(typeof BulkEmailStatus === "object");
+assert(typeof ConfigurationSetFilterKey === "object");
 assert(typeof ContactLanguage === "object");
 assert(typeof ContactListImportAction === "object");
 assert(typeof DataFormat === "object");
@@ -1303,11 +1307,13 @@ assert(typeof ExportSourceType === "object");
 assert(typeof FeatureStatus === "object");
 assert(typeof HttpsPolicy === "object");
 assert(typeof IdentityCertificateStatus === "object");
+assert(typeof IdentityFilterKey === "object");
 assert(typeof IdentityType === "object");
 assert(typeof ImportDestinationType === "object");
 assert(typeof JobStatus === "object");
 assert(typeof ListRecommendationsFilterKey === "object");
 assert(typeof ListTenantResourcesFilterKey === "object");
+assert(typeof ListTenantsFilterKey === "object");
 assert(typeof MailFromDomainStatus === "object");
 assert(typeof MailType === "object");
 assert(typeof Metric === "object");

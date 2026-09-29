@@ -35,6 +35,9 @@ export interface ListTenantsCommandOutput extends ListTenantsResponse, __Metadat
  * const config = {}; // type is SESv2ClientConfig
  * const client = new SESv2Client(config);
  * const input = { // ListTenantsRequest
+ *   Filter: { // ListTenantsFilter
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   NextToken: "STRING_VALUE",
  *   PageSize: Number("int"),
  * };
@@ -47,6 +50,7 @@ export interface ListTenantsCommandOutput extends ListTenantsResponse, __Metadat
  * //       TenantId: "STRING_VALUE",
  * //       TenantArn: "STRING_VALUE",
  * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       SendingStatus: "ENABLED" || "REINSTATED" || "DISABLED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -5,6 +5,7 @@ import type {
   BehaviorOnMxFailure,
   BounceType,
   BulkEmailStatus,
+  ConfigurationSetFilterKey,
   ContactLanguage,
   ContactListImportAction,
   DataFormat,
@@ -22,11 +23,13 @@ import type {
   FeatureStatus,
   HttpsPolicy,
   IdentityCertificateStatus,
+  IdentityFilterKey,
   IdentityType,
   ImportDestinationType,
   JobStatus,
   ListRecommendationsFilterKey,
   ListTenantResourcesFilterKey,
+  ListTenantsFilterKey,
   MailFromDomainStatus,
   MailType,
   Metric,
@@ -6968,6 +6971,13 @@ export interface ImportJobSummary {
  */
 export interface ListConfigurationSetsRequest {
   /**
+   * <p>An object that contains filters to apply when listing configuration sets.
+   *             You can filter by configuration set name.</p>
+   * @public
+   */
+  Filter?: Partial<Record<ConfigurationSetFilterKey, string>> | undefined;
+
+  /**
    * <p>A token returned from a previous call to <code>ListConfigurationSets</code> to
    *             indicate the position in the list of configuration sets.</p>
    * @public
@@ -7354,6 +7364,13 @@ export interface ListDomainDeliverabilityCampaignsResponse {
  * @public
  */
 export interface ListEmailIdentitiesRequest {
+  /**
+   * <p>An object that contains filters to apply when listing email identities.
+   *             You can filter by identity name, identity type, or verification status.</p>
+   * @public
+   */
+  Filter?: Partial<Record<IdentityFilterKey, string>> | undefined;
+
   /**
    * <p>A token returned from a previous call to <code>ListEmailIdentities</code> to indicate
    *             the position in the list of identities.</p>
@@ -8162,6 +8179,13 @@ export interface ListTenantResourcesResponse {
  */
 export interface ListTenantsRequest {
   /**
+   * <p>An object that contains filters to apply when listing tenants. You can filter
+   *             by tenant name or sending status.</p>
+   * @public
+   */
+  Filter?: Partial<Record<ListTenantsFilterKey, string>> | undefined;
+
+  /**
    * <p>A token returned from a previous call to <code>ListTenants</code> to indicate the position in the list of tenants.</p>
    * @public
    */
@@ -8204,6 +8228,26 @@ export interface TenantInfo {
    * @public
    */
   CreatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>The sending status for a reputation entity. This can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – Sending is allowed for this entity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – Sending is prevented for this entity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REINSTATED</code> – Sending is allowed even if there are active reputation findings.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SendingStatus?: SendingStatus | undefined;
 }
 
 /**
