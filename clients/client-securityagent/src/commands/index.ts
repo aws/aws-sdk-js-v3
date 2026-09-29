@@ -85,6 +85,7 @@ export * from "./UpdateApplicationCommand";
 export * from "./UpdateCodeReviewCommand";
 export * from "./UpdateFindingCommand";
 export * from "./UpdateIntegratedResourcesCommand";
+export * from "./UpdateIntegrationCommand";
 export * from "./UpdatePentestCommand";
 export * from "./UpdatePrivateConnectionCertificateCommand";
 export * from "./UpdateSecurityRequirementPackCommand";

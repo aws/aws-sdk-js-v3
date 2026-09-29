@@ -302,6 +302,10 @@ import type {
   UpdateIntegratedResourcesCommandInput,
   UpdateIntegratedResourcesCommandOutput,
 } from "./commands/UpdateIntegratedResourcesCommand";
+import type {
+  UpdateIntegrationCommandInput,
+  UpdateIntegrationCommandOutput,
+} from "./commands/UpdateIntegrationCommand";
 import type { UpdatePentestCommandInput, UpdatePentestCommandOutput } from "./commands/UpdatePentestCommand";
 import type {
   UpdatePrivateConnectionCertificateCommandInput,
@@ -425,6 +429,7 @@ export type ServiceInputTypes =
   | UpdateCodeReviewCommandInput
   | UpdateFindingCommandInput
   | UpdateIntegratedResourcesCommandInput
+  | UpdateIntegrationCommandInput
   | UpdatePentestCommandInput
   | UpdatePrivateConnectionCertificateCommandInput
   | UpdateSecurityRequirementPackCommandInput
@@ -523,6 +528,7 @@ export type ServiceOutputTypes =
   | UpdateCodeReviewCommandOutput
   | UpdateFindingCommandOutput
   | UpdateIntegratedResourcesCommandOutput
+  | UpdateIntegrationCommandOutput
   | UpdatePentestCommandOutput
   | UpdatePrivateConnectionCertificateCommandOutput
   | UpdateSecurityRequirementPackCommandOutput

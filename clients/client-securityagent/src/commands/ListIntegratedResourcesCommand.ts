@@ -72,6 +72,14 @@ export interface ListIntegratedResourcesCommandOutput extends ListIntegratedReso
  * //           title: "STRING_VALUE",
  * //           spaceTitle: "STRING_VALUE",
  * //         },
+ * //         azureDevOpsRepository: { // AzureDevOpsRepositoryMetadata
+ * //           name: "STRING_VALUE", // required
+ * //           providerResourceId: "STRING_VALUE", // required
+ * //           organization: "STRING_VALUE", // required
+ * //           project: "STRING_VALUE",
+ * //           projectId: "STRING_VALUE",
+ * //           accessType: "PRIVATE" || "PUBLIC",
+ * //         },
  * //       },
  * //       capabilities: { // ProviderResourceCapabilities Union: only one key present
  * //         github: { // GitHubResourceCapabilities
@@ -90,6 +98,10 @@ export interface ListIntegratedResourcesCommandOutput extends ListIntegratedReso
  * //           fetchDocument: true || false,
  * //           createDocument: true || false,
  * //           updateDocument: true || false,
+ * //         },
+ * //         azureDevOps: { // AzureDevOpsResourceCapabilities
+ * //           leaveComments: true || false,
+ * //           remediateCode: true || false,
  * //         },
  * //       },
  * //     },

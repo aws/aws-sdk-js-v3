@@ -754,6 +754,7 @@ export type GitLabTokenType = (typeof GitLabTokenType)[keyof typeof GitLabTokenT
  * @enum
  */
 export const Provider = {
+  AZURE_DEVOPS: "AZURE_DEVOPS",
   BITBUCKET: "BITBUCKET",
   CONFLUENCE: "CONFLUENCE",
   GITHUB: "GITHUB",
@@ -923,6 +924,25 @@ export const SecurityRequirementArtifactFormat = {
  */
 export type SecurityRequirementArtifactFormat =
   (typeof SecurityRequirementArtifactFormat)[keyof typeof SecurityRequirementArtifactFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const WebhookAction = {
+  /**
+   * <p>Create the webhook if one does not already exist. Returns the payload URL and the signing secret.</p>
+   */
+  CREATE_IF_ABSENT: "CREATE_IF_ABSENT",
+  /**
+   * <p>Generate a new signing secret for the existing webhook, keeping the same payload URL. Returns the new secret.</p>
+   */
+  ROTATE: "ROTATE",
+} as const;
+/**
+ * @public
+ */
+export type WebhookAction = (typeof WebhookAction)[keyof typeof WebhookAction];
 
 /**
  * @public

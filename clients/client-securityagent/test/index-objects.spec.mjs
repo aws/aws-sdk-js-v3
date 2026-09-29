@@ -19,6 +19,10 @@ import {
   Authentication$,
   AuthenticationProviderType,
   AWSResources$,
+  AzureDevOpsIntegrationInput$,
+  AzureDevOpsRepositoryMetadata$,
+  AzureDevOpsRepositoryResource$,
+  AzureDevOpsResourceCapabilities$,
   BatchCreateSecurityRequirementResult$,
   BatchCreateSecurityRequirements$,
   BatchCreateSecurityRequirementsCommand,
@@ -106,6 +110,7 @@ import {
   BatchUpdateSecurityRequirementsCommand,
   BatchUpdateSecurityRequirementsInput$,
   BatchUpdateSecurityRequirementsOutput$,
+  BitbucketDataCenterIntegrationInput$,
   BitbucketIntegrationInput$,
   BitbucketRepositoryMetadata$,
   BitbucketRepositoryResource$,
@@ -533,6 +538,10 @@ import {
   UpdateIntegratedResourcesCommand,
   UpdateIntegratedResourcesInput$,
   UpdateIntegratedResourcesOutput$,
+  UpdateIntegration$,
+  UpdateIntegrationCommand,
+  UpdateIntegrationInput$,
+  UpdateIntegrationOutput$,
   UpdatePentest$,
   UpdatePentestCommand,
   UpdatePentestInput$,
@@ -574,6 +583,7 @@ import {
   VerifyTargetDomainInput$,
   VerifyTargetDomainOutput$,
   VpcConfig$,
+  WebhookAction,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -752,6 +762,8 @@ assert(typeof UpdateFindingCommand === "function");
 assert(typeof UpdateFinding$ === "object");
 assert(typeof UpdateIntegratedResourcesCommand === "function");
 assert(typeof UpdateIntegratedResources$ === "object");
+assert(typeof UpdateIntegrationCommand === "function");
+assert(typeof UpdateIntegration$ === "object");
 assert(typeof UpdatePentestCommand === "function");
 assert(typeof UpdatePentest$ === "object");
 assert(typeof UpdatePrivateConnectionCertificateCommand === "function");
@@ -780,6 +792,10 @@ assert(typeof ArtifactSummary$ === "object");
 assert(typeof Assets$ === "object");
 assert(typeof Authentication$ === "object");
 assert(typeof AWSResources$ === "object");
+assert(typeof AzureDevOpsIntegrationInput$ === "object");
+assert(typeof AzureDevOpsRepositoryMetadata$ === "object");
+assert(typeof AzureDevOpsRepositoryResource$ === "object");
+assert(typeof AzureDevOpsResourceCapabilities$ === "object");
 assert(typeof BatchCreateSecurityRequirementResult$ === "object");
 assert(typeof BatchCreateSecurityRequirementsInput$ === "object");
 assert(typeof BatchCreateSecurityRequirementsOutput$ === "object");
@@ -825,6 +841,7 @@ assert(typeof BatchGetThreatsOutput$ === "object");
 assert(typeof BatchSecurityRequirementError$ === "object");
 assert(typeof BatchUpdateSecurityRequirementsInput$ === "object");
 assert(typeof BatchUpdateSecurityRequirementsOutput$ === "object");
+assert(typeof BitbucketDataCenterIntegrationInput$ === "object");
 assert(typeof BitbucketIntegrationInput$ === "object");
 assert(typeof BitbucketRepositoryMetadata$ === "object");
 assert(typeof BitbucketRepositoryResource$ === "object");
@@ -1048,6 +1065,8 @@ assert(typeof UpdateFindingInput$ === "object");
 assert(typeof UpdateFindingOutput$ === "object");
 assert(typeof UpdateIntegratedResourcesInput$ === "object");
 assert(typeof UpdateIntegratedResourcesOutput$ === "object");
+assert(typeof UpdateIntegrationInput$ === "object");
+assert(typeof UpdateIntegrationOutput$ === "object");
 assert(typeof UpdatePentestInput$ === "object");
 assert(typeof UpdatePentestOutput$ === "object");
 assert(typeof UpdatePrivateConnectionCertificateInput$ === "object");
@@ -1117,6 +1136,7 @@ assert(typeof ThreatStatus === "object");
 assert(typeof UserRole === "object");
 assert(typeof ValidationMode === "object");
 assert(typeof ValidationStatus === "object");
+assert(typeof WebhookAction === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof SecurityAgentServiceException);
 assert(typeof AccessDeniedException$ === "object");

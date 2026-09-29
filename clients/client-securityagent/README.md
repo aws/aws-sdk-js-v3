@@ -783,6 +783,13 @@ UpdateIntegratedResources
 </details>
 <details>
 <summary>
+UpdateIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityagent/command/UpdateIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/UpdateIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/UpdateIntegrationCommandOutput/)
+</details>
+<details>
+<summary>
 UpdatePentest
 </summary>
 

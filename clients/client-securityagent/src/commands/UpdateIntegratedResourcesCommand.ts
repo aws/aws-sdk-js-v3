@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateIntegratedResourcesInput, UpdateIntegratedResourcesOutput } from "../models/models_0";
+import type { UpdateIntegratedResourcesInput, UpdateIntegratedResourcesOutput } from "../models/models_1";
 import { UpdateIntegratedResources$ } from "../schemas/schemas_0";
 
 /**
@@ -57,6 +57,11 @@ export interface UpdateIntegratedResourcesCommandOutput extends UpdateIntegrated
  *           title: "STRING_VALUE",
  *           spaceTitle: "STRING_VALUE",
  *         },
+ *         azureDevOpsRepository: { // AzureDevOpsRepositoryResource
+ *           name: "STRING_VALUE", // required
+ *           organization: "STRING_VALUE", // required
+ *           project: "STRING_VALUE",
+ *         },
  *       },
  *       capabilities: { // ProviderResourceCapabilities Union: only one key present
  *         github: { // GitHubResourceCapabilities
@@ -75,6 +80,10 @@ export interface UpdateIntegratedResourcesCommandOutput extends UpdateIntegrated
  *           fetchDocument: true || false,
  *           createDocument: true || false,
  *           updateDocument: true || false,
+ *         },
+ *         azureDevOps: { // AzureDevOpsResourceCapabilities
+ *           leaveComments: true || false,
+ *           remediateCode: true || false,
  *         },
  *       },
  *     },

@@ -438,6 +438,11 @@ import {
   UpdateIntegratedResourcesCommand,
 } from "./commands/UpdateIntegratedResourcesCommand";
 import {
+  type UpdateIntegrationCommandInput,
+  type UpdateIntegrationCommandOutput,
+  UpdateIntegrationCommand,
+} from "./commands/UpdateIntegrationCommand";
+import {
   type UpdatePentestCommandInput,
   type UpdatePentestCommandOutput,
   UpdatePentestCommand,
@@ -584,6 +589,7 @@ const commands = {
   UpdateCodeReviewCommand,
   UpdateFindingCommand,
   UpdateIntegratedResourcesCommand,
+  UpdateIntegrationCommand,
   UpdatePentestCommand,
   UpdatePrivateConnectionCertificateCommand,
   UpdateSecurityRequirementPackCommand,
@@ -2093,6 +2099,23 @@ export interface SecurityAgent {
     args: UpdateIntegratedResourcesCommandInput,
     options: SecurityAgentRequestOptions,
     cb: (err: any, data?: UpdateIntegratedResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateIntegrationCommand}
+   */
+  updateIntegration(
+    args: UpdateIntegrationCommandInput,
+    options?: SecurityAgentRequestOptions
+  ): Promise<UpdateIntegrationCommandOutput>;
+  updateIntegration(
+    args: UpdateIntegrationCommandInput,
+    cb: (err: any, data?: UpdateIntegrationCommandOutput) => void
+  ): void;
+  updateIntegration(
+    args: UpdateIntegrationCommandInput,
+    options: SecurityAgentRequestOptions,
+    cb: (err: any, data?: UpdateIntegrationCommandOutput) => void
   ): void;
 
   /**
