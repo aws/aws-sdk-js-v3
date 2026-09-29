@@ -153,6 +153,7 @@ const _CSa = "CacheSize";
 const _CSo = "CopySnapshot";
 const _CSr = "CreateSnapshot";
 const _CT = "ChangeType";
+const _CTo = "ConnectionType";
 const _CTr = "CreateTime";
 const _CU = "CreateUser";
 const _CUG = "CreateUserGroup";
@@ -1521,8 +1522,8 @@ export var CreateReplicationGroupResult$: StaticStructureSchema = [3, n0, _CRGR,
 ];
 export var CreateServerlessCacheRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
-  [_SCN, _E, _D, _MEVa, _CUL, _KKI, _SGI, _SATR, _T, _UGIs, _SI, _SRL, _DST, _NT],
-  [0, 0, 0, 0, () => CacheUsageLimits$, 0, [() => SecurityGroupIdsList, 0], [() => SnapshotArnsList, 0], [() => TagList, 0], 0, [() => SubnetIdsList, 0], 1, 0, 0], 2
+  [_SCN, _E, _D, _MEVa, _CUL, _KKI, _SGI, _SATR, _T, _UGIs, _SI, _SRL, _DST, _NT, _CTo],
+  [0, 0, 0, 0, () => CacheUsageLimits$, 0, [() => SecurityGroupIdsList, 0], [() => SnapshotArnsList, 0], [() => TagList, 0], 0, [() => SubnetIdsList, 0], 1, 0, 0, 0], 2
 ];
 export var CreateServerlessCacheResponse$: StaticStructureSchema = [3, n0, _CSCRr,
   0,
@@ -2191,8 +2192,8 @@ export var SecurityGroupMembership$: StaticStructureSchema = [3, n0, _SGM,
 ];
 export var ServerlessCache$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_SCN, _D, _CTr, _St, _E, _MEVa, _FEV, _CUL, _KKI, _SET, _SGI, _En, _RE, _ARN, _UGIs, _SI, _SRL, _DST, _NT],
-  [0, 0, 4, 0, 0, 0, 0, () => CacheUsageLimits$, 0, 0, [() => SecurityGroupIdsList, 0], () => Endpoint$, () => Endpoint$, 0, 0, [() => SubnetIdsList, 0], 1, 0, 0]
+  [_SCN, _D, _CTr, _St, _E, _MEVa, _FEV, _CUL, _KKI, _SET, _SGI, _En, _RE, _ARN, _UGIs, _SI, _SRL, _DST, _NT, _CTo],
+  [0, 0, 4, 0, 0, 0, 0, () => CacheUsageLimits$, 0, 0, [() => SecurityGroupIdsList, 0], () => Endpoint$, () => Endpoint$, 0, 0, [() => SubnetIdsList, 0], 1, 0, 0, 0]
 ];
 export var ServerlessCacheConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,

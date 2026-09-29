@@ -7,6 +7,7 @@ import type {
   AZMode,
   ChangeType,
   ClusterMode,
+  ConnectionType,
   DataStorageUnit,
   DataTieringStatus,
   DestinationType,
@@ -4651,6 +4652,17 @@ export interface CreateServerlessCacheRequest {
    * @public
    */
   NetworkType?: NetworkType | undefined;
+
+  /**
+   * <p>The connection type for the serverless cache.
+   *            Must be either <code>vpc</code> | <code>public</code>.
+   *            Use <code>vpc</code> to access the cache through a VPC endpoint, or <code>public</code> to access the cache over the internet.
+   *            If not specified, defaults to <code>vpc</code>.
+   *            This value cannot be changed after the serverless cache is created.
+   *            Setting this to <code>public</code> requires Valkey 9 or above.</p>
+   * @public
+   */
+  ConnectionType?: ConnectionType | undefined;
 }
 
 /**
@@ -4782,6 +4794,14 @@ export interface ServerlessCache {
    * @public
    */
   NetworkType?: NetworkType | undefined;
+
+  /**
+   * <p>The connection type for the serverless cache.
+   *            Must be either <code>vpc</code> | <code>public</code>.
+   *            If not specified, defaults to <code>vpc</code>.</p>
+   * @public
+   */
+  ConnectionType?: ConnectionType | undefined;
 }
 
 /**

@@ -234,6 +234,7 @@ export type {
   AZMode,
   ChangeType,
   ClusterMode,
+  ConnectionType,
   DataStorageUnit,
   DataTieringStatus,
   DestinationType,

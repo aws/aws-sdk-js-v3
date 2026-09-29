@@ -82,6 +82,7 @@ import {
   CompleteMigrationMessage$,
   CompleteMigrationResponse$,
   ConfigureShard$,
+  ConnectionType,
   CopyServerlessCacheSnapshot$,
   CopyServerlessCacheSnapshotCommand,
   CopyServerlessCacheSnapshotRequest$,
@@ -943,6 +944,7 @@ assert(typeof AutomaticFailoverStatus === "object");
 assert(typeof AZMode === "object");
 assert(typeof ChangeType === "object");
 assert(typeof ClusterMode === "object");
+assert(typeof ConnectionType === "object");
 assert(typeof DataStorageUnit === "object");
 assert(typeof DataTieringStatus === "object");
 assert(typeof DestinationType === "object");
