@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1143.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1142.0...v3.1143.0) (2026-09-29)
+
+
+### Features
+
+* **client-sagemaker:** Adds support for cpu flex type instances on SageMaker Training and Processing. Also contains minor updates to DescribeTrainingPlan to support ARN inputs. ([ca45f9e](https://github.com/aws/aws-sdk-js-v3/commit/ca45f9e935ea650158af9afec74f2fdf96750cca))
+
+
+
+
+
 # [3.1142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1141.0...v3.1142.0) (2026-09-28)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

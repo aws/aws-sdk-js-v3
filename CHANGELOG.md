@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1143.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1142.0...v3.1143.0) (2026-09-29)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** retry worker path download part failures ([#8285](https://github.com/aws/aws-sdk-js-v3/issues/8285)) ([13f49ff](https://github.com/aws/aws-sdk-js-v3/commit/13f49fff196a19bca13f69f153d57a2262055e5c))
+
+
+### Features
+
+* **client-appstream:** Add support for NVIDIA GRID driver version metadata in Workspace Applications image responses through the new ImageSoftwareMetadata field. ([87e9c22](https://github.com/aws/aws-sdk-js-v3/commit/87e9c22fa0785b557e3088ad3b1241488c36556b))
+* **client-bedrock-agent-runtime:** Amazon Bedrock Agentic Retrieve now supports the Bedrock Mantle (OpenAI Responses) endpoint via a new MantleFoundationModel configuration with an optional projectId. ([9529fe9](https://github.com/aws/aws-sdk-js-v3/commit/9529fe9e8ef1a92a5b0e782e0c9d1482f535c42b))
+* **client-deadline:** AWS Deadline Cloud now supports Docker software add-ons on service-managed fleets. Adds support for Open Job Description EXPR and Feature Bundle 1 job templates with typed job parameters and job, step, and parameter names up to 512 characters. ([33fcaa7](https://github.com/aws/aws-sdk-js-v3/commit/33fcaa7bc7018afb77a5f918d9adc147cfb27666))
+* **client-ec2:** Adds the LaunchStatus field to CapacityReservation in the DescribeCapacityReservations response. This field indicates whether you can currently launch instances into an UltraServer. ([5bb9e11](https://github.com/aws/aws-sdk-js-v3/commit/5bb9e1160a914a0c45cfe017bcc60450bd439be9))
+* **client-elasticache:** Amazon ElastiCache Serverless now supports public endpoints for Valkey caches. With the new Connection Type parameter, you can create a serverless cache accessible over the internet without any VPC configuration. Public endpoint caches require IAM authentication. ([c674d6c](https://github.com/aws/aws-sdk-js-v3/commit/c674d6c7c9cb81956bc33864b996e1516ba4dfe3))
+* **client-elementalinference:** Adds an extendedAnalysis setting to contextual metadata outputs to control detection of people, environments, brands, and on-screen text, and updates the summaryGeneration documentation. ([c121ec6](https://github.com/aws/aws-sdk-js-v3/commit/c121ec60ca55614ab2106d5b6296fd871ca45c53))
+* **client-glue:** Add support for Glue system-managed materialized views. ([bddd698](https://github.com/aws/aws-sdk-js-v3/commit/bddd698de450c58a1097b54ff321e951b7bd0dd3))
+* **client-identitystore:** Add support for network access controls to restrict Identity Store API and SCIM access to trusted networks, optimistic locking for users and groups via resource revisions, and resource ARNs as identifiers in requests. ([b1ec66e](https://github.com/aws/aws-sdk-js-v3/commit/b1ec66e6f34cb11a7326d83560d7812d6515fc03))
+* **client-inspector2:** The ListFindingAggregations API now includes Low, Informational, and Untriaged counts alongside the existing severity counts in SeverityCounts. ([523ef40](https://github.com/aws/aws-sdk-js-v3/commit/523ef40220620bd79aa004d6f67840c3133e1eec))
+* **client-mediatailor:** AWS Elemental MediaTailor now supports beaconing configuration on playback configurations. In Insights reporting mode, MediaTailor will now gather client side beaconing metrics. Set the reporting mode to Disabled to turn this off. ([99e75af](https://github.com/aws/aws-sdk-js-v3/commit/99e75af39ef631d89a3fdf1bf3667699829a3273))
+* **client-opensearch:** Amazon OpenSearch Service now supports advisory pre-validations for domain config changes. Non-critical checks now surface as warnings you can acknowledge (via the new AcceptedWarnings parameter) and proceed, instead of hard-blocking. Severity is reported in change-progress and dry-run results. ([2419dc6](https://github.com/aws/aws-sdk-js-v3/commit/2419dc69e0b38ed27c569e2cad2a6440ee7f5a81))
+* **client-rds:** Adds the TargetResourceConfigurations parameter to CreateBlueGreenDeployment, letting you specify a target KMS key for each resource in the green environment. ([6875fe5](https://github.com/aws/aws-sdk-js-v3/commit/6875fe52a1ed468629bbec18be8e10200ee5317b))
+* **client-sagemaker:** Adds support for cpu flex type instances on SageMaker Training and Processing. Also contains minor updates to DescribeTrainingPlan to support ARN inputs. ([ca45f9e](https://github.com/aws/aws-sdk-js-v3/commit/ca45f9e935ea650158af9afec74f2fdf96750cca))
+* **client-securityagent:** Adds support for Azure DevOps and Bitbucket Data Center integration providers. ([8fda1d1](https://github.com/aws/aws-sdk-js-v3/commit/8fda1d1640f54a7a6346f6d18d6aa681f806a280))
+* **client-sesv2:** Added Filter support for ListTenants, ListEmailIdentities, and ListConfigurationSets APIs. ([aa080a6](https://github.com/aws/aws-sdk-js-v3/commit/aa080a6f76a996c62f1613f68fa2e34ccdf08308))
+* **client-transfer:** AWS Transfer Family now supports configuring up to three custom ports on public SFTP servers, instead of the single default port 22. You can also set each port's communication mode (server-talk-first or client-talk-first) so legacy and modern SFTP clients connect reliably. ([b574593](https://github.com/aws/aws-sdk-js-v3/commit/b5745934ce4f8cb3f054a1562866b5b6c15df80c))
+
+
+
+
+
 # [3.1142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1141.0...v3.1142.0) (2026-09-28)
 
 

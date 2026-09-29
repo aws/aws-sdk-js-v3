@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1143.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1142.0...v3.1143.0) (2026-09-29)
+
+
+### Features
+
+* **client-sesv2:** Added Filter support for ListTenants, ListEmailIdentities, and ListConfigurationSets APIs. ([aa080a6](https://github.com/aws/aws-sdk-js-v3/commit/aa080a6f76a996c62f1613f68fa2e34ccdf08308))
+
+
+
+
+
 # [3.1142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1141.0...v3.1142.0) (2026-09-28)
 
 **Note:** Version bump only for package @aws-sdk/client-sesv2

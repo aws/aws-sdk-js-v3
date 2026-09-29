@@ -15,6 +15,13 @@
 
 
 
+
+# 3.0.9 (2026-09-29)
+### Tests
+* **undici-http-handler:** temporarily skip e2e test ([#8320](https://github.com/aws/aws-sdk-js-v3/issues/8320)) ([2c59e39](https://github.com/aws/aws-sdk-js-v3/commit/2c59e39469a7c32c1aca8b82d908b8abc7a7a7e4))
+
+
+
 # 3.0.8 (2026-09-24)
 ### Tests
 * **undici-http-handler:** update bidi stream e2e test to nova-2-sonic model ([#8313](https://github.com/aws/aws-sdk-js-v3/issues/8313)) ([d9a37d9](https://github.com/aws/aws-sdk-js-v3/commit/d9a37d9d318f2ef7f5bcf6286bf3c7b475e4175b))

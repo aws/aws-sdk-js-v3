@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1143.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1142.0...v3.1143.0) (2026-09-29)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** retry worker path download part failures ([#8285](https://github.com/aws/aws-sdk-js-v3/issues/8285)) ([13f49ff](https://github.com/aws/aws-sdk-js-v3/commit/13f49fff196a19bca13f69f153d57a2262055e5c))
+
+
+
+
+
 # [3.1142.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1141.0...v3.1142.0) (2026-09-28)
 
 
