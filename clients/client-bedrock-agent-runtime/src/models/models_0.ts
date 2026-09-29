@@ -1327,6 +1327,36 @@ export interface BedrockFoundationModelConfiguration {
 }
 
 /**
+ * <p>Model configuration for a Mantle foundation model.</p>
+ * @public
+ */
+export interface MantleFoundationModelModelConfiguration {
+  /**
+   * <p>The ARN of the Mantle foundation model.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Bedrock project ID used for billing and usage attribution. If you don't specify a value, the service uses the default project.</p>
+   * @public
+   */
+  projectId?: string | undefined;
+}
+
+/**
+ * <p>Configuration for a Mantle foundation model.</p>
+ * @public
+ */
+export interface MantleFoundationModelConfiguration {
+  /**
+   * <p>The model configuration containing the model ARN and project ID.</p>
+   * @public
+   */
+  modelConfiguration: MantleFoundationModelModelConfiguration | undefined;
+}
+
+/**
  * <p>Configuration for the foundation model.</p>
  * @public
  */
@@ -1342,6 +1372,12 @@ export interface FoundationModelConfiguration {
    * @public
    */
   bedrockFoundationModelConfiguration?: BedrockFoundationModelConfiguration | undefined;
+
+  /**
+   * <p>The Mantle foundation model configuration.</p>
+   * @public
+   */
+  mantleFoundationModelConfiguration?: MantleFoundationModelConfiguration | undefined;
 }
 
 /**
@@ -9460,42 +9496,4 @@ export interface RetrieveAndGenerateResponse {
    * @public
    */
   guardrailAction?: GuadrailAction | undefined;
-}
-
-/**
- * <p>A citation event.</p>
- * @public
- */
-export interface CitationEvent {
-  /**
-   * <p>The citation.</p>
-   *
-   * @deprecated (since 2024-12-17) Citation is deprecated. Please use GeneratedResponsePart and RetrievedReferences for citation event.
-   * @public
-   */
-  citation?: Citation | undefined;
-
-  /**
-   * <p>The generated response to the citation event.</p>
-   * @public
-   */
-  generatedResponsePart?: GeneratedResponsePart | undefined;
-
-  /**
-   * <p>The retrieved references of the citation event.</p>
-   * @public
-   */
-  retrievedReferences?: RetrievedReference[] | undefined;
-}
-
-/**
- * <p>A guardrail event.</p>
- * @public
- */
-export interface GuardrailEvent {
-  /**
-   * <p>The guardrail action.</p>
-   * @public
-   */
-  action?: GuadrailAction | undefined;
 }

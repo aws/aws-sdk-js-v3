@@ -157,6 +157,7 @@ export type PayloadType = (typeof PayloadType)[keyof typeof PayloadType];
  */
 export const FoundationModelConfigurationType = {
   BEDROCK_FOUNDATION_MODEL: "BEDROCK_FOUNDATION_MODEL",
+  MANTLE_FOUNDATION_MODEL: "MANTLE_FOUNDATION_MODEL",
 } as const;
 /**
  * @public

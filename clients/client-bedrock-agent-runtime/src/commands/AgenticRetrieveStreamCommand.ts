@@ -110,10 +110,16 @@ export interface AgenticRetrieveStreamCommandOutput extends AgenticRetrieveStrea
  *   agenticRetrieveConfiguration: { // AgenticRetrieveConfiguration
  *     foundationModelType: "CUSTOM" || "MANAGED",
  *     foundationModelConfiguration: { // FoundationModelConfiguration
- *       type: "BEDROCK_FOUNDATION_MODEL", // required
+ *       type: "BEDROCK_FOUNDATION_MODEL" || "MANTLE_FOUNDATION_MODEL", // required
  *       bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfiguration
  *         modelConfiguration: { // BedrockFoundationModelModelConfiguration
  *           modelArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       mantleFoundationModelConfiguration: { // MantleFoundationModelConfiguration
+ *         modelConfiguration: { // MantleFoundationModelModelConfiguration
+ *           modelArn: "STRING_VALUE", // required
+ *           projectId: "STRING_VALUE",
  *         },
  *       },
  *     },
