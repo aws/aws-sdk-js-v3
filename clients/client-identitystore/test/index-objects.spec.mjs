@@ -40,6 +40,10 @@ import {
   DescribeGroupMembershipResponse$,
   DescribeGroupRequest$,
   DescribeGroupResponse$,
+  DescribeIdentityStore$,
+  DescribeIdentityStoreCommand,
+  DescribeIdentityStoreRequest$,
+  DescribeIdentityStoreResponse$,
   DescribeUser$,
   DescribeUserCommand,
   DescribeUserRequest$,
@@ -63,6 +67,7 @@ import {
   GroupMembership$,
   GroupMembershipExistenceResult$,
   Identitystore,
+  IdentityStore$,
   IdentitystoreClient,
   IdentitystoreServiceException,
   InternalServerException,
@@ -83,15 +88,22 @@ import {
   ListGroupsCommand,
   ListGroupsRequest$,
   ListGroupsResponse$,
+  ListIdentityStores$,
+  ListIdentityStoresCommand,
+  ListIdentityStoresRequest$,
+  ListIdentityStoresResponse$,
   ListUsers$,
   ListUsersCommand,
   ListUsersRequest$,
   ListUsersResponse$,
   MemberId$,
   Name$,
+  NetworkConfiguration$,
+  NetworkConfigurationDetails$,
   paginateListGroupMemberships,
   paginateListGroupMembershipsForMember,
   paginateListGroups,
+  paginateListIdentityStores,
   paginateListUsers,
   PhoneNumber$,
   Photo$,
@@ -110,6 +122,10 @@ import {
   UpdateGroupCommand,
   UpdateGroupRequest$,
   UpdateGroupResponse$,
+  UpdateIdentityStore$,
+  UpdateIdentityStoreCommand,
+  UpdateIdentityStoreRequest$,
+  UpdateIdentityStoreResponse$,
   UpdateUser$,
   UpdateUserCommand,
   UpdateUserRequest$,
@@ -141,6 +157,8 @@ assert(typeof DescribeGroupCommand === "function");
 assert(typeof DescribeGroup$ === "object");
 assert(typeof DescribeGroupMembershipCommand === "function");
 assert(typeof DescribeGroupMembership$ === "object");
+assert(typeof DescribeIdentityStoreCommand === "function");
+assert(typeof DescribeIdentityStore$ === "object");
 assert(typeof DescribeUserCommand === "function");
 assert(typeof DescribeUser$ === "object");
 assert(typeof GetGroupIdCommand === "function");
@@ -157,10 +175,14 @@ assert(typeof ListGroupMembershipsForMemberCommand === "function");
 assert(typeof ListGroupMembershipsForMember$ === "object");
 assert(typeof ListGroupsCommand === "function");
 assert(typeof ListGroups$ === "object");
+assert(typeof ListIdentityStoresCommand === "function");
+assert(typeof ListIdentityStores$ === "object");
 assert(typeof ListUsersCommand === "function");
 assert(typeof ListUsers$ === "object");
 assert(typeof UpdateGroupCommand === "function");
 assert(typeof UpdateGroup$ === "object");
+assert(typeof UpdateIdentityStoreCommand === "function");
+assert(typeof UpdateIdentityStore$ === "object");
 assert(typeof UpdateUserCommand === "function");
 assert(typeof UpdateUser$ === "object");
 // structural schemas
@@ -183,6 +205,8 @@ assert(typeof DescribeGroupMembershipRequest$ === "object");
 assert(typeof DescribeGroupMembershipResponse$ === "object");
 assert(typeof DescribeGroupRequest$ === "object");
 assert(typeof DescribeGroupResponse$ === "object");
+assert(typeof DescribeIdentityStoreRequest$ === "object");
+assert(typeof DescribeIdentityStoreResponse$ === "object");
 assert(typeof DescribeUserRequest$ === "object");
 assert(typeof DescribeUserResponse$ === "object");
 assert(typeof Email$ === "object");
@@ -197,6 +221,7 @@ assert(typeof GetUserIdResponse$ === "object");
 assert(typeof Group$ === "object");
 assert(typeof GroupMembership$ === "object");
 assert(typeof GroupMembershipExistenceResult$ === "object");
+assert(typeof IdentityStore$ === "object");
 assert(typeof IsMemberInGroupsRequest$ === "object");
 assert(typeof IsMemberInGroupsResponse$ === "object");
 assert(typeof ListGroupMembershipsForMemberRequest$ === "object");
@@ -205,16 +230,22 @@ assert(typeof ListGroupMembershipsRequest$ === "object");
 assert(typeof ListGroupMembershipsResponse$ === "object");
 assert(typeof ListGroupsRequest$ === "object");
 assert(typeof ListGroupsResponse$ === "object");
+assert(typeof ListIdentityStoresRequest$ === "object");
+assert(typeof ListIdentityStoresResponse$ === "object");
 assert(typeof ListUsersRequest$ === "object");
 assert(typeof ListUsersResponse$ === "object");
 assert(typeof MemberId$ === "object");
 assert(typeof Name$ === "object");
+assert(typeof NetworkConfiguration$ === "object");
+assert(typeof NetworkConfigurationDetails$ === "object");
 assert(typeof PhoneNumber$ === "object");
 assert(typeof Photo$ === "object");
 assert(typeof Role$ === "object");
 assert(typeof UniqueAttribute$ === "object");
 assert(typeof UpdateGroupRequest$ === "object");
 assert(typeof UpdateGroupResponse$ === "object");
+assert(typeof UpdateIdentityStoreRequest$ === "object");
+assert(typeof UpdateIdentityStoreResponse$ === "object");
 assert(typeof UpdateUserRequest$ === "object");
 assert(typeof UpdateUserResponse$ === "object");
 assert(typeof User$ === "object");
@@ -246,5 +277,6 @@ assert(IdentitystoreServiceException.prototype instanceof Error);
 assert(typeof paginateListGroupMemberships === "function");
 assert(typeof paginateListGroupMembershipsForMember === "function");
 assert(typeof paginateListGroups === "function");
+assert(typeof paginateListIdentityStores === "function");
 assert(typeof paginateListUsers === "function");
 console.log(`Identitystore index test passed.`);

@@ -53,6 +53,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * //     { // User
  * //       IdentityStoreId: "STRING_VALUE", // required
  * //       UserId: "STRING_VALUE", // required
+ * //       UserArn: "STRING_VALUE", // required
+ * //       Revision: "STRING_VALUE", // required
  * //       UserName: "STRING_VALUE",
  * //       ExternalIds: [ // ExternalIds
  * //         { // ExternalId

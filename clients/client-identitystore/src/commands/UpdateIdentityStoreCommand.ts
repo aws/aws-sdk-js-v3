@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateGroupMembershipRequest, CreateGroupMembershipResponse } from "../models/models_0";
-import { CreateGroupMembership$ } from "../schemas/schemas_0";
+import type { UpdateIdentityStoreRequest, UpdateIdentityStoreResponse } from "../models/models_0";
+import { UpdateIdentityStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,47 +12,54 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link CreateGroupMembershipCommand}.
+ * The input for {@link UpdateIdentityStoreCommand}.
  */
-export interface CreateGroupMembershipCommandInput extends CreateGroupMembershipRequest {}
+export interface UpdateIdentityStoreCommandInput extends UpdateIdentityStoreRequest {}
 /**
  * @public
  *
- * The output of {@link CreateGroupMembershipCommand}.
+ * The output of {@link UpdateIdentityStoreCommand}.
  */
-export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershipResponse, __MetadataBearer {}
+export interface UpdateIdentityStoreCommandOutput extends UpdateIdentityStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a relationship between a member and a group. The following identifiers must be specified: <code>GroupId</code>, <code>IdentityStoreId</code>, and <code>MemberId</code>.</p>
+ * <p>Updates the configuration of the specified identity store, including its network configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IdentitystoreClient, CreateGroupMembershipCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
- * // const { IdentitystoreClient, CreateGroupMembershipCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
+ * import { IdentitystoreClient, UpdateIdentityStoreCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
+ * // const { IdentitystoreClient, UpdateIdentityStoreCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * // import type { IdentitystoreClientConfig } from "@aws-sdk/client-identitystore";
  * const config = {}; // type is IdentitystoreClientConfig
  * const client = new IdentitystoreClient(config);
- * const input = { // CreateGroupMembershipRequest
+ * const input = { // UpdateIdentityStoreRequest
  *   IdentityStoreId: "STRING_VALUE", // required
- *   GroupId: "STRING_VALUE", // required
- *   MemberId: { // MemberId Union: only one key present
- *     UserId: "STRING_VALUE",
+ *   NetworkConfiguration: { // NetworkConfiguration
+ *     VpceAccessRequired: true || false, // required
+ *     ApiRestrictSourceVpcs: [ // VpcIdList
+ *       "STRING_VALUE",
+ *     ],
+ *     ApiAllowSourceIps: [ // IpCidrList
+ *       "STRING_VALUE",
+ *     ],
+ *     ScimAllowSourceIps: [
+ *       "STRING_VALUE",
+ *     ],
  *   },
  * };
- * const command = new CreateGroupMembershipCommand(input);
+ * const command = new UpdateIdentityStoreCommand(input);
  * const response = await client.send(command);
- * // { // CreateGroupMembershipResponse
+ * // { // UpdateIdentityStoreResponse
  * //   IdentityStoreId: "STRING_VALUE", // required
- * //   MembershipId: "STRING_VALUE", // required
- * //   MembershipArn: "STRING_VALUE", // required
+ * //   IdentityStoreArn: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param CreateGroupMembershipCommandInput - {@link CreateGroupMembershipCommandInput}
- * @returns {@link CreateGroupMembershipCommandOutput}
- * @see {@link CreateGroupMembershipCommandInput} for command's `input` shape.
- * @see {@link CreateGroupMembershipCommandOutput} for command's `response` shape.
+ * @param UpdateIdentityStoreCommandInput - {@link UpdateIdentityStoreCommandInput}
+ * @returns {@link UpdateIdentityStoreCommandOutput}
+ * @see {@link UpdateIdentityStoreCommandInput} for command's `input` shape.
+ * @see {@link UpdateIdentityStoreCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -60,9 +67,6 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Indicates that a requested resource is not found.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause the number of users or groups in the identity store to exceed the maximum allowed.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
@@ -82,21 +86,21 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  *
  * @public
  */
-export class CreateGroupMembershipCommand extends command<CreateGroupMembershipCommandInput, CreateGroupMembershipCommandOutput>(
+export class UpdateIdentityStoreCommand extends command<UpdateIdentityStoreCommandInput, UpdateIdentityStoreCommandOutput>(
   _ep0,
   _mw0,
-  "CreateGroupMembership",
-  CreateGroupMembership$
+  "UpdateIdentityStore",
+  UpdateIdentityStore$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateGroupMembershipRequest;
-      output: CreateGroupMembershipResponse;
+      input: UpdateIdentityStoreRequest;
+      output: UpdateIdentityStoreResponse;
     };
     sdk: {
-      input: CreateGroupMembershipCommandInput;
-      output: CreateGroupMembershipCommandOutput;
+      input: UpdateIdentityStoreCommandInput;
+      output: UpdateIdentityStoreCommandOutput;
     };
   };
 }

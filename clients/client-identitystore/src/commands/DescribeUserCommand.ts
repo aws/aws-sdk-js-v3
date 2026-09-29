@@ -44,6 +44,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * // { // DescribeUserResponse
  * //   IdentityStoreId: "STRING_VALUE", // required
  * //   UserId: "STRING_VALUE", // required
+ * //   UserArn: "STRING_VALUE", // required
+ * //   Revision: "STRING_VALUE", // required
  * //   UserName: "STRING_VALUE",
  * //   ExternalIds: [ // ExternalIds
  * //     { // ExternalId

@@ -41,10 +41,16 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *       AttributeValue: "DOCUMENT_VALUE",
  *     },
  *   ],
+ *   Revision: "STRING_VALUE",
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // UpdateUserResponse
+ * //   IdentityStoreId: "STRING_VALUE", // required
+ * //   UserId: "STRING_VALUE", // required
+ * //   UserArn: "STRING_VALUE", // required
+ * //   Revision: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
@@ -91,7 +97,7 @@ export class UpdateUserCommand extends command<UpdateUserCommandInput, UpdateUse
   protected declare static __types: {
     api: {
       input: UpdateUserRequest;
-      output: {};
+      output: UpdateUserResponse;
     };
     sdk: {
       input: UpdateUserCommandInput;

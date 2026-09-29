@@ -165,40 +165,6 @@ export interface AttributeOperation {
 }
 
 /**
- * @public
- */
-export interface GetGroupIdRequest {
-  /**
-   * <p>The globally unique identifier for the identity store.</p>
-   * @public
-   */
-  IdentityStoreId: string | undefined;
-
-  /**
-   * <p>A unique identifier for a user or group that is not the primary identifier. This value can be an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid path is <code> displayName</code>.</p>
-   * @public
-   */
-  AlternateIdentifier: AlternateIdentifier | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGroupIdResponse {
-  /**
-   * <p>The identifier for a group in the identity store.</p>
-   * @public
-   */
-  GroupId: string | undefined;
-
-  /**
-   * <p>The globally unique identifier for the identity store.</p>
-   * @public
-   */
-  IdentityStoreId: string | undefined;
-}
-
-/**
  * <p>An object containing the identifier of a group member.</p>
  * @public
  */
@@ -211,7 +177,7 @@ export type MemberId =
  */
 export namespace MemberId {
   /**
-   * <p>An object containing the identifiers of resources that can be members.</p>
+   * <p>The identifier for a user in the identity store.</p> <p>You can specify the user by ID or by Amazon Resource Name (ARN). For example, user ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code> or user ARN <code>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
    * @public
    */
   export interface UserIdMember {
@@ -240,89 +206,15 @@ export namespace MemberId {
 /**
  * @public
  */
-export interface GetGroupMembershipIdRequest {
-  /**
-   * <p>The globally unique identifier for the identity store.</p>
-   * @public
-   */
-  IdentityStoreId: string | undefined;
-
-  /**
-   * <p>The identifier for a group in the identity store.</p>
-   * @public
-   */
-  GroupId: string | undefined;
-
-  /**
-   * <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
-   * @public
-   */
-  MemberId: MemberId | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGroupMembershipIdResponse {
-  /**
-   * <p>The identifier for a <code>GroupMembership</code> in an identity store.</p>
-   * @public
-   */
-  MembershipId: string | undefined;
-
-  /**
-   * <p>The globally unique identifier for the identity store.</p>
-   * @public
-   */
-  IdentityStoreId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetUserIdRequest {
-  /**
-   * <p>The globally unique identifier for the identity store.</p>
-   * @public
-   */
-  IdentityStoreId: string | undefined;
-
-  /**
-   * <p>A unique identifier for a user or group that is not the primary identifier. This value can be an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid paths are <code> userName</code> and <code>emails.value</code>.</p>
-   * @public
-   */
-  AlternateIdentifier: AlternateIdentifier | undefined;
-}
-
-/**
- * @public
- */
-export interface GetUserIdResponse {
-  /**
-   * <p>The globally unique identifier for the identity store.</p>
-   * @public
-   */
-  IdentityStoreId: string | undefined;
-
-  /**
-   * <p>The identifier for a user in the identity store.</p>
-   * @public
-   */
-  UserId: string | undefined;
-}
-
-/**
- * @public
- */
 export interface CreateGroupMembershipRequest {
   /**
-   * <p>The globally unique identifier for the identity store.</p>
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a group in the identity store.</p>
+   * <p>The identifier for a group in the identity store.</p> <p>You can specify the group by ID or by Amazon Resource Name (ARN). For example, group ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code> or group ARN <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
    * @public
    */
   GroupId: string | undefined;
@@ -339,16 +231,22 @@ export interface CreateGroupMembershipRequest {
  */
 export interface CreateGroupMembershipResponse {
   /**
+   * <p>The globally unique identifier for the identity store.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
    * <p>The identifier for a newly created <code>GroupMembership</code> in an identity store.</p>
    * @public
    */
   MembershipId: string | undefined;
 
   /**
-   * <p>The globally unique identifier for the identity store.</p>
+   * <p>The Amazon Resource Name (ARN) of the newly created group membership in the identity store. For example, <code>arn:aws:identitystore:::membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333</code>.</p>
    * @public
    */
-  IdentityStoreId: string | undefined;
+  MembershipArn: string | undefined;
 }
 
 /**
@@ -356,13 +254,13 @@ export interface CreateGroupMembershipResponse {
  */
 export interface DeleteGroupMembershipRequest {
   /**
-   * <p>The globally unique identifier for the identity store.</p>
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a <code>GroupMembership</code> in an identity store.</p>
+   * <p>The identifier for a <code>GroupMembership</code> in an identity store.</p> <p>You can specify the group membership by ID or by Amazon Resource Name (ARN). For example, membership ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE33333</code> or membership ARN <code>arn:aws:identitystore:::membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333</code>.</p>
    * @public
    */
   MembershipId: string | undefined;
@@ -378,13 +276,13 @@ export interface DeleteGroupMembershipResponse {}
  */
 export interface DescribeGroupMembershipRequest {
   /**
-   * <p>The globally unique identifier for the identity store.</p>
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a <code>GroupMembership</code> in an identity store.</p>
+   * <p>The identifier for a <code>GroupMembership</code> in an identity store.</p> <p>You can specify the group membership by ID or by Amazon Resource Name (ARN). For example, membership ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE33333</code> or membership ARN <code>arn:aws:identitystore:::membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333</code>.</p>
    * @public
    */
   MembershipId: string | undefined;
@@ -405,6 +303,12 @@ export interface DescribeGroupMembershipResponse {
    * @public
    */
   MembershipId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the group membership in the identity store. For example, <code>arn:aws:identitystore:::membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333</code>.</p>
+   * @public
+   */
+  MembershipArn: string | undefined;
 
   /**
    * <p>The identifier for a group in the identity store.</p>
@@ -446,7 +350,30 @@ export interface DescribeGroupMembershipResponse {
 /**
  * @public
  */
-export interface ListGroupMembershipsRequest {
+export interface GetGroupMembershipIdRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a group in the identity store.</p> <p>You can specify the group by ID or by Amazon Resource Name (ARN). For example, group ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code> or group ARN <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
+   * @public
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
+   * @public
+   */
+  MemberId: MemberId | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGroupMembershipIdResponse {
   /**
    * <p>The globally unique identifier for the identity store.</p>
    * @public
@@ -454,7 +381,88 @@ export interface ListGroupMembershipsRequest {
   IdentityStoreId: string | undefined;
 
   /**
+   * <p>The identifier for a <code>GroupMembership</code> in an identity store.</p>
+   * @public
+   */
+  MembershipId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the group membership in the identity store. For example, <code>arn:aws:identitystore:::membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333</code>.</p>
+   * @public
+   */
+  MembershipArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface IsMemberInGroupsRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>An object containing the identifier of a group member.</p>
+   * @public
+   */
+  MemberId: MemberId | undefined;
+
+  /**
+   * <p>A list of identifiers for groups in the identity store.</p> <p>You can specify each group by ID or by Amazon Resource Name (ARN). For example, group ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code> or group ARN <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
+   * @public
+   */
+  GroupIds: string[] | undefined;
+}
+
+/**
+ * <p>Indicates whether a resource is a member of a group in the identity store.</p>
+ * @public
+ */
+export interface GroupMembershipExistenceResult {
+  /**
    * <p>The identifier for a group in the identity store.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
+   * @public
+   */
+  MemberId?: MemberId | undefined;
+
+  /**
+   * <p>Indicates whether a membership relation exists or not.</p>
+   * @public
+   */
+  MembershipExists?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface IsMemberInGroupsResponse {
+  /**
+   * <p>A list containing the results of membership existence checks.</p>
+   * @public
+   */
+  Results: GroupMembershipExistenceResult[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupMembershipsRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a group in the identity store.</p> <p>You can specify the group by ID or by Amazon Resource Name (ARN). For example, group ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code> or group ARN <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
    * @public
    */
   GroupId: string | undefined;
@@ -466,7 +474,7 @@ export interface ListGroupMembershipsRequest {
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code> and <code> ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code> and <code> ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to retrieve the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -487,7 +495,13 @@ export interface GroupMembership {
    * <p>The identifier for a <code>GroupMembership</code> object in an identity store.</p>
    * @public
    */
-  MembershipId?: string | undefined;
+  MembershipId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the group membership in the identity store. For example, <code>arn:aws:identitystore:::membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333</code>.</p>
+   * @public
+   */
+  MembershipArn: string | undefined;
 
   /**
    * <p>The identifier for a group in the identity store.</p>
@@ -537,7 +551,53 @@ export interface ListGroupMembershipsResponse {
   GroupMemberships: GroupMembership[] | undefined;
 
   /**
-   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code>, and <code> ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code>, and <code> ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupMembershipsForMemberRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
+   * @public
+   */
+  MemberId: MemberId | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request. This parameter is used in all <code>List</code> requests to specify how many results to return in one page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code>, and <code> ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupMembershipsForMemberResponse {
+  /**
+   * <p>A list of <code>GroupMembership</code> objects in the group for a specified member.</p>
+   * @public
+   */
+  GroupMemberships: GroupMembership[] | undefined;
+
+  /**
+   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code>, and <code> ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to retrieve the next page of results. </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -548,7 +608,7 @@ export interface ListGroupMembershipsResponse {
  */
 export interface CreateGroupRequest {
   /**
-   * <p>The globally unique identifier for the identity store.</p>
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
@@ -571,16 +631,28 @@ export interface CreateGroupRequest {
  */
 export interface CreateGroupResponse {
   /**
+   * <p>The globally unique identifier for the identity store.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
    * <p>The identifier of the newly created group in the identity store.</p>
    * @public
    */
   GroupId: string | undefined;
 
   /**
-   * <p>The globally unique identifier for the identity store.</p>
+   * <p>The Amazon Resource Name (ARN) of the newly created group in the identity store. For example, <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
    * @public
    */
-  IdentityStoreId: string | undefined;
+  GroupArn: string | undefined;
+
+  /**
+   * <p>The revision of the newly created group in the identity store.</p>
+   * @public
+   */
+  Revision: string | undefined;
 }
 
 /**
@@ -588,16 +660,22 @@ export interface CreateGroupResponse {
  */
 export interface DeleteGroupRequest {
   /**
-   * <p>The globally unique identifier for the identity store.</p>
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a group in the identity store.</p>
+   * <p>The identifier for a group in the identity store.</p> <p>You can specify the group by ID or by Amazon Resource Name (ARN). For example, group ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code> or group ARN <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
    * @public
    */
   GroupId: string | undefined;
+
+  /**
+   * <p>The expected current revision of the group. When you provide this value, the group is deleted only if it matches the current revision of the group in the identity store. If the value doesn't match, the operation fails with a <code>ConflictException</code>. If you don't provide this value, the group is deleted regardless of its current revision.</p>
+   * @public
+   */
+  Revision?: string | undefined;
 }
 
 /**
@@ -610,13 +688,13 @@ export interface DeleteGroupResponse {}
  */
 export interface DescribeGroupRequest {
   /**
-   * <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p>
+   * <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a group in the identity store.</p>
+   * <p>The identifier for a group in the identity store.</p> <p>You can specify the group by ID or by Amazon Resource Name (ARN). For example, group ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code> or group ARN <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
    * @public
    */
   GroupId: string | undefined;
@@ -627,10 +705,28 @@ export interface DescribeGroupRequest {
  */
 export interface DescribeGroupResponse {
   /**
+   * <p>The globally unique identifier for the identity store.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
    * <p>The identifier for a group in the identity store.</p>
    * @public
    */
   GroupId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the group in the identity store. For example, <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
+   * @public
+   */
+  GroupArn: string | undefined;
+
+  /**
+   * <p>The current revision of the group in the identity store. This value changes each time the group is modified.</p>
+   * @public
+   */
+  Revision: string | undefined;
 
   /**
    * <p>The group’s display name value. The length limit is 1,024 characters. This value can consist of letters, accented characters, symbols, numbers, punctuation, tab, new line, carriage return, space, and nonbreaking space in this attribute. This value is specified at the time that the group is created and stored as an attribute of the group object in the identity store.</p>
@@ -673,12 +769,46 @@ export interface DescribeGroupResponse {
    * @public
    */
   UpdatedBy?: string | undefined;
+}
 
+/**
+ * @public
+ */
+export interface GetGroupIdRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>A unique identifier for a user or group that is not the primary identifier. This value can be an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid path is <code> displayName</code>.</p>
+   * @public
+   */
+  AlternateIdentifier: AlternateIdentifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGroupIdResponse {
   /**
    * <p>The globally unique identifier for the identity store.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a group in the identity store.</p>
+   * @public
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the group in the identity store. For example, <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
+   * @public
+   */
+  GroupArn: string | undefined;
 }
 
 /**
@@ -704,19 +834,19 @@ export interface Filter {
  */
 export interface ListGroupsRequest {
   /**
-   * <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p>
+   * <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned per request. This parameter is used in the <code> ListUsers</code> and <code>ListGroups</code> requests to specify how many results to return in one page. The length limit is 50 characters.</p>
+   * <p>The maximum number of results to be returned per request. This parameter is used in all <code>List</code> requests to specify how many results to return in one page.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   * <p>The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to retrieve the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -736,10 +866,28 @@ export interface ListGroupsRequest {
  */
 export interface Group {
   /**
+   * <p>The globally unique identifier for the identity store.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
    * <p>The identifier for a group in the identity store.</p>
    * @public
    */
   GroupId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the group in the identity store. For example, <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
+   * @public
+   */
+  GroupArn: string | undefined;
+
+  /**
+   * <p>The current revision of the group in the identity store. This value changes each time the group is modified. You can provide it as the <code>Revision</code> parameter of an <code>UpdateGroup</code> or <code>DeleteGroup</code> request to make the operation conditional on the group not having changed. Treat this value as an opaque token: don't parse it or rely on its format or ordering.</p>
+   * @public
+   */
+  Revision: string | undefined;
 
   /**
    * <p>The display name value for the group. The length limit is 1,024 characters. This value can consist of letters, accented characters, symbols, numbers, punctuation, tab, new line, carriage return, space, and nonbreaking space in this attribute. This value is specified at the time the group is created and stored as an attribute of the group object in the identity store.</p> <p>Prefix search supports a maximum of 1,000 characters for the string.</p>
@@ -782,12 +930,6 @@ export interface Group {
    * @public
    */
   UpdatedBy?: string | undefined;
-
-  /**
-   * <p>The globally unique identifier for the identity store.</p>
-   * @public
-   */
-  IdentityStoreId: string | undefined;
 }
 
 /**
@@ -801,7 +943,7 @@ export interface ListGroupsResponse {
   Groups: Group[] | undefined;
 
   /**
-   * <p>The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   * <p>The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to retrieve the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -811,6 +953,35 @@ export interface ListGroupsResponse {
  * @public
  */
 export interface UpdateGroupRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a group in the identity store.</p> <p>You can specify the group by ID or by Amazon Resource Name (ARN). For example, group ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code> or group ARN <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
+   * @public
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>A list of <code>AttributeOperation</code> objects to apply to the requested group. These operations might add, replace, or remove an attribute. For more information on the attributes that can be added, replaced, or removed, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html">Group</a>.</p>
+   * @public
+   */
+  Operations: AttributeOperation[] | undefined;
+
+  /**
+   * <p>The expected current revision of the group. When you provide this value, the update is applied only if it matches the current revision of the group in the identity store, which prevents you from overwriting concurrent changes. If the value doesn't match, the operation fails with a <code>ConflictException</code>. If you don't provide this value, the update is applied unconditionally.</p>
+   * @public
+   */
+  Revision?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGroupResponse {
   /**
    * <p>The globally unique identifier for the identity store.</p>
    * @public
@@ -824,21 +995,63 @@ export interface UpdateGroupRequest {
   GroupId: string | undefined;
 
   /**
-   * <p>A list of <code>AttributeOperation</code> objects to apply to the requested group. These operations might add, replace, or remove an attribute. For more information on the attributes that can be added, replaced, or removed, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html">Group</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the group in the identity store. For example, <code>arn:aws:identitystore:::group/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</code>.</p>
    * @public
    */
-  Operations: AttributeOperation[] | undefined;
+  GroupArn: string | undefined;
+
+  /**
+   * <p>The revision of the group after the requested update is applied.</p>
+   * @public
+   */
+  Revision: string | undefined;
 }
 
 /**
  * @public
  */
-export interface UpdateGroupResponse {}
+export interface DescribeIdentityStoreRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+}
+
+/**
+ * <p>The network configuration that controls how an identity store can be accessed. This object is returned as part of service API responses.</p>
+ * @public
+ */
+export interface NetworkConfigurationDetails {
+  /**
+   * <p>Specifies whether the identity store can be accessed only through a virtual private cloud (VPC) endpoint. When set to <code>true</code>, requests must originate from a VPC endpoint.</p>
+   * @public
+   */
+  VpceAccessRequired: boolean | undefined;
+
+  /**
+   * <p>A list of virtual private cloud (VPC) IDs that are allowed to access the identity store API operations. A request is denied unless it originates from a VPC in this list, or from an IP address in <code>ApiAllowSourceIps</code> if one is configured. If this field is empty, access isn't restricted to specific VPCs, but the VPC endpoint requirement from <code>VpceAccessRequired</code> still applies.</p>
+   * @public
+   */
+  ApiRestrictSourceVpcs?: string[] | undefined;
+
+  /**
+   * <p>A list of IP address CIDR ranges that are allowed to access the identity store API operations. A request from an IP address in this list bypasses the identity store's other API network controls: it's permitted even if it doesn't come through a VPC endpoint required by <code>VpceAccessRequired</code>, and even if it doesn't originate from a VPC in <code>ApiRestrictSourceVpcs</code>. If this field is empty, no such IP address exception applies.</p>
+   * @public
+   */
+  ApiAllowSourceIps?: string[] | undefined;
+
+  /**
+   * <p>A list of IP address CIDR ranges that are allowed to access the identity store through the System for Cross-domain Identity Management (SCIM) protocol. Requests from IP addresses outside these ranges are denied. If this field is empty, SCIM requests remain subject to the identity store's other network controls, such as the VPC endpoint requirement.</p>
+   * @public
+   */
+  ScimAllowSourceIps?: string[] | undefined;
+}
 
 /**
  * @public
  */
-export interface IsMemberInGroupsRequest {
+export interface DescribeIdentityStoreResponse {
   /**
    * <p>The globally unique identifier for the identity store.</p>
    * @public
@@ -846,97 +1059,132 @@ export interface IsMemberInGroupsRequest {
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>An object containing the identifier of a group member.</p>
+   * <p>The Amazon Resource Name (ARN) of the identity store. For example, <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
-  MemberId: MemberId | undefined;
+  IdentityStoreArn: string | undefined;
 
   /**
-   * <p>A list of identifiers for groups in the identity store.</p>
+   * <p>The network configuration of the identity store. This configuration controls whether access through a virtual private cloud (VPC) endpoint is required, and which source VPCs and IP addresses are allowed.</p>
    * @public
    */
-  GroupIds: string[] | undefined;
-}
-
-/**
- * <p>Indicates whether a resource is a member of a group in the identity store.</p>
- * @public
- */
-export interface GroupMembershipExistenceResult {
-  /**
-   * <p>The identifier for a group in the identity store.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
-   * @public
-   */
-  MemberId?: MemberId | undefined;
-
-  /**
-   * <p>Indicates whether a membership relation exists or not.</p>
-   * @public
-   */
-  MembershipExists?: boolean | undefined;
+  NetworkConfiguration?: NetworkConfigurationDetails | undefined;
 }
 
 /**
  * @public
  */
-export interface IsMemberInGroupsResponse {
+export interface ListIdentityStoresRequest {
   /**
-   * <p>A list containing the results of membership existence checks.</p>
-   * @public
-   */
-  Results: GroupMembershipExistenceResult[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGroupMembershipsForMemberRequest {
-  /**
-   * <p>The globally unique identifier for the identity store.</p>
-   * @public
-   */
-  IdentityStoreId: string | undefined;
-
-  /**
-   * <p>An object that contains the identifier of a group member. Setting the <code>UserID</code> field to the specific identifier for a user indicates that the user is a member of the group.</p>
-   * @public
-   */
-  MemberId: MemberId | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request. This parameter is used in the <code> ListUsers</code> and <code>ListGroups</code> requests to specify how many results to return in one page. The length limit is 50 characters.</p>
+   * <p>The maximum number of results to return per request. This parameter is used in all <code> List</code> operations to specify how many results to return on one page. If you don't specify a value, the operation uses a default page size.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code>, and <code> ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   * <p>The pagination token used for the <code>ListIdentityStores</code> API operation. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to retrieve the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
+ * <p>A structure that contains the identifiers for an identity store: its globally unique identifier (ID) and Amazon Resource Name (ARN).</p>
  * @public
  */
-export interface ListGroupMembershipsForMemberResponse {
+export interface IdentityStore {
   /**
-   * <p>A list of <code>GroupMembership</code> objects in the group for a specified member.</p>
+   * <p>The globally unique identifier for the identity store.</p>
    * @public
    */
-  GroupMemberships: GroupMembership[] | undefined;
+  IdentityStoreId: string | undefined;
 
   /**
-   * <p>The pagination token used for the <code>ListUsers</code>, <code>ListGroups</code>, and <code> ListGroupMemberships</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page. </p>
+   * <p>The Amazon Resource Name (ARN) of the identity store. For example, <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIdentityStoresResponse {
+  /**
+   * <p>A list of <code>IdentityStore</code> objects, each of which contains the identifiers for an identity store that you have access to.</p>
+   * @public
+   */
+  IdentityStores: IdentityStore[] | undefined;
+
+  /**
+   * <p>The pagination token used for the <code>ListIdentityStores</code> API operation. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to retrieve the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * <p>The network configuration that controls how an identity store can be accessed. You provide this object in a request.</p>
+ * @public
+ */
+export interface NetworkConfiguration {
+  /**
+   * <p>Specifies whether the identity store can be accessed only through a virtual private cloud (VPC) endpoint. When set to <code>true</code>, requests must originate from a VPC endpoint.</p> <p>This value must be set to either <code>true</code> or <code>false</code> when you provide <code>NetworkConfiguration</code> in a request.</p>
+   * @public
+   */
+  VpceAccessRequired: boolean | undefined;
+
+  /**
+   * <p>A list of virtual private cloud (VPC) IDs that are allowed to access the identity store API operations. A request is denied unless it originates from a VPC in this list, or from an IP address in <code>ApiAllowSourceIps</code> if you specified one. If you don't specify a value, access isn't restricted to specific VPCs, but the VPC endpoint requirement set by <code>VpceAccessRequired</code> still applies.</p>
+   * @public
+   */
+  ApiRestrictSourceVpcs?: string[] | undefined;
+
+  /**
+   * <p>A list of IP address CIDR ranges that are allowed to access the identity store API operations. A request from an IP address in this list bypasses the identity store's other API network controls: it's permitted even if it doesn't come through a VPC endpoint required by <code>VpceAccessRequired</code>, and even if it doesn't originate from a VPC in <code>ApiRestrictSourceVpcs</code>. If you don't specify a value, no such IP address exception applies.</p>
+   * @public
+   */
+  ApiAllowSourceIps?: string[] | undefined;
+
+  /**
+   * <p>A list of IP address CIDR ranges that are allowed to access the identity store through the System for Cross-domain Identity Management (SCIM) protocol. Requests from IP addresses outside these ranges are denied. If you don't specify a value, SCIM requests remain subject to the identity store's other network controls, such as the VPC endpoint requirement set by <code>VpceAccessRequired</code>.</p> <p>For example, to allow SCIM traffic from the public internet while still requiring the identity store API operations to be accessed through a VPC endpoint, set <code>VpceAccessRequired</code> to <code>true</code> and set this value to <code>0.0.0.0/0</code>.</p>
+   * @public
+   */
+  ScimAllowSourceIps?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIdentityStoreRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The network configuration to apply to the identity store. This controls whether access through a virtual private cloud (VPC) endpoint is required and the source VPCs and IP addresses that are allowed to access the identity store.</p> <p>When you provide <code>NetworkConfiguration</code> in a request, the service performs a full replacement of the identity store's current network configuration with the values you specify. Any values that you omit are cleared. To preserve or change the allowed source VPCs or IP address ranges, include the complete set of values that you want in the request. To clear a list, omit it; an empty list is not accepted.</p>
+   * @public
+   */
+  NetworkConfiguration?: NetworkConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIdentityStoreResponse {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the identity store. For example, <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreArn: string | undefined;
 }
 
 /**
@@ -1011,7 +1259,7 @@ export interface Name {
  */
 export interface PhoneNumber {
   /**
-   * <p>A string containing a phone number. For example, "8675309" or "+1 (800) 123-4567". </p>
+   * <p>A string containing a phone number. For example, "8675309" or "+1 (800) 123-4567".</p>
    * @public
    */
   Value?: string | undefined;
@@ -1088,7 +1336,7 @@ export interface Role {
  */
 export interface CreateUserRequest {
   /**
-   * <p>The globally unique identifier for the identity store.</p>
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
@@ -1217,6 +1465,18 @@ export interface CreateUserResponse {
    * @public
    */
   UserId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the newly created user in the identity store. For example, <code>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
+   * @public
+   */
+  UserArn: string | undefined;
+
+  /**
+   * <p>The revision of the newly created user in the identity store.</p>
+   * @public
+   */
+  Revision: string | undefined;
 }
 
 /**
@@ -1224,16 +1484,22 @@ export interface CreateUserResponse {
  */
 export interface DeleteUserRequest {
   /**
-   * <p>The globally unique identifier for the identity store.</p>
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a user in the identity store.</p>
+   * <p>The identifier for a user in the identity store.</p> <p>You can specify the user by ID or by Amazon Resource Name (ARN). For example, user ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code> or user ARN <code>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
    * @public
    */
   UserId: string | undefined;
+
+  /**
+   * <p>The expected current revision of the user. When you provide this value, the user is deleted only if it matches the current revision of the user in the identity store. If the value doesn't match, the operation fails with a <code>ConflictException</code>. If you don't provide this value, the user is deleted regardless of its current revision.</p>
+   * @public
+   */
+  Revision?: string | undefined;
 }
 
 /**
@@ -1246,13 +1512,13 @@ export interface DeleteUserResponse {}
  */
 export interface DescribeUserRequest {
   /**
-   * <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p>
+   * <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
 
   /**
-   * <p>The identifier for a user in the identity store.</p>
+   * <p>The identifier for a user in the identity store.</p> <p>You can specify the user by ID or by Amazon Resource Name (ARN). For example, user ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code> or user ARN <code>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
    * @public
    */
   UserId: string | undefined;
@@ -1279,6 +1545,18 @@ export interface DescribeUserResponse {
    * @public
    */
   UserId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user in the identity store. For example, <code>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
+   * @public
+   */
+  UserArn: string | undefined;
+
+  /**
+   * <p>The current revision of the user in the identity store. This value changes each time the user is modified.</p>
+   * @public
+   */
+  Revision: string | undefined;
 
   /**
    * <p>A unique string used to identify the user. The length limit is 128 characters. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store.</p>
@@ -1428,9 +1706,49 @@ export interface DescribeUserResponse {
 /**
  * @public
  */
+export interface GetUserIdRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>A unique identifier for a user or group that is not the primary identifier. This value can be an identifier from an external identity provider (IdP) that is associated with the user, the group, or a unique attribute. For the unique attribute, the only valid paths are <code> userName</code> and <code>emails.value</code>.</p>
+   * @public
+   */
+  AlternateIdentifier: AlternateIdentifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetUserIdResponse {
+  /**
+   * <p>The globally unique identifier for the identity store.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a user in the identity store.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user in the identity store. For example, <code>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
+   * @public
+   */
+  UserArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListUsersRequest {
   /**
-   * <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p>
+   * <p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
    * @public
    */
   IdentityStoreId: string | undefined;
@@ -1442,13 +1760,13 @@ export interface ListUsersRequest {
   Extensions?: string[] | undefined;
 
   /**
-   * <p>The maximum number of results to be returned per request. This parameter is used in the <code> ListUsers</code> and <code>ListGroups</code> requests to specify how many results to return in one page. The length limit is 50 characters.</p>
+   * <p>The maximum number of results to be returned per request. This parameter is used in all <code>List</code> requests to specify how many results to return in one page.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   * <p>The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to retrieve the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1456,7 +1774,7 @@ export interface ListUsersRequest {
   /**
    * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and <code> ListGroups</code> requests. </p>
    *
-   * @deprecated Using filters with ListUsers API is deprecated, please use GetGroupId API instead.
+   * @deprecated Using filters with ListUsers API is deprecated, please use GetUserId API instead.
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -1478,6 +1796,18 @@ export interface User {
    * @public
    */
   UserId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user in the identity store. For example, <code>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
+   * @public
+   */
+  UserArn: string | undefined;
+
+  /**
+   * <p>The current revision of the user in the identity store. This value changes each time the user is modified. You can provide it as the <code>Revision</code> parameter of an <code>UpdateUser</code> or <code>DeleteUser</code> request to make the operation conditional on the user not having changed. Treat this value as an opaque token: don't parse it or rely on its format or ordering.</p>
+   * @public
+   */
+  Revision: string | undefined;
 
   /**
    * <p>A unique string used to identify the user. The length limit is 128 characters. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store.</p>
@@ -1635,7 +1965,7 @@ export interface ListUsersResponse {
   Users: User[] | undefined;
 
   /**
-   * <p>The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to search for the next page.</p>
+   * <p>The pagination token used for the <code>ListUsers</code> and <code>ListGroups</code> API operations. This value is generated by the identity store service. It is returned in the API response if the total results are more than the size of one page. This token is also returned when it is used in the API request to retrieve the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1645,6 +1975,35 @@ export interface ListUsersResponse {
  * @public
  */
 export interface UpdateUserRequest {
+  /**
+   * <p>The globally unique identifier for the identity store.</p> <p>You can specify the identity store by ID or by Amazon Resource Name (ARN). For example, identity store ID <code>d-1234567890</code> or identity store ARN <code>arn:aws:identitystore::111122223333:identitystore/d-1234567890</code>.</p>
+   * @public
+   */
+  IdentityStoreId: string | undefined;
+
+  /**
+   * <p>The identifier for a user in the identity store.</p> <p>You can specify the user by ID or by Amazon Resource Name (ARN). For example, user ID <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code> or user ARN <code>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>A list of <code>AttributeOperation</code> objects to apply to the requested user. These operations might add, replace, or remove an attribute. For more information on the attributes that can be added, replaced, or removed, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html">User</a>.</p>
+   * @public
+   */
+  Operations: AttributeOperation[] | undefined;
+
+  /**
+   * <p>The expected current revision of the user. When you provide this value, the update is applied only if it matches the current revision of the user in the identity store, which prevents you from overwriting concurrent changes. If the value doesn't match, the operation fails with a <code>ConflictException</code>. If you don't provide this value, the update is applied unconditionally.</p>
+   * @public
+   */
+  Revision?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserResponse {
   /**
    * <p>The globally unique identifier for the identity store.</p>
    * @public
@@ -1658,13 +2017,14 @@ export interface UpdateUserRequest {
   UserId: string | undefined;
 
   /**
-   * <p>A list of <code>AttributeOperation</code> objects to apply to the requested user. These operations might add, replace, or remove an attribute. For more information on the attributes that can be added, replaced, or removed, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html">User</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the user in the identity store. For example, <code>arn:aws:identitystore:::user/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
    * @public
    */
-  Operations: AttributeOperation[] | undefined;
-}
+  UserArn: string | undefined;
 
-/**
- * @public
- */
-export interface UpdateUserResponse {}
+  /**
+   * <p>The revision of the user after the requested update is applied.</p>
+   * @public
+   */
+  Revision: string | undefined;
+}
