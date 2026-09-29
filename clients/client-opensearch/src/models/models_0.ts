@@ -72,6 +72,7 @@ import type {
   TLSSecurityPolicy,
   UpgradeStatus,
   UpgradeStep,
+  ValidationFailureSeverity,
   VolumeType,
   VpcEndpointErrorCode,
   VpcEndpointStatus,
@@ -4527,6 +4528,31 @@ export interface ChangeProgressStage {
 }
 
 /**
+ * <p>A validation failure that occurred as the result of a pre-update validation check
+ *             (verbose dry run) on a domain.</p>
+ * @public
+ */
+export interface ValidationFailure {
+  /**
+   * <p>The error code of the failure.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>A message corresponding to the failure.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The severity of the validation failure.</p>
+   * @public
+   */
+  Severity?: ValidationFailureSeverity | undefined;
+}
+
+/**
  * <p>The progress details of a specific domain configuration change.</p>
  * @public
  */
@@ -4593,6 +4619,18 @@ export interface ChangeProgressStatusDetails {
    * @public
    */
   InitiatedBy?: InitiatedBy | undefined;
+
+  /**
+   * <p>The validation failures that occurred as a result of the configuration change.</p>
+   * @public
+   */
+  ValidationFailures?: ValidationFailure[] | undefined;
+
+  /**
+   * <p>The list of advisory warning codes that were accepted for the configuration change.</p>
+   * @public
+   */
+  AcceptedWarnings?: string[] | undefined;
 }
 
 /**
@@ -5580,25 +5618,6 @@ export interface DescribeDryRunProgressRequest {
 }
 
 /**
- * <p>A validation failure that occurred as the result of a pre-update validation check
- *             (verbose dry run) on a domain.</p>
- * @public
- */
-export interface ValidationFailure {
-  /**
-   * <p>The error code of the failure.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>A message corresponding to the failure.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
  * <p>Information about the progress of a pre-upgrade dry run analysis.</p>
  * @public
  */
@@ -5628,10 +5647,16 @@ export interface DryRunProgressStatus {
   UpdateDate: string | undefined;
 
   /**
-   * <p>Any validation failures that occurred as a result of the dry run.</p>
+   * <p>The validation failures that occurred as a result of the dry run.</p>
    * @public
    */
   ValidationFailures?: ValidationFailure[] | undefined;
+
+  /**
+   * <p>The list of advisory warning codes that were accepted for the configuration change.</p>
+   * @public
+   */
+  AcceptedWarnings?: string[] | undefined;
 }
 
 /**

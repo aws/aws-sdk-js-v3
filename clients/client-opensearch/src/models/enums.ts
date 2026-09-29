@@ -792,6 +792,19 @@ export type OverallChangeStatus = (typeof OverallChangeStatus)[keyof typeof Over
  * @public
  * @enum
  */
+export const ValidationFailureSeverity = {
+  CRITICAL: "Critical",
+  WARNING: "Warning",
+} as const;
+/**
+ * @public
+ */
+export type ValidationFailureSeverity = (typeof ValidationFailureSeverity)[keyof typeof ValidationFailureSeverity];
+
+/**
+ * @public
+ * @enum
+ */
 export const RollbackOnDisable = {
   DEFAULT_ROLLBACK: "DEFAULT_ROLLBACK",
   NO_ROLLBACK: "NO_ROLLBACK",

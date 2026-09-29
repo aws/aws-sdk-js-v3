@@ -50,7 +50,11 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //       { // ValidationFailure
  * //         Code: "STRING_VALUE",
  * //         Message: "STRING_VALUE",
+ * //         Severity: "Critical" || "Warning",
  * //       },
+ * //     ],
+ * //     AcceptedWarnings: [ // AcceptedWarningsList
+ * //       "STRING_VALUE",
  * //     ],
  * //   },
  * //   DryRunConfig: { // DomainStatus

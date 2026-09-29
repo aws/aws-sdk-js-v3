@@ -77,6 +77,7 @@ const _AV = "ActiveValue";
 const _AVEA = "AuthorizeVpcEndpointAccess";
 const _AVEAR = "AuthorizeVpcEndpointAccessRequest";
 const _AVEARu = "AuthorizeVpcEndpointAccessResponse";
+const _AW = "AcceptedWarnings";
 const _AWSDI = "AWSDomainInformation";
 const _AZ = "AvailabilityZone";
 const _AZC = "AvailabilityZoneCount";
@@ -1298,8 +1299,8 @@ export var ChangeProgressStage$: StaticStructureSchema = [3, n0, _CPS,
 ];
 export var ChangeProgressStatusDetails$: StaticStructureSchema = [3, n0, _CPSD,
   0,
-  [_CIh, _ST, _S, _PP, _CP, _TNOS, _CPSh, _LUT, _CCS, _IB],
-  [0, 4, 0, 64 | 0, 64 | 0, 1, () => ChangeProgressStageList, 4, 0, 0]
+  [_CIh, _ST, _S, _PP, _CP, _TNOS, _CPSh, _LUT, _CCS, _IB, _VF, _AW],
+  [0, 4, 0, 64 | 0, 64 | 0, 1, () => ChangeProgressStageList, 4, 0, 0, () => ValidationFailures, 64 | 0]
 ];
 export var CloudWatchDirectQueryDataSource$: StaticStructureSchema = [3, n0, _CWDQDS,
   0,
@@ -1783,8 +1784,8 @@ export var DomainStatus$: StaticStructureSchema = [3, n0, _DSo,
 ];
 export var DryRunProgressStatus$: StaticStructureSchema = [3, n0, _DRPS,
   0,
-  [_DRI, _DRS, _CD, _UD, _VF],
-  [0, 0, 0, 0, () => ValidationFailures], 4
+  [_DRI, _DRS, _CD, _UD, _VF, _AW],
+  [0, 0, 0, 0, () => ValidationFailures, 64 | 0], 4
 ];
 export var DryRunResults$: StaticStructureSchema = [3, n0, _DRR,
   0,
@@ -2648,8 +2649,8 @@ export var UpdateDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateDomainConfigRequest$: StaticStructureSchema = [3, n0, _UDCR,
   0,
-  [_DN, _CC, _EBSO, _SOn, _VPCO, _CO, _AO, _APc, _IPAT, _LPO, _EARO, _DEO, _NTNEO, _ASO, _ICO, _ATO, _DR, _DRM, _OPWO, _SUO, _AIMLO, _DSO, _ASPO, _UC, _EMn],
-  [[0, 1], () => ClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, 0, () => LogPublishingOptions, () => EncryptionAtRestOptions$, () => DomainEndpointOptions$, () => NodeToNodeEncryptionOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => AutoTuneOptions$, 2, 0, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$, 0, 0], 1
+  [_DN, _CC, _EBSO, _SOn, _VPCO, _CO, _AO, _APc, _IPAT, _LPO, _EARO, _DEO, _NTNEO, _ASO, _ICO, _ATO, _DR, _DRM, _OPWO, _SUO, _AIMLO, _DSO, _ASPO, _UC, _EMn, _AW],
+  [[0, 1], () => ClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, 0, () => LogPublishingOptions, () => EncryptionAtRestOptions$, () => DomainEndpointOptions$, () => NodeToNodeEncryptionOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => AutoTuneOptions$, 2, 0, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$, 0, 0, 64 | 0], 1
 ];
 export var UpdateDomainConfigResponse$: StaticStructureSchema = [3, n0, _UDCRp,
   0,
@@ -2733,8 +2734,8 @@ export var UseCaseStatus$: StaticStructureSchema = [3, n0, _UCS,
 ];
 export var ValidationFailure$: StaticStructureSchema = [3, n0, _VFa,
   0,
-  [_Cod, _M],
-  [0, 0]
+  [_Cod, _M, _Sev],
+  [0, 0, 0]
 ];
 export var VersionStatus$: StaticStructureSchema = [3, n0, _VSe,
   0,
@@ -2787,6 +2788,7 @@ export var ZoneAwarenessConfig$: StaticStructureSchema = [3, n0, _ZAC,
   [1]
 ];
 var __Unit = "unit" as const;
+var AcceptedWarningsList = 64 | 0;
 var AdditionalLimitList: StaticListSchema = [1, n0, _ALL,
   0, () => AdditionalLimit$
 ];

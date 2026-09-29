@@ -654,6 +654,7 @@ import {
   ValidationException,
   ValidationException$,
   ValidationFailure$,
+  ValidationFailureSeverity,
   VersionStatus$,
   VolumeType,
   VPCDerivedInfo$,
@@ -1293,6 +1294,7 @@ assert(typeof TimeUnit === "object");
 assert(typeof TLSSecurityPolicy === "object");
 assert(typeof UpgradeStatus === "object");
 assert(typeof UpgradeStep === "object");
+assert(typeof ValidationFailureSeverity === "object");
 assert(typeof VolumeType === "object");
 assert(typeof VpcEndpointErrorCode === "object");
 assert(typeof VpcEndpointStatus === "object");

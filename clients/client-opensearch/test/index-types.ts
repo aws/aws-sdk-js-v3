@@ -363,6 +363,7 @@ export type {
   TLSSecurityPolicy,
   UpgradeStatus,
   UpgradeStep,
+  ValidationFailureSeverity,
   VolumeType,
   VpcEndpointErrorCode,
   VpcEndpointStatus,

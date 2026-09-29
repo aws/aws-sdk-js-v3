@@ -205,6 +205,9 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *   },
  *   UseCase: "SEARCH" || "VECTOR" || "OBSERVABILITY" || "MIXED",
  *   EngineMode: "GENERAL" || "OPTIMIZED",
+ *   AcceptedWarnings: [ // AcceptedWarningsList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateDomainConfigCommand(input);
  * const response = await client.send(command);
@@ -517,7 +520,11 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //       { // ValidationFailure
  * //         Code: "STRING_VALUE",
  * //         Message: "STRING_VALUE",
+ * //         Severity: "Critical" || "Warning",
  * //       },
+ * //     ],
+ * //     AcceptedWarnings: [ // AcceptedWarningsList
+ * //       "STRING_VALUE",
  * //     ],
  * //   },
  * // };
