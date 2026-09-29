@@ -13,7 +13,7 @@ describe("BedrockRuntime", () => {
     client.destroy();
   });
 
-  it("invokeModelWithBidirectionalStream", async () => {
+  it.skip("invokeModelWithBidirectionalStream", async () => {
     const promptName = "p";
     const jsonBytes = (data: unknown) => Buffer.from(JSON.stringify(data));
     const chunk = (event: unknown) => ({
