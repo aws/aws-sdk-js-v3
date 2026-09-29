@@ -127,6 +127,9 @@ export interface CreateImportedImageCommandOutput extends CreateImportedImageRes
  * //     ImageSharedWithOthers: "TRUE" || "FALSE",
  * //     ManagedSoftwareIncluded: true || false,
  * //     ImageType: "CUSTOM" || "NATIVE" || "BYOL",
+ * //     ImageSoftwareMetadata: { // ImageSoftwareMetadata
+ * //       nvidiaGridDriverVersion: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

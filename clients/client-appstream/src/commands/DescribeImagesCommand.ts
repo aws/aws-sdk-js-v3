@@ -112,6 +112,9 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //       ImageSharedWithOthers: "TRUE" || "FALSE",
  * //       ManagedSoftwareIncluded: true || false,
  * //       ImageType: "CUSTOM" || "NATIVE" || "BYOL",
+ * //       ImageSoftwareMetadata: { // ImageSoftwareMetadata
+ * //         nvidiaGridDriverVersion: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

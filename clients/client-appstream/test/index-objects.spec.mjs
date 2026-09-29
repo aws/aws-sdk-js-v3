@@ -332,6 +332,7 @@ import {
   ImageBuilderStateChangeReasonCode,
   ImagePermissions$,
   ImageSharedWithOthers,
+  ImageSoftwareMetadata$,
   ImageState,
   ImageStateChangeReason$,
   ImageStateChangeReasonCode,
@@ -853,6 +854,7 @@ assert(typeof Image$ === "object");
 assert(typeof ImageBuilder$ === "object");
 assert(typeof ImageBuilderStateChangeReason$ === "object");
 assert(typeof ImagePermissions$ === "object");
+assert(typeof ImageSoftwareMetadata$ === "object");
 assert(typeof ImageStateChangeReason$ === "object");
 assert(typeof LastReportGenerationExecutionError$ === "object");
 assert(typeof ListAssociatedFleetsRequest$ === "object");

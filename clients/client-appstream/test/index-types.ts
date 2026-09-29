@@ -484,6 +484,7 @@ export type {
   ImageBuilder,
   ImageBuilderStateChangeReason,
   ImagePermissions,
+  ImageSoftwareMetadata,
   ImageStateChangeReason,
   LastReportGenerationExecutionError,
   ListAssociatedFleetsRequest,

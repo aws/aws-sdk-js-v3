@@ -3552,6 +3552,18 @@ export interface ImagePermissions {
 }
 
 /**
+ * <p>Describes the software metadata for an image, such as the installed NVIDIA GRID driver version.</p>
+ * @public
+ */
+export interface ImageSoftwareMetadata {
+  /**
+   * <p>The version of the NVIDIA GRID driver installed on the image. This field is empty if no NVIDIA GRID driver is installed.</p>
+   * @public
+   */
+  nvidiaGridDriverVersion?: string | undefined;
+}
+
+/**
  * <p>Describes the reason why the last image state change occurred.</p>
  * @public
  */
@@ -3733,6 +3745,12 @@ export interface Image {
    * @public
    */
   ImageType?: ImageType | undefined;
+
+  /**
+   * <p>The software metadata associated with the image.</p>
+   * @public
+   */
+  ImageSoftwareMetadata?: ImageSoftwareMetadata | undefined;
 }
 
 /**
