@@ -23,6 +23,7 @@ import type {
   CapacityReservationDeliveryPreference,
   CapacityReservationFleetState,
   CapacityReservationInstancePlatform,
+  CapacityReservationLaunchStatus,
   CapacityReservationModificationQuoteState,
   CapacityReservationState,
   CapacityReservationTenancy,
@@ -9864,6 +9865,28 @@ export interface CapacityReservation {
    * @public
    */
   ZeroSizePreference?: ZeroSizePreference | undefined;
+
+  /**
+   * <note>
+   *             <p>Only supported for UltraServers.</p>
+   *          </note>
+   *          <p>Indicates whether you can launch instances into the Capacity Reservation. A Capacity
+   * 			Reservation can have the following launch statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>launchable</code> - You can launch instances into the Capacity
+   * 					Reservation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unlaunchable</code> - You can't launch instances into the Capacity
+   * 					Reservation. For example, the Capacity Reservation is not active.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LaunchStatus?: CapacityReservationLaunchStatus | undefined;
 }
 
 /**

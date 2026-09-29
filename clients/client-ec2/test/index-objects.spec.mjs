@@ -398,6 +398,7 @@ import {
   CapacityReservationGroup$,
   CapacityReservationInfo$,
   CapacityReservationInstancePlatform,
+  CapacityReservationLaunchStatus,
   CapacityReservationModificationQuote$,
   CapacityReservationModificationQuoteState,
   CapacityReservationOptions$,
@@ -9103,6 +9104,7 @@ assert(typeof CapacityReservationCancellationQuoteState === "object");
 assert(typeof CapacityReservationDeliveryPreference === "object");
 assert(typeof CapacityReservationFleetState === "object");
 assert(typeof CapacityReservationInstancePlatform === "object");
+assert(typeof CapacityReservationLaunchStatus === "object");
 assert(typeof CapacityReservationModificationQuoteState === "object");
 assert(typeof CapacityReservationPreference === "object");
 assert(typeof CapacityReservationState === "object");

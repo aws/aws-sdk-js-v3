@@ -306,6 +306,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <zeroSizePreference>
                 __ZeroSizePreference__
             </zeroSizePreference>
+            <launchStatus>
+                __LaunchStatus__
+            </launchStatus>
         </item>
         <item>
             <capacityReservationId>
@@ -581,6 +584,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <zeroSizePreference>
                 __ZeroSizePreference__
             </zeroSizePreference>
+            <launchStatus>
+                __LaunchStatus__
+            </launchStatus>
         </item>
         <item>
             <capacityReservationId>
@@ -856,6 +862,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <zeroSizePreference>
                 __ZeroSizePreference__
             </zeroSizePreference>
+            <launchStatus>
+                __LaunchStatus__
+            </launchStatus>
         </item>
     </capacityReservationSet>
 </DescribeCapacityReservationsResult>
@@ -988,7 +997,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CommitmentDuration: (number) 0
       },
       OriginalStartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-      ZeroSizePreference: "__ZeroSizePreference__"
+      ZeroSizePreference: "__ZeroSizePreference__",
+      LaunchStatus: "__LaunchStatus__"
     },
     {
       CapacityReservationId: "__CapacityReservationId__",
@@ -1113,7 +1123,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CommitmentDuration: (number) 0
       },
       OriginalStartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-      ZeroSizePreference: "__ZeroSizePreference__"
+      ZeroSizePreference: "__ZeroSizePreference__",
+      LaunchStatus: "__LaunchStatus__"
     },
     {
       CapacityReservationId: "__CapacityReservationId__",
@@ -1238,7 +1249,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CommitmentDuration: (number) 0
       },
       OriginalStartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-      ZeroSizePreference: "__ZeroSizePreference__"
+      ZeroSizePreference: "__ZeroSizePreference__",
+      LaunchStatus: "__LaunchStatus__"
     }
   ],
   $metadata: {

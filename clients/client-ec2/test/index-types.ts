@@ -2491,6 +2491,7 @@ export type {
   CapacityReservationDeliveryPreference,
   CapacityReservationFleetState,
   CapacityReservationInstancePlatform,
+  CapacityReservationLaunchStatus,
   CapacityReservationModificationQuoteState,
   CapacityReservationPreference,
   CapacityReservationState,

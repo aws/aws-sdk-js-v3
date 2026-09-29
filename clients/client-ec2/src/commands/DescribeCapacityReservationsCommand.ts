@@ -127,6 +127,7 @@ export interface DescribeCapacityReservationsCommandOutput extends DescribeCapac
  * //       },
  * //       OriginalStartDate: new Date("TIMESTAMP"),
  * //       ZeroSizePreference: "retain" || "default",
+ * //       LaunchStatus: "launchable" || "unlaunchable",
  * //     },
  * //   ],
  * // };

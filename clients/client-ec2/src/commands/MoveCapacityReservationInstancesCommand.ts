@@ -140,6 +140,7 @@ export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapac
  * //     },
  * //     OriginalStartDate: new Date("TIMESTAMP"),
  * //     ZeroSizePreference: "retain" || "default",
+ * //     LaunchStatus: "launchable" || "unlaunchable",
  * //   },
  * //   DestinationCapacityReservation: {
  * //     CapacityReservationId: "STRING_VALUE",
@@ -213,6 +214,7 @@ export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapac
  * //     },
  * //     OriginalStartDate: new Date("TIMESTAMP"),
  * //     ZeroSizePreference: "retain" || "default",
+ * //     LaunchStatus: "launchable" || "unlaunchable",
  * //   },
  * //   InstanceCount: Number("int"),
  * // };

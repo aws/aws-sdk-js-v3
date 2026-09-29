@@ -3880,7 +3880,7 @@ const _LPa = "LaunchPermissions";
 const _LPau = "LaunchPermission";
 const _LPi = "LimitPrice";
 const _LPo = "LoadPermission";
-const _LS = "LicenseSpecifications";
+const _LS = "LaunchStatus";
 const _LSC = "LastStatusChange";
 const _LSDT = "LastSuccessfulDiscoveryTime";
 const _LSI = "LockedSnapshotsInfo";
@@ -3899,7 +3899,8 @@ const _LSTo = "LocalStorageType";
 const _LSV = "LastSyncedVersion";
 const _LSa = "LaunchSpecification";
 const _LSau = "LaunchSpecifications";
-const _LSi = "LicenseSpecification";
+const _LSi = "LicenseSpecifications";
+const _LSic = "LicenseSpecification";
 const _LSo = "LocalStorage";
 const _LSoc = "LockState";
 const _LSock = "LockSnapshot";
@@ -7517,14 +7518,15 @@ const _lOF = "logOutputFormat";
 const _lP = "loadPermissions";
 const _lPa = "launchPermission";
 const _lPi = "limitPrice";
-const _lS = "licenseSpecifications";
+const _lS = "launchStatus";
 const _lSC = "lastStatusChange";
 const _lSDT = "lastSuccessfulDiscoveryTime";
 const _lSTS = "localStorageTypeSet";
 const _lSV = "lastSyncedVersion";
 const _lSa = "launchSpecification";
 const _lSau = "launchSpecifications";
-const _lSi = "licenseSet";
+const _lSi = "licenseSpecifications";
+const _lSic = "licenseSet";
 const _lSo = "localStorage";
 const _lSoc = "lockState";
 const _lT = "launchTemplate";
@@ -10192,7 +10194,7 @@ export var CapacityManagerTagDimension$: StaticStructureSchema = [3, n0, _CMTD,
 ];
 export var CapacityReservation$: StaticStructureSchema = [3, n0, _CRa,
   0,
-  [_CRI, _OI, _CRA, _AZI, _IT, _IPn, _AZ, _Te, _TIC, _AICv, _EO, _ES, _St, _SD, _ED, _EDTn, _IMC, _CD, _T, _OA, _CRFIa, _PGA, _CAap, _RT, _URBOI, _CIom, _DP, _CBI, _Inte, _ICA, _IInt, _ASd, _ADd, _OSD, _ZSP],
+  [_CRI, _OI, _CRA, _AZI, _IT, _IPn, _AZ, _Te, _TIC, _AICv, _EO, _ES, _St, _SD, _ED, _EDTn, _IMC, _CD, _T, _OA, _CRFIa, _PGA, _CAap, _RT, _URBOI, _CIom, _DP, _CBI, _Inte, _ICA, _IInt, _ASd, _ADd, _OSD, _ZSP, _LS],
   [[0, { [_eQN]: `CapacityReservationId`
   , [_xN]: _cRI }], [0, { [_eQN]: `OwnerId`
   , [_xN]: _oI }], [0, { [_eQN]: `CapacityReservationArn`
@@ -10228,7 +10230,8 @@ export var CapacityReservation$: StaticStructureSchema = [3, n0, _CRa,
   , [_xN]: _aSd }], [() => CapacityReservationAdjustmentDetails$, { [_eQN]: `AdjustmentDetails`
   , [_xN]: _aD }], [4, { [_eQN]: `OriginalStartDate`
   , [_xN]: _oSD }], [0, { [_eQN]: `ZeroSizePreference`
-  , [_xN]: _zSP }]]
+  , [_xN]: _zSP }], [0, { [_eQN]: `LaunchStatus`
+  , [_xN]: _lS }]]
 ];
 export var CapacityReservationAdjustmentDetails$: StaticStructureSchema = [3, n0, _CRAD,
   0,
@@ -19079,12 +19082,12 @@ export var ImportImageLicenseConfigurationResponse$: StaticStructureSchema = [3,
 ];
 export var ImportImageRequest$: StaticStructureSchema = [3, n0, _IIR,
   0,
-  [_Arc, _CDl, _CT, _De, _DCis, _DR, _Enc, _Hy, _KKI, _LTi, _Pl, _RNo, _LS, _TS, _UO, _BM],
+  [_Arc, _CDl, _CT, _De, _DCis, _DR, _Enc, _Hy, _KKI, _LTi, _Pl, _RNo, _LSi, _TS, _UO, _BM],
   [0, () => ClientData$, 0, 0, [() => ImageDiskContainerList, { [_xN]: _DCisk }], 2, 2, 0, 0, 0, 0, 0, [() => ImportImageLicenseSpecificationListRequest, 0], [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0]
 ];
 export var ImportImageResult$: StaticStructureSchema = [3, n0, _IIRm,
   0,
-  [_Arc, _De, _Enc, _Hy, _IIm, _ITI, _KKI, _LTi, _Pl, _Pro, _SDn, _Sta, _SMt, _LS, _T, _UO],
+  [_Arc, _De, _Enc, _Hy, _IIm, _ITI, _KKI, _LTi, _Pl, _Pro, _SDn, _Sta, _SMt, _LSi, _T, _UO],
   [[0, { [_eQN]: `Architecture`
   , [_xN]: _arc }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [2, { [_eQN]: `Encrypted`
@@ -19099,13 +19102,13 @@ export var ImportImageResult$: StaticStructureSchema = [3, n0, _IIRm,
   , [_xN]: _sDSn }], [0, { [_eQN]: `Status`
   , [_xN]: _sta }], [0, { [_eQN]: `StatusMessage`
   , [_xN]: _sMt }], [() => ImportImageLicenseSpecificationListResponse, { [_eQN]: `LicenseSpecifications`
-  , [_xN]: _lS }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _lSi }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [0, { [_eQN]: `UsageOperation`
   , [_xN]: _uO }]]
 ];
 export var ImportImageTask$: StaticStructureSchema = [3, n0, _IITm,
   0,
-  [_Arc, _De, _Enc, _Hy, _IIm, _ITI, _KKI, _LTi, _Pl, _Pro, _SDn, _Sta, _SMt, _T, _LS, _UO, _BM],
+  [_Arc, _De, _Enc, _Hy, _IIm, _ITI, _KKI, _LTi, _Pl, _Pro, _SDn, _Sta, _SMt, _T, _LSi, _UO, _BM],
   [[0, { [_eQN]: `Architecture`
   , [_xN]: _arc }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [2, { [_eQN]: `Encrypted`
@@ -19121,7 +19124,7 @@ export var ImportImageTask$: StaticStructureSchema = [3, n0, _IITm,
   , [_xN]: _sta }], [0, { [_eQN]: `StatusMessage`
   , [_xN]: _sMt }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [() => ImportImageLicenseSpecificationListResponse, { [_eQN]: `LicenseSpecifications`
-  , [_xN]: _lS }], [0, { [_eQN]: `UsageOperation`
+  , [_xN]: _lSi }], [0, { [_eQN]: `UsageOperation`
   , [_xN]: _uO }], [0, { [_eQN]: `BootMode`
   , [_xN]: _bM }]]
 ];
@@ -19304,7 +19307,7 @@ export var Instance$: StaticStructureSchema = [3, n0, _In,
   , [_xN]: _cRI }], [() => CapacityReservationSpecificationResponse$, { [_eQN]: `CapacityReservationSpecification`
   , [_xN]: _cRSa }], [() => HibernationOptions$, { [_eQN]: `HibernationOptions`
   , [_xN]: _hO }], [() => LicenseList, { [_eQN]: `LicenseSet`
-  , [_xN]: _lSi }], [() => InstanceMetadataOptionsResponse$, { [_eQN]: `MetadataOptions`
+  , [_xN]: _lSic }], [() => InstanceMetadataOptionsResponse$, { [_eQN]: `MetadataOptions`
   , [_xN]: _mO }], [() => EnclaveOptions$, { [_eQN]: `EnclaveOptions`
   , [_xN]: _eOn }], [0, { [_eQN]: `BootMode`
   , [_xN]: _bM }], [0, { [_eQN]: `PlatformDetails`
@@ -23802,8 +23805,8 @@ export var RequestIpamResourceTag$: StaticStructureSchema = [3, n0, _RIRT,
 ];
 export var RequestLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTD,
   0,
-  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LS, _HO, _MO, _EOn, _IRn, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
-  [0, 2, () => LaunchTemplateIamInstanceProfileSpecificationRequest$, [() => LaunchTemplateBlockDeviceMappingRequestList, { [_xN]: _BDM }], [() => LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList, { [_xN]: _NIe }], 0, 0, 0, () => LaunchTemplatesMonitoringRequest$, () => LaunchTemplatePlacementRequest$, 0, 2, 0, [() => SensitiveUserData, 0], [() => LaunchTemplateTagSpecificationRequestList, { [_xN]: _TSa }], [() => ElasticGpuSpecificationList, { [_xN]: _EGSla }], [() => LaunchTemplateElasticInferenceAcceleratorList, { [_xN]: _EIA }], [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGec }], () => LaunchTemplateInstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => LaunchTemplateCpuOptionsRequest$, () => LaunchTemplateCapacityReservationSpecificationRequest$, [() => LaunchTemplateLicenseSpecificationListRequest, { [_xN]: _LSi }], () => LaunchTemplateHibernationOptionsRequest$, () => LaunchTemplateInstanceMetadataOptionsRequest$, () => LaunchTemplateEnclaveOptionsRequest$, [() => InstanceRequirementsRequest$, 0], () => LaunchTemplatePrivateDnsNameOptionsRequest$, () => LaunchTemplateInstanceMaintenanceOptionsRequest$, 2, () => OperatorRequest$, () => LaunchTemplateNetworkPerformanceOptionsRequest$, [() => LaunchTemplateInstanceSecondaryInterfaceSpecificationRequestList, { [_xN]: _SIeco }]]
+  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LSi, _HO, _MO, _EOn, _IRn, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
+  [0, 2, () => LaunchTemplateIamInstanceProfileSpecificationRequest$, [() => LaunchTemplateBlockDeviceMappingRequestList, { [_xN]: _BDM }], [() => LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList, { [_xN]: _NIe }], 0, 0, 0, () => LaunchTemplatesMonitoringRequest$, () => LaunchTemplatePlacementRequest$, 0, 2, 0, [() => SensitiveUserData, 0], [() => LaunchTemplateTagSpecificationRequestList, { [_xN]: _TSa }], [() => ElasticGpuSpecificationList, { [_xN]: _EGSla }], [() => LaunchTemplateElasticInferenceAcceleratorList, { [_xN]: _EIA }], [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGec }], () => LaunchTemplateInstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => LaunchTemplateCpuOptionsRequest$, () => LaunchTemplateCapacityReservationSpecificationRequest$, [() => LaunchTemplateLicenseSpecificationListRequest, { [_xN]: _LSic }], () => LaunchTemplateHibernationOptionsRequest$, () => LaunchTemplateInstanceMetadataOptionsRequest$, () => LaunchTemplateEnclaveOptionsRequest$, [() => InstanceRequirementsRequest$, 0], () => LaunchTemplatePrivateDnsNameOptionsRequest$, () => LaunchTemplateInstanceMaintenanceOptionsRequest$, 2, () => OperatorRequest$, () => LaunchTemplateNetworkPerformanceOptionsRequest$, [() => LaunchTemplateInstanceSecondaryInterfaceSpecificationRequestList, { [_xN]: _SIeco }]]
 ];
 export var RequestSpotFleetRequest$: StaticStructureSchema = [3, n0, _RSFR,
   0,
@@ -24108,7 +24111,7 @@ export var ResponseError$: StaticStructureSchema = [3, n0, _REe,
 ];
 export var ResponseLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTDe,
   0,
-  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LS, _HO, _MO, _EOn, _IRn, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
+  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LSi, _HO, _MO, _EOn, _IRn, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
   [[0, { [_eQN]: `KernelId`
   , [_xN]: _kI }], [2, { [_eQN]: `EbsOptimized`
   , [_xN]: _eO }], [() => LaunchTemplateIamInstanceProfileSpecification$, { [_eQN]: `IamInstanceProfile`
@@ -24133,7 +24136,7 @@ export var ResponseLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTDe,
   , [_xN]: _cSr }], [() => LaunchTemplateCpuOptions$, { [_eQN]: `CpuOptions`
   , [_xN]: _cO }], [() => LaunchTemplateCapacityReservationSpecificationResponse$, { [_eQN]: `CapacityReservationSpecification`
   , [_xN]: _cRSa }], [() => LaunchTemplateLicenseList, { [_eQN]: `LicenseSet`
-  , [_xN]: _lSi }], [() => LaunchTemplateHibernationOptions$, { [_eQN]: `HibernationOptions`
+  , [_xN]: _lSic }], [() => LaunchTemplateHibernationOptions$, { [_eQN]: `HibernationOptions`
   , [_xN]: _hO }], [() => LaunchTemplateInstanceMetadataOptions$, { [_eQN]: `MetadataOptions`
   , [_xN]: _mO }], [() => LaunchTemplateEnclaveOptions$, { [_eQN]: `EnclaveOptions`
   , [_xN]: _eOn }], [() => InstanceRequirements$, { [_eQN]: `InstanceRequirements`
@@ -24480,8 +24483,8 @@ export var RunInstancesMonitoringEnabled$: StaticStructureSchema = [3, n0, _RIME
 ];
 export var RunInstancesRequest$: StaticStructureSchema = [3, n0, _RIRu,
   0,
-  [_MCa, _MCin, _BDMl, _IIm, _IT, _IAC, _IA, _KI, _KN, _Mon, _Pla, _RIa, _SGIe, _SGe, _SIu, _UDs, _EGSla, _EIAl, _TS, _LT, _IMOns, _CSr, _CO, _CRSa, _HO, _LS, _MO, _EOn, _PDNO, _MOa, _DASi, _EPI, _NPO, _Op, _SIec, _DR, _DAT, _IISB, _PIAr, _CT, _AId, _NIet, _IIP, _EO],
-  [1, 1, [() => BlockDeviceMappingRequestList, { [_xN]: _BDM }], 0, 0, 1, [() => InstanceIpv6AddressList, { [_xN]: _IApv }], 0, 0, [() => RunInstancesMonitoringEnabled$, 0], [() => Placement$, 0], 0, [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGec }], 0, [() => RunInstancesUserData, 0], [() => ElasticGpuSpecifications, 0], [() => ElasticInferenceAccelerators, { [_xN]: _EIA }], [() => TagSpecificationList, { [_xN]: _TSa }], () => LaunchTemplateSpecification$, () => InstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => CpuOptionsRequest$, () => CapacityReservationSpecification$, () => HibernationOptionsRequest$, [() => LicenseSpecificationListRequest, { [_xN]: _LSi }], () => InstanceMetadataOptionsRequest$, () => EnclaveOptionsRequest$, () => PrivateDnsNameOptionsRequest$, () => InstanceMaintenanceOptionsRequest$, 2, 2, () => InstanceNetworkPerformanceOptionsRequest$, () => OperatorRequest$, [() => InstanceSecondaryInterfaceSpecificationListRequest, { [_xN]: _SIeco }], [2, { [_eQN]: `DryRun`
+  [_MCa, _MCin, _BDMl, _IIm, _IT, _IAC, _IA, _KI, _KN, _Mon, _Pla, _RIa, _SGIe, _SGe, _SIu, _UDs, _EGSla, _EIAl, _TS, _LT, _IMOns, _CSr, _CO, _CRSa, _HO, _LSi, _MO, _EOn, _PDNO, _MOa, _DASi, _EPI, _NPO, _Op, _SIec, _DR, _DAT, _IISB, _PIAr, _CT, _AId, _NIet, _IIP, _EO],
+  [1, 1, [() => BlockDeviceMappingRequestList, { [_xN]: _BDM }], 0, 0, 1, [() => InstanceIpv6AddressList, { [_xN]: _IApv }], 0, 0, [() => RunInstancesMonitoringEnabled$, 0], [() => Placement$, 0], 0, [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGec }], 0, [() => RunInstancesUserData, 0], [() => ElasticGpuSpecifications, 0], [() => ElasticInferenceAccelerators, { [_xN]: _EIA }], [() => TagSpecificationList, { [_xN]: _TSa }], () => LaunchTemplateSpecification$, () => InstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => CpuOptionsRequest$, () => CapacityReservationSpecification$, () => HibernationOptionsRequest$, [() => LicenseSpecificationListRequest, { [_xN]: _LSic }], () => InstanceMetadataOptionsRequest$, () => EnclaveOptionsRequest$, () => PrivateDnsNameOptionsRequest$, () => InstanceMaintenanceOptionsRequest$, 2, 2, () => InstanceNetworkPerformanceOptionsRequest$, () => OperatorRequest$, [() => InstanceSecondaryInterfaceSpecificationListRequest, { [_xN]: _SIeco }], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [2, { [_eQN]: `DisableApiTermination`
   , [_xN]: _dAT }], [0, { [_eQN]: `InstanceInitiatedShutdownBehavior`
   , [_xN]: _iISB }], [0, { [_eQN]: `PrivateIpAddress`

@@ -1550,6 +1550,20 @@ export type ZeroSizePreference = (typeof ZeroSizePreference)[keyof typeof ZeroSi
  * @public
  * @enum
  */
+export const CapacityReservationLaunchStatus = {
+  LAUNCHABLE: "launchable",
+  UNLAUNCHABLE: "unlaunchable",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationLaunchStatus =
+  (typeof CapacityReservationLaunchStatus)[keyof typeof CapacityReservationLaunchStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityReservationType = {
   CAPACITY_BLOCK: "capacity-block",
   DEFAULT: "default",
