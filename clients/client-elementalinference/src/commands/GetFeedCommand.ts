@@ -75,6 +75,7 @@ export interface GetFeedCommandOutput extends GetFeedResponse, __MetadataBearer 
  * //         },
  * //         contextualMetadata: { // ContextualMetadataConfig
  * //           summaryGeneration: "ENABLED" || "DISABLED",
+ * //           extendedAnalysis: "ENABLED" || "DISABLED",
  * //         },
  * //       },
  * //       status: "ENABLED" || "DISABLED", // required

@@ -111,6 +111,7 @@ const _dSC = "dataSourceConfiguration";
 const _di = "dictionaries";
 const _dic = "dictionary";
 const _e = "error";
+const _eA = "extendedAnalysis";
 const _eD = "endDate";
 const _en = "entries";
 const _f = "feeds";
@@ -271,8 +272,8 @@ export var Competitor$: StaticStructureSchema = [3, n0, _C,
 ];
 export var ContextualMetadataConfig$: StaticStructureSchema = [3, n0, _CMC,
   0,
-  [_sG],
-  [0]
+  [_sG, _eA],
+  [0, 0]
 ];
 export var CreateDictionaryRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,

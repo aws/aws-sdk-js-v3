@@ -66,6 +66,7 @@ export interface AssociateFeedCommandOutput extends AssociateFeedResponse, __Met
  *         },
  *         contextualMetadata: { // ContextualMetadataConfig
  *           summaryGeneration: "ENABLED" || "DISABLED",
+ *           extendedAnalysis: "ENABLED" || "DISABLED",
  *         },
  *       },
  *       status: "ENABLED" || "DISABLED", // required
