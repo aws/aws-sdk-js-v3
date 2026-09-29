@@ -46,6 +46,7 @@ const _CHHu = "CustomHttpHeaders";
 const _CI = "ConnectorId";
 const _CIe = "CertificateIds";
 const _CIer = "CertificateId";
+const _CM = "CommunicationMode";
 const _CP = "CreateProfile";
 const _CPR = "CreateProfileRequest";
 const _CPRr = "CreateProfileResponse";
@@ -395,7 +396,10 @@ const _SPKI = "SshPublicKeyId";
 const _SPKs = "SshPublicKey";
 const _SPN = "SecurityPolicyName";
 const _SPNe = "SecurityPolicyNames";
+const _SPWO = "SftpPortWithOptions";
 const _SPe = "ServerProtocol";
+const _SPf = "SftpPorts";
+const _SPft = "SftpPort";
 const _SPo = "SourcePath";
 const _SRD = "StartRemoteDelete";
 const _SRDR = "StartRemoteDeleteRequest";
@@ -1317,8 +1321,8 @@ export var PosixProfile$: StaticStructureSchema = [3, n0, _PP,
 ];
 export var ProtocolDetails$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_PIa, _TSRM, _SSOe, _AT, _PC],
-  [0, 0, 0, 64 | 0, () => ProxyConfig$]
+  [_PIa, _TSRM, _SSOe, _SPf, _AT, _PC],
+  [0, 0, 0, () => SftpPorts, 64 | 0, () => ProxyConfig$]
 ];
 export var ProxyConfig$: StaticStructureSchema = [3, n0, _PC,
   0,
@@ -1369,6 +1373,11 @@ export var SftpConnectorConnectionDetails$: StaticStructureSchema = [3, n0, _SCC
   0,
   [_HK],
   [0]
+];
+export var SftpPortWithOptions$: StaticStructureSchema = [3, n0, _SPWO,
+  0,
+  [_SPft, _CM],
+  [1, 0], 1
 ];
 export var SshPublicKey$: StaticStructureSchema = [3, n0, _SPKs,
   0,
@@ -1675,6 +1684,9 @@ var SecurityPolicyOptions = 64 | 0;
 var SecurityPolicyProtocols = 64 | 0;
 var ServiceManagedEgressIpAddresses = 64 | 0;
 var SftpConnectorTrustedHostKeyList = 64 | 0;
+var SftpPorts: StaticListSchema = [1, n0, _SPf,
+  0, () => SftpPortWithOptions$
+];
 var SshPublicKeys: StaticListSchema = [1, n0, _SPK,
   0, () => SshPublicKey$
 ];

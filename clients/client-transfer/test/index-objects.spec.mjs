@@ -8,6 +8,7 @@ import {
   CertificateStatusType,
   CertificateType,
   CertificateUsageType,
+  CommunicationMode,
   CompressionEnum,
   ConflictException,
   ConflictException$,
@@ -316,6 +317,7 @@ import {
   SftpAuthenticationMethods,
   SftpConnectorConfig$,
   SftpConnectorConnectionDetails$,
+  SftpPortWithOptions$,
   SigningAlg,
   SshPublicKey$,
   StartDirectoryListing$,
@@ -727,6 +729,7 @@ assert(typeof SendWorkflowStepStateResponse$ === "object");
 assert(typeof ServiceMetadata$ === "object");
 assert(typeof SftpConnectorConfig$ === "object");
 assert(typeof SftpConnectorConnectionDetails$ === "object");
+assert(typeof SftpPortWithOptions$ === "object");
 assert(typeof SshPublicKey$ === "object");
 assert(typeof StartDirectoryListingRequest$ === "object");
 assert(typeof StartDirectoryListingResponse$ === "object");
@@ -786,6 +789,7 @@ assert(typeof As2Transport === "object");
 assert(typeof CertificateStatusType === "object");
 assert(typeof CertificateType === "object");
 assert(typeof CertificateUsageType === "object");
+assert(typeof CommunicationMode === "object");
 assert(typeof CompressionEnum === "object");
 assert(typeof ConnectorEgressType === "object");
 assert(typeof ConnectorsIpAddressType === "object");
