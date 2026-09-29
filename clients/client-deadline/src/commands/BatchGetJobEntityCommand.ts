@@ -85,9 +85,34 @@ export interface BatchGetJobEntityCommandOutput extends BatchGetJobEntityRespons
  * //             float: "STRING_VALUE",
  * //             string: "STRING_VALUE",
  * //             path: "STRING_VALUE",
+ * //             bool: "STRING_VALUE",
+ * //             rangeExpr: "STRING_VALUE",
+ * //             stringList: [ // ParameterStringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             pathList: [ // PathStringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             intList: [ // IntStringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             floatList: [ // FloatStringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             boolList: [ // BooleanStringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             intListList: [ // IntStringListList
+ * //               [ // NestedIntStringList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             ],
  * //           },
  * //         },
  * //         schemaVersion: "STRING_VALUE", // required
+ * //         extensions: [ // OpenjdExtensionNameList
+ * //           "STRING_VALUE",
+ * //         ],
  * //         pathMappingRules: [ // PathMappingRules
  * //           { // PathMappingRule
  * //             sourcePathFormat: "windows" || "posix", // required
@@ -122,12 +147,20 @@ export interface BatchGetJobEntityCommandOutput extends BatchGetJobEntityRespons
  * //         dependencies: [ // DependenciesList // required
  * //           "STRING_VALUE",
  * //         ],
+ * //         extensions: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         resolvedSymbolTable: "STRING_VALUE",
  * //       },
  * //       environmentDetails: { // EnvironmentDetailsEntity
  * //         jobId: "STRING_VALUE", // required
  * //         environmentId: "STRING_VALUE", // required
  * //         schemaVersion: "STRING_VALUE", // required
  * //         template: "DOCUMENT_VALUE", // required
+ * //         extensions: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         resolvedSymbolTable: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

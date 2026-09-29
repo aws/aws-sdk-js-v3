@@ -47,6 +47,47 @@ import type {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface ListStepConsumersRequest {
+  /**
+   * <p>The farm ID for the list of step consumers.</p>
+   * @public
+   */
+  farmId: string | undefined;
+
+  /**
+   * <p>The queue ID for the step consumer.</p>
+   * @public
+   */
+  queueId: string | undefined;
+
+  /**
+   * <p>The job ID for the step consumer.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The step ID to include on the list.</p>
+   * @public
+   */
+  stepId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
  * <p>The details of a step consumer.</p>
  * @public
  */
@@ -3174,7 +3215,7 @@ export interface StartSessionsStatisticsAggregationRequest {
   endTime: Date | undefined;
 
   /**
-   * <p>The timezone to use for the statistics. Use UTC notation such as "UTC+8."</p>
+   * <p>The time zone to use for the statistics. Use UTC notation such as "UTC+8."</p>
    * @public
    */
   timezone?: string | undefined;

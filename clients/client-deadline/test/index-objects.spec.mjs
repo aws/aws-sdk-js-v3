@@ -298,6 +298,8 @@ import {
   FleetCapabilities$,
   FleetConfiguration$,
   FleetMember$,
+  FleetSoftwareAddOn$,
+  FleetSoftwareAddOnName,
   FleetStatus,
   FleetSummary$,
   GetBudget$,
@@ -1229,6 +1231,7 @@ assert(typeof FleetAttributeCapability$ === "object");
 assert(typeof FleetCapabilities$ === "object");
 assert(typeof FleetConfiguration$ === "object");
 assert(typeof FleetMember$ === "object");
+assert(typeof FleetSoftwareAddOn$ === "object");
 assert(typeof FleetSummary$ === "object");
 assert(typeof GetBudgetRequest$ === "object");
 assert(typeof GetBudgetResponse$ === "object");
@@ -1512,6 +1515,7 @@ assert(typeof EbsVolumeType === "object");
 assert(typeof Ec2MarketType === "object");
 assert(typeof EnvironmentTemplateType === "object");
 assert(typeof FileSystemLocationType === "object");
+assert(typeof FleetSoftwareAddOnName === "object");
 assert(typeof FleetStatus === "object");
 assert(typeof JobAttachmentsFileSystem === "object");
 assert(typeof JobEntityErrorCode === "object");

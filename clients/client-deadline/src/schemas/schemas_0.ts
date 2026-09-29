@@ -254,6 +254,8 @@ const _FMa = "FarmMembers";
 const _FMl = "FleetMember";
 const _FMle = "FleetMembers";
 const _FS = "FarmSummary";
+const _FSAO = "FleetSoftwareAddOn";
+const _FSAOl = "FleetSoftwareAddOns";
 const _FSE = "FieldSortExpression";
 const _FSL = "FileSystemLocation";
 const _FSLL = "FileSystemLocationsList";
@@ -330,6 +332,7 @@ const _HPR = "HostPropertiesRequest";
 const _HPRo = "HostPropertiesResponse";
 const _IA = "IpAddresses";
 const _ISEE = "InternalServerErrorException";
+const _ISLL = "IntStringListList";
 const _JADE = "JobAttachmentDetailsEntity";
 const _JADEo = "JobAttachmentDetailsError";
 const _JADI = "JobAttachmentDetailsIdentifiers";
@@ -681,8 +684,10 @@ const _at = "attributes";
 const _av = "avg";
 const _b = "budgets";
 const _bI = "budgetId";
+const _bL = "boolList";
 const _bN = "bucketName";
 const _bR = "blockedReason";
+const _bo = "bool";
 const _c = "client";
 const _cA = "createdAt";
 const _cAT = "cpuArchitectureType";
@@ -740,12 +745,14 @@ const _end = "endpoint";
 const _env = "environments";
 const _er = "errors";
 const _ex = "expiration";
+const _ext = "extensions";
 const _f = "farms";
 const _fE = "filterExpressions";
 const _fI = "farmId";
 const _fIl = "fleetId";
 const _fIle = "fleetIds";
 const _fL = "fieldList";
+const _fLl = "floatList";
 const _fRC = "failureRetryCount";
 const _fS = "fileSystem";
 const _fSL = "fileSystemLocations";
@@ -774,6 +781,8 @@ const _iC = "instanceCapabilities";
 const _iCAA = "identityCenterApplicationArn";
 const _iCIA = "identityCenterInstanceArn";
 const _iCR = "identityCenterRegion";
+const _iL = "intList";
+const _iLL = "intListList";
 const _iMH = "inputManifestHash";
 const _iMO = "instanceMarketOptions";
 const _iMP = "inputManifestPath";
@@ -828,7 +837,8 @@ const _mWC = "maxWorkerCount";
 const _mWCi = "minWorkerCount";
 const _ma = "max";
 const _man = "manifests";
-const _me = "members";
+const _me = "metadata";
+const _mem = "members";
 const _mi = "min";
 const _mo = "mode";
 const _mon = "monitors";
@@ -850,6 +860,7 @@ const _pF = "priorityFifo";
 const _pFa = "parameterFilter";
 const _pI = "principalId";
 const _pIr = "productId";
+const _pL = "pathList";
 const _pM = "progressMessage";
 const _pMR = "pathMappingRules";
 const _pP = "progressPercent";
@@ -881,6 +892,7 @@ const _rAu = "runAs";
 const _rC = "requiredCapabilities";
 const _rCA = "resourceConfigurationArns";
 const _rCa = "rangeConstraint";
+const _rE = "rangeExpr";
 const _rEV = "rootEbsVolume";
 const _rFSLN = "requiredFileSystemLocationNames";
 const _rFSLNTA = "requiredFileSystemLocationNamesToAdd";
@@ -892,6 +904,7 @@ const _rP = "rootPrefix";
 const _rPF = "rootPathFormat";
 const _rPo = "rootPath";
 const _rS = "runStatus";
+const _rST = "resolvedSymbolTable";
 const _rT = "resourceType";
 const _rTB = "renderingTaskBuffer";
 const _rTW = "renderingTaskWeight";
@@ -900,6 +913,7 @@ const _s = "smithy.ts.sdk.synthetic.com.amazonaws.deadline";
 const _sA = "sessionActions";
 const _sAI = "sessionActionId";
 const _sAK = "secretAccessKey";
+const _sAO = "softwareAddOns";
 const _sAt = "startedAt";
 const _sB = "scriptBody";
 const _sBN = "s3BucketName";
@@ -915,6 +929,7 @@ const _sIJA = "syncInputJobAttachments";
 const _sIe = "sessionId";
 const _sIu = "subnetIds";
 const _sJI = "sourceJobId";
+const _sL = "stringList";
 const _sLF = "stringListFilter";
 const _sM = "statusMessage";
 const _sME = "serviceManagedEc2";
@@ -1126,8 +1141,8 @@ export var AssignedEnvironmentExitSessionActionDefinition$: StaticStructureSchem
 ];
 export var AssignedSession$: StaticStructureSchema = [3, n0, _ASs,
   0,
-  [_qI, _jI, _sA, _lC],
-  [0, 0, [() => AssignedSessionActions, 0], () => LogConfiguration$], 4
+  [_qI, _jI, _sA, _lC, _me],
+  [0, 0, [() => AssignedSessionActions, 0], () => LogConfiguration$, 128 | 0], 4
 ];
 export var AssignedSessionAction$: StaticStructureSchema = [3, n0, _ASA,
   0,
@@ -1816,8 +1831,8 @@ export var Ec2EbsVolume$: StaticStructureSchema = [3, n0, _EEV,
 ];
 export var EnvironmentDetailsEntity$: StaticStructureSchema = [3, n0, _EDE,
   0,
-  [_jI, _eI, _sV, _te],
-  [0, 0, 0, [() => Document, 0]], 4
+  [_jI, _eI, _sV, _te, _ext, _rST],
+  [0, 0, 0, [() => Document, 0], 64 | 0, 0], 4
 ];
 export var EnvironmentDetailsError$: StaticStructureSchema = [3, n0, _EDEn,
   0,
@@ -1893,6 +1908,11 @@ export var FleetMember$: StaticStructureSchema = [3, n0, _FMl,
   0,
   [_fI, _fIl, _pI, _pT, _iSI, _mL],
   [0, 0, 0, 0, 0, 0], 6
+];
+export var FleetSoftwareAddOn$: StaticStructureSchema = [3, n0, _FSAO,
+  0,
+  [_n],
+  [0], 1
 ];
 export var FleetSummary$: StaticStructureSchema = [3, n0, _FSl,
   0,
@@ -2151,8 +2171,8 @@ export var JobAttachmentSettings$: StaticStructureSchema = [3, n0, _JAS,
 ];
 export var JobDetailsEntity$: StaticStructureSchema = [3, n0, _JDE,
   0,
-  [_jI, _lGN, _sV, _jAS, _jRAU, _qRA, _p, _pMR],
-  [0, 0, 0, () => JobDetailsJobAttachmentSettings$, () => JobRunAsUser$, 0, [() => JobParameters, 0], [() => PathMappingRules, 0]], 3
+  [_jI, _lGN, _sV, _jAS, _jRAU, _qRA, _p, _ext, _pMR],
+  [0, 0, 0, () => JobDetailsJobAttachmentSettings$, () => JobRunAsUser$, 0, [() => JobParameters, 0], 64 | 0, [() => PathMappingRules, 0]], 3
 ];
 export var JobDetailsError$: StaticStructureSchema = [3, n0, _JDEo,
   0,
@@ -2226,7 +2246,7 @@ export var ListFarmMembersRequest$: StaticStructureSchema = [3, n0, _LFMR,
 ];
 export var ListFarmMembersResponse$: StaticStructureSchema = [3, n0, _LFMRi,
   0,
-  [_me, _nT],
+  [_mem, _nT],
   [() => FarmMembers, 0], 1
 ];
 export var ListFarmsRequest$: StaticStructureSchema = [3, n0, _LFR,
@@ -2246,7 +2266,7 @@ export var ListFleetMembersRequest$: StaticStructureSchema = [3, n0, _LFMRis,
 ];
 export var ListFleetMembersResponse$: StaticStructureSchema = [3, n0, _LFMRist,
   0,
-  [_me, _nT],
+  [_mem, _nT],
   [() => FleetMembers, 0], 1
 ];
 export var ListFleetsRequest$: StaticStructureSchema = [3, n0, _LFRis,
@@ -2266,7 +2286,7 @@ export var ListJobMembersRequest$: StaticStructureSchema = [3, n0, _LJMR,
 ];
 export var ListJobMembersResponse$: StaticStructureSchema = [3, n0, _LJMRi,
   0,
-  [_me, _nT],
+  [_mem, _nT],
   [() => JobMembers, 0], 1
 ];
 export var ListJobParameterDefinitionsRequest$: StaticStructureSchema = [3, n0, _LJPDR,
@@ -2366,7 +2386,7 @@ export var ListQueueMembersRequest$: StaticStructureSchema = [3, n0, _LQMR,
 ];
 export var ListQueueMembersResponse$: StaticStructureSchema = [3, n0, _LQMRi,
   0,
-  [_me, _nT],
+  [_mem, _nT],
   [() => QueueMemberList, 0], 1
 ];
 export var ListQueuesRequest$: StaticStructureSchema = [3, n0, _LQR,
@@ -2681,8 +2701,8 @@ export var ServiceManagedEc2FleetConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var ServiceManagedEc2InstanceCapabilities$: StaticStructureSchema = [3, n0, _SMEIC,
   0,
-  [_vCC, _mMB, _oF, _cAT, _rEV, _aCc, _aIT, _eITx, _cAu, _cAus],
-  [() => VCpuCountRange$, () => MemoryMiBRange$, 0, 0, () => Ec2EbsVolume$, () => AcceleratorCapabilities$, 64 | 0, 64 | 0, () => CustomFleetAmountCapabilities, () => CustomFleetAttributeCapabilities], 4
+  [_vCC, _mMB, _oF, _cAT, _rEV, _aCc, _aIT, _eITx, _cAu, _cAus, _sAO],
+  [() => VCpuCountRange$, () => MemoryMiBRange$, 0, 0, () => Ec2EbsVolume$, () => AcceleratorCapabilities$, 64 | 0, 64 | 0, () => CustomFleetAmountCapabilities, () => CustomFleetAttributeCapabilities, () => FleetSoftwareAddOns], 4
 ];
 export var ServiceManagedEc2InstanceMarketOptions$: StaticStructureSchema = [3, n0, _SMEIMO,
   0,
@@ -2741,8 +2761,8 @@ export var StepDependency$: StaticStructureSchema = [3, n0, _SDt,
 ];
 export var StepDetailsEntity$: StaticStructureSchema = [3, n0, _SDE,
   0,
-  [_jI, _sI, _sV, _te, _dep],
-  [0, 0, 0, [() => Document, 0], 64 | 0], 5
+  [_jI, _sI, _sV, _te, _dep, _ext, _rST],
+  [0, 0, 0, [() => Document, 0], 64 | 0, 64 | 0, 0], 5
 ];
 export var StepDetailsError$: StaticStructureSchema = [3, n0, _SDEt,
   0,
@@ -3185,6 +3205,7 @@ var BatchUpdateTaskErrors: StaticListSchema = [1, n0, _BUTEa,
 var BatchUpdateTaskItems: StaticListSchema = [1, n0, _BUTIa,
   0, () => BatchUpdateTaskItem$
 ];
+var BooleanStringList = 64 | 0;
 var BudgetActionsToAdd: StaticListSchema = [1, n0, _BATAu,
   0, [() => BudgetActionToAdd$,
     0]
@@ -3223,10 +3244,18 @@ var FleetIds = 64 | 0;
 var FleetMembers: StaticListSchema = [1, n0, _FMle,
   0, () => FleetMember$
 ];
+var FleetSoftwareAddOns: StaticListSchema = [1, n0, _FSAOl,
+  0, () => FleetSoftwareAddOn$
+];
 var FleetSummaries: StaticListSchema = [1, n0, _FSle,
   0, () => FleetSummary$
 ];
+var FloatStringList = 64 | 0;
 var InstanceTypes = 64 | 0;
+var IntStringList = 64 | 0;
+var IntStringListList: StaticListSchema = [1, n0, _ISLL,
+  0, 64 | 0
+];
 var IpV4Addresses = 64 | 0;
 var IpV6Addresses = 64 | 0;
 var JobEntityIdentifiers: StaticListSchema = [1, n0, _JEI,
@@ -3263,11 +3292,15 @@ var MeteredProductSummaryList: StaticListSchema = [1, n0, _MPSL,
 var MonitorSummaries: StaticListSchema = [1, n0, _MSo,
   0, () => MonitorSummary$
 ];
+var NestedIntStringList = 64 | 0;
+var OpenjdExtensionNameList = 64 | 0;
 var OutputRelativeDirectoriesList = 64 | 0;
+var ParameterStringList = 64 | 0;
 var PathMappingRules: StaticListSchema = [1, n0, _PMRa,
   0, [() => PathMappingRule$,
     0]
 ];
+var PathStringList = 64 | 0;
 var QueueEnvironmentSummaries: StaticListSchema = [1, n0, _QESu,
   0, () => QueueEnvironmentSummary$
 ];
@@ -3384,6 +3417,7 @@ var JobParameters: StaticMapSchema = [2, n0, _JP,
 ];
 var LogOptions = 128 | 0;
 var LogParameters = 128 | 0;
+var SessionMetadata = 128 | 0;
 var SettingsMap = 128 | 0;
 var Tags = 128 | 0;
 var TaskParameters: StaticMapSchema = [2, n0, _TP,
@@ -3431,8 +3465,8 @@ export var JobEntityIdentifiersUnion$: StaticUnionSchema = [4, n0, _JEIU,
 ];
 export var JobParameter$: StaticUnionSchema = [4, n0, _JPo,
   0,
-  [_in, _flo, _str, _pa],
-  [0, 0, 0, 0]
+  [_in, _flo, _str, _pa, _bo, _rE, _sL, _pL, _iL, _fLl, _bL, _iLL],
+  [0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, [1, n0, _ISLL, 0, 64 | 0]]
 ];
 export var SchedulingConfiguration$: StaticUnionSchema = [4, n0, _SCc,
   0,

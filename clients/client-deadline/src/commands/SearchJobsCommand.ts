@@ -153,6 +153,28 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //           float: "STRING_VALUE",
  * //           string: "STRING_VALUE",
  * //           path: "STRING_VALUE",
+ * //           bool: "STRING_VALUE",
+ * //           rangeExpr: "STRING_VALUE",
+ * //           stringList: [ // ParameterStringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           pathList: [ // PathStringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           intList: [ // IntStringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           floatList: [ // FloatStringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           boolList: [ // BooleanStringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           intListList: [ // IntStringListList
+ * //             [ // NestedIntStringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           ],
  * //         },
  * //       },
  * //       maxWorkerCount: Number("int"),
