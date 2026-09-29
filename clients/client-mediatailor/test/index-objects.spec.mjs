@@ -23,10 +23,14 @@ import {
   AwsServiceRequestConfiguration$,
   BadRequestException,
   BadRequestException$,
+  BeaconEventType,
+  BeaconingConfiguration$,
   Bumper$,
   CdnConfiguration$,
   Channel$,
   ChannelState,
+  ClientSideBeaconingConfiguration$,
+  ClientSideBeaconingMode,
   ClipRange$,
   CompressionMethod,
   ConcurrentExecutorConfiguration$,
@@ -427,9 +431,11 @@ assert(typeof AudienceMedia$ === "object");
 assert(typeof AvailMatchingCriteria$ === "object");
 assert(typeof AvailSuppression$ === "object");
 assert(typeof AwsServiceRequestConfiguration$ === "object");
+assert(typeof BeaconingConfiguration$ === "object");
 assert(typeof Bumper$ === "object");
 assert(typeof CdnConfiguration$ === "object");
 assert(typeof Channel$ === "object");
+assert(typeof ClientSideBeaconingConfiguration$ === "object");
 assert(typeof ClipRange$ === "object");
 assert(typeof ConcurrentExecutorConfiguration$ === "object");
 assert(typeof ConfigureLogsForChannelRequest$ === "object");
@@ -586,7 +592,9 @@ assert(typeof AdsInteractionExcludeEventType === "object");
 assert(typeof AdsInteractionPublishOptInEventType === "object");
 assert(typeof AlertCategory === "object");
 assert(typeof ApsRegion === "object");
+assert(typeof BeaconEventType === "object");
 assert(typeof ChannelState === "object");
+assert(typeof ClientSideBeaconingMode === "object");
 assert(typeof CompressionMethod === "object");
 assert(typeof EventName === "object");
 assert(typeof FillPolicy === "object");

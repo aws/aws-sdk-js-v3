@@ -7,7 +7,9 @@ import type {
   AdsInteractionPublishOptInEventType,
   AlertCategory,
   ApsRegion,
+  BeaconEventType,
   ChannelState,
+  ClientSideBeaconingMode,
   CompressionMethod,
   EventName,
   FillPolicy,
@@ -1093,6 +1095,36 @@ export interface AvailSuppression {
 }
 
 /**
+ * <p>The beaconing settings that apply to client-side reporting sessions: whether MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on.</p>
+ * @public
+ */
+export interface ClientSideBeaconingConfiguration {
+  /**
+   * <p>Specifies whether MediaTailor includes its beacons in the ad tracking response. Valid values, which are case-sensitive:</p> <ul> <li> <p> <code>INSIGHTS</code> – MediaTailor includes its beacons in the ad tracking response.</p> </li> <li> <p> <code>DISABLED</code> – MediaTailor doesn't include its beacons in the ad tracking response.</p> </li> </ul> <p>If you send a <code>ClientSide</code> object, this setting is required. If you omit <code>BeaconingConfiguration</code> or <code>ClientSide</code> entirely, MediaTailor uses <code>INSIGHTS</code>.</p> <p> <code>PutPlaybackConfiguration</code> replaces the whole playback configuration. To keep beaconing off, include <code>DISABLED</code> in every subsequent write.</p>
+   * @public
+   */
+  ReportingMode: ClientSideBeaconingMode | undefined;
+
+  /**
+   * <p>The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. The default is an empty list. This parameter is valid only when <code>ReportingMode</code> is <code>INSIGHTS</code>. MediaTailor rejects the request if you specify a value while <code>ReportingMode</code> is <code>DISABLED</code>, or if you specify duplicate values.</p>
+   * @public
+   */
+  AdditionalEventTypes?: BeaconEventType[] | undefined;
+}
+
+/**
+ * <p>The beaconing configuration for a playback configuration. Beaconing controls whether MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons.</p>
+ * @public
+ */
+export interface BeaconingConfiguration {
+  /**
+   * <p>The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses <code>INSIGHTS</code> reporting mode.</p>
+   * @public
+   */
+  ClientSide?: ClientSideBeaconingConfiguration | undefined;
+}
+
+/**
  * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
  * @public
  */
@@ -1516,6 +1548,12 @@ export interface PlaybackConfiguration {
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
+
+  /**
+   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response.</p>
+   * @public
+   */
+  BeaconingConfiguration?: BeaconingConfiguration | undefined;
 }
 
 /**
@@ -4351,6 +4389,12 @@ export interface GetPlaybackConfigurationResponse {
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
+
+  /**
+   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response. MediaTailor always returns this setting. If you created the playback configuration before this setting existed, MediaTailor reports <code>ReportingMode</code> as <code>INSIGHTS</code>. This is also the value MediaTailor uses for that configuration at playback time.</p>
+   * @public
+   */
+  BeaconingConfiguration?: BeaconingConfiguration | undefined;
 }
 
 /**
@@ -4890,6 +4934,12 @@ export interface PutPlaybackConfigurationRequest {
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
+
+  /**
+   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses <code>INSIGHTS</code>.</p>
+   * @public
+   */
+  BeaconingConfiguration?: BeaconingConfiguration | undefined;
 }
 
 /**
@@ -5063,6 +5113,12 @@ export interface PutPlaybackConfigurationResponse {
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
+
+  /**
+   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response.</p>
+   * @public
+   */
+  BeaconingConfiguration?: BeaconingConfiguration | undefined;
 }
 
 /**
