@@ -91,6 +91,7 @@ export interface WorkerHttpHandlerConstructor {
     workerThreadCount?: number;
     maxConcurrentUploads?: number;
     maxConcurrentDownloads?: number;
+    useODirect?: boolean;
   }): IWorkerHttpHandler;
 }
 
@@ -157,6 +158,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         workerThreadCount: this.workerThreadCount,
         maxConcurrentUploads: this.maxConcurrentUploads,
         maxConcurrentDownloads: this.maxConcurrentDownloads,
+        useODirect: config.useODirect,
       });
       if (this.s3.config) {
         this.s3.config.requestHandler = this.workerHttpHandler as any;

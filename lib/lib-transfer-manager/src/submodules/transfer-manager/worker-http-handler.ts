@@ -133,6 +133,7 @@ export interface HttpWorkerReturnBufferMessage {
 export interface HttpWorkerConfigMessage {
   type: "config";
   maxSockets: number;
+  useODirect?: boolean;
 }
 
 export interface HttpWorkerDoneMessage {
@@ -397,6 +398,7 @@ export class WorkerHttpHandler {
   private workerThreadCount: number;
   private maxConcurrentUploads: number;
   private maxConcurrentDownloads: number;
+  private useODirect: boolean;
   private initialized = false;
   private initPromise: Promise<void> | undefined;
   private fallbackHandler: NodeHttpHandler;
@@ -422,10 +424,12 @@ export class WorkerHttpHandler {
     workerThreadCount?: number;
     maxConcurrentUploads?: number;
     maxConcurrentDownloads?: number;
+    useODirect?: boolean;
   }) {
     this.workerThreadCount = options?.workerThreadCount ?? defaultWorkerCount();
     this.maxConcurrentUploads = options?.maxConcurrentUploads ?? 32;
     this.maxConcurrentDownloads = options?.maxConcurrentDownloads ?? 32;
+    this.useODirect = options?.useODirect ?? false;
     this.fallbackHandler = new NodeHttpHandler();
   }
 
@@ -495,6 +499,7 @@ export class WorkerHttpHandler {
                 50,
                 Math.ceil(Math.max(this.maxConcurrentUploads, this.maxConcurrentDownloads) / this.workerThreadCount)
               ),
+              useODirect: this.useODirect,
             } satisfies HttpWorkerConfigMessage);
             readyCount++;
             if (!settled && readyCount === this.workerThreadCount) {

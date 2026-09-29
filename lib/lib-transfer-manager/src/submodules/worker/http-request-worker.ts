@@ -71,7 +71,7 @@ const buildHttpStatusError = async (
   };
 };
 
-// O_DIRECT support (opt-in via TM_O_DIRECT=1, Linux-only).
+// O_DIRECT support (opt-in via the useODirect Transfer Manager config, Linux-only).
 // Buffered writes go through the OS page cache, which on very large downloads
 // can fill faster than it drains and stall the write path. O_DIRECT skips the
 // cache. It requires the file offset, the write length, and the buffer address
@@ -81,8 +81,10 @@ const buildHttpStatusError = async (
 // page size on the platforms of interest.
 const O_DIRECT_ALIGN = 4096;
 const O_DIRECT_FLAG: number = (fsConstants as unknown as { O_DIRECT?: number }).O_DIRECT ?? 0;
-const O_DIRECT_ENABLED = process.env.TM_O_DIRECT === "1" && process.platform === "linux" && O_DIRECT_FLAG > 0;
+const O_DIRECT_SUPPORTED = process.platform === "linux" && O_DIRECT_FLAG > 0;
 
+// Set from the config message the handler sends on worker startup.
+let oDirectEnabled = false;
 let oDirectProbed = false;
 let oDirectUsable = false;
 
@@ -326,6 +328,7 @@ interface HttpWorkerDownloadHttpErrorMessage {
 interface HttpWorkerConfigMessage {
   type: "config";
   maxSockets: number;
+  useODirect?: boolean;
 }
 
 /**
@@ -598,7 +601,7 @@ if (parentPort) {
         // offset ("pad"). Anything else uses the buffered path below.
         let alignedBuf: Buffer | undefined;
         let pad = -1;
-        if (O_DIRECT_ENABLED && writeOffset % O_DIRECT_ALIGN === 0 && targetLength >= O_DIRECT_ALIGN) {
+        if (oDirectEnabled && writeOffset % O_DIRECT_ALIGN === 0 && targetLength >= O_DIRECT_ALIGN) {
           ensureODirectProbed(dirname(filePath));
           if (oDirectUsable) {
             alignedBuf = Buffer.allocUnsafeSlow(targetLength + O_DIRECT_ALIGN);
@@ -614,7 +617,6 @@ if (parentPort) {
               const buf =
                 typeof chunk === "string" ? Buffer.from(chunk) : Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
 
-              // Verify cumulative bytes do not exceed the range's length
               if (bytesWritten + buf.length > targetLength) {
                 await fh.close();
                 port.postMessage({
@@ -629,7 +631,6 @@ if (parentPort) {
 
               buf.copy(alignedBuf, pad + bytesWritten, 0, buf.length);
 
-              // Update checksum inline
               if (checksum) {
                 checksum.update(buf);
               }
@@ -661,7 +662,6 @@ if (parentPort) {
               const buf =
                 typeof chunk === "string" ? Buffer.from(chunk) : Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
 
-              // Verify cumulative bytes do not exceed the range's length
               if (bytesWritten + buf.length > targetLength) {
                 await fh.close();
                 port.postMessage({
@@ -674,10 +674,8 @@ if (parentPort) {
                 return;
               }
 
-              // Write chunk to file at the correct position
               await fh.write(buf, 0, buf.length, writeOffset + bytesWritten);
 
-              // Update checksum inline
               if (checksum) {
                 checksum.update(buf);
               }
@@ -824,7 +822,6 @@ if (parentPort) {
           // Copy chunk into the ArrayBuffer (this copy happens on the WORKER thread)
           view.set(buf, bytesWritten);
 
-          // Update checksum inline
           if (checksum) {
             checksum.update(buf);
           }
@@ -895,7 +892,8 @@ if (parentPort) {
     }
 
     if (msg.type === "config") {
-      const { maxSockets } = msg as HttpWorkerConfigMessage;
+      const { maxSockets, useODirect } = msg as HttpWorkerConfigMessage;
+      oDirectEnabled = useODirect === true && O_DIRECT_SUPPORTED;
       handler = new NodeHttpHandler({
         httpsAgent: new httpsAgent({
           maxSockets,
