@@ -169,6 +169,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //     },
  * //     ViewDefinition: { // ViewDefinition
  * //       IsProtected: true || false,
+ * //       IsManaged: true || false,
  * //       Definer: "STRING_VALUE",
  * //       ViewVersionId: Number("long"),
  * //       ViewVersionToken: "STRING_VALUE",
@@ -352,6 +353,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //           },
  * //           ViewDefinition: {
  * //             IsProtected: true || false,
+ * //             IsManaged: true || false,
  * //             Definer: "STRING_VALUE",
  * //             ViewVersionId: Number("long"),
  * //             ViewVersionToken: "STRING_VALUE",

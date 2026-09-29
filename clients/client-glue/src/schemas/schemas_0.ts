@@ -1299,6 +1299,7 @@ const _ILTRP = "ImportLabelsTaskRunProperties";
 const _IM = "IcebergMetrics";
 const _IMDV = "IsMultiDialectView";
 const _IMV = "IsMaterializedView";
+const _IMs = "IsManaged";
 const _IN = "IntegrationName";
 const _INFF = "IntegrationNotFoundFault";
 const _INO = "IsNegOne";
@@ -8326,13 +8327,13 @@ export var UserDefinedFunctionInput$: StaticStructureSchema = [3, n0, _UDFI,
 ];
 export var ViewDefinition$: StaticStructureSchema = [3, n0, _VD,
   0,
-  [_IPs, _Def, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _Repr, _SPI],
-  [2, 0, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, () => ViewRepresentationList, 128 | 0]
+  [_IPs, _IMs, _Def, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _Repr, _SPI],
+  [2, 2, 0, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, () => ViewRepresentationList, 128 | 0]
 ];
 export var ViewDefinitionInput$: StaticStructureSchema = [3, n0, _VDI,
   0,
-  [_IPs, _Def, _Repr, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _SPI],
-  [2, 0, () => ViewRepresentationInputList, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, 128 | 0]
+  [_IPs, _IMs, _Def, _Repr, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _SPI],
+  [2, 2, 0, () => ViewRepresentationInputList, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, 128 | 0]
 ];
 export var ViewRepresentation$: StaticStructureSchema = [3, n0, _VRi,
   0,

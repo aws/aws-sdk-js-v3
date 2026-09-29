@@ -157,6 +157,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * //       },
  * //       ViewDefinition: { // ViewDefinition
  * //         IsProtected: true || false,
+ * //         IsManaged: true || false,
  * //         Definer: "STRING_VALUE",
  * //         ViewVersionId: Number("long"),
  * //         ViewVersionToken: "STRING_VALUE",
@@ -340,6 +341,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * //             },
  * //             ViewDefinition: {
  * //               IsProtected: true || false,
+ * //               IsManaged: true || false,
  * //               Definer: "STRING_VALUE",
  * //               ViewVersionId: Number("long"),
  * //               ViewVersionToken: "STRING_VALUE",

@@ -4065,6 +4065,12 @@ export interface ViewDefinition {
   IsProtected?: boolean | undefined;
 
   /**
+   * <p>Specifies whether the materialized view is managed by Glue.</p>
+   * @public
+   */
+  IsManaged?: boolean | undefined;
+
+  /**
    * <p>The definer of a view in SQL.</p>
    * @public
    */

@@ -127,6 +127,7 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *     },
  *     ViewDefinition: { // ViewDefinitionInput
  *       IsProtected: true || false,
+ *       IsManaged: true || false,
  *       Definer: "STRING_VALUE",
  *       Representations: [ // ViewRepresentationInputList
  *         { // ViewRepresentationInput
