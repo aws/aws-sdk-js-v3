@@ -100,9 +100,17 @@ import type {
   PutContactInformationCommandOutput,
 } from "./commands/PutContactInformationCommand";
 import type {
+  SendPhoneNumberVerificationCommandInput,
+  SendPhoneNumberVerificationCommandOutput,
+} from "./commands/SendPhoneNumberVerificationCommand";
+import type {
   StartPrimaryEmailUpdateCommandInput,
   StartPrimaryEmailUpdateCommandOutput,
 } from "./commands/StartPrimaryEmailUpdateCommand";
+import type {
+  VerifyPhoneNumberCommandInput,
+  VerifyPhoneNumberCommandOutput,
+} from "./commands/VerifyPhoneNumberCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -133,7 +141,9 @@ export type ServiceInputTypes =
   | PutAccountNameCommandInput
   | PutAlternateContactCommandInput
   | PutContactInformationCommandInput
-  | StartPrimaryEmailUpdateCommandInput;
+  | SendPhoneNumberVerificationCommandInput
+  | StartPrimaryEmailUpdateCommandInput
+  | VerifyPhoneNumberCommandInput;
 
 /**
  * @public
@@ -154,7 +164,9 @@ export type ServiceOutputTypes =
   | PutAccountNameCommandOutput
   | PutAlternateContactCommandOutput
   | PutContactInformationCommandOutput
-  | StartPrimaryEmailUpdateCommandOutput;
+  | SendPhoneNumberVerificationCommandOutput
+  | StartPrimaryEmailUpdateCommandOutput
+  | VerifyPhoneNumberCommandOutput;
 
 /**
  * @public

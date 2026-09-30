@@ -52,6 +52,7 @@ export interface GetContactInformationCommandOutput extends GetContactInformatio
  * //     CompanyName: "STRING_VALUE",
  * //     WebsiteUrl: "STRING_VALUE",
  * //   },
+ * //   VerificationStatus: "STRING_VALUE",
  * // };
  *
  * ```

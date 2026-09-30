@@ -75,6 +75,22 @@ export type AwsAccountState = (typeof AwsAccountState)[keyof typeof AwsAccountSt
  * @public
  * @enum
  */
+export const PhoneNumberVerificationStatus = {
+  NOT_SUPPORTED: "NOT_SUPPORTED",
+  PENDING: "PENDING",
+  UNVERIFIED: "UNVERIFIED",
+  VERIFIED: "VERIFIED",
+} as const;
+/**
+ * @public
+ */
+export type PhoneNumberVerificationStatus =
+  (typeof PhoneNumberVerificationStatus)[keyof typeof PhoneNumberVerificationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const RegionOptStatus = {
   DISABLED: "DISABLED",
   DISABLING: "DISABLING",

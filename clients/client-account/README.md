@@ -286,8 +286,22 @@ PutContactInformation
 </details>
 <details>
 <summary>
+SendPhoneNumberVerification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/SendPhoneNumberVerificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/SendPhoneNumberVerificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/SendPhoneNumberVerificationCommandOutput/)
+</details>
+<details>
+<summary>
 StartPrimaryEmailUpdate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/StartPrimaryEmailUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/StartPrimaryEmailUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/StartPrimaryEmailUpdateCommandOutput/)
+</details>
+<details>
+<summary>
+VerifyPhoneNumber
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/VerifyPhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/VerifyPhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/VerifyPhoneNumberCommandOutput/)
 </details>

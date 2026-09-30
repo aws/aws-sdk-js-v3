@@ -3,6 +3,7 @@ import type {
   AccountState,
   AlternateContactType,
   AwsAccountState,
+  PhoneNumberVerificationStatus,
   PrimaryEmailUpdateStatus,
   RegionOptStatus,
 } from "./enums";
@@ -364,6 +365,12 @@ export interface GetContactInformationResponse {
    * @public
    */
   ContactInformation?: ContactInformation | undefined;
+
+  /**
+   * <p>The verification status of the phone number in the primary contact information associated with an Amazon Web Services account. Valid values:</p> <ul> <li> <p> <code>PENDING</code> – A one-time passcode has been sent and is waiting to be submitted.</p> </li> <li> <p> <code>VERIFIED</code> – The phone number has been verified.</p> </li> <li> <p> <code>UNVERIFIED</code> – The phone number has not been verified.</p> </li> <li> <p> <code>NOT_SUPPORTED</code> – Phone number verification isn't available for this account.</p> </li> </ul>
+   * @public
+   */
+  VerificationStatus?: PhoneNumberVerificationStatus | undefined;
 }
 
 /**
@@ -381,6 +388,56 @@ export interface PutContactInformationRequest {
    * @public
    */
   AccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendPhoneNumberVerificationRequest {
+  /**
+   * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendPhoneNumberVerificationResponse {
+  /**
+   * <p>The verification status of the phone number in the primary contact information after the one-time passcode is sent. Valid values:</p> <ul> <li> <p> <code>PENDING</code> – A one-time passcode has been sent and is waiting to be submitted.</p> </li> <li> <p> <code>VERIFIED</code> – The phone number has been verified.</p> </li> <li> <p> <code>UNVERIFIED</code> – The phone number has not been verified.</p> </li> <li> <p> <code>NOT_SUPPORTED</code> – Phone number verification isn't available for this account.</p> </li> </ul>
+   * @public
+   */
+  Status?: PhoneNumberVerificationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface VerifyPhoneNumberRequest {
+  /**
+   * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that you want to access or modify with this operation.</p> <p>If you do not specify this parameter, it defaults to the Amazon Web Services account of the identity used to call the operation.</p> <p>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's management account</a> or a delegated administrator account, and the specified account ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html">trusted access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated administrator</a> account assigned.</p> <note> <p>The management account can't specify its own <code>AccountId</code>; it must call the operation in standalone context by not including the <code>AccountId</code> parameter.</p> </note> <p>To call this operation on an account that is not a member of an organization, then don't specify this parameter, and call the operation using an identity belonging to the account whose contacts you wish to retrieve or modify.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The one-time passcode sent to the phone number in the primary contact information by the <code>SendPhoneNumberVerification</code> operation.</p>
+   * @public
+   */
+  Otp: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface VerifyPhoneNumberResponse {
+  /**
+   * <p>The verification status of the phone number in the primary contact information after the submitted one-time passcode is evaluated. Valid values:</p> <ul> <li> <p> <code>PENDING</code> – A one-time passcode has been sent and is waiting to be submitted.</p> </li> <li> <p> <code>VERIFIED</code> – The phone number has been verified.</p> </li> <li> <p> <code>UNVERIFIED</code> – The phone number has not been verified.</p> </li> <li> <p> <code>NOT_SUPPORTED</code> – Phone number verification isn't available for this account.</p> </li> </ul>
+   * @public
+   */
+  Status?: PhoneNumberVerificationStatus | undefined;
 }
 
 /**
