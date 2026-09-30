@@ -737,6 +737,12 @@ export interface StartColumnStatisticsTaskRunScheduleRequest {
    * @public
    */
   TableName: string | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
 }
 
 /**
@@ -1298,6 +1304,12 @@ export interface StopColumnStatisticsTaskRunRequest {
    * @public
    */
   TableName: string | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
 }
 
 /**
@@ -1320,6 +1332,12 @@ export interface StopColumnStatisticsTaskRunScheduleRequest {
    * @public
    */
   TableName: string | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
 }
 
 /**
@@ -2154,6 +2172,12 @@ export interface UpdateCrawlerRequest {
    * @public
    */
   CrawlerSecurityConfiguration?: string | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog in which to store the crawler's output. If you omit this value, the existing value on the crawler is preserved.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
 }
 
 /**

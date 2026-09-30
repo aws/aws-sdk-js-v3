@@ -3782,8 +3782,8 @@ export var Crawl$: StaticStructureSchema = [3, n0, _Cra,
 ];
 export var Crawler$: StaticStructureSchema = [3, n0, _Craw,
   0,
-  [_N, _Rol, _Targ, _DN, _D, _Cla, _RP, _SCP, _LC, _Sta, _TP, _Sch, _CETr, _CTre, _LU, _LCa, _Ver, _Conf, _CSC, _LFC],
-  [0, 0, () => CrawlerTargets$, 0, 0, 64 | 0, () => RecrawlPolicy$, () => SchemaChangePolicy$, () => LineageConfiguration$, 0, 0, () => Schedule$, 1, 4, 4, () => LastCrawlInfo$, 1, 0, 0, () => LakeFormationConfiguration$]
+  [_N, _Rol, _Targ, _DN, _D, _Cla, _RP, _SCP, _LC, _Sta, _TP, _Sch, _CETr, _CTre, _LU, _LCa, _Ver, _Conf, _CSC, _LFC, _CI],
+  [0, 0, () => CrawlerTargets$, 0, 0, 64 | 0, () => RecrawlPolicy$, () => SchemaChangePolicy$, () => LineageConfiguration$, 0, 0, () => Schedule$, 1, 4, 4, () => LastCrawlInfo$, 1, 0, 0, () => LakeFormationConfiguration$, 0]
 ];
 export var CrawlerHistory$: StaticStructureSchema = [3, n0, _CH,
   0,
@@ -3862,8 +3862,8 @@ export var CreateConnectionResponse$: StaticStructureSchema = [3, n0, _CCRreate,
 ];
 export var CreateCrawlerRequest$: StaticStructureSchema = [3, n0, _CCRreater,
   0,
-  [_N, _Rol, _Targ, _DN, _D, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC, _Tag],
-  [0, 0, () => CrawlerTargets$, 0, 0, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0, 128 | 0], 3
+  [_N, _Rol, _Targ, _DN, _D, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC, _Tag, _CI],
+  [0, 0, () => CrawlerTargets$, 0, 0, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0, 128 | 0, 0], 3
 ];
 export var CreateCrawlerResponse$: StaticStructureSchema = [3, n0, _CCRreatera,
   0,
@@ -4432,8 +4432,8 @@ export var DeleteColumnStatisticsForTableResponse$: StaticStructureSchema = [3, 
 ];
 export var DeleteColumnStatisticsTaskSettingsRequest$: StaticStructureSchema = [3, n0, _DCSTSR,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var DeleteColumnStatisticsTaskSettingsResponse$: StaticStructureSchema = [3, n0, _DCSTSRe,
   0,
@@ -5187,8 +5187,8 @@ export var GetColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var GetColumnStatisticsTaskRunsRequest$: StaticStructureSchema = [3, n0, _GCSTRRet,
   0,
-  [_DN, _TN, _MRax, _NTe],
-  [0, 0, 1, 0], 2
+  [_DN, _TN, _MRax, _NTe, _CID],
+  [0, 0, 1, 0, 0], 2
 ];
 export var GetColumnStatisticsTaskRunsResponse$: StaticStructureSchema = [3, n0, _GCSTRReto,
   0,
@@ -5197,8 +5197,8 @@ export var GetColumnStatisticsTaskRunsResponse$: StaticStructureSchema = [3, n0,
 ];
 export var GetColumnStatisticsTaskSettingsRequest$: StaticStructureSchema = [3, n0, _GCSTSR,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var GetColumnStatisticsTaskSettingsResponse$: StaticStructureSchema = [3, n0, _GCSTSRe,
   0,
@@ -7502,8 +7502,8 @@ export var StartColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0
 ];
 export var StartColumnStatisticsTaskRunScheduleRequest$: StaticStructureSchema = [3, n0, _SCSTRSR,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var StartColumnStatisticsTaskRunScheduleResponse$: StaticStructureSchema = [3, n0, _SCSTRSRt,
   0,
@@ -7672,8 +7672,8 @@ export var StatusDetails$: StaticStructureSchema = [3, n0, _SDtat,
 ];
 export var StopColumnStatisticsTaskRunRequest$: StaticStructureSchema = [3, n0, _SCSTRRto,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var StopColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0, _SCSTRRtop,
   0,
@@ -7682,8 +7682,8 @@ export var StopColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0,
 ];
 export var StopColumnStatisticsTaskRunScheduleRequest$: StaticStructureSchema = [3, n0, _SCSTRSRto,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var StopColumnStatisticsTaskRunScheduleResponse$: StaticStructureSchema = [3, n0, _SCSTRSRtop,
   0,
@@ -8042,8 +8042,8 @@ export var UpdateConnectionResponse$: StaticStructureSchema = [3, n0, _UCRpdate,
 ];
 export var UpdateCrawlerRequest$: StaticStructureSchema = [3, n0, _UCRpdater,
   0,
-  [_N, _Rol, _DN, _D, _Targ, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC],
-  [0, 0, 0, 0, () => CrawlerTargets$, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0], 1
+  [_N, _Rol, _DN, _D, _Targ, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC, _CI],
+  [0, 0, 0, 0, () => CrawlerTargets$, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0, 0], 1
 ];
 export var UpdateCrawlerResponse$: StaticStructureSchema = [3, n0, _UCRpdatera,
   0,

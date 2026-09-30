@@ -578,6 +578,12 @@ export interface CreateCrawlerRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog in which to store the crawler's output. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
 }
 
 /**
@@ -4149,6 +4155,12 @@ export interface DeleteColumnStatisticsTaskSettingsRequest {
    * @public
    */
   TableName: string | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
 }
 
 /**
@@ -7679,6 +7691,12 @@ export interface GetColumnStatisticsTaskRunsRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
 }
 
 /**
@@ -7713,6 +7731,12 @@ export interface GetColumnStatisticsTaskSettingsRequest {
    * @public
    */
   TableName: string | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
 }
 
 /**

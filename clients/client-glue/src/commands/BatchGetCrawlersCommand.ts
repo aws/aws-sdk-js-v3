@@ -164,6 +164,7 @@ export interface BatchGetCrawlersCommandOutput extends BatchGetCrawlersResponse,
  * //         UseLakeFormationCredentials: true || false,
  * //         AccountId: "STRING_VALUE",
  * //       },
+ * //       CatalogId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   CrawlersNotFound: [ // CrawlerNameList

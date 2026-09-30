@@ -37,6 +37,7 @@ export interface GetColumnStatisticsTaskRunsCommandOutput extends GetColumnStati
  *   TableName: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   CatalogID: "STRING_VALUE",
  * };
  * const command = new GetColumnStatisticsTaskRunsCommand(input);
  * const response = await client.send(command);

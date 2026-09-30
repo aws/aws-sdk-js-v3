@@ -144,6 +144,7 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   CatalogId: "STRING_VALUE",
  * };
  * const command = new CreateCrawlerCommand(input);
  * const response = await client.send(command);

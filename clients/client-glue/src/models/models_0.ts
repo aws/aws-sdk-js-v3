@@ -2415,6 +2415,12 @@ export interface Crawler {
    * @public
    */
   LakeFormationConfiguration?: LakeFormationConfiguration | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog in which the crawler's output is stored.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
 }
 
 /**

@@ -141,6 +141,7 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  *   },
  *   Configuration: "STRING_VALUE",
  *   CrawlerSecurityConfiguration: "STRING_VALUE",
+ *   CatalogId: "STRING_VALUE",
  * };
  * const command = new UpdateCrawlerCommand(input);
  * const response = await client.send(command);
