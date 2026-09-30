@@ -280,6 +280,7 @@ export const ResourceType = {
   AWS_BEDROCK_AGENTCORE_CODE_INTERPRETER: "AWS::BedrockAgentCore::CodeInterpreter",
   AWS_BEDROCK_AGENTCORE_GATEWAY: "AWS::BedrockAgentCore::Gateway",
   AWS_BEDROCK_AGENTCORE_MEMORY: "AWS::BedrockAgentCore::Memory",
+  AWS_BEDROCK_AGENTCORE_PAYMENT_MANAGER: "AWS::BedrockAgentCore::PaymentManager",
   AWS_BEDROCK_AGENTCORE_RUNTIME: "AWS::BedrockAgentCore::Runtime",
   AWS_BEDROCK_AGENTCORE_WORKLOAD_IDENTITY: "AWS::BedrockAgentCore::WorkloadIdentity",
   AWS_BEDROCK_KNOWLEDGEBASE: "AWS::Bedrock::KnowledgeBase",
