@@ -47,6 +47,7 @@ export interface GetVectorBucketCommandOutput extends GetVectorBucketOutput, __M
  * //       sseType: "AES256" || "aws:kms",
  * //       kmsKeyArn: "STRING_VALUE",
  * //     },
+ * //     defaultIndexMode: "CLASSIC" || "ENHANCED",
  * //   },
  * // };
  *

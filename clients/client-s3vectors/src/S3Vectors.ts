@@ -74,6 +74,11 @@ import {
   ListVectorsCommand,
 } from "./commands/ListVectorsCommand";
 import {
+  type PutVectorBucketDefaultIndexModeCommandInput,
+  type PutVectorBucketDefaultIndexModeCommandOutput,
+  PutVectorBucketDefaultIndexModeCommand,
+} from "./commands/PutVectorBucketDefaultIndexModeCommand";
+import {
   type PutVectorBucketPolicyCommandInput,
   type PutVectorBucketPolicyCommandOutput,
   PutVectorBucketPolicyCommand,
@@ -98,6 +103,11 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import {
+  type UpdateIndexModeCommandInput,
+  type UpdateIndexModeCommandOutput,
+  UpdateIndexModeCommand,
+} from "./commands/UpdateIndexModeCommand";
 import { paginateListIndexes } from "./pagination/ListIndexesPaginator";
 import { paginateListVectorBuckets } from "./pagination/ListVectorBucketsPaginator";
 import { paginateListVectors } from "./pagination/ListVectorsPaginator";
@@ -119,11 +129,13 @@ const commands = {
   ListTagsForResourceCommand,
   ListVectorBucketsCommand,
   ListVectorsCommand,
+  PutVectorBucketDefaultIndexModeCommand,
   PutVectorBucketPolicyCommand,
   PutVectorsCommand,
   QueryVectorsCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateIndexModeCommand,
 };
 const paginators = {
   paginateListIndexes,
@@ -388,6 +400,23 @@ export interface S3Vectors {
   ): void;
 
   /**
+   * @see {@link PutVectorBucketDefaultIndexModeCommand}
+   */
+  putVectorBucketDefaultIndexMode(
+    args: PutVectorBucketDefaultIndexModeCommandInput,
+    options?: S3VectorsRequestOptions
+  ): Promise<PutVectorBucketDefaultIndexModeCommandOutput>;
+  putVectorBucketDefaultIndexMode(
+    args: PutVectorBucketDefaultIndexModeCommandInput,
+    cb: (err: any, data?: PutVectorBucketDefaultIndexModeCommandOutput) => void
+  ): void;
+  putVectorBucketDefaultIndexMode(
+    args: PutVectorBucketDefaultIndexModeCommandInput,
+    options: S3VectorsRequestOptions,
+    cb: (err: any, data?: PutVectorBucketDefaultIndexModeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutVectorBucketPolicyCommand}
    */
   putVectorBucketPolicy(
@@ -470,6 +499,23 @@ export interface S3Vectors {
     args: UntagResourceCommandInput,
     options: S3VectorsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateIndexModeCommand}
+   */
+  updateIndexMode(
+    args: UpdateIndexModeCommandInput,
+    options?: S3VectorsRequestOptions
+  ): Promise<UpdateIndexModeCommandOutput>;
+  updateIndexMode(
+    args: UpdateIndexModeCommandInput,
+    cb: (err: any, data?: UpdateIndexModeCommandOutput) => void
+  ): void;
+  updateIndexMode(
+    args: UpdateIndexModeCommandInput,
+    options: S3VectorsRequestOptions,
+    cb: (err: any, data?: UpdateIndexModeCommandOutput) => void
   ): void;
 
   /**

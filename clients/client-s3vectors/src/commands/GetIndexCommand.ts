@@ -57,6 +57,7 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  * //       sseType: "AES256" || "aws:kms",
  * //       kmsKeyArn: "STRING_VALUE",
  * //     },
+ * //     indexMode: "CLASSIC" || "ENHANCED",
  * //   },
  * // };
  *

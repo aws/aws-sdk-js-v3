@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
-import type { DataType, DistanceMetric, SseType } from "./enums";
+import type { DataType, DistanceMetric, IndexMode, SseType } from "./enums";
 
 /**
  * <p>The encryption configuration for a vector bucket or index. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>. You can optionally override bucket level encryption settings, and set a specific encryption configuration for a vector index at the time of index creation.</p>
@@ -342,6 +342,12 @@ export interface Index {
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>The mode that determines how the vector index processes queries.</p> <p>Valid values:</p> <ul> <li> <p> <code>CLASSIC</code> - Applies metadata filters during the vector search.</p> </li> <li> <p> <code>ENHANCED</code> - Applies metadata filters before the vector search.</p> </li> </ul>
+   * @public
+   */
+  indexMode?: IndexMode | undefined;
 }
 
 /**
@@ -463,6 +469,12 @@ export interface VectorBucket {
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>The mode that is automatically assigned to new vector indexes in the vector bucket. Changing the default index mode doesn't affect existing vector indexes.</p>
+   * @public
+   */
+  defaultIndexMode?: IndexMode | undefined;
 }
 
 /**
@@ -637,6 +649,40 @@ export interface ListIndexesOutput {
    */
   indexes: IndexSummary[] | undefined;
 }
+
+/**
+ * @public
+ */
+export interface UpdateIndexModeInput {
+  /**
+   * <p>The name of the vector bucket that contains the vector index.</p>
+   * @public
+   */
+  vectorBucketName?: string | undefined;
+
+  /**
+   * <p>The name of the vector index to update.</p>
+   * @public
+   */
+  indexName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the vector index to update.</p>
+   * @public
+   */
+  indexArn?: string | undefined;
+
+  /**
+   * <p>The new mode for the vector index.</p> <p>Valid values:</p> <ul> <li> <p> <code>CLASSIC</code> - Applies metadata filters during the vector search. You can specify <code>CLASSIC</code> only for a vector index in a vector bucket created before September 30, 2026.</p> </li> <li> <p> <code>ENHANCED</code> - Applies metadata filters before the vector search.</p> </li> </ul>
+   * @public
+   */
+  indexMode: IndexMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIndexModeOutput {}
 
 /**
  * @public
@@ -837,6 +883,12 @@ export interface QueryVectorsInput {
   filter?: __DocumentType | undefined;
 
   /**
+   * <p>The mode to use to process the query. If you don't specify a query mode, the operation uses the mode that's currently configured for the vector index.</p> <p>Valid values:</p> <ul> <li> <p> <code>CLASSIC</code> - Applies metadata filters during the vector search. You can't specify <code>CLASSIC</code> for an <code>ENHANCED</code> index.</p> </li> <li> <p> <code>ENHANCED</code> - Applies metadata filters before the vector search.</p> </li> </ul>
+   * @public
+   */
+  queryMode?: IndexMode | undefined;
+
+  /**
    * <p>Indicates whether to include metadata in the response. The default value is <code>false</code>.</p>
    * @public
    */
@@ -987,6 +1039,34 @@ export interface ListVectorBucketsOutput {
    */
   vectorBuckets: VectorBucketSummary[] | undefined;
 }
+
+/**
+ * @public
+ */
+export interface PutVectorBucketDefaultIndexModeInput {
+  /**
+   * <p>The name of the vector bucket to update.</p>
+   * @public
+   */
+  vectorBucketName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the vector bucket to update.</p>
+   * @public
+   */
+  vectorBucketArn?: string | undefined;
+
+  /**
+   * <p>The default mode to assign to new vector indexes in the vector bucket. This change doesn't affect existing vector indexes.</p>
+   * @public
+   */
+  defaultIndexMode: IndexMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutVectorBucketDefaultIndexModeOutput {}
 
 /**
  * @public

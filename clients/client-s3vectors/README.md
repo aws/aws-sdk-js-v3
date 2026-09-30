@@ -279,6 +279,13 @@ ListVectors
 </details>
 <details>
 <summary>
+PutVectorBucketDefaultIndexMode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3vectors/command/PutVectorBucketDefaultIndexModeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3vectors/Interface/PutVectorBucketDefaultIndexModeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3vectors/Interface/PutVectorBucketDefaultIndexModeCommandOutput/)
+</details>
+<details>
+<summary>
 PutVectorBucketPolicy
 </summary>
 
@@ -311,4 +318,11 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3vectors/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3vectors/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3vectors/Interface/UntagResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateIndexMode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3vectors/command/UpdateIndexModeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3vectors/Interface/UpdateIndexModeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3vectors/Interface/UpdateIndexModeCommandOutput/)
 </details>

@@ -36,3 +36,16 @@ export const SseType = {
  * @public
  */
 export type SseType = (typeof SseType)[keyof typeof SseType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IndexMode = {
+  CLASSIC: "CLASSIC",
+  ENHANCED: "ENHANCED",
+} as const;
+/**
+ * @public
+ */
+export type IndexMode = (typeof IndexMode)[keyof typeof IndexMode];

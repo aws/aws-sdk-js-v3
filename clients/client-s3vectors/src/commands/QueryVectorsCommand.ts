@@ -43,6 +43,7 @@ export interface QueryVectorsCommandOutput extends QueryVectorsOutput, __Metadat
  *     ],
  *   },
  *   filter: "DOCUMENT_VALUE",
+ *   queryMode: "CLASSIC" || "ENHANCED",
  *   returnMetadata: true || false,
  *   returnDistance: true || false,
  *   nextToken: "STRING_VALUE",
