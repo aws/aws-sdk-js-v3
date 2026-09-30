@@ -654,9 +654,11 @@ export interface CancelImportTaskResponse {
 export interface S3DeliveryConfiguration {
   /**
    * <p>This string allows re-configuring the S3 object prefix to contain either static or
-   *       variable sections. The valid variables to use in the suffix path will vary by each log source.
-   *       To find the values supported for the suffix path for each log source, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeConfigurationTemplates.html">DescribeConfigurationTemplates</a> operation and check the
-   *         <code>allowedSuffixPathFields</code> field in the response.</p>
+   *       variable sections. The valid variables to use in the suffix path vary by log type. To find the
+   *       values supported for the suffix path for each log type, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeConfigurationTemplates.html">DescribeConfigurationTemplates</a> operation and check the
+   *         <code>allowedSuffixPathFields</code> field in the response. For more information about how
+   *       the destination prefix, suffix path, and Hive-compatible setting determine the Amazon S3 object
+   *       key, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-infrastructure-V2-S3.html#AWS-logs-infrastructure-V2-S3-object-key">Amazon S3 object key for V2 deliveries</a>.</p>
    * @public
    */
   suffixPath?: string | undefined;
@@ -2139,6 +2141,14 @@ export interface DeliveryDestination {
    * @public
    */
   deliveryDestinationConfiguration?: DeliveryDestinationConfiguration | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that CloudWatch Logs assumes to deliver to this
+   *       delivery destination. This field is present only for X-Ray trace delivery
+   *       destinations that were created with a role.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
 
   /**
    * <p>The tags that have been assigned to this delivery destination.</p>
@@ -8215,6 +8225,14 @@ export interface PutDeliveryDestinationRequest {
   deliveryDestinationType?: DeliveryDestinationType | undefined;
 
   /**
+   * <p>The ARN of an IAM role in your account that CloudWatch Logs assumes to
+   *       deliver to this delivery destination. The trust policy of the role must allow CloudWatch Logs to assume it. This parameter is supported only for X-Ray trace delivery
+   *       destinations.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
    * <p>An optional list of key-value pairs to associate with the resource.</p>
    *          <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
    *          </p>
@@ -8285,6 +8303,9 @@ export interface PutDeliverySourceRequest {
    *       and for Amazon Web Services Security Hub, use
    *         <code>arn:aws:securityhub:us-east-1:111122223333:hubv2/*</code>
    *          </p>
+   *          <p>For the <code>INSIGHTS_QUERY_LOGS</code> log type, use a wildcard log group ARN, such as
+   *         <code>arn:aws:logs:us-east-1:111122223333:log-group:*</code>. Amazon Web Services does not support a
+   *       specific log group ARN for this log type.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -8293,24 +8314,16 @@ export interface PutDeliverySourceRequest {
    * <p>Defines the type of log that the source is sending.</p>
    *          <ul>
    *             <li>
+   *                <p>For Amazon Web Services Amplify, the valid values are <code>ACCESS_LOGS</code> and
+   *             <code>WAF_LOGS</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For Application Load Balancer, the valid values are <code>ALB_ACCESS_LOGS</code>,
    *             <code>ALB_CONNECTION_LOGS</code>, and <code>ALB_HEALTH_CHECK_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Bedrock Agents, the valid values are <code>APPLICATION_LOGS</code> and
-   *             <code>EVENT_LOGS</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For Amazon Bedrock Knowledge Bases, the valid values are
+   *                <p>For Amazon Bedrock AgentCore Gateway, the valid values are
    *             <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For Amazon Bedrock AgentCore Runtime, the valid values are
-   *             <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For Amazon Bedrock AgentCore Tools, the valid values are
-   *             <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon Bedrock AgentCore Identity, the valid values are
@@ -8321,29 +8334,37 @@ export interface PutDeliverySourceRequest {
    *             <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Bedrock AgentCore Gateway, the valid values are
+   *                <p>For Amazon Bedrock AgentCore Payments, the valid values are
    *             <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Bedrock AgentCore Payments, the valid values are
+   *                <p>For Amazon Bedrock AgentCore Runtime, the valid values are
+   *             <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code>, and <code>TRACES</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Bedrock AgentCore Tools, the valid values are
+   *             <code>APPLICATION_LOGS</code>, <code>USAGE_LOGS</code>, and <code>TRACES</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Bedrock Agents, the valid values are <code>APPLICATION_LOGS</code> and
+   *             <code>EVENT_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Bedrock Knowledge Bases, the valid values are
    *             <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
    *             <li>
    *                <p>For CloudFront, the valid value is <code>ACCESS_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For DevOps Agent, the valid value is <code>APPLICATION_LOGS</code>.</p>
+   *                <p>For query execution logs from CloudWatch Logs Insights, the valid value is
+   *             <code>INSIGHTS_QUERY_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon CodeWhisperer, the valid value is <code>EVENT_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Elemental MediaPackage, the valid values are <code>EGRESS_ACCESS_LOGS</code> and
-   *             <code>INGRESS_ACCESS_LOGS</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For Elemental MediaTailor, the valid values are <code>AD_DECISION_SERVER_LOGS</code>,
-   *             <code>MANIFEST_SERVICE_LOGS</code>, and <code>TRANSCODE_LOGS</code>.</p>
+   *                <p>For DevOps Agent, the valid value is <code>APPLICATION_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon EKS Auto Mode, the valid values are <code>AUTO_MODE_BLOCK_STORAGE_LOGS</code>,
@@ -8358,6 +8379,18 @@ export interface PutDeliverySourceRequest {
    *             <code>EKS_CAPABILITY_ARGOCD_REPOSERVER_LOGS</code>,
    *             <code>EKS_CAPABILITY_ARGOCD_SERVER_LOGS</code>, and
    *             <code>EKS_CAPABILITY_KRO_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Web Services Elemental Inference, the valid value is
+   *             <code>APPLICATION_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Elemental MediaPackage, the valid values are <code>EGRESS_ACCESS_LOGS</code> and
+   *             <code>INGRESS_ACCESS_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Elemental MediaTailor, the valid values are <code>AD_DECISION_SERVER_LOGS</code>,
+   *             <code>MANIFEST_SERVICE_LOGS</code>, and <code>TRANSCODE_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Entity Resolution, the valid value is <code>WORKFLOW_LOGS</code>.</p>
@@ -8378,28 +8411,37 @@ export interface PutDeliverySourceRequest {
    *             <code>PCS_JOBCOMP_LOGS</code>, and <code>PCS_SCHEDULER_AUDIT_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Quick, the valid values are <code>AGENT_HOURS_LOGS</code>,
-   *             <code>CHAT_LOGS</code>, <code>FEEDBACK_LOGS</code>, and
-   *             <code>INDEX_USAGE_LOGS</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For Amazon Web Services RTB Fabric, the valid values is
-   *           <code>APPLICATION_LOGS</code>.</p>
-   *             </li>
-   *             <li>
    *                <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and
    *             <code>SYNC_JOB_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Q in Connect AI agents, the valid value is
+   *             <code>EVENT_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Quick, the valid values are <code>AGENT_HOURS_LOGS</code>,
+   *             <code>AGENT_METADATA_LOGS</code>, <code>CHAT_LOGS</code>, <code>DLP_LOGS</code>,
+   *             <code>FEEDBACK_LOGS</code>, <code>INDEX_USAGE_LOGS</code>, and
+   *             <code>KB_FILE_SYNC_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Route 53 Global Resolver, the valid value is
+   *             <code>GLOBAL_RESOLVER_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon Web Services RTB Fabric, the valid value is
+   *             <code>APPLICATION_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon S3, the valid value is
    *             <code>S3_SERVER_ACCESS_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Web Services Security Hub CSPM, the valid value is
+   *                <p>For Amazon Web Services Security Hub, the valid value is
    *             <code>SECURITY_FINDING_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Web Services Security Hub, the valid value is
+   *                <p>For Amazon Web Services Security Hub CSPM, the valid value is
    *             <code>SECURITY_FINDING_LOGS</code>.</p>
    *             </li>
    *             <li>
@@ -8407,14 +8449,18 @@ export interface PutDeliverySourceRequest {
    *             <code>APPLICATION_LOGS</code> and <code>TRAFFIC_POLICY_DEBUG_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon WorkMail, the valid values are <code>ACCESS_CONTROL_LOGS</code>,
-   *             <code>AUTHENTICATION_LOGS</code>, <code>WORKMAIL_AVAILABILITY_PROVIDER_LOGS</code>,
-   *             <code>WORKMAIL_MAILBOX_ACCESS_LOGS</code>, and
-   *             <code>WORKMAIL_PERSONAL_ACCESS_TOKEN_LOGS</code>.</p>
+   *                <p>For Amazon Web Services Shield Advanced, the valid value is
+   *             <code>FLOW_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon VPC Route Server, the valid value is
    *           <code>EVENT_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon WorkMail, the valid values are <code>ACCESS_CONTROL_LOGS</code>,
+   *             <code>AUTHENTICATION_LOGS</code>, <code>WORKMAIL_AVAILABILITY_PROVIDER_LOGS</code>,
+   *             <code>WORKMAIL_MAILBOX_ACCESS_LOGS</code>, and
+   *             <code>WORKMAIL_PERSONAL_ACCESS_TOKEN_LOGS</code>.</p>
    *             </li>
    *          </ul>
    * @public

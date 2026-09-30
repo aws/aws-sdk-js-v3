@@ -1425,8 +1425,8 @@ export var Delivery$: StaticStructureSchema = [3, n0, _D,
 ];
 export var DeliveryDestination$: StaticStructureSchema = [3, n0, _DD,
   0,
-  [_n, _ar, _dDT, _oF, _dDC, _ta],
-  [0, 0, 0, 0, () => DeliveryDestinationConfiguration$, 128 | 0]
+  [_n, _ar, _dDT, _oF, _dDC, _rAo, _ta],
+  [0, 0, 0, 0, () => DeliveryDestinationConfiguration$, 0, 128 | 0]
 ];
 export var DeliveryDestinationConfiguration$: StaticStructureSchema = [3, n0, _DDC,
   0,
@@ -2290,8 +2290,8 @@ export var PutDeliveryDestinationPolicyResponse$: StaticStructureSchema = [3, n0
 ];
 export var PutDeliveryDestinationRequest$: StaticStructureSchema = [3, n0, _PDDR,
   0,
-  [_n, _oF, _dDC, _dDT, _ta],
-  [0, 0, () => DeliveryDestinationConfiguration$, 0, 128 | 0], 1
+  [_n, _oF, _dDC, _dDT, _rAo, _ta],
+  [0, 0, () => DeliveryDestinationConfiguration$, 0, 0, 128 | 0], 1
 ];
 export var PutDeliveryDestinationResponse$: StaticStructureSchema = [3, n0, _PDDRu,
   0,

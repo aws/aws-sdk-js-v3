@@ -49,6 +49,7 @@ export interface DescribeDeliveryDestinationsCommandOutput extends DescribeDeliv
  * //       deliveryDestinationConfiguration: { // DeliveryDestinationConfiguration
  * //         destinationResourceArn: "STRING_VALUE", // required
  * //       },
+ * //       roleArn: "STRING_VALUE",
  * //       tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },

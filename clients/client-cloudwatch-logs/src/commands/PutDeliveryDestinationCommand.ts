@@ -76,6 +76,7 @@ export interface PutDeliveryDestinationCommandOutput extends PutDeliveryDestinat
  *     destinationResourceArn: "STRING_VALUE", // required
  *   },
  *   deliveryDestinationType: "S3" || "CWL" || "FH" || "XRAY",
+ *   roleArn: "STRING_VALUE",
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -91,6 +92,7 @@ export interface PutDeliveryDestinationCommandOutput extends PutDeliveryDestinat
  * //     deliveryDestinationConfiguration: { // DeliveryDestinationConfiguration
  * //       destinationResourceArn: "STRING_VALUE", // required
  * //     },
+ * //     roleArn: "STRING_VALUE",
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
