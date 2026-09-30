@@ -583,12 +583,12 @@ describe("S3TransferManager Unit Tests", () => {
 
   describe("validatePartDownload()", () => {
     let tm: any;
+    const totalSize = 13631488;
     beforeAll(async () => {
       tm = new S3TransferManager() as any;
     }, 120_000);
 
-    it("Should pass correct ranges based on part number without throwing an error", () => {
-      const partSize = 5242880;
+    it("Should pass uniform part ranges without throwing an error", () => {
       const ranges = [
         { partNumber: 1, range: "bytes 0-5242879/13631488" },
         { partNumber: 2, range: "bytes 5242880-10485759/13631488" },
@@ -597,61 +597,87 @@ describe("S3TransferManager Unit Tests", () => {
 
       for (const { partNumber, range } of ranges) {
         expect(() => {
-          tm.validatePartDownload(range, partNumber, partSize);
+          tm.validatePartDownload(range, partNumber, totalSize);
         }).not.toThrow();
       }
     });
 
-    it("Should throw error for incorrect start position", () => {
-      const partSize = 5242880;
+    it("Should pass non-uniform part ranges without throwing an error", () => {
+      // S3 only requires every part except the last to be at least 5 MiB, so a
+      // 6 + 5 + 1 MiB object is legal. Deriving boundaries from the first
+      // part's size previously rejected it.
+      const MiB = 1024 * 1024;
+      const nonUniformTotal = 12 * MiB;
+      const ranges = [
+        { partNumber: 1, range: `bytes 0-${6 * MiB - 1}/${nonUniformTotal}` },
+        { partNumber: 2, range: `bytes ${6 * MiB}-${11 * MiB - 1}/${nonUniformTotal}` },
+        { partNumber: 3, range: `bytes ${11 * MiB}-${nonUniformTotal - 1}/${nonUniformTotal}` },
+      ];
 
-      expect(() => {
-        tm.validatePartDownload("bytes 5242881-10485759/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to start at 5242880 but got 5242881");
-
-      expect(() => {
-        tm.validatePartDownload("bytes 5242879-10485759/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to start at 5242880 but got 5242879");
-
-      expect(() => {
-        tm.validatePartDownload("bytes 0-5242879/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to start at 5242880 but got 0");
+      for (const { partNumber, range } of ranges) {
+        expect(() => {
+          tm.validatePartDownload(range, partNumber, nonUniformTotal);
+        }).not.toThrow();
+      }
     });
 
-    it("Should throw error for incorrect end position", () => {
-      const partSize = 5242880;
-
+    it("Should throw error when the reported object size does not match", () => {
       expect(() => {
-        tm.validatePartDownload("bytes 5242880-10485760/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to end at 10485759 but got 10485760");
+        tm.validatePartDownload("bytes 5242880-10485759/99999999", 2, totalSize);
+      }).toThrow("Expected part 2 to report object size 13631488 but got 99999999");
+    });
 
+    it("Should throw error for a descending range", () => {
       expect(() => {
-        tm.validatePartDownload("bytes 10485760-13631480/13631488", 3, partSize);
-      }).toThrow("Expected part 3 to end at 13631487 but got 13631480");
+        tm.validatePartDownload("bytes 10485759-5242880/13631488", 2, totalSize);
+      }).toThrow("Expected part 2 to have an ascending range but got bytes 10485759-5242880/13631488");
+    });
+
+    it("Should throw error when a part ends beyond the object", () => {
+      expect(() => {
+        tm.validatePartDownload("bytes 10485760-13631488/13631488", 3, totalSize);
+      }).toThrow("Expected part 3 to end within 13631488 bytes but got 13631488");
     });
 
     it("Should handle last part correctly when not a full part size", () => {
-      const partSize = 5242880;
-
       expect(() => {
-        tm.validatePartDownload("bytes 10485760-13631487/13631488", 3, partSize);
+        tm.validatePartDownload("bytes 10485760-13631487/13631488", 3, totalSize);
       }).not.toThrow();
     });
 
     it("Should throw error for invalid ContentRange format", () => {
-      const partSize = 5242880;
-
       expect(() => {
-        tm.validatePartDownload("invalid-format", 2, partSize);
+        tm.validatePartDownload("invalid-format", 2, totalSize);
       }).toThrow("Invalid ContentRange format: invalid-format");
     });
 
     it("Should throw error for missing ContentRange", () => {
-      const partSize = 5242880;
-
       expect(() => {
-        tm.validatePartDownload(undefined, 2, partSize);
+        tm.validatePartDownload(undefined, 2, totalSize);
       }).toThrow("Missing ContentRange for part 2.");
+    });
+  });
+
+  describe("part buffer sizing for non-uniform parts", () => {
+    /**
+     * Mirrors the worker's buffer sizing in processDownloadToTransfer. The
+     * caller's expectedSize comes from part 1, so a part that is larger must be
+     * sized from the response's own Content-Length instead.
+     */
+    const resolveBufferSize = (reportedLength: number | undefined, expectedSize: number): number =>
+      Number.isFinite(reportedLength) && (reportedLength as number) > 0 ? (reportedLength as number) : expectedSize;
+
+    const MiB = 1024 * 1024;
+
+    it("Should size the buffer from the response Content-Length", () => {
+      // Object is 5 MiB + 6 MiB, so the part-1 hint is too small for part 2.
+      expect(resolveBufferSize(6 * MiB, 5 * MiB)).toBe(6 * MiB);
+    });
+
+    it("Should fall back to the caller hint when Content-Length is absent", () => {
+      expect(resolveBufferSize(undefined, 5 * MiB)).toBe(5 * MiB);
+      expect(resolveBufferSize(Number.NaN, 5 * MiB)).toBe(5 * MiB);
+      expect(resolveBufferSize(0, 5 * MiB)).toBe(5 * MiB);
     });
   });
 
