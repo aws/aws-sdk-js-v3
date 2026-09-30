@@ -563,6 +563,7 @@ export const InventoryOptionalField = {
   ETag: "ETag",
   EncryptionStatus: "EncryptionStatus",
   IntelligentTieringAccessTier: "IntelligentTieringAccessTier",
+  IntelligentTieringReferenceDate: "IntelligentTieringReferenceDate",
   IsMultipartUploaded: "IsMultipartUploaded",
   LastModifiedDate: "LastModifiedDate",
   LifecycleExpirationDate: "LifecycleExpirationDate",
