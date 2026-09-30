@@ -40,7 +40,7 @@ export interface ListAccountsWithInvalidEffectivePolicyCommandOutput extends Lis
  * const config = {}; // type is OrganizationsClientConfig
  * const client = new OrganizationsClient(config);
  * const input = { // ListAccountsWithInvalidEffectivePolicyRequest
- *   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY" || "UPGRADE_ROLLOUT_POLICY" || "BEDROCK_POLICY" || "S3_POLICY" || "NETWORK_SECURITY_DIRECTOR_POLICY", // required
+ *   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY" || "UPGRADE_ROLLOUT_POLICY" || "BEDROCK_POLICY" || "S3_POLICY" || "NETWORK_SECURITY_DIRECTOR_POLICY" || "GUARDDUTY_POLICY", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -62,7 +62,7 @@ export interface ListAccountsWithInvalidEffectivePolicyCommandOutput extends Lis
  * //       JoinedTimestamp: new Date("TIMESTAMP"),
  * //     },
  * //   ],
- * //   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY" || "UPGRADE_ROLLOUT_POLICY" || "BEDROCK_POLICY" || "S3_POLICY" || "NETWORK_SECURITY_DIRECTOR_POLICY",
+ * //   PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY" || "INSPECTOR_POLICY" || "UPGRADE_ROLLOUT_POLICY" || "BEDROCK_POLICY" || "S3_POLICY" || "NETWORK_SECURITY_DIRECTOR_POLICY" || "GUARDDUTY_POLICY",
  * //   NextToken: "STRING_VALUE",
  * // };
  *
