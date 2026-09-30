@@ -5,7 +5,7 @@ import { Upload } from "@aws-sdk/lib-storage";
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { afterEach, beforeAll, describe, expect, test as it } from "vitest";
+import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { S3TransferManager } from "./index";
 import { internalEventHandler } from "./S3TransferManager";
@@ -1079,6 +1079,77 @@ describe(S3TransferManager.name, () => {
         await rm(tmpDir, { recursive: true });
       }
     }, 60_000);
+  });
+
+  describe("per-part checksum validation on download", () => {
+    const WORKER_SUPPORTED_ALGORITHMS = ["CRC32C", "CRC32", "SHA256", "SHA1"] as const;
+
+    const PART_SIZE = 5 * 1024 * 1024; // 11 MB => 3 parts at the min part size
+
+    let uploadClient: S3;
+    let uploadTm: S3TransferManager;
+    let downloadClient: S3;
+    let downloadTm: S3TransferManager;
+
+    beforeAll(() => {
+      uploadClient = new S3({ region, requestChecksumCalculation: "WHEN_SUPPORTED" });
+      uploadTm = new S3TransferManager({
+        s3: uploadClient,
+        targetPartSizeBytes: PART_SIZE,
+        multipartUploadThresholdBytes: PART_SIZE,
+        workerThreadCount: 4,
+      });
+
+      downloadClient = new S3({ region });
+      downloadTm = new S3TransferManager({
+        s3: downloadClient,
+        multipartDownloadType: "PART",
+        workerThreadCount: 4,
+      });
+    });
+
+    afterAll(() => {
+      uploadClient.destroy();
+      downloadClient.destroy();
+    });
+
+    for (const algorithm of WORKER_SUPPORTED_ALGORITHMS) {
+      it(`should validate per-part ${algorithm} checksums for downloadToFile and stream download`, async () => {
+        const Key = `checksum-${algorithm}-${Date.now()}`;
+        const Body = data(SIZE_11MB);
+        const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-checksum-"));
+
+        try {
+          const uploadResponse = await uploadTm.upload({ Bucket, Key, Body, ChecksumAlgorithm: algorithm });
+          expect(uploadResponse.ChecksumType).toBe("COMPOSITE");
+          expect(uploadResponse).toHaveProperty(`Checksum${algorithm}`);
+          expect(uploadResponse[`Checksum${algorithm}` as keyof typeof uploadResponse]).toBeDefined();
+
+          // downloadToFile validates each part checksum while writing to disk.
+          const destination = join(tmpDir, `${algorithm}.bin`);
+          const fileResponse = await downloadTm.downloadToFile({
+            Bucket,
+            Key,
+            ChecksumMode: "ENABLED",
+            destination,
+          });
+          expect(fileResponse.bytesWritten).toBe(SIZE_11MB);
+          const fileBytes = new Uint8Array(await readFile(destination));
+          expect(fileBytes.length).toBe(Body.length);
+          check(fileBytes);
+
+          // The stream path validates each part checksum while assembling the body.
+          const streamResponse = await downloadTm.download({ Bucket, Key, ChecksumMode: "ENABLED" });
+          const downloaded = await streamResponse.Body?.transformToByteArray();
+          expect(downloaded).toBeDefined();
+          expect(downloaded!.length).toBe(Body.length);
+          check(downloaded!);
+        } finally {
+          await rm(tmpDir, { recursive: true });
+          await client.deleteObject({ Bucket, Key }).catch(() => {});
+        }
+      }, 180_000);
+    }
   });
 
   describe("downloadDirectory tests", () => {
