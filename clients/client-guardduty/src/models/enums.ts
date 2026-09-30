@@ -989,6 +989,18 @@ export type DetectionSource = (typeof DetectionSource)[keyof typeof DetectionSou
  * @public
  * @enum
  */
+export const ManagedBy = {
+  GUARDDUTY_POLICY: "GUARDDUTY_POLICY",
+} as const;
+/**
+ * @public
+ */
+export type ManagedBy = (typeof ManagedBy)[keyof typeof ManagedBy];
+
+/**
+ * @public
+ * @enum
+ */
 export const DetectorFeatureResult = {
   AI_ANALYST: "AI_ANALYST",
   AI_PROTECTION: "AI_PROTECTION",

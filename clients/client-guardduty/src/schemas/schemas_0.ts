@@ -684,6 +684,7 @@ const _MACRe = "MemberAdditionalConfigurationResults";
 const _MACe = "MemberAccountsCount";
 const _MACem = "MemberAdditionalConfigurations";
 const _MALR = "MemberAccountLimitReached";
+const _MB = "ManagedBy";
 const _MD = "ModelDetail";
 const _MDSC = "MemberDataSourceConfigurations";
 const _MDSCe = "MemberDataSourceConfiguration";
@@ -1491,6 +1492,7 @@ const _m = "message";
 const _mA = "modifiedAt";
 const _mAC = "memberAccountsCount";
 const _mALR = "memberAccountLimitReached";
+const _mB = "managedBy";
 const _mD = "modelDetails";
 const _mE = "mapEquals";
 const _mFP = "moduleFilePath";
@@ -2499,8 +2501,8 @@ export var DetectorAdditionalConfiguration$: StaticStructureSchema = [3, n0, _DA
 ];
 export var DetectorAdditionalConfigurationResult$: StaticStructureSchema = [3, n0, _DACR,
   0,
-  [_N, _St, _UAp],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _st }], [4, { [_jN]: _uAp }]]
+  [_N, _St, _UAp, _MB],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _st }], [4, { [_jN]: _uAp }], [0, { [_jN]: _mB }]]
 ];
 export var DetectorFeatureConfiguration$: StaticStructureSchema = [3, n0, _DFC,
   0,
@@ -2509,8 +2511,8 @@ export var DetectorFeatureConfiguration$: StaticStructureSchema = [3, n0, _DFC,
 ];
 export var DetectorFeatureConfigurationResult$: StaticStructureSchema = [3, n0, _DFCR,
   0,
-  [_N, _St, _UAp, _ACd],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _st }], [4, { [_jN]: _uAp }], [() => DetectorAdditionalConfigurationResults, { [_jN]: _aC }]]
+  [_N, _St, _UAp, _ACd, _MB],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _st }], [4, { [_jN]: _uAp }], [() => DetectorAdditionalConfigurationResults, { [_jN]: _aC }], [0, { [_jN]: _mB }]]
 ];
 export var DisableOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _DOAAR,
   0,
@@ -3404,8 +3406,8 @@ export var MemberAdditionalConfiguration$: StaticStructureSchema = [3, n0, _MAC,
 ];
 export var MemberAdditionalConfigurationResult$: StaticStructureSchema = [3, n0, _MACR,
   0,
-  [_N, _St, _UAp],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _st }], [4, { [_jN]: _uAp }]]
+  [_N, _St, _UAp, _MB],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _st }], [4, { [_jN]: _uAp }], [0, { [_jN]: _mB }]]
 ];
 export var MemberDataSourceConfiguration$: StaticStructureSchema = [3, n0, _MDSCe,
   0,
@@ -3419,8 +3421,8 @@ export var MemberFeaturesConfiguration$: StaticStructureSchema = [3, n0, _MFC,
 ];
 export var MemberFeaturesConfigurationResult$: StaticStructureSchema = [3, n0, _MFCR,
   0,
-  [_N, _St, _UAp, _ACd],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _st }], [4, { [_jN]: _uAp }], [() => MemberAdditionalConfigurationResults, { [_jN]: _aC }]]
+  [_N, _St, _UAp, _ACd, _MB],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _st }], [4, { [_jN]: _uAp }], [() => MemberAdditionalConfigurationResults, { [_jN]: _aC }], [0, { [_jN]: _mB }]]
 ];
 export var ModelDetail$: StaticStructureSchema = [3, n0, _MD,
   0,

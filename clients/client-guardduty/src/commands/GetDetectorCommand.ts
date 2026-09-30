@@ -84,8 +84,10 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
  * //           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT" || "EC2_AGENT_MANAGEMENT",
  * //           Status: "ENABLED" || "DISABLED",
  * //           UpdatedAt: new Date("TIMESTAMP"),
+ * //           ManagedBy: "GUARDDUTY_POLICY",
  * //         },
  * //       ],
+ * //       ManagedBy: "GUARDDUTY_POLICY",
  * //     },
  * //   ],
  * // };

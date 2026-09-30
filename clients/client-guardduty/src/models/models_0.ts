@@ -38,6 +38,7 @@ import type {
   KubernetesResourcesTypes,
   MalwareProtectionPlanTaggingActionStatus,
   MalwareProtectionScanType,
+  ManagedBy,
   ManagementType,
   MfaStatus,
   NetworkDirection,
@@ -5336,6 +5337,12 @@ export interface DetectorAdditionalConfigurationResult {
    * @public
    */
   UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Indicates what manages the additional configuration. A value of <code>GUARDDUTY_POLICY</code> means a GuardDuty policy manages the additional configuration.</p>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
 }
 
 /**
@@ -5366,6 +5373,12 @@ export interface DetectorFeatureConfigurationResult {
    * @public
    */
   AdditionalConfiguration?: DetectorAdditionalConfigurationResult[] | undefined;
+
+  /**
+   * <p>Indicates what manages the feature. A value of <code>GUARDDUTY_POLICY</code> means a GuardDuty policy manages the feature.</p>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
 }
 
 /**

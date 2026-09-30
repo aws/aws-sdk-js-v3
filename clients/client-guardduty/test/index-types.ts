@@ -361,6 +361,7 @@ export type {
   MalwareProtectionResourceType,
   MalwareProtectionScanStatus,
   MalwareProtectionScanType,
+  ManagedBy,
   ManagementType,
   MfaStatus,
   NetworkDirection,
