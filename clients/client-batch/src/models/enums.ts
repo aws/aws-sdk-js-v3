@@ -89,6 +89,33 @@ export type ContainerInsights = (typeof ContainerInsights)[keyof typeof Containe
  * @public
  * @enum
  */
+export const EksAccessEntryDesiredState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  INHERIT_FROM_CLUSTER: "INHERIT_FROM_CLUSTER",
+} as const;
+/**
+ * @public
+ */
+export type EksAccessEntryDesiredState = (typeof EksAccessEntryDesiredState)[keyof typeof EksAccessEntryDesiredState];
+
+/**
+ * @public
+ * @enum
+ */
+export const EksAccessEntryStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type EksAccessEntryStatus = (typeof EksAccessEntryStatus)[keyof typeof EksAccessEntryStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const CEState = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",

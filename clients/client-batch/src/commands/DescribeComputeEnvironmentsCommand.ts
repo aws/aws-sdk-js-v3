@@ -155,6 +155,10 @@ export interface DescribeComputeEnvironmentsCommandOutput extends DescribeComput
  * //       eksConfiguration: { // EksConfiguration
  * //         eksClusterArn: "STRING_VALUE", // required
  * //         kubernetesNamespace: "STRING_VALUE", // required
+ * //         accessEntry: { // EksAccessEntry
+ * //           desiredState: "ENABLED" || "DISABLED" || "INHERIT_FROM_CLUSTER", // required
+ * //           status: "ACTIVE" || "INACTIVE",
+ * //         },
  * //       },
  * //       containerOrchestrationType: "ECS" || "EKS",
  * //       uuid: "STRING_VALUE",

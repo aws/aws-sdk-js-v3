@@ -106,6 +106,7 @@ const _EACD = "EksAttemptContainerDetail";
 const _EACDk = "EksAttemptContainerDetails";
 const _EAD = "EksAttemptDetail";
 const _EADk = "EksAttemptDetails";
+const _EAE = "EksAccessEntry";
 const _EC = "Ec2Configuration";
 const _ECD = "EksContainerDetail";
 const _ECDk = "EksContainerDetails";
@@ -116,6 +117,7 @@ const _ECO = "EksContainerOverride";
 const _ECOL = "EksContainerOverrideList";
 const _ECRR = "EksContainerResourceRequirements";
 const _ECSC = "EksContainerSecurityContext";
+const _ECU = "EksConfigurationUpdate";
 const _ECVM = "EksContainerVolumeMount";
 const _ECVMk = "EksContainerVolumeMounts";
 const _ECk = "EksConfiguration";
@@ -365,6 +367,7 @@ const _Vo = "Volumes";
 const _a = "arn";
 const _aC = "authorizationConfig";
 const _aDS = "attemptDurationSeconds";
+const _aE = "accessEntry";
 const _aI = "attachmentId";
 const _aIT = "allowedInstanceTypes";
 const _aJI = "arrayJobId";
@@ -428,6 +431,7 @@ const _d = "devices";
 const _dC = "desiredvCpus";
 const _dO = "dependsOn";
 const _dP = "dnsPolicy";
+const _dS = "desiredState";
 const _e = "error";
 const _eA = "eksAttempts";
 const _eC = "exitCode";
@@ -1147,6 +1151,11 @@ export var EFSVolumeConfiguration$: StaticStructureSchema = [3, n0, _EFSVC,
   [_fSI, _rD, _tE, _tEP, _aC],
   [0, 0, 0, 1, () => EFSAuthorizationConfig$], 1
 ];
+export var EksAccessEntry$: StaticStructureSchema = [3, n0, _EAE,
+  0,
+  [_dS, _sta],
+  [0, 0], 1
+];
 export var EksAttemptContainerDetail$: StaticStructureSchema = [3, n0, _EACD,
   0,
   [_n, _cID, _eC, _r],
@@ -1159,8 +1168,13 @@ export var EksAttemptDetail$: StaticStructureSchema = [3, n0, _EAD,
 ];
 export var EksConfiguration$: StaticStructureSchema = [3, n0, _ECk,
   0,
-  [_eCAk, _kN],
-  [0, 0], 2
+  [_eCAk, _kN, _aE],
+  [0, 0, () => EksAccessEntry$], 2
+];
+export var EksConfigurationUpdate$: StaticStructureSchema = [3, n0, _ECU,
+  0,
+  [_aE],
+  [() => EksAccessEntry$]
 ];
 export var EksContainer$: StaticStructureSchema = [3, n0, _ECks,
   0,
@@ -1869,8 +1883,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateComputeEnvironmentRequest$: StaticStructureSchema = [3, n0, _UCER,
   0,
-  [_cE, _st, _uC, _cR, _sRe, _uP, _cont, _eS],
-  [0, 0, 1, () => ComputeResourceUpdate$, 0, () => UpdatePolicy$, 0, () => EcsSettings$], 1
+  [_cE, _st, _uC, _cR, _sRe, _uP, _cont, _eS, _eCk],
+  [0, 0, 1, () => ComputeResourceUpdate$, 0, () => UpdatePolicy$, 0, () => EcsSettings$, () => EksConfigurationUpdate$], 1
 ];
 export var UpdateComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _UCERp,
   0,

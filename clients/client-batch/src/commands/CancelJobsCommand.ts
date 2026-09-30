@@ -43,6 +43,12 @@ export interface CancelJobsCommandOutput extends CancelJobsResponse, __MetadataB
  *       HTTP status code of <code>200</code> even when some jobs encountered errors, so check the
  *       <code>errors</code> list. Jobs that can't be found are treated as successfully
  *       processed.</p>
+ *          <important>
+ *             <p>This operation requires <code>batch:CancelJob</code> permission for each job in the
+ *         request. There is no separate <code>batch:CancelJobs</code> IAM action. If a caller's IAM
+ *         policy grants <code>batch:CancelJob</code>, they can use both the singular
+ *         <a>CancelJob</a> and bulk <code>CancelJobs</code> operations.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
