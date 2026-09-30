@@ -3,6 +3,7 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
   ActorTokenContentType,
+  ApiKeyCredentialLocation,
   ClientAuthenticationMethodType,
   ClusteringFrequency,
   ContentLevel,
@@ -26,6 +27,7 @@ import type {
   MemoryStrategyType,
   MemoryView,
   MetadataValueType,
+  OAuthGrantType,
   OnBehalfOfTokenExchangeGrantTypeType,
   OnlineEvaluationConfigStatus,
   OnlineEvaluationExecutionStatus,
@@ -50,11 +52,8 @@ import type {
   AuthorizerConfiguration,
   ContainerConfiguration,
   FilesystemConfiguration,
-  GatewayApiKeyCredentialProvider,
-  IamCredentialProvider,
   LifecycleConfiguration,
   NetworkConfiguration,
-  OAuthCredentialProvider,
   PrivateEndpoint,
   PrivateEndpointOverride,
   Secret,
@@ -62,6 +61,90 @@ import type {
   Unit,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>An API key credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using an API key.</p>
+ * @public
+ */
+export interface GatewayApiKeyCredentialProvider {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the API key credential provider. This ARN identifies the provider in Amazon Web Services.</p>
+   * @public
+   */
+  providerArn: string | undefined;
+
+  /**
+   * <p>The name of the credential parameter for the API key. This parameter name is used when sending the API key to the target endpoint.</p>
+   * @public
+   */
+  credentialParameterName?: string | undefined;
+
+  /**
+   * <p>The prefix for the API key credential. This prefix is added to the API key when sending it to the target endpoint.</p>
+   * @public
+   */
+  credentialPrefix?: string | undefined;
+
+  /**
+   * <p>The location of the API key credential. This field specifies where in the request the API key should be placed.</p>
+   * @public
+   */
+  credentialLocation?: ApiKeyCredentialLocation | undefined;
+}
+
+/**
+ * <p>An IAM credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using IAM credentials and SigV4 signing.</p>
+ * @public
+ */
+export interface IamCredentialProvider {
+  /**
+   * <p>The target Amazon Web Services service name used for SigV4 signing. This value identifies the service that the gateway authenticates with when making requests to the target endpoint.</p>
+   * @public
+   */
+  service: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region used for SigV4 signing. If not specified, defaults to the gateway's Region.</p>
+   * @public
+   */
+  region?: string | undefined;
+}
+
+/**
+ * <p>An OAuth credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using OAuth.</p>
+ * @public
+ */
+export interface OAuthCredentialProvider {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuth credential provider. This ARN identifies the provider in Amazon Web Services.</p>
+   * @public
+   */
+  providerArn: string | undefined;
+
+  /**
+   * <p>The OAuth scopes for the credential provider. These scopes define the level of access requested from the OAuth provider.</p>
+   * @public
+   */
+  scopes: string[] | undefined;
+
+  /**
+   * <p>The custom parameters for the OAuth credential provider. These parameters provide additional configuration for the OAuth authentication process.</p>
+   * @public
+   */
+  customParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies the kind of credentials to use for authorization:</p> <ul> <li> <p> <code>CLIENT_CREDENTIALS</code> - Authorization with a client ID and secret.</p> </li> <li> <p> <code>AUTHORIZATION_CODE</code> - Authorization with a token that is specific to an individual end user.</p> </li> <li> <p> <code>TOKEN_EXCHANGE</code> - Authorization using on-behalf-of token exchange. An inbound user token is exchanged for a downstream access token scoped to the target audience.</p> </li> </ul>
+   * @public
+   */
+  grantType?: OAuthGrantType | undefined;
+
+  /**
+   * <p>The URL where the end user's browser is redirected after obtaining the authorization code. Generally points to the customer's application.</p>
+   * @public
+   */
+  defaultReturnUrl?: string | undefined;
+}
 
 /**
  * <p>A credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint.</p>
@@ -9880,61 +9963,4 @@ export interface CreatePaymentConnectorResponse {
    * @public
    */
   authorizationUrl?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePaymentConnectorRequest {
-  /**
-   * <p>The unique identifier of the parent payment manager.</p>
-   * @public
-   */
-  paymentManagerId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the payment connector to delete.</p>
-   * @public
-   */
-  paymentConnectorId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePaymentConnectorResponse {
-  /**
-   * <p>The current status of the payment connector, set to <code>DELETING</code> when deletion is initiated. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
-   * @public
-   */
-  status: PaymentConnectorStatus | undefined;
-
-  /**
-   * <p>The unique identifier of the deleted payment connector.</p>
-   * @public
-   */
-  paymentConnectorId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPaymentConnectorRequest {
-  /**
-   * <p>The unique identifier of the parent payment manager.</p>
-   * @public
-   */
-  paymentManagerId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the payment connector to retrieve.</p>
-   * @public
-   */
-  paymentConnectorId: string | undefined;
 }

@@ -27,6 +27,7 @@ import type {
   A2aDescriptor,
   AgentSkillsDescriptor,
   AuthorizerConfiguration,
+  CertificateConfiguration,
   PrivateEndpoint,
   SkillDefinition,
   SkillMdDefinition,
@@ -49,6 +50,63 @@ import type {
   S3Configuration,
   UpdatedAuthorizerConfiguration,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface DeletePaymentConnectorRequest {
+  /**
+   * <p>The unique identifier of the parent payment manager.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the payment connector to delete.</p>
+   * @public
+   */
+  paymentConnectorId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePaymentConnectorResponse {
+  /**
+   * <p>The current status of the payment connector, set to <code>DELETING</code> when deletion is initiated. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: PaymentConnectorStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the deleted payment connector.</p>
+   * @public
+   */
+  paymentConnectorId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPaymentConnectorRequest {
+  /**
+   * <p>The unique identifier of the parent payment manager.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the payment connector to retrieve.</p>
+   * @public
+   */
+  paymentConnectorId: string | undefined;
+}
 
 /**
  * @public
@@ -4652,6 +4710,12 @@ export interface CreateGatewayTargetRequest {
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
+
+  /**
+   * <p>The private certificate authority (CA) configurations for the gateway target. Use this to have the gateway trust a private CA when it establishes TLS connections to the target endpoint. Provide each certificate by reference to an Amazon S3 object or an Amazon Web Services Secrets Manager secret. You can specify only one certificate authority configuration in this list.</p>
+   * @public
+   */
+  certificateConfigurations?: CertificateConfiguration[] | undefined;
 }
 
 /**
@@ -4753,6 +4817,12 @@ export interface CreateGatewayTargetResponse {
    * @public
    */
   protocolType?: TargetProtocolType | undefined;
+
+  /**
+   * <p>The private certificate authority (CA) configurations for the gateway target.</p>
+   * @public
+   */
+  certificateConfigurations?: CertificateConfiguration[] | undefined;
 }
 
 /**
@@ -4855,6 +4925,12 @@ export interface GatewayTarget {
    * @public
    */
   protocolType?: TargetProtocolType | undefined;
+
+  /**
+   * <p>The private certificate authority (CA) configurations for the gateway target.</p>
+   * @public
+   */
+  certificateConfigurations?: CertificateConfiguration[] | undefined;
 }
 
 /**
@@ -4956,6 +5032,12 @@ export interface GetGatewayTargetResponse {
    * @public
    */
   protocolType?: TargetProtocolType | undefined;
+
+  /**
+   * <p>The private certificate authority (CA) configurations for the gateway target.</p>
+   * @public
+   */
+  certificateConfigurations?: CertificateConfiguration[] | undefined;
 }
 
 /**
@@ -5009,6 +5091,12 @@ export interface UpdateGatewayTargetRequest {
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
+
+  /**
+   * <p>The private certificate authority (CA) configurations for the gateway target. Use this to have the gateway trust a private CA when it establishes TLS connections to the target endpoint. Provide each certificate by reference to an Amazon S3 object or an Amazon Web Services Secrets Manager secret. You can specify only one certificate authority configuration in this list. To remove a previously configured certificate authority, omit this field on update.</p>
+   * @public
+   */
+  certificateConfigurations?: CertificateConfiguration[] | undefined;
 }
 
 /**
@@ -5110,6 +5198,12 @@ export interface UpdateGatewayTargetResponse {
    * @public
    */
   protocolType?: TargetProtocolType | undefined;
+
+  /**
+   * <p>The private certificate authority (CA) configurations for the gateway target.</p>
+   * @public
+   */
+  certificateConfigurations?: CertificateConfiguration[] | undefined;
 }
 
 /**

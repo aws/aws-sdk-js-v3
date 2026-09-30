@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetPaymentConnectorRequest } from "../models/models_1";
-import type { GetPaymentConnectorResponse } from "../models/models_2";
+import type { GetPaymentConnectorRequest, GetPaymentConnectorResponse } from "../models/models_2";
 import { GetPaymentConnector$ } from "../schemas/schemas_0";
 
 /**

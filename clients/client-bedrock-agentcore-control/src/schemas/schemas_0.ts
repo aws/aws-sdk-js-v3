@@ -83,7 +83,8 @@ const _CCI = "CustomConfigurationInput";
 const _CCIR = "CreateCodeInterpreterRequest";
 const _CCIRr = "CreateCodeInterpreterResponse";
 const _CCIr = "CreateCodeInterpreter";
-const _CCL = "ContentConfigurationList";
+const _CCL = "CertificateConfigurationList";
+const _CCLo = "ContentConfigurationList";
 const _CCM = "ComponentConfigurationMap";
 const _CCP = "CreateCapacityProvider";
 const _CCPI = "CreateCapacityProviderInput";
@@ -94,6 +95,7 @@ const _CCPr = "CreateConsentPortal";
 const _CCRT = "CoinbaseCdpRotationTargets";
 const _CCVT = "CustomClaimValidationType";
 const _CCVTu = "CustomClaimValidationsType";
+const _CCe = "CertificateConfiguration";
 const _CCo = "CodeConfiguration";
 const _CCom = "ComponentConfiguration";
 const _CComp = "ComputeConfiguration";
@@ -846,6 +848,7 @@ const _RVC = "RootVolumeConfiguration";
 const _Re = "Resource";
 const _S = "Secret";
 const _SC = "S3Configuration";
+const _SCC = "S3CertificateConfiguration";
 const _SCO = "SemanticConsolidationOverride";
 const _SCOu = "SummaryConsolidationOverride";
 const _SCa = "SamplingConfig";
@@ -873,6 +876,7 @@ const _SL = "S3Location";
 const _SLV = "StringListValidation";
 const _SMB = "SystemManagedBlock";
 const _SMC = "SelfManagedConfiguration";
+const _SMCC = "SecretsManagerCertificateConfiguration";
 const _SMCI = "SelfManagedConfigurationInput";
 const _SMD = "SkillMdDefinition";
 const _SML = "SecretsManagerLocation";
@@ -1181,6 +1185,7 @@ const _cC = "computeConfiguration";
 const _cCC = "customConsolidationConfiguration";
 const _cCCo = "coinbaseCdpConfiguration";
 const _cCDP = "coinbaseCDP";
+const _cCe = "certificateConfigurations";
 const _cCl = "clusteringConfig";
 const _cCo = "contentConfigurations";
 const _cCod = "codeConfiguration";
@@ -2404,13 +2409,13 @@ export var CreateGatewayRuleResponse$: StaticStructureSchema = [3, n0, _CGRRr,
 ];
 export var CreateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _CGTR,
   0,
-  [_gI, _tC, _n, _d, _cT, _cPCr, _mC, _pE],
-  [[0, 1], [() => TargetConfiguration$, 0], [() => TargetName, 0], [() => TargetDescription, 0], [0, 4], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$], 2
+  [_gI, _tC, _n, _d, _cT, _cPCr, _mC, _pE, _cCe],
+  [[0, 1], [() => TargetConfiguration$, 0], [() => TargetName, 0], [() => TargetDescription, 0], [0, 4], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$, () => CertificateConfigurationList], 2
 ];
 export var CreateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _CGTRr,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT, _cCe],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0, () => CertificateConfigurationList], 8
 ];
 export var CreateHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _CHER,
   0,
@@ -2669,8 +2674,8 @@ export var DeleteConfigurationBundleRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DeleteConfigurationBundleResponse$: StaticStructureSchema = [3, n0, _DCBRe,
   0,
-  [_bIu, _st],
-  [0, 0], 2
+  [_bAu, _bIu, _st],
+  [0, 0, 0], 3
 ];
 export var DeleteConsentPortalRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
@@ -3039,8 +3044,8 @@ export var GatewaySummary$: StaticStructureSchema = [3, n0, _GS,
 ];
 export var GatewayTarget$: StaticStructureSchema = [3, n0, _GT,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT, _cCe],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0, () => CertificateConfigurationList], 8
 ];
 export var GetAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _GARER,
   0,
@@ -3199,8 +3204,8 @@ export var GetGatewayTargetRequest$: StaticStructureSchema = [3, n0, _GGTR,
 ];
 export var GetGatewayTargetResponse$: StaticStructureSchema = [3, n0, _GGTRe,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT, _cCe],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0, () => CertificateConfigurationList], 8
 ];
 export var GetHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _GHER,
   0,
@@ -4527,6 +4532,11 @@ export var RuntimeTargetConfiguration$: StaticStructureSchema = [3, n0, _RTC,
   [_ar, _q, _sch],
   [0, 0, [() => HttpApiSchemaConfiguration$, 0]], 1
 ];
+export var S3CertificateConfiguration$: StaticStructureSchema = [3, n0, _SCC,
+  0,
+  [_ur, _bOAI],
+  [0, 0], 1
+];
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_ur, _bOAI],
@@ -4581,6 +4591,11 @@ export var SecretReference$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_sIe, _jK],
   [0, 0], 2
+];
+export var SecretsManagerCertificateConfiguration$: StaticStructureSchema = [3, n0, _SMCC,
+  0,
+  [_sAe],
+  [0], 1
 ];
 export var SecretsManagerLocation$: StaticStructureSchema = [3, n0, _SML,
   0,
@@ -4899,8 +4914,8 @@ export var UpdateCapacityProviderOutput$: StaticStructureSchema = [3, n0, _UCPO,
 ];
 export var UpdateConfigurationBundleRequest$: StaticStructureSchema = [3, n0, _UCBR,
   0,
-  [_bIu, _pVI, _cT, _bN, _d, _com, _bNr, _cM, _cB, _kKA],
-  [[0, 1], 64 | 0, [0, 4], 0, [() => ConfigurationBundleDescription, 0], [() => ComponentConfigurationMap, 0], 0, 0, () => VersionCreatedBySource$, 0], 2
+  [_bIu, _pVI, _cM, _cT, _bN, _d, _com, _bNr, _cB, _kKA],
+  [[0, 1], 64 | 0, 0, [0, 4], 0, [() => ConfigurationBundleDescription, 0], [() => ComponentConfigurationMap, 0], 0, () => VersionCreatedBySource$, 0], 3
 ];
 export var UpdateConfigurationBundleResponse$: StaticStructureSchema = [3, n0, _UCBRp,
   0,
@@ -5074,13 +5089,13 @@ export var UpdateGatewayRuleResponse$: StaticStructureSchema = [3, n0, _UGRRp,
 ];
 export var UpdateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _UGTR,
   0,
-  [_gI, _tI, _tC, _n, _d, _cPCr, _mC, _pE],
-  [[0, 1], [0, 1], [() => TargetConfiguration$, 0], [() => TargetName, 0], [() => TargetDescription, 0], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$], 3
+  [_gI, _tI, _tC, _n, _d, _cPCr, _mC, _pE, _cCe],
+  [[0, 1], [0, 1], [() => TargetConfiguration$, 0], [() => TargetName, 0], [() => TargetDescription, 0], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$, () => CertificateConfigurationList], 3
 ];
 export var UpdateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _UGTRp,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT, _cCe],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0, () => CertificateConfigurationList], 8
 ];
 export var UpdateHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _UHER,
   0,
@@ -5360,6 +5375,9 @@ var CapacityProviderList: StaticListSchema = [1, n0, _CPL,
 var CategoricalScaleDefinitions: StaticListSchema = [1, n0, _CSDa,
   0, () => CategoricalScaleDefinition$
 ];
+var CertificateConfigurationList: StaticListSchema = [1, n0, _CCL,
+  0, () => CertificateConfiguration$
+];
 var Certificates: StaticListSchema = [1, n0, _Ce,
   0, () => Certificate$
 ];
@@ -5393,7 +5411,7 @@ var ConsentPortalSources: StaticListSchema = [1, n0, _CPSons,
 var ConsentPortalSummaries: StaticListSchema = [1, n0, _CPSonse,
   0, () => ConsentPortalSummary$
 ];
-var ContentConfigurationList: StaticListSchema = [1, n0, _CCL,
+var ContentConfigurationList: StaticListSchema = [1, n0, _CCLo,
   0, () => ContentConfiguration$
 ];
 var CredentialProviderConfigurations: StaticListSchema = [1, n0, _CPCre,
@@ -5730,6 +5748,11 @@ export var AuthorizerConfiguration$: StaticUnionSchema = [4, n0, _ACu,
   0,
   [_cJWTA],
   [() => CustomJWTAuthorizerConfiguration$]
+];
+export var CertificateConfiguration$: StaticUnionSchema = [4, n0, _CCe,
+  0,
+  [_s_, _sMe],
+  [() => S3CertificateConfiguration$, () => SecretsManagerCertificateConfiguration$]
 ];
 export var CertificateLocation$: StaticUnionSchema = [4, n0, _CL,
   0,

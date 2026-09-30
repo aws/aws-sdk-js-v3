@@ -307,6 +307,17 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //         },
  * //       },
  * //       protocolType: "MCP" || "HTTP",
+ * //       certificateConfigurations: [ // CertificateConfigurationList
+ * //         { // CertificateConfiguration Union: only one key present
+ * //           s3: { // S3CertificateConfiguration
+ * //             uri: "STRING_VALUE", // required
+ * //             bucketOwnerAccountId: "STRING_VALUE",
+ * //           },
+ * //           secretsManager: { // SecretsManagerCertificateConfiguration
+ * //             secretArn: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

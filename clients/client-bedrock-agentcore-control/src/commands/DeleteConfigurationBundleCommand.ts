@@ -38,6 +38,7 @@ export interface DeleteConfigurationBundleCommandOutput extends DeleteConfigurat
  * const command = new DeleteConfigurationBundleCommand(input);
  * const response = await client.send(command);
  * // { // DeleteConfigurationBundleResponse
+ * //   bundleArn: "STRING_VALUE", // required
  * //   bundleId: "STRING_VALUE", // required
  * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED", // required
  * // };

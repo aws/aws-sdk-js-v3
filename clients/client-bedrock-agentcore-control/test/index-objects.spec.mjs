@@ -62,6 +62,7 @@ import {
   CategoricalScaleDefinition$,
   CedarPolicy$,
   Certificate$,
+  CertificateConfiguration$,
   CertificateLocation$,
   ClaimMatchOperatorType,
   ClaimMatchValueType$,
@@ -1015,6 +1016,7 @@ import {
   Rule$,
   RuntimeMetadataConfiguration$,
   RuntimeTargetConfiguration$,
+  S3CertificateConfiguration$,
   S3Configuration$,
   S3FilesAccessPointConfiguration$,
   S3FilesConfiguration$,
@@ -1028,6 +1030,7 @@ import {
   SearchType,
   Secret$,
   SecretReference$,
+  SecretsManagerCertificateConfiguration$,
   SecretsManagerLocation$,
   SecretSourceType,
   SelfManagedConfiguration$,
@@ -1675,6 +1678,7 @@ assert(typeof CapacityReservationTarget$ === "object");
 assert(typeof CategoricalScaleDefinition$ === "object");
 assert(typeof CedarPolicy$ === "object");
 assert(typeof Certificate$ === "object");
+assert(typeof CertificateConfiguration$ === "object");
 assert(typeof CertificateLocation$ === "object");
 assert(typeof ClaimMatchValueType$ === "object");
 assert(typeof CloudWatchLogsInputConfig$ === "object");
@@ -2220,6 +2224,7 @@ assert(typeof RouteToTargetAction$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof RuntimeMetadataConfiguration$ === "object");
 assert(typeof RuntimeTargetConfiguration$ === "object");
+assert(typeof S3CertificateConfiguration$ === "object");
 assert(typeof S3Configuration$ === "object");
 assert(typeof S3FilesAccessPointConfiguration$ === "object");
 assert(typeof S3FilesConfiguration$ === "object");
@@ -2231,6 +2236,7 @@ assert(typeof SamplingConfig$ === "object");
 assert(typeof SchemaDefinition$ === "object");
 assert(typeof Secret$ === "object");
 assert(typeof SecretReference$ === "object");
+assert(typeof SecretsManagerCertificateConfiguration$ === "object");
 assert(typeof SecretsManagerLocation$ === "object");
 assert(typeof SelfManagedConfiguration$ === "object");
 assert(typeof SelfManagedConfigurationInput$ === "object");

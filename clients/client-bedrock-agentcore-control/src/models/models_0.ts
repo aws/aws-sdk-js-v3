@@ -5,7 +5,6 @@ import type {
   AgentManagedRuntimeType,
   AgentRuntimeEndpointStatus,
   AgentRuntimeStatus,
-  ApiKeyCredentialLocation,
   AuthorizerType,
   BrowserEnterprisePolicyType,
   BrowserNetworkMode,
@@ -40,7 +39,6 @@ import type {
   InterceptorPayloadExclusion,
   Monitoring,
   NetworkMode,
-  OAuthGrantType,
   OperatingSystem,
   Period,
   PrincipalMatchOperator,
@@ -4998,6 +4996,12 @@ export interface DeleteConfigurationBundleRequest {
  */
 export interface DeleteConfigurationBundleResponse {
   /**
+   * <p>The Amazon Resource Name (ARN) of the deleted configuration bundle.</p>
+   * @public
+   */
+  bundleArn: string | undefined;
+
+  /**
    * <p>The unique identifier of the deleted configuration bundle.</p>
    * @public
    */
@@ -5430,7 +5434,7 @@ export interface UpdateConfigurationBundleRequest {
    * <p>A commit message describing the changes in this version.</p>
    * @public
    */
-  commitMessage?: string | undefined;
+  commitMessage: string | undefined;
 
   /**
    * <p>The source that created this version, including the source name and optional ARN.</p>
@@ -9539,87 +9543,86 @@ export interface UpdateGatewayRuleResponse {
 }
 
 /**
- * <p>An API key credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using an API key.</p>
+ * <p>A reference to a PEM-encoded private CA certificate stored as an Amazon S3 object.</p>
  * @public
  */
-export interface GatewayApiKeyCredentialProvider {
+export interface S3CertificateConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the API key credential provider. This ARN identifies the provider in Amazon Web Services.</p>
+   * <p>The URI of the Amazon S3 object that contains the PEM-encoded certificate.</p>
    * @public
    */
-  providerArn: string | undefined;
+  uri: string | undefined;
 
   /**
-   * <p>The name of the credential parameter for the API key. This parameter name is used when sending the API key to the target endpoint.</p>
+   * <p>The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.</p>
    * @public
    */
-  credentialParameterName?: string | undefined;
-
-  /**
-   * <p>The prefix for the API key credential. This prefix is added to the API key when sending it to the target endpoint.</p>
-   * @public
-   */
-  credentialPrefix?: string | undefined;
-
-  /**
-   * <p>The location of the API key credential. This field specifies where in the request the API key should be placed.</p>
-   * @public
-   */
-  credentialLocation?: ApiKeyCredentialLocation | undefined;
+  bucketOwnerAccountId?: string | undefined;
 }
 
 /**
- * <p>An IAM credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using IAM credentials and SigV4 signing.</p>
+ * <p>A reference to a PEM-encoded private CA certificate stored in an Amazon Web Services Secrets Manager secret.</p>
  * @public
  */
-export interface IamCredentialProvider {
+export interface SecretsManagerCertificateConfiguration {
   /**
-   * <p>The target Amazon Web Services service name used for SigV4 signing. This value identifies the service that the gateway authenticates with when making requests to the target endpoint.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the PEM-encoded certificate.</p>
    * @public
    */
-  service: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region used for SigV4 signing. If not specified, defaults to the gateway's Region.</p>
-   * @public
-   */
-  region?: string | undefined;
+  secretArn: string | undefined;
 }
 
 /**
- * <p>An OAuth credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint using OAuth.</p>
+ * <p>A reference to a private certificate authority (CA) certificate that the gateway uses to verify TLS connections to the target endpoint. Use this when the target presents a certificate issued by a private CA that is not trusted by default. Specify exactly one certificate source. The configuration is a reference only and never contains the certificate content.</p>
  * @public
  */
-export interface OAuthCredentialProvider {
+export type CertificateConfiguration =
+  | CertificateConfiguration.S3Member
+  | CertificateConfiguration.SecretsManagerMember
+  | CertificateConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CertificateConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth credential provider. This ARN identifies the provider in Amazon Web Services.</p>
+   * <p>The Amazon S3 location of the PEM-encoded private CA certificate.</p>
    * @public
    */
-  providerArn: string | undefined;
+  export interface S3Member {
+    s3: S3CertificateConfiguration;
+    secretsManager?: never;
+    $unknown?: never;
+  }
 
   /**
-   * <p>The OAuth scopes for the credential provider. These scopes define the level of access requested from the OAuth provider.</p>
+   * <p>The Amazon Web Services Secrets Manager location of the PEM-encoded private CA certificate.</p>
    * @public
    */
-  scopes: string[] | undefined;
+  export interface SecretsManagerMember {
+    s3?: never;
+    secretsManager: SecretsManagerCertificateConfiguration;
+    $unknown?: never;
+  }
 
   /**
-   * <p>The custom parameters for the OAuth credential provider. These parameters provide additional configuration for the OAuth authentication process.</p>
    * @public
    */
-  customParameters?: Record<string, string> | undefined;
+  export interface $UnknownMember {
+    s3?: never;
+    secretsManager?: never;
+    $unknown: [string, any];
+  }
 
   /**
-   * <p>Specifies the kind of credentials to use for authorization:</p> <ul> <li> <p> <code>CLIENT_CREDENTIALS</code> - Authorization with a client ID and secret.</p> </li> <li> <p> <code>AUTHORIZATION_CODE</code> - Authorization with a token that is specific to an individual end user.</p> </li> <li> <p> <code>TOKEN_EXCHANGE</code> - Authorization using on-behalf-of token exchange. An inbound user token is exchanged for a downstream access token scoped to the target audience.</p> </li> </ul>
-   * @public
+   * @deprecated unused in schema-serde mode.
+   *
    */
-  grantType?: OAuthGrantType | undefined;
-
-  /**
-   * <p>The URL where the end user's browser is redirected after obtaining the authorization code. Generally points to the customer's application.</p>
-   * @public
-   */
-  defaultReturnUrl?: string | undefined;
+  export interface Visitor<T> {
+    s3: (value: S3CertificateConfiguration) => T;
+    secretsManager: (value: SecretsManagerCertificateConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**

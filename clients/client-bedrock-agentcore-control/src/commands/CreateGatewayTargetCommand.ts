@@ -275,6 +275,17 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  *       routingDomain: "STRING_VALUE",
  *     },
  *   },
+ *   certificateConfigurations: [ // CertificateConfigurationList
+ *     { // CertificateConfiguration Union: only one key present
+ *       s3: { // S3CertificateConfiguration
+ *         uri: "STRING_VALUE", // required
+ *         bucketOwnerAccountId: "STRING_VALUE",
+ *       },
+ *       secretsManager: { // SecretsManagerCertificateConfiguration
+ *         secretArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateGatewayTargetCommand(input);
  * const response = await client.send(command);
@@ -542,6 +553,17 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  * //     },
  * //   },
  * //   protocolType: "MCP" || "HTTP",
+ * //   certificateConfigurations: [ // CertificateConfigurationList
+ * //     { // CertificateConfiguration Union: only one key present
+ * //       s3: { // S3CertificateConfiguration
+ * //         uri: "STRING_VALUE", // required
+ * //         bucketOwnerAccountId: "STRING_VALUE",
+ * //       },
+ * //       secretsManager: { // SecretsManagerCertificateConfiguration
+ * //         secretArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```

@@ -46,7 +46,7 @@ export interface UpdateConfigurationBundleCommandOutput extends UpdateConfigurat
  *     "STRING_VALUE",
  *   ],
  *   branchName: "STRING_VALUE",
- *   commitMessage: "STRING_VALUE",
+ *   commitMessage: "STRING_VALUE", // required
  *   createdBy: { // VersionCreatedBySource
  *     name: "STRING_VALUE", // required
  *     arn: "STRING_VALUE",
