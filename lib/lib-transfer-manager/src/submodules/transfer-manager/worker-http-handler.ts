@@ -244,6 +244,7 @@ export interface FileSource {
   filePath: string;
   partSize: number;
   totalFileSize: number;
+  startOffset?: number;
   checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
@@ -889,9 +890,10 @@ export class WorkerHttpHandler {
     };
 
     if (dataSource.type === "file") {
-      const { filePath, partSize, totalFileSize, checksumAlgorithm, checksumHeader } = dataSource;
-      const offset = (partNumber - 1) * partSize;
-      const length = Math.min(partSize, totalFileSize - offset);
+      const { filePath, partSize, totalFileSize, startOffset = 0, checksumAlgorithm, checksumHeader } = dataSource;
+      const partOffset = (partNumber - 1) * partSize;
+      const length = Math.min(partSize, totalFileSize - partOffset);
+      const offset = startOffset + partOffset;
 
       const message: HttpWorkerFileRequestMessage = {
         type: "httpRequestFromFile",
