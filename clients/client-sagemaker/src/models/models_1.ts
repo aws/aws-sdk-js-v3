@@ -14,6 +14,7 @@ import type {
   AvailabilityZoneBalanceEnforcementMode,
   AwsManagedHumanLoopRequestSource,
   CapacityReservationPreference,
+  ClusterConfigMode,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
   CollectionType,
@@ -58,7 +59,6 @@ import type {
   ModelPackageRegistrationType,
   ModelRegistrationMode,
   MonitoringProblemType,
-  MonitoringType,
   NotebookOutputOption,
   ParameterType,
   PreemptTeamTasks,
@@ -153,11 +153,8 @@ import type {
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupsConfig,
   ClusterRestrictedInstanceGroupSpecification,
-  ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
-  CodeEditorAppSettings,
   ComputeQuotaResourceConfig,
-  CustomImage,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
@@ -172,6 +169,84 @@ import type {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Defines the configuration for managed tier checkpointing in a HyperPod cluster. Managed tier checkpointing uses multiple storage tiers, including cluster CPU memory, to provide faster checkpoint operations and improved fault tolerance for large-scale model training. The system automatically saves checkpoints at high frequency to memory and periodically persists them to durable storage, like Amazon S3.</p>
+ * @public
+ */
+export interface ClusterTieredStorageConfig {
+  /**
+   * <p>Specifies whether managed tier checkpointing is enabled or disabled for the HyperPod cluster. When set to <code>Enable</code>, the system installs a memory management daemon that provides disaggregated memory as a service for checkpoint storage. When set to <code>Disable</code>, the feature is turned off and the memory management daemon is removed from the cluster.</p>
+   * @public
+   */
+  Mode: ClusterConfigMode | undefined;
+
+  /**
+   * <p>The percentage (int) of cluster memory to allocate for checkpointing.</p>
+   * @public
+   */
+  InstanceMemoryAllocationPercentage?: number | undefined;
+}
+
+/**
+ * <p>A custom SageMaker AI image. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker AI image</a>.</p>
+ * @public
+ */
+export interface CustomImage {
+  /**
+   * <p>The name of the CustomImage. Must be unique to your account.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The version number of the CustomImage.</p>
+   * @public
+   */
+  ImageVersionNumber?: number | undefined;
+
+  /**
+   * <p>The name of the AppImageConfig.</p>
+   * @public
+   */
+  AppImageConfigName: string | undefined;
+}
+
+/**
+ * <p>The Code Editor application settings.</p> <p>For more information about Code Editor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html">Get started with Code Editor in Amazon SageMaker</a>.</p>
+ * @public
+ */
+export interface CodeEditorAppSettings {
+  /**
+   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that the version runs on.</p> <note> <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p> </note>
+   * @public
+   */
+  DefaultResourceSpec?: ResourceSpec | undefined;
+
+  /**
+   * <p>A list of custom SageMaker images that are configured to run as a Code Editor app.</p>
+   * @public
+   */
+  CustomImages?: CustomImage[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Code Editor application lifecycle configuration.</p>
+   * @public
+   */
+  LifecycleConfigArns?: string[] | undefined;
+
+  /**
+   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor applications.</p>
+   * @public
+   */
+  AppLifecycleManagement?: AppLifecycleManagement | undefined;
+
+  /**
+   * <p>The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.</p>
+   * @public
+   */
+  BuiltInLifecycleConfigArn?: string | undefined;
+}
 
 /**
  * <p>A Git repository that SageMaker AI automatically displays to users for cloning in the JupyterServer application.</p>
@@ -8406,118 +8481,4 @@ export interface NetworkConfig {
    * @public
    */
   VpcConfig?: VpcConfig | undefined;
-}
-
-/**
- * <p>Defines the monitoring job.</p>
- * @public
- */
-export interface MonitoringJobDefinition {
-  /**
-   * <p>Baseline configuration used to validate that the data conforms to the specified constraints and statistics</p>
-   * @public
-   */
-  BaselineConfig?: MonitoringBaselineConfig | undefined;
-
-  /**
-   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.</p>
-   * @public
-   */
-  MonitoringInputs: MonitoringInput[] | undefined;
-
-  /**
-   * <p>The array of outputs from the monitoring job to be uploaded to Amazon S3.</p>
-   * @public
-   */
-  MonitoringOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.</p>
-   * @public
-   */
-  MonitoringResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Configures the monitoring job to run a specified Docker container image.</p>
-   * @public
-   */
-  MonitoringAppSpecification: MonitoringAppSpecification | undefined;
-
-  /**
-   * <p>Specifies a time limit for how long the monitoring job is allowed to run.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition | undefined;
-
-  /**
-   * <p>Sets the environment variables in the Docker container.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-
-  /**
-   * <p>Specifies networking options for an monitoring job.</p>
-   * @public
-   */
-  NetworkConfig?: NetworkConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-}
-
-/**
- * <p>Configuration details about the monitoring schedule.</p>
- * @public
- */
-export interface ScheduleConfig {
-  /**
-   * <p>A cron expression that describes details about the monitoring schedule.</p> <p>The supported cron expressions are:</p> <ul> <li> <p>If you want to set the job to start every hour, use the following:</p> <p> <code>Hourly: cron(0 * ? * * *)</code> </p> </li> <li> <p>If you want to start the job daily:</p> <p> <code>cron(0 [00-23] ? * * *)</code> </p> </li> <li> <p>If you want to run the job one time, immediately, use the following keyword:</p> <p> <code>NOW</code> </p> </li> </ul> <p>For example, the following are valid cron expressions:</p> <ul> <li> <p>Daily at noon UTC: <code>cron(0 12 ? * * *)</code> </p> </li> <li> <p>Daily at midnight UTC: <code>cron(0 0 ? * * *)</code> </p> </li> </ul> <p>To support running every 6, 12 hours, the following are also supported:</p> <p> <code>cron(0 [00-23]/[01-24] ? * * *)</code> </p> <p>For example, the following are valid cron expressions:</p> <ul> <li> <p>Every 12 hours, starting at 5pm UTC: <code>cron(0 17/12 ? * * *)</code> </p> </li> <li> <p>Every two hours starting at midnight: <code>cron(0 0/2 ? * * *)</code> </p> </li> </ul> <note> <ul> <li> <p>Even though the cron expression is set to start at 5PM UTC, note that there could be a delay of 0-20 minutes from the actual requested time to run the execution. </p> </li> <li> <p>We recommend that if you would like a daily schedule, you do not provide this parameter. Amazon SageMaker AI will pick a time for running every day.</p> </li> </ul> </note> <p>You can also specify the keyword <code>NOW</code> to run the monitoring job immediately, one time, without recurring.</p>
-   * @public
-   */
-  ScheduleExpression: string | undefined;
-
-  /**
-   * <p>Sets the start time for a monitoring job window. Express this time as an offset to the times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration format. For example, if you want to monitor the five hours of data in your dataset that precede the start of each monitoring job, you would specify: <code>"-PT5H"</code>.</p> <p>The start time that you specify must not precede the end time that you specify by more than 24 hours. You specify the end time with the <code>DataAnalysisEndTime</code> parameter.</p> <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is required.</p>
-   * @public
-   */
-  DataAnalysisStartTime?: string | undefined;
-
-  /**
-   * <p>Sets the end time for a monitoring job window. Express this time as an offset to the times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration format. For example, if you want to end the window one hour before the start of each monitoring job, you would specify: <code>"-PT1H"</code>.</p> <p>The end time that you specify must not follow the start time that you specify by more than 24 hours. You specify the start time with the <code>DataAnalysisStartTime</code> parameter.</p> <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is required.</p>
-   * @public
-   */
-  DataAnalysisEndTime?: string | undefined;
-}
-
-/**
- * <p>Configures the monitoring schedule and defines the monitoring job.</p>
- * @public
- */
-export interface MonitoringScheduleConfig {
-  /**
-   * <p>Configures the monitoring schedule.</p>
-   * @public
-   */
-  ScheduleConfig?: ScheduleConfig | undefined;
-
-  /**
-   * <p>Defines the monitoring job.</p>
-   * @public
-   */
-  MonitoringJobDefinition?: MonitoringJobDefinition | undefined;
-
-  /**
-   * <p>The name of the monitoring job definition to schedule.</p>
-   * @public
-   */
-  MonitoringJobDefinitionName?: string | undefined;
-
-  /**
-   * <p>The type of the monitoring job definition to schedule.</p>
-   * @public
-   */
-  MonitoringType?: MonitoringType | undefined;
 }

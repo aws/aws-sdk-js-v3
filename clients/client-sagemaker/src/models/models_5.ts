@@ -5,16 +5,19 @@ import type {
   BooleanOperator,
   CrossAccountFilterOption,
   IPAddressType,
+  JobType,
   ModelApprovalStatus,
   ModelCardStatus,
   ModelPackageRegistrationType,
   ModelRegistrationMode,
   NotebookInstanceAcceleratorType,
   PartnerAppAuthType,
+  Processor,
   ResourceType,
   RootAccess,
   SearchSortOrder,
   TrackingServerSize,
+  VendorGuidance,
   WorkforceIpAddressType,
 } from "./enums";
 import type {
@@ -25,12 +28,12 @@ import type {
 } from "./models_0";
 import type {
   InferenceComponentRuntimeConfig,
+  InferenceComponentSpecification,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   ModelLifeCycle,
   ModelPackageModelCard,
   ModelVariantConfig,
-  MonitoringScheduleConfig,
   ShadowModeConfig,
   UserSettings,
 } from "./models_1";
@@ -38,6 +41,7 @@ import type {
   IdcConfigInput,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
+  MonitoringScheduleConfig,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
   OidcConfig,
@@ -55,7 +59,7 @@ import type {
   WorkerAccessConfiguration,
   WorkforceVpcConfigRequest,
 } from "./models_2";
-import type { Filter, Workforce, Workteam } from "./models_3";
+import type { Filter, InferenceComponentDeploymentConfig, Workforce, Workteam } from "./models_3";
 import type {
   NestedFilters,
   ProfilerConfigForUpdate,
@@ -63,6 +67,129 @@ import type {
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateImageVersionRequest {
+  /**
+   * <p>The name of the image.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The alias of the image version.</p>
+   * @public
+   */
+  Alias?: string | undefined;
+
+  /**
+   * <p>The version of the image.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>A list of aliases to add.</p>
+   * @public
+   */
+  AliasesToAdd?: string[] | undefined;
+
+  /**
+   * <p>A list of aliases to delete.</p>
+   * @public
+   */
+  AliasesToDelete?: string[] | undefined;
+
+  /**
+   * <p>The availability of the image version specified by the maintainer.</p> <ul> <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li> <li> <p> <code>STABLE</code>: The image version is stable.</p> </li> <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li> <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li> </ul>
+   * @public
+   */
+  VendorGuidance?: VendorGuidance | undefined;
+
+  /**
+   * <p>Indicates SageMaker AI job type compatibility.</p> <ul> <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker AI training jobs.</p> </li> <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker AI inference jobs.</p> </li> <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker AI notebook kernels.</p> </li> </ul>
+   * @public
+   */
+  JobType?: JobType | undefined;
+
+  /**
+   * <p>The machine learning framework vended in the image version.</p>
+   * @public
+   */
+  MLFramework?: string | undefined;
+
+  /**
+   * <p>The supported programming language and its version.</p>
+   * @public
+   */
+  ProgrammingLang?: string | undefined;
+
+  /**
+   * <p>Indicates CPU or GPU compatibility.</p> <ul> <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li> <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li> </ul>
+   * @public
+   */
+  Processor?: Processor | undefined;
+
+  /**
+   * <p>Indicates Horovod compatibility.</p>
+   * @public
+   */
+  Horovod?: boolean | undefined;
+
+  /**
+   * <p>The maintainer description of the image version.</p>
+   * @public
+   */
+  ReleaseNotes?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateImageVersionResponse {
+  /**
+   * <p>The ARN of the image version.</p>
+   * @public
+   */
+  ImageVersionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInferenceComponentInput {
+  /**
+   * <p>The name of the inference component.</p>
+   * @public
+   */
+  InferenceComponentName: string | undefined;
+
+  /**
+   * <p>Details about the resources to deploy with this inference component, including the model, container, and compute resources.</p>
+   * @public
+   */
+  Specification?: InferenceComponentSpecification | undefined;
+
+  /**
+   * <p>A list of specification objects for the inference component, one per instance type. Use this parameter when you want to specify different model or resource configurations for the inference component on each instance type. You can use either this parameter or the singular <code>Specification</code> parameter, but not both.</p>
+   * @public
+   */
+  Specifications?: InferenceComponentSpecification[] | undefined;
+
+  /**
+   * <p>Runtime settings for a model that is deployed with an inference component.</p>
+   * @public
+   */
+  RuntimeConfig?: InferenceComponentRuntimeConfig | undefined;
+
+  /**
+   * <p>The deployment configuration for the inference component. The configuration contains the desired deployment strategy and rollback settings.</p>
+   * @public
+   */
+  DeploymentConfig?: InferenceComponentDeploymentConfig | undefined;
+}
 
 /**
  * @public

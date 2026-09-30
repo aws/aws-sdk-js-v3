@@ -38,20 +38,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "InstanceId": "__InstanceId__",
     "EventDetails": {
       "EventMetadata": {
-        "InstanceGroup": {
-          "FailureMessage": "__FailureMessage__",
-          "AvailabilityZoneId": "__AvailabilityZoneId__",
-          "CapacityReservation": {
-            "Arn": "__Arn__",
-            "Type": "__Type__"
-          },
-          "SubnetId": "__SubnetId__",
-          "SecurityGroupIds": [
-            "__member__",
-            "__member__",
-            "__member__"
-          ],
-          "AmiOverride": "__AmiOverride__"
+        "SlurmHealth": {
+          "Component": "__Component__",
+          "Status": "__Status__",
+          "Reason": "__Reason__"
         }
       }
     },
@@ -73,20 +63,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     InstanceId: "__InstanceId__",
     EventDetails: {
       EventMetadata: {
-        InstanceGroup: {
-          FailureMessage: "__FailureMessage__",
-          AvailabilityZoneId: "__AvailabilityZoneId__",
-          CapacityReservation: {
-            Arn: "__Arn__",
-            Type: "__Type__"
-          },
-          SubnetId: "__SubnetId__",
-          SecurityGroupIds: [
-            "__member__",
-            "__member__",
-            "__member__"
-          ],
-          AmiOverride: "__AmiOverride__"
+        SlurmHealth: {
+          Component: "__Component__",
+          Status: "__Status__",
+          Reason: "__Reason__"
         }
       }
     },

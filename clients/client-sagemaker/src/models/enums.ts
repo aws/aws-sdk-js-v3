@@ -2636,6 +2636,60 @@ export type ClusterConfigMode = (typeof ClusterConfigMode)[keyof typeof ClusterC
  * @public
  * @enum
  */
+export const DatabaseConfigurationRollbackStatus = {
+  NOT_APPLICABLE: "NotApplicable",
+  REVERTED: "Reverted",
+  REVERT_FAILED: "RevertFailed",
+} as const;
+/**
+ * @public
+ */
+export type DatabaseConfigurationRollbackStatus =
+  (typeof DatabaseConfigurationRollbackStatus)[keyof typeof DatabaseConfigurationRollbackStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SlurmHealthComponent = {
+  SLURMDBD: "Slurmdbd",
+} as const;
+/**
+ * @public
+ */
+export type SlurmHealthComponent = (typeof SlurmHealthComponent)[keyof typeof SlurmHealthComponent];
+
+/**
+ * @public
+ * @enum
+ */
+export const SlurmHealthReason = {
+  DAEMON_DISABLED: "DaemonDisabled",
+  DAEMON_DOWN: "DaemonDown",
+  DB_UNREACHABLE: "DbUnreachable",
+} as const;
+/**
+ * @public
+ */
+export type SlurmHealthReason = (typeof SlurmHealthReason)[keyof typeof SlurmHealthReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const SlurmHealthStatus = {
+  HEALTHY: "Healthy",
+  UNHEALTHY: "Unhealthy",
+} as const;
+/**
+ * @public
+ */
+export type SlurmHealthStatus = (typeof SlurmHealthStatus)[keyof typeof SlurmHealthStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ClusterEventLevel = {
   ERROR: "Error",
   INFO: "Info",

@@ -248,6 +248,12 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     },
  *     Slurm: { // ClusterOrchestratorSlurmConfig
  *       SlurmConfigStrategy: "Overwrite" || "Managed" || "Merge",
+ *       AccountingDatabase: { // ClusterAccountingDatabase
+ *         Endpoint: "STRING_VALUE", // required
+ *         Port: Number("int"),
+ *         Name: "STRING_VALUE",
+ *         SecretArn: "STRING_VALUE", // required
+ *       },
  *     },
  *   },
  *   NodeRecovery: "Automatic" || "None",

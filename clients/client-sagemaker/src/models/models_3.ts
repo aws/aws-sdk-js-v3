@@ -35,7 +35,6 @@ import type {
   FeatureGroupStatus,
   FeatureType,
   FlowDefinitionStatus,
-  HubContentSortBy,
   HubContentStatus,
   HubContentSupportStatus,
   HubContentType,
@@ -190,6 +189,7 @@ import type {
   EdgeOutputConfig,
   EndpointInfo,
   FeatureDefinition,
+  HubS3StorageConfig,
   HumanTaskConfig,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
@@ -226,7 +226,6 @@ import type {
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
-  MonitoringScheduleConfig,
   MonitoringStoppingCondition,
   NetworkConfig,
   OfflineStoreConfig,
@@ -254,7 +253,6 @@ import type {
   ExperimentConfig,
   ExperimentSource,
   FeatureParameter,
-  HubContentDependency,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   LastUpdateStatus,
@@ -263,6 +261,7 @@ import type {
   ModelArtifacts,
   ModelClientConfig,
   ModelPackageConfig,
+  MonitoringScheduleConfig,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
   OfflineStoreStatus,
@@ -293,6 +292,118 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeHubResponse {
+  /**
+   * <p>The name of the hub.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The display name of the hub.</p>
+   * @public
+   */
+  HubDisplayName?: string | undefined;
+
+  /**
+   * <p>A description of the hub.</p>
+   * @public
+   */
+  HubDescription?: string | undefined;
+
+  /**
+   * <p>The searchable keywords for the hub.</p>
+   * @public
+   */
+  HubSearchKeywords?: string[] | undefined;
+
+  /**
+   * <p>The Amazon S3 storage configuration for the hub.</p>
+   * @public
+   */
+  S3StorageConfig?: HubS3StorageConfig | undefined;
+
+  /**
+   * <p>The status of the hub.</p>
+   * @public
+   */
+  HubStatus: HubStatus | undefined;
+
+  /**
+   * <p>The failure reason if importing hub content failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The date and time that the hub was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the hub was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHubContentRequest {
+  /**
+   * <p>The name of the hub that contains the content to describe.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The type of content in the hub.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The name of the content to describe.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The version of the content to describe.</p>
+   * @public
+   */
+  HubContentVersion?: string | undefined;
+}
+
+/**
+ * <p>Any dependencies related to hub content, such as scripts, model artifacts, datasets, or notebooks.</p>
+ * @public
+ */
+export interface HubContentDependency {
+  /**
+   * <p>The hub content dependency origin path.</p>
+   * @public
+   */
+  DependencyOriginPath?: string | undefined;
+
+  /**
+   * <p>The hub content dependency copy path.</p>
+   * @public
+   */
+  DependencyCopyPath?: string | undefined;
+}
 
 /**
  * @public
@@ -11814,103 +11925,4 @@ export interface ListFlowDefinitionsRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFlowDefinitionsResponse {
-  /**
-   * <p>An array of objects describing the flow definitions.</p>
-   * @public
-   */
-  FlowDefinitionSummaries: FlowDefinitionSummary[] | undefined;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHubContentsRequest {
-  /**
-   * <p>The name of the hub to list the contents of.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The type of hub content to list.</p>
-   * @public
-   */
-  HubContentType: HubContentType | undefined;
-
-  /**
-   * <p>Only list hub content if the name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>The upper bound of the hub content schema verion.</p>
-   * @public
-   */
-  MaxSchemaVersion?: string | undefined;
-
-  /**
-   * <p>Only list hub content that was created before the time specified.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Only list hub content that was created after the time specified.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Sort hub content versions by either name or creation time.</p>
-   * @public
-   */
-  SortBy?: HubContentSortBy | undefined;
-
-  /**
-   * <p>Sort hubs by ascending or descending order.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The maximum amount of hub content to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the response to a previous <code>ListHubContents</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of hub content, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHubContentsResponse {
-  /**
-   * <p>The summaries of the listed hub content.</p>
-   * @public
-   */
-  HubContentSummaries: HubContentInfo[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of hub content, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

@@ -249,6 +249,7 @@ import {
   ClarifyTextConfig$,
   ClarifyTextGranularity,
   ClarifyTextLanguage,
+  ClusterAccountingDatabase$,
   ClusterAutoPatchConfig$,
   ClusterAutoPatchConfigDetails$,
   ClusterAutoScalerType,
@@ -641,6 +642,8 @@ import {
   CustomizationTechnique,
   CustomizedMetricSpecification$,
   CustomPosixUserConfig$,
+  DatabaseConfigurationMetadata$,
+  DatabaseConfigurationRollbackStatus,
   DataCaptureConfig$,
   DataCaptureConfigSummary$,
   DataCatalogConfig$,
@@ -2386,6 +2389,10 @@ import {
   SharingType,
   ShuffleConfig$,
   SkipModelValidation,
+  SlurmHealthComponent,
+  SlurmHealthMetadata$,
+  SlurmHealthReason,
+  SlurmHealthStatus,
   SoftwareUpdateStatus,
   SortActionsBy,
   SortArtifactsBy,
@@ -3832,6 +3839,7 @@ assert(typeof ClarifyInferenceConfig$ === "object");
 assert(typeof ClarifyShapBaselineConfig$ === "object");
 assert(typeof ClarifyShapConfig$ === "object");
 assert(typeof ClarifyTextConfig$ === "object");
+assert(typeof ClusterAccountingDatabase$ === "object");
 assert(typeof ClusterAutoPatchConfig$ === "object");
 assert(typeof ClusterAutoPatchConfigDetails$ === "object");
 assert(typeof ClusterAutoScalingConfig$ === "object");
@@ -4047,6 +4055,7 @@ assert(typeof CustomFileSystemConfig$ === "object");
 assert(typeof CustomImage$ === "object");
 assert(typeof CustomizedMetricSpecification$ === "object");
 assert(typeof CustomPosixUserConfig$ === "object");
+assert(typeof DatabaseConfigurationMetadata$ === "object");
 assert(typeof DataCaptureConfig$ === "object");
 assert(typeof DataCaptureConfigSummary$ === "object");
 assert(typeof DataCatalogConfig$ === "object");
@@ -4984,6 +4993,7 @@ assert(typeof ShadowModeConfig$ === "object");
 assert(typeof ShadowModelVariantConfig$ === "object");
 assert(typeof SharingSettings$ === "object");
 assert(typeof ShuffleConfig$ === "object");
+assert(typeof SlurmHealthMetadata$ === "object");
 assert(typeof SourceAlgorithm$ === "object");
 assert(typeof SourceAlgorithmSpecification$ === "object");
 assert(typeof SourceIpConfig$ === "object");
@@ -5310,6 +5320,7 @@ assert(typeof ContainerMode === "object");
 assert(typeof ContentClassifier === "object");
 assert(typeof CrossAccountFilterOption === "object");
 assert(typeof CustomizationTechnique === "object");
+assert(typeof DatabaseConfigurationRollbackStatus === "object");
 assert(typeof DataDistributionType === "object");
 assert(typeof DataSourceName === "object");
 assert(typeof DeepHealthCheckType === "object");
@@ -5519,6 +5530,9 @@ assert(typeof SecondaryStatus === "object");
 assert(typeof ServerlessJobType === "object");
 assert(typeof SharingType === "object");
 assert(typeof SkipModelValidation === "object");
+assert(typeof SlurmHealthComponent === "object");
+assert(typeof SlurmHealthReason === "object");
+assert(typeof SlurmHealthStatus === "object");
 assert(typeof SoftwareUpdateStatus === "object");
 assert(typeof SortActionsBy === "object");
 assert(typeof SortArtifactsBy === "object");

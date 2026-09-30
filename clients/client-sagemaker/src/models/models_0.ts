@@ -49,7 +49,6 @@ import type {
   ClusterAutoScalingMode,
   ClusterAutoScalingStatus,
   ClusterCapacityType,
-  ClusterConfigMode,
   ClusterEventLevel,
   ClusterEventResourceType,
   ClusterFSxLustreDeletionPolicy,
@@ -63,6 +62,7 @@ import type {
   ClusterSlurmNodeType,
   ClusterStatus,
   CompressionType,
+  DatabaseConfigurationRollbackStatus,
   DataSourceName,
   DeepHealthCheckType,
   DetailedAlgorithmStatus,
@@ -90,6 +90,9 @@ import type {
   S3DataType,
   S3ModelDataType,
   SchedulerResourceStatus,
+  SlurmHealthComponent,
+  SlurmHealthReason,
+  SlurmHealthStatus,
   SoftwareUpdateStatus,
   SplitType,
   TrafficRoutingConfigType,
@@ -6174,6 +6177,36 @@ export interface ClarifyExplainerConfig {
 }
 
 /**
+ * <p>The external MySQL-compatible database that the Slurm accounting daemon (<code>slurmdbd</code>) connects to for a SageMaker HyperPod cluster. You provide the database credentials in an Amazon Web Services Secrets Manager secret instead of in the request.</p>
+ * @public
+ */
+export interface ClusterAccountingDatabase {
+  /**
+   * <p>The hostname or endpoint of the accounting database, such as the endpoint of an Amazon RDS for MySQL or Aurora MySQL database. The database must be reachable from the subnets and security groups that you configure for the cluster.</p>
+   * @public
+   */
+  Endpoint: string | undefined;
+
+  /**
+   * <p>The port that the accounting database listens on. The default is <code>3306</code>.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The name of the database schema that stores the Slurm accounting data. The default is <code>slurm_acct_db_</code> followed by the cluster ID from the cluster ARN, for example <code>slurm_acct_db_a1b2c3d4e5f6</code>.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the user name and password for the accounting database. The database user must be able to create the schema and to read from and write to it.</p>
+   * @public
+   */
+  SecretArn: string | undefined;
+}
+
+/**
  * <p>The configurations that SageMaker uses when updating the AMI versions.</p>
  * @public
  */
@@ -6420,6 +6453,30 @@ export interface ClusterMetadata {
 }
 
 /**
+ * <p>Metadata information about a change to the external Slurm accounting database of a HyperPod cluster.</p>
+ * @public
+ */
+export interface DatabaseConfigurationMetadata {
+  /**
+   * <p>Whether HyperPod restored the previous accounting database configuration after the change failed. Valid values:</p> <ul> <li> <p> <code>NotApplicable</code>: The change failed before HyperPod modified the cluster, for example because the database could not be reached or rejected the credentials, so there was nothing to restore.</p> </li> <li> <p> <code>Reverted</code>: The change failed after it was applied, and HyperPod restored the previous configuration. The cluster continues to use the previous accounting database.</p> </li> <li> <p> <code>RevertFailed</code>: The change failed and HyperPod could not restore the previous configuration, so Slurm accounting on the cluster might not be working.</p> </li> </ul> <p>This field is omitted when the change succeeds.</p>
+   * @public
+   */
+  RollbackStatus?: DatabaseConfigurationRollbackStatus | undefined;
+
+  /**
+   * <p>Additional information about a change that succeeded, such as an action to take on the cluster.</p>
+   * @public
+   */
+  Advisory?: string | undefined;
+
+  /**
+   * <p>An error message describing why the accounting database change failed, and how to resolve it.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+}
+
+/**
  * <p>The customer ENI and additional ENIs associated with a network interface category.</p>
  * @public
  */
@@ -6558,14 +6615,40 @@ export interface InstanceGroupScalingMetadata {
 }
 
 /**
+ * <p>Metadata information about the health of a Slurm component on the controller node of a HyperPod cluster.</p>
+ * @public
+ */
+export interface SlurmHealthMetadata {
+  /**
+   * <p>The Slurm component that the health information describes. The valid value is <code>Slurmdbd</code>, the Slurm accounting daemon.</p>
+   * @public
+   */
+  Component: SlurmHealthComponent | undefined;
+
+  /**
+   * <p>The health of the component. Valid values are <code>Healthy</code> and <code>Unhealthy</code>.</p>
+   * @public
+   */
+  Status: SlurmHealthStatus | undefined;
+
+  /**
+   * <p>The reason the component is unhealthy. Valid values:</p> <ul> <li> <p> <code>DaemonDown</code>: The daemon is not running, so job accounting records are not being written.</p> </li> <li> <p> <code>DaemonDisabled</code>: The daemon is running and its accounting database is responding, but the daemon is not enabled to start automatically. Job accounting stops the next time the controller node restarts.</p> </li> <li> <p> <code>DbUnreachable</code>: The daemon is running, but its accounting database did not respond. Job accounting records might not be written.</p> </li> </ul> <p>This field is omitted when the component is healthy.</p>
+   * @public
+   */
+  Reason?: SlurmHealthReason | undefined;
+}
+
+/**
  * <p>Metadata associated with a cluster event, which may include details about various resource types.</p>
  * @public
  */
 export type EventMetadata =
   | EventMetadata.ClusterMember
+  | EventMetadata.DatabaseConfigurationMember
   | EventMetadata.InstanceMember
   | EventMetadata.InstanceGroupMember
   | EventMetadata.InstanceGroupScalingMember
+  | EventMetadata.SlurmHealthMember
   | EventMetadata.$UnknownMember;
 
 /**
@@ -6581,6 +6664,8 @@ export namespace EventMetadata {
     InstanceGroup?: never;
     InstanceGroupScaling?: never;
     Instance?: never;
+    DatabaseConfiguration?: never;
+    SlurmHealth?: never;
     $unknown?: never;
   }
 
@@ -6593,6 +6678,8 @@ export namespace EventMetadata {
     InstanceGroup: InstanceGroupMetadata;
     InstanceGroupScaling?: never;
     Instance?: never;
+    DatabaseConfiguration?: never;
+    SlurmHealth?: never;
     $unknown?: never;
   }
 
@@ -6605,6 +6692,8 @@ export namespace EventMetadata {
     InstanceGroup?: never;
     InstanceGroupScaling: InstanceGroupScalingMetadata;
     Instance?: never;
+    DatabaseConfiguration?: never;
+    SlurmHealth?: never;
     $unknown?: never;
   }
 
@@ -6617,6 +6706,36 @@ export namespace EventMetadata {
     InstanceGroup?: never;
     InstanceGroupScaling?: never;
     Instance: InstanceMetadata;
+    DatabaseConfiguration?: never;
+    SlurmHealth?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Metadata specific to events about the external Slurm accounting database of the cluster.</p>
+   * @public
+   */
+  export interface DatabaseConfigurationMember {
+    Cluster?: never;
+    InstanceGroup?: never;
+    InstanceGroupScaling?: never;
+    Instance?: never;
+    DatabaseConfiguration: DatabaseConfigurationMetadata;
+    SlurmHealth?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Metadata specific to events about the health of the Slurm components on the controller node of the cluster.</p>
+   * @public
+   */
+  export interface SlurmHealthMember {
+    Cluster?: never;
+    InstanceGroup?: never;
+    InstanceGroupScaling?: never;
+    Instance?: never;
+    DatabaseConfiguration?: never;
+    SlurmHealth: SlurmHealthMetadata;
     $unknown?: never;
   }
 
@@ -6628,6 +6747,8 @@ export namespace EventMetadata {
     InstanceGroup?: never;
     InstanceGroupScaling?: never;
     Instance?: never;
+    DatabaseConfiguration?: never;
+    SlurmHealth?: never;
     $unknown: [string, any];
   }
 
@@ -6640,6 +6761,8 @@ export namespace EventMetadata {
     InstanceGroup: (value: InstanceGroupMetadata) => T;
     InstanceGroupScaling: (value: InstanceGroupScalingMetadata) => T;
     Instance: (value: InstanceMetadata) => T;
+    DatabaseConfiguration: (value: DatabaseConfigurationMetadata) => T;
+    SlurmHealth: (value: SlurmHealthMetadata) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -7767,6 +7890,12 @@ export interface ClusterOrchestratorSlurmConfig {
    * @public
    */
   SlurmConfigStrategy?: ClusterSlurmConfigStrategy | undefined;
+
+  /**
+   * <p>The external database that stores the Slurm accounting data for the cluster, such as job history, associations, and usage. When you omit this field, Slurm accounting uses a database on the cluster's controller node.</p> <note> <p>This field is only supported for clusters using <code>Continuous</code> as the <code>NodeProvisioningMode</code>.</p> </note>
+   * @public
+   */
+  AccountingDatabase?: ClusterAccountingDatabase | undefined;
 }
 
 /**
@@ -8163,82 +8292,4 @@ export interface ClusterSummary {
    * @public
    */
   ImageVersionStatus?: ClusterImageVersionStatus | undefined;
-}
-
-/**
- * <p>Defines the configuration for managed tier checkpointing in a HyperPod cluster. Managed tier checkpointing uses multiple storage tiers, including cluster CPU memory, to provide faster checkpoint operations and improved fault tolerance for large-scale model training. The system automatically saves checkpoints at high frequency to memory and periodically persists them to durable storage, like Amazon S3.</p>
- * @public
- */
-export interface ClusterTieredStorageConfig {
-  /**
-   * <p>Specifies whether managed tier checkpointing is enabled or disabled for the HyperPod cluster. When set to <code>Enable</code>, the system installs a memory management daemon that provides disaggregated memory as a service for checkpoint storage. When set to <code>Disable</code>, the feature is turned off and the memory management daemon is removed from the cluster.</p>
-   * @public
-   */
-  Mode: ClusterConfigMode | undefined;
-
-  /**
-   * <p>The percentage (int) of cluster memory to allocate for checkpointing.</p>
-   * @public
-   */
-  InstanceMemoryAllocationPercentage?: number | undefined;
-}
-
-/**
- * <p>A custom SageMaker AI image. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker AI image</a>.</p>
- * @public
- */
-export interface CustomImage {
-  /**
-   * <p>The name of the CustomImage. Must be unique to your account.</p>
-   * @public
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The version number of the CustomImage.</p>
-   * @public
-   */
-  ImageVersionNumber?: number | undefined;
-
-  /**
-   * <p>The name of the AppImageConfig.</p>
-   * @public
-   */
-  AppImageConfigName: string | undefined;
-}
-
-/**
- * <p>The Code Editor application settings.</p> <p>For more information about Code Editor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html">Get started with Code Editor in Amazon SageMaker</a>.</p>
- * @public
- */
-export interface CodeEditorAppSettings {
-  /**
-   * <p>Specifies the ARN's of a SageMaker AI image and SageMaker AI image version, and the instance type that the version runs on.</p> <note> <p>When both <code>SageMakerImageVersionArn</code> and <code>SageMakerImageArn</code> are passed, <code>SageMakerImageVersionArn</code> is used. Any updates to <code>SageMakerImageArn</code> will not take effect if <code>SageMakerImageVersionArn</code> already exists in the <code>ResourceSpec</code> because <code>SageMakerImageVersionArn</code> always takes precedence. To clear the value set for <code>SageMakerImageVersionArn</code>, pass <code>None</code> as the value.</p> </note>
-   * @public
-   */
-  DefaultResourceSpec?: ResourceSpec | undefined;
-
-  /**
-   * <p>A list of custom SageMaker images that are configured to run as a Code Editor app.</p>
-   * @public
-   */
-  CustomImages?: CustomImage[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Code Editor application lifecycle configuration.</p>
-   * @public
-   */
-  LifecycleConfigArns?: string[] | undefined;
-
-  /**
-   * <p>Settings that are used to configure and manage the lifecycle of CodeEditor applications.</p>
-   * @public
-   */
-  AppLifecycleManagement?: AppLifecycleManagement | undefined;
-
-  /**
-   * <p>The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.</p>
-   * @public
-   */
-  BuiltInLifecycleConfigArn?: string | undefined;
 }

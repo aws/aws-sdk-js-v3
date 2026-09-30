@@ -100,6 +100,16 @@ export interface DescribeClusterEventCommandOutput extends DescribeClusterEventR
  * //           LcsExecutionState: "STRING_VALUE",
  * //           NodeLogicalId: "STRING_VALUE",
  * //         },
+ * //         DatabaseConfiguration: { // DatabaseConfigurationMetadata
+ * //           RollbackStatus: "NotApplicable" || "Reverted" || "RevertFailed",
+ * //           Advisory: "STRING_VALUE",
+ * //           FailureMessage: "STRING_VALUE",
+ * //         },
+ * //         SlurmHealth: { // SlurmHealthMetadata
+ * //           Component: "Slurmdbd", // required
+ * //           Status: "Healthy" || "Unhealthy", // required
+ * //           Reason: "DaemonDown" || "DaemonDisabled" || "DbUnreachable",
+ * //         },
  * //       },
  * //     },
  * //     Description: "STRING_VALUE",
