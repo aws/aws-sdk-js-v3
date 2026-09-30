@@ -50,6 +50,7 @@
     "generate:client:tarball": "node ./scripts/generate-client-tarball/generate-client-tarball.mjs",
     "generate:client:tarball:since": "node ./scripts/generate-client-tarball/generate-client-tarball-since.mjs",
     "generate:defaults-mode-provider": "./scripts/generate-defaults-mode-provider/index.js",
+    "generate:lambda-provided-sdk": "node ./scripts/generate-lambda-provided-sdk",
     "lerna:version": "yarn update:versions:current && node ./scripts/update-versions/bumpReleaseCandidates.mjs && yarn update:versions:default",
     "lint": "oxlint --fix packages/ packages-internal/ lib/ clients/ scripts/",
     "lint:api": "node scripts/validation/api-snapshot.js",
