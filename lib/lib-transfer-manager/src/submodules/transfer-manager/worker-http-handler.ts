@@ -806,8 +806,9 @@ export class WorkerHttpHandler {
       // IMPORTANT: We strip per-part checksum headers (x-amz-checksum-*)
       // because the flexible-checksums middleware would try to validate the
       // body checksum against these headers — but there's no body to validate
-      // (it was written to file by the worker). The worker already validated
-      // the per-part CRC inline and stored the result in completedDownloads.
+      // (it was written to file by the worker). The worker validates the
+      // per-part checksum inline against the algorithm S3 returned and stores
+      // the result in completedDownloads.
       const responseHeaders: Record<string, string> = {};
       for (const [key, value] of Object.entries(result.headers)) {
         if (!key.startsWith("x-amz-checksum-")) {
