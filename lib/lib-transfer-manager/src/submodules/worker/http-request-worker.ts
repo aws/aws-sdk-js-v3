@@ -13,7 +13,7 @@
 import { HttpRequest } from "@smithy/core/protocols";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import dns from "node:dns";
-import { openSync, readSync, closeSync } from "node:fs";
+import { openSync, readSync, closeSync, writeSync, unlinkSync, constants as fsConstants } from "node:fs";
 import type { LookupOptions } from "node:dns";
 import type { Checksum } from "@smithy/types";
 import type { ChecksumAlgorithm } from "@aws-sdk/client-s3";
@@ -21,11 +21,130 @@ import { Crc32, Crc32c, Crc64Nvme } from "@aws-sdk/checksums/crc";
 import { Sha1, Sha256 } from "@aws-sdk/checksums/sha";
 import { Md5 } from "@aws-sdk/checksums/md5";
 import { open } from "node:fs/promises";
+import { dirname, join as pathJoin } from "node:path";
 import { Agent as httpsAgent } from "node:https";
 import { parentPort } from "node:worker_threads";
 
 const DNS_TTL_MS = 1000;
 const dnsCache = new Map<string, { ips: string[]; ts: number }>();
+
+const MAX_ERROR_BODY_BYTES = 16 * 1024;
+
+/**
+ * Reads an error body to bytes to forward to the main thread. Bounded, since
+ * S3 XML error bodies are tiny.
+ * @internal
+ */
+const readErrorBodyBytes = async (body: any): Promise<Uint8Array | undefined> => {
+  if (!body) return undefined;
+  try {
+    const chunks: Buffer[] = [];
+    let total = 0;
+    for await (const chunk of body) {
+      const buf = typeof chunk === "string" ? Buffer.from(chunk) : Buffer.from(chunk);
+      chunks.push(buf);
+      total += buf.length;
+      if (total >= MAX_ERROR_BODY_BYTES) break;
+    }
+    return new Uint8Array(Buffer.concat(chunks));
+  } catch {
+    return undefined;
+  }
+};
+
+/**
+ * Builds the non-2xx message forwarding the raw status/headers/body for the
+ * main thread to return as an HttpResponse. Shared by the file/stream handlers.
+ * @internal
+ */
+const buildHttpStatusError = async (
+  id: number,
+  response: { statusCode: number; headers: Record<string, string>; body?: any }
+): Promise<HttpWorkerDownloadHttpErrorMessage> => {
+  return {
+    type: "httpDownloadHttpError",
+    id,
+    statusCode: response.statusCode,
+    headers: response.headers,
+    body: await readErrorBodyBytes(response.body),
+  };
+};
+
+
+// ---------------------------------------------------------------------------
+// O_DIRECT support (opt-in via TM_O_DIRECT=1, Linux-only).
+//
+// Buffered writes route through the OS page cache; for very large downloads the
+// cache can fill faster than writeback drains, stalling the write path. O_DIRECT
+// bypasses the cache. It requires the write buffer's memory ADDRESS to be
+// block-aligned, but Node has no aligned-allocation API. So — exactly like the
+// s3-benchmark-runner — we over-allocate a normal Buffer by one block and probe
+// for an aligned byte offset ("pad") inside it by attempting real O_DIRECT writes
+// to a temp file until one succeeds. Falls back to buffered writes when O_DIRECT
+// is unavailable (non-Linux, or a filesystem that rejects it) or for a range's
+// sub-block tail. Pure JS; no native addon.
+// ---------------------------------------------------------------------------
+const O_DIRECT_ALIGN = 4096;
+const O_DIRECT_FLAG: number = (fsConstants as unknown as { O_DIRECT?: number }).O_DIRECT ?? 0;
+const O_DIRECT_ENABLED =
+  process.env.TM_O_DIRECT === "1" && process.platform === "linux" && O_DIRECT_FLAG > 0;
+
+// One-time (per worker) result of whether O_DIRECT works on the destination fs.
+let oDirectProbed = false;
+let oDirectUsable = false;
+
+/**
+ * Probe for a block-aligned byte offset inside `buf` by attempting real O_DIRECT
+ * writes of one block to a temp file in `dir`. A write only succeeds when the
+ * source address (buf base + pad) is block-aligned, so the first `pad` that
+ * writes a full block is the aligned offset. Returns that pad, or -1 if O_DIRECT
+ * is unusable on this filesystem. Steps by 8 since V8 buffers are >=8-byte aligned.
+ * @internal
+ */
+function probeAlignedPad(dir: string, buf: Buffer): number {
+  const probePath = pathJoin(dir, `.tm-odirect-probe-${process.pid}-${Math.random().toString(36).slice(2)}`);
+  let found = -1;
+  for (let pad = 0; pad < O_DIRECT_ALIGN; pad += 8) {
+    let fd: number | undefined;
+    try {
+      fd = openSync(probePath, fsConstants.O_RDWR | fsConstants.O_CREAT | fsConstants.O_TRUNC | O_DIRECT_FLAG, 0o600);
+      const n = writeSync(fd, buf, pad, O_DIRECT_ALIGN, 0);
+      closeSync(fd);
+      fd = undefined;
+      if (n === O_DIRECT_ALIGN) {
+        found = pad;
+        break;
+      }
+    } catch {
+      if (fd !== undefined) {
+        try {
+          closeSync(fd);
+        } catch {
+          /* ignore */
+        }
+      }
+    }
+  }
+  try {
+    unlinkSync(probePath);
+  } catch {
+    /* ignore */
+  }
+  return found;
+}
+
+/**
+ * One-time check of whether O_DIRECT is usable on the filesystem hosting `dir`.
+ * @internal
+ */
+function ensureODirectProbed(dir: string): void {
+  if (oDirectProbed) {
+    return;
+  }
+  oDirectProbed = true;
+  const testBuf = Buffer.allocUnsafeSlow(O_DIRECT_ALIGN * 2);
+  oDirectUsable = probeAlignedPad(dir, testBuf) >= 0;
+}
 
 /**
  * Resolves all A records for a hostname, picks one at random per connection
@@ -190,6 +309,18 @@ interface HttpWorkerDownloadErrorMessage {
   error: string;
   code?: string;
   name?: string;
+}
+
+/**
+ * Worker → Main thread: download GET returned a non-2xx response. Carries the
+ * raw status/headers/body for the main thread to return as an HttpResponse.
+ */
+interface HttpWorkerDownloadHttpErrorMessage {
+  type: "httpDownloadHttpError";
+  id: number;
+  statusCode: number;
+  headers: Record<string, string>;
+  body?: Uint8Array;
 }
 
 /**
@@ -437,6 +568,14 @@ if (parentPort) {
 
       const { response } = await handler!.handle(request);
 
+      // Non-2xx: forward the error response instead of writing its XML body to
+      // disk; the SDK deserializes and retries it on the main thread.
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        port.postMessage(await buildHttpStatusError(id, response));
+        return;
+      }
+
+
       // Resolve where and how much to write from the response's ContentRange.
       //
       // ContentRange is the source of truth since S3 multipart objects can
@@ -447,7 +586,8 @@ if (parentPort) {
       const writeOffset = range ? range.start : offset;
       const targetLength = range ? range.end - range.start + 1 : expectedLength;
 
-      // open the file (file is pre-allocated)
+      // open the file (file is pre-allocated). The buffered handle serves the
+      // buffered fallback path and the sub-block tail of an O_DIRECT write.
       const fh = await open(filePath, "r+");
       try {
         // Initialize inline checksum computation if requested
@@ -456,36 +596,101 @@ if (parentPort) {
           checksum = createChecksum(checksumAlgorithm);
         }
 
-        // Stream response body chunks to file at positioned offsets
         let bytesWritten = 0;
 
-        if (response.body) {
-          for await (const chunk of response.body) {
-            const buf =
-              typeof chunk === "string" ? Buffer.from(chunk) : Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+        // Decide whether to use O_DIRECT for this range. It needs a block-aligned
+        // file offset and a range at least one block long; the aligned buffer
+        // address is obtained by over-allocating and probing for an aligned
+        // offset ("pad"). Anything else uses the buffered path below.
+        let alignedBuf: Buffer | undefined;
+        let pad = -1;
+        if (O_DIRECT_ENABLED && writeOffset % O_DIRECT_ALIGN === 0 && targetLength >= O_DIRECT_ALIGN) {
+          ensureODirectProbed(dirname(filePath));
+          if (oDirectUsable) {
+            alignedBuf = Buffer.allocUnsafeSlow(targetLength + O_DIRECT_ALIGN);
+            pad = probeAlignedPad(dirname(filePath), alignedBuf);
+          }
+        }
 
-            // Verify cumulative bytes do not exceed the range's length
-            if (bytesWritten + buf.length > targetLength) {
-              await fh.close();
-              port.postMessage({
-                type: "httpDownloadError",
-                id,
-                error: `Bytes written (${bytesWritten + buf.length}) exceeds expected length (${targetLength})`,
-                code: "BYTES_EXCEEDED",
-                name: "DownloadValidationError",
-              } satisfies HttpWorkerDownloadErrorMessage);
-              return;
+        if (alignedBuf && pad >= 0) {
+          // O_DIRECT path: assemble the whole range into the aligned buffer, write
+          // the block-aligned bulk with page-cache bypass, then write the
+          // sub-block tail (if any) through the buffered handle.
+          if (response.body) {
+            for await (const chunk of response.body) {
+              const buf =
+                typeof chunk === "string" ? Buffer.from(chunk) : Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+
+              // Verify cumulative bytes do not exceed the range's length
+              if (bytesWritten + buf.length > targetLength) {
+                await fh.close();
+                port.postMessage({
+                  type: "httpDownloadError",
+                  id,
+                  error: `Bytes written (${bytesWritten + buf.length}) exceeds expected length (${targetLength})`,
+                  code: "BYTES_EXCEEDED",
+                  name: "DownloadValidationError",
+                } satisfies HttpWorkerDownloadErrorMessage);
+                return;
+              }
+
+              buf.copy(alignedBuf, pad + bytesWritten, 0, buf.length);
+
+              // Update checksum inline
+              if (checksum) {
+                checksum.update(buf);
+              }
+
+              bytesWritten += buf.length;
             }
+          }
 
-            // Write chunk to file at the correct position
-            await fh.write(buf, 0, buf.length, writeOffset + bytesWritten);
-
-            // Update checksum inline
-            if (checksum) {
-              checksum.update(buf);
+          // Block-aligned bulk goes through an O_DIRECT descriptor.
+          const alignedLength = Math.floor(bytesWritten / O_DIRECT_ALIGN) * O_DIRECT_ALIGN;
+          if (alignedLength > 0) {
+            const directFh = await open(filePath, fsConstants.O_RDWR | O_DIRECT_FLAG);
+            try {
+              await directFh.write(alignedBuf, pad, alignedLength, writeOffset);
+            } finally {
+              await directFh.close().catch(() => {});
             }
+          }
+          // Sub-block tail (O_DIRECT cannot write a partial final block) goes
+          // through the buffered handle.
+          const tailLength = bytesWritten - alignedLength;
+          if (tailLength > 0) {
+            await fh.write(alignedBuf, pad + alignedLength, tailLength, writeOffset + alignedLength);
+          }
+        } else {
+          // Buffered path: stream response body chunks to file at positioned offsets
+          if (response.body) {
+            for await (const chunk of response.body) {
+              const buf =
+                typeof chunk === "string" ? Buffer.from(chunk) : Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
 
-            bytesWritten += buf.length;
+              // Verify cumulative bytes do not exceed the range's length
+              if (bytesWritten + buf.length > targetLength) {
+                await fh.close();
+                port.postMessage({
+                  type: "httpDownloadError",
+                  id,
+                  error: `Bytes written (${bytesWritten + buf.length}) exceeds expected length (${targetLength})`,
+                  code: "BYTES_EXCEEDED",
+                  name: "DownloadValidationError",
+                } satisfies HttpWorkerDownloadErrorMessage);
+                return;
+              }
+
+              // Write chunk to file at the correct position
+              await fh.write(buf, 0, buf.length, writeOffset + bytesWritten);
+
+              // Update checksum inline
+              if (checksum) {
+                checksum.update(buf);
+              }
+
+              bytesWritten += buf.length;
+            }
           }
         }
 
@@ -586,6 +791,14 @@ if (parentPort) {
       });
 
       const { response } = await handler!.handle(request);
+
+      // Non-2xx: forward the error response instead of assembling its XML body
+      // into the buffer; the SDK deserializes and retries it on the main thread.
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        port.postMessage(await buildHttpStatusError(id, response));
+        return;
+      }
+
 
       // 2. Acquire a buffer for assembling the response body
       const ab = acquireTransferBuffer(expectedSize);
