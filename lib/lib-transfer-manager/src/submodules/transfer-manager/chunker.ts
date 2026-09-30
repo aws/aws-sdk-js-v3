@@ -21,14 +21,19 @@ export const byteLength = (input: any): number | undefined => {
     return input.length;
   } else if (typeof input.size === "number") {
     return input.size;
-  } else if (typeof input.start === "number" && typeof input.end === "number") {
-    return input.end + 1 - input.start;
   } else if (input instanceof ReadStream) {
+    const { start: rangeStart, end: rangeEnd } = input as ReadStream & { start?: number; end?: number };
+    let size: number;
     try {
-      return lstatSync(input.path).size;
+      size = lstatSync(input.path).size;
     } catch {
       return undefined;
     }
+    const start = typeof rangeStart === "number" ? rangeStart : 0;
+    const endExclusive = Number.isFinite(rangeEnd) ? Math.min(rangeEnd! + 1, size) : size;
+    return Math.max(0, endExclusive - start);
+  } else if (typeof input.start === "number" && typeof input.end === "number") {
+    return input.end + 1 - input.start;
   }
   return undefined;
 };

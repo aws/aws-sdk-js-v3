@@ -2837,13 +2837,16 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     emitEvents: boolean
   ): Promise<CompleteMultipartUploadCommandOutput> {
     const { partSize } = this.calculatePartSize(contentLength);
-    const filePath = (request.Body as any).path as string;
+    const body = request.Body as any;
+    const filePath = body.path as string;
+    const startOffset = typeof body.start === "number" ? body.start : 0;
 
     const buildDataSource = (checksumAlgorithm?: ChecksumAlgorithm, checksumHeader?: string): DataSource => ({
       type: "file",
       filePath,
       partSize,
       totalFileSize: contentLength,
+      startOffset,
       checksumAlgorithm,
       checksumHeader,
     });

@@ -1,11 +1,12 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
-import { existsSync } from "node:fs";
+import { createReadStream, existsSync, readFileSync } from "node:fs";
 import { mkdir, mkdtemp, readdir, readFile, rm, stat, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { Readable } from "node:stream";
-import { afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
+import { byteLength } from "./chunker";
 import { S3TransferManager } from "./index";
 import type { TransferCompleteEvent, TransferEvent } from "./types";
 import type { CannedFailurePolicy } from "./types";
@@ -1414,6 +1415,78 @@ describe("S3TransferManager Unit Tests", () => {
 
       const createCalls = sendCalls.filter((c: any) => c.constructor?.name === "CreateMultipartUploadCommand");
       expect(createCalls[0].input.ChecksumAlgorithm).toBe("CRC32");
+    });
+  });
+
+  describe("Upload with a ranged file read stream Body", () => {
+    let tmpDir: string;
+    let filePath: string;
+    const contents = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    beforeAll(async () => {
+      tmpDir = await mkdtemp(join(tmpdir(), "tm-byte-range-"));
+      filePath = join(tmpDir, "alphabet.bin");
+      await writeFile(filePath, contents);
+    });
+
+    afterAll(async () => {
+      await rm(tmpDir, { recursive: true, force: true });
+    });
+
+    it("should upload only the stream's byte range", () => {
+      // Upload bytes 10-19 of the file, i.e. "KLMNOPQRST".
+      const stream = createReadStream(filePath, { start: 10, end: 19 });
+      stream.on("error", () => {});
+      const { start } = stream as typeof stream & { start?: number };
+      stream.destroy();
+      const length = byteLength(stream)!;
+      expect(length).toBe(10);
+      expect(start).toBe(10);
+
+      const uploaded = readFileSync(filePath)
+        .subarray(start!, start! + length)
+        .toString();
+      expect(uploaded).toBe("KLMNOPQRST");
+    });
+
+    it("should upload the whole file when no byte range is given", () => {
+      const stream = createReadStream(filePath);
+      stream.on("error", () => {});
+      const { start } = stream as typeof stream & { start?: number };
+      stream.destroy();
+
+      expect(byteLength(stream)).toBe(contents.length);
+      expect(start).toBeUndefined();
+    });
+
+    it("should read to EOF when only start is given", () => {
+      const stream = createReadStream(filePath, { start: 10 });
+      stream.on("error", () => {});
+      const { start } = stream as typeof stream & { start?: number };
+      stream.destroy();
+
+      const length = byteLength(stream)!;
+      expect(length).toBe(16);
+      expect(start).toBe(10);
+
+      const uploaded = readFileSync(filePath)
+        .subarray(start!, start! + length)
+        .toString();
+      expect(uploaded).toBe("KLMNOPQRSTUVWXYZ");
+    });
+
+    it("should read from byte 0 when only end is given", () => {
+      const stream = createReadStream(filePath, { end: 19 });
+      stream.on("error", () => {});
+      const { start } = stream as typeof stream & { start?: number };
+      stream.destroy();
+
+      const length = byteLength(stream)!;
+      expect(length).toBe(20);
+      expect(start).toBeUndefined();
+
+      const uploaded = readFileSync(filePath).subarray(0, length).toString();
+      expect(uploaded).toBe("ABCDEFGHIJKLMNOPQRST");
     });
   });
 
