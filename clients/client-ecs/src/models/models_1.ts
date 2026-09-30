@@ -6,6 +6,7 @@ import type {
   IpcMode,
   LaunchType,
   ManagedAgentName,
+  ManagedResourceStatus,
   NetworkMode,
   PidMode,
   PropagateTags,
@@ -33,7 +34,6 @@ import type {
   ManagedAutoScaling,
   ManagedIngressPath,
   ManagedLogGroup,
-  ManagedMetricAlarm,
   ManagedSecurityGroup,
   MonitoringConfiguration,
   NetworkBinding,
@@ -54,6 +54,36 @@ import type {
   Volume,
   VpcLatticeConfiguration,
 } from "./models_0";
+
+/**
+ * <p>The CloudWatch metric alarm associated with the Express service's scaling policy.</p>
+ * @public
+ */
+export interface ManagedMetricAlarm {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch metric alarm.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the CloudWatch metric alarm.</p>
+   * @public
+   */
+  status: ManagedResourceStatus | undefined;
+
+  /**
+   * <p>Information about why the CloudWatch metric alarm is in the current status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The Unix timestamp for when the CloudWatch metric alarm was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
 
 /**
  * <p>Represents the Amazon Web Services resources managed by Amazon ECS for an Express service, including ingress paths, auto-scaling policies, metric alarms, and security groups.</p>
@@ -134,6 +164,24 @@ export interface ServiceRevisionLoadBalancer {
 }
 
 /**
+ * <p>The resolved VPC Lattice configuration for a service revision. This includes information about which target groups serve traffic and which listener rules direct traffic to them.</p>
+ * @public
+ */
+export interface ServiceRevisionVpcLatticeConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target group associated with the service revision.</p>
+   * @public
+   */
+  targetGroupArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the production listener rule or listener that directs traffic to the target group associated with the service revision.</p>
+   * @public
+   */
+  productionListenerRule?: string | undefined;
+}
+
+/**
  * <p>The resolved configuration for a service revision, which contains the actual resources your service revision uses, such as which target groups serve traffic.</p>
  * @public
  */
@@ -143,6 +191,12 @@ export interface ResolvedConfiguration {
    * @public
    */
   loadBalancers?: ServiceRevisionLoadBalancer[] | undefined;
+
+  /**
+   * <p>The resolved VPC Lattice configuration for the service revision. This includes information about which target groups serve traffic and which listener rules direct traffic to them.</p>
+   * @public
+   */
+  vpcLatticeConfigurations?: ServiceRevisionVpcLatticeConfiguration[] | undefined;
 }
 
 /**

@@ -188,11 +188,22 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //           roleArn: "STRING_VALUE", // required
  * //           targetGroupArn: "STRING_VALUE", // required
  * //           portName: "STRING_VALUE", // required
+ * //           advancedConfiguration: { // VpcLatticeAdvancedConfiguration
+ * //             alternateTargetGroupArn: "STRING_VALUE",
+ * //             productionListenerRule: "STRING_VALUE",
+ * //             testListenerRule: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       resolvedConfiguration: { // ResolvedConfiguration
  * //         loadBalancers: [ // ServiceRevisionLoadBalancers
  * //           { // ServiceRevisionLoadBalancer
+ * //             targetGroupArn: "STRING_VALUE",
+ * //             productionListenerRule: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         vpcLatticeConfigurations: [ // ServiceRevisionVpcLatticeConfigurations
+ * //           { // ServiceRevisionVpcLatticeConfiguration
  * //             targetGroupArn: "STRING_VALUE",
  * //             productionListenerRule: "STRING_VALUE",
  * //           },

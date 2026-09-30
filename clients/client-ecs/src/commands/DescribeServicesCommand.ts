@@ -340,6 +340,11 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //               roleArn: "STRING_VALUE", // required
  * //               targetGroupArn: "STRING_VALUE", // required
  * //               portName: "STRING_VALUE", // required
+ * //               advancedConfiguration: { // VpcLatticeAdvancedConfiguration
+ * //                 alternateTargetGroupArn: "STRING_VALUE",
+ * //                 productionListenerRule: "STRING_VALUE",
+ * //                 testListenerRule: "STRING_VALUE",
+ * //               },
  * //             },
  * //           ],
  * //         },

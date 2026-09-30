@@ -552,6 +552,7 @@ import {
   ServiceRevisionLoadBalancer$,
   ServiceRevisionOverrides$,
   ServiceRevisionSummary$,
+  ServiceRevisionVpcLatticeConfiguration$,
   ServiceVolumeConfiguration$,
   Session$,
   Setting$,
@@ -681,6 +682,7 @@ import {
   VersionInfo$,
   Volume$,
   VolumeFrom$,
+  VpcLatticeAdvancedConfiguration$,
   VpcLatticeConfiguration$,
   waitForDaemonActive,
   waitForDaemonDeploymentStopped,
@@ -1146,6 +1148,7 @@ assert(typeof ServiceRevision$ === "object");
 assert(typeof ServiceRevisionLoadBalancer$ === "object");
 assert(typeof ServiceRevisionOverrides$ === "object");
 assert(typeof ServiceRevisionSummary$ === "object");
+assert(typeof ServiceRevisionVpcLatticeConfiguration$ === "object");
 assert(typeof ServiceVolumeConfiguration$ === "object");
 assert(typeof Session$ === "object");
 assert(typeof Setting$ === "object");
@@ -1209,6 +1212,7 @@ assert(typeof VCpuCountRangeRequest$ === "object");
 assert(typeof VersionInfo$ === "object");
 assert(typeof Volume$ === "object");
 assert(typeof VolumeFrom$ === "object");
+assert(typeof VpcLatticeAdvancedConfiguration$ === "object");
 assert(typeof VpcLatticeConfiguration$ === "object");
 // enums
 assert(typeof AcceleratorManufacturer === "object");
