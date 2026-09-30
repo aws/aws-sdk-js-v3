@@ -54,6 +54,11 @@ export interface StartNotebookRunCommandOutput extends StartNotebookRunOutput, _
  *   timeoutConfiguration: { // TimeoutConfig
  *     runTimeoutInMinutes: Number("int"),
  *   },
+ *   notificationConfiguration: { // NotificationConfig
+ *     notifyOn: [ // NotifyOnStates // required
+ *       "SUCCEEDED" || "FAILED" || "STOPPED" || "QUEUED" || "STARTING" || "RUNNING" || "STOPPING",
+ *     ],
+ *   },
  *   triggerSource: { // TriggerSource
  *     type: "MANUAL" || "SCHEDULED" || "WORKFLOW",
  *     name: "STRING_VALUE",
@@ -111,6 +116,11 @@ export interface StartNotebookRunCommandOutput extends StartNotebookRunOutput, _
  * //   storageConfiguration: { // StorageConfig
  * //     projectS3Path: "STRING_VALUE",
  * //     kmsKeyArn: "STRING_VALUE",
+ * //   },
+ * //   notificationConfiguration: { // NotificationConfig
+ * //     notifyOn: [ // NotifyOnStates // required
+ * //       "SUCCEEDED" || "FAILED" || "STOPPED" || "QUEUED" || "STARTING" || "RUNNING" || "STOPPING",
+ * //     ],
  * //   },
  * //   triggerSource: { // TriggerSource
  * //     type: "MANUAL" || "SCHEDULED" || "WORKFLOW",

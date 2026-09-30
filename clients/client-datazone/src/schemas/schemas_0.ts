@@ -741,6 +741,7 @@ const _Mem = "Member";
 const _Mo = "Model";
 const _N = "Name";
 const _NC = "NetworkConfig";
+const _NCo = "NotificationConfig";
 const _NE = "NotebookError";
 const _NEE = "NotebookExportError";
 const _NETE = "NotEqualToExpression";
@@ -1498,13 +1499,15 @@ const _mo = "model";
 const _n = "name";
 const _nAT = "networkAccessType";
 const _nC = "networkConfiguration";
+const _nCo = "notificationConfiguration";
 const _nET = "notEqualTo";
 const _nI = "notebookId";
 const _nIo = "notebookIdentifier";
 const _nIot = "notIn";
 const _nL = "notLike";
-const _nO = "newOwner";
+const _nO = "notifyOn";
 const _nOW = "numberOfWorkers";
+const _nOe = "newOwner";
 const _nQF = "numQueriesFailed";
 const _nT = "nextToken";
 const _na = "namespace";
@@ -3457,8 +3460,8 @@ export var GetNotebookRunInput$: StaticStructureSchema = [3, n0, _GNRI,
 ];
 export var GetNotebookRunOutput$: StaticStructureSchema = [3, n0, _GNRO,
   0,
-  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
-  [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
+  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _nCo, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
+  [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => NotificationConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
 ];
 export var GetProjectInput$: StaticStructureSchema = [3, n0, _GPI,
   0,
@@ -4285,6 +4288,11 @@ export var NotEqualToExpression$: StaticStructureSchema = [3, n0, _NETE,
   [_cN, _v],
   [0, 0], 2
 ];
+export var NotificationConfig$: StaticStructureSchema = [3, n0, _NCo,
+  0,
+  [_nO],
+  [64 | 0], 1
+];
 export var NotificationOutput$: StaticStructureSchema = [3, n0, _NO,
   0,
   [_i, _dI, _ty, _top, _tit, _m, _aLc, _cTre, _lUTa, _st, _me],
@@ -4832,13 +4840,13 @@ export var StartNotebookImportOutput$: StaticStructureSchema = [3, n0, _SNIO,
 ];
 export var StartNotebookRunInput$: StaticStructureSchema = [3, n0, _SNRI,
   0,
-  [_dI, _oPIw, _nIo, _sIch, _cCo, _nC, _tC, _tSr, _me, _par, _cT],
-  [[0, 1], 0, 0, 0, () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => TriggerSource$, [() => Metadata, 0], [() => _Parameters, 0], [0, 4]], 3
+  [_dI, _oPIw, _nIo, _sIch, _cCo, _nC, _tC, _nCo, _tSr, _me, _par, _cT],
+  [[0, 1], 0, 0, 0, () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => NotificationConfig$, () => TriggerSource$, [() => Metadata, 0], [() => _Parameters, 0], [0, 4]], 3
 ];
 export var StartNotebookRunOutput$: StaticStructureSchema = [3, n0, _SNRO,
   0,
-  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
-  [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
+  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _nCo, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
+  [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => NotificationConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
 ];
 export var StartNotebookSyncInput$: StaticStructureSchema = [3, n0, _SNSI,
   0,
@@ -5182,7 +5190,7 @@ export var UpdateProjectProfileOutput$: StaticStructureSchema = [3, n0, _UPPO,
 ];
 export var UpdateRootDomainUnitOwnerInput$: StaticStructureSchema = [3, n0, _URDUOI,
   0,
-  [_dI, _cOu, _nO, _cT],
+  [_dI, _cOu, _nOe, _cT],
   [[0, 1], 0, 0, [0, 4]], 3
 ];
 export var UpdateRootDomainUnitOwnerOutput$: StaticStructureSchema = [3, n0, _URDUOO,
@@ -5552,6 +5560,7 @@ var NotificationsList: StaticListSchema = [1, n0, _NL,
     0]
 ];
 var NotificationSubjects = 64 | 0;
+var NotifyOnStates = 64 | 0;
 var PhysicalEndpoints: StaticListSchema = [1, n0, _PEh,
   0, [() => PhysicalEndpoint$,
     0]

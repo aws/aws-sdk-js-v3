@@ -21,6 +21,7 @@ import type {
   NotebookExportStatus,
   NotebookRunStatus,
   NotebookStatus,
+  NotifyOnState,
   ProjectStatus,
   RejectRuleBehavior,
   RelationDirection,
@@ -375,6 +376,18 @@ export interface NetworkConfig {
 }
 
 /**
+ * <p>The notification configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface NotificationConfig {
+  /**
+   * Notebook run states that trigger notifications. Ordering is not significant.
+   * @public
+   */
+  notifyOn: NotifyOnState[] | undefined;
+}
+
+/**
  * <p>The storage configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
  * @public
  */
@@ -509,6 +522,12 @@ export interface GetNotebookRunOutput {
    * @public
    */
   storageConfiguration?: StorageConfig | undefined;
+
+  /**
+   * <p>The notification configuration of the notebook run, including the notebook run states that trigger notifications.</p>
+   * @public
+   */
+  notificationConfiguration?: NotificationConfig | undefined;
 
   /**
    * <p>The source that triggered the notebook run.</p>
@@ -760,6 +779,12 @@ export interface StartNotebookRunInput {
   timeoutConfiguration?: TimeoutConfig | undefined;
 
   /**
+   * <p>The notification configuration for the notebook run. Use this to specify the notebook run states that trigger notifications.</p>
+   * @public
+   */
+  notificationConfiguration?: NotificationConfig | undefined;
+
+  /**
    * <p>The source that triggered the notebook run.</p>
    * @public
    */
@@ -871,6 +896,12 @@ export interface StartNotebookRunOutput {
    * @public
    */
   storageConfiguration?: StorageConfig | undefined;
+
+  /**
+   * <p>The notification configuration of the notebook run, including the notebook run states that trigger notifications.</p>
+   * @public
+   */
+  notificationConfiguration?: NotificationConfig | undefined;
 
   /**
    * <p>The source that triggered the notebook run.</p>

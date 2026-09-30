@@ -851,11 +851,13 @@ import {
   NotebookSummary$,
   NotebookType,
   NotEqualToExpression$,
+  NotificationConfig$,
   NotificationOutput$,
   NotificationResource$,
   NotificationResourceType,
   NotificationRole,
   NotificationType,
+  NotifyOnState,
   NotInExpression$,
   NotLikeExpression$,
   OAuth2ClientApplication$,
@@ -2149,6 +2151,7 @@ assert(typeof NotebookRunError$ === "object");
 assert(typeof NotebookRunSummary$ === "object");
 assert(typeof NotebookSummary$ === "object");
 assert(typeof NotEqualToExpression$ === "object");
+assert(typeof NotificationConfig$ === "object");
 assert(typeof NotificationOutput$ === "object");
 assert(typeof NotificationResource$ === "object");
 assert(typeof NotInExpression$ === "object");
@@ -2444,6 +2447,7 @@ assert(typeof NotebookType === "object");
 assert(typeof NotificationResourceType === "object");
 assert(typeof NotificationRole === "object");
 assert(typeof NotificationType === "object");
+assert(typeof NotifyOnState === "object");
 assert(typeof OAuth2GrantType === "object");
 assert(typeof OpenLineageRunState === "object");
 assert(typeof OverallDeploymentStatus === "object");

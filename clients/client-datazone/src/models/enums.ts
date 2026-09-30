@@ -1482,6 +1482,45 @@ export type NetworkAccessType = (typeof NetworkAccessType)[keyof typeof NetworkA
  * @public
  * @enum
  */
+export const NotifyOnState = {
+  /**
+   * <p>Notify when the notebook run fails.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>Notify when the notebook run is queued.</p>
+   */
+  QUEUED: "QUEUED",
+  /**
+   * <p>Notify when the notebook run is running.</p>
+   */
+  RUNNING: "RUNNING",
+  /**
+   * <p>Notify when the notebook run is starting.</p>
+   */
+  STARTING: "STARTING",
+  /**
+   * <p>Notify when the notebook run is stopped.</p>
+   */
+  STOPPED: "STOPPED",
+  /**
+   * <p>Notify when the notebook run is stopping.</p>
+   */
+  STOPPING: "STOPPING",
+  /**
+   * <p>Notify when the notebook run succeeds.</p>
+   */
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type NotifyOnState = (typeof NotifyOnState)[keyof typeof NotifyOnState];
+
+/**
+ * @public
+ * @enum
+ */
 export const NotebookRunStatus = {
   /**
    * <p>The notebook run failed.</p>
