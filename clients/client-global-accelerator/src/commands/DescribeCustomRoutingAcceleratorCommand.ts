@@ -53,6 +53,12 @@ export interface DescribeCustomRoutingAcceleratorCommandOutput extends DescribeC
  * //           "STRING_VALUE",
  * //         ],
  * //         IpAddressFamily: "IPv4" || "IPv6",
+ * //         IpAddressDetails: [ // IpAddressDetails
+ * //           { // IpAddressDetail
+ * //             IpAddress: "STRING_VALUE",
+ * //             NetworkZone: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     DnsName: "STRING_VALUE",

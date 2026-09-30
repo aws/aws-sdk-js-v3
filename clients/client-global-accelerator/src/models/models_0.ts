@@ -36,6 +36,24 @@ export interface AcceleratorEvent {
 }
 
 /**
+ * <p>Detailed information for the IP addresses assigned to the Global Accelerator.</p>
+ * @public
+ */
+export interface IpAddressDetail {
+  /**
+   * <p>The static IP address.</p>
+   * @public
+   */
+  IpAddress?: string | undefined;
+
+  /**
+   * <p>The network zone that the specified IP address is located on.</p>
+   * @public
+   */
+  NetworkZone?: string | undefined;
+}
+
+/**
  * <p>A complex type for the set of IP addresses for an accelerator.</p>
  * @public
  */
@@ -59,6 +77,13 @@ export interface IpSet {
    * @public
    */
   IpAddressFamily?: IpAddressFamily | undefined;
+
+  /**
+   * <p>The array of IP addresses in the IP address set, with detailed information about the IP addresses.
+   * 		An IP address set can have a maximum of two IP addresses.</p>
+   * @public
+   */
+  IpAddressDetails?: IpAddressDetail[] | undefined;
 }
 
 /**
@@ -1509,8 +1534,7 @@ export interface CustomRoutingAcceleratorAttributes {
   /**
    * <p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 			<code>FlowLogsEnabled</code> is <code>true</code>.</p>
-   *          <p>If you don’t specify a prefix, the flow logs are stored in the
-   * 			root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
+   *          <p>If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
    *          <p>DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id</p>
    * @public
    */
@@ -2833,8 +2857,7 @@ export interface UpdateCustomRoutingAcceleratorAttributesRequest {
   /**
    * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 		<code>FlowLogsEnabled</code> is <code>true</code>. </p>
-   *          <p>If you don’t specify a prefix, the flow logs are stored in the
-   * 		root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
+   *          <p>If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
    *          <p>DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id</p>
    * @public
    */

@@ -251,6 +251,7 @@ export type {
   EndpointDescription,
   EndpointGroup,
   EndpointIdentifier,
+  IpAddressDetail,
   IpSet,
   ListAcceleratorsRequest,
   ListAcceleratorsResponse,
