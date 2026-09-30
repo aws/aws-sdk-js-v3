@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1143.0...v3.1144.0) (2026-09-30)
+
+
+### Features
+
+* **client-account:** This release adds support for verifying an AWS account's primary contact phone number. SendPhoneNumberVerification sends a one-time code by SMS, VerifyPhoneNumber validates it, and GetContactInformation now returns the verification status. ([b792379](https://github.com/aws/aws-sdk-js-v3/commit/b7923799ec81f7b78819cd64a59b10c6279fedcb))
+* **client-batch:** AWS Batch adds support for Amazon EKS access entries on EKS compute environments through the new accessEntry setting in CreateComputeEnvironment and UpdateComputeEnvironment. ([946708d](https://github.com/aws/aws-sdk-js-v3/commit/946708d2d6802117c48943b3ecf9db529c609b63))
+* **client-bedrock-agentcore-control:** This release adds support for private certificate authorities on Amazon Bedrock AgentCore Gateway targets. The new certificateConfigurations parameter on CreateGatewayTarget and UpdateGatewayTarget references a PEM-encoded CA certificate in Amazon S3 or AWS Secrets Manager. ([fb5fa19](https://github.com/aws/aws-sdk-js-v3/commit/fb5fa19b251975f9b46f88fd77900d7ad33e8790))
+* **client-bedrock:** Amazon Bedrock Automated Reasoning policies now accept Unicode letters in identifier names such as type names, type value names, and variable names. You can now author policies in non-English languages using accented or non-Latin characters. ([dfd9221](https://github.com/aws/aws-sdk-js-v3/commit/dfd9221507d9dcbb8fa295c0517ba2c5e73dc552))
+* **client-cloudwatch-logs:** Amazon CloudWatch Logs now supports an optional roleArn parameter on PutDeliveryDestination for X-Ray trace delivery destinations, specifying the IAM role to assume when delivering traces. ([735bb3d](https://github.com/aws/aws-sdk-js-v3/commit/735bb3d807fc34329fd9bcfa69d1ddfe9dd7f2cb))
+* **client-connect:** Amazon Connect Rules can now trigger in-app notifications to users as a rule action. Notification character limit was increased to 500 visible characters. ([092994b](https://github.com/aws/aws-sdk-js-v3/commit/092994bd70837390fc0477a3dddd73441eb38588))
+* **client-datazone:** Support for setting notebook run notification configurations ([e15e2d5](https://github.com/aws/aws-sdk-js-v3/commit/e15e2d5bbccbf01e35b1fe10c6fa84b3fbca8ffb))
+* **client-dynamodb:** Adds support for filtering exported table data using FilterExpression, ProjectionExpression and KeyConditionExpression with ExportTableToPointInTime. ([b24fe22](https://github.com/aws/aws-sdk-js-v3/commit/b24fe2202948d701eec50d99b1bdc17db3cb2459))
+* **client-ecs:** Releasing VPCL for BlueGreen ecs deployments. ([924733c](https://github.com/aws/aws-sdk-js-v3/commit/924733c43ff3f641d018753411034240fa784b28))
+* **client-global-accelerator:** IpSets now include the Network Zone for each Static IP address. ([e7ddc10](https://github.com/aws/aws-sdk-js-v3/commit/e7ddc1046661901aecbc9788cfad849c1966398f))
+* **client-glue:** Enable Catalog ID for crawler, column statistics and materialized views. ([10b32a9](https://github.com/aws/aws-sdk-js-v3/commit/10b32a9ffff908bcccd948763515ad0d98dee943))
+* **client-guardduty:** GuardDuty AWS Organizations policy integration. GetDetector and GetMemberDetectors now show whether a GuardDuty policy manages a feature. ([1033936](https://github.com/aws/aws-sdk-js-v3/commit/103393653e1598d04b465ffb43a285bc291d49f1))
+* **client-observabilityadmin:** Enablement for Bedrock PaymentManager logs via Observability Admin Telemetry Rule ([1f28761](https://github.com/aws/aws-sdk-js-v3/commit/1f2876145970c2c6a456d46e015d61b0e7e0663e))
+* **client-organizations:** Add support for policy operations on the GUARDDUTY POLICY policy type. ([407089b](https://github.com/aws/aws-sdk-js-v3/commit/407089b49b524e6cf0d9a434c3f5b48255cd52fd))
+* **client-s3:** Amazon S3 adds a new optional S3 Inventory field, IntelligentTieringReferenceDate, reporting the reference date S3 Intelligent-Tiering uses to evaluate an object's tier-transition eligibility. The value is populated for objects in the Intelligent-Tiering storage class and left blank for others. ([82bbbdc](https://github.com/aws/aws-sdk-js-v3/commit/82bbbdce428c4f69a0cd3cf2b602840bd3b34e35))
+* **client-s3vectors:** Amazon S3 Vectors now supports metadata prefiltering, providing higher recall on filtered queries. ([cec579d](https://github.com/aws/aws-sdk-js-v3/commit/cec579d0de70c5b33442027e35d9c275ac5f066a))
+* **client-sagemaker:** This feature enables customers to modify their accounting database via API. ([1e6c93d](https://github.com/aws/aws-sdk-js-v3/commit/1e6c93d875138fe5b784b699330bc97ea73a6216))
+* **clients:** update client endpoints as of 2026-09-30 ([d13ef6a](https://github.com/aws/aws-sdk-js-v3/commit/d13ef6af44b4eaed3de380c6f8fee8ec3f76c2d1))
+
+
+
+
+
 # [3.1143.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1142.0...v3.1143.0) (2026-09-29)
 
 
