@@ -229,6 +229,7 @@ const _FCM = "FilterConditionMap";
 const _FE = "FailureException";
 const _FEi = "FilterExpression";
 const _FM = "FailureMessage";
+const _FS = "FilterSpecification";
 const _G = "Get";
 const _GI = "GetItem";
 const _GII = "GetItemInput";
@@ -1411,8 +1412,8 @@ export var ExpectedAttributeValue$: StaticStructureSchema = [3, n0, _EAVx,
 ];
 export var ExportDescription$: StaticStructureSchema = [3, n0, _ED,
   0,
-  [_EA, _ES, _ST, _ET, _EM, _TA, _TI, _ETx, _CT, _SB, _SBO, _SPr, _SSA, _SSKKI, _FC, _FM, _EF, _BSBi, _IC, _ETxp, _IES],
-  [0, 0, 4, 4, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, () => IncrementalExportSpecification$]
+  [_EA, _ES, _ST, _ET, _EM, _TA, _TI, _ETx, _CT, _SB, _SBO, _SPr, _SSA, _SSKKI, _FC, _FM, _EF, _BSBi, _IC, _ETxp, _IES, _FS],
+  [0, 0, 4, 4, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, () => IncrementalExportSpecification$, () => FilterSpecification$]
 ];
 export var ExportSummary$: StaticStructureSchema = [3, n0, _ESx,
   0,
@@ -1421,8 +1422,8 @@ export var ExportSummary$: StaticStructureSchema = [3, n0, _ESx,
 ];
 export var ExportTableToPointInTimeInput$: StaticStructureSchema = [3, n0, _ETTPITI,
   0,
-  [_TA, _SB, _ETx, _CT, _SBO, _SPr, _SSA, _SSKKI, _EF, _ETxp, _IES],
-  [0, 0, 4, [0, 4], 0, 0, 0, 0, 0, 0, () => IncrementalExportSpecification$], 2
+  [_TA, _SB, _ETx, _CT, _SBO, _SPr, _SSA, _SSKKI, _EF, _ETxp, _IES, _FS],
+  [0, 0, 4, [0, 4], 0, 0, 0, 0, 0, 0, () => IncrementalExportSpecification$, () => FilterSpecification$], 2
 ];
 export var ExportTableToPointInTimeOutput$: StaticStructureSchema = [3, n0, _ETTPITO,
   0,
@@ -1433,6 +1434,11 @@ export var FailureException$: StaticStructureSchema = [3, n0, _FE,
   0,
   [_EN, _EDx],
   [0, 0]
+];
+export var FilterSpecification$: StaticStructureSchema = [3, n0, _FS,
+  0,
+  [_FEi, _PE, _KCE, _EAN, _EAV],
+  [0, 0, 0, 128 | 0, () => ExpressionAttributeValueMap]
 ];
 export var Get$: StaticStructureSchema = [3, n0, _G,
   0,

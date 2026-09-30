@@ -50,6 +50,59 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  *     ExportToTime: new Date("TIMESTAMP"),
  *     ExportViewType: "NEW_IMAGE" || "NEW_AND_OLD_IMAGES",
  *   },
+ *   FilterSpecification: { // FilterSpecification
+ *     FilterExpression: "STRING_VALUE",
+ *     ProjectionExpression: "STRING_VALUE",
+ *     KeyConditionExpression: "STRING_VALUE",
+ *     ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     ExpressionAttributeValues: { // ExpressionAttributeValueMap
+ *       "<keys>": { // AttributeValue Union: only one key present
+ *         S: "STRING_VALUE",
+ *         N: "STRING_VALUE",
+ *         B: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *         SS: [ // StringSetAttributeValue
+ *           "STRING_VALUE",
+ *         ],
+ *         NS: [ // NumberSetAttributeValue
+ *           "STRING_VALUE",
+ *         ],
+ *         BS: [ // BinarySetAttributeValue
+ *           new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *         ],
+ *         M: { // MapAttributeValue
+ *           "<keys>": {//  Union: only one key present
+ *             S: "STRING_VALUE",
+ *             N: "STRING_VALUE",
+ *             B: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *             SS: [
+ *               "STRING_VALUE",
+ *             ],
+ *             NS: [
+ *               "STRING_VALUE",
+ *             ],
+ *             BS: [
+ *               new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *             ],
+ *             M: {
+ *               "<keys>": "<AttributeValue>",
+ *             },
+ *             L: [ // ListAttributeValue
+ *               "<AttributeValue>",
+ *             ],
+ *             NULL: true || false,
+ *             BOOL: true || false,
+ *           },
+ *         },
+ *         L: [
+ *           "<AttributeValue>",
+ *         ],
+ *         NULL: true || false,
+ *         BOOL: true || false,
+ *       },
+ *     },
+ *   },
  * };
  * const command = new ExportTableToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -79,6 +132,59 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * //       ExportFromTime: new Date("TIMESTAMP"),
  * //       ExportToTime: new Date("TIMESTAMP"),
  * //       ExportViewType: "NEW_IMAGE" || "NEW_AND_OLD_IMAGES",
+ * //     },
+ * //     FilterSpecification: { // FilterSpecification
+ * //       FilterExpression: "STRING_VALUE",
+ * //       ProjectionExpression: "STRING_VALUE",
+ * //       KeyConditionExpression: "STRING_VALUE",
+ * //       ExpressionAttributeNames: { // ExpressionAttributeNameMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       ExpressionAttributeValues: { // ExpressionAttributeValueMap
+ * //         "<keys>": { // AttributeValue Union: only one key present
+ * //           S: "STRING_VALUE",
+ * //           N: "STRING_VALUE",
+ * //           B: new Uint8Array(),
+ * //           SS: [ // StringSetAttributeValue
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           NS: [ // NumberSetAttributeValue
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           BS: [ // BinarySetAttributeValue
+ * //             new Uint8Array(),
+ * //           ],
+ * //           M: { // MapAttributeValue
+ * //             "<keys>": {//  Union: only one key present
+ * //               S: "STRING_VALUE",
+ * //               N: "STRING_VALUE",
+ * //               B: new Uint8Array(),
+ * //               SS: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               NS: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               BS: [
+ * //                 new Uint8Array(),
+ * //               ],
+ * //               M: {
+ * //                 "<keys>": "<AttributeValue>",
+ * //               },
+ * //               L: [ // ListAttributeValue
+ * //                 "<AttributeValue>",
+ * //               ],
+ * //               NULL: true || false,
+ * //               BOOL: true || false,
+ * //             },
+ * //           },
+ * //           L: [
+ * //             "<AttributeValue>",
+ * //           ],
+ * //           NULL: true || false,
+ * //           BOOL: true || false,
+ * //         },
+ * //       },
  * //     },
  * //   },
  * // };
