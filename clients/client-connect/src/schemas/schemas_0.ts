@@ -2377,6 +2377,8 @@ const _SHOOORe = "SearchHoursOfOperationOverridesResponse";
 const _SHOOR = "SearchHoursOfOperationsRequest";
 const _SHOORe = "SearchHoursOfOperationsResponse";
 const _SI = "SessionId";
+const _SIANA = "SendInAppNotificationAction";
+const _SIANAD = "SendInAppNotificationActionDefinition";
 const _SIC = "SignInConfig";
 const _SID = "SessionInactivityDuration";
 const _SIDL = "SignInDistributionList";
@@ -8010,8 +8012,8 @@ export var Rule$: StaticStructureSchema = [3, n0, _Ru,
 ];
 export var RuleAction$: StaticStructureSchema = [3, n0, _RAul,
   0,
-  [_AT, _TAa, _EBA, _ACCA, _SNAe, _CCA, _UCAp, _ASA, _EATA, _SAEA, _EIA],
-  [0, () => TaskActionDefinition$, () => EventBridgeActionDefinition$, () => AssignContactCategoryActionDefinition$, () => SendNotificationActionDefinition$, () => CreateCaseActionDefinition$, () => UpdateCaseActionDefinition$, () => AssignSlaActionDefinition$, () => EndAssociatedTasksActionDefinition$, () => SubmitAutoEvaluationActionDefinition$, () => ExtractInformationActionDefinition$], 1
+  [_AT, _TAa, _EBA, _ACCA, _SNAe, _CCA, _UCAp, _ASA, _EATA, _SAEA, _EIA, _SIANA],
+  [0, () => TaskActionDefinition$, () => EventBridgeActionDefinition$, () => AssignContactCategoryActionDefinition$, () => SendNotificationActionDefinition$, () => CreateCaseActionDefinition$, () => UpdateCaseActionDefinition$, () => AssignSlaActionDefinition$, () => EndAssociatedTasksActionDefinition$, () => SubmitAutoEvaluationActionDefinition$, () => ExtractInformationActionDefinition$, () => SendInAppNotificationActionDefinition$], 1
 ];
 export var RuleAttributeAndCondition$: StaticStructureSchema = [3, n0, _RAAC,
   0,
@@ -8452,6 +8454,11 @@ export var SendChatIntegrationEventResponse$: StaticStructureSchema = [3, n0, _S
   0,
   [_ICI, _NCC],
   [0, 2]
+];
+export var SendInAppNotificationActionDefinition$: StaticStructureSchema = [3, n0, _SIANAD,
+  0,
+  [_Co, _Reci, _Exc, _Prio],
+  [128 | 0, () => NotificationRecipientType$, () => NotificationRecipientType$, 0], 2
 ];
 export var SendNotificationActionDefinition$: StaticStructureSchema = [3, n0, _SNAD,
   0,

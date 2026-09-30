@@ -100,7 +100,7 @@ export interface SearchRulesCommandOutput extends SearchRulesResponse, __Metadat
  * //       },
  * //       ActionSummaries: [ // ActionSummaries // required
  * //         { // ActionSummary
- * //           ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "ASSIGN_SLA" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION" || "EXTRACT_INFORMATION", // required
+ * //           ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "ASSIGN_SLA" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION" || "EXTRACT_INFORMATION" || "SEND_IN_APP_NOTIFICATION", // required
  * //         },
  * //       ],
  * //       RuleCapabilityTiers: [ // RuleCapabilityTiers

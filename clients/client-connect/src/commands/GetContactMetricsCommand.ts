@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetContactMetricsRequest } from "../models/models_1";
-import type { GetContactMetricsResponse } from "../models/models_2";
+import type { GetContactMetricsRequest, GetContactMetricsResponse } from "../models/models_2";
 import { GetContactMetrics$ } from "../schemas/schemas_0";
 
 /**

@@ -1953,6 +1953,7 @@ import {
   SendChatIntegrationEventCommand,
   SendChatIntegrationEventRequest$,
   SendChatIntegrationEventResponse$,
+  SendInAppNotificationActionDefinition$,
   SendNotificationActionDefinition$,
   SendOutboundEmail$,
   SendOutboundEmailCommand,
@@ -4303,6 +4304,7 @@ assert(typeof SecurityProfileSummary$ === "object");
 assert(typeof SegmentAttributeValue$ === "object");
 assert(typeof SendChatIntegrationEventRequest$ === "object");
 assert(typeof SendChatIntegrationEventResponse$ === "object");
+assert(typeof SendInAppNotificationActionDefinition$ === "object");
 assert(typeof SendNotificationActionDefinition$ === "object");
 assert(typeof SendOutboundEmailRequest$ === "object");
 assert(typeof SendOutboundEmailResponse$ === "object");

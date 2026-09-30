@@ -66,7 +66,6 @@ import type {
   StringComparisonType,
   SummaryMode,
   TargetListType,
-  TaskTemplateStatus,
   TestCaseExecutionStatus,
   TimerEligibleParticipantRoles,
   TrafficType,
@@ -113,8 +112,6 @@ import type {
   RuleTriggerEventSource,
   StringCondition,
   TagCondition,
-  TaskTemplateConstraints,
-  TaskTemplateDefaults,
   Validation,
 } from "./models_0";
 import type {
@@ -136,12 +133,16 @@ import type {
   Queue,
   QuickConnect,
   RoutingProfile,
-  TaskTemplateField,
   TestCase,
   UserPhoneConfig,
   View,
   VoiceEnhancementConfig,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface PauseContactResponse {}
 
 /**
  * @public
@@ -6890,6 +6891,11 @@ export interface UpdateInstanceAttributeRequest {
    *     based policy to include the <code>lex:RecognizeMessageAsync</code> action for the connect instance ARN
    *     resource.</p>
    *          </note>
+   *          <note>
+   *             <p>If you set the attribute type <code>AUTO_MUTE_AGENT_ON_HOLD</code> to <code>true</code>, the system
+   *     automatically mutes agents while they're on hold and unmutes them when they resume the contact. Agents can't
+   *     change their mute state while on hold.</p>
+   *          </note>
    * @public
    */
   AttributeType: InstanceAttributeType | undefined;
@@ -7039,7 +7045,8 @@ export interface UpdateNotificationContentRequest {
   NotificationId: string | undefined;
 
   /**
-   * <p>The updated localized content of the notification. A map of locale codes and values. Maximum 500 characters per locale.</p>
+   * <p>The updated localized content of the notification. A map of locale codes and values. Maximum 500 visible
+   *    characters per locale.</p>
    * @public
    */
   Content: Partial<Record<LocaleCode, string>> | undefined;
@@ -7875,76 +7882,4 @@ export interface UpdateSecurityProfileRequest {
    * @public
    */
   GranularAccessControlConfiguration?: GranularAccessControlConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTaskTemplateRequest {
-  /**
-   * <p>A unique identifier for the task template.</p>
-   * @public
-   */
-  TaskTemplateId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The name of the task template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the task template.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
-   *          <p>Although this parameter is marked as optional, the request must contain either a <code>ContactFlowId</code> or a field of type <code>QUICK_CONNECT</code>.</p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
-
-  /**
-   * <p>The ContactFlowId for the flow that will be run if this template is used to create a self-assigned task.</p>
-   * @public
-   */
-  SelfAssignFlowId?: string | undefined;
-
-  /**
-   * <p>Constraints that are applicable to the fields listed.
-   * Although this parameter is marked as optional in the API model, the service requires it when calling <code>CreateTaskTemplate</code> or <code>UpdateTaskTemplate</code>.
-   * The <code>RequiredFields</code> array must contain at least one element, and the field of type <code>NAME</code> must be included in <code>RequiredFields</code>.</p>
-   * @public
-   */
-  Constraints?: TaskTemplateConstraints | undefined;
-
-  /**
-   * <p>The default values for fields when a task is created by referencing this template.</p>
-   * @public
-   */
-  Defaults?: TaskTemplateDefaults | undefined;
-
-  /**
-   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
-   * Tasks can only be created from <code>ACTIVE</code> templates.
-   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
-   *          <p>Although this parameter is marked as optional, the service requires it when calling <code>UpdateTaskTemplate</code>.</p>
-   * @public
-   */
-  Status?: TaskTemplateStatus | undefined;
-
-  /**
-   * <p>Fields that are part of the template.</p>
-   *          <p>The request must contain exactly one field of type <code>NAME</code>. This field must also be listed in the <code>RequiredFields</code> array within the <code>Constraints</code> parameter.</p>
-   * @public
-   */
-  Fields?: TaskTemplateField[] | undefined;
 }

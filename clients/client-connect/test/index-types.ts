@@ -2440,6 +2440,7 @@ export type {
   SegmentAttributeValue,
   SendChatIntegrationEventRequest,
   SendChatIntegrationEventResponse,
+  SendInAppNotificationActionDefinition,
   SendNotificationActionDefinition,
   SendOutboundEmailRequest,
   SendOutboundEmailResponse,

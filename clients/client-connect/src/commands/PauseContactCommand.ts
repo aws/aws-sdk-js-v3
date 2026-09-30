@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { PauseContactRequest, PauseContactResponse } from "../models/models_2";
+import type { PauseContactRequest } from "../models/models_2";
+import type { PauseContactResponse } from "../models/models_3";
 import { PauseContact$ } from "../schemas/schemas_0";
 
 /**
