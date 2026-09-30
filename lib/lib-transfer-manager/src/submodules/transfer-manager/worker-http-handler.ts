@@ -92,8 +92,6 @@ export type HttpWorkerRequestMessage = HttpWorkerFileRequestMessage | HttpWorker
 export interface HttpWorkerDownloadToFileMessage extends BaseHttpWorkerRequestMessage {
   type: "httpDownloadToFile";
   filePath: string;
-  offset: number;
-  expectedLength: number;
   checksumAlgorithm?: ChecksumAlgorithm;
 }
 
@@ -285,17 +283,6 @@ export interface DownloadDataToFile {
    * Absolute path to the temp file where the part body should be written.
    */
   filePath: string;
-  /**
-   * Absolute byte offset in the file where writing should begin. Used only as a
-   * fallback: the worker prefers the start byte from the response's ContentRange
-   * header, since part sizes are not guaranteed to be uniform.
-   */
-  offset: number;
-  /**
-   * Expected byte length of the part body. Used only as a fallback, for the same
-   * reason as {@link DownloadDataToFile.offset}.
-   */
-  expectedLength: number;
   /**
    * Optional algorithm for inline checksum validation against S3 response headers.
    */
@@ -745,8 +732,6 @@ export class WorkerHttpHandler {
         id,
         request: serializedRequest,
         filePath: downloadDataToFile.filePath,
-        offset: downloadDataToFile.offset,
-        expectedLength: downloadDataToFile.expectedLength,
         checksumAlgorithm: downloadDataToFile.checksumAlgorithm,
       };
 

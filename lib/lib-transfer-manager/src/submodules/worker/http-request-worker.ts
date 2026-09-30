@@ -160,8 +160,6 @@ type HttpWorkerRequestMessage = HttpWorkerFileRequestMessage | HttpWorkerRAMRequ
 interface HttpWorkerDownloadToFileMessage extends BaseHttpWorkerRequestMessage {
   type: "httpDownloadToFile";
   filePath: string;
-  offset: number;
-  expectedLength: number;
   checksumAlgorithm?: ChecksumAlgorithm;
 }
 
@@ -477,7 +475,7 @@ if (parentPort) {
   };
 
   const processDownloadToFile = async (msg: HttpWorkerDownloadToFileMessage): Promise<void> => {
-    const { id, request: serialized, filePath, offset, expectedLength, checksumAlgorithm } = msg;
+    const { id, request: serialized, filePath, checksumAlgorithm } = msg;
 
     try {
       // Send the signed HTTP request
@@ -501,14 +499,20 @@ if (parentPort) {
       }
 
       // Resolve where and how much to write from the response's ContentRange.
-      //
-      // ContentRange is the source of truth since S3 multipart objects can
-      // have parts of different sizes. The caller's offset/length are based on
-      // part 1 and only used as a fallback when the header is missing.
       const contentRange = response.headers["content-range"];
       const range = parseContentRange(contentRange);
-      const writeOffset = range ? range.start : offset;
-      const targetLength = range ? range.end - range.start + 1 : expectedLength;
+      if (!range) {
+        port.postMessage({
+          type: "httpDownloadError",
+          id,
+          error: `Missing or invalid Content-Range for part download: ${contentRange ?? "<absent>"}`,
+          code: "MISSING_CONTENT_RANGE",
+          name: "DownloadValidationError",
+        } satisfies HttpWorkerDownloadErrorMessage);
+        return;
+      }
+      const writeOffset = range.start;
+      const targetLength = range.end - range.start + 1;
 
       // open the file (file is pre-allocated)
       const fh = await open(filePath, "r+");
@@ -657,9 +661,11 @@ if (parentPort) {
         return;
       }
 
-      // 2. Acquire a buffer for assembling the response body
-      const ab = acquireTransferBuffer(expectedSize);
-      const view = new Uint8Array(ab, 0, expectedSize);
+      // 2. Acquire a buffer for assembling the response body.
+      const reportedLength = Number.parseInt(response.headers["content-length"] ?? "");
+      const bufferSize = Number.isFinite(reportedLength) && reportedLength > 0 ? reportedLength : expectedSize;
+      const ab = acquireTransferBuffer(bufferSize);
+      const view = new Uint8Array(ab, 0, bufferSize);
 
       // 3. Initialize inline checksum computation if requested
       let checksum: Checksum | undefined;
@@ -675,11 +681,11 @@ if (parentPort) {
           const buf: Uint8Array = typeof chunk === "string" ? Buffer.from(chunk) : chunk;
 
           // Guard against writing beyond buffer boundary
-          if (bytesWritten + buf.length > expectedSize) {
+          if (bytesWritten + buf.length > bufferSize) {
             port.postMessage({
               type: "httpDownloadError",
               id,
-              error: `Bytes received (${bytesWritten + buf.length}) exceeds expected size (${expectedSize}) for range index ${rangeIndex}`,
+              error: `Bytes received (${bytesWritten + buf.length}) exceeds expected size (${bufferSize}) for range index ${rangeIndex}`,
               code: "BYTES_EXCEEDED",
               name: "DownloadValidationError",
             } satisfies HttpWorkerDownloadErrorMessage);

@@ -582,75 +582,16 @@ describe("S3TransferManager Unit Tests", () => {
   });
 
   describe("validatePartDownload()", () => {
-    let tm: any;
-    beforeAll(async () => {
-      tm = new S3TransferManager() as any;
-    }, 120_000);
-
-    it("Should pass correct ranges based on part number without throwing an error", () => {
-      const partSize = 5242880;
-      const ranges = [
-        { partNumber: 1, range: "bytes 0-5242879/13631488" },
-        { partNumber: 2, range: "bytes 5242880-10485759/13631488" },
-        { partNumber: 3, range: "bytes 10485760-13631487/13631488" },
-      ];
-
-      for (const { partNumber, range } of ranges) {
-        expect(() => {
-          tm.validatePartDownload(range, partNumber, partSize);
-        }).not.toThrow();
-      }
-    });
-
-    it("Should throw error for incorrect start position", () => {
-      const partSize = 5242880;
-
-      expect(() => {
-        tm.validatePartDownload("bytes 5242881-10485759/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to start at 5242880 but got 5242881");
-
-      expect(() => {
-        tm.validatePartDownload("bytes 5242879-10485759/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to start at 5242880 but got 5242879");
-
-      expect(() => {
-        tm.validatePartDownload("bytes 0-5242879/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to start at 5242880 but got 0");
-    });
-
-    it("Should throw error for incorrect end position", () => {
-      const partSize = 5242880;
-
-      expect(() => {
-        tm.validatePartDownload("bytes 5242880-10485760/13631488", 2, partSize);
-      }).toThrow("Expected part 2 to end at 10485759 but got 10485760");
-
-      expect(() => {
-        tm.validatePartDownload("bytes 10485760-13631480/13631488", 3, partSize);
-      }).toThrow("Expected part 3 to end at 13631487 but got 13631480");
-    });
-
-    it("Should handle last part correctly when not a full part size", () => {
-      const partSize = 5242880;
-
-      expect(() => {
-        tm.validatePartDownload("bytes 10485760-13631487/13631488", 3, partSize);
-      }).not.toThrow();
-    });
-
+    const tm = new S3TransferManager() as any;
     it("Should throw error for invalid ContentRange format", () => {
-      const partSize = 5242880;
-
       expect(() => {
-        tm.validatePartDownload("invalid-format", 2, partSize);
+        tm.validatePartDownload("invalid-format", 2);
       }).toThrow("Invalid ContentRange format: invalid-format");
     });
 
     it("Should throw error for missing ContentRange", () => {
-      const partSize = 5242880;
-
       expect(() => {
-        tm.validatePartDownload(undefined, 2, partSize);
+        tm.validatePartDownload(undefined, 2);
       }).toThrow("Missing ContentRange for part 2.");
     });
   });
