@@ -1902,7 +1902,7 @@ export interface SchedulerConfig {
  */
 export interface CreateClusterSchedulerConfigRequest {
   /**
-   * <p>Name for the cluster policy.</p>
+   * <p>The name for the cluster policy. The name must be unique within the SageMaker AI HyperPod cluster specified by <code>ClusterArn</code>. You can use the same name in other clusters within a Region or across Regions.</p>
    * @public
    */
   Name: string | undefined;
@@ -2160,7 +2160,7 @@ export interface CreateCompilationJobResponse {
  */
 export interface CreateComputeQuotaRequest {
   /**
-   * <p>Name to the compute allocation definition.</p>
+   * <p>The name of the compute allocation definition. The name must be unique within the SageMaker AI HyperPod cluster specified by <code>ClusterArn</code>. You can use the same name in other clusters within a Region or across Regions.</p>
    * @public
    */
   Name: string | undefined;
