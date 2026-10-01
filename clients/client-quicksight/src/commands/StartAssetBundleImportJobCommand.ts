@@ -217,6 +217,16 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             Host: "STRING_VALUE", // required
  *             Port: Number("int"), // required
  *             SqlEndpointPath: "STRING_VALUE", // required
+ *             AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
+ *             OAuthParameters: {
+ *               TokenProviderUrl: "STRING_VALUE", // required
+ *               OAuthScope: "STRING_VALUE",
+ *               IdentityProviderVpcConnectionProperties: {
+ *                 VpcConnectionArn: "STRING_VALUE", // required
+ *               },
+ *               IdentityProviderResourceUri: "STRING_VALUE",
+ *               IdentityProviderCACertificatesBundleS3Uri: "STRING_VALUE",
+ *             },
  *           },
  *           StarburstParameters: { // StarburstParameters
  *             Host: "STRING_VALUE", // required

@@ -175,6 +175,16 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       SqlEndpointPath: "STRING_VALUE", // required
+ *       AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
+ *       OAuthParameters: {
+ *         TokenProviderUrl: "STRING_VALUE", // required
+ *         OAuthScope: "STRING_VALUE",
+ *         IdentityProviderVpcConnectionProperties: {
+ *           VpcConnectionArn: "STRING_VALUE", // required
+ *         },
+ *         IdentityProviderResourceUri: "STRING_VALUE",
+ *         IdentityProviderCACertificatesBundleS3Uri: "STRING_VALUE",
+ *       },
  *     },
  *     StarburstParameters: { // StarburstParameters
  *       Host: "STRING_VALUE", // required
@@ -391,13 +401,6 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             Host: "STRING_VALUE", // required
  *             Port: Number("int"), // required
  *             SqlEndpointPath: "STRING_VALUE", // required
- *           },
- *           StarburstParameters: {
- *             Host: "STRING_VALUE", // required
- *             Port: Number("int"), // required
- *             Catalog: "STRING_VALUE", // required
- *             ProductType: "GALAXY" || "ENTERPRISE",
- *             DatabaseAccessControlRole: "STRING_VALUE",
  *             AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
  *             OAuthParameters: {
  *               TokenProviderUrl: "STRING_VALUE", // required
@@ -408,6 +411,15 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *               IdentityProviderResourceUri: "STRING_VALUE",
  *               IdentityProviderCACertificatesBundleS3Uri: "STRING_VALUE",
  *             },
+ *           },
+ *           StarburstParameters: {
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Catalog: "STRING_VALUE", // required
+ *             ProductType: "GALAXY" || "ENTERPRISE",
+ *             DatabaseAccessControlRole: "STRING_VALUE",
+ *             AuthenticationType: "PASSWORD" || "KEYPAIR" || "TOKEN" || "X509",
+ *             OAuthParameters: "<OAuthParameters>",
  *           },
  *           TrinoParameters: {
  *             Host: "STRING_VALUE", // required

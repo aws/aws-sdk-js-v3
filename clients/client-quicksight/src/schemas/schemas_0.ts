@@ -897,6 +897,7 @@ const _Cat = "Categorical";
 const _Cata = "Catalog";
 const _Cate = "Categories";
 const _Ce = "Cell";
+const _Ch = "Children";
 const _Ci = "City";
 const _Co = "Column";
 const _Col = "Colors";
@@ -1168,6 +1169,10 @@ const _DGResc = "DescribeGroupResponse";
 const _DGa = "DatabaseGroups";
 const _DGe = "DeleteGroup";
 const _DGes = "DescribeGroup";
+const _DHD = "DefaultHierarchyDropdown";
+const _DHFDDCO = "DefaultHierarchyFilterDropDownControlOptions";
+const _DHFLCO = "DefaultHierarchyFilterListControlOptions";
+const _DHL = "DefaultHierarchyList";
 const _DI = "DashboardId";
 const _DIAMPA = "DeleteIAMPolicyAssignment";
 const _DIAMPAR = "DeleteIAMPolicyAssignmentRequest";
@@ -1947,12 +1952,26 @@ const _HBO = "HistogramBinOptions";
 const _HC = "HeatmapColor";
 const _HCe = "HeatmapConfiguration";
 const _HCi = "HistogramConfiguration";
+const _HD = "HierarchyDropdown";
+const _HF = "HierarchyFilter";
 const _HFA = "HuggingFaceAction";
+const _HFDDC = "HierarchyFilterDropDownControl";
+const _HFDDCDO = "HierarchyFilterDropDownControlDisplayOptions";
+const _HFL = "HierarchyFilterLevel";
+const _HFLC = "HierarchyFilterListControl";
+const _HFLCDO = "HierarchyFilterListControlDisplayOptions";
+const _HFLCSO = "HierarchyFilterListControlSearchOptions";
+const _HFLL = "HierarchyFilterLevelList";
+const _HFN = "HierarchyFilterNode";
+const _HFNL = "HierarchyFilterNodeList";
 const _HFSC = "HeaderFooterSectionConfiguration";
 const _HFSCL = "HeaderFooterSectionConfigurationList";
+const _HFV = "HierarchyFilterValue";
 const _HFW = "HistogramFieldWells";
 const _HGIA = "HGInsightsAction";
 const _HI = "HierarchyId";
+const _HL = "HierarchyList";
+const _HLi = "HierarchyLevels";
 const _HMAFW = "HeatMapAggregatedFieldWells";
 const _HMC = "HeatMapConfiguration";
 const _HMCILC = "HeatMapColumnItemsLimitConfiguration";
@@ -1968,9 +1987,12 @@ const _HMV = "HeatMapVisual";
 const _HP = "HorizontalPosition";
 const _HS = "HeaderSections";
 const _HSe = "HeaderStyle";
+const _HT = "HierarchyTree";
 const _HTA = "HorizontalTextAlignment";
 const _HTV = "HelperTextVisibility";
-const _HV = "HistogramVisual";
+const _HV = "HierarchyValues";
+const _HVL = "HierarchyValuesList";
+const _HVi = "HistogramVisual";
 const _He = "Height";
 const _Hei = "Height64";
 const _Heig = "Height32";
@@ -2771,6 +2793,7 @@ const _PVR = "PercentVisibleRange";
 const _PVSC = "PluginVisualSortConfiguration";
 const _PVT = "ParameterValueType";
 const _PVTQS = "PluginVisualTableQuerySort";
+const _PVa = "ParentValue";
 const _PVe = "PercentileValue";
 const _PVl = "PluginVisual";
 const _PVr = "PrimaryValue";
@@ -4653,6 +4676,7 @@ var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 var EmbeddingUrl: StaticSimpleSchema = [0, n0, _EU, 8, 0];
 var Expression: StaticSimpleSchema = [0, n0, _Ex, 8, 0];
 var FieldValue: StaticSimpleSchema = [0, n0, _FV, 8, 0];
+var HierarchyFilterValue: StaticSimpleSchema = [0, n0, _HFV, 8, 0];
 var InlineCustomInstructionText: StaticSimpleSchema = [0, n0, _ICIT, 8, 0];
 var JoinOperationOnClause: StaticSimpleSchema = [0, n0, _JOOC, 8, 0];
 var LimitedSensitiveString: StaticSimpleSchema = [0, n0, _LSS, 8, 0];
@@ -6456,8 +6480,8 @@ export var DataBarsOptions$: StaticStructureSchema = [3, n0, _DBO,
 ];
 export var DatabricksParameters$: StaticStructureSchema = [3, n0, _DPa,
   0,
-  [_H, _Po, _SEP],
-  [0, 1, 0], 3
+  [_H, _Po, _SEP, _AT, _OAP],
+  [0, 1, 0, 0, () => OAuthParameters$], 3
 ];
 export var DataColor$: StaticStructureSchema = [3, n0, _DCa,
   0,
@@ -6851,8 +6875,8 @@ export var DefaultFilterControlConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var DefaultFilterControlOptions$: StaticStructureSchema = [3, n0, _DFCO,
   0,
-  [_DDTPO, _DLOe, _DDO, _DTFO, _DTAO, _DSO, _DRDTO],
-  [() => DefaultDateTimePickerControlOptions$, () => DefaultFilterListControlOptions$, () => DefaultFilterDropDownControlOptions$, () => DefaultTextFieldControlOptions$, () => DefaultTextAreaControlOptions$, () => DefaultSliderControlOptions$, () => DefaultRelativeDateTimeControlOptions$]
+  [_DDTPO, _DLOe, _DDO, _DTFO, _DTAO, _DSO, _DRDTO, _DHL, _DHD],
+  [() => DefaultDateTimePickerControlOptions$, () => DefaultFilterListControlOptions$, () => DefaultFilterDropDownControlOptions$, () => DefaultTextFieldControlOptions$, () => DefaultTextAreaControlOptions$, () => DefaultSliderControlOptions$, () => DefaultRelativeDateTimeControlOptions$, () => DefaultHierarchyFilterListControlOptions$, () => DefaultHierarchyFilterDropDownControlOptions$]
 ];
 export var DefaultFilterDropDownControlOptions$: StaticStructureSchema = [3, n0, _DFDDCO,
   0,
@@ -6878,6 +6902,16 @@ export var DefaultGridLayoutConfiguration$: StaticStructureSchema = [3, n0, _DGL
   0,
   [_CSO],
   [() => GridLayoutCanvasSizeOptions$], 1
+];
+export var DefaultHierarchyFilterDropDownControlOptions$: StaticStructureSchema = [3, n0, _DHFDDCO,
+  0,
+  [_DOi, _T, _CMom, _CSCo, _CTFT],
+  [() => HierarchyFilterDropDownControlDisplayOptions$, 0, 0, () => ControlSortConfigurationList, () => ControlTitleFormatText$]
+];
+export var DefaultHierarchyFilterListControlOptions$: StaticStructureSchema = [3, n0, _DHFLCO,
+  0,
+  [_DOi, _T, _CMom, _CSCo, _CTFT],
+  [() => HierarchyFilterListControlDisplayOptions$, 0, 0, () => ControlSortConfigurationList, () => ControlTitleFormatText$]
 ];
 export var DefaultInteractiveLayoutConfiguration$: StaticStructureSchema = [3, n0, _DILC,
   0,
@@ -8286,8 +8320,8 @@ export var FilledMapVisual$: StaticStructureSchema = [3, n0, _FMV,
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _Fil,
   0,
-  [_CFat, _NRF, _NEF, _TEF, _TRF, _RDF, _TBF, _NFe],
-  [() => CategoryFilter$, () => NumericRangeFilter$, () => NumericEqualityFilter$, [() => TimeEqualityFilter$, 0], [() => TimeRangeFilter$, 0], () => RelativeDatesFilter$, () => TopBottomFilter$, () => NestedFilter$]
+  [_CFat, _NRF, _NEF, _TEF, _TRF, _RDF, _TBF, _NFe, _HF],
+  [() => CategoryFilter$, () => NumericRangeFilter$, () => NumericEqualityFilter$, [() => TimeEqualityFilter$, 0], [() => TimeRangeFilter$, 0], () => RelativeDatesFilter$, () => TopBottomFilter$, () => NestedFilter$, [() => HierarchyFilter$, 0]]
 ];
 export var FilterAggMetrics$: StaticStructureSchema = [3, n0, _FAM,
   0,
@@ -8296,8 +8330,8 @@ export var FilterAggMetrics$: StaticStructureSchema = [3, n0, _FAM,
 ];
 export var FilterControl$: StaticStructureSchema = [3, n0, _FCil,
   0,
-  [_DTPa, _Lis, _Dr, _TFe, _TAext, _Sl, _RDT, _CSro],
-  [() => FilterDateTimePickerControl$, () => FilterListControl$, () => FilterDropDownControl$, () => FilterTextFieldControl$, () => FilterTextAreaControl$, () => FilterSliderControl$, () => FilterRelativeDateTimeControl$, () => FilterCrossSheetControl$]
+  [_DTPa, _Lis, _Dr, _TFe, _TAext, _Sl, _RDT, _CSro, _HL, _HD],
+  [() => FilterDateTimePickerControl$, () => FilterListControl$, () => FilterDropDownControl$, () => FilterTextFieldControl$, () => FilterTextAreaControl$, () => FilterSliderControl$, () => FilterRelativeDateTimeControl$, () => FilterCrossSheetControl$, () => HierarchyFilterListControl$, () => HierarchyFilterDropDownControl$]
 ];
 export var FilterCrossSheetControl$: StaticStructureSchema = [3, n0, _FCSC,
   0,
@@ -8974,6 +9008,46 @@ export var HeatMapVisual$: StaticStructureSchema = [3, n0, _HMV,
   [_VI, _Tit, _Su, _CCh, _CH, _Ac, _VCAT],
   [0, () => VisualTitleLabelOptions$, () => VisualSubtitleLabelOptions$, [() => HeatMapConfiguration$, 0], () => ColumnHierarchyList, [() => VisualCustomActionList, 0], 0], 1
 ];
+export var HierarchyFilter$: StaticStructureSchema = [3, n0, _HF,
+  0,
+  [_FIil, _Co, _HLi, _NO, _MO, _HT, _DFCC],
+  [0, () => ColumnIdentifier$, () => HierarchyFilterLevelList, 0, 0, [() => HierarchyFilterNode$, 0], () => DefaultFilterControlConfiguration$], 5
+];
+export var HierarchyFilterDropDownControl$: StaticStructureSchema = [3, n0, _HFDDC,
+  0,
+  [_FCI, _SFI, _Tit, _DOi, _T, _CMom, _CSCo, _CTFT],
+  [0, 0, 0, () => HierarchyFilterDropDownControlDisplayOptions$, 0, 0, () => ControlSortConfigurationList, () => ControlTitleFormatText$], 2
+];
+export var HierarchyFilterDropDownControlDisplayOptions$: StaticStructureSchema = [3, n0, _HFDDCDO,
+  0,
+  [_TO, _IILO],
+  [() => LabelOptions$, () => SheetControlInfoIconLabelOptions$]
+];
+export var HierarchyFilterLevel$: StaticStructureSchema = [3, n0, _HFL,
+  0,
+  [_Co],
+  [() => ColumnIdentifier$], 1
+];
+export var HierarchyFilterListControl$: StaticStructureSchema = [3, n0, _HFLC,
+  0,
+  [_FCI, _SFI, _Tit, _DOi, _T, _CMom, _CSCo, _CTFT],
+  [0, 0, 0, () => HierarchyFilterListControlDisplayOptions$, 0, 0, () => ControlSortConfigurationList, () => ControlTitleFormatText$], 2
+];
+export var HierarchyFilterListControlDisplayOptions$: StaticStructureSchema = [3, n0, _HFLCDO,
+  0,
+  [_TO, _IILO, _SOe],
+  [() => LabelOptions$, () => SheetControlInfoIconLabelOptions$, () => HierarchyFilterListControlSearchOptions$]
+];
+export var HierarchyFilterListControlSearchOptions$: StaticStructureSchema = [3, n0, _HFLCSO,
+  0,
+  [_Vi],
+  [0]
+];
+export var HierarchyFilterNode$: StaticStructureSchema = [3, n0, _HFN,
+  0,
+  [_Co, _PVa, _HV, _Ch],
+  [() => ColumnIdentifier$, [() => HierarchyFilterValue, 0], [() => HierarchyValuesList, 0], [() => HierarchyFilterNodeList, 0]], 1
+];
 export var HistogramAggregatedFieldWells$: StaticStructureSchema = [3, n0, _HAFW,
   0,
   [_Va],
@@ -8994,7 +9068,7 @@ export var HistogramFieldWells$: StaticStructureSchema = [3, n0, _HFW,
   [_HAFW],
   [[() => HistogramAggregatedFieldWells$, 0]]
 ];
-export var HistogramVisual$: StaticStructureSchema = [3, n0, _HV,
+export var HistogramVisual$: StaticStructureSchema = [3, n0, _HVi,
   0,
   [_VI, _Tit, _Su, _CCh, _Ac, _VCAT],
   [0, () => VisualTitleLabelOptions$, () => VisualSubtitleLabelOptions$, [() => HistogramConfiguration$, 0], [() => VisualCustomActionList, 0], 0], 1
@@ -13081,7 +13155,7 @@ export var VisibleRangeOptions$: StaticStructureSchema = [3, n0, _VRO,
 ];
 export var Visual$: StaticStructureSchema = [3, n0, _Visua,
   0,
-  [_TVab, _PTV, _BCV, _KPIV, _PCV, _GCV, _LCV, _HMV, _TMV, _GMV, _FMV, _LMV, _FCV, _SPV, _CCV, _BPV, _WV, _HV, _WCV, _IVn, _SDV, _CCVu, _EVm, _RCV, _PVl],
+  [_TVab, _PTV, _BCV, _KPIV, _PCV, _GCV, _LCV, _HMV, _TMV, _GMV, _FMV, _LMV, _FCV, _SPV, _CCV, _BPV, _WV, _HVi, _WCV, _IVn, _SDV, _CCVu, _EVm, _RCV, _PVl],
   [[() => TableVisual$, 0], [() => PivotTableVisual$, 0], [() => BarChartVisual$, 0], [() => KPIVisual$, 0], [() => PieChartVisual$, 0], [() => GaugeChartVisual$, 0], [() => LineChartVisual$, 0], [() => HeatMapVisual$, 0], [() => TreeMapVisual$, 0], [() => GeospatialMapVisual$, 0], [() => FilledMapVisual$, 0], [() => LayerMapVisual$, 0], [() => FunnelChartVisual$, 0], [() => ScatterPlotVisual$, 0], [() => ComboChartVisual$, 0], [() => BoxPlotVisual$, 0], [() => WaterfallVisual$, 0], [() => HistogramVisual$, 0], [() => WordCloudVisual$, 0], [() => InsightVisual$, 0], [() => SankeyDiagramVisual$, 0], [() => CustomContentVisual$, 0], [() => EmptyVisual$, 0], [() => RadarChartVisual$, 0], [() => PluginVisual$, 0]]
 ];
 export var VisualAxisSortOption$: StaticStructureSchema = [3, n0, _VASO,
@@ -13865,6 +13939,17 @@ var HeatMapDimensionFieldList: StaticListSchema = [1, n0, _HMDFL,
 ];
 var HeatMapMeasureFieldList: StaticListSchema = [1, n0, _HMMFL,
   0, [() => MeasureField$,
+    0]
+];
+var HierarchyFilterLevelList: StaticListSchema = [1, n0, _HFLL,
+  0, () => HierarchyFilterLevel$
+];
+var HierarchyFilterNodeList: StaticListSchema = [1, n0, _HFNL,
+  0, [() => HierarchyFilterNode$,
+    0]
+];
+var HierarchyValuesList: StaticListSchema = [1, n0, _HVL,
+  0, [() => HierarchyFilterValue,
     0]
 ];
 var HistogramMeasureFieldList: StaticListSchema = [1, n0, _HMFL,

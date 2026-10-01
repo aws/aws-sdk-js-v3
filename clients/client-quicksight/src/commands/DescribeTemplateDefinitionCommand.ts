@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeTemplateDefinitionRequest, DescribeTemplateDefinitionResponse } from "../models/models_4";
+import type { DescribeTemplateDefinitionRequest } from "../models/models_4";
+import type { DescribeTemplateDefinitionResponse } from "../models/models_5";
 import { DescribeTemplateDefinition$ } from "../schemas/schemas_0";
 
 /**
@@ -606,6 +607,59 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                 ],
  * //               },
  * //             },
+ * //             HierarchyList: { // HierarchyFilterListControl
+ * //               FilterControlId: "STRING_VALUE", // required
+ * //               SourceFilterId: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
+ * //               DisplayOptions: { // HierarchyFilterListControlDisplayOptions
+ * //                 TitleOptions: "<LabelOptions>",
+ * //                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                 SearchOptions: { // HierarchyFilterListControlSearchOptions
+ * //                   Visibility: "HIDDEN" || "VISIBLE",
+ * //                 },
+ * //               },
+ * //               Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //               CommitMode: "AUTO" || "MANUAL",
+ * //               ControlSortConfigurations: [
+ * //                 {
+ * //                   SelectableValuesSort: {
+ * //                     Direction: "ASC" || "DESC" || "USER_DEFINED_ORDER", // required
+ * //                   },
+ * //                   ControlColumnSort: {
+ * //                     Column: "<ColumnIdentifier>", // required
+ * //                     SortDirection: "ASC" || "DESC", // required
+ * //                     AggregationFunction: {
+ * //                       NumericalAggregationFunction: {
+ * //                         SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
+ * //                         PercentileAggregation: {
+ * //                           PercentileValue: Number("double"),
+ * //                         },
+ * //                       },
+ * //                       CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
+ * //                       DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
+ * //                       AttributeAggregationFunction: {
+ * //                         SimpleAttributeAggregation: "UNIQUE_VALUE",
+ * //                         ValueForMultipleValues: "STRING_VALUE",
+ * //                       },
+ * //                     },
+ * //                   },
+ * //                 },
+ * //               ],
+ * //               ControlTitleFormatText: "<ControlTitleFormatText>",
+ * //             },
+ * //             HierarchyDropdown: { // HierarchyFilterDropDownControl
+ * //               FilterControlId: "STRING_VALUE", // required
+ * //               SourceFilterId: "STRING_VALUE", // required
+ * //               Title: "STRING_VALUE",
+ * //               DisplayOptions: { // HierarchyFilterDropDownControlDisplayOptions
+ * //                 TitleOptions: "<LabelOptions>",
+ * //                 InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //               },
+ * //               Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //               CommitMode: "AUTO" || "MANUAL",
+ * //               ControlSortConfigurations: "<ControlSortConfigurationList>",
+ * //               ControlTitleFormatText: "<ControlTitleFormatText>",
+ * //             },
  * //           },
  * //         ],
  * //         Visuals: [ // VisualList
@@ -815,12 +869,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                         NumericalMeasureField: { // NumericalMeasureField
  * //                           FieldId: "STRING_VALUE", // required
  * //                           Column: "<ColumnIdentifier>", // required
- * //                           AggregationFunction: {
- * //                             SimpleNumericalAggregation: "SUM" || "AVERAGE" || "MIN" || "MAX" || "COUNT" || "DISTINCT_COUNT" || "VAR" || "VARP" || "STDEV" || "STDEVP" || "MEDIAN",
- * //                             PercentileAggregation: {
- * //                               PercentileValue: Number("double"),
- * //                             },
- * //                           },
+ * //                           AggregationFunction: "<NumericalAggregationFunction>",
  * //                           FormatConfiguration: {
  * //                             FormatConfiguration: {
  * //                               NumberDisplayFormatConfiguration: {
@@ -940,15 +989,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                       ColumnSort: { // ColumnSort
  * //                         SortBy: "<ColumnIdentifier>", // required
  * //                         Direction: "ASC" || "DESC", // required
- * //                         AggregationFunction: {
- * //                           NumericalAggregationFunction: "<NumericalAggregationFunction>",
- * //                           CategoricalAggregationFunction: "COUNT" || "DISTINCT_COUNT",
- * //                           DateAggregationFunction: "COUNT" || "DISTINCT_COUNT" || "MIN" || "MAX",
- * //                           AttributeAggregationFunction: {
- * //                             SimpleAttributeAggregation: "UNIQUE_VALUE",
- * //                             ValueForMultipleValues: "STRING_VALUE",
- * //                           },
- * //                         },
+ * //                         AggregationFunction: "<AggregationFunction>",
  * //                       },
  * //                     },
  * //                   ],
@@ -7180,18 +7221,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                         "STRING_VALUE",
  * //                       ],
  * //                     },
- * //                     ControlSortConfigurations: [
- * //                       {
- * //                         SelectableValuesSort: {
- * //                           Direction: "ASC" || "DESC" || "USER_DEFINED_ORDER", // required
- * //                         },
- * //                         ControlColumnSort: {
- * //                           Column: "<ColumnIdentifier>", // required
- * //                           SortDirection: "ASC" || "DESC", // required
- * //                           AggregationFunction: "<AggregationFunction>",
- * //                         },
- * //                       },
- * //                     ],
+ * //                     ControlSortConfigurations: "<ControlSortConfigurationList>",
  * //                   },
  * //                   DefaultDropdownOptions: { // DefaultFilterDropDownControlOptions
  * //                     DisplayOptions: {
@@ -7240,6 +7270,29 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //                     },
  * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                   },
+ * //                   DefaultHierarchyList: { // DefaultHierarchyFilterListControlOptions
+ * //                     DisplayOptions: {
+ * //                       TitleOptions: "<LabelOptions>",
+ * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                       SearchOptions: {
+ * //                         Visibility: "HIDDEN" || "VISIBLE",
+ * //                       },
+ * //                     },
+ * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                     ControlSortConfigurations: "<ControlSortConfigurationList>",
+ * //                     ControlTitleFormatText: "<ControlTitleFormatText>",
+ * //                   },
+ * //                   DefaultHierarchyDropdown: { // DefaultHierarchyFilterDropDownControlOptions
+ * //                     DisplayOptions: {
+ * //                       TitleOptions: "<LabelOptions>",
+ * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                     },
+ * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                     ControlSortConfigurations: "<ControlSortConfigurationList>",
+ * //                     ControlTitleFormatText: "<ControlTitleFormatText>",
  * //                   },
  * //                 },
  * //                 ControlTitleFormatText: "<ControlTitleFormatText>",
@@ -7334,6 +7387,29 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                     },
  * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
+ * //                   DefaultHierarchyList: {
+ * //                     DisplayOptions: {
+ * //                       TitleOptions: "<LabelOptions>",
+ * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                       SearchOptions: {
+ * //                         Visibility: "HIDDEN" || "VISIBLE",
+ * //                       },
+ * //                     },
+ * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                     ControlSortConfigurations: "<ControlSortConfigurationList>",
+ * //                     ControlTitleFormatText: "<ControlTitleFormatText>",
+ * //                   },
+ * //                   DefaultHierarchyDropdown: {
+ * //                     DisplayOptions: {
+ * //                       TitleOptions: "<LabelOptions>",
+ * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                     },
+ * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                     ControlSortConfigurations: "<ControlSortConfigurationList>",
+ * //                     ControlTitleFormatText: "<ControlTitleFormatText>",
+ * //                   },
  * //                 },
  * //                 ControlTitleFormatText: "<ControlTitleFormatText>",
  * //               },
@@ -7418,6 +7494,29 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                     },
  * //                     CommitMode: "AUTO" || "MANUAL",
  * //                   },
+ * //                   DefaultHierarchyList: {
+ * //                     DisplayOptions: {
+ * //                       TitleOptions: "<LabelOptions>",
+ * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                       SearchOptions: {
+ * //                         Visibility: "HIDDEN" || "VISIBLE",
+ * //                       },
+ * //                     },
+ * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                     ControlSortConfigurations: "<ControlSortConfigurationList>",
+ * //                     ControlTitleFormatText: "<ControlTitleFormatText>",
+ * //                   },
+ * //                   DefaultHierarchyDropdown: {
+ * //                     DisplayOptions: {
+ * //                       TitleOptions: "<LabelOptions>",
+ * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                     },
+ * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                     ControlSortConfigurations: "<ControlSortConfigurationList>",
+ * //                     ControlTitleFormatText: "<ControlTitleFormatText>",
+ * //                   },
  * //                 },
  * //                 ControlTitleFormatText: "<ControlTitleFormatText>",
  * //               },
@@ -7474,6 +7573,29 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
  * //                     },
  * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                   },
+ * //                   DefaultHierarchyList: {
+ * //                     DisplayOptions: {
+ * //                       TitleOptions: "<LabelOptions>",
+ * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                       SearchOptions: {
+ * //                         Visibility: "HIDDEN" || "VISIBLE",
+ * //                       },
+ * //                     },
+ * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                     ControlSortConfigurations: "<ControlSortConfigurationList>",
+ * //                     ControlTitleFormatText: "<ControlTitleFormatText>",
+ * //                   },
+ * //                   DefaultHierarchyDropdown: {
+ * //                     DisplayOptions: {
+ * //                       TitleOptions: "<LabelOptions>",
+ * //                       InfoIconLabelOptions: "<SheetControlInfoIconLabelOptions>",
+ * //                     },
+ * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                     ControlSortConfigurations: "<ControlSortConfigurationList>",
+ * //                     ControlTitleFormatText: "<ControlTitleFormatText>",
  * //                   },
  * //                 },
  * //                 ControlTitleFormatText: "<ControlTitleFormatText>",
@@ -7539,6 +7661,20 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   DefaultRelativeDateTimeOptions: {
  * //                     DisplayOptions: "<RelativeDateTimeControlDisplayOptions>",
  * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                   },
+ * //                   DefaultHierarchyList: {
+ * //                     DisplayOptions: "<HierarchyFilterListControlDisplayOptions>",
+ * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                     ControlSortConfigurations: "<ControlSortConfigurationList>",
+ * //                     ControlTitleFormatText: "<ControlTitleFormatText>",
+ * //                   },
+ * //                   DefaultHierarchyDropdown: {
+ * //                     DisplayOptions: "<HierarchyFilterDropDownControlDisplayOptions>",
+ * //                     Type: "MULTI_SELECT" || "SINGLE_SELECT",
+ * //                     CommitMode: "AUTO" || "MANUAL",
+ * //                     ControlSortConfigurations: "<ControlSortConfigurationList>",
+ * //                     ControlTitleFormatText: "<ControlTitleFormatText>",
  * //                   },
  * //                 },
  * //                 ControlTitleFormatText: "<ControlTitleFormatText>",
@@ -7606,6 +7742,37 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   DefaultFilterControlConfiguration: "<DefaultFilterControlConfiguration>",
  * //                 },
  * //               },
+ * //             },
+ * //             HierarchyFilter: { // HierarchyFilter
+ * //               FilterId: "STRING_VALUE", // required
+ * //               Column: "<ColumnIdentifier>", // required
+ * //               HierarchyLevels: [ // HierarchyFilterLevelList // required
+ * //                 { // HierarchyFilterLevel
+ * //                   Column: "<ColumnIdentifier>", // required
+ * //                 },
+ * //               ],
+ * //               HierarchyTree: { // HierarchyFilterNode
+ * //                 Column: "<ColumnIdentifier>", // required
+ * //                 ParentValue: "STRING_VALUE",
+ * //                 HierarchyValues: [ // HierarchyValuesList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 Children: [ // HierarchyFilterNodeList
+ * //                   {
+ * //                     Column: "<ColumnIdentifier>", // required
+ * //                     ParentValue: "STRING_VALUE",
+ * //                     HierarchyValues: [
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     Children: [
+ * //                       "<HierarchyFilterNode>",
+ * //                     ],
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
+ * //               MatchOperator: "INCLUDE" || "EXCLUDE", // required
+ * //               DefaultFilterControlConfiguration: "<DefaultFilterControlConfiguration>",
  * //             },
  * //           },
  * //         ],

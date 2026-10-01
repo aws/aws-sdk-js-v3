@@ -89,25 +89,16 @@ import type {
   AggregationPartitionBy,
   AmazonElasticsearchParameters,
   AmazonOpenSearchParameters,
-  AnalysisDefaults,
-  AssetOptions,
   AxisDisplayOptions,
-  CalculatedField,
   ChartAxisLabelOptions,
-  ColumnConfiguration,
   DataLabelOptions,
-  DataSetIdentifierDeclaration,
   DimensionField,
   FilterControl,
-  FilterGroup,
   FontConfiguration,
-  ItemsLimitConfiguration,
   Layout,
   LegendOptions,
   MeasureField,
   ParameterControl,
-  ParameterDeclaration,
-  QueryExecutionOptions,
   SheetControlLayout,
   SheetImage,
   SheetTextBox,
@@ -123,6 +114,7 @@ import type {
   ColorScale,
   ColumnHierarchy,
   ComboChartVisual,
+  ConditionalFormattingColor,
   CustomContentVisual,
   EmptyVisual,
   FieldSortOptions,
@@ -133,6 +125,7 @@ import type {
   HeatMapVisual,
   HistogramVisual,
   InsightVisual,
+  ItemsLimitConfiguration,
   KPIVisual,
   LayerMapVisual,
   LineChartVisual,
@@ -142,13 +135,147 @@ import type {
   RadarChartVisual,
   SankeyDiagramVisual,
   ScatterPlotVisual,
-  TableVisual,
+  TableCellConditionalFormatting,
+  TableConfiguration,
   TooltipOptions,
-  TreeMapFieldWells,
   VisualPalette,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
 } from "./models_1";
+
+/**
+ * <p>The conditional formatting of a table row.</p>
+ * @public
+ */
+export interface TableRowConditionalFormatting {
+  /**
+   * <p>The conditional formatting color (solid, gradient) of the background for a table row.</p>
+   * @public
+   */
+  BackgroundColor?: ConditionalFormattingColor | undefined;
+
+  /**
+   * <p>The conditional formatting color (solid, gradient) of the text for a table row.</p>
+   * @public
+   */
+  TextColor?: ConditionalFormattingColor | undefined;
+}
+
+/**
+ * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
+ * @public
+ */
+export interface TableConditionalFormattingOption {
+  /**
+   * <p>The cell conditional formatting option for a table.</p>
+   * @public
+   */
+  Cell?: TableCellConditionalFormatting | undefined;
+
+  /**
+   * <p>The row conditional formatting option for a table.</p>
+   * @public
+   */
+  Row?: TableRowConditionalFormatting | undefined;
+}
+
+/**
+ * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
+ * @public
+ */
+export interface TableConditionalFormatting {
+  /**
+   * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
+   * @public
+   */
+  ConditionalFormattingOptions?: TableConditionalFormattingOption[] | undefined;
+}
+
+/**
+ * <p>A table visual.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+ * @public
+ */
+export interface TableVisual {
+  /**
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
+   * @public
+   */
+  VisualId: string | undefined;
+
+  /**
+   * <p>The title that is displayed on the visual.</p>
+   * @public
+   */
+  Title?: VisualTitleLabelOptions | undefined;
+
+  /**
+   * <p>The subtitle that is displayed on the visual.</p>
+   * @public
+   */
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
+
+  /**
+   * <p>The configuration settings of the visual.</p>
+   * @public
+   */
+  ChartConfiguration?: TableConfiguration | undefined;
+
+  /**
+   * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
+   * @public
+   */
+  ConditionalFormatting?: TableConditionalFormatting | undefined;
+
+  /**
+   * <p>The list of custom actions that are configured for a visual.</p>
+   * @public
+   */
+  Actions?: VisualCustomAction[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
+}
+
+/**
+ * <p>Aggregated field wells of a tree map.</p>
+ * @public
+ */
+export interface TreeMapAggregatedFieldWells {
+  /**
+   * <p>The group by field well of a tree map. Values are grouped based on group by fields.</p>
+   * @public
+   */
+  Groups?: DimensionField[] | undefined;
+
+  /**
+   * <p>The size field well of a tree map. Values are aggregated based on group by fields.</p>
+   * @public
+   */
+  Sizes?: MeasureField[] | undefined;
+
+  /**
+   * <p>The color field well of a tree map. Values are grouped by aggregations based on group by fields.</p>
+   * @public
+   */
+  Colors?: MeasureField[] | undefined;
+}
+
+/**
+ * <p>The field wells of a tree map.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface TreeMapFieldWells {
+  /**
+   * <p>The aggregated field wells of a tree map.</p>
+   * @public
+   */
+  TreeMapAggregatedFieldWells?: TreeMapAggregatedFieldWells | undefined;
+}
 
 /**
  * <p>The sort configuration of a tree map.</p>
@@ -1135,94 +1262,6 @@ export interface TopicIdentifierDeclaration {
    * @public
    */
   TopicArn: string | undefined;
-}
-
-/**
- * <p>The definition of an analysis.</p>
- * @public
- */
-export interface AnalysisDefinition {
-  /**
-   * <p>An array of dataset identifier declarations. This mapping allows the usage of dataset identifiers instead
-   *             of dataset ARNs throughout analysis sub-structures.</p>
-   * @public
-   */
-  DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[] | undefined;
-
-  /**
-   * <p>An array of topic identifier declarations. This mapping allows the usage of topic identifiers instead
-   *             of topic ARNs throughout analysis sub-structures.</p>
-   * @public
-   */
-  TopicIdentifierDeclarations?: TopicIdentifierDeclaration[] | undefined;
-
-  /**
-   * <p>An array of sheet definitions for an analysis. Each <code>SheetDefinition</code> provides detailed information about
-   *             a sheet within this analysis.</p>
-   * @public
-   */
-  Sheets?: SheetDefinition[] | undefined;
-
-  /**
-   * <p>An array of tooltip sheet definitions for an analysis. Each <code>TooltipSheetDefinition</code> provides detailed information about
-   *             a tooltip sheet within this analysis.</p>
-   * @public
-   */
-  TooltipSheets?: TooltipSheetDefinition[] | undefined;
-
-  /**
-   * <p>An array of calculated field definitions for the analysis.</p>
-   * @public
-   */
-  CalculatedFields?: CalculatedField[] | undefined;
-
-  /**
-   * <p>An array of parameter declarations for an analysis.</p>
-   *          <p>Parameters are named variables that can transfer a value for use by an action or an object.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  ParameterDeclarations?: ParameterDeclaration[] | undefined;
-
-  /**
-   * <p>Filter definitions for an analysis.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  FilterGroups?: FilterGroup[] | undefined;
-
-  /**
-   * <p>
-   *             An array of analysis-level column configurations. Column configurations can be used to set default
-   *             formatting for a column to be used throughout an analysis.
-   *         </p>
-   * @public
-   */
-  ColumnConfigurations?: ColumnConfiguration[] | undefined;
-
-  /**
-   * <p>The configuration for default analysis settings.</p>
-   * @public
-   */
-  AnalysisDefaults?: AnalysisDefaults | undefined;
-
-  /**
-   * <p>An array of option definitions for an analysis.</p>
-   * @public
-   */
-  Options?: AssetOptions | undefined;
-
-  /**
-   * <p>A structure that describes the query execution options.</p>
-   * @public
-   */
-  QueryExecutionOptions?: QueryExecutionOptions | undefined;
-
-  /**
-   * <p>The static files for the definition.</p>
-   * @public
-   */
-  StaticFiles?: StaticFile[] | undefined;
 }
 
 /**
@@ -3040,6 +3079,54 @@ export interface CustomConnectionParameters {
 }
 
 /**
+ * <p>VPC connection properties.</p>
+ * @public
+ */
+export interface VpcConnectionProperties {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
+   * @public
+   */
+  VpcConnectionArn: string | undefined;
+}
+
+/**
+ * <p>An object that contains information needed to create a data source connection that uses OAuth client credentials. This option is available for data source connections that are made with Snowflake, Starburst, and Databricks.</p>
+ * @public
+ */
+export interface OAuthParameters {
+  /**
+   * <p>The token endpoint URL of the identity provider.</p>
+   * @public
+   */
+  TokenProviderUrl: string | undefined;
+
+  /**
+   * <p>The OAuth scope.</p>
+   * @public
+   */
+  OAuthScope?: string | undefined;
+
+  /**
+   * <p>VPC connection properties.</p>
+   * @public
+   */
+  IdentityProviderVpcConnectionProperties?: VpcConnectionProperties | undefined;
+
+  /**
+   * <p>The resource uri of the identity provider.</p>
+   * @public
+   */
+  IdentityProviderResourceUri?: string | undefined;
+
+  /**
+   * <p>The S3 URI of the identity provider's CA certificates bundle in PEM format. Use this parameter to provide a custom CA certificate bundle for the identity provider when the default trust store does not include the required certificates.</p>
+   * @public
+   */
+  IdentityProviderCACertificatesBundleS3Uri?: string | undefined;
+}
+
+/**
  * <p>The parameters that are required to connect to a Databricks data source.</p>
  * @public
  */
@@ -3061,6 +3148,18 @@ export interface DatabricksParameters {
    * @public
    */
   SqlEndpointPath: string | undefined;
+
+  /**
+   * <p>The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.</p>
+   * @public
+   */
+  AuthenticationType?: AuthenticationType | undefined;
+
+  /**
+   * <p>An object that contains information needed to create a data source connection between an Quick Sight account and Databricks.</p>
+   * @public
+   */
+  OAuthParameters?: OAuthParameters | undefined;
 }
 
 /**
@@ -3590,54 +3689,6 @@ export interface SharePointParameters {
    * @public
    */
   AuthType?: AuthType | undefined;
-}
-
-/**
- * <p>VPC connection properties.</p>
- * @public
- */
-export interface VpcConnectionProperties {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
-   * @public
-   */
-  VpcConnectionArn: string | undefined;
-}
-
-/**
- * <p>An object that contains information needed to create a data source connection that uses OAuth client credentials. This option is available for data source connections that are made with Snowflake and Starburst.</p>
- * @public
- */
-export interface OAuthParameters {
-  /**
-   * <p>The token endpoint URL of the identity provider.</p>
-   * @public
-   */
-  TokenProviderUrl: string | undefined;
-
-  /**
-   * <p>The OAuth scope.</p>
-   * @public
-   */
-  OAuthScope?: string | undefined;
-
-  /**
-   * <p>VPC connection properties.</p>
-   * @public
-   */
-  IdentityProviderVpcConnectionProperties?: VpcConnectionProperties | undefined;
-
-  /**
-   * <p>The resource uri of the identity provider.</p>
-   * @public
-   */
-  IdentityProviderResourceUri?: string | undefined;
-
-  /**
-   * <p>The S3 URI of the identity provider's CA certificates bundle in PEM format. Use this parameter to provide a custom CA certificate bundle for the identity provider when the default trust store does not include the required certificates.</p>
-   * @public
-   */
-  IdentityProviderCACertificatesBundleS3Uri?: string | undefined;
 }
 
 /**
@@ -12198,92 +12249,6 @@ export interface ValidationStrategy {
 /**
  * @public
  */
-export interface CreateAnalysisRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account where you are creating an analysis.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the analysis that you're creating. This ID displays in the URL of the
-   *             analysis.</p>
-   * @public
-   */
-  AnalysisId: string | undefined;
-
-  /**
-   * <p>A descriptive name for the analysis that you're creating. This name displays for the
-   *             analysis in the Amazon Quick Sight console. </p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The parameter names and override values that you want to use. An analysis can have
-   *             any parameter type, and some parameters might accept multiple values. </p>
-   * @public
-   */
-  Parameters?: _Parameters | undefined;
-
-  /**
-   * <p>A structure that describes the principals and the resource-level permissions on an
-   *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
-   *             providing a list of Identity and Access Management (IAM) action information for each
-   *             principal listed by Amazon Resource Name (ARN). </p>
-   *          <p>To specify no permissions, omit <code>Permissions</code>.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>A source entity to use for the analysis that you're creating. This metadata structure
-   *             contains details that describe a source template and one or more datasets or topics.</p>
-   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
-   *             order for the request to be valid.</p>
-   * @public
-   */
-  SourceEntity?: AnalysisSourceEntity | undefined;
-
-  /**
-   * <p>The ARN for the theme to apply to the analysis that you're creating. To see the theme
-   *             in the Amazon Quick Sight console, make sure that you have access to it.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-   *             analysis.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The definition of an analysis.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
-   *             order for the request to be valid.</p>
-   * @public
-   */
-  Definition?: AnalysisDefinition | undefined;
-
-  /**
-   * <p>The option to relax the validation needed to create an analysis with definition objects. This skips the validation step for specific errors.</p>
-   * @public
-   */
-  ValidationStrategy?: ValidationStrategy | undefined;
-
-  /**
-   * <p>When you create the analysis, Amazon Quick Sight adds the analysis to these folders.</p>
-   * @public
-   */
-  FolderArns?: string[] | undefined;
-}
-
-/**
- * @public
- */
 export interface CreateAnalysisResponse {
   /**
    * <p>The ARN for the analysis.</p>
@@ -12788,84 +12753,6 @@ export interface DashboardPublishOptions {
 }
 
 /**
- * <p>The contents of a dashboard.</p>
- * @public
- */
-export interface DashboardVersionDefinition {
-  /**
-   * <p>An array of dataset identifier declarations. With
-   *             this mapping,you can use dataset identifiers instead of dataset Amazon Resource Names (ARNs) throughout the dashboard's sub-structures.</p>
-   * @public
-   */
-  DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[] | undefined;
-
-  /**
-   * <p>An array of topic identifier declarations. With
-   *             this mapping, you can use topic identifiers instead of topic Amazon Resource Names (ARNs) throughout the dashboard's sub-structures.</p>
-   * @public
-   */
-  TopicIdentifierDeclarations?: TopicIdentifierDeclaration[] | undefined;
-
-  /**
-   * <p>An array of sheet definitions for a dashboard.</p>
-   * @public
-   */
-  Sheets?: SheetDefinition[] | undefined;
-
-  /**
-   * <p>An array of tooltip sheet definitions for a dashboard.</p>
-   * @public
-   */
-  TooltipSheets?: TooltipSheetDefinition[] | undefined;
-
-  /**
-   * <p>An array of calculated field definitions for the dashboard.</p>
-   * @public
-   */
-  CalculatedFields?: CalculatedField[] | undefined;
-
-  /**
-   * <p>The parameter declarations for a dashboard. Parameters are named variables that can transfer a value for use by an action or an object.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  ParameterDeclarations?: ParameterDeclaration[] | undefined;
-
-  /**
-   * <p>The filter definitions for a dashboard.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering Data in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  FilterGroups?: FilterGroup[] | undefined;
-
-  /**
-   * <p>An array of dashboard-level column configurations. Column configurations
-   *             are used to set the default formatting for a column that
-   *             is used throughout a dashboard. </p>
-   * @public
-   */
-  ColumnConfigurations?: ColumnConfiguration[] | undefined;
-
-  /**
-   * <p>The configuration for default analysis settings.</p>
-   * @public
-   */
-  AnalysisDefaults?: AnalysisDefaults | undefined;
-
-  /**
-   * <p>An array of option definitions for a dashboard.</p>
-   * @public
-   */
-  Options?: AssetOptions | undefined;
-
-  /**
-   * <p>The static files for the definition.</p>
-   * @public
-   */
-  StaticFiles?: StaticFile[] | undefined;
-}
-
-/**
  * <p>A structure that contains the configuration of a shareable link to the
  *             dashboard.</p>
  * @public
@@ -12917,180 +12804,6 @@ export interface DashboardSourceEntity {
 /**
  * @public
  */
-export interface CreateDashboardRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account where you want to create the
-   *             dashboard.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard, also added to the IAM policy.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The display name of the dashboard.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The parameters for the creation of the dashboard, which you want to use to override
-   *             the default settings. A dashboard can have any type of parameters, and some parameters
-   *             might accept multiple values. </p>
-   * @public
-   */
-  Parameters?: _Parameters | undefined;
-
-  /**
-   * <p>A structure that contains the permissions of the dashboard. You can use this structure
-   *             for granting permissions by providing a list of IAM action information
-   *             for each principal ARN. </p>
-   *          <p>To specify no permissions, omit the permissions list.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The entity that you are using as a source when you create the dashboard. In
-   *                 <code>SourceEntity</code>, you specify the type of object you're using as source.
-   *             You can only create a dashboard from a template, so you use a
-   *                 <code>SourceTemplate</code> entity. If you need to create a dashboard from an
-   *             analysis, first convert the analysis to a template by using the <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
-   *             </code> API operation. For <code>SourceTemplate</code>,
-   *             specify the Amazon Resource Name (ARN) of the source template. The
-   *                 <code>SourceTemplate</code>ARN can contain any Amazon Web Services account and any
-   *                 Amazon Quick Sight-supported Amazon Web Services Region. </p>
-   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
-   *             list the replacement datasets for the placeholders listed in the original. The schema in
-   *             each dataset must match its placeholder. Use the <code>TopicReferences</code>
-   *             entity to list the replacement topics for the topic placeholders listed in the original.
-   *             The schema in each topic must match its placeholder.</p>
-   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
-   *             order for the request to be valid.</p>
-   * @public
-   */
-  SourceEntity?: DashboardSourceEntity | undefined;
-
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-   *             dashboard.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>A description for the first version of the dashboard being created.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>Options for publishing the dashboard when you create it:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, Amazon Quick Sight disables the left filter pane on
-   *                     the published dashboard, which can be used for ad hoc (one-time) filtering. This
-   *                     option is <code>ENABLED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
-   *                     option to export data to .CSV format isn't enabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by default.
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
-   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
-   *                     This option is <code>COLLAPSED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>QuickSuiteActionsOption</code> -
-   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>.
-   *                     Features related to Actions in Amazon Quick Suite on dashboards are disabled
-   *                     when this is set to <code>DISABLED</code>. This option is <code>DISABLED</code>
-   *                     by default.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The option
-   *                     to build an executive summary is disabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
-   *                     default.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> -
-   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The
-   *                     option to share a data story is disabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
-   *                     default.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DashboardPublishOptions?: DashboardPublishOptions | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-   *             you add a value for this field, it overrides the value that is used in the source
-   *             entity. The theme ARN must exist in the same Amazon Web Services account where you create
-   *             the dashboard.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of a dashboard.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
-   *             order for the request to be valid.</p>
-   * @public
-   */
-  Definition?: DashboardVersionDefinition | undefined;
-
-  /**
-   * <p>The option to relax the validation needed to create a dashboard with definition
-   *             objects. This option skips the validation step for specific errors.</p>
-   * @public
-   */
-  ValidationStrategy?: ValidationStrategy | undefined;
-
-  /**
-   * <p>When you create the dashboard, Amazon Quick Sight adds the dashboard to these
-   *             folders.</p>
-   * @public
-   */
-  FolderArns?: string[] | undefined;
-
-  /**
-   * <p>A structure that contains the permissions of a shareable link to the dashboard.</p>
-   * @public
-   */
-  LinkSharingConfiguration?: LinkSharingConfiguration | undefined;
-
-  /**
-   * <p>A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
-   * @public
-   */
-  LinkEntities?: string[] | undefined;
-}
-
-/**
- * @public
- */
 export interface CreateDashboardResponse {
   /**
    * <p>The ARN of the dashboard.</p>
@@ -13128,34 +12841,4 @@ export interface CreateDashboardResponse {
    * @public
    */
   RequestId?: string | undefined;
-}
-
-/**
- * <p>Specifies the source of data for a destination table, including the transform operation and column mappings.</p>
- * @public
- */
-export interface DestinationTableSource {
-  /**
-   * <p>The identifier of the transform operation that provides data to the destination table.</p>
-   * @public
-   */
-  TransformOperationId: string | undefined;
-}
-
-/**
- * <p>Defines a destination table in data preparation that receives the final transformed data.</p>
- * @public
- */
-export interface DestinationTable {
-  /**
-   * <p>Alias for the destination table.</p>
-   * @public
-   */
-  Alias: string | undefined;
-
-  /**
-   * <p>The source configuration that specifies which transform operation provides data to this destination table.</p>
-   * @public
-   */
-  Source: DestinationTableSource | undefined;
 }
