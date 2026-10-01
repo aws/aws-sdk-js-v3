@@ -503,6 +503,7 @@ export type OriginAccessControlOriginTypes =
  */
 export const OriginAccessControlSigningBehaviors = {
   always: "always",
+  always_amz_auth: "always-amz-auth",
   never: "never",
   no_override: "no-override",
 } as const;

@@ -44,7 +44,7 @@ export interface GetOriginAccessControlCommandOutput extends GetOriginAccessCont
  * //       Name: "STRING_VALUE", // required
  * //       Description: "STRING_VALUE",
  * //       SigningProtocol: "sigv4" || "sigv4a", // required
- * //       SigningBehavior: "never" || "always" || "no-override", // required
+ * //       SigningBehavior: "never" || "always" || "no-override" || "always-amz-auth", // required
  * //       OriginAccessControlOriginType: "s3" || "mediastore" || "mediapackagev2" || "lambda", // required
  * //     },
  * //   },
