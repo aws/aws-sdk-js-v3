@@ -829,6 +829,9 @@ import {
   EnableSecurityHubV2Response$,
   EnumConfigurationOptions$,
   EnumListConfigurationOptions$,
+  ExposureFinding$,
+  ExposureImpact,
+  ExposureSeverity,
   ExternalIntegrationConfiguration$,
   FeatureDetail$,
   FeatureName,
@@ -939,6 +942,10 @@ import {
   GetRecommendedPolicyV2Command,
   GetRecommendedPolicyV2Request$,
   GetRecommendedPolicyV2Response$,
+  GetRemediationsV2$,
+  GetRemediationsV2Command,
+  GetRemediationsV2Request$,
+  GetRemediationsV2Response$,
   GetResourcesStatisticsV2$,
   GetResourcesStatisticsV2Command,
   GetResourcesStatisticsV2Request$,
@@ -960,6 +967,7 @@ import {
   GroupByResult$,
   GroupByRule$,
   GroupByValue$,
+  GuidanceFormat,
   HealthCheck$,
   HealthIssue$,
   HealthIssueCode,
@@ -992,6 +1000,7 @@ import {
   JiraCloudDetail$,
   JiraCloudProviderConfiguration$,
   JiraCloudUpdateConfiguration$,
+  KbArticle$,
   KeywordFilter$,
   LimitExceededException,
   LimitExceededException$,
@@ -1027,6 +1036,10 @@ import {
   ListEnabledProductsForImportCommand,
   ListEnabledProductsForImportRequest$,
   ListEnabledProductsForImportResponse$,
+  ListExposuresByRemediationV2$,
+  ListExposuresByRemediationV2Command,
+  ListExposuresByRemediationV2Request$,
+  ListExposuresByRemediationV2Response$,
   ListFindingAggregators$,
   ListFindingAggregatorsCommand,
   ListFindingAggregatorsRequest$,
@@ -1114,12 +1127,14 @@ import {
   paginateGetFindingsV2,
   paginateGetInsights,
   paginateGetRecommendedPolicyV2,
+  paginateGetRemediationsV2,
   paginateGetResourcesTrendsV2,
   paginateGetResourcesV2,
   paginateListAggregatorsV2,
   paginateListConfigurationPolicies,
   paginateListConfigurationPolicyAssociations,
   paginateListEnabledProductsForImport,
+  paginateListExposuresByRemediationV2,
   paginateListFindingAggregators,
   paginateListFreeTrialStatusesV2,
   paginateListInvitations,
@@ -1160,6 +1175,25 @@ import {
   RegisterConnectorV2Response$,
   RelatedFinding$,
   Remediation$,
+  RemediationCompositeFilter$,
+  RemediationFilters$,
+  RemediationGuidance$,
+  RemediationGuidanceContext$,
+  RemediationGuidanceExamples$,
+  RemediationGuidanceMetadata$,
+  RemediationGuidanceSpecification$,
+  RemediationOutcome$,
+  RemediationParameter$,
+  RemediationPriority,
+  RemediationResource$,
+  RemediationStatus,
+  RemediationStep$,
+  RemediationStringField,
+  RemediationStringFilter$,
+  RemediationStringFilterCondition$,
+  RemediationSummaryDetail$,
+  RemediationTrait$,
+  RemediationV2Item$,
   Resource$,
   ResourceCategory,
   ResourceConflictException,
@@ -1543,6 +1577,8 @@ assert(typeof GetMembersCommand === "function");
 assert(typeof GetMembers$ === "object");
 assert(typeof GetRecommendedPolicyV2Command === "function");
 assert(typeof GetRecommendedPolicyV2$ === "object");
+assert(typeof GetRemediationsV2Command === "function");
+assert(typeof GetRemediationsV2$ === "object");
 assert(typeof GetResourcesStatisticsV2Command === "function");
 assert(typeof GetResourcesStatisticsV2$ === "object");
 assert(typeof GetResourcesTrendsV2Command === "function");
@@ -1569,6 +1605,8 @@ assert(typeof ListConnectorsV2Command === "function");
 assert(typeof ListConnectorsV2$ === "object");
 assert(typeof ListEnabledProductsForImportCommand === "function");
 assert(typeof ListEnabledProductsForImport$ === "object");
+assert(typeof ListExposuresByRemediationV2Command === "function");
+assert(typeof ListExposuresByRemediationV2$ === "object");
 assert(typeof ListFindingAggregatorsCommand === "function");
 assert(typeof ListFindingAggregators$ === "object");
 assert(typeof ListFreeTrialStatusesV2Command === "function");
@@ -2306,6 +2344,7 @@ assert(typeof EnableSecurityHubV2Request$ === "object");
 assert(typeof EnableSecurityHubV2Response$ === "object");
 assert(typeof EnumConfigurationOptions$ === "object");
 assert(typeof EnumListConfigurationOptions$ === "object");
+assert(typeof ExposureFinding$ === "object");
 assert(typeof ExternalIntegrationConfiguration$ === "object");
 assert(typeof FeatureDetail$ === "object");
 assert(typeof FilePaths$ === "object");
@@ -2368,6 +2407,8 @@ assert(typeof GetMembersRequest$ === "object");
 assert(typeof GetMembersResponse$ === "object");
 assert(typeof GetRecommendedPolicyV2Request$ === "object");
 assert(typeof GetRecommendedPolicyV2Response$ === "object");
+assert(typeof GetRemediationsV2Request$ === "object");
+assert(typeof GetRemediationsV2Response$ === "object");
 assert(typeof GetResourcesStatisticsV2Request$ === "object");
 assert(typeof GetResourcesStatisticsV2Response$ === "object");
 assert(typeof GetResourcesTrendsV2Request$ === "object");
@@ -2398,6 +2439,7 @@ assert(typeof Ipv6CidrBlockAssociation$ === "object");
 assert(typeof JiraCloudDetail$ === "object");
 assert(typeof JiraCloudProviderConfiguration$ === "object");
 assert(typeof JiraCloudUpdateConfiguration$ === "object");
+assert(typeof KbArticle$ === "object");
 assert(typeof KeywordFilter$ === "object");
 assert(typeof ListAggregatorsV2Request$ === "object");
 assert(typeof ListAggregatorsV2Response$ === "object");
@@ -2415,6 +2457,8 @@ assert(typeof ListConnectorsV2Request$ === "object");
 assert(typeof ListConnectorsV2Response$ === "object");
 assert(typeof ListEnabledProductsForImportRequest$ === "object");
 assert(typeof ListEnabledProductsForImportResponse$ === "object");
+assert(typeof ListExposuresByRemediationV2Request$ === "object");
+assert(typeof ListExposuresByRemediationV2Response$ === "object");
 assert(typeof ListFindingAggregatorsRequest$ === "object");
 assert(typeof ListFindingAggregatorsResponse$ === "object");
 assert(typeof ListFreeTrialStatusesV2Request$ === "object");
@@ -2484,6 +2528,22 @@ assert(typeof RegisterConnectorV2Request$ === "object");
 assert(typeof RegisterConnectorV2Response$ === "object");
 assert(typeof RelatedFinding$ === "object");
 assert(typeof Remediation$ === "object");
+assert(typeof RemediationCompositeFilter$ === "object");
+assert(typeof RemediationFilters$ === "object");
+assert(typeof RemediationGuidance$ === "object");
+assert(typeof RemediationGuidanceContext$ === "object");
+assert(typeof RemediationGuidanceExamples$ === "object");
+assert(typeof RemediationGuidanceMetadata$ === "object");
+assert(typeof RemediationGuidanceSpecification$ === "object");
+assert(typeof RemediationOutcome$ === "object");
+assert(typeof RemediationParameter$ === "object");
+assert(typeof RemediationResource$ === "object");
+assert(typeof RemediationStep$ === "object");
+assert(typeof RemediationStringFilter$ === "object");
+assert(typeof RemediationStringFilterCondition$ === "object");
+assert(typeof RemediationSummaryDetail$ === "object");
+assert(typeof RemediationTrait$ === "object");
+assert(typeof RemediationV2Item$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ResourceDetails$ === "object");
 assert(typeof ResourceFindingsSummary$ === "object");
@@ -2651,6 +2711,8 @@ assert(typeof DateRangeComparison === "object");
 assert(typeof DateRangeUnit === "object");
 assert(typeof DiscoveryType === "object");
 assert(typeof EnablementStatus === "object");
+assert(typeof ExposureImpact === "object");
+assert(typeof ExposureSeverity === "object");
 assert(typeof FeatureName === "object");
 assert(typeof FeatureStatus === "object");
 assert(typeof FindingHistoryUpdateSourceType === "object");
@@ -2659,6 +2721,7 @@ assert(typeof FreeTrialStatusValue === "object");
 assert(typeof FreeTrialType === "object");
 assert(typeof GranularityField === "object");
 assert(typeof GroupByField === "object");
+assert(typeof GuidanceFormat === "object");
 assert(typeof HealthIssueCode === "object");
 assert(typeof IntegrationType === "object");
 assert(typeof IntegrationV2Type === "object");
@@ -2680,6 +2743,9 @@ assert(typeof RecommendationStatus === "object");
 assert(typeof RecommendationType === "object");
 assert(typeof RecordState === "object");
 assert(typeof RegionAvailabilityStatus === "object");
+assert(typeof RemediationPriority === "object");
+assert(typeof RemediationStatus === "object");
+assert(typeof RemediationStringField === "object");
 assert(typeof ResourceCategory === "object");
 assert(typeof ResourceGroupByField === "object");
 assert(typeof ResourcesDateField === "object");
@@ -2758,12 +2824,14 @@ assert(typeof paginateGetFindingsTrendsV2 === "function");
 assert(typeof paginateGetFindingsV2 === "function");
 assert(typeof paginateGetInsights === "function");
 assert(typeof paginateGetRecommendedPolicyV2 === "function");
+assert(typeof paginateGetRemediationsV2 === "function");
 assert(typeof paginateGetResourcesTrendsV2 === "function");
 assert(typeof paginateGetResourcesV2 === "function");
 assert(typeof paginateListAggregatorsV2 === "function");
 assert(typeof paginateListConfigurationPolicies === "function");
 assert(typeof paginateListConfigurationPolicyAssociations === "function");
 assert(typeof paginateListEnabledProductsForImport === "function");
+assert(typeof paginateListExposuresByRemediationV2 === "function");
 assert(typeof paginateListFindingAggregators === "function");
 assert(typeof paginateListFreeTrialStatusesV2 === "function");
 assert(typeof paginateListInvitations === "function");

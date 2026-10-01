@@ -398,6 +398,11 @@ import {
   GetRecommendedPolicyV2Command,
 } from "./commands/GetRecommendedPolicyV2Command";
 import {
+  type GetRemediationsV2CommandInput,
+  type GetRemediationsV2CommandOutput,
+  GetRemediationsV2Command,
+} from "./commands/GetRemediationsV2Command";
+import {
   type GetResourcesStatisticsV2CommandInput,
   type GetResourcesStatisticsV2CommandOutput,
   GetResourcesStatisticsV2Command,
@@ -462,6 +467,11 @@ import {
   type ListEnabledProductsForImportCommandOutput,
   ListEnabledProductsForImportCommand,
 } from "./commands/ListEnabledProductsForImportCommand";
+import {
+  type ListExposuresByRemediationV2CommandInput,
+  type ListExposuresByRemediationV2CommandOutput,
+  ListExposuresByRemediationV2Command,
+} from "./commands/ListExposuresByRemediationV2Command";
 import {
   type ListFindingAggregatorsCommandInput,
   type ListFindingAggregatorsCommandOutput,
@@ -604,12 +614,14 @@ import { paginateGetFindingsTrendsV2 } from "./pagination/GetFindingsTrendsV2Pag
 import { paginateGetFindingsV2 } from "./pagination/GetFindingsV2Paginator";
 import { paginateGetInsights } from "./pagination/GetInsightsPaginator";
 import { paginateGetRecommendedPolicyV2 } from "./pagination/GetRecommendedPolicyV2Paginator";
+import { paginateGetRemediationsV2 } from "./pagination/GetRemediationsV2Paginator";
 import { paginateGetResourcesTrendsV2 } from "./pagination/GetResourcesTrendsV2Paginator";
 import { paginateGetResourcesV2 } from "./pagination/GetResourcesV2Paginator";
 import { paginateListAggregatorsV2 } from "./pagination/ListAggregatorsV2Paginator";
 import { paginateListConfigurationPolicies } from "./pagination/ListConfigurationPoliciesPaginator";
 import { paginateListConfigurationPolicyAssociations } from "./pagination/ListConfigurationPolicyAssociationsPaginator";
 import { paginateListEnabledProductsForImport } from "./pagination/ListEnabledProductsForImportPaginator";
+import { paginateListExposuresByRemediationV2 } from "./pagination/ListExposuresByRemediationV2Paginator";
 import { paginateListFindingAggregators } from "./pagination/ListFindingAggregatorsPaginator";
 import { paginateListFreeTrialStatusesV2 } from "./pagination/ListFreeTrialStatusesV2Paginator";
 import { paginateListInvitations } from "./pagination/ListInvitationsPaginator";
@@ -698,6 +710,7 @@ const commands = {
   GetMasterAccountCommand,
   GetMembersCommand,
   GetRecommendedPolicyV2Command,
+  GetRemediationsV2Command,
   GetResourcesStatisticsV2Command,
   GetResourcesTrendsV2Command,
   GetResourcesV2Command,
@@ -711,6 +724,7 @@ const commands = {
   ListConnectorsCommand,
   ListConnectorsV2Command,
   ListEnabledProductsForImportCommand,
+  ListExposuresByRemediationV2Command,
   ListFindingAggregatorsCommand,
   ListFreeTrialStatusesV2Command,
   ListInvitationsCommand,
@@ -751,12 +765,14 @@ const paginators = {
   paginateGetFindingsV2,
   paginateGetInsights,
   paginateGetRecommendedPolicyV2,
+  paginateGetRemediationsV2,
   paginateGetResourcesTrendsV2,
   paginateGetResourcesV2,
   paginateListAggregatorsV2,
   paginateListConfigurationPolicies,
   paginateListConfigurationPolicyAssociations,
   paginateListEnabledProductsForImport,
+  paginateListExposuresByRemediationV2,
   paginateListFindingAggregators,
   paginateListFreeTrialStatusesV2,
   paginateListInvitations,
@@ -2122,6 +2138,24 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link GetRemediationsV2Command}
+   */
+  getRemediationsV2(): Promise<GetRemediationsV2CommandOutput>;
+  getRemediationsV2(
+    args: GetRemediationsV2CommandInput,
+    options?: SecurityHubRequestOptions
+  ): Promise<GetRemediationsV2CommandOutput>;
+  getRemediationsV2(
+    args: GetRemediationsV2CommandInput,
+    cb: (err: any, data?: GetRemediationsV2CommandOutput) => void
+  ): void;
+  getRemediationsV2(
+    args: GetRemediationsV2CommandInput,
+    options: SecurityHubRequestOptions,
+    cb: (err: any, data?: GetRemediationsV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetResourcesStatisticsV2Command}
    */
   getResourcesStatisticsV2(
@@ -2349,6 +2383,23 @@ export interface SecurityHub {
     args: ListEnabledProductsForImportCommandInput,
     options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListEnabledProductsForImportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExposuresByRemediationV2Command}
+   */
+  listExposuresByRemediationV2(
+    args: ListExposuresByRemediationV2CommandInput,
+    options?: SecurityHubRequestOptions
+  ): Promise<ListExposuresByRemediationV2CommandOutput>;
+  listExposuresByRemediationV2(
+    args: ListExposuresByRemediationV2CommandInput,
+    cb: (err: any, data?: ListExposuresByRemediationV2CommandOutput) => void
+  ): void;
+  listExposuresByRemediationV2(
+    args: ListExposuresByRemediationV2CommandInput,
+    options: SecurityHubRequestOptions,
+    cb: (err: any, data?: ListExposuresByRemediationV2CommandOutput) => void
   ): void;
 
   /**
@@ -2933,6 +2984,17 @@ export interface SecurityHub {
   ): Paginator<GetRecommendedPolicyV2CommandOutput>;
 
   /**
+   * @see {@link GetRemediationsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetRemediationsV2CommandOutput}.
+   */
+  paginateGetRemediationsV2(
+    args?: GetRemediationsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetRemediationsV2CommandOutput>;
+
+  /**
    * @see {@link GetResourcesTrendsV2Command}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2997,6 +3059,17 @@ export interface SecurityHub {
     args?: ListEnabledProductsForImportCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListEnabledProductsForImportCommandOutput>;
+
+  /**
+   * @see {@link ListExposuresByRemediationV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExposuresByRemediationV2CommandOutput}.
+   */
+  paginateListExposuresByRemediationV2(
+    args: ListExposuresByRemediationV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExposuresByRemediationV2CommandOutput>;
 
   /**
    * @see {@link ListFindingAggregatorsCommand}

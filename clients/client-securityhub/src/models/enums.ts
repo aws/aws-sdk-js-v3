@@ -1136,6 +1136,36 @@ export type DiscoveryType = (typeof DiscoveryType)[keyof typeof DiscoveryType];
  * @public
  * @enum
  */
+export const ExposureImpact = {
+  REDUCES: "Reduces",
+  RESOLVES: "Resolves",
+  UNCHANGED: "Unchanged",
+} as const;
+/**
+ * @public
+ */
+export type ExposureImpact = (typeof ExposureImpact)[keyof typeof ExposureImpact];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExposureSeverity = {
+  CRITICAL: "Critical",
+  HIGH: "High",
+  INFORMATIONAL: "Informational",
+  LOW: "Low",
+  MEDIUM: "Medium",
+} as const;
+/**
+ * @public
+ */
+export type ExposureSeverity = (typeof ExposureSeverity)[keyof typeof ExposureSeverity];
+
+/**
+ * @public
+ * @enum
+ */
 export const FindingHistoryUpdateSourceType = {
   BATCH_IMPORT_FINDINGS: "BATCH_IMPORT_FINDINGS",
   BATCH_UPDATE_FINDINGS: "BATCH_UPDATE_FINDINGS",
@@ -1265,6 +1295,72 @@ export const RecommendationStatus = {
  * @public
  */
 export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof RecommendationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RemediationStringField = {
+  PRIORITY: "Priority",
+  RESOURCE_CLOUD_PROVIDER: "Resource.CloudProvider",
+  RESOURCE_ID: "Resource.Id",
+  RESOURCE_OWNER_ACCOUNT_ID: "Resource.ResourceOwnerAccountId",
+  RESOURCE_TYPE: "Resource.Type",
+  STATUS: "Status",
+} as const;
+/**
+ * @public
+ */
+export type RemediationStringField = (typeof RemediationStringField)[keyof typeof RemediationStringField];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuidanceFormat = {
+  ALL: "All",
+  AWS_CLI: "AwsCli",
+  CDK: "Cdk",
+  CLI: "Cli",
+  CLOUDFORMATION: "CloudFormation",
+  IAC: "IaC",
+  PYTHON: "Python",
+  TEMPLATE: "Template",
+  TERRAFORM: "Terraform",
+} as const;
+/**
+ * @public
+ */
+export type GuidanceFormat = (typeof GuidanceFormat)[keyof typeof GuidanceFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const RemediationPriority = {
+  CRITICAL: "Critical",
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+} as const;
+/**
+ * @public
+ */
+export type RemediationPriority = (typeof RemediationPriority)[keyof typeof RemediationPriority];
+
+/**
+ * @public
+ * @enum
+ */
+export const RemediationStatus = {
+  NEW: "New",
+  RESOLVED: "Resolved",
+  UPDATED: "Updated",
+} as const;
+/**
+ * @public
+ */
+export type RemediationStatus = (typeof RemediationStatus)[keyof typeof RemediationStatus];
 
 /**
  * @public

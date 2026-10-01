@@ -17,11 +17,14 @@ import type {
   CspmConnectorStatus,
   CspmEnablementStatus,
   EnablementStatus,
+  ExposureImpact,
+  ExposureSeverity,
   FeatureName,
   FeatureStatus,
   FindingHistoryUpdateSourceType,
   FindingsTrendsStringField,
   GranularityField,
+  GuidanceFormat,
   HealthIssueCode,
   IntegrationType,
   IntegrationV2Type,
@@ -38,11 +41,7 @@ import type {
   RecommendationStatus,
   RecommendationType,
   RecordState,
-  ResourcesDateField,
-  ResourcesMapField,
-  ResourcesNumberField,
-  ResourcesStringField,
-  ResourcesTrendsStringField,
+  RemediationStringField,
   RuleStatus,
   ScopeType,
   SecurityControlsProvider,
@@ -8573,6 +8572,57 @@ export interface EnableSecurityHubV2Response {
 }
 
 /**
+ * <p>Provides details about an exposure finding and the effect the specific remediation target has on it.</p>
+ * @public
+ */
+export interface ExposureFinding {
+  /**
+   * <p>The unique identifier (ID) of the Security Hub exposure finding, found under the
+   *          <code>metadata.uid</code> field of the finding.</p>
+   * @public
+   */
+  MetadataUid: string | undefined;
+
+  /**
+   * <p>The title of the exposure finding.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The severity of the exposure finding before the remediation target is resolved.</p>
+   * @public
+   */
+  PreviousSeverity: ExposureSeverity | undefined;
+
+  /**
+   * <p>The severity of the exposure finding after the remediation target is resolved.</p>
+   * @public
+   */
+  ProjectedSeverity: ExposureSeverity | undefined;
+
+  /**
+   * <p>The impact resolving a remediation target has on the exposure finding.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Reduces</code> specifies that resolving the remediation target lowers the severity of the exposure finding, but does not resolve it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Resolves</code> specifies that resolving the remediation target resolves the exposure finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Unchanged</code> specifies that resolving the remediation target does not change the severity of the exposure finding.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Impact: ExposureImpact | undefined;
+}
+
+/**
  * <p>A finding aggregator is a Security Hub CSPM resource that specifies cross-Region aggregation settings, including the
  * home Region and any linked Regions.</p>
  * @public
@@ -10140,298 +10190,426 @@ export interface GetRecommendedPolicyV2Response {
 }
 
 /**
- * <p>Enables the filtering of Amazon Web Services resources based on date and timestamp attributes.</p>
+ * <p>The condition to apply to the string filter.</p>
  * @public
  */
-export interface ResourcesDateFilter {
+export interface RemediationStringFilterCondition {
   /**
-   * <p>The name of the field.</p>
+   * <p>The value the string filter is comparing against.</p>
    * @public
    */
-  FieldName?: ResourcesDateField | undefined;
-
-  /**
-   * <p>A date filter for querying findings.</p>
-   * @public
-   */
-  Filter?: DateFilter | undefined;
+  Value: string | undefined;
 }
 
 /**
- * <p>Enables filtering of Amazon Web Services resources based on key-value map attributes.</p>
+ * <p>A string filter for filtering remediation targets.</p>
  * @public
  */
-export interface ResourcesMapFilter {
+export interface RemediationStringFilter {
   /**
-   * <p>The name of the field.</p>
+   * <p>The name of the filter field. Valid values are <code>Resource.Type</code>, <code>Priority</code>, <code>Status</code>, <code>Resource.Id</code>, <code>Resource.ResourceOwnerAccountId</code>, and <code>Resource.CloudProvider</code>.</p>
    * @public
    */
-  FieldName?: ResourcesMapField | undefined;
+  FieldName: RemediationStringField | undefined;
 
   /**
-   * <p>A map filter for filtering Security Hub CSPM findings. Each map filter provides the field to check for, the
-   *          value to check for, and the comparison operator.</p>
+   * <p>The string filter definition.</p>
    * @public
    */
-  Filter?: MapFilter | undefined;
+  Filter: RemediationStringFilterCondition | undefined;
 }
 
 /**
- * <p>Enables filtering of Amazon Web Services resources based on numerical values.</p>
+ * <p>Enables the creation of criteria for remediation targets.</p>
  * @public
  */
-export interface ResourcesNumberFilter {
+export interface RemediationCompositeFilter {
   /**
-   * <p>The name of the field.</p>
+   * <p>Enables filtering based on string field values.</p>
    * @public
    */
-  FieldName?: ResourcesNumberField | undefined;
-
-  /**
-   * <p>A number filter for querying findings.</p>
-   * @public
-   */
-  Filter?: NumberFilter | undefined;
+  StringFilters?: RemediationStringFilter[] | undefined;
 }
 
 /**
- * <p>Enables filtering of Amazon Web Services resources based on string field values.</p>
+ * <p>Contains the criteria used to filter remediation targets, such as resource type, priority,
+ *          or status.</p>
  * @public
  */
-export interface ResourcesStringFilter {
+export interface RemediationFilters {
   /**
-   * <p>The name of the field.</p>
+   * <p>A collection of complex filtering conditions that can be applied to remediation target data.</p>
    * @public
    */
-  FieldName?: ResourcesStringField | undefined;
-
-  /**
-   * <p>A string filter for filtering Security Hub CSPM findings.</p>
-   * @public
-   */
-  Filter?: StringFilter | undefined;
-}
-
-/**
- * <p>Defines the data boundary for a resources query. Scopes determine which organizational units or organizations to retrieve data from.</p>
- * @public
- */
-export interface ResourceScopes {
-  /**
-   * <p>A list of Organizations scopes to include in the query results. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.</p>
-   * @public
-   */
-  AwsOrganizations?: AwsOrganizationScope[] | undefined;
+  CompositeFilters?: RemediationCompositeFilter[] | undefined;
 }
 
 /**
  * @public
  */
-export interface GetResourcesStatisticsV2Response {
+export interface GetRemediationsV2Request {
   /**
-   * <p>The aggregated statistics about resources based on the specified grouping rule.</p>
+   * <p>The unique identifier (ID) of an existing remediation target to return. Returns the single
+   *          matching target. You can't use <code>TargetUid</code> together with <code>MetadataUid</code>
+   *          or <code>Filters</code>.</p>
    * @public
    */
-  GroupByResults: GroupByResult[] | undefined;
-}
+  TargetUid?: string | undefined;
 
-/**
- * <p>A filter for string-based fields in resources trend data, such as resource type or account ID.</p>
- * @public
- */
-export interface ResourcesTrendsStringFilter {
   /**
-   * <p>The name of the resources field to filter on. You can specify one of the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account_id</code> – The Amazon Web Services account ID that owns the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>region</code> – The Amazon Web Services Region of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_type</code> – The type of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_category</code> – The category of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_cloud_provider</code> – The cloud provider of the resource. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_region</code> – The Region of the resource. For an Amazon Web Services resource, this is the Amazon Web Services Region. For an Azure resource, this is the Azure Region, such as <code>eastus</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_owner_id</code> – The identifier of the account that owns the resource. For an Amazon Web Services resource, this is the Amazon Web Services account ID. For an Azure resource, this is the Azure subscription ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_owner_organization_id</code> – The identifier of the organization that owns the resource. For an Amazon Web Services resource, this is the Amazon Web Services organization ID. For an Azure resource, this is the Azure tenant ID.</p>
-   *             </li>
-   *          </ul>
+   * <p>The unique identifier (ID) of the Security Hub exposure finding, found under the
+   *          <code>metadata.uid</code> field of the finding. Returns the remediation targets associated with
+   *          that finding. You can't use <code>MetadataUid</code> together with <code>TargetUid</code> or
+   *          <code>Filters</code>.</p>
    * @public
    */
-  FieldName?: ResourcesTrendsStringField | undefined;
+  MetadataUid?: string | undefined;
 
   /**
-   * <p>A string filter for filtering Security Hub CSPM findings.</p>
+   * <p>Filters remediation targets based on a set of criteria. You can't use <code>Filters</code>
+   *          together with <code>TargetUid</code> or <code>MetadataUid</code>.</p>
    * @public
    */
-  Filter?: StringFilter | undefined;
-}
+  Filters?: RemediationFilters | undefined;
 
-/**
- * <p>Contains counts of resources for trend analysis.</p>
- * @public
- */
-export interface ResourcesCount {
   /**
-   * <p>The total count of all resources for the given time interval.</p>
+   * <p>Specifies whether to show remediation target guidance.</p>
    * @public
    */
-  AllResources: number | undefined;
-}
+  ShowGuidance?: boolean | undefined;
 
-/**
- * <p>Contains the aggregated resource count values for a specific point in the resources trend timeline.</p>
- * @public
- */
-export interface ResourcesTrendsValues {
   /**
-   * <p>The resource count statistics for this data point in the trend timeline.</p>
+   * <p>The format of the remediation guidance examples to return. Valid values are <code>All</code>,
+   *          <code>AwsCli</code>, <code>Cli</code>, <code>Python</code>, <code>Terraform</code>,
+   *          <code>Cdk</code>, <code>CloudFormation</code>, <code>IaC</code>, and <code>Template</code>.
+   *          If you don't specify a value, all formats are returned. Applies only when
+   *          <code>ShowGuidance</code> is <code>true</code>.</p>
    * @public
    */
-  ResourcesCount: ResourcesCount | undefined;
-}
+  GuidanceFormat?: GuidanceFormat | undefined;
 
-/**
- * <p>Contains the resource trend metrics data for a specific time point in the requested time period.</p>
- * @public
- */
-export interface ResourcesTrendsMetricsResult {
   /**
-   * <p>The timestamp for this data point in the resources trend metrics.</p>
+   * <p>The maximum number of results to return. Valid range is 1-100. If you don't specify a value,
+   *          the operation returns up to 25 results.</p>
    * @public
    */
-  Timestamp: Date | undefined;
+  MaxResults?: number | undefined;
 
   /**
-   * <p>The resource trend metric values associated with this timestamp, including resource counts.</p>
-   * @public
-   */
-  TrendsValues: ResourcesTrendsValues | undefined;
-}
-
-/**
- * @public
- */
-export interface GetResourcesTrendsV2Response {
-  /**
-   * <p>The time interval granularity for the returned trend data (such as DAILY or WEEKLY).</p>
-   * @public
-   */
-  Granularity: GranularityField | undefined;
-
-  /**
-   * <p>The collection of time-series trend metrics, including counts of resources across the specified time period.</p>
-   * @public
-   */
-  TrendsMetrics: ResourcesTrendsMetricsResult[] | undefined;
-
-  /**
-   * <p>The token to use for retrieving the next page of results, if more trend data is available.</p>
+   * <p>The token used to paginate the remediations target list returned.
+   *          On your first call to <code>GetRemediationsV2</code>, omit this parameter or set it
+   *          to <code>NULL</code>. For subsequent calls, use the <code>NextToken</code> value returned in
+   *          the previous response to retrieve the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A comprehensive distribution of security findings by severity level for Amazon Web Services resources.</p>
+ * <p>The context behind the remediation target's existence and guidance.</p>
  * @public
  */
-export interface ResourceSeverityBreakdown {
+export interface RemediationGuidanceContext {
   /**
-   * <p>The number of findings not in any of the severity categories.</p>
+   * <p>Explains the cause which directly created the remediation target.</p>
    * @public
    */
-  Other?: number | undefined;
+  ProblemStatement?: string | undefined;
 
   /**
-   * <p>The number of findings with a severity level of fatal.</p>
+   * <p>An assessment of the existing risk the remediation target creates.</p>
    * @public
    */
-  Fatal?: number | undefined;
+  RiskAssessment?: string | undefined;
 
   /**
-   * <p>The number of findings with a severity level of critical.</p>
+   * <p>The scope of the resources affected by the resolution of the remediation target.</p>
    * @public
    */
-  Critical?: number | undefined;
+  AffectedScope?: string | undefined;
 
   /**
-   * <p>The number of findings with a severity level of high.</p>
+   * <p>An array of prerequisite steps in resolving the remediation target.</p>
    * @public
    */
-  High?: number | undefined;
-
-  /**
-   * <p>The number of findings with a severity level of medium.</p>
-   * @public
-   */
-  Medium?: number | undefined;
-
-  /**
-   * <p>The number of findings with a severity level of low.</p>
-   * @public
-   */
-  Low?: number | undefined;
-
-  /**
-   * <p>The number of findings that provide security-related information.</p>
-   * @public
-   */
-  Informational?: number | undefined;
-
-  /**
-   * <p>The number of findings with a severity level cannot be determined.</p>
-   * @public
-   */
-  Unknown?: number | undefined;
+  Prerequisites?: string[] | undefined;
 }
 
 /**
- * <p>A list of summaries for all finding types on a resource.</p>
+ * <p>Provided remediation guidance examples in different formats that can be run for remediating the target.</p>
  * @public
  */
-export interface ResourceFindingsSummary {
+export interface RemediationGuidanceExamples {
   /**
-   * <p>The category or classification of the security finding.</p>
+   * <p>An AWS CLI snippet version of the example.</p>
    * @public
    */
-  FindingType: string | undefined;
+  AwsCli?: string | undefined;
 
   /**
-   * <p>The name of the product associated with the security finding.</p>
+   * <p>A CLI snippet version of the example.</p>
    * @public
    */
-  ProductName: string | undefined;
+  Cli?: string | undefined;
 
   /**
-   * <p>The total count of security findings.</p>
+   * <p>A Python snippet version of the example.</p>
    * @public
    */
-  TotalFindings: number | undefined;
+  Python?: string | undefined;
 
   /**
-   * <p>A breakdown of security findings by their severity levels.</p>
+   * <p>A Terraform snippet version of the example.</p>
    * @public
    */
-  Severities?: ResourceSeverityBreakdown | undefined;
+  Terraform?: string | undefined;
+
+  /**
+   * <p>A CDK snippet version of the example.</p>
+   * @public
+   */
+  Cdk?: string | undefined;
+
+  /**
+   * <p>A CloudFormation snippet version of the example.</p>
+   * @public
+   */
+  CloudFormation?: string | undefined;
+
+  /**
+   * <p>An IaC snippet version of the example.</p>
+   * @public
+   */
+  IaC?: string | undefined;
+
+  /**
+   * <p>A Template snippet version of the example.</p>
+   * @public
+   */
+  Template?: string | undefined;
+}
+
+/**
+ * <p>The metadata of the remediation guidance.</p>
+ * @public
+ */
+export interface RemediationGuidanceMetadata {
+  /**
+   * <p>The resource type of the remediation target.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The exposure type of the related exposure findings.</p>
+   * @public
+   */
+  ExposureType: string | undefined;
+
+  /**
+   * <p>The titles of traits this guidance applies to.</p>
+   * @public
+   */
+  TraitTitles: string[] | undefined;
+
+  /**
+   * <p>The extent to which changes made in accordance with the guidance can be reversed, for example <code>Fully reversible</code>.</p>
+   * @public
+   */
+  Reversibility: string | undefined;
+
+  /**
+   * <p>When the fix takes effect, for example <code>Immediate</code> or <code>Deferred</code>.</p>
+   * @public
+   */
+  FixEffect: string | undefined;
+
+  /**
+   * <p>The risk when implementing the guidance provided.</p>
+   * @public
+   */
+  RiskLevel: string | undefined;
+
+  /**
+   * <p>The extent to which the guidance can be automated, for example <code>Full</code>.</p>
+   * @public
+   */
+  AutomationLevel?: string | undefined;
+
+  /**
+   * <p>Specifies whether human review is required.</p>
+   * @public
+   */
+  HumanReviewRequired?: boolean | undefined;
+
+  /**
+   * <p>Timestamp of when the guidance was generated.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * @public
+   */
+  GeneratedAt?: Date | undefined;
+
+  /**
+   * <p>Verification status of the guidance.</p>
+   * @public
+   */
+  VerificationStatus?: string | undefined;
+}
+
+/**
+ * <p>A parameter used in running the guidance steps.</p>
+ * @public
+ */
+export interface RemediationParameter {
+  /**
+   * <p>The name of the parameter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of the parameter.</p>
+   * @public
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>A description of the parameter.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>Specifies whether the parameter is required for running the guidance steps.</p>
+   * @public
+   */
+  Required?: boolean | undefined;
+}
+
+/**
+ * <p>A step in the remediation guidance.</p>
+ * @public
+ */
+export interface RemediationStep {
+  /**
+   * <p>The phase of the remediation plan that this step belongs to (for example, <code>FIX</code>).</p>
+   * @public
+   */
+  Phase: string | undefined;
+
+  /**
+   * <p>A description of what the step does.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>Which service this step is performed in.</p>
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * <p>The action to be taken for this step.</p>
+   * @public
+   */
+  Action: string | undefined;
+
+  /**
+   * <p>The logic behind the existence of this step.</p>
+   * @public
+   */
+  Logic?: string | undefined;
+
+  /**
+   * <p>The inverse of the step, to be used if the step needs to be rolled back.</p>
+   * @public
+   */
+  Inverse?: string | undefined;
+
+  /**
+   * <p>The action to take after the step to verify its success.</p>
+   * @public
+   */
+  VerifyAfter?: string | undefined;
+}
+
+/**
+ * <p>The specification of the remediation target guidance. This outlines required resource parameters
+ *          and permissions, remediation steps, and the end state.</p>
+ * @public
+ */
+export interface RemediationGuidanceSpecification {
+  /**
+   * <p>An array of the parameters used in running the steps provided.</p>
+   * @public
+   */
+  Parameters?: RemediationParameter[] | undefined;
+
+  /**
+   * <p>An array of ordered steps for resolving the remediation targets.</p>
+   * @public
+   */
+  Steps?: RemediationStep[] | undefined;
+
+  /**
+   * <p>The expected end state of the associated resources after completion of the steps.</p>
+   * @public
+   */
+  ExpectedEndState?: string | undefined;
+
+  /**
+   * <p>An array of required permissions to run the steps.</p>
+   * @public
+   */
+  RequiredPermissions?: string[] | undefined;
+}
+
+/**
+ * <p>A remediation guidebook outlining guidance in resolving the remediation target.</p>
+ * @public
+ */
+export interface RemediationGuidance {
+  /**
+   * <p>The name of the remediation target type.</p>
+   * @public
+   */
+  TargetTypeName: string | undefined;
+
+  /**
+   * <p>The remediation pattern of the remediation target.</p>
+   * @public
+   */
+  Pattern: string | undefined;
+
+  /**
+   * <p>The guidance version.</p>
+   * @public
+   */
+  Version: string | undefined;
+
+  /**
+   * <p>The context behind the remediation target's existence and guidance.</p>
+   * @public
+   */
+  Context: RemediationGuidanceContext | undefined;
+
+  /**
+   * <p>The specification of the remediation target guidance. This outlines required resource parameters
+   *          and permissions, remediation steps, and the end state.</p>
+   * @public
+   */
+  Specification: RemediationGuidanceSpecification | undefined;
+
+  /**
+   * <p>Provided remediation guidance examples in different formats that can be run for remediating the target.</p>
+   * @public
+   */
+  Examples: RemediationGuidanceExamples | undefined;
+
+  /**
+   * <p>The metadata of the remediation guidance.</p>
+   * @public
+   */
+  Metadata: RemediationGuidanceMetadata | undefined;
 }

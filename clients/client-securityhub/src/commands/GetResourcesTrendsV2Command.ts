@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetResourcesTrendsV2Response } from "../models/models_2";
-import type { GetResourcesTrendsV2Request } from "../models/models_3";
+import type { GetResourcesTrendsV2Request, GetResourcesTrendsV2Response } from "../models/models_3";
 import { GetResourcesTrendsV2$ } from "../schemas/schemas_0";
 
 /**

@@ -313,6 +313,10 @@ import type {
   GetRecommendedPolicyV2CommandOutput,
 } from "./commands/GetRecommendedPolicyV2Command";
 import type {
+  GetRemediationsV2CommandInput,
+  GetRemediationsV2CommandOutput,
+} from "./commands/GetRemediationsV2Command";
+import type {
   GetResourcesStatisticsV2CommandInput,
   GetResourcesStatisticsV2CommandOutput,
 } from "./commands/GetResourcesStatisticsV2Command";
@@ -352,6 +356,10 @@ import type {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
 } from "./commands/ListEnabledProductsForImportCommand";
+import type {
+  ListExposuresByRemediationV2CommandInput,
+  ListExposuresByRemediationV2CommandOutput,
+} from "./commands/ListExposuresByRemediationV2Command";
 import type {
   ListFindingAggregatorsCommandInput,
   ListFindingAggregatorsCommandOutput,
@@ -528,6 +536,7 @@ export type ServiceInputTypes =
   | GetMasterAccountCommandInput
   | GetMembersCommandInput
   | GetRecommendedPolicyV2CommandInput
+  | GetRemediationsV2CommandInput
   | GetResourcesStatisticsV2CommandInput
   | GetResourcesTrendsV2CommandInput
   | GetResourcesV2CommandInput
@@ -541,6 +550,7 @@ export type ServiceInputTypes =
   | ListConnectorsCommandInput
   | ListConnectorsV2CommandInput
   | ListEnabledProductsForImportCommandInput
+  | ListExposuresByRemediationV2CommandInput
   | ListFindingAggregatorsCommandInput
   | ListFreeTrialStatusesV2CommandInput
   | ListInvitationsCommandInput
@@ -650,6 +660,7 @@ export type ServiceOutputTypes =
   | GetMasterAccountCommandOutput
   | GetMembersCommandOutput
   | GetRecommendedPolicyV2CommandOutput
+  | GetRemediationsV2CommandOutput
   | GetResourcesStatisticsV2CommandOutput
   | GetResourcesTrendsV2CommandOutput
   | GetResourcesV2CommandOutput
@@ -663,6 +674,7 @@ export type ServiceOutputTypes =
   | ListConnectorsCommandOutput
   | ListConnectorsV2CommandOutput
   | ListEnabledProductsForImportCommandOutput
+  | ListExposuresByRemediationV2CommandOutput
   | ListFindingAggregatorsCommandOutput
   | ListFreeTrialStatusesV2CommandOutput
   | ListInvitationsCommandOutput
