@@ -8436,6 +8436,12 @@ export interface IngestionJob {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p>The time at which all text content in the data ingestion job finished extraction and became available to query.</p> <p>This time isn't returned until text extraction is complete for all the documents in the job.</p>
+   * @public
+   */
+  textReadyAt?: Date | undefined;
 }
 
 /**
@@ -8578,6 +8584,12 @@ export interface IngestionJobSummary {
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p>The time at which all text content in the data ingestion job finished extraction and became available to query.</p> <p>This time isn't returned until text extraction is complete for all the documents in the job.</p>
+   * @public
+   */
+  textReadyAt?: Date | undefined;
 
   /**
    * <p>Contains statistics for the data ingestion job.</p>

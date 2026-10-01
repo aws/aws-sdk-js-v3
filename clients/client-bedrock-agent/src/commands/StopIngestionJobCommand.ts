@@ -61,6 +61,7 @@ export interface StopIngestionJobCommandOutput extends StopIngestionJobResponse,
  * //     ],
  * //     startedAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
+ * //     textReadyAt: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

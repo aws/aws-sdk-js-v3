@@ -1010,6 +1010,7 @@ const _tN = "tableName";
 const _tNa = "tableNames";
 const _tP = "topP";
 const _tPT = "textPromptTemplate";
+const _tRA = "textReadyAt";
 const _tS = "toolSpec";
 const _tSN = "tlsServerName";
 const _tT = "templateType";
@@ -2003,8 +2004,8 @@ export var InferenceConfiguration$: StaticStructureSchema = [3, n0, _ICn,
 ];
 export var IngestionJob$: StaticStructureSchema = [3, n0, _IJ,
   0,
-  [_kBI, _dSI, _iJI, _st, _sA, _uA, _d, _sta, _fR],
-  [0, 0, 0, 0, 5, 5, 0, () => IngestionJobStatistics$, 64 | 0], 6
+  [_kBI, _dSI, _iJI, _st, _sA, _uA, _d, _sta, _fR, _tRA],
+  [0, 0, 0, 0, 5, 5, 0, () => IngestionJobStatistics$, 64 | 0, 5], 6
 ];
 export var IngestionJobFilter$: StaticStructureSchema = [3, n0, _IJF,
   0,
@@ -2023,8 +2024,8 @@ export var IngestionJobStatistics$: StaticStructureSchema = [3, n0, _IJS,
 ];
 export var IngestionJobSummary$: StaticStructureSchema = [3, n0, _IJSn,
   0,
-  [_kBI, _dSI, _iJI, _st, _sA, _uA, _d, _sta],
-  [0, 0, 0, 0, 5, 5, 0, () => IngestionJobStatistics$], 6
+  [_kBI, _dSI, _iJI, _st, _sA, _uA, _d, _tRA, _sta],
+  [0, 0, 0, 0, 5, 5, 0, 5, () => IngestionJobStatistics$], 6
 ];
 export var IngestKnowledgeBaseDocumentsRequest$: StaticStructureSchema = [3, n0, _IKBDR,
   0,
