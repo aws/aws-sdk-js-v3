@@ -1622,3 +1622,133 @@ export interface DescribeHealthServiceStatusForOrganizationResponse {
    */
   healthServiceAccessStatusForOrganization?: string | undefined;
 }
+
+/**
+ * <p>A filter for narrowing down service lifecycle results.</p>
+ * @public
+ */
+export interface ServiceLifecycleFilter {
+  /**
+   * <p>The Amazon Web Services service name to filter by.</p>
+   * @public
+   */
+  service?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeServiceLifecycleRequest {
+  /**
+   * <p>Values to narrow the results returned.</p>
+   * @public
+   */
+  filter?: ServiceLifecycleFilter | undefined;
+
+  /**
+   * <p>If the results of a search are large, only a portion of the
+   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
+   * retrieve the next batch of results, reissue the search request and include the returned token.
+   * When all results have been returned, the response does not contain a pagination token value.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in one batch, between 1 and 20, inclusive.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>A lifecycle event for an Amazon Web Services service version, such as end-of-support or end-of-life.</p>
+ * @public
+ */
+export interface LifecycleEvent {
+  /**
+   * <p>The type of lifecycle event (for example, end-of-support, end-of-life).</p>
+   * @public
+   */
+  lifecycleEventType?: string | undefined;
+
+  /**
+   * <p>The date of the lifecycle event.</p>
+   * @public
+   */
+  date?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions affected by this lifecycle event.</p>
+   * @public
+   */
+  regions?: string[] | undefined;
+
+  /**
+   * <p>The potential impact risks associated with this lifecycle event.</p>
+   * @public
+   */
+  impactRisks?: string[] | undefined;
+
+  /**
+   * <p>A description of the lifecycle event.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * <p>Contains lifecycle information for an Amazon Web Services service version, including lifecycle events and version recommendations.</p>
+ * @public
+ */
+export interface ServiceLifecycle {
+  /**
+   * <p>The name of the Amazon Web Services service.</p>
+   * @public
+   */
+  service?: string | undefined;
+
+  /**
+   * <p>The version of the service.</p>
+   * @public
+   */
+  version?: string | undefined;
+
+  /**
+   * <p>A human-readable title for the lifecycle entry.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The recommended version to upgrade to.</p>
+   * @public
+   */
+  recommendedVersion?: string | undefined;
+
+  /**
+   * <p>The list of lifecycle events for this service version.</p>
+   * @public
+   */
+  lifecycleEvents?: LifecycleEvent[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeServiceLifecycleResponse {
+  /**
+   * <p>The list of service lifecycle entries matching the filter criteria.</p>
+   * @public
+   */
+  serviceLifecycles?: ServiceLifecycle[] | undefined;
+
+  /**
+   * <p>If the results of a search are large, only a portion of the
+   * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
+   * retrieve the next batch of results, reissue the search request and include the returned token.
+   * When all results have been returned, the response does not contain a pagination token value.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}

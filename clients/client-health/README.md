@@ -307,6 +307,13 @@ DescribeHealthServiceStatusForOrganization
 </details>
 <details>
 <summary>
+DescribeServiceLifecycle
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeServiceLifecycleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeServiceLifecycleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeServiceLifecycleCommandOutput/)
+</details>
+<details>
+<summary>
 DisableHealthServiceAccessForOrganization
 </summary>
 

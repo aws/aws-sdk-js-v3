@@ -7,3 +7,4 @@ export * from "./DescribeEventAggregatesPaginator";
 export * from "./DescribeEventsPaginator";
 export * from "./DescribeEventsForOrganizationPaginator";
 export * from "./DescribeEventTypesPaginator";
+export * from "./DescribeServiceLifecyclePaginator";
