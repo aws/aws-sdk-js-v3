@@ -731,8 +731,8 @@ export var CreateWebAppResponse$: StaticStructureSchema = [3, n0, _CWARr,
 ];
 export var CreateWorkflowRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
-  [_St, _D, _OES, _T],
-  [() => WorkflowSteps, 0, () => WorkflowSteps, () => Tags], 1
+  [_St, _D, _OES, _T, _SLD],
+  [() => WorkflowSteps, 0, () => WorkflowSteps, () => Tags, 64 | 0], 1
 ];
 export var CreateWorkflowResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
@@ -941,8 +941,8 @@ export var DescribedWebAppVpcConfig$: StaticStructureSchema = [3, n0, _DWAVC,
 ];
 export var DescribedWorkflow$: StaticStructureSchema = [3, n0, _DW,
   0,
-  [_Ar, _D, _St, _OES, _WI, _T],
-  [0, 0, () => WorkflowSteps, () => WorkflowSteps, 0, () => Tags], 1
+  [_Ar, _D, _St, _OES, _WI, _T, _SLD],
+  [0, 0, () => WorkflowSteps, () => WorkflowSteps, 0, () => Tags, 64 | 0], 1
 ];
 export var DescribeExecutionRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
