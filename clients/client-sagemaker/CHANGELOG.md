@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
+
+
+### Features
+
+* **client-sagemaker:** Release support for c8a.16xlarge and m8a.16xlarge instance types for SageMaker HyperPod ([cfa700a](https://github.com/aws/aws-sdk-js-v3/commit/cfa700a6774b764d1580e22bdd89e18e34564037))
+
+
+
+
+
 # [3.1144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1143.0...v3.1144.0) (2026-09-30)
 
 

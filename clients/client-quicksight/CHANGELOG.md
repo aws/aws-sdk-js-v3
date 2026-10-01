@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
+
+
+### Features
+
+* **client-quicksight:** This release adds HierarchyFilter support for Amazon QuickSight analysis and dashboard and 2 legged OAuth for databricks datasources. ([a1730e3](https://github.com/aws/aws-sdk-js-v3/commit/a1730e330f03d9fb60a1ea098f46a0e5b2d21c84))
+
+
+
+
+
 # [3.1144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1143.0...v3.1144.0) (2026-09-30)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

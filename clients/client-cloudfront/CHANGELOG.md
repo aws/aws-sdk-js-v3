@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
+
+
+### Features
+
+* **client-cloudfront:** Added always-amz-auth as a supported signing behavior for Origin Access Control (OAC), enabling CloudFront to authenticate requests to Lambda-Web origins. ([e24eb7c](https://github.com/aws/aws-sdk-js-v3/commit/e24eb7cf0f69c58144d41d75e9df3fcb6ef7c3ea))
+
+
+
+
+
 # [3.1144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1143.0...v3.1144.0) (2026-09-30)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudfront

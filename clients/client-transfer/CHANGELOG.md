@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
+
+
+### Features
+
+* **client-transfer:** AWS Transfer Family Workflows adds support for the structuredLogDestinations option, enabling customers to specify a custom Amazon CloudWatch Logs log group for managed workflow execution logs. ([db1f833](https://github.com/aws/aws-sdk-js-v3/commit/db1f83302598dc19149b0492228d3abc85e76ab2))
+
+
+
+
+
 # [3.1144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1143.0...v3.1144.0) (2026-09-30)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

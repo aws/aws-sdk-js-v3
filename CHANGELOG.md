@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
+
+
+### Bug Fixes
+
+* **ci:** run format-check when a draft PR is marked ready for review ([#8326](https://github.com/aws/aws-sdk-js-v3/issues/8326)) ([d99dd58](https://github.com/aws/aws-sdk-js-v3/commit/d99dd58e57a5fd50ce20047fcb255dfdabb6c973))
+* **lib-transfer-manager:** respect file read stream's byte range on upload ([#8324](https://github.com/aws/aws-sdk-js-v3/issues/8324)) ([449c281](https://github.com/aws/aws-sdk-js-v3/commit/449c2814f04220f665f3c939f0c92b064986ac57))
+
+
+### Features
+
+* **client-bedrock-agent:** Adds an optional textReadyAt field to ListIngestionJobs and GetIngestionJob for Managed Knowledge Bases data source sync jobs. The field denotes the timestamp at which all the documents in the scope of a sync job had their text content indexed and are available for retrieval. ([a810c75](https://github.com/aws/aws-sdk-js-v3/commit/a810c753836b472ed51cc5224ba220364e36dc30))
+* **client-cloudfront:** Added always-amz-auth as a supported signing behavior for Origin Access Control (OAC), enabling CloudFront to authenticate requests to Lambda-Web origins. ([e24eb7c](https://github.com/aws/aws-sdk-js-v3/commit/e24eb7cf0f69c58144d41d75e9df3fcb6ef7c3ea))
+* **client-endusermessaging:** AWS End User Messaging now supports Brand profiles and Notify code configurations. Brand profiles capture your sender details once to reuse across phone number registrations. Notify code configurations let you define your OTP policy and delivery settings to send passcodes in minutes. ([3e5402c](https://github.com/aws/aws-sdk-js-v3/commit/3e5402c695d41a43eaa30cfc13c7d4b27d8efa4c))
+* **client-health:** Adds DescribeServiceLifecycle operation returning lifecycle information for AWS services, including end-of-support dates, version recommendations, and lifecycle events. ([db93c01](https://github.com/aws/aws-sdk-js-v3/commit/db93c01618907b6cc3617b9e12606047f17a7b86))
+* **client-lambda-web:** Lambda Web Functions GA launch. Lambda Web Functions enable customers to run web applications and API backends ([ed0d054](https://github.com/aws/aws-sdk-js-v3/commit/ed0d05402ac62f61b2a97e90108e1723aa6a1d03))
+* **client-quicksight:** This release adds HierarchyFilter support for Amazon QuickSight analysis and dashboard and 2 legged OAuth for databricks datasources. ([a1730e3](https://github.com/aws/aws-sdk-js-v3/commit/a1730e330f03d9fb60a1ea098f46a0e5b2d21c84))
+* **client-sagemaker:** Release support for c8a.16xlarge and m8a.16xlarge instance types for SageMaker HyperPod ([cfa700a](https://github.com/aws/aws-sdk-js-v3/commit/cfa700a6774b764d1580e22bdd89e18e34564037))
+* **client-securityhub:** Adds GetRemediationsV2 and ListExposuresByRemediationV2 APIs. This feature allows customers to see their highest priority remediations for their Exposure findings. Remediations target key changes customers can make to resources to drive finding resolution. ([fe35557](https://github.com/aws/aws-sdk-js-v3/commit/fe355577b21c180540c45327ba3e9ac9961b5871))
+* **client-transfer:** AWS Transfer Family Workflows adds support for the structuredLogDestinations option, enabling customers to specify a custom Amazon CloudWatch Logs log group for managed workflow execution logs. ([db1f833](https://github.com/aws/aws-sdk-js-v3/commit/db1f83302598dc19149b0492228d3abc85e76ab2))
+* **clients:** update client endpoints as of 2026-10-01 ([5244c2a](https://github.com/aws/aws-sdk-js-v3/commit/5244c2a9be26ccffb1a29e1b3c9863b01e80dc7c))
+
+
+
+
+
 # [3.1144.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1143.0...v3.1144.0) (2026-09-30)
 
 
