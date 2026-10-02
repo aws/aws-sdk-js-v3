@@ -104,6 +104,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
  *         ClipStartTime: new Date("TIMESTAMP"),
+ *         Multiview: { // MultiviewFilterConfiguration
+ *           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ *           Sources: [ // MultiviewSourceList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *       UrlEncodeChildManifest: true || false,
  *       UriPathType: "LEAF" || "ROOT",
@@ -130,6 +136,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
  *         ClipStartTime: new Date("TIMESTAMP"),
+ *         Multiview: {
+ *           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ *           Sources: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *       UrlEncodeChildManifest: true || false,
  *       UriPathType: "LEAF" || "ROOT",
@@ -146,6 +158,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
  *         ClipStartTime: new Date("TIMESTAMP"),
+ *         Multiview: {
+ *           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ *           Sources: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *       MinUpdatePeriodSeconds: Number("int"),
  *       MinBufferTimeSeconds: Number("int"),
@@ -218,6 +236,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *         End: new Date("TIMESTAMP"),
  *         TimeDelaySeconds: Number("int"),
  *         ClipStartTime: new Date("TIMESTAMP"),
+ *         Multiview: {
+ *           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ *           Sources: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
  *       },
  *       ManifestLayout: "FULL" || "COMPACT",
  *     },
@@ -305,6 +329,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
  * //         ClipStartTime: new Date("TIMESTAMP"),
+ * //         Multiview: { // MultiviewFilterConfiguration
+ * //           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ * //           Sources: [ // MultiviewSourceList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       StartTag: { // StartTag
  * //         TimeOffset: Number("float"), // required
@@ -332,6 +362,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
  * //         ClipStartTime: new Date("TIMESTAMP"),
+ * //         Multiview: {
+ * //           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ * //           Sources: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       StartTag: {
  * //         TimeOffset: Number("float"), // required
@@ -352,6 +388,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
  * //         ClipStartTime: new Date("TIMESTAMP"),
+ * //         Multiview: {
+ * //           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ * //           Sources: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       ManifestWindowSeconds: Number("int"),
  * //       ManifestLayout: "FULL" || "COMPACT",
@@ -380,6 +422,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
  * //         ClipStartTime: new Date("TIMESTAMP"),
+ * //         Multiview: {
+ * //           Layout: "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL", // required
+ * //           Sources: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       MinUpdatePeriodSeconds: Number("int"),
  * //       MinBufferTimeSeconds: Number("int"),

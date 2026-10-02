@@ -153,6 +153,7 @@ import {
   MediaPackageV2ServiceException,
   MssManifestLayout,
   MultiviewConfiguration$,
+  MultiviewFilterConfiguration$,
   MultiviewLayoutType,
   OriginEndpointListConfiguration$,
   OutputHeaderConfiguration$,
@@ -374,6 +375,7 @@ assert(typeof ListOriginEndpointsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof MultiviewConfiguration$ === "object");
+assert(typeof MultiviewFilterConfiguration$ === "object");
 assert(typeof OriginEndpointListConfiguration$ === "object");
 assert(typeof OutputHeaderConfiguration$ === "object");
 assert(typeof PutChannelPolicyRequest$ === "object");

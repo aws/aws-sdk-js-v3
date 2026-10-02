@@ -821,6 +821,24 @@ export interface DashDvbSettings {
 }
 
 /**
+ * <p>The multiview combination for a pinned manifest. MediaPackage serves the manifest with this layout and these sources, so players request it without an <code>aws.multiview</code> query parameter.</p> <p>If a request for a pinned manifest also includes an <code>aws.multiview</code> query parameter, MediaPackage rejects the request, even when that parameter requests the same combination.</p>
+ * @public
+ */
+export interface MultiviewFilterConfiguration {
+  /**
+   * <p>The layout that MediaPackage uses to composite the tiles into a single output. This layout must be one of the <code>AvailableLayouts</code> of the channel that this origin endpoint is on.</p>
+   * @public
+   */
+  Layout: MultiviewLayoutType | undefined;
+
+  /**
+   * <p>The source channels to composite, in tile order. Each channel must be one of the <code>AvailableSources</code> of the channel that this origin endpoint is on, and the number of channels must equal the number of tiles in <code>Layout</code>.</p>
+   * @public
+   */
+  Sources: string[] | undefined;
+}
+
+/**
  * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
  * @public
  */
@@ -860,6 +878,12 @@ export interface FilterConfiguration {
    * @public
    */
   ClipStartTime?: Date | undefined;
+
+  /**
+   * <p>Optionally pin this manifest to a single multiview combination, so that players request it without an <code>aws.multiview</code> query parameter. When you pin a combination, note that you cannot use the <code>aws.multiview</code> query parameter for this manifest's endpoint URL, even when that parameter requests the same combination.</p> <p>This setting is valid only on an origin endpoint whose channel has an <code>InputType</code> of <code>MULTIVIEW</code>.</p>
+   * @public
+   */
+  Multiview?: MultiviewFilterConfiguration | undefined;
 }
 
 /**

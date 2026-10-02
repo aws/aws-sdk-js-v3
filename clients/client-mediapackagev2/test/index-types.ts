@@ -210,6 +210,7 @@ export type {
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   MultiviewConfiguration,
+  MultiviewFilterConfiguration,
   OriginEndpointListConfiguration,
   OutputHeaderConfiguration,
   PutChannelPolicyRequest,
