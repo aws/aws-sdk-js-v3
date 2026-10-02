@@ -71,6 +71,10 @@ export interface PutProcurementPortalPreferenceCommandOutput extends PutProcurem
  *     EinvoiceDeliveryActivationDate: new Date("TIMESTAMP"), // required
  *   },
  *   PurchaseOrderRetrievalEnabled: true || false, // required
+ *   MarketplacePunchOutEnabled: true || false,
+ *   MarketplacePunchOutPreference: { // MarketplacePunchOutPreference
+ *     ApprovalRequestRedirectUrl: "STRING_VALUE",
+ *   },
  *   Contacts: [ // Contacts // required
  *     { // Contact
  *       Name: "STRING_VALUE",
@@ -147,6 +151,7 @@ export interface PutProcurementPortalPreferenceCommandOutput extends PutProcurem
  *       }
  *     ]
  *   },
+ *   MarketplacePunchOutEnabled: true,
  *   ProcurementPortalInstanceEndpoint: "https://www.placeholder-domain.test",
  *   ProcurementPortalPreferenceArn: "arn:aws:invoicing::111111111111:procurement-portal-preference/f71dd02e-f855-4b13-b793-0fd25c0b3ecd",
  *   ProcurementPortalSharedSecret: "Coupa_Secret_2",

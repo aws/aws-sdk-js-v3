@@ -510,6 +510,18 @@ export interface EinvoiceDeliveryPreference {
 }
 
 /**
+ * <p>Represents the Marketplace PunchOut configuration for a procurement portal preference.</p>
+ * @public
+ */
+export interface MarketplacePunchOutPreference {
+  /**
+   * <p>The URL that buyers are redirected to for approval requests in the procurement portal. This is only supported for Coupa. When provided together with the procurement portal instance endpoint, its host must match the host of that endpoint.</p>
+   * @public
+   */
+  ApprovalRequestRedirectUrl?: string | undefined;
+}
+
+/**
  * <p>Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.</p>
  * @public
  */
@@ -644,6 +656,18 @@ export interface CreateProcurementPortalPreferenceRequest {
    * @public
    */
   PurchaseOrderRetrievalEnabled: boolean | undefined;
+
+  /**
+   * Defaults to false if not provided.
+   * @public
+   */
+  MarketplacePunchOutEnabled?: boolean | undefined;
+
+  /**
+   * Required for Coupa when MarketplacePunchOutEnabled is true.
+   * @public
+   */
+  MarketplacePunchOutPreference?: MarketplacePunchOutPreference | undefined;
 
   /**
    * <p>List of contact information for portal administrators and technical contacts responsible for the e-invoice integration.</p>
@@ -1140,7 +1164,7 @@ export interface ProcurementPortalPreference {
   EinvoiceDeliveryEnabled: boolean | undefined;
 
   /**
-   * <p>The configuration settings that specify how e-invoices are delivered to the procurement portal.</p>
+   * <p>The e-invoice delivery configuration including document types, attachment types, and customization settings.</p>
    * @public
    */
   EinvoiceDeliveryPreference?: EinvoiceDeliveryPreference | undefined;
@@ -1150,6 +1174,18 @@ export interface ProcurementPortalPreference {
    * @public
    */
   PurchaseOrderRetrievalEnabled: boolean | undefined;
+
+  /**
+   * <p>Indicates whether Marketplace PunchOut is enabled for this procurement portal preference. Defaults to <code>false</code>.</p>
+   * @public
+   */
+  MarketplacePunchOutEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Marketplace PunchOut configuration for this procurement portal preference. This is present when <code>MarketplacePunchOutEnabled</code> is <code>true</code>.</p>
+   * @public
+   */
+  MarketplacePunchOutPreference?: MarketplacePunchOutPreference | undefined;
 
   /**
    * <p>List of contact information for portal administrators and technical contacts.</p>
@@ -1644,6 +1680,12 @@ export interface ProcurementPortalPreferenceSummary {
   PurchaseOrderRetrievalEnabled: boolean | undefined;
 
   /**
+   * <p>Indicates whether Marketplace PunchOut is enabled for this procurement portal preference. Defaults to <code>false</code>.</p>
+   * @public
+   */
+  MarketplacePunchOutEnabled?: boolean | undefined;
+
+  /**
    * <p>The current status of the e-invoice delivery preference in this summary.</p>
    * @public
    */
@@ -1910,6 +1952,18 @@ export interface PutProcurementPortalPreferenceRequest {
    * @public
    */
   PurchaseOrderRetrievalEnabled: boolean | undefined;
+
+  /**
+   * Whether Marketplace PunchOut is enabled for this connection. Defaults to false if not provided.
+   * @public
+   */
+  MarketplacePunchOutEnabled?: boolean | undefined;
+
+  /**
+   * Configuration for Marketplace PunchOut. Required when MarketplacePunchOutEnabled is true.
+   * @public
+   */
+  MarketplacePunchOutPreference?: MarketplacePunchOutPreference | undefined;
 
   /**
    * <p>Updated list of contact information for portal administrators and technical contacts.</p>

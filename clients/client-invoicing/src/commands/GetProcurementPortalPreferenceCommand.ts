@@ -85,6 +85,10 @@ export interface GetProcurementPortalPreferenceCommandOutput extends GetProcurem
  * //       EinvoiceDeliveryActivationDate: new Date("TIMESTAMP"), // required
  * //     },
  * //     PurchaseOrderRetrievalEnabled: true || false, // required
+ * //     MarketplacePunchOutEnabled: true || false,
+ * //     MarketplacePunchOutPreference: { // MarketplacePunchOutPreference
+ * //       ApprovalRequestRedirectUrl: "STRING_VALUE",
+ * //     },
  * //     Contacts: [ // Contacts
  * //       { // Contact
  * //         Name: "STRING_VALUE",
@@ -175,6 +179,10 @@ export interface GetProcurementPortalPreferenceCommandOutput extends GetProcurem
  *     },
  *     EinvoiceDeliveryPreferenceStatus: "PENDING_VERIFICATION",
  *     LastUpdateDate: 1.750375489242E9,
+ *     MarketplacePunchOutEnabled: true,
+ *     MarketplacePunchOutPreference: {
+ *       ApprovalRequestRedirectUrl: "https://www.placeholder-domain.test/approvals"
+ *     },
  *     ProcurementPortalInstanceEndpoint: "https://www.placeholder-domain.test",
  *     ProcurementPortalName: "COUPA",
  *     ProcurementPortalPreferenceArn: "arn:aws:invoicing::111111111111:procurement-portal-preference/a34fd666-7810-4414-9360-aaa4bcab0abd",

@@ -78,6 +78,10 @@ export interface CreateProcurementPortalPreferenceCommandOutput extends CreatePr
  *     EinvoiceDeliveryActivationDate: new Date("TIMESTAMP"), // required
  *   },
  *   PurchaseOrderRetrievalEnabled: true || false, // required
+ *   MarketplacePunchOutEnabled: true || false,
+ *   MarketplacePunchOutPreference: { // MarketplacePunchOutPreference
+ *     ApprovalRequestRedirectUrl: "STRING_VALUE",
+ *   },
  *   Contacts: [ // Contacts // required
  *     { // Contact
  *       Name: "STRING_VALUE",
@@ -158,6 +162,10 @@ export interface CreateProcurementPortalPreferenceCommandOutput extends CreatePr
  *         PurchaseOrderDataSourceType: "ASSOCIATED_PURCHASE_ORDER_REQUIRED"
  *       }
  *     ]
+ *   },
+ *   MarketplacePunchOutEnabled: true,
+ *   MarketplacePunchOutPreference: {
+ *     ApprovalRequestRedirectUrl: "https://www.placeholder-domain.test/approvals"
  *   },
  *   ProcurementPortalInstanceEndpoint: "https://www.placeholder-domain.test",
  *   ProcurementPortalName: "COUPA",

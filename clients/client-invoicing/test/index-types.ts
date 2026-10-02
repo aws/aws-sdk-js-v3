@@ -135,6 +135,7 @@ export type {
   ListProcurementPortalSuppliersResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  MarketplacePunchOutPreference,
   ProcurementPortal,
   ProcurementPortalPreference,
   ProcurementPortalPreferenceSelector,

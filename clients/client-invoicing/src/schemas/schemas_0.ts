@@ -8,6 +8,7 @@ const _AL = "AddressLine1";
 const _ALd = "AddressLine2";
 const _ALdd = "AddressLine3";
 const _AO = "AsOf";
+const _ARRU = "ApprovalRequestRedirectUrl";
 const _AT = "AttachmentTypes";
 const _Ac = "Accounts";
 const _B = "Breakdown";
@@ -135,6 +136,8 @@ const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LUD = "LastUpdateDate";
 const _M = "Month";
+const _MPOE = "MarketplacePunchOutEnabled";
+const _MPOP = "MarketplacePunchOutPreference";
 const _MR = "MaxResults";
 const _N = "Name";
 const _NT = "NextToken";
@@ -370,8 +373,8 @@ export var CreateInvoiceUnitResponse$: StaticStructureSchema = [3, n0, _CIURr,
 ];
 export var CreateProcurementPortalPreferenceRequest$: StaticStructureSchema = [3, n0, _CPPPR,
   0,
-  [_PPN, _BD, _BI, _SD, _SI, _EDE, _PORE, _Co, _S, _PPSS, _PPIE, _TEP, _EDP, _RT, _CT],
-  [0, 0, 0, 0, 0, 2, 2, [() => Contacts, 0], () => ProcurementPortalPreferenceSelector$, [() => SensitiveBasicStringWithoutSpace, 0], 0, () => TestEnvPreferenceInput$, () => EinvoiceDeliveryPreference$, () => ResourceTagList, [0, 4]], 8
+  [_PPN, _BD, _BI, _SD, _SI, _EDE, _PORE, _Co, _S, _PPSS, _PPIE, _TEP, _EDP, _MPOE, _MPOP, _RT, _CT],
+  [0, 0, 0, 0, 0, 2, 2, [() => Contacts, 0], () => ProcurementPortalPreferenceSelector$, [() => SensitiveBasicStringWithoutSpace, 0], 0, () => TestEnvPreferenceInput$, () => EinvoiceDeliveryPreference$, 2, () => MarketplacePunchOutPreference$, () => ResourceTagList, [0, 4]], 8
 ];
 export var CreateProcurementPortalPreferenceResponse$: StaticStructureSchema = [3, n0, _CPPPRr,
   0,
@@ -583,6 +586,11 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_RT],
   [() => ResourceTagList]
 ];
+export var MarketplacePunchOutPreference$: StaticStructureSchema = [3, n0, _MPOP,
+  0,
+  [_ARRU],
+  [0]
+];
 export var ProcurementPortal$: StaticStructureSchema = [3, n0, _PPr,
   0,
   [_PI, _PN, _PDN, _DFC],
@@ -590,8 +598,8 @@ export var ProcurementPortal$: StaticStructureSchema = [3, n0, _PPr,
 ];
 export var ProcurementPortalPreference$: StaticStructureSchema = [3, n0, _PPP,
   0,
-  [_AAI, _PPPA, _PPN, _BD, _BI, _SD, _SI, _EDE, _PORE, _Ve, _CD, _LUD, _S, _PPSS, _PPIE, _POREu, _TEP, _EDP, _Co, _EDPS, _EDPSR, _PORPS, _PORPSR],
-  [0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 4, 4, () => ProcurementPortalPreferenceSelector$, 0, 0, 0, () => TestEnvPreference$, () => EinvoiceDeliveryPreference$, [() => Contacts, 0], 0, 0, 0, 0], 12
+  [_AAI, _PPPA, _PPN, _BD, _BI, _SD, _SI, _EDE, _PORE, _Ve, _CD, _LUD, _S, _PPSS, _PPIE, _POREu, _TEP, _EDP, _MPOE, _MPOP, _Co, _EDPS, _EDPSR, _PORPS, _PORPSR],
+  [0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 4, 4, () => ProcurementPortalPreferenceSelector$, 0, 0, 0, () => TestEnvPreference$, () => EinvoiceDeliveryPreference$, 2, () => MarketplacePunchOutPreference$, [() => Contacts, 0], 0, 0, 0, 0], 12
 ];
 export var ProcurementPortalPreferenceSelector$: StaticStructureSchema = [3, n0, _PPPS,
   0,
@@ -600,8 +608,8 @@ export var ProcurementPortalPreferenceSelector$: StaticStructureSchema = [3, n0,
 ];
 export var ProcurementPortalPreferenceSummary$: StaticStructureSchema = [3, n0, _PPPSr,
   0,
-  [_AAI, _PPPA, _PPN, _BD, _BI, _SD, _SI, _EDE, _PORE, _Ve, _CD, _LUD, _S, _EDPS, _EDPSR, _PORPS, _PORPSR],
-  [0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 4, 4, () => ProcurementPortalPreferenceSelector$, 0, 0, 0, 0], 12
+  [_AAI, _PPPA, _PPN, _BD, _BI, _SD, _SI, _EDE, _PORE, _Ve, _CD, _LUD, _S, _MPOE, _EDPS, _EDPSR, _PORPS, _PORPSR],
+  [0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 4, 4, () => ProcurementPortalPreferenceSelector$, 2, 0, 0, 0, 0], 12
 ];
 export var ProcurementPortalSupplier$: StaticStructureSchema = [3, n0, _PPSr,
   0,
@@ -615,8 +623,8 @@ export var PurchaseOrderDataSource$: StaticStructureSchema = [3, n0, _PODSu,
 ];
 export var PutProcurementPortalPreferenceRequest$: StaticStructureSchema = [3, n0, _PPPPR,
   0,
-  [_PPPA, _EDE, _PORE, _Co, _S, _PPSS, _PPIE, _TEP, _EDP, _CT],
-  [0, 2, 2, [() => Contacts, 0], () => ProcurementPortalPreferenceSelector$, [() => SensitiveBasicStringWithoutSpace, 0], 0, () => TestEnvPreferenceInput$, () => EinvoiceDeliveryPreference$, [0, 4]], 4
+  [_PPPA, _EDE, _PORE, _Co, _S, _PPSS, _PPIE, _TEP, _EDP, _MPOE, _MPOP, _CT],
+  [0, 2, 2, [() => Contacts, 0], () => ProcurementPortalPreferenceSelector$, [() => SensitiveBasicStringWithoutSpace, 0], 0, () => TestEnvPreferenceInput$, () => EinvoiceDeliveryPreference$, 2, () => MarketplacePunchOutPreference$, [0, 4]], 4
 ];
 export var PutProcurementPortalPreferenceResponse$: StaticStructureSchema = [3, n0, _PPPPRu,
   0,
