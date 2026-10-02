@@ -78,7 +78,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * //       SecretArn: "STRING_VALUE",
  * //       KmsKeyArn: "STRING_VALUE",
  * //       OAuth2Properties: { // OAuth2Properties
- * //         OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
+ * //         OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER" || "REFRESH_TOKEN",
  * //         OAuth2ClientApplication: { // OAuth2ClientApplication
  * //           UserManagedClientApplicationClientId: "STRING_VALUE",
  * //           AWSManagedClientApplicationReference: "STRING_VALUE",

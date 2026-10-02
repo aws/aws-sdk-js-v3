@@ -863,7 +863,7 @@ export interface OAuth2ClientApplication {
  */
 export interface OAuth2Properties {
   /**
-   * <p>The OAuth2 grant type. For example, <code>AUTHORIZATION_CODE</code>, <code>JWT_BEARER</code>, or <code>CLIENT_CREDENTIALS</code>.</p>
+   * <p>The OAuth2 grant type. For example, <code>AUTHORIZATION_CODE</code>, <code>JWT_BEARER</code>, <code>REFRESH_TOKEN</code>, or <code>CLIENT_CREDENTIALS</code>.</p>
    * @public
    */
   OAuth2GrantType?: OAuth2GrantType | undefined;
@@ -990,7 +990,7 @@ export interface OAuth2Credentials {
  */
 export interface OAuth2PropertiesInput {
   /**
-   * <p>The OAuth2 grant type in the CreateConnection request. For example, <code>AUTHORIZATION_CODE</code>, <code>JWT_BEARER</code>, or <code>CLIENT_CREDENTIALS</code>.</p>
+   * <p>The OAuth2 grant type in the CreateConnection request. For example, <code>AUTHORIZATION_CODE</code>, <code>JWT_BEARER</code>, <code>REFRESH_TOKEN</code>, or <code>CLIENT_CREDENTIALS</code>.</p>
    * @public
    */
   OAuth2GrantType?: OAuth2GrantType | undefined;
@@ -7952,6 +7952,8 @@ export interface SourceControlDetails {
 
 /**
  * <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
+ *          <p>For more information about how to utilize QuerySessionContext, see
+ *           <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/api-overview.html">Lake Formation workflow for application integration API operations</a> in the developer guide.</p>
  * @public
  */
 export interface QuerySessionContext {
@@ -8023,6 +8025,8 @@ export interface BatchGetPartitionRequest {
 
   /**
    * <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
+   *          <p>For more information about how to utilize QuerySessionContext, see
+   *           <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/api-overview.html">Lake Formation workflow for application integration API operations</a> in the developer guide.</p>
    * @public
    */
   QuerySessionContext?: QuerySessionContext | undefined;
