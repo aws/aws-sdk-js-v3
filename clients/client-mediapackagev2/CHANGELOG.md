@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1146.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1145.0...v3.1146.0) (2026-10-02)
+
+
+### Features
+
+* **client-mediapackagev2:** Dynamic Multiview enables viewers to watch multiple live video streams in a single combined output. Static filter configuration allows users to configure endpoints with layouts and sources without using query parameters. The number of sources per multiview channel has been increased to 50. ([8a1ac09](https://github.com/aws/aws-sdk-js-v3/commit/8a1ac09ce8953bad912b4b6142b33d5419e856ac))
+
+
+
+
+
 # [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackagev2

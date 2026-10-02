@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1146.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1145.0...v3.1146.0) (2026-10-02)
+
+
+### Features
+
+* **client-glue:** Added refresh token grant type to Glue Connection supported OAuth 2.0 grant types ([6101fef](https://github.com/aws/aws-sdk-js-v3/commit/6101fef043d32d50593ff9de58d9a424e055a679))
+
+
+
+
+
 # [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

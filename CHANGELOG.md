@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1146.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1145.0...v3.1146.0) (2026-10-02)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Amazon Cognito User Pools now supports the OIDC-standard authentication context class reference (ACR) and authentication methods reference (AMR) claims on issued access and Id tokens. Amazon Cognito User Pools also now supports step-up authentication via our existing authentication APIs. ([196e191](https://github.com/aws/aws-sdk-js-v3/commit/196e191fb2da07ee24d7f64c67c8ad6e949b801d))
+* **client-glue:** Added refresh token grant type to Glue Connection supported OAuth 2.0 grant types ([6101fef](https://github.com/aws/aws-sdk-js-v3/commit/6101fef043d32d50593ff9de58d9a424e055a679))
+* **client-invoicing:** API and doc updates related to adding MarketplacePunchOutEnabled and MarketplacePunchOutPreference fields to ProcurementPortalPreferences related APIs ([948be4b](https://github.com/aws/aws-sdk-js-v3/commit/948be4b558efb92f398c77203737dde32adde801))
+* **client-mediapackagev2:** Dynamic Multiview enables viewers to watch multiple live video streams in a single combined output. Static filter configuration allows users to configure endpoints with layouts and sources without using query parameters. The number of sources per multiview channel has been increased to 50. ([8a1ac09](https://github.com/aws/aws-sdk-js-v3/commit/8a1ac09ce8953bad912b4b6142b33d5419e856ac))
+* **client-pinpoint-sms-voice-v2:** AWS End User Messaging SMS CarrierLookup API now supports phone number cleansing on customer opt-in. when selected, the response includes the additional field "OriginalPhoneNumber". It can also return additional PhoneNumberType enums, VOIP and PREPAID. ([42d4361](https://github.com/aws/aws-sdk-js-v3/commit/42d43613a4cf6b164fe206389d74f93579b8cff9))
+* **client-securityagent:** Adds trigger filters that control which pull request events, target branches, and labels start an automatic code review. ([3d73df9](https://github.com/aws/aws-sdk-js-v3/commit/3d73df94ceaa545b3039dfaadf87bec1dc79eabe))
+
+
+
+
+
 # [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1146.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1145.0...v3.1146.0) (2026-10-02)
+
+
+### Features
+
+* **client-pinpoint-sms-voice-v2:** AWS End User Messaging SMS CarrierLookup API now supports phone number cleansing on customer opt-in. when selected, the response includes the additional field "OriginalPhoneNumber". It can also return additional PhoneNumberType enums, VOIP and PREPAID. ([42d4361](https://github.com/aws/aws-sdk-js-v3/commit/42d43613a4cf6b164fe206389d74f93579b8cff9))
+
+
+
+
+
 # [3.1145.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1144.0...v3.1145.0) (2026-10-01)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint-sms-voice-v2
