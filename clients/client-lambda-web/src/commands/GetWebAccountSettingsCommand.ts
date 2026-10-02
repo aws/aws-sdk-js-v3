@@ -23,7 +23,7 @@ export interface GetWebAccountSettingsCommandInput extends GetWebAccountSettings
 export interface GetWebAccountSettingsCommandOutput extends GetWebAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about your AWS Lambda Web Functions account settings for the current AWS Region, including the quotas that apply to web functions and your current usage.</p>
+ * <p>Retrieves details about your AWS Lambda Web Functions account settings for the current AWS Region, including the quotas that apply to web functions and your current usage.</p> <note> <p>This API is experimental and for internal AWS use only. It is not yet available to external customers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,7 +23,7 @@ export interface DeleteWebFunctionEndpointCommandInput extends DeleteWebFunction
 export interface DeleteWebFunctionEndpointCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a web function endpoint.</p>
+ * <p>Deletes a web function endpoint.</p> <note> <p>This API is experimental and for internal AWS use only. It is not yet available to external customers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

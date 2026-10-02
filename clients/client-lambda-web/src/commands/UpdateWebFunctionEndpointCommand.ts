@@ -23,7 +23,7 @@ export interface UpdateWebFunctionEndpointCommandInput extends UpdateWebFunction
 export interface UpdateWebFunctionEndpointCommandOutput extends UpdateWebFunctionEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a web function endpoint. You can modify the authorization type, auto-deployment mode, revision weights, scaling, and throttling settings.</p>
+ * <p>Updates the configuration of a web function endpoint. You can modify the authorization type, auto-deployment mode, revision weights, scaling, and throttling settings.</p> <note> <p>This API is experimental and for internal AWS use only. It is not yet available to external customers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

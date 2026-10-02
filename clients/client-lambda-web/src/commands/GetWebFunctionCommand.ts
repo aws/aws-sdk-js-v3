@@ -23,7 +23,7 @@ export interface GetWebFunctionCommandInput extends GetWebFunctionRequest {}
 export interface GetWebFunctionCommandOutput extends GetWebFunctionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about a web function, including its current state and configuration.</p>
+ * <p>Retrieves details about a web function, including its current state and configuration.</p> <note> <p>This API is experimental and for internal AWS use only. It is not yet available to external customers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

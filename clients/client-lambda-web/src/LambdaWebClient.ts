@@ -371,7 +371,7 @@ export type LambdaWebClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface LambdaWebClientResolvedConfig extends LambdaWebClientResolvedConfigType {}
 
 /**
- * <p>AWS Lambda Web Functions let you run web applications and APIs as HTTP servers on Lambda. A web function has one or more immutable revisions (code and configuration) and one or more endpoints that expose it over HTTPS.</p>
+ * <note> <p>The AWS Lambda Web Functions APIs (<code>LambdaWeb</code> namespace) are experimental and for internal AWS use only. They are not yet available to external customers.</p> </note> <p>AWS Lambda Web Functions let you run web applications and APIs as HTTP servers on Lambda. A web function has one or more immutable revisions (code and configuration) and one or more endpoints that expose it over HTTPS.</p>
  * @public
  */
 export class LambdaWebClient extends __Client<

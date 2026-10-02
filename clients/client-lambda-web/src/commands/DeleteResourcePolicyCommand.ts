@@ -23,7 +23,7 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the resource-based policy from a web function.</p>
+ * <p>Removes the resource-based policy from a web function.</p> <note> <p>This API is experimental and for internal AWS use only. It is not yet available to external customers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,7 +23,7 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest 
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the resource-based policy attached to a web function.</p>
+ * <p>Retrieves the resource-based policy attached to a web function.</p> <note> <p>This API is experimental and for internal AWS use only. It is not yet available to external customers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

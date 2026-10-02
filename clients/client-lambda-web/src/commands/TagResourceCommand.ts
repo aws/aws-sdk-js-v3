@@ -23,7 +23,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds tags to a web function. If a tag key already exists, the existing value is overwritten with the new value.</p>
+ * <p>Adds tags to a web function. If a tag key already exists, the existing value is overwritten with the new value.</p> <note> <p>This API is experimental and for internal AWS use only. It is not yet available to external customers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

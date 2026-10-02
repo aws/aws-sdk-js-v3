@@ -23,7 +23,7 @@ export interface ListWebFunctionsCommandInput extends ListWebFunctionsRequest {}
 export interface ListWebFunctionsCommandOutput extends ListWebFunctionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists web functions in your account. We recommend using pagination to ensure that the operation returns quickly and successfully.</p>
+ * <p>Lists web functions in your account. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <note> <p>This API is experimental and for internal AWS use only. It is not yet available to external customers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

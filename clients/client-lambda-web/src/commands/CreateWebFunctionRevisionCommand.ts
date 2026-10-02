@@ -23,7 +23,7 @@ export interface CreateWebFunctionRevisionCommandInput extends CreateWebFunction
 export interface CreateWebFunctionRevisionCommandOutput extends CreateWebFunctionRevisionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an immutable revision for a web function. A revision represents a specific version of the function code and configuration.</p> <p>To use this operation, you must have the <code>CreateWebFunctionRevision</code> permission on the web function, not on the revision being created.</p>
+ * <p>Creates an immutable revision for a web function. A revision represents a specific version of the function code and configuration.</p> <p>To use this operation, you must have the <code>CreateWebFunctionRevision</code> permission on the web function, not on the revision being created.</p> <note> <p>This API is experimental and for internal AWS use only. It is not yet available to external customers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,7 +23,7 @@ export interface GetWebFunctionEndpointCommandInput extends GetWebFunctionEndpoi
 export interface GetWebFunctionEndpointCommandOutput extends GetWebFunctionEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about a web function endpoint, including its current state, configuration, and domain name.</p>
+ * <p>Retrieves details about a web function endpoint, including its current state, configuration, and domain name.</p> <note> <p>This API is experimental and for internal AWS use only. It is not yet available to external customers.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
