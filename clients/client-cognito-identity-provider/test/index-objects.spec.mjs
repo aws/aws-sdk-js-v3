@@ -6,6 +6,7 @@ import {
   AccountTakeoverActionType$,
   AccountTakeoverEventActionType,
   AccountTakeoverRiskConfigurationType$,
+  AcrLevelConfigType$,
   AddCustomAttributes$,
   AddCustomAttributesCommand,
   AddCustomAttributesRequest$,
@@ -1073,6 +1074,7 @@ assert(typeof AccountRecoverySettingType$ === "object");
 assert(typeof AccountTakeoverActionsType$ === "object");
 assert(typeof AccountTakeoverActionType$ === "object");
 assert(typeof AccountTakeoverRiskConfigurationType$ === "object");
+assert(typeof AcrLevelConfigType$ === "object");
 assert(typeof AddCustomAttributesRequest$ === "object");
 assert(typeof AddCustomAttributesResponse$ === "object");
 assert(typeof AddUserPoolClientSecretRequest$ === "object");

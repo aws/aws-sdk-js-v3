@@ -53,6 +53,9 @@ export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityP
  * //     IdpIdentifiers: [ // IdpIdentifiersListType
  * //       "STRING_VALUE",
  * //     ],
+ * //     AcrMapping: { // AcrMappingType
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //     LastModifiedDate: new Date("TIMESTAMP"),
  * //     CreationDate: new Date("TIMESTAMP"),
  * //   },

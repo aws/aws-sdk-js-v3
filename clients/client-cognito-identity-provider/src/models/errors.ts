@@ -529,6 +529,39 @@ export class InvalidUserPoolConfigurationException extends __BaseException {
 }
 
 /**
+ * <p>This exception is thrown when a feature that you attempted to use or configure
+ *             isn't included in your user pool's current feature plan. This can occur
+ *             when:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You configure a feature that your feature plan doesn't support.</p>
+ *             </li>
+ *             <li>
+ *                <p>You make a request that uses a feature that requires a higher feature
+ *                     plan.</p>
+ *             </li>
+ *          </ul>
+ *          <p>To resolve this issue, upgrade your user pool to a feature plan that includes the
+ *             feature.</p>
+ * @public
+ */
+export class FeatureUnavailableInTierException extends __BaseException {
+  readonly name = "FeatureUnavailableInTierException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FeatureUnavailableInTierException, __BaseException>) {
+    super({
+      name: "FeatureUnavailableInTierException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FeatureUnavailableInTierException.prototype);
+  }
+}
+
+/**
  * <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
  *             status code: 400.</p>
  * @public
@@ -984,27 +1017,6 @@ export class TermsExistsException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TermsExistsException.prototype);
-  }
-}
-
-/**
- * <p>This exception is thrown when a feature you attempted to configure isn't
- *             available in your current feature plan.</p>
- * @public
- */
-export class FeatureUnavailableInTierException extends __BaseException {
-  readonly name = "FeatureUnavailableInTierException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FeatureUnavailableInTierException, __BaseException>) {
-    super({
-      name: "FeatureUnavailableInTierException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FeatureUnavailableInTierException.prototype);
   }
 }
 

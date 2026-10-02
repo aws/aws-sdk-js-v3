@@ -25,8 +25,7 @@ export interface GetClientTokenCommandOutput extends GetClientTokenResponse, __M
 /**
  * <p>Issues an access token for machine-to-machine (M2M) authorization. Your app client
  *             provides its client ID and secret, and receives an access token that authorizes requests
- *             to your resource servers. <code>GetClientToken</code> provides the same functionality as
- *             the OAuth2 client-credentials grant; both authorize an application rather than a user.</p>
+ *             to your resource servers.</p>
  *          <p>To use this operation, you must configure the app client with a client secret and
  *             enable the <code>ALLOW_CLIENT_TOKEN_AUTH</code> authentication flow. The
  *             <code>ALLOW_CLIENT_TOKEN_AUTH</code> flow is mutually exclusive with user authentication

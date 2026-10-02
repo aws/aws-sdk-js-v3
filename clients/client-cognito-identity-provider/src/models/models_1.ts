@@ -18,6 +18,7 @@ import type {
 } from "./enums";
 import type {
   AccountRecoverySettingType,
+  AcrLevelConfigType,
   AdminCreateUserConfigType,
   AnalyticsConfigurationType,
   AnalyticsMetadataType,
@@ -56,6 +57,62 @@ import type {
   VerificationMessageTemplateType,
   WebAuthnConfigurationType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface SetUserPoolMfaConfigRequest {
+  /**
+   * <p>The user pool ID.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>Configures user pool SMS messages for MFA. Sets the message template and the SMS
+   *             message sending configuration for Amazon SNS.</p>
+   * @public
+   */
+  SmsMfaConfiguration?: SmsMfaConfigType | undefined;
+
+  /**
+   * <p>Configures a user pool for time-based one-time password (TOTP) MFA. Enables or
+   *             disables TOTP.</p>
+   * @public
+   */
+  SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType | undefined;
+
+  /**
+   * <p>Sets configuration for user pool email message MFA and sign-in with one-time passwords
+   *             (OTPs). Includes the subject and body of the email message template for sign-in and MFA
+   *             messages. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+   *                      Essentials tier</a> or higher.</p>
+   * @public
+   */
+  EmailMfaConfiguration?: EmailMfaConfigType | undefined;
+
+  /**
+   * <p>Sets multi-factor authentication (MFA) to be on, off, or optional. When
+   *                 <code>ON</code>, all users must set up MFA before they can sign in. When
+   *                 <code>OPTIONAL</code>, your application must make a client-side determination of
+   *             whether a user wants to register an MFA device. For user pools with adaptive
+   *             authentication with threat protection, choose <code>OPTIONAL</code>.</p>
+   *          <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login
+   *             doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in
+   *             API responses and in managed login for users who have chosen and configured a preferred
+   *             MFA factor.</p>
+   * @public
+   */
+  MfaConfiguration?: UserPoolMfaType | undefined;
+
+  /**
+   * <p>The configuration of your user pool for passkey, or WebAuthn, authentication and
+   *             registration. Includes relying-party configuration, user-verification requirements,
+   *             and whether passkeys can satisfy MFA requirements.</p>
+   * @public
+   */
+  WebAuthnConfiguration?: WebAuthnConfigurationType | undefined;
+}
 
 /**
  * @public
@@ -715,6 +772,17 @@ export interface UpdateIdentityProviderRequest {
    * @public
    */
   IdpIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>A mapping between the authentication context class reference (ACR) levels of your user
+   *             pool and the ACR values of the external OpenID Connect (OIDC) identity provider (IdP).
+   *             This mapping has the same behavior as it does when you create an identity provider. Only
+   *             OIDC IdPs support ACR mapping.</p>
+   *          <p>Setting <code>AcrMapping</code> is available in all feature plans. It isn't restricted
+   *             to the Essentials or Plus feature plan.</p>
+   * @public
+   */
+  AcrMapping?: Record<string, string> | undefined;
 }
 
 /**
@@ -1220,6 +1288,19 @@ export interface UpdateUserPoolRequest {
    * @public
    */
   IssuerConfiguration?: IssuerConfigurationType | undefined;
+
+  /**
+   * <p>The custom names for the authentication context class reference
+   *             (ACR) levels in your user pool. This configuration has the same behavior as it does when
+   *             you create a user pool: you customize only the URI name that Amazon Cognito reports for
+   *             each of the four fixed ACR levels, and any level that you don't specify keeps its default
+   *             name. Each name must be unique across all four levels, including default names.</p>
+   *          <p>Configuring custom ACR level names requires the Essentials or Plus feature plan.
+   *             To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+   *                      Essentials tier</a> or higher.</p>
+   * @public
+   */
+  AcrConfiguration?: Record<string, AcrLevelConfigType> | undefined;
 }
 
 /**

@@ -462,6 +462,7 @@ export type {
   AccountTakeoverActionsType,
   AccountTakeoverActionType,
   AccountTakeoverRiskConfigurationType,
+  AcrLevelConfigType,
   AddCustomAttributesRequest,
   AddCustomAttributesResponse,
   AddUserPoolClientSecretRequest,
