@@ -245,6 +245,12 @@ export interface CarrierLookupRequest {
    * @public
    */
   PhoneNumber: string | undefined;
+
+  /**
+   * <p>Specifies whether the service cleanses the phone number that you provide. When set to <code>true</code>, the service normalizes the phone number according to the destination country's national numbering plan and dialing rules. The service returns the cleansed number in E.164 format in the <code>E164PhoneNumber</code> field and returns the number that you provided in the <code>OriginalPhoneNumber</code> field.</p>
+   * @public
+   */
+  EnableCleansing?: boolean | undefined;
 }
 
 /**
@@ -294,10 +300,16 @@ export interface CarrierLookupResult {
   Carrier?: string | undefined;
 
   /**
-   * <p>Describes the type of phone number. Valid values are: MOBILE, LANDLINE, OTHER, and INVALID. Avoid sending SMS or voice messages to INVALID phone numbers, as these numbers are unlikely to belong to actual recipients.</p>
+   * <p>Describes the type of phone number. Valid values are: MOBILE, LANDLINE, VOIP, PREPAID, OTHER, and INVALID. Avoid sending SMS or voice messages to INVALID phone numbers, as these numbers are unlikely to belong to actual recipients.</p>
    * @public
    */
   PhoneNumberType: PhoneNumberType | undefined;
+
+  /**
+   * <p>The phone number exactly as you supplied it in the request. This field is returned only when you set <code>EnableCleansing</code> to <code>true</code>, the phone number was cleansed, and a normalized E.164 phone number was returned in the <code>E164PhoneNumber</code> field.</p>
+   * @public
+   */
+  OriginalPhoneNumber?: string | undefined;
 }
 
 /**
@@ -5779,7 +5791,7 @@ export interface GetResourcePolicyResult {
 }
 
 /**
- * A single number preference — specifies a pattern type and filter value.
+ * <p>A single number preference that specifies how to match available phone numbers. Each preference pairs a match type with one or more filter values.</p>
  * @public
  */
 export interface NumberPreferenceItem {
@@ -5825,8 +5837,7 @@ export interface ListAvailablePhoneNumbersRequest {
   RegistrationId?: string | undefined;
 
   /**
-   * Optional. If omitted, returns unfiltered available numbers.
-   * Max 1 element for List API.
+   * <p>An optional selection preference used to return only phone numbers that match a specific digit pattern, such as numbers that start with, end with, or contain a particular sequence. You can specify at most one preference. Number preferences apply only to <code>TEN_DLC</code> numbers in the <code>US</code>.</p>
    * @public
    */
   NumberPreference?: NumberPreferenceItem[] | undefined;

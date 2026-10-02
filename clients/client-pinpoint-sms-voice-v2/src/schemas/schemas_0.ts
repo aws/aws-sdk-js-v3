@@ -287,8 +287,9 @@ const _DVMSLO = "DeleteVoiceMessageSpendLimitOverride";
 const _DVMSLOR = "DeleteVoiceMessageSpendLimitOverrideRequest";
 const _DVMSLORe = "DeleteVoiceMessageSpendLimitOverrideResult";
 const _E = "Enabled";
-const _EC = "EnabledChannels";
-const _ECn = "EnabledCountries";
+const _EC = "EnableCleansing";
+const _ECn = "EnabledChannels";
+const _ECna = "EnabledCountries";
 const _ED = "EventDestinations";
 const _EDL = "EventDestinationList";
 const _EDN = "EventDestinationName";
@@ -432,6 +433,7 @@ const _OONI = "OptedOutNumberInformation";
 const _OONIL = "OptedOutNumberInformationList";
 const _OONp = "OptedOutNumbers";
 const _OOT = "OptedOutTimestamp";
+const _OPN = "OriginalPhoneNumber";
 const _OU = "OpenUrl";
 const _Op = "Operator";
 const _Opt = "Option";
@@ -904,13 +906,13 @@ export var AssociateProtectConfigurationResult$: StaticStructureSchema = [3, n0,
 ];
 export var CarrierLookupRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
-  [_PN],
-  [0], 1
+  [_PN, _EC],
+  [0, 2], 1
 ];
 export var CarrierLookupResult$: StaticStructureSchema = [3, n0, _CLRa,
   0,
-  [_EPN, _PNT, _DCC, _ICC, _C, _MCC, _MNC, _Ca],
-  [0, 0, 0, 0, 0, 0, 0, 0], 2
+  [_EPN, _PNT, _DCC, _ICC, _C, _MCC, _MNC, _Ca, _OPN],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0], 2
 ];
 export var CarrierStatusInformation$: StaticStructureSchema = [3, n0, _CSI,
   0,
@@ -979,12 +981,12 @@ export var CreateEventDestinationResult$: StaticStructureSchema = [3, n0, _CEDRr
 ];
 export var CreateNotifyConfigurationRequest$: StaticStructureSchema = [3, n0, _CNCR,
   0,
-  [_DN, _UC, _EC, _DTI, _PI, _ECn, _DPE, _CT, _T],
+  [_DN, _UC, _ECn, _DTI, _PI, _ECna, _DPE, _CT, _T],
   [0, 0, 64 | 0, 0, 0, 64 | 0, 2, [0, 4], () => TagList], 3
 ];
 export var CreateNotifyConfigurationResult$: StaticStructureSchema = [3, n0, _CNCRr,
   0,
-  [_NCA, _NCI, _DN, _UC, _EC, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECn, _RR, _T],
+  [_NCA, _NCI, _DN, _UC, _ECn, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECna, _RR, _T],
   [0, 0, 0, 0, 64 | 0, 0, 0, 0, 2, 4, 0, 0, 64 | 0, 0, () => TagList], 10
 ];
 export var CreateOptOutListRequest$: StaticStructureSchema = [3, n0, _COOLR,
@@ -1154,7 +1156,7 @@ export var DeleteNotifyConfigurationRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DeleteNotifyConfigurationResult$: StaticStructureSchema = [3, n0, _DNCRe,
   0,
-  [_NCA, _NCI, _DN, _UC, _EC, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECn, _RR],
+  [_NCA, _NCI, _DN, _UC, _ECn, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECna, _RR],
   [0, 0, 0, 0, 64 | 0, 0, 0, 0, 2, 4, 0, 0, 64 | 0, 0], 10
 ];
 export var DeleteNotifyMessageSpendLimitOverrideRequest$: StaticStructureSchema = [3, n0, _DNMSLOR,
@@ -1684,7 +1686,7 @@ export var NotifyConfigurationFilter$: StaticStructureSchema = [3, n0, _NCF,
 ];
 export var NotifyConfigurationInformation$: StaticStructureSchema = [3, n0, _NCIot,
   0,
-  [_NCA, _NCI, _DN, _UC, _EC, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECn, _RR],
+  [_NCA, _NCI, _DN, _UC, _ECn, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECna, _RR],
   [0, 0, 0, 0, 64 | 0, 0, 0, 0, 2, 4, 0, 0, 64 | 0, 0], 10
 ];
 export var NotifyCountryInformation$: StaticStructureSchema = [3, n0, _NCIoti,
@@ -2319,12 +2321,12 @@ export var UpdateEventDestinationResult$: StaticStructureSchema = [3, n0, _UEDRp
 ];
 export var UpdateNotifyConfigurationRequest$: StaticStructureSchema = [3, n0, _UNCR,
   0,
-  [_NCI, _DTI, _PI, _ECn, _EC, _DPE],
+  [_NCI, _DTI, _PI, _ECna, _ECn, _DPE],
   [0, 0, 0, 64 | 0, 64 | 0, 2], 1
 ];
 export var UpdateNotifyConfigurationResult$: StaticStructureSchema = [3, n0, _UNCRp,
   0,
-  [_NCA, _NCI, _DN, _UC, _EC, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECn, _RR],
+  [_NCA, _NCI, _DN, _UC, _ECn, _Ti, _TUS, _S, _DPE, _CTr, _DTI, _PI, _ECna, _RR],
   [0, 0, 0, 0, 64 | 0, 0, 0, 0, 2, 4, 0, 0, 64 | 0, 0], 10
 ];
 export var UpdatePhoneNumberRequest$: StaticStructureSchema = [3, n0, _UPNR,

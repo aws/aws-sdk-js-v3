@@ -258,6 +258,8 @@ export const PhoneNumberType = {
   LANDLINE: "LANDLINE",
   MOBILE: "MOBILE",
   OTHER: "OTHER",
+  PREPAID: "PREPAID",
+  VOIP: "VOIP",
 } as const;
 /**
  * @public
