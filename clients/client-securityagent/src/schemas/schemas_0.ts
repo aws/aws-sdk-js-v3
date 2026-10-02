@@ -406,6 +406,10 @@ const _TDSL = "TargetDomainSummaryList";
 const _TE = "ThrottlingException";
 const _TEL = "ThreatEvidenceList";
 const _TES = "ThreatEvidenceShape";
+const _TF = "TriggerFilter";
+const _TFG = "TriggerFilterGroup";
+const _TFGr = "TriggerFilterGroups";
+const _TFL = "TriggerFilterList";
 const _TL = "TaskList";
 const _TLh = "ThreatList";
 const _TM = "ThreatModel";
@@ -598,6 +602,7 @@ const _en = "endpoints";
 const _ena = "enabled";
 const _er = "errors";
 const _ev = "evaluation";
+const _eve = "events";
 const _evi = "evidence";
 const _f = "failed";
 const _fD = "fetchDocument";
@@ -611,6 +616,7 @@ const _fS = "findingsSummaries";
 const _fT = "findingTypes";
 const _fi = "findings";
 const _fil = "filter";
+const _filt = "filters";
 const _fo = "format";
 const _g = "github";
 const _gI = "groupId";
@@ -665,6 +671,7 @@ const _lUB = "lastUpdatedBy";
 const _m = "message";
 const _mFA = "mfaForwardingAddress";
 const _mI = "membershipId";
+const _mM = "matchMode";
 const _mR = "maxResults";
 const _mS = "membershipSummaries";
 const _mT = "memberType";
@@ -707,6 +714,7 @@ const _pS = "pentestSummaries";
 const _pT = "providerType";
 const _pa = "pattern";
 const _pat = "path";
+const _patt = "patterns";
 const _pe = "pentests";
 const _pr = "provider";
 const _pre = "prerequisites";
@@ -792,6 +800,7 @@ const _tDN = "targetDomainName";
 const _tDS = "targetDomainSummaries";
 const _tDa = "taskDetails";
 const _tE = "targetEndpoint";
+const _tFG = "triggerFilterGroups";
 const _tH = "taskHours";
 const _tI = "taskIds";
 const _tIa = "taskId";
@@ -1021,8 +1030,8 @@ export var AzureDevOpsRepositoryResource$: StaticStructureSchema = [3, n0, _ADOR
 ];
 export var AzureDevOpsResourceCapabilities$: StaticStructureSchema = [3, n0, _ADORC,
   0,
-  [_lC, _rC],
-  [2, 2]
+  [_tFG, _lC, _rC],
+  [() => TriggerFilterGroups, 2, 2]
 ];
 export var BatchCreateSecurityRequirementResult$: StaticStructureSchema = [3, n0, _BCSRR,
   0,
@@ -1271,8 +1280,8 @@ export var BitbucketRepositoryResource$: StaticStructureSchema = [3, n0, _BRR,
 ];
 export var BitbucketResourceCapabilities$: StaticStructureSchema = [3, n0, _BRC,
   0,
-  [_lC, _rC],
-  [2, 2]
+  [_tFG, _lC, _rC],
+  [() => TriggerFilterGroups, 2, 2]
 ];
 export var Category$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -1676,8 +1685,8 @@ export var GitHubRepositoryResource$: StaticStructureSchema = [3, n0, _GHRR,
 ];
 export var GitHubResourceCapabilities$: StaticStructureSchema = [3, n0, _GHRC,
   0,
-  [_lC, _rC],
-  [2, 2]
+  [_tFG, _lC, _rC],
+  [() => TriggerFilterGroups, 2, 2]
 ];
 export var GitLabIntegrationInput$: StaticStructureSchema = [3, n0, _GLII,
   0,
@@ -1696,8 +1705,8 @@ export var GitLabRepositoryResource$: StaticStructureSchema = [3, n0, _GLRR,
 ];
 export var GitLabResourceCapabilities$: StaticStructureSchema = [3, n0, _GLRC,
   0,
-  [_lC, _rC],
-  [2, 2]
+  [_tFG, _lC, _rC],
+  [() => TriggerFilterGroups, 2, 2]
 ];
 export var HttpVerification$: StaticStructureSchema = [3, n0, _HV,
   0,
@@ -2249,6 +2258,16 @@ export var ThreatSummary$: StaticStructureSchema = [3, n0, _TSh,
   [_tIhre, _tJI, _ti, _stat, _sev, _sta, _str, _cB, _uB, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 5, 5]
 ];
+export var TriggerFilter$: StaticStructureSchema = [3, n0, _TF,
+  0,
+  [_t, _patt, _mM],
+  [0, 64 | 0, 0], 2
+];
+export var TriggerFilterGroup$: StaticStructureSchema = [3, n0, _TFG,
+  0,
+  [_eve, _filt],
+  [64 | 0, () => TriggerFilterList]
+];
 export var TrustedCaCertificate$: StaticStructureSchema = [3, n0, _TCC,
   8,
   [_so],
@@ -2656,6 +2675,14 @@ var ThreatModelSummaryList: StaticListSchema = [1, n0, _TMSL,
 var ThreatSummaryList: StaticListSchema = [1, n0, _TSLh,
   0, () => ThreatSummary$
 ];
+var TriggerEventList = 64 | 0;
+var TriggerFilterGroups: StaticListSchema = [1, n0, _TFGr,
+  0, () => TriggerFilterGroup$
+];
+var TriggerFilterList: StaticListSchema = [1, n0, _TFL,
+  0, () => TriggerFilter$
+];
+var TriggerRegexPatternList = 64 | 0;
 var TrustedCaCertificateList: StaticListSchema = [1, n0, _TCCL,
   0, [() => TrustedCaCertificate$,
     0]

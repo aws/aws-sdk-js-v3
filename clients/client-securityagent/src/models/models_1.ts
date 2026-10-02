@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import type {
   CodeRemediationStrategy,
+  FindingStatus,
+  RiskLevel,
   RiskType,
   SkillType,
   StrideCategory,
@@ -22,6 +24,84 @@ import type {
   ThreatEvidenceShape,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Input for updating an existing security finding.</p>
+ * @public
+ */
+export interface UpdateFindingInput {
+  /**
+   * <p>The unique identifier of the finding to update.</p>
+   * @public
+   */
+  findingId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the finding.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The updated name for the finding.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The updated description for the finding.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated risk type for the finding.</p>
+   * @public
+   */
+  riskType?: string | undefined;
+
+  /**
+   * <p>The updated risk level for the finding.</p>
+   * @public
+   */
+  riskLevel?: RiskLevel | undefined;
+
+  /**
+   * <p>The updated numerical risk score for the finding.</p>
+   * @public
+   */
+  riskScore?: string | undefined;
+
+  /**
+   * <p>The updated attack script for the finding.</p>
+   * @public
+   */
+  attackScript?: string | undefined;
+
+  /**
+   * <p>The updated reasoning for the finding.</p>
+   * @public
+   */
+  reasoning?: string | undefined;
+
+  /**
+   * <p>The updated status for the finding.</p>
+   * @public
+   */
+  status?: FindingStatus | undefined;
+
+  /**
+   * <p>A customer-provided note on the finding.</p>
+   * @public
+   */
+  customerNote?: string | undefined;
+}
+
+/**
+ * <p>Output for the UpdateFinding operation.</p>
+ * @public
+ */
+export interface UpdateFindingOutput {}
 
 /**
  * @public

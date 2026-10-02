@@ -65,14 +65,62 @@ export interface UpdateIntegratedResourcesCommandOutput extends UpdateIntegrated
  *       },
  *       capabilities: { // ProviderResourceCapabilities Union: only one key present
  *         github: { // GitHubResourceCapabilities
+ *           triggerFilterGroups: [ // TriggerFilterGroups
+ *             { // TriggerFilterGroup
+ *               events: [ // TriggerEventList
+ *                 "PULL_REQUEST_READY_FOR_REVIEW" || "PULL_REQUEST_DRAFT" || "PULL_REQUEST_LABEL_ADDED",
+ *               ],
+ *               filters: [ // TriggerFilterList
+ *                 { // TriggerFilter
+ *                   type: "TARGET_BRANCH" || "LABEL", // required
+ *                   patterns: [ // TriggerRegexPatternList // required
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   matchMode: "INCLUDE" || "EXCLUDE",
+ *                 },
+ *               ],
+ *             },
+ *           ],
  *           leaveComments: true || false,
  *           remediateCode: true || false,
  *         },
  *         gitlab: { // GitLabResourceCapabilities
+ *           triggerFilterGroups: [
+ *             {
+ *               events: [
+ *                 "PULL_REQUEST_READY_FOR_REVIEW" || "PULL_REQUEST_DRAFT" || "PULL_REQUEST_LABEL_ADDED",
+ *               ],
+ *               filters: [
+ *                 {
+ *                   type: "TARGET_BRANCH" || "LABEL", // required
+ *                   patterns: [ // required
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   matchMode: "INCLUDE" || "EXCLUDE",
+ *                 },
+ *               ],
+ *             },
+ *           ],
  *           leaveComments: true || false,
  *           remediateCode: true || false,
  *         },
  *         bitbucket: { // BitbucketResourceCapabilities
+ *           triggerFilterGroups: [
+ *             {
+ *               events: [
+ *                 "PULL_REQUEST_READY_FOR_REVIEW" || "PULL_REQUEST_DRAFT" || "PULL_REQUEST_LABEL_ADDED",
+ *               ],
+ *               filters: [
+ *                 {
+ *                   type: "TARGET_BRANCH" || "LABEL", // required
+ *                   patterns: [ // required
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   matchMode: "INCLUDE" || "EXCLUDE",
+ *                 },
+ *               ],
+ *             },
+ *           ],
  *           leaveComments: true || false,
  *           remediateCode: true || false,
  *         },
@@ -82,6 +130,22 @@ export interface UpdateIntegratedResourcesCommandOutput extends UpdateIntegrated
  *           updateDocument: true || false,
  *         },
  *         azureDevOps: { // AzureDevOpsResourceCapabilities
+ *           triggerFilterGroups: [
+ *             {
+ *               events: [
+ *                 "PULL_REQUEST_READY_FOR_REVIEW" || "PULL_REQUEST_DRAFT" || "PULL_REQUEST_LABEL_ADDED",
+ *               ],
+ *               filters: [
+ *                 {
+ *                   type: "TARGET_BRANCH" || "LABEL", // required
+ *                   patterns: [ // required
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   matchMode: "INCLUDE" || "EXCLUDE",
+ *                 },
+ *               ],
+ *             },
+ *           ],
  *           leaveComments: true || false,
  *           remediateCode: true || false,
  *         },

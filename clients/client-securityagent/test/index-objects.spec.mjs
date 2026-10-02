@@ -513,6 +513,11 @@ import {
   ThreatSummary$,
   ThrottlingException,
   ThrottlingException$,
+  TriggerEvent,
+  TriggerFilter$,
+  TriggerFilterGroup$,
+  TriggerFilterMatchMode,
+  TriggerFilterType,
   TrustedCaCertificate$,
   UntagResource$,
   UntagResourceCommand,
@@ -1052,6 +1057,8 @@ assert(typeof ThreatModelJobTask$ === "object");
 assert(typeof ThreatModelJobTaskSummary$ === "object");
 assert(typeof ThreatModelSummary$ === "object");
 assert(typeof ThreatSummary$ === "object");
+assert(typeof TriggerFilter$ === "object");
+assert(typeof TriggerFilterGroup$ === "object");
 assert(typeof TrustedCaCertificate$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
@@ -1133,6 +1140,9 @@ assert(typeof TaskExecutionStatus === "object");
 assert(typeof ThreatActor === "object");
 assert(typeof ThreatSeverity === "object");
 assert(typeof ThreatStatus === "object");
+assert(typeof TriggerEvent === "object");
+assert(typeof TriggerFilterMatchMode === "object");
+assert(typeof TriggerFilterType === "object");
 assert(typeof UserRole === "object");
 assert(typeof ValidationMode === "object");
 assert(typeof ValidationStatus === "object");

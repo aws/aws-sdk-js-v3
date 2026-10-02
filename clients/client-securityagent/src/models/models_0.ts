@@ -43,6 +43,9 @@ import type {
   ThreatActor,
   ThreatSeverity,
   ThreatStatus,
+  TriggerEvent,
+  TriggerFilterMatchMode,
+  TriggerFilterType,
   UserRole,
   ValidationMode,
   ValidationStatus,
@@ -1260,10 +1263,58 @@ export interface AzureDevOpsRepositoryResource {
 }
 
 /**
+ * <p>A condition on a pull request value.</p>
+ * @public
+ */
+export interface TriggerFilter {
+  /**
+   * <p>The pull request value to match.</p>
+   * @public
+   */
+  type: TriggerFilterType | undefined;
+
+  /**
+   * <p>The regular expressions to match against the value.</p>
+   * @public
+   */
+  patterns: string[] | undefined;
+
+  /**
+   * <p>Whether the value must match the patterns. The default is <code>INCLUDE</code>.</p>
+   * @public
+   */
+  matchMode?: TriggerFilterMatchMode | undefined;
+}
+
+/**
+ * <p>A set of conditions that start an automatic code review when they all pass. A filter group must include <code>events</code>, <code>filters</code>, or both.</p>
+ * @public
+ */
+export interface TriggerFilterGroup {
+  /**
+   * <p>Passes when the pull request event is one of the listed events. If you omit this, the group matches <code>PULL_REQUEST_READY_FOR_REVIEW</code> and <code>PULL_REQUEST_DRAFT</code> events only.</p>
+   * @public
+   */
+  events?: TriggerEvent[] | undefined;
+
+  /**
+   * <p>Passes when every filter passes. If you omit this, the group matches its events on any target branch and with any labels.</p>
+   * @public
+   */
+  filters?: TriggerFilter[] | undefined;
+}
+
+/**
  * <p>Capabilities for an integrated Azure DevOps repository.</p>
  * @public
  */
 export interface AzureDevOpsResourceCapabilities {
+  /**
+   * <p>The filter groups that control which pull request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * @public
+   */
+  triggerFilterGroups?: TriggerFilterGroup[] | undefined;
+
   /**
    * <p>Whether to post code review comments on pull requests.</p>
    * @public
@@ -4189,6 +4240,12 @@ export interface BitbucketRepositoryResource {
  */
 export interface BitbucketResourceCapabilities {
   /**
+   * <p>The filter groups that control which pull request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * @public
+   */
+  triggerFilterGroups?: TriggerFilterGroup[] | undefined;
+
+  /**
    * <p>Whether to post code review comments on pull requests.</p>
    * @public
    */
@@ -6551,6 +6608,12 @@ export interface GitHubRepositoryResource {
  */
 export interface GitHubResourceCapabilities {
   /**
+   * <p>The filter groups that control which pull request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * @public
+   */
+  triggerFilterGroups?: TriggerFilterGroup[] | undefined;
+
+  /**
    * <p>Indicates whether the integration can leave comments on pull requests.</p>
    * @public
    */
@@ -6616,6 +6679,12 @@ export interface GitLabRepositoryResource {
  * @public
  */
 export interface GitLabResourceCapabilities {
+  /**
+   * <p>The filter groups that control which merge request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * @public
+   */
+  triggerFilterGroups?: TriggerFilterGroup[] | undefined;
+
   /**
    * <p>Whether to post code review comments on merge request discussions.</p>
    * @public
@@ -9770,81 +9839,3 @@ export interface UpdateCodeReviewOutput {
    */
   reportFilters?: ReportFilters | undefined;
 }
-
-/**
- * <p>Input for updating an existing security finding.</p>
- * @public
- */
-export interface UpdateFindingInput {
-  /**
-   * <p>The unique identifier of the finding to update.</p>
-   * @public
-   */
-  findingId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the agent space that contains the finding.</p>
-   * @public
-   */
-  agentSpaceId: string | undefined;
-
-  /**
-   * <p>The updated name for the finding.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The updated description for the finding.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The updated risk type for the finding.</p>
-   * @public
-   */
-  riskType?: string | undefined;
-
-  /**
-   * <p>The updated risk level for the finding.</p>
-   * @public
-   */
-  riskLevel?: RiskLevel | undefined;
-
-  /**
-   * <p>The updated numerical risk score for the finding.</p>
-   * @public
-   */
-  riskScore?: string | undefined;
-
-  /**
-   * <p>The updated attack script for the finding.</p>
-   * @public
-   */
-  attackScript?: string | undefined;
-
-  /**
-   * <p>The updated reasoning for the finding.</p>
-   * @public
-   */
-  reasoning?: string | undefined;
-
-  /**
-   * <p>The updated status for the finding.</p>
-   * @public
-   */
-  status?: FindingStatus | undefined;
-
-  /**
-   * <p>A customer-provided note on the finding.</p>
-   * @public
-   */
-  customerNote?: string | undefined;
-}
-
-/**
- * <p>Output for the UpdateFinding operation.</p>
- * @public
- */
-export interface UpdateFindingOutput {}
