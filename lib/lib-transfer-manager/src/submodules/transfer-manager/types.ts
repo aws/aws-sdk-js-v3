@@ -68,6 +68,14 @@ export interface S3TransferManagerConfig {
    */
   workerThreadCount?: number;
   /**
+   * When enabled, downloaded parts are written with O_DIRECT, bypassing the OS
+   * page cache. Applies to file downloads only. Only available on Linux.
+   * Requires the part size and file offset to be block aligned.
+   *
+   * Defaults to false.
+   */
+  useODirect?: boolean;
+  /**
    * Logger for S3 Transfer Manager operations.
    */
   logger?: Logger;

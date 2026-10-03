@@ -11,7 +11,7 @@
  */
 import { HttpResponse } from "@smithy/core/protocols";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
-import type { HttpHandlerOptions, HttpRequest, HttpResponse as HttpResponseShape } from "@smithy/types";
+import type { HttpHandlerOptions, HttpRequest, HttpResponse as HttpResponseShape, Logger } from "@smithy/types";
 import type { ChecksumAlgorithm } from "@aws-sdk/client-s3";
 import { existsSync } from "node:fs";
 import { cpus } from "node:os";
@@ -133,6 +133,7 @@ export interface HttpWorkerReturnBufferMessage {
 export interface HttpWorkerConfigMessage {
   type: "config";
   maxSockets: number;
+  useODirect?: boolean;
 }
 
 export interface HttpWorkerDoneMessage {
@@ -163,6 +164,18 @@ export interface HttpWorkerErrorMessage {
 
 export interface HttpWorkerReadyMessage {
   type: "ready";
+}
+
+/**
+ * Worker → Main thread: a diagnostic log line relayed to the TM logger.
+ * The worker thread has no access to the client logger, so O_DIRECT fallback
+ * diagnostics are forwarded here and logged on the main thread.
+ * @internal
+ */
+export interface HttpWorkerLogMessage {
+  type: "workerLog";
+  level: "warn" | "debug" | "trace";
+  message: string;
 }
 
 /**
@@ -228,6 +241,7 @@ export type HttpWorkerOutboundMessage =
   | HttpWorkerResponseMessage
   | HttpWorkerErrorMessage
   | HttpWorkerReadyMessage
+  | HttpWorkerLogMessage
   | HttpWorkerDownloadResultMessage
   | HttpWorkerDownloadErrorMessage
   | HttpWorkerDownloadHttpErrorMessage
@@ -398,6 +412,8 @@ export class WorkerHttpHandler {
   private workerThreadCount: number;
   private maxConcurrentUploads: number;
   private maxConcurrentDownloads: number;
+  private useODirect: boolean;
+  private logger: Logger | undefined;
   private initialized = false;
   private initPromise: Promise<void> | undefined;
   private fallbackHandler: NodeHttpHandler;
@@ -423,10 +439,14 @@ export class WorkerHttpHandler {
     workerThreadCount?: number;
     maxConcurrentUploads?: number;
     maxConcurrentDownloads?: number;
+    useODirect?: boolean;
+    logger?: Logger;
   }) {
     this.workerThreadCount = options?.workerThreadCount ?? defaultWorkerCount();
     this.maxConcurrentUploads = options?.maxConcurrentUploads ?? 32;
     this.maxConcurrentDownloads = options?.maxConcurrentDownloads ?? 32;
+    this.useODirect = options?.useODirect ?? false;
+    this.logger = options?.logger;
     this.fallbackHandler = new NodeHttpHandler();
   }
 
@@ -496,6 +516,7 @@ export class WorkerHttpHandler {
                 50,
                 Math.ceil(Math.max(this.maxConcurrentUploads, this.maxConcurrentDownloads) / this.workerThreadCount)
               ),
+              useODirect: this.useODirect,
             } satisfies HttpWorkerConfigMessage);
             readyCount++;
             if (!settled && readyCount === this.workerThreadCount) {
@@ -503,6 +524,12 @@ export class WorkerHttpHandler {
               this.initialized = true;
               resolve();
             }
+            return;
+          }
+
+          if (msg.type === "workerLog") {
+            // Relay worker-side diagnostics like O_DIRECT fallbacks to the TM logger, no-op if none.
+            this.logger?.[msg.level]?.(`[S3TransferManager:worker] ${msg.message}`);
             return;
           }
 

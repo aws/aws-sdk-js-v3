@@ -91,6 +91,8 @@ export interface WorkerHttpHandlerConstructor {
     workerThreadCount?: number;
     maxConcurrentUploads?: number;
     maxConcurrentDownloads?: number;
+    useODirect?: boolean;
+    logger?: Logger;
   }): IWorkerHttpHandler;
 }
 
@@ -144,6 +146,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     this.maxConcurrentUploads = config.maxConcurrentUploads ?? 32;
     this.maxConcurrentDownloads = config.maxConcurrentDownloads ?? 32;
     this.workerThreadCount = config.workerThreadCount ?? this.deps.defaultWorkerCount();
+    this.logger = config.logger ?? new LogLevel("warn");
 
     this.s3 =
       config.s3 ??
@@ -157,6 +160,8 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         workerThreadCount: this.workerThreadCount,
         maxConcurrentUploads: this.maxConcurrentUploads,
         maxConcurrentDownloads: this.maxConcurrentDownloads,
+        useODirect: config.useODirect,
+        logger: this.logger,
       });
       if (this.s3.config) {
         this.s3.config.requestHandler = this.workerHttpHandler as any;
@@ -167,7 +172,6 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     this.multipartUploadThresholdBytes = config.multipartUploadThresholdBytes ?? 16 * 1024 * 1024; // 16 MB
 
     this.multipartDownloadType = config.multipartDownloadType ?? "PART";
-    this.logger = config.logger ?? new LogLevel("warn");
     this.eventListeners = {
       transferInitiated: config.eventListeners?.transferInitiated ?? [],
       bytesTransferred: config.eventListeners?.bytesTransferred ?? [],
