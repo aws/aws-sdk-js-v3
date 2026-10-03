@@ -85,8 +85,18 @@ const O_DIRECT_SUPPORTED = process.platform === "linux" && O_DIRECT_FLAG > 0;
 
 // Set from the config message the handler sends on worker startup.
 let oDirectEnabled = false;
+let oDirectRequested = false;
 let oDirectProbed = false;
 let oDirectUsable = false;
+
+/**
+ * Posts a diagnostic log line to the main thread for forwarding to the TM logger,
+ * since the worker has no access to the client logger.
+ * @internal
+ */
+function postLog(level: "warn" | "debug" | "trace", message: string): void {
+  parentPort?.postMessage({ type: "workerLog", level, message } satisfies HttpWorkerLogMessage);
+}
 
 /**
  * Probe for a block-aligned byte offset inside `buf` by attempting real O_DIRECT
@@ -141,6 +151,17 @@ function ensureODirectProbed(dir: string): void {
   oDirectProbed = true;
   const testBuf = Buffer.allocUnsafeSlow(O_DIRECT_ALIGN * 2);
   oDirectUsable = probeAlignedPad(dir, testBuf) >= 0;
+  if (!oDirectUsable) {
+    // O_DIRECT is supported by the platform but rejected by the filesystem
+    // hosting the download (common on tmpfs, overlayfs, some network mounts).
+    postLog(
+      "warn",
+      `useODirect was requested but O_DIRECT is not usable on the filesystem at "${dir}"; ` +
+        `falling back to buffered writes.`
+    );
+  } else {
+    postLog("debug", `O_DIRECT probe succeeded for filesystem at "${dir}"; using O_DIRECT writes.`);
+  }
 }
 
 /**
@@ -378,6 +399,16 @@ interface HttpWorkerReadyMessage {
   type: "ready";
 }
 
+/**
+ * Worker → Main thread: a diagnostic log line forwarding to the TM logger,
+ * used to surface O_DIRECT fallbacks.
+ */
+interface HttpWorkerLogMessage {
+  type: "workerLog";
+  level: "warn" | "debug" | "trace";
+  message: string;
+}
+
 // Checksum Helpers for Download.
 
 function createChecksum(algorithm: ChecksumAlgorithm): Checksum | undefined {
@@ -607,6 +638,13 @@ if (parentPort) {
             alignedBuf = Buffer.allocUnsafeSlow(targetLength + O_DIRECT_ALIGN);
             pad = probeAlignedPad(dirname(filePath), alignedBuf);
           }
+        } else if (oDirectEnabled) {
+          // Requested + usable, but this part is not O_DIRECT-eligible: O_DIRECT needs
+          // a block-aligned write offset and a part at least one block long.
+          postLog(
+            "trace",
+            `O_DIRECT skipped: part not 4096-block-aligned (offset=${writeOffset}, length=${targetLength}, block=${O_DIRECT_ALIGN}), using buffered writes.`
+          );
         }
 
         if (alignedBuf && pad >= 0) {
@@ -893,7 +931,17 @@ if (parentPort) {
 
     if (msg.type === "config") {
       const { maxSockets, useODirect } = msg as HttpWorkerConfigMessage;
-      oDirectEnabled = useODirect === true && O_DIRECT_SUPPORTED;
+      oDirectRequested = useODirect === true;
+      oDirectEnabled = oDirectRequested && O_DIRECT_SUPPORTED;
+      if (oDirectRequested && !O_DIRECT_SUPPORTED) {
+        // User configured useODirect but it is not supported on this platform.
+        postLog(
+          "warn",
+          `useODirect was requested but O_DIRECT is not available on this platform ` +
+            `(platform=${process.platform}, O_DIRECT flag ${O_DIRECT_FLAG > 0 ? "present" : "absent"}); ` +
+            `falling back to buffered writes.`
+        );
+      }
       handler = new NodeHttpHandler({
         httpsAgent: new httpsAgent({
           maxSockets,
