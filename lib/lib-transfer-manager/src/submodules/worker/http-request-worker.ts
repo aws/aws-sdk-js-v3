@@ -657,9 +657,15 @@ if (parentPort) {
         return;
       }
 
-      // 2. Acquire a buffer for assembling the response body
-      const ab = acquireTransferBuffer(expectedSize);
-      const view = new Uint8Array(ab, 0, expectedSize);
+      // 2. Acquire a buffer for assembling the response body.
+      //
+      // The caller's expectedSize is derived from part 1, and multipart parts
+      // are not required to be uniform, so a later part can be larger. Prefer
+      // the response's own Content-Length and fall back to the hint.
+      const reportedLength = Number.parseInt(response.headers["content-length"] ?? "", 10);
+      const bufferSize = Number.isFinite(reportedLength) && reportedLength > 0 ? reportedLength : expectedSize;
+      const ab = acquireTransferBuffer(bufferSize);
+      const view = new Uint8Array(ab, 0, bufferSize);
 
       // 3. Initialize inline checksum computation if requested
       let checksum: Checksum | undefined;
@@ -675,11 +681,11 @@ if (parentPort) {
           const buf: Uint8Array = typeof chunk === "string" ? Buffer.from(chunk) : chunk;
 
           // Guard against writing beyond buffer boundary
-          if (bytesWritten + buf.length > expectedSize) {
+          if (bytesWritten + buf.length > bufferSize) {
             port.postMessage({
               type: "httpDownloadError",
               id,
-              error: `Bytes received (${bytesWritten + buf.length}) exceeds expected size (${expectedSize}) for range index ${rangeIndex}`,
+              error: `Bytes received (${bytesWritten + buf.length}) exceeds expected size (${bufferSize}) for range index ${rangeIndex}`,
               code: "BYTES_EXCEEDED",
               name: "DownloadValidationError",
             } satisfies HttpWorkerDownloadErrorMessage);
