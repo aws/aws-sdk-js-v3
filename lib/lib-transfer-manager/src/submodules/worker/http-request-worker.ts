@@ -304,7 +304,13 @@ interface HttpWorkerReadyMessage {
   type: "ready";
 }
 
-// Checksum Helpers for Download.
+// Checksum helpers shared by the download and upload paths.
+
+/**
+ * Algorithms S3 supports that `createChecksum` cannot build. Kept in sync with
+ * its `default` branch.
+ */
+const UNVERIFIABLE_ALGORITHMS: ChecksumAlgorithm[] = ["SHA512", "XXHASH3", "XXHASH64", "XXHASH128"];
 
 function createChecksum(algorithm: ChecksumAlgorithm): Checksum | undefined {
   switch (algorithm) {
@@ -321,7 +327,10 @@ function createChecksum(algorithm: ChecksumAlgorithm): Checksum | undefined {
     case "MD5":
       return new Md5();
     default:
-      // Algorithms without a local implementation (e.g. XXHASH64, SHA512) skip inline validation.
+      // No native implementation for SHA512, XXHASH3, XXHASH64, XXHASH128.
+      // Download skips inline validation and upload rejects the part. To use
+      // these, supply an implementation via the client's checksumAlgorithms
+      // config and set workerThreadCount: 1.
       return undefined;
   }
 }
@@ -356,6 +365,35 @@ function getChecksumHeaderValue(headers: Record<string, string>, algorithm: stri
   return headers[headerName];
 }
 
+/**
+ * Returns the checksum algorithm to validate a part against, picked from the
+ * per-part checksum header S3 sends when ChecksumMode=ENABLED. Undefined if no
+ * such header is present. Throws if S3 returns a checksum this worker cannot compute.
+ */
+function resolveDownloadChecksumAlgorithm(headers: Record<string, string>): ChecksumAlgorithm | undefined {
+  const candidates: ChecksumAlgorithm[] = ["CRC64NVME", "CRC32C", "CRC32", "SHA256", "SHA1"];
+  for (const algorithm of candidates) {
+    if (getChecksumHeaderValue(headers, algorithm)) {
+      return algorithm;
+    }
+  }
+
+  for (const algorithm of UNVERIFIABLE_ALGORITHMS) {
+    if (getChecksumHeaderValue(headers, algorithm)) {
+      throw Object.assign(
+        new Error(
+          `S3 returned a ${algorithm} checksum, which worker threads cannot compute. ` +
+            `Set workerThreadCount: 1 to validate this object, or set ` +
+            `responseChecksumValidation: "WHEN_REQUIRED" to download it without validation.`
+        ),
+        { name: "ChecksumValidationError", code: "CHECKSUM_ALGORITHM_UNSUPPORTED" }
+      );
+    }
+  }
+
+  return undefined;
+}
+
 if (parentPort) {
   let handler: NodeHttpHandler | undefined;
   const port = parentPort;
@@ -383,6 +421,20 @@ if (parentPort) {
     return buffer;
   };
 
+  /**
+   * Computes the part checksum with the algorithm the caller declared, so the
+   * value matches the trailer header. Throws when the algorithm has no local
+   * implementation.
+   */
+  const computeDeclaredChecksum = async (data: Buffer, algorithm: ChecksumAlgorithm): Promise<string> => {
+    const checksum = createChecksum(algorithm);
+    if (!checksum) {
+      throw new Error(`Unsupported checksum algorithm for threaded upload: ${algorithm}`);
+    }
+    checksum.update(data);
+    return finalizeChecksumToBase64(checksum);
+  };
+
   const buildAwsChunkedBody = (data: Buffer, checksumHeader?: string, checksumValue?: string): Buffer => {
     const hexLen = data.byteLength.toString(16);
     const parts: Buffer[] = [Buffer.from(`${hexLen}\r\n`), data, Buffer.from("\r\n0\r\n")];
@@ -403,9 +455,7 @@ if (parentPort) {
         const fileData = Buffer.from(msg.sharedBuffer, msg.offset, msg.length);
 
         if (msg.checksumAlgorithm && msg.checksumHeader) {
-          const crc = new Crc32();
-          crc.update(fileData);
-          const checksumValue = Buffer.from(await crc.digest()).toString("base64");
+          const checksumValue = await computeDeclaredChecksum(fileData, msg.checksumAlgorithm);
           body = buildAwsChunkedBody(fileData, msg.checksumHeader, checksumValue);
         } else {
           body = fileData;
@@ -414,9 +464,7 @@ if (parentPort) {
         const fileData = readFileSlice(msg.filePath, msg.offset, msg.length);
 
         if (msg.checksumAlgorithm && msg.checksumHeader) {
-          const crc = new Crc32();
-          crc.update(fileData);
-          const checksumValue = Buffer.from(await crc.digest()).toString("base64");
+          const checksumValue = await computeDeclaredChecksum(fileData, msg.checksumAlgorithm);
           body = buildAwsChunkedBody(fileData, msg.checksumHeader, checksumValue);
         } else {
           body = fileData;
@@ -477,7 +525,7 @@ if (parentPort) {
   };
 
   const processDownloadToFile = async (msg: HttpWorkerDownloadToFileMessage): Promise<void> => {
-    const { id, request: serialized, filePath, offset, expectedLength, checksumAlgorithm } = msg;
+    const { id, request: serialized, filePath, offset, expectedLength } = msg;
 
     try {
       // Send the signed HTTP request
@@ -513,10 +561,12 @@ if (parentPort) {
       // open the file (file is pre-allocated)
       const fh = await open(filePath, "r+");
       try {
-        // Initialize inline checksum computation if requested
+        // Initialize inline checksum computation with the algorithm S3 returned.
+        // Undefined means S3 sent no checksum header, so validation is skipped.
+        const validateAlgorithm = resolveDownloadChecksumAlgorithm(response.headers);
         let checksum: Checksum | undefined;
-        if (checksumAlgorithm) {
-          checksum = createChecksum(checksumAlgorithm);
+        if (validateAlgorithm) {
+          checksum = createChecksum(validateAlgorithm);
         }
 
         // Stream response body chunks to file at positioned offsets
@@ -568,11 +618,11 @@ if (parentPort) {
 
         // Finalize checksum and validate against S3 header if present
         let checksumBase64: string | undefined;
-        if (checksum && checksumAlgorithm) {
+        if (checksum && validateAlgorithm) {
           checksumBase64 = await finalizeChecksumToBase64(checksum);
 
           // Check if S3 returned a per-part checksum header
-          const s3ChecksumValue = getChecksumHeaderValue(response.headers, checksumAlgorithm);
+          const s3ChecksumValue = getChecksumHeaderValue(response.headers, validateAlgorithm);
           if (s3ChecksumValue && s3ChecksumValue !== checksumBase64) {
             port.postMessage({
               type: "httpDownloadError",
@@ -634,7 +684,7 @@ if (parentPort) {
    * @internal
    */
   const processDownloadToTransfer = async (msg: HttpWorkerDownloadStreamMessage): Promise<void> => {
-    const { id, request: serialized, expectedSize, rangeIndex, checksumAlgorithm } = msg;
+    const { id, request: serialized, expectedSize, rangeIndex } = msg;
 
     try {
       // 1. Send the signed HTTP request
@@ -661,10 +711,12 @@ if (parentPort) {
       const ab = acquireTransferBuffer(expectedSize);
       const view = new Uint8Array(ab, 0, expectedSize);
 
-      // 3. Initialize inline checksum computation if requested
+      // 3. Initialize inline checksum computation with the algorithm S3 returned.
+      //    Undefined means S3 sent no checksum header, so validation is skipped.
+      const validateAlgorithm = resolveDownloadChecksumAlgorithm(response.headers);
       let checksum: Checksum | undefined;
-      if (checksumAlgorithm) {
-        checksum = createChecksum(checksumAlgorithm);
+      if (validateAlgorithm) {
+        checksum = createChecksum(validateAlgorithm);
       }
 
       // 4. Stream response body chunks into the ArrayBuffer
@@ -700,10 +752,10 @@ if (parentPort) {
 
       // 5. Finalize checksum and validate against S3 header if present
       let checksumBase64: string | undefined;
-      if (checksum && checksumAlgorithm) {
+      if (checksum && validateAlgorithm) {
         checksumBase64 = await finalizeChecksumToBase64(checksum);
 
-        const s3ChecksumValue = getChecksumHeaderValue(response.headers, checksumAlgorithm);
+        const s3ChecksumValue = getChecksumHeaderValue(response.headers, validateAlgorithm);
         if (s3ChecksumValue && s3ChecksumValue !== checksumBase64) {
           port.postMessage({
             type: "httpDownloadError",
