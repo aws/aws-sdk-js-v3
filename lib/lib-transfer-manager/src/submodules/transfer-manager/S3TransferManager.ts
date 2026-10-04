@@ -694,11 +694,16 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
 
       let transferredBytes = 0;
 
-      // Write Part 1 body, which starts at byte 0.
-      const partSize = initialResponse.ContentLength ?? 0;
-      await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0);
+      // Write Part 1 body, which starts at byte 0. Byte accounting uses what the
+      // writer actually wrote; part sizes are not assumed uniform.
+      const part1BytesWritten = await this.writeResponseBodyToFile(
+        initialResponse.Body,
+        tempFilePath,
+        initialResponse.ContentRange,
+        0
+      );
 
-      transferredBytes += partSize;
+      transferredBytes += part1BytesWritten;
       if (emitEvents) {
         this.dispatchEvent(
           Object.assign(new Event("bytesTransferred"), {
@@ -719,7 +724,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       // combined per-part CRCs against the full-object checksum.
 
       const partResults: Array<{ partNumber: number; bytesWritten: number }> = [];
-      partResults.push({ partNumber: 1, bytesWritten: partSize });
+      partResults.push({ partNumber: 1, bytesWritten: part1BytesWritten });
 
       // Dispatch remaining Part GET requests with concurrency bounding
       const semaphore = new Semaphore(this.maxConcurrentDownloads);
@@ -748,10 +753,6 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         }
 
         const partNumber = part;
-        // Calculate the expected offset and length from part boundaries
-        const partOffset = (partNumber - 1) * partSize;
-        // Last part might be smaller
-        const expectedLength = Math.min(partSize, totalSize - partOffset);
 
         const partGetRequest: GetObjectCommandInput = {
           ...getObjectFields,
@@ -764,13 +765,14 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
 
         const task = (async () => {
           try {
+            // Actual bytes written for this part, reported by the writer rather
+            // than derived from part 1's size, since parts may differ in size.
+            let partBytesWritten: number;
+
             if (this.workerHttpHandler) {
-              // Worker-thread path: dispatch via WorkerHttpHandler for direct file-offset write
               const resultToken = `download-${partNumber}-${Date.now()}`;
               const downloadOptions: DownloadDataToFile = {
                 filePath: tempFilePath!,
-                offset: partOffset,
-                expectedLength,
                 resultToken,
               };
 
@@ -793,9 +795,10 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
                 throw new Error(`Missing download result for part ${partNumber}`);
               }
 
+              partBytesWritten = downloadResult.bytesWritten;
               partResults.push({
                 partNumber,
-                bytesWritten: downloadResult.bytesWritten,
+                bytesWritten: partBytesWritten,
               });
             } else {
               // Main-thread fallback (workerThreadCount === 1)
@@ -803,23 +806,22 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
               if (partResponse.Body && partResponse.Body instanceof Readable) {
                 partResponse.Body.on("error", () => {});
               }
-              // Validate ContentRange aligns with expected part boundaries
-              this.validatePartDownload(partResponse.ContentRange, partNumber, partSize);
-              await this.writeResponseBodyToFile(
+              this.validatePartDownload(partResponse.ContentRange, partNumber);
+              partBytesWritten = await this.writeResponseBodyToFile(
                 partResponse.Body,
                 tempFilePath!,
                 partResponse.ContentRange,
-                partOffset
+                0
               );
 
               partResults.push({
                 partNumber,
-                bytesWritten: partResponse.ContentLength ?? expectedLength,
+                bytesWritten: partBytesWritten,
               });
             }
 
             // Dispatch cumulative bytesTransferred event
-            transferredBytes += expectedLength;
+            transferredBytes += partBytesWritten;
             if (emitEvents) {
               this.dispatchEvent(
                 Object.assign(new Event("bytesTransferred"), {
@@ -1044,15 +1046,13 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
 
         const task = (async () => {
           try {
-            const expectedLength = end - start + 1;
-
             if (this.workerHttpHandler) {
-              // Worker-thread path: dispatch via WorkerHttpHandler for direct file-offset write
+              // Worker-thread path: dispatch via WorkerHttpHandler for direct file-offset write.
+              // The worker derives the write offset from the response's Content-Range,
+              // which for a ranged GET echoes the requested start.
               const resultToken = `download-range-${currentIndex}-${Date.now()}`;
               const downloadOptions: DownloadDataToFile = {
                 filePath: tempFilePath!,
-                offset: start,
-                expectedLength,
                 resultToken,
               };
 
@@ -1086,11 +1086,16 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
               if (rangeResponse.Body && rangeResponse.Body instanceof Readable) {
                 rangeResponse.Body.on("error", () => {});
               }
-              await this.writeResponseBodyToFile(rangeResponse.Body, tempFilePath!, rangeResponse.ContentRange, start);
+              const rangeBytesWritten = await this.writeResponseBodyToFile(
+                rangeResponse.Body,
+                tempFilePath!,
+                rangeResponse.ContentRange,
+                start
+              );
 
               rangeResults.push({
                 index: currentIndex,
-                bytesWritten: rangeResponse.ContentLength ?? expectedLength,
+                bytesWritten: rangeBytesWritten,
               });
             }
 
@@ -1746,7 +1751,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
               return this.s3
                 .send(new GetObjectCommand(getObjectRequest), transferOptions)
                 .then((response) => {
-                  this.validatePartDownload(response.ContentRange, part, partSize ?? 0);
+                  this.validatePartDownload(response.ContentRange, part);
                   if (response.Body && typeof (response.Body as any).getReader === "function") {
                     const reader = (response.Body as any).getReader();
                     (response.Body as any).getReader = function () {
@@ -2133,8 +2138,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
               return;
             }
 
-            // Validate ContentRange matches expected part boundaries
-            this.validatePartDownload(transferResult.headers["content-range"], partNumber, partSize);
+            this.validatePartDownload(transferResult.headers["content-range"], partNumber);
 
             queue.enqueue(rangeIndex, transferResult.buffer, transferResult.byteLength);
 
@@ -2706,31 +2710,15 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
   }
 
   /**
-   * Validates part download ContentRange matches expected part boundaries.
-   *
+   * Validates that a part download's ContentRange is present and well-formed.
    */
-  private validatePartDownload(contentRange: string | undefined, partNumber: number, partSize: number) {
+  private validatePartDownload(contentRange: string | undefined, partNumber: number) {
     if (!contentRange) {
       throw new Error(`Missing ContentRange for part ${partNumber}.`);
     }
 
     const match = contentRange.match(/bytes (\d+)-(\d+)\/(\d+)/);
     if (!match) throw new Error(`Invalid ContentRange format: ${contentRange}`);
-
-    const start = Number.parseInt(match[1]);
-    const end = Number.parseInt(match[2]);
-    const total = Number.parseInt(match[3]) - 1;
-
-    const expectedStart = (partNumber - 1) * partSize;
-    const expectedEnd = Math.min(expectedStart + partSize - 1, total);
-
-    if (start !== expectedStart) {
-      throw new Error(`Expected part ${partNumber} to start at ${expectedStart} but got ${start}`);
-    }
-
-    if (end !== expectedEnd) {
-      throw new Error(`Expected part ${partNumber} to end at ${expectedEnd} but got ${end}`);
-    }
   }
 
   /**
