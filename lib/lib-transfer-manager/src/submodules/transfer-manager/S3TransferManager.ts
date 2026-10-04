@@ -665,7 +665,13 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         fileManager.registerCleanupHandler(tempFilePath);
 
         // Write the whole object body, which starts at byte 0.
-        await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0);
+        await this.writeResponseBodyToFile(
+          initialResponse.Body,
+          tempFilePath,
+          initialResponse.ContentRange,
+          0,
+          totalSize
+        );
 
         if (emitEvents) {
           this.dispatchEvent(
@@ -696,7 +702,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
 
       // Write Part 1 body, which starts at byte 0.
       const partSize = initialResponse.ContentLength ?? 0;
-      await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0);
+      await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0, partSize);
 
       transferredBytes += partSize;
       if (emitEvents) {
@@ -809,7 +815,8 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
                 partResponse.Body,
                 tempFilePath!,
                 partResponse.ContentRange,
-                partOffset
+                partOffset,
+                partResponse.ContentLength ?? expectedLength
               );
 
               partResults.push({
@@ -950,7 +957,13 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         tempFilePath = await fileManager.createTempFile(resolvedDestination, totalContentLength);
         fileManager.registerCleanupHandler(tempFilePath);
 
-        await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0);
+        await this.writeResponseBodyToFile(
+          initialResponse.Body,
+          tempFilePath,
+          initialResponse.ContentRange,
+          0,
+          totalContentLength
+        );
 
         await fileManager.atomicRename(tempFilePath, resolvedDestination);
         fileManager.unregisterCleanupHandler(tempFilePath);
@@ -982,7 +995,13 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
       tempFilePath = await fileManager.createTempFile(resolvedDestination, totalContentLength);
       fileManager.registerCleanupHandler(tempFilePath);
 
-      await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0);
+      await this.writeResponseBodyToFile(
+        initialResponse.Body,
+        tempFilePath,
+        initialResponse.ContentRange,
+        0,
+        responseContentLength
+      );
 
       const rangeResults: Array<{ index: number; bytesWritten: number }> = [];
       rangeResults.push({ index: 0, bytesWritten: responseContentLength });
@@ -1086,7 +1105,13 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
               if (rangeResponse.Body && rangeResponse.Body instanceof Readable) {
                 rangeResponse.Body.on("error", () => {});
               }
-              await this.writeResponseBodyToFile(rangeResponse.Body, tempFilePath!, rangeResponse.ContentRange, start);
+              await this.writeResponseBodyToFile(
+                rangeResponse.Body,
+                tempFilePath!,
+                rangeResponse.ContentRange,
+                start,
+                rangeResponse.ContentLength ?? expectedLength
+              );
 
               rangeResults.push({
                 index: currentIndex,
@@ -1193,6 +1218,8 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
    * @param filePath - Path to the existing file to write into.
    * @param contentRange - The response's ContentRange header value, if any.
    * @param fallbackOffset - Offset to use when ContentRange is unavailable.
+   * @param expectedBytes - When provided, the number of bytes that must be written;
+   *                        a mismatch throws to surface a truncated download.
    * @returns The number of bytes written.
    *
    */
@@ -1200,8 +1227,13 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     body: DownloadResponse["Body"],
     filePath: string,
     contentRange: string | undefined,
-    fallbackOffset: number
+    fallbackOffset: number,
+    expectedBytes?: number
   ): Promise<number> {
+    if (body == null) {
+      throw new Error(`Cannot write response body to ${filePath}: the response body is missing.`);
+    }
+
     const start = parseContentRangeStart(contentRange) ?? fallbackOffset;
     const fd = await open(filePath, "r+");
     try {
@@ -1215,8 +1247,21 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
         const bytes: Uint8Array = await (body as any).transformToByteArray();
         await fd.write(bytes, 0, bytes.length, offset);
         offset += bytes.length;
+      } else {
+        // An unrecognized body type would otherwise write nothing and report 0
+        // bytes, silently producing a truncated file. Fail loudly instead.
+        throw new Error(
+          `Cannot write response body to ${filePath}: the body is neither async-iterable nor exposes transformToByteArray.`
+        );
       }
-      return offset - start;
+
+      const written = offset - start;
+      // Validate the actual byte count against what the caller expected so a
+      // short/truncated body is caught rather than silently written.
+      if (expectedBytes !== undefined && written !== expectedBytes) {
+        throw new Error(`Truncated download for ${filePath}: expected ${expectedBytes} bytes but wrote ${written}.`);
+      }
+      return written;
     } finally {
       await fd.close();
     }

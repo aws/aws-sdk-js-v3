@@ -776,6 +776,70 @@ describe("S3TransferManager Unit Tests", () => {
     });
   });
 
+  describe("writeResponseBodyToFile() (C7 - truncation / silent zero-byte write)", () => {
+    let tm: any;
+    let dir: string;
+
+    const makeAsyncIterableBody = (chunks: Uint8Array[]) => ({
+      async *[Symbol.asyncIterator]() {
+        for (const chunk of chunks) {
+          yield chunk;
+        }
+      },
+    });
+
+    beforeAll(async () => {
+      tm = new S3TransferManager() as any;
+      dir = await mkdtemp(join(tmpdir(), "tm-write-body-"));
+    });
+
+    afterAll(async () => {
+      await rm(dir, { recursive: true, force: true });
+    });
+
+    const newFile = async (name: string, size: number) => {
+      const p = join(dir, name);
+      await writeFile(p, Buffer.alloc(size));
+      return p;
+    };
+
+    it("throws when the body is missing", async () => {
+      const p = await newFile("missing-body.bin", 4);
+      await expect(tm.writeResponseBodyToFile(undefined, p, undefined, 0)).rejects.toThrow(/response body is missing/);
+    });
+
+    it("throws for a body that is neither async-iterable nor exposes transformToByteArray", async () => {
+      const p = await newFile("unsupported-body.bin", 4);
+      await expect(tm.writeResponseBodyToFile({ not: "a body" }, p, undefined, 0)).rejects.toThrow(
+        /neither async-iterable nor exposes transformToByteArray/
+      );
+    });
+
+    it("throws when fewer bytes than expected are written (truncated download)", async () => {
+      const p = await newFile("truncated.bin", 10);
+      const body = makeAsyncIterableBody([new Uint8Array([1, 2, 3])]);
+      await expect(tm.writeResponseBodyToFile(body, p, undefined, 0, 10)).rejects.toThrow(
+        /Truncated download.*expected 10 bytes but wrote 3/
+      );
+    });
+
+    it("writes an async-iterable body and returns the byte count when it matches expected", async () => {
+      const p = await newFile("ok-async.bin", 6);
+      const body = makeAsyncIterableBody([new Uint8Array([1, 2, 3]), new Uint8Array([4, 5, 6])]);
+      const written = await tm.writeResponseBodyToFile(body, p, undefined, 0, 6);
+      expect(written).toBe(6);
+      expect(readFileSync(p).equals(Buffer.from([1, 2, 3, 4, 5, 6]))).toBe(true);
+    });
+
+    it("writes a transformToByteArray body and returns the byte count", async () => {
+      const p = await newFile("ok-transform.bin", 4);
+      const body = { transformToByteArray: async () => new Uint8Array([9, 8, 7, 6]) };
+      const written = await tm.writeResponseBodyToFile(body, p, undefined, 0, 4);
+      expect(written).toBe(4);
+      expect(readFileSync(p).equals(Buffer.from([9, 8, 7, 6]))).toBe(true);
+    });
+  });
+
   describe("calculatePartSize()", () => {
     let tm: any;
     beforeAll(async () => {

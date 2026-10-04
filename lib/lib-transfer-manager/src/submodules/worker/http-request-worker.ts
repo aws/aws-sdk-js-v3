@@ -356,6 +356,39 @@ function getChecksumHeaderValue(headers: Record<string, string>, algorithm: stri
   return headers[headerName];
 }
 
+/**
+ * Reads exactly `length` bytes from the given file descriptor starting at
+ * `offset`. The buffer is allocated with Buffer.allocUnsafe, so a short read
+ * (for example, the file was truncated after its size was measured) would
+ * otherwise leave the tail as uninitialised memory and send stale bytes to S3
+ * with a checksum computed over them. Throwing on a short read makes that
+ * failure loud instead of silently corrupting the upload.
+ *
+ * @internal
+ */
+export const readExactFileSlice = (
+  readFn: typeof readSync,
+  fd: number,
+  offset: number,
+  length: number,
+  filePath = "<unknown>"
+): Buffer => {
+  const buffer = Buffer.allocUnsafe(length);
+  let read = 0;
+  while (read < length) {
+    const n = readFn(fd, buffer, read, length - read, offset + read);
+    if (n === 0) break;
+    read += n;
+  }
+  if (read < length) {
+    throw new Error(
+      `readFileSlice short read for ${filePath}: expected ${length} bytes at offset ${offset} but only read ${read}. ` +
+        `The file may have been truncated or modified during upload.`
+    );
+  }
+  return buffer;
+};
+
 if (parentPort) {
   let handler: NodeHttpHandler | undefined;
   const port = parentPort;
@@ -373,14 +406,7 @@ if (parentPort) {
 
   const readFileSlice = (filePath: string, offset: number, length: number): Buffer => {
     const fd = getFd(filePath);
-    const buffer = Buffer.allocUnsafe(length);
-    let read = 0;
-    while (read < length) {
-      const n = readSync(fd, buffer, read, length - read, offset + read);
-      if (n === 0) break;
-      read += n;
-    }
-    return buffer;
+    return readExactFileSlice(readSync, fd, offset, length, filePath);
   };
 
   const buildAwsChunkedBody = (data: Buffer, checksumHeader?: string, checksumValue?: string): Buffer => {
