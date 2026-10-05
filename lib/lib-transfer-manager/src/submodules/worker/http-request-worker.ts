@@ -14,7 +14,7 @@ import { HttpRequest } from "@smithy/core/protocols";
 import { concatBytes } from "@smithy/core/serde";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import dns from "node:dns";
-import { openSync, readSync, closeSync } from "node:fs";
+import { openSync, readSync, closeSync, writeSync, unlinkSync, constants as fsConstants } from "node:fs";
 import type { LookupOptions } from "node:dns";
 import type { Checksum } from "@smithy/types";
 import type { ChecksumAlgorithm } from "@aws-sdk/client-s3";
@@ -22,6 +22,7 @@ import { Crc32, Crc32c, Crc64Nvme } from "@aws-sdk/checksums/crc";
 import { Sha1, Sha256 } from "@aws-sdk/checksums/sha";
 import { Md5 } from "@aws-sdk/checksums/md5";
 import { open } from "node:fs/promises";
+import { dirname, join as pathJoin } from "node:path";
 import { Agent as httpsAgent } from "node:https";
 import { parentPort } from "node:worker_threads";
 
@@ -69,6 +70,99 @@ const buildHttpStatusError = async (
     body: await readErrorBodyBytes(response.body),
   };
 };
+
+// O_DIRECT support (opt-in via the useODirect Transfer Manager config, Linux-only).
+// Buffered writes go through the OS page cache, which on very large downloads
+// can fill faster than it drains and stall the write path. O_DIRECT skips the
+// cache. It requires the file offset, the write length, and the buffer address
+// all aligned to the device's logical block size (O_DIRECT_ALIGN).
+
+// 4096 for the alignment above: it covers 512e and 4Kn devices and matches the
+// page size on the platforms of interest.
+const O_DIRECT_ALIGN = 4096;
+const O_DIRECT_FLAG: number = (fsConstants as unknown as { O_DIRECT?: number }).O_DIRECT ?? 0;
+const O_DIRECT_SUPPORTED = process.platform === "linux" && O_DIRECT_FLAG > 0;
+
+// Set from the config message the handler sends on worker startup.
+let oDirectEnabled = false;
+let oDirectRequested = false;
+let oDirectProbed = false;
+let oDirectUsable = false;
+
+/**
+ * Posts a diagnostic log line to the main thread for forwarding to the TM logger,
+ * since the worker has no access to the client logger.
+ * @internal
+ */
+function postLog(level: "warn" | "debug" | "trace", message: string): void {
+  parentPort?.postMessage({ type: "workerLog", level, message } satisfies HttpWorkerLogMessage);
+}
+
+/**
+ * Probe for a block-aligned byte offset inside `buf` by attempting real O_DIRECT
+ * writes of one block to a temp file in `dir`. A write only succeeds when the
+ * source address (buf base + pad) is block-aligned, so the first `pad` that
+ * writes a full block is the aligned offset. Returns that pad, or -1 if O_DIRECT
+ * is unusable on this filesystem. Steps by 8 since V8 buffers are >=8-byte aligned.
+ * @internal
+ */
+function probeAlignedPad(dir: string, buf: Buffer): number {
+  const probePath = pathJoin(dir, `.tm-odirect-probe-${process.pid}-${Math.random().toString(36).slice(2)}`);
+  let found = -1;
+  for (let pad = 0; pad < O_DIRECT_ALIGN; pad += 8) {
+    let fd: number | undefined;
+    try {
+      fd = openSync(probePath, fsConstants.O_RDWR | fsConstants.O_CREAT | fsConstants.O_TRUNC | O_DIRECT_FLAG, 0o600);
+      const n = writeSync(fd, buf, pad, O_DIRECT_ALIGN, 0);
+      closeSync(fd);
+      fd = undefined;
+      if (n === O_DIRECT_ALIGN) {
+        found = pad;
+        break;
+      }
+    } catch {
+      // A misaligned O_DIRECT write throws (EINVAL) that is the expected
+      // signal that this pad is not aligned, so swallow it and try the next.
+      if (fd !== undefined) {
+        try {
+          closeSync(fd);
+        } catch {
+          // if failed to close ignore errors so cleanup doesn't crash the probe.
+        }
+      }
+    }
+  }
+  try {
+    unlinkSync(probePath);
+  } catch {
+    // Disposable temp file with a unique name, ignore delete errors so cleanup don't fail the probe.
+  }
+  return found;
+}
+
+/**
+ * check whether O_DIRECT is usable on the filesystem hosting `dir`.
+ * @internal
+ */
+function ensureODirectProbed(dir: string): void {
+  if (oDirectProbed) {
+    return;
+  }
+  oDirectProbed = true;
+  const testBuf = Buffer.allocUnsafeSlow(O_DIRECT_ALIGN * 2);
+  oDirectUsable = probeAlignedPad(dir, testBuf) >= 0;
+  if (!oDirectUsable) {
+    // O_DIRECT is supported by the platform but rejected by the filesystem
+    // hosting the download (common on tmpfs, overlayfs, some network mounts).
+    postLog(
+      "warn",
+      `useODirect was requested but O_DIRECT is not usable on the filesystem at "${dir}"; ` +
+        `falling back to buffered writes.`
+    );
+  } else {
+    postLog("debug", `O_DIRECT probe succeeded for filesystem at "${dir}"; using O_DIRECT writes.`);
+  }
+}
 
 /**
  * Resolves all A records for a hostname, picks one at random per connection
@@ -255,6 +349,7 @@ interface HttpWorkerDownloadHttpErrorMessage {
 interface HttpWorkerConfigMessage {
   type: "config";
   maxSockets: number;
+  useODirect?: boolean;
 }
 
 /**
@@ -302,6 +397,16 @@ interface HttpWorkerErrorMessage {
  */
 interface HttpWorkerReadyMessage {
   type: "ready";
+}
+
+/**
+ * Worker → Main thread: a diagnostic log line forwarding to the TM logger,
+ * used to surface O_DIRECT fallbacks.
+ */
+interface HttpWorkerLogMessage {
+  type: "workerLog";
+  level: "warn" | "debug" | "trace";
+  message: string;
 }
 
 // Checksum Helpers for Download.
@@ -519,36 +624,102 @@ if (parentPort) {
           checksum = createChecksum(checksumAlgorithm);
         }
 
-        // Stream response body chunks to file at positioned offsets
         let bytesWritten = 0;
 
-        if (response.body) {
-          for await (const chunk of response.body) {
-            const buf =
-              typeof chunk === "string" ? Buffer.from(chunk) : Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+        // Decide whether to use O_DIRECT for this range. It needs a block-aligned
+        // file offset and a range at least one block long; the aligned buffer
+        // address is obtained by over-allocating and probing for an aligned
+        // offset ("pad"). Anything else uses the buffered path below.
+        let alignedBuf: Buffer | undefined;
+        let pad = -1;
+        if (oDirectEnabled && writeOffset % O_DIRECT_ALIGN === 0 && targetLength >= O_DIRECT_ALIGN) {
+          ensureODirectProbed(dirname(filePath));
+          if (oDirectUsable) {
+            alignedBuf = Buffer.allocUnsafeSlow(targetLength + O_DIRECT_ALIGN);
+            pad = probeAlignedPad(dirname(filePath), alignedBuf);
+          }
+        } else if (oDirectEnabled) {
+          // Requested + usable, but this part is not O_DIRECT-eligible: O_DIRECT needs
+          // a block-aligned write offset and a part at least one block long.
+          postLog(
+            "trace",
+            `O_DIRECT skipped: part not 4096-block-aligned (offset=${writeOffset}, length=${targetLength}, block=${O_DIRECT_ALIGN}), using buffered writes.`
+          );
+        }
 
-            // Verify cumulative bytes do not exceed the range's length
-            if (bytesWritten + buf.length > targetLength) {
-              await fh.close();
-              port.postMessage({
-                type: "httpDownloadError",
-                id,
-                error: `Bytes written (${bytesWritten + buf.length}) exceeds expected length (${targetLength})`,
-                code: "BYTES_EXCEEDED",
-                name: "DownloadValidationError",
-              } satisfies HttpWorkerDownloadErrorMessage);
-              return;
+        if (alignedBuf && pad >= 0) {
+          // For O_DIRECT path write the block-aligned bulk with page-cache bypass,
+          // then write the last part (if any, may be smaller than a block) buffered.
+          if (response.body) {
+            for await (const chunk of response.body) {
+              const buf =
+                typeof chunk === "string" ? Buffer.from(chunk) : Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+
+              if (bytesWritten + buf.length > targetLength) {
+                await fh.close();
+                port.postMessage({
+                  type: "httpDownloadError",
+                  id,
+                  error: `Bytes written (${bytesWritten + buf.length}) exceeds expected length (${targetLength})`,
+                  code: "BYTES_EXCEEDED",
+                  name: "DownloadValidationError",
+                } satisfies HttpWorkerDownloadErrorMessage);
+                return;
+              }
+
+              buf.copy(alignedBuf, pad + bytesWritten, 0, buf.length);
+
+              if (checksum) {
+                checksum.update(buf);
+              }
+
+              bytesWritten += buf.length;
             }
+          }
 
-            // Write chunk to file at the correct position
-            await fh.write(buf, 0, buf.length, writeOffset + bytesWritten);
-
-            // Update checksum inline
-            if (checksum) {
-              checksum.update(buf);
+          // Block-aligned bulk goes through an O_DIRECT descriptor.
+          const alignedLength = Math.floor(bytesWritten / O_DIRECT_ALIGN) * O_DIRECT_ALIGN;
+          if (alignedLength > 0) {
+            const directFh = await open(filePath, fsConstants.O_RDWR | O_DIRECT_FLAG);
+            try {
+              await directFh.write(alignedBuf, pad, alignedLength, writeOffset);
+            } finally {
+              await directFh.close().catch(() => {});
             }
+          }
+          // Last part (O_DIRECT cannot write a partial final block) goes
+          // through the buffered handle.
+          const tailLength = bytesWritten - alignedLength;
+          if (tailLength > 0) {
+            await fh.write(alignedBuf, pad + alignedLength, tailLength, writeOffset + alignedLength);
+          }
+        } else {
+          // Buffered path: stream response body chunks to file at positioned offsets
+          if (response.body) {
+            for await (const chunk of response.body) {
+              const buf =
+                typeof chunk === "string" ? Buffer.from(chunk) : Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
 
-            bytesWritten += buf.length;
+              if (bytesWritten + buf.length > targetLength) {
+                await fh.close();
+                port.postMessage({
+                  type: "httpDownloadError",
+                  id,
+                  error: `Bytes written (${bytesWritten + buf.length}) exceeds expected length (${targetLength})`,
+                  code: "BYTES_EXCEEDED",
+                  name: "DownloadValidationError",
+                } satisfies HttpWorkerDownloadErrorMessage);
+                return;
+              }
+
+              await fh.write(buf, 0, buf.length, writeOffset + bytesWritten);
+
+              if (checksum) {
+                checksum.update(buf);
+              }
+
+              bytesWritten += buf.length;
+            }
           }
         }
 
@@ -689,7 +860,6 @@ if (parentPort) {
           // Copy chunk into the ArrayBuffer (this copy happens on the WORKER thread)
           view.set(buf, bytesWritten);
 
-          // Update checksum inline
           if (checksum) {
             checksum.update(buf);
           }
@@ -760,7 +930,18 @@ if (parentPort) {
     }
 
     if (msg.type === "config") {
-      const { maxSockets } = msg as HttpWorkerConfigMessage;
+      const { maxSockets, useODirect } = msg as HttpWorkerConfigMessage;
+      oDirectRequested = useODirect === true;
+      oDirectEnabled = oDirectRequested && O_DIRECT_SUPPORTED;
+      if (oDirectRequested && !O_DIRECT_SUPPORTED) {
+        // User configured useODirect but it is not supported on this platform.
+        postLog(
+          "warn",
+          `useODirect was requested but O_DIRECT is not available on this platform ` +
+            `(platform=${process.platform}, O_DIRECT flag ${O_DIRECT_FLAG > 0 ? "present" : "absent"}); ` +
+            `falling back to buffered writes.`
+        );
+      }
       handler = new NodeHttpHandler({
         httpsAgent: new httpsAgent({
           maxSockets,
