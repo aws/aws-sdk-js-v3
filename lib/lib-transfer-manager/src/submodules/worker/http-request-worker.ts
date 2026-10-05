@@ -669,10 +669,10 @@ if (parentPort) {
       try {
         // Initialize inline checksum computation with the algorithm S3 returned.
         // Undefined means S3 sent no checksum header, so validation is skipped.
-        const validateAlgorithm = resolveDownloadChecksumAlgorithm(response.headers);
+        const verifiableDownloadChecksumAlgorithm = resolveDownloadChecksumAlgorithm(response.headers);
         let checksum: Checksum | undefined;
-        if (validateAlgorithm) {
-          checksum = createChecksum(validateAlgorithm);
+        if (verifiableDownloadChecksumAlgorithm) {
+          checksum = createChecksum(verifiableDownloadChecksumAlgorithm);
         }
 
         let bytesWritten = 0;
@@ -790,11 +790,11 @@ if (parentPort) {
 
         // Finalize checksum and validate against S3 header if present
         let checksumBase64: string | undefined;
-        if (checksum && validateAlgorithm) {
+        if (checksum && verifiableDownloadChecksumAlgorithm) {
           checksumBase64 = await finalizeChecksumToBase64(checksum);
 
           // Check if S3 returned a per-part checksum header
-          const s3ChecksumValue = getChecksumHeaderValue(response.headers, validateAlgorithm);
+          const s3ChecksumValue = getChecksumHeaderValue(response.headers, verifiableDownloadChecksumAlgorithm);
           if (s3ChecksumValue && s3ChecksumValue !== checksumBase64) {
             port.postMessage({
               type: "httpDownloadError",
@@ -884,11 +884,11 @@ if (parentPort) {
       const view = new Uint8Array(ab, 0, expectedSize);
 
       // 3. Initialize inline checksum computation with the algorithm S3 returned.
-      //    Undefined means S3 sent no checksum header, so validation is skipped.
-      const validateAlgorithm = resolveDownloadChecksumAlgorithm(response.headers);
+      // Undefined means S3 sent no checksum header, so validation is skipped.
+      const verifiableDownloadChecksumAlgorithm = resolveDownloadChecksumAlgorithm(response.headers);
       let checksum: Checksum | undefined;
-      if (validateAlgorithm) {
-        checksum = createChecksum(validateAlgorithm);
+      if (verifiableDownloadChecksumAlgorithm) {
+        checksum = createChecksum(verifiableDownloadChecksumAlgorithm);
       }
 
       // 4. Stream response body chunks into the ArrayBuffer
@@ -923,10 +923,10 @@ if (parentPort) {
 
       // 5. Finalize checksum and validate against S3 header if present
       let checksumBase64: string | undefined;
-      if (checksum && validateAlgorithm) {
+      if (checksum && verifiableDownloadChecksumAlgorithm) {
         checksumBase64 = await finalizeChecksumToBase64(checksum);
 
-        const s3ChecksumValue = getChecksumHeaderValue(response.headers, validateAlgorithm);
+        const s3ChecksumValue = getChecksumHeaderValue(response.headers, verifiableDownloadChecksumAlgorithm);
         if (s3ChecksumValue && s3ChecksumValue !== checksumBase64) {
           port.postMessage({
             type: "httpDownloadError",
