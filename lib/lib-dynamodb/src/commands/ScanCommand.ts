@@ -19,12 +19,17 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
+export type ScanCondition = Omit<Condition, 'AttributeValueList'> & {
+  AttributeValueList?: NativeAttributeValue[] | undefined;
+};
+
+/**
+ * @public
+ */
 export type ScanCommandInput = Omit<__ScanCommandInput, "ScanFilter" | "ExclusiveStartKey" | "ExpressionAttributeValues"> & {
   ScanFilter?: Record<
     string,
-    Omit<Condition, "AttributeValueList"> & {
-      AttributeValueList?: NativeAttributeValue[] | undefined;
-    }
+    ScanCondition
   > | undefined;
   ExclusiveStartKey?: Record<string, NativeAttributeValue> | undefined;
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;

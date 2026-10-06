@@ -19,6 +19,13 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
+export type SearchVectorsSearchResultItem = Omit<SearchResultItem, 'Item'> & {
+  Item?: Record<string, NativeAttributeValue> | undefined;
+};
+
+/**
+ * @public
+ */
 export type SearchVectorsCommandInput = Omit<__SearchVectorsCommandInput, "ExpressionAttributeValues" | "SearchVector"> & {
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
   SearchVector: NativeAttributeValue[] | undefined;
@@ -29,9 +36,7 @@ export type SearchVectorsCommandInput = Omit<__SearchVectorsCommandInput, "Expre
  */
 export type SearchVectorsCommandOutput = Omit<__SearchVectorsCommandOutput, "SearchResults"> & {
   SearchResults?: (
-    Omit<SearchResultItem, "Item"> & {
-      Item?: Record<string, NativeAttributeValue> | undefined;
-    }
+    SearchVectorsSearchResultItem
   )[] | undefined;
 };
 
