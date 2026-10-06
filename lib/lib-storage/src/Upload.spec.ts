@@ -1,5 +1,6 @@
 import type { CompleteMultipartUploadCommandOutput } from "@aws-sdk/client-s3";
 import {
+  AbortMultipartUploadCommand,
   CompleteMultipartUploadCommand,
   CreateMultipartUploadCommand,
   PutObjectCommand,
@@ -10,6 +11,7 @@ import {
 } from "@aws-sdk/client-s3";
 import { AbortController as AbortControllerPolyfill } from "@smithy/abort-controller";
 import { EventEmitter, Readable } from "node:stream";
+import type { Mock } from "vitest";
 import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import type { Progress } from "./index";
@@ -763,6 +765,97 @@ describe(Upload.name, () => {
       "xhr.upload.progress",
       expect.any(Function)
     );
+  });
+
+  describe("request handler progress listener cleanup", () => {
+    let requestHandler: EventEmitter;
+    let unrelatedListener: Mock;
+    let client: S3Client;
+
+    beforeEach(() => {
+      requestHandler = new EventEmitter();
+      unrelatedListener = vi.fn();
+      requestHandler.on("xhr.upload.progress", unrelatedListener);
+      client = new S3Client({});
+      client.config.requestHandler = requestHandler as any;
+    });
+
+    const expectListenerRemoved = (onProgress: Mock) => {
+      expect.soft(requestHandler.listenerCount("xhr.upload.progress")).toBe(1);
+      expect.soft(requestHandler.listeners("xhr.upload.progress")).toEqual([unrelatedListener]);
+
+      onProgress.mockClear();
+      unrelatedListener.mockClear();
+      requestHandler.emit("xhr.upload.progress", { loaded: 1, total: 2 }, { query: { partNumber: "1" } });
+
+      expect(unrelatedListener).toHaveBeenCalledTimes(1);
+      expect(onProgress).not.toHaveBeenCalled();
+    };
+
+    it.each(["PutObject", "endpoint resolution"])("removes the listener when %s fails", async (failure) => {
+      const error = new Error(`${failure} failed`);
+      if (failure === "PutObject") {
+        vi.mocked(client.send).mockRejectedValueOnce(error);
+      } else {
+        endpointMock.mockRejectedValueOnce(error);
+      }
+      const upload = new Upload({ params, client });
+      const onProgress = vi.fn();
+      upload.on("httpUploadProgress", onProgress);
+
+      await expect(upload.done()).rejects.toBe(error);
+
+      expectListenerRemoved(onProgress);
+    });
+
+    it.each([false, true])(
+      "removes the listener when UploadPart fails with leavePartsOnError=%s",
+      async (leavePartsOnError) => {
+        const error = new Error("UploadPart failed");
+        client.send = vi.fn().mockResolvedValueOnce({ UploadId: "mockuploadId" }).mockRejectedValueOnce(error);
+        const upload = new Upload({
+          params: { ...params, Body: Buffer.alloc(DEFAULT_PART_SIZE + 1) },
+          client,
+          queueSize: 1,
+          leavePartsOnError,
+        });
+        const onProgress = vi.fn();
+        upload.on("httpUploadProgress", onProgress);
+
+        await expect(upload.done()).rejects.toBe(error);
+
+        expect(AbortMultipartUploadCommand).toHaveBeenCalledWith({
+          Bucket: params.Bucket,
+          Key: params.Key,
+          UploadId: "mockuploadId",
+        });
+        expect(client.send).toHaveBeenCalledTimes(leavePartsOnError ? 2 : 3);
+        if (!leavePartsOnError) {
+          expect(client.send).toHaveBeenLastCalledWith(vi.mocked(AbortMultipartUploadCommand).mock.results[0].value);
+        }
+        expect(CompleteMultipartUploadCommand).not.toHaveBeenCalled();
+        expectListenerRemoved(onProgress);
+      }
+    );
+
+    it.each([false, true])("removes only its own listener after success with multipart=%s", async (multipart) => {
+      vi.mocked(client.send).mockImplementation(async (command) => {
+        requestHandler.emit("xhr.upload.progress", { loaded: 1, total: 2 }, { query: { partNumber: "1" } });
+        return command;
+      });
+      const upload = new Upload({
+        params: { ...params, Body: multipart ? Buffer.alloc(DEFAULT_PART_SIZE + 1) : params.Body },
+        client,
+        queueSize: 1,
+      });
+      const onProgress = vi.fn();
+      upload.on("httpUploadProgress", onProgress);
+
+      await upload.done();
+
+      expect(onProgress).toHaveBeenCalledWith(expect.objectContaining({ loaded: 1, part: 1 }));
+      expectListenerRemoved(onProgress);
+    });
   });
 
   it("should respect external abort signal", async () => {
