@@ -1,4 +1,5 @@
-import { RpcProtocol } from "@smithy/core/protocols";
+import { JsonCodec2, loadJsonRpcErrorCode, RpcProtocol } from "@smithy/core/protocols";
+import type { JsonCodec, JsonShapeDeserializer2 } from "@smithy/core/protocols";
 import type { TypeRegistry } from "@smithy/core/schema";
 import { deref, NormalizedSchema } from "@smithy/core/schema";
 import type {
@@ -15,10 +16,6 @@ import type {
 } from "@smithy/types";
 
 import { ProtocolLib } from "../ProtocolLib";
-import type { JsonCodec } from "./codec-v1/JsonCodec";
-import { JsonCodec2 } from "./codec-v2/JsonCodec2";
-import { loadJsonRpcErrorCode } from "./parseJsonBody";
-import type { JsonShapeDeserializer2 } from "./codec-v2/JsonShapeDeserializer2";
 
 /**
  * @public

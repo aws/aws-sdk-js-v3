@@ -2,7 +2,7 @@ import { CborShapeSerializer } from "@smithy/core/cbor";
 import type { StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { JsonShapeSerializer2 } from "./json/codec-v2/JsonShapeSerializer2";
+import { JsonShapeSerializer2 } from "@smithy/core/protocols";
 import { QueryShapeSerializer } from "./query/QueryShapeSerializer";
 import { XmlShapeSerializer } from "./xml/XmlShapeSerializer";
 

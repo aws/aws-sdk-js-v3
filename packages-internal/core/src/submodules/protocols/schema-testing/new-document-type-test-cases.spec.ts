@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, test as it } from "vitest";
 
-import { jsonReviver } from "../json/jsonReviver";
+import { jsonReviver } from "../json/jsonReviver.fixture";
 
 const json = fs.readFileSync(path.join(__dirname, "./new-document-type-test-cases.json"), "utf-8");
 
