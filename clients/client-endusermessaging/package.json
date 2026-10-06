@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-endusermessaging",
-  "version": "3.1146.0",
+  "version": "3.1147.0",
   "description": "AWS SDK for JavaScript Endusermessaging Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-endusermessaging",
   "license": "Apache-2.0",
