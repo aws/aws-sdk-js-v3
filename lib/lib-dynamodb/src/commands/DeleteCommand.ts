@@ -19,14 +19,26 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
+export type DeleteExpectedAttributeValue = Omit<ExpectedAttributeValue, 'Value' | 'AttributeValueList'> & {
+  Value?: NativeAttributeValue | undefined;
+  AttributeValueList?: NativeAttributeValue[] | undefined;
+};
+
+/**
+ * @public
+ */
+export type DeleteItemCollectionMetrics = Omit<ItemCollectionMetrics, 'ItemCollectionKey'> & {
+  ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+};
+
+/**
+ * @public
+ */
 export type DeleteCommandInput = Omit<__DeleteItemCommandInput, "Key" | "Expected" | "ExpressionAttributeValues"> & {
   Key: Record<string, NativeAttributeValue> | undefined;
   Expected?: Record<
     string,
-    Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
-      Value?: NativeAttributeValue | undefined;
-      AttributeValueList?: NativeAttributeValue[] | undefined;
-    }
+    DeleteExpectedAttributeValue
   > | undefined;
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
@@ -36,9 +48,7 @@ export type DeleteCommandInput = Omit<__DeleteItemCommandInput, "Key" | "Expecte
  */
 export type DeleteCommandOutput = Omit<__DeleteItemCommandOutput, "Attributes" | "ItemCollectionMetrics"> & {
   Attributes?: Record<string, NativeAttributeValue> | undefined;
-  ItemCollectionMetrics?: Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-    ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
-  } | undefined;
+  ItemCollectionMetrics?: DeleteItemCollectionMetrics | undefined;
 };
 
 /**

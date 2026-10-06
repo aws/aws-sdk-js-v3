@@ -19,20 +19,37 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
+export type UpdateAttributeValueUpdate = Omit<AttributeValueUpdate, 'Value'> & {
+  Value?: NativeAttributeValue | undefined;
+};
+
+/**
+ * @public
+ */
+export type UpdateExpectedAttributeValue = Omit<ExpectedAttributeValue, 'Value' | 'AttributeValueList'> & {
+  Value?: NativeAttributeValue | undefined;
+  AttributeValueList?: NativeAttributeValue[] | undefined;
+};
+
+/**
+ * @public
+ */
+export type UpdateItemCollectionMetrics = Omit<ItemCollectionMetrics, 'ItemCollectionKey'> & {
+  ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+};
+
+/**
+ * @public
+ */
 export type UpdateCommandInput = Omit<__UpdateItemCommandInput, "Key" | "AttributeUpdates" | "Expected" | "ExpressionAttributeValues"> & {
   Key: Record<string, NativeAttributeValue> | undefined;
   AttributeUpdates?: Record<
     string,
-    Omit<AttributeValueUpdate, "Value"> & {
-      Value?: NativeAttributeValue | undefined;
-    }
+    UpdateAttributeValueUpdate
   > | undefined;
   Expected?: Record<
     string,
-    Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
-      Value?: NativeAttributeValue | undefined;
-      AttributeValueList?: NativeAttributeValue[] | undefined;
-    }
+    UpdateExpectedAttributeValue
   > | undefined;
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
@@ -42,9 +59,7 @@ export type UpdateCommandInput = Omit<__UpdateItemCommandInput, "Key" | "Attribu
  */
 export type UpdateCommandOutput = Omit<__UpdateItemCommandOutput, "Attributes" | "ItemCollectionMetrics"> & {
   Attributes?: Record<string, NativeAttributeValue> | undefined;
-  ItemCollectionMetrics?: Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-    ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
-  } | undefined;
+  ItemCollectionMetrics?: UpdateItemCollectionMetrics | undefined;
 };
 
 /**
