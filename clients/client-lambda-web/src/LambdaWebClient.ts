@@ -55,70 +55,9 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
-  CreateWebFunctionCommandInput,
-  CreateWebFunctionCommandOutput,
-} from "./commands/CreateWebFunctionCommand";
-import type {
-  CreateWebFunctionEndpointCommandInput,
-  CreateWebFunctionEndpointCommandOutput,
-} from "./commands/CreateWebFunctionEndpointCommand";
-import type {
-  CreateWebFunctionRevisionCommandInput,
-  CreateWebFunctionRevisionCommandOutput,
-} from "./commands/CreateWebFunctionRevisionCommand";
-import type {
-  DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
-} from "./commands/DeleteResourcePolicyCommand";
-import type {
-  DeleteWebFunctionCommandInput,
-  DeleteWebFunctionCommandOutput,
-} from "./commands/DeleteWebFunctionCommand";
-import type {
-  DeleteWebFunctionEndpointCommandInput,
-  DeleteWebFunctionEndpointCommandOutput,
-} from "./commands/DeleteWebFunctionEndpointCommand";
-import type {
-  DeleteWebFunctionRevisionCommandInput,
-  DeleteWebFunctionRevisionCommandOutput,
-} from "./commands/DeleteWebFunctionRevisionCommand";
-import type {
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
-} from "./commands/GetResourcePolicyCommand";
-import type {
   GetWebAccountSettingsCommandInput,
   GetWebAccountSettingsCommandOutput,
 } from "./commands/GetWebAccountSettingsCommand";
-import type { GetWebFunctionCommandInput, GetWebFunctionCommandOutput } from "./commands/GetWebFunctionCommand";
-import type {
-  GetWebFunctionEndpointCommandInput,
-  GetWebFunctionEndpointCommandOutput,
-} from "./commands/GetWebFunctionEndpointCommand";
-import type {
-  GetWebFunctionRevisionCommandInput,
-  GetWebFunctionRevisionCommandOutput,
-} from "./commands/GetWebFunctionRevisionCommand";
-import type { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
-import type {
-  ListWebFunctionEndpointsCommandInput,
-  ListWebFunctionEndpointsCommandOutput,
-} from "./commands/ListWebFunctionEndpointsCommand";
-import type {
-  ListWebFunctionRevisionsCommandInput,
-  ListWebFunctionRevisionsCommandOutput,
-} from "./commands/ListWebFunctionRevisionsCommand";
-import type { ListWebFunctionsCommandInput, ListWebFunctionsCommandOutput } from "./commands/ListWebFunctionsCommand";
-import type {
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
-} from "./commands/PutResourcePolicyCommand";
-import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
-import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
-import type {
-  UpdateWebFunctionEndpointCommandInput,
-  UpdateWebFunctionEndpointCommandOutput,
-} from "./commands/UpdateWebFunctionEndpointCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -134,51 +73,13 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
-  | CreateWebFunctionCommandInput
-  | CreateWebFunctionEndpointCommandInput
-  | CreateWebFunctionRevisionCommandInput
-  | DeleteResourcePolicyCommandInput
-  | DeleteWebFunctionCommandInput
-  | DeleteWebFunctionEndpointCommandInput
-  | DeleteWebFunctionRevisionCommandInput
-  | GetResourcePolicyCommandInput
-  | GetWebAccountSettingsCommandInput
-  | GetWebFunctionCommandInput
-  | GetWebFunctionEndpointCommandInput
-  | GetWebFunctionRevisionCommandInput
-  | ListTagsCommandInput
-  | ListWebFunctionEndpointsCommandInput
-  | ListWebFunctionRevisionsCommandInput
-  | ListWebFunctionsCommandInput
-  | PutResourcePolicyCommandInput
-  | TagResourceCommandInput
-  | UntagResourceCommandInput
-  | UpdateWebFunctionEndpointCommandInput;
+  | GetWebAccountSettingsCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
-  | CreateWebFunctionCommandOutput
-  | CreateWebFunctionEndpointCommandOutput
-  | CreateWebFunctionRevisionCommandOutput
-  | DeleteResourcePolicyCommandOutput
-  | DeleteWebFunctionCommandOutput
-  | DeleteWebFunctionEndpointCommandOutput
-  | DeleteWebFunctionRevisionCommandOutput
-  | GetResourcePolicyCommandOutput
-  | GetWebAccountSettingsCommandOutput
-  | GetWebFunctionCommandOutput
-  | GetWebFunctionEndpointCommandOutput
-  | GetWebFunctionRevisionCommandOutput
-  | ListTagsCommandOutput
-  | ListWebFunctionEndpointsCommandOutput
-  | ListWebFunctionRevisionsCommandOutput
-  | ListWebFunctionsCommandOutput
-  | PutResourcePolicyCommandOutput
-  | TagResourceCommandOutput
-  | UntagResourceCommandOutput
-  | UpdateWebFunctionEndpointCommandOutput;
+  | GetWebAccountSettingsCommandOutput;
 
 /**
  * @public
@@ -371,7 +272,7 @@ export type LambdaWebClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface LambdaWebClientResolvedConfig extends LambdaWebClientResolvedConfigType {}
 
 /**
- * <note> <p>The AWS Lambda Web Functions APIs (<code>LambdaWeb</code> namespace) are experimental and for internal AWS use only. They are not yet available to external customers.</p> </note> <p>AWS Lambda Web Functions let you run web applications and APIs as HTTP servers on Lambda. A web function has one or more immutable revisions (code and configuration) and one or more endpoints that expose it over HTTPS.</p>
+ * <note> <p>The AWS Lambda Web Functions APIs (<code>LambdaWeb</code> namespace) are experimental and for internal AWS use only. They are not yet available to external customers.</p> </note>
  * @public
  */
 export class LambdaWebClient extends __Client<

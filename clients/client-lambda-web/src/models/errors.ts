@@ -24,40 +24,6 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource. Resolve the conflict and try again.</p>
- * @public
- */
-export class ConflictException extends __BaseException {
-  readonly name = "ConflictException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The identifier of the resource in conflict.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource in conflict.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
  * <p>An internal server error occurred. Try again later.</p>
  * @public
  */
@@ -75,88 +41,6 @@ export class InternalServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * <p>The specified resource was not found. Verify the resource identifier and try again.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name = "ResourceNotFoundException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The identifier of the resource that was not found.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of the resource that was not found.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * <p>A service quota was exceeded. Request a quota increase or reduce usage and try again.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name = "ServiceQuotaExceededException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The identifier of the resource that exceeded the quota.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The type of resource that exceeded the quota.</p>
-   * @public
-   */
-  resourceType?: string | undefined;
-
-  /**
-   * <p>The service code of the service that owns the quota.</p>
-   * @public
-   */
-  serviceCode?: string | undefined;
-
-  /**
-   * <p>The quota code of the exceeded quota.</p>
-   * @public
-   */
-  quotaCode?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
   }
 }
 
@@ -201,25 +85,5 @@ export class ThrottlingException extends __BaseException {
     this.retryAfterSeconds = opts.retryAfterSeconds;
     this.serviceCode = opts.serviceCode;
     this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * <p>The request failed validation. Check the request parameters and try again.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name = "ValidationException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
   }
 }

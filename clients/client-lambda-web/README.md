@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript LambdaWeb Client for Node.js, Browser and React Native.
 
-<note> <p>The AWS Lambda Web Functions APIs (<code>LambdaWeb</code> namespace) are experimental and for internal AWS use only. They are not yet available to external customers.</p> </note> <p>AWS Lambda Web Functions let you run web applications and APIs as HTTP servers on Lambda. A web function has one or more immutable revisions (code and configuration) and one or more endpoints that expose it over HTTPS.</p>
+<note> <p>The AWS Lambda Web Functions APIs (<code>LambdaWeb</code> namespace) are experimental and for internal AWS use only. They are not yet available to external customers.</p> </note>
 
 ## Installing
 
@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LambdaWebClient` and
-the commands you need, for example `ListTagsCommand`:
+the commands you need, for example `GetWebAccountSettingsCommand`:
 
 ```js
 // ES5 example
-const { LambdaWebClient, ListTagsCommand } = require("@aws-sdk/client-lambda-web");
+const { LambdaWebClient, GetWebAccountSettingsCommand } = require("@aws-sdk/client-lambda-web");
 ```
 
 ```ts
 // ES6+ example
-import { LambdaWebClient, ListTagsCommand } from "@aws-sdk/client-lambda-web";
+import { LambdaWebClient, GetWebAccountSettingsCommand } from "@aws-sdk/client-lambda-web";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new LambdaWebClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListTagsCommand(params);
+const command = new GetWebAccountSettingsCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new LambdaWeb({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listTags(params);
+  const data = await client.getWebAccountSettings(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listTags(params)
+  .getWebAccountSettings(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listTags(params, (err, data) => {
+client.getWebAccountSettings(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -181,141 +181,8 @@ see LICENSE for more information.
 
 <details>
 <summary>
-CreateWebFunction
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/CreateWebFunctionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/CreateWebFunctionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/CreateWebFunctionCommandOutput/)
-</details>
-<details>
-<summary>
-CreateWebFunctionEndpoint
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/CreateWebFunctionEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/CreateWebFunctionEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/CreateWebFunctionEndpointCommandOutput/)
-</details>
-<details>
-<summary>
-CreateWebFunctionRevision
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/CreateWebFunctionRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/CreateWebFunctionRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/CreateWebFunctionRevisionCommandOutput/)
-</details>
-<details>
-<summary>
-DeleteResourcePolicy
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/DeleteResourcePolicyCommandOutput/)
-</details>
-<details>
-<summary>
-DeleteWebFunction
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/DeleteWebFunctionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/DeleteWebFunctionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/DeleteWebFunctionCommandOutput/)
-</details>
-<details>
-<summary>
-DeleteWebFunctionEndpoint
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/DeleteWebFunctionEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/DeleteWebFunctionEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/DeleteWebFunctionEndpointCommandOutput/)
-</details>
-<details>
-<summary>
-DeleteWebFunctionRevision
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/DeleteWebFunctionRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/DeleteWebFunctionRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/DeleteWebFunctionRevisionCommandOutput/)
-</details>
-<details>
-<summary>
-GetResourcePolicy
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/GetResourcePolicyCommandOutput/)
-</details>
-<details>
-<summary>
 GetWebAccountSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/GetWebAccountSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/GetWebAccountSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/GetWebAccountSettingsCommandOutput/)
-</details>
-<details>
-<summary>
-GetWebFunction
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/GetWebFunctionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/GetWebFunctionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/GetWebFunctionCommandOutput/)
-</details>
-<details>
-<summary>
-GetWebFunctionEndpoint
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/GetWebFunctionEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/GetWebFunctionEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/GetWebFunctionEndpointCommandOutput/)
-</details>
-<details>
-<summary>
-GetWebFunctionRevision
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/GetWebFunctionRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/GetWebFunctionRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/GetWebFunctionRevisionCommandOutput/)
-</details>
-<details>
-<summary>
-ListTags
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/ListTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/ListTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/ListTagsCommandOutput/)
-</details>
-<details>
-<summary>
-ListWebFunctionEndpoints
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/ListWebFunctionEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/ListWebFunctionEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/ListWebFunctionEndpointsCommandOutput/)
-</details>
-<details>
-<summary>
-ListWebFunctionRevisions
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/ListWebFunctionRevisionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/ListWebFunctionRevisionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/ListWebFunctionRevisionsCommandOutput/)
-</details>
-<details>
-<summary>
-ListWebFunctions
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/ListWebFunctionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/ListWebFunctionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/ListWebFunctionsCommandOutput/)
-</details>
-<details>
-<summary>
-PutResourcePolicy
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/PutResourcePolicyCommandOutput/)
-</details>
-<details>
-<summary>
-TagResource
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/TagResourceCommandOutput/)
-</details>
-<details>
-<summary>
-UntagResource
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/UntagResourceCommandOutput/)
-</details>
-<details>
-<summary>
-UpdateWebFunctionEndpoint
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda-web/command/UpdateWebFunctionEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/UpdateWebFunctionEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda-web/Interface/UpdateWebFunctionEndpointCommandOutput/)
 </details>
