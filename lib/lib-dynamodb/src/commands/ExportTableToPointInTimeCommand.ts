@@ -19,21 +19,29 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
+export type ExportTableToPointInTimeFilterSpecification = Omit<FilterSpecification, 'ExpressionAttributeValues'> & {
+  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
+};
+
+/**
+ * @public
+ */
+export type ExportTableToPointInTimeExportDescription = Omit<ExportDescription, 'FilterSpecification'> & {
+  FilterSpecification?: ExportTableToPointInTimeFilterSpecification | undefined;
+};
+
+/**
+ * @public
+ */
 export type ExportTableToPointInTimeCommandInput = Omit<__ExportTableToPointInTimeCommandInput, "FilterSpecification"> & {
-  FilterSpecification?: Omit<FilterSpecification, "ExpressionAttributeValues"> & {
-    ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
-  } | undefined;
+  FilterSpecification?: ExportTableToPointInTimeFilterSpecification | undefined;
 };
 
 /**
  * @public
  */
 export type ExportTableToPointInTimeCommandOutput = Omit<__ExportTableToPointInTimeCommandOutput, "ExportDescription"> & {
-  ExportDescription?: Omit<ExportDescription, "FilterSpecification"> & {
-    FilterSpecification?: Omit<FilterSpecification, "ExpressionAttributeValues"> & {
-      ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
-    } | undefined;
-  } | undefined;
+  ExportDescription?: ExportTableToPointInTimeExportDescription | undefined;
 };
 
 /**
