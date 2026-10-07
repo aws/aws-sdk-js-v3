@@ -79,6 +79,28 @@ await tm.upload({
 });
 ```
 
+#### Zero-copy shared-memory uploads (Node.js)
+
+For a multipart upload where the data is already in memory, pass a `Uint8Array`
+or `Buffer` backed by a `SharedArrayBuffer`. Worker threads read part ranges
+directly from that buffer, avoiding the transfer manager's normal whole-body
+copy into shared memory.
+
+```js
+const sharedBuffer = new SharedArrayBuffer(objectSize);
+const body = Buffer.from(sharedBuffer);
+
+// Fill body before starting the upload.
+await tm.upload({
+  Bucket: "destination-bucket",
+  Key: "key-1",
+  Body: body,
+  ContentLength: body.byteLength,
+});
+```
+
+Do not mutate the shared buffer until the upload completes.
+
 ### Download an object
 
 Provide a request with the source `Bucket` and `Key`. The response `Body` is a single joined

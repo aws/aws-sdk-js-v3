@@ -267,6 +267,8 @@ export interface FileSource {
 export interface SharedBufferSource {
   type: "sharedBuffer";
   sharedBuffer: SharedArrayBuffer;
+  /** Byte offset of the caller's Uint8Array view into sharedBuffer. */
+  startOffset?: number;
   partSize: number;
   totalSize: number;
   checksumAlgorithm?: ChecksumAlgorithm;
@@ -936,9 +938,10 @@ export class WorkerHttpHandler {
       return this.dispatchToWorker(id, message);
     }
 
-    const { sharedBuffer, partSize, totalSize, checksumAlgorithm, checksumHeader } = dataSource;
-    const offset = (partNumber - 1) * partSize;
-    const length = Math.min(partSize, totalSize - offset);
+    const { sharedBuffer, startOffset = 0, partSize, totalSize, checksumAlgorithm, checksumHeader } = dataSource;
+    const partOffset = (partNumber - 1) * partSize;
+    const offset = startOffset + partOffset;
+    const length = Math.min(partSize, totalSize - partOffset);
 
     const message: HttpWorkerRAMRequestMessage = {
       type: "httpRequestFromRAM",
