@@ -597,6 +597,20 @@
     "UpdateCommandInput": "type(intersection)",
     "UpdateCommandOutput": "type(intersection)"
   },
+  "@aws-sdk/lib-sqs": {
+    "DeleteError": "function",
+    "Message": "function",
+    "PollerConfig": "type(interface)",
+    "PollerError": "function",
+    "PollerMessage": "type(interface)",
+    "PollerStats": "type(interface)",
+    "SerializablePollerStats": "type(interface)",
+    "SQSPoller": "function",
+    "SQSPollerEventName": "type(union)",
+    "SQSPollerEvents": "type(interface)",
+    "TimeoutError": "function",
+    "VisibilityExtensionError": "function"
+  },
   "@aws-sdk/lib-storage": {
     "BodyDataTypes": "type(union)",
     "Configuration": "type(interface)",
