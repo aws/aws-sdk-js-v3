@@ -102,6 +102,14 @@ final class DocumentClientPaginationGenerator implements Runnable {
         );
     }
 
+    static String getIndexFilelocation() {
+        return String.format(
+            "%s%s/index.ts",
+            DocumentClientUtils.DOC_CLIENT_PREFIX,
+            PAGINATION_FOLDER
+        );
+    }
+
     static void generateServicePaginationInterfaces(TypeScriptWriter writer) {
         writer.addImport("PaginationConfiguration", "PaginationConfiguration", TypeScriptDependency.SMITHY_TYPES);
 
