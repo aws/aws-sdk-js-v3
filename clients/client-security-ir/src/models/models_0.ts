@@ -1342,6 +1342,101 @@ export interface CreateMembershipResponse {
 /**
  * @public
  */
+export interface GetFindingMetricsRequest {
+  /**
+   * The membership ID to retrieve metrics for.
+   * @public
+   */
+  membershipId: string | undefined;
+
+  /**
+   * The start of the day-aligned UTC window, inclusive.
+   * @public
+   */
+  startDate: Date | undefined;
+
+  /**
+   * The end of the day-aligned UTC window, inclusive.
+   * @public
+   */
+  endDate: Date | undefined;
+}
+
+/**
+ * Finding-lifecycle metrics for a membership over the requested date range.
+ * @public
+ */
+export interface GetFindingMetricsResponse {
+  /**
+   * The number of findings ingested from AWS Security Hub during the requested date range.
+   * @public
+   */
+  findingsIngestedSecurityHub: number | undefined;
+
+  /**
+   * The number of findings ingested from Amazon GuardDuty during the requested date range.
+   * @public
+   */
+  findingsIngestedGuardDuty: number | undefined;
+
+  /**
+   * The number of findings triaged during the requested date range.
+   * @public
+   */
+  findingsTriaged: number | undefined;
+
+  /**
+   * The number of triaged findings that were closed as false positives during the requested date range.
+   * @public
+   */
+  findingsTriagedFalsePositive: number | undefined;
+
+  /**
+   * The number of findings investigated during the requested date range.
+   * @public
+   */
+  findingsInvestigated: number | undefined;
+
+  /**
+   * The number of investigated findings that were closed as false positives during the requested date range.
+   * @public
+   */
+  findingsInvestigatedFalsePositive: number | undefined;
+
+  /**
+   * The number of findings escalated during the requested date range.
+   * @public
+   */
+  findingsEscalated: number | undefined;
+
+  /**
+   * The number of escalated findings that were closed as false positives during the requested date range.
+   * @public
+   */
+  findingsEscalatedFalsePositive: number | undefined;
+
+  /**
+   * The number of findings confirmed as true positives during the requested date range.
+   * @public
+   */
+  findingsTruePositive: number | undefined;
+
+  /**
+   * The number of findings whose investigation was in progress during the requested date range.
+   * @public
+   */
+  findingsInvestigatedInProgress: number | undefined;
+
+  /**
+   * The number of findings whose escalation was in progress during the requested date range.
+   * @public
+   */
+  findingsEscalatedInProgress: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetMembershipRequest {
   /**
    * <p>Required element for GetMembership to identify the membership ID to query.</p>

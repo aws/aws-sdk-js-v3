@@ -51,6 +51,10 @@ import {
   GetCaseCommand,
   GetCaseRequest$,
   GetCaseResponse$,
+  GetFindingMetrics$,
+  GetFindingMetricsCommand,
+  GetFindingMetricsRequest$,
+  GetFindingMetricsResponse$,
   GetMembership$,
   GetMembershipAccountDetailError$,
   GetMembershipAccountDetailItem$,
@@ -181,6 +185,8 @@ assert(typeof GetCaseAttachmentDownloadUrlCommand === "function");
 assert(typeof GetCaseAttachmentDownloadUrl$ === "object");
 assert(typeof GetCaseAttachmentUploadUrlCommand === "function");
 assert(typeof GetCaseAttachmentUploadUrl$ === "object");
+assert(typeof GetFindingMetricsCommand === "function");
+assert(typeof GetFindingMetrics$ === "object");
 assert(typeof GetMembershipCommand === "function");
 assert(typeof GetMembership$ === "object");
 assert(typeof ListCaseEditsCommand === "function");
@@ -233,6 +239,8 @@ assert(typeof GetCaseAttachmentUploadUrlRequest$ === "object");
 assert(typeof GetCaseAttachmentUploadUrlResponse$ === "object");
 assert(typeof GetCaseRequest$ === "object");
 assert(typeof GetCaseResponse$ === "object");
+assert(typeof GetFindingMetricsRequest$ === "object");
+assert(typeof GetFindingMetricsResponse$ === "object");
 assert(typeof GetMembershipAccountDetailError$ === "object");
 assert(typeof GetMembershipAccountDetailItem$ === "object");
 assert(typeof GetMembershipRequest$ === "object");

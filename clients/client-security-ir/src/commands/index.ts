@@ -8,6 +8,7 @@ export * from "./CreateMembershipCommand";
 export * from "./GetCaseAttachmentDownloadUrlCommand";
 export * from "./GetCaseAttachmentUploadUrlCommand";
 export * from "./GetCaseCommand";
+export * from "./GetFindingMetricsCommand";
 export * from "./GetMembershipCommand";
 export * from "./ListCaseEditsCommand";
 export * from "./ListCasesCommand";
