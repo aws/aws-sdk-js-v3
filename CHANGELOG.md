@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1148.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1147.0...v3.1148.0) (2026-10-08)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** use the declared checksum algorithm in workers ([#8331](https://github.com/aws/aws-sdk-js-v3/issues/8331)) ([0317bb8](https://github.com/aws/aws-sdk-js-v3/commit/0317bb822abed1302aaae350a8bbfa40f60ef32d))
+
+
+### Features
+
+* **client-budgets:** Adds a product attribute dimension to CreateBudget and UpdateBudget, letting customers filter AWS Budgets costs by structured attributes such as Amazon Bedrock model, provider, inference type, and feature. ([722512d](https://github.com/aws/aws-sdk-js-v3/commit/722512d1f8c05c76e0b1f8913cccfabbfb7891c9))
+* **client-cloudformation:** CloudFormation introduces force rollback, a new opt-in capability that lets your stacks complete a rollback even when an individual resource cannot be reverted. Set ForceRollback on ContinueUpdateRollback and CloudFormation records each resource that fails as skipped, completing the rollback. ([07e146a](https://github.com/aws/aws-sdk-js-v3/commit/07e146a50091110686ca16c8867c117e914a468b))
+* **client-codeconnections:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([5a0dcee](https://github.com/aws/aws-sdk-js-v3/commit/5a0dceeb42b718df91fd5eca63393d5de689e379))
+* **client-cost-explorer:** Adds a product attribute dimension to GetCostAndUsage, GetCostAndUsageWithResources, and GetDimensionValues, letting customers group, filter, and discover Cost Explorer costs by structured attributes such as Amazon Bedrock model, provider, inference type, and feature. ([7e0afd1](https://github.com/aws/aws-sdk-js-v3/commit/7e0afd115d8e342e51c0f26eeda045642deb0d64))
+* **client-datazone:** Adds support for multi-file notebook import. StartNotebookImport now accepts an s3Files source location with an ordered list of Amazon S3 objects, creating one notebook cell per file, plus a type field to create either a DATA or SQL notebook. ([37214f3](https://github.com/aws/aws-sdk-js-v3/commit/37214f3f63a6d39a58b7cd4a34d7be3384fac8c7))
+* **client-devops-agent:** Adds release management associations with private network access to AWS DevOps Agent, and a releaseManagementAssociationId field on GitHub and GitLab associations. This helps release management agents (Release-readiness review and Release Testing) access customer resources that are behind a VPC. ([55b389d](https://github.com/aws/aws-sdk-js-v3/commit/55b389d1260095535d24440901bb37a7ebc4582b))
+* **client-eks:** Configurations support for EKS ACK Capabilities, including EnableCrossNamespace and DisableServices configuration. ([82f87e7](https://github.com/aws/aws-sdk-js-v3/commit/82f87e7c6bd3d55b8ee73f06b592d424d21cf4c8))
+* **client-emr-serverless:** This release adds support for system profile logs for lakeformation enabled Spark connect sessions . ([f9ed2f8](https://github.com/aws/aws-sdk-js-v3/commit/f9ed2f834c52b341e1423789206b61e4446ba83a))
+* **client-fms:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([bb5e227](https://github.com/aws/aws-sdk-js-v3/commit/bb5e227d58c184ca9518e3359a22faeafed7589e))
+* **client-gamelift:** Amazon GameLift Servers container fleets now support CPU bursting for game server container groups. The TotalVcpuLimit property of a game server container group definition is now optional. When you omit it, the group has no CPU cap and its containers can burst into unused CPU on the instance. ([1812184](https://github.com/aws/aws-sdk-js-v3/commit/181218406de73dbd7a528b282d8cd1fc0d560d5a))
+* **client-glue:** Introduced GetSystemLogsForJobRun and GetSystemLogsForSession APIs, enabling account admins to retrieve system-space logs for FGAC-enabled Glue jobs and sessions. ([9dc9c38](https://github.com/aws/aws-sdk-js-v3/commit/9dc9c38c16a2d9f0ed986541e9c0403817df6630))
+* **client-guardduty:** Added support for GuardDuty RDS Data Activity Monitoring ([aa20002](https://github.com/aws/aws-sdk-js-v3/commit/aa2000207f021c9a315ed8634a066f8738991d9b))
+* **client-health:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([e2ffc01](https://github.com/aws/aws-sdk-js-v3/commit/e2ffc014df0c87a3041f96f9a4215506a0571f74))
+* **client-keyspaces:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([0f8c987](https://github.com/aws/aws-sdk-js-v3/commit/0f8c9874ab7aaef16cf1e2bd55a01110eee75502))
+* **client-lambda:** AWS Lambda now supports OAuth 2.0 (OAUTHBEARER), IAM, and IAM with OAUTHBEARER authentication for self-managed Apache Kafka event source mappings, including optional OAuth scope, audience, logical cluster, and identity pool parameters. OAuth 2.0 is also available for Confluent Schema Registry. ([c7696bf](https://github.com/aws/aws-sdk-js-v3/commit/c7696bfa5e04778bf7e253d70eff6ee6e07b5d5d))
+* **client-marketplace-agreement:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([404943c](https://github.com/aws/aws-sdk-js-v3/commit/404943ce029cf80ea99a9d8e1cbca176ebabaff8))
+* **client-medialive:** AWS Elemental MediaLive Workflow Monitor now supports AWS Elemental Inference feeds as a target resource type for CloudWatch alarm templates. ([e335e5d](https://github.com/aws/aws-sdk-js-v3/commit/e335e5dc0cadc7e5e180c19ab1acdd9ce90cc2d6))
+* **client-opensearch:** This release adds a new EncryptionMode option (DISK or NATIVE) to EncryptionAtRestOptions for the CreateDomain and UpdateDomainConfig operations, enabling selection of engine-native index-level encryption on supported Amazon OpenSearch Service domains. ([393fb01](https://github.com/aws/aws-sdk-js-v3/commit/393fb01137d0cc7d99f5590356f867ae8c237560))
+* **client-pi:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([1d99c7c](https://github.com/aws/aws-sdk-js-v3/commit/1d99c7c808f4092b0eaef26b1edde32d1dd9bbb0))
+* **client-security-ir:** Adds support for retrieving finding-lifecycle metrics for an AWS Security Incident Response membership. ([f4f6dfe](https://github.com/aws/aws-sdk-js-v3/commit/f4f6dfe5a3b215b726b5cc14784cba1d80afd725))
+* **client-securityagent:** Include model field for suggested remediation steps as part of findings ([50a65bf](https://github.com/aws/aws-sdk-js-v3/commit/50a65bf4623e8ff6cb1b90a942e45047b5f93c05))
+* **client-securityhub:** Release findings export APIs - StartExportJobV2, GetExportJobV2, ListExportJobsV2, and CancelExportJobV2. This supports exporting findings from AWS Security Hub to Amazon S3 bucket. ([f53e8a2](https://github.com/aws/aws-sdk-js-v3/commit/f53e8a2ac0eb9d38456651ac504ff3ef963930c8))
+* **client-translate:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([41abffc](https://github.com/aws/aws-sdk-js-v3/commit/41abffc025d334e51fa8a1ffbdfa217eced258f9))
+
+
+
+
+
 # [3.1147.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1146.0...v3.1147.0) (2026-10-06)
 
 

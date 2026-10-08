@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1148.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1147.0...v3.1148.0) (2026-10-08)
+
+
+### Features
+
+* **client-eks:** Configurations support for EKS ACK Capabilities, including EnableCrossNamespace and DisableServices configuration. ([82f87e7](https://github.com/aws/aws-sdk-js-v3/commit/82f87e7c6bd3d55b8ee73f06b592d424d21cf4c8))
+
+
+
+
+
 # [3.1147.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1146.0...v3.1147.0) (2026-10-06)
 
 **Note:** Version bump only for package @aws-sdk/client-eks
