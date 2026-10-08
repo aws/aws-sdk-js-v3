@@ -36,7 +36,7 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  *                     (when the game server is available to be claimed) to <code>UTILIZED</code> (when
  *                     the game server is currently hosting games). Identify the game server and game
  *                     server group and specify the new utilization status. You can't change the status
- *                     from to <code>UTILIZED</code> to <code>AVAILABLE</code> .</p>
+ *                     from <code>UTILIZED</code> to <code>AVAILABLE</code> .</p>
  *             </li>
  *             <li>
  *                <p>To report health status, identify the game server and game server group and

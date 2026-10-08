@@ -29,7 +29,7 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  *             result set to find only those fleets that are deployed with a specific build or script.
  *             For fleets that have multiple locations, this operation retrieves fleets based on their
  *             home Region only.</p>
- *          <p>You can use  operation in the following ways: </p>
+ *          <p>You can use this operation in the following ways: </p>
  *          <ul>
  *             <li>
  *                <p>To get a list of all fleets in a Region, don't provide a build or script

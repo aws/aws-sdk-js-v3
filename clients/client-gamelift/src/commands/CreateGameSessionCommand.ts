@@ -56,7 +56,7 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  *             default, newly created game sessions are open to new players. You can restrict new
  *             player access by using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> to change the game session's player session creation
  *             policy.</p>
- *          <p>Amazon GameLift Servers retains logs for active for 14 days. To access the logs, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html">GetGameSessionLogUrl</a> to download the log files.</p>
+ *          <p>Amazon GameLift Servers retains logs for active game sessions for 14 days. To access the logs, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html">GetGameSessionLogUrl</a> to download the log files.</p>
  *          <p>
  *             <i>Available in Amazon GameLift Servers Local.</i>
  *          </p>

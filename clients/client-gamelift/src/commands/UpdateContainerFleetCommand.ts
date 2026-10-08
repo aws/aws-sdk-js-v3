@@ -30,7 +30,7 @@ export interface UpdateContainerFleetCommandOutput extends UpdateContainerFleetO
  *             a fleet using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html</a>.</p>
  *          <note>
  *             <p>A managed fleet's runtime environment, which depends on the fleet's
- *                 Amazon Machine Image \{AMI\} version, can't be updated. You must create a new
+ *                 Amazon Machine Image (AMI) version, can't be updated. You must create a new
  *                 fleet. As a best practice, we recommend replacing your managed fleets every 30
  *                 days to maintain a secure and up-to-date runtime environment for your hosted game
  *                 servers. For guidance, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/security-best-practices.html">
@@ -92,7 +92,7 @@ export interface UpdateContainerFleetCommandOutput extends UpdateContainerFleetO
  *             a new deployment of fleet resources using the deployment configuration provided. A
  *             deployment replaces existing fleet instances with new instances that are deployed with
  *             the updated fleet properties. The fleet is placed in <code>UPDATING</code> status until
- *             the deployment is complete, then return to <code>ACTIVE</code>. </p>
+ *             the deployment is complete, then returns to <code>ACTIVE</code>. </p>
  *          <p>You can have only one update deployment active at a time for a fleet. If a second
  *             update request initiates a deployment while another deployment is in progress, the first
  *             deployment is cancelled.</p>

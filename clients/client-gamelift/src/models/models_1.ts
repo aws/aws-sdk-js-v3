@@ -3,6 +3,7 @@ import type {
   BackfillMode,
   BalancingStrategy,
   ContainerFleetRemoveAttribute,
+  ContainerGroupDefinitionRemoveAttribute,
   ContainerOperatingSystem,
   FlexMatchMode,
   GameServerHealthCheck,
@@ -228,9 +229,17 @@ export interface UpdateContainerGroupDefinitionInput {
 
   /**
    * <p>The maximum amount of vCPU units to allocate to the container group (1 vCPU is equal to 1024
-   *       CPU units). All containers in the group share this memory. If you specify vCPU limits for
-   *       individual containers, the total value must be equal to or greater than the sum of the CPU
-   *       limits for all containers in the group.</p>
+   *       CPU units). All containers in the group share these resources. If you set vCPU reservations for
+   *       individual containers, the total value must be equal to or greater than the sum of the
+   *       <code>Vcpu</code> values for all containers in the group.</p>
+   *          <p>For a game server container group, Amazon GameLift Servers requires either a total vCPU limit or a
+   *       <code>Vcpu</code> value for the game server container. If the container group has a total vCPU
+   *       limit, Amazon GameLift Servers uses this value to calculate how many game server container groups fit on an
+   *       instance. If the container group doesn't have a total vCPU limit, its containers can use up to
+   *       the instance's available vCPU, and Amazon GameLift Servers uses the sum of the containers' <code>Vcpu</code>
+   *       values to calculate how many game server container groups fit on an instance. To remove the
+   *       total vCPU limit, omit this parameter and set <code>RemoveAttributes</code> to
+   *       <code>TOTAL_VCPU_LIMIT</code>.</p>
    * @public
    */
   TotalVcpuLimit?: number | undefined;
@@ -261,6 +270,16 @@ export interface UpdateContainerGroupDefinitionInput {
    * @public
    */
   OperatingSystem?: ContainerOperatingSystem | undefined;
+
+  /**
+   * <p>If set, this update removes the container group's total vCPU limit, and the group's
+   *       containers can use up to the instance's available vCPU. You can't remove the total vCPU limit
+   *       from a per-instance container group. A game server container group needs either a total vCPU
+   *       limit or a <code>Vcpu</code> value for the game server container. You can't set
+   *       <code>TotalVcpuLimit</code> in the same request.</p>
+   * @public
+   */
+  RemoveAttributes?: ContainerGroupDefinitionRemoveAttribute[] | undefined;
 }
 
 /**
@@ -504,7 +523,7 @@ export interface UpdateGameServerInput {
   /**
    * <p>Indicates if the game server is available or is currently hosting gameplay. You can
    *             update a game server status from <code>AVAILABLE</code> to <code>UTILIZED</code>, but
-   *             you can't change a the status from <code>UTILIZED</code> to
+   *             you can't change the status from <code>UTILIZED</code> to
    *             <code>AVAILABLE</code>.</p>
    * @public
    */
@@ -565,7 +584,7 @@ export interface UpdateGameServerGroupInput {
    *             from early termination. Unprotected instances that have active game servers running might
    *             be terminated during a scale-down event, causing players to be dropped from the game.
    *             Protected instances cannot be terminated while there are active game servers running except
-   *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
+   *             in the event of a forced game server group deletion. An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
    * @public
    */
@@ -792,8 +811,10 @@ export interface UpdateMatchmakingConfigurationInput {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::gamesessionqueue/<queue name></code>. Queues can be located in any Region. Queues are used to start new
    *             Amazon GameLift Servers-hosted game sessions for matches that are created with this matchmaking
-   *             configuration. If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do not
-   *             set this parameter.</p>
+   *             configuration. A matchmaking configuration supports only one queue; if you specify
+   *             more than one ARN, the request fails with an <code>InvalidRequestException</code>.
+   *             If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do not set this
+   *             parameter.</p>
    * @public
    */
   GameSessionQueueArns?: string[] | undefined;
@@ -1009,7 +1030,7 @@ export interface UpdateScriptOutput {
    *             location reflects an Amazon S3 location: (1) If the script was uploaded from an S3 bucket
    *             under your account, the storage location reflects the information that was provided in
    *             the <i>CreateScript</i> request; (2) If the script file was uploaded from
-   *             a local zip file, the storage location reflects an S3 location controls by the Amazon GameLift Servers
+   *             a local zip file, the storage location reflects an S3 location controlled by the Amazon GameLift Servers
    *             service.</p>
    * @public
    */

@@ -41,7 +41,7 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  *          <p>If successful, a <code>FleetAttributes</code> object is returned for each fleet
  *             requested, unless the fleet identifier is not found. </p>
  *          <note>
- *             <p>Some API operations limit the number of fleet IDs that allowed in one request. If
+ *             <p>Some API operations limit the number of fleet IDs that are allowed in one request. If
  *                 a request exceeds this limit, the request fails and the error message contains the
  *                 maximum allowed number.</p>
  *          </note>

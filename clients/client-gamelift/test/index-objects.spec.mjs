@@ -37,6 +37,7 @@ import {
   ContainerFleetRemoveAttribute,
   ContainerFleetStatus,
   ContainerGroupDefinition$,
+  ContainerGroupDefinitionRemoveAttribute,
   ContainerGroupDefinitionStatus,
   ContainerGroupPortMapping$,
   ContainerGroupType,
@@ -1281,6 +1282,7 @@ assert(typeof ContainerFleetBillingType === "object");
 assert(typeof ContainerFleetLocationStatus === "object");
 assert(typeof ContainerFleetRemoveAttribute === "object");
 assert(typeof ContainerFleetStatus === "object");
+assert(typeof ContainerGroupDefinitionRemoveAttribute === "object");
 assert(typeof ContainerGroupDefinitionStatus === "object");
 assert(typeof ContainerGroupType === "object");
 assert(typeof ContainerMountPointAccessLevel === "object");

@@ -58,13 +58,20 @@ export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateConta
  *           definitions, excluding the definition to remove. If the container group has only one
  *           support container definition, provide an empty set.</p>
  *             </li>
+ *             <li>
+ *                <p>Remove the total vCPU limit from a game server container group so that its containers
+ *           can use up to the instance's available vCPU. Set <code>RemoveAttributes</code> to
+ *           <code>TOTAL_VCPU_LIMIT</code>. The game server container must have a <code>Vcpu</code>
+ *           value, because a game server container group needs either a total vCPU limit or a game
+ *           server <code>Vcpu</code> value.</p>
+ *             </li>
  *          </ul>
  *          <p>
  *             <b>Results:</b>
  *          </p>
  *          <p>If successful, this operation returns the complete properties of the new container group
  *       definition version.</p>
- *          <p>If the container group definition version is used in an active fleets, the update
+ *          <p>If the container group definition version is used in an active fleet, the update
  *       automatically initiates a new fleet deployment of the new version. You can track a fleet's
  *       deployments using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleetDeployments.html">ListFleetDeployments</a>.</p>
  * @example
@@ -114,6 +121,7 @@ export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateConta
  *         "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
  *       ],
  *     },
+ *     Vcpu: Number("double"),
  *   },
  *   SupportContainerDefinitions: [ // SupportContainerDefinitionInputList
  *     { // SupportContainerDefinitionInput
@@ -171,6 +179,9 @@ export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateConta
  *   VersionDescription: "STRING_VALUE",
  *   SourceVersionNumber: Number("int"),
  *   OperatingSystem: "AMAZON_LINUX_2023",
+ *   RemoveAttributes: [ // ContainerGroupDefinitionRemoveAttributeList
+ *     "TOTAL_VCPU_LIMIT",
+ *   ],
  * };
  * const command = new UpdateContainerGroupDefinitionCommand(input);
  * const response = await client.send(command);
@@ -221,6 +232,7 @@ export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateConta
  * //           "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
  * //         ],
  * //       },
+ * //       Vcpu: Number("double"),
  * //     },
  * //     SupportContainerDefinitions: [ // SupportContainerDefinitionList
  * //       { // SupportContainerDefinition

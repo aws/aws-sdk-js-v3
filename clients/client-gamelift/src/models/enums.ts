@@ -969,6 +969,19 @@ export type ContainerGroupDefinitionStatus =
  * @public
  * @enum
  */
+export const ContainerGroupDefinitionRemoveAttribute = {
+  TOTAL_VCPU_LIMIT: "TOTAL_VCPU_LIMIT",
+} as const;
+/**
+ * @public
+ */
+export type ContainerGroupDefinitionRemoveAttribute =
+  (typeof ContainerGroupDefinitionRemoveAttribute)[keyof typeof ContainerGroupDefinitionRemoveAttribute];
+
+/**
+ * @public
+ * @enum
+ */
 export const FleetType = {
   OnDemand: "ON_DEMAND",
   Spot: "SPOT",

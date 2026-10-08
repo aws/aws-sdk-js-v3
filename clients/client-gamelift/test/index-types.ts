@@ -375,6 +375,7 @@ export type {
   ContainerFleetLocationStatus,
   ContainerFleetRemoveAttribute,
   ContainerFleetStatus,
+  ContainerGroupDefinitionRemoveAttribute,
   ContainerGroupDefinitionStatus,
   ContainerGroupType,
   ContainerMountPointAccessLevel,

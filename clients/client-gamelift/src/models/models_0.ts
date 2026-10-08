@@ -258,7 +258,7 @@ export interface AttributeValue {
  *             task, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_RequestUploadCredentials.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_RequestUploadCredentials.html</a>.</p>
  *             </li>
  *             <li>
- *                <p>To remotely connect to an active Amazon GameLift Servers fleet instances.
+ *                <p>To remotely connect to an active Amazon GameLift Servers fleet instance.
  *                 To get remote access, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess.html</a>.</p>
  *             </li>
  *          </ul>
@@ -600,7 +600,7 @@ export interface ContainerAttribute {
 
 /**
  * <p>An Amazon GameLift Servers compute resource for hosting your game servers. Computes in an Amazon GameLift Servers
- *             fleet differs depending on the fleet's compute type property as follows: </p>
+ *             fleet differ depending on the fleet's compute type property as follows: </p>
  *          <ul>
  *             <li>
  *                <p>For managed EC2 fleets, a compute is an EC2 instance.</p>
@@ -760,7 +760,7 @@ export interface ConnectionPortRange {
 
 /**
  * <p>A container's dependency on another container in the same container group. The dependency
- *       impacts how the dependent container is able to start or shut down based the status of the
+ *       impacts how the dependent container is able to start or shut down based on the status of the
  *       other container.</p>
  *          <p>For example, <i>ContainerA</i> is configured with the following dependency: a
  *         <code>START</code> dependency on <i>ContainerB</i>. This means that
@@ -854,7 +854,7 @@ export interface DeploymentDetails {
  *             consume available resources.</p>
  *          <p>The policy is evaluated when a player tries to create a new game session. On receiving
  *             a <code>CreateGameSession</code> request, Amazon GameLift Servers checks that the player (identified by
- *             <code>CreatorId</code>) has created fewer than game session limit in the specified
+ *             <code>CreatorId</code>) has created fewer than the game session limit in the specified
  *             time period.</p>
  * @public
  */
@@ -865,7 +865,7 @@ export interface GameSessionCreationLimitPolicy {
    *             consume available resources.</p>
    *          <p>The policy evaluates when a player tries to create a new game session. On receiving a
    *                 <code>CreateGameSession</code> request, Amazon GameLift Servers checks that the player (identified
-   *             by <code>CreatorId</code>) has created fewer than game session limit in the specified
+   *             by <code>CreatorId</code>) has created fewer than the game session limit in the specified
    *             time period.</p>
    * @public
    */
@@ -960,7 +960,7 @@ export interface ContainerFleetLocationAttributes {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATING</code> -- Updates to the container fleet is being updated. A
+   *                   <code>UPDATING</code> -- The container fleet is being updated. A
    *                     deployment is in progress.</p>
    *             </li>
    *             <li>
@@ -1111,7 +1111,7 @@ export interface ContainerFleet {
   GameServerContainerGroupsPerInstance?: number | undefined;
 
   /**
-   * <p>The calculated maximum number of game server container group that can be deployed on
+   * <p>The calculated maximum number of game server container groups that can be deployed on
    *             each fleet instance. The calculation depends on the resource needs of the container
    *             group and the CPU and memory resources of the fleet's instance type.</p>
    * @public
@@ -1121,7 +1121,7 @@ export interface ContainerFleet {
   /**
    * <p>The Amazon EC2 instance type to use for all instances in the fleet. Instance type
    *             determines the computing resources and processing power that's available to host your
-   *             game servers. This includes including CPU, memory, storage, and networking capacity. You
+   *             game servers. This includes CPU, memory, storage, and networking capacity. You
    *             can't update this fleet property.</p>
    * @public
    */
@@ -1210,7 +1210,7 @@ export interface ContainerFleet {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in
+   *                   <code>UPDATING</code> -- The container fleet is being updated. A deployment is in
    *                     progress.</p>
    *             </li>
    *             <li>
@@ -1486,6 +1486,26 @@ export interface GameServerContainerDefinition {
    * @public
    */
   LinuxCapabilities?: LinuxCapabilities | undefined;
+
+  /**
+   * <p>The number of vCPU units reserved for the game server container. The container can use
+   *       more vCPU when it's available, up to the container group's total vCPU limit if one is set. If
+   *       the container group has a total vCPU limit and the request doesn't set this value, Amazon GameLift Servers
+   *       calculates the game server container's vCPU as the total vCPU limit minus the sum of the vCPU
+   *       units reserved for the group's support containers.</p>
+   *          <p>A game server container group needs either a total vCPU limit or this value. If the
+   *       container group doesn't have a total vCPU limit, the group's containers can use up to the
+   *       instance's available vCPU, and Amazon GameLift Servers uses the sum of the group's container
+   *       <code>Vcpu</code> values to calculate how many game server container groups fit on an
+   *       instance.</p>
+   *          <p>
+   *             <b>Related data type: </b>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a>
+   *             <code>TotalVcpuLimit</code>
+   *          </p>
+   * @public
+   */
+  Vcpu?: number | undefined;
 }
 
 /**
@@ -1630,7 +1650,7 @@ export interface SupportContainerDefinition {
 
   /**
    * <p>A set of ports that allow access to the container from external users. Processes running
-   *       in the container can bind to a one of these ports. Container ports aren't directly accessed by
+   *       in the container can bind to one of these ports. Container ports aren't directly accessed by
    *       inbound traffic. Amazon GameLift Servers maps these container ports to externally accessible connection ports,
    *       which are assigned as needed from the container fleet's
    *       <code>ConnectionPortRange</code>.</p>
@@ -1665,7 +1685,7 @@ export interface SupportContainerDefinition {
 
 /**
  * <p>The properties that describe a container group resource. You can update all properties of
- *       a container group definition properties. Updates to a container group definition are saved as
+ *       a container group definition. Updates to a container group definition are saved as
  *       new versions. </p>
  *          <p>
  *             <b>Used with:</b>
@@ -1733,9 +1753,14 @@ export interface ContainerGroupDefinition {
   /**
    * <p>The amount of vCPU units on a fleet instance to allocate for the container group (1 vCPU
    *       is equal to 1024 CPU units). All containers in the group share these resources. You can set a
-   *       limit for each container definition in the group. If individual containers have limits, this
-   *       total value must be equal to or greater than the sum of the limits for each container in the
-   *       group.</p>
+   *       vCPU reservation for each container definition in the group. If individual containers have
+   *       reservations, this total value must be equal to or greater than the sum of the reservations
+   *       for each container in the group.</p>
+   *          <p>For a game server container group, if this property is set, Amazon GameLift Servers uses this value to
+   *       calculate how many game server container groups fit on an instance. If this property isn't set,
+   *       the group's containers can use up to the instance's available vCPU, and Amazon GameLift Servers uses the sum of
+   *       the containers' <code>Vcpu</code> values to calculate how many game server container groups fit
+   *       on an instance.</p>
    * @public
    */
   TotalVcpuLimit?: number | undefined;
@@ -1750,7 +1775,7 @@ export interface ContainerGroupDefinition {
 
   /**
    * <p>The set of definitions for support containers in this group. A container group definition
-   *       might have zero support container definitions. Support container can be used in any type of
+   *       might have zero support container definitions. Support containers can be used in any type of
    *       container group.</p>
    * @public
    */
@@ -1805,11 +1830,11 @@ export interface ContainerGroupDefinition {
    *             <li>
    *                <p>An internal issue prevented Amazon GameLift Servers from creating
    *         the container group definition resource. Delete the failed resource and call
-   *         <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html">CreateContainerGroupDefinition</a>again. </p>
+   *         <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html">CreateContainerGroupDefinition</a> again. </p>
    *             </li>
    *             <li>
    *                <p>An access-denied message means that you don't have permissions to access the container image on ECR. See
-   *         <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html.html">
+   *         <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html">
    *           IAM permission examples</a>
    *         for help setting up required IAM permissions for Amazon GameLift Servers.</p>
    *             </li>
@@ -1990,7 +2015,7 @@ export interface CreateAliasInput {
 
   /**
    * <p>A list of labels to assign to the new alias resource. Tags are developer-defined
-   *             key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access
+   *             key-value pairs. Tagging Amazon Web Services resources is useful for resource management, access
    *             management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the
    *                 <i>Amazon Web Services General Reference</i>.</p>
    * @public
@@ -2016,7 +2041,7 @@ export interface CreateAliasOutput {
  */
 export interface S3Location {
   /**
-   * <p>An Amazon S3 bucket identifier. Thename of the S3 bucket.</p>
+   * <p>An Amazon S3 bucket identifier. The name of the S3 bucket.</p>
    *          <note>
    *             <p>Amazon GameLift Servers doesn't support uploading from Amazon S3 buckets with names that contain a dot
    *                 (.).</p>
@@ -2107,7 +2132,7 @@ export interface CreateBuildInput {
 
   /**
    * <p>A list of labels to assign to the new build resource. Tags are developer defined
-   *             key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access
+   *             key-value pairs. Tagging Amazon Web Services resources is useful for resource management, access
    *             management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the
    *                 <i>Amazon Web Services General Reference</i>. Once the resource is created, you can
    *             use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html">TagResource</a>, <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html">UntagResource</a>, and
@@ -2132,7 +2157,7 @@ export interface CreateBuildInput {
  */
 export interface CreateBuildOutput {
   /**
-   * <p>The newly created build resource, including a unique build IDs and status. </p>
+   * <p>The newly created build resource, including a unique build ID and status. </p>
    * @public
    */
   Build?: Build | undefined;
@@ -2204,7 +2229,7 @@ export interface CreateContainerFleetInput {
   GameServerContainerGroupDefinitionName?: string | undefined;
 
   /**
-   * <p>The name of a container group definition resource that describes a set of axillary
+   * <p>The name of a container group definition resource that describes a set of auxiliary
    *             software. A fleet instance has one process for executables in this container group. A
    *             per-instance container group is optional. You can update the fleet to add or remove a
    *             per-instance container group at any time. You can specify the container group
@@ -2288,7 +2313,7 @@ export interface CreateContainerFleetInput {
    *             instance. </p>
    *          <p>By default, Amazon GameLift Servers calculates the maximum number of game server container groups that
    *             can fit on each instance. This calculation is based on the CPU and memory resources of
-   *             the fleet's instance type). To use the calculated maximum, don't set this parameter. If
+   *             the fleet's instance type. To use the calculated maximum, don't set this parameter. If
    *             you set this number manually, Amazon GameLift Servers uses your value as long as it's less than the
    *             calculated maximum.</p>
    * @public
@@ -2299,7 +2324,7 @@ export interface CreateContainerFleetInput {
    * <p>The Amazon EC2 instance type to use for all instances in the fleet. For multi-location
    *             fleets, the instance type must be available in the home region and all remote locations.
    *             Instance type determines the computing resources and processing power that's available
-   *             to host your game servers. This includes including CPU, memory, storage, and networking
+   *             to host your game servers. This includes CPU, memory, storage, and networking
    *             capacity. </p>
    *          <p>By default, Amazon GameLift Servers uses the <code>c5.large</code> instance type. If this instance
    *             type does not have sufficient resources for your container groups, you can choose a
@@ -2388,14 +2413,14 @@ export interface CreateContainerFleetInput {
    *             </li>
    *          </ul>
    *          <p>By default, this property is set to <code>CLOUDWATCH</code>. </p>
-   *          <p>Amazon GameLift Servers requires permissions to send logs other Amazon Web Services services in your account. These permissions are included in the IAM fleet role for this container fleet (see <code>FleetRoleArn)</code>.</p>
+   *          <p>Amazon GameLift Servers requires permissions to send logs to other Amazon Web Services services in your account. These permissions are included in the IAM fleet role for this container fleet (see <code>FleetRoleArn</code>).</p>
    * @public
    */
   LogConfiguration?: LogConfiguration | undefined;
 
   /**
    * <p>A list of labels to assign to the new fleet resource. Tags are developer-defined
-   *             key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access
+   *             key-value pairs. Tagging Amazon Web Services resources is useful for resource management, access
    *             management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the
    *             <i>Amazon Web Services General Reference</i>.</p>
    * @public
@@ -2403,7 +2428,7 @@ export interface CreateContainerFleetInput {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Configures player gateway for your fleet. Player gateway provides benefits such as DDoS protection by rate limiting and validating traﬃc before it reaches game servers, hiding game server IP addresses from players, and providing updated endpoints when relay endpoints become unhealthy.</p>
+   * <p>Configures player gateway for your fleet. Player gateway provides benefits such as DDoS protection by rate limiting and validating traffic before it reaches game servers, hiding game server IP addresses from players, and providing updated endpoints when relay endpoints become unhealthy.</p>
    *          <p>
    *             <b>How it works:</b> When enabled, game clients connect to relay endpoints instead of to your game servers. Player gateway validates player gateway tokens and routes traffic to the appropriate game server. Your game backend calls <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html">GetPlayerConnectionDetails</a> to retrieve relay endpoints and player gateway tokens for your game clients. To learn more about this topic, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/ddos-protection-intro.html">DDoS protection with Amazon GameLift Servers player gateway</a>.</p>
    *          <p>Possible values include:</p>
@@ -2519,7 +2544,7 @@ export interface GameServerContainerDefinitionInput {
    * <p>A set of ports that Amazon GameLift Servers can assign to processes in a container. The container port
    *       configuration must have enough ports for each container process that accepts inbound traffic
    *       connections. For example, a game server process requires a container port to allow game
-   *       clients to connect to it. A container port configuration can have can have one or more
+   *       clients to connect to it. A container port configuration can have one or more
    *       container port ranges. Each range specifies starting and ending values as well as the
    *       supported network protocol.</p>
    *          <p>Container ports aren't directly accessed by inbound traffic. Amazon GameLift Servers maps each container
@@ -2541,6 +2566,26 @@ export interface GameServerContainerDefinitionInput {
    * @public
    */
   LinuxCapabilities?: LinuxCapabilities | undefined;
+
+  /**
+   * <p>The number of vCPU units reserved for the game server container. The container can use
+   *       more vCPU when it's available, up to the container group's total vCPU limit if one is set. If
+   *       the container group has a total vCPU limit and the request doesn't set this value, Amazon GameLift Servers
+   *       calculates the game server container's vCPU as the total vCPU limit minus the sum of the vCPU
+   *       units reserved for the group's support containers.</p>
+   *          <p>A game server container group needs either a total vCPU limit or this value. If the
+   *       container group doesn't have a total vCPU limit, the group's containers can use up to the
+   *       instance's available vCPU, and Amazon GameLift Servers uses the sum of the group's container
+   *       <code>Vcpu</code> values to calculate how many game server container groups fit on an
+   *       instance.</p>
+   *          <p>
+   *             <b>Related data type: </b>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a>
+   *             <code>TotalVcpuLimit</code>
+   *          </p>
+   * @public
+   */
+  Vcpu?: number | undefined;
 }
 
 /**
@@ -2568,7 +2613,6 @@ export interface SupportContainerDefinitionInput {
   /**
    * <p>Establishes dependencies between this container and the status of other containers in the
    *       same container group. A container can have dependencies on multiple different containers. </p>
-   *          <p>.</p>
    *          <p>You can use dependencies to establish a startup/shutdown sequence across the container
    *       group. For example, you might specify that <i>ContainerB</i> has a
    *         <code>START</code> dependency on <i>ContainerA</i>. This dependency means that
@@ -2645,7 +2689,8 @@ export interface SupportContainerDefinitionInput {
    *       allocation. </p>
    *          <p>
    *             <b>Related data type: </b>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a>TotalMemoryLimitMebibytes<code></code>
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a>
+   *             <code>TotalMemoryLimitMebibytes</code>
    *          </p>
    * @public
    */
@@ -2654,7 +2699,7 @@ export interface SupportContainerDefinitionInput {
   /**
    * <p>A set of ports that Amazon GameLift Servers can assign to processes in a container. The container port
    *       configuration must have enough ports for each container process that accepts inbound traffic
-   *       connections. A container port configuration can have can have one or more container port
+   *       connections. A container port configuration can have one or more container port
    *       ranges. Each range specifies starting and ending values as well as the supported network
    *       protocol.</p>
    *          <p>Container ports aren't directly accessed by inbound traffic. Amazon GameLift Servers maps each container
@@ -2666,11 +2711,11 @@ export interface SupportContainerDefinitionInput {
 
   /**
    * <p>The number of vCPU units to reserve for this container. The container can use more
-   *       resources when needed, if available. If you don't reserve CPU units for this container, it
-   *       shares the container group's total vCPU limit. </p>
+   *       resources when needed, if available. If you don't reserve vCPU units for this container, it
+   *       shares the container group's total vCPU limit.</p>
    *          <p>
    *             <b>Related data type: </b>
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a> TotalCpuLimit
+   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a> TotalVcpuLimit
    *     </p>
    * @public
    */
@@ -2713,13 +2758,20 @@ export interface CreateContainerGroupDefinitionInput {
 
   /**
    * <p>The maximum amount of vCPU units to allocate to the container group (1 vCPU is equal to 1024
-   *       CPU units). All containers in the group share this memory. If you specify vCPU limits for
-   *       individual containers, the total value must be equal to or greater than the sum of the CPU
-   *       limits for all containers in the group.</p>
-   *          <p>Default value: 1</p>
+   *       CPU units). All containers in the group share these resources. If you set vCPU reservations for
+   *       individual containers, the total value must be equal to or greater than the sum of the
+   *       <code>Vcpu</code> values for all containers in the group.</p>
+   *          <p>This property is required for a per-instance container group.</p>
+   *          <p>For a game server container group, Amazon GameLift Servers requires either a total vCPU limit or a
+   *       <code>Vcpu</code> value for the game server container. If you set a total vCPU limit for a
+   *       game server container group, Amazon GameLift Servers uses this value to calculate how many game server
+   *       container groups fit on an instance. If you don't set a total vCPU limit, the group's
+   *       containers can use up to the instance's available vCPU, and Amazon GameLift Servers uses the sum of the
+   *       containers' <code>Vcpu</code> values to calculate how many game server container groups fit
+   *       on an instance.</p>
    * @public
    */
-  TotalVcpuLimit: number | undefined;
+  TotalVcpuLimit?: number | undefined;
 
   /**
    * <p>The definition for the game server container in this group. Define a game server container
@@ -2762,7 +2814,7 @@ export interface CreateContainerGroupDefinitionInput {
 
   /**
    * <p>A list of labels to assign to the container group definition resource. Tags are
-   *       developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource management,
+   *       developer-defined key-value pairs. Tagging Amazon Web Services resources is useful for resource management,
    *       access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the
    *         <i>Amazon Web Services General Reference</i>. </p>
    * @public
@@ -2800,7 +2852,7 @@ export interface PlayerGatewayConfiguration {
  *             consume available resources.</p>
  *          <p>The policy is evaluated when a player tries to create a new game session. On receiving
  *             a <code>CreateGameSession</code> request, Amazon GameLift Servers checks that the player (identified by
- *                 <code>CreatorId</code>) has created fewer than game session limit in the specified
+ *                 <code>CreatorId</code>) has created fewer than the game session limit in the specified
  *             time period.</p>
  *          <p>The purpose of this policy is to prevent a single player from consuming a large share of
  *             available hosting resources. For example, setting <code>NewGameSessionsPerCreator</code> to
@@ -2817,7 +2869,7 @@ export interface ResourceCreationLimitPolicy {
    *             consume available resources.</p>
    *          <p>The policy is evaluated when a player tries to create a new game session. On receiving
    *             a <code>CreateGameSession</code> request, Amazon GameLift Servers checks that the player (identified by
-   *                 <code>CreatorId</code>) has created fewer than game session limit in the specified
+   *                 <code>CreatorId</code>) has created fewer than the game session limit in the specified
    *             time period.</p>
    * @public
    */
@@ -3019,7 +3071,7 @@ export interface CreateFleetInput {
 
   /**
    * <p>Instructions for how to launch and run server processes on the fleet. Set runtime
-   *             configuration for managed EC2 fleets. For an Anywhere fleets, set this
+   *             configuration for managed EC2 fleets. For an Anywhere fleet, set this
    *             parameter only if the fleet is running the Amazon GameLift Servers Agent. The runtime configuration
    *             defines one or more server process configurations. Each server process identifies a game
    *             executable or Realtime script file and the number of processes to run concurrently. </p>
@@ -3120,7 +3172,7 @@ export interface CreateFleetInput {
 
   /**
    * <p>A list of labels to assign to the new fleet resource. Tags are developer-defined
-   *             key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access
+   *             key-value pairs. Tagging Amazon Web Services resources is useful for resource management, access
    *             management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the
    *                 <i>Amazon Web Services General Reference</i>.</p>
    * @public
@@ -3166,7 +3218,7 @@ export interface CreateFleetInput {
   InstanceRoleCredentialsProvider?: InstanceRoleCredentialsProvider | undefined;
 
   /**
-   * <p>Configures player gateway for your fleet. Player gateway provides benefits such as DDoS protection by rate limiting and validating traﬃc before it reaches game servers, hiding game server IP addresses from players, and providing updated endpoints when relay endpoints become unhealthy. Note, player gateway is only available for fleets using server SDK 5.x or later game server builds.</p>
+   * <p>Configures player gateway for your fleet. Player gateway provides benefits such as DDoS protection by rate limiting and validating traffic before it reaches game servers, hiding game server IP addresses from players, and providing updated endpoints when relay endpoints become unhealthy. Note, player gateway is only available for fleets using server SDK 5.x or later game server builds.</p>
    *          <p>
    *             <b>How it works:</b> When enabled, game clients connect to relay endpoints instead of to your game servers. Player gateway validates player gateway tokens and routes traffic to the appropriate game server. Your game backend calls <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html">GetPlayerConnectionDetails</a> to retrieve relay endpoints and player gateway tokens for your game clients. To learn more about this topic, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/ddos-protection-intro.html">DDoS protection with Amazon GameLift Servers player gateway</a>.</p>
    *          <p>Possible values include:</p>
@@ -3278,7 +3330,7 @@ export interface FleetAttributes {
    *                     Desired instances is set to 1. </p>
    *             </li>
    *             <li>
-   *                <p>DOWNLOADING/VALIDATING/BUILDING -- Amazon GameLift Servers is download the game server build,
+   *                <p>DOWNLOADING/VALIDATING/BUILDING -- Amazon GameLift Servers is downloading the game server build,
    *                     running install scripts, and then validating the build files. When complete,
    *                     Amazon GameLift Servers launches a fleet instance. </p>
    *             </li>
@@ -3411,7 +3463,7 @@ export interface FleetAttributes {
    *             consume available resources.</p>
    *          <p>The policy is evaluated when a player tries to create a new game session. On receiving
    *             a <code>CreateGameSession</code> request, Amazon GameLift Servers checks that the player (identified by
-   *                 <code>CreatorId</code>) has created fewer than game session limit in the specified
+   *                 <code>CreatorId</code>) has created fewer than the game session limit in the specified
    *             time period.</p>
    *          <p>The purpose of this policy is to prevent a single player from consuming a large share of
    *             available hosting resources. For example, setting <code>NewGameSessionsPerCreator</code> to
@@ -3861,7 +3913,7 @@ export interface CreateGameServerGroupInput {
    *             from early termination. Unprotected instances that have active game servers running might
    *             be terminated during a scale-down event, causing players to be dropped from the game.
    *             Protected instances cannot be terminated while there are active game servers running except
-   *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
+   *             in the event of a forced game server group deletion. An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
    * @public
    */
@@ -3963,7 +4015,7 @@ export interface GameServerGroup {
    *             from early termination. Unprotected instances that have active game servers running might
    *             be terminated during a scale-down event, causing players to be dropped from the game.
    *             Protected instances cannot be terminated while there are active game servers running except
-   *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
+   *             in the event of a forced game server group deletion. An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. </p>
    * @public
    */
@@ -4153,7 +4205,7 @@ export interface CreateGameSessionInput {
    *                 <code>CreateGameSession</code> operation requires a <code>CreatorId</code>. Amazon GameLift Servers
    *             limits the number of game session creation requests with the same <code>CreatorId</code>
    *             in a specified time period.</p>
-   *          <p>If you your fleet doesn't have a resource creation limit policy and you provide a
+   *          <p>If your fleet doesn't have a resource creation limit policy and you provide a
    *                 <code>CreatorId</code> in your <code>CreateGameSession</code> requests, Amazon GameLift Servers
    *             limits requests to one request per <code>CreatorId</code> per second.</p>
    *          <p>To not limit <code>CreateGameSession</code> requests with the same
@@ -4293,7 +4345,6 @@ export interface GameSession {
    *                         <code>FORCE_TERMINATE</code>. </p>
    *             </li>
    *          </ul>
-   *          <p></p>
    * @public
    */
   StatusReason?: GameSessionStatusReason | undefined;
@@ -4435,7 +4486,7 @@ export interface GameSessionQueueDestination {
 /**
  * <p>A list of fleet locations where a game session queue can place new game sessions. You
  *             can use a filter to temporarily exclude specific locations from receiving placements.
- *             For queues that have multi-location fleets, you can use a filter configuration allow
+ *             For queues that have multi-location fleets, you can use a filter configuration to allow
  *             placement with some, but not all, of a fleet's locations.</p>
  * @public
  */
@@ -4452,7 +4503,7 @@ export interface FilterConfiguration {
  * <p>Sets a latency cap for individual players when placing a game session. With a latency
  *             policy in force, a game session cannot be placed in a fleet location where a player
  *             reports latency higher than the cap. Latency policies are used only with placement
- *             request that provide player latency information. Player latency policies can be stacked
+ *             requests that provide player latency information. Player latency policies can be stacked
  *             to gradually relax latency requirements over time. </p>
  * @public
  */
@@ -4490,7 +4541,7 @@ export interface PlayerLatencyPolicy {
  *             <li>
  *                <p>When a game session request includes player latency data, Amazon GameLift Servers re-orders
  *                     the queue's destinations to make placements where the average player latency is
- *                     lowest. It reorders based the following priorities: (1) the lowest average
+ *                     lowest. It reorders based on the following priorities: (1) the lowest average
  *                     latency across all players, (2) the lowest hosting cost, (3) the queue's default
  *                     destination order, and (4) for multi-location fleets, an alphabetic list of
  *                     locations.</p>
@@ -4609,7 +4660,7 @@ export interface CreateGameSessionQueueInput {
 
   /**
    * <p>A list of labels to assign to the new game session queue resource. Tags are
-   *             developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource
+   *             developer-defined key-value pairs. Tagging Amazon Web Services resources is useful for resource
    *             management, access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services
    *                 Resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
@@ -4716,9 +4767,9 @@ export interface CreateLocationInput {
 
   /**
    * <p>A list of labels to assign to the new resource. Tags are developer-defined key-value
-   *             pairs. Tagging Amazon Web Services resources are useful for resource management, access management,
+   *             pairs. Tagging Amazon Web Services resources is useful for resource management, access management,
    *             and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the
-   *                 <i>Amazon Web Services General Rareference</i>.</p>
+   *                 <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -4817,8 +4868,10 @@ export interface CreateMatchmakingConfigurationInput {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::gamesessionqueue/<queue name></code>. Queues can be located in any Region. Queues are used to start new
    *             Amazon GameLift Servers-hosted game sessions for matches that are created with this matchmaking
-   *             configuration. If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do not
-   *             set this parameter. </p>
+   *             configuration. A matchmaking configuration supports only one queue; if you specify
+   *             more than one ARN, the request fails with an <code>InvalidRequestException</code>.
+   *             If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do not set this
+   *             parameter. </p>
    * @public
    */
   GameSessionQueueArns?: string[] | undefined;
@@ -4938,7 +4991,7 @@ export interface CreateMatchmakingConfigurationInput {
 
   /**
    * <p>A list of labels to assign to the new matchmaking configuration resource. Tags are
-   *             developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource
+   *             developer-defined key-value pairs. Tagging Amazon Web Services resources is useful for resource
    *             management, access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services
    *                 Resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
@@ -5136,7 +5189,7 @@ export interface CreateMatchmakingRuleSetInput {
 
   /**
    * <p>A list of labels to assign to the new matchmaking rule set resource. Tags are
-   *             developer-defined key-value pairs. Tagging Amazon Web Services resources are useful for resource
+   *             developer-defined key-value pairs. Tagging Amazon Web Services resources is useful for resource
    *             management, access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services
    *                 Resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
@@ -5169,7 +5222,7 @@ export interface CreateMatchmakingRuleSetInput {
  *                     based on player attributes. A rule might specify minimum requirements for
  *                     individual players, teams, or entire matches. For example, a rule might require
  *                     each player to meet a certain skill level, each team to have at least one player
- *                     in a certain role, or the match to have a minimum average skill level. or may
+ *                     in a certain role, or the match to have a minimum average skill level, or may
  *                     describe an entire group--such as all teams must be evenly matched or have at
  *                     least one player in a certain role. </p>
  *             </li>
@@ -5249,11 +5302,11 @@ export interface CreatePlayerSessionInput {
 /**
  * <p>Represents a player session. Player sessions are created either for a specific game
  *             session, or as part of a game session placement or matchmaking request. A player session
- *             can represents a reserved player slot in a game session (when status is
+ *             can represent a reserved player slot in a game session (when status is
  *                 <code>RESERVED</code>) or actual player activity in a game session (when status is
  *                 <code>ACTIVE</code>). A player session object, including player data, is
  *             automatically passed to a game session when the player connects to the game session and
- *             is validated. After the game session ends, player sessions information is retained for
+ *             is validated. After the game session ends, player session information is retained for
  *             30 days and then removed.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -5466,7 +5519,7 @@ export interface CreateScriptInput {
 
   /**
    * <p>A list of labels to assign to the new script resource. Tags are developer-defined
-   *             key-value pairs. Tagging Amazon Web Services resources are useful for resource management, access
+   *             key-value pairs. Tagging Amazon Web Services resources is useful for resource management, access
    *             management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the
    *                 <i>Amazon Web Services General Reference</i>. Once the resource is created, you can
    *             use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html">TagResource</a>, <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html">UntagResource</a>, and
@@ -5579,7 +5632,7 @@ export interface CreateScriptOutput {
    *             storage location reflects an Amazon S3 location: (1) If the script was uploaded from an S3
    *             bucket under your account, the storage location reflects the information that was
    *             provided in the <i>CreateScript</i> request; (2) If the script file was
-   *             uploaded from a local zip file, the storage location reflects an S3 location controls by
+   *             uploaded from a local zip file, the storage location reflects an S3 location controlled by
    *             the Amazon GameLift Servers service.</p>
    * @public
    */
@@ -6365,7 +6418,7 @@ export interface DescribeEC2InstanceLimitsInput {
 /**
  * <p>The Amazon GameLift Servers service limits for an Amazon EC2 instance type and current utilization. Amazon GameLift Servers
  *             allows Amazon Web Services accounts a maximum number of instances, per instance type, per Amazon Web Services Region
- *             or location, for use with Amazon GameLift Servers. You can request an limit increase for your account by
+ *             or location, for use with Amazon GameLift Servers. You can request a limit increase for your account by
  *             using the <b>Service limits</b> page in the Amazon GameLift Servers
  *             console.</p>
  * @public
@@ -6487,7 +6540,7 @@ export interface DescribeFleetCapacityInput {
  *             Combine this count with the number of server processes that each game server container group runs
  *             to learn how many game sessions the fleet is capable of hosting concurrently. For example, if a
  *         fleet has 50 game server container groups, and the game server container in each group runs 1 game server
- *         process, then the fleet has the capacity to run host 50 game sessions at a time. </p>
+ *         process, then the fleet has the capacity to host 50 game sessions at a time. </p>
  *          <p>
  *             <b>Returned by:</b>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html</a>, <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html</a>
@@ -6986,7 +7039,7 @@ export interface Event {
    *             </li>
    *             <li>
    *                <p>FLEET_CREATION_EXTRACTING_BUILD -- The game server build was successfully
-   *                     downloaded to an instance, and Amazon GameLift Serversis now extracting the build files from the
+   *                     downloaded to an instance, and Amazon GameLift Servers is now extracting the build files from the
    *                     uploaded build. Failure at this stage prevents a fleet from moving to ACTIVE
    *                     status. Logs for this stage display a list of the files that are extracted and
    *                     saved on the instance. Access the logs by using the URL in
@@ -7006,13 +7059,13 @@ export interface Event {
    *                     soon.</p>
    *             </li>
    *             <li>
-   *                <p>FLEET_CREATION_FAILED_INSTALLER -- The installed failed while attempting to
+   *                <p>FLEET_CREATION_FAILED_INSTALLER -- The installer failed while attempting to
    *                     install the build files. This event indicates that the failure occurred before
    *                     Amazon GameLift Servers could start validation. </p>
    *             </li>
    *             <li>
    *                <p>FLEET_CREATION_VALIDATING_RUNTIME_CONFIG -- The build process was successful,
-   *                     and the GameLift is now verifying that the game server launch paths, which are
+   *                     and GameLift is now verifying that the game server launch paths, which are
    *                     specified in the fleet's runtime configuration, exist. If any listed launch path
    *                     exists, Amazon GameLift Servers tries to launch a game server process and waits for the process
    *                     to report ready. Failures in this stage prevent a fleet from moving to
@@ -7607,7 +7660,7 @@ export interface DescribeGameServerInstancesInput {
  * <p> Additional properties,
  *             including status, that describe an EC2 instance in a game server group. Instance
  *             configurations are set with game server group properties (see
- *                 <code>DescribeGameServerGroup</code> and with the EC2 launch template that was used
+ *                 <code>DescribeGameServerGroup</code>) and with the EC2 launch template that was used
  *             when creating the game server group. </p>
  *          <p>Retrieve game server instances for a game server group by calling
  *                 <code>DescribeGameServerInstances</code>. </p>
@@ -7832,7 +7885,7 @@ export interface PlayerLatency {
  *             <p>A priority configuration override list does not override a queue's
  *                 FilterConfiguration setting, if the queue has one. Filter configurations are used to
  *                 limit placements to a subset of the locations in a queue's destinations. If the
- *                 override list includes a location that's not on in the
+ *                 override list includes a location that's not in the
  *                     <code>FilterConfiguration</code> allowed list, Amazon GameLift Servers won't attempt to place a
  *                 game session there.</p>
  *          </note>
@@ -8641,7 +8694,7 @@ export interface MatchmakingTicket {
   /**
    * <p>Connection information for a new game session. Once a match is made, the FlexMatch
    *             engine creates a new game session for it. This information is added to the matchmaking
-   *             ticket, which you can be retrieve by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeMatchmaking.html">DescribeMatchmaking</a> .</p>
+   *             ticket, which you can retrieve by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeMatchmaking.html">DescribeMatchmaking</a> .</p>
    * @public
    */
   GameSessionConnectionInfo?: GameSessionConnectionInfo | undefined;
@@ -8942,7 +8995,7 @@ export interface DescribeScalingPoliciesInput {
 
 /**
  * <p>Settings for a target-based scaling policy. A target-based policy tracks a particular
- *             fleet metric specifies a target value for the metric. As player usage changes, the
+ *             fleet metric and specifies a target value for the metric. As player usage changes, the
  *             policy triggers Amazon GameLift Servers to adjust capacity so that the metric returns to the target
  *             value. The target configuration specifies settings as needed for the target based
  *             policy, including the target value. </p>
@@ -9102,7 +9155,7 @@ export interface ScalingPolicy {
    *             <li>
    *                <p>
    *                   <b>AvailableGameSessions</b> -- Additional game
-   *                     sessions that fleet could host simultaneously, given current capacity.</p>
+   *                     sessions that a fleet could host simultaneously, given current capacity.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10401,7 +10454,7 @@ export interface PutScalingPolicyInput {
    *             <li>
    *                <p>
    *                   <b>AvailableGameSessions</b> -- Additional game
-   *                     sessions that fleet could host simultaneously, given current capacity.</p>
+   *                     sessions that a fleet could host simultaneously, given current capacity.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -11069,7 +11122,7 @@ export interface StartMatchmakingInput {
  */
 export interface StartMatchmakingOutput {
   /**
-   * <p>Ticket representing the matchmaking request. This object include the information
+   * <p>Ticket representing the matchmaking request. This object includes the information
    *             included in the request, ticket status, and match results as generated during the
    *             matchmaking process.</p>
    * @public

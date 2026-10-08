@@ -26,7 +26,7 @@ export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsO
  * <p>
  *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
  *          <p>Removes locations from a multi-location fleet. When deleting a location, all game
- *             server process and all instances that are still active in the location are shut down. </p>
+ *             server processes and all instances that are still active in the location are shut down. </p>
  *          <p>To delete fleet locations, identify the fleet ID and provide a list of the locations
  *             to be deleted. </p>
  *          <p>If successful, GameLift sets the location status to <code>DELETING</code>, and begins

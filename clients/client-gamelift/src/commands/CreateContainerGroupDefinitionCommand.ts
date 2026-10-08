@@ -98,9 +98,8 @@ export interface CreateContainerGroupDefinitionCommandOutput extends CreateConta
  *                      </p>
  *                   </li>
  *                   <li>
- *                      <p>
- *                         <code>TotalVcpuLimit</code>
- *                      </p>
+ *                      <p>Either <code>TotalVcpuLimit</code> or a <code>Vcpu</code> value for the game server
+ *           container</p>
  *                   </li>
  *                   <li>
  *                      <p>At least one <code>GameServerContainerDefinition</code>
@@ -195,7 +194,7 @@ export interface CreateContainerGroupDefinitionCommandOutput extends CreateConta
  *   Name: "STRING_VALUE", // required
  *   ContainerGroupType: "GAME_SERVER" || "PER_INSTANCE",
  *   TotalMemoryLimitMebibytes: Number("int"), // required
- *   TotalVcpuLimit: Number("double"), // required
+ *   TotalVcpuLimit: Number("double"),
  *   GameServerContainerDefinition: { // GameServerContainerDefinitionInput
  *     ContainerName: "STRING_VALUE", // required
  *     DependsOn: [ // ContainerDependencyList
@@ -233,6 +232,7 @@ export interface CreateContainerGroupDefinitionCommandOutput extends CreateConta
  *         "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
  *       ],
  *     },
+ *     Vcpu: Number("double"),
  *   },
  *   SupportContainerDefinitions: [ // SupportContainerDefinitionInputList
  *     { // SupportContainerDefinitionInput
@@ -343,6 +343,7 @@ export interface CreateContainerGroupDefinitionCommandOutput extends CreateConta
  * //           "AUDIT_CONTROL" || "AUDIT_WRITE" || "BLOCK_SUSPEND" || "CHOWN" || "DAC_OVERRIDE" || "DAC_READ_SEARCH" || "FOWNER" || "FSETID" || "IPC_LOCK" || "IPC_OWNER" || "KILL" || "LEASE" || "LINUX_IMMUTABLE" || "MAC_ADMIN" || "MAC_OVERRIDE" || "MKNOD" || "NET_ADMIN" || "NET_BIND_SERVICE" || "NET_BROADCAST" || "NET_RAW" || "SETFCAP" || "SETGID" || "SETPCAP" || "SETUID" || "SYS_ADMIN" || "SYS_BOOT" || "SYS_CHROOT" || "SYS_MODULE" || "SYS_NICE" || "SYS_PACCT" || "SYS_PTRACE" || "SYS_RAWIO" || "SYS_RESOURCE" || "SYS_TIME" || "SYS_TTY_CONFIG" || "SYSLOG" || "WAKE_ALARM",
  * //         ],
  * //       },
+ * //       Vcpu: Number("double"),
  * //     },
  * //     SupportContainerDefinitions: [ // SupportContainerDefinitionList
  * //       { // SupportContainerDefinition
