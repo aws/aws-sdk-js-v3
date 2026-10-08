@@ -45,7 +45,7 @@ export interface CreateCloudWatchAlarmTemplateCommandOutput extends CreateCloudW
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET" || "MEDIATAILOR_PLAYBACK_CONFIGURATION", // required
+ *   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET" || "MEDIATAILOR_PLAYBACK_CONFIGURATION" || "ELEMENTAL_INFERENCE_FEED", // required
  *   Threshold: Number("double"), // required
  *   TreatMissingData: "notBreaching" || "breaching" || "ignore" || "missing", // required
  *   RequestId: "STRING_VALUE",
@@ -69,7 +69,7 @@ export interface CreateCloudWatchAlarmTemplateCommandOutput extends CreateCloudW
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET" || "MEDIATAILOR_PLAYBACK_CONFIGURATION",
+ * //   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET" || "MEDIATAILOR_PLAYBACK_CONFIGURATION" || "ELEMENTAL_INFERENCE_FEED",
  * //   Threshold: Number("double"),
  * //   TreatMissingData: "notBreaching" || "breaching" || "ignore" || "missing",
  * // };
