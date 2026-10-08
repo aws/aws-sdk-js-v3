@@ -726,6 +726,7 @@ const _rAe = "resourceArn";
 const _rAo = "roleArn";
 const _rC = "remediateCode";
 const _rCI = "resourceConfigurationId";
+const _rCe = "remediationCode";
 const _rD = "reportDestination";
 const _rF = "reportFilters";
 const _rGI = "resourceGatewayId";
@@ -1620,8 +1621,8 @@ export var ExecutionContext$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_fIi, _aSI, _pIen, _pJIe, _cRIo, _cRJIo, _tIa, _n, _d, _sta, _rT, _rL, _rS, _reas, _conf, _vSa, _aSt, _cRT, _lUB, _cN, _cL, _vSe, _aRl, _rJI, _oFI, _cA, _uA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CodeRemediationTask$, 0, 0, () => CodeLocationList, () => VerificationScript$, 0, 64 | 0, 0, 5, 5], 2
+  [_fIi, _aSI, _pIen, _pJIe, _cRIo, _cRJIo, _tIa, _n, _d, _sta, _rT, _rL, _rS, _reas, _conf, _vSa, _aSt, _rCe, _cRT, _lUB, _cN, _cL, _vSe, _aRl, _rJI, _oFI, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CodeRemediationTask$, 0, 0, () => CodeLocationList, () => VerificationScript$, 0, 64 | 0, 0, 5, 5], 2
 ];
 export var FindingSummary$: StaticStructureSchema = [3, n0, _FS,
   0,

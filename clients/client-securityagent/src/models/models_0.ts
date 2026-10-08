@@ -2732,6 +2732,12 @@ export interface Finding {
   attackScript?: string | undefined;
 
   /**
+   * <p>The suggested fix for the finding, describing the changes recommended to remediate the vulnerability, with example code or configuration.</p>
+   * @public
+   */
+  remediationCode?: string | undefined;
+
+  /**
    * <p>The code remediation task associated with the finding, if code remediation was initiated.</p>
    * @public
    */
