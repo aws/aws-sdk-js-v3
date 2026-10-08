@@ -8,6 +8,7 @@ import { ApiGatewayManagementApiServiceException as __BaseException } from "./Ap
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apigatewaymanagementapi#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class GoneException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apigatewaymanagementapi#GoneException";
   readonly name = "GoneException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class GoneException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apigatewaymanagementapi#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class PayloadTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apigatewaymanagementapi#PayloadTooLargeException";
   readonly name = "PayloadTooLargeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

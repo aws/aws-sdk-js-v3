@@ -9,6 +9,7 @@ import { QueryProtocolServiceException as __BaseException } from "./QueryProtoco
  * @public
  */
 export class ComplexError extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.query#ComplexError";
   readonly name = "ComplexError" as const;
   readonly $fault = "client" as const;
   TopLevel?: string | undefined;
@@ -32,6 +33,7 @@ export class ComplexError extends __BaseException {
  * @public
  */
 export class CustomCodeError extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.query#CustomCodeError";
   readonly name = "CustomCodeError" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -54,6 +56,7 @@ export class CustomCodeError extends __BaseException {
  * @public
  */
 export class InvalidGreeting extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.query#InvalidGreeting";
   readonly name = "InvalidGreeting" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

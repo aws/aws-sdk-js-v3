@@ -8,6 +8,7 @@ import { RekognitionStreamingServiceException as __BaseException } from "./Rekog
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognitionstreaming#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -32,6 +33,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognitionstreaming#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -56,6 +58,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognitionstreaming#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -80,6 +83,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognitionstreaming#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -105,6 +109,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognitionstreaming#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -133,6 +138,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognitionstreaming#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -157,6 +163,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class SessionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognitionstreaming#SessionNotFoundException";
   readonly name = "SessionNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

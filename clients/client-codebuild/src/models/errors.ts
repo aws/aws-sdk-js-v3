@@ -8,6 +8,7 @@ import { CodeBuildServiceException as __BaseException } from "./CodeBuildService
  * @public
  */
 export class AccountLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codebuild#AccountLimitExceededException";
   readonly name = "AccountLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccountLimitExceededException extends __BaseException {
  * @public
  */
 export class AccountSuspendedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codebuild#AccountSuspendedException";
   readonly name = "AccountSuspendedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class AccountSuspendedException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codebuild#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
@@ -69,6 +72,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codebuild#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class OAuthProviderException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codebuild#OAuthProviderException";
   readonly name = "OAuthProviderException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class OAuthProviderException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codebuild#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

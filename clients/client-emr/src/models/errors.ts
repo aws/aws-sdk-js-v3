@@ -9,6 +9,7 @@ import { EMRServiceException as __BaseException } from "./EMRServiceException";
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.emr#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -35,6 +36,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.emr#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -69,6 +71,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.emr#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**

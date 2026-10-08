@@ -8,6 +8,7 @@ import { PersonalizeEventsServiceException as __BaseException } from "./Personal
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalizeevents#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalizeevents#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.personalizeevents#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

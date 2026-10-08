@@ -9,6 +9,7 @@ import type { ErrorCode } from "./enums";
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmessaging#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   Code?: ErrorCode | undefined;
@@ -34,6 +35,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmessaging#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Code?: ErrorCode | undefined;
@@ -58,6 +60,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmessaging#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   Code?: ErrorCode | undefined;
@@ -82,6 +85,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmessaging#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   Code?: ErrorCode | undefined;
@@ -106,6 +110,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ServiceFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmessaging#ServiceFailureException";
   readonly name = "ServiceFailureException" as const;
   readonly $fault = "server" as const;
   Code?: ErrorCode | undefined;
@@ -130,6 +135,7 @@ export class ServiceFailureException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmessaging#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   Code?: ErrorCode | undefined;
@@ -154,6 +160,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class ThrottledClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmessaging#ThrottledClientException";
   readonly name = "ThrottledClientException" as const;
   readonly $fault = "client" as const;
   Code?: ErrorCode | undefined;
@@ -178,6 +185,7 @@ export class ThrottledClientException extends __BaseException {
  * @public
  */
 export class UnauthorizedClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmessaging#UnauthorizedClientException";
   readonly name = "UnauthorizedClientException" as const;
   readonly $fault = "client" as const;
   Code?: ErrorCode | undefined;
@@ -202,6 +210,7 @@ export class UnauthorizedClientException extends __BaseException {
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException";
   readonly name = "ResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   Code?: ErrorCode | undefined;

@@ -8,6 +8,7 @@ import { SecretsManagerServiceException as __BaseException } from "./SecretsMana
  * @public
  */
 export class DecryptionFailure extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#DecryptionFailure";
   readonly name = "DecryptionFailure" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class DecryptionFailure extends __BaseException {
  * @public
  */
 export class InternalServiceError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#InternalServiceError";
   readonly name = "InternalServiceError" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class InternalServiceError extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -74,6 +77,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -111,6 +115,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -133,6 +138,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -157,6 +163,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class EncryptionFailure extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#EncryptionFailure";
   readonly name = "EncryptionFailure" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -179,6 +186,7 @@ export class EncryptionFailure extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -201,6 +209,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#MalformedPolicyDocumentException";
   readonly name = "MalformedPolicyDocumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -223,6 +232,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
  * @public
  */
 export class PreconditionNotMetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#PreconditionNotMetException";
   readonly name = "PreconditionNotMetException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -245,6 +255,7 @@ export class PreconditionNotMetException extends __BaseException {
  * @public
  */
 export class ResourceExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#ResourceExistsException";
   readonly name = "ResourceExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -267,6 +278,7 @@ export class ResourceExistsException extends __BaseException {
  * @public
  */
 export class PublicPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.secretsmanager#PublicPolicyException";
   readonly name = "PublicPolicyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

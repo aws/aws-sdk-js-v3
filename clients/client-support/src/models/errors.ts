@@ -10,6 +10,7 @@ import { SupportServiceException as __BaseException } from "./SupportServiceExce
  * @public
  */
 export class AttachmentLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#AttachmentLimitExceeded";
   readonly name = "AttachmentLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -31,6 +32,7 @@ export class AttachmentLimitExceeded extends __BaseException {
  * @public
  */
 export class AttachmentSetExpired extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#AttachmentSetExpired";
   readonly name = "AttachmentSetExpired" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class AttachmentSetExpired extends __BaseException {
  * @public
  */
 export class AttachmentSetIdNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#AttachmentSetIdNotFound";
   readonly name = "AttachmentSetIdNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -72,6 +75,7 @@ export class AttachmentSetIdNotFound extends __BaseException {
  * @public
  */
 export class AttachmentSetSizeLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#AttachmentSetSizeLimitExceeded";
   readonly name = "AttachmentSetSizeLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -93,6 +97,7 @@ export class AttachmentSetSizeLimitExceeded extends __BaseException {
  * @public
  */
 export class DryRunOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#DryRunOperationException";
   readonly name = "DryRunOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -113,6 +118,7 @@ export class DryRunOperationException extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**
@@ -133,6 +139,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class CaseIdNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#CaseIdNotFound";
   readonly name = "CaseIdNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -153,6 +160,7 @@ export class CaseIdNotFound extends __BaseException {
  * @public
  */
 export class AttachmentIdNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#AttachmentIdNotFound";
   readonly name = "AttachmentIdNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -173,6 +181,7 @@ export class AttachmentIdNotFound extends __BaseException {
  * @public
  */
 export class UploadIdNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#UploadIdNotFound";
   readonly name = "UploadIdNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -193,6 +202,7 @@ export class UploadIdNotFound extends __BaseException {
  * @public
  */
 export class CaseCreationLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#CaseCreationLimitExceeded";
   readonly name = "CaseCreationLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -214,6 +224,7 @@ export class CaseCreationLimitExceeded extends __BaseException {
  * @public
  */
 export class DescribeAttachmentLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#DescribeAttachmentLimitExceeded";
   readonly name = "DescribeAttachmentLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -236,6 +247,7 @@ export class DescribeAttachmentLimitExceeded extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.support#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**

@@ -10,6 +10,7 @@ import type { BadRequestDetail } from "./models_0";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ApiKeyLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#ApiKeyLimitExceededException";
   readonly name = "ApiKeyLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class ApiKeyLimitExceededException extends __BaseException {
  * @public
  */
 export class ApiKeyValidityOutOfBoundsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#ApiKeyValidityOutOfBoundsException";
   readonly name = "ApiKeyValidityOutOfBoundsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -71,6 +74,7 @@ export class ApiKeyValidityOutOfBoundsException extends __BaseException {
  * @public
  */
 export class ApiLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#ApiLimitExceededException";
   readonly name = "ApiLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -92,6 +96,7 @@ export class ApiLimitExceededException extends __BaseException {
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +133,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#InternalFailureException";
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -149,6 +155,7 @@ export class InternalFailureException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -170,6 +177,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -190,6 +198,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -210,6 +219,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -230,6 +240,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -252,6 +263,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -272,6 +284,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class GraphQLSchemaException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appsync#GraphQLSchemaException";
   readonly name = "GraphQLSchemaException" as const;
   readonly $fault = "client" as const;
   /**

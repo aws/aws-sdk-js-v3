@@ -8,6 +8,7 @@ import { LambdaMicrovmsServiceException as __BaseException } from "./LambdaMicro
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -62,6 +64,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -90,6 +93,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -124,6 +128,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   $retryable = {
@@ -168,6 +173,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -188,6 +194,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -236,6 +243,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class InsufficientCapacityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#InsufficientCapacityException";
   readonly name = "InsufficientCapacityException" as const;
   readonly $fault = "server" as const;
   /**
@@ -256,6 +264,7 @@ export class InsufficientCapacityException extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -283,6 +292,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class ServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#ServiceException";
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   /**
@@ -310,6 +320,7 @@ export class ServiceException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -337,6 +348,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class ResourceConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdamicrovms#ResourceConflictException";
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   /**

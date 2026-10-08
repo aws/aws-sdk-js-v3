@@ -10,6 +10,7 @@ import {
  * @public
  */
 export class ClientLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException";
   readonly name = "ClientLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -33,6 +34,7 @@ export class ClientLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException";
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -56,6 +58,7 @@ export class InvalidArgumentException extends __BaseException {
  * @public
  */
 export class InvalidCodecPrivateDataException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideoarchivedmedia#InvalidCodecPrivateDataException";
   readonly name = "InvalidCodecPrivateDataException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -79,6 +82,7 @@ export class InvalidCodecPrivateDataException extends __BaseException {
  * @public
  */
 export class InvalidMediaFrameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideoarchivedmedia#InvalidMediaFrameException";
   readonly name = "InvalidMediaFrameException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -101,6 +105,7 @@ export class InvalidMediaFrameException extends __BaseException {
  * @public
  */
 export class MissingCodecPrivateDataException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideoarchivedmedia#MissingCodecPrivateDataException";
   readonly name = "MissingCodecPrivateDataException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -125,6 +130,7 @@ export class MissingCodecPrivateDataException extends __BaseException {
  * @public
  */
 export class NoDataRetentionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException";
   readonly name = "NoDataRetentionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -148,6 +154,7 @@ export class NoDataRetentionException extends __BaseException {
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException";
   readonly name = "NotAuthorizedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -179,6 +186,7 @@ export class NotAuthorizedException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -204,6 +212,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class UnsupportedStreamMediaTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideoarchivedmedia#UnsupportedStreamMediaTypeException";
   readonly name = "UnsupportedStreamMediaTypeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

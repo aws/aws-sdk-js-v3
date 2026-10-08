@@ -8,6 +8,7 @@ import { MemoryDBServiceException as __BaseException } from "./MemoryDBServiceEx
  * @public
  */
 export class ACLAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ACLAlreadyExistsFault";
   readonly name = "ACLAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class ACLAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ACLNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ACLNotFoundFault";
   readonly name = "ACLNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ACLNotFoundFault extends __BaseException {
  * @public
  */
 export class ACLQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ACLQuotaExceededFault";
   readonly name = "ACLQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ACLQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class ServiceUpdateNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ServiceUpdateNotFoundFault";
   readonly name = "ServiceUpdateNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class ServiceUpdateNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidParameterCombinationException";
   readonly name = "InvalidParameterCombinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class InvalidParameterCombinationException extends __BaseException {
  * @public
  */
 export class InvalidSnapshotStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidSnapshotStateFault";
   readonly name = "InvalidSnapshotStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,6 +155,7 @@ export class InvalidSnapshotStateFault extends __BaseException {
  * @public
  */
 export class ServiceLinkedRoleNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault";
   readonly name = "ServiceLinkedRoleNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -168,6 +176,7 @@ export class ServiceLinkedRoleNotFoundFault extends __BaseException {
  * @public
  */
 export class SnapshotAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#SnapshotAlreadyExistsFault";
   readonly name = "SnapshotAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -188,6 +197,7 @@ export class SnapshotAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class SnapshotNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#SnapshotNotFoundFault";
   readonly name = "SnapshotNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -208,6 +218,7 @@ export class SnapshotNotFoundFault extends __BaseException {
  * @public
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#SnapshotQuotaExceededFault";
   readonly name = "SnapshotQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -228,6 +239,7 @@ export class SnapshotQuotaExceededFault extends __BaseException {
  * @public
  */
 export class TagQuotaPerResourceExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#TagQuotaPerResourceExceeded";
   readonly name = "TagQuotaPerResourceExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -248,6 +260,7 @@ export class TagQuotaPerResourceExceeded extends __BaseException {
  * @public
  */
 export class DefaultUserRequired extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#DefaultUserRequired";
   readonly name = "DefaultUserRequired" as const;
   readonly $fault = "client" as const;
   /**
@@ -268,6 +281,7 @@ export class DefaultUserRequired extends __BaseException {
  * @public
  */
 export class DuplicateUserNameFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#DuplicateUserNameFault";
   readonly name = "DuplicateUserNameFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -288,6 +302,7 @@ export class DuplicateUserNameFault extends __BaseException {
  * @public
  */
 export class UserNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#UserNotFoundFault";
   readonly name = "UserNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -308,6 +323,7 @@ export class UserNotFoundFault extends __BaseException {
  * @public
  */
 export class ClusterAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ClusterAlreadyExistsFault";
   readonly name = "ClusterAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -328,6 +344,7 @@ export class ClusterAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ClusterQuotaForCustomerExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ClusterQuotaForCustomerExceededFault";
   readonly name = "ClusterQuotaForCustomerExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -348,6 +365,7 @@ export class ClusterQuotaForCustomerExceededFault extends __BaseException {
  * @public
  */
 export class InsufficientClusterCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InsufficientClusterCapacityFault";
   readonly name = "InsufficientClusterCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -368,6 +386,7 @@ export class InsufficientClusterCapacityFault extends __BaseException {
  * @public
  */
 export class InvalidACLStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidACLStateFault";
   readonly name = "InvalidACLStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -388,6 +407,7 @@ export class InvalidACLStateFault extends __BaseException {
  * @public
  */
 export class InvalidCredentialsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidCredentialsException";
   readonly name = "InvalidCredentialsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -408,6 +428,7 @@ export class InvalidCredentialsException extends __BaseException {
  * @public
  */
 export class InvalidMultiRegionClusterStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidMultiRegionClusterStateFault";
   readonly name = "InvalidMultiRegionClusterStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -428,6 +449,7 @@ export class InvalidMultiRegionClusterStateFault extends __BaseException {
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidVPCNetworkStateFault";
   readonly name = "InvalidVPCNetworkStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -448,6 +470,7 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
  * @public
  */
 export class MultiRegionClusterNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#MultiRegionClusterNotFoundFault";
   readonly name = "MultiRegionClusterNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -468,6 +491,7 @@ export class MultiRegionClusterNotFoundFault extends __BaseException {
  * @public
  */
 export class NodeQuotaForClusterExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#NodeQuotaForClusterExceededFault";
   readonly name = "NodeQuotaForClusterExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -488,6 +512,7 @@ export class NodeQuotaForClusterExceededFault extends __BaseException {
  * @public
  */
 export class NodeQuotaForCustomerExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#NodeQuotaForCustomerExceededFault";
   readonly name = "NodeQuotaForCustomerExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -508,6 +533,7 @@ export class NodeQuotaForCustomerExceededFault extends __BaseException {
  * @public
  */
 export class ParameterGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ParameterGroupNotFoundFault";
   readonly name = "ParameterGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -528,6 +554,7 @@ export class ParameterGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class ShardsPerClusterQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ShardsPerClusterQuotaExceededFault";
   readonly name = "ShardsPerClusterQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -548,6 +575,7 @@ export class ShardsPerClusterQuotaExceededFault extends __BaseException {
  * @public
  */
 export class SubnetGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#SubnetGroupNotFoundFault";
   readonly name = "SubnetGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -568,6 +596,7 @@ export class SubnetGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class MultiRegionClusterAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#MultiRegionClusterAlreadyExistsFault";
   readonly name = "MultiRegionClusterAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -588,6 +617,7 @@ export class MultiRegionClusterAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class MultiRegionParameterGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#MultiRegionParameterGroupNotFoundFault";
   readonly name = "MultiRegionParameterGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -608,6 +638,7 @@ export class MultiRegionParameterGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidParameterGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidParameterGroupStateFault";
   readonly name = "InvalidParameterGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -628,6 +659,7 @@ export class InvalidParameterGroupStateFault extends __BaseException {
  * @public
  */
 export class ParameterGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ParameterGroupAlreadyExistsFault";
   readonly name = "ParameterGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -648,6 +680,7 @@ export class ParameterGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ParameterGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ParameterGroupQuotaExceededFault";
   readonly name = "ParameterGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -668,6 +701,7 @@ export class ParameterGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ClusterNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ClusterNotFoundFault";
   readonly name = "ClusterNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -688,6 +722,7 @@ export class ClusterNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidClusterStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidClusterStateFault";
   readonly name = "InvalidClusterStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -708,6 +743,7 @@ export class InvalidClusterStateFault extends __BaseException {
  * @public
  */
 export class InvalidSubnet extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidSubnet";
   readonly name = "InvalidSubnet" as const;
   readonly $fault = "client" as const;
   /**
@@ -728,6 +764,7 @@ export class InvalidSubnet extends __BaseException {
  * @public
  */
 export class SubnetGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#SubnetGroupAlreadyExistsFault";
   readonly name = "SubnetGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -748,6 +785,7 @@ export class SubnetGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class SubnetGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#SubnetGroupQuotaExceededFault";
   readonly name = "SubnetGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -768,6 +806,7 @@ export class SubnetGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class SubnetNotAllowedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#SubnetNotAllowedFault";
   readonly name = "SubnetNotAllowedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -788,6 +827,7 @@ export class SubnetNotAllowedFault extends __BaseException {
  * @public
  */
 export class SubnetQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#SubnetQuotaExceededFault";
   readonly name = "SubnetQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -808,6 +848,7 @@ export class SubnetQuotaExceededFault extends __BaseException {
  * @public
  */
 export class UserAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#UserAlreadyExistsFault";
   readonly name = "UserAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -828,6 +869,7 @@ export class UserAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class UserQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#UserQuotaExceededFault";
   readonly name = "UserQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -848,6 +890,7 @@ export class UserQuotaExceededFault extends __BaseException {
  * @public
  */
 export class SubnetGroupInUseFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#SubnetGroupInUseFault";
   readonly name = "SubnetGroupInUseFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -868,6 +911,7 @@ export class SubnetGroupInUseFault extends __BaseException {
  * @public
  */
 export class InvalidUserStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidUserStateFault";
   readonly name = "InvalidUserStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -888,6 +932,7 @@ export class InvalidUserStateFault extends __BaseException {
  * @public
  */
 export class ReservedNodeNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ReservedNodeNotFoundFault";
   readonly name = "ReservedNodeNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -910,6 +955,7 @@ export class ReservedNodeNotFoundFault extends __BaseException {
  * @public
  */
 export class ReservedNodesOfferingNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ReservedNodesOfferingNotFoundFault";
   readonly name = "ReservedNodesOfferingNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -930,6 +976,7 @@ export class ReservedNodesOfferingNotFoundFault extends __BaseException {
  * @public
  */
 export class APICallRateForCustomerExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#APICallRateForCustomerExceededFault";
   readonly name = "APICallRateForCustomerExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -950,6 +997,7 @@ export class APICallRateForCustomerExceededFault extends __BaseException {
  * @public
  */
 export class InvalidKMSKeyFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidKMSKeyFault";
   readonly name = "InvalidKMSKeyFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -970,6 +1018,7 @@ export class InvalidKMSKeyFault extends __BaseException {
  * @public
  */
 export class ShardNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ShardNotFoundFault";
   readonly name = "ShardNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -990,6 +1039,7 @@ export class ShardNotFoundFault extends __BaseException {
  * @public
  */
 export class TestFailoverNotAvailableFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#TestFailoverNotAvailableFault";
   readonly name = "TestFailoverNotAvailableFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1010,6 +1060,7 @@ export class TestFailoverNotAvailableFault extends __BaseException {
  * @public
  */
 export class InvalidARNFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidARNFault";
   readonly name = "InvalidARNFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1030,6 +1081,7 @@ export class InvalidARNFault extends __BaseException {
  * @public
  */
 export class ReservedNodeAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ReservedNodeAlreadyExistsFault";
   readonly name = "ReservedNodeAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1050,6 +1102,7 @@ export class ReservedNodeAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ReservedNodeQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#ReservedNodeQuotaExceededFault";
   readonly name = "ReservedNodeQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1070,6 +1123,7 @@ export class ReservedNodeQuotaExceededFault extends __BaseException {
  * @public
  */
 export class TagNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#TagNotFoundFault";
   readonly name = "TagNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1090,6 +1144,7 @@ export class TagNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidNodeStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#InvalidNodeStateFault";
   readonly name = "InvalidNodeStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1110,6 +1165,7 @@ export class InvalidNodeStateFault extends __BaseException {
  * @public
  */
 export class NoOperationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#NoOperationFault";
   readonly name = "NoOperationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1130,6 +1186,7 @@ export class NoOperationFault extends __BaseException {
  * @public
  */
 export class SubnetInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.memorydb#SubnetInUse";
   readonly name = "SubnetInUse" as const;
   readonly $fault = "client" as const;
   /**

@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Fis service.
  */
 export class FisServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.fis#FisServiceException";
   /**
    * @internal
    */

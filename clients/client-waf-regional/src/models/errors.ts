@@ -9,6 +9,7 @@ import { WAFRegionalServiceException as __BaseException } from "./WAFRegionalSer
  * @public
  */
 export class WAFInternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFInternalErrorException";
   readonly name = "WAFInternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -29,6 +30,7 @@ export class WAFInternalErrorException extends __BaseException {
  * @public
  */
 export class WAFInvalidAccountException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFInvalidAccountException";
   readonly name = "WAFInvalidAccountException" as const;
   readonly $fault = "client" as const;
   /**
@@ -86,6 +88,7 @@ export class WAFInvalidAccountException extends __BaseException {
  * @public
  */
 export class WAFInvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFInvalidParameterException";
   readonly name = "WAFInvalidParameterException" as const;
   readonly $fault = "client" as const;
   field?: ParameterExceptionField | undefined;
@@ -112,6 +115,7 @@ export class WAFInvalidParameterException extends __BaseException {
  * @public
  */
 export class WAFNonexistentItemException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFNonexistentItemException";
   readonly name = "WAFNonexistentItemException" as const;
   readonly $fault = "client" as const;
   /**
@@ -133,6 +137,7 @@ export class WAFNonexistentItemException extends __BaseException {
  * @public
  */
 export class WAFUnavailableEntityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFUnavailableEntityException";
   readonly name = "WAFUnavailableEntityException" as const;
   readonly $fault = "client" as const;
   /**
@@ -153,6 +158,7 @@ export class WAFUnavailableEntityException extends __BaseException {
  * @public
  */
 export class WAFDisallowedNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFDisallowedNameException";
   readonly name = "WAFDisallowedNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -175,6 +181,7 @@ export class WAFDisallowedNameException extends __BaseException {
  * @public
  */
 export class WAFLimitsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFLimitsExceededException";
   readonly name = "WAFLimitsExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -195,6 +202,7 @@ export class WAFLimitsExceededException extends __BaseException {
  * @public
  */
 export class WAFStaleDataException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFStaleDataException";
   readonly name = "WAFStaleDataException" as const;
   readonly $fault = "client" as const;
   /**
@@ -215,6 +223,7 @@ export class WAFStaleDataException extends __BaseException {
  * @public
  */
 export class WAFBadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFBadRequestException";
   readonly name = "WAFBadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -235,6 +244,7 @@ export class WAFBadRequestException extends __BaseException {
  * @public
  */
 export class WAFTagOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFTagOperationException";
   readonly name = "WAFTagOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -255,6 +265,7 @@ export class WAFTagOperationException extends __BaseException {
  * @public
  */
 export class WAFTagOperationInternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFTagOperationInternalErrorException";
   readonly name = "WAFTagOperationInternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -305,6 +316,7 @@ export class WAFTagOperationInternalErrorException extends __BaseException {
  * @public
  */
 export class WAFEntityMigrationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFEntityMigrationException";
   readonly name = "WAFEntityMigrationException" as const;
   readonly $fault = "client" as const;
   MigrationErrorType?: MigrationErrorType | undefined;
@@ -349,6 +361,7 @@ export class WAFEntityMigrationException extends __BaseException {
  * @public
  */
 export class WAFInvalidOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFInvalidOperationException";
   readonly name = "WAFInvalidOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -384,6 +397,7 @@ export class WAFInvalidOperationException extends __BaseException {
  * @public
  */
 export class WAFNonEmptyEntityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFNonEmptyEntityException";
   readonly name = "WAFNonEmptyEntityException" as const;
   readonly $fault = "client" as const;
   /**
@@ -412,6 +426,7 @@ export class WAFNonEmptyEntityException extends __BaseException {
  * @public
  */
 export class WAFReferencedItemException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFReferencedItemException";
   readonly name = "WAFReferencedItemException" as const;
   readonly $fault = "client" as const;
   /**
@@ -432,6 +447,7 @@ export class WAFReferencedItemException extends __BaseException {
  * @public
  */
 export class WAFServiceLinkedRoleErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFServiceLinkedRoleErrorException";
   readonly name = "WAFServiceLinkedRoleErrorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -481,6 +497,7 @@ export class WAFServiceLinkedRoleErrorException extends __BaseException {
  * @public
  */
 export class WAFInvalidPermissionPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFInvalidPermissionPolicyException";
   readonly name = "WAFInvalidPermissionPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -516,6 +533,7 @@ export class WAFInvalidPermissionPolicyException extends __BaseException {
  * @public
  */
 export class WAFNonexistentContainerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFNonexistentContainerException";
   readonly name = "WAFNonexistentContainerException" as const;
   readonly $fault = "client" as const;
   /**
@@ -536,6 +554,7 @@ export class WAFNonexistentContainerException extends __BaseException {
  * @public
  */
 export class WAFInvalidRegexPatternException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFInvalidRegexPatternException";
   readonly name = "WAFInvalidRegexPatternException" as const;
   readonly $fault = "client" as const;
   /**
@@ -556,6 +575,7 @@ export class WAFInvalidRegexPatternException extends __BaseException {
  * @public
  */
 export class WAFSubscriptionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafregional#WAFSubscriptionNotFoundException";
   readonly name = "WAFSubscriptionNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

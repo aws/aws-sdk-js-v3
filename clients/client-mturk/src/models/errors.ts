@@ -8,6 +8,7 @@ import { MTurkServiceException as __BaseException } from "./MTurkServiceExceptio
  * @public
  */
 export class RequestError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mturk#RequestError";
   readonly name = "RequestError" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -32,6 +33,7 @@ export class RequestError extends __BaseException {
  * @public
  */
 export class ServiceFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mturk#ServiceFault";
   readonly name = "ServiceFault" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;

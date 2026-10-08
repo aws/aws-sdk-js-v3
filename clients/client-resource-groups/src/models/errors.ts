@@ -8,6 +8,7 @@ import { ResourceGroupsServiceException as __BaseException } from "./ResourceGro
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroups#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroups#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroups#InternalServerErrorException";
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -74,6 +77,7 @@ export class InternalServerErrorException extends __BaseException {
  * @public
  */
 export class MethodNotAllowedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroups#MethodNotAllowedException";
   readonly name = "MethodNotAllowedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -97,6 +101,7 @@ export class MethodNotAllowedException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroups#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -120,6 +125,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroups#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -142,6 +148,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroups#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

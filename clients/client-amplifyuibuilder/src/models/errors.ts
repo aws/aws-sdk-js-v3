@@ -8,6 +8,7 @@ import { AmplifyUIBuilderServiceException as __BaseException } from "./AmplifyUI
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplifyuibuilder#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -28,6 +29,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplifyuibuilder#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplifyuibuilder#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplifyuibuilder#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ResourceConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplifyuibuilder#ResourceConflictException";
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class ResourceConflictException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplifyuibuilder#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -129,6 +135,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplifyuibuilder#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**

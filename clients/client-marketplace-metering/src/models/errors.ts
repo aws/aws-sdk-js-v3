@@ -8,6 +8,7 @@ import { MarketplaceMeteringServiceException as __BaseException } from "./Market
  * @public
  */
 export class DisabledApiException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#DisabledApiException";
   readonly name = "DisabledApiException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class DisabledApiException extends __BaseException {
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#InternalServiceErrorException";
   readonly name = "InternalServiceErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -50,6 +52,7 @@ export class InternalServiceErrorException extends __BaseException {
  * @public
  */
 export class InvalidCustomerIdentifierException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#InvalidCustomerIdentifierException";
   readonly name = "InvalidCustomerIdentifierException" as const;
   readonly $fault = "client" as const;
   /**
@@ -70,6 +73,7 @@ export class InvalidCustomerIdentifierException extends __BaseException {
  * @public
  */
 export class InvalidLicenseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#InvalidLicenseException";
   readonly name = "InvalidLicenseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -91,6 +95,7 @@ export class InvalidLicenseException extends __BaseException {
  * @public
  */
 export class InvalidProductCodeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#InvalidProductCodeException";
   readonly name = "InvalidProductCodeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -111,6 +116,7 @@ export class InvalidProductCodeException extends __BaseException {
  * @public
  */
 export class InvalidTagException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#InvalidTagException";
   readonly name = "InvalidTagException" as const;
   readonly $fault = "client" as const;
   /**
@@ -131,6 +137,7 @@ export class InvalidTagException extends __BaseException {
  * @public
  */
 export class InvalidUsageAllocationsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#InvalidUsageAllocationsException";
   readonly name = "InvalidUsageAllocationsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -152,6 +159,7 @@ export class InvalidUsageAllocationsException extends __BaseException {
  * @public
  */
 export class InvalidUsageDimensionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#InvalidUsageDimensionException";
   readonly name = "InvalidUsageDimensionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -172,6 +180,7 @@ export class InvalidUsageDimensionException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -196,6 +205,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class TimestampOutOfBoundsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#TimestampOutOfBoundsException";
   readonly name = "TimestampOutOfBoundsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -217,6 +227,7 @@ export class TimestampOutOfBoundsException extends __BaseException {
  * @public
  */
 export class CustomerNotEntitledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#CustomerNotEntitledException";
   readonly name = "CustomerNotEntitledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -239,6 +250,7 @@ export class CustomerNotEntitledException extends __BaseException {
  * @public
  */
 export class DuplicateRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#DuplicateRequestException";
   readonly name = "DuplicateRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -259,6 +271,7 @@ export class DuplicateRequestException extends __BaseException {
  * @public
  */
 export class IdempotencyConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#IdempotencyConflictException";
   readonly name = "IdempotencyConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -281,6 +294,7 @@ export class IdempotencyConflictException extends __BaseException {
  * @public
  */
 export class InvalidEndpointRegionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#InvalidEndpointRegionException";
   readonly name = "InvalidEndpointRegionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -301,6 +315,7 @@ export class InvalidEndpointRegionException extends __BaseException {
  * @public
  */
 export class InvalidPublicKeyVersionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#InvalidPublicKeyVersionException";
   readonly name = "InvalidPublicKeyVersionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -324,6 +339,7 @@ export class InvalidPublicKeyVersionException extends __BaseException {
  * @public
  */
 export class InvalidRegionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#InvalidRegionException";
   readonly name = "InvalidRegionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -344,6 +360,7 @@ export class InvalidRegionException extends __BaseException {
  * @public
  */
 export class PlatformNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#PlatformNotSupportedException";
   readonly name = "PlatformNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -368,6 +385,7 @@ export class PlatformNotSupportedException extends __BaseException {
  * @public
  */
 export class ExpiredTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#ExpiredTokenException";
   readonly name = "ExpiredTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -388,6 +406,7 @@ export class ExpiredTokenException extends __BaseException {
  * @public
  */
 export class InvalidTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplacemetering#InvalidTokenException";
   readonly name = "InvalidTokenException" as const;
   readonly $fault = "client" as const;
   /**

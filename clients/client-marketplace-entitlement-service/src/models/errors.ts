@@ -11,6 +11,7 @@ import {
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplaceentitlementservice#InternalServiceErrorException";
   readonly name = "InternalServiceErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -31,6 +32,7 @@ export class InternalServiceErrorException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplaceentitlementservice#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.marketplaceentitlementservice#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**

@@ -8,6 +8,7 @@ import { AppMeshServiceException as __BaseException } from "./AppMeshServiceExce
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appmesh#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appmesh#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -49,6 +51,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appmesh#InternalServerErrorException";
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -70,6 +73,7 @@ export class InternalServerErrorException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appmesh#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +94,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appmesh#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -113,6 +118,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appmesh#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   $retryable = {
@@ -137,6 +143,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appmesh#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -158,6 +165,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appmesh#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -179,6 +187,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appmesh#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -201,6 +210,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appmesh#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**

@@ -9,6 +9,7 @@ import { GameLiftServiceException as __BaseException } from "./GameLiftServiceEx
  * @public
  */
 export class InternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#InternalServiceException";
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -32,6 +33,7 @@ export class InternalServiceException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -54,6 +56,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -76,6 +79,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class UnsupportedRegionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#UnsupportedRegionException";
   readonly name = "UnsupportedRegionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -101,6 +105,7 @@ export class UnsupportedRegionException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -125,6 +130,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class OutOfCapacityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#OutOfCapacityException";
   readonly name = "OutOfCapacityException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -147,6 +153,7 @@ export class OutOfCapacityException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -170,6 +177,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -194,6 +202,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class TaggingFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#TaggingFailedException";
   readonly name = "TaggingFailedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -218,6 +227,7 @@ export class TaggingFailedException extends __BaseException {
  * @public
  */
 export class NotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#NotReadyException";
   readonly name = "NotReadyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -242,6 +252,7 @@ export class NotReadyException extends __BaseException {
  * @public
  */
 export class InvalidFleetStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#InvalidFleetStatusException";
   readonly name = "InvalidFleetStatusException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -266,6 +277,7 @@ export class InvalidFleetStatusException extends __BaseException {
  * @public
  */
 export class FleetCapacityExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#FleetCapacityExceededException";
   readonly name = "FleetCapacityExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -289,6 +301,7 @@ export class FleetCapacityExceededException extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#IdempotentParameterMismatchException";
   readonly name = "IdempotentParameterMismatchException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -314,6 +327,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
  * @public
  */
 export class TerminalRoutingStrategyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#TerminalRoutingStrategyException";
   readonly name = "TerminalRoutingStrategyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -337,6 +351,7 @@ export class TerminalRoutingStrategyException extends __BaseException {
  * @public
  */
 export class GameSessionFullException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#GameSessionFullException";
   readonly name = "GameSessionFullException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -361,6 +376,7 @@ export class GameSessionFullException extends __BaseException {
  * @public
  */
 export class InvalidGameSessionStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.gamelift#InvalidGameSessionStatusException";
   readonly name = "InvalidGameSessionStatusException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

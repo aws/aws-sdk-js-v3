@@ -8,6 +8,7 @@ import { GlobalAcceleratorServiceException as __BaseException } from "./GlobalAc
  * @public
  */
 export class AcceleratorNotDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#AcceleratorNotDisabledException";
   readonly name = "AcceleratorNotDisabledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class AcceleratorNotDisabledException extends __BaseException {
  * @public
  */
 export class AcceleratorNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#AcceleratorNotFoundException";
   readonly name = "AcceleratorNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class AcceleratorNotFoundException extends __BaseException {
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -74,6 +77,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -96,6 +100,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class EndpointAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#EndpointAlreadyExistsException";
   readonly name = "EndpointAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -118,6 +123,7 @@ export class EndpointAlreadyExistsException extends __BaseException {
  * @public
  */
 export class EndpointGroupNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException";
   readonly name = "EndpointGroupNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -140,6 +146,7 @@ export class EndpointGroupNotFoundException extends __BaseException {
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#InternalServiceErrorException";
   readonly name = "InternalServiceErrorException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -162,6 +169,7 @@ export class InternalServiceErrorException extends __BaseException {
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#InvalidArgumentException";
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -184,6 +192,7 @@ export class InvalidArgumentException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -206,6 +215,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class TransactionInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#TransactionInProgressException";
   readonly name = "TransactionInProgressException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -228,6 +238,7 @@ export class TransactionInProgressException extends __BaseException {
  * @public
  */
 export class ByoipCidrNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#ByoipCidrNotFoundException";
   readonly name = "ByoipCidrNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -251,6 +262,7 @@ export class ByoipCidrNotFoundException extends __BaseException {
  * @public
  */
 export class IncorrectCidrStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#IncorrectCidrStateException";
   readonly name = "IncorrectCidrStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -274,6 +286,7 @@ export class IncorrectCidrStateException extends __BaseException {
  * @public
  */
 export class AssociatedEndpointGroupFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#AssociatedEndpointGroupFoundException";
   readonly name = "AssociatedEndpointGroupFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -297,6 +310,7 @@ export class AssociatedEndpointGroupFoundException extends __BaseException {
  * @public
  */
 export class AssociatedListenerFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#AssociatedListenerFoundException";
   readonly name = "AssociatedListenerFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -319,6 +333,7 @@ export class AssociatedListenerFoundException extends __BaseException {
  * @public
  */
 export class AttachmentNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#AttachmentNotFoundException";
   readonly name = "AttachmentNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -341,6 +356,7 @@ export class AttachmentNotFoundException extends __BaseException {
  * @public
  */
 export class EndpointGroupAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#EndpointGroupAlreadyExistsException";
   readonly name = "EndpointGroupAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -363,6 +379,7 @@ export class EndpointGroupAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidPortRangeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#InvalidPortRangeException";
   readonly name = "InvalidPortRangeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -385,6 +402,7 @@ export class InvalidPortRangeException extends __BaseException {
  * @public
  */
 export class ListenerNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#ListenerNotFoundException";
   readonly name = "ListenerNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -407,6 +425,7 @@ export class ListenerNotFoundException extends __BaseException {
  * @public
  */
 export class EndpointNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#EndpointNotFoundException";
   readonly name = "EndpointNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -429,6 +448,7 @@ export class EndpointNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.globalaccelerator#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

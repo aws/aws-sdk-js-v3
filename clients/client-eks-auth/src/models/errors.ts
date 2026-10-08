@@ -8,6 +8,7 @@ import { EKSAuthServiceException as __BaseException } from "./EKSAuthServiceExce
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eksauth#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ExpiredTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eksauth#ExpiredTokenException";
   readonly name = "ExpiredTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ExpiredTokenException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eksauth#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -68,6 +71,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eksauth#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eksauth#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class InvalidTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eksauth#InvalidTokenException";
   readonly name = "InvalidTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class InvalidTokenException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eksauth#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,6 +155,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eksauth#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -168,6 +176,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eksauth#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**

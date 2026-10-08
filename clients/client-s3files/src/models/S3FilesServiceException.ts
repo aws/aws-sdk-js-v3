@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from S3Files service.
  */
 export class S3FilesServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.s3files#S3FilesServiceException";
   /**
    * @internal
    */

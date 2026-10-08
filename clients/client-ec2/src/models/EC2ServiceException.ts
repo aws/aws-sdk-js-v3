@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from EC2 service.
  */
 export class EC2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.ec2#EC2ServiceException";
   /**
    * @internal
    */

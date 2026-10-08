@@ -44,8 +44,8 @@
     "@aws-sdk/client-polly": "workspace:3.1148.0",
     "@aws-sdk/core": "workspace:^3.978.1",
     "@aws-sdk/types": "workspace:^3.974.6",
-    "@smithy/core": "^3.35.0",
-    "@smithy/signature-v4": "^5.7.3",
+    "@smithy/core": "^3.35.2",
+    "@smithy/signature-v4": "^5.7.4",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"
   },

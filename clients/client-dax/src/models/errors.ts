@@ -8,6 +8,7 @@ import { DAXServiceException as __BaseException } from "./DAXServiceException";
  * @public
  */
 export class ClusterAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#ClusterAlreadyExistsFault";
   readonly name = "ClusterAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class ClusterAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ClusterQuotaForCustomerExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#ClusterQuotaForCustomerExceededFault";
   readonly name = "ClusterQuotaForCustomerExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class ClusterQuotaForCustomerExceededFault extends __BaseException {
  * @public
  */
 export class InsufficientClusterCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#InsufficientClusterCapacityFault";
   readonly name = "InsufficientClusterCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -71,6 +74,7 @@ export class InsufficientClusterCapacityFault extends __BaseException {
  * @public
  */
 export class InvalidClusterStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#InvalidClusterStateFault";
   readonly name = "InvalidClusterStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -91,6 +95,7 @@ export class InvalidClusterStateFault extends __BaseException {
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#InvalidParameterCombinationException";
   readonly name = "InvalidParameterCombinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -111,6 +116,7 @@ export class InvalidParameterCombinationException extends __BaseException {
  * @public
  */
 export class InvalidParameterGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#InvalidParameterGroupStateFault";
   readonly name = "InvalidParameterGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -131,6 +137,7 @@ export class InvalidParameterGroupStateFault extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -151,6 +158,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#InvalidVPCNetworkStateFault";
   readonly name = "InvalidVPCNetworkStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -172,6 +180,7 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
  * @public
  */
 export class NodeQuotaForClusterExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#NodeQuotaForClusterExceededFault";
   readonly name = "NodeQuotaForClusterExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -192,6 +201,7 @@ export class NodeQuotaForClusterExceededFault extends __BaseException {
  * @public
  */
 export class NodeQuotaForCustomerExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#NodeQuotaForCustomerExceededFault";
   readonly name = "NodeQuotaForCustomerExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -212,6 +222,7 @@ export class NodeQuotaForCustomerExceededFault extends __BaseException {
  * @public
  */
 export class ParameterGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#ParameterGroupNotFoundFault";
   readonly name = "ParameterGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -232,6 +243,7 @@ export class ParameterGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class ServiceLinkedRoleNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#ServiceLinkedRoleNotFoundFault";
   readonly name = "ServiceLinkedRoleNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -254,6 +266,7 @@ export class ServiceLinkedRoleNotFoundFault extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -275,6 +288,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class SubnetGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#SubnetGroupNotFoundFault";
   readonly name = "SubnetGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -295,6 +309,7 @@ export class SubnetGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class TagQuotaPerResourceExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#TagQuotaPerResourceExceeded";
   readonly name = "TagQuotaPerResourceExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -315,6 +330,7 @@ export class TagQuotaPerResourceExceeded extends __BaseException {
  * @public
  */
 export class ParameterGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#ParameterGroupAlreadyExistsFault";
   readonly name = "ParameterGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -335,6 +351,7 @@ export class ParameterGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ParameterGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#ParameterGroupQuotaExceededFault";
   readonly name = "ParameterGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -355,6 +372,7 @@ export class ParameterGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InvalidSubnet extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#InvalidSubnet";
   readonly name = "InvalidSubnet" as const;
   readonly $fault = "client" as const;
   /**
@@ -375,6 +393,7 @@ export class InvalidSubnet extends __BaseException {
  * @public
  */
 export class SubnetGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#SubnetGroupAlreadyExistsFault";
   readonly name = "SubnetGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -396,6 +415,7 @@ export class SubnetGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class SubnetGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#SubnetGroupQuotaExceededFault";
   readonly name = "SubnetGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -420,6 +440,7 @@ export class SubnetGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class SubnetNotAllowedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#SubnetNotAllowedFault";
   readonly name = "SubnetNotAllowedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -441,6 +462,7 @@ export class SubnetNotAllowedFault extends __BaseException {
  * @public
  */
 export class SubnetQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#SubnetQuotaExceededFault";
   readonly name = "SubnetQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -462,6 +484,7 @@ export class SubnetQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ClusterNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#ClusterNotFoundFault";
   readonly name = "ClusterNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -482,6 +505,7 @@ export class ClusterNotFoundFault extends __BaseException {
  * @public
  */
 export class NodeNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#NodeNotFoundFault";
   readonly name = "NodeNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -502,6 +526,7 @@ export class NodeNotFoundFault extends __BaseException {
  * @public
  */
 export class SubnetGroupInUseFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#SubnetGroupInUseFault";
   readonly name = "SubnetGroupInUseFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -522,6 +547,7 @@ export class SubnetGroupInUseFault extends __BaseException {
  * @public
  */
 export class InvalidARNFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#InvalidARNFault";
   readonly name = "InvalidARNFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -542,6 +568,7 @@ export class InvalidARNFault extends __BaseException {
  * @public
  */
 export class TagNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#TagNotFoundFault";
   readonly name = "TagNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -562,6 +589,7 @@ export class TagNotFoundFault extends __BaseException {
  * @public
  */
 export class SubnetInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dax#SubnetInUse";
   readonly name = "SubnetInUse" as const;
   readonly $fault = "client" as const;
   /**

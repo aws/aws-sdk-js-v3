@@ -8,6 +8,7 @@ import { Route53DomainsServiceException as __BaseException } from "./Route53Doma
  * @public
  */
 export class DomainLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53domains#DomainLimitExceeded";
   readonly name = "DomainLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -31,6 +32,7 @@ export class DomainLimitExceeded extends __BaseException {
  * @public
  */
 export class InvalidInput extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53domains#InvalidInput";
   readonly name = "InvalidInput" as const;
   readonly $fault = "client" as const;
   /**
@@ -52,6 +54,7 @@ export class InvalidInput extends __BaseException {
  * @public
  */
 export class OperationLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53domains#OperationLimitExceeded";
   readonly name = "OperationLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -72,6 +75,7 @@ export class OperationLimitExceeded extends __BaseException {
  * @public
  */
 export class UnsupportedTLD extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53domains#UnsupportedTLD";
   readonly name = "UnsupportedTLD" as const;
   readonly $fault = "client" as const;
   /**
@@ -94,6 +98,7 @@ export class UnsupportedTLD extends __BaseException {
  * @public
  */
 export class DnssecLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53domains#DnssecLimitExceeded";
   readonly name = "DnssecLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -114,6 +119,7 @@ export class DnssecLimitExceeded extends __BaseException {
  * @public
  */
 export class DuplicateRequest extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53domains#DuplicateRequest";
   readonly name = "DuplicateRequest" as const;
   readonly $fault = "client" as const;
   /**
@@ -141,6 +147,7 @@ export class DuplicateRequest extends __BaseException {
  * @public
  */
 export class TLDRulesViolation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53domains#TLDRulesViolation";
   readonly name = "TLDRulesViolation" as const;
   readonly $fault = "client" as const;
   /**
@@ -161,6 +168,7 @@ export class TLDRulesViolation extends __BaseException {
  * @public
  */
 export class TLDInMaintenance extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53domains#TLDInMaintenance";
   readonly name = "TLDInMaintenance" as const;
   readonly $fault = "client" as const;
   /**

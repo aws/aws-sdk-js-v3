@@ -8,6 +8,7 @@ import { GlacierServiceException as __BaseException } from "./GlacierServiceExce
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -42,6 +43,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class MissingParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#MissingParameterValueException";
   readonly name = "MissingParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -76,6 +78,7 @@ export class MissingParameterValueException extends __BaseException {
  * @public
  */
 export class NoLongerSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#NoLongerSupportedException";
   readonly name = "NoLongerSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -111,6 +114,7 @@ export class NoLongerSupportedException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -145,6 +149,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -179,6 +184,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -215,6 +221,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class InsufficientCapacityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#InsufficientCapacityException";
   readonly name = "InsufficientCapacityException" as const;
   readonly $fault = "client" as const;
   type?: string | undefined;
@@ -240,6 +247,7 @@ export class InsufficientCapacityException extends __BaseException {
  * @public
  */
 export class PolicyEnforcedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#PolicyEnforcedException";
   readonly name = "PolicyEnforcedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -275,6 +283,7 @@ export class PolicyEnforcedException extends __BaseException {
  * @public
  */
 export class RequestTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#RequestTimeoutException";
   readonly name = "RequestTimeoutException" as const;
   readonly $fault = "client" as const;
   /**

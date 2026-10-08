@@ -8,6 +8,7 @@ import { AppRunnerServiceException as __BaseException } from "./AppRunnerService
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apprunner#InternalServiceErrorException";
   readonly name = "InternalServiceErrorException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class InternalServiceErrorException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apprunner#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class InvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apprunner#InvalidStateException";
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -76,6 +79,7 @@ export class InvalidStateException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apprunner#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -98,6 +102,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.apprunner#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

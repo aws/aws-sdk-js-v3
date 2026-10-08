@@ -9,6 +9,7 @@ import { FMSServiceException as __BaseException } from "./FMSServiceException";
  * @public
  */
 export class InternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fms#InternalErrorException";
   readonly name = "InternalErrorException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class InternalErrorException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fms#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -57,6 +59,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class InvalidOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fms#InvalidOperationException";
   readonly name = "InvalidOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -82,6 +85,7 @@ export class InvalidOperationException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fms#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -104,6 +108,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fms#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -126,6 +131,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fms#InvalidTypeException";
   readonly name = "InvalidTypeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

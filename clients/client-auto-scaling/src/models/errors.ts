@@ -9,6 +9,7 @@ import { AutoScalingServiceException as __BaseException } from "./AutoScalingSer
  * @public
  */
 export class ActiveInstanceRefreshNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#ActiveInstanceRefreshNotFoundFault";
   readonly name = "ActiveInstanceRefreshNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class ActiveInstanceRefreshNotFoundFault extends __BaseException {
  * @public
  */
 export class AlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#AlreadyExistsFault";
   readonly name = "AlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class AlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ResourceContentionFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#ResourceContentionFault";
   readonly name = "ResourceContentionFault" as const;
   readonly $fault = "server" as const;
   /**
@@ -70,6 +73,7 @@ export class ResourceContentionFault extends __BaseException {
  * @public
  */
 export class ServiceLinkedRoleFailure extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#ServiceLinkedRoleFailure";
   readonly name = "ServiceLinkedRoleFailure" as const;
   readonly $fault = "server" as const;
   /**
@@ -91,6 +95,7 @@ export class ServiceLinkedRoleFailure extends __BaseException {
  * @public
  */
 export class InstanceRefreshInProgressFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#InstanceRefreshInProgressFault";
   readonly name = "InstanceRefreshInProgressFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -114,6 +119,7 @@ export class InstanceRefreshInProgressFault extends __BaseException {
  * @public
  */
 export class LimitExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#LimitExceededFault";
   readonly name = "LimitExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -134,6 +140,7 @@ export class LimitExceededFault extends __BaseException {
  * @public
  */
 export class ResourceInUseFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#ResourceInUseFault";
   readonly name = "ResourceInUseFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -155,6 +162,7 @@ export class ResourceInUseFault extends __BaseException {
  * @public
  */
 export class ScalingActivityInProgressFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#ScalingActivityInProgressFault";
   readonly name = "ScalingActivityInProgressFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -175,6 +183,7 @@ export class ScalingActivityInProgressFault extends __BaseException {
  * @public
  */
 export class InvalidNextToken extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#InvalidNextToken";
   readonly name = "InvalidNextToken" as const;
   readonly $fault = "client" as const;
   /**
@@ -199,6 +208,7 @@ export class InvalidNextToken extends __BaseException {
  * @public
  */
 export class IdempotentCallInProgressFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#IdempotentCallInProgressFault";
   readonly name = "IdempotentCallInProgressFault" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -223,6 +233,7 @@ export class IdempotentCallInProgressFault extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatchError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#IdempotentParameterMismatchError";
   readonly name = "IdempotentParameterMismatchError" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -248,6 +259,7 @@ export class IdempotentParameterMismatchError extends __BaseException {
  * @public
  */
 export class IrreversibleInstanceRefreshFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.autoscaling#IrreversibleInstanceRefreshFault";
   readonly name = "IrreversibleInstanceRefreshFault" as const;
   readonly $fault = "client" as const;
   /**

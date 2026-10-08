@@ -55,7 +55,7 @@
     "@aws-sdk/core": "workspace:^3.978.1",
     "@aws-sdk/credential-provider-node": "workspace:^3.972.84",
     "@aws-sdk/types": "workspace:^3.974.6",
-    "@smithy/core": "^3.35.0",
+    "@smithy/core": "^3.35.2",
     "@smithy/fetch-http-handler": "^5.8.0",
     "@smithy/middleware-compression": "^4.6.2",
     "@smithy/node-http-handler": "^4.12.1",

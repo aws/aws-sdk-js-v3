@@ -9,6 +9,7 @@ import { SESv2ServiceException as __BaseException } from "./SESv2ServiceExceptio
  * @public
  */
 export class AccountSuspendedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#AccountSuspendedException";
   readonly name = "AccountSuspendedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class AccountSuspendedException extends __BaseException {
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#AlreadyExistsException";
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -49,6 +51,7 @@ export class AlreadyExistsException extends __BaseException {
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -69,6 +72,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#InternalServiceErrorException";
   readonly name = "InternalServiceErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -129,6 +135,7 @@ export class InternalServiceErrorException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "server" as const;
   /**
@@ -149,6 +156,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -169,6 +177,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -189,6 +198,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class MailFromDomainNotVerifiedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#MailFromDomainNotVerifiedException";
   readonly name = "MailFromDomainNotVerifiedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -209,6 +219,7 @@ export class MailFromDomainNotVerifiedException extends __BaseException {
  * @public
  */
 export class MessageRejected extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#MessageRejected";
   readonly name = "MessageRejected" as const;
   readonly $fault = "client" as const;
   /**
@@ -230,6 +241,7 @@ export class MessageRejected extends __BaseException {
  * @public
  */
 export class SendingPausedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#SendingPausedException";
   readonly name = "SendingPausedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -250,6 +262,7 @@ export class SendingPausedException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sesv2#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**

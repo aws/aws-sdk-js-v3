@@ -11,6 +11,7 @@ import {
  * @public
  */
 export class AccessDeniedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#AccessDeniedFault";
   readonly name = "AccessDeniedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -31,6 +32,7 @@ export class AccessDeniedFault extends __BaseException {
  * @public
  */
 export class InvalidResourceStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#InvalidResourceStateFault";
   readonly name = "InvalidResourceStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class InvalidResourceStateFault extends __BaseException {
  * @public
  */
 export class ResourceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#ResourceNotFoundFault";
   readonly name = "ResourceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -71,6 +74,7 @@ export class ResourceNotFoundFault extends __BaseException {
  * @public
  */
 export class FailedDependencyFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#FailedDependencyFault";
   readonly name = "FailedDependencyFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -91,6 +95,7 @@ export class FailedDependencyFault extends __BaseException {
  * @public
  */
 export class InvalidOperationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#InvalidOperationFault";
   readonly name = "InvalidOperationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -111,6 +116,7 @@ export class InvalidOperationFault extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault";
   readonly name = "ResourceAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -138,6 +144,7 @@ export class ResourceAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ResourceQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault";
   readonly name = "ResourceQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -158,6 +165,7 @@ export class ResourceQuotaExceededFault extends __BaseException {
  * @public
  */
 export class KMSKeyNotAccessibleFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault";
   readonly name = "KMSKeyNotAccessibleFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -178,6 +186,7 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
  * @public
  */
 export class S3AccessDeniedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#S3AccessDeniedFault";
   readonly name = "S3AccessDeniedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -198,6 +207,7 @@ export class S3AccessDeniedFault extends __BaseException {
  * @public
  */
 export class KMSAccessDeniedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#KMSAccessDeniedFault";
   readonly name = "KMSAccessDeniedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -218,6 +228,7 @@ export class KMSAccessDeniedFault extends __BaseException {
  * @public
  */
 export class KMSDisabledFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#KMSDisabledFault";
   readonly name = "KMSDisabledFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -238,6 +249,7 @@ export class KMSDisabledFault extends __BaseException {
  * @public
  */
 export class KMSInvalidStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#KMSInvalidStateFault";
   readonly name = "KMSInvalidStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -258,6 +270,7 @@ export class KMSInvalidStateFault extends __BaseException {
  * @public
  */
 export class KMSNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#KMSNotFoundFault";
   readonly name = "KMSNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -278,6 +291,7 @@ export class KMSNotFoundFault extends __BaseException {
  * @public
  */
 export class KMSThrottlingFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#KMSThrottlingFault";
   readonly name = "KMSThrottlingFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -298,6 +312,7 @@ export class KMSThrottlingFault extends __BaseException {
  * @public
  */
 export class SNSInvalidTopicFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#SNSInvalidTopicFault";
   readonly name = "SNSInvalidTopicFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -318,6 +333,7 @@ export class SNSInvalidTopicFault extends __BaseException {
  * @public
  */
 export class SNSNoAuthorizationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#SNSNoAuthorizationFault";
   readonly name = "SNSNoAuthorizationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -339,6 +355,7 @@ export class SNSNoAuthorizationFault extends __BaseException {
  * @public
  */
 export class S3ResourceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault";
   readonly name = "S3ResourceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -359,6 +376,7 @@ export class S3ResourceNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidSubnet extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#InvalidSubnet";
   readonly name = "InvalidSubnet" as const;
   readonly $fault = "client" as const;
   /**
@@ -379,6 +397,7 @@ export class InvalidSubnet extends __BaseException {
  * @public
  */
 export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#ReplicationSubnetGroupDoesNotCoverEnoughAZs";
   readonly name = "ReplicationSubnetGroupDoesNotCoverEnoughAZs" as const;
   readonly $fault = "client" as const;
   /**
@@ -399,6 +418,7 @@ export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException
  * @public
  */
 export class InsufficientResourceCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#InsufficientResourceCapacityFault";
   readonly name = "InsufficientResourceCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -419,6 +439,7 @@ export class InsufficientResourceCapacityFault extends __BaseException {
  * @public
  */
 export class StorageQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#StorageQuotaExceededFault";
   readonly name = "StorageQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -439,6 +460,7 @@ export class StorageQuotaExceededFault extends __BaseException {
  * @public
  */
 export class CollectorNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#CollectorNotFoundFault";
   readonly name = "CollectorNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -459,6 +481,7 @@ export class CollectorNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidCertificateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#InvalidCertificateFault";
   readonly name = "InvalidCertificateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -479,6 +502,7 @@ export class InvalidCertificateFault extends __BaseException {
  * @public
  */
 export class UpgradeDependencyFailureFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#UpgradeDependencyFailureFault";
   readonly name = "UpgradeDependencyFailureFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -499,6 +523,7 @@ export class UpgradeDependencyFailureFault extends __BaseException {
  * @public
  */
 export class SubnetAlreadyInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#SubnetAlreadyInUse";
   readonly name = "SubnetAlreadyInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -519,6 +544,7 @@ export class SubnetAlreadyInUse extends __BaseException {
  * @public
  */
 export class KMSFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.databasemigrationservice#KMSFault";
   readonly name = "KMSFault" as const;
   readonly $fault = "client" as const;
   /**

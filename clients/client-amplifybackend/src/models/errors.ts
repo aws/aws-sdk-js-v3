@@ -8,6 +8,7 @@ import { AmplifyBackendServiceException as __BaseException } from "./AmplifyBack
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplifybackend#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -34,6 +35,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class GatewayTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplifybackend#GatewayTimeoutException";
   readonly name = "GatewayTimeoutException" as const;
   readonly $fault = "server" as const;
   /**
@@ -60,6 +62,7 @@ export class GatewayTimeoutException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplifybackend#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -93,6 +96,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.amplifybackend#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**

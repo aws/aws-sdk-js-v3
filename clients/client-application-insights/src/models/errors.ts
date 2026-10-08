@@ -8,6 +8,7 @@ import { ApplicationInsightsServiceException as __BaseException } from "./Applic
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationinsights#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationinsights#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationinsights#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -74,6 +77,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationinsights#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -96,6 +100,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationinsights#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -118,6 +123,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationinsights#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -140,6 +146,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class TagsAlreadyExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationinsights#TagsAlreadyExistException";
   readonly name = "TagsAlreadyExistException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -163,6 +170,7 @@ export class TagsAlreadyExistException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationinsights#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

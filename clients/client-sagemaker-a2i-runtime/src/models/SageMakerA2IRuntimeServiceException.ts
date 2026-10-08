@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from SageMakerA2IRuntime service.
  */
 export class SageMakerA2IRuntimeServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakera2iruntime#SageMakerA2IRuntimeServiceException";
   /**
    * @internal
    */

@@ -8,6 +8,7 @@ import { ServiceQuotasServiceException as __BaseException } from "./ServiceQuota
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class AWSServiceAccessNotEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException";
   readonly name = "AWSServiceAccessNotEnabledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -53,6 +55,7 @@ export class AWSServiceAccessNotEnabledException extends __BaseException {
  * @public
  */
 export class DependencyAccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#DependencyAccessDeniedException";
   readonly name = "DependencyAccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -75,6 +78,7 @@ export class DependencyAccessDeniedException extends __BaseException {
  * @public
  */
 export class NoAvailableOrganizationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#NoAvailableOrganizationException";
   readonly name = "NoAvailableOrganizationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -98,6 +102,7 @@ export class NoAvailableOrganizationException extends __BaseException {
  * @public
  */
 export class OrganizationNotInAllFeaturesModeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#OrganizationNotInAllFeaturesModeException";
   readonly name = "OrganizationNotInAllFeaturesModeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -120,6 +125,7 @@ export class OrganizationNotInAllFeaturesModeException extends __BaseException {
  * @public
  */
 export class ServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#ServiceException";
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -142,6 +148,7 @@ export class ServiceException extends __BaseException {
  * @public
  */
 export class TemplatesNotAvailableInRegionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException";
   readonly name = "TemplatesNotAvailableInRegionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -165,6 +172,7 @@ export class TemplatesNotAvailableInRegionException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -187,6 +195,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class IllegalArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#IllegalArgumentException";
   readonly name = "IllegalArgumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -209,6 +218,7 @@ export class IllegalArgumentException extends __BaseException {
  * @public
  */
 export class InvalidResourceStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#InvalidResourceStateException";
   readonly name = "InvalidResourceStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -231,6 +241,7 @@ export class InvalidResourceStateException extends __BaseException {
  * @public
  */
 export class NoSuchResourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#NoSuchResourceException";
   readonly name = "NoSuchResourceException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -253,6 +264,7 @@ export class NoSuchResourceException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -275,6 +287,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ServiceQuotaTemplateNotInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#ServiceQuotaTemplateNotInUseException";
   readonly name = "ServiceQuotaTemplateNotInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -297,6 +310,7 @@ export class ServiceQuotaTemplateNotInUseException extends __BaseException {
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#InvalidPaginationTokenException";
   readonly name = "InvalidPaginationTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -320,6 +334,7 @@ export class InvalidPaginationTokenException extends __BaseException {
  * @public
  */
 export class QuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#QuotaExceededException";
   readonly name = "QuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -342,6 +357,7 @@ export class QuotaExceededException extends __BaseException {
  * @public
  */
 export class TagPolicyViolationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#TagPolicyViolationException";
   readonly name = "TagPolicyViolationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -366,6 +382,7 @@ export class TagPolicyViolationException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicequotas#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

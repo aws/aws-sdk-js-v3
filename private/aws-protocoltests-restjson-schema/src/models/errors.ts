@@ -9,6 +9,7 @@ import { RestJsonProtocolServiceException as __BaseException } from "./RestJsonP
  * @public
  */
 export class ComplexError extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.restjson#ComplexError";
   readonly name = "ComplexError" as const;
   readonly $fault = "client" as const;
   Header?: string | undefined;
@@ -34,6 +35,7 @@ export class ComplexError extends __BaseException {
  * @public
  */
 export class ErrorEvent extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.restjson#ErrorEvent";
   readonly name = "ErrorEvent" as const;
   readonly $fault = "client" as const;
   /**
@@ -53,6 +55,7 @@ export class ErrorEvent extends __BaseException {
  * @public
  */
 export class ServiceUnavailableError extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.restjson#ServiceUnavailableError";
   readonly name = "ServiceUnavailableError" as const;
   readonly $fault = "server" as const;
   /**
@@ -74,6 +77,7 @@ export class ServiceUnavailableError extends __BaseException {
  * @public
  */
 export class FooError extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.restjson#FooError";
   readonly name = "FooError" as const;
   readonly $fault = "server" as const;
   /**
@@ -94,6 +98,7 @@ export class FooError extends __BaseException {
  * @public
  */
 export class InvalidGreeting extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.restjson#InvalidGreeting";
   readonly name = "InvalidGreeting" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

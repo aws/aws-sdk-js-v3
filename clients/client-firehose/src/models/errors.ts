@@ -9,6 +9,7 @@ import { FirehoseServiceException as __BaseException } from "./FirehoseServiceEx
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.firehose#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.firehose#InvalidArgumentException";
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -53,6 +55,7 @@ export class InvalidArgumentException extends __BaseException {
  * @public
  */
 export class InvalidKMSResourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.firehose#InvalidKMSResourceException";
   readonly name = "InvalidKMSResourceException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -75,6 +78,7 @@ export class InvalidKMSResourceException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.firehose#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -95,6 +99,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.firehose#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -115,6 +120,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.firehose#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -135,6 +141,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidSourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.firehose#InvalidSourceException";
   readonly name = "InvalidSourceException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -160,6 +167,7 @@ export class InvalidSourceException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.firehose#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**

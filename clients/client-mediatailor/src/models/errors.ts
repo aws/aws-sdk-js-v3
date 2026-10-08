@@ -8,6 +8,7 @@ import { MediaTailorServiceException as __BaseException } from "./MediaTailorSer
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediatailor#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

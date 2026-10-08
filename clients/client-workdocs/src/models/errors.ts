@@ -8,6 +8,7 @@ import { WorkDocsServiceException as __BaseException } from "./WorkDocsServiceEx
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class EntityNotExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#EntityNotExistsException";
   readonly name = "EntityNotExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -60,6 +62,7 @@ export class EntityNotExistsException extends __BaseException {
  * @public
  */
 export class FailedDependencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#FailedDependencyException";
   readonly name = "FailedDependencyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -82,6 +85,7 @@ export class FailedDependencyException extends __BaseException {
  * @public
  */
 export class ProhibitedStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#ProhibitedStateException";
   readonly name = "ProhibitedStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -104,6 +108,7 @@ export class ProhibitedStateException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -126,6 +131,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class UnauthorizedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#UnauthorizedOperationException";
   readonly name = "UnauthorizedOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -150,6 +156,7 @@ export class UnauthorizedOperationException extends __BaseException {
  * @public
  */
 export class UnauthorizedResourceAccessException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#UnauthorizedResourceAccessException";
   readonly name = "UnauthorizedResourceAccessException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -173,6 +180,7 @@ export class UnauthorizedResourceAccessException extends __BaseException {
  * @public
  */
 export class DocumentLockedForCommentsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#DocumentLockedForCommentsException";
   readonly name = "DocumentLockedForCommentsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -195,6 +203,7 @@ export class DocumentLockedForCommentsException extends __BaseException {
  * @public
  */
 export class InvalidCommentOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#InvalidCommentOperationException";
   readonly name = "InvalidCommentOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -218,6 +227,7 @@ export class InvalidCommentOperationException extends __BaseException {
  * @public
  */
 export class CustomMetadataLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#CustomMetadataLimitExceededException";
   readonly name = "CustomMetadataLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -240,6 +250,7 @@ export class CustomMetadataLimitExceededException extends __BaseException {
  * @public
  */
 export class ConflictingOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#ConflictingOperationException";
   readonly name = "ConflictingOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -262,6 +273,7 @@ export class ConflictingOperationException extends __BaseException {
  * @public
  */
 export class EntityAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#EntityAlreadyExistsException";
   readonly name = "EntityAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -284,6 +296,7 @@ export class EntityAlreadyExistsException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -307,6 +320,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class TooManyLabelsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#TooManyLabelsException";
   readonly name = "TooManyLabelsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -329,6 +343,7 @@ export class TooManyLabelsException extends __BaseException {
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#InvalidArgumentException";
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -352,6 +367,7 @@ export class InvalidArgumentException extends __BaseException {
  * @public
  */
 export class TooManySubscriptionsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#TooManySubscriptionsException";
   readonly name = "TooManySubscriptionsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -374,6 +390,7 @@ export class TooManySubscriptionsException extends __BaseException {
  * @public
  */
 export class InvalidOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#InvalidOperationException";
   readonly name = "InvalidOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -396,6 +413,7 @@ export class InvalidOperationException extends __BaseException {
  * @public
  */
 export class InvalidPasswordException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#InvalidPasswordException";
   readonly name = "InvalidPasswordException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -418,6 +436,7 @@ export class InvalidPasswordException extends __BaseException {
  * @public
  */
 export class RequestedEntityTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#RequestedEntityTooLargeException";
   readonly name = "RequestedEntityTooLargeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -441,6 +460,7 @@ export class RequestedEntityTooLargeException extends __BaseException {
  * @public
  */
 export class DraftUploadOutOfSyncException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#DraftUploadOutOfSyncException";
   readonly name = "DraftUploadOutOfSyncException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -463,6 +483,7 @@ export class DraftUploadOutOfSyncException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyCheckedOutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#ResourceAlreadyCheckedOutException";
   readonly name = "ResourceAlreadyCheckedOutException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -485,6 +506,7 @@ export class ResourceAlreadyCheckedOutException extends __BaseException {
  * @public
  */
 export class StorageLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#StorageLimitExceededException";
   readonly name = "StorageLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -507,6 +529,7 @@ export class StorageLimitExceededException extends __BaseException {
  * @public
  */
 export class StorageLimitWillExceedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#StorageLimitWillExceedException";
   readonly name = "StorageLimitWillExceedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -529,6 +552,7 @@ export class StorageLimitWillExceedException extends __BaseException {
  * @public
  */
 export class DeactivatingLastSystemUserException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#DeactivatingLastSystemUserException";
   readonly name = "DeactivatingLastSystemUserException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -553,6 +577,7 @@ export class DeactivatingLastSystemUserException extends __BaseException {
  * @public
  */
 export class IllegalUserStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workdocs#IllegalUserStateException";
   readonly name = "IllegalUserStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

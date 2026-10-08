@@ -10,6 +10,7 @@ import { ShieldServiceException as __BaseException } from "./ShieldServiceExcept
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class AccessDeniedForDependencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#AccessDeniedForDependencyException";
   readonly name = "AccessDeniedForDependencyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class AccessDeniedForDependencyException extends __BaseException {
  * @public
  */
 export class InternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#InternalErrorException";
   readonly name = "InternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -70,6 +73,7 @@ export class InternalErrorException extends __BaseException {
  * @public
  */
 export class InvalidOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#InvalidOperationException";
   readonly name = "InvalidOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +94,7 @@ export class InvalidOperationException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -124,6 +129,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class LimitsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#LimitsExceededException";
   readonly name = "LimitsExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -158,6 +164,7 @@ export class LimitsExceededException extends __BaseException {
  * @public
  */
 export class NoAssociatedRoleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#NoAssociatedRoleException";
   readonly name = "NoAssociatedRoleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -179,6 +186,7 @@ export class NoAssociatedRoleException extends __BaseException {
  * @public
  */
 export class OptimisticLockException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#OptimisticLockException";
   readonly name = "OptimisticLockException" as const;
   readonly $fault = "client" as const;
   /**
@@ -199,6 +207,7 @@ export class OptimisticLockException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -226,6 +235,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidResourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#InvalidResourceException";
   readonly name = "InvalidResourceException" as const;
   readonly $fault = "client" as const;
   /**
@@ -246,6 +256,7 @@ export class InvalidResourceException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -273,6 +284,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class LockedSubscriptionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#LockedSubscriptionException";
   readonly name = "LockedSubscriptionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -293,6 +305,7 @@ export class LockedSubscriptionException extends __BaseException {
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.shield#InvalidPaginationTokenException";
   readonly name = "InvalidPaginationTokenException" as const;
   readonly $fault = "client" as const;
   /**

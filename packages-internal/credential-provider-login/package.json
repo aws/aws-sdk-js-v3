@@ -48,7 +48,7 @@
     "@aws-sdk/core": "workspace:^3.978.1",
     "@aws-sdk/nested-clients": "workspace:^3.997.46",
     "@aws-sdk/types": "workspace:^3.974.6",
-    "@smithy/core": "^3.35.0",
+    "@smithy/core": "^3.35.2",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"
   },

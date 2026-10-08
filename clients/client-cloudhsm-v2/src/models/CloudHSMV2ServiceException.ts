@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from CloudHSMV2 service.
  */
 export class CloudHSMV2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.cloudhsmv2#CloudHSMV2ServiceException";
   /**
    * @internal
    */

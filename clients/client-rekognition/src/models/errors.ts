@@ -8,6 +8,7 @@ import { RekognitionServiceException as __BaseException } from "./RekognitionSer
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -39,6 +40,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -70,6 +72,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#IdempotentParameterMismatchException";
   readonly name = "IdempotentParameterMismatchException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -100,6 +103,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -131,6 +135,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -162,6 +167,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class ProvisionedThroughputExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#ProvisionedThroughputExceededException";
   readonly name = "ProvisionedThroughputExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -192,6 +198,7 @@ export class ProvisionedThroughputExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -224,6 +231,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -254,6 +262,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -287,6 +296,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ImageTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#ImageTooLargeException";
   readonly name = "ImageTooLargeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -317,6 +327,7 @@ export class ImageTooLargeException extends __BaseException {
  * @public
  */
 export class InvalidImageFormatException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#InvalidImageFormatException";
   readonly name = "InvalidImageFormatException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -347,6 +358,7 @@ export class InvalidImageFormatException extends __BaseException {
  * @public
  */
 export class InvalidS3ObjectException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#InvalidS3ObjectException";
   readonly name = "InvalidS3ObjectException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -381,6 +393,7 @@ export class InvalidS3ObjectException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -411,6 +424,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -441,6 +455,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -471,6 +486,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidPolicyRevisionIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#InvalidPolicyRevisionIdException";
   readonly name = "InvalidPolicyRevisionIdException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -501,6 +517,7 @@ export class InvalidPolicyRevisionIdException extends __BaseException {
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#InvalidPaginationTokenException";
   readonly name = "InvalidPaginationTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -533,6 +550,7 @@ export class InvalidPaginationTokenException extends __BaseException {
  * @public
  */
 export class ResourceNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#ResourceNotReadyException";
   readonly name = "ResourceNotReadyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -563,6 +581,7 @@ export class ResourceNotReadyException extends __BaseException {
  * @public
  */
 export class HumanLoopQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#HumanLoopQuotaExceededException";
   readonly name = "HumanLoopQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -614,6 +633,7 @@ export class HumanLoopQuotaExceededException extends __BaseException {
  * @public
  */
 export class SessionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#SessionNotFoundException";
   readonly name = "SessionNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -644,6 +664,7 @@ export class SessionNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidManifestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#InvalidManifestException";
   readonly name = "InvalidManifestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -675,6 +696,7 @@ export class InvalidManifestException extends __BaseException {
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#MalformedPolicyDocumentException";
   readonly name = "MalformedPolicyDocumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -706,6 +728,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
  * @public
  */
 export class VideoTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rekognition#VideoTooLargeException";
   readonly name = "VideoTooLargeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

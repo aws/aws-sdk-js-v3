@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Kafka service.
  */
 export class KafkaServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.kafka#KafkaServiceException";
   /**
    * @internal
    */

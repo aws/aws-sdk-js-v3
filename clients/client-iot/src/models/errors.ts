@@ -8,6 +8,7 @@ import { IoTServiceException as __BaseException } from "./IoTServiceException";
  * @public
  */
 export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#InternalFailureException";
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -28,6 +29,7 @@ export class InternalFailureException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -88,6 +92,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class TransferAlreadyCompletedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#TransferAlreadyCompletedException";
   readonly name = "TransferAlreadyCompletedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -129,6 +135,7 @@ export class TransferAlreadyCompletedException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -149,6 +156,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -177,6 +185,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -197,6 +206,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -217,6 +227,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -237,6 +248,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -259,6 +271,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class VersionConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#VersionConflictException";
   readonly name = "VersionConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -281,6 +294,7 @@ export class VersionConflictException extends __BaseException {
  * @public
  */
 export class InvalidStateTransitionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#InvalidStateTransitionException";
   readonly name = "InvalidStateTransitionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -302,6 +316,7 @@ export class InvalidStateTransitionException extends __BaseException {
  * @public
  */
 export class ConflictingResourceUpdateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#ConflictingResourceUpdateException";
   readonly name = "ConflictingResourceUpdateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -322,6 +337,7 @@ export class ConflictingResourceUpdateException extends __BaseException {
  * @public
  */
 export class InternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#InternalException";
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   /**
@@ -342,6 +358,7 @@ export class InternalException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -376,6 +393,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class CertificateValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#CertificateValidationException";
   readonly name = "CertificateValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -396,6 +414,7 @@ export class CertificateValidationException extends __BaseException {
  * @public
  */
 export class InvalidQueryException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#InvalidQueryException";
   readonly name = "InvalidQueryException" as const;
   readonly $fault = "client" as const;
   /**
@@ -416,6 +435,7 @@ export class InvalidQueryException extends __BaseException {
  * @public
  */
 export class IndexNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#IndexNotReadyException";
   readonly name = "IndexNotReadyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -436,6 +456,7 @@ export class IndexNotReadyException extends __BaseException {
  * @public
  */
 export class InvalidAggregationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#InvalidAggregationException";
   readonly name = "InvalidAggregationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -456,6 +477,7 @@ export class InvalidAggregationException extends __BaseException {
  * @public
  */
 export class MalformedPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#MalformedPolicyException";
   readonly name = "MalformedPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -476,6 +498,7 @@ export class MalformedPolicyException extends __BaseException {
  * @public
  */
 export class VersionsLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#VersionsLimitExceededException";
   readonly name = "VersionsLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -496,6 +519,7 @@ export class VersionsLimitExceededException extends __BaseException {
  * @public
  */
 export class SqlParseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#SqlParseException";
   readonly name = "SqlParseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -517,6 +541,7 @@ export class SqlParseException extends __BaseException {
  * @public
  */
 export class DeleteConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#DeleteConflictException";
   readonly name = "DeleteConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -537,6 +562,7 @@ export class DeleteConflictException extends __BaseException {
  * @public
  */
 export class CertificateStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#CertificateStateException";
   readonly name = "CertificateStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -557,6 +583,7 @@ export class CertificateStateException extends __BaseException {
  * @public
  */
 export class NotConfiguredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#NotConfiguredException";
   readonly name = "NotConfiguredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -577,6 +604,7 @@ export class NotConfiguredException extends __BaseException {
  * @public
  */
 export class RegistrationCodeValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#RegistrationCodeValidationException";
   readonly name = "RegistrationCodeValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -599,6 +627,7 @@ export class RegistrationCodeValidationException extends __BaseException {
  * @public
  */
 export class CertificateConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#CertificateConflictException";
   readonly name = "CertificateConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -619,6 +648,7 @@ export class CertificateConflictException extends __BaseException {
  * @public
  */
 export class ResourceRegistrationFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#ResourceRegistrationFailureException";
   readonly name = "ResourceRegistrationFailureException" as const;
   readonly $fault = "client" as const;
   /**
@@ -641,6 +671,7 @@ export class ResourceRegistrationFailureException extends __BaseException {
  * @public
  */
 export class TaskAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#TaskAlreadyExistsException";
   readonly name = "TaskAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -661,6 +692,7 @@ export class TaskAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidResponseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#InvalidResponseException";
   readonly name = "InvalidResponseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -682,6 +714,7 @@ export class InvalidResponseException extends __BaseException {
  * @public
  */
 export class TransferConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iot#TransferConflictException";
   readonly name = "TransferConflictException" as const;
   readonly $fault = "client" as const;
   /**

@@ -14,6 +14,7 @@ import { PollyServiceException as __BaseException } from "./PollyServiceExceptio
  * @public
  */
 export class LexiconNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#LexiconNotFoundException";
   readonly name = "LexiconNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -34,6 +35,7 @@ export class LexiconNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ServiceFailureException";
   readonly name = "ServiceFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -55,6 +57,7 @@ export class ServiceFailureException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -77,6 +80,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class EngineNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#EngineNotSupportedException";
   readonly name = "EngineNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -98,6 +102,7 @@ export class EngineNotSupportedException extends __BaseException {
  * @public
  */
 export class InvalidTaskIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#InvalidTaskIdException";
   readonly name = "InvalidTaskIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -119,6 +124,7 @@ export class InvalidTaskIdException extends __BaseException {
  * @public
  */
 export class SynthesisTaskNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#SynthesisTaskNotFoundException";
   readonly name = "SynthesisTaskNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -140,6 +146,7 @@ export class SynthesisTaskNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidLexiconException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#InvalidLexiconException";
   readonly name = "InvalidLexiconException" as const;
   readonly $fault = "client" as const;
   /**
@@ -161,6 +168,7 @@ export class InvalidLexiconException extends __BaseException {
  * @public
  */
 export class InvalidS3BucketException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#InvalidS3BucketException";
   readonly name = "InvalidS3BucketException" as const;
   readonly $fault = "client" as const;
   /**
@@ -182,6 +190,7 @@ export class InvalidS3BucketException extends __BaseException {
  * @public
  */
 export class InvalidS3KeyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#InvalidS3KeyException";
   readonly name = "InvalidS3KeyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -202,6 +211,7 @@ export class InvalidS3KeyException extends __BaseException {
  * @public
  */
 export class InvalidSampleRateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#InvalidSampleRateException";
   readonly name = "InvalidSampleRateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -223,6 +233,7 @@ export class InvalidSampleRateException extends __BaseException {
  * @public
  */
 export class InvalidSnsTopicArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#InvalidSnsTopicArnException";
   readonly name = "InvalidSnsTopicArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -244,6 +255,7 @@ export class InvalidSnsTopicArnException extends __BaseException {
  * @public
  */
 export class InvalidSsmlException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#InvalidSsmlException";
   readonly name = "InvalidSsmlException" as const;
   readonly $fault = "client" as const;
   /**
@@ -265,6 +277,7 @@ export class InvalidSsmlException extends __BaseException {
  * @public
  */
 export class LanguageNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#LanguageNotSupportedException";
   readonly name = "LanguageNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -286,6 +299,7 @@ export class LanguageNotSupportedException extends __BaseException {
  * @public
  */
 export class LexiconSizeExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#LexiconSizeExceededException";
   readonly name = "LexiconSizeExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -308,6 +322,7 @@ export class LexiconSizeExceededException extends __BaseException {
  * @public
  */
 export class MarksNotSupportedForFormatException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#MarksNotSupportedForFormatException";
   readonly name = "MarksNotSupportedForFormatException" as const;
   readonly $fault = "client" as const;
   /**
@@ -329,6 +344,7 @@ export class MarksNotSupportedForFormatException extends __BaseException {
  * @public
  */
 export class MaxLexemeLengthExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#MaxLexemeLengthExceededException";
   readonly name = "MaxLexemeLengthExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -350,6 +366,7 @@ export class MaxLexemeLengthExceededException extends __BaseException {
  * @public
  */
 export class MaxLexiconsNumberExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#MaxLexiconsNumberExceededException";
   readonly name = "MaxLexiconsNumberExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -371,6 +388,7 @@ export class MaxLexiconsNumberExceededException extends __BaseException {
  * @public
  */
 export class UnsupportedPlsAlphabetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#UnsupportedPlsAlphabetException";
   readonly name = "UnsupportedPlsAlphabetException" as const;
   readonly $fault = "client" as const;
   /**
@@ -392,6 +410,7 @@ export class UnsupportedPlsAlphabetException extends __BaseException {
  * @public
  */
 export class UnsupportedPlsLanguageException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#UnsupportedPlsLanguageException";
   readonly name = "UnsupportedPlsLanguageException" as const;
   readonly $fault = "client" as const;
   /**
@@ -412,6 +431,7 @@ export class UnsupportedPlsLanguageException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -446,6 +466,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -473,6 +494,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -508,6 +530,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class SsmlMarksNotSupportedForTextTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#SsmlMarksNotSupportedForTextTypeException";
   readonly name = "SsmlMarksNotSupportedForTextTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -534,6 +557,7 @@ export class SsmlMarksNotSupportedForTextTypeException extends __BaseException {
  * @public
  */
 export class TextLengthExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.polly#TextLengthExceededException";
   readonly name = "TextLengthExceededException" as const;
   readonly $fault = "client" as const;
   /**

@@ -8,6 +8,7 @@ import { PricingServiceException as __BaseException } from "./PricingServiceExce
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pricing#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ExpiredNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pricing#ExpiredNextTokenException";
   readonly name = "ExpiredNextTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class ExpiredNextTokenException extends __BaseException {
  * @public
  */
 export class InternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pricing#InternalErrorException";
   readonly name = "InternalErrorException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -75,6 +78,7 @@ export class InternalErrorException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pricing#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -97,6 +101,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pricing#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -119,6 +124,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pricing#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -141,6 +147,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pricing#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   $retryable = {
@@ -166,6 +173,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pricing#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

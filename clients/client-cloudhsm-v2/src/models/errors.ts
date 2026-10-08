@@ -9,6 +9,7 @@ import { CloudHSMV2ServiceException as __BaseException } from "./CloudHSMV2Servi
  * @public
  */
 export class CloudHsmAccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException";
   readonly name = "CloudHsmAccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -32,6 +33,7 @@ export class CloudHsmAccessDeniedException extends __BaseException {
  * @public
  */
 export class CloudHsmInternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException";
   readonly name = "CloudHsmInternalFailureException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -54,6 +56,7 @@ export class CloudHsmInternalFailureException extends __BaseException {
  * @public
  */
 export class CloudHsmInvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException";
   readonly name = "CloudHsmInvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -77,6 +80,7 @@ export class CloudHsmInvalidRequestException extends __BaseException {
  * @public
  */
 export class CloudHsmResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException";
   readonly name = "CloudHsmResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -99,6 +103,7 @@ export class CloudHsmResourceNotFoundException extends __BaseException {
  * @public
  */
 export class CloudHsmServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudhsmv2#CloudHsmServiceException";
   readonly name = "CloudHsmServiceException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -121,6 +126,7 @@ export class CloudHsmServiceException extends __BaseException {
  * @public
  */
 export class CloudHsmTagException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudhsmv2#CloudHsmTagException";
   readonly name = "CloudHsmTagException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -143,6 +149,7 @@ export class CloudHsmTagException extends __BaseException {
  * @public
  */
 export class CloudHsmResourceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudhsmv2#CloudHsmResourceLimitExceededException";
   readonly name = "CloudHsmResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

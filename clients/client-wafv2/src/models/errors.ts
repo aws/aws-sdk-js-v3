@@ -10,6 +10,7 @@ import { WAFV2ServiceException as __BaseException } from "./WAFV2ServiceExceptio
  * @public
  */
 export class WAFFeatureNotIncludedInPricingPlanException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFFeatureNotIncludedInPricingPlanException";
   readonly name = "WAFFeatureNotIncludedInPricingPlanException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -39,6 +40,7 @@ export class WAFFeatureNotIncludedInPricingPlanException extends __BaseException
  * @public
  */
 export class WAFInternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFInternalErrorException";
   readonly name = "WAFInternalErrorException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -61,6 +63,7 @@ export class WAFInternalErrorException extends __BaseException {
  * @public
  */
 export class WAFInvalidOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFInvalidOperationException";
   readonly name = "WAFInvalidOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -101,6 +104,7 @@ export class WAFInvalidOperationException extends __BaseException {
  * @public
  */
 export class WAFInvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFInvalidParameterException";
   readonly name = "WAFInvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -145,6 +149,7 @@ export class WAFInvalidParameterException extends __BaseException {
  * @public
  */
 export class WAFLimitsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFLimitsExceededException";
   readonly name = "WAFLimitsExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -176,6 +181,7 @@ export class WAFLimitsExceededException extends __BaseException {
  * @public
  */
 export class WAFNonexistentItemException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFNonexistentItemException";
   readonly name = "WAFNonexistentItemException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -202,6 +208,7 @@ export class WAFNonexistentItemException extends __BaseException {
  * @public
  */
 export class WAFUnavailableEntityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFUnavailableEntityException";
   readonly name = "WAFUnavailableEntityException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -226,6 +233,7 @@ export class WAFUnavailableEntityException extends __BaseException {
  * @public
  */
 export class WAFExpiredManagedRuleGroupVersionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException";
   readonly name = "WAFExpiredManagedRuleGroupVersionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -249,6 +257,7 @@ export class WAFExpiredManagedRuleGroupVersionException extends __BaseException 
  * @public
  */
 export class WAFInvalidResourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFInvalidResourceException";
   readonly name = "WAFInvalidResourceException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -272,6 +281,7 @@ export class WAFInvalidResourceException extends __BaseException {
  * @public
  */
 export class WAFSubscriptionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFSubscriptionNotFoundException";
   readonly name = "WAFSubscriptionNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -295,6 +305,7 @@ export class WAFSubscriptionNotFoundException extends __BaseException {
  * @public
  */
 export class WAFDuplicateItemException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFDuplicateItemException";
   readonly name = "WAFDuplicateItemException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -319,6 +330,7 @@ export class WAFDuplicateItemException extends __BaseException {
  * @public
  */
 export class WAFOptimisticLockException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFOptimisticLockException";
   readonly name = "WAFOptimisticLockException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -341,6 +353,7 @@ export class WAFOptimisticLockException extends __BaseException {
  * @public
  */
 export class WAFTagOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFTagOperationException";
   readonly name = "WAFTagOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -364,6 +377,7 @@ export class WAFTagOperationException extends __BaseException {
  * @public
  */
 export class WAFTagOperationInternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFTagOperationInternalErrorException";
   readonly name = "WAFTagOperationInternalErrorException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -396,6 +410,7 @@ export class WAFTagOperationInternalErrorException extends __BaseException {
  * @public
  */
 export class WAFConfigurationWarningException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFConfigurationWarningException";
   readonly name = "WAFConfigurationWarningException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -419,6 +434,7 @@ export class WAFConfigurationWarningException extends __BaseException {
  * @public
  */
 export class WAFAssociatedItemException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFAssociatedItemException";
   readonly name = "WAFAssociatedItemException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -442,6 +458,7 @@ export class WAFAssociatedItemException extends __BaseException {
  * @public
  */
 export class WAFUnsupportedAggregateKeyTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFUnsupportedAggregateKeyTypeException";
   readonly name = "WAFUnsupportedAggregateKeyTypeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -466,6 +483,7 @@ export class WAFUnsupportedAggregateKeyTypeException extends __BaseException {
  * @public
  */
 export class WAFLogDestinationPermissionIssueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFLogDestinationPermissionIssueException";
   readonly name = "WAFLogDestinationPermissionIssueException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -495,6 +513,7 @@ export class WAFLogDestinationPermissionIssueException extends __BaseException {
  * @public
  */
 export class WAFServiceLinkedRoleErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFServiceLinkedRoleErrorException";
   readonly name = "WAFServiceLinkedRoleErrorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -538,6 +557,7 @@ export class WAFServiceLinkedRoleErrorException extends __BaseException {
  * @public
  */
 export class WAFInvalidPermissionPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.wafv2#WAFInvalidPermissionPolicyException";
   readonly name = "WAFInvalidPermissionPolicyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

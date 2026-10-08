@@ -10,6 +10,7 @@ import { CloudTrailServiceException as __BaseException } from "./CloudTrailServi
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -37,6 +38,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class AccountHasOngoingImportException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#AccountHasOngoingImportException";
   readonly name = "AccountHasOngoingImportException" as const;
   readonly $fault = "client" as const;
   /**
@@ -64,6 +66,7 @@ export class AccountHasOngoingImportException extends __BaseException {
  * @public
  */
 export class AccountNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#AccountNotFoundException";
   readonly name = "AccountNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +93,7 @@ export class AccountNotFoundException extends __BaseException {
  * @public
  */
 export class AccountNotRegisteredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#AccountNotRegisteredException";
   readonly name = "AccountNotRegisteredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -117,6 +121,7 @@ export class AccountNotRegisteredException extends __BaseException {
  * @public
  */
 export class AccountRegisteredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#AccountRegisteredException";
   readonly name = "AccountRegisteredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -144,6 +149,7 @@ export class AccountRegisteredException extends __BaseException {
  * @public
  */
 export class ChannelARNInvalidException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ChannelARNInvalidException";
   readonly name = "ChannelARNInvalidException" as const;
   readonly $fault = "client" as const;
   /**
@@ -170,6 +176,7 @@ export class ChannelARNInvalidException extends __BaseException {
  * @public
  */
 export class ChannelNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ChannelNotFoundException";
   readonly name = "ChannelNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -206,6 +213,7 @@ export class ChannelNotFoundException extends __BaseException {
  * @public
  */
 export class CloudTrailARNInvalidException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#CloudTrailARNInvalidException";
   readonly name = "CloudTrailARNInvalidException" as const;
   readonly $fault = "client" as const;
   /**
@@ -235,6 +243,7 @@ export class CloudTrailARNInvalidException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -262,6 +271,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class EventDataStoreARNInvalidException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException";
   readonly name = "EventDataStoreARNInvalidException" as const;
   readonly $fault = "client" as const;
   /**
@@ -288,6 +298,7 @@ export class EventDataStoreARNInvalidException extends __BaseException {
  * @public
  */
 export class EventDataStoreNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#EventDataStoreNotFoundException";
   readonly name = "EventDataStoreNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -314,6 +325,7 @@ export class EventDataStoreNotFoundException extends __BaseException {
  * @public
  */
 export class InactiveEventDataStoreException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InactiveEventDataStoreException";
   readonly name = "InactiveEventDataStoreException" as const;
   readonly $fault = "client" as const;
   /**
@@ -341,6 +353,7 @@ export class InactiveEventDataStoreException extends __BaseException {
  * @public
  */
 export class InvalidTagParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidTagParameterException";
   readonly name = "InvalidTagParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -387,6 +400,7 @@ export class InvalidTagParameterException extends __BaseException {
  * @public
  */
 export class InvalidTrailNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidTrailNameException";
   readonly name = "InvalidTrailNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -414,6 +428,7 @@ export class InvalidTrailNameException extends __BaseException {
  * @public
  */
 export class NoManagementAccountSLRExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException";
   readonly name = "NoManagementAccountSLRExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -442,6 +457,7 @@ export class NoManagementAccountSLRExistsException extends __BaseException {
  * @public
  */
 export class NotOrganizationMasterAccountException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException";
   readonly name = "NotOrganizationMasterAccountException" as const;
   readonly $fault = "client" as const;
   /**
@@ -468,6 +484,7 @@ export class NotOrganizationMasterAccountException extends __BaseException {
  * @public
  */
 export class OperationNotPermittedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#OperationNotPermittedException";
   readonly name = "OperationNotPermittedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -494,6 +511,7 @@ export class OperationNotPermittedException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -520,6 +538,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ResourceTypeNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException";
   readonly name = "ResourceTypeNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -547,6 +566,7 @@ export class ResourceTypeNotSupportedException extends __BaseException {
  * @public
  */
 export class TagsLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#TagsLimitExceededException";
   readonly name = "TagsLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -573,6 +593,7 @@ export class TagsLimitExceededException extends __BaseException {
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#UnsupportedOperationException";
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -600,6 +621,7 @@ export class UnsupportedOperationException extends __BaseException {
  * @public
  */
 export class InactiveQueryException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InactiveQueryException";
   readonly name = "InactiveQueryException" as const;
   readonly $fault = "client" as const;
   /**
@@ -626,6 +648,7 @@ export class InactiveQueryException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -652,6 +675,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class QueryIdNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#QueryIdNotFoundException";
   readonly name = "QueryIdNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -679,6 +703,7 @@ export class QueryIdNotFoundException extends __BaseException {
  * @public
  */
 export class CannotDelegateManagementAccountException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#CannotDelegateManagementAccountException";
   readonly name = "CannotDelegateManagementAccountException" as const;
   readonly $fault = "client" as const;
   /**
@@ -707,6 +732,7 @@ export class CannotDelegateManagementAccountException extends __BaseException {
  * @public
  */
 export class ChannelAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ChannelAlreadyExistsException";
   readonly name = "ChannelAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -734,6 +760,7 @@ export class ChannelAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ChannelExistsForEDSException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ChannelExistsForEDSException";
   readonly name = "ChannelExistsForEDSException" as const;
   readonly $fault = "client" as const;
   /**
@@ -762,6 +789,7 @@ export class ChannelExistsForEDSException extends __BaseException {
  * @public
  */
 export class ChannelMaxLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ChannelMaxLimitExceededException";
   readonly name = "ChannelMaxLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -789,6 +817,7 @@ export class ChannelMaxLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidEventDataStoreCategoryException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException";
   readonly name = "InvalidEventDataStoreCategoryException" as const;
   readonly $fault = "client" as const;
   /**
@@ -815,6 +844,7 @@ export class InvalidEventDataStoreCategoryException extends __BaseException {
  * @public
  */
 export class InvalidSourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidSourceException";
   readonly name = "InvalidSourceException" as const;
   readonly $fault = "client" as const;
   /**
@@ -846,6 +876,7 @@ export class InvalidSourceException extends __BaseException {
  * @public
  */
 export class InsufficientEncryptionPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException";
   readonly name = "InsufficientEncryptionPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -874,6 +905,7 @@ export class InsufficientEncryptionPolicyException extends __BaseException {
  * @public
  */
 export class InvalidQueryStatementException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidQueryStatementException";
   readonly name = "InvalidQueryStatementException" as const;
   readonly $fault = "client" as const;
   /**
@@ -903,6 +935,7 @@ export class InvalidQueryStatementException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -929,6 +962,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class CloudTrailAccessNotEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException";
   readonly name = "CloudTrailAccessNotEnabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -955,6 +989,7 @@ export class CloudTrailAccessNotEnabledException extends __BaseException {
  * @public
  */
 export class EventDataStoreAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#EventDataStoreAlreadyExistsException";
   readonly name = "EventDataStoreAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -981,6 +1016,7 @@ export class EventDataStoreAlreadyExistsException extends __BaseException {
  * @public
  */
 export class EventDataStoreMaxLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#EventDataStoreMaxLimitExceededException";
   readonly name = "EventDataStoreMaxLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1009,6 +1045,7 @@ export class EventDataStoreMaxLimitExceededException extends __BaseException {
  * @public
  */
 export class InsufficientDependencyServiceAccessPermissionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException";
   readonly name = "InsufficientDependencyServiceAccessPermissionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1062,6 +1099,7 @@ export class InsufficientDependencyServiceAccessPermissionException extends __Ba
  * @public
  */
 export class InvalidEventSelectorsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidEventSelectorsException";
   readonly name = "InvalidEventSelectorsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1088,6 +1126,7 @@ export class InvalidEventSelectorsException extends __BaseException {
  * @public
  */
 export class InvalidKmsKeyIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidKmsKeyIdException";
   readonly name = "InvalidKmsKeyIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1115,6 +1154,7 @@ export class InvalidKmsKeyIdException extends __BaseException {
  * @public
  */
 export class KmsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#KmsException";
   readonly name = "KmsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1143,6 +1183,7 @@ export class KmsException extends __BaseException {
  * @public
  */
 export class KmsKeyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#KmsKeyNotFoundException";
   readonly name = "KmsKeyNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1171,6 +1212,7 @@ export class KmsKeyNotFoundException extends __BaseException {
  * @public
  */
 export class OrganizationNotInAllFeaturesModeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException";
   readonly name = "OrganizationNotInAllFeaturesModeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1199,6 +1241,7 @@ export class OrganizationNotInAllFeaturesModeException extends __BaseException {
  * @public
  */
 export class OrganizationsNotInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#OrganizationsNotInUseException";
   readonly name = "OrganizationsNotInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1227,6 +1270,7 @@ export class OrganizationsNotInUseException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1255,6 +1299,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class CloudTrailInvalidClientTokenIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#CloudTrailInvalidClientTokenIdException";
   readonly name = "CloudTrailInvalidClientTokenIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1281,6 +1326,7 @@ export class CloudTrailInvalidClientTokenIdException extends __BaseException {
  * @public
  */
 export class CloudWatchLogsDeliveryUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#CloudWatchLogsDeliveryUnavailableException";
   readonly name = "CloudWatchLogsDeliveryUnavailableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1307,6 +1353,7 @@ export class CloudWatchLogsDeliveryUnavailableException extends __BaseException 
  * @public
  */
 export class InsufficientS3BucketPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException";
   readonly name = "InsufficientS3BucketPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1334,6 +1381,7 @@ export class InsufficientS3BucketPolicyException extends __BaseException {
  * @public
  */
 export class InsufficientSnsTopicPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InsufficientSnsTopicPolicyException";
   readonly name = "InsufficientSnsTopicPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1361,6 +1409,7 @@ export class InsufficientSnsTopicPolicyException extends __BaseException {
  * @public
  */
 export class InvalidCloudWatchLogsLogGroupArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidCloudWatchLogsLogGroupArnException";
   readonly name = "InvalidCloudWatchLogsLogGroupArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1387,6 +1436,7 @@ export class InvalidCloudWatchLogsLogGroupArnException extends __BaseException {
  * @public
  */
 export class InvalidCloudWatchLogsRoleArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidCloudWatchLogsRoleArnException";
   readonly name = "InvalidCloudWatchLogsRoleArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1414,6 +1464,7 @@ export class InvalidCloudWatchLogsRoleArnException extends __BaseException {
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidParameterCombinationException";
   readonly name = "InvalidParameterCombinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1440,6 +1491,7 @@ export class InvalidParameterCombinationException extends __BaseException {
  * @public
  */
 export class InvalidS3BucketNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidS3BucketNameException";
   readonly name = "InvalidS3BucketNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1466,6 +1518,7 @@ export class InvalidS3BucketNameException extends __BaseException {
  * @public
  */
 export class InvalidS3PrefixException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidS3PrefixException";
   readonly name = "InvalidS3PrefixException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1492,6 +1545,7 @@ export class InvalidS3PrefixException extends __BaseException {
  * @public
  */
 export class InvalidSnsTopicNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidSnsTopicNameException";
   readonly name = "InvalidSnsTopicNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1520,6 +1574,7 @@ export class InvalidSnsTopicNameException extends __BaseException {
  * @public
  */
 export class KmsKeyDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#KmsKeyDisabledException";
   readonly name = "KmsKeyDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1546,6 +1601,7 @@ export class KmsKeyDisabledException extends __BaseException {
  * @public
  */
 export class MaximumNumberOfTrailsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#MaximumNumberOfTrailsExceededException";
   readonly name = "MaximumNumberOfTrailsExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1572,6 +1628,7 @@ export class MaximumNumberOfTrailsExceededException extends __BaseException {
  * @public
  */
 export class S3BucketDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#S3BucketDoesNotExistException";
   readonly name = "S3BucketDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1598,6 +1655,7 @@ export class S3BucketDoesNotExistException extends __BaseException {
  * @public
  */
 export class TrailAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#TrailAlreadyExistsException";
   readonly name = "TrailAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1624,6 +1682,7 @@ export class TrailAlreadyExistsException extends __BaseException {
  * @public
  */
 export class TrailNotProvidedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#TrailNotProvidedException";
   readonly name = "TrailNotProvidedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1653,6 +1712,7 @@ export class TrailNotProvidedException extends __BaseException {
  * @public
  */
 export class EventDataStoreFederationEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#EventDataStoreFederationEnabledException";
   readonly name = "EventDataStoreFederationEnabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1680,6 +1740,7 @@ export class EventDataStoreFederationEnabledException extends __BaseException {
  * @public
  */
 export class EventDataStoreHasOngoingImportException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#EventDataStoreHasOngoingImportException";
   readonly name = "EventDataStoreHasOngoingImportException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1707,6 +1768,7 @@ export class EventDataStoreHasOngoingImportException extends __BaseException {
  * @public
  */
 export class EventDataStoreTerminationProtectedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#EventDataStoreTerminationProtectedException";
   readonly name = "EventDataStoreTerminationProtectedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1743,6 +1805,7 @@ export class EventDataStoreTerminationProtectedException extends __BaseException
  * @public
  */
 export class ResourceARNNotValidException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ResourceARNNotValidException";
   readonly name = "ResourceARNNotValidException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1771,6 +1834,7 @@ export class ResourceARNNotValidException extends __BaseException {
  * @public
  */
 export class ResourcePolicyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ResourcePolicyNotFoundException";
   readonly name = "ResourcePolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1798,6 +1862,7 @@ export class ResourcePolicyNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidHomeRegionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidHomeRegionException";
   readonly name = "InvalidHomeRegionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1824,6 +1889,7 @@ export class InvalidHomeRegionException extends __BaseException {
  * @public
  */
 export class TrailNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#TrailNotFoundException";
   readonly name = "TrailNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1851,6 +1917,7 @@ export class TrailNotFoundException extends __BaseException {
  * @public
  */
 export class NotOrganizationManagementAccountException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#NotOrganizationManagementAccountException";
   readonly name = "NotOrganizationManagementAccountException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1879,6 +1946,7 @@ export class NotOrganizationManagementAccountException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1907,6 +1975,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class GenerateResponseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#GenerateResponseException";
   readonly name = "GenerateResponseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1933,6 +2002,7 @@ export class GenerateResponseException extends __BaseException {
  * @public
  */
 export class InvalidEventDataStoreStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException";
   readonly name = "InvalidEventDataStoreStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1959,6 +2029,7 @@ export class InvalidEventDataStoreStatusException extends __BaseException {
  * @public
  */
 export class ImportNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ImportNotFoundException";
   readonly name = "ImportNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1987,6 +2058,7 @@ export class ImportNotFoundException extends __BaseException {
  * @public
  */
 export class InsightNotEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InsightNotEnabledException";
   readonly name = "InsightNotEnabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2013,6 +2085,7 @@ export class InsightNotEnabledException extends __BaseException {
  * @public
  */
 export class InvalidMaxResultsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidMaxResultsException";
   readonly name = "InvalidMaxResultsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2040,6 +2113,7 @@ export class InvalidMaxResultsException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2067,6 +2141,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class InvalidTimeRangeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidTimeRangeException";
   readonly name = "InvalidTimeRangeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2093,6 +2168,7 @@ export class InvalidTimeRangeException extends __BaseException {
  * @public
  */
 export class InvalidTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidTokenException";
   readonly name = "InvalidTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2121,6 +2197,7 @@ export class InvalidTokenException extends __BaseException {
  * @public
  */
 export class InvalidDateRangeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidDateRangeException";
   readonly name = "InvalidDateRangeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2147,6 +2224,7 @@ export class InvalidDateRangeException extends __BaseException {
  * @public
  */
 export class InvalidQueryStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidQueryStatusException";
   readonly name = "InvalidQueryStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2174,6 +2252,7 @@ export class InvalidQueryStatusException extends __BaseException {
  * @public
  */
 export class InvalidEventCategoryException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidEventCategoryException";
   readonly name = "InvalidEventCategoryException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2200,6 +2279,7 @@ export class InvalidEventCategoryException extends __BaseException {
  * @public
  */
 export class InvalidLookupAttributesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidLookupAttributesException";
   readonly name = "InvalidLookupAttributesException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2226,6 +2306,7 @@ export class InvalidLookupAttributesException extends __BaseException {
  * @public
  */
 export class InsufficientIAMAccessPermissionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InsufficientIAMAccessPermissionException";
   readonly name = "InsufficientIAMAccessPermissionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2260,6 +2341,7 @@ export class InsufficientIAMAccessPermissionException extends __BaseException {
  * @public
  */
 export class InvalidInsightSelectorsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidInsightSelectorsException";
   readonly name = "InvalidInsightSelectorsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2288,6 +2370,7 @@ export class InvalidInsightSelectorsException extends __BaseException {
  * @public
  */
 export class ResourcePolicyNotValidException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#ResourcePolicyNotValidException";
   readonly name = "ResourcePolicyNotValidException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2315,6 +2398,7 @@ export class ResourcePolicyNotValidException extends __BaseException {
  * @public
  */
 export class DelegatedAdminAccountLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#DelegatedAdminAccountLimitExceededException";
   readonly name = "DelegatedAdminAccountLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2342,6 +2426,7 @@ export class DelegatedAdminAccountLimitExceededException extends __BaseException
  * @public
  */
 export class InvalidImportSourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#InvalidImportSourceException";
   readonly name = "InvalidImportSourceException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2369,6 +2454,7 @@ export class InvalidImportSourceException extends __BaseException {
  * @public
  */
 export class MaxConcurrentQueriesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudtrail#MaxConcurrentQueriesException";
   readonly name = "MaxConcurrentQueriesException" as const;
   readonly $fault = "client" as const;
   /**

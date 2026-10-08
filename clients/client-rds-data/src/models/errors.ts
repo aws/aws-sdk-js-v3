@@ -8,6 +8,7 @@ import { RDSDataServiceException as __BaseException } from "./RDSDataServiceExce
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class DatabaseErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#DatabaseErrorException";
   readonly name = "DatabaseErrorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class DatabaseErrorException extends __BaseException {
  * @public
  */
 export class DatabaseNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#DatabaseNotFoundException";
   readonly name = "DatabaseNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class DatabaseNotFoundException extends __BaseException {
  * @public
  */
 export class DatabaseResumingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#DatabaseResumingException";
   readonly name = "DatabaseResumingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class DatabaseResumingException extends __BaseException {
  * @public
  */
 export class DatabaseUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#DatabaseUnavailableException";
   readonly name = "DatabaseUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -128,6 +134,7 @@ export class DatabaseUnavailableException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,6 +155,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class HttpEndpointNotEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#HttpEndpointNotEnabledException";
   readonly name = "HttpEndpointNotEnabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -168,6 +176,7 @@ export class HttpEndpointNotEnabledException extends __BaseException {
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#InternalServerErrorException";
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -188,6 +197,7 @@ export class InternalServerErrorException extends __BaseException {
  * @public
  */
 export class InvalidResourceStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#InvalidResourceStateException";
   readonly name = "InvalidResourceStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -208,6 +218,7 @@ export class InvalidResourceStateException extends __BaseException {
  * @public
  */
 export class InvalidSecretException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#InvalidSecretException";
   readonly name = "InvalidSecretException" as const;
   readonly $fault = "client" as const;
   /**
@@ -228,6 +239,7 @@ export class InvalidSecretException extends __BaseException {
  * @public
  */
 export class SecretsErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#SecretsErrorException";
   readonly name = "SecretsErrorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -248,6 +260,7 @@ export class SecretsErrorException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#ServiceUnavailableError";
   readonly name = "ServiceUnavailableError" as const;
   readonly $fault = "server" as const;
   /**
@@ -268,6 +281,7 @@ export class ServiceUnavailableError extends __BaseException {
  * @public
  */
 export class StatementTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#StatementTimeoutException";
   readonly name = "StatementTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
@@ -295,6 +309,7 @@ export class StatementTimeoutException extends __BaseException {
  * @public
  */
 export class TransactionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#TransactionNotFoundException";
   readonly name = "TransactionNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -315,6 +330,7 @@ export class TransactionNotFoundException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -335,6 +351,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class UnsupportedResultException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rdsdata#UnsupportedResultException";
   readonly name = "UnsupportedResultException" as const;
   readonly $fault = "client" as const;
   /**

@@ -8,6 +8,7 @@ import { NeptunedataServiceException as __BaseException } from "./NeptunedataSer
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +49,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +90,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ClientTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ClientTimeoutException";
   readonly name = "ClientTimeoutException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -129,6 +132,7 @@ export class ClientTimeoutException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -170,6 +174,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class ConstraintViolationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ConstraintViolationException";
   readonly name = "ConstraintViolationException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -211,6 +216,7 @@ export class ConstraintViolationException extends __BaseException {
  * @public
  */
 export class FailureByQueryException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#FailureByQueryException";
   readonly name = "FailureByQueryException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -252,6 +258,7 @@ export class FailureByQueryException extends __BaseException {
  * @public
  */
 export class IllegalArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#IllegalArgumentException";
   readonly name = "IllegalArgumentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -292,6 +299,7 @@ export class IllegalArgumentException extends __BaseException {
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#InvalidArgumentException";
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -332,6 +340,7 @@ export class InvalidArgumentException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -372,6 +381,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class MissingParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#MissingParameterException";
   readonly name = "MissingParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -412,6 +422,7 @@ export class MissingParameterException extends __BaseException {
  * @public
  */
 export class ParsingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ParsingException";
   readonly name = "ParsingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -452,6 +463,7 @@ export class ParsingException extends __BaseException {
  * @public
  */
 export class PreconditionsFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#PreconditionsFailedException";
   readonly name = "PreconditionsFailedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -492,6 +504,7 @@ export class PreconditionsFailedException extends __BaseException {
  * @public
  */
 export class TimeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#TimeLimitExceededException";
   readonly name = "TimeLimitExceededException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -533,6 +546,7 @@ export class TimeLimitExceededException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -574,6 +588,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#UnsupportedOperationException";
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -614,6 +629,7 @@ export class UnsupportedOperationException extends __BaseException {
  * @public
  */
 export class BulkLoadIdNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#BulkLoadIdNotFoundException";
   readonly name = "BulkLoadIdNotFoundException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -655,6 +671,7 @@ export class BulkLoadIdNotFoundException extends __BaseException {
  * @public
  */
 export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#InternalFailureException";
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -695,6 +712,7 @@ export class InternalFailureException extends __BaseException {
  * @public
  */
 export class LoadUrlAccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#LoadUrlAccessDeniedException";
   readonly name = "LoadUrlAccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -735,6 +753,7 @@ export class LoadUrlAccessDeniedException extends __BaseException {
  * @public
  */
 export class MLResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#MLResourceNotFoundException";
   readonly name = "MLResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -775,6 +794,7 @@ export class MLResourceNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidNumericDataException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#InvalidNumericDataException";
   readonly name = "InvalidNumericDataException" as const;
   readonly $fault = "client" as const;
   /**
@@ -815,6 +835,7 @@ export class InvalidNumericDataException extends __BaseException {
  * @public
  */
 export class ReadOnlyViolationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ReadOnlyViolationException";
   readonly name = "ReadOnlyViolationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -855,6 +876,7 @@ export class ReadOnlyViolationException extends __BaseException {
  * @public
  */
 export class StatisticsNotAvailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#StatisticsNotAvailableException";
   readonly name = "StatisticsNotAvailableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -895,6 +917,7 @@ export class StatisticsNotAvailableException extends __BaseException {
  * @public
  */
 export class MethodNotAllowedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#MethodNotAllowedException";
   readonly name = "MethodNotAllowedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -935,6 +958,7 @@ export class MethodNotAllowedException extends __BaseException {
  * @public
  */
 export class ServerShutdownException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ServerShutdownException";
   readonly name = "ServerShutdownException" as const;
   readonly $fault = "server" as const;
   /**
@@ -975,6 +999,7 @@ export class ServerShutdownException extends __BaseException {
  * @public
  */
 export class CancelledByUserException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#CancelledByUserException";
   readonly name = "CancelledByUserException" as const;
   readonly $fault = "server" as const;
   /**
@@ -1015,6 +1040,7 @@ export class CancelledByUserException extends __BaseException {
  * @public
  */
 export class MalformedQueryException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#MalformedQueryException";
   readonly name = "MalformedQueryException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1055,6 +1081,7 @@ export class MalformedQueryException extends __BaseException {
  * @public
  */
 export class MemoryLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#MemoryLimitExceededException";
   readonly name = "MemoryLimitExceededException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -1096,6 +1123,7 @@ export class MemoryLimitExceededException extends __BaseException {
  * @public
  */
 export class QueryLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#QueryLimitExceededException";
   readonly name = "QueryLimitExceededException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -1137,6 +1165,7 @@ export class QueryLimitExceededException extends __BaseException {
  * @public
  */
 export class QueryLimitException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#QueryLimitException";
   readonly name = "QueryLimitException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1177,6 +1206,7 @@ export class QueryLimitException extends __BaseException {
  * @public
  */
 export class QueryTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#QueryTooLargeException";
   readonly name = "QueryTooLargeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1217,6 +1247,7 @@ export class QueryTooLargeException extends __BaseException {
  * @public
  */
 export class ExpiredStreamException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ExpiredStreamException";
   readonly name = "ExpiredStreamException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1257,6 +1288,7 @@ export class ExpiredStreamException extends __BaseException {
  * @public
  */
 export class StreamRecordsNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#StreamRecordsNotFoundException";
   readonly name = "StreamRecordsNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1297,6 +1329,7 @@ export class StreamRecordsNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -1338,6 +1371,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class S3Exception extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptunedata#S3Exception";
   readonly name = "S3Exception" as const;
   readonly $fault = "client" as const;
   $retryable = {};

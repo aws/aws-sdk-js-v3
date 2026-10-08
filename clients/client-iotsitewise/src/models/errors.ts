@@ -8,6 +8,7 @@ import { IoTSiteWiseServiceException as __BaseException } from "./IoTSiteWiseSer
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictingOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#ConflictingOperationException";
   readonly name = "ConflictingOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -63,6 +65,7 @@ export class ConflictingOperationException extends __BaseException {
  * @public
  */
 export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#InternalFailureException";
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -84,6 +87,7 @@ export class InternalFailureException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -107,6 +111,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -127,6 +132,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -161,6 +167,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -184,6 +191,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -204,6 +212,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -225,6 +234,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class PreconditionFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#PreconditionFailedException";
   readonly name = "PreconditionFailedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -259,6 +269,7 @@ export class PreconditionFailedException extends __BaseException {
  * @public
  */
 export class QueryTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#QueryTimeoutException";
   readonly name = "QueryTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
@@ -279,6 +290,7 @@ export class QueryTimeoutException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -299,6 +311,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -321,6 +334,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iotsitewise#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**

@@ -9,6 +9,7 @@ import { EFSServiceException as __BaseException } from "./EFSServiceException";
  * @public
  */
 export class AccessPointAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#AccessPointAlreadyExists";
   readonly name = "AccessPointAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +52,7 @@ export class AccessPointAlreadyExists extends __BaseException {
  * @public
  */
 export class AccessPointLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#AccessPointLimitExceeded";
   readonly name = "AccessPointLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +92,7 @@ export class AccessPointLimitExceeded extends __BaseException {
  * @public
  */
 export class AccessPointNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#AccessPointNotFound";
   readonly name = "AccessPointNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -130,6 +133,7 @@ export class AccessPointNotFound extends __BaseException {
  * @public
  */
 export class AvailabilityZonesMismatch extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#AvailabilityZonesMismatch";
   readonly name = "AvailabilityZonesMismatch" as const;
   readonly $fault = "client" as const;
   /**
@@ -169,6 +173,7 @@ export class AvailabilityZonesMismatch extends __BaseException {
  * @public
  */
 export class BadRequest extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#BadRequest";
   readonly name = "BadRequest" as const;
   readonly $fault = "client" as const;
   /**
@@ -207,6 +212,7 @@ export class BadRequest extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -246,6 +252,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class FileSystemNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#FileSystemNotFound";
   readonly name = "FileSystemNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -284,6 +291,7 @@ export class FileSystemNotFound extends __BaseException {
  * @public
  */
 export class IncorrectFileSystemLifeCycleState extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#IncorrectFileSystemLifeCycleState";
   readonly name = "IncorrectFileSystemLifeCycleState" as const;
   readonly $fault = "client" as const;
   /**
@@ -322,6 +330,7 @@ export class IncorrectFileSystemLifeCycleState extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**
@@ -362,6 +371,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -401,6 +411,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class FileSystemAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#FileSystemAlreadyExists";
   readonly name = "FileSystemAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -443,6 +454,7 @@ export class FileSystemAlreadyExists extends __BaseException {
  * @public
  */
 export class FileSystemLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#FileSystemLimitExceeded";
   readonly name = "FileSystemLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -485,6 +497,7 @@ export class FileSystemLimitExceeded extends __BaseException {
  * @public
  */
 export class InsufficientThroughputCapacity extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#InsufficientThroughputCapacity";
   readonly name = "InsufficientThroughputCapacity" as const;
   readonly $fault = "server" as const;
   /**
@@ -524,6 +537,7 @@ export class InsufficientThroughputCapacity extends __BaseException {
  * @public
  */
 export class ThroughputLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#ThroughputLimitExceeded";
   readonly name = "ThroughputLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -562,6 +576,7 @@ export class ThroughputLimitExceeded extends __BaseException {
  * @public
  */
 export class UnsupportedAvailabilityZone extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#UnsupportedAvailabilityZone";
   readonly name = "UnsupportedAvailabilityZone" as const;
   readonly $fault = "client" as const;
   /**
@@ -601,6 +616,7 @@ export class UnsupportedAvailabilityZone extends __BaseException {
  * @public
  */
 export class IpAddressInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#IpAddressInUse";
   readonly name = "IpAddressInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -640,6 +656,7 @@ export class IpAddressInUse extends __BaseException {
  * @public
  */
 export class MountTargetConflict extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#MountTargetConflict";
   readonly name = "MountTargetConflict" as const;
   readonly $fault = "client" as const;
   /**
@@ -683,6 +700,7 @@ export class MountTargetConflict extends __BaseException {
  * @public
  */
 export class NetworkInterfaceLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#NetworkInterfaceLimitExceeded";
   readonly name = "NetworkInterfaceLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -722,6 +740,7 @@ export class NetworkInterfaceLimitExceeded extends __BaseException {
  * @public
  */
 export class NoFreeAddressesInSubnet extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#NoFreeAddressesInSubnet";
   readonly name = "NoFreeAddressesInSubnet" as const;
   readonly $fault = "client" as const;
   /**
@@ -765,6 +784,7 @@ export class NoFreeAddressesInSubnet extends __BaseException {
  * @public
  */
 export class SecurityGroupLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#SecurityGroupLimitExceeded";
   readonly name = "SecurityGroupLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -804,6 +824,7 @@ export class SecurityGroupLimitExceeded extends __BaseException {
  * @public
  */
 export class SecurityGroupNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#SecurityGroupNotFound";
   readonly name = "SecurityGroupNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -843,6 +864,7 @@ export class SecurityGroupNotFound extends __BaseException {
  * @public
  */
 export class SubnetNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#SubnetNotFound";
   readonly name = "SubnetNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -882,6 +904,7 @@ export class SubnetNotFound extends __BaseException {
  * @public
  */
 export class ReplicationNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#ReplicationNotFound";
   readonly name = "ReplicationNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -919,6 +942,7 @@ export class ReplicationNotFound extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -957,6 +981,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class FileSystemInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#FileSystemInUse";
   readonly name = "FileSystemInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -996,6 +1021,7 @@ export class FileSystemInUse extends __BaseException {
  * @public
  */
 export class DependencyTimeout extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#DependencyTimeout";
   readonly name = "DependencyTimeout" as const;
   readonly $fault = "server" as const;
   /**
@@ -1035,6 +1061,7 @@ export class DependencyTimeout extends __BaseException {
  * @public
  */
 export class MountTargetNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#MountTargetNotFound";
   readonly name = "MountTargetNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -1073,6 +1100,7 @@ export class MountTargetNotFound extends __BaseException {
  * @public
  */
 export class PolicyNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#PolicyNotFound";
   readonly name = "PolicyNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -1112,6 +1140,7 @@ export class PolicyNotFound extends __BaseException {
  * @public
  */
 export class IncorrectMountTargetState extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#IncorrectMountTargetState";
   readonly name = "IncorrectMountTargetState" as const;
   readonly $fault = "client" as const;
   /**
@@ -1152,6 +1181,7 @@ export class IncorrectMountTargetState extends __BaseException {
  * @public
  */
 export class InvalidPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#InvalidPolicyException";
   readonly name = "InvalidPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1191,6 +1221,7 @@ export class InvalidPolicyException extends __BaseException {
  * @public
  */
 export class TooManyRequests extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#TooManyRequests";
   readonly name = "TooManyRequests" as const;
   readonly $fault = "client" as const;
   /**
@@ -1229,6 +1260,7 @@ export class TooManyRequests extends __BaseException {
  * @public
  */
 export class ReplicationAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.efs#ReplicationAlreadyExists";
   readonly name = "ReplicationAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**

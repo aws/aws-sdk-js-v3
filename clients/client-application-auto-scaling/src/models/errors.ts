@@ -9,6 +9,7 @@ import { ApplicationAutoScalingServiceException as __BaseException } from "./App
  * @public
  */
 export class ConcurrentUpdateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationautoscaling#ConcurrentUpdateException";
   readonly name = "ConcurrentUpdateException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class ConcurrentUpdateException extends __BaseException {
  * @public
  */
 export class InternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationautoscaling#InternalServiceException";
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -57,6 +59,7 @@ export class InternalServiceException extends __BaseException {
  * @public
  */
 export class ObjectNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationautoscaling#ObjectNotFoundException";
   readonly name = "ObjectNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -80,6 +83,7 @@ export class ObjectNotFoundException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationautoscaling#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -102,6 +106,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationautoscaling#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -127,6 +132,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class FailedResourceAccessException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationautoscaling#FailedResourceAccessException";
   readonly name = "FailedResourceAccessException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -149,6 +155,7 @@ export class FailedResourceAccessException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationautoscaling#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -177,6 +184,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationautoscaling#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -199,6 +207,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationautoscaling#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

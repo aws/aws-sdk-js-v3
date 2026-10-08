@@ -9,6 +9,7 @@ import { KinesisVideoMediaServiceException as __BaseException } from "./KinesisV
  * @public
  */
 export class ClientLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideomedia#ClientLimitExceededException";
   readonly name = "ClientLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -32,6 +33,7 @@ export class ClientLimitExceededException extends __BaseException {
  * @public
  */
 export class ConnectionLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideomedia#ConnectionLimitExceededException";
   readonly name = "ConnectionLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -54,6 +56,7 @@ export class ConnectionLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideomedia#InvalidArgumentException";
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -79,6 +82,7 @@ export class InvalidArgumentException extends __BaseException {
  * @public
  */
 export class InvalidEndpointException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideomedia#InvalidEndpointException";
   readonly name = "InvalidEndpointException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -102,6 +106,7 @@ export class InvalidEndpointException extends __BaseException {
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideomedia#NotAuthorizedException";
   readonly name = "NotAuthorizedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -124,6 +129,7 @@ export class NotAuthorizedException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideomedia#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

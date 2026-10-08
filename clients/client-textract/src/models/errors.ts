@@ -9,6 +9,7 @@ import { TextractServiceException as __BaseException } from "./TextractServiceEx
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -34,6 +35,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class BadDocumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#BadDocumentException";
   readonly name = "BadDocumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -60,6 +62,7 @@ export class BadDocumentException extends __BaseException {
  * @public
  */
 export class DocumentTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#DocumentTooLargeException";
   readonly name = "DocumentTooLargeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -84,6 +87,7 @@ export class DocumentTooLargeException extends __BaseException {
  * @public
  */
 export class HumanLoopQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#HumanLoopQuotaExceededException";
   readonly name = "HumanLoopQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -129,6 +133,7 @@ export class HumanLoopQuotaExceededException extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -157,6 +162,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -184,6 +190,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class InvalidS3ObjectException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#InvalidS3ObjectException";
   readonly name = "InvalidS3ObjectException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -209,6 +216,7 @@ export class InvalidS3ObjectException extends __BaseException {
  * @public
  */
 export class ProvisionedThroughputExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#ProvisionedThroughputExceededException";
   readonly name = "ProvisionedThroughputExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -233,6 +241,7 @@ export class ProvisionedThroughputExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -258,6 +267,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class UnsupportedDocumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#UnsupportedDocumentException";
   readonly name = "UnsupportedDocumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -282,6 +292,7 @@ export class UnsupportedDocumentException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -308,6 +319,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#IdempotentParameterMismatchException";
   readonly name = "IdempotentParameterMismatchException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -336,6 +348,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -360,6 +373,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -384,6 +398,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -409,6 +424,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InvalidKMSKeyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#InvalidKMSKeyException";
   readonly name = "InvalidKMSKeyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -433,6 +449,7 @@ export class InvalidKMSKeyException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -457,6 +474,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidJobIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.textract#InvalidJobIdException";
   readonly name = "InvalidJobIdException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

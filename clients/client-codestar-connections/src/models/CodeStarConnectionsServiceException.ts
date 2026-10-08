@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from CodeStarConnections service.
  */
 export class CodeStarConnectionsServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.codestarconnections#CodeStarConnectionsServiceException";
   /**
    * @internal
    */

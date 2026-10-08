@@ -7,6 +7,7 @@ import { SchemasServiceException as __BaseException } from "./SchemasServiceExce
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.schemas#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -39,6 +40,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.schemas#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -71,6 +73,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.schemas#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -103,6 +106,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.schemas#InternalServerErrorException";
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -135,6 +139,7 @@ export class InternalServerErrorException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.schemas#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -167,6 +172,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.schemas#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -199,6 +205,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.schemas#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -231,6 +238,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.schemas#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -263,6 +271,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class GoneException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.schemas#GoneException";
   readonly name = "GoneException" as const;
   readonly $fault = "client" as const;
   /**
@@ -295,6 +304,7 @@ export class GoneException extends __BaseException {
  * @public
  */
 export class PreconditionFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.schemas#PreconditionFailedException";
   readonly name = "PreconditionFailedException" as const;
   readonly $fault = "client" as const;
   /**

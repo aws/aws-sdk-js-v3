@@ -8,6 +8,7 @@ import { ElastiCacheServiceException as __BaseException } from "./ElastiCacheSer
  * @public
  */
 export class CacheClusterNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheClusterNotFoundFault";
   readonly name = "CacheClusterNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class CacheClusterNotFoundFault extends __BaseException {
  * @public
  */
 export class CacheParameterGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault";
   readonly name = "CacheParameterGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class CacheParameterGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class CacheSecurityGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault";
   readonly name = "CacheSecurityGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -71,6 +74,7 @@ export class CacheSecurityGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class CacheSubnetGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault";
   readonly name = "CacheSubnetGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -91,6 +95,7 @@ export class CacheSubnetGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class GlobalReplicationGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault";
   readonly name = "GlobalReplicationGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -112,6 +117,7 @@ export class GlobalReplicationGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidARNFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidARNFault";
   readonly name = "InvalidARNFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -132,6 +138,7 @@ export class InvalidARNFault extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -152,6 +159,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class InvalidReplicationGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidReplicationGroupStateFault";
   readonly name = "InvalidReplicationGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -172,6 +180,7 @@ export class InvalidReplicationGroupStateFault extends __BaseException {
  * @public
  */
 export class InvalidServerlessCacheSnapshotStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault";
   readonly name = "InvalidServerlessCacheSnapshotStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -192,6 +201,7 @@ export class InvalidServerlessCacheSnapshotStateFault extends __BaseException {
  * @public
  */
 export class InvalidServerlessCacheStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidServerlessCacheStateFault";
   readonly name = "InvalidServerlessCacheStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -212,6 +222,7 @@ export class InvalidServerlessCacheStateFault extends __BaseException {
  * @public
  */
 export class ReplicationGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ReplicationGroupNotFoundFault";
   readonly name = "ReplicationGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -232,6 +243,7 @@ export class ReplicationGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class ReservedCacheNodeNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault";
   readonly name = "ReservedCacheNodeNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -252,6 +264,7 @@ export class ReservedCacheNodeNotFoundFault extends __BaseException {
  * @public
  */
 export class ServerlessCacheNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ServerlessCacheNotFoundFault";
   readonly name = "ServerlessCacheNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -272,6 +285,7 @@ export class ServerlessCacheNotFoundFault extends __BaseException {
  * @public
  */
 export class ServerlessCacheSnapshotNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault";
   readonly name = "ServerlessCacheSnapshotNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -292,6 +306,7 @@ export class ServerlessCacheSnapshotNotFoundFault extends __BaseException {
  * @public
  */
 export class SnapshotNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#SnapshotNotFoundFault";
   readonly name = "SnapshotNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -314,6 +329,7 @@ export class SnapshotNotFoundFault extends __BaseException {
  * @public
  */
 export class TagQuotaPerResourceExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#TagQuotaPerResourceExceeded";
   readonly name = "TagQuotaPerResourceExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -334,6 +350,7 @@ export class TagQuotaPerResourceExceeded extends __BaseException {
  * @public
  */
 export class UserGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#UserGroupNotFoundFault";
   readonly name = "UserGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -354,6 +371,7 @@ export class UserGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class UserNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#UserNotFoundFault";
   readonly name = "UserNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -375,6 +393,7 @@ export class UserNotFoundFault extends __BaseException {
  * @public
  */
 export class AuthorizationAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#AuthorizationAlreadyExistsFault";
   readonly name = "AuthorizationAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -395,6 +414,7 @@ export class AuthorizationAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class InvalidCacheSecurityGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault";
   readonly name = "InvalidCacheSecurityGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -415,6 +435,7 @@ export class InvalidCacheSecurityGroupStateFault extends __BaseException {
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidParameterCombinationException";
   readonly name = "InvalidParameterCombinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -435,6 +456,7 @@ export class InvalidParameterCombinationException extends __BaseException {
  * @public
  */
 export class ServiceUpdateNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ServiceUpdateNotFoundFault";
   readonly name = "ServiceUpdateNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -455,6 +477,7 @@ export class ServiceUpdateNotFoundFault extends __BaseException {
  * @public
  */
 export class ReplicationGroupNotUnderMigrationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ReplicationGroupNotUnderMigrationFault";
   readonly name = "ReplicationGroupNotUnderMigrationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -475,6 +498,7 @@ export class ReplicationGroupNotUnderMigrationFault extends __BaseException {
  * @public
  */
 export class ServerlessCacheSnapshotAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ServerlessCacheSnapshotAlreadyExistsFault";
   readonly name = "ServerlessCacheSnapshotAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -495,6 +519,7 @@ export class ServerlessCacheSnapshotAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ServerlessCacheSnapshotQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ServerlessCacheSnapshotQuotaExceededFault";
   readonly name = "ServerlessCacheSnapshotQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -515,6 +540,7 @@ export class ServerlessCacheSnapshotQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ServiceLinkedRoleNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault";
   readonly name = "ServiceLinkedRoleNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -536,6 +562,7 @@ export class ServiceLinkedRoleNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidSnapshotStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidSnapshotStateFault";
   readonly name = "InvalidSnapshotStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -556,6 +583,7 @@ export class InvalidSnapshotStateFault extends __BaseException {
  * @public
  */
 export class SnapshotAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#SnapshotAlreadyExistsFault";
   readonly name = "SnapshotAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -577,6 +605,7 @@ export class SnapshotAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#SnapshotQuotaExceededFault";
   readonly name = "SnapshotQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -597,6 +626,7 @@ export class SnapshotQuotaExceededFault extends __BaseException {
  * @public
  */
 export class CacheClusterAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheClusterAlreadyExistsFault";
   readonly name = "CacheClusterAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -618,6 +648,7 @@ export class CacheClusterAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ClusterQuotaForCustomerExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault";
   readonly name = "ClusterQuotaForCustomerExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -639,6 +670,7 @@ export class ClusterQuotaForCustomerExceededFault extends __BaseException {
  * @public
  */
 export class InsufficientCacheClusterCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault";
   readonly name = "InsufficientCacheClusterCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -659,6 +691,7 @@ export class InsufficientCacheClusterCapacityFault extends __BaseException {
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidVPCNetworkStateFault";
   readonly name = "InvalidVPCNetworkStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -680,6 +713,7 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
  * @public
  */
 export class NodeQuotaForClusterExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault";
   readonly name = "NodeQuotaForClusterExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -701,6 +735,7 @@ export class NodeQuotaForClusterExceededFault extends __BaseException {
  * @public
  */
 export class NodeQuotaForCustomerExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault";
   readonly name = "NodeQuotaForCustomerExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -721,6 +756,7 @@ export class NodeQuotaForCustomerExceededFault extends __BaseException {
  * @public
  */
 export class CacheParameterGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheParameterGroupAlreadyExistsFault";
   readonly name = "CacheParameterGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -742,6 +778,7 @@ export class CacheParameterGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class CacheParameterGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheParameterGroupQuotaExceededFault";
   readonly name = "CacheParameterGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -763,6 +800,7 @@ export class CacheParameterGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InvalidCacheParameterGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault";
   readonly name = "InvalidCacheParameterGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -783,6 +821,7 @@ export class InvalidCacheParameterGroupStateFault extends __BaseException {
  * @public
  */
 export class CacheSecurityGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheSecurityGroupAlreadyExistsFault";
   readonly name = "CacheSecurityGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -804,6 +843,7 @@ export class CacheSecurityGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class CacheSecurityGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheSecurityGroupQuotaExceededFault";
   readonly name = "CacheSecurityGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -825,6 +865,7 @@ export class CacheSecurityGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class CacheSubnetGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheSubnetGroupAlreadyExistsFault";
   readonly name = "CacheSubnetGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -846,6 +887,7 @@ export class CacheSubnetGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class CacheSubnetGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheSubnetGroupQuotaExceededFault";
   readonly name = "CacheSubnetGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -867,6 +909,7 @@ export class CacheSubnetGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class CacheSubnetQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheSubnetQuotaExceededFault";
   readonly name = "CacheSubnetQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -887,6 +930,7 @@ export class CacheSubnetQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InvalidSubnet extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidSubnet";
   readonly name = "InvalidSubnet" as const;
   readonly $fault = "client" as const;
   /**
@@ -910,6 +954,7 @@ export class InvalidSubnet extends __BaseException {
  * @public
  */
 export class SubnetNotAllowedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#SubnetNotAllowedFault";
   readonly name = "SubnetNotAllowedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -930,6 +975,7 @@ export class SubnetNotAllowedFault extends __BaseException {
  * @public
  */
 export class GlobalReplicationGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#GlobalReplicationGroupAlreadyExistsFault";
   readonly name = "GlobalReplicationGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -950,6 +996,7 @@ export class GlobalReplicationGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class InvalidCacheClusterStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidCacheClusterStateFault";
   readonly name = "InvalidCacheClusterStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -970,6 +1017,7 @@ export class InvalidCacheClusterStateFault extends __BaseException {
  * @public
  */
 export class InvalidGlobalReplicationGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault";
   readonly name = "InvalidGlobalReplicationGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -990,6 +1038,7 @@ export class InvalidGlobalReplicationGroupStateFault extends __BaseException {
  * @public
  */
 export class InvalidUserGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidUserGroupStateFault";
   readonly name = "InvalidUserGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1011,6 +1060,7 @@ export class InvalidUserGroupStateFault extends __BaseException {
  * @public
  */
 export class NodeGroupsPerReplicationGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault";
   readonly name = "NodeGroupsPerReplicationGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1031,6 +1081,7 @@ export class NodeGroupsPerReplicationGroupQuotaExceededFault extends __BaseExcep
  * @public
  */
 export class ReplicationGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ReplicationGroupAlreadyExistsFault";
   readonly name = "ReplicationGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1051,6 +1102,7 @@ export class ReplicationGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class InvalidCredentialsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidCredentialsException";
   readonly name = "InvalidCredentialsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1071,6 +1123,7 @@ export class InvalidCredentialsException extends __BaseException {
  * @public
  */
 export class ServerlessCacheAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ServerlessCacheAlreadyExistsFault";
   readonly name = "ServerlessCacheAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1091,6 +1144,7 @@ export class ServerlessCacheAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ServerlessCacheQuotaForCustomerExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ServerlessCacheQuotaForCustomerExceededFault";
   readonly name = "ServerlessCacheQuotaForCustomerExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1122,6 +1176,7 @@ export class ServerlessCacheQuotaForCustomerExceededFault extends __BaseExceptio
  * @public
  */
 export class SnapshotFeatureNotSupportedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#SnapshotFeatureNotSupportedFault";
   readonly name = "SnapshotFeatureNotSupportedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1142,6 +1197,7 @@ export class SnapshotFeatureNotSupportedFault extends __BaseException {
  * @public
  */
 export class DuplicateUserNameFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#DuplicateUserNameFault";
   readonly name = "DuplicateUserNameFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1162,6 +1218,7 @@ export class DuplicateUserNameFault extends __BaseException {
  * @public
  */
 export class UserAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#UserAlreadyExistsFault";
   readonly name = "UserAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1182,6 +1239,7 @@ export class UserAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class UserQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#UserQuotaExceededFault";
   readonly name = "UserQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1202,6 +1260,7 @@ export class UserQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DefaultUserRequired extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#DefaultUserRequired";
   readonly name = "DefaultUserRequired" as const;
   readonly $fault = "client" as const;
   /**
@@ -1222,6 +1281,7 @@ export class DefaultUserRequired extends __BaseException {
  * @public
  */
 export class UserGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#UserGroupAlreadyExistsFault";
   readonly name = "UserGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1242,6 +1302,7 @@ export class UserGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class UserGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#UserGroupQuotaExceededFault";
   readonly name = "UserGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1262,6 +1323,7 @@ export class UserGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class NoOperationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#NoOperationFault";
   readonly name = "NoOperationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1282,6 +1344,7 @@ export class NoOperationFault extends __BaseException {
  * @public
  */
 export class CacheSubnetGroupInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#CacheSubnetGroupInUse";
   readonly name = "CacheSubnetGroupInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -1302,6 +1365,7 @@ export class CacheSubnetGroupInUse extends __BaseException {
  * @public
  */
 export class DefaultUserAssociatedToUserGroupFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#DefaultUserAssociatedToUserGroupFault";
   readonly name = "DefaultUserAssociatedToUserGroupFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1322,6 +1386,7 @@ export class DefaultUserAssociatedToUserGroupFault extends __BaseException {
  * @public
  */
 export class InvalidUserStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidUserStateFault";
   readonly name = "InvalidUserStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1342,6 +1407,7 @@ export class InvalidUserStateFault extends __BaseException {
  * @public
  */
 export class ReservedCacheNodesOfferingNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ReservedCacheNodesOfferingNotFoundFault";
   readonly name = "ReservedCacheNodesOfferingNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1362,6 +1428,7 @@ export class ReservedCacheNodesOfferingNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidKMSKeyFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#InvalidKMSKeyFault";
   readonly name = "InvalidKMSKeyFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1382,6 +1449,7 @@ export class InvalidKMSKeyFault extends __BaseException {
  * @public
  */
 export class SubnetInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#SubnetInUse";
   readonly name = "SubnetInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -1402,6 +1470,7 @@ export class SubnetInUse extends __BaseException {
  * @public
  */
 export class ReservedCacheNodeAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ReservedCacheNodeAlreadyExistsFault";
   readonly name = "ReservedCacheNodeAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1423,6 +1492,7 @@ export class ReservedCacheNodeAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ReservedCacheNodeQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ReservedCacheNodeQuotaExceededFault";
   readonly name = "ReservedCacheNodeQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1443,6 +1513,7 @@ export class ReservedCacheNodeQuotaExceededFault extends __BaseException {
  * @public
  */
 export class TagNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#TagNotFoundFault";
   readonly name = "TagNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1464,6 +1535,7 @@ export class TagNotFoundFault extends __BaseException {
  * @public
  */
 export class AuthorizationNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#AuthorizationNotFoundFault";
   readonly name = "AuthorizationNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1484,6 +1556,7 @@ export class AuthorizationNotFoundFault extends __BaseException {
  * @public
  */
 export class ReplicationGroupAlreadyUnderMigrationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#ReplicationGroupAlreadyUnderMigrationFault";
   readonly name = "ReplicationGroupAlreadyUnderMigrationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1504,6 +1577,7 @@ export class ReplicationGroupAlreadyUnderMigrationFault extends __BaseException 
  * @public
  */
 export class APICallRateForCustomerExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#APICallRateForCustomerExceededFault";
   readonly name = "APICallRateForCustomerExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1526,6 +1600,7 @@ export class APICallRateForCustomerExceededFault extends __BaseException {
  * @public
  */
 export class NodeGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#NodeGroupNotFoundFault";
   readonly name = "NodeGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1546,6 +1621,7 @@ export class NodeGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class TestFailoverNotAvailableFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticache#TestFailoverNotAvailableFault";
   readonly name = "TestFailoverNotAvailableFault" as const;
   readonly $fault = "client" as const;
   /**

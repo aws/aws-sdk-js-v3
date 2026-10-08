@@ -8,6 +8,7 @@ import { KinesisVideoServiceException as __BaseException } from "./KinesisVideoS
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class AccountChannelLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#AccountChannelLimitExceededException";
   readonly name = "AccountChannelLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -53,6 +55,7 @@ export class AccountChannelLimitExceededException extends __BaseException {
  * @public
  */
 export class AccountStreamLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#AccountStreamLimitExceededException";
   readonly name = "AccountStreamLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -76,6 +79,7 @@ export class AccountStreamLimitExceededException extends __BaseException {
  * @public
  */
 export class ClientLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#ClientLimitExceededException";
   readonly name = "ClientLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -98,6 +102,7 @@ export class ClientLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#InvalidArgumentException";
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -137,6 +142,7 @@ export class InvalidArgumentException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -160,6 +166,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class TagsPerResourceExceededLimitException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#TagsPerResourceExceededLimitException";
   readonly name = "TagsPerResourceExceededLimitException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -183,6 +190,7 @@ export class TagsPerResourceExceededLimitException extends __BaseException {
  * @public
  */
 export class DeviceStreamLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#DeviceStreamLimitExceededException";
   readonly name = "DeviceStreamLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -205,6 +213,7 @@ export class DeviceStreamLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidDeviceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#InvalidDeviceException";
   readonly name = "InvalidDeviceException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -227,6 +236,7 @@ export class InvalidDeviceException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -250,6 +260,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class StreamEdgeConfigurationNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#StreamEdgeConfigurationNotFoundException";
   readonly name = "StreamEdgeConfigurationNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -274,6 +285,7 @@ export class StreamEdgeConfigurationNotFoundException extends __BaseException {
  * @public
  */
 export class VersionMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#VersionMismatchException";
   readonly name = "VersionMismatchException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -296,6 +308,7 @@ export class VersionMismatchException extends __BaseException {
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#NotAuthorizedException";
   readonly name = "NotAuthorizedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -318,6 +331,7 @@ export class NotAuthorizedException extends __BaseException {
  * @public
  */
 export class InvalidResourceFormatException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#InvalidResourceFormatException";
   readonly name = "InvalidResourceFormatException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -340,6 +354,7 @@ export class InvalidResourceFormatException extends __BaseException {
  * @public
  */
 export class NoDataRetentionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kinesisvideo#NoDataRetentionException";
   readonly name = "NoDataRetentionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

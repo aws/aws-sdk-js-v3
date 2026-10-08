@@ -8,6 +8,7 @@ import { Cloud9ServiceException as __BaseException } from "./Cloud9ServiceExcept
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloud9#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   className?: string | undefined;
@@ -32,6 +33,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloud9#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   className?: string | undefined;
@@ -56,6 +58,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloud9#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   className?: string | undefined;
@@ -80,6 +83,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloud9#InternalServerErrorException";
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   className?: string | undefined;
@@ -104,6 +108,7 @@ export class InternalServerErrorException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloud9#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   className?: string | undefined;
@@ -128,6 +133,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloud9#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   className?: string | undefined;
@@ -152,6 +158,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloud9#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   className?: string | undefined;
@@ -176,6 +183,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class ConcurrentAccessException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloud9#ConcurrentAccessException";
   readonly name = "ConcurrentAccessException" as const;
   readonly $fault = "client" as const;
   className?: string | undefined;

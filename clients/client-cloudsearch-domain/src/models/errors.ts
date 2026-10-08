@@ -8,6 +8,7 @@ import { CloudSearchDomainServiceException as __BaseException } from "./CloudSea
  * @public
  */
 export class SearchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudsearchdomain#SearchException";
   readonly name = "SearchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class SearchException extends __BaseException {
  * @public
  */
 export class DocumentServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudsearchdomain#DocumentServiceException";
   readonly name = "DocumentServiceException" as const;
   readonly $fault = "client" as const;
   /**

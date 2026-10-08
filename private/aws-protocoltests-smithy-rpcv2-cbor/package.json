@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.978.1",
-    "@smithy/core": "^3.35.0",
+    "@smithy/core": "^3.35.2",
     "@smithy/fetch-http-handler": "^5.8.0",
     "@smithy/node-http-handler": "^4.12.1",
     "@smithy/types": "^4.19.0",

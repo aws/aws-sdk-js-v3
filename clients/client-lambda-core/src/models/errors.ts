@@ -9,6 +9,7 @@ import { LambdaCoreServiceException as __BaseException } from "./LambdaCoreServi
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdacore#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -36,6 +37,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class NetworkConnectorLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdacore#NetworkConnectorLimitExceededException";
   readonly name = "NetworkConnectorLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -63,6 +65,7 @@ export class NetworkConnectorLimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdacore#ResourceConflictException";
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +93,7 @@ export class ResourceConflictException extends __BaseException {
  * @public
  */
 export class ServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdacore#ServiceException";
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   /**
@@ -119,6 +123,7 @@ export class ServiceException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdacore#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -160,6 +165,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambdacore#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
