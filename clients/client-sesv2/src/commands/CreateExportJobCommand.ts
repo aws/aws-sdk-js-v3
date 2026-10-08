@@ -24,6 +24,13 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
 
 /**
  * <p>Creates an export job for a data source and destination.</p>
+ *          <p>Export jobs run asynchronously. This operation returns a <code>JobId</code>. Call
+ *                 <code>GetExportJob</code> with that ID until <code>JobStatus</code> is
+ *                 <code>COMPLETED</code>, <code>FAILED</code>, or <code>CANCELLED</code>. When the
+ *             status is <code>COMPLETED</code>, download the export file from the pre-signed URL in
+ *                 <code>ExportDestination.S3Url</code>. When the status is <code>FAILED</code>, see
+ *                 <code>FailureInfo</code>. To store a copy in your own bucket, upload the downloaded
+ *             file to your bucket. Do not include <code>S3Url</code> in the request.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
