@@ -144,6 +144,7 @@ import {
   paginateDescribeBudgets,
   paginateDescribeNotificationsForBudget,
   paginateDescribeSubscribersForNotification,
+  ProductAttributeValues$,
   ResourceLockedException,
   ResourceLockedException$,
   ResourceTag$,
@@ -303,6 +304,7 @@ assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof Notification$ === "object");
 assert(typeof NotificationWithSubscribers$ === "object");
+assert(typeof ProductAttributeValues$ === "object");
 assert(typeof ResourceTag$ === "object");
 assert(typeof ScpActionDefinition$ === "object");
 assert(typeof Spend$ === "object");

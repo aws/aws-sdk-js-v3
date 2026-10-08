@@ -138,6 +138,15 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
  *             ],
  *           },
+ *           ProductAttributes: { // ProductAttributeValues
+ *             Key: "STRING_VALUE", // required
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *             MatchOptions: [
+ *               "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ *             ],
+ *           },
  *         },
  *       ],
  *       And: [
@@ -155,15 +164,16 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *       },
  *       Tags: {
  *         Key: "STRING_VALUE",
- *         Values: [
- *           "STRING_VALUE",
- *         ],
- *         MatchOptions: [
- *           "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
- *         ],
+ *         Values: "<Values>",
+ *         MatchOptions: "<MatchOptions>",
  *       },
  *       CostCategories: {
  *         Key: "STRING_VALUE",
+ *         Values: "<Values>",
+ *         MatchOptions: "<MatchOptions>",
+ *       },
+ *       ProductAttributes: {
+ *         Key: "STRING_VALUE", // required
  *         Values: "<Values>",
  *         MatchOptions: "<MatchOptions>",
  *       },
