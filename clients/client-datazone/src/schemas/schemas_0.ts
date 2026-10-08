@@ -884,6 +884,7 @@ const _S = "Subscriptions";
 const _SA = "SubscribedAsset";
 const _SAL = "SubscribedAssetListing";
 const _SAu = "SubscribedAssets";
+const _SBN = "S3BucketName";
 const _SC = "ScheduleConfiguration";
 const _SCt = "StorageConfig";
 const _SD = "ShortDescription";
@@ -894,6 +895,9 @@ const _SDe = "S3Destination";
 const _SEPI = "SparkEmrPropertiesInput";
 const _SEPO = "SparkEmrPropertiesOutput";
 const _SEPP = "SparkEmrPropertiesPatch";
+const _SF = "S3File";
+const _SFL = "S3FilesLocation";
+const _SFLi = "S3FileList";
 const _SG = "SubscribedGroup";
 const _SGA = "SparkGlueArgs";
 const _SGI = "SubscribedGroupInput";
@@ -944,6 +948,7 @@ const _SNS = "StartNotebookSync";
 const _SNSI = "StartNotebookSyncInput";
 const _SNSO = "StartNotebookSyncOutput";
 const _SO = "SearchOutput";
+const _SOK = "S3ObjectKey";
 const _SP = "SubscribedProject";
 const _SPI = "S3PropertiesInput";
 const _SPIn = "SnowflakePropertiesInput";
@@ -1163,6 +1168,7 @@ const _bC = "blueprintCategory";
 const _bNG = "businessNameGeneration";
 const _bT = "beforeTimestamp";
 const _bV = "blueprintVersion";
+const _bu = "bucket";
 const _c = "client";
 const _cA = "createdAt";
 const _cAC = "customAuthenticationCredentials";
@@ -1329,6 +1335,7 @@ const _fE = "filterExpressions";
 const _fF = "fileFormat";
 const _fI = "filterIds";
 const _fIo = "formsInput";
+const _fL = "fileList";
 const _fN = "formNames";
 const _fNi = "fileName";
 const _fNir = "firstName";
@@ -1660,6 +1667,7 @@ const _sD = "shortDescription";
 const _sDC = "skipDeletionCheck";
 const _sDPC = "successfullyDeletedProjectCount";
 const _sEP = "sparkEmrProperties";
+const _sF = "s3Files";
 const _sGCM = "subscriptionGrantCreationMode";
 const _sGI = "securityGroupIds";
 const _sGIL = "securityGroupIdList";
@@ -1927,6 +1935,8 @@ var ProjectName: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 var ProjectProfileName: StaticSimpleSchema = [0, n0, _PPN, 8, 0];
 var RequestReason: StaticSimpleSchema = [0, n0, _RR, 8, 0];
 var RuleName: StaticSimpleSchema = [0, n0, _RN, 8, 0];
+var S3BucketName: StaticSimpleSchema = [0, n0, _SBN, 8, 0];
+var S3ObjectKey: StaticSimpleSchema = [0, n0, _SOK, 8, 0];
 var S3SourceLocation: StaticSimpleSchema = [0, n0, _SSL, 8, 0];
 var ShortDescription: StaticSimpleSchema = [0, n0, _SD, 8, 0];
 var SubscriptionTargetName: StaticSimpleSchema = [0, n0, _STN, 8, 0];
@@ -4648,6 +4658,16 @@ export var S3Destination$: StaticStructureSchema = [3, n0, _SDe,
   [_u],
   [[() => NotebookS3Uri, 0]]
 ];
+export var S3File$: StaticStructureSchema = [3, n0, _SF,
+  0,
+  [_k],
+  [[() => S3ObjectKey, 0]], 1
+];
+export var S3FilesLocation$: StaticStructureSchema = [3, n0, _SFL,
+  0,
+  [_bu, _fL],
+  [[() => S3BucketName, 0], [() => S3FileList, 0]], 2
+];
 export var S3PropertiesInput$: StaticStructureSchema = [3, n0, _SPI,
   0,
   [_sU, _sAGLI, _rSAGL],
@@ -4830,13 +4850,13 @@ export var StartNotebookExportOutput$: StaticStructureSchema = [3, n0, _SNEO,
 ];
 export var StartNotebookImportInput$: StaticStructureSchema = [3, n0, _SNII,
   0,
-  [_dI, _oPIw, _sLo, _n, _de, _cT],
-  [[0, 1], 0, [() => SourceLocation$, 0], [() => NotebookName, 0], [() => Description, 0], [0, 4]], 4
+  [_dI, _oPIw, _sLo, _n, _de, _ty, _cT],
+  [[0, 1], 0, [() => SourceLocation$, 0], [() => NotebookName, 0], [() => Description, 0], 0, [0, 4]], 4
 ];
 export var StartNotebookImportOutput$: StaticStructureSchema = [3, n0, _SNIO,
   0,
-  [_nI, _st, _dIo, _oPI, _n, _de, _sLo, _cA, _cB],
-  [0, 0, 0, 0, [() => NotebookName, 0], [() => Description, 0], [() => SourceLocation$, 0], 4, 0]
+  [_nI, _st, _dIo, _oPI, _n, _de, _ty, _sLo, _cA, _cB],
+  [0, 0, 0, 0, [() => NotebookName, 0], [() => Description, 0], 0, [() => SourceLocation$, 0], 4, 0]
 ];
 export var StartNotebookRunInput$: StaticStructureSchema = [3, n0, _SNRI,
   0,
@@ -5625,6 +5645,10 @@ var RuleSummaries: StaticListSchema = [1, n0, _RSul,
   0, [() => RuleSummary$,
     0]
 ];
+var S3FileList: StaticListSchema = [1, n0, _SFLi,
+  0, [() => S3File$,
+    0]
+];
 var S3LocationList = 64 | 0;
 var S3Permissions = 64 | 0;
 var SearchInList: StaticListSchema = [1, n0, _SIL,
@@ -5970,8 +5994,8 @@ export var SelfGrantStatusOutput$: StaticUnionSchema = [4, n0, _SGSO,
 ];
 export var SourceLocation$: StaticUnionSchema = [4, n0, _SLo,
   0,
-  [_s_],
-  [[() => S3SourceLocation, 0]]
+  [_s_, _sF],
+  [[() => S3SourceLocation, 0], [() => S3FilesLocation$, 0]]
 ];
 export var SubscribedListingItem$: StaticUnionSchema = [4, n0, _SLIubs,
   0,

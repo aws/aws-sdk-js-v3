@@ -1023,6 +1023,8 @@ import {
   RuleType,
   RunStatisticsForAssets$,
   S3Destination$,
+  S3File$,
+  S3FilesLocation$,
   S3Permission,
   S3PropertiesInput$,
   S3PropertiesOutput$,
@@ -2241,6 +2243,8 @@ assert(typeof RuleSummary$ === "object");
 assert(typeof RuleTarget$ === "object");
 assert(typeof RunStatisticsForAssets$ === "object");
 assert(typeof S3Destination$ === "object");
+assert(typeof S3File$ === "object");
+assert(typeof S3FilesLocation$ === "object");
 assert(typeof S3PropertiesInput$ === "object");
 assert(typeof S3PropertiesOutput$ === "object");
 assert(typeof S3PropertiesPatch$ === "object");

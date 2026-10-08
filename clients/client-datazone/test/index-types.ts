@@ -1263,6 +1263,8 @@ export type {
   RuleTarget,
   RunStatisticsForAssets,
   S3Destination,
+  S3File,
+  S3FilesLocation,
   S3PropertiesInput,
   S3PropertiesOutput,
   S3PropertiesPatch,
