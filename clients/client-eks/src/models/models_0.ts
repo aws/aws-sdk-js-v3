@@ -195,6 +195,42 @@ export interface AccessScope {
 }
 
 /**
+ * <p>Configuration settings for an ACK (Amazon Web Services Controllers for Kubernetes) capability. This includes whether controllers can resolve cross-namespace resource references and which ACK service controllers are disabled.</p>
+ * @public
+ */
+export interface AckConfigRequest {
+  /**
+   * <p>Specifies whether ACK controllers resolve resource references to resources in a different Kubernetes namespace. Set this value to <code>true</code> to allow references to resolve to resources in another namespace. If you don't specify this value, or you omit the <code>ack</code> configuration entirely, the capability is created with this value set to <code>false</code> and references must remain within the same namespace.</p>
+   * @public
+   */
+  enableCrossNamespace?: boolean | undefined;
+
+  /**
+   * <p>A list of ACK service names whose controllers are turned off for this capability, for example <code>s3</code>, <code>ec2</code>, and <code>iam</code>. Resources of a disabled service aren't reconciled until you re-enable the service. To keep all services enabled, omit this field or specify an empty list. An unrecognized service name is accepted and stored but turns nothing off, and <code>DescribeCapability</code> returns the list exactly as you supplied it. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-ack-capability.html#ack-configuration-options">ACK capability configuration options</a> in the <i>Amazon EKS User Guide</i>.</p>
+   * @public
+   */
+  disabledServices?: string[] | undefined;
+}
+
+/**
+ * <p>The response object containing configuration details for an ACK (Amazon Web Services Controllers for Kubernetes) capability.</p>
+ * @public
+ */
+export interface AckConfigResponse {
+  /**
+   * <p>Indicates whether ACK controllers resolve resource references to resources in a different Kubernetes namespace. This value reflects the setting that's in effect, and is <code>false</code> if you never specified a value. Capabilities that were using cross-namespace references before this setting became available have this value set to <code>true</code>, so their behavior is unchanged.</p>
+   * @public
+   */
+  enableCrossNamespace?: boolean | undefined;
+
+  /**
+   * <p>The list of ACK service names whose controllers are turned off for this capability. Existing custom resource definitions remain installed, and resources of a disabled service aren't reconciled until the service is re-enabled.</p>
+   * @public
+   */
+  disabledServices?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface ActivateCertificateAuthorityRequest {
@@ -1624,6 +1660,12 @@ export interface CapabilityConfigurationRequest {
    * @public
    */
   argoCd?: ArgoCdConfigRequest | undefined;
+
+  /**
+   * <p>Configuration settings specific to ACK (Amazon Web Services Controllers for Kubernetes) capabilities. This field is only used when creating or updating an ACK capability.</p>
+   * @public
+   */
+  ack?: AckConfigRequest | undefined;
 }
 
 /**
@@ -1737,6 +1779,12 @@ export interface CapabilityConfigurationResponse {
    * @public
    */
   argoCd?: ArgoCdConfigResponse | undefined;
+
+  /**
+   * <p>Configuration settings for an ACK (Amazon Web Services Controllers for Kubernetes) capability, including the cross-namespace reference setting and the list of disabled services.</p>
+   * @public
+   */
+  ack?: AckConfigResponse | undefined;
 }
 
 /**
@@ -8460,6 +8508,24 @@ export interface UpdateAddonResponse {
 }
 
 /**
+ * <p>Configuration updates for an ACK (Amazon Web Services Controllers for Kubernetes) capability. You only need to specify the fields that you want to update.</p>
+ * @public
+ */
+export interface UpdateAckConfig {
+  /**
+   * <p>Specifies whether ACK controllers resolve resource references to resources in a different Kubernetes namespace. Set this value to <code>false</code> to require references to remain within the same namespace, or <code>true</code> to allow cross-namespace references. If you omit this field, the current value is unchanged.</p>
+   * @public
+   */
+  enableCrossNamespace?: boolean | undefined;
+
+  /**
+   * <p>An updated list of ACK service names whose controllers are turned off for this capability. This list replaces the previous list instead of merging with it, so specify the complete set of services that you want turned off. If you omit this field, the previous list is unchanged. To turn all services back on, specify an empty list.</p>
+   * @public
+   */
+  disabledServices?: string[] | undefined;
+}
+
+/**
  * <p>Updates to RBAC role mappings for an Argo CD capability. You can add, update, or remove role mappings in a single operation.</p>
  * @public
  */
@@ -8505,6 +8571,12 @@ export interface UpdateCapabilityConfiguration {
    * @public
    */
   argoCd?: UpdateArgoCdConfig | undefined;
+
+  /**
+   * <p>Configuration updates specific to ACK (Amazon Web Services Controllers for Kubernetes) capabilities.</p>
+   * @public
+   */
+  ack?: UpdateAckConfig | undefined;
 }
 
 /**

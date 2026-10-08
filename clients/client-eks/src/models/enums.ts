@@ -142,6 +142,8 @@ export const UpdateParamType = {
   CONTROL_PLANE_EGRESS_MODE: "ControlPlaneEgressMode",
   DELETION_PROTECTION: "DeletionProtection",
   DESIRED_SIZE: "DesiredSize",
+  DISABLED_SERVICES: "DisabledServices",
+  ENABLE_CROSS_NAMESPACE: "EnableCrossNamespace",
   ENCRYPTION_CONFIG: "EncryptionConfig",
   ENDPOINT_PRIVATE_ACCESS: "EndpointPrivateAccess",
   ENDPOINT_PUBLIC_ACCESS: "EndpointPublicAccess",

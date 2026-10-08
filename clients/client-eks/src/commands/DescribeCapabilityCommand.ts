@@ -74,6 +74,12 @@ export interface DescribeCapabilityCommandOutput extends DescribeCapabilityRespo
  * //         serverUrl: "STRING_VALUE",
  * //         endpointPrefix: "STRING_VALUE",
  * //       },
+ * //       ack: { // AckConfigResponse
+ * //         enableCrossNamespace: true || false,
+ * //         disabledServices: [ // AckDisabledServicesList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",

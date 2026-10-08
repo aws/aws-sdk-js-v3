@@ -19,6 +19,8 @@ const _ACNACRr = "ArgoCdNetworkAccessConfigResponse";
 const _ACR = "AccessConfigResponse";
 const _ACRM = "ArgoCdRoleMapping";
 const _ACRML = "ArgoCdRoleMappingList";
+const _ACRc = "AckConfigRequest";
+const _ACRck = "AckConfigResponse";
 const _ADE = "AccessDeniedException";
 const _AE = "AccessEntry";
 const _AEC = "AssociateEncryptionConfig";
@@ -368,6 +370,7 @@ const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _U = "Update";
 const _UA = "UpdateAddon";
+const _UAC = "UpdateAckConfig";
 const _UACC = "UpdateArgoCdConfig";
 const _UACR = "UpdateAccessConfigRequest";
 const _UAE = "UpdateAccessEntry";
@@ -448,7 +451,8 @@ const _aT = "amiType";
 const _aV = "addonVersion";
 const _aVd = "addonVersions";
 const _aVl = "allowedValues";
-const _ac = "active";
+const _ac = "ack";
+const _act = "active";
 const _ad = "addon";
 const _add = "addons";
 const _ar = "architecture";
@@ -508,10 +512,11 @@ const _dO = "defaultOnly";
 const _dP = "deletionProtection";
 const _dPP = "deletePropagationPolicy";
 const _dPV = "defaultPlatformVersion";
-const _dS = "distributionStatus";
+const _dS = "disabledServices";
 const _dST = "disableSessionTags";
 const _dSe = "desiredSize";
-const _dSi = "diskSize";
+const _dSi = "distributionStatus";
+const _dSis = "diskSize";
 const _dV = "defaultVersion";
 const _dVe = "defaultValue";
 const _de = "description";
@@ -519,6 +524,7 @@ const _du = "duration";
 const _e = "error";
 const _eA = "endedAt";
 const _eC = "encryptionConfig";
+const _eCN = "enableCrossNamespace";
 const _eCr = "errorCode";
 const _eD = "effectiveDate";
 const _eDx = "expirationDate";
@@ -909,6 +915,16 @@ export var AccessScope$: StaticStructureSchema = [3, n0, _AS,
   [_ty, _na],
   [0, 64 | 0]
 ];
+export var AckConfigRequest$: StaticStructureSchema = [3, n0, _ACRc,
+  0,
+  [_eCN, _dS],
+  [2, 64 | 0]
+];
+export var AckConfigResponse$: StaticStructureSchema = [3, n0, _ACRck,
+  0,
+  [_eCN, _dS],
+  [2, 64 | 0]
+];
 export var ActivateCertificateAuthorityRequest$: StaticStructureSchema = [3, n0, _ACAR,
   0,
   [_cN, _cAI, _cRT],
@@ -1081,13 +1097,13 @@ export var Capability$: StaticStructureSchema = [3, n0, _Ca,
 ];
 export var CapabilityConfigurationRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_aC],
-  [() => ArgoCdConfigRequest$]
+  [_aC, _ac],
+  [() => ArgoCdConfigRequest$, () => AckConfigRequest$]
 ];
 export var CapabilityConfigurationResponse$: StaticStructureSchema = [3, n0, _CCRa,
   0,
-  [_aC],
-  [() => ArgoCdConfigResponse$]
+  [_aC, _ac],
+  [() => ArgoCdConfigResponse$, () => AckConfigResponse$]
 ];
 export var CapabilityHealth$: StaticStructureSchema = [3, n0, _CH,
   0,
@@ -1106,12 +1122,12 @@ export var CapabilitySummary$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var Certificate$: StaticStructureSchema = [3, n0, _Ce,
   0,
-  [_d, _ac],
+  [_d, _act],
   [0, () => ActiveCertificateAuthority$]
 ];
 export var CertificateAuthority$: StaticStructureSchema = [3, n0, _CA,
   0,
-  [_i, _cA, _cB, _aAc, _aB, _sS, _dS, _va, _sE, _rAo, _d],
+  [_i, _cA, _cB, _aAc, _aB, _sS, _dSi, _va, _sE, _rAo, _d],
   [0, 4, 0, 4, 0, 0, 0, () => CertificateAuthorityValidity$, () => CertificateAuthorityScheduledEvents$, 2, 0]
 ];
 export var CertificateAuthorityScheduledEvents$: StaticStructureSchema = [3, n0, _CASE,
@@ -1121,7 +1137,7 @@ export var CertificateAuthorityScheduledEvents$: StaticStructureSchema = [3, n0,
 ];
 export var CertificateAuthoritySummary$: StaticStructureSchema = [3, n0, _CAS,
   0,
-  [_i, _cA, _cB, _aAc, _aB, _sS, _dS],
+  [_i, _cA, _cB, _aAc, _aB, _sS, _dSi],
   [0, 4, 0, 4, 0, 0, 0]
 ];
 export var CertificateAuthorityValidity$: StaticStructureSchema = [3, n0, _CAV,
@@ -1281,7 +1297,7 @@ export var CreateFargateProfileResponse$: StaticStructureSchema = [3, n0, _CFPRr
 ];
 export var CreateNodegroupRequest$: StaticStructureSchema = [3, n0, _CNR,
   0,
-  [_cN, _nN, _sub, _nR, _sCc, _dSi, _iT, _aT, _rAe, _la, _ta, _t, _cRT, _lTa, _uC, _nRC, _cTa, _v, _rV, _wPC],
+  [_cN, _nN, _sub, _nR, _sCc, _dSis, _iT, _aT, _rAe, _la, _ta, _t, _cRT, _lTa, _uC, _nRC, _cTa, _v, _rV, _wPC],
   [[0, 1], 0, 64 | 0, 0, () => NodegroupScalingConfig$, 1, 64 | 0, 0, () => RemoteAccessConfig$, 128 | 0, () => taintsList, 128 | 0, [0, 4], () => LaunchTemplateSpecification$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, 0, 0, 0, () => WarmPoolConfig$], 4
 ];
 export var CreateNodegroupResponse$: StaticStructureSchema = [3, n0, _CNRr,
@@ -1961,7 +1977,7 @@ export var MarketplaceInformation$: StaticStructureSchema = [3, n0, _MI,
 ];
 export var Nodegroup$: StaticStructureSchema = [3, n0, _N,
   0,
-  [_nN, _nAod, _cN, _v, _rV, _cA, _mA, _st, _cTa, _sCc, _iT, _sub, _rAe, _aT, _nR, _la, _ta, _res, _dSi, _h, _uC, _nRC, _lTa, _t, _wPC],
+  [_nN, _nAod, _cN, _v, _rV, _cA, _mA, _st, _cTa, _sCc, _iT, _sub, _rAe, _aT, _nR, _la, _ta, _res, _dSis, _h, _uC, _nRC, _lTa, _t, _wPC],
   [0, 0, 0, 0, 0, 4, 4, 0, 0, () => NodegroupScalingConfig$, 64 | 0, 64 | 0, () => RemoteAccessConfig$, 0, 0, 128 | 0, () => taintsList, () => NodegroupResources$, 1, () => NodegroupHealth$, () => NodegroupUpdateConfig$, () => NodeRepairConfig$, () => LaunchTemplateSpecification$, 128 | 0, () => WarmPoolConfig$]
 ];
 export var NodegroupHealth$: StaticStructureSchema = [3, n0, _NH,
@@ -2209,6 +2225,11 @@ export var UpdateAccessEntryResponse$: StaticStructureSchema = [3, n0, _UAERp,
   [_aEc],
   [() => AccessEntry$]
 ];
+export var UpdateAckConfig$: StaticStructureSchema = [3, n0, _UAC,
+  0,
+  [_eCN, _dS],
+  [2, 64 | 0]
+];
 export var UpdateAddonRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_cN, _aN, _aV, _sARA, _rCe, _cRT, _cV, _pIA],
@@ -2226,8 +2247,8 @@ export var UpdateArgoCdConfig$: StaticStructureSchema = [3, n0, _UACC,
 ];
 export var UpdateCapabilityConfiguration$: StaticStructureSchema = [3, n0, _UCC,
   0,
-  [_aC],
-  [() => UpdateArgoCdConfig$]
+  [_aC, _ac],
+  [() => UpdateArgoCdConfig$, () => UpdateAckConfig$]
 ];
 export var UpdateCapabilityRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
@@ -2357,6 +2378,7 @@ export var ZonalShiftConfigResponse$: StaticStructureSchema = [3, n0, _ZSCRo,
 var AccessPoliciesList: StaticListSchema = [1, n0, _APL,
   0, () => AccessPolicy$
 ];
+var AckDisabledServicesList = 64 | 0;
 var AddonCompatibilityDetails: StaticListSchema = [1, n0, _ACDd,
   0, () => AddonCompatibilityDetail$
 ];
