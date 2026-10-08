@@ -69,6 +69,7 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * //         ownerType: "organization" || "user", // required
  * //         instanceIdentifier: "STRING_VALUE",
  * //         runtimeRoleArn: "STRING_VALUE",
+ * //         releaseManagementAssociationId: "STRING_VALUE",
  * //       },
  * //       slack: { // SlackConfiguration
  * //         workspaceId: "STRING_VALUE", // required
@@ -128,6 +129,7 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * //         projectPath: "STRING_VALUE", // required
  * //         instanceIdentifier: "STRING_VALUE",
  * //         runtimeRoleArn: "STRING_VALUE",
+ * //         releaseManagementAssociationId: "STRING_VALUE",
  * //       },
  * //       mcpserversplunk: {},
  * //       eventChannel: {},
@@ -171,6 +173,15 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * //       },
  * //       remoteagent: {},
  * //       remoteagentsigv4: {},
+ * //       releaseManagement: { // ReleaseManagementConfiguration
+ * //         name: "STRING_VALUE", // required
+ * //         networkAccess: { // NetworkAccessConfiguration Union: only one key present
+ * //           privateAccess: { // PrivateNetworkAccess
+ * //             privateConnectionName: "STRING_VALUE", // required
+ * //             runtimeRoleArn: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //     capabilities: { // AssociationCapabilities
  * //       "<keys>": { // CapabilityConfiguration
@@ -206,9 +217,6 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service.</p>
  *
@@ -226,6 +234,9 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would exceed the service quota limit.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>
  *
  * @throws {@link DevOpsAgentServiceException}
  * <p>Base exception class for all service exceptions from DevOpsAgent service.</p>

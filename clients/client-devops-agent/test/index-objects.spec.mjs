@@ -64,8 +64,11 @@ import {
   CreateTriggerCommand,
   CreateTriggerRequest$,
   CreateTriggerResponse$,
+  CronSchedule$,
+  DailyRecurrence$,
   DatadogAuthorizationConfig$,
   DatadogServiceDetails$,
+  DayOfWeek,
   DeleteAgentSpace$,
   DeleteAgentSpaceCommand,
   DeleteAgentSpaceInput$,
@@ -276,6 +279,8 @@ import {
   MCPToolDetail$,
   Message$,
   MonitorAccountType,
+  MonthlyRecurrence$,
+  NetworkAccessConfiguration$,
   NewRelicApiKeyConfig$,
   NewRelicRegion,
   NewRelicServiceAuthorizationConfig$,
@@ -306,10 +311,12 @@ import {
   PrivateConnectionStatus,
   PrivateConnectionSummary$,
   PrivateConnectionType,
+  PrivateNetworkAccess$,
   Recommendation$,
   RecommendationContent$,
   RecommendationPriority,
   RecommendationStatus,
+  Recurrence$,
   ReferenceInput$,
   ReferenceOutput$,
   RegisteredAzureDevOpsServiceDetails$,
@@ -330,6 +337,7 @@ import {
   RegisterServiceCommand,
   RegisterServiceInput$,
   RegisterServiceOutput$,
+  ReleaseManagementConfiguration$,
   RemoteAgentAPIKeyConfig$,
   RemoteAgentAuthorizationConfig$,
   RemoteAgentAuthorizationMethod,
@@ -345,6 +353,7 @@ import {
   ResourceNotFoundException$,
   ScheduleCondition$,
   SchedulerState,
+  ScheduleSpec$,
   SelfManagedInput$,
   SendMessage$,
   SendMessageCommand,
@@ -393,6 +402,7 @@ import {
   TaskType,
   ThrottlingException,
   ThrottlingException$,
+  TimeRangeSchedule$,
   ToolClassification,
   Trigger$,
   TriggerCondition$,
@@ -460,6 +470,7 @@ import {
   ValidationStatus,
   Webhook$,
   WebhookType,
+  WeeklyRecurrence$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -631,6 +642,8 @@ assert(typeof CreatePrivateConnectionInput$ === "object");
 assert(typeof CreatePrivateConnectionOutput$ === "object");
 assert(typeof CreateTriggerRequest$ === "object");
 assert(typeof CreateTriggerResponse$ === "object");
+assert(typeof CronSchedule$ === "object");
+assert(typeof DailyRecurrence$ === "object");
 assert(typeof DatadogAuthorizationConfig$ === "object");
 assert(typeof DatadogServiceDetails$ === "object");
 assert(typeof DeleteAgentSpaceInput$ === "object");
@@ -747,6 +760,8 @@ assert(typeof MCPServerSigV4ServiceDetails$ === "object");
 assert(typeof MCPServerSplunkConfiguration$ === "object");
 assert(typeof MCPToolDetail$ === "object");
 assert(typeof Message$ === "object");
+assert(typeof MonthlyRecurrence$ === "object");
+assert(typeof NetworkAccessConfiguration$ === "object");
 assert(typeof NewRelicApiKeyConfig$ === "object");
 assert(typeof NewRelicServiceAuthorizationConfig$ === "object");
 assert(typeof NewRelicServiceDetails$ === "object");
@@ -759,8 +774,10 @@ assert(typeof PatternFilter$ === "object");
 assert(typeof PendingMessage$ === "object");
 assert(typeof PrivateConnectionMode$ === "object");
 assert(typeof PrivateConnectionSummary$ === "object");
+assert(typeof PrivateNetworkAccess$ === "object");
 assert(typeof Recommendation$ === "object");
 assert(typeof RecommendationContent$ === "object");
+assert(typeof Recurrence$ === "object");
 assert(typeof ReferenceInput$ === "object");
 assert(typeof ReferenceOutput$ === "object");
 assert(typeof RegisteredAzureDevOpsServiceDetails$ === "object");
@@ -779,6 +796,7 @@ assert(typeof RegisteredServiceNowDetails$ === "object");
 assert(typeof RegisteredSlackServiceDetails$ === "object");
 assert(typeof RegisterServiceInput$ === "object");
 assert(typeof RegisterServiceOutput$ === "object");
+assert(typeof ReleaseManagementConfiguration$ === "object");
 assert(typeof RemoteAgentAPIKeyConfig$ === "object");
 assert(typeof RemoteAgentAuthorizationConfig$ === "object");
 assert(typeof RemoteAgentBearerTokenConfig$ === "object");
@@ -789,6 +807,7 @@ assert(typeof RemoteAgentSigV4AuthorizationConfig$ === "object");
 assert(typeof RemoteAgentSigV4Configuration$ === "object");
 assert(typeof RemoteAgentSigV4ServiceDetails$ === "object");
 assert(typeof ScheduleCondition$ === "object");
+assert(typeof ScheduleSpec$ === "object");
 assert(typeof SelfManagedInput$ === "object");
 assert(typeof SendMessageContentBlockDelta$ === "object");
 assert(typeof SendMessageContentBlockDeltaEvent$ === "object");
@@ -823,6 +842,7 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof Task$ === "object");
 assert(typeof TaskFilter$ === "object");
+assert(typeof TimeRangeSchedule$ === "object");
 assert(typeof Trigger$ === "object");
 assert(typeof TriggerCondition$ === "object");
 assert(typeof TriggerFilterGroup$ === "object");
@@ -857,12 +877,14 @@ assert(typeof ValidateAwsAssociationsInput$ === "object");
 assert(typeof ValidateAwsAssociationsOutput$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof Webhook$ === "object");
+assert(typeof WeeklyRecurrence$ === "object");
 // enums
 assert(typeof AgentSpacePreferenceKey === "object");
 assert(typeof ApprovalActionType === "object");
 assert(typeof ApprovalStatus === "object");
 assert(typeof AuthFlow === "object");
 assert(typeof CapabilityType === "object");
+assert(typeof DayOfWeek === "object");
 assert(typeof EventChannelType === "object");
 assert(typeof ExecutionStatus === "object");
 assert(typeof GithubRepoOwnerType === "object");

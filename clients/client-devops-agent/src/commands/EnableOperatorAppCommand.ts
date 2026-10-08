@@ -83,9 +83,6 @@ export interface EnableOperatorAppCommandOutput extends EnableOperatorAppOutput,
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
  *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>
- *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by the service.</p>
  *
@@ -106,6 +103,9 @@ export interface EnableOperatorAppCommandOutput extends EnableOperatorAppOutput,
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request would exceed the service quota limit.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>
  *
  * @throws {@link DevOpsAgentServiceException}
  * <p>Base exception class for all service exceptions from DevOpsAgent service.</p>

@@ -37,7 +37,25 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  *   type: "STRING_VALUE", // required
  *   condition: { // TriggerCondition Union: only one key present
  *     schedule: { // ScheduleCondition
- *       expression: "STRING_VALUE", // required
+ *       expression: "STRING_VALUE",
+ *       spec: { // ScheduleSpec Union: only one key present
+ *         cron: { // CronSchedule
+ *           expression: "STRING_VALUE", // required
+ *         },
+ *         timeRange: { // TimeRangeSchedule
+ *           startAfter: "STRING_VALUE", // required
+ *           startBefore: "STRING_VALUE", // required
+ *           recurrence: { // Recurrence Union: only one key present
+ *             daily: {},
+ *             weekly: { // WeeklyRecurrence
+ *               dayOfWeek: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY", // required
+ *             },
+ *             monthly: { // MonthlyRecurrence
+ *               dayOfMonth: Number("int"), // required
+ *             },
+ *           },
+ *         },
+ *       },
  *     },
  *   },
  *   action: "DOCUMENT_VALUE", // required
@@ -53,7 +71,25 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  * //     type: "STRING_VALUE", // required
  * //     condition: { // TriggerCondition Union: only one key present
  * //       schedule: { // ScheduleCondition
- * //         expression: "STRING_VALUE", // required
+ * //         expression: "STRING_VALUE",
+ * //         spec: { // ScheduleSpec Union: only one key present
+ * //           cron: { // CronSchedule
+ * //             expression: "STRING_VALUE", // required
+ * //           },
+ * //           timeRange: { // TimeRangeSchedule
+ * //             startAfter: "STRING_VALUE", // required
+ * //             startBefore: "STRING_VALUE", // required
+ * //             recurrence: { // Recurrence Union: only one key present
+ * //               daily: {},
+ * //               weekly: { // WeeklyRecurrence
+ * //                 dayOfWeek: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY", // required
+ * //               },
+ * //               monthly: { // MonthlyRecurrence
+ * //                 dayOfMonth: Number("int"), // required
+ * //               },
+ * //             },
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //     action: "DOCUMENT_VALUE", // required
