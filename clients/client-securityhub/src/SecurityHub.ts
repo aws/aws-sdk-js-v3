@@ -78,6 +78,11 @@ import {
   BatchUpdateStandardsControlAssociationsCommand,
 } from "./commands/BatchUpdateStandardsControlAssociationsCommand";
 import {
+  type CancelExportJobV2CommandInput,
+  type CancelExportJobV2CommandOutput,
+  CancelExportJobV2Command,
+} from "./commands/CancelExportJobV2Command";
+import {
   type CreateActionTargetCommandInput,
   type CreateActionTargetCommandOutput,
   CreateActionTargetCommand,
@@ -338,6 +343,11 @@ import {
   GetEnabledStandardsCommand,
 } from "./commands/GetEnabledStandardsCommand";
 import {
+  type GetExportJobV2CommandInput,
+  type GetExportJobV2CommandOutput,
+  GetExportJobV2Command,
+} from "./commands/GetExportJobV2Command";
+import {
   type GetFindingAggregatorCommandInput,
   type GetFindingAggregatorCommandOutput,
   GetFindingAggregatorCommand,
@@ -468,6 +478,11 @@ import {
   ListEnabledProductsForImportCommand,
 } from "./commands/ListEnabledProductsForImportCommand";
 import {
+  type ListExportJobsV2CommandInput,
+  type ListExportJobsV2CommandOutput,
+  ListExportJobsV2Command,
+} from "./commands/ListExportJobsV2Command";
+import {
   type ListExposuresByRemediationV2CommandInput,
   type ListExposuresByRemediationV2CommandOutput,
   ListExposuresByRemediationV2Command,
@@ -527,6 +542,11 @@ import {
   type StartConfigurationPolicyDisassociationCommandOutput,
   StartConfigurationPolicyDisassociationCommand,
 } from "./commands/StartConfigurationPolicyDisassociationCommand";
+import {
+  type StartExportJobV2CommandInput,
+  type StartExportJobV2CommandOutput,
+  StartExportJobV2Command,
+} from "./commands/StartExportJobV2Command";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -621,6 +641,7 @@ import { paginateListAggregatorsV2 } from "./pagination/ListAggregatorsV2Paginat
 import { paginateListConfigurationPolicies } from "./pagination/ListConfigurationPoliciesPaginator";
 import { paginateListConfigurationPolicyAssociations } from "./pagination/ListConfigurationPolicyAssociationsPaginator";
 import { paginateListEnabledProductsForImport } from "./pagination/ListEnabledProductsForImportPaginator";
+import { paginateListExportJobsV2 } from "./pagination/ListExportJobsV2Paginator";
 import { paginateListExposuresByRemediationV2 } from "./pagination/ListExposuresByRemediationV2Paginator";
 import { paginateListFindingAggregators } from "./pagination/ListFindingAggregatorsPaginator";
 import { paginateListFreeTrialStatusesV2 } from "./pagination/ListFreeTrialStatusesV2Paginator";
@@ -646,6 +667,7 @@ const commands = {
   BatchUpdateFindingsCommand,
   BatchUpdateFindingsV2Command,
   BatchUpdateStandardsControlAssociationsCommand,
+  CancelExportJobV2Command,
   CreateActionTargetCommand,
   CreateAggregatorV2Command,
   CreateAutomationRuleCommand,
@@ -698,6 +720,7 @@ const commands = {
   GetConnectorCommand,
   GetConnectorV2Command,
   GetEnabledStandardsCommand,
+  GetExportJobV2Command,
   GetFindingAggregatorCommand,
   GetFindingHistoryCommand,
   GetFindingsCommand,
@@ -724,6 +747,7 @@ const commands = {
   ListConnectorsCommand,
   ListConnectorsV2Command,
   ListEnabledProductsForImportCommand,
+  ListExportJobsV2Command,
   ListExposuresByRemediationV2Command,
   ListFindingAggregatorsCommand,
   ListFreeTrialStatusesV2Command,
@@ -736,6 +760,7 @@ const commands = {
   RegisterConnectorV2Command,
   StartConfigurationPolicyAssociationCommand,
   StartConfigurationPolicyDisassociationCommand,
+  StartExportJobV2Command,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateActionTargetCommand,
@@ -772,6 +797,7 @@ const paginators = {
   paginateListConfigurationPolicies,
   paginateListConfigurationPolicyAssociations,
   paginateListEnabledProductsForImport,
+  paginateListExportJobsV2,
   paginateListExposuresByRemediationV2,
   paginateListFindingAggregators,
   paginateListFreeTrialStatusesV2,
@@ -1027,6 +1053,23 @@ export interface SecurityHub {
     args: BatchUpdateStandardsControlAssociationsCommandInput,
     options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelExportJobV2Command}
+   */
+  cancelExportJobV2(
+    args: CancelExportJobV2CommandInput,
+    options?: SecurityHubRequestOptions
+  ): Promise<CancelExportJobV2CommandOutput>;
+  cancelExportJobV2(
+    args: CancelExportJobV2CommandInput,
+    cb: (err: any, data?: CancelExportJobV2CommandOutput) => void
+  ): void;
+  cancelExportJobV2(
+    args: CancelExportJobV2CommandInput,
+    options: SecurityHubRequestOptions,
+    cb: (err: any, data?: CancelExportJobV2CommandOutput) => void
   ): void;
 
   /**
@@ -1929,6 +1972,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link GetExportJobV2Command}
+   */
+  getExportJobV2(
+    args: GetExportJobV2CommandInput,
+    options?: SecurityHubRequestOptions
+  ): Promise<GetExportJobV2CommandOutput>;
+  getExportJobV2(
+    args: GetExportJobV2CommandInput,
+    cb: (err: any, data?: GetExportJobV2CommandOutput) => void
+  ): void;
+  getExportJobV2(
+    args: GetExportJobV2CommandInput,
+    options: SecurityHubRequestOptions,
+    cb: (err: any, data?: GetExportJobV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFindingAggregatorCommand}
    */
   getFindingAggregator(
@@ -2386,6 +2446,24 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link ListExportJobsV2Command}
+   */
+  listExportJobsV2(): Promise<ListExportJobsV2CommandOutput>;
+  listExportJobsV2(
+    args: ListExportJobsV2CommandInput,
+    options?: SecurityHubRequestOptions
+  ): Promise<ListExportJobsV2CommandOutput>;
+  listExportJobsV2(
+    args: ListExportJobsV2CommandInput,
+    cb: (err: any, data?: ListExportJobsV2CommandOutput) => void
+  ): void;
+  listExportJobsV2(
+    args: ListExportJobsV2CommandInput,
+    options: SecurityHubRequestOptions,
+    cb: (err: any, data?: ListExportJobsV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListExposuresByRemediationV2Command}
    */
   listExposuresByRemediationV2(
@@ -2593,6 +2671,23 @@ export interface SecurityHub {
     args: StartConfigurationPolicyDisassociationCommandInput,
     options: SecurityHubRequestOptions,
     cb: (err: any, data?: StartConfigurationPolicyDisassociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartExportJobV2Command}
+   */
+  startExportJobV2(
+    args: StartExportJobV2CommandInput,
+    options?: SecurityHubRequestOptions
+  ): Promise<StartExportJobV2CommandOutput>;
+  startExportJobV2(
+    args: StartExportJobV2CommandInput,
+    cb: (err: any, data?: StartExportJobV2CommandOutput) => void
+  ): void;
+  startExportJobV2(
+    args: StartExportJobV2CommandInput,
+    options: SecurityHubRequestOptions,
+    cb: (err: any, data?: StartExportJobV2CommandOutput) => void
   ): void;
 
   /**
@@ -3059,6 +3154,17 @@ export interface SecurityHub {
     args?: ListEnabledProductsForImportCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListEnabledProductsForImportCommandOutput>;
+
+  /**
+   * @see {@link ListExportJobsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExportJobsV2CommandOutput}.
+   */
+  paginateListExportJobsV2(
+    args?: ListExportJobsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExportJobsV2CommandOutput>;
 
   /**
    * @see {@link ListExposuresByRemediationV2Command}

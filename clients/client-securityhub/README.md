@@ -350,6 +350,13 @@ BatchUpdateStandardsControlAssociations
 </details>
 <details>
 <summary>
+CancelExportJobV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/CancelExportJobV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CancelExportJobV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CancelExportJobV2CommandOutput/)
+</details>
+<details>
+<summary>
 CreateActionTarget
 </summary>
 
@@ -714,6 +721,13 @@ GetEnabledStandards
 </details>
 <details>
 <summary>
+GetExportJobV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetExportJobV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetExportJobV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetExportJobV2CommandOutput/)
+</details>
+<details>
+<summary>
 GetFindingAggregator
 </summary>
 
@@ -896,6 +910,13 @@ ListEnabledProductsForImport
 </details>
 <details>
 <summary>
+ListExportJobsV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListExportJobsV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListExportJobsV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListExportJobsV2CommandOutput/)
+</details>
+<details>
+<summary>
 ListExposuresByRemediationV2
 </summary>
 
@@ -977,6 +998,13 @@ StartConfigurationPolicyDisassociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/StartConfigurationPolicyDisassociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/StartConfigurationPolicyDisassociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/StartConfigurationPolicyDisassociationCommandOutput/)
+</details>
+<details>
+<summary>
+StartExportJobV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/StartExportJobV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/StartExportJobV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/StartExportJobV2CommandOutput/)
 </details>
 <details>
 <summary>

@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetRemediationsV2Request } from "../models/models_2";
-import type { GetRemediationsV2Response } from "../models/models_3";
+import type { GetRemediationsV2Request, GetRemediationsV2Response } from "../models/models_3";
 import { GetRemediationsV2$ } from "../schemas/schemas_0";
 
 /**

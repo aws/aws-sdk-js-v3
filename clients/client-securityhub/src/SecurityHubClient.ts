@@ -108,6 +108,10 @@ import type {
   BatchUpdateStandardsControlAssociationsCommandOutput,
 } from "./commands/BatchUpdateStandardsControlAssociationsCommand";
 import type {
+  CancelExportJobV2CommandInput,
+  CancelExportJobV2CommandOutput,
+} from "./commands/CancelExportJobV2Command";
+import type {
   CreateActionTargetCommandInput,
   CreateActionTargetCommandOutput,
 } from "./commands/CreateActionTargetCommand";
@@ -279,6 +283,7 @@ import type {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
 } from "./commands/GetEnabledStandardsCommand";
+import type { GetExportJobV2CommandInput, GetExportJobV2CommandOutput } from "./commands/GetExportJobV2Command";
 import type {
   GetFindingAggregatorCommandInput,
   GetFindingAggregatorCommandOutput,
@@ -356,6 +361,7 @@ import type {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
 } from "./commands/ListEnabledProductsForImportCommand";
+import type { ListExportJobsV2CommandInput, ListExportJobsV2CommandOutput } from "./commands/ListExportJobsV2Command";
 import type {
   ListExposuresByRemediationV2CommandInput,
   ListExposuresByRemediationV2CommandOutput,
@@ -398,6 +404,7 @@ import type {
   StartConfigurationPolicyDisassociationCommandInput,
   StartConfigurationPolicyDisassociationCommandOutput,
 } from "./commands/StartConfigurationPolicyDisassociationCommand";
+import type { StartExportJobV2CommandInput, StartExportJobV2CommandOutput } from "./commands/StartExportJobV2Command";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
@@ -472,6 +479,7 @@ export type ServiceInputTypes =
   | BatchUpdateFindingsCommandInput
   | BatchUpdateFindingsV2CommandInput
   | BatchUpdateStandardsControlAssociationsCommandInput
+  | CancelExportJobV2CommandInput
   | CreateActionTargetCommandInput
   | CreateAggregatorV2CommandInput
   | CreateAutomationRuleCommandInput
@@ -524,6 +532,7 @@ export type ServiceInputTypes =
   | GetConnectorCommandInput
   | GetConnectorV2CommandInput
   | GetEnabledStandardsCommandInput
+  | GetExportJobV2CommandInput
   | GetFindingAggregatorCommandInput
   | GetFindingHistoryCommandInput
   | GetFindingStatisticsV2CommandInput
@@ -550,6 +559,7 @@ export type ServiceInputTypes =
   | ListConnectorsCommandInput
   | ListConnectorsV2CommandInput
   | ListEnabledProductsForImportCommandInput
+  | ListExportJobsV2CommandInput
   | ListExposuresByRemediationV2CommandInput
   | ListFindingAggregatorsCommandInput
   | ListFreeTrialStatusesV2CommandInput
@@ -562,6 +572,7 @@ export type ServiceInputTypes =
   | RegisterConnectorV2CommandInput
   | StartConfigurationPolicyAssociationCommandInput
   | StartConfigurationPolicyDisassociationCommandInput
+  | StartExportJobV2CommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateActionTargetCommandInput
@@ -596,6 +607,7 @@ export type ServiceOutputTypes =
   | BatchUpdateFindingsCommandOutput
   | BatchUpdateFindingsV2CommandOutput
   | BatchUpdateStandardsControlAssociationsCommandOutput
+  | CancelExportJobV2CommandOutput
   | CreateActionTargetCommandOutput
   | CreateAggregatorV2CommandOutput
   | CreateAutomationRuleCommandOutput
@@ -648,6 +660,7 @@ export type ServiceOutputTypes =
   | GetConnectorCommandOutput
   | GetConnectorV2CommandOutput
   | GetEnabledStandardsCommandOutput
+  | GetExportJobV2CommandOutput
   | GetFindingAggregatorCommandOutput
   | GetFindingHistoryCommandOutput
   | GetFindingStatisticsV2CommandOutput
@@ -674,6 +687,7 @@ export type ServiceOutputTypes =
   | ListConnectorsCommandOutput
   | ListConnectorsV2CommandOutput
   | ListEnabledProductsForImportCommandOutput
+  | ListExportJobsV2CommandOutput
   | ListExposuresByRemediationV2CommandOutput
   | ListFindingAggregatorsCommandOutput
   | ListFreeTrialStatusesV2CommandOutput
@@ -686,6 +700,7 @@ export type ServiceOutputTypes =
   | RegisterConnectorV2CommandOutput
   | StartConfigurationPolicyAssociationCommandOutput
   | StartConfigurationPolicyDisassociationCommandOutput
+  | StartExportJobV2CommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateActionTargetCommandOutput

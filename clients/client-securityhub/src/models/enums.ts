@@ -696,6 +696,21 @@ export type BatchUpdateFindingsV2UnprocessedFindingErrorCode =
  * @public
  * @enum
  */
+export const ExportStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const OcsfBooleanField = {
   COMPLIANCE_ASSESSMENTS_MEETS_CRITERIA: "compliance.assessments.meets_criteria",
   VULNERABILITIES_IS_EXPLOIT_AVAILABLE: "vulnerabilities.is_exploit_available",
@@ -1131,6 +1146,165 @@ export const DiscoveryType = {
  * @public
  */
 export type DiscoveryType = (typeof DiscoveryType)[keyof typeof DiscoveryType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportDataType = {
+  FINDINGS: "FINDINGS",
+} as const;
+/**
+ * @public
+ */
+export type ExportDataType = (typeof ExportDataType)[keyof typeof ExportDataType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportFailureCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+} as const;
+/**
+ * @public
+ */
+export type ExportFailureCode = (typeof ExportFailureCode)[keyof typeof ExportFailureCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingsExportFormat = {
+  CSV: "CSV",
+  OCSF_JSON: "OCSF_JSON",
+} as const;
+/**
+ * @public
+ */
+export type FindingsExportFormat = (typeof FindingsExportFormat)[keyof typeof FindingsExportFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingsSelectableField = {
+  ACTIVITY_ID: "activity_id",
+  ACTIVITY_NAME: "activity_name",
+  CLASS_NAME: "class_name",
+  CLOUD_ACCOUNT_NAME: "cloud.account.name",
+  CLOUD_ACCOUNT_UID: "cloud.account.uid",
+  CLOUD_PROVIDER: "cloud.provider",
+  CLOUD_REGION: "cloud.region",
+  COMMENT: "comment",
+  COMPLIANCE_ASSESSMENTS_CATEGORY: "compliance.assessments.category",
+  COMPLIANCE_ASSESSMENTS_MEETS_CRITERIA: "compliance.assessments.meets_criteria",
+  COMPLIANCE_ASSESSMENTS_NAME: "compliance.assessments.name",
+  COMPLIANCE_CONTROL: "compliance.control",
+  COMPLIANCE_CONTROL_PARAMETERS: "compliance.control_parameters",
+  COMPLIANCE_STANDARDS: "compliance.standards",
+  COMPLIANCE_STATUS: "compliance.status",
+  COMPLIANCE_STATUS_ID: "compliance.status_id",
+  CONFIDENCE_SCORE: "confidence_score",
+  DATABUCKET_ENCRYPTION_DETAILS_ALGORITHM: "databucket.encryption_details.algorithm",
+  DATABUCKET_ENCRYPTION_DETAILS_KEY_UID: "databucket.encryption_details.key_uid",
+  DATABUCKET_FILE_DATA_CLASSIFICATIONS_CLASSIFIER_DETAILS_TYPE: "databucket.file.data_classifications.classifier_details.type",
+  DATABUCKET_TAGS: "databucket.tags",
+  EVIDENCES_ACTOR_USER_ACCOUNT_UID: "evidences.actor.user.account.uid",
+  EVIDENCES_API_OPERATION: "evidences.api.operation",
+  EVIDENCES_API_RESPONSE_CODE: "evidences.api.response.code",
+  EVIDENCES_API_RESPONSE_ERROR_MESSAGE: "evidences.api.response.error_message",
+  EVIDENCES_API_SERVICE_NAME: "evidences.api.service.name",
+  EVIDENCES_CONNECTION_INFO_DIRECTION: "evidences.connection_info.direction",
+  EVIDENCES_CONNECTION_INFO_PROTOCOL_NAME: "evidences.connection_info.protocol_name",
+  EVIDENCES_DST_ENDPOINT_AUTONOMOUS_SYSTEM_NAME: "evidences.dst_endpoint.autonomous_system.name",
+  EVIDENCES_DST_ENDPOINT_AUTONOMOUS_SYSTEM_NUMBER: "evidences.dst_endpoint.autonomous_system.number",
+  EVIDENCES_DST_ENDPOINT_IP: "evidences.dst_endpoint.ip",
+  EVIDENCES_DST_ENDPOINT_LOCATION_CITY: "evidences.dst_endpoint.location.city",
+  EVIDENCES_DST_ENDPOINT_LOCATION_COUNTRY: "evidences.dst_endpoint.location.country",
+  EVIDENCES_DST_ENDPOINT_PORT: "evidences.dst_endpoint.port",
+  EVIDENCES_SRC_ENDPOINT_AUTONOMOUS_SYSTEM_NAME: "evidences.src_endpoint.autonomous_system.name",
+  EVIDENCES_SRC_ENDPOINT_AUTONOMOUS_SYSTEM_NUMBER: "evidences.src_endpoint.autonomous_system.number",
+  EVIDENCES_SRC_ENDPOINT_HOSTNAME: "evidences.src_endpoint.hostname",
+  EVIDENCES_SRC_ENDPOINT_IP: "evidences.src_endpoint.ip",
+  EVIDENCES_SRC_ENDPOINT_LOCATION_CITY: "evidences.src_endpoint.location.city",
+  EVIDENCES_SRC_ENDPOINT_LOCATION_COUNTRY: "evidences.src_endpoint.location.country",
+  EVIDENCES_SRC_ENDPOINT_PORT: "evidences.src_endpoint.port",
+  FINDING_INFO_ANALYTIC_NAME: "finding_info.analytic.name",
+  FINDING_INFO_CREATED_TIME_DT: "finding_info.created_time_dt",
+  FINDING_INFO_DESC: "finding_info.desc",
+  FINDING_INFO_FIRST_SEEN_TIME_DT: "finding_info.first_seen_time_dt",
+  FINDING_INFO_LAST_SEEN_TIME_DT: "finding_info.last_seen_time_dt",
+  FINDING_INFO_MODIFIED_TIME_DT: "finding_info.modified_time_dt",
+  FINDING_INFO_RELATED_EVENTS_COUNT: "finding_info.related_events_count",
+  FINDING_INFO_RELATED_EVENTS_PRODUCT_UID: "finding_info.related_events.product.uid",
+  FINDING_INFO_RELATED_EVENTS_TITLE: "finding_info.related_events.title",
+  FINDING_INFO_RELATED_EVENTS_TRAITS_CATEGORY: "finding_info.related_events.traits.category",
+  FINDING_INFO_RELATED_EVENTS_UID: "finding_info.related_events.uid",
+  FINDING_INFO_SRC_URL: "finding_info.src_url",
+  FINDING_INFO_TAGS: "finding_info.tags",
+  FINDING_INFO_TITLE: "finding_info.title",
+  FINDING_INFO_TYPES: "finding_info.types",
+  FINDING_INFO_UID: "finding_info.uid",
+  MALWARE_NAME: "malware.name",
+  MALWARE_SCAN_INFO_UID: "malware_scan_info.uid",
+  MALWARE_SEVERITY: "malware.severity",
+  METADATA_PRODUCT_FEATURE_UID: "metadata.product.feature.uid",
+  METADATA_PRODUCT_NAME: "metadata.product.name",
+  METADATA_PRODUCT_UID: "metadata.product.uid",
+  METADATA_PRODUCT_VENDOR_NAME: "metadata.product.vendor_name",
+  METADATA_UID: "metadata.uid",
+  REMEDIATION_DESC: "remediation.desc",
+  REMEDIATION_REFERENCES: "remediation.references",
+  RESOURCES_CLOUD_FUNCTION_LAYERS_UID_ALT: "resources.cloud_function.layers.uid_alt",
+  RESOURCES_CLOUD_FUNCTION_RUNTIME: "resources.cloud_function.runtime",
+  RESOURCES_CLOUD_FUNCTION_USER_UID: "resources.cloud_function.user.uid",
+  RESOURCES_CLOUD_PARTITION: "resources.cloud_partition",
+  RESOURCES_DEVICE_ENCRYPTION_DETAILS_KEY_UID: "resources.device.encryption_details.key_uid",
+  RESOURCES_DEVICE_IMAGE_UID: "resources.device.image.uid",
+  RESOURCES_IMAGE_ARCHITECTURE: "resources.image.architecture",
+  RESOURCES_IMAGE_CREATED_TIME_DT: "resources.image.created_time_dt",
+  RESOURCES_IMAGE_IN_USE_COUNT: "resources.image.in_use_count",
+  RESOURCES_IMAGE_LAST_USED_TIME_DT: "resources.image.last_used_time_dt",
+  RESOURCES_IMAGE_REGISTRY_UID: "resources.image.registry_uid",
+  RESOURCES_IMAGE_REPOSITORY_NAME: "resources.image.repository_name",
+  RESOURCES_IMAGE_UID: "resources.image.uid",
+  RESOURCES_MODIFIED_TIME_DT: "resources.modified_time_dt",
+  RESOURCES_NAME: "resources.name",
+  RESOURCES_OWNER_ACCOUNT_NAME: "resources.owner.account.name",
+  RESOURCES_OWNER_ACCOUNT_UID: "resources.owner.account.uid",
+  RESOURCES_OWNER_ORG_UID: "resources.owner.org.uid",
+  RESOURCES_PROVIDER: "resources.provider",
+  RESOURCES_REGION: "resources.region",
+  RESOURCES_SUBNET_INFO_UID: "resources.subnet_info.uid",
+  RESOURCES_TAGS: "resources.tags",
+  RESOURCES_TYPE: "resources.type",
+  RESOURCES_UID: "resources.uid",
+  RESOURCES_VPC_UID: "resources.vpc_uid",
+  SEVERITY: "severity",
+  SEVERITY_ID: "severity_id",
+  STATUS: "status",
+  STATUS_ID: "status_id",
+  VENDOR_ATTRIBUTES_SEVERITY: "vendor_attributes.severity",
+  VENDOR_ATTRIBUTES_SEVERITY_ID: "vendor_attributes.severity_id",
+  VULNERABILITIES_AFFECTED_CODE_FILE_PATH: "vulnerabilities.affected_code.file.path",
+  VULNERABILITIES_AFFECTED_PACKAGES_NAME: "vulnerabilities.affected_packages.name",
+  VULNERABILITIES_CVE_CVSS_BASE_SCORE: "vulnerabilities.cve.cvss.base_score",
+  VULNERABILITIES_CVE_CVSS_VENDOR_NAME: "vulnerabilities.cve.cvss.vendor_name",
+  VULNERABILITIES_CVE_CVSS_VERSION: "vulnerabilities.cve.cvss.version",
+  VULNERABILITIES_CVE_EPSS_SCORE: "vulnerabilities.cve.epss.score",
+  VULNERABILITIES_CVE_UID: "vulnerabilities.cve.uid",
+  VULNERABILITIES_FIX_COVERAGE: "vulnerabilities.fix_coverage",
+  VULNERABILITIES_IS_EXPLOIT_AVAILABLE: "vulnerabilities.is_exploit_available",
+  VULNERABILITIES_IS_FIX_AVAILABLE: "vulnerabilities.is_fix_available",
+  VULNERABILITIES_RELATED_VULNERABILITIES: "vulnerabilities.related_vulnerabilities",
+} as const;
+/**
+ * @public
+ */
+export type FindingsSelectableField = (typeof FindingsSelectableField)[keyof typeof FindingsSelectableField];
 
 /**
  * @public

@@ -963,6 +963,7 @@ const _Az = "Azure";
 const _B = "Bucket";
 const _BA = "BrokerArn";
 const _BAI = "BucketAccountId";
+const _BAu = "BucketArn";
 const _BCO = "BooleanConfigurationOptions";
 const _BDAR = "BatchDeleteAutomationRules";
 const _BDARR = "BatchDeleteAutomationRulesRequest";
@@ -1134,6 +1135,9 @@ const _CDre = "CreateDate";
 const _CE = "ConflictException";
 const _CECA = "CustomEndpointCertificateArn";
 const _CEE = "CustomEndpointEnabled";
+const _CEJV = "CancelExportJobV2";
+const _CEJVR = "CancelExportJobV2Request";
+const _CEJVRa = "CancelExportJobV2Response";
 const _CEP = "CookieExpirationPeriod";
 const _CEa = "CachingEnabled";
 const _CEu = "CustomEndpoint";
@@ -1557,6 +1561,7 @@ const _DT = "DeviceType";
 const _DTA = "DatapointsToAlarm";
 const _DTE = "DataTraceEnabled";
 const _DTS = "DpdTimeoutSeconds";
+const _DTa = "DataType";
 const _DTi = "DiscoveryType";
 const _DU = "DateUpdated";
 const _DV = "DocumentationVersion";
@@ -1587,6 +1592,7 @@ const _EA = "EvaluatedAt";
 const _EAR = "EncryptionAtRest";
 const _EARO = "EncryptionAtRestOptions";
 const _EAn = "EndpointArn";
+const _EAnd = "EndedAt";
 const _EAnv = "EnvironmentArn";
 const _EAx = "ExpiresAt";
 const _EAxp = "ExploitAvailable";
@@ -1608,6 +1614,7 @@ const _EDS = "EnableDefaultStandards";
 const _EDr = "ErrorDocument";
 const _EDx = "ExpirationDate";
 const _EDxp = "ExpressionDescription";
+const _EDxpo = "ExportDestination";
 const _EEC = "EnableExecuteCommand";
 const _EEMT = "EnableEcsManagedTags";
 const _EES = "ExpectedEndState";
@@ -1635,6 +1642,7 @@ const _EInc = "EncryptionInfo";
 const _EInd = "EndpointId";
 const _EIndp = "EndpointIds";
 const _EIx = "ExternalId";
+const _EJI = "ExportJobId";
 const _EK = "EncryptionKey";
 const _EKA = "EncryptionKeyArn";
 const _EKU = "ExtendedKeyUsages";
@@ -1657,9 +1665,11 @@ const _EOAAR = "EnableOrganizationAdminAccountRequest";
 const _EOAARn = "EnableOrganizationAdminAccountResponse";
 const _EODM = "ExpiredObjectDeleteMarker";
 const _EOIGI = "EgressOnlyInternetGatewayId";
+const _EOS = "ExportOutputSummary";
 const _EOb = "EbsOptimized";
 const _EOn = "EncryptionOption";
 const _EOnc = "EnclaveOptions";
+const _EOx = "ExportOutput";
 const _EP = "EvaluationPeriods";
 const _EPA = "EndpointPublicAccess";
 const _EPI = "ExistingPolicyId";
@@ -1688,9 +1698,12 @@ const _ESHV = "EnableSecurityHubV2";
 const _ESHVR = "EnableSecurityHubV2Request";
 const _ESHVRn = "EnableSecurityHubV2Response";
 const _ESI = "EnabledStandardIdentifiers";
+const _ESL = "ExportSummaryList";
 const _ESR = "EnablementStatusReason";
 const _ESn = "EnablementStatus";
 const _ESp = "EpssScore";
+const _ESx = "ExportScopes";
+const _ESxp = "ExportSummary";
 const _ET = "EngineType";
 const _ETIS = "ElapsedTimeInSeconds";
 const _ETP = "EnableTerminationProtection";
@@ -1741,6 +1754,7 @@ const _FAix = "FixAvailable";
 const _FC = "FailoverCriteria";
 const _FCa = "FailoverConfig";
 const _FCai = "FailedCount";
+const _FCail = "FailureCode";
 const _FCi = "FirelensConfiguration";
 const _FCin = "FindingCreated";
 const _FD = "FeatureDetail";
@@ -1761,13 +1775,16 @@ const _FIin = "FindingIdentifiers";
 const _FIind = "FindingIdentifier";
 const _FL = "FlowLogs";
 const _FLL = "FieldLogLevel";
+const _FM = "FailureMessage";
 const _FMU = "FindingMetadataUid";
 const _FN = "FunctionName";
 const _FNe = "FeatureName";
 const _FNi = "FirewallName";
 const _FNie = "FieldName";
 const _FNil = "FileName";
+const _FO = "FindingsOutput";
 const _FOA = "FirstObservedAt";
+const _FOS = "FindingsOutputSummary";
 const _FP = "FromPort";
 const _FPA = "FirewallPolicyArn";
 const _FPCP = "FirewallPolicyChangeProtection";
@@ -1859,6 +1876,9 @@ const _GCV = "GetConnectorV2";
 const _GCVR = "GetConnectorV2Request";
 const _GCVRe = "GetConnectorV2Response";
 const _GD = "GeneratorDetails";
+const _GEJV = "GetExportJobV2";
+const _GEJVR = "GetExportJobV2Request";
+const _GEJVRe = "GetExportJobV2Response";
 const _GES = "GetEnabledStandards";
 const _GESR = "GetEnabledStandardsRequest";
 const _GESRe = "GetEnabledStandardsResponse";
@@ -2223,6 +2243,9 @@ const _LEBRV = "ListExposuresByRemediationV2";
 const _LEBRVR = "ListExposuresByRemediationV2Request";
 const _LEBRVRi = "ListExposuresByRemediationV2Response";
 const _LEE = "LimitExceededException";
+const _LEJV = "ListExportJobsV2";
+const _LEJVR = "ListExportJobsV2Request";
+const _LEJVRi = "ListExportJobsV2Response";
 const _LEPFI = "ListEnabledProductsForImport";
 const _LEPFIR = "ListEnabledProductsForImportRequest";
 const _LEPFIRi = "ListEnabledProductsForImportResponse";
@@ -2498,6 +2521,7 @@ const _OAw = "OwnerAlias";
 const _OBF = "OcsfBooleanFilter";
 const _OBFL = "OcsfBooleanFilterList";
 const _OC = "OrganizationConfiguration";
+const _OCu = "OutputConfiguration";
 const _OD = "OptionalDeployment";
 const _ODAS = "OnDemandAllocationStrategy";
 const _ODBC = "OnDemandBaseCapacity";
@@ -2535,6 +2559,7 @@ const _ONw = "OwnerName";
 const _OP = "OriginPath";
 const _OPP = "OriginProtocolPolicy";
 const _OPR = "OpenPortRange";
+const _OPb = "ObjectPrefix";
 const _OPt = "OtherPolicies";
 const _OR = "OffsetRanges";
 const _ORT = "OriginReadTimeout";
@@ -3124,8 +3149,12 @@ const _SDo = "SourceDomain";
 const _SDp = "SpreadDomain";
 const _SE = "ScheduleExpression";
 const _SEA = "SourceEndpointArn";
+const _SED = "S3ExportDestination";
 const _SEE = "S3EncryptionEnabled";
 const _SEIWF = "ScanEc2InstanceWithFindings";
+const _SEJV = "StartExportJobV2";
+const _SEJVR = "StartExportJobV2Request";
+const _SEJVRt = "StartExportJobV2Response";
 const _SEe = "ServiceEnabled";
 const _SEt = "StreamEnabled";
 const _SEto = "StorageEncrypted";
@@ -3134,6 +3163,7 @@ const _SF = "StringFilters";
 const _SFDA = "StatelessFragmentDefaultActions";
 const _SFFRA = "SqsFailureFeedbackRoleArn";
 const _SFL = "StringFilterList";
+const _SFe = "SelectedFields";
 const _SFt = "StringFilter";
 const _SG = "SecurityGroups";
 const _SGI = "SecurityGroupIds";
@@ -3292,6 +3322,7 @@ const _SVc = "SchemaVersion";
 const _SVco = "ScopeValues";
 const _SVo = "SourceVolume";
 const _SWM = "StartWindowMinutes";
+const _S_ = "S3";
 const _Sa = "Sasl";
 const _Sam = "Sample";
 const _Sc = "Scope";
@@ -6565,6 +6596,16 @@ export var BooleanFilter$: StaticStructureSchema = [3, n0, _BF,
   [_Val],
   [2]
 ];
+export var CancelExportJobV2Request$: StaticStructureSchema = [3, n0, _CEJVR,
+  0,
+  [_EJI],
+  [[0, 1]], 1
+];
+export var CancelExportJobV2Response$: StaticStructureSchema = [3, n0, _CEJVRa,
+  0,
+  [_EJI, _St],
+  [0, 0], 2
+];
 export var Cell$: StaticStructureSchema = [3, n0, _Cel,
   0,
   [_Col, _Row, _CNol, _CRe],
@@ -7145,6 +7186,16 @@ export var EnumListConfigurationOptions$: StaticStructureSchema = [3, n0, _ELCO,
   [_DVe, _MIa, _AVl],
   [64 | 0, 1, 64 | 0]
 ];
+export var ExportScopes$: StaticStructureSchema = [3, n0, _ESx,
+  0,
+  [_AOw],
+  [() => AwsOrganizationScopeList]
+];
+export var ExportSummary$: StaticStructureSchema = [3, n0, _ESxp,
+  0,
+  [_EJI, _St, _DTa, _Des, _SAt, _N, _OCu, _Sco, _FCail, _FM, _EAnd],
+  [0, 0, 0, () => ExportDestination$, 5, 0, () => ExportOutputSummary$, () => ExportScopes$, 0, 0, 5], 5
+];
 export var ExposureFinding$: StaticStructureSchema = [3, n0, _EFx,
   0,
   [_MUe, _Ti, _PSre, _PSro, _Imp],
@@ -7199,6 +7250,16 @@ export var FindingScopes$: StaticStructureSchema = [3, n0, _FSi,
   0,
   [_AOw],
   [() => AwsOrganizationScopeList]
+];
+export var FindingsOutput$: StaticStructureSchema = [3, n0, _FO,
+  0,
+  [_F, _Filt, _SFe],
+  [0, () => OcsfFindingFilters$, 64 | 0], 1
+];
+export var FindingsOutputSummary$: StaticStructureSchema = [3, n0, _FOS,
+  0,
+  [_F],
+  [0], 1
 ];
 export var FindingsTrendsCompositeFilter$: StaticStructureSchema = [3, n0, _FTCF,
   0,
@@ -7339,6 +7400,16 @@ export var GetEnabledStandardsResponse$: StaticStructureSchema = [3, n0, _GESRe,
   0,
   [_SSta, _NTe],
   [() => StandardsSubscriptions, 0]
+];
+export var GetExportJobV2Request$: StaticStructureSchema = [3, n0, _GEJVR,
+  0,
+  [_EJI],
+  [[0, 1]], 1
+];
+export var GetExportJobV2Response$: StaticStructureSchema = [3, n0, _GEJVRe,
+  0,
+  [_EJI, _St, _DTa, _Des, _SAt, _N, _OCu, _Sco, _FCail, _FM, _EAnd],
+  [0, 0, 0, () => ExportDestination$, 5, 0, () => ExportOutput$, () => ExportScopes$, 0, 0, 5], 5
 ];
 export var GetFindingAggregatorRequest$: StaticStructureSchema = [3, n0, _GFAR,
   0,
@@ -7709,6 +7780,16 @@ export var ListEnabledProductsForImportResponse$: StaticStructureSchema = [3, n0
   0,
   [_PSrod, _NTe],
   [64 | 0, 0]
+];
+export var ListExportJobsV2Request$: StaticStructureSchema = [3, n0, _LEJVR,
+  0,
+  [_St, _DTa, _MRa, _NTe],
+  [[0, { [_hQ]: _St }], [0, { [_hQ]: _DTa }], [1, { [_hQ]: _MRa }], [0, { [_hQ]: _NTe }]]
+];
+export var ListExportJobsV2Response$: StaticStructureSchema = [3, n0, _LEJVRi,
+  0,
+  [_It, _NTe],
+  [() => ExportSummaryList, 0], 1
 ];
 export var ListExposuresByRemediationV2Request$: StaticStructureSchema = [3, n0, _LEBRVR,
   0,
@@ -8340,6 +8421,11 @@ export var RuleGroupVariablesPortSetsDetails$: StaticStructureSchema = [3, n0, _
   [_Def],
   [64 | 0]
 ];
+export var S3ExportDestination$: StaticStructureSchema = [3, n0, _SED,
+  0,
+  [_BAu, _KKA, _OPb],
+  [0, 0, 0], 2
+];
 export var SecurityControl$: StaticStructureSchema = [3, n0, _SCecu,
   0,
   [_SCIec, _SCAe, _Ti, _D, _RU, _SRev, _SCS, _US, _Par, _LUR, _Prov],
@@ -8499,6 +8585,16 @@ export var StartConfigurationPolicyDisassociationResponse$: StaticStructureSchem
   0,
   [],
   []
+];
+export var StartExportJobV2Request$: StaticStructureSchema = [3, n0, _SEJVR,
+  0,
+  [_Des, _OCu, _N, _Sco, _CTl],
+  [() => ExportDestination$, () => ExportOutput$, 0, () => ExportScopes$, [0, 4]], 2
+];
+export var StartExportJobV2Response$: StaticStructureSchema = [3, n0, _SEJVRt,
+  0,
+  [_EJI],
+  [0], 1
 ];
 export var StatelessCustomActionDefinition$: StaticStructureSchema = [3, n0, _SCADta,
   0,
@@ -9357,6 +9453,9 @@ var DateFilterList: StaticListSchema = [1, n0, _DFL,
 var DisabledSecurityControlIdentifierList = 64 | 0;
 var EnabledSecurityControlIdentifierList = 64 | 0;
 var EnabledStandardIdentifierList = 64 | 0;
+var ExportSummaryList: StaticListSchema = [1, n0, _ESL,
+  0, () => ExportSummary$
+];
 var ExposureFindingItemsList: StaticListSchema = [1, n0, _EFIL,
   0, () => ExposureFinding$
 ];
@@ -9372,6 +9471,7 @@ var FindingHistoryRecordList: StaticListSchema = [1, n0, _FHRL,
 var FindingHistoryUpdatesList: StaticListSchema = [1, n0, _FHUL,
   0, () => FindingHistoryUpdate$
 ];
+var FindingsSelectedFieldList = 64 | 0;
 var FindingsTrendsCompositeFilterList: StaticListSchema = [1, n0, _FTCFL,
   0, () => FindingsTrendsCompositeFilter$
 ];
@@ -9749,6 +9849,21 @@ export var CspmProviderUpdateConfiguration$: StaticUnionSchema = [4, n0, _CPUC,
   [_Az],
   [() => AzureUpdateConfiguration$]
 ];
+export var ExportDestination$: StaticUnionSchema = [4, n0, _EDxpo,
+  0,
+  [_S_],
+  [() => S3ExportDestination$]
+];
+export var ExportOutput$: StaticUnionSchema = [4, n0, _EOx,
+  0,
+  [_Fin],
+  [() => FindingsOutput$]
+];
+export var ExportOutputSummary$: StaticUnionSchema = [4, n0, _EOS,
+  0,
+  [_Fin],
+  [() => FindingsOutputSummary$]
+];
 export var ParameterValue$: StaticUnionSchema = [4, n0, _PVa,
   0,
   [_Inte, _ILnt, _Dou, _Str, _SLtr, _Bo, _Enu, _ELnu],
@@ -9825,6 +9940,9 @@ export var BatchUpdateFindingsV2$: StaticOperationSchema = [9, n0, _BUFV,
 ];
 export var BatchUpdateStandardsControlAssociations$: StaticOperationSchema = [9, n0, _BUSCA,
   { [_h]: ["PATCH", "/associations", 200] }, () => BatchUpdateStandardsControlAssociationsRequest$, () => BatchUpdateStandardsControlAssociationsResponse$
+];
+export var CancelExportJobV2$: StaticOperationSchema = [9, n0, _CEJV,
+  { [_h]: ["POST", "/exportjobsv2/{ExportJobId}/cancel", 200] }, () => CancelExportJobV2Request$, () => CancelExportJobV2Response$
 ];
 export var CreateActionTarget$: StaticOperationSchema = [9, n0, _CAT,
   { [_h]: ["POST", "/actionTargets", 200] }, () => CreateActionTargetRequest$, () => CreateActionTargetResponse$
@@ -9982,6 +10100,9 @@ export var GetConnectorV2$: StaticOperationSchema = [9, n0, _GCV,
 export var GetEnabledStandards$: StaticOperationSchema = [9, n0, _GES,
   { [_h]: ["POST", "/standards/get", 200] }, () => GetEnabledStandardsRequest$, () => GetEnabledStandardsResponse$
 ];
+export var GetExportJobV2$: StaticOperationSchema = [9, n0, _GEJV,
+  { [_h]: ["GET", "/exportjobsv2/{ExportJobId}", 200] }, () => GetExportJobV2Request$, () => GetExportJobV2Response$
+];
 export var GetFindingAggregator$: StaticOperationSchema = [9, n0, _GFA,
   { [_h]: ["GET", "/findingAggregator/get/{FindingAggregatorArn+}", 200] }, () => GetFindingAggregatorRequest$, () => GetFindingAggregatorResponse$
 ];
@@ -10060,6 +10181,9 @@ export var ListConnectorsV2$: StaticOperationSchema = [9, n0, _LCV,
 export var ListEnabledProductsForImport$: StaticOperationSchema = [9, n0, _LEPFI,
   { [_h]: ["GET", "/productSubscriptions", 200] }, () => ListEnabledProductsForImportRequest$, () => ListEnabledProductsForImportResponse$
 ];
+export var ListExportJobsV2$: StaticOperationSchema = [9, n0, _LEJV,
+  { [_h]: ["GET", "/exportjobsv2", 200] }, () => ListExportJobsV2Request$, () => ListExportJobsV2Response$
+];
 export var ListExposuresByRemediationV2$: StaticOperationSchema = [9, n0, _LEBRV,
   { [_h]: ["POST", "/ListExposuresByRemediationV2", 200] }, () => ListExposuresByRemediationV2Request$, () => ListExposuresByRemediationV2Response$
 ];
@@ -10095,6 +10219,9 @@ export var StartConfigurationPolicyAssociation$: StaticOperationSchema = [9, n0,
 ];
 export var StartConfigurationPolicyDisassociation$: StaticOperationSchema = [9, n0, _SCPD,
   { [_h]: ["POST", "/configurationPolicyAssociation/disassociate", 200] }, () => StartConfigurationPolicyDisassociationRequest$, () => StartConfigurationPolicyDisassociationResponse$
+];
+export var StartExportJobV2$: StaticOperationSchema = [9, n0, _SEJV,
+  { [_h]: ["POST", "/exportjobsv2", 202] }, () => StartExportJobV2Request$, () => StartExportJobV2Response$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   { [_h]: ["POST", "/tags/{ResourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$

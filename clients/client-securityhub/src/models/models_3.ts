@@ -17,9 +17,15 @@ import type {
   CspmEnablementStatus,
   DiscoveryType,
   EnablementStatus,
+  ExportDataType,
+  ExportFailureCode,
+  ExportStatus,
+  FindingsExportFormat,
+  FindingsSelectableField,
   FreeTrialStatusValue,
   GranularityField,
   GroupByField,
+  GuidanceFormat,
   RecordState,
   RegionAvailabilityStatus,
   RemediationPriority,
@@ -65,6 +71,9 @@ import type {
   ConnectorSummary,
   CspmConnectorSummary,
   CspmProviderUpdateConfiguration,
+  ExportDestination,
+  ExportScopes,
+  ExportSummary,
   ExposureFinding,
   FindingAggregator,
   FindingScopes,
@@ -81,11 +90,394 @@ import type {
   OrganizationConfiguration,
   ParameterConfiguration,
   Policy,
-  RemediationGuidance,
+  RemediationCompositeFilter,
   Result,
   SortCriterion,
   Target,
 } from "./models_2";
+
+/**
+ * <p>Contains the criteria used to filter remediation targets, such as resource type, priority,
+ *          or status.</p>
+ * @public
+ */
+export interface RemediationFilters {
+  /**
+   * <p>A collection of complex filtering conditions that can be applied to remediation target data.</p>
+   * @public
+   */
+  CompositeFilters?: RemediationCompositeFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRemediationsV2Request {
+  /**
+   * <p>The unique identifier (ID) of an existing remediation target to return. Returns the single
+   *          matching target. You can't use <code>TargetUid</code> together with <code>MetadataUid</code>
+   *          or <code>Filters</code>.</p>
+   * @public
+   */
+  TargetUid?: string | undefined;
+
+  /**
+   * <p>The unique identifier (ID) of the Security Hub exposure finding, found under the
+   *          <code>metadata.uid</code> field of the finding. Returns the remediation targets associated with
+   *          that finding. You can't use <code>MetadataUid</code> together with <code>TargetUid</code> or
+   *          <code>Filters</code>.</p>
+   * @public
+   */
+  MetadataUid?: string | undefined;
+
+  /**
+   * <p>Filters remediation targets based on a set of criteria. You can't use <code>Filters</code>
+   *          together with <code>TargetUid</code> or <code>MetadataUid</code>.</p>
+   * @public
+   */
+  Filters?: RemediationFilters | undefined;
+
+  /**
+   * <p>Specifies whether to show remediation target guidance.</p>
+   * @public
+   */
+  ShowGuidance?: boolean | undefined;
+
+  /**
+   * <p>The format of the remediation guidance examples to return. Valid values are <code>All</code>,
+   *          <code>AwsCli</code>, <code>Cli</code>, <code>Python</code>, <code>Terraform</code>,
+   *          <code>Cdk</code>, <code>CloudFormation</code>, <code>IaC</code>, and <code>Template</code>.
+   *          If you don't specify a value, all formats are returned. Applies only when
+   *          <code>ShowGuidance</code> is <code>true</code>.</p>
+   * @public
+   */
+  GuidanceFormat?: GuidanceFormat | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Valid range is 1-100. If you don't specify a value,
+   *          the operation returns up to 25 results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token used to paginate the remediations target list returned.
+   *          On your first call to <code>GetRemediationsV2</code>, omit this parameter or set it
+   *          to <code>NULL</code>. For subsequent calls, use the <code>NextToken</code> value returned in
+   *          the previous response to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The context behind the remediation target's existence and guidance.</p>
+ * @public
+ */
+export interface RemediationGuidanceContext {
+  /**
+   * <p>Explains the cause which directly created the remediation target.</p>
+   * @public
+   */
+  ProblemStatement?: string | undefined;
+
+  /**
+   * <p>An assessment of the existing risk the remediation target creates.</p>
+   * @public
+   */
+  RiskAssessment?: string | undefined;
+
+  /**
+   * <p>The scope of the resources affected by the resolution of the remediation target.</p>
+   * @public
+   */
+  AffectedScope?: string | undefined;
+
+  /**
+   * <p>An array of prerequisite steps in resolving the remediation target.</p>
+   * @public
+   */
+  Prerequisites?: string[] | undefined;
+}
+
+/**
+ * <p>Provided remediation guidance examples in different formats that can be run for remediating the target.</p>
+ * @public
+ */
+export interface RemediationGuidanceExamples {
+  /**
+   * <p>An CLI snippet version of the example.</p>
+   * @public
+   */
+  AwsCli?: string | undefined;
+
+  /**
+   * <p>A CLI snippet version of the example.</p>
+   * @public
+   */
+  Cli?: string | undefined;
+
+  /**
+   * <p>A Python snippet version of the example.</p>
+   * @public
+   */
+  Python?: string | undefined;
+
+  /**
+   * <p>A Terraform snippet version of the example.</p>
+   * @public
+   */
+  Terraform?: string | undefined;
+
+  /**
+   * <p>A CDK snippet version of the example.</p>
+   * @public
+   */
+  Cdk?: string | undefined;
+
+  /**
+   * <p>A CloudFormation snippet version of the example.</p>
+   * @public
+   */
+  CloudFormation?: string | undefined;
+
+  /**
+   * <p>An IaC snippet version of the example.</p>
+   * @public
+   */
+  IaC?: string | undefined;
+
+  /**
+   * <p>A Template snippet version of the example.</p>
+   * @public
+   */
+  Template?: string | undefined;
+}
+
+/**
+ * <p>The metadata of the remediation guidance.</p>
+ * @public
+ */
+export interface RemediationGuidanceMetadata {
+  /**
+   * <p>The resource type of the remediation target.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The exposure type of the related exposure findings.</p>
+   * @public
+   */
+  ExposureType: string | undefined;
+
+  /**
+   * <p>The titles of traits this guidance applies to.</p>
+   * @public
+   */
+  TraitTitles: string[] | undefined;
+
+  /**
+   * <p>The extent to which changes made in accordance with the guidance can be reversed, for example <code>Fully reversible</code>.</p>
+   * @public
+   */
+  Reversibility: string | undefined;
+
+  /**
+   * <p>When the fix takes effect, for example <code>Immediate</code> or <code>Deferred</code>.</p>
+   * @public
+   */
+  FixEffect: string | undefined;
+
+  /**
+   * <p>The risk when implementing the guidance provided.</p>
+   * @public
+   */
+  RiskLevel: string | undefined;
+
+  /**
+   * <p>The extent to which the guidance can be automated, for example <code>Full</code>.</p>
+   * @public
+   */
+  AutomationLevel?: string | undefined;
+
+  /**
+   * <p>Specifies whether human review is required.</p>
+   * @public
+   */
+  HumanReviewRequired?: boolean | undefined;
+
+  /**
+   * <p>Timestamp of when the guidance was generated.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * @public
+   */
+  GeneratedAt?: Date | undefined;
+
+  /**
+   * <p>Verification status of the guidance.</p>
+   * @public
+   */
+  VerificationStatus?: string | undefined;
+}
+
+/**
+ * <p>A parameter used in running the guidance steps.</p>
+ * @public
+ */
+export interface RemediationParameter {
+  /**
+   * <p>The name of the parameter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of the parameter.</p>
+   * @public
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>A description of the parameter.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>Specifies whether the parameter is required for running the guidance steps.</p>
+   * @public
+   */
+  Required?: boolean | undefined;
+}
+
+/**
+ * <p>A step in the remediation guidance.</p>
+ * @public
+ */
+export interface RemediationStep {
+  /**
+   * <p>The phase of the remediation plan that this step belongs to (for example, <code>FIX</code>).</p>
+   * @public
+   */
+  Phase: string | undefined;
+
+  /**
+   * <p>A description of what the step does.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>Which service this step is performed in.</p>
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * <p>The action to be taken for this step.</p>
+   * @public
+   */
+  Action: string | undefined;
+
+  /**
+   * <p>The logic behind the existence of this step.</p>
+   * @public
+   */
+  Logic?: string | undefined;
+
+  /**
+   * <p>The inverse of the step, to be used if the step needs to be rolled back.</p>
+   * @public
+   */
+  Inverse?: string | undefined;
+
+  /**
+   * <p>The action to take after the step to verify its success.</p>
+   * @public
+   */
+  VerifyAfter?: string | undefined;
+}
+
+/**
+ * <p>The specification of the remediation target guidance. This outlines required resource parameters
+ *          and permissions, remediation steps, and the end state.</p>
+ * @public
+ */
+export interface RemediationGuidanceSpecification {
+  /**
+   * <p>An array of the parameters used in running the steps provided.</p>
+   * @public
+   */
+  Parameters?: RemediationParameter[] | undefined;
+
+  /**
+   * <p>An array of ordered steps for resolving the remediation targets.</p>
+   * @public
+   */
+  Steps?: RemediationStep[] | undefined;
+
+  /**
+   * <p>The expected end state of the associated resources after completion of the steps.</p>
+   * @public
+   */
+  ExpectedEndState?: string | undefined;
+
+  /**
+   * <p>An array of required permissions to run the steps.</p>
+   * @public
+   */
+  RequiredPermissions?: string[] | undefined;
+}
+
+/**
+ * <p>A remediation guidebook outlining guidance in resolving the remediation target.</p>
+ * @public
+ */
+export interface RemediationGuidance {
+  /**
+   * <p>The name of the remediation target type.</p>
+   * @public
+   */
+  TargetTypeName: string | undefined;
+
+  /**
+   * <p>The remediation pattern of the remediation target.</p>
+   * @public
+   */
+  Pattern: string | undefined;
+
+  /**
+   * <p>The guidance version.</p>
+   * @public
+   */
+  Version: string | undefined;
+
+  /**
+   * <p>The context behind the remediation target's existence and guidance.</p>
+   * @public
+   */
+  Context: RemediationGuidanceContext | undefined;
+
+  /**
+   * <p>The specification of the remediation target guidance. This outlines required resource parameters
+   *          and permissions, remediation steps, and the end state.</p>
+   * @public
+   */
+  Specification: RemediationGuidanceSpecification | undefined;
+
+  /**
+   * <p>Provided remediation guidance examples in different formats that can be run for remediating the target.</p>
+   * @public
+   */
+  Examples: RemediationGuidanceExamples | undefined;
+
+  /**
+   * <p>The metadata of the remediation guidance.</p>
+   * @public
+   */
+  Metadata: RemediationGuidanceMetadata | undefined;
+}
 
 /**
  * <p>The outcome from resolving the remediation target.</p>
@@ -1379,6 +1771,54 @@ export interface ListEnabledProductsForImportResponse {
 /**
  * @public
  */
+export interface ListExportJobsV2Request {
+  /**
+   * <p>Filters the results to export jobs that have the specified status.</p>
+   * @public
+   */
+  Status?: ExportStatus | undefined;
+
+  /**
+   * <p>Filters the results to export jobs that produce the specified data type.</p>
+   * @public
+   */
+  DataType?: ExportDataType | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Valid range is 1–20.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token required for pagination.
+   *          On your first call, set the value of this parameter to <code>NULL</code>.
+   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExportJobsV2Response {
+  /**
+   * <p>The export jobs that match the request, as <code>ExportSummary</code> objects.</p>
+   * @public
+   */
+  Items: ExportSummary[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results. Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListExposuresByRemediationV2Request {
   /**
    * <p>The unique identifier (ID) of an existing remediation target to list exposure findings for.</p>
@@ -2109,6 +2549,17 @@ export interface StartConfigurationPolicyDisassociationRequest {
  * @public
  */
 export interface StartConfigurationPolicyDisassociationResponse {}
+
+/**
+ * @public
+ */
+export interface StartExportJobV2Response {
+  /**
+   * <p>The unique identifier of the export job that Security Hub started. Use this value with <code>GetExportJobV2</code> or <code>CancelExportJobV2</code>.</p>
+   * @public
+   */
+  ExportJobId: string | undefined;
+}
 
 /**
  * @public
@@ -2988,6 +3439,41 @@ export namespace Criteria {
 }
 
 /**
+ * <p>The configuration for a findings export: the output format, an optional set of filters, and the fields to include.</p>
+ * @public
+ */
+export interface FindingsOutput {
+  /**
+   * <p>The output format of the export. <code>CSV</code> produces comma-separated rows that are suitable for spreadsheets and analysis tools. <code>OCSF_JSON</code> produces newline-delimited JSON records in the Open Cybersecurity Schema Framework (OCSF) format used elsewhere in Security Hub.</p>
+   * @public
+   */
+  Format: FindingsExportFormat | undefined;
+
+  /**
+   * <p>An optional set of OCSF finding filters that restrict which findings are exported. The filter structure is the same as the one used by <code>GetFindingsV2</code>. If you omit this member, Security Hub exports all findings available to the caller. When echoed by <code>GetExportJobV2</code>, relative date ranges are returned unresolved.</p>
+   * @public
+   */
+  Filters?: OcsfFindingFilters | undefined;
+
+  /**
+   * <p>The OCSF finding fields to include in the export, specified as OCSF field paths (for example, <code>finding_info.title</code> or <code>severity</code>). You can specify from 1 to 50 fields.</p>
+   *          <p>Whether this parameter is required depends on the value of <code>Format</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CSV</code> – Required. The field paths that you specify become the columns of the output, in the order that you provide them. If you omit this parameter, the request returns a <code>ValidationException</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OCSF_JSON</code> – Not supported. This format includes each finding in full, so field selection doesn't apply. If you specify this parameter, the request returns a <code>ValidationException</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SelectedFields?: FindingsSelectableField[] | undefined;
+}
+
+/**
  * @public
  */
 export interface GetFindingsTrendsV2Request {
@@ -3230,6 +3716,45 @@ export interface CreateAutomationRuleV2Request {
 }
 
 /**
+ * <p>Specifies what data to export and how to format it. This is a union: you must specify exactly one member. Currently, the only supported member is <code>Findings</code>.</p>
+ * @public
+ */
+export type ExportOutput =
+  | ExportOutput.FindingsMember
+  | ExportOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ExportOutput {
+  /**
+   * <p>Configures an export of Security Hub findings, including the output format and any filters or selected fields.</p>
+   * @public
+   */
+  export interface FindingsMember {
+    Findings: FindingsOutput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Findings?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Findings: (value: FindingsOutput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * @public
  */
 export interface GetAutomationRuleV2Response {
@@ -3344,6 +3869,79 @@ export interface UpdateAutomationRuleV2Request {
 /**
  * @public
  */
+export interface GetExportJobV2Response {
+  /**
+   * <p>The unique identifier of the export job.</p>
+   * @public
+   */
+  ExportJobId: string | undefined;
+
+  /**
+   * <p>The user-provided name of the export job, if one was specified when the job was started.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The current state of the export job.</p>
+   * @public
+   */
+  Status: ExportStatus | undefined;
+
+  /**
+   * <p>The category of data that the export job produces.</p>
+   * @public
+   */
+  DataType: ExportDataType | undefined;
+
+  /**
+   * <p>The output configuration that the export job was started with, including the format and any filters or selected fields.</p>
+   * @public
+   */
+  OutputConfiguration?: ExportOutput | undefined;
+
+  /**
+   * <p>The organization scopes that the export job was started with, echoed verbatim. This parameter is absent if the caller didn't supply <code>Scopes</code>. It contains only the organization or organizational unit (OU) identifiers that the caller submitted; it never contains resolved member-account identifiers.</p>
+   * @public
+   */
+  Scopes?: ExportScopes | undefined;
+
+  /**
+   * <p>The destination that the export job writes to.</p>
+   * @public
+   */
+  Destination: ExportDestination | undefined;
+
+  /**
+   * <p>A code that classifies why the export job failed. Present only when <code>Status</code> is <code>FAILED</code>.</p>
+   * @public
+   */
+  FailureCode?: ExportFailureCode | undefined;
+
+  /**
+   * <p>A human-readable message that provides more detail about why the export job failed. Present only when <code>Status</code> is <code>FAILED</code>.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+
+  /**
+   * <p>The time when the export job was created.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * @public
+   */
+  StartedAt: Date | undefined;
+
+  /**
+   * <p>The time when the export job reached a terminal state (<code>SUCCEEDED</code>, <code>FAILED</code>, or <code>CANCELLED</code>). This parameter is absent while the job is <code>RUNNING</code>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetFindingStatisticsV2Request {
   /**
    * <p>Specifies how security findings should be aggregated and organized in the statistical analysis.
@@ -3405,4 +4003,41 @@ export interface GetResourcesStatisticsV2Request {
    * @public
    */
   MaxStatisticResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartExportJobV2Request {
+  /**
+   * <p>An optional, user-provided name for the export job that helps you identify it in <code>ListExportJobsV2</code> results. The value can be 1–256 characters. Alphanumeric characters, spaces, and the following ASCII characters are permitted: <code>. _ , : ( ) / + -</code>.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The destination that Security Hub writes the export to. You must specify exactly one destination type. Currently, the only supported type is Amazon S3.</p>
+   * @public
+   */
+  Destination: ExportDestination | undefined;
+
+  /**
+   * <p>Specifies what data to export and how to format it. You must specify exactly one output type. Currently, the only supported type is <code>Findings</code>.</p>
+   * @public
+   */
+  OutputConfiguration: ExportOutput | undefined;
+
+  /**
+   * <p>Limits the export to findings from specific organizational units (OUs) or from the delegated administrator's organization. Only the delegated administrator account can use this parameter; other accounts that specify it receive an <code>AccessDeniedException</code>.</p>
+   *          <p>This parameter is optional. If you omit it, the delegated administrator exports findings from all accounts across the entire organization, and other accounts export only their own findings.</p>
+   *          <p>You can specify up to 10 entries in <code>Scopes.AwsOrganizations</code>. If you specify multiple entries, Security Hub combines them using OR logic.</p>
+   * @public
+   */
+  Scopes?: ExportScopes | undefined;
+
+  /**
+   * <p>A unique identifier used to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
 }

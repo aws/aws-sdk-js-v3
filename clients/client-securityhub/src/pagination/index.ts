@@ -19,6 +19,7 @@ export * from "./ListAggregatorsV2Paginator";
 export * from "./ListConfigurationPoliciesPaginator";
 export * from "./ListConfigurationPolicyAssociationsPaginator";
 export * from "./ListEnabledProductsForImportPaginator";
+export * from "./ListExportJobsV2Paginator";
 export * from "./ListExposuresByRemediationV2Paginator";
 export * from "./ListFindingAggregatorsPaginator";
 export * from "./ListFreeTrialStatusesV2Paginator";
