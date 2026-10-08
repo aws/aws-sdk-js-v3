@@ -1119,6 +1119,101 @@ describe("S3TransferManager Unit Tests", () => {
       expect(commandNames.filter((n: string) => n === "UploadPartCommand").length).toBe(3);
     });
 
+    it("should use a caller-supplied SharedArrayBuffer without copying and preserve its view offset", async () => {
+      const tm = new S3TransferManager({
+        s3: createMockClient(),
+        workerThreadCount: 8,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      }) as any;
+      const threadedMultipartUpload = vi.spyOn(tm, "threadedMultipartUpload").mockResolvedValue({ $metadata: {} });
+
+      const startOffset = 16;
+      const bodySize = 20 * 1024 * 1024;
+      const sharedBuffer = new SharedArrayBuffer(startOffset + bodySize);
+      const body = Buffer.from(sharedBuffer, startOffset, bodySize);
+
+      await tm.threadedUploadInParts(
+        { Bucket: "test-bucket", Key: "shared-buffer-upload.bin", Body: body },
+        body.byteLength,
+        undefined,
+        true
+      );
+
+      const buildDataSource = threadedMultipartUpload.mock.calls[0][2] as (...args: any[]) => any;
+      const dataSource = buildDataSource();
+      expect(dataSource).toMatchObject({
+        type: "sharedBuffer",
+        sharedBuffer,
+        startOffset,
+        totalSize: bodySize,
+      });
+    });
+
+    it("should dispatch an SAB-backed body using its view offset", async () => {
+      const handler = new WorkerHttpHandler({ workerThreadCount: 1 }) as any;
+      vi.spyOn(handler, "ensureInitialized").mockResolvedValue(undefined);
+      const dispatchToWorker = vi.spyOn(handler, "dispatchToWorker").mockResolvedValue({ response: {} });
+
+      const startOffset = 16;
+      const partSize = 8;
+      const totalSize = 20;
+      const sharedBuffer = new SharedArrayBuffer(startOffset + totalSize);
+      await handler.handle(
+        {
+          method: "PUT",
+          protocol: "https:",
+          hostname: "s3.us-west-2.amazonaws.com",
+          path: "/test-bucket/test-key",
+          query: { partNumber: "3" },
+          headers: {},
+        },
+        {
+          dataSource: {
+            type: "sharedBuffer",
+            sharedBuffer,
+            startOffset,
+            partSize,
+            totalSize,
+          },
+        }
+      );
+
+      expect(dispatchToWorker).toHaveBeenCalledWith(
+        expect.any(Number),
+        expect.objectContaining({
+          type: "httpRequestFromRAM",
+          sharedBuffer,
+          offset: startOffset + 2 * partSize,
+          length: totalSize - 2 * partSize,
+        })
+      );
+    });
+
+    it("should copy a normal Buffer into a new SharedArrayBuffer", async () => {
+      const tm = new S3TransferManager({
+        s3: createMockClient(),
+        workerThreadCount: 2,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      }) as any;
+      const threadedMultipartUpload = vi.spyOn(tm, "threadedMultipartUpload").mockResolvedValue({ $metadata: {} });
+      const body = Buffer.from([1, 2, 3, 4]);
+
+      await tm.threadedUploadInParts(
+        { Bucket: "test-bucket", Key: "buffer-upload.bin", Body: body },
+        body.byteLength,
+        undefined,
+        true
+      );
+
+      const buildDataSource = threadedMultipartUpload.mock.calls[0][2] as (...args: any[]) => any;
+      const dataSource = buildDataSource();
+      expect(dataSource.sharedBuffer).not.toBe(body.buffer);
+      expect(dataSource.startOffset).toBe(0);
+      expect(Array.from(new Uint8Array(dataSource.sharedBuffer))).toEqual([1, 2, 3, 4]);
+    });
+
     it("should route string body to threadedUploadInParts when workerThreadCount > 1", async () => {
       const mockClient = createMockClient();
       const tm = new S3TransferManager({

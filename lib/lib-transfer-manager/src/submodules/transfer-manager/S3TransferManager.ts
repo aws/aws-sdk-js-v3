@@ -2859,9 +2859,10 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
   }
 
   /**
-   * Uploads using worker threads with in-memory data. Copies the user's Buffer
-   * zero-copy per part.
-   *
+   * Uploads in-memory data with worker threads.
+   * To avoid copying the whole input, pass a Buffer or Uint8Array created from
+   * a SharedArrayBuffer. Other input is copied to shared memory before workers
+   * upload it in parts.
    */
   private async threadedUploadInParts(
     request: UploadRequest,
@@ -2871,14 +2872,17 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
   ): Promise<CompleteMultipartUploadCommandOutput> {
     const { partSize } = this.calculatePartSize(contentLength);
     const body = request.Body as Uint8Array;
-
-    // One-time copy into SharedArrayBuffer so all workers can read by offset.
-    const sharedBuffer = new SharedArrayBuffer(body.byteLength);
-    new Uint8Array(sharedBuffer).set(body);
+    const isSharedBufferBody = body.buffer instanceof SharedArrayBuffer;
+    const sharedBuffer = isSharedBufferBody ? body.buffer : new SharedArrayBuffer(body.byteLength);
+    if (!isSharedBufferBody) {
+      new Uint8Array(sharedBuffer).set(body);
+    }
+    const startOffset = isSharedBufferBody ? body.byteOffset : 0;
 
     const buildDataSource = (checksumAlgorithm?: ChecksumAlgorithm, checksumHeader?: string): DataSource => ({
       type: "sharedBuffer",
       sharedBuffer,
+      startOffset,
       partSize,
       totalSize: contentLength,
       checksumAlgorithm,
