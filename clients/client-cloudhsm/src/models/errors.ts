@@ -8,6 +8,7 @@ import { CloudHSMServiceException as __BaseException } from "./CloudHSMServiceEx
  * @public
  */
 export class CloudHsmInternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudhsm#CloudHsmInternalException";
   readonly name = "CloudHsmInternalException" as const;
   readonly $fault = "server" as const;
   /**
@@ -35,6 +36,7 @@ export class CloudHsmInternalException extends __BaseException {
  * @public
  */
 export class CloudHsmServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudhsm#CloudHsmServiceException";
   readonly name = "CloudHsmServiceException" as const;
   readonly $fault = "client" as const;
   /**
@@ -62,6 +64,7 @@ export class CloudHsmServiceException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudhsm#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**

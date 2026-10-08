@@ -8,6 +8,7 @@ import { IvsServiceException as __BaseException } from "./IvsServiceException";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ivs#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +91,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ServiceUnavailable extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ivs#ServiceUnavailable";
   readonly name = "ServiceUnavailable" as const;
   readonly $fault = "server" as const;
   /**
@@ -172,6 +174,7 @@ export class ServiceUnavailable extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ivs#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -254,6 +257,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class PendingVerification extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ivs#PendingVerification";
   readonly name = "PendingVerification" as const;
   readonly $fault = "client" as const;
   /**
@@ -336,6 +340,7 @@ export class PendingVerification extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ivs#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -418,6 +423,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ivs#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -500,6 +506,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ivs#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -582,6 +589,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ivs#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -664,6 +672,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ivs#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -746,6 +755,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ChannelNotBroadcasting extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ivs#ChannelNotBroadcasting";
   readonly name = "ChannelNotBroadcasting" as const;
   readonly $fault = "client" as const;
   /**
@@ -828,6 +838,7 @@ export class ChannelNotBroadcasting extends __BaseException {
  * @public
  */
 export class StreamUnavailable extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ivs#StreamUnavailable";
   readonly name = "StreamUnavailable" as const;
   readonly $fault = "server" as const;
   /**

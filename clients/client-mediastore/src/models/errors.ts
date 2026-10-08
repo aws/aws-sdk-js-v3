@@ -9,6 +9,7 @@ import { MediaStoreServiceException as __BaseException } from "./MediaStoreServi
  * @public
  */
 export class ContainerInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediastore#ContainerInUseException";
   readonly name = "ContainerInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class ContainerInUseException extends __BaseException {
  * @public
  */
 export class ContainerNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediastore#ContainerNotFoundException";
   readonly name = "ContainerNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -53,6 +55,7 @@ export class ContainerNotFoundException extends __BaseException {
  * @public
  */
 export class CorsPolicyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediastore#CorsPolicyNotFoundException";
   readonly name = "CorsPolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -75,6 +78,7 @@ export class CorsPolicyNotFoundException extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediastore#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -97,6 +101,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediastore#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -119,6 +124,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class PolicyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediastore#PolicyNotFoundException";
   readonly name = "PolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from M2 service.
  */
 export class M2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.m2#M2ServiceException";
   /**
    * @internal
    */

@@ -9,6 +9,7 @@ import { STSServiceException as __BaseException } from "./STSServiceException";
  * @public
  */
 export class ExpiredTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sts#ExpiredTokenException";
   readonly name = "ExpiredTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class ExpiredTokenException extends __BaseException {
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sts#MalformedPolicyDocumentException";
   readonly name = "MalformedPolicyDocumentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -58,6 +60,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
  * @public
  */
 export class PackedPolicyTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sts#PackedPolicyTooLargeException";
   readonly name = "PackedPolicyTooLargeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -81,6 +84,7 @@ export class PackedPolicyTooLargeException extends __BaseException {
  * @public
  */
 export class RegionDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sts#RegionDisabledException";
   readonly name = "RegionDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -104,6 +108,7 @@ export class RegionDisabledException extends __BaseException {
  * @public
  */
 export class IDPRejectedClaimException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sts#IDPRejectedClaimException";
   readonly name = "IDPRejectedClaimException" as const;
   readonly $fault = "client" as const;
   /**
@@ -125,6 +130,7 @@ export class IDPRejectedClaimException extends __BaseException {
  * @public
  */
 export class InvalidIdentityTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sts#InvalidIdentityTokenException";
   readonly name = "InvalidIdentityTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -149,6 +155,7 @@ export class InvalidIdentityTokenException extends __BaseException {
  * @public
  */
 export class IDPCommunicationErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sts#IDPCommunicationErrorException";
   readonly name = "IDPCommunicationErrorException" as const;
   readonly $fault = "client" as const;
   $retryable = {};

@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from EchoService service.
  */
 export class EchoServiceServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.aws.test.generic#EchoServiceServiceException";
   /**
    * @internal
    */

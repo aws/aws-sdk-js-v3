@@ -11,6 +11,7 @@ import type { InvalidRequestDetail } from "./models_0";
  * @public
  */
 export class BatchSizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#BatchSizeLimitExceededException";
   readonly name = "BatchSizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -33,6 +34,7 @@ export class BatchSizeLimitExceededException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -55,6 +57,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -85,6 +88,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class TextSizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#TextSizeLimitExceededException";
   readonly name = "TextSizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -109,6 +113,7 @@ export class TextSizeLimitExceededException extends __BaseException {
  * @public
  */
 export class UnsupportedLanguageException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#UnsupportedLanguageException";
   readonly name = "UnsupportedLanguageException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -132,6 +137,7 @@ export class UnsupportedLanguageException extends __BaseException {
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#ResourceUnavailableException";
   readonly name = "ResourceUnavailableException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -155,6 +161,7 @@ export class ResourceUnavailableException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -178,6 +185,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#ResourceLimitExceededException";
   readonly name = "ResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -200,6 +208,7 @@ export class ResourceLimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -222,6 +231,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -246,6 +256,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -269,6 +280,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class KmsKeyValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#KmsKeyValidationException";
   readonly name = "KmsKeyValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -291,6 +303,7 @@ export class KmsKeyValidationException extends __BaseException {
  * @public
  */
 export class JobNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#JobNotFoundException";
   readonly name = "JobNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -314,6 +327,7 @@ export class JobNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidFilterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#InvalidFilterException";
   readonly name = "InvalidFilterException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -337,6 +351,7 @@ export class InvalidFilterException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -360,6 +375,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class TooManyTagKeysException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehend#TooManyTagKeysException";
   readonly name = "TooManyTagKeysException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

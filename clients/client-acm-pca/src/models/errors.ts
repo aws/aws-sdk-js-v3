@@ -8,6 +8,7 @@ import { ACMPCAServiceException as __BaseException } from "./ACMPCAServiceExcept
  * @public
  */
 export class InvalidArgsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#InvalidArgsException";
   readonly name = "InvalidArgsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class InvalidArgsException extends __BaseException {
  * @public
  */
 export class InvalidPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#InvalidPolicyException";
   readonly name = "InvalidPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class InvalidPolicyException extends __BaseException {
  * @public
  */
 export class InvalidTagException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#InvalidTagException";
   readonly name = "InvalidTagException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class InvalidTagException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#InvalidArnException";
   readonly name = "InvalidArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class InvalidArnException extends __BaseException {
  * @public
  */
 export class InvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#InvalidStateException";
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class InvalidStateException extends __BaseException {
  * @public
  */
 export class RequestFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#RequestFailedException";
   readonly name = "RequestFailedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,6 +155,7 @@ export class RequestFailedException extends __BaseException {
  * @public
  */
 export class RequestInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#RequestInProgressException";
   readonly name = "RequestInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -168,6 +176,7 @@ export class RequestInProgressException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -188,6 +197,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class PermissionAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#PermissionAlreadyExistsException";
   readonly name = "PermissionAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -208,6 +218,7 @@ export class PermissionAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -228,6 +239,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class LockoutPreventedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#LockoutPreventedException";
   readonly name = "LockoutPreventedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -248,6 +260,7 @@ export class LockoutPreventedException extends __BaseException {
  * @public
  */
 export class CertificateMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#CertificateMismatchException";
   readonly name = "CertificateMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -268,6 +281,7 @@ export class CertificateMismatchException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -288,6 +302,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class MalformedCertificateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#MalformedCertificateException";
   readonly name = "MalformedCertificateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -308,6 +323,7 @@ export class MalformedCertificateException extends __BaseException {
  * @public
  */
 export class MalformedCSRException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#MalformedCSRException";
   readonly name = "MalformedCSRException" as const;
   readonly $fault = "client" as const;
   /**
@@ -328,6 +344,7 @@ export class MalformedCSRException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -348,6 +365,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class RequestAlreadyProcessedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#RequestAlreadyProcessedException";
   readonly name = "RequestAlreadyProcessedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -368,6 +386,7 @@ export class RequestAlreadyProcessedException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acmpca#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**

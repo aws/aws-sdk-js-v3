@@ -9,6 +9,7 @@ import { RedshiftServiceException as __BaseException } from "./RedshiftServiceEx
  * @public
  */
 export class DependentServiceUnavailableFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#DependentServiceUnavailableFault";
   readonly name = "DependentServiceUnavailableFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class DependentServiceUnavailableFault extends __BaseException {
  * @public
  */
 export class InvalidReservedNodeStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidReservedNodeStateFault";
   readonly name = "InvalidReservedNodeStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -49,6 +51,7 @@ export class InvalidReservedNodeStateFault extends __BaseException {
  * @public
  */
 export class ReservedNodeAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault";
   readonly name = "ReservedNodeAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -69,6 +72,7 @@ export class ReservedNodeAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ReservedNodeAlreadyMigratedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault";
   readonly name = "ReservedNodeAlreadyMigratedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class ReservedNodeAlreadyMigratedFault extends __BaseException {
  * @public
  */
 export class ReservedNodeNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ReservedNodeNotFoundFault";
   readonly name = "ReservedNodeNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class ReservedNodeNotFoundFault extends __BaseException {
  * @public
  */
 export class ReservedNodeOfferingNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault";
   readonly name = "ReservedNodeOfferingNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -129,6 +135,7 @@ export class ReservedNodeOfferingNotFoundFault extends __BaseException {
  * @public
  */
 export class UnsupportedOperationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#UnsupportedOperationFault";
   readonly name = "UnsupportedOperationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -149,6 +156,7 @@ export class UnsupportedOperationFault extends __BaseException {
  * @public
  */
 export class AccessToClusterDeniedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#AccessToClusterDeniedFault";
   readonly name = "AccessToClusterDeniedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -170,6 +178,7 @@ export class AccessToClusterDeniedFault extends __BaseException {
  * @public
  */
 export class AccessToSnapshotDeniedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#AccessToSnapshotDeniedFault";
   readonly name = "AccessToSnapshotDeniedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -191,6 +200,7 @@ export class AccessToSnapshotDeniedFault extends __BaseException {
  * @public
  */
 export class ClusterNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterNotFoundFault";
   readonly name = "ClusterNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -211,6 +221,7 @@ export class ClusterNotFoundFault extends __BaseException {
  * @public
  */
 export class PartnerNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#PartnerNotFoundFault";
   readonly name = "PartnerNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -231,6 +242,7 @@ export class PartnerNotFoundFault extends __BaseException {
  * @public
  */
 export class UnauthorizedPartnerIntegrationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault";
   readonly name = "UnauthorizedPartnerIntegrationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -251,6 +263,7 @@ export class UnauthorizedPartnerIntegrationFault extends __BaseException {
  * @public
  */
 export class InvalidDataShareFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidDataShareFault";
   readonly name = "InvalidDataShareFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -271,6 +284,7 @@ export class InvalidDataShareFault extends __BaseException {
  * @public
  */
 export class InvalidNamespaceFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidNamespaceFault";
   readonly name = "InvalidNamespaceFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -291,6 +305,7 @@ export class InvalidNamespaceFault extends __BaseException {
  * @public
  */
 export class AuthenticationProfileAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#AuthenticationProfileAlreadyExistsFault";
   readonly name = "AuthenticationProfileAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -311,6 +326,7 @@ export class AuthenticationProfileAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class AuthenticationProfileNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#AuthenticationProfileNotFoundFault";
   readonly name = "AuthenticationProfileNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -332,6 +348,7 @@ export class AuthenticationProfileNotFoundFault extends __BaseException {
  * @public
  */
 export class AuthenticationProfileQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#AuthenticationProfileQuotaExceededFault";
   readonly name = "AuthenticationProfileQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -353,6 +370,7 @@ export class AuthenticationProfileQuotaExceededFault extends __BaseException {
  * @public
  */
 export class AuthorizationAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#AuthorizationAlreadyExistsFault";
   readonly name = "AuthorizationAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -374,6 +392,7 @@ export class AuthorizationAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class AuthorizationNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#AuthorizationNotFoundFault";
   readonly name = "AuthorizationNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -394,6 +413,7 @@ export class AuthorizationNotFoundFault extends __BaseException {
  * @public
  */
 export class AuthorizationQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#AuthorizationQuotaExceededFault";
   readonly name = "AuthorizationQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -415,6 +435,7 @@ export class AuthorizationQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ClusterSecurityGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault";
   readonly name = "ClusterSecurityGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -435,6 +456,7 @@ export class ClusterSecurityGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidClusterSecurityGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault";
   readonly name = "InvalidClusterSecurityGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -455,6 +477,7 @@ export class InvalidClusterSecurityGroupStateFault extends __BaseException {
  * @public
  */
 export class EndpointAuthorizationAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#EndpointAuthorizationAlreadyExistsFault";
   readonly name = "EndpointAuthorizationAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -475,6 +498,7 @@ export class EndpointAuthorizationAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class EndpointAuthorizationsPerClusterLimitExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#EndpointAuthorizationsPerClusterLimitExceededFault";
   readonly name = "EndpointAuthorizationsPerClusterLimitExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -495,6 +519,7 @@ export class EndpointAuthorizationsPerClusterLimitExceededFault extends __BaseEx
  * @public
  */
 export class InvalidAuthorizationStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidAuthorizationStateFault";
   readonly name = "InvalidAuthorizationStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -515,6 +540,7 @@ export class InvalidAuthorizationStateFault extends __BaseException {
  * @public
  */
 export class InvalidClusterStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidClusterStateFault";
   readonly name = "InvalidClusterStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -535,6 +561,7 @@ export class InvalidClusterStateFault extends __BaseException {
  * @public
  */
 export class ClusterSnapshotNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterSnapshotNotFoundFault";
   readonly name = "ClusterSnapshotNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -556,6 +583,7 @@ export class ClusterSnapshotNotFoundFault extends __BaseException {
  * @public
  */
 export class DependentServiceRequestThrottlingFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#DependentServiceRequestThrottlingFault";
   readonly name = "DependentServiceRequestThrottlingFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -577,6 +605,7 @@ export class DependentServiceRequestThrottlingFault extends __BaseException {
  * @public
  */
 export class InvalidClusterSnapshotStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidClusterSnapshotStateFault";
   readonly name = "InvalidClusterSnapshotStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -597,6 +626,7 @@ export class InvalidClusterSnapshotStateFault extends __BaseException {
  * @public
  */
 export class LimitExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#LimitExceededFault";
   readonly name = "LimitExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -618,6 +648,7 @@ export class LimitExceededFault extends __BaseException {
  * @public
  */
 export class BatchDeleteRequestSizeExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#BatchDeleteRequestSizeExceededFault";
   readonly name = "BatchDeleteRequestSizeExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -639,6 +670,7 @@ export class BatchDeleteRequestSizeExceededFault extends __BaseException {
  * @public
  */
 export class BatchModifyClusterSnapshotsLimitExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#BatchModifyClusterSnapshotsLimitExceededFault";
   readonly name = "BatchModifyClusterSnapshotsLimitExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -660,6 +692,7 @@ export class BatchModifyClusterSnapshotsLimitExceededFault extends __BaseExcepti
  * @public
  */
 export class InvalidRetentionPeriodFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidRetentionPeriodFault";
   readonly name = "InvalidRetentionPeriodFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -680,6 +713,7 @@ export class InvalidRetentionPeriodFault extends __BaseException {
  * @public
  */
 export class BucketNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#BucketNotFoundFault";
   readonly name = "BucketNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -700,6 +734,7 @@ export class BucketNotFoundFault extends __BaseException {
  * @public
  */
 export class ResizeNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ResizeNotFoundFault";
   readonly name = "ResizeNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -720,6 +755,7 @@ export class ResizeNotFoundFault extends __BaseException {
  * @public
  */
 export class ClusterAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterAlreadyExistsFault";
   readonly name = "ClusterAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -740,6 +776,7 @@ export class ClusterAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ClusterOnLatestRevisionFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterOnLatestRevisionFault";
   readonly name = "ClusterOnLatestRevisionFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -760,6 +797,7 @@ export class ClusterOnLatestRevisionFault extends __BaseException {
  * @public
  */
 export class ClusterParameterGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterParameterGroupAlreadyExistsFault";
   readonly name = "ClusterParameterGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -780,6 +818,7 @@ export class ClusterParameterGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ClusterParameterGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault";
   readonly name = "ClusterParameterGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -804,6 +843,7 @@ export class ClusterParameterGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class ClusterParameterGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterParameterGroupQuotaExceededFault";
   readonly name = "ClusterParameterGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -828,6 +868,7 @@ export class ClusterParameterGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ClusterQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterQuotaExceededFault";
   readonly name = "ClusterQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -848,6 +889,7 @@ export class ClusterQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ClusterSecurityGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterSecurityGroupAlreadyExistsFault";
   readonly name = "ClusterSecurityGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -872,6 +914,7 @@ export class ClusterSecurityGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ClusterSecurityGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterSecurityGroupQuotaExceededFault";
   readonly name = "ClusterSecurityGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -893,6 +936,7 @@ export class ClusterSecurityGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ClusterSnapshotAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault";
   readonly name = "ClusterSnapshotAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -914,6 +958,7 @@ export class ClusterSnapshotAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ClusterSnapshotQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterSnapshotQuotaExceededFault";
   readonly name = "ClusterSnapshotQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -935,6 +980,7 @@ export class ClusterSnapshotQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ClusterSubnetGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterSubnetGroupAlreadyExistsFault";
   readonly name = "ClusterSubnetGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -956,6 +1002,7 @@ export class ClusterSubnetGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ClusterSubnetGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault";
   readonly name = "ClusterSubnetGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -980,6 +1027,7 @@ export class ClusterSubnetGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class ClusterSubnetGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterSubnetGroupQuotaExceededFault";
   readonly name = "ClusterSubnetGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1004,6 +1052,7 @@ export class ClusterSubnetGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ClusterSubnetQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ClusterSubnetQuotaExceededFault";
   readonly name = "ClusterSubnetQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1024,6 +1073,7 @@ export class ClusterSubnetQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ConflictPolicyUpdateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ConflictPolicyUpdateFault";
   readonly name = "ConflictPolicyUpdateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1045,6 +1095,7 @@ export class ConflictPolicyUpdateFault extends __BaseException {
  * @public
  */
 export class CopyToRegionDisabledFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#CopyToRegionDisabledFault";
   readonly name = "CopyToRegionDisabledFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1066,6 +1117,7 @@ export class CopyToRegionDisabledFault extends __BaseException {
  * @public
  */
 export class InvalidAuthenticationProfileRequestFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidAuthenticationProfileRequestFault";
   readonly name = "InvalidAuthenticationProfileRequestFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1086,6 +1138,7 @@ export class InvalidAuthenticationProfileRequestFault extends __BaseException {
  * @public
  */
 export class DependentServiceAccessDeniedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#DependentServiceAccessDeniedFault";
   readonly name = "DependentServiceAccessDeniedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1107,6 +1160,7 @@ export class DependentServiceAccessDeniedFault extends __BaseException {
  * @public
  */
 export class HsmClientCertificateNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#HsmClientCertificateNotFoundFault";
   readonly name = "HsmClientCertificateNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1127,6 +1181,7 @@ export class HsmClientCertificateNotFoundFault extends __BaseException {
  * @public
  */
 export class HsmConfigurationNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#HsmConfigurationNotFoundFault";
   readonly name = "HsmConfigurationNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1148,6 +1203,7 @@ export class HsmConfigurationNotFoundFault extends __BaseException {
  * @public
  */
 export class InsufficientClusterCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InsufficientClusterCapacityFault";
   readonly name = "InsufficientClusterCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1168,6 +1224,7 @@ export class InsufficientClusterCapacityFault extends __BaseException {
  * @public
  */
 export class InvalidClusterSubnetGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidClusterSubnetGroupStateFault";
   readonly name = "InvalidClusterSubnetGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1188,6 +1245,7 @@ export class InvalidClusterSubnetGroupStateFault extends __BaseException {
  * @public
  */
 export class InvalidClusterTrackFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidClusterTrackFault";
   readonly name = "InvalidClusterTrackFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1208,6 +1266,7 @@ export class InvalidClusterTrackFault extends __BaseException {
  * @public
  */
 export class InvalidElasticIpFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidElasticIpFault";
   readonly name = "InvalidElasticIpFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1229,6 +1288,7 @@ export class InvalidElasticIpFault extends __BaseException {
  * @public
  */
 export class InvalidSubnet extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidSubnet";
   readonly name = "InvalidSubnet" as const;
   readonly $fault = "client" as const;
   /**
@@ -1249,6 +1309,7 @@ export class InvalidSubnet extends __BaseException {
  * @public
  */
 export class InvalidTagFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidTagFault";
   readonly name = "InvalidTagFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1269,6 +1330,7 @@ export class InvalidTagFault extends __BaseException {
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidVPCNetworkStateFault";
   readonly name = "InvalidVPCNetworkStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1290,6 +1352,7 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
  * @public
  */
 export class Ipv6CidrBlockNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#Ipv6CidrBlockNotFoundFault";
   readonly name = "Ipv6CidrBlockNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1310,6 +1373,7 @@ export class Ipv6CidrBlockNotFoundFault extends __BaseException {
  * @public
  */
 export class NumberOfNodesPerClusterLimitExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault";
   readonly name = "NumberOfNodesPerClusterLimitExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1334,6 +1398,7 @@ export class NumberOfNodesPerClusterLimitExceededFault extends __BaseException {
  * @public
  */
 export class NumberOfNodesQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault";
   readonly name = "NumberOfNodesQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1354,6 +1419,7 @@ export class NumberOfNodesQuotaExceededFault extends __BaseException {
  * @public
  */
 export class RedshiftIdcApplicationNotExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#RedshiftIdcApplicationNotExistsFault";
   readonly name = "RedshiftIdcApplicationNotExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1374,6 +1440,7 @@ export class RedshiftIdcApplicationNotExistsFault extends __BaseException {
  * @public
  */
 export class SnapshotScheduleNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SnapshotScheduleNotFoundFault";
   readonly name = "SnapshotScheduleNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1394,6 +1461,7 @@ export class SnapshotScheduleNotFoundFault extends __BaseException {
  * @public
  */
 export class TagLimitExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#TagLimitExceededFault";
   readonly name = "TagLimitExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1414,6 +1482,7 @@ export class TagLimitExceededFault extends __BaseException {
  * @public
  */
 export class UnauthorizedOperation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#UnauthorizedOperation";
   readonly name = "UnauthorizedOperation" as const;
   readonly $fault = "client" as const;
   /**
@@ -1434,6 +1503,7 @@ export class UnauthorizedOperation extends __BaseException {
  * @public
  */
 export class CustomCnameAssociationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#CustomCnameAssociationFault";
   readonly name = "CustomCnameAssociationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1454,6 +1524,7 @@ export class CustomCnameAssociationFault extends __BaseException {
  * @public
  */
 export class EndpointAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#EndpointAlreadyExistsFault";
   readonly name = "EndpointAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1474,6 +1545,7 @@ export class EndpointAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class EndpointsPerAuthorizationLimitExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#EndpointsPerAuthorizationLimitExceededFault";
   readonly name = "EndpointsPerAuthorizationLimitExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1494,6 +1566,7 @@ export class EndpointsPerAuthorizationLimitExceededFault extends __BaseException
  * @public
  */
 export class EndpointsPerClusterLimitExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#EndpointsPerClusterLimitExceededFault";
   readonly name = "EndpointsPerClusterLimitExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1518,6 +1591,7 @@ export class EndpointsPerClusterLimitExceededFault extends __BaseException {
  * @public
  */
 export class EventSubscriptionQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#EventSubscriptionQuotaExceededFault";
   readonly name = "EventSubscriptionQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1539,6 +1613,7 @@ export class EventSubscriptionQuotaExceededFault extends __BaseException {
  * @public
  */
 export class SNSInvalidTopicFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SNSInvalidTopicFault";
   readonly name = "SNSInvalidTopicFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1559,6 +1634,7 @@ export class SNSInvalidTopicFault extends __BaseException {
  * @public
  */
 export class SNSNoAuthorizationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SNSNoAuthorizationFault";
   readonly name = "SNSNoAuthorizationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1580,6 +1656,7 @@ export class SNSNoAuthorizationFault extends __BaseException {
  * @public
  */
 export class SNSTopicArnNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SNSTopicArnNotFoundFault";
   readonly name = "SNSTopicArnNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1600,6 +1677,7 @@ export class SNSTopicArnNotFoundFault extends __BaseException {
  * @public
  */
 export class SourceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SourceNotFoundFault";
   readonly name = "SourceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1621,6 +1699,7 @@ export class SourceNotFoundFault extends __BaseException {
  * @public
  */
 export class SubscriptionAlreadyExistFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SubscriptionAlreadyExistFault";
   readonly name = "SubscriptionAlreadyExistFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1643,6 +1722,7 @@ export class SubscriptionAlreadyExistFault extends __BaseException {
  * @public
  */
 export class SubscriptionCategoryNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SubscriptionCategoryNotFoundFault";
   readonly name = "SubscriptionCategoryNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1663,6 +1743,7 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
  * @public
  */
 export class SubscriptionEventIdNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SubscriptionEventIdNotFoundFault";
   readonly name = "SubscriptionEventIdNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1685,6 +1766,7 @@ export class SubscriptionEventIdNotFoundFault extends __BaseException {
  * @public
  */
 export class SubscriptionSeverityNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SubscriptionSeverityNotFoundFault";
   readonly name = "SubscriptionSeverityNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1706,6 +1788,7 @@ export class SubscriptionSeverityNotFoundFault extends __BaseException {
  * @public
  */
 export class HsmClientCertificateAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#HsmClientCertificateAlreadyExistsFault";
   readonly name = "HsmClientCertificateAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1729,6 +1812,7 @@ export class HsmClientCertificateAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class HsmClientCertificateQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#HsmClientCertificateQuotaExceededFault";
   readonly name = "HsmClientCertificateQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1750,6 +1834,7 @@ export class HsmClientCertificateQuotaExceededFault extends __BaseException {
  * @public
  */
 export class HsmConfigurationAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#HsmConfigurationAlreadyExistsFault";
   readonly name = "HsmConfigurationAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1773,6 +1858,7 @@ export class HsmConfigurationAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class HsmConfigurationQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#HsmConfigurationQuotaExceededFault";
   readonly name = "HsmConfigurationQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1793,6 +1879,7 @@ export class HsmConfigurationQuotaExceededFault extends __BaseException {
  * @public
  */
 export class IntegrationAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#IntegrationAlreadyExistsFault";
   readonly name = "IntegrationAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1815,6 +1902,7 @@ export class IntegrationAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class IntegrationConflictOperationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#IntegrationConflictOperationFault";
   readonly name = "IntegrationConflictOperationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1835,6 +1923,7 @@ export class IntegrationConflictOperationFault extends __BaseException {
  * @public
  */
 export class IntegrationQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#IntegrationQuotaExceededFault";
   readonly name = "IntegrationQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1855,6 +1944,7 @@ export class IntegrationQuotaExceededFault extends __BaseException {
  * @public
  */
 export class IntegrationSourceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#IntegrationSourceNotFoundFault";
   readonly name = "IntegrationSourceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1875,6 +1965,7 @@ export class IntegrationSourceNotFoundFault extends __BaseException {
  * @public
  */
 export class IntegrationTargetNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#IntegrationTargetNotFoundFault";
   readonly name = "IntegrationTargetNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1895,6 +1986,7 @@ export class IntegrationTargetNotFoundFault extends __BaseException {
  * @public
  */
 export class Qev2IdcApplicationAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#Qev2IdcApplicationAlreadyExistsFault";
   readonly name = "Qev2IdcApplicationAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1915,6 +2007,7 @@ export class Qev2IdcApplicationAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class RedshiftIdcApplicationAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#RedshiftIdcApplicationAlreadyExistsFault";
   readonly name = "RedshiftIdcApplicationAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1935,6 +2028,7 @@ export class RedshiftIdcApplicationAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class RedshiftIdcApplicationQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#RedshiftIdcApplicationQuotaExceededFault";
   readonly name = "RedshiftIdcApplicationQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1955,6 +2049,7 @@ export class RedshiftIdcApplicationQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InvalidScheduledActionFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidScheduledActionFault";
   readonly name = "InvalidScheduledActionFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1975,6 +2070,7 @@ export class InvalidScheduledActionFault extends __BaseException {
  * @public
  */
 export class InvalidScheduleFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidScheduleFault";
   readonly name = "InvalidScheduleFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1995,6 +2091,7 @@ export class InvalidScheduleFault extends __BaseException {
  * @public
  */
 export class ScheduledActionAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ScheduledActionAlreadyExistsFault";
   readonly name = "ScheduledActionAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2015,6 +2112,7 @@ export class ScheduledActionAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class ScheduledActionQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ScheduledActionQuotaExceededFault";
   readonly name = "ScheduledActionQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2035,6 +2133,7 @@ export class ScheduledActionQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ScheduledActionTypeUnsupportedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ScheduledActionTypeUnsupportedFault";
   readonly name = "ScheduledActionTypeUnsupportedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2056,6 +2155,7 @@ export class ScheduledActionTypeUnsupportedFault extends __BaseException {
  * @public
  */
 export class SnapshotCopyGrantAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SnapshotCopyGrantAlreadyExistsFault";
   readonly name = "SnapshotCopyGrantAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2077,6 +2177,7 @@ export class SnapshotCopyGrantAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class SnapshotCopyGrantQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SnapshotCopyGrantQuotaExceededFault";
   readonly name = "SnapshotCopyGrantQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2097,6 +2198,7 @@ export class SnapshotCopyGrantQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ScheduleDefinitionTypeUnsupportedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ScheduleDefinitionTypeUnsupportedFault";
   readonly name = "ScheduleDefinitionTypeUnsupportedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2117,6 +2219,7 @@ export class ScheduleDefinitionTypeUnsupportedFault extends __BaseException {
  * @public
  */
 export class SnapshotScheduleAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SnapshotScheduleAlreadyExistsFault";
   readonly name = "SnapshotScheduleAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2137,6 +2240,7 @@ export class SnapshotScheduleAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class SnapshotScheduleQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SnapshotScheduleQuotaExceededFault";
   readonly name = "SnapshotScheduleQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2157,6 +2261,7 @@ export class SnapshotScheduleQuotaExceededFault extends __BaseException {
  * @public
  */
 export class ResourceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ResourceNotFoundFault";
   readonly name = "ResourceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2177,6 +2282,7 @@ export class ResourceNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidUsageLimitFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidUsageLimitFault";
   readonly name = "InvalidUsageLimitFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2197,6 +2303,7 @@ export class InvalidUsageLimitFault extends __BaseException {
  * @public
  */
 export class UsageLimitAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#UsageLimitAlreadyExistsFault";
   readonly name = "UsageLimitAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2217,6 +2324,7 @@ export class UsageLimitAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class CustomDomainAssociationNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#CustomDomainAssociationNotFoundFault";
   readonly name = "CustomDomainAssociationNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2239,6 +2347,7 @@ export class CustomDomainAssociationNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidClusterParameterGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidClusterParameterGroupStateFault";
   readonly name = "InvalidClusterParameterGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2259,6 +2368,7 @@ export class InvalidClusterParameterGroupStateFault extends __BaseException {
  * @public
  */
 export class InvalidClusterSubnetStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidClusterSubnetStateFault";
   readonly name = "InvalidClusterSubnetStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2279,6 +2389,7 @@ export class InvalidClusterSubnetStateFault extends __BaseException {
  * @public
  */
 export class EndpointNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#EndpointNotFoundFault";
   readonly name = "EndpointNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2299,6 +2410,7 @@ export class EndpointNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidEndpointStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidEndpointStateFault";
   readonly name = "InvalidEndpointStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2320,6 +2432,7 @@ export class InvalidEndpointStateFault extends __BaseException {
  * @public
  */
 export class InvalidSubscriptionStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidSubscriptionStateFault";
   readonly name = "InvalidSubscriptionStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2341,6 +2454,7 @@ export class InvalidSubscriptionStateFault extends __BaseException {
  * @public
  */
 export class SubscriptionNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SubscriptionNotFoundFault";
   readonly name = "SubscriptionNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2362,6 +2476,7 @@ export class SubscriptionNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidHsmClientCertificateStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidHsmClientCertificateStateFault";
   readonly name = "InvalidHsmClientCertificateStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2383,6 +2498,7 @@ export class InvalidHsmClientCertificateStateFault extends __BaseException {
  * @public
  */
 export class InvalidHsmConfigurationStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidHsmConfigurationStateFault";
   readonly name = "InvalidHsmConfigurationStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2403,6 +2519,7 @@ export class InvalidHsmConfigurationStateFault extends __BaseException {
  * @public
  */
 export class IntegrationConflictStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#IntegrationConflictStateFault";
   readonly name = "IntegrationConflictStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2423,6 +2540,7 @@ export class IntegrationConflictStateFault extends __BaseException {
  * @public
  */
 export class IntegrationNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#IntegrationNotFoundFault";
   readonly name = "IntegrationNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2443,6 +2561,7 @@ export class IntegrationNotFoundFault extends __BaseException {
  * @public
  */
 export class Qev2IdcApplicationNotExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#Qev2IdcApplicationNotExistsFault";
   readonly name = "Qev2IdcApplicationNotExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2463,6 +2582,7 @@ export class Qev2IdcApplicationNotExistsFault extends __BaseException {
  * @public
  */
 export class ScheduledActionNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ScheduledActionNotFoundFault";
   readonly name = "ScheduledActionNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2484,6 +2604,7 @@ export class ScheduledActionNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidSnapshotCopyGrantStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidSnapshotCopyGrantStateFault";
   readonly name = "InvalidSnapshotCopyGrantStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2505,6 +2626,7 @@ export class InvalidSnapshotCopyGrantStateFault extends __BaseException {
  * @public
  */
 export class SnapshotCopyGrantNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SnapshotCopyGrantNotFoundFault";
   readonly name = "SnapshotCopyGrantNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2525,6 +2647,7 @@ export class SnapshotCopyGrantNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidClusterSnapshotScheduleStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidClusterSnapshotScheduleStateFault";
   readonly name = "InvalidClusterSnapshotScheduleStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2545,6 +2668,7 @@ export class InvalidClusterSnapshotScheduleStateFault extends __BaseException {
  * @public
  */
 export class UsageLimitNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#UsageLimitNotFoundFault";
   readonly name = "UsageLimitNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2565,6 +2689,7 @@ export class UsageLimitNotFoundFault extends __BaseException {
  * @public
  */
 export class ReservedNodeExchangeNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ReservedNodeExchangeNotFoundFault";
   readonly name = "ReservedNodeExchangeNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2585,6 +2710,7 @@ export class ReservedNodeExchangeNotFoundFault extends __BaseException {
  * @public
  */
 export class TableRestoreNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#TableRestoreNotFoundFault";
   readonly name = "TableRestoreNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2605,6 +2731,7 @@ export class TableRestoreNotFoundFault extends __BaseException {
  * @public
  */
 export class SnapshotCopyAlreadyDisabledFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SnapshotCopyAlreadyDisabledFault";
   readonly name = "SnapshotCopyAlreadyDisabledFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2626,6 +2753,7 @@ export class SnapshotCopyAlreadyDisabledFault extends __BaseException {
  * @public
  */
 export class InsufficientS3BucketPolicyFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InsufficientS3BucketPolicyFault";
   readonly name = "InsufficientS3BucketPolicyFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2649,6 +2777,7 @@ export class InsufficientS3BucketPolicyFault extends __BaseException {
  * @public
  */
 export class InvalidS3BucketNameFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidS3BucketNameFault";
   readonly name = "InvalidS3BucketNameFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2670,6 +2799,7 @@ export class InvalidS3BucketNameFault extends __BaseException {
  * @public
  */
 export class InvalidS3KeyPrefixFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidS3KeyPrefixFault";
   readonly name = "InvalidS3KeyPrefixFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2690,6 +2820,7 @@ export class InvalidS3KeyPrefixFault extends __BaseException {
  * @public
  */
 export class IncompatibleOrderableOptions extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#IncompatibleOrderableOptions";
   readonly name = "IncompatibleOrderableOptions" as const;
   readonly $fault = "client" as const;
   /**
@@ -2710,6 +2841,7 @@ export class IncompatibleOrderableOptions extends __BaseException {
  * @public
  */
 export class SnapshotCopyAlreadyEnabledFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SnapshotCopyAlreadyEnabledFault";
   readonly name = "SnapshotCopyAlreadyEnabledFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2730,6 +2862,7 @@ export class SnapshotCopyAlreadyEnabledFault extends __BaseException {
  * @public
  */
 export class UnknownSnapshotCopyRegionFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#UnknownSnapshotCopyRegionFault";
   readonly name = "UnknownSnapshotCopyRegionFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2750,6 +2883,7 @@ export class UnknownSnapshotCopyRegionFault extends __BaseException {
  * @public
  */
 export class EndpointAuthorizationNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#EndpointAuthorizationNotFoundFault";
   readonly name = "EndpointAuthorizationNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2773,6 +2907,7 @@ export class EndpointAuthorizationNotFoundFault extends __BaseException {
  * @public
  */
 export class RedshiftInvalidParameterFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#RedshiftInvalidParameterFault";
   readonly name = "RedshiftInvalidParameterFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2793,6 +2928,7 @@ export class RedshiftInvalidParameterFault extends __BaseException {
  * @public
  */
 export class InvalidPolicyFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidPolicyFault";
   readonly name = "InvalidPolicyFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2814,6 +2950,7 @@ export class InvalidPolicyFault extends __BaseException {
  * @public
  */
 export class InProgressTableRestoreQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InProgressTableRestoreQuotaExceededFault";
   readonly name = "InProgressTableRestoreQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2834,6 +2971,7 @@ export class InProgressTableRestoreQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InvalidRestoreFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidRestoreFault";
   readonly name = "InvalidRestoreFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2856,6 +2994,7 @@ export class InvalidRestoreFault extends __BaseException {
  * @public
  */
 export class InvalidTableRestoreArgumentFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#InvalidTableRestoreArgumentFault";
   readonly name = "InvalidTableRestoreArgumentFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2877,6 +3016,7 @@ export class InvalidTableRestoreArgumentFault extends __BaseException {
  * @public
  */
 export class TableLimitExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#TableLimitExceededFault";
   readonly name = "TableLimitExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2897,6 +3037,7 @@ export class TableLimitExceededFault extends __BaseException {
  * @public
  */
 export class UnsupportedOptionFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#UnsupportedOptionFault";
   readonly name = "UnsupportedOptionFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2917,6 +3058,7 @@ export class UnsupportedOptionFault extends __BaseException {
  * @public
  */
 export class SubnetAlreadyInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SubnetAlreadyInUse";
   readonly name = "SubnetAlreadyInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -2938,6 +3080,7 @@ export class SubnetAlreadyInUse extends __BaseException {
  * @public
  */
 export class SnapshotCopyDisabledFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SnapshotCopyDisabledFault";
   readonly name = "SnapshotCopyDisabledFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2958,6 +3101,7 @@ export class SnapshotCopyDisabledFault extends __BaseException {
  * @public
  */
 export class SnapshotScheduleUpdateInProgressFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#SnapshotScheduleUpdateInProgressFault";
   readonly name = "SnapshotScheduleUpdateInProgressFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -2981,6 +3125,7 @@ export class SnapshotScheduleUpdateInProgressFault extends __BaseException {
  * @public
  */
 export class ReservedNodeQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshift#ReservedNodeQuotaExceededFault";
   readonly name = "ReservedNodeQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**

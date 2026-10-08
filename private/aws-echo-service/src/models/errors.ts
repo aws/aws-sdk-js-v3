@@ -8,6 +8,7 @@ import { EchoServiceServiceException as __BaseException } from "./EchoServiceSer
  * @public
  */
 export class PalindromeException extends __BaseException {
+  public static readonly shapeId: string = "aws.test.generic#PalindromeException";
   readonly name = "PalindromeException" as const;
   readonly $fault = "client" as const;
   /**

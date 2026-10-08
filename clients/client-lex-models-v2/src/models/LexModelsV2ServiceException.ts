@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from LexModelsV2 service.
  */
 export class LexModelsV2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.lexmodelsv2#LexModelsV2ServiceException";
   /**
    * @internal
    */

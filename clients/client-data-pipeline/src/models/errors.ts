@@ -8,6 +8,7 @@ import { DataPipelineServiceException as __BaseException } from "./DataPipelineS
  * @public
  */
 export class InternalServiceError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.datapipeline#InternalServiceError";
   readonly name = "InternalServiceError" as const;
   readonly $fault = "server" as const;
   /**
@@ -28,6 +29,7 @@ export class InternalServiceError extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.datapipeline#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class PipelineDeletedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.datapipeline#PipelineDeletedException";
   readonly name = "PipelineDeletedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class PipelineDeletedException extends __BaseException {
  * @public
  */
 export class PipelineNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.datapipeline#PipelineNotFoundException";
   readonly name = "PipelineNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class PipelineNotFoundException extends __BaseException {
  * @public
  */
 export class TaskNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.datapipeline#TaskNotFoundException";
   readonly name = "TaskNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

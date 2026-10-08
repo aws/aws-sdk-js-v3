@@ -8,6 +8,7 @@ import { LexRuntimeV2ServiceException as __BaseException } from "./LexRuntimeV2S
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimev2#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimev2#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimev2#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -68,6 +71,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimev2#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimev2#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimev2#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class BadGatewayException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimev2#BadGatewayException";
   readonly name = "BadGatewayException" as const;
   readonly $fault = "server" as const;
   /**
@@ -148,6 +155,7 @@ export class BadGatewayException extends __BaseException {
  * @public
  */
 export class DependencyFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimev2#DependencyFailedException";
   readonly name = "DependencyFailedException" as const;
   readonly $fault = "client" as const;
   /**

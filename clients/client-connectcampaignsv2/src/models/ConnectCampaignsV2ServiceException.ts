@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from ConnectCampaignsV2 service.
  */
 export class ConnectCampaignsV2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.connectcampaignsv2#ConnectCampaignsV2ServiceException";
   /**
    * @internal
    */

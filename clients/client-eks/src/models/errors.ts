@@ -11,6 +11,7 @@ import { EKSServiceException as __BaseException } from "./EKSServiceException";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -32,6 +33,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -91,6 +93,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -146,6 +149,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#ServerException";
   readonly name = "ServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -194,6 +198,7 @@ export class ServerException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -215,6 +220,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -266,6 +272,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#ClientException";
   readonly name = "ClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -314,6 +321,7 @@ export class ClientException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -356,6 +364,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -389,6 +398,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class InvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#InvalidStateException";
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -416,6 +426,7 @@ export class InvalidStateException extends __BaseException {
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#ResourceLimitExceededException";
   readonly name = "ResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -459,6 +470,7 @@ export class ResourceLimitExceededException extends __BaseException {
  * @public
  */
 export class UnsupportedAvailabilityZoneException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#UnsupportedAvailabilityZoneException";
   readonly name = "UnsupportedAvailabilityZoneException" as const;
   readonly $fault = "client" as const;
   /**
@@ -502,6 +514,7 @@ export class UnsupportedAvailabilityZoneException extends __BaseException {
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -523,6 +536,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -544,6 +558,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ResourcePropagationDelayException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eks#ResourcePropagationDelayException";
   readonly name = "ResourcePropagationDelayException" as const;
   readonly $fault = "client" as const;
   /**

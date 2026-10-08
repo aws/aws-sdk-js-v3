@@ -11,6 +11,7 @@ import {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroupstaggingapi#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -50,6 +51,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class ConstraintViolationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException";
   readonly name = "ConstraintViolationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -73,6 +75,7 @@ export class ConstraintViolationException extends __BaseException {
  * @public
  */
 export class InternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroupstaggingapi#InternalServiceException";
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -118,6 +121,7 @@ export class InternalServiceException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -141,6 +145,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class ThrottledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroupstaggingapi#ThrottledException";
   readonly name = "ThrottledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -164,6 +169,7 @@ export class ThrottledException extends __BaseException {
  * @public
  */
 export class PaginationTokenExpiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException";
   readonly name = "PaginationTokenExpiredException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

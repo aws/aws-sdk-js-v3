@@ -8,6 +8,7 @@ import { EC2InstanceConnectServiceException as __BaseException } from "./EC2Inst
  * @public
  */
 export class AuthException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#AuthException";
   readonly name = "AuthException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class AuthException extends __BaseException {
  * @public
  */
 export class EC2InstanceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#EC2InstanceNotFoundException";
   readonly name = "EC2InstanceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -54,6 +56,7 @@ export class EC2InstanceNotFoundException extends __BaseException {
  * @public
  */
 export class EC2InstanceStateInvalidException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#EC2InstanceStateInvalidException";
   readonly name = "EC2InstanceStateInvalidException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -77,6 +80,7 @@ export class EC2InstanceStateInvalidException extends __BaseException {
  * @public
  */
 export class EC2InstanceTypeInvalidException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#EC2InstanceTypeInvalidException";
   readonly name = "EC2InstanceTypeInvalidException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -99,6 +103,7 @@ export class EC2InstanceTypeInvalidException extends __BaseException {
  * @public
  */
 export class EC2InstanceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#EC2InstanceUnavailableException";
   readonly name = "EC2InstanceUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -121,6 +126,7 @@ export class EC2InstanceUnavailableException extends __BaseException {
  * @public
  */
 export class InvalidArgsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#InvalidArgsException";
   readonly name = "InvalidArgsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -145,6 +151,7 @@ export class InvalidArgsException extends __BaseException {
  * @public
  */
 export class SerialConsoleAccessDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#SerialConsoleAccessDisabledException";
   readonly name = "SerialConsoleAccessDisabledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -167,6 +174,7 @@ export class SerialConsoleAccessDisabledException extends __BaseException {
  * @public
  */
 export class SerialConsoleSessionLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#SerialConsoleSessionLimitExceededException";
   readonly name = "SerialConsoleSessionLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -189,6 +197,7 @@ export class SerialConsoleSessionLimitExceededException extends __BaseException 
  * @public
  */
 export class SerialConsoleSessionUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#SerialConsoleSessionUnavailableException";
   readonly name = "SerialConsoleSessionUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -211,6 +220,7 @@ export class SerialConsoleSessionUnavailableException extends __BaseException {
  * @public
  */
 export class SerialConsoleSessionUnsupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#SerialConsoleSessionUnsupportedException";
   readonly name = "SerialConsoleSessionUnsupportedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -233,6 +243,7 @@ export class SerialConsoleSessionUnsupportedException extends __BaseException {
  * @public
  */
 export class ServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#ServiceException";
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -256,6 +267,7 @@ export class ServiceException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ec2instanceconnect#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

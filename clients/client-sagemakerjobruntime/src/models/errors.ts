@@ -8,6 +8,7 @@ import { SagemakerJobRuntimeServiceException as __BaseException } from "./Sagema
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerjobruntime#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerjobruntime#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -52,6 +54,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServiceError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerjobruntime#InternalServiceError";
   readonly name = "InternalServiceError" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -75,6 +78,7 @@ export class InternalServiceError extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerjobruntime#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -97,6 +101,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerjobruntime#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -119,6 +124,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerjobruntime#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -142,6 +148,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerjobruntime#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;

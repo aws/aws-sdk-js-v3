@@ -9,6 +9,7 @@ import { ECRPUBLICServiceException as __BaseException } from "./ECRPUBLICService
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class RegistryNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#RegistryNotFoundException";
   readonly name = "RegistryNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class RegistryNotFoundException extends __BaseException {
  * @public
  */
 export class RepositoryNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#RepositoryNotFoundException";
   readonly name = "RepositoryNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -70,6 +73,7 @@ export class RepositoryNotFoundException extends __BaseException {
  * @public
  */
 export class ServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#ServerException";
   readonly name = "ServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -90,6 +94,7 @@ export class ServerException extends __BaseException {
  * @public
  */
 export class UnsupportedCommandException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#UnsupportedCommandException";
   readonly name = "UnsupportedCommandException" as const;
   readonly $fault = "client" as const;
   /**
@@ -110,6 +115,7 @@ export class UnsupportedCommandException extends __BaseException {
  * @public
  */
 export class EmptyUploadException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#EmptyUploadException";
   readonly name = "EmptyUploadException" as const;
   readonly $fault = "client" as const;
   /**
@@ -131,6 +137,7 @@ export class EmptyUploadException extends __BaseException {
  * @public
  */
 export class InvalidLayerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#InvalidLayerException";
   readonly name = "InvalidLayerException" as const;
   readonly $fault = "client" as const;
   /**
@@ -151,6 +158,7 @@ export class InvalidLayerException extends __BaseException {
  * @public
  */
 export class LayerAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#LayerAlreadyExistsException";
   readonly name = "LayerAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -171,6 +179,7 @@ export class LayerAlreadyExistsException extends __BaseException {
  * @public
  */
 export class LayerPartTooSmallException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#LayerPartTooSmallException";
   readonly name = "LayerPartTooSmallException" as const;
   readonly $fault = "client" as const;
   /**
@@ -192,6 +201,7 @@ export class LayerPartTooSmallException extends __BaseException {
  * @public
  */
 export class UploadNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#UploadNotFoundException";
   readonly name = "UploadNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -212,6 +222,7 @@ export class UploadNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidTagParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#InvalidTagParameterException";
   readonly name = "InvalidTagParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -234,6 +245,7 @@ export class InvalidTagParameterException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -254,6 +266,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class RepositoryAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#RepositoryAlreadyExistsException";
   readonly name = "RepositoryAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -275,6 +288,7 @@ export class RepositoryAlreadyExistsException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -296,6 +310,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class RepositoryNotEmptyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#RepositoryNotEmptyException";
   readonly name = "RepositoryNotEmptyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -317,6 +332,7 @@ export class RepositoryNotEmptyException extends __BaseException {
  * @public
  */
 export class RepositoryPolicyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#RepositoryPolicyNotFoundException";
   readonly name = "RepositoryPolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -337,6 +353,7 @@ export class RepositoryPolicyNotFoundException extends __BaseException {
  * @public
  */
 export class ImageNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#ImageNotFoundException";
   readonly name = "ImageNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -357,6 +374,7 @@ export class ImageNotFoundException extends __BaseException {
  * @public
  */
 export class RepositoryCatalogDataNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#RepositoryCatalogDataNotFoundException";
   readonly name = "RepositoryCatalogDataNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -378,6 +396,7 @@ export class RepositoryCatalogDataNotFoundException extends __BaseException {
  * @public
  */
 export class ImageAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#ImageAlreadyExistsException";
   readonly name = "ImageAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -399,6 +418,7 @@ export class ImageAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ImageDigestDoesNotMatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#ImageDigestDoesNotMatchException";
   readonly name = "ImageDigestDoesNotMatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -420,6 +440,7 @@ export class ImageDigestDoesNotMatchException extends __BaseException {
  * @public
  */
 export class ImageTagAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#ImageTagAlreadyExistsException";
   readonly name = "ImageTagAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -441,6 +462,7 @@ export class ImageTagAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidLayerPartException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#InvalidLayerPartException";
   readonly name = "InvalidLayerPartException" as const;
   readonly $fault = "client" as const;
   /**
@@ -490,6 +512,7 @@ export class InvalidLayerPartException extends __BaseException {
  * @public
  */
 export class LayersNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#LayersNotFoundException";
   readonly name = "LayersNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -510,6 +533,7 @@ export class LayersNotFoundException extends __BaseException {
  * @public
  */
 export class ReferencedImagesNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ecrpublic#ReferencedImagesNotFoundException";
   readonly name = "ReferencedImagesNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

@@ -10,6 +10,7 @@ import { EventBridgeV2ServiceException as __BaseException } from "./EventBridgeV
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -32,6 +33,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -56,6 +58,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#IdempotentParameterMismatchException";
   readonly name = "IdempotentParameterMismatchException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -78,6 +81,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
  * @public
  */
 export class InternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#InternalException";
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -101,6 +105,7 @@ export class InternalException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -124,6 +129,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class InvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#InvalidStateException";
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -146,6 +152,7 @@ export class InvalidStateException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -168,6 +175,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -191,6 +199,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   $retryable = {
@@ -216,6 +225,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -239,6 +249,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -270,6 +281,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -292,6 +304,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class SchemaRegistryUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#SchemaRegistryUnavailableException";
   readonly name = "SchemaRegistryUnavailableException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -316,6 +329,7 @@ export class SchemaRegistryUnavailableException extends __BaseException {
  * @public
  */
 export class PolicyLengthExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#PolicyLengthExceededException";
   readonly name = "PolicyLengthExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -346,6 +360,7 @@ export class PolicyLengthExceededException extends __BaseException {
  * @public
  */
 export class PublicPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.eventbridgev2#PublicPolicyException";
   readonly name = "PublicPolicyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Chatbot service.
  */
 export class ChatbotServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.chatbot#ChatbotServiceException";
   /**
    * @internal
    */

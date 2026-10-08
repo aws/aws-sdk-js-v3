@@ -9,6 +9,7 @@ import type { DashboardValidationMessage } from "./models_0";
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -38,6 +39,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class KmsAccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#KmsAccessDeniedException";
   readonly name = "KmsAccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -62,6 +64,7 @@ export class KmsAccessDeniedException extends __BaseException {
  * @public
  */
 export class KmsKeyDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#KmsKeyDisabledException";
   readonly name = "KmsKeyDisabledException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -87,6 +90,7 @@ export class KmsKeyDisabledException extends __BaseException {
  * @public
  */
 export class KmsKeyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#KmsKeyNotFoundException";
   readonly name = "KmsKeyNotFoundException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -109,6 +113,7 @@ export class KmsKeyNotFoundException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   ResourceType?: string | undefined;
@@ -135,6 +140,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -157,6 +163,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class DashboardInvalidInputError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#DashboardInvalidInputError";
   readonly name = "DashboardInvalidInputError" as const;
   readonly $fault = "client" as const;
   dashboardValidationMessages?: DashboardValidationMessage[] | undefined;
@@ -179,6 +186,7 @@ export class DashboardInvalidInputError extends __BaseException {
  * @public
  */
 export class DashboardNotFoundError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#DashboardNotFoundError";
   readonly name = "DashboardNotFoundError" as const;
   readonly $fault = "client" as const;
   /**
@@ -199,6 +207,7 @@ export class DashboardNotFoundError extends __BaseException {
  * @public
  */
 export class ResourceConflict extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#ResourceConflict";
   readonly name = "ResourceConflict" as const;
   readonly $fault = "client" as const;
   /**
@@ -219,6 +228,7 @@ export class ResourceConflict extends __BaseException {
  * @public
  */
 export class ResourceNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#ResourceNotFound";
   readonly name = "ResourceNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -240,6 +250,7 @@ export class ResourceNotFound extends __BaseException {
  * @public
  */
 export class InternalServiceFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#InternalServiceFault";
   readonly name = "InternalServiceFault" as const;
   readonly $fault = "server" as const;
   /**
@@ -266,6 +277,7 @@ export class InternalServiceFault extends __BaseException {
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#InvalidParameterCombinationException";
   readonly name = "InvalidParameterCombinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -286,6 +298,7 @@ export class InvalidParameterCombinationException extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -306,6 +319,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class MissingRequiredParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#MissingRequiredParameterException";
   readonly name = "MissingRequiredParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -326,6 +340,7 @@ export class MissingRequiredParameterException extends __BaseException {
  * @public
  */
 export class InvalidNextToken extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#InvalidNextToken";
   readonly name = "InvalidNextToken" as const;
   readonly $fault = "client" as const;
   /**
@@ -346,6 +361,7 @@ export class InvalidNextToken extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -368,6 +384,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class LimitExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#LimitExceededFault";
   readonly name = "LimitExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -388,6 +405,7 @@ export class LimitExceededFault extends __BaseException {
  * @public
  */
 export class InvalidFormatFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#InvalidFormatFault";
   readonly name = "InvalidFormatFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -409,6 +427,7 @@ export class InvalidFormatFault extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatch#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**

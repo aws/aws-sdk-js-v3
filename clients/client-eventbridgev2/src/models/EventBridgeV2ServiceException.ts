@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from EventBridgeV2 service.
  */
 export class EventBridgeV2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.eventbridgev2#EventBridgeV2ServiceException";
   /**
    * @internal
    */

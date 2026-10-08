@@ -8,6 +8,7 @@ import { CodePipelineServiceException as __BaseException } from "./CodePipelineS
  * @public
  */
 export class InvalidNonceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidNonceException";
   readonly name = "InvalidNonceException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class InvalidNonceException extends __BaseException {
  * @public
  */
 export class JobNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#JobNotFoundException";
   readonly name = "JobNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class JobNotFoundException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InvalidClientTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidClientTokenException";
   readonly name = "InvalidClientTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class InvalidClientTokenException extends __BaseException {
  * @public
  */
 export class ActionExecutionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#ActionExecutionNotFoundException";
   readonly name = "ActionExecutionNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class ActionExecutionNotFoundException extends __BaseException {
  * @public
  */
 export class ActionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#ActionNotFoundException";
   readonly name = "ActionNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class ActionNotFoundException extends __BaseException {
  * @public
  */
 export class ActionTypeNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#ActionTypeNotFoundException";
   readonly name = "ActionTypeNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,6 +155,7 @@ export class ActionTypeNotFoundException extends __BaseException {
  * @public
  */
 export class ApprovalAlreadyCompletedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#ApprovalAlreadyCompletedException";
   readonly name = "ApprovalAlreadyCompletedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -168,6 +176,7 @@ export class ApprovalAlreadyCompletedException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -188,6 +197,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class InvalidTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidTagsException";
   readonly name = "InvalidTagsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -209,6 +219,7 @@ export class InvalidTagsException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -229,6 +240,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -249,6 +261,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class InvalidActionDeclarationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidActionDeclarationException";
   readonly name = "InvalidActionDeclarationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -269,6 +282,7 @@ export class InvalidActionDeclarationException extends __BaseException {
  * @public
  */
 export class InvalidBlockerDeclarationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidBlockerDeclarationException";
   readonly name = "InvalidBlockerDeclarationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -289,6 +303,7 @@ export class InvalidBlockerDeclarationException extends __BaseException {
  * @public
  */
 export class InvalidStageDeclarationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidStageDeclarationException";
   readonly name = "InvalidStageDeclarationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -309,6 +324,7 @@ export class InvalidStageDeclarationException extends __BaseException {
  * @public
  */
 export class InvalidStructureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidStructureException";
   readonly name = "InvalidStructureException" as const;
   readonly $fault = "client" as const;
   /**
@@ -329,6 +345,7 @@ export class InvalidStructureException extends __BaseException {
  * @public
  */
 export class PipelineNameInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#PipelineNameInUseException";
   readonly name = "PipelineNameInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -350,6 +367,7 @@ export class PipelineNameInUseException extends __BaseException {
  * @public
  */
 export class WebhookNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#WebhookNotFoundException";
   readonly name = "WebhookNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -370,6 +388,7 @@ export class WebhookNotFoundException extends __BaseException {
  * @public
  */
 export class PipelineNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#PipelineNotFoundException";
   readonly name = "PipelineNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -390,6 +409,7 @@ export class PipelineNotFoundException extends __BaseException {
  * @public
  */
 export class StageNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#StageNotFoundException";
   readonly name = "StageNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -411,6 +431,7 @@ export class StageNotFoundException extends __BaseException {
  * @public
  */
 export class PipelineVersionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#PipelineVersionNotFoundException";
   readonly name = "PipelineVersionNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -432,6 +453,7 @@ export class PipelineVersionNotFoundException extends __BaseException {
  * @public
  */
 export class PipelineExecutionNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#PipelineExecutionNotFoundException";
   readonly name = "PipelineExecutionNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -452,6 +474,7 @@ export class PipelineExecutionNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidJobException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidJobException";
   readonly name = "InvalidJobException" as const;
   readonly $fault = "client" as const;
   /**
@@ -473,6 +496,7 @@ export class InvalidJobException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -493,6 +517,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class InvalidArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidArnException";
   readonly name = "InvalidArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -513,6 +538,7 @@ export class InvalidArnException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -533,6 +559,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ConcurrentPipelineExecutionsLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#ConcurrentPipelineExecutionsLimitExceededException";
   readonly name = "ConcurrentPipelineExecutionsLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -553,6 +580,7 @@ export class ConcurrentPipelineExecutionsLimitExceededException extends __BaseEx
  * @public
  */
 export class ConditionNotOverridableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#ConditionNotOverridableException";
   readonly name = "ConditionNotOverridableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -574,6 +602,7 @@ export class ConditionNotOverridableException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -596,6 +625,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class NotLatestPipelineExecutionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#NotLatestPipelineExecutionException";
   readonly name = "NotLatestPipelineExecutionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -616,6 +646,7 @@ export class NotLatestPipelineExecutionException extends __BaseException {
  * @public
  */
 export class InvalidApprovalTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidApprovalTokenException";
   readonly name = "InvalidApprovalTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -636,6 +667,7 @@ export class InvalidApprovalTokenException extends __BaseException {
  * @public
  */
 export class InvalidJobStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidJobStateException";
   readonly name = "InvalidJobStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -656,6 +688,7 @@ export class InvalidJobStateException extends __BaseException {
  * @public
  */
 export class OutputVariablesSizeExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#OutputVariablesSizeExceededException";
   readonly name = "OutputVariablesSizeExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -676,6 +709,7 @@ export class OutputVariablesSizeExceededException extends __BaseException {
  * @public
  */
 export class InvalidWebhookAuthenticationParametersException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidWebhookAuthenticationParametersException";
   readonly name = "InvalidWebhookAuthenticationParametersException" as const;
   readonly $fault = "client" as const;
   /**
@@ -696,6 +730,7 @@ export class InvalidWebhookAuthenticationParametersException extends __BaseExcep
  * @public
  */
 export class InvalidWebhookFilterPatternException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#InvalidWebhookFilterPatternException";
   readonly name = "InvalidWebhookFilterPatternException" as const;
   readonly $fault = "client" as const;
   /**
@@ -718,6 +753,7 @@ export class InvalidWebhookFilterPatternException extends __BaseException {
  * @public
  */
 export class StageNotRetryableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#StageNotRetryableException";
   readonly name = "StageNotRetryableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -739,6 +775,7 @@ export class StageNotRetryableException extends __BaseException {
  * @public
  */
 export class PipelineExecutionOutdatedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#PipelineExecutionOutdatedException";
   readonly name = "PipelineExecutionOutdatedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -761,6 +798,7 @@ export class PipelineExecutionOutdatedException extends __BaseException {
  * @public
  */
 export class UnableToRollbackStageException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#UnableToRollbackStageException";
   readonly name = "UnableToRollbackStageException" as const;
   readonly $fault = "client" as const;
   /**
@@ -785,6 +823,7 @@ export class UnableToRollbackStageException extends __BaseException {
  * @public
  */
 export class DuplicatedStopRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#DuplicatedStopRequestException";
   readonly name = "DuplicatedStopRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -806,6 +845,7 @@ export class DuplicatedStopRequestException extends __BaseException {
  * @public
  */
 export class PipelineExecutionNotStoppableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#PipelineExecutionNotStoppableException";
   readonly name = "PipelineExecutionNotStoppableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -826,6 +866,7 @@ export class PipelineExecutionNotStoppableException extends __BaseException {
  * @public
  */
 export class RequestFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codepipeline#RequestFailedException";
   readonly name = "RequestFailedException" as const;
   readonly $fault = "client" as const;
   /**

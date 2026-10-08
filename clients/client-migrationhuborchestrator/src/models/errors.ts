@@ -10,6 +10,7 @@ import {
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhuborchestrator#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -31,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhuborchestrator#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhuborchestrator#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -72,6 +75,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhuborchestrator#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -92,6 +96,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhuborchestrator#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -113,6 +118,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhuborchestrator#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   $retryable = {};

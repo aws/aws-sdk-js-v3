@@ -8,6 +8,7 @@ import { CodeCommitServiceException as __BaseException } from "./CodeCommitServi
  * @public
  */
 export class ActorDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ActorDoesNotExistException";
   readonly name = "ActorDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class ActorDoesNotExistException extends __BaseException {
  * @public
  */
 export class ApprovalRuleContentRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ApprovalRuleContentRequiredException";
   readonly name = "ApprovalRuleContentRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ApprovalRuleContentRequiredException extends __BaseException {
  * @public
  */
 export class ApprovalRuleDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ApprovalRuleDoesNotExistException";
   readonly name = "ApprovalRuleDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -69,6 +72,7 @@ export class ApprovalRuleDoesNotExistException extends __BaseException {
  * @public
  */
 export class ApprovalRuleNameAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ApprovalRuleNameAlreadyExistsException";
   readonly name = "ApprovalRuleNameAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class ApprovalRuleNameAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ApprovalRuleNameRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ApprovalRuleNameRequiredException";
   readonly name = "ApprovalRuleNameRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class ApprovalRuleNameRequiredException extends __BaseException {
  * @public
  */
 export class ApprovalRuleTemplateContentRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ApprovalRuleTemplateContentRequiredException";
   readonly name = "ApprovalRuleTemplateContentRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -130,6 +136,7 @@ export class ApprovalRuleTemplateContentRequiredException extends __BaseExceptio
  * @public
  */
 export class ApprovalRuleTemplateDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException";
   readonly name = "ApprovalRuleTemplateDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -151,6 +158,7 @@ export class ApprovalRuleTemplateDoesNotExistException extends __BaseException {
  * @public
  */
 export class ApprovalRuleTemplateInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ApprovalRuleTemplateInUseException";
   readonly name = "ApprovalRuleTemplateInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -173,6 +181,7 @@ export class ApprovalRuleTemplateInUseException extends __BaseException {
  * @public
  */
 export class ApprovalRuleTemplateNameAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ApprovalRuleTemplateNameAlreadyExistsException";
   readonly name = "ApprovalRuleTemplateNameAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -193,6 +202,7 @@ export class ApprovalRuleTemplateNameAlreadyExistsException extends __BaseExcept
  * @public
  */
 export class ApprovalRuleTemplateNameRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException";
   readonly name = "ApprovalRuleTemplateNameRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -213,6 +223,7 @@ export class ApprovalRuleTemplateNameRequiredException extends __BaseException {
  * @public
  */
 export class ApprovalStateRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ApprovalStateRequiredException";
   readonly name = "ApprovalStateRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -233,6 +244,7 @@ export class ApprovalStateRequiredException extends __BaseException {
  * @public
  */
 export class EncryptionIntegrityChecksFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException";
   readonly name = "EncryptionIntegrityChecksFailedException" as const;
   readonly $fault = "server" as const;
   /**
@@ -253,6 +265,7 @@ export class EncryptionIntegrityChecksFailedException extends __BaseException {
  * @public
  */
 export class EncryptionKeyAccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException";
   readonly name = "EncryptionKeyAccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -273,6 +286,7 @@ export class EncryptionKeyAccessDeniedException extends __BaseException {
  * @public
  */
 export class EncryptionKeyDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#EncryptionKeyDisabledException";
   readonly name = "EncryptionKeyDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -293,6 +307,7 @@ export class EncryptionKeyDisabledException extends __BaseException {
  * @public
  */
 export class EncryptionKeyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#EncryptionKeyNotFoundException";
   readonly name = "EncryptionKeyNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -313,6 +328,7 @@ export class EncryptionKeyNotFoundException extends __BaseException {
  * @public
  */
 export class EncryptionKeyUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#EncryptionKeyUnavailableException";
   readonly name = "EncryptionKeyUnavailableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -335,6 +351,7 @@ export class EncryptionKeyUnavailableException extends __BaseException {
  * @public
  */
 export class InvalidApprovalRuleTemplateNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException";
   readonly name = "InvalidApprovalRuleTemplateNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -360,6 +377,7 @@ export class InvalidApprovalRuleTemplateNameException extends __BaseException {
  * @public
  */
 export class InvalidRepositoryNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidRepositoryNameException";
   readonly name = "InvalidRepositoryNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -381,6 +399,7 @@ export class InvalidRepositoryNameException extends __BaseException {
  * @public
  */
 export class MaximumRuleTemplatesAssociatedWithRepositoryException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MaximumRuleTemplatesAssociatedWithRepositoryException";
   readonly name = "MaximumRuleTemplatesAssociatedWithRepositoryException" as const;
   readonly $fault = "client" as const;
   /**
@@ -401,6 +420,7 @@ export class MaximumRuleTemplatesAssociatedWithRepositoryException extends __Bas
  * @public
  */
 export class RepositoryDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RepositoryDoesNotExistException";
   readonly name = "RepositoryDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -421,6 +441,7 @@ export class RepositoryDoesNotExistException extends __BaseException {
  * @public
  */
 export class RepositoryNameRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RepositoryNameRequiredException";
   readonly name = "RepositoryNameRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -441,6 +462,7 @@ export class RepositoryNameRequiredException extends __BaseException {
  * @public
  */
 export class AuthorDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#AuthorDoesNotExistException";
   readonly name = "AuthorDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -461,6 +483,7 @@ export class AuthorDoesNotExistException extends __BaseException {
  * @public
  */
 export class MaximumRepositoryNamesExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MaximumRepositoryNamesExceededException";
   readonly name = "MaximumRepositoryNamesExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -481,6 +504,7 @@ export class MaximumRepositoryNamesExceededException extends __BaseException {
  * @public
  */
 export class RepositoryNamesRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RepositoryNamesRequiredException";
   readonly name = "RepositoryNamesRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -501,6 +525,7 @@ export class RepositoryNamesRequiredException extends __BaseException {
  * @public
  */
 export class CommitDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommitDoesNotExistException";
   readonly name = "CommitDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -521,6 +546,7 @@ export class CommitDoesNotExistException extends __BaseException {
  * @public
  */
 export class CommitRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommitRequiredException";
   readonly name = "CommitRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -541,6 +567,7 @@ export class CommitRequiredException extends __BaseException {
  * @public
  */
 export class InvalidCommitException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidCommitException";
   readonly name = "InvalidCommitException" as const;
   readonly $fault = "client" as const;
   /**
@@ -561,6 +588,7 @@ export class InvalidCommitException extends __BaseException {
  * @public
  */
 export class InvalidConflictDetailLevelException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidConflictDetailLevelException";
   readonly name = "InvalidConflictDetailLevelException" as const;
   readonly $fault = "client" as const;
   /**
@@ -581,6 +609,7 @@ export class InvalidConflictDetailLevelException extends __BaseException {
  * @public
  */
 export class InvalidConflictResolutionStrategyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException";
   readonly name = "InvalidConflictResolutionStrategyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -601,6 +630,7 @@ export class InvalidConflictResolutionStrategyException extends __BaseException 
  * @public
  */
 export class InvalidContinuationTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidContinuationTokenException";
   readonly name = "InvalidContinuationTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -621,6 +651,7 @@ export class InvalidContinuationTokenException extends __BaseException {
  * @public
  */
 export class InvalidMaxConflictFilesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidMaxConflictFilesException";
   readonly name = "InvalidMaxConflictFilesException" as const;
   readonly $fault = "client" as const;
   /**
@@ -641,6 +672,7 @@ export class InvalidMaxConflictFilesException extends __BaseException {
  * @public
  */
 export class InvalidMaxMergeHunksException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidMaxMergeHunksException";
   readonly name = "InvalidMaxMergeHunksException" as const;
   readonly $fault = "client" as const;
   /**
@@ -661,6 +693,7 @@ export class InvalidMaxMergeHunksException extends __BaseException {
  * @public
  */
 export class InvalidMergeOptionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidMergeOptionException";
   readonly name = "InvalidMergeOptionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -681,6 +714,7 @@ export class InvalidMergeOptionException extends __BaseException {
  * @public
  */
 export class MaximumFileContentToLoadExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException";
   readonly name = "MaximumFileContentToLoadExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -701,6 +735,7 @@ export class MaximumFileContentToLoadExceededException extends __BaseException {
  * @public
  */
 export class MaximumItemsToCompareExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MaximumItemsToCompareExceededException";
   readonly name = "MaximumItemsToCompareExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -721,6 +756,7 @@ export class MaximumItemsToCompareExceededException extends __BaseException {
  * @public
  */
 export class MergeOptionRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MergeOptionRequiredException";
   readonly name = "MergeOptionRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -742,6 +778,7 @@ export class MergeOptionRequiredException extends __BaseException {
  * @public
  */
 export class TipsDivergenceExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#TipsDivergenceExceededException";
   readonly name = "TipsDivergenceExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -762,6 +799,7 @@ export class TipsDivergenceExceededException extends __BaseException {
  * @public
  */
 export class CommitIdsLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommitIdsLimitExceededException";
   readonly name = "CommitIdsLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -782,6 +820,7 @@ export class CommitIdsLimitExceededException extends __BaseException {
  * @public
  */
 export class CommitIdsListRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommitIdsListRequiredException";
   readonly name = "CommitIdsListRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -802,6 +841,7 @@ export class CommitIdsListRequiredException extends __BaseException {
  * @public
  */
 export class BeforeCommitIdAndAfterCommitIdAreSameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#BeforeCommitIdAndAfterCommitIdAreSameException";
   readonly name = "BeforeCommitIdAndAfterCommitIdAreSameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -822,6 +862,7 @@ export class BeforeCommitIdAndAfterCommitIdAreSameException extends __BaseExcept
  * @public
  */
 export class BlobIdDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#BlobIdDoesNotExistException";
   readonly name = "BlobIdDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -842,6 +883,7 @@ export class BlobIdDoesNotExistException extends __BaseException {
  * @public
  */
 export class BlobIdRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#BlobIdRequiredException";
   readonly name = "BlobIdRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -862,6 +904,7 @@ export class BlobIdRequiredException extends __BaseException {
  * @public
  */
 export class BranchDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#BranchDoesNotExistException";
   readonly name = "BranchDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -884,6 +927,7 @@ export class BranchDoesNotExistException extends __BaseException {
  * @public
  */
 export class BranchNameExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#BranchNameExistsException";
   readonly name = "BranchNameExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -905,6 +949,7 @@ export class BranchNameExistsException extends __BaseException {
  * @public
  */
 export class BranchNameIsTagNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#BranchNameIsTagNameException";
   readonly name = "BranchNameIsTagNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -925,6 +970,7 @@ export class BranchNameIsTagNameException extends __BaseException {
  * @public
  */
 export class BranchNameRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#BranchNameRequiredException";
   readonly name = "BranchNameRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -946,6 +992,7 @@ export class BranchNameRequiredException extends __BaseException {
  * @public
  */
 export class CannotDeleteApprovalRuleFromTemplateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CannotDeleteApprovalRuleFromTemplateException";
   readonly name = "CannotDeleteApprovalRuleFromTemplateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -967,6 +1014,7 @@ export class CannotDeleteApprovalRuleFromTemplateException extends __BaseExcepti
  * @public
  */
 export class CannotModifyApprovalRuleFromTemplateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CannotModifyApprovalRuleFromTemplateException";
   readonly name = "CannotModifyApprovalRuleFromTemplateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -991,6 +1039,7 @@ export class CannotModifyApprovalRuleFromTemplateException extends __BaseExcepti
  * @public
  */
 export class ClientRequestTokenRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ClientRequestTokenRequiredException";
   readonly name = "ClientRequestTokenRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1011,6 +1060,7 @@ export class ClientRequestTokenRequiredException extends __BaseException {
  * @public
  */
 export class InvalidApprovalRuleTemplateContentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidApprovalRuleTemplateContentException";
   readonly name = "InvalidApprovalRuleTemplateContentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1033,6 +1083,7 @@ export class InvalidApprovalRuleTemplateContentException extends __BaseException
  * @public
  */
 export class InvalidApprovalRuleTemplateDescriptionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidApprovalRuleTemplateDescriptionException";
   readonly name = "InvalidApprovalRuleTemplateDescriptionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1053,6 +1104,7 @@ export class InvalidApprovalRuleTemplateDescriptionException extends __BaseExcep
  * @public
  */
 export class NumberOfRuleTemplatesExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#NumberOfRuleTemplatesExceededException";
   readonly name = "NumberOfRuleTemplatesExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1073,6 +1125,7 @@ export class NumberOfRuleTemplatesExceededException extends __BaseException {
  * @public
  */
 export class CommitIdRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommitIdRequiredException";
   readonly name = "CommitIdRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1093,6 +1146,7 @@ export class CommitIdRequiredException extends __BaseException {
  * @public
  */
 export class InvalidBranchNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidBranchNameException";
   readonly name = "InvalidBranchNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1113,6 +1167,7 @@ export class InvalidBranchNameException extends __BaseException {
  * @public
  */
 export class InvalidCommitIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidCommitIdException";
   readonly name = "InvalidCommitIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1133,6 +1188,7 @@ export class InvalidCommitIdException extends __BaseException {
  * @public
  */
 export class CommitMessageLengthExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommitMessageLengthExceededException";
   readonly name = "CommitMessageLengthExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1154,6 +1210,7 @@ export class CommitMessageLengthExceededException extends __BaseException {
  * @public
  */
 export class DirectoryNameConflictsWithFileNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#DirectoryNameConflictsWithFileNameException";
   readonly name = "DirectoryNameConflictsWithFileNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1176,6 +1233,7 @@ export class DirectoryNameConflictsWithFileNameException extends __BaseException
  * @public
  */
 export class FileContentAndSourceFileSpecifiedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#FileContentAndSourceFileSpecifiedException";
   readonly name = "FileContentAndSourceFileSpecifiedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1198,6 +1256,7 @@ export class FileContentAndSourceFileSpecifiedException extends __BaseException 
  * @public
  */
 export class FileContentSizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#FileContentSizeLimitExceededException";
   readonly name = "FileContentSizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1219,6 +1278,7 @@ export class FileContentSizeLimitExceededException extends __BaseException {
  * @public
  */
 export class FileDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#FileDoesNotExistException";
   readonly name = "FileDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1239,6 +1299,7 @@ export class FileDoesNotExistException extends __BaseException {
  * @public
  */
 export class FileEntryRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#FileEntryRequiredException";
   readonly name = "FileEntryRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1260,6 +1321,7 @@ export class FileEntryRequiredException extends __BaseException {
  * @public
  */
 export class FileModeRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#FileModeRequiredException";
   readonly name = "FileModeRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1281,6 +1343,7 @@ export class FileModeRequiredException extends __BaseException {
  * @public
  */
 export class FileNameConflictsWithDirectoryNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#FileNameConflictsWithDirectoryNameException";
   readonly name = "FileNameConflictsWithDirectoryNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1302,6 +1365,7 @@ export class FileNameConflictsWithDirectoryNameException extends __BaseException
  * @public
  */
 export class FilePathConflictsWithSubmodulePathException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#FilePathConflictsWithSubmodulePathException";
   readonly name = "FilePathConflictsWithSubmodulePathException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1324,6 +1388,7 @@ export class FilePathConflictsWithSubmodulePathException extends __BaseException
  * @public
  */
 export class FolderContentSizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#FolderContentSizeLimitExceededException";
   readonly name = "FolderContentSizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1344,6 +1409,7 @@ export class FolderContentSizeLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidDeletionParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidDeletionParameterException";
   readonly name = "InvalidDeletionParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1365,6 +1431,7 @@ export class InvalidDeletionParameterException extends __BaseException {
  * @public
  */
 export class InvalidEmailException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidEmailException";
   readonly name = "InvalidEmailException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1385,6 +1452,7 @@ export class InvalidEmailException extends __BaseException {
  * @public
  */
 export class InvalidFileModeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidFileModeException";
   readonly name = "InvalidFileModeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1406,6 +1474,7 @@ export class InvalidFileModeException extends __BaseException {
  * @public
  */
 export class InvalidParentCommitIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidParentCommitIdException";
   readonly name = "InvalidParentCommitIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1426,6 +1495,7 @@ export class InvalidParentCommitIdException extends __BaseException {
  * @public
  */
 export class InvalidPathException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidPathException";
   readonly name = "InvalidPathException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1447,6 +1517,7 @@ export class InvalidPathException extends __BaseException {
  * @public
  */
 export class MaximumFileEntriesExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MaximumFileEntriesExceededException";
   readonly name = "MaximumFileEntriesExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1467,6 +1538,7 @@ export class MaximumFileEntriesExceededException extends __BaseException {
  * @public
  */
 export class NameLengthExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#NameLengthExceededException";
   readonly name = "NameLengthExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1487,6 +1559,7 @@ export class NameLengthExceededException extends __BaseException {
  * @public
  */
 export class NoChangeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#NoChangeException";
   readonly name = "NoChangeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1507,6 +1580,7 @@ export class NoChangeException extends __BaseException {
  * @public
  */
 export class ParentCommitDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ParentCommitDoesNotExistException";
   readonly name = "ParentCommitDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1528,6 +1602,7 @@ export class ParentCommitDoesNotExistException extends __BaseException {
  * @public
  */
 export class ParentCommitIdOutdatedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ParentCommitIdOutdatedException";
   readonly name = "ParentCommitIdOutdatedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1549,6 +1624,7 @@ export class ParentCommitIdOutdatedException extends __BaseException {
  * @public
  */
 export class ParentCommitIdRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ParentCommitIdRequiredException";
   readonly name = "ParentCommitIdRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1569,6 +1645,7 @@ export class ParentCommitIdRequiredException extends __BaseException {
  * @public
  */
 export class PathRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#PathRequiredException";
   readonly name = "PathRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1589,6 +1666,7 @@ export class PathRequiredException extends __BaseException {
  * @public
  */
 export class PutFileEntryConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#PutFileEntryConflictException";
   readonly name = "PutFileEntryConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1609,6 +1687,7 @@ export class PutFileEntryConflictException extends __BaseException {
  * @public
  */
 export class RestrictedSourceFileException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RestrictedSourceFileException";
   readonly name = "RestrictedSourceFileException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1631,6 +1710,7 @@ export class RestrictedSourceFileException extends __BaseException {
  * @public
  */
 export class SamePathRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#SamePathRequestException";
   readonly name = "SamePathRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1651,6 +1731,7 @@ export class SamePathRequestException extends __BaseException {
  * @public
  */
 export class SourceFileOrContentRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#SourceFileOrContentRequiredException";
   readonly name = "SourceFileOrContentRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1672,6 +1753,7 @@ export class SourceFileOrContentRequiredException extends __BaseException {
  * @public
  */
 export class IdempotencyParameterMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#IdempotencyParameterMismatchException";
   readonly name = "IdempotencyParameterMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1692,6 +1774,7 @@ export class IdempotencyParameterMismatchException extends __BaseException {
  * @public
  */
 export class InvalidClientRequestTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidClientRequestTokenException";
   readonly name = "InvalidClientRequestTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1713,6 +1796,7 @@ export class InvalidClientRequestTokenException extends __BaseException {
  * @public
  */
 export class InvalidDescriptionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidDescriptionException";
   readonly name = "InvalidDescriptionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1735,6 +1819,7 @@ export class InvalidDescriptionException extends __BaseException {
  * @public
  */
 export class InvalidReferenceNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidReferenceNameException";
   readonly name = "InvalidReferenceNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1755,6 +1840,7 @@ export class InvalidReferenceNameException extends __BaseException {
  * @public
  */
 export class InvalidTargetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidTargetException";
   readonly name = "InvalidTargetException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1776,6 +1862,7 @@ export class InvalidTargetException extends __BaseException {
  * @public
  */
 export class InvalidTargetsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidTargetsException";
   readonly name = "InvalidTargetsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1796,6 +1883,7 @@ export class InvalidTargetsException extends __BaseException {
  * @public
  */
 export class InvalidTitleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidTitleException";
   readonly name = "InvalidTitleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1817,6 +1905,7 @@ export class InvalidTitleException extends __BaseException {
  * @public
  */
 export class MaximumOpenPullRequestsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MaximumOpenPullRequestsExceededException";
   readonly name = "MaximumOpenPullRequestsExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1837,6 +1926,7 @@ export class MaximumOpenPullRequestsExceededException extends __BaseException {
  * @public
  */
 export class MultipleRepositoriesInPullRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MultipleRepositoriesInPullRequestException";
   readonly name = "MultipleRepositoriesInPullRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1857,6 +1947,7 @@ export class MultipleRepositoriesInPullRequestException extends __BaseException 
  * @public
  */
 export class ReferenceDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ReferenceDoesNotExistException";
   readonly name = "ReferenceDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1877,6 +1968,7 @@ export class ReferenceDoesNotExistException extends __BaseException {
  * @public
  */
 export class ReferenceNameRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ReferenceNameRequiredException";
   readonly name = "ReferenceNameRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1897,6 +1989,7 @@ export class ReferenceNameRequiredException extends __BaseException {
  * @public
  */
 export class ReferenceTypeNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ReferenceTypeNotSupportedException";
   readonly name = "ReferenceTypeNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1918,6 +2011,7 @@ export class ReferenceTypeNotSupportedException extends __BaseException {
  * @public
  */
 export class SourceAndDestinationAreSameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#SourceAndDestinationAreSameException";
   readonly name = "SourceAndDestinationAreSameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1938,6 +2032,7 @@ export class SourceAndDestinationAreSameException extends __BaseException {
  * @public
  */
 export class TargetRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#TargetRequiredException";
   readonly name = "TargetRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1958,6 +2053,7 @@ export class TargetRequiredException extends __BaseException {
  * @public
  */
 export class TargetsRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#TargetsRequiredException";
   readonly name = "TargetsRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1978,6 +2074,7 @@ export class TargetsRequiredException extends __BaseException {
  * @public
  */
 export class TitleRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#TitleRequiredException";
   readonly name = "TitleRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1998,6 +2095,7 @@ export class TitleRequiredException extends __BaseException {
  * @public
  */
 export class InvalidApprovalRuleContentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidApprovalRuleContentException";
   readonly name = "InvalidApprovalRuleContentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2018,6 +2116,7 @@ export class InvalidApprovalRuleContentException extends __BaseException {
  * @public
  */
 export class InvalidApprovalRuleNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidApprovalRuleNameException";
   readonly name = "InvalidApprovalRuleNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2038,6 +2137,7 @@ export class InvalidApprovalRuleNameException extends __BaseException {
  * @public
  */
 export class InvalidPullRequestIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidPullRequestIdException";
   readonly name = "InvalidPullRequestIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2058,6 +2158,7 @@ export class InvalidPullRequestIdException extends __BaseException {
  * @public
  */
 export class NumberOfRulesExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#NumberOfRulesExceededException";
   readonly name = "NumberOfRulesExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2078,6 +2179,7 @@ export class NumberOfRulesExceededException extends __BaseException {
  * @public
  */
 export class PullRequestAlreadyClosedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#PullRequestAlreadyClosedException";
   readonly name = "PullRequestAlreadyClosedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2098,6 +2200,7 @@ export class PullRequestAlreadyClosedException extends __BaseException {
  * @public
  */
 export class PullRequestDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#PullRequestDoesNotExistException";
   readonly name = "PullRequestDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2118,6 +2221,7 @@ export class PullRequestDoesNotExistException extends __BaseException {
  * @public
  */
 export class PullRequestIdRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#PullRequestIdRequiredException";
   readonly name = "PullRequestIdRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2138,6 +2242,7 @@ export class PullRequestIdRequiredException extends __BaseException {
  * @public
  */
 export class EncryptionKeyInvalidIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#EncryptionKeyInvalidIdException";
   readonly name = "EncryptionKeyInvalidIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2159,6 +2264,7 @@ export class EncryptionKeyInvalidIdException extends __BaseException {
  * @public
  */
 export class EncryptionKeyInvalidUsageException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#EncryptionKeyInvalidUsageException";
   readonly name = "EncryptionKeyInvalidUsageException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2179,6 +2285,7 @@ export class EncryptionKeyInvalidUsageException extends __BaseException {
  * @public
  */
 export class InvalidRepositoryDescriptionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidRepositoryDescriptionException";
   readonly name = "InvalidRepositoryDescriptionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2199,6 +2306,7 @@ export class InvalidRepositoryDescriptionException extends __BaseException {
  * @public
  */
 export class InvalidSystemTagUsageException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidSystemTagUsageException";
   readonly name = "InvalidSystemTagUsageException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2219,6 +2327,7 @@ export class InvalidSystemTagUsageException extends __BaseException {
  * @public
  */
 export class InvalidTagsMapException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidTagsMapException";
   readonly name = "InvalidTagsMapException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2239,6 +2348,7 @@ export class InvalidTagsMapException extends __BaseException {
  * @public
  */
 export class OperationNotAllowedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#OperationNotAllowedException";
   readonly name = "OperationNotAllowedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2259,6 +2369,7 @@ export class OperationNotAllowedException extends __BaseException {
  * @public
  */
 export class RepositoryLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RepositoryLimitExceededException";
   readonly name = "RepositoryLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2279,6 +2390,7 @@ export class RepositoryLimitExceededException extends __BaseException {
  * @public
  */
 export class RepositoryNameExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RepositoryNameExistsException";
   readonly name = "RepositoryNameExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2299,6 +2411,7 @@ export class RepositoryNameExistsException extends __BaseException {
  * @public
  */
 export class TagPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#TagPolicyException";
   readonly name = "TagPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2319,6 +2432,7 @@ export class TagPolicyException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2339,6 +2453,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class ConcurrentReferenceUpdateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ConcurrentReferenceUpdateException";
   readonly name = "ConcurrentReferenceUpdateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2359,6 +2474,7 @@ export class ConcurrentReferenceUpdateException extends __BaseException {
  * @public
  */
 export class InvalidConflictResolutionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidConflictResolutionException";
   readonly name = "InvalidConflictResolutionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2379,6 +2495,7 @@ export class InvalidConflictResolutionException extends __BaseException {
  * @public
  */
 export class InvalidReplacementContentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidReplacementContentException";
   readonly name = "InvalidReplacementContentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2399,6 +2516,7 @@ export class InvalidReplacementContentException extends __BaseException {
  * @public
  */
 export class InvalidReplacementTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidReplacementTypeException";
   readonly name = "InvalidReplacementTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2419,6 +2537,7 @@ export class InvalidReplacementTypeException extends __BaseException {
  * @public
  */
 export class ManualMergeRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ManualMergeRequiredException";
   readonly name = "ManualMergeRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2439,6 +2558,7 @@ export class ManualMergeRequiredException extends __BaseException {
  * @public
  */
 export class MaximumConflictResolutionEntriesExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MaximumConflictResolutionEntriesExceededException";
   readonly name = "MaximumConflictResolutionEntriesExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2459,6 +2579,7 @@ export class MaximumConflictResolutionEntriesExceededException extends __BaseExc
  * @public
  */
 export class MultipleConflictResolutionEntriesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MultipleConflictResolutionEntriesException";
   readonly name = "MultipleConflictResolutionEntriesException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2479,6 +2600,7 @@ export class MultipleConflictResolutionEntriesException extends __BaseException 
  * @public
  */
 export class ReplacementContentRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ReplacementContentRequiredException";
   readonly name = "ReplacementContentRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2499,6 +2621,7 @@ export class ReplacementContentRequiredException extends __BaseException {
  * @public
  */
 export class ReplacementTypeRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ReplacementTypeRequiredException";
   readonly name = "ReplacementTypeRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2519,6 +2642,7 @@ export class ReplacementTypeRequiredException extends __BaseException {
  * @public
  */
 export class DefaultBranchCannotBeDeletedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#DefaultBranchCannotBeDeletedException";
   readonly name = "DefaultBranchCannotBeDeletedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2539,6 +2663,7 @@ export class DefaultBranchCannotBeDeletedException extends __BaseException {
  * @public
  */
 export class CommentDeletedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommentDeletedException";
   readonly name = "CommentDeletedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2560,6 +2685,7 @@ export class CommentDeletedException extends __BaseException {
  * @public
  */
 export class CommentDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommentDoesNotExistException";
   readonly name = "CommentDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2580,6 +2706,7 @@ export class CommentDoesNotExistException extends __BaseException {
  * @public
  */
 export class CommentIdRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommentIdRequiredException";
   readonly name = "CommentIdRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2600,6 +2727,7 @@ export class CommentIdRequiredException extends __BaseException {
  * @public
  */
 export class InvalidCommentIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidCommentIdException";
   readonly name = "InvalidCommentIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2621,6 +2749,7 @@ export class InvalidCommentIdException extends __BaseException {
  * @public
  */
 export class InvalidActorArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidActorArnException";
   readonly name = "InvalidActorArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2641,6 +2770,7 @@ export class InvalidActorArnException extends __BaseException {
  * @public
  */
 export class InvalidMaxResultsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidMaxResultsException";
   readonly name = "InvalidMaxResultsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2661,6 +2791,7 @@ export class InvalidMaxResultsException extends __BaseException {
  * @public
  */
 export class InvalidPullRequestEventTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidPullRequestEventTypeException";
   readonly name = "InvalidPullRequestEventTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2681,6 +2812,7 @@ export class InvalidPullRequestEventTypeException extends __BaseException {
  * @public
  */
 export class InvalidRevisionIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidRevisionIdException";
   readonly name = "InvalidRevisionIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2701,6 +2833,7 @@ export class InvalidRevisionIdException extends __BaseException {
  * @public
  */
 export class RevisionIdRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RevisionIdRequiredException";
   readonly name = "RevisionIdRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2721,6 +2854,7 @@ export class RevisionIdRequiredException extends __BaseException {
  * @public
  */
 export class RevisionNotCurrentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RevisionNotCurrentException";
   readonly name = "RevisionNotCurrentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2742,6 +2876,7 @@ export class RevisionNotCurrentException extends __BaseException {
  * @public
  */
 export class FileTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#FileTooLargeException";
   readonly name = "FileTooLargeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2762,6 +2897,7 @@ export class FileTooLargeException extends __BaseException {
  * @public
  */
 export class InvalidBlobIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidBlobIdException";
   readonly name = "InvalidBlobIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2782,6 +2918,7 @@ export class InvalidBlobIdException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2802,6 +2939,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InvalidReactionUserArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidReactionUserArnException";
   readonly name = "InvalidReactionUserArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2822,6 +2960,7 @@ export class InvalidReactionUserArnException extends __BaseException {
  * @public
  */
 export class RepositoryNotAssociatedWithPullRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RepositoryNotAssociatedWithPullRequestException";
   readonly name = "RepositoryNotAssociatedWithPullRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2842,6 +2981,7 @@ export class RepositoryNotAssociatedWithPullRequestException extends __BaseExcep
  * @public
  */
 export class CommitIdDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommitIdDoesNotExistException";
   readonly name = "CommitIdDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2862,6 +3002,7 @@ export class CommitIdDoesNotExistException extends __BaseException {
  * @public
  */
 export class PathDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#PathDoesNotExistException";
   readonly name = "PathDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2883,6 +3024,7 @@ export class PathDoesNotExistException extends __BaseException {
  * @public
  */
 export class FolderDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#FolderDoesNotExistException";
   readonly name = "FolderDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2903,6 +3045,7 @@ export class FolderDoesNotExistException extends __BaseException {
  * @public
  */
 export class InvalidDestinationCommitSpecifierException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidDestinationCommitSpecifierException";
   readonly name = "InvalidDestinationCommitSpecifierException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2923,6 +3066,7 @@ export class InvalidDestinationCommitSpecifierException extends __BaseException 
  * @public
  */
 export class InvalidSourceCommitSpecifierException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidSourceCommitSpecifierException";
   readonly name = "InvalidSourceCommitSpecifierException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2943,6 +3087,7 @@ export class InvalidSourceCommitSpecifierException extends __BaseException {
  * @public
  */
 export class InvalidAuthorArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidAuthorArnException";
   readonly name = "InvalidAuthorArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2963,6 +3108,7 @@ export class InvalidAuthorArnException extends __BaseException {
  * @public
  */
 export class InvalidPullRequestStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidPullRequestStatusException";
   readonly name = "InvalidPullRequestStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2983,6 +3129,7 @@ export class InvalidPullRequestStatusException extends __BaseException {
  * @public
  */
 export class InvalidOrderException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidOrderException";
   readonly name = "InvalidOrderException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3003,6 +3150,7 @@ export class InvalidOrderException extends __BaseException {
  * @public
  */
 export class InvalidSortByException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidSortByException";
   readonly name = "InvalidSortByException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3025,6 +3173,7 @@ export class InvalidSortByException extends __BaseException {
  * @public
  */
 export class InvalidResourceArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidResourceArnException";
   readonly name = "InvalidResourceArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3047,6 +3196,7 @@ export class InvalidResourceArnException extends __BaseException {
  * @public
  */
 export class ResourceArnRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ResourceArnRequiredException";
   readonly name = "ResourceArnRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3067,6 +3217,7 @@ export class ResourceArnRequiredException extends __BaseException {
  * @public
  */
 export class InvalidTargetBranchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidTargetBranchException";
   readonly name = "InvalidTargetBranchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3087,6 +3238,7 @@ export class InvalidTargetBranchException extends __BaseException {
  * @public
  */
 export class PullRequestApprovalRulesNotSatisfiedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#PullRequestApprovalRulesNotSatisfiedException";
   readonly name = "PullRequestApprovalRulesNotSatisfiedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3108,6 +3260,7 @@ export class PullRequestApprovalRulesNotSatisfiedException extends __BaseExcepti
  * @public
  */
 export class TipOfSourceReferenceIsDifferentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#TipOfSourceReferenceIsDifferentException";
   readonly name = "TipOfSourceReferenceIsDifferentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3128,6 +3281,7 @@ export class TipOfSourceReferenceIsDifferentException extends __BaseException {
  * @public
  */
 export class InvalidOverrideStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidOverrideStatusException";
   readonly name = "InvalidOverrideStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3148,6 +3302,7 @@ export class InvalidOverrideStatusException extends __BaseException {
  * @public
  */
 export class OverrideAlreadySetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#OverrideAlreadySetException";
   readonly name = "OverrideAlreadySetException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3168,6 +3323,7 @@ export class OverrideAlreadySetException extends __BaseException {
  * @public
  */
 export class OverrideStatusRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#OverrideStatusRequiredException";
   readonly name = "OverrideStatusRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3188,6 +3344,7 @@ export class OverrideStatusRequiredException extends __BaseException {
  * @public
  */
 export class CommentContentRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommentContentRequiredException";
   readonly name = "CommentContentRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3208,6 +3365,7 @@ export class CommentContentRequiredException extends __BaseException {
  * @public
  */
 export class CommentContentSizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommentContentSizeLimitExceededException";
   readonly name = "CommentContentSizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3229,6 +3387,7 @@ export class CommentContentSizeLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidFileLocationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidFileLocationException";
   readonly name = "InvalidFileLocationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3249,6 +3408,7 @@ export class InvalidFileLocationException extends __BaseException {
  * @public
  */
 export class InvalidFilePositionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidFilePositionException";
   readonly name = "InvalidFilePositionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3269,6 +3429,7 @@ export class InvalidFilePositionException extends __BaseException {
  * @public
  */
 export class InvalidRelativeFileVersionEnumException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidRelativeFileVersionEnumException";
   readonly name = "InvalidRelativeFileVersionEnumException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3289,6 +3450,7 @@ export class InvalidRelativeFileVersionEnumException extends __BaseException {
  * @public
  */
 export class InvalidReactionValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidReactionValueException";
   readonly name = "InvalidReactionValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3309,6 +3471,7 @@ export class InvalidReactionValueException extends __BaseException {
  * @public
  */
 export class ReactionLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ReactionLimitExceededException";
   readonly name = "ReactionLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3329,6 +3492,7 @@ export class ReactionLimitExceededException extends __BaseException {
  * @public
  */
 export class ReactionValueRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#ReactionValueRequiredException";
   readonly name = "ReactionValueRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3349,6 +3513,7 @@ export class ReactionValueRequiredException extends __BaseException {
  * @public
  */
 export class FileContentRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#FileContentRequiredException";
   readonly name = "FileContentRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3370,6 +3535,7 @@ export class FileContentRequiredException extends __BaseException {
  * @public
  */
 export class SameFileContentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#SameFileContentException";
   readonly name = "SameFileContentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3390,6 +3556,7 @@ export class SameFileContentException extends __BaseException {
  * @public
  */
 export class InvalidRepositoryTriggerBranchNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidRepositoryTriggerBranchNameException";
   readonly name = "InvalidRepositoryTriggerBranchNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3410,6 +3577,7 @@ export class InvalidRepositoryTriggerBranchNameException extends __BaseException
  * @public
  */
 export class InvalidRepositoryTriggerCustomDataException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidRepositoryTriggerCustomDataException";
   readonly name = "InvalidRepositoryTriggerCustomDataException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3430,6 +3598,7 @@ export class InvalidRepositoryTriggerCustomDataException extends __BaseException
  * @public
  */
 export class InvalidRepositoryTriggerDestinationArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidRepositoryTriggerDestinationArnException";
   readonly name = "InvalidRepositoryTriggerDestinationArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3450,6 +3619,7 @@ export class InvalidRepositoryTriggerDestinationArnException extends __BaseExcep
  * @public
  */
 export class InvalidRepositoryTriggerEventsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidRepositoryTriggerEventsException";
   readonly name = "InvalidRepositoryTriggerEventsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3470,6 +3640,7 @@ export class InvalidRepositoryTriggerEventsException extends __BaseException {
  * @public
  */
 export class InvalidRepositoryTriggerNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidRepositoryTriggerNameException";
   readonly name = "InvalidRepositoryTriggerNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3492,6 +3663,7 @@ export class InvalidRepositoryTriggerNameException extends __BaseException {
  * @public
  */
 export class InvalidRepositoryTriggerRegionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidRepositoryTriggerRegionException";
   readonly name = "InvalidRepositoryTriggerRegionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3512,6 +3684,7 @@ export class InvalidRepositoryTriggerRegionException extends __BaseException {
  * @public
  */
 export class MaximumBranchesExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MaximumBranchesExceededException";
   readonly name = "MaximumBranchesExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3532,6 +3705,7 @@ export class MaximumBranchesExceededException extends __BaseException {
  * @public
  */
 export class MaximumRepositoryTriggersExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MaximumRepositoryTriggersExceededException";
   readonly name = "MaximumRepositoryTriggersExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3553,6 +3727,7 @@ export class MaximumRepositoryTriggersExceededException extends __BaseException 
  * @public
  */
 export class RepositoryTriggerBranchNameListRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RepositoryTriggerBranchNameListRequiredException";
   readonly name = "RepositoryTriggerBranchNameListRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3574,6 +3749,7 @@ export class RepositoryTriggerBranchNameListRequiredException extends __BaseExce
  * @public
  */
 export class RepositoryTriggerDestinationArnRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RepositoryTriggerDestinationArnRequiredException";
   readonly name = "RepositoryTriggerDestinationArnRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3594,6 +3770,7 @@ export class RepositoryTriggerDestinationArnRequiredException extends __BaseExce
  * @public
  */
 export class RepositoryTriggerEventsListRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RepositoryTriggerEventsListRequiredException";
   readonly name = "RepositoryTriggerEventsListRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3614,6 +3791,7 @@ export class RepositoryTriggerEventsListRequiredException extends __BaseExceptio
  * @public
  */
 export class RepositoryTriggerNameRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RepositoryTriggerNameRequiredException";
   readonly name = "RepositoryTriggerNameRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3634,6 +3812,7 @@ export class RepositoryTriggerNameRequiredException extends __BaseException {
  * @public
  */
 export class RepositoryTriggersListRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#RepositoryTriggersListRequiredException";
   readonly name = "RepositoryTriggersListRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3654,6 +3833,7 @@ export class RepositoryTriggersListRequiredException extends __BaseException {
  * @public
  */
 export class TagsMapRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#TagsMapRequiredException";
   readonly name = "TagsMapRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3674,6 +3854,7 @@ export class TagsMapRequiredException extends __BaseException {
  * @public
  */
 export class InvalidTagKeysListException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidTagKeysListException";
   readonly name = "InvalidTagKeysListException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3694,6 +3875,7 @@ export class InvalidTagKeysListException extends __BaseException {
  * @public
  */
 export class TagKeysListRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#TagKeysListRequiredException";
   readonly name = "TagKeysListRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3714,6 +3896,7 @@ export class TagKeysListRequiredException extends __BaseException {
  * @public
  */
 export class InvalidRuleContentSha256Exception extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidRuleContentSha256Exception";
   readonly name = "InvalidRuleContentSha256Exception" as const;
   readonly $fault = "client" as const;
   /**
@@ -3734,6 +3917,7 @@ export class InvalidRuleContentSha256Exception extends __BaseException {
  * @public
  */
 export class CommentNotCreatedByCallerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#CommentNotCreatedByCallerException";
   readonly name = "CommentNotCreatedByCallerException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3754,6 +3938,7 @@ export class CommentNotCreatedByCallerException extends __BaseException {
  * @public
  */
 export class InvalidApprovalStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidApprovalStateException";
   readonly name = "InvalidApprovalStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3774,6 +3959,7 @@ export class InvalidApprovalStateException extends __BaseException {
  * @public
  */
 export class MaximumNumberOfApprovalsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#MaximumNumberOfApprovalsExceededException";
   readonly name = "MaximumNumberOfApprovalsExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3795,6 +3981,7 @@ export class MaximumNumberOfApprovalsExceededException extends __BaseException {
  * @public
  */
 export class PullRequestCannotBeApprovedByAuthorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#PullRequestCannotBeApprovedByAuthorException";
   readonly name = "PullRequestCannotBeApprovedByAuthorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3815,6 +4002,7 @@ export class PullRequestCannotBeApprovedByAuthorException extends __BaseExceptio
  * @public
  */
 export class InvalidPullRequestStatusUpdateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#InvalidPullRequestStatusUpdateException";
   readonly name = "InvalidPullRequestStatusUpdateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3835,6 +4023,7 @@ export class InvalidPullRequestStatusUpdateException extends __BaseException {
  * @public
  */
 export class PullRequestStatusRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#PullRequestStatusRequiredException";
   readonly name = "PullRequestStatusRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -3855,6 +4044,7 @@ export class PullRequestStatusRequiredException extends __BaseException {
  * @public
  */
 export class EncryptionKeyRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codecommit#EncryptionKeyRequiredException";
   readonly name = "EncryptionKeyRequiredException" as const;
   readonly $fault = "client" as const;
   /**

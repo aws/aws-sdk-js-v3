@@ -84,7 +84,7 @@
   },
   "dependencies": {
     "@aws-sdk/checksums": "workspace:^3.1001.1",
-    "@smithy/core": "^3.35.0",
+    "@smithy/core": "^3.35.2",
     "@smithy/node-http-handler": "^4.12.1",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"

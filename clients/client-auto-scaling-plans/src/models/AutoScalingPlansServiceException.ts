@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from AutoScalingPlans service.
  */
 export class AutoScalingPlansServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.autoscalingplans#AutoScalingPlansServiceException";
   /**
    * @internal
    */

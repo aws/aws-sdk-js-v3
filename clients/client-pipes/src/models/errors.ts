@@ -9,6 +9,7 @@ import { PipesServiceException as __BaseException } from "./PipesServiceExceptio
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pipes#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -43,6 +44,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pipes#InternalException";
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   /**
@@ -71,6 +73,7 @@ export class InternalException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pipes#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -91,6 +94,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pipes#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -139,6 +143,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pipes#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -181,6 +186,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.pipes#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**

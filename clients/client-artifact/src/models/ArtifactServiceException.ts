@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Artifact service.
  */
 export class ArtifactServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.artifact#ArtifactServiceException";
   /**
    * @internal
    */

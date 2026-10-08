@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from SageMakerRuntimeHTTP2 service.
  */
 export class SageMakerRuntimeHTTP2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakerruntimehttp2#SageMakerRuntimeHTTP2ServiceException";
   /**
    * @internal
    */

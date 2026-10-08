@@ -8,6 +8,7 @@ import { MediaConnectServiceException as __BaseException } from "./MediaConnectS
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -30,6 +31,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -53,6 +55,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -75,6 +78,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#InternalServerErrorException";
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -98,6 +102,7 @@ export class InternalServerErrorException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -120,6 +125,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -143,6 +149,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -166,6 +173,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class AddFlowOutputs420Exception extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#AddFlowOutputs420Exception";
   readonly name = "AddFlowOutputs420Exception" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -188,6 +196,7 @@ export class AddFlowOutputs420Exception extends __BaseException {
  * @public
  */
 export class CreateBridge420Exception extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#CreateBridge420Exception";
   readonly name = "CreateBridge420Exception" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -210,6 +219,7 @@ export class CreateBridge420Exception extends __BaseException {
  * @public
  */
 export class CreateFlow420Exception extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#CreateFlow420Exception";
   readonly name = "CreateFlow420Exception" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -232,6 +242,7 @@ export class CreateFlow420Exception extends __BaseException {
  * @public
  */
 export class CreateGateway420Exception extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#CreateGateway420Exception";
   readonly name = "CreateGateway420Exception" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -254,6 +265,7 @@ export class CreateGateway420Exception extends __BaseException {
  * @public
  */
 export class RouterInputServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#RouterInputServiceQuotaExceededException";
   readonly name = "RouterInputServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -276,6 +288,7 @@ export class RouterInputServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class RouterNetworkInterfaceServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#RouterNetworkInterfaceServiceQuotaExceededException";
   readonly name = "RouterNetworkInterfaceServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -298,6 +311,7 @@ export class RouterNetworkInterfaceServiceQuotaExceededException extends __BaseE
  * @public
  */
 export class RouterOutputServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#RouterOutputServiceQuotaExceededException";
   readonly name = "RouterOutputServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -320,6 +334,7 @@ export class RouterOutputServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class GrantFlowEntitlements420Exception extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediaconnect#GrantFlowEntitlements420Exception";
   readonly name = "GrantFlowEntitlements420Exception" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;

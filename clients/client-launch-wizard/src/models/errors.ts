@@ -8,6 +8,7 @@ import { LaunchWizardServiceException as __BaseException } from "./LaunchWizardS
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.launchwizard#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -28,6 +29,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceLimitException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.launchwizard#ResourceLimitException";
   readonly name = "ResourceLimitException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ResourceLimitException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.launchwizard#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.launchwizard#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**

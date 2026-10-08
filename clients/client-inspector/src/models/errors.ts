@@ -16,6 +16,7 @@ import type { AgentAlreadyRunningAssessment } from "./models_0";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.inspector#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +51,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.inspector#InternalException";
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   /**
@@ -78,6 +80,7 @@ export class InternalException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.inspector#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
@@ -113,6 +116,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class NoSuchEntityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.inspector#NoSuchEntityException";
   readonly name = "NoSuchEntityException" as const;
   readonly $fault = "client" as const;
   /**
@@ -147,6 +151,7 @@ export class NoSuchEntityException extends __BaseException {
  * @public
  */
 export class ServiceTemporarilyUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.inspector#ServiceTemporarilyUnavailableException";
   readonly name = "ServiceTemporarilyUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -175,6 +180,7 @@ export class ServiceTemporarilyUnavailableException extends __BaseException {
  * @public
  */
 export class AgentsAlreadyRunningAssessmentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.inspector#AgentsAlreadyRunningAssessmentException";
   readonly name = "AgentsAlreadyRunningAssessmentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -217,6 +223,7 @@ export class AgentsAlreadyRunningAssessmentException extends __BaseException {
  * @public
  */
 export class AssessmentRunInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.inspector#AssessmentRunInProgressException";
   readonly name = "AssessmentRunInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -260,6 +267,7 @@ export class AssessmentRunInProgressException extends __BaseException {
  * @public
  */
 export class InvalidCrossAccountRoleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.inspector#InvalidCrossAccountRoleException";
   readonly name = "InvalidCrossAccountRoleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -295,6 +303,7 @@ export class InvalidCrossAccountRoleException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.inspector#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -330,6 +339,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class PreviewGenerationInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.inspector#PreviewGenerationInProgressException";
   readonly name = "PreviewGenerationInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -354,6 +364,7 @@ export class PreviewGenerationInProgressException extends __BaseException {
  * @public
  */
 export class UnsupportedFeatureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.inspector#UnsupportedFeatureException";
   readonly name = "UnsupportedFeatureException" as const;
   readonly $fault = "client" as const;
   canRetry: boolean | undefined;

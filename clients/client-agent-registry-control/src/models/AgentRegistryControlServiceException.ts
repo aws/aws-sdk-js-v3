@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from AgentRegistryControl service.
  */
 export class AgentRegistryControlServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.agentregistrycontrol#AgentRegistryControlServiceException";
   /**
    * @internal
    */

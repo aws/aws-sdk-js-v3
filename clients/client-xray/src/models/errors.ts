@@ -8,6 +8,7 @@ import { XRayServiceException as __BaseException } from "./XRayServiceException"
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.xray#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ThrottledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.xray#ThrottledException";
   readonly name = "ThrottledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -53,6 +55,7 @@ export class ThrottledException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.xray#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -77,6 +80,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class RuleLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.xray#RuleLimitExceededException";
   readonly name = "RuleLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -100,6 +104,7 @@ export class RuleLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidPolicyRevisionIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.xray#InvalidPolicyRevisionIdException";
   readonly name = "InvalidPolicyRevisionIdException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -122,6 +127,7 @@ export class InvalidPolicyRevisionIdException extends __BaseException {
  * @public
  */
 export class LockoutPreventionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.xray#LockoutPreventionException";
   readonly name = "LockoutPreventionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -144,6 +150,7 @@ export class LockoutPreventionException extends __BaseException {
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.xray#MalformedPolicyDocumentException";
   readonly name = "MalformedPolicyDocumentException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -166,6 +173,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
  * @public
  */
 export class PolicyCountLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.xray#PolicyCountLimitExceededException";
   readonly name = "PolicyCountLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -188,6 +196,7 @@ export class PolicyCountLimitExceededException extends __BaseException {
  * @public
  */
 export class PolicySizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.xray#PolicySizeLimitExceededException";
   readonly name = "PolicySizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -210,6 +219,7 @@ export class PolicySizeLimitExceededException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.xray#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

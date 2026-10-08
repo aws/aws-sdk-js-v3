@@ -10,6 +10,7 @@ import type { AttributeValue, CancellationReason, ThrottlingReason } from "./mod
  * @public
  */
 export class BackupInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#BackupInUseException";
   readonly name = "BackupInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class BackupInUseException extends __BaseException {
  * @public
  */
 export class BackupNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#BackupNotFoundException";
   readonly name = "BackupNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class BackupNotFoundException extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**
@@ -73,6 +76,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class RequestLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#RequestLimitExceeded";
   readonly name = "RequestLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -103,6 +107,7 @@ export class RequestLimitExceeded extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -131,6 +136,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class InvalidEndpointException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#InvalidEndpointException";
   readonly name = "InvalidEndpointException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -158,6 +164,7 @@ export class InvalidEndpointException extends __BaseException {
  * @public
  */
 export class ProvisionedThroughputExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ProvisionedThroughputExceededException";
   readonly name = "ProvisionedThroughputExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -188,6 +195,7 @@ export class ProvisionedThroughputExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -209,6 +217,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ItemCollectionSizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException";
   readonly name = "ItemCollectionSizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -230,6 +239,7 @@ export class ItemCollectionSizeLimitExceededException extends __BaseException {
  * @public
  */
 export class ReplicatedWriteConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ReplicatedWriteConflictException";
   readonly name = "ReplicatedWriteConflictException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -251,6 +261,7 @@ export class ReplicatedWriteConflictException extends __BaseException {
  * @public
  */
 export class ContinuousBackupsUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ContinuousBackupsUnavailableException";
   readonly name = "ContinuousBackupsUnavailableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -286,6 +297,7 @@ export class ContinuousBackupsUnavailableException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -307,6 +319,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class TableInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#TableInUseException";
   readonly name = "TableInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -329,6 +342,7 @@ export class TableInUseException extends __BaseException {
  * @public
  */
 export class TableNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#TableNotFoundException";
   readonly name = "TableNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -349,6 +363,7 @@ export class TableNotFoundException extends __BaseException {
  * @public
  */
 export class GlobalTableAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#GlobalTableAlreadyExistsException";
   readonly name = "GlobalTableAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -383,6 +398,7 @@ export class GlobalTableAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -404,6 +420,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class TransactionConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#TransactionConflictException";
   readonly name = "TransactionConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -426,6 +443,7 @@ export class TransactionConflictException extends __BaseException {
  * @public
  */
 export class PolicyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#PolicyNotFoundException";
   readonly name = "PolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -446,6 +464,7 @@ export class PolicyNotFoundException extends __BaseException {
  * @public
  */
 export class ExportNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ExportNotFoundException";
   readonly name = "ExportNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -466,6 +485,7 @@ export class ExportNotFoundException extends __BaseException {
  * @public
  */
 export class GlobalTableNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#GlobalTableNotFoundException";
   readonly name = "GlobalTableNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -486,6 +506,7 @@ export class GlobalTableNotFoundException extends __BaseException {
  * @public
  */
 export class ImportNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ImportNotFoundException";
   readonly name = "ImportNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -507,6 +528,7 @@ export class ImportNotFoundException extends __BaseException {
  * @public
  */
 export class DuplicateItemException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#DuplicateItemException";
   readonly name = "DuplicateItemException" as const;
   readonly $fault = "client" as const;
   /**
@@ -528,6 +550,7 @@ export class DuplicateItemException extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#IdempotentParameterMismatchException";
   readonly name = "IdempotentParameterMismatchException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -606,6 +629,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
  * @public
  */
 export class TransactionInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#TransactionInProgressException";
   readonly name = "TransactionInProgressException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -628,6 +652,7 @@ export class TransactionInProgressException extends __BaseException {
  * @public
  */
 export class ExportConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ExportConflictException";
   readonly name = "ExportConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -649,6 +674,7 @@ export class ExportConflictException extends __BaseException {
  * @public
  */
 export class InvalidExportTimeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#InvalidExportTimeException";
   readonly name = "InvalidExportTimeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -669,6 +695,7 @@ export class InvalidExportTimeException extends __BaseException {
  * @public
  */
 export class PointInTimeRecoveryUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#PointInTimeRecoveryUnavailableException";
   readonly name = "PointInTimeRecoveryUnavailableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -691,6 +718,7 @@ export class PointInTimeRecoveryUnavailableException extends __BaseException {
  * @public
  */
 export class ImportConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ImportConflictException";
   readonly name = "ImportConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -711,6 +739,7 @@ export class ImportConflictException extends __BaseException {
  * @public
  */
 export class TableAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#TableAlreadyExistsException";
   readonly name = "TableAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -732,6 +761,7 @@ export class TableAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidRestoreTimeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#InvalidRestoreTimeException";
   readonly name = "InvalidRestoreTimeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -752,6 +782,7 @@ export class InvalidRestoreTimeException extends __BaseException {
  * @public
  */
 export class ReplicaAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ReplicaAlreadyExistsException";
   readonly name = "ReplicaAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -772,6 +803,7 @@ export class ReplicaAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ReplicaNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ReplicaNotFoundException";
   readonly name = "ReplicaNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -792,6 +824,7 @@ export class ReplicaNotFoundException extends __BaseException {
  * @public
  */
 export class IndexNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#IndexNotFoundException";
   readonly name = "IndexNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -812,6 +845,7 @@ export class IndexNotFoundException extends __BaseException {
  * @public
  */
 export class ConditionalCheckFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#ConditionalCheckFailedException";
   readonly name = "ConditionalCheckFailedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1077,6 +1111,7 @@ export class ConditionalCheckFailedException extends __BaseException {
  * @public
  */
 export class TransactionCanceledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.dynamodb#TransactionCanceledException";
   readonly name = "TransactionCanceledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

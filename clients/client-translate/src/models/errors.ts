@@ -9,6 +9,7 @@ import { TranslateServiceException as __BaseException } from "./TranslateService
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -53,6 +55,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -76,6 +79,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -99,6 +103,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -122,6 +127,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -145,6 +151,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -167,6 +174,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   ResourceArn?: string | undefined;
@@ -191,6 +199,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -213,6 +222,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class UnsupportedDisplayLanguageCodeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#UnsupportedDisplayLanguageCodeException";
   readonly name = "UnsupportedDisplayLanguageCodeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -241,6 +251,7 @@ export class UnsupportedDisplayLanguageCodeException extends __BaseException {
  * @public
  */
 export class InvalidFilterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#InvalidFilterException";
   readonly name = "InvalidFilterException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -264,6 +275,7 @@ export class InvalidFilterException extends __BaseException {
  * @public
  */
 export class UnsupportedLanguagePairException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#UnsupportedLanguagePairException";
   readonly name = "UnsupportedLanguagePairException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -300,6 +312,7 @@ export class UnsupportedLanguagePairException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -325,6 +338,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class DetectedLanguageLowConfidenceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#DetectedLanguageLowConfidenceException";
   readonly name = "DetectedLanguageLowConfidenceException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -354,6 +368,7 @@ export class DetectedLanguageLowConfidenceException extends __BaseException {
  * @public
  */
 export class TextSizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.translate#TextSizeLimitExceededException";
   readonly name = "TextSizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

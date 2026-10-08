@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from ApplicationDiscoveryService service.
  */
 export class ApplicationDiscoveryServiceServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.applicationdiscoveryservice#ApplicationDiscoveryServiceServiceException";
   /**
    * @internal
    */

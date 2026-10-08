@@ -41,7 +41,7 @@
     "@aws-sdk/chunked-stream-reader-node": "workspace:^3.973.0",
     "@aws-sdk/sha256-tree-hash": "workspace:^3.972.27",
     "@aws-sdk/types": "workspace:^3.974.6",
-    "@smithy/core": "^3.35.0",
+    "@smithy/core": "^3.35.2",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"
   },

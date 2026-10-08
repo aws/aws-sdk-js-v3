@@ -8,6 +8,7 @@ import { InterconnectServiceException as __BaseException } from "./InterconnectS
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.interconnect#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InterconnectClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.interconnect#InterconnectClientException";
   readonly name = "InterconnectClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class InterconnectClientException extends __BaseException {
  * @public
  */
 export class InterconnectServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.interconnect#InterconnectServerException";
   readonly name = "InterconnectServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -68,6 +71,7 @@ export class InterconnectServerException extends __BaseException {
  * @public
  */
 export class InterconnectValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.interconnect#InterconnectValidationException";
   readonly name = "InterconnectValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class InterconnectValidationException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.interconnect#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.interconnect#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.interconnect#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**

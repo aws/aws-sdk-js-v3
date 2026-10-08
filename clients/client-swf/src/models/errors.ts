@@ -8,6 +8,7 @@ import { SWFServiceException as __BaseException } from "./SWFServiceException";
  * @public
  */
 export class OperationNotPermittedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.swf#OperationNotPermittedFault";
   readonly name = "OperationNotPermittedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class OperationNotPermittedFault extends __BaseException {
  * @public
  */
 export class UnknownResourceFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.swf#UnknownResourceFault";
   readonly name = "UnknownResourceFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -58,6 +60,7 @@ export class UnknownResourceFault extends __BaseException {
  * @public
  */
 export class DefaultUndefinedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.swf#DefaultUndefinedFault";
   readonly name = "DefaultUndefinedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -78,6 +81,7 @@ export class DefaultUndefinedFault extends __BaseException {
  * @public
  */
 export class TypeNotDeprecatedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.swf#TypeNotDeprecatedFault";
   readonly name = "TypeNotDeprecatedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -98,6 +102,7 @@ export class TypeNotDeprecatedFault extends __BaseException {
  * @public
  */
 export class TypeDeprecatedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.swf#TypeDeprecatedFault";
   readonly name = "TypeDeprecatedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -118,6 +123,7 @@ export class TypeDeprecatedFault extends __BaseException {
  * @public
  */
 export class DomainDeprecatedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.swf#DomainDeprecatedFault";
   readonly name = "DomainDeprecatedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -138,6 +144,7 @@ export class DomainDeprecatedFault extends __BaseException {
  * @public
  */
 export class DomainAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.swf#DomainAlreadyExistsFault";
   readonly name = "DomainAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -158,6 +165,7 @@ export class DomainAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class LimitExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.swf#LimitExceededFault";
   readonly name = "LimitExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -178,6 +186,7 @@ export class LimitExceededFault extends __BaseException {
  * @public
  */
 export class TypeAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.swf#TypeAlreadyExistsFault";
   readonly name = "TypeAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -198,6 +207,7 @@ export class TypeAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class TooManyTagsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.swf#TooManyTagsFault";
   readonly name = "TooManyTagsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -219,6 +229,7 @@ export class TooManyTagsFault extends __BaseException {
  * @public
  */
 export class WorkflowExecutionAlreadyStartedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.swf#WorkflowExecutionAlreadyStartedFault";
   readonly name = "WorkflowExecutionAlreadyStartedFault" as const;
   readonly $fault = "client" as const;
   /**

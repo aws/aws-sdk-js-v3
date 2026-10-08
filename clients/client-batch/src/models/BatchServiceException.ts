@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Batch service.
  */
 export class BatchServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.batch#BatchServiceException";
   /**
    * @internal
    */

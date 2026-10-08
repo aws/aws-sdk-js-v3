@@ -10,6 +10,7 @@ import {
  * @public
  */
 export class AccessForbidden extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden";
   readonly name = "AccessForbidden" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -33,6 +34,7 @@ export class AccessForbidden extends __BaseException {
  * @public
  */
 export class InternalFailure extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure";
   readonly name = "InternalFailure" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -55,6 +57,7 @@ export class InternalFailure extends __BaseException {
  * @public
  */
 export class ServiceUnavailable extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable";
   readonly name = "ServiceUnavailable" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -77,6 +80,7 @@ export class ServiceUnavailable extends __BaseException {
  * @public
  */
 export class ValidationError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError";
   readonly name = "ValidationError" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -99,6 +103,7 @@ export class ValidationError extends __BaseException {
  * @public
  */
 export class ResourceNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerfeaturestoreruntime#ResourceNotFound";
   readonly name = "ResourceNotFound" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -124,6 +129,7 @@ export class ResourceNotFound extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakerfeaturestoreruntime#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

@@ -12,6 +12,7 @@ import { QuickSightServiceException as __BaseException } from "./QuickSightServi
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -40,6 +41,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#InternalFailureException";
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -68,6 +70,7 @@ export class InternalFailureException extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -96,6 +99,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -131,6 +135,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -159,6 +164,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -187,6 +193,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -222,6 +229,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class PreconditionNotMetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#PreconditionNotMetException";
   readonly name = "PreconditionNotMetException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -250,6 +258,7 @@ export class PreconditionNotMetException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -278,6 +287,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ResourceExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#ResourceExistsException";
   readonly name = "ResourceExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -314,6 +324,7 @@ export class ResourceExistsException extends __BaseException {
  * @public
  */
 export class ConcurrentUpdatingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#ConcurrentUpdatingException";
   readonly name = "ConcurrentUpdatingException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -338,6 +349,7 @@ export class ConcurrentUpdatingException extends __BaseException {
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#ResourceUnavailableException";
   readonly name = "ResourceUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -376,6 +388,7 @@ export class ResourceUnavailableException extends __BaseException {
  * @public
  */
 export class UnsupportedUserEditionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#UnsupportedUserEditionException";
   readonly name = "UnsupportedUserEditionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -404,6 +417,7 @@ export class UnsupportedUserEditionException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message: string | undefined;
@@ -426,6 +440,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidDataSetParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#InvalidDataSetParameterValueException";
   readonly name = "InvalidDataSetParameterValueException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -454,6 +469,7 @@ export class InvalidDataSetParameterValueException extends __BaseException {
  * @public
  */
 export class CustomerManagedKeyUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#CustomerManagedKeyUnavailableException";
   readonly name = "CustomerManagedKeyUnavailableException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -482,6 +498,7 @@ export class CustomerManagedKeyUnavailableException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -510,6 +527,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -539,6 +557,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class DomainNotWhitelistedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#DomainNotWhitelistedException";
   readonly name = "DomainNotWhitelistedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -568,6 +587,7 @@ export class DomainNotWhitelistedException extends __BaseException {
  * @public
  */
 export class SessionLifetimeInMinutesInvalidException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#SessionLifetimeInMinutesInvalidException";
   readonly name = "SessionLifetimeInMinutesInvalidException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -604,6 +624,7 @@ export class SessionLifetimeInMinutesInvalidException extends __BaseException {
  * @public
  */
 export class UnsupportedPricingPlanException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#UnsupportedPricingPlanException";
   readonly name = "UnsupportedPricingPlanException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -634,6 +655,7 @@ export class UnsupportedPricingPlanException extends __BaseException {
  * @public
  */
 export class QuickSightUserNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#QuickSightUserNotFoundException";
   readonly name = "QuickSightUserNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -663,6 +685,7 @@ export class QuickSightUserNotFoundException extends __BaseException {
  * @public
  */
 export class IdentityTypeNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#IdentityTypeNotSupportedException";
   readonly name = "IdentityTypeNotSupportedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

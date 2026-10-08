@@ -9,6 +9,7 @@ import { IAMServiceException as __BaseException } from "./IAMServiceException";
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class NoSuchEntityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#NoSuchEntityException";
   readonly name = "NoSuchEntityException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class NoSuchEntityException extends __BaseException {
  * @public
  */
 export class ServiceFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#ServiceFailureException";
   readonly name = "ServiceFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -73,6 +76,7 @@ export class ServiceFailureException extends __BaseException {
  * @public
  */
 export class AccountNotManagementOrDelegatedAdministratorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#AccountNotManagementOrDelegatedAdministratorException";
   readonly name = "AccountNotManagementOrDelegatedAdministratorException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -96,6 +100,7 @@ export class AccountNotManagementOrDelegatedAdministratorException extends __Bas
  * @public
  */
 export class EntityAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#EntityAlreadyExistsException";
   readonly name = "EntityAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -117,6 +122,7 @@ export class EntityAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
@@ -138,6 +144,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -159,6 +166,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#MalformedPolicyDocumentException";
   readonly name = "MalformedPolicyDocumentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -180,6 +188,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
  * @public
  */
 export class NameConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#NameConflictException";
   readonly name = "NameConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -201,6 +210,7 @@ export class NameConflictException extends __BaseException {
  * @public
  */
 export class RoleModifiedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#RoleModifiedException";
   readonly name = "RoleModifiedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -223,6 +233,7 @@ export class RoleModifiedException extends __BaseException {
  * @public
  */
 export class RoleTemplateDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#RoleTemplateDisabledException";
   readonly name = "RoleTemplateDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -246,6 +257,7 @@ export class RoleTemplateDisabledException extends __BaseException {
  * @public
  */
 export class UnmodifiableEntityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#UnmodifiableEntityException";
   readonly name = "UnmodifiableEntityException" as const;
   readonly $fault = "client" as const;
   /**
@@ -267,6 +279,7 @@ export class UnmodifiableEntityException extends __BaseException {
  * @public
  */
 export class PolicyNotAttachableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#PolicyNotAttachableException";
   readonly name = "PolicyNotAttachableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -290,6 +303,7 @@ export class PolicyNotAttachableException extends __BaseException {
  * @public
  */
 export class EntityTemporarilyUnmodifiableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#EntityTemporarilyUnmodifiableException";
   readonly name = "EntityTemporarilyUnmodifiableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -311,6 +325,7 @@ export class EntityTemporarilyUnmodifiableException extends __BaseException {
  * @public
  */
 export class InvalidUserTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#InvalidUserTypeException";
   readonly name = "InvalidUserTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -332,6 +347,7 @@ export class InvalidUserTypeException extends __BaseException {
  * @public
  */
 export class PasswordPolicyViolationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#PasswordPolicyViolationException";
   readonly name = "PasswordPolicyViolationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -353,6 +369,7 @@ export class PasswordPolicyViolationException extends __BaseException {
  * @public
  */
 export class OpenIdIdpCommunicationErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#OpenIdIdpCommunicationErrorException";
   readonly name = "OpenIdIdpCommunicationErrorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -373,6 +390,7 @@ export class OpenIdIdpCommunicationErrorException extends __BaseException {
  * @public
  */
 export class ServiceNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#ServiceNotSupportedException";
   readonly name = "ServiceNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -394,6 +412,7 @@ export class ServiceNotSupportedException extends __BaseException {
  * @public
  */
 export class DeleteConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#DeleteConflictException";
   readonly name = "DeleteConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -414,6 +433,7 @@ export class DeleteConflictException extends __BaseException {
  * @public
  */
 export class OrganizationNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#OrganizationNotFoundException";
   readonly name = "OrganizationNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -438,6 +458,7 @@ export class OrganizationNotFoundException extends __BaseException {
  * @public
  */
 export class OrganizationNotInAllFeaturesModeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#OrganizationNotInAllFeaturesModeException";
   readonly name = "OrganizationNotInAllFeaturesModeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -460,6 +481,7 @@ export class OrganizationNotInAllFeaturesModeException extends __BaseException {
  * @public
  */
 export class ServiceAccessNotEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#ServiceAccessNotEnabledException";
   readonly name = "ServiceAccessNotEnabledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -482,6 +504,7 @@ export class ServiceAccessNotEnabledException extends __BaseException {
  * @public
  */
 export class FeatureDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#FeatureDisabledException";
   readonly name = "FeatureDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -503,6 +526,7 @@ export class FeatureDisabledException extends __BaseException {
  * @public
  */
 export class InvalidAuthenticationCodeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#InvalidAuthenticationCodeException";
   readonly name = "InvalidAuthenticationCodeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -524,6 +548,7 @@ export class InvalidAuthenticationCodeException extends __BaseException {
  * @public
  */
 export class CallerIsNotManagementAccountException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#CallerIsNotManagementAccountException";
   readonly name = "CallerIsNotManagementAccountException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -547,6 +572,7 @@ export class CallerIsNotManagementAccountException extends __BaseException {
  * @public
  */
 export class FeatureEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#FeatureEnabledException";
   readonly name = "FeatureEnabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -568,6 +594,7 @@ export class FeatureEnabledException extends __BaseException {
  * @public
  */
 export class ReportGenerationLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#ReportGenerationLimitExceededException";
   readonly name = "ReportGenerationLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -591,6 +618,7 @@ export class ReportGenerationLimitExceededException extends __BaseException {
  * @public
  */
 export class CredentialReportExpiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#CredentialReportExpiredException";
   readonly name = "CredentialReportExpiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -612,6 +640,7 @@ export class CredentialReportExpiredException extends __BaseException {
  * @public
  */
 export class CredentialReportNotPresentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#CredentialReportNotPresentException";
   readonly name = "CredentialReportNotPresentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -632,6 +661,7 @@ export class CredentialReportNotPresentException extends __BaseException {
  * @public
  */
 export class CredentialReportNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#CredentialReportNotReadyException";
   readonly name = "CredentialReportNotReadyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -653,6 +683,7 @@ export class CredentialReportNotReadyException extends __BaseException {
  * @public
  */
 export class UnrecognizedPublicKeyEncodingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#UnrecognizedPublicKeyEncodingException";
   readonly name = "UnrecognizedPublicKeyEncodingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -674,6 +705,7 @@ export class UnrecognizedPublicKeyEncodingException extends __BaseException {
  * @public
  */
 export class PolicyEvaluationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#PolicyEvaluationException";
   readonly name = "PolicyEvaluationException" as const;
   readonly $fault = "server" as const;
   /**
@@ -695,6 +727,7 @@ export class PolicyEvaluationException extends __BaseException {
  * @public
  */
 export class KeyPairMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#KeyPairMismatchException";
   readonly name = "KeyPairMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -716,6 +749,7 @@ export class KeyPairMismatchException extends __BaseException {
  * @public
  */
 export class MalformedCertificateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#MalformedCertificateException";
   readonly name = "MalformedCertificateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -737,6 +771,7 @@ export class MalformedCertificateException extends __BaseException {
  * @public
  */
 export class DuplicateCertificateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#DuplicateCertificateException";
   readonly name = "DuplicateCertificateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -757,6 +792,7 @@ export class DuplicateCertificateException extends __BaseException {
  * @public
  */
 export class InvalidCertificateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#InvalidCertificateException";
   readonly name = "InvalidCertificateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -778,6 +814,7 @@ export class InvalidCertificateException extends __BaseException {
  * @public
  */
 export class DuplicateSSHPublicKeyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#DuplicateSSHPublicKeyException";
   readonly name = "DuplicateSSHPublicKeyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -798,6 +835,7 @@ export class DuplicateSSHPublicKeyException extends __BaseException {
  * @public
  */
 export class InvalidPublicKeyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.iam#InvalidPublicKeyException";
   readonly name = "InvalidPublicKeyException" as const;
   readonly $fault = "client" as const;
   /**

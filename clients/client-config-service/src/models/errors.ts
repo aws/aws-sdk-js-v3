@@ -25,6 +25,7 @@ import { ConfigServiceServiceException as __BaseException } from "./ConfigServic
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -46,6 +47,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class NoSuchConfigurationRecorderException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchConfigurationRecorderException";
   readonly name = "NoSuchConfigurationRecorderException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +110,7 @@ export class NoSuchConfigurationRecorderException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +131,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class NoSuchConfigurationAggregatorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchConfigurationAggregatorException";
   readonly name = "NoSuchConfigurationAggregatorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -149,6 +153,7 @@ export class NoSuchConfigurationAggregatorException extends __BaseException {
  * @public
  */
 export class NoAvailableConfigurationRecorderException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoAvailableConfigurationRecorderException";
   readonly name = "NoAvailableConfigurationRecorderException" as const;
   readonly $fault = "client" as const;
   /**
@@ -169,6 +174,7 @@ export class NoAvailableConfigurationRecorderException extends __BaseException {
  * @public
  */
 export class ConformancePackTemplateValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#ConformancePackTemplateValidationException";
   readonly name = "ConformancePackTemplateValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -190,6 +196,7 @@ export class ConformancePackTemplateValidationException extends __BaseException 
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -210,6 +217,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class NoSuchConfigRuleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchConfigRuleException";
   readonly name = "NoSuchConfigRuleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -253,6 +261,7 @@ export class NoSuchConfigRuleException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -281,6 +290,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class UnmodifiableEntityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#UnmodifiableEntityException";
   readonly name = "UnmodifiableEntityException" as const;
   readonly $fault = "client" as const;
   /**
@@ -301,6 +311,7 @@ export class UnmodifiableEntityException extends __BaseException {
  * @public
  */
 export class NoSuchConformancePackException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchConformancePackException";
   readonly name = "NoSuchConformancePackException" as const;
   readonly $fault = "client" as const;
   /**
@@ -321,6 +332,7 @@ export class NoSuchConformancePackException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -341,6 +353,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class LastDeliveryChannelDeleteFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#LastDeliveryChannelDeleteFailedException";
   readonly name = "LastDeliveryChannelDeleteFailedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -362,6 +375,7 @@ export class LastDeliveryChannelDeleteFailedException extends __BaseException {
  * @public
  */
 export class NoSuchDeliveryChannelException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchDeliveryChannelException";
   readonly name = "NoSuchDeliveryChannelException" as const;
   readonly $fault = "client" as const;
   /**
@@ -382,6 +396,7 @@ export class NoSuchDeliveryChannelException extends __BaseException {
  * @public
  */
 export class NoSuchOrganizationConfigRuleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException";
   readonly name = "NoSuchOrganizationConfigRuleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -420,6 +435,7 @@ export class NoSuchOrganizationConfigRuleException extends __BaseException {
  * @public
  */
 export class OrganizationAccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#OrganizationAccessDeniedException";
   readonly name = "OrganizationAccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -441,6 +457,7 @@ export class OrganizationAccessDeniedException extends __BaseException {
  * @public
  */
 export class NoSuchOrganizationConformancePackException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchOrganizationConformancePackException";
   readonly name = "NoSuchOrganizationConformancePackException" as const;
   readonly $fault = "client" as const;
   /**
@@ -489,6 +506,7 @@ export class NoSuchOrganizationConformancePackException extends __BaseException 
  * @public
  */
 export class InsufficientPermissionsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InsufficientPermissionsException";
   readonly name = "InsufficientPermissionsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -509,6 +527,7 @@ export class InsufficientPermissionsException extends __BaseException {
  * @public
  */
 export class NoSuchRemediationConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchRemediationConfigurationException";
   readonly name = "NoSuchRemediationConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -529,6 +548,7 @@ export class NoSuchRemediationConfigurationException extends __BaseException {
  * @public
  */
 export class RemediationInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#RemediationInProgressException";
   readonly name = "RemediationInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -549,6 +569,7 @@ export class RemediationInProgressException extends __BaseException {
  * @public
  */
 export class NoSuchRemediationExceptionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchRemediationExceptionException";
   readonly name = "NoSuchRemediationExceptionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -569,6 +590,7 @@ export class NoSuchRemediationExceptionException extends __BaseException {
  * @public
  */
 export class NoRunningConfigurationRecorderException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoRunningConfigurationRecorderException";
   readonly name = "NoRunningConfigurationRecorderException" as const;
   readonly $fault = "client" as const;
   /**
@@ -589,6 +611,7 @@ export class NoRunningConfigurationRecorderException extends __BaseException {
  * @public
  */
 export class NoSuchRetentionConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchRetentionConfigurationException";
   readonly name = "NoSuchRetentionConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -609,6 +632,7 @@ export class NoSuchRetentionConfigurationException extends __BaseException {
  * @public
  */
 export class InvalidLimitException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidLimitException";
   readonly name = "InvalidLimitException" as const;
   readonly $fault = "client" as const;
   /**
@@ -631,6 +655,7 @@ export class InvalidLimitException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -651,6 +676,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class NoSuchConfigRuleInConformancePackException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchConfigRuleInConformancePackException";
   readonly name = "NoSuchConfigRuleInConformancePackException" as const;
   readonly $fault = "client" as const;
   /**
@@ -671,6 +697,7 @@ export class NoSuchConfigRuleInConformancePackException extends __BaseException 
  * @public
  */
 export class OversizedConfigurationItemException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#OversizedConfigurationItemException";
   readonly name = "OversizedConfigurationItemException" as const;
   readonly $fault = "client" as const;
   /**
@@ -692,6 +719,7 @@ export class OversizedConfigurationItemException extends __BaseException {
  * @public
  */
 export class ResourceNotDiscoveredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#ResourceNotDiscoveredException";
   readonly name = "ResourceNotDiscoveredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -713,6 +741,7 @@ export class ResourceNotDiscoveredException extends __BaseException {
  * @public
  */
 export class InvalidTimeRangeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidTimeRangeException";
   readonly name = "InvalidTimeRangeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -733,6 +762,7 @@ export class InvalidTimeRangeException extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatch extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#IdempotentParameterMismatch";
   readonly name = "IdempotentParameterMismatch" as const;
   readonly $fault = "client" as const;
   /**
@@ -754,6 +784,7 @@ export class IdempotentParameterMismatch extends __BaseException {
  * @public
  */
 export class InsufficientDeliveryPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InsufficientDeliveryPolicyException";
   readonly name = "InsufficientDeliveryPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -774,6 +805,7 @@ export class InsufficientDeliveryPolicyException extends __BaseException {
  * @public
  */
 export class InvalidConfigurationRecorderNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidConfigurationRecorderNameException";
   readonly name = "InvalidConfigurationRecorderNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -794,6 +826,7 @@ export class InvalidConfigurationRecorderNameException extends __BaseException {
  * @public
  */
 export class InvalidDeliveryChannelNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidDeliveryChannelNameException";
   readonly name = "InvalidDeliveryChannelNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -814,6 +847,7 @@ export class InvalidDeliveryChannelNameException extends __BaseException {
  * @public
  */
 export class InvalidExpressionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidExpressionException";
   readonly name = "InvalidExpressionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -857,6 +891,7 @@ export class InvalidExpressionException extends __BaseException {
  * @public
  */
 export class InvalidRecordingGroupException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidRecordingGroupException";
   readonly name = "InvalidRecordingGroupException" as const;
   readonly $fault = "client" as const;
   /**
@@ -877,6 +912,7 @@ export class InvalidRecordingGroupException extends __BaseException {
  * @public
  */
 export class InvalidResultTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidResultTokenException";
   readonly name = "InvalidResultTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -897,6 +933,7 @@ export class InvalidResultTokenException extends __BaseException {
  * @public
  */
 export class InvalidRoleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidRoleException";
   readonly name = "InvalidRoleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -917,6 +954,7 @@ export class InvalidRoleException extends __BaseException {
  * @public
  */
 export class InvalidS3KeyPrefixException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidS3KeyPrefixException";
   readonly name = "InvalidS3KeyPrefixException" as const;
   readonly $fault = "client" as const;
   /**
@@ -937,6 +975,7 @@ export class InvalidS3KeyPrefixException extends __BaseException {
  * @public
  */
 export class InvalidS3KmsKeyArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidS3KmsKeyArnException";
   readonly name = "InvalidS3KmsKeyArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -957,6 +996,7 @@ export class InvalidS3KmsKeyArnException extends __BaseException {
  * @public
  */
 export class InvalidSNSTopicARNException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#InvalidSNSTopicARNException";
   readonly name = "InvalidSNSTopicARNException" as const;
   readonly $fault = "client" as const;
   /**
@@ -984,6 +1024,7 @@ export class InvalidSNSTopicARNException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1006,6 +1047,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class MaxActiveResourcesExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#MaxActiveResourcesExceededException";
   readonly name = "MaxActiveResourcesExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1028,6 +1070,7 @@ export class MaxActiveResourcesExceededException extends __BaseException {
  * @public
  */
 export class MaxNumberOfConfigRulesExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#MaxNumberOfConfigRulesExceededException";
   readonly name = "MaxNumberOfConfigRulesExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1049,6 +1092,7 @@ export class MaxNumberOfConfigRulesExceededException extends __BaseException {
  * @public
  */
 export class MaxNumberOfConfigurationRecordersExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#MaxNumberOfConfigurationRecordersExceededException";
   readonly name = "MaxNumberOfConfigurationRecordersExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1071,6 +1115,7 @@ export class MaxNumberOfConfigurationRecordersExceededException extends __BaseEx
  * @public
  */
 export class MaxNumberOfConformancePacksExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#MaxNumberOfConformancePacksExceededException";
   readonly name = "MaxNumberOfConformancePacksExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1091,6 +1136,7 @@ export class MaxNumberOfConformancePacksExceededException extends __BaseExceptio
  * @public
  */
 export class MaxNumberOfConnectorsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#MaxNumberOfConnectorsExceededException";
   readonly name = "MaxNumberOfConnectorsExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1112,6 +1158,7 @@ export class MaxNumberOfConnectorsExceededException extends __BaseException {
  * @public
  */
 export class MaxNumberOfDeliveryChannelsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#MaxNumberOfDeliveryChannelsExceededException";
   readonly name = "MaxNumberOfDeliveryChannelsExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1134,6 +1181,7 @@ export class MaxNumberOfDeliveryChannelsExceededException extends __BaseExceptio
  * @public
  */
 export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#MaxNumberOfOrganizationConfigRulesExceededException";
   readonly name = "MaxNumberOfOrganizationConfigRulesExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1156,6 +1204,7 @@ export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseE
  * @public
  */
 export class MaxNumberOfOrganizationConformancePacksExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#MaxNumberOfOrganizationConformancePacksExceededException";
   readonly name = "MaxNumberOfOrganizationConformancePacksExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1176,6 +1225,7 @@ export class MaxNumberOfOrganizationConformancePacksExceededException extends __
  * @public
  */
 export class MaxNumberOfRetentionConfigurationsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#MaxNumberOfRetentionConfigurationsExceededException";
   readonly name = "MaxNumberOfRetentionConfigurationsExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1197,6 +1247,7 @@ export class MaxNumberOfRetentionConfigurationsExceededException extends __BaseE
  * @public
  */
 export class NoAvailableDeliveryChannelException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoAvailableDeliveryChannelException";
   readonly name = "NoAvailableDeliveryChannelException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1217,6 +1268,7 @@ export class NoAvailableDeliveryChannelException extends __BaseException {
  * @public
  */
 export class NoAvailableOrganizationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoAvailableOrganizationException";
   readonly name = "NoAvailableOrganizationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1237,6 +1289,7 @@ export class NoAvailableOrganizationException extends __BaseException {
  * @public
  */
 export class NoSuchBucketException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#NoSuchBucketException";
   readonly name = "NoSuchBucketException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1257,6 +1310,7 @@ export class NoSuchBucketException extends __BaseException {
  * @public
  */
 export class OrganizationAllFeaturesNotEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#OrganizationAllFeaturesNotEnabledException";
   readonly name = "OrganizationAllFeaturesNotEnabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1277,6 +1331,7 @@ export class OrganizationAllFeaturesNotEnabledException extends __BaseException 
  * @public
  */
 export class OrganizationConformancePackTemplateValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#OrganizationConformancePackTemplateValidationException";
   readonly name = "OrganizationConformancePackTemplateValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1297,6 +1352,7 @@ export class OrganizationConformancePackTemplateValidationException extends __Ba
  * @public
  */
 export class ResourceConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#ResourceConcurrentModificationException";
   readonly name = "ResourceConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1320,6 +1376,7 @@ export class ResourceConcurrentModificationException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.configservice#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**

@@ -8,6 +8,7 @@ import { OSISServiceException as __BaseException } from "./OSISServiceException"
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.osis#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class DisabledOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.osis#DisabledOperationException";
   readonly name = "DisabledOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -49,6 +51,7 @@ export class DisabledOperationException extends __BaseException {
  * @public
  */
 export class InternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.osis#InternalException";
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   /**
@@ -69,6 +72,7 @@ export class InternalException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.osis#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.osis#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.osis#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -129,6 +135,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.osis#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -149,6 +156,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.osis#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -169,6 +177,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.osis#InvalidPaginationTokenException";
   readonly name = "InvalidPaginationTokenException" as const;
   readonly $fault = "client" as const;
   /**

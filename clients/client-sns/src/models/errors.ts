@@ -8,6 +8,7 @@ import { SNSServiceException as __BaseException } from "./SNSServiceException";
  * @public
  */
 export class AuthorizationErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#AuthorizationErrorException";
   readonly name = "AuthorizationErrorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AuthorizationErrorException extends __BaseException {
  * @public
  */
 export class InternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#InternalErrorException";
   readonly name = "InternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -49,6 +51,7 @@ export class InternalErrorException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -69,6 +72,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ThrottledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#ThrottledException";
   readonly name = "ThrottledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -111,6 +116,7 @@ export class ThrottledException extends __BaseException {
  * @public
  */
 export class FilterPolicyLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#FilterPolicyLimitExceededException";
   readonly name = "FilterPolicyLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -131,6 +137,7 @@ export class FilterPolicyLimitExceededException extends __BaseException {
  * @public
  */
 export class ReplayLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#ReplayLimitExceededException";
   readonly name = "ReplayLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -152,6 +159,7 @@ export class ReplayLimitExceededException extends __BaseException {
  * @public
  */
 export class SubscriptionLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#SubscriptionLimitExceededException";
   readonly name = "SubscriptionLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -173,6 +181,7 @@ export class SubscriptionLimitExceededException extends __BaseException {
  * @public
  */
 export class OptedOutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#OptedOutException";
   readonly name = "OptedOutException" as const;
   readonly $fault = "client" as const;
   /**
@@ -194,6 +203,7 @@ export class OptedOutException extends __BaseException {
  * @public
  */
 export class UserErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#UserErrorException";
   readonly name = "UserErrorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -215,6 +225,7 @@ export class UserErrorException extends __BaseException {
  * @public
  */
 export class ConcurrentAccessException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#ConcurrentAccessException";
   readonly name = "ConcurrentAccessException" as const;
   readonly $fault = "client" as const;
   /**
@@ -236,6 +247,7 @@ export class ConcurrentAccessException extends __BaseException {
  * @public
  */
 export class InvalidSecurityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#InvalidSecurityException";
   readonly name = "InvalidSecurityException" as const;
   readonly $fault = "client" as const;
   /**
@@ -257,6 +269,7 @@ export class InvalidSecurityException extends __BaseException {
  * @public
  */
 export class StaleTagException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#StaleTagException";
   readonly name = "StaleTagException" as const;
   readonly $fault = "client" as const;
   /**
@@ -277,6 +290,7 @@ export class StaleTagException extends __BaseException {
  * @public
  */
 export class TagLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#TagLimitExceededException";
   readonly name = "TagLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -298,6 +312,7 @@ export class TagLimitExceededException extends __BaseException {
  * @public
  */
 export class TagPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#TagPolicyException";
   readonly name = "TagPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -318,6 +333,7 @@ export class TagPolicyException extends __BaseException {
  * @public
  */
 export class TopicLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#TopicLimitExceededException";
   readonly name = "TopicLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -339,6 +355,7 @@ export class TopicLimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -359,6 +376,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#InvalidStateException";
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -379,6 +397,7 @@ export class InvalidStateException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -401,6 +420,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class EndpointDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#EndpointDisabledException";
   readonly name = "EndpointDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -421,6 +441,7 @@ export class EndpointDisabledException extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -442,6 +463,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class KMSAccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#KMSAccessDeniedException";
   readonly name = "KMSAccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -463,6 +485,7 @@ export class KMSAccessDeniedException extends __BaseException {
  * @public
  */
 export class KMSDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#KMSDisabledException";
   readonly name = "KMSDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -485,6 +508,7 @@ export class KMSDisabledException extends __BaseException {
  * @public
  */
 export class KMSInvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#KMSInvalidStateException";
   readonly name = "KMSInvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -506,6 +530,7 @@ export class KMSInvalidStateException extends __BaseException {
  * @public
  */
 export class KMSNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#KMSNotFoundException";
   readonly name = "KMSNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -526,6 +551,7 @@ export class KMSNotFoundException extends __BaseException {
  * @public
  */
 export class KMSOptInRequired extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#KMSOptInRequired";
   readonly name = "KMSOptInRequired" as const;
   readonly $fault = "client" as const;
   /**
@@ -549,6 +575,7 @@ export class KMSOptInRequired extends __BaseException {
  * @public
  */
 export class KMSThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#KMSThrottlingException";
   readonly name = "KMSThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -569,6 +596,7 @@ export class KMSThrottlingException extends __BaseException {
  * @public
  */
 export class PlatformApplicationDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#PlatformApplicationDisabledException";
   readonly name = "PlatformApplicationDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -589,6 +617,7 @@ export class PlatformApplicationDisabledException extends __BaseException {
  * @public
  */
 export class BatchEntryIdsNotDistinctException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#BatchEntryIdsNotDistinctException";
   readonly name = "BatchEntryIdsNotDistinctException" as const;
   readonly $fault = "client" as const;
   /**
@@ -609,6 +638,7 @@ export class BatchEntryIdsNotDistinctException extends __BaseException {
  * @public
  */
 export class BatchRequestTooLongException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#BatchRequestTooLongException";
   readonly name = "BatchRequestTooLongException" as const;
   readonly $fault = "client" as const;
   /**
@@ -629,6 +659,7 @@ export class BatchRequestTooLongException extends __BaseException {
  * @public
  */
 export class EmptyBatchRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#EmptyBatchRequestException";
   readonly name = "EmptyBatchRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -649,6 +680,7 @@ export class EmptyBatchRequestException extends __BaseException {
  * @public
  */
 export class InvalidBatchEntryIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#InvalidBatchEntryIdException";
   readonly name = "InvalidBatchEntryIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -669,6 +701,7 @@ export class InvalidBatchEntryIdException extends __BaseException {
  * @public
  */
 export class TooManyEntriesInBatchRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#TooManyEntriesInBatchRequestException";
   readonly name = "TooManyEntriesInBatchRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -689,6 +722,7 @@ export class TooManyEntriesInBatchRequestException extends __BaseException {
  * @public
  */
 export class VerificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sns#VerificationException";
   readonly name = "VerificationException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;

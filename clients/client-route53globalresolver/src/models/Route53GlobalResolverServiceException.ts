@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Route53GlobalResolver service.
  */
 export class Route53GlobalResolverServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.route53globalresolver#Route53GlobalResolverServiceException";
   /**
    * @internal
    */

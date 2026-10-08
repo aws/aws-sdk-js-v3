@@ -8,6 +8,7 @@ import { BackupServiceException as __BaseException } from "./BackupServiceExcept
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.backup#AlreadyExistsException";
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -60,6 +61,7 @@ export class AlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.backup#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -98,6 +100,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.backup#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -135,6 +138,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class MissingParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.backup#MissingParameterValueException";
   readonly name = "MissingParameterValueException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -172,6 +176,7 @@ export class MissingParameterValueException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.backup#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -209,6 +214,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.backup#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   Code?: string | undefined;
@@ -247,6 +253,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class InvalidResourceStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.backup#InvalidResourceStateException";
   readonly name = "InvalidResourceStateException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -285,6 +292,7 @@ export class InvalidResourceStateException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.backup#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -323,6 +331,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.backup#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;
@@ -360,6 +369,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class DependencyFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.backup#DependencyFailureException";
   readonly name = "DependencyFailureException" as const;
   readonly $fault = "server" as const;
   Code?: string | undefined;

@@ -11,6 +11,7 @@ import type { PropertyValidationExceptionProperty } from "./models_1";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -33,6 +34,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#InternalServiceException";
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   /**
@@ -59,6 +61,7 @@ export class InternalServiceException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -85,6 +88,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class ResourceConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#ResourceConflictException";
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -107,6 +111,7 @@ export class ResourceConflictException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -133,6 +138,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -155,6 +161,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -188,6 +195,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -216,6 +224,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -242,6 +251,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class IdempotencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#IdempotencyException";
   readonly name = "IdempotencyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -264,6 +274,7 @@ export class IdempotencyException extends __BaseException {
  * @public
  */
 export class ConditionalOperationFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#ConditionalOperationFailedException";
   readonly name = "ConditionalOperationFailedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -286,6 +297,7 @@ export class ConditionalOperationFailedException extends __BaseException {
  * @public
  */
 export class DuplicateResourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#DuplicateResourceException";
   readonly name = "DuplicateResourceException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -309,6 +321,7 @@ export class DuplicateResourceException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -331,6 +344,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InvalidContactFlowException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#InvalidContactFlowException";
   readonly name = "InvalidContactFlowException" as const;
   readonly $fault = "client" as const;
   /**
@@ -357,6 +371,7 @@ export class InvalidContactFlowException extends __BaseException {
  * @public
  */
 export class InvalidContactFlowModuleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#InvalidContactFlowModuleException";
   readonly name = "InvalidContactFlowModuleException" as const;
   readonly $fault = "client" as const;
   Problems?: ProblemDetail[] | undefined;
@@ -379,6 +394,7 @@ export class InvalidContactFlowModuleException extends __BaseException {
  * @public
  */
 export class PropertyValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#PropertyValidationException";
   readonly name = "PropertyValidationException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -403,6 +419,7 @@ export class PropertyValidationException extends __BaseException {
  * @public
  */
 export class InvalidTestCaseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#InvalidTestCaseException";
   readonly name = "InvalidTestCaseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -429,6 +446,7 @@ export class InvalidTestCaseException extends __BaseException {
  * @public
  */
 export class ResourceNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#ResourceNotReadyException";
   readonly name = "ResourceNotReadyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -453,6 +471,7 @@ export class ResourceNotReadyException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -488,6 +507,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -512,6 +532,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class ContactNotTerminatedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#ContactNotTerminatedException";
   readonly name = "ContactNotTerminatedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -534,6 +555,7 @@ export class ContactNotTerminatedException extends __BaseException {
  * @public
  */
 export class ContactFlowNotPublishedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#ContactFlowNotPublishedException";
   readonly name = "ContactFlowNotPublishedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -556,6 +578,7 @@ export class ContactFlowNotPublishedException extends __BaseException {
  * @public
  */
 export class UserNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#UserNotFoundException";
   readonly name = "UserNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -579,6 +602,7 @@ export class UserNotFoundException extends __BaseException {
  * @public
  */
 export class OutputTypeNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#OutputTypeNotFoundException";
   readonly name = "OutputTypeNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -601,6 +625,7 @@ export class OutputTypeNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidActiveRegionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#InvalidActiveRegionException";
   readonly name = "InvalidActiveRegionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -624,6 +649,7 @@ export class InvalidActiveRegionException extends __BaseException {
  * @public
  */
 export class MaximumResultReturnedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#MaximumResultReturnedException";
   readonly name = "MaximumResultReturnedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -646,6 +672,7 @@ export class MaximumResultReturnedException extends __BaseException {
  * @public
  */
 export class DestinationNotAllowedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#DestinationNotAllowedException";
   readonly name = "DestinationNotAllowedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -672,6 +699,7 @@ export class DestinationNotAllowedException extends __BaseException {
  * @public
  */
 export class OutboundContactNotPermittedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#OutboundContactNotPermittedException";
   readonly name = "OutboundContactNotPermittedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -698,6 +726,7 @@ export class OutboundContactNotPermittedException extends __BaseException {
  * @public
  */
 export class ContactNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.connect#ContactNotFoundException";
   readonly name = "ContactNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

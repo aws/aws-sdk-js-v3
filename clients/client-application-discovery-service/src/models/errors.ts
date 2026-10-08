@@ -11,6 +11,7 @@ import {
  * @public
  */
 export class AuthorizationErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException";
   readonly name = "AuthorizationErrorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -31,6 +32,7 @@ export class AuthorizationErrorException extends __BaseException {
  * @public
  */
 export class HomeRegionNotSetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException";
   readonly name = "HomeRegionNotSetException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class HomeRegionNotSetException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationdiscoveryservice#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -72,6 +75,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -92,6 +96,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class ServerInternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException";
   readonly name = "ServerInternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -113,6 +118,7 @@ export class ServerInternalErrorException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -133,6 +139,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class OperationNotPermittedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException";
   readonly name = "OperationNotPermittedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -155,6 +162,7 @@ export class OperationNotPermittedException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationdiscoveryservice#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -175,6 +183,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ConflictErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationdiscoveryservice#ConflictErrorException";
   readonly name = "ConflictErrorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -199,6 +208,7 @@ export class ConflictErrorException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.applicationdiscoveryservice#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**

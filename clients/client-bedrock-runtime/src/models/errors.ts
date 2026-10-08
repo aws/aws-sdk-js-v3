@@ -8,6 +8,7 @@ import { BedrockRuntimeServiceException as __BaseException } from "./BedrockRunt
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -48,6 +50,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,6 +155,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -168,6 +176,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class ModelErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#ModelErrorException";
   readonly name = "ModelErrorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -202,6 +211,7 @@ export class ModelErrorException extends __BaseException {
  * @public
  */
 export class ModelNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#ModelNotReadyException";
   readonly name = "ModelNotReadyException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -223,6 +233,7 @@ export class ModelNotReadyException extends __BaseException {
  * @public
  */
 export class ModelTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#ModelTimeoutException";
   readonly name = "ModelTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
@@ -243,6 +254,7 @@ export class ModelTimeoutException extends __BaseException {
  * @public
  */
 export class ModelStreamErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockruntime#ModelStreamErrorException";
   readonly name = "ModelStreamErrorException" as const;
   readonly $fault = "client" as const;
   /**

@@ -9,6 +9,7 @@ import { S3VectorsServiceException as __BaseException } from "./S3VectorsService
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -49,6 +51,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -70,6 +73,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +94,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class RequestTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#RequestTimeoutException";
   readonly name = "RequestTimeoutException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -111,6 +116,7 @@ export class RequestTimeoutException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -131,6 +137,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -152,6 +159,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   $retryable = {
@@ -175,6 +183,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -202,6 +211,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class KmsDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#KmsDisabledException";
   readonly name = "KmsDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -222,6 +232,7 @@ export class KmsDisabledException extends __BaseException {
  * @public
  */
 export class KmsInvalidKeyUsageException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#KmsInvalidKeyUsageException";
   readonly name = "KmsInvalidKeyUsageException" as const;
   readonly $fault = "client" as const;
   /**
@@ -242,6 +253,7 @@ export class KmsInvalidKeyUsageException extends __BaseException {
  * @public
  */
 export class KmsInvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#KmsInvalidStateException";
   readonly name = "KmsInvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -262,6 +274,7 @@ export class KmsInvalidStateException extends __BaseException {
  * @public
  */
 export class KmsNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3vectors#KmsNotFoundException";
   readonly name = "KmsNotFoundException" as const;
   readonly $fault = "client" as const;
   /**

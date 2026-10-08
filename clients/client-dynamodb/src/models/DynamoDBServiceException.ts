@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from DynamoDB service.
  */
 export class DynamoDBServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.dynamodb#DynamoDBServiceException";
   /**
    * @internal
    */

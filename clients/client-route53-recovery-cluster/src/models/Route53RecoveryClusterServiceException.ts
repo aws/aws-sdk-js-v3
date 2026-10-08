@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Route53RecoveryCluster service.
  */
 export class Route53RecoveryClusterServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.route53recoverycluster#Route53RecoveryClusterServiceException";
   /**
    * @internal
    */

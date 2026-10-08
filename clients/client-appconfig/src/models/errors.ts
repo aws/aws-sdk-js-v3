@@ -10,6 +10,7 @@ import type { BadRequestDetails } from "./models_0";
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appconfig#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -41,6 +42,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appconfig#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -68,6 +70,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appconfig#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -90,6 +93,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appconfig#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -115,6 +119,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appconfig#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -137,6 +142,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class PayloadTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appconfig#PayloadTooLargeException";
   readonly name = "PayloadTooLargeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

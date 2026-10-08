@@ -8,6 +8,7 @@ import { SimpleDBv2ServiceException as __BaseException } from "./SimpleDBv2Servi
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.simpledbv2#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.simpledbv2#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class NoSuchExportException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.simpledbv2#NoSuchExportException";
   readonly name = "NoSuchExportException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class NoSuchExportException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.simpledbv2#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.simpledbv2#InvalidParameterCombinationException";
   readonly name = "InvalidParameterCombinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class InvalidParameterCombinationException extends __BaseException {
  * @public
  */
 export class NoSuchDomainException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.simpledbv2#NoSuchDomainException";
   readonly name = "NoSuchDomainException" as const;
   readonly $fault = "client" as const;
   /**
@@ -128,6 +134,7 @@ export class NoSuchDomainException extends __BaseException {
  * @public
  */
 export class NumberExportsLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.simpledbv2#NumberExportsLimitExceeded";
   readonly name = "NumberExportsLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**

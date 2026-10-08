@@ -9,6 +9,7 @@ import { SagemakerEdgeServiceException as __BaseException } from "./SagemakerEdg
  * @public
  */
 export class InternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sagemakeredge#InternalServiceException";
   readonly name = "InternalServiceException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

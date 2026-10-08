@@ -10,6 +10,7 @@ import {
  * @public
  */
 export class InternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costandusagereportservice#InternalErrorException";
   readonly name = "InternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -36,6 +37,7 @@ export class InternalErrorException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costandusagereportservice#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -62,6 +64,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costandusagereportservice#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +91,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class DuplicateReportNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costandusagereportservice#DuplicateReportNameException";
   readonly name = "DuplicateReportNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -114,6 +118,7 @@ export class DuplicateReportNameException extends __BaseException {
  * @public
  */
 export class ReportLimitReachedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costandusagereportservice#ReportLimitReachedException";
   readonly name = "ReportLimitReachedException" as const;
   readonly $fault = "client" as const;
   /**

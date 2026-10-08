@@ -8,6 +8,7 @@ import { MigrationHubServiceException as __BaseException } from "./MigrationHubS
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhub#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class DryRunOperation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhub#DryRunOperation";
   readonly name = "DryRunOperation" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -53,6 +55,7 @@ export class DryRunOperation extends __BaseException {
  * @public
  */
 export class HomeRegionNotSetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhub#HomeRegionNotSetException";
   readonly name = "HomeRegionNotSetException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -76,6 +79,7 @@ export class HomeRegionNotSetException extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhub#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -99,6 +103,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhub#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -123,6 +128,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhub#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -146,6 +152,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhub#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -168,6 +175,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhub#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -202,6 +210,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class UnauthorizedOperation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhub#UnauthorizedOperation";
   readonly name = "UnauthorizedOperation" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -226,6 +235,7 @@ export class UnauthorizedOperation extends __BaseException {
  * @public
  */
 export class PolicyErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhub#PolicyErrorException";
   readonly name = "PolicyErrorException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

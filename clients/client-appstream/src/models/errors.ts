@@ -8,6 +8,7 @@ import { AppStreamServiceException as __BaseException } from "./AppStreamService
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -34,6 +35,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#InvalidParameterCombinationException";
   readonly name = "InvalidParameterCombinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -60,6 +62,7 @@ export class InvalidParameterCombinationException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -86,6 +89,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class OperationNotPermittedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#OperationNotPermittedException";
   readonly name = "OperationNotPermittedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -112,6 +116,7 @@ export class OperationNotPermittedException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -138,6 +143,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class EntitlementNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#EntitlementNotFoundException";
   readonly name = "EntitlementNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -164,6 +170,7 @@ export class EntitlementNotFoundException extends __BaseException {
  * @public
  */
 export class IncompatibleImageException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#IncompatibleImageException";
   readonly name = "IncompatibleImageException" as const;
   readonly $fault = "client" as const;
   /**
@@ -190,6 +197,7 @@ export class IncompatibleImageException extends __BaseException {
  * @public
  */
 export class InvalidAccountStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#InvalidAccountStatusException";
   readonly name = "InvalidAccountStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -216,6 +224,7 @@ export class InvalidAccountStatusException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -242,6 +251,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ResourceNotAvailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#ResourceNotAvailableException";
   readonly name = "ResourceNotAvailableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -268,6 +278,7 @@ export class ResourceNotAvailableException extends __BaseException {
  * @public
  */
 export class InvalidRoleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#InvalidRoleException";
   readonly name = "InvalidRoleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -294,6 +305,7 @@ export class InvalidRoleException extends __BaseException {
  * @public
  */
 export class RequestLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#RequestLimitExceededException";
   readonly name = "RequestLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -320,6 +332,7 @@ export class RequestLimitExceededException extends __BaseException {
  * @public
  */
 export class EntitlementAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#EntitlementAlreadyExistsException";
   readonly name = "EntitlementAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -346,6 +359,7 @@ export class EntitlementAlreadyExistsException extends __BaseException {
  * @public
  */
 export class DryRunOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#DryRunOperationException";
   readonly name = "DryRunOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -372,6 +386,7 @@ export class DryRunOperationException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.appstream#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**

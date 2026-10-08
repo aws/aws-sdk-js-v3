@@ -8,6 +8,7 @@ import { CodeConnectionsServiceException as __BaseException } from "./CodeConnec
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -74,6 +77,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#ResourceUnavailableException";
   readonly name = "ResourceUnavailableException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -96,6 +100,7 @@ export class ResourceUnavailableException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -118,6 +123,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -140,6 +146,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -162,6 +169,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -184,6 +192,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -206,6 +215,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class SyncConfigurationStillExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#SyncConfigurationStillExistsException";
   readonly name = "SyncConfigurationStillExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -228,6 +238,7 @@ export class SyncConfigurationStillExistsException extends __BaseException {
  * @public
  */
 export class UnsupportedProviderTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#UnsupportedProviderTypeException";
   readonly name = "UnsupportedProviderTypeException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -250,6 +261,7 @@ export class UnsupportedProviderTypeException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -272,6 +284,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#UnsupportedOperationException";
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -294,6 +307,7 @@ export class UnsupportedOperationException extends __BaseException {
  * @public
  */
 export class ConditionalCheckFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#ConditionalCheckFailedException";
   readonly name = "ConditionalCheckFailedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -316,6 +330,7 @@ export class ConditionalCheckFailedException extends __BaseException {
  * @public
  */
 export class UpdateOutOfSyncException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#UpdateOutOfSyncException";
   readonly name = "UpdateOutOfSyncException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -338,6 +353,7 @@ export class UpdateOutOfSyncException extends __BaseException {
  * @public
  */
 export class RetryLatestCommitFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#RetryLatestCommitFailedException";
   readonly name = "RetryLatestCommitFailedException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -360,6 +376,7 @@ export class RetryLatestCommitFailedException extends __BaseException {
  * @public
  */
 export class SyncBlockerDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codeconnections#SyncBlockerDoesNotExistException";
   readonly name = "SyncBlockerDoesNotExistException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

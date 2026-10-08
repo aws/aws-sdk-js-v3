@@ -8,6 +8,7 @@ import { DeviceFarmServiceException as __BaseException } from "./DeviceFarmServi
  * @public
  */
 export class ArgumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#ArgumentException";
   readonly name = "ArgumentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class ArgumentException extends __BaseException {
  * @public
  */
 export class CannotDeleteException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#CannotDeleteException";
   readonly name = "CannotDeleteException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class CannotDeleteException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ServiceAccountException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#ServiceAccountException";
   readonly name = "ServiceAccountException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class ServiceAccountException extends __BaseException {
  * @public
  */
 export class TagOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#TagOperationException";
   readonly name = "TagOperationException" as const;
   readonly $fault = "client" as const;
   resourceName?: string | undefined;
@@ -131,6 +137,7 @@ export class TagOperationException extends __BaseException {
  * @public
  */
 export class InternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#InternalServiceException";
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   /**
@@ -152,6 +159,7 @@ export class InternalServiceException extends __BaseException {
  * @public
  */
 export class InvalidOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#InvalidOperationException";
   readonly name = "InvalidOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -173,6 +181,7 @@ export class InvalidOperationException extends __BaseException {
  * @public
  */
 export class NotEligibleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#NotEligibleException";
   readonly name = "NotEligibleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -193,6 +202,7 @@ export class NotEligibleException extends __BaseException {
  * @public
  */
 export class IdempotencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#IdempotencyException";
   readonly name = "IdempotencyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -214,6 +224,7 @@ export class IdempotencyException extends __BaseException {
  * @public
  */
 export class TagPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#TagPolicyException";
   readonly name = "TagPolicyException" as const;
   readonly $fault = "client" as const;
   resourceName?: string | undefined;
@@ -237,6 +248,7 @@ export class TagPolicyException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.devicefarm#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   resourceName?: string | undefined;

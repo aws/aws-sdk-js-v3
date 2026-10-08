@@ -9,6 +9,7 @@ import { MWAAServiceException as __BaseException } from "./MWAAServiceException"
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mwaa#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mwaa#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mwaa#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -71,6 +74,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mwaa#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -91,6 +95,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mwaa#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -111,6 +116,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class RestApiClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mwaa#RestApiClientException";
   readonly name = "RestApiClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -144,6 +150,7 @@ export class RestApiClientException extends __BaseException {
  * @public
  */
 export class RestApiServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mwaa#RestApiServerException";
   readonly name = "RestApiServerException" as const;
   readonly $fault = "client" as const;
   /**
