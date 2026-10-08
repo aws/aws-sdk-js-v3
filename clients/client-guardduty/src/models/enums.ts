@@ -366,6 +366,10 @@ export const FeatureAdditionalConfiguration = {
   EC2_AGENT_MANAGEMENT: "EC2_AGENT_MANAGEMENT",
   ECS_FARGATE_AGENT_MANAGEMENT: "ECS_FARGATE_AGENT_MANAGEMENT",
   EKS_ADDON_MANAGEMENT: "EKS_ADDON_MANAGEMENT",
+  /**
+   * <p>RDS Data Activity Monitoring, which monitors data activity on supported Amazon RDS database engines to detect potentially unauthorized access to your data.</p>
+   */
+  RDS_DATA_RISK: "RDS_DATA_RISK",
 } as const;
 /**
  * @public
@@ -638,6 +642,10 @@ export const OrgFeatureAdditionalConfiguration = {
   EC2_AGENT_MANAGEMENT: "EC2_AGENT_MANAGEMENT",
   ECS_FARGATE_AGENT_MANAGEMENT: "ECS_FARGATE_AGENT_MANAGEMENT",
   EKS_ADDON_MANAGEMENT: "EKS_ADDON_MANAGEMENT",
+  /**
+   * <p>RDS Data Activity Monitoring, which monitors data activity on supported Amazon RDS database engines to detect potentially unauthorized access to your data.</p>
+   */
+  RDS_DATA_RISK: "RDS_DATA_RISK",
 } as const;
 /**
  * @public
@@ -1361,6 +1369,22 @@ export const UsageFeature = {
   FARGATE_RUNTIME_MONITORING: "FARGATE_RUNTIME_MONITORING",
   FLOW_LOGS: "FLOW_LOGS",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
+  /**
+   * <p>Usage attributed to RDS Data Activity Monitoring for Amazon Aurora DSQL Limitless databases.</p>
+   */
+  RDS_DATA_ACTIVITY_DBI_PROTECTION_LIMITLESS: "RDS_DATA_ACTIVITY_DBI_PROTECTION_LIMITLESS",
+  /**
+   * <p>Usage attributed to RDS Data Activity Monitoring for provisioned Amazon RDS databases.</p>
+   */
+  RDS_DATA_ACTIVITY_DBI_PROTECTION_PROVISIONED: "RDS_DATA_ACTIVITY_DBI_PROTECTION_PROVISIONED",
+  /**
+   * <p>Usage attributed to RDS Data Activity Monitoring for Amazon Aurora Serverless databases.</p>
+   */
+  RDS_DATA_ACTIVITY_DBI_PROTECTION_SERVERLESS: "RDS_DATA_ACTIVITY_DBI_PROTECTION_SERVERLESS",
+  /**
+   * <p>Usage attributed to RDS Protection database infrastructure monitoring for Amazon Aurora DSQL Limitless databases.</p>
+   */
+  RDS_DBI_PROTECTION_LIMITLESS: "RDS_DBI_PROTECTION_LIMITLESS",
   RDS_DBI_PROTECTION_PROVISIONED: "RDS_DBI_PROTECTION_PROVISIONED",
   RDS_DBI_PROTECTION_SERVERLESS: "RDS_DBI_PROTECTION_SERVERLESS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
