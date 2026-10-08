@@ -431,8 +431,8 @@ export var GetJobRunResponse$: StaticStructureSchema = [3, n0, _GJRRe,
 ];
 export var GetResourceDashboardRequest$: StaticStructureSchema = [3, n0, _GRDR,
   0,
-  [_aI, _rI, _rT],
-  [[0, 1], [0, { [_hQ]: _rI }], [0, { [_hQ]: _rT }]], 3
+  [_aI, _rI, _rT, _aSPL],
+  [[0, 1], [0, { [_hQ]: _rI }], [0, { [_hQ]: _rT }], [2, { [_hQ]: _aSPL }]], 3
 ];
 export var GetResourceDashboardResponse$: StaticStructureSchema = [3, n0, _GRDRe,
   0,

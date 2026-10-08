@@ -36,6 +36,7 @@ export interface GetResourceDashboardCommandOutput extends GetResourceDashboardR
  *   applicationId: "STRING_VALUE", // required
  *   resourceId: "STRING_VALUE", // required
  *   resourceType: "STRING_VALUE", // required
+ *   accessSystemProfileLogs: true || false,
  * };
  * const command = new GetResourceDashboardCommand(input);
  * const response = await client.send(command);
