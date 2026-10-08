@@ -266,6 +266,7 @@ import {
   paginateListSavingsPlansPurchaseRecommendationGeneration,
   PaymentOption,
   PlatformDifference,
+  ProductAttributeValues$,
   ProvideAnomalyFeedback$,
   ProvideAnomalyFeedbackCommand,
   ProvideAnomalyFeedbackRequest$,
@@ -603,6 +604,7 @@ assert(typeof MemoryDBInstanceDetails$ === "object");
 assert(typeof MetricValue$ === "object");
 assert(typeof ModifyRecommendationDetail$ === "object");
 assert(typeof NetworkResourceUtilization$ === "object");
+assert(typeof ProductAttributeValues$ === "object");
 assert(typeof ProvideAnomalyFeedbackRequest$ === "object");
 assert(typeof ProvideAnomalyFeedbackResponse$ === "object");
 assert(typeof RDSInstanceDetails$ === "object");

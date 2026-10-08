@@ -402,9 +402,11 @@ const _ODHILP = "OnDemandHoursInLookbackPeriod";
 const _ODNU = "OnDemandNormalizedUnits";
 const _OI = "OfferingId";
 const _P = "Parameters";
+const _PA = "ProductAttributes";
 const _PAF = "ProvideAnomalyFeedback";
 const _PAFR = "ProvideAnomalyFeedbackRequest";
 const _PAFRr = "ProvideAnomalyFeedbackResponse";
+const _PAV = "ProductAttributeValues";
 const _PD = "ProductDescription";
 const _PDl = "PlatformDifferences";
 const _PH = "PurchasedHours";
@@ -1043,8 +1045,8 @@ export var ESInstanceDetails$: StaticStructureSchema = [3, n0, _ESID,
 ];
 export var Expression$: StaticStructureSchema = [3, n0, _Ex,
   0,
-  [_O, _An, _No, _Di, _Tag, _CCos],
-  [() => Expressions, () => Expressions, () => Expression$, () => DimensionValues$, () => TagValues$, () => CostCategoryValues$]
+  [_O, _An, _No, _Di, _Tag, _CCos, _PA],
+  [() => Expressions, () => Expressions, () => Expression$, () => DimensionValues$, () => TagValues$, () => CostCategoryValues$, () => ProductAttributeValues$]
 ];
 export var ForecastResult$: StaticStructureSchema = [3, n0, _FR,
   0,
@@ -1168,8 +1170,8 @@ export var GetCostForecastResponse$: StaticStructureSchema = [3, n0, _GCFRe,
 ];
 export var GetDimensionValuesRequest$: StaticStructureSchema = [3, n0, _GDVR,
   0,
-  [_TP, _Dim, _SS, _Con, _Fi, _SB, _BVA, _MR, _NPT],
-  [() => DateInterval$, 0, 0, 0, () => Expression$, () => SortDefinitions, 0, 1, 0], 2
+  [_TP, _Dim, _SS, _DK, _Con, _Fi, _SB, _BVA, _MR, _NPT],
+  [() => DateInterval$, 0, 0, 0, 0, () => Expression$, () => SortDefinitions, 0, 1, 0], 2
 ];
 export var GetDimensionValuesResponse$: StaticStructureSchema = [3, n0, _GDVRe,
   0,
@@ -1395,6 +1397,11 @@ export var NetworkResourceUtilization$: StaticStructureSchema = [3, n0, _NRU,
   0,
   [_NIBPS, _NOBPS, _NPIPS, _NPOPS],
   [0, 0, 0, 0]
+];
+export var ProductAttributeValues$: StaticStructureSchema = [3, n0, _PAV,
+  0,
+  [_K, _V, _MO],
+  [0, 64 | 0, 64 | 0], 1
 ];
 export var ProvideAnomalyFeedbackRequest$: StaticStructureSchema = [3, n0, _PAFR,
   0,
@@ -1815,6 +1822,7 @@ var MetricsOverLookbackPeriod: StaticListSchema = [1, n0, _MOLP,
 ];
 var MonitorArnList = 64 | 0;
 var PlatformDifferences = 64 | 0;
+var ProductAttributeValueList = 64 | 0;
 var RecommendationIdList = 64 | 0;
 var ReservationCoverageGroups: StaticListSchema = [1, n0, _RCGe,
   0, () => ReservationCoverageGroup$

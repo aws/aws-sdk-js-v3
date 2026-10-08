@@ -310,6 +310,7 @@ export type {
   MetricValue,
   ModifyRecommendationDetail,
   NetworkResourceUtilization,
+  ProductAttributeValues,
   ProvideAnomalyFeedbackRequest,
   ProvideAnomalyFeedbackResponse,
   RDSInstanceDetails,

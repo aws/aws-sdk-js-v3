@@ -174,6 +174,7 @@ export const Dimension = {
   PAYER_ACCOUNT: "PAYER_ACCOUNT",
   PAYMENT_OPTION: "PAYMENT_OPTION",
   PLATFORM: "PLATFORM",
+  PRODUCT_ATTRIBUTE: "PRODUCT_ATTRIBUTE",
   PURCHASE_TYPE: "PURCHASE_TYPE",
   RECORD_TYPE: "RECORD_TYPE",
   REGION: "REGION",
@@ -393,6 +394,7 @@ export type Granularity = (typeof Granularity)[keyof typeof Granularity];
 export const GroupDefinitionType = {
   COST_CATEGORY: "COST_CATEGORY",
   DIMENSION: "DIMENSION",
+  PRODUCT_ATTRIBUTE: "PRODUCT_ATTRIBUTE",
   TAG: "TAG",
 } as const;
 /**
