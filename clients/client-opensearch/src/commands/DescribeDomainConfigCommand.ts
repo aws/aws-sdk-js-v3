@@ -157,6 +157,7 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * //       Options: { // EncryptionAtRestOptions
  * //         Enabled: true || false,
  * //         KmsKeyId: "STRING_VALUE",
+ * //         EncryptionMode: "DISK" || "NATIVE",
  * //       },
  * //       Status: "<OptionStatus>", // required
  * //     },

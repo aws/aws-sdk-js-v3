@@ -102,6 +102,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *   EncryptionAtRestOptions: { // EncryptionAtRestOptions
  *     Enabled: true || false,
  *     KmsKeyId: "STRING_VALUE",
+ *     EncryptionMode: "DISK" || "NATIVE",
  *   },
  *   DomainEndpointOptions: { // DomainEndpointOptions
  *     EnforceHTTPS: true || false,
@@ -331,6 +332,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //       Options: { // EncryptionAtRestOptions
  * //         Enabled: true || false,
  * //         KmsKeyId: "STRING_VALUE",
+ * //         EncryptionMode: "DISK" || "NATIVE",
  * //       },
  * //       Status: "<OptionStatus>", // required
  * //     },

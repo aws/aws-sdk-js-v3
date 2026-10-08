@@ -25,6 +25,7 @@ import type {
   DomainProcessingStatusType,
   DomainState,
   DomainUseCase,
+  EncryptionMode,
   EngineMode,
   EngineType,
   InboundConnectionStatusCode,
@@ -2422,6 +2423,17 @@ export interface EncryptionAtRestOptions {
    * @public
    */
   KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The type of encryption at rest applied to the domain's data. Valid values are
+   *             <code>DISK</code> and <code>NATIVE</code>. <code>DISK</code> is the default and uses
+   *             volume-level encryption. <code>NATIVE</code> uses engine-native, index-level encryption
+   *             and requires encryption at rest to be enabled and OpenSearch version 3.3 or later. After
+   *             the mode is set to <code>NATIVE</code>, it can't be changed back to
+   *             <code>DISK</code>.</p>
+   * @public
+   */
+  EncryptionMode?: EncryptionMode | undefined;
 }
 
 /**

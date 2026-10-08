@@ -314,6 +314,7 @@ export type {
   DomainState,
   DomainUseCase,
   DryRunMode,
+  EncryptionMode,
   EngineMode,
   EngineType,
   InboundConnectionStatusCode,

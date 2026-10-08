@@ -346,6 +346,7 @@ const _EInt = "EntityId";
 const _EM = "ErrorMessage";
 const _EMS = "EngineModeStatus";
 const _EMn = "EngineMode";
+const _EMnc = "EncryptionMode";
 const _EO = "ExportOptions";
 const _ET = "EndTime";
 const _ETn = "EngineType";
@@ -1809,8 +1810,8 @@ export var EBSOptionsStatus$: StaticStructureSchema = [3, n0, _EBSOS,
 ];
 export var EncryptionAtRestOptions$: StaticStructureSchema = [3, n0, _EARO,
   0,
-  [_E, _KKI],
-  [2, 0]
+  [_E, _KKI, _EMnc],
+  [2, 0, 0]
 ];
 export var EncryptionAtRestOptionsStatus$: StaticStructureSchema = [3, n0, _EAROS,
   0,

@@ -283,6 +283,7 @@ import {
   EBSOptionsStatus$,
   EncryptionAtRestOptions$,
   EncryptionAtRestOptionsStatus$,
+  EncryptionMode,
   EngineMode,
   EngineModeStatus$,
   EngineType,
@@ -1245,6 +1246,7 @@ assert(typeof DomainProcessingStatusType === "object");
 assert(typeof DomainState === "object");
 assert(typeof DomainUseCase === "object");
 assert(typeof DryRunMode === "object");
+assert(typeof EncryptionMode === "object");
 assert(typeof EngineMode === "object");
 assert(typeof EngineType === "object");
 assert(typeof InboundConnectionStatusCode === "object");
