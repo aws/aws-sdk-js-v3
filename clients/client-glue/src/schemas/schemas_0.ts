@@ -1150,6 +1150,12 @@ const _GSE = "GetSessionEndpoint";
 const _GSER = "GetSessionEndpointRequest";
 const _GSERe = "GetSessionEndpointResponse";
 const _GSI = "GetSchemaInput";
+const _GSLFJR = "GetSystemLogsForJobRun";
+const _GSLFJRR = "GetSystemLogsForJobRunRequest";
+const _GSLFJRRe = "GetSystemLogsForJobRunResponse";
+const _GSLFS = "GetSystemLogsForSession";
+const _GSLFSR = "GetSystemLogsForSessionRequest";
+const _GSLFSRe = "GetSystemLogsForSessionResponse";
 const _GSPL = "GlueStudioPathList";
 const _GSR = "GetSchemaResponse";
 const _GSRe = "GetSessionRequest";
@@ -2180,6 +2186,7 @@ const _SJS = "S3JsonSource";
 const _SL = "S3Location";
 const _SLD = "SchemaListDefinition";
 const _SLI = "SchemaListItem";
+const _SLU = "SystemLogsUrl";
 const _SLc = "ScriptLocation";
 const _SLe = "SerializationLibrary";
 const _SLes = "SessionList";
@@ -5749,6 +5756,26 @@ export var GetStatementResponse$: StaticStructureSchema = [3, n0, _GSRetta,
   0,
   [_Stat],
   [() => Statement$]
+];
+export var GetSystemLogsForJobRunRequest$: StaticStructureSchema = [3, n0, _GSLFJRR,
+  0,
+  [_JN, _RIun],
+  [0, 0], 2
+];
+export var GetSystemLogsForJobRunResponse$: StaticStructureSchema = [3, n0, _GSLFJRRe,
+  0,
+  [_SLU],
+  [0]
+];
+export var GetSystemLogsForSessionRequest$: StaticStructureSchema = [3, n0, _GSLFSR,
+  0,
+  [_Id],
+  [0], 1
+];
+export var GetSystemLogsForSessionResponse$: StaticStructureSchema = [3, n0, _GSLFSRe,
+  0,
+  [_SLU],
+  [0]
 ];
 export var GetTableOptimizerRequest$: StaticStructureSchema = [3, n0, _GTOR,
   0,
@@ -9545,6 +9572,12 @@ export var GetSessionEndpoint$: StaticOperationSchema = [9, n0, _GSE,
 ];
 export var GetStatement$: StaticOperationSchema = [9, n0, _GSett,
   0, () => GetStatementRequest$, () => GetStatementResponse$
+];
+export var GetSystemLogsForJobRun$: StaticOperationSchema = [9, n0, _GSLFJR,
+  0, () => GetSystemLogsForJobRunRequest$, () => GetSystemLogsForJobRunResponse$
+];
+export var GetSystemLogsForSession$: StaticOperationSchema = [9, n0, _GSLFS,
+  0, () => GetSystemLogsForSessionRequest$, () => GetSystemLogsForSessionResponse$
 ];
 export var GetTable$: StaticOperationSchema = [9, n0, _GTe,
   0, () => GetTableRequest$, () => GetTableResponse$

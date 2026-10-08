@@ -1379,6 +1379,20 @@ GetStatement
 </details>
 <details>
 <summary>
+GetSystemLogsForJobRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetSystemLogsForJobRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetSystemLogsForJobRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetSystemLogsForJobRunCommandOutput/)
+</details>
+<details>
+<summary>
+GetSystemLogsForSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetSystemLogsForSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetSystemLogsForSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetSystemLogsForSessionCommandOutput/)
+</details>
+<details>
+<summary>
 GetTable
 </summary>
 

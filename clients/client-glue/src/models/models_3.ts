@@ -14,6 +14,7 @@ import type {
   ResourceAction,
   ResourceShareType,
   ResourceState,
+  SchemaVersionStatus,
   SearchFilterOperator,
   SearchSortOrder,
   Sort,
@@ -151,10 +152,100 @@ import type {
   DataQualityRuleRecommendationRunAdditionalRunOptions,
   IcebergTableMetadata,
   JobBookmarkEntry,
+  MetadataKeyValuePair,
   SchemaVersionNumber,
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * <p>Contains the Amazon Resource Name (ARN) of the newly registered connection type.</p>
+ * @public
+ */
+export interface RegisterConnectionTypeResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registered connection type. This unique identifier can be used to reference the connection type in other Glue operations.</p>
+   * @public
+   */
+  ConnectionTypeArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterSchemaVersionInput {
+  /**
+   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
+   *          <ul>
+   *             <li>
+   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *             <li>
+   *                <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SchemaId: SchemaId | undefined;
+
+  /**
+   * <p>The schema definition using the <code>DataFormat</code> setting for the <code>SchemaName</code>.</p>
+   * @public
+   */
+  SchemaDefinition: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterSchemaVersionResponse {
+  /**
+   * <p>The unique ID that represents the version of this schema.</p>
+   * @public
+   */
+  SchemaVersionId?: string | undefined;
+
+  /**
+   * <p>The version of this schema (for sync flow only, in case this is the first version).</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The status of the schema version.</p>
+   * @public
+   */
+  Status?: SchemaVersionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveSchemaVersionMetadataInput {
+  /**
+   * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  SchemaId?: SchemaId | undefined;
+
+  /**
+   * <p>The version number of the schema.</p>
+   * @public
+   */
+  SchemaVersionNumber?: SchemaVersionNumber | undefined;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   * @public
+   */
+  SchemaVersionId?: string | undefined;
+
+  /**
+   * <p>The value of the metadata key.</p>
+   * @public
+   */
+  MetadataKeyValue: MetadataKeyValuePair | undefined;
+}
 
 /**
  * @public

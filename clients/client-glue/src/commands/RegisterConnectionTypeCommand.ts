@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { RegisterConnectionTypeRequest, RegisterConnectionTypeResponse } from "../models/models_2";
+import type { RegisterConnectionTypeRequest } from "../models/models_2";
+import type { RegisterConnectionTypeResponse } from "../models/models_3";
 import { RegisterConnectionType$ } from "../schemas/schemas_0";
 
 /**

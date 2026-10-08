@@ -170,6 +170,8 @@ export * from "./GetSecurityConfigurationsCommand";
 export * from "./GetSessionCommand";
 export * from "./GetSessionEndpointCommand";
 export * from "./GetStatementCommand";
+export * from "./GetSystemLogsForJobRunCommand";
+export * from "./GetSystemLogsForSessionCommand";
 export * from "./GetTableCommand";
 export * from "./GetTableOptimizerCommand";
 export * from "./GetTableVersionCommand";
