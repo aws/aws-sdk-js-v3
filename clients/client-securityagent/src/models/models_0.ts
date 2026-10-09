@@ -40,6 +40,7 @@ import type {
   StrideCategory,
   TargetDomainStatus,
   TaskExecutionStatus,
+  TestScopeType,
   ThreatActor,
   ThreatSeverity,
   ThreatStatus,
@@ -1723,6 +1724,18 @@ export interface ReportFilters {
 }
 
 /**
+ * <p>The category of application a pentest targets.</p>
+ * @public
+ */
+export interface TestScope {
+  /**
+   * <p>The category of application under test.</p>
+   * @public
+   */
+  type: TestScopeType | undefined;
+}
+
+/**
  * <p>Represents a pentest configuration that defines the parameters for security testing, including target assets, risk type exclusions, and infrastructure settings.</p>
  * @public
  */
@@ -1822,6 +1835,12 @@ export interface Pentest {
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
+
+  /**
+   * <p>The category of application a pentest targets.</p>
+   * @public
+   */
+  testScope?: TestScope | undefined;
 
   /**
    * <p>The date and time the pentest was created, in UTC format.</p>
@@ -3084,6 +3103,12 @@ export interface PentestJob {
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
+
+  /**
+   * <p>The category of application a pentest targets.</p>
+   * @public
+   */
+  testScope?: TestScope | undefined;
 
   /**
    * <p>The date and time the pentest job was created, in UTC format.</p>
@@ -5112,6 +5137,12 @@ export interface CreatePentestInput {
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
+
+  /**
+   * <p>The category of application a pentest targets.</p>
+   * @public
+   */
+  testScope?: TestScope | undefined;
 }
 
 /**
@@ -5190,6 +5221,12 @@ export interface CreatePentestOutput {
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
+
+  /**
+   * <p>The category of application a pentest targets.</p>
+   * @public
+   */
+  testScope?: TestScope | undefined;
 }
 
 /**
@@ -9745,90 +9782,6 @@ export interface UpdateCodeReviewInput {
 
   /**
    * <p>The updated maximum number of billable task hours allowed for jobs started from this code review.</p>
-   * @public
-   */
-  maxTaskHours?: number | undefined;
-
-  /**
-   * <p>The destination for publishing scan reports to an integrated document provider.</p>
-   * @public
-   */
-  reportDestination?: ReportDestination | undefined;
-
-  /**
-   * <p>The report-generation filters applied when the report is exported.</p>
-   * @public
-   */
-  reportFilters?: ReportFilters | undefined;
-}
-
-/**
- * <p>Output for the UpdateCodeReview operation.</p>
- * @public
- */
-export interface UpdateCodeReviewOutput {
-  /**
-   * <p>The unique identifier of the code review.</p>
-   * @public
-   */
-  codeReviewId: string | undefined;
-
-  /**
-   * <p>The title of the code review.</p>
-   * @public
-   */
-  title?: string | undefined;
-
-  /**
-   * <p>The date and time the code review was created, in UTC format.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the code review was last updated, in UTC format.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The assets included in the code review.</p>
-   * @public
-   */
-  assets?: Assets | undefined;
-
-  /**
-   * <p>The IAM service role used for the code review.</p>
-   * @public
-   */
-  serviceRole?: string | undefined;
-
-  /**
-   * <p>The CloudWatch Logs configuration for the code review.</p>
-   * @public
-   */
-  logConfig?: CloudWatchLog | undefined;
-
-  /**
-   * <p>The unique identifier of the agent space that contains the code review.</p>
-   * @public
-   */
-  agentSpaceId?: string | undefined;
-
-  /**
-   * <p>The code remediation strategy for the code review.</p>
-   * @public
-   */
-  codeRemediationStrategy?: CodeRemediationStrategy | undefined;
-
-  /**
-   * <p>The validation mode for the code review.</p>
-   * @public
-   */
-  validationMode?: ValidationMode | undefined;
-
-  /**
-   * <p>The maximum number of billable task hours configured for jobs started from this code review. Null if no budget cap is set.</p>
    * @public
    */
   maxTaskHours?: number | undefined;

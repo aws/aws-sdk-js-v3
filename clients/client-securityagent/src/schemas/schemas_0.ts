@@ -430,6 +430,7 @@ const _TRO = "TagResourceOutput";
 const _TS = "TaskSummary";
 const _TSL = "TaskSummaryList";
 const _TSLh = "ThreatSummaryList";
+const _TSe = "TestScope";
 const _TSh = "ThreatSummary";
 const _Th = "Threat";
 const _UA = "UpdateApplication";
@@ -822,9 +823,10 @@ const _tMJTI = "threatModelJobTaskIds";
 const _tMJTS = "threatModelJobTaskSummaries";
 const _tMS = "threatModelSummaries";
 const _tRI = "triggerRunId";
-const _tS = "threatSource";
+const _tS = "testScope";
 const _tSa = "taskSummaries";
 const _tSas = "taskStatuses";
+const _tSh = "threatSource";
 const _tT = "tokenType";
 const _tU = "targetUrl";
 const _ta = "tasks";
@@ -1421,13 +1423,13 @@ export var CreateMembershipResponse$: StaticStructureSchema = [3, n0, _CMRr,
 ];
 export var CreatePentestInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
-  [_ti, _aSI, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH, _rD, _rF, _cC],
-  [0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$], 2
+  [_ti, _aSI, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH, _rD, _rF, _cC, _tS],
+  [0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$], 2
 ];
 export var CreatePentestOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
-  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI, _rD, _rF, _cC],
-  [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$]
+  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI, _rD, _rF, _cC, _tS],
+  [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$]
 ];
 export var CreatePrivateConnectionInput$: StaticStructureSchema = [3, n0, _CPCI,
   0,
@@ -1466,7 +1468,7 @@ export var CreateTargetDomainOutput$: StaticStructureSchema = [3, n0, _CTDO,
 ];
 export var CreateThreatInput$: StaticStructureSchema = [3, n0, _CTI,
   0,
-  [_aSI, _tJI, _ti, _stat, _sev, _com, _str, _tS, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re],
+  [_aSI, _tJI, _ti, _stat, _sev, _com, _str, _tSh, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ThreatAnchorShape$, () => ThreatEvidenceList, 0], 2
 ];
 export var CreateThreatModelInput$: StaticStructureSchema = [3, n0, _CTMI,
@@ -1481,7 +1483,7 @@ export var CreateThreatModelOutput$: StaticStructureSchema = [3, n0, _CTMO,
 ];
 export var CreateThreatOutput$: StaticStructureSchema = [3, n0, _CTO,
   0,
-  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _str, _tS, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re, _cB, _uB, _cA, _uA],
+  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _str, _tSh, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re, _cB, _uB, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ThreatAnchorShape$, () => ThreatEvidenceList, 0, 0, 0, 5, 5], 2
 ];
 export var CustomHeader$: StaticStructureSchema = [3, n0, _CH,
@@ -2031,13 +2033,13 @@ export var NetworkTrafficRule$: StaticStructureSchema = [3, n0, _NTR,
 ];
 export var Pentest$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _cUS, _dMS, _mTH, _rD, _rF, _cC, _cA, _uA],
-  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, 5, 5], 4
+  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _cUS, _dMS, _mTH, _rD, _rF, _cC, _tS, _cA, _uA],
+  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$, 5, 5], 4
 ];
 export var PentestJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
-  [_pJIe, _pIen, _ti, _ov, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _tCC, _cRSo, _cUS, _dMS, _mTH, _jT, _sFI, _rD, _rU, _sRc, _sCc, _cC, _cA, _uA],
-  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0], 0, 0, 64 | 0, 1, 0, 64 | 0, () => ReportDestination$, 0, () => ScopeResult$, () => ScopeChangeList, () => CiCdConfiguration$, 5, 5]
+  [_pJIe, _pIen, _ti, _ov, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _tCC, _cRSo, _cUS, _dMS, _mTH, _jT, _sFI, _rD, _rU, _sRc, _sCc, _cC, _tS, _cA, _uA],
+  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0], 0, 0, 64 | 0, 1, 0, 64 | 0, () => ReportDestination$, 0, () => ScopeResult$, () => ScopeChangeList, () => CiCdConfiguration$, () => TestScope$, 5, 5]
 ];
 export var PentestJobSummary$: StaticStructureSchema = [3, n0, _PJS,
   0,
@@ -2209,9 +2211,14 @@ export var TaskSummary$: StaticStructureSchema = [3, n0, _TS,
   [_tIa, _pIen, _pJIe, _aSI, _ti, _rT, _eS, _tH, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 0, 1, 5, 5], 1
 ];
+export var TestScope$: StaticStructureSchema = [3, n0, _TSe,
+  0,
+  [_t],
+  [0], 1
+];
 export var Threat$: StaticStructureSchema = [3, n0, _Th,
   0,
-  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _tS, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _str, _re, _cB, _uB, _cA, _uA],
+  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _tSh, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _str, _re, _cB, _uB, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ThreatAnchorShape$, () => ThreatEvidenceList, 64 | 0, 0, 0, 0, 5, 5]
 ];
 export var ThreatAnchorShape$: StaticStructureSchema = [3, n0, _TAS,
@@ -2346,13 +2353,13 @@ export var UpdateIntegrationOutput$: StaticStructureSchema = [3, n0, _UIO,
 ];
 export var UpdatePentestInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
-  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH, _rD, _rF, _cC],
-  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$], 2
+  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH, _rD, _rF, _cC, _tS],
+  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$], 2
 ];
 export var UpdatePentestOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
-  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI, _rD, _rF, _cC],
-  [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$]
+  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI, _rD, _rF, _cC, _tS],
+  [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$]
 ];
 export var UpdatePrivateConnectionCertificateInput$: StaticStructureSchema = [3, n0, _UPCCI,
   0,
@@ -2391,7 +2398,7 @@ export var UpdateTargetDomainOutput$: StaticStructureSchema = [3, n0, _UTDO,
 ];
 export var UpdateThreatInput$: StaticStructureSchema = [3, n0, _UTI,
   0,
-  [_tIhre, _aSI, _ti, _sta, _com, _stat, _sev, _tS, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re],
+  [_tIhre, _aSI, _ti, _sta, _com, _stat, _sev, _tSh, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ThreatAnchorShape$, () => ThreatEvidenceList, 0], 2
 ];
 export var UpdateThreatModelInput$: StaticStructureSchema = [3, n0, _UTMI,
@@ -2406,7 +2413,7 @@ export var UpdateThreatModelOutput$: StaticStructureSchema = [3, n0, _UTMO,
 ];
 export var UpdateThreatOutput$: StaticStructureSchema = [3, n0, _UTO,
   0,
-  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _str, _tS, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re, _cB, _uB, _cA, _uA],
+  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _str, _tSh, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re, _cB, _uB, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ThreatAnchorShape$, () => ThreatEvidenceList, 0, 0, 0, 5, 5], 2
 ];
 export var UserConfig$: StaticStructureSchema = [3, n0, _UC,

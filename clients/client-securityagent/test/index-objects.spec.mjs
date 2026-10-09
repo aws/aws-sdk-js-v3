@@ -498,6 +498,8 @@ import {
   Task$,
   TaskExecutionStatus,
   TaskSummary$,
+  TestScope$,
+  TestScopeType,
   Threat$,
   ThreatActor,
   ThreatAnchorShape$,
@@ -1047,6 +1049,7 @@ assert(typeof TargetDomain$ === "object");
 assert(typeof TargetDomainSummary$ === "object");
 assert(typeof Task$ === "object");
 assert(typeof TaskSummary$ === "object");
+assert(typeof TestScope$ === "object");
 assert(typeof Threat$ === "object");
 assert(typeof ThreatAnchorShape$ === "object");
 assert(typeof ThreatEvidenceShape$ === "object");
@@ -1137,6 +1140,7 @@ assert(typeof StepStatus === "object");
 assert(typeof StrideCategory === "object");
 assert(typeof TargetDomainStatus === "object");
 assert(typeof TaskExecutionStatus === "object");
+assert(typeof TestScopeType === "object");
 assert(typeof ThreatActor === "object");
 assert(typeof ThreatSeverity === "object");
 assert(typeof ThreatStatus === "object");

@@ -423,6 +423,25 @@ export type TaskExecutionStatus = (typeof TaskExecutionStatus)[keyof typeof Task
  * @public
  * @enum
  */
+export const TestScopeType = {
+  /**
+   * <p>A generative AI application.</p>
+   */
+  GENERATIVE_AI_APP: "GENERATIVE_AI_APP",
+  /**
+   * <p>A traditional web application.</p>
+   */
+  WEB_APP: "WEB_APP",
+} as const;
+/**
+ * @public
+ */
+export type TestScopeType = (typeof TestScopeType)[keyof typeof TestScopeType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ErrorCode = {
   /**
    * <p>Failure caused by a client-side error.</p>

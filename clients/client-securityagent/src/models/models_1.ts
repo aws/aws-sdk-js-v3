@@ -10,6 +10,7 @@ import type {
   ThreatActor,
   ThreatSeverity,
   ThreatStatus,
+  ValidationMode,
 } from "./enums";
 import type {
   Assets,
@@ -20,10 +21,95 @@ import type {
   NetworkTrafficConfig,
   ReportDestination,
   ReportFilters,
+  TestScope,
   ThreatAnchorShape,
   ThreatEvidenceShape,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Output for the UpdateCodeReview operation.</p>
+ * @public
+ */
+export interface UpdateCodeReviewOutput {
+  /**
+   * <p>The unique identifier of the code review.</p>
+   * @public
+   */
+  codeReviewId: string | undefined;
+
+  /**
+   * <p>The title of the code review.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The date and time the code review was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the code review was last updated, in UTC format.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The assets included in the code review.</p>
+   * @public
+   */
+  assets?: Assets | undefined;
+
+  /**
+   * <p>The IAM service role used for the code review.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The CloudWatch Logs configuration for the code review.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * @public
+   */
+  agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The code remediation strategy for the code review.</p>
+   * @public
+   */
+  codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>The validation mode for the code review.</p>
+   * @public
+   */
+  validationMode?: ValidationMode | undefined;
+
+  /**
+   * <p>The maximum number of billable task hours configured for jobs started from this code review. Null if no budget cap is set.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
+}
 
 /**
  * <p>Input for updating an existing security finding.</p>
@@ -225,6 +311,12 @@ export interface UpdatePentestInput {
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
+
+  /**
+   * <p>The category of application a pentest targets.</p>
+   * @public
+   */
+  testScope?: TestScope | undefined;
 }
 
 /**
@@ -303,6 +395,12 @@ export interface UpdatePentestOutput {
    * @public
    */
   cicdConfiguration?: CiCdConfiguration | undefined;
+
+  /**
+   * <p>The category of application a pentest targets.</p>
+   * @public
+   */
+  testScope?: TestScope | undefined;
 }
 
 /**
