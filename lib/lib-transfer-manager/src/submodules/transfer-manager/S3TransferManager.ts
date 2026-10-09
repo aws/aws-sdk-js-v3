@@ -24,6 +24,8 @@ import {
 } from "@aws-sdk/client-s3";
 import type { Logger } from "@smithy/types";
 import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import type { SdkError } from "@smithy/types";
+import { isThrottlingError, isTransientError } from "@smithy/core/retry";
 import { createReadStream, existsSync } from "node:fs";
 import { open, opendir, realpath, stat } from "node:fs/promises";
 import { join, relative, resolve, sep } from "node:path";
@@ -2892,6 +2894,24 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     return this.threadedMultipartUpload(request, contentLength, buildDataSource, transferOptions, emitEvents);
   }
 
+  private async getWorkerUploadMaxAttempts(): Promise<number> {
+    const maxAttemptsProvider = (this.s3.config as { maxAttempts: () => Promise<number> | number }).maxAttempts;
+    return maxAttemptsProvider();
+  }
+
+  private isRetryableWorkerUploadError(error: unknown): boolean {
+    const sdkError = error as SdkError;
+    return isThrottlingError(sdkError) || isTransientError(sdkError);
+  }
+
+  private async waitForWorkerUploadRetry(attempt: number): Promise<void> {
+    const maxDelayMs = 1_000;
+    const baseDelayMs = 100;
+    const exponentialDelayMs = Math.min(maxDelayMs, baseDelayMs * 2 ** (attempt - 1));
+    const jitteredDelayMs = Math.round(exponentialDelayMs * (0.5 + Math.random()));
+    await new Promise<void>((resolve) => setTimeout(resolve, jitteredDelayMs));
+  }
+
   /**
    * Common implementation for threaded multipart uploads.
    * Handles CreateMPU, concurrent UploadPart dispatch, and CompleteMPU/AbortMPU.
@@ -2934,6 +2954,48 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
 
     const abortController = new AbortController();
     const uploadAbortSignal = abortController.signal;
+    const maxWorkerUploadAttempts = await this.getWorkerUploadMaxAttempts();
+
+    const sendUploadPart = async (partNumber: number, length: number) => {
+      for (let attempt = 1; ; attempt++) {
+        if (uploadAbortSignal.aborted) {
+          throw Object.assign(new Error("Upload aborted due to part failure."), { name: "AbortError" });
+        }
+        this.checkAborted(transferOptions);
+
+        // A fresh placeholder is required for every attempt because Smithy's
+        // retry middleware cannot replay a streamed body. The worker can
+        // replay this part from its data source (SAB or file range).
+        const partRequest: UploadPartCommandInput = {
+          ...request,
+          Body: this.deps.createEmptyReadable(),
+          UploadId: uploadId,
+          PartNumber: partNumber,
+          ContentLength: length,
+          ...(checksumAlgorithm && {
+            ChecksumAlgorithm: checksumAlgorithm as any,
+          }),
+        };
+
+        try {
+          return await this.s3.send(new UploadPartCommand(partRequest), {
+            ...transferOptions,
+            dataSource,
+          } as any);
+        } catch (error) {
+          if (attempt >= maxWorkerUploadAttempts || !this.isRetryableWorkerUploadError(error)) {
+            throw error;
+          }
+
+          const errorName = (error as { name?: string }).name ?? "unknown error";
+          this.logger.warn(
+            `Retrying UploadPart ${partNumber} for ${request.Key} after ${errorName} ` +
+              `(attempt ${attempt + 1}/${maxWorkerUploadAttempts}).`
+          );
+          await this.waitForWorkerUploadRetry(attempt);
+        }
+      }
+    };
 
     try {
       const completedParts: CompletedPart[] = [];
@@ -2953,26 +3015,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
           const offset = (partNumber - 1) * partSize;
           const length = Math.min(partSize, contentLength - offset);
 
-          // Readable placeholder — the checksum middleware sees a stream,
-          // sets up aws-chunked headers, and the signer signs them.
-          // The worker fulfills this contract by sending aws-chunked framed data.
-          const placeholderBody = this.deps.createEmptyReadable();
-
-          const partRequest: UploadPartCommandInput = {
-            ...request,
-            Body: placeholderBody,
-            UploadId: uploadId,
-            PartNumber: partNumber,
-            ContentLength: length,
-            ...(checksumAlgorithm && {
-              ChecksumAlgorithm: checksumAlgorithm as any,
-            }),
-          };
-
-          const partResponse = await this.s3.send(new UploadPartCommand(partRequest), {
-            ...transferOptions,
-            dataSource,
-          } as any);
+          const partResponse = await sendUploadPart(partNumber, length);
 
           const completedPart: CompletedPart = {
             PartNumber: partNumber,
