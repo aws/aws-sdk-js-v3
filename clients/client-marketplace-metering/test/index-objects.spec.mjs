@@ -38,6 +38,7 @@ import {
   MarketplaceMetering,
   MarketplaceMeteringClient,
   MarketplaceMeteringServiceException,
+  Metadata$,
   MeterUsage$,
   MeterUsageCommand,
   MeterUsageRequest$,
@@ -78,6 +79,7 @@ assert(typeof ResolveCustomer$ === "object");
 // structural schemas
 assert(typeof BatchMeterUsageRequest$ === "object");
 assert(typeof BatchMeterUsageResult$ === "object");
+assert(typeof Metadata$ === "object");
 assert(typeof MeterUsageRequest$ === "object");
 assert(typeof MeterUsageResult$ === "object");
 assert(typeof RegisterUsageRequest$ === "object");

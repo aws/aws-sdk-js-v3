@@ -61,6 +61,9 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * //   ProductCode: "STRING_VALUE",
  * //   CustomerAWSAccountId: "STRING_VALUE",
  * //   LicenseArn: "STRING_VALUE",
+ * //   Metadata: { // Metadata
+ * //     AgreementId: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

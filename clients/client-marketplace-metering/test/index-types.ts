@@ -17,6 +17,7 @@ export type {
   UsageRecordResultStatus,
   BatchMeterUsageRequest,
   BatchMeterUsageResult,
+  Metadata,
   MeterUsageRequest,
   MeterUsageResult,
   RegisterUsageRequest,
