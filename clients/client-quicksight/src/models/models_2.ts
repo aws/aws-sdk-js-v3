@@ -10980,6 +10980,30 @@ export interface Capabilities {
   UseBeeAction?: CapabilityState | undefined;
 
   /**
+   * <p>The ability to perform actions using Gong connectors.</p>
+   * @public
+   */
+  GongAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Gong actions.</p>
+   * @public
+   */
+  CreateAndUpdateGongAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Gong actions.</p>
+   * @public
+   */
+  ShareGongAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Gong actions.</p>
+   * @public
+   */
+  UseGongAction?: CapabilityState | undefined;
+
+  /**
    * <p>The ability to perform Topic-related actions.</p>
    * @public
    */
@@ -11136,6 +11160,1086 @@ export interface Capabilities {
    * @public
    */
   QuickEventTrigger?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share file data sources.</p>
+   * @public
+   */
+  FileDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create file data sources.</p>
+   * @public
+   */
+  CreateFileDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update file data sources.</p>
+   * @public
+   */
+  UpdateFileDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share file data sources.</p>
+   * @public
+   */
+  ShareFileDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Amazon S3 data sources.</p>
+   * @public
+   */
+  S3DataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Amazon S3 data sources.</p>
+   * @public
+   */
+  CreateS3DataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Amazon S3 data sources.</p>
+   * @public
+   */
+  UpdateS3DataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Amazon S3 data sources.</p>
+   * @public
+   */
+  ShareS3DataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Amazon S3 Analytics data sources.</p>
+   * @public
+   */
+  S3AnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Amazon S3 Analytics data sources.</p>
+   * @public
+   */
+  CreateS3AnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Amazon S3 Analytics data sources.</p>
+   * @public
+   */
+  UpdateS3AnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Amazon S3 Analytics data sources.</p>
+   * @public
+   */
+  ShareS3AnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Amazon S3 Tables data sources.</p>
+   * @public
+   */
+  S3TablesDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Amazon S3 Tables data sources.</p>
+   * @public
+   */
+  CreateS3TablesDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Amazon S3 Tables data sources.</p>
+   * @public
+   */
+  UpdateS3TablesDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Amazon S3 Tables data sources.</p>
+   * @public
+   */
+  ShareS3TablesDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Amazon Athena data sources.</p>
+   * @public
+   */
+  AthenaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Amazon Athena data sources.</p>
+   * @public
+   */
+  CreateAthenaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Amazon Athena data sources.</p>
+   * @public
+   */
+  UpdateAthenaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Amazon Athena data sources.</p>
+   * @public
+   */
+  ShareAthenaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share auto-discovered Amazon RDS data sources.</p>
+   * @public
+   */
+  RdsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create auto-discovered Amazon RDS data sources.</p>
+   * @public
+   */
+  CreateRdsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update auto-discovered Amazon RDS data sources.</p>
+   * @public
+   */
+  UpdateRdsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share auto-discovered Amazon RDS data sources.</p>
+   * @public
+   */
+  ShareRdsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share auto-discovered Amazon Redshift data sources.</p>
+   * @public
+   */
+  RedshiftAutoDiscoveredDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create auto-discovered Amazon Redshift data sources.</p>
+   * @public
+   */
+  CreateRedshiftAutoDiscoveredDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update auto-discovered Amazon Redshift data sources.</p>
+   * @public
+   */
+  UpdateRedshiftAutoDiscoveredDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share auto-discovered Amazon Redshift data sources.</p>
+   * @public
+   */
+  ShareRedshiftAutoDiscoveredDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share manually configured Amazon Redshift data sources.</p>
+   * @public
+   */
+  RedshiftManualDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create manually configured Amazon Redshift data sources.</p>
+   * @public
+   */
+  CreateRedshiftManualDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update manually configured Amazon Redshift data sources.</p>
+   * @public
+   */
+  UpdateRedshiftManualDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share manually configured Amazon Redshift data sources.</p>
+   * @public
+   */
+  ShareRedshiftManualDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Amazon OpenSearch Service data sources.</p>
+   * @public
+   */
+  OpenSearchDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Amazon OpenSearch Service data sources.</p>
+   * @public
+   */
+  CreateOpenSearchDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Amazon OpenSearch Service data sources.</p>
+   * @public
+   */
+  UpdateOpenSearchDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Amazon OpenSearch Service data sources.</p>
+   * @public
+   */
+  ShareOpenSearchDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Amazon Timestream data sources.</p>
+   * @public
+   */
+  TimestreamDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Amazon Timestream data sources.</p>
+   * @public
+   */
+  CreateTimestreamDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Amazon Timestream data sources.</p>
+   * @public
+   */
+  UpdateTimestreamDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Amazon Timestream data sources.</p>
+   * @public
+   */
+  ShareTimestreamDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Amazon Aurora data sources.</p>
+   * @public
+   */
+  AuroraDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Amazon Aurora data sources.</p>
+   * @public
+   */
+  CreateAuroraDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Amazon Aurora data sources.</p>
+   * @public
+   */
+  UpdateAuroraDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Amazon Aurora data sources.</p>
+   * @public
+   */
+  ShareAuroraDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share MySQL data sources.</p>
+   * @public
+   */
+  MySqlDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create MySQL data sources.</p>
+   * @public
+   */
+  CreateMySqlDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update MySQL data sources.</p>
+   * @public
+   */
+  UpdateMySqlDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share MySQL data sources.</p>
+   * @public
+   */
+  ShareMySqlDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share PostgreSQL data sources.</p>
+   * @public
+   */
+  PostgreSqlDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create PostgreSQL data sources.</p>
+   * @public
+   */
+  CreatePostgreSqlDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update PostgreSQL data sources.</p>
+   * @public
+   */
+  UpdatePostgreSqlDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share PostgreSQL data sources.</p>
+   * @public
+   */
+  SharePostgreSqlDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Oracle data sources.</p>
+   * @public
+   */
+  OracleDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Oracle data sources.</p>
+   * @public
+   */
+  CreateOracleDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Oracle data sources.</p>
+   * @public
+   */
+  UpdateOracleDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Oracle data sources.</p>
+   * @public
+   */
+  ShareOracleDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share SQL Server data sources.</p>
+   * @public
+   */
+  SqlServerDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create SQL Server data sources.</p>
+   * @public
+   */
+  CreateSqlServerDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update SQL Server data sources.</p>
+   * @public
+   */
+  UpdateSqlServerDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share SQL Server data sources.</p>
+   * @public
+   */
+  ShareSqlServerDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share MariaDB data sources.</p>
+   * @public
+   */
+  MariaDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create MariaDB data sources.</p>
+   * @public
+   */
+  CreateMariaDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update MariaDB data sources.</p>
+   * @public
+   */
+  UpdateMariaDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share MariaDB data sources.</p>
+   * @public
+   */
+  ShareMariaDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Snowflake data sources.</p>
+   * @public
+   */
+  SnowflakeDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Snowflake data sources.</p>
+   * @public
+   */
+  CreateSnowflakeDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Snowflake data sources.</p>
+   * @public
+   */
+  UpdateSnowflakeDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Snowflake data sources.</p>
+   * @public
+   */
+  ShareSnowflakeDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Google BigQuery data sources.</p>
+   * @public
+   */
+  GoogleBigQueryDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Google BigQuery data sources.</p>
+   * @public
+   */
+  CreateGoogleBigQueryDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Google BigQuery data sources.</p>
+   * @public
+   */
+  UpdateGoogleBigQueryDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Google BigQuery data sources.</p>
+   * @public
+   */
+  ShareGoogleBigQueryDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Databricks data sources.</p>
+   * @public
+   */
+  DatabricksDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Databricks data sources.</p>
+   * @public
+   */
+  CreateDatabricksDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Databricks data sources.</p>
+   * @public
+   */
+  UpdateDatabricksDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Databricks data sources.</p>
+   * @public
+   */
+  ShareDatabricksDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Starburst data sources.</p>
+   * @public
+   */
+  StarburstDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Starburst data sources.</p>
+   * @public
+   */
+  CreateStarburstDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Starburst data sources.</p>
+   * @public
+   */
+  UpdateStarburstDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Starburst data sources.</p>
+   * @public
+   */
+  ShareStarburstDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Trino data sources.</p>
+   * @public
+   */
+  TrinoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Trino data sources.</p>
+   * @public
+   */
+  CreateTrinoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Trino data sources.</p>
+   * @public
+   */
+  UpdateTrinoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Trino data sources.</p>
+   * @public
+   */
+  ShareTrinoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Impala data sources.</p>
+   * @public
+   */
+  ImpalaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Impala data sources.</p>
+   * @public
+   */
+  CreateImpalaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Impala data sources.</p>
+   * @public
+   */
+  UpdateImpalaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Impala data sources.</p>
+   * @public
+   */
+  ShareImpalaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Teradata data sources.</p>
+   * @public
+   */
+  TeradataDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Teradata data sources.</p>
+   * @public
+   */
+  CreateTeradataDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Teradata data sources.</p>
+   * @public
+   */
+  UpdateTeradataDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Teradata data sources.</p>
+   * @public
+   */
+  ShareTeradataDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Presto data sources.</p>
+   * @public
+   */
+  PrestoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Presto data sources.</p>
+   * @public
+   */
+  CreatePrestoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Presto data sources.</p>
+   * @public
+   */
+  UpdatePrestoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Presto data sources.</p>
+   * @public
+   */
+  SharePrestoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Spark data sources.</p>
+   * @public
+   */
+  SparkDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Spark data sources.</p>
+   * @public
+   */
+  CreateSparkDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Spark data sources.</p>
+   * @public
+   */
+  UpdateSparkDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Spark data sources.</p>
+   * @public
+   */
+  ShareSparkDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Exasol data sources.</p>
+   * @public
+   */
+  ExasolDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Exasol data sources.</p>
+   * @public
+   */
+  CreateExasolDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Exasol data sources.</p>
+   * @public
+   */
+  UpdateExasolDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Exasol data sources.</p>
+   * @public
+   */
+  ShareExasolDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Db2 data sources.</p>
+   * @public
+   */
+  Db2DataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Db2 data sources.</p>
+   * @public
+   */
+  CreateDb2DataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Db2 data sources.</p>
+   * @public
+   */
+  UpdateDb2DataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Db2 data sources.</p>
+   * @public
+   */
+  ShareDb2DataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share SAP HANA data sources.</p>
+   * @public
+   */
+  SapHanaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create SAP HANA data sources.</p>
+   * @public
+   */
+  CreateSapHanaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update SAP HANA data sources.</p>
+   * @public
+   */
+  UpdateSapHanaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share SAP HANA data sources.</p>
+   * @public
+   */
+  ShareSapHanaDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Denodo data sources.</p>
+   * @public
+   */
+  DenodoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Denodo data sources.</p>
+   * @public
+   */
+  CreateDenodoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Denodo data sources.</p>
+   * @public
+   */
+  UpdateDenodoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Denodo data sources.</p>
+   * @public
+   */
+  ShareDenodoDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Dremio data sources.</p>
+   * @public
+   */
+  DremioDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Dremio data sources.</p>
+   * @public
+   */
+  CreateDremioDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Dremio data sources.</p>
+   * @public
+   */
+  UpdateDremioDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Dremio data sources.</p>
+   * @public
+   */
+  ShareDremioDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Salesforce data sources.</p>
+   * @public
+   */
+  SalesforceDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Salesforce data sources.</p>
+   * @public
+   */
+  CreateSalesforceDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Salesforce data sources.</p>
+   * @public
+   */
+  UpdateSalesforceDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Salesforce data sources.</p>
+   * @public
+   */
+  ShareSalesforceDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Amazon QuickSight data sources.</p>
+   * @public
+   */
+  RadiantDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Amazon QuickSight data sources.</p>
+   * @public
+   */
+  CreateRadiantDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Amazon QuickSight data sources.</p>
+   * @public
+   */
+  UpdateRadiantDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Amazon QuickSight data sources.</p>
+   * @public
+   */
+  ShareRadiantDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share PayPal data sources.</p>
+   * @public
+   */
+  PayPalDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create PayPal data sources.</p>
+   * @public
+   */
+  CreatePayPalDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update PayPal data sources.</p>
+   * @public
+   */
+  UpdatePayPalDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share PayPal data sources.</p>
+   * @public
+   */
+  SharePayPalDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Square data sources.</p>
+   * @public
+   */
+  SquareDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Square data sources.</p>
+   * @public
+   */
+  CreateSquareDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Square data sources.</p>
+   * @public
+   */
+  UpdateSquareDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Square data sources.</p>
+   * @public
+   */
+  ShareSquareDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share GitHub data sources.</p>
+   * @public
+   */
+  GitHubDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create GitHub data sources.</p>
+   * @public
+   */
+  CreateGitHubDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update GitHub data sources.</p>
+   * @public
+   */
+  UpdateGitHubDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share GitHub data sources.</p>
+   * @public
+   */
+  ShareGitHubDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Twitter data sources.</p>
+   * @public
+   */
+  TwitterDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Twitter data sources.</p>
+   * @public
+   */
+  CreateTwitterDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Twitter data sources.</p>
+   * @public
+   */
+  UpdateTwitterDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Twitter data sources.</p>
+   * @public
+   */
+  ShareTwitterDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Jira data sources.</p>
+   * @public
+   */
+  JiraDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Jira data sources.</p>
+   * @public
+   */
+  CreateJiraDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Jira data sources.</p>
+   * @public
+   */
+  UpdateJiraDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Jira data sources.</p>
+   * @public
+   */
+  ShareJiraDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share ServiceNow data sources.</p>
+   * @public
+   */
+  ServiceNowDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create ServiceNow data sources.</p>
+   * @public
+   */
+  CreateServiceNowDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update ServiceNow data sources.</p>
+   * @public
+   */
+  UpdateServiceNowDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share ServiceNow data sources.</p>
+   * @public
+   */
+  ShareServiceNowDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Adobe Analytics data sources.</p>
+   * @public
+   */
+  AdobeAnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Adobe Analytics data sources.</p>
+   * @public
+   */
+  CreateAdobeAnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Adobe Analytics data sources.</p>
+   * @public
+   */
+  UpdateAdobeAnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Adobe Analytics data sources.</p>
+   * @public
+   */
+  ShareAdobeAnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Google Analytics data sources.</p>
+   * @public
+   */
+  GoogleAnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Google Analytics data sources.</p>
+   * @public
+   */
+  CreateGoogleAnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Google Analytics data sources.</p>
+   * @public
+   */
+  UpdateGoogleAnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Google Analytics data sources.</p>
+   * @public
+   */
+  ShareGoogleAnalyticsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Google Sheets data sources.</p>
+   * @public
+   */
+  GoogleSheetsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Google Sheets data sources.</p>
+   * @public
+   */
+  CreateGoogleSheetsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Google Sheets data sources.</p>
+   * @public
+   */
+  UpdateGoogleSheetsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Google Sheets data sources.</p>
+   * @public
+   */
+  ShareGoogleSheetsDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Amazon DocumentDB data sources.</p>
+   * @public
+   */
+  DocumentDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Amazon DocumentDB data sources.</p>
+   * @public
+   */
+  CreateDocumentDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Amazon DocumentDB data sources.</p>
+   * @public
+   */
+  UpdateDocumentDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Amazon DocumentDB data sources.</p>
+   * @public
+   */
+  ShareDocumentDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share MongoDB data sources.</p>
+   * @public
+   */
+  MongoDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create MongoDB data sources.</p>
+   * @public
+   */
+  CreateMongoDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update MongoDB data sources.</p>
+   * @public
+   */
+  UpdateMongoDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share MongoDB data sources.</p>
+   * @public
+   */
+  ShareMongoDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share MongoDB Atlas data sources.</p>
+   * @public
+   */
+  MongoAtlasDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create MongoDB Atlas data sources.</p>
+   * @public
+   */
+  CreateMongoAtlasDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update MongoDB Atlas data sources.</p>
+   * @public
+   */
+  UpdateMongoAtlasDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share MongoDB Atlas data sources.</p>
+   * @public
+   */
+  ShareMongoAtlasDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and share Amazon DynamoDB data sources.</p>
+   * @public
+   */
+  DynamoDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create Amazon DynamoDB data sources.</p>
+   * @public
+   */
+  CreateDynamoDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to update Amazon DynamoDB data sources.</p>
+   * @public
+   */
+  UpdateDynamoDbDataSource?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Amazon DynamoDB data sources.</p>
+   * @public
+   */
+  ShareDynamoDbDataSource?: CapabilityState | undefined;
 }
 
 /**
