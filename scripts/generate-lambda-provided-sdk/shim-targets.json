@@ -1,35 +1,34 @@
 {
   "_comment": [
     "Re-export targets for the deprecated @aws-sdk packages shipped in the Lambda-provided",
-    "SDK payload. Each package is a forwarder: its dist-cjs/index.js is a single",
-    "__exportStar of `target`.",
+    "SDK payload. Each is a forwarder: its dist-cjs/index.js is a single __exportStar of",
+    "`target`, which the assembler generates rather than installing.",
     "",
-    "Targets were extracted from aws-sdk-js-v3 bb2232f76f4 (\"chore(packages):",
-    "re-export from migrated packages\"), which replaced each deprecated package's",
-    "src/index.ts with one `export * from`. Those packages were later deleted from the",
-    "repo, so that commit is the only remaining record of the mapping in this repository.",
+    "Targets were extracted from bb2232f76f4 (\"chore(packages): re-export from migrated",
+    "packages\"), which replaced each deprecated package's src/index.ts with one",
+    "`export * from`. Those packages were later deleted from the repo, so that commit is",
+    "the only remaining record of the mapping here. Rebuild with extract-shim-targets.mjs.",
     "",
-    "`exports` is the symbol set the Lambda payload's cumulative API snapshot requires,",
-    "and is what a generated forwarder must be verified against. The full snapshot lives",
-    "in AwsSdkJavaScriptForLambda and remains authoritative for the whole tree.",
+    "`exports` is the symbol set the Lambda payload's cumulative API snapshot requires. It",
+    "is a floor, not an exact set: the assembler asserts at least these are present. The",
+    "full snapshot lives in AwsSdkJavaScriptForLambda and remains authoritative.",
     "",
-    "`source` is how each target was determined: the commit hash for the automated",
+    "`source` records how each target was determined: the commit hash for the automated",
     "extraction, `manual` for packages deprecated before it, `corrected` where the",
     "historical target does not satisfy the snapshot."
   ],
   "awsSdkShims": {
     "@aws-sdk/abort-controller": {
       "version": "3.374.0",
-      "target": "@smithy/abort-controller",
       "exports": [
         "AbortController",
         "AbortSignal"
       ],
+      "target": "@smithy/abort-controller",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/config-resolver": {
       "version": "3.374.0",
-      "target": "@smithy/config-resolver",
       "exports": [
         "CONFIG_USE_DUALSTACK_ENDPOINT",
         "CONFIG_USE_FIPS_ENDPOINT",
@@ -48,11 +47,11 @@
         "resolveEndpointsConfig",
         "resolveRegionConfig"
       ],
+      "target": "@smithy/config-resolver",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/credential-provider-imds": {
       "version": "3.374.0",
-      "target": "@smithy/credential-provider-imds",
       "exports": [
         "DEFAULT_MAX_RETRIES",
         "DEFAULT_TIMEOUT",
@@ -66,11 +65,11 @@
         "httpRequest",
         "providerConfigFromInit"
       ],
+      "target": "@smithy/credential-provider-imds",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/eventstream-codec": {
       "version": "3.374.0",
-      "target": "@smithy/eventstream-codec",
       "exports": [
         "EventStreamCodec",
         "HeaderMarshaller",
@@ -80,121 +79,121 @@
         "SmithyMessageDecoderStream",
         "SmithyMessageEncoderStream"
       ],
+      "target": "@smithy/eventstream-codec",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/eventstream-serde-browser": {
       "version": "3.374.0",
-      "target": "@smithy/eventstream-serde-browser",
       "exports": [
         "EventStreamMarshaller",
         "eventStreamSerdeProvider",
         "iterableToReadableStream",
         "readableStreamtoIterable"
       ],
+      "target": "@smithy/eventstream-serde-browser",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/eventstream-serde-config-resolver": {
       "version": "3.374.0",
-      "target": "@smithy/eventstream-serde-config-resolver",
       "exports": [
         "resolveEventStreamSerdeConfig"
       ],
+      "target": "@smithy/eventstream-serde-config-resolver",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/eventstream-serde-node": {
       "version": "3.374.0",
-      "target": "@smithy/eventstream-serde-node",
       "exports": [
         "EventStreamMarshaller",
         "eventStreamSerdeProvider"
       ],
+      "target": "@smithy/eventstream-serde-node",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/eventstream-serde-universal": {
       "version": "3.374.0",
-      "target": "@smithy/eventstream-serde-universal",
       "exports": [
         "EventStreamMarshaller",
         "eventStreamSerdeProvider"
       ],
+      "target": "@smithy/eventstream-serde-universal",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/fetch-http-handler": {
       "version": "3.374.0",
-      "target": "@smithy/fetch-http-handler",
       "exports": [
         "FetchHttpHandler",
         "keepAliveSupport",
         "streamCollector"
       ],
+      "target": "@smithy/fetch-http-handler",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/hash-node": {
       "version": "3.374.0",
-      "target": "@smithy/hash-node",
       "exports": [
         "Hash"
       ],
+      "target": "@smithy/hash-node",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/hash-stream-node": {
       "version": "3.374.0",
-      "target": "@smithy/hash-stream-node",
       "exports": [
         "fileStreamHasher",
         "readableStreamHasher"
       ],
+      "target": "@smithy/hash-stream-node",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/invalid-dependency": {
       "version": "3.374.0",
-      "target": "@smithy/invalid-dependency",
       "exports": [
         "invalidFunction",
         "invalidProvider"
       ],
+      "target": "@smithy/invalid-dependency",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/is-array-buffer": {
       "version": "3.374.0",
-      "target": "@smithy/is-array-buffer",
       "exports": [
         "isArrayBuffer"
       ],
+      "target": "@smithy/is-array-buffer",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/md5-js": {
       "version": "3.374.0",
-      "target": "@smithy/md5-js",
       "exports": [
         "Md5"
       ],
+      "target": "@smithy/md5-js",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/middleware-apply-body-checksum": {
       "version": "3.374.0",
-      "target": "@smithy/middleware-apply-body-checksum",
       "exports": [
         "applyMd5BodyChecksumMiddleware",
         "applyMd5BodyChecksumMiddlewareOptions",
         "getApplyMd5BodyChecksumPlugin",
         "resolveMd5BodyChecksumConfig"
       ],
+      "target": "@smithy/middleware-apply-body-checksum",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/middleware-content-length": {
       "version": "3.374.0",
-      "target": "@smithy/middleware-content-length",
       "exports": [
         "contentLengthMiddleware",
         "contentLengthMiddlewareOptions",
         "getContentLengthPlugin"
       ],
+      "target": "@smithy/middleware-content-length",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/middleware-endpoint": {
       "version": "3.374.0",
-      "target": "@smithy/middleware-endpoint",
       "exports": [
         "endpointMiddleware",
         "endpointMiddlewareOptions",
@@ -205,11 +204,11 @@
         "resolveParams",
         "toEndpointV1"
       ],
+      "target": "@smithy/middleware-endpoint",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/middleware-retry": {
       "version": "3.374.0",
-      "target": "@smithy/middleware-retry",
       "exports": [
         "AdaptiveRetryStrategy",
         "CONFIG_MAX_ATTEMPTS",
@@ -230,11 +229,11 @@
         "retryMiddleware",
         "retryMiddlewareOptions"
       ],
+      "target": "@smithy/middleware-retry",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/middleware-serde": {
       "version": "3.374.0",
-      "target": "@smithy/middleware-serde",
       "exports": [
         "deserializerMiddleware",
         "deserializerMiddlewareOption",
@@ -242,38 +241,38 @@
         "serializerMiddleware",
         "serializerMiddlewareOption"
       ],
+      "target": "@smithy/middleware-serde",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/middleware-stack": {
       "version": "3.374.0",
-      "target": "@smithy/middleware-stack",
       "exports": [
         "constructStack"
       ],
+      "target": "@smithy/middleware-stack",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/node-config-provider": {
       "version": "3.374.0",
-      "target": "@smithy/node-config-provider",
       "exports": [
         "loadConfig"
       ],
+      "target": "@smithy/node-config-provider",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/node-http-handler": {
       "version": "3.374.0",
-      "target": "@smithy/node-http-handler",
       "exports": [
         "DEFAULT_REQUEST_TIMEOUT",
         "NodeHttp2Handler",
         "NodeHttpHandler",
         "streamCollector"
       ],
+      "target": "@smithy/node-http-handler",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/property-provider": {
       "version": "3.374.0",
-      "target": "@smithy/property-provider",
       "exports": [
         "CredentialsProviderError",
         "ProviderError",
@@ -282,11 +281,11 @@
         "fromStatic",
         "memoize"
       ],
+      "target": "@smithy/property-provider",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/protocol-http": {
       "version": "3.374.0",
-      "target": "@smithy/protocol-http",
       "exports": [
         "Field",
         "Fields",
@@ -296,27 +295,27 @@
         "isValidHostname",
         "resolveHttpHandlerRuntimeConfig"
       ],
+      "target": "@smithy/protocol-http",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/querystring-builder": {
       "version": "3.374.0",
-      "target": "@smithy/querystring-builder",
       "exports": [
         "buildQueryString"
       ],
+      "target": "@smithy/querystring-builder",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/querystring-parser": {
       "version": "3.374.0",
-      "target": "@smithy/querystring-parser",
       "exports": [
         "parseQueryString"
       ],
+      "target": "@smithy/querystring-parser",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/service-error-classification": {
       "version": "3.374.0",
-      "target": "@smithy/service-error-classification",
       "exports": [
         "isBrowserNetworkError",
         "isClockSkewCorrectedError",
@@ -326,11 +325,11 @@
         "isThrottlingError",
         "isTransientError"
       ],
+      "target": "@smithy/service-error-classification",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/shared-ini-file-loader": {
       "version": "3.374.0",
-      "target": "@smithy/shared-ini-file-loader",
       "exports": [
         "CONFIG_PREFIX_SEPARATOR",
         "DEFAULT_PROFILE",
@@ -344,11 +343,11 @@
         "loadSsoSessionData",
         "parseKnownFiles"
       ],
+      "target": "@smithy/shared-ini-file-loader",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/signature-v4": {
       "version": "3.374.0",
-      "target": "@smithy/signature-v4",
       "exports": [
         "ALGORITHM_IDENTIFIER",
         "ALGORITHM_IDENTIFIER_V4A",
@@ -390,11 +389,11 @@
         "prepareRequest",
         "signatureV4aContainer"
       ],
+      "target": "@smithy/signature-v4",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/smithy-client": {
       "version": "3.374.0",
-      "target": "@smithy/smithy-client",
       "exports": [
         "Client",
         "Command",
@@ -462,81 +461,81 @@
         "throwDefaultError",
         "withBaseException"
       ],
+      "target": "@smithy/smithy-client",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/url-parser": {
       "version": "3.374.0",
-      "target": "@smithy/url-parser",
       "exports": [
         "parseUrl"
       ],
+      "target": "@smithy/url-parser",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-base64": {
       "version": "3.374.0",
-      "target": "@smithy/util-base64",
       "exports": [
         "fromBase64",
         "toBase64"
       ],
+      "target": "@smithy/util-base64",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-body-length-node": {
       "version": "3.374.0",
-      "target": "@smithy/util-body-length-node",
       "exports": [
         "calculateBodyLength"
       ],
+      "target": "@smithy/util-body-length-node",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-buffer-from": {
       "version": "3.374.0",
-      "target": "@smithy/util-buffer-from",
       "exports": [
         "fromArrayBuffer",
         "fromString"
       ],
+      "target": "@smithy/util-buffer-from",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-config-provider": {
       "version": "3.374.0",
-      "target": "@smithy/util-config-provider",
       "exports": [
         "SelectorType",
         "booleanSelector",
         "numberSelector"
       ],
+      "target": "@smithy/util-config-provider",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-defaults-mode-node": {
       "version": "3.374.0",
-      "target": "@smithy/util-defaults-mode-node",
       "exports": [
         "resolveDefaultsModeConfig"
       ],
+      "target": "@smithy/util-defaults-mode-node",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-hex-encoding": {
       "version": "3.374.0",
-      "target": "@smithy/util-hex-encoding",
       "exports": [
         "fromHex",
         "toHex"
       ],
+      "target": "@smithy/util-hex-encoding",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-middleware": {
       "version": "3.374.0",
-      "target": "@smithy/util-middleware",
       "exports": [
         "getSmithyContext",
         "normalizeProvider"
       ],
+      "target": "@smithy/util-middleware",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-retry": {
       "version": "3.374.0",
-      "target": "@smithy/util-retry",
       "exports": [
         "AdaptiveRetryStrategy",
         "ConfiguredRetryStrategy",
@@ -555,11 +554,11 @@
         "THROTTLING_RETRY_DELAY_BASE",
         "TIMEOUT_RETRY_COST"
       ],
+      "target": "@smithy/util-retry",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-stream": {
       "version": "3.374.0",
-      "target": "@smithy/util-stream",
       "exports": [
         "ChecksumStream",
         "Uint8ArrayBlobAdapter",
@@ -572,11 +571,11 @@
         "sdkStreamMixin",
         "splitStream"
       ],
+      "target": "@smithy/util-stream",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-stream-node": {
       "version": "3.374.0",
-      "target": "@smithy/util-stream",
       "exports": [
         "ChecksumStream",
         "Uint8ArrayBlobAdapter",
@@ -589,69 +588,70 @@
         "sdkStreamMixin",
         "splitStream"
       ],
+      "target": "@smithy/util-stream",
       "source": "corrected",
       "historicalTarget": "@smithy/util-stream-node",
       "note": "history (bb2232f76f4) re-exports @smithy/util-stream-node, but that package does not provide the exports the API snapshot requires. The assembler's override redirects to @smithy/util-stream, which does."
     },
     "@aws-sdk/util-uri-escape": {
       "version": "3.374.0",
-      "target": "@smithy/util-uri-escape",
       "exports": [
         "escapeUri",
         "escapeUriPath"
       ],
+      "target": "@smithy/util-uri-escape",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-utf8": {
       "version": "3.374.0",
-      "target": "@smithy/util-utf8",
       "exports": [
         "fromUtf8",
         "toUint8Array",
         "toUtf8"
       ],
+      "target": "@smithy/util-utf8",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/util-waiter": {
       "version": "3.374.0",
-      "target": "@smithy/util-waiter",
       "exports": [
         "WaiterState",
         "checkExceptions",
         "createWaiter",
         "waiterServiceDefaults"
       ],
+      "target": "@smithy/util-waiter",
       "source": "bb2232f76f4"
     },
     "@aws-sdk/middleware-sdk-eventbridge": {
       "version": "3.193.0",
-      "target": null,
       "exports": [
         "getInjectEndpointIdPlugin",
         "injectEndpointIdMiddleware",
         "injectEndpointIdMiddlewareOptions"
       ],
+      "target": null,
       "source": "manual",
       "note": "NOT a forwarder — requires a relative module (./inject-endpoint-id), so it ships real code. Cannot be generated; needs its published bytes."
     },
     "@aws-sdk/util-base64-node": {
       "version": "3.209.0",
-      "target": "@aws-sdk/util-base64",
       "exports": [
         "fromBase64",
         "toBase64"
       ],
+      "target": "@aws-sdk/util-base64",
       "source": "manual",
       "note": "deprecated before the migration commit; target taken from the assembler's existing override"
     },
     "@aws-sdk/util-utf8-node": {
       "version": "3.259.0",
-      "target": "@aws-sdk/util-utf8",
       "exports": [
         "fromUtf8",
         "toUint8Array",
         "toUtf8"
       ],
+      "target": "@aws-sdk/util-utf8",
       "source": "manual",
       "note": "deprecated before the migration commit; target taken from the assembler's existing override"
     }

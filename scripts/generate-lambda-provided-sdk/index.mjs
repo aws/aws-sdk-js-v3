@@ -73,12 +73,11 @@ const treeOnly = flag("tree-only");
 
 const nodeModulesDir = join(outDir, "node_modules");
 const vendorDir = join(__dirname, "vendor");
+const vendorPopulate = relative(rootDir, join(__dirname, "vendor-populate.mjs"));
 
-// Documentation generators are published but are build tooling, not runtime SDK.
-const EXCLUDED = new Set([
-  "@aws-sdk/core-packages-documentation-generator",
-  "@aws-sdk/core-theme-documentation-generator",
-]);
+// Publishable packages kept out of the payload. Empty since the documentation
+// generators that used to be listed here were removed from the repo upstream.
+const EXCLUDED = new Set([]);
 
 // npm ships these regardless of the `files` field.
 const ALWAYS_INCLUDED = [/^package\.json$/, /^README(\..*)?$/i, /^LICEN[CS]E(\..*)?$/i];
@@ -394,7 +393,10 @@ const main = () => {
         // thing that can have supplied it.
         if (!existsSync(join(nodeModulesDir, name))) {
           throw new Error(
-            `${name} has no re-export target and is not in vendor/ — nothing can produce it.`
+            `${name} has no re-export target and is not in vendor/ — nothing can produce it.\n` +
+              `  Vendor it with:\n` +
+              `    node ${vendorPopulate} --baseline <payload assembled with --skip-legacy>/node_modules --source <node_modules holding ${name}>\n` +
+              `  Add --check first to see what would change without writing.`
           );
         }
         continue;
@@ -455,13 +457,42 @@ const main = () => {
           shortfalls.push(`${name} -> ${entry.target ?? "(vendored)"} is missing ${missing.join(", ")}`);
         }
       } catch (error) {
-        shortfalls.push(`${name} failed to load: ${error.code ?? error.message}`);
+        // A newer SDK version can introduce a forwarder target — or a dependency of one —
+        // that the static vendor/ directory has never carried, and that surfaces here as a
+        // resolution failure rather than a missing symbol. It is the most likely way this
+        // step fails on a version bump, so say which module is actually absent and give the
+        // command that supplies it instead of reporting a bare error code.
+        const unresolved =
+          error.code === "MODULE_NOT_FOUND"
+            ? /Cannot find module '([^']+)'/.exec(error.message)?.[1]
+            : undefined;
+        // Only a bare package name, scoped or not, can be vendored. The same message
+        // fires for a relative request made from inside a vendored package, and
+        // "--source <node_modules holding ./lib/foo>" is not advice anyone can act on,
+        // so that case reports the gap without the remedy.
+        const vendorable = unresolved !== undefined && /^(?:@[^/:]+\/)?[^@./:][^/:]*$/.test(unresolved);
+        if (vendorable) {
+          shortfalls.push(
+            `${name} -> ${entry.target ?? "(vendored)"} cannot load: ${unresolved} is not in the ` +
+              `assembled tree.\n    Neither this workspace nor its dependency closure provides ` +
+              `it, so it has to come from vendor/, which does not carry it. Add it with:\n` +
+              `      node ${vendorPopulate} --baseline <payload assembled with --skip-legacy>/node_modules --source <node_modules holding ${unresolved}>\n` +
+              `    Add --check first to see what would change without writing.`
+          );
+        } else if (unresolved !== undefined) {
+          shortfalls.push(
+            `${name} -> ${entry.target ?? "(vendored)"} cannot load: ${unresolved} is not ` +
+              `resolvable from the assembled tree. It is not a bare package name, so it is a ` +
+              `file missing from inside an already-present package rather than a vendor/ gap.`
+          );
+        } else {
+          shortfalls.push(`${name} failed to load: ${error.code ?? error.message}`);
+        }
       }
     }
     if (shortfalls.length) {
       throw new Error(
-        `deprecated packages do not satisfy the recorded API surface:\n  ` +
-          shortfalls.join("\n  ")
+        `deprecated packages are not usable as recorded:\n  ` + shortfalls.join("\n  ")
       );
     }
     log(`4b. verified ${Object.keys(awsSdkShims).length} deprecated packages against their recorded exports`);
