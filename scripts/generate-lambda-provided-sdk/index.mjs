@@ -37,7 +37,6 @@ import {
   cpSync,
   existsSync,
   mkdirSync,
-  mkdtempSync,
   readdirSync,
   readFileSync,
   renameSync,
@@ -46,8 +45,8 @@ import {
   symlinkSync,
   writeFileSync,
 } from "node:fs";
-import { dirname, join, relative, sep } from "node:path";
-import { tmpdir } from "node:os";
+import { dirname, join, relative } from "node:path";
+import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 
 import { getWorkspacePaths } from "../utils/getWorkspacePaths.mjs";
@@ -73,6 +72,7 @@ const skipLegacy = flag("skip-legacy");
 const treeOnly = flag("tree-only");
 
 const nodeModulesDir = join(outDir, "node_modules");
+const vendorDir = join(__dirname, "vendor");
 
 // Documentation generators are published but are build tooling, not runtime SDK.
 const EXCLUDED = new Set([
@@ -319,115 +319,152 @@ const main = () => {
   const external = readdirSync(nodeModulesDir).filter((e) => e !== "@aws-sdk").length;
   log(`3. copied runtime closure: ${external} external entries`);
 
-  // 4. Add the packages this workspace cannot produce.
+  // 4. Add the deprecated packages this workspace cannot produce.
+  //
+  // Nothing is installed. Two mechanisms cover the whole set:
+  //
+  //   Generated. The 47 deprecated @aws-sdk packages are forwarders — the entire
+  //   content of each is a re-export of the modern package that replaced it. Their
+  //   targets are recorded in shim-targets.json, taken from aws-sdk-js-v3
+  //   bb2232f76f4, which rewrote each deprecated package's src/index.ts to a single
+  //   `export * from` before the packages were removed from the repo. That commit is
+  //   the only remaining record of the mapping, and it cannot be re-derived: 41 of
+  //   the 47 follow @aws-sdk/X -> @smithy/X, and the rest do not.
+  //
+  //   Vendored. 31 packages are copied from vendor/. They are re-export targets the
+  //   modern SDK no longer depends on, so yarn install never fetches them and there
+  //   is nothing in the workspace to copy, plus @aws-sdk/middleware-sdk-eventbridge,
+  //   which ships real code rather than a forwarder. Real implementations cannot be
+  //   generated from a list of export names.
+  //
+  // This replaces an `npm install` of 88 pinned specs, which existed only to fight
+  // npm's resolver: the shims' 2023 dependency ranges resolve @smithy to 1.x while
+  // the payload runs 4.x, so the twins had to be pinned by hand and nested
+  // node_modules filtered out. Writing the forwarders ourselves removes the resolver
+  // from the problem, and the export surface each one must provide is asserted
+  // directly rather than hoped for.
   let legacyAdded = 0;
   if (skipLegacy) {
-    log(`4. SKIPPED legacy shims — tree is incomplete and will fail the compatibility gates`);
+    log(`4. SKIPPED legacy packages — tree is incomplete and will fail the compatibility gates`);
   } else {
-    // Both lists are installed together, and the @smithy twins must be named
-    // explicitly. The shims' own dependency ranges are from 2023 — for instance
-    // @aws-sdk/util-middleware@3.374.0 asks for @smithy/util-middleware@^1.0.1 —
-    // so installing the shims alone resolves @smithy 1.x, while the payload that
-    // ships today runs them against 4.x. The existing payload has no nested
-    // node_modules under any shim, so every re-export resolves up to the modern
-    // version, and the recorded API snapshot was captured against those. Letting
-    // npm pick drops exports the snapshot requires.
-    const { awsSdkShims, smithyTwins, overrides } = JSON.parse(
-      readFileSync(join(__dirname, "legacy-packages.json"), "utf-8")
+    const { awsSdkShims } = JSON.parse(
+      readFileSync(join(__dirname, "shim-targets.json"), "utf-8")
     );
-    const specs = Object.entries({ ...awsSdkShims, ...smithyTwins }).map(
-      ([name, version]) => `${name}@${version}`
-    );
-    const staging = mkdtempSync(join(tmpdir(), "lambda-provided-sdk-legacy-"));
-    try {
-      writeFileSync(join(staging, "package.json"), JSON.stringify({ private: true }) + "\n");
-      execFileSync("npm", ["install", "--no-audit", "--no-fund", "--save-exact", ...specs], {
-        cwd: staging,
-        stdio: "inherit",
-      });
-      let added = 0;
-      const stagedModules = join(staging, "node_modules");
-      for (const entry of readdirSync(stagedModules)) {
-        if (entry.startsWith(".")) {
+
+    // Vendored packages first: a generated forwarder cannot be verified until the
+    // thing it forwards to is present.
+    let vendored = 0;
+    const walkVendor = (dir) => {
+      for (const entry of readdirSync(dir, { withFileTypes: true })) {
+        if (!entry.isDirectory()) {
           continue;
         }
-        const names = entry.startsWith("@")
-          ? readdirSync(join(stagedModules, entry)).map((child) => `${entry}/${child}`)
-          : [entry];
-        for (const name of names) {
-          const dest = join(nodeModulesDir, name);
-          if (existsSync(dest)) {
-            continue; // never shadow something built from this workspace
-          }
-          mkdirSync(dirname(dest), { recursive: true });
-          // Drop nested node_modules. npm creates them for the shims' stale
-          // dependency ranges, and copying them would shadow the pinned modern
-          // @smithy versions at resolution time. The existing payload has none.
-          // The comparison is on the path relative to this package, because
-          // stagedModules itself ends in "node_modules".
-          const pkgSrc = join(stagedModules, name);
-          cpSync(pkgSrc, dest, {
-            recursive: true,
-            dereference: true,
-            filter: (src) => !relative(pkgSrc, src).split(sep).includes("node_modules"),
-          });
-          added += 1;
+        const from = join(dir, entry.name);
+        if (!existsSync(join(from, "package.json"))) {
+          walkVendor(from); // a scope directory, not a package
+          continue;
         }
+        const name = relative(vendorDir, from);
+        const dest = join(nodeModulesDir, name);
+        if (existsSync(dest)) {
+          continue; // never shadow something built from this workspace
+        }
+        mkdirSync(dirname(dest), { recursive: true });
+        cpSync(from, dest, { recursive: true });
+        vendored += 1;
       }
-      legacyAdded = added;
-      log(`4. added ${added} packages from ${specs.length} pinned deprecated shims`);
-    } finally {
-      rmSync(staging, { recursive: true, force: true });
+    };
+    if (!existsSync(vendorDir)) {
+      throw new Error(`no vendor directory at ${vendorDir} — the payload cannot be completed.`);
+    }
+    walkVendor(vendorDir);
+
+    // CommonJS only, matching the payload that ships today: the reference's copy of
+    // @aws-sdk/abort-controller has dist-cjs alone, with module and types stripped from
+    // its manifest. These packages declare no `exports` map, so resolution falls back to
+    // main / module / types — declaring the latter two while emitting only dist-cjs
+    // would point consumers at files that do not exist, so they are omitted entirely.
+    let generated = 0;
+    for (const [name, entry] of Object.entries(awsSdkShims)) {
+      if (!entry?.version || !Array.isArray(entry.exports)) {
+        throw new Error(`shim-targets.json entry for ${name} is incomplete.`);
+      }
+      if (!entry.target) {
+        // Not a forwarder. It has to be vendored, and the copy above is the only
+        // thing that can have supplied it.
+        if (!existsSync(join(nodeModulesDir, name))) {
+          throw new Error(
+            `${name} has no re-export target and is not in vendor/ — nothing can produce it.`
+          );
+        }
+        continue;
+      }
+
+      const dest = join(nodeModulesDir, name);
+      if (existsSync(dest)) {
+        continue;
+      }
+      mkdirSync(join(dest, "dist-cjs"), { recursive: true });
+
+      writeFileSync(
+        join(dest, "package.json"),
+        JSON.stringify(
+          {
+            name,
+            version: entry.version,
+            description: `Deprecated. Re-exports ${entry.target}.`,
+            main: "./dist-cjs/index.js",
+            license: "Apache-2.0",
+            dependencies: { [entry.target]: "*", tslib: "^2.6.2" },
+          },
+          null,
+          2
+        ) + "\n"
+      );
+      writeFileSync(
+        join(dest, "dist-cjs", "index.js"),
+        `"use strict";\n` +
+          `Object.defineProperty(exports, "__esModule", { value: true });\n` +
+          `const tslib_1 = require("tslib");\n` +
+          `tslib_1.__exportStar(require("${entry.target}"), exports);\n`
+      );
+      generated += 1;
     }
 
-    // 4b. Redirect the packages whose published contents point at the wrong target.
+    legacyAdded = vendored + generated;
+    log(`4. ${generated} forwarders generated, ${vendored} vendored packages copied`);
+
+    // 4b. Assert every forwarder actually delivers what the compatibility snapshot
+    // records. __exportStar copies whatever the target exports at require time, so a
+    // forwarder pointing at the wrong package, or at one that dropped a symbol, is
+    // silently short rather than broken. The recorded export surface is a floor: more
+    // is fine, missing anything is not.
     //
-    // Three of the shims re-export a package that does not have the exports the
-    // compatibility snapshot records. @aws-sdk/util-stream-node re-exports
-    // @smithy/util-stream-node, but sdkStreamMixin, ChecksumStream, headStream and
-    // five others live only in @smithy/util-stream. This is a content problem, not a
-    // version problem: no published version of the declared dependency has them.
-    //
-    // The payload that this build replaces applied the same redirects, so reproducing
-    // them keeps its API surface intact. Dropping them silently removes 9 exports that
-    // customer functions may already import.
-    //
-    // All three dist directories are rewritten, not just dist-cjs. These packages have
-    // no `exports` map, so resolution falls back to main / module / types — leaving
-    // module and types pointing at the wrong package would resolve correctly at
-    // runtime and incorrectly for bundlers and TypeScript.
-    for (const [name, target] of Object.entries(overrides ?? {})) {
-      const pkgDir = join(nodeModulesDir, name);
-      if (!existsSync(pkgDir)) {
-        throw new Error(`override declared for ${name}, which is not in the tree.`);
+    // Run before the layout move, while every package still sits directly under
+    // node_modules and resolves from the output root.
+    const requireFromTree = createRequire(join(outDir, "verify-shims.cjs"));
+    const shortfalls = [];
+    for (const [name, entry] of Object.entries(awsSdkShims)) {
+      if (!entry.exports.length) {
+        continue;
       }
-
-      const cjs = join(pkgDir, "dist-cjs", "index.js");
-      if (existsSync(cjs)) {
-        writeFileSync(
-          cjs,
-          `"use strict"; // re-export override from AWS SDK custom build.\n` +
-            `Object.defineProperty(exports, "__esModule", { value: true });\n` +
-            `const tslib_1 = require("tslib");\n` +
-            `tslib_1.__exportStar(require("${target}"), exports);\n`
-        );
+      try {
+        const actual = new Set(Object.keys(requireFromTree(name)));
+        const missing = entry.exports.filter((symbol) => !actual.has(symbol));
+        if (missing.length) {
+          shortfalls.push(`${name} -> ${entry.target ?? "(vendored)"} is missing ${missing.join(", ")}`);
+        }
+      } catch (error) {
+        shortfalls.push(`${name} failed to load: ${error.code ?? error.message}`);
       }
-
-      const es = join(pkgDir, "dist-es", "index.js");
-      if (existsSync(es)) {
-        writeFileSync(es, `export * from "${target}";\n`);
-      }
-
-      const types = join(pkgDir, "dist-types", "index.d.ts");
-      if (existsSync(types)) {
-        writeFileSync(types, `export * from "${target}";\n`);
-      }
-
-      log(`   override: ${name} -> ${target}`);
     }
-    if (overrides && Object.keys(overrides).length) {
-      log(`4b. applied ${Object.keys(overrides).length} re-export overrides`);
+    if (shortfalls.length) {
+      throw new Error(
+        `deprecated packages do not satisfy the recorded API surface:\n  ` +
+          shortfalls.join("\n  ")
+      );
     }
+    log(`4b. verified ${Object.keys(awsSdkShims).length} deprecated packages against their recorded exports`);
   }
 
   // 5. Rearrange into the layout consumers expect.
@@ -472,16 +509,13 @@ const main = () => {
       legacy: skipLegacy ? 0 : legacyAdded,
     },
     trimmed: false,
-    legacyPackagesFrom: skipLegacy ? null : "legacy-packages.json",
+    legacyPackagesFrom: skipLegacy ? null : "shim-targets.json",
   };
   writeFileSync(join(outDir, "metadata.json"), JSON.stringify(metadata, null, 2) + "\n");
 
   // The pinned list travels with the payload so the deprecated packages it contains
   // are auditable without reading the SDK repo at the matching commit.
-  copyFileSync(
-    join(__dirname, "legacy-packages.json"),
-    join(outDir, "legacy-packages.json")
-  );
+  copyFileSync(join(__dirname, "shim-targets.json"), join(outDir, "shim-targets.json"));
 
   log(`6. metadata.json  sdkVersion ${metadata.sdkVersion}, commit ${metadata.gitCommit.slice(0, 9)}`);
 
@@ -495,7 +529,7 @@ const main = () => {
   const zipPath = join(outDir, zipName);
   execFileSync(
     "zip",
-    ["-ryq", zipPath, "node_modules", "metadata.json", "legacy-packages.json"],
+    ["-ryq", zipPath, "node_modules", "metadata.json", "shim-targets.json"],
     { cwd: outDir }
   );
   const checksum = execFileSync("sha256sum", [zipName], { cwd: outDir, encoding: "utf-8" });

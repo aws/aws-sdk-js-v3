@@ -1,0 +1,659 @@
+{
+  "_comment": [
+    "Re-export targets for the deprecated @aws-sdk packages shipped in the Lambda-provided",
+    "SDK payload. Each package is a forwarder: its dist-cjs/index.js is a single",
+    "__exportStar of `target`.",
+    "",
+    "Targets were extracted from aws-sdk-js-v3 bb2232f76f4 (\"chore(packages):",
+    "re-export from migrated packages\"), which replaced each deprecated package's",
+    "src/index.ts with one `export * from`. Those packages were later deleted from the",
+    "repo, so that commit is the only remaining record of the mapping in this repository.",
+    "",
+    "`exports` is the symbol set the Lambda payload's cumulative API snapshot requires,",
+    "and is what a generated forwarder must be verified against. The full snapshot lives",
+    "in AwsSdkJavaScriptForLambda and remains authoritative for the whole tree.",
+    "",
+    "`source` is how each target was determined: the commit hash for the automated",
+    "extraction, `manual` for packages deprecated before it, `corrected` where the",
+    "historical target does not satisfy the snapshot."
+  ],
+  "awsSdkShims": {
+    "@aws-sdk/abort-controller": {
+      "version": "3.374.0",
+      "target": "@smithy/abort-controller",
+      "exports": [
+        "AbortController",
+        "AbortSignal"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/config-resolver": {
+      "version": "3.374.0",
+      "target": "@smithy/config-resolver",
+      "exports": [
+        "CONFIG_USE_DUALSTACK_ENDPOINT",
+        "CONFIG_USE_FIPS_ENDPOINT",
+        "DEFAULT_USE_DUALSTACK_ENDPOINT",
+        "DEFAULT_USE_FIPS_ENDPOINT",
+        "ENV_USE_DUALSTACK_ENDPOINT",
+        "ENV_USE_FIPS_ENDPOINT",
+        "NODE_REGION_CONFIG_FILE_OPTIONS",
+        "NODE_REGION_CONFIG_OPTIONS",
+        "NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
+        "NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
+        "REGION_ENV_NAME",
+        "REGION_INI_NAME",
+        "getRegionInfo",
+        "resolveCustomEndpointsConfig",
+        "resolveEndpointsConfig",
+        "resolveRegionConfig"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/credential-provider-imds": {
+      "version": "3.374.0",
+      "target": "@smithy/credential-provider-imds",
+      "exports": [
+        "DEFAULT_MAX_RETRIES",
+        "DEFAULT_TIMEOUT",
+        "ENV_CMDS_AUTH_TOKEN",
+        "ENV_CMDS_FULL_URI",
+        "ENV_CMDS_RELATIVE_URI",
+        "Endpoint",
+        "fromContainerMetadata",
+        "fromInstanceMetadata",
+        "getInstanceMetadataEndpoint",
+        "httpRequest",
+        "providerConfigFromInit"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/eventstream-codec": {
+      "version": "3.374.0",
+      "target": "@smithy/eventstream-codec",
+      "exports": [
+        "EventStreamCodec",
+        "HeaderMarshaller",
+        "Int64",
+        "MessageDecoderStream",
+        "MessageEncoderStream",
+        "SmithyMessageDecoderStream",
+        "SmithyMessageEncoderStream"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/eventstream-serde-browser": {
+      "version": "3.374.0",
+      "target": "@smithy/eventstream-serde-browser",
+      "exports": [
+        "EventStreamMarshaller",
+        "eventStreamSerdeProvider",
+        "iterableToReadableStream",
+        "readableStreamtoIterable"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/eventstream-serde-config-resolver": {
+      "version": "3.374.0",
+      "target": "@smithy/eventstream-serde-config-resolver",
+      "exports": [
+        "resolveEventStreamSerdeConfig"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/eventstream-serde-node": {
+      "version": "3.374.0",
+      "target": "@smithy/eventstream-serde-node",
+      "exports": [
+        "EventStreamMarshaller",
+        "eventStreamSerdeProvider"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/eventstream-serde-universal": {
+      "version": "3.374.0",
+      "target": "@smithy/eventstream-serde-universal",
+      "exports": [
+        "EventStreamMarshaller",
+        "eventStreamSerdeProvider"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/fetch-http-handler": {
+      "version": "3.374.0",
+      "target": "@smithy/fetch-http-handler",
+      "exports": [
+        "FetchHttpHandler",
+        "keepAliveSupport",
+        "streamCollector"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/hash-node": {
+      "version": "3.374.0",
+      "target": "@smithy/hash-node",
+      "exports": [
+        "Hash"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/hash-stream-node": {
+      "version": "3.374.0",
+      "target": "@smithy/hash-stream-node",
+      "exports": [
+        "fileStreamHasher",
+        "readableStreamHasher"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/invalid-dependency": {
+      "version": "3.374.0",
+      "target": "@smithy/invalid-dependency",
+      "exports": [
+        "invalidFunction",
+        "invalidProvider"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/is-array-buffer": {
+      "version": "3.374.0",
+      "target": "@smithy/is-array-buffer",
+      "exports": [
+        "isArrayBuffer"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/md5-js": {
+      "version": "3.374.0",
+      "target": "@smithy/md5-js",
+      "exports": [
+        "Md5"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/middleware-apply-body-checksum": {
+      "version": "3.374.0",
+      "target": "@smithy/middleware-apply-body-checksum",
+      "exports": [
+        "applyMd5BodyChecksumMiddleware",
+        "applyMd5BodyChecksumMiddlewareOptions",
+        "getApplyMd5BodyChecksumPlugin",
+        "resolveMd5BodyChecksumConfig"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/middleware-content-length": {
+      "version": "3.374.0",
+      "target": "@smithy/middleware-content-length",
+      "exports": [
+        "contentLengthMiddleware",
+        "contentLengthMiddlewareOptions",
+        "getContentLengthPlugin"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/middleware-endpoint": {
+      "version": "3.374.0",
+      "target": "@smithy/middleware-endpoint",
+      "exports": [
+        "endpointMiddleware",
+        "endpointMiddlewareOptions",
+        "getEndpointFromInstructions",
+        "getEndpointPlugin",
+        "resolveEndpointConfig",
+        "resolveEndpointRequiredConfig",
+        "resolveParams",
+        "toEndpointV1"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/middleware-retry": {
+      "version": "3.374.0",
+      "target": "@smithy/middleware-retry",
+      "exports": [
+        "AdaptiveRetryStrategy",
+        "CONFIG_MAX_ATTEMPTS",
+        "CONFIG_RETRY_MODE",
+        "ENV_MAX_ATTEMPTS",
+        "ENV_RETRY_MODE",
+        "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
+        "NODE_RETRY_MODE_CONFIG_OPTIONS",
+        "StandardRetryStrategy",
+        "defaultDelayDecider",
+        "defaultRetryDecider",
+        "getOmitRetryHeadersPlugin",
+        "getRetryAfterHint",
+        "getRetryPlugin",
+        "omitRetryHeadersMiddleware",
+        "omitRetryHeadersMiddlewareOptions",
+        "resolveRetryConfig",
+        "retryMiddleware",
+        "retryMiddlewareOptions"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/middleware-serde": {
+      "version": "3.374.0",
+      "target": "@smithy/middleware-serde",
+      "exports": [
+        "deserializerMiddleware",
+        "deserializerMiddlewareOption",
+        "getSerdePlugin",
+        "serializerMiddleware",
+        "serializerMiddlewareOption"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/middleware-stack": {
+      "version": "3.374.0",
+      "target": "@smithy/middleware-stack",
+      "exports": [
+        "constructStack"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/node-config-provider": {
+      "version": "3.374.0",
+      "target": "@smithy/node-config-provider",
+      "exports": [
+        "loadConfig"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/node-http-handler": {
+      "version": "3.374.0",
+      "target": "@smithy/node-http-handler",
+      "exports": [
+        "DEFAULT_REQUEST_TIMEOUT",
+        "NodeHttp2Handler",
+        "NodeHttpHandler",
+        "streamCollector"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/property-provider": {
+      "version": "3.374.0",
+      "target": "@smithy/property-provider",
+      "exports": [
+        "CredentialsProviderError",
+        "ProviderError",
+        "TokenProviderError",
+        "chain",
+        "fromStatic",
+        "memoize"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/protocol-http": {
+      "version": "3.374.0",
+      "target": "@smithy/protocol-http",
+      "exports": [
+        "Field",
+        "Fields",
+        "HttpRequest",
+        "HttpResponse",
+        "getHttpHandlerExtensionConfiguration",
+        "isValidHostname",
+        "resolveHttpHandlerRuntimeConfig"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/querystring-builder": {
+      "version": "3.374.0",
+      "target": "@smithy/querystring-builder",
+      "exports": [
+        "buildQueryString"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/querystring-parser": {
+      "version": "3.374.0",
+      "target": "@smithy/querystring-parser",
+      "exports": [
+        "parseQueryString"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/service-error-classification": {
+      "version": "3.374.0",
+      "target": "@smithy/service-error-classification",
+      "exports": [
+        "isBrowserNetworkError",
+        "isClockSkewCorrectedError",
+        "isClockSkewError",
+        "isRetryableByTrait",
+        "isServerError",
+        "isThrottlingError",
+        "isTransientError"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/shared-ini-file-loader": {
+      "version": "3.374.0",
+      "target": "@smithy/shared-ini-file-loader",
+      "exports": [
+        "CONFIG_PREFIX_SEPARATOR",
+        "DEFAULT_PROFILE",
+        "ENV_PROFILE",
+        "externalDataInterceptor",
+        "getHomeDir",
+        "getProfileName",
+        "getSSOTokenFilepath",
+        "getSSOTokenFromFile",
+        "loadSharedConfigFiles",
+        "loadSsoSessionData",
+        "parseKnownFiles"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/signature-v4": {
+      "version": "3.374.0",
+      "target": "@smithy/signature-v4",
+      "exports": [
+        "ALGORITHM_IDENTIFIER",
+        "ALGORITHM_IDENTIFIER_V4A",
+        "ALGORITHM_QUERY_PARAM",
+        "ALWAYS_UNSIGNABLE_HEADERS",
+        "AMZ_DATE_HEADER",
+        "AMZ_DATE_QUERY_PARAM",
+        "AUTH_HEADER",
+        "CREDENTIAL_QUERY_PARAM",
+        "DATE_HEADER",
+        "EVENT_ALGORITHM_IDENTIFIER",
+        "EXPIRES_QUERY_PARAM",
+        "GENERATED_HEADERS",
+        "HOST_HEADER",
+        "KEY_TYPE_IDENTIFIER",
+        "MAX_CACHE_SIZE",
+        "MAX_PRESIGNED_TTL",
+        "PROXY_HEADER_PATTERN",
+        "REGION_SET_PARAM",
+        "SEC_HEADER_PATTERN",
+        "SHA256_HEADER",
+        "SIGNATURE_HEADER",
+        "SIGNATURE_QUERY_PARAM",
+        "SIGNED_HEADERS_QUERY_PARAM",
+        "SignatureV4",
+        "SignatureV4Base",
+        "TOKEN_HEADER",
+        "TOKEN_QUERY_PARAM",
+        "UNSIGNABLE_PATTERNS",
+        "UNSIGNED_PAYLOAD",
+        "clearCredentialCache",
+        "createScope",
+        "getCanonicalHeaders",
+        "getCanonicalQuery",
+        "getPayloadHash",
+        "getSigningKey",
+        "hasHeader",
+        "moveHeadersToQuery",
+        "prepareRequest",
+        "signatureV4aContainer"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/smithy-client": {
+      "version": "3.374.0",
+      "target": "@smithy/smithy-client",
+      "exports": [
+        "Client",
+        "Command",
+        "LazyJsonString",
+        "NoOpLogger",
+        "NumericValue",
+        "SENSITIVE_STRING",
+        "ServiceException",
+        "_json",
+        "collectBody",
+        "convertMap",
+        "copyDocumentWithTransform",
+        "createAggregatedClient",
+        "dateToUtcString",
+        "decorateServiceException",
+        "emitWarningIfUnsupportedVersion",
+        "expectBoolean",
+        "expectByte",
+        "expectFloat32",
+        "expectInt",
+        "expectInt32",
+        "expectLong",
+        "expectNonNull",
+        "expectNumber",
+        "expectObject",
+        "expectShort",
+        "expectString",
+        "expectUnion",
+        "extendedEncodeURIComponent",
+        "generateIdempotencyToken",
+        "getArrayIfSingleItem",
+        "getDefaultClientConfiguration",
+        "getDefaultExtensionConfiguration",
+        "getValueFromTextNode",
+        "handleFloat",
+        "isSerializableHeaderValue",
+        "limitedParseDouble",
+        "limitedParseFloat",
+        "limitedParseFloat32",
+        "loadConfigsForDefaultMode",
+        "logger",
+        "map",
+        "nv",
+        "parseBoolean",
+        "parseEpochTimestamp",
+        "parseRfc3339DateTime",
+        "parseRfc3339DateTimeWithOffset",
+        "parseRfc7231DateTime",
+        "quoteHeader",
+        "resolveDefaultRuntimeConfig",
+        "resolvedPath",
+        "serializeDateTime",
+        "serializeFloat",
+        "splitEvery",
+        "splitHeader",
+        "strictParseByte",
+        "strictParseDouble",
+        "strictParseFloat",
+        "strictParseFloat32",
+        "strictParseInt",
+        "strictParseInt32",
+        "strictParseLong",
+        "strictParseShort",
+        "take",
+        "throwDefaultError",
+        "withBaseException"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/url-parser": {
+      "version": "3.374.0",
+      "target": "@smithy/url-parser",
+      "exports": [
+        "parseUrl"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-base64": {
+      "version": "3.374.0",
+      "target": "@smithy/util-base64",
+      "exports": [
+        "fromBase64",
+        "toBase64"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-body-length-node": {
+      "version": "3.374.0",
+      "target": "@smithy/util-body-length-node",
+      "exports": [
+        "calculateBodyLength"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-buffer-from": {
+      "version": "3.374.0",
+      "target": "@smithy/util-buffer-from",
+      "exports": [
+        "fromArrayBuffer",
+        "fromString"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-config-provider": {
+      "version": "3.374.0",
+      "target": "@smithy/util-config-provider",
+      "exports": [
+        "SelectorType",
+        "booleanSelector",
+        "numberSelector"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-defaults-mode-node": {
+      "version": "3.374.0",
+      "target": "@smithy/util-defaults-mode-node",
+      "exports": [
+        "resolveDefaultsModeConfig"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-hex-encoding": {
+      "version": "3.374.0",
+      "target": "@smithy/util-hex-encoding",
+      "exports": [
+        "fromHex",
+        "toHex"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-middleware": {
+      "version": "3.374.0",
+      "target": "@smithy/util-middleware",
+      "exports": [
+        "getSmithyContext",
+        "normalizeProvider"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-retry": {
+      "version": "3.374.0",
+      "target": "@smithy/util-retry",
+      "exports": [
+        "AdaptiveRetryStrategy",
+        "ConfiguredRetryStrategy",
+        "DEFAULT_MAX_ATTEMPTS",
+        "DEFAULT_RETRY_DELAY_BASE",
+        "DEFAULT_RETRY_MODE",
+        "DefaultRateLimiter",
+        "INITIAL_RETRY_TOKENS",
+        "INVOCATION_ID_HEADER",
+        "MAXIMUM_RETRY_DELAY",
+        "NO_RETRY_INCREMENT",
+        "REQUEST_HEADER",
+        "RETRY_COST",
+        "RETRY_MODES",
+        "StandardRetryStrategy",
+        "THROTTLING_RETRY_DELAY_BASE",
+        "TIMEOUT_RETRY_COST"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-stream": {
+      "version": "3.374.0",
+      "target": "@smithy/util-stream",
+      "exports": [
+        "ChecksumStream",
+        "Uint8ArrayBlobAdapter",
+        "createBufferedReadable",
+        "createChecksumStream",
+        "getAwsChunkedEncodingStream",
+        "headStream",
+        "isBlob",
+        "isReadableStream",
+        "sdkStreamMixin",
+        "splitStream"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-stream-node": {
+      "version": "3.374.0",
+      "target": "@smithy/util-stream",
+      "exports": [
+        "ChecksumStream",
+        "Uint8ArrayBlobAdapter",
+        "createBufferedReadable",
+        "createChecksumStream",
+        "getAwsChunkedEncodingStream",
+        "headStream",
+        "isBlob",
+        "isReadableStream",
+        "sdkStreamMixin",
+        "splitStream"
+      ],
+      "source": "corrected",
+      "historicalTarget": "@smithy/util-stream-node",
+      "note": "history (bb2232f76f4) re-exports @smithy/util-stream-node, but that package does not provide the exports the API snapshot requires. The assembler's override redirects to @smithy/util-stream, which does."
+    },
+    "@aws-sdk/util-uri-escape": {
+      "version": "3.374.0",
+      "target": "@smithy/util-uri-escape",
+      "exports": [
+        "escapeUri",
+        "escapeUriPath"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-utf8": {
+      "version": "3.374.0",
+      "target": "@smithy/util-utf8",
+      "exports": [
+        "fromUtf8",
+        "toUint8Array",
+        "toUtf8"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/util-waiter": {
+      "version": "3.374.0",
+      "target": "@smithy/util-waiter",
+      "exports": [
+        "WaiterState",
+        "checkExceptions",
+        "createWaiter",
+        "waiterServiceDefaults"
+      ],
+      "source": "bb2232f76f4"
+    },
+    "@aws-sdk/middleware-sdk-eventbridge": {
+      "version": "3.193.0",
+      "target": null,
+      "exports": [
+        "getInjectEndpointIdPlugin",
+        "injectEndpointIdMiddleware",
+        "injectEndpointIdMiddlewareOptions"
+      ],
+      "source": "manual",
+      "note": "NOT a forwarder — requires a relative module (./inject-endpoint-id), so it ships real code. Cannot be generated; needs its published bytes."
+    },
+    "@aws-sdk/util-base64-node": {
+      "version": "3.209.0",
+      "target": "@aws-sdk/util-base64",
+      "exports": [
+        "fromBase64",
+        "toBase64"
+      ],
+      "source": "manual",
+      "note": "deprecated before the migration commit; target taken from the assembler's existing override"
+    },
+    "@aws-sdk/util-utf8-node": {
+      "version": "3.259.0",
+      "target": "@aws-sdk/util-utf8",
+      "exports": [
+        "fromUtf8",
+        "toUint8Array",
+        "toUtf8"
+      ],
+      "source": "manual",
+      "note": "deprecated before the migration commit; target taken from the assembler's existing override"
+    }
+  }
+}
