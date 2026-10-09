@@ -193,4 +193,99 @@ describe(AwsSdkSigV4Signer.name, () => {
       expect(config.systemClockOffset).toBe(0);
     });
   });
+
+  describe("when the operation has an event-stream output", () => {
+    const eventStreamOutputContext = {
+      __smithy_context: {
+        eventStream: { input: false, output: true },
+      },
+    };
+
+    const signWithEventStreamOutput = async (config: Record<string, unknown>) => {
+      const signer = new AwsSdkSigV4Signer();
+      const signingProperties: Record<string, unknown> = {
+        context: eventStreamOutputContext,
+        config: {
+          systemClockOffset: 0,
+          signer: async () => ({
+            sign: async (request: any) => request,
+          }),
+          ...config,
+        },
+      };
+      const { HttpRequest } = await import("@smithy/core/protocols");
+      const httpRequest = new HttpRequest({ hostname: "example.com", path: "/" });
+      await signer.sign(httpRequest, { accessKeyId: "akid", secretAccessKey: "secret" }, signingProperties);
+      return { signer, signingProperties };
+    };
+
+    it("sign() does not capture skew-sampling state and marks sampling skipped", async () => {
+      const { signingProperties } = await signWithEventStreamOutput({});
+      expect(signingProperties._skipClockSkewSampling).toBe(true);
+      expect(signingProperties._requestSentAt).toBeUndefined();
+      expect(signingProperties._preRequestSystemClockOffset).toBeUndefined();
+    });
+
+    it("successHandler() does not update systemClockOffset even when the first event arrives late", async () => {
+      const { signer, signingProperties } = await signWithEventStreamOutput({});
+      const config = signingProperties.config as { systemClockOffset: number };
+
+      // Simulate a late first event: 10 minutes elapse before successHandler runs.
+      vi.advanceTimersByTime(10 * 60 * 1000);
+      const serverTime = new Date(Date.now() - 10 * 60 * 1000).toISOString();
+
+      signer.successHandler({ headers: { date: serverTime }, statusCode: 200 }, signingProperties);
+
+      expect(config.systemClockOffset).toBe(0);
+    });
+
+    it("errorHandler() does not update systemClockOffset or set clockSkewCorrected", async () => {
+      const { signer, signingProperties } = await signWithEventStreamOutput({});
+      const config = signingProperties.config as { systemClockOffset: number };
+      const oneHourMs = 60 * 60 * 1000;
+      const serverTime = new Date(Date.now() + oneHourMs).toISOString();
+
+      let error: Error | any;
+      try {
+        signer.errorHandler(signingProperties)(
+          Object.assign(new Error("RequestTimeTooSkewed"), {
+            name: "RequestTimeTooSkewed",
+            ServerTime: serverTime,
+            $metadata: {},
+            $response: { headers: { date: serverTime }, statusCode: 403 },
+          })
+        );
+      } catch (e) {
+        error = e as Error;
+      }
+
+      expect(config.systemClockOffset).toBe(0);
+      expect((error as any).$metadata.clockSkewCorrected).toBeUndefined();
+    });
+  });
+
+  describe("when the operation has an event-stream input only", () => {
+    it("still samples clock skew in successHandler (normal response timing)", async () => {
+      const signer = new AwsSdkSigV4Signer();
+      const signingProperties: Record<string, unknown> = {
+        context: {
+          __smithy_context: {
+            eventStream: { input: true, output: false },
+          },
+        },
+        config: {
+          systemClockOffset: 0,
+          signer: async () => ({
+            sign: async (request: any) => request,
+          }),
+        },
+      };
+      const { HttpRequest } = await import("@smithy/core/protocols");
+      const httpRequest = new HttpRequest({ hostname: "example.com", path: "/" });
+      await signer.sign(httpRequest, { accessKeyId: "akid", secretAccessKey: "secret" }, signingProperties);
+
+      expect(signingProperties._skipClockSkewSampling).toBe(false);
+      expect(signingProperties._requestSentAt).toBeDefined();
+    });
+  });
 });
