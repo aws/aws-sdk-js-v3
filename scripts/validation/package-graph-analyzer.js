@@ -5,6 +5,7 @@ const { listFolders } = require("../utils/list-folders");
 const root = path.join(__dirname, "..", "..");
 const packages = path.join(root, "packages");
 const packagesInternal = path.join(root, "packages-internal");
+const preview = path.join(root, "preview");
 const libs = path.join(root, "lib");
 const clients = path.join(root, "clients");
 
@@ -43,6 +44,9 @@ const clients = path.join(root, "clients");
   const packagesInternalData = listFolders(packagesInternal)
     .filter(hasPkgJson.bind(null, "packages-internal"))
     .map((pkg) => require(path.join(packagesInternal, pkg, "package.json")));
+  const previewData = listFolders(preview)
+    .filter(hasPkgJson.bind(null, "preview"))
+    .map((pkg) => require(path.join(preview, pkg, "package.json")));
   const libsData = listFolders(libs)
     .filter(hasPkgJson.bind(null, "libs"))
     .map((pkg) => require(path.join(libs, pkg, "package.json")));
@@ -50,7 +54,7 @@ const clients = path.join(root, "clients");
     .filter(hasPkgJson.bind(null, "clients"))
     .map((pkg) => require(path.join(clients, pkg, "package.json")));
 
-  const allPackages = [...packagesData, ...packagesInternalData, ...libsData, ...clientsData];
+  const allPackages = [...packagesData, ...packagesInternalData, ...previewData, ...libsData, ...clientsData];
 
   const graph = new (class PackageGraph {
     /**

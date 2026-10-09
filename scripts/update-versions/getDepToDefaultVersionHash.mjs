@@ -10,7 +10,7 @@ export const getDepToDefaultVersionHash = () =>
     const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
 
     let targetVersion = packageJson.version;
-    if (packageJsonPath.includes("packages-internal")) {
+    if (packageJsonPath.includes("packages-internal") || packageJsonPath.includes("preview")) {
       targetVersion = "^" + targetVersion;
     }
 
