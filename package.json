@@ -18,6 +18,7 @@
       "lib/*",
       "packages/*",
       "packages-internal/*",
+      "preview/*",
       "private/*"
     ]
   },
@@ -51,7 +52,7 @@
     "generate:client:tarball:since": "node ./scripts/generate-client-tarball/generate-client-tarball-since.mjs",
     "generate:defaults-mode-provider": "./scripts/generate-defaults-mode-provider/index.js",
     "lerna:version": "yarn update:versions:current && node ./scripts/update-versions/bumpReleaseCandidates.mjs && yarn update:versions:default",
-    "lint": "oxlint --fix packages/ packages-internal/ lib/ clients/ scripts/",
+    "lint": "oxlint --fix packages/ packages-internal/ preview/ lib/ clients/ scripts/",
     "lint:api": "node scripts/validation/api-snapshot.js",
     "lint:ci": "yarn lint",
     "lint:dependencies": "node scripts/runtime-dependency-version-check/check-dependencies.js",

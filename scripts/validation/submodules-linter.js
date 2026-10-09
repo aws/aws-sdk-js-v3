@@ -9,20 +9,13 @@ const submodulePackages = process.argv.includes("--all")
   ? [
       ...fs.readdirSync(path.join(__dirname, "..", "..", "packages")),
       ...fs.readdirSync(path.join(__dirname, "..", "..", "packages-internal")),
+      ...fs.readdirSync(path.join(__dirname, "..", "..", "preview")),
       ...fs.readdirSync(path.join(__dirname, "..", "..", "lib")),
     ].filter((pkg) => {
-      const [a, b, c] = [
-        path.join(__dirname, "..", "..", "packages", pkg),
-        path.join(__dirname, "..", "..", "packages-internal", pkg),
-        path.join(__dirname, "..", "..", "lib", pkg),
-      ];
-      const dir = fs.existsSync(path.join(a, "package.json"))
-        ? a
-        : fs.existsSync(path.join(b, "package.json"))
-          ? b
-          : fs.existsSync(path.join(c, "package.json"))
-            ? c
-            : null;
+      const candidates = ["packages", "packages-internal", "preview", "lib"].map((base) =>
+        path.join(__dirname, "..", "..", base, pkg)
+      );
+      const dir = candidates.find((candidate) => fs.existsSync(path.join(candidate, "package.json"))) ?? null;
       if (!dir) return false;
       return (
         fs.existsSync(path.join(dir, "src", "submodules")) &&
@@ -34,12 +27,10 @@ const submodulePackages = process.argv.includes("--all")
 (async () => {
   const errors = [];
   for (const submodulePackage of submodulePackages) {
-    const [a, b, c] = [
-      path.join(__dirname, "..", "..", "packages", submodulePackage),
-      path.join(__dirname, "..", "..", "packages-internal", submodulePackage),
-      path.join(__dirname, "..", "..", "lib", submodulePackage),
-    ];
-    const root = fs.existsSync(a) ? a : fs.existsSync(b) ? b : c;
+    const candidates = ["packages", "packages-internal", "preview", "lib"].map((base) =>
+      path.join(__dirname, "..", "..", base, submodulePackage)
+    );
+    const root = candidates.find((candidate) => fs.existsSync(candidate)) ?? candidates[candidates.length - 1];
 
     const pkgJson = require(path.join(root, "package.json"));
     if (!pkgJson.exports) {
@@ -275,7 +266,7 @@ export * from "./dist-types/submodules/${submodule}/index";
         if (relativeImportDepth >= depth && i !== "../../../package.json") {
           errors.push(
             `relative import ${i} in ${item
-              .split(/(?:packages|packages-internal|lib)\//)
+              .split(/(?:packages|packages-internal|preview|lib)\//)
               .pop()} crosses submodule boundaries. Use @scope/package/submodule import instead.`
           );
         }

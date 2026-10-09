@@ -32,8 +32,13 @@ const sampleChangelog = [
 void sampleChangelog;
 
 /**
- * Generates changelogs for all packages in packages-internal, using
- * commits since last tag. Includes transitive dependencies.
+ * Base folders whose packages are versioned independently.
+ */
+const INDEPENDENT_PACKAGE_FOLDERS = ["packages-internal", "preview"];
+
+/**
+ * Generates changelogs for all independently-versioned packages (packages-internal
+ * and preview), using commits since last tag. Includes transitive dependencies.
  *
  * @returns {Promise<void>} when complete.
  */
@@ -47,13 +52,19 @@ export async function generateInternalPackageChangelogs() {
 
   const graph = new Graph();
   const changed = [];
-  for (const packagePath of listFolders(path.join(root, "packages-internal"), false)) {
-    const pkgJson = JSON.parse(fs.readFileSync(path.join(packagePath, "package.json"), "utf-8"));
-    graph.register(pkgJson);
+  for (const baseDir of INDEPENDENT_PACKAGE_FOLDERS) {
+    const baseDirPath = path.join(root, baseDir);
+    if (!fs.existsSync(baseDirPath)) {
+      continue;
+    }
+    for (const packagePath of listFolders(baseDirPath, false)) {
+      const pkgJson = JSON.parse(fs.readFileSync(path.join(packagePath, "package.json"), "utf-8"));
+      graph.register(pkgJson);
 
-    const pkgName = await generateChangelog(packagePath, since);
-    if (pkgName) {
-      changed.push(pkgName);
+      const pkgName = await generateChangelog(packagePath, since);
+      if (pkgName) {
+        changed.push(pkgName);
+      }
     }
   }
 
@@ -154,7 +165,7 @@ async function generateChangelog(packagePath, since) {
     ].join("\n");
     fs.writeFileSync(changelog_md, newContents, "utf-8");
 
-    writeToManifest(JSON.parse(fs.readFileSync(pkg_json, "utf-8")));
+    writeToManifest(JSON.parse(fs.readFileSync(pkg_json, "utf-8")), packagePath);
     console.info(pkgJson.name, `${pkgJson.version} -> ${newVersion}`, "changelog written.");
     return pkgJson.name;
   } else {
@@ -206,20 +217,20 @@ async function generateTransitiveChangelog(packagePath) {
   ].join("\n");
   fs.writeFileSync(changelog_md, newContents, "utf-8");
 
-  writeToManifest(JSON.parse(fs.readFileSync(pkg_json, "utf-8")));
+  writeToManifest(JSON.parse(fs.readFileSync(pkg_json, "utf-8")), packagePath);
   console.info(pkgJson.name, `${pkgJson.version} -> ${newVersion}`, "(transitive) changelog written.");
 }
 
 /**
  * @param pkg - object version of the package.json file.
  */
-function writeToManifest(pkg) {
+function writeToManifest(pkg, packagePath) {
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
   manifest[pkg.name] = {
     name: pkg.name,
     version: pkg.version,
     private: !!pkg.private,
-    location: path.join("packages-internal", pkg.name.replace("@aws-sdk/", "")),
+    location: path.relative(root, packagePath),
   };
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
 }

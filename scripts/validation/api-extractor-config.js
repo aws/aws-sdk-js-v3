@@ -11,6 +11,7 @@ const { getPackageDirs, summarizePackages } = require("./validation-shared");
 const EXTENDS_BY_ROOT = {
   clients: "../../api-extractor.json",
   lib: "../../api-extractor.lib.json",
+  preview: "../../api-extractor.lib.json",
   packages: "../../api-extractor.packages.json",
   "packages-internal": "../../api-extractor.packages.json",
 };
