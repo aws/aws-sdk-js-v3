@@ -755,6 +755,13 @@ ListLimits
 </details>
 <details>
 <summary>
+ListMemberships
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/deadline/command/ListMembershipsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/ListMembershipsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-deadline/Interface/ListMembershipsCommandOutput/)
+</details>
+<details>
+<summary>
 ListMeteredProducts
 </summary>
 

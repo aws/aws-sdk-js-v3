@@ -367,6 +367,11 @@ import {
   ListLimitsCommand,
 } from "./commands/ListLimitsCommand";
 import {
+  type ListMembershipsCommandInput,
+  type ListMembershipsCommandOutput,
+  ListMembershipsCommand,
+} from "./commands/ListMembershipsCommand";
+import {
   type ListMeteredProductsCommandInput,
   type ListMeteredProductsCommandOutput,
   ListMeteredProductsCommand,
@@ -589,6 +594,7 @@ import { paginateListJobParameterDefinitions } from "./pagination/ListJobParamet
 import { paginateListJobs } from "./pagination/ListJobsPaginator";
 import { paginateListLicenseEndpoints } from "./pagination/ListLicenseEndpointsPaginator";
 import { paginateListLimits } from "./pagination/ListLimitsPaginator";
+import { paginateListMemberships } from "./pagination/ListMembershipsPaginator";
 import { paginateListMeteredProducts } from "./pagination/ListMeteredProductsPaginator";
 import { paginateListMonitors } from "./pagination/ListMonitorsPaginator";
 import { paginateListQueueEnvironments } from "./pagination/ListQueueEnvironmentsPaginator";
@@ -701,6 +707,7 @@ const commands = {
   ListJobsCommand,
   ListLicenseEndpointsCommand,
   ListLimitsCommand,
+  ListMembershipsCommand,
   ListMeteredProductsCommand,
   ListMonitorsCommand,
   ListQueueEnvironmentsCommand,
@@ -759,6 +766,7 @@ const paginators = {
   paginateListJobs,
   paginateListLicenseEndpoints,
   paginateListLimits,
+  paginateListMemberships,
   paginateListMeteredProducts,
   paginateListMonitors,
   paginateListQueueEnvironments,
@@ -2197,6 +2205,23 @@ export interface Deadline {
   ): void;
 
   /**
+   * @see {@link ListMembershipsCommand}
+   */
+  listMemberships(
+    args: ListMembershipsCommandInput,
+    options?: DeadlineRequestOptions
+  ): Promise<ListMembershipsCommandOutput>;
+  listMemberships(
+    args: ListMembershipsCommandInput,
+    cb: (err: any, data?: ListMembershipsCommandOutput) => void
+  ): void;
+  listMemberships(
+    args: ListMembershipsCommandInput,
+    options: DeadlineRequestOptions,
+    cb: (err: any, data?: ListMembershipsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMeteredProductsCommand}
    */
   listMeteredProducts(
@@ -3076,6 +3101,17 @@ export interface Deadline {
     args: ListLimitsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListLimitsCommandOutput>;
+
+  /**
+   * @see {@link ListMembershipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMembershipsCommandOutput}.
+   */
+  paginateListMemberships(
+    args: ListMembershipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMembershipsCommandOutput>;
 
   /**
    * @see {@link ListMeteredProductsCommand}

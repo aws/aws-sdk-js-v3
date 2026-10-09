@@ -12,6 +12,7 @@ export * from "./ListJobParameterDefinitionsPaginator";
 export * from "./ListJobsPaginator";
 export * from "./ListLicenseEndpointsPaginator";
 export * from "./ListLimitsPaginator";
+export * from "./ListMembershipsPaginator";
 export * from "./ListMeteredProductsPaginator";
 export * from "./ListMonitorsPaginator";
 export * from "./ListQueueEnvironmentsPaginator";

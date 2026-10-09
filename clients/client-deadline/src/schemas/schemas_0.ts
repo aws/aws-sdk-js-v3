@@ -392,12 +392,15 @@ const _LLER = "ListLicenseEndpointsRequest";
 const _LLERi = "ListLicenseEndpointsResponse";
 const _LLR = "ListLimitsRequest";
 const _LLRi = "ListLimitsResponse";
-const _LM = "ListMonitors";
+const _LM = "ListMemberships";
 const _LMP = "ListMeteredProducts";
 const _LMPR = "ListMeteredProductsRequest";
 const _LMPRi = "ListMeteredProductsResponse";
-const _LMR = "ListMonitorsRequest";
-const _LMRi = "ListMonitorsResponse";
+const _LMR = "ListMembershipsRequest";
+const _LMRi = "ListMembershipsResponse";
+const _LMRis = "ListMonitorsRequest";
+const _LMRist = "ListMonitorsResponse";
+const _LMi = "ListMonitors";
 const _LQ = "ListQueues";
 const _LQE = "ListQueueEnvironments";
 const _LQER = "ListQueueEnvironmentsRequest";
@@ -458,6 +461,8 @@ const _MPL = "ManifestPropertiesList";
 const _MPS = "MeteredProductSummary";
 const _MPSL = "MeteredProductSummaryList";
 const _MS = "MonitorSummary";
+const _MSe = "MembershipSummaries";
+const _MSem = "MembershipSummary";
 const _MSo = "MonitorSummaries";
 const _PBSC = "PriorityBalancedSchedulingConfiguration";
 const _PFE = "ParameterFilterExpression";
@@ -761,9 +766,11 @@ const _fSLTA = "fileSystemLocationsToAdd";
 const _fSLTR = "fileSystemLocationsToRemove";
 const _fSi = "fieldSort";
 const _fa = "family";
+const _far = "farm";
 const _fi = "filters";
 const _fix = "fixed";
 const _fl = "fleets";
+const _fle = "fleet";
 const _flo = "float";
 const _g = "group";
 const _gB = "groupBy";
@@ -803,6 +810,7 @@ const _jN = "jobName";
 const _jP = "jobParameters";
 const _jPD = "jobParameterDefinitions";
 const _jRAU = "jobRunAsUser";
+const _jo = "job";
 const _k = "key";
 const _kKA = "kmsKeyArn";
 const _l = "log";
@@ -839,6 +847,7 @@ const _ma = "max";
 const _man = "manifests";
 const _me = "metadata";
 const _mem = "members";
+const _memb = "memberships";
 const _mi = "min";
 const _mo = "mode";
 const _mon = "monitors";
@@ -884,6 +893,7 @@ const _qIu = "queueIds";
 const _qLA = "queueLimitAssociations";
 const _qRA = "queueRoleArn";
 const _qSA = "queueStoppedAt";
+const _qu = "queue";
 const _r = "reason";
 const _rA = "roleArn";
 const _rAS = "retryAfterSeconds";
@@ -908,6 +918,7 @@ const _rST = "resolvedSymbolTable";
 const _rT = "resourceType";
 const _rTB = "renderingTaskBuffer";
 const _rTW = "renderingTaskWeight";
+const _rTe = "resourceTypes";
 const _ru = "runtime";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.deadline";
 const _sA = "sessionActions";
@@ -2329,6 +2340,16 @@ export var ListLimitsResponse$: StaticStructureSchema = [3, n0, _LLRi,
   [_li, _nT],
   [() => LimitSummaries, 0], 1
 ];
+export var ListMembershipsRequest$: StaticStructureSchema = [3, n0, _LMR,
+  0,
+  [_pI, _nT, _mR, _iSI, _iCR, _rTe],
+  [[0, { [_hQ]: _pI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _iSI }], [0, { [_hQ]: _iCR }], [64 | 0, { [_hQ]: _rTe }]], 1
+];
+export var ListMembershipsResponse$: StaticStructureSchema = [3, n0, _LMRi,
+  0,
+  [_memb, _nT],
+  [() => MembershipSummaries, 0], 1
+];
 export var ListMeteredProductsRequest$: StaticStructureSchema = [3, n0, _LMPR,
   0,
   [_lEI, _nT, _mR],
@@ -2339,12 +2360,12 @@ export var ListMeteredProductsResponse$: StaticStructureSchema = [3, n0, _LMPRi,
   [_mP, _nT],
   [() => MeteredProductSummaryList, 0], 1
 ];
-export var ListMonitorsRequest$: StaticStructureSchema = [3, n0, _LMR,
+export var ListMonitorsRequest$: StaticStructureSchema = [3, n0, _LMRis,
   0,
   [_nT, _mR],
   [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
 ];
-export var ListMonitorsResponse$: StaticStructureSchema = [3, n0, _LMRi,
+export var ListMonitorsResponse$: StaticStructureSchema = [3, n0, _LMRist,
   0,
   [_mon, _nT],
   [() => MonitorSummaries, 0], 1
@@ -3286,6 +3307,10 @@ var ManifestPropertiesList: StaticListSchema = [1, n0, _MPL,
   0, [() => ManifestProperties$,
     0]
 ];
+var MembershipResourceTypes = 64 | 0;
+var MembershipSummaries: StaticListSchema = [1, n0, _MSe,
+  0, () => MembershipSummary$
+];
 var MeteredProductSummaryList: StaticListSchema = [1, n0, _MPSL,
   0, () => MeteredProductSummary$
 ];
@@ -3467,6 +3492,11 @@ export var JobParameter$: StaticUnionSchema = [4, n0, _JPo,
   0,
   [_in, _flo, _str, _pa, _bo, _rE, _sL, _pL, _iL, _fLl, _bL, _iLL],
   [0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, [1, n0, _ISLL, 0, 64 | 0]]
+];
+export var MembershipSummary$: StaticUnionSchema = [4, n0, _MSem,
+  0,
+  [_far, _qu, _fle, _jo],
+  [() => FarmMember$, () => QueueMember$, () => FleetMember$, () => JobMember$]
 ];
 export var SchedulingConfiguration$: StaticUnionSchema = [4, n0, _SCc,
   0,
@@ -3764,10 +3794,13 @@ export var ListLicenseEndpoints$: StaticOperationSchema = [9, n0, _LLE,
 export var ListLimits$: StaticOperationSchema = [9, n0, _LL,
   { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/farms/{farmId}/limits", 200] }, () => ListLimitsRequest$, () => ListLimitsResponse$
 ];
+export var ListMemberships$: StaticOperationSchema = [9, n0, _LM,
+  { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/memberships", 200] }, () => ListMembershipsRequest$, () => ListMembershipsResponse$
+];
 export var ListMeteredProducts$: StaticOperationSchema = [9, n0, _LMP,
   { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/license-endpoints/{licenseEndpointId}/metered-products", 200] }, () => ListMeteredProductsRequest$, () => ListMeteredProductsResponse$
 ];
-export var ListMonitors$: StaticOperationSchema = [9, n0, _LM,
+export var ListMonitors$: StaticOperationSchema = [9, n0, _LMi,
   { [_end]: ["management."], [_h]: ["GET", "/2023-10-12/monitors", 200] }, () => ListMonitorsRequest$, () => ListMonitorsResponse$
 ];
 export var ListQueueEnvironments$: StaticOperationSchema = [9, n0, _LQE,

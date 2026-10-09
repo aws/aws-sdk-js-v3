@@ -460,6 +460,10 @@ import {
   ListLimitsCommand,
   ListLimitsRequest$,
   ListLimitsResponse$,
+  ListMemberships$,
+  ListMembershipsCommand,
+  ListMembershipsRequest$,
+  ListMembershipsResponse$,
   ListMeteredProducts$,
   ListMeteredProductsCommand,
   ListMeteredProductsRequest$,
@@ -540,6 +544,8 @@ import {
   LogicalOperator,
   ManifestProperties$,
   MembershipLevel,
+  MembershipResourceType,
+  MembershipSummary$,
   MemoryMiBRange$,
   MeteredProductSummary$,
   MonitorSummary$,
@@ -555,6 +561,7 @@ import {
   paginateListJobs,
   paginateListLicenseEndpoints,
   paginateListLimits,
+  paginateListMemberships,
   paginateListMeteredProducts,
   paginateListMonitors,
   paginateListQueueEnvironments,
@@ -978,6 +985,8 @@ assert(typeof ListLicenseEndpointsCommand === "function");
 assert(typeof ListLicenseEndpoints$ === "object");
 assert(typeof ListLimitsCommand === "function");
 assert(typeof ListLimits$ === "object");
+assert(typeof ListMembershipsCommand === "function");
+assert(typeof ListMemberships$ === "object");
 assert(typeof ListMeteredProductsCommand === "function");
 assert(typeof ListMeteredProducts$ === "object");
 assert(typeof ListMonitorsCommand === "function");
@@ -1319,6 +1328,8 @@ assert(typeof ListLicenseEndpointsRequest$ === "object");
 assert(typeof ListLicenseEndpointsResponse$ === "object");
 assert(typeof ListLimitsRequest$ === "object");
 assert(typeof ListLimitsResponse$ === "object");
+assert(typeof ListMembershipsRequest$ === "object");
+assert(typeof ListMembershipsResponse$ === "object");
 assert(typeof ListMeteredProductsRequest$ === "object");
 assert(typeof ListMeteredProductsResponse$ === "object");
 assert(typeof ListMonitorsRequest$ === "object");
@@ -1359,6 +1370,7 @@ assert(typeof ListWorkersRequest$ === "object");
 assert(typeof ListWorkersResponse$ === "object");
 assert(typeof LogConfiguration$ === "object");
 assert(typeof ManifestProperties$ === "object");
+assert(typeof MembershipSummary$ === "object");
 assert(typeof MemoryMiBRange$ === "object");
 assert(typeof MeteredProductSummary$ === "object");
 assert(typeof MonitorSummary$ === "object");
@@ -1525,6 +1537,7 @@ assert(typeof JobTemplateType === "object");
 assert(typeof LicenseEndpointStatus === "object");
 assert(typeof LogicalOperator === "object");
 assert(typeof MembershipLevel === "object");
+assert(typeof MembershipResourceType === "object");
 assert(typeof PathFormat === "object");
 assert(typeof Period === "object");
 assert(typeof QueueBlockedReason === "object");
@@ -1608,6 +1621,7 @@ assert(typeof paginateListJobParameterDefinitions === "function");
 assert(typeof paginateListJobs === "function");
 assert(typeof paginateListLicenseEndpoints === "function");
 assert(typeof paginateListLimits === "function");
+assert(typeof paginateListMemberships === "function");
 assert(typeof paginateListMeteredProducts === "function");
 assert(typeof paginateListMonitors === "function");
 assert(typeof paginateListQueueEnvironments === "function");

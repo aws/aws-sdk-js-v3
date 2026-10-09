@@ -946,6 +946,21 @@ export type LicenseEndpointStatus = (typeof LicenseEndpointStatus)[keyof typeof 
  * @public
  * @enum
  */
+export const MembershipResourceType = {
+  FARM: "FARM",
+  FLEET: "FLEET",
+  JOB: "JOB",
+  QUEUE: "QUEUE",
+} as const;
+/**
+ * @public
+ */
+export type MembershipResourceType = (typeof MembershipResourceType)[keyof typeof MembershipResourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SearchTermMatchingType = {
   CONTAINS: "CONTAINS",
   FUZZY_MATCH: "FUZZY_MATCH",
