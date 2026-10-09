@@ -1078,7 +1078,7 @@ describe("S3TransferManager Unit Tests", () => {
         }
         return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
       });
-      return { send: mockSend, config: {} } as any;
+      return { send: mockSend, config: { maxAttempts: () => 3 } } as any;
     }
 
     it("should use explicit workerThreadCount and create WorkerHttpHandler", () => {
@@ -1299,7 +1299,7 @@ describe("S3TransferManager Unit Tests", () => {
           }
           return Promise.resolve({ $metadata: {} });
         }),
-        config: {},
+        config: { maxAttempts: () => 3 },
       } as any;
 
       const tm = new S3TransferManager({
@@ -1338,7 +1338,7 @@ describe("S3TransferManager Unit Tests", () => {
           }
           return Promise.resolve({ $metadata: {} });
         }),
-        config: {},
+        config: { maxAttempts: () => 3 },
       } as any;
 
       const tm = new S3TransferManager({
@@ -1408,7 +1408,7 @@ describe("S3TransferManager Unit Tests", () => {
           }
           return Promise.resolve({ $metadata: {} });
         }),
-        config: {},
+        config: { maxAttempts: () => 3 },
       } as any;
 
       const tm = new S3TransferManager({
@@ -1595,7 +1595,7 @@ describe("S3TransferManager Unit Tests", () => {
         sendCalls.push(command);
         return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
       });
-      return { send: mockSend, config: {} } as any;
+      return { send: mockSend, config: { maxAttempts: () => 3 } } as any;
     }
 
     it("should upload only root-level files when recursive is false", async () => {
@@ -1725,7 +1725,7 @@ describe("S3TransferManager Unit Tests", () => {
       try {
         const mockClient = {
           send: vi.fn().mockRejectedValue(new Error("S3 error")),
-          config: {},
+          config: { maxAttempts: () => 3 },
         } as any;
         const tm = new S3TransferManager({ s3: mockClient });
 
@@ -1756,7 +1756,7 @@ describe("S3TransferManager Unit Tests", () => {
             if (callCount === 1) return Promise.reject(new Error("S3 error"));
             return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
           }),
-          config: {},
+          config: { maxAttempts: () => 3 },
         } as any;
         const tm = new S3TransferManager({ s3: mockClient });
 
@@ -1800,7 +1800,7 @@ describe("S3TransferManager Unit Tests", () => {
             }
             return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
           }),
-          config: {},
+          config: { maxAttempts: () => 3 },
         } as any;
         const tm = new S3TransferManager({ s3: mockClient });
 
@@ -1856,7 +1856,7 @@ describe("S3TransferManager Unit Tests", () => {
             }
             return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
           }),
-          config: {},
+          config: { maxAttempts: () => 3 },
         } as any;
         const tm = new S3TransferManager({ s3: mockClient });
 
@@ -2056,7 +2056,7 @@ describe("S3TransferManager Unit Tests", () => {
           $metadata: { httpStatusCode: 200 },
         });
       });
-      return { send: mockSend, config: {} } as any;
+      return { send: mockSend, config: { maxAttempts: () => 3 } } as any;
     }
 
     const listCalls = () => sendCalls.filter((c: any) => c.constructor.name === "ListObjectsV2Command");
@@ -2367,7 +2367,7 @@ describe("S3TransferManager Unit Tests", () => {
           signalGetObjectStarted();
         });
       });
-      const mockClient = { send: mockSend, config: {} } as any;
+      const mockClient = { send: mockSend, config: { maxAttempts: () => 3 } } as any;
       const tm = new S3TransferManager({ s3: mockClient });
 
       const download = tm.downloadDirectory(
@@ -2453,7 +2453,7 @@ describe("S3TransferManager Unit Tests", () => {
 
     function createMockClient() {
       mockSend = vi.fn();
-      return { send: mockSend, config: {} } as any;
+      return { send: mockSend, config: { maxAttempts: () => 3 } } as any;
     }
 
     beforeEach(async () => {
