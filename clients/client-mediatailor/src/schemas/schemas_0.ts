@@ -78,6 +78,7 @@ const _CT = "CreationTime";
 const _CVS = "CreateVodSource";
 const _CVSR = "CreateVodSourceRequest";
 const _CVSRr = "CreateVodSourceResponse";
+const _Ca = "Cache";
 const _Ch = "Channel";
 const _Co = "Consumption";
 const _D = "Description";
@@ -175,6 +176,7 @@ const _HPCt = "HttpPackageConfiguration";
 const _HPS = "HlsPlaylistSettings";
 const _HR = "HttpRequest";
 const _HRC = "HttpRequestConfiguration";
+const _HRCC = "HttpRequestCacheConfiguration";
 const _I = "Items";
 const _IM = "InsertionMode";
 const _K = "Key";
@@ -340,6 +342,8 @@ const _SUe = "SegmentationUpid";
 const _T = "Tier";
 const _TK = "TagKeys";
 const _TM = "TimeoutMilliseconds";
+const _TMS = "TtlMinimumSeconds";
+const _TMSt = "TtlMaximumSeconds";
 const _TPN = "TranscodeProfileName";
 const _TR = "TargetRegion";
 const _TRR = "TagResourceRequest";
@@ -519,8 +523,8 @@ export var AvailSuppression$: StaticStructureSchema = [3, n0, _AS,
 ];
 export var AwsServiceRequestConfiguration$: StaticStructureSchema = [3, n0, _ASRC,
   0,
-  [_R, _MTe, _RTM, _U, _TS, _TR, _Ou, _B, _H],
-  [0, 0, 1, 0, 0, 0, 128 | 0, 0, 128 | 0], 6
+  [_R, _MTe, _RTM, _U, _TS, _TR, _Ou, _B, _H, _Ca],
+  [0, 0, 1, 0, 0, 0, 128 | 0, 0, 128 | 0, () => HttpRequestCacheConfiguration$], 6
 ];
 export var BeaconingConfiguration$: StaticStructureSchema = [3, n0, _BC,
   0,
@@ -887,10 +891,15 @@ export var HttpRequest$: StaticStructureSchema = [3, n0, _HR,
   [_Me, _B, _H, _CRo],
   [0, 0, 128 | 0, 0]
 ];
+export var HttpRequestCacheConfiguration$: StaticStructureSchema = [3, n0, _HRCC,
+  0,
+  [_TMS, _TMSt, _K],
+  [1, 1, 0], 2
+];
 export var HttpRequestConfiguration$: StaticStructureSchema = [3, n0, _HRC,
   0,
-  [_R, _MTe, _RTM, _U, _Ou, _B, _H],
-  [0, 0, 1, 0, 128 | 0, 0, 128 | 0], 4
+  [_R, _MTe, _RTM, _U, _Ou, _B, _H, _Ca],
+  [0, 0, 1, 0, 128 | 0, 0, 128 | 0, () => HttpRequestCacheConfiguration$], 4
 ];
 export var KeyValuePair$: StaticStructureSchema = [3, n0, _KVP,
   0,
@@ -1269,8 +1278,8 @@ export var UpdateVodSourceResponse$: StaticStructureSchema = [3, n0, _UVSRp,
 ];
 export var VastRequestConfiguration$: StaticStructureSchema = [3, n0, _VRC,
   0,
-  [_R, _MTe, _RTM, _U, _Ou, _B, _H],
-  [0, 0, 1, 0, 128 | 0, 0, 128 | 0], 4
+  [_R, _MTe, _RTM, _U, _Ou, _B, _H, _Ca],
+  [0, 0, 1, 0, 128 | 0, 0, 128 | 0, () => HttpRequestCacheConfiguration$], 4
 ];
 export var VastResponse$: StaticStructureSchema = [3, n0, _VR,
   0,

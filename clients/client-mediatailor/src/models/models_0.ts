@@ -561,6 +561,30 @@ export interface FunctionRef {
 }
 
 /**
+ * <p>The optional response-caching configuration shared by the HTTP-based function types (<code>HTTP_REQUEST</code>, <code>AWS_SERVICE_REQUEST</code>, and <code>VAST_REQUEST</code>). When you provide this configuration, MediaTailor caches the function's responses that have one of the following HTTP status codes: <code>200</code>, <code>203</code>, <code>204</code>, <code>404</code>, <code>405</code>, <code>410</code>, <code>414</code>, and <code>501</code>. For a cacheable response, MediaTailor caches it for the number of seconds given by the response's <code>Cache-Control</code> <code>max-age</code> directive, limited to the range between <code>TtlMinimumSeconds</code> and <code>TtlMaximumSeconds</code>. If the response has no <code>Cache-Control</code> <code>max-age</code> directive, MediaTailor caches it for <code>TtlMinimumSeconds</code> seconds. Cached HTTP responses are scoped per playback configuration, not per function.</p>
+ * @public
+ */
+export interface HttpRequestCacheConfiguration {
+  /**
+   * <p>The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no <code>Cache-Control</code> <code>max-age</code> directive.</p>
+   * @public
+   */
+  TtlMinimumSeconds: number | undefined;
+
+  /**
+   * <p>The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to <code>TtlMinimumSeconds</code>.</p>
+   * @public
+   */
+  TtlMaximumSeconds: number | undefined;
+
+  /**
+   * <p>A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, the request body, and the HTTP method; request headers are not included. You can specify a custom cache key expression to vary caching by request headers and more. The evaluated key must be smaller than 1 KB; otherwise the HTTP function will fail.</p>
+   * @public
+   */
+  Key?: string | undefined;
+}
+
+/**
  * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html">AWS_SERVICE_REQUEST</a> in the <i>MediaTailor User Guide</i>.</p>
  * @public
  */
@@ -606,6 +630,12 @@ export interface AwsServiceRequestConfiguration {
    * @public
    */
   Headers?: Record<string, string> | undefined;
+
+  /**
+   * <p>The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.</p>
+   * @public
+   */
+  Cache?: HttpRequestCacheConfiguration | undefined;
 
   /**
    * <p>The AWS service to call. Valid value: <code>elemental-inference</code> (AWS Elemental Inference).</p>
@@ -720,6 +750,12 @@ export interface HttpRequestConfiguration {
    * @public
    */
   Headers?: Record<string, string> | undefined;
+
+  /**
+   * <p>The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.</p>
+   * @public
+   */
+  Cache?: HttpRequestCacheConfiguration | undefined;
 }
 
 /**
@@ -798,6 +834,12 @@ export interface VastRequestConfiguration {
    * @public
    */
   Headers?: Record<string, string> | undefined;
+
+  /**
+   * <p>The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.</p>
+   * @public
+   */
+  Cache?: HttpRequestCacheConfiguration | undefined;
 }
 
 /**

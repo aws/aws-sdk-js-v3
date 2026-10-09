@@ -157,6 +157,7 @@ import {
   HttpConfiguration$,
   HttpPackageConfiguration$,
   HttpRequest$,
+  HttpRequestCacheConfiguration$,
   HttpRequestConfiguration$,
   InsertionMode,
   KeyValuePair$,
@@ -504,6 +505,7 @@ assert(typeof HlsPlaylistSettings$ === "object");
 assert(typeof HttpConfiguration$ === "object");
 assert(typeof HttpPackageConfiguration$ === "object");
 assert(typeof HttpRequest$ === "object");
+assert(typeof HttpRequestCacheConfiguration$ === "object");
 assert(typeof HttpRequestConfiguration$ === "object");
 assert(typeof KeyValuePair$ === "object");
 assert(typeof ListAlertsRequest$ === "object");

@@ -270,6 +270,7 @@ export type {
   HttpConfiguration,
   HttpPackageConfiguration,
   HttpRequest,
+  HttpRequestCacheConfiguration,
   HttpRequestConfiguration,
   KeyValuePair,
   ListAlertsRequest,
