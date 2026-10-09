@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
+
+
+### Features
+
+* **client-mediatailor:** Add caching settings to http functions ([7ac7530](https://github.com/aws/aws-sdk-js-v3/commit/7ac7530bb7efe0e64077afe2059c4e67ba0c2038))
+
+
+
+
+
 # [3.1148.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1147.0...v3.1148.0) (2026-10-08)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

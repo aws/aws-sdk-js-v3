@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** avoid full-body copy for SharedArrayBuffer uploads ([#8338](https://github.com/aws/aws-sdk-js-v3/issues/8338)) ([5473caf](https://github.com/aws/aws-sdk-js-v3/commit/5473caf9374d847234c677230d4d988bec810561))
+* **lib-transfer-manager:** retry UploadPart on worker-thread upload path ([#8345](https://github.com/aws/aws-sdk-js-v3/issues/8345)) ([0e357d9](https://github.com/aws/aws-sdk-js-v3/commit/0e357d90eaeaa8b80eda2ca6df94f1bf3b383a54))
+
+
+### Features
+
+* **client-deadline:** The new ListMemberships API enables users to discover their memberships across Deadline Cloud resources, enabling scoped users of Deadline resources to discover and interact with the resources they have been provided scoped access to. ([0d7406c](https://github.com/aws/aws-sdk-js-v3/commit/0d7406c750ffb7801040cb4cc6ae5489a0303626))
+* **client-marketplace-metering:** AWS Marketplace Metering Service adds AgreementId to ResolveCustomer API response. ([9653f5c](https://github.com/aws/aws-sdk-js-v3/commit/9653f5cc713b5b2eaa4d397bd54d3c5584f867bb))
+* **client-mediatailor:** Add caching settings to http functions ([7ac7530](https://github.com/aws/aws-sdk-js-v3/commit/7ac7530bb7efe0e64077afe2059c4e67ba0c2038))
+* **client-quicksight:** Adds granular custom permissions for the Gong action connector (GongAction, CreateAndUpdateGongAction, ShareGongAction, UseGongAction) and for create, update, and share operations on 45 data source connectors, such as Amazon S3 and Snowflake, through the Custom Permissions APIs. ([c5d26e3](https://github.com/aws/aws-sdk-js-v3/commit/c5d26e39f68816dfc457af1fc655487d4ea038b4))
+* **client-securityagent:** Adds a test scope field to specify whether a pentest targets a web application or a generative AI application. ([1cc5ba6](https://github.com/aws/aws-sdk-js-v3/commit/1cc5ba6ade4425a56018459cc8c7d59fa2998b3c))
+
+
+
+
+
 # [3.1148.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1147.0...v3.1148.0) (2026-10-08)
 
 

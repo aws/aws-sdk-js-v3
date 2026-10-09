@@ -33,6 +33,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.31 (2026-10-09)
+### Chores
+* **middleware-sdk-sts:** update dependencies.
+
+
+
 # 3.972.30 (2026-09-22)
 ### Chores
 * **codegen:** sync for MetricsRecorder support and core error/retry fixes ([#8312](https://github.com/aws/aws-sdk-js-v3/issues/8312)) ([9a10476](https://github.com/aws/aws-sdk-js-v3/commit/9a104768684e8f22d4373fcc5d910711e62676d6))

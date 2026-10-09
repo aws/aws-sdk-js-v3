@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** avoid full-body copy for SharedArrayBuffer uploads ([#8338](https://github.com/aws/aws-sdk-js-v3/issues/8338)) ([5473caf](https://github.com/aws/aws-sdk-js-v3/commit/5473caf9374d847234c677230d4d988bec810561))
+* **lib-transfer-manager:** retry UploadPart on worker-thread upload path ([#8345](https://github.com/aws/aws-sdk-js-v3/issues/8345)) ([0e357d9](https://github.com/aws/aws-sdk-js-v3/commit/0e357d90eaeaa8b80eda2ca6df94f1bf3b383a54))
+
+
+
+
+
 # [3.1148.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1147.0...v3.1148.0) (2026-10-08)
 
 

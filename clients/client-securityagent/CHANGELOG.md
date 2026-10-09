@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
+
+
+### Features
+
+* **client-securityagent:** Adds a test scope field to specify whether a pentest targets a web application or a generative AI application. ([1cc5ba6](https://github.com/aws/aws-sdk-js-v3/commit/1cc5ba6ade4425a56018459cc8c7d59fa2998b3c))
+
+
+
+
+
 # [3.1148.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1147.0...v3.1148.0) (2026-10-08)
 
 
