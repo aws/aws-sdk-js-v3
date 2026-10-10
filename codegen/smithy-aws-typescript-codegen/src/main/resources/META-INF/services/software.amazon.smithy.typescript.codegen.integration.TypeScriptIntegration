@@ -25,6 +25,7 @@ software.amazon.smithy.aws.typescript.codegen.AddUserAgentDependency
 software.amazon.smithy.aws.typescript.codegen.AddOmitRetryHeadersDependency
 software.amazon.smithy.aws.typescript.codegen.AddCrossRegionCopyingPlugin
 software.amazon.smithy.aws.typescript.codegen.AddDocumentClientPlugin
+software.amazon.smithy.aws.typescript.codegen.AddBatchGetPaginatorPlugin
 software.amazon.smithy.aws.typescript.codegen.AddEndpointDiscoveryPlugin
 software.amazon.smithy.aws.typescript.codegen.AddHttpChecksumDependency
 software.amazon.smithy.aws.typescript.codegen.AddSigv4aPlugin
