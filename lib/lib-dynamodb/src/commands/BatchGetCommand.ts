@@ -19,12 +19,17 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
+export type BatchGetKeysAndAttributes = Omit<KeysAndAttributes, 'Keys'> & {
+  Keys: Record<string, NativeAttributeValue>[] | undefined;
+};
+
+/**
+ * @public
+ */
 export type BatchGetCommandInput = Omit<__BatchGetItemCommandInput, "RequestItems"> & {
   RequestItems: Record<
     string,
-    Omit<KeysAndAttributes, "Keys"> & {
-      Keys: Record<string, NativeAttributeValue>[] | undefined;
-    }
+    BatchGetKeysAndAttributes
   > | undefined;
 };
 
@@ -38,9 +43,7 @@ export type BatchGetCommandOutput = Omit<__BatchGetItemCommandOutput, "Responses
   > | undefined;
   UnprocessedKeys?: Record<
     string,
-    Omit<KeysAndAttributes, "Keys"> & {
-      Keys: Record<string, NativeAttributeValue>[] | undefined;
-    }
+    BatchGetKeysAndAttributes
   > | undefined;
 };
 

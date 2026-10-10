@@ -19,18 +19,40 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
+export type BatchWritePutRequest = Omit<PutRequest, 'Item'> & {
+  Item: Record<string, NativeAttributeValue> | undefined;
+};
+
+/**
+ * @public
+ */
+export type BatchWriteDeleteRequest = Omit<DeleteRequest, 'Key'> & {
+  Key: Record<string, NativeAttributeValue> | undefined;
+};
+
+/**
+ * @public
+ */
+export type BatchWriteWriteRequest = Omit<WriteRequest, 'PutRequest' | 'DeleteRequest'> & {
+  PutRequest?: BatchWritePutRequest | undefined;
+  DeleteRequest?: BatchWriteDeleteRequest | undefined;
+};
+
+/**
+ * @public
+ */
+export type BatchWriteItemCollectionMetrics = Omit<ItemCollectionMetrics, 'ItemCollectionKey'> & {
+  ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+};
+
+/**
+ * @public
+ */
 export type BatchWriteCommandInput = Omit<__BatchWriteItemCommandInput, "RequestItems"> & {
   RequestItems: Record<
     string,
     (
-      Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
-        PutRequest?: Omit<PutRequest, "Item"> & {
-          Item: Record<string, NativeAttributeValue> | undefined;
-        } | undefined;
-        DeleteRequest?: Omit<DeleteRequest, "Key"> & {
-          Key: Record<string, NativeAttributeValue> | undefined;
-        } | undefined;
-      }
+      BatchWriteWriteRequest
     )[]
   > | undefined;
 };
@@ -42,22 +64,13 @@ export type BatchWriteCommandOutput = Omit<__BatchWriteItemCommandOutput, "Unpro
   UnprocessedItems?: Record<
     string,
     (
-      Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
-        PutRequest?: Omit<PutRequest, "Item"> & {
-          Item: Record<string, NativeAttributeValue> | undefined;
-        } | undefined;
-        DeleteRequest?: Omit<DeleteRequest, "Key"> & {
-          Key: Record<string, NativeAttributeValue> | undefined;
-        } | undefined;
-      }
+      BatchWriteWriteRequest
     )[]
   > | undefined;
   ItemCollectionMetrics?: Record<
     string,
     (
-      Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-        ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
-      }
+      BatchWriteItemCollectionMetrics
     )[]
   > | undefined;
 };

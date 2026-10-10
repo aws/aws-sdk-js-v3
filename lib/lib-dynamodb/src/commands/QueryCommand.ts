@@ -19,18 +19,21 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
+export type QueryCondition = Omit<Condition, 'AttributeValueList'> & {
+  AttributeValueList?: NativeAttributeValue[] | undefined;
+};
+
+/**
+ * @public
+ */
 export type QueryCommandInput = Omit<__QueryCommandInput, "KeyConditions" | "QueryFilter" | "ExclusiveStartKey" | "ExpressionAttributeValues"> & {
   KeyConditions?: Record<
     string,
-    Omit<Condition, "AttributeValueList"> & {
-      AttributeValueList?: NativeAttributeValue[] | undefined;
-    }
+    QueryCondition
   > | undefined;
   QueryFilter?: Record<
     string,
-    Omit<Condition, "AttributeValueList"> & {
-      AttributeValueList?: NativeAttributeValue[] | undefined;
-    }
+    QueryCondition
   > | undefined;
   ExclusiveStartKey?: Record<string, NativeAttributeValue> | undefined;
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
