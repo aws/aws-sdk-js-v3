@@ -31,6 +31,13 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  *             more than 1000 dashboards, you can call <code>ListDashboards</code> again and include
  *             the value you received for <code>NextToken</code> in the first call, to receive the next
  *             1000 results.</p>
+ *          <p>You might have recently enabled an <a href="https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#optinregion">opt-in Region (Region that is disabled by default)</a> for your account. In
+ *             that Region, <code>ListDashboards</code> can return an access denied error for up to 24
+ *             hours after you enable the Region. This delay occurs while dashboard data propagates.
+ *             The error does not
+ *             indicate a problem with your permissions. Because dashboards are global, you can call
+ *             <code>ListDashboards</code> in any other enabled Region, or retry after propagation
+ *             completes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

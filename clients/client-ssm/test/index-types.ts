@@ -484,6 +484,7 @@ export type {
   ComplianceStatus,
   ComplianceUploadType,
   ConnectionStatus,
+  DeletionMode,
   DescribeActivationsFilterKeys,
   DocumentFilterKey,
   DocumentFormat,

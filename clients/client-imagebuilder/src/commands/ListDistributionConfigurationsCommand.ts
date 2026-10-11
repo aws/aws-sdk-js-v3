@@ -75,12 +75,14 @@ export interface ListDistributionConfigurationsCommandOutput extends ListDistrib
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -89,11 +91,12 @@ export interface ListDistributionConfigurationsCommandOutput extends ListDistrib
  *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -101,6 +104,39 @@ export interface ListDistributionConfigurationsCommandOutput extends ListDistrib
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example List distribution configurations that match a name filter
+ * ```javascript
+ * // The following example lists the distribution configurations whose name matches the filter value.
+ * const input = {
+ *   filters: [
+ *     {
+ *       name: "name",
+ *       values: [
+ *         "my-example-distribution-configuration"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new ListDistributionConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   distributionConfigurationSummaryList: [
+ *     {
+ *       arn: "arn:aws:imagebuilder:us-west-2:111122223333:distribution-configuration/my-example-distribution-configuration",
+ *       dateCreated: "2026-09-09T21:09:02.581Z",
+ *       description: "Distributes AMIs to us-west-2",
+ *       name: "my-example-distribution-configuration",
+ *       regions: [
+ *         "us-west-2"
+ *       ]
+ *     }
+ *   ],
+ *   requestId: "1057325c-6b4a-4e16-ac6e-12f1d8fcc6f9"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

@@ -130,6 +130,7 @@ export interface CreateCapacityReservationBySplittingCommandOutput extends Creat
  * //     },
  * //     OriginalStartDate: new Date("TIMESTAMP"),
  * //     ZeroSizePreference: "retain" || "default",
+ * //     LaunchStatus: "launchable" || "unlaunchable",
  * //   },
  * //   DestinationCapacityReservation: {
  * //     CapacityReservationId: "STRING_VALUE",
@@ -203,6 +204,7 @@ export interface CreateCapacityReservationBySplittingCommandOutput extends Creat
  * //     },
  * //     OriginalStartDate: new Date("TIMESTAMP"),
  * //     ZeroSizePreference: "retain" || "default",
+ * //     LaunchStatus: "launchable" || "unlaunchable",
  * //   },
  * //   InstanceCount: Number("int"),
  * // };

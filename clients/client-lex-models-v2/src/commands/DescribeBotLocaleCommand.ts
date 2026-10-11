@@ -64,7 +64,7 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * //     responseDeliveryDelayInMilliseconds: Number("int"),
  * //   },
  * //   speechRecognitionSettings: { // SpeechRecognitionSettings
- * //     speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ * //     speechModelPreference: "Standard" || "Neural" || "Deepgram" || "Advanced",
  * //     speechModelConfig: { // SpeechModelConfig
  * //       deepgramConfig: { // DeepgramSpeechModelConfig
  * //         apiTokenSecretArn: "STRING_VALUE", // required
@@ -142,6 +142,9 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * //     },
  * //   },
  * //   speechDetectionSensitivity: "Default" || "HighNoiseTolerance" || "MaximumNoiseTolerance",
+ * //   speakerDiarizationSettings: { // SpeakerDiarizationSettings
+ * //     enabled: true || false, // required
+ * //   },
  * // };
  *
  * ```

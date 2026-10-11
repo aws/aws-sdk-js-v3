@@ -9,6 +9,7 @@ import type { ThrottlingReason } from "./models_0";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InvalidArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#InvalidArnException";
   readonly name = "InvalidArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class InvalidArnException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -71,6 +74,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class InvalidTagException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#InvalidTagException";
   readonly name = "InvalidTagException" as const;
   readonly $fault = "client" as const;
   /**
@@ -91,6 +95,7 @@ export class InvalidTagException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -111,6 +116,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class TagPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#TagPolicyException";
   readonly name = "TagPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -131,6 +137,7 @@ export class TagPolicyException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -158,6 +165,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -178,6 +186,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -198,6 +207,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -218,6 +228,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -239,6 +250,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -259,6 +271,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -279,6 +292,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class RequestInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#RequestInProgressException";
   readonly name = "RequestInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -299,6 +313,7 @@ export class RequestInProgressException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -319,6 +334,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidArgsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#InvalidArgsException";
   readonly name = "InvalidArgsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -339,6 +355,7 @@ export class InvalidArgsException extends __BaseException {
  * @public
  */
 export class InvalidDomainValidationOptionsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#InvalidDomainValidationOptionsException";
   readonly name = "InvalidDomainValidationOptionsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -359,6 +376,7 @@ export class InvalidDomainValidationOptionsException extends __BaseException {
  * @public
  */
 export class InvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.acm#InvalidStateException";
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   /**

@@ -1,12 +1,13 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
-import { existsSync } from "node:fs";
+import { createReadStream, existsSync, readFileSync } from "node:fs";
 import { mkdir, mkdtemp, readdir, readFile, rm, stat, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { Readable } from "node:stream";
-import { afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { S3TransferManager } from "./S3TransferManager";
+import { byteLength } from "./chunker";
+import { S3TransferManager } from "./index";
 import type { TransferCompleteEvent, TransferEvent } from "./types";
 import type { CannedFailurePolicy } from "./types";
 import { WorkerHttpHandler } from "./worker-http-handler";
@@ -1077,7 +1078,7 @@ describe("S3TransferManager Unit Tests", () => {
         }
         return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
       });
-      return { send: mockSend, config: {} } as any;
+      return { send: mockSend, config: { maxAttempts: () => 3 } } as any;
     }
 
     it("should use explicit workerThreadCount and create WorkerHttpHandler", () => {
@@ -1116,6 +1117,101 @@ describe("S3TransferManager Unit Tests", () => {
       expect(commandNames).toContain("UploadPartCommand");
       expect(commandNames).toContain("CompleteMultipartUploadCommand");
       expect(commandNames.filter((n: string) => n === "UploadPartCommand").length).toBe(3);
+    });
+
+    it("should use a caller-supplied SharedArrayBuffer without copying and preserve its view offset", async () => {
+      const tm = new S3TransferManager({
+        s3: createMockClient(),
+        workerThreadCount: 8,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      }) as any;
+      const threadedMultipartUpload = vi.spyOn(tm, "threadedMultipartUpload").mockResolvedValue({ $metadata: {} });
+
+      const startOffset = 16;
+      const bodySize = 20 * 1024 * 1024;
+      const sharedBuffer = new SharedArrayBuffer(startOffset + bodySize);
+      const body = Buffer.from(sharedBuffer, startOffset, bodySize);
+
+      await tm.threadedUploadInParts(
+        { Bucket: "test-bucket", Key: "shared-buffer-upload.bin", Body: body },
+        body.byteLength,
+        undefined,
+        true
+      );
+
+      const buildDataSource = threadedMultipartUpload.mock.calls[0][2] as (...args: any[]) => any;
+      const dataSource = buildDataSource();
+      expect(dataSource).toMatchObject({
+        type: "sharedBuffer",
+        sharedBuffer,
+        startOffset,
+        totalSize: bodySize,
+      });
+    });
+
+    it("should dispatch an SAB-backed body using its view offset", async () => {
+      const handler = new WorkerHttpHandler({ workerThreadCount: 1 }) as any;
+      vi.spyOn(handler, "ensureInitialized").mockResolvedValue(undefined);
+      const dispatchToWorker = vi.spyOn(handler, "dispatchToWorker").mockResolvedValue({ response: {} });
+
+      const startOffset = 16;
+      const partSize = 8;
+      const totalSize = 20;
+      const sharedBuffer = new SharedArrayBuffer(startOffset + totalSize);
+      await handler.handle(
+        {
+          method: "PUT",
+          protocol: "https:",
+          hostname: "s3.us-west-2.amazonaws.com",
+          path: "/test-bucket/test-key",
+          query: { partNumber: "3" },
+          headers: {},
+        },
+        {
+          dataSource: {
+            type: "sharedBuffer",
+            sharedBuffer,
+            startOffset,
+            partSize,
+            totalSize,
+          },
+        }
+      );
+
+      expect(dispatchToWorker).toHaveBeenCalledWith(
+        expect.any(Number),
+        expect.objectContaining({
+          type: "httpRequestFromRAM",
+          sharedBuffer,
+          offset: startOffset + 2 * partSize,
+          length: totalSize - 2 * partSize,
+        })
+      );
+    });
+
+    it("should copy a normal Buffer into a new SharedArrayBuffer", async () => {
+      const tm = new S3TransferManager({
+        s3: createMockClient(),
+        workerThreadCount: 2,
+        targetPartSizeBytes: 8 * 1024 * 1024,
+        multipartUploadThresholdBytes: 8 * 1024 * 1024,
+      }) as any;
+      const threadedMultipartUpload = vi.spyOn(tm, "threadedMultipartUpload").mockResolvedValue({ $metadata: {} });
+      const body = Buffer.from([1, 2, 3, 4]);
+
+      await tm.threadedUploadInParts(
+        { Bucket: "test-bucket", Key: "buffer-upload.bin", Body: body },
+        body.byteLength,
+        undefined,
+        true
+      );
+
+      const buildDataSource = threadedMultipartUpload.mock.calls[0][2] as (...args: any[]) => any;
+      const dataSource = buildDataSource();
+      expect(dataSource.sharedBuffer).not.toBe(body.buffer);
+      expect(dataSource.startOffset).toBe(0);
+      expect(Array.from(new Uint8Array(dataSource.sharedBuffer))).toEqual([1, 2, 3, 4]);
     });
 
     it("should route string body to threadedUploadInParts when workerThreadCount > 1", async () => {
@@ -1203,7 +1299,7 @@ describe("S3TransferManager Unit Tests", () => {
           }
           return Promise.resolve({ $metadata: {} });
         }),
-        config: {},
+        config: { maxAttempts: () => 3 },
       } as any;
 
       const tm = new S3TransferManager({
@@ -1242,7 +1338,7 @@ describe("S3TransferManager Unit Tests", () => {
           }
           return Promise.resolve({ $metadata: {} });
         }),
-        config: {},
+        config: { maxAttempts: () => 3 },
       } as any;
 
       const tm = new S3TransferManager({
@@ -1312,7 +1408,7 @@ describe("S3TransferManager Unit Tests", () => {
           }
           return Promise.resolve({ $metadata: {} });
         }),
-        config: {},
+        config: { maxAttempts: () => 3 },
       } as any;
 
       const tm = new S3TransferManager({
@@ -1417,6 +1513,78 @@ describe("S3TransferManager Unit Tests", () => {
     });
   });
 
+  describe("Upload with a ranged file read stream Body", () => {
+    let tmpDir: string;
+    let filePath: string;
+    const contents = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    beforeAll(async () => {
+      tmpDir = await mkdtemp(join(tmpdir(), "tm-byte-range-"));
+      filePath = join(tmpDir, "alphabet.bin");
+      await writeFile(filePath, contents);
+    });
+
+    afterAll(async () => {
+      await rm(tmpDir, { recursive: true, force: true });
+    });
+
+    it("should upload only the stream's byte range", () => {
+      // Upload bytes 10-19 of the file, i.e. "KLMNOPQRST".
+      const stream = createReadStream(filePath, { start: 10, end: 19 });
+      stream.on("error", () => {});
+      const { start } = stream as typeof stream & { start?: number };
+      stream.destroy();
+      const length = byteLength(stream)!;
+      expect(length).toBe(10);
+      expect(start).toBe(10);
+
+      const uploaded = readFileSync(filePath)
+        .subarray(start!, start! + length)
+        .toString();
+      expect(uploaded).toBe("KLMNOPQRST");
+    });
+
+    it("should upload the whole file when no byte range is given", () => {
+      const stream = createReadStream(filePath);
+      stream.on("error", () => {});
+      const { start } = stream as typeof stream & { start?: number };
+      stream.destroy();
+
+      expect(byteLength(stream)).toBe(contents.length);
+      expect(start).toBeUndefined();
+    });
+
+    it("should read to EOF when only start is given", () => {
+      const stream = createReadStream(filePath, { start: 10 });
+      stream.on("error", () => {});
+      const { start } = stream as typeof stream & { start?: number };
+      stream.destroy();
+
+      const length = byteLength(stream)!;
+      expect(length).toBe(16);
+      expect(start).toBe(10);
+
+      const uploaded = readFileSync(filePath)
+        .subarray(start!, start! + length)
+        .toString();
+      expect(uploaded).toBe("KLMNOPQRSTUVWXYZ");
+    });
+
+    it("should read from byte 0 when only end is given", () => {
+      const stream = createReadStream(filePath, { end: 19 });
+      stream.on("error", () => {});
+      const { start } = stream as typeof stream & { start?: number };
+      stream.destroy();
+
+      const length = byteLength(stream)!;
+      expect(length).toBe(20);
+      expect(start).toBeUndefined();
+
+      const uploaded = readFileSync(filePath).subarray(0, length).toString();
+      expect(uploaded).toBe("ABCDEFGHIJKLMNOPQRST");
+    });
+  });
+
   describe("uploadDirectory", () => {
     let mockSend: any;
     let sendCalls: any[];
@@ -1427,7 +1595,7 @@ describe("S3TransferManager Unit Tests", () => {
         sendCalls.push(command);
         return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
       });
-      return { send: mockSend, config: {} } as any;
+      return { send: mockSend, config: { maxAttempts: () => 3 } } as any;
     }
 
     it("should upload only root-level files when recursive is false", async () => {
@@ -1557,7 +1725,7 @@ describe("S3TransferManager Unit Tests", () => {
       try {
         const mockClient = {
           send: vi.fn().mockRejectedValue(new Error("S3 error")),
-          config: {},
+          config: { maxAttempts: () => 3 },
         } as any;
         const tm = new S3TransferManager({ s3: mockClient });
 
@@ -1588,7 +1756,7 @@ describe("S3TransferManager Unit Tests", () => {
             if (callCount === 1) return Promise.reject(new Error("S3 error"));
             return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
           }),
-          config: {},
+          config: { maxAttempts: () => 3 },
         } as any;
         const tm = new S3TransferManager({ s3: mockClient });
 
@@ -1632,7 +1800,7 @@ describe("S3TransferManager Unit Tests", () => {
             }
             return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
           }),
-          config: {},
+          config: { maxAttempts: () => 3 },
         } as any;
         const tm = new S3TransferManager({ s3: mockClient });
 
@@ -1688,7 +1856,7 @@ describe("S3TransferManager Unit Tests", () => {
             }
             return Promise.resolve({ ETag: '"mock-etag"', $metadata: {} });
           }),
-          config: {},
+          config: { maxAttempts: () => 3 },
         } as any;
         const tm = new S3TransferManager({ s3: mockClient });
 
@@ -1888,7 +2056,7 @@ describe("S3TransferManager Unit Tests", () => {
           $metadata: { httpStatusCode: 200 },
         });
       });
-      return { send: mockSend, config: {} } as any;
+      return { send: mockSend, config: { maxAttempts: () => 3 } } as any;
     }
 
     const listCalls = () => sendCalls.filter((c: any) => c.constructor.name === "ListObjectsV2Command");
@@ -2199,7 +2367,7 @@ describe("S3TransferManager Unit Tests", () => {
           signalGetObjectStarted();
         });
       });
-      const mockClient = { send: mockSend, config: {} } as any;
+      const mockClient = { send: mockSend, config: { maxAttempts: () => 3 } } as any;
       const tm = new S3TransferManager({ s3: mockClient });
 
       const download = tm.downloadDirectory(
@@ -2285,7 +2453,7 @@ describe("S3TransferManager Unit Tests", () => {
 
     function createMockClient() {
       mockSend = vi.fn();
-      return { send: mockSend, config: {} } as any;
+      return { send: mockSend, config: { maxAttempts: () => 3 } } as any;
     }
 
     beforeEach(async () => {

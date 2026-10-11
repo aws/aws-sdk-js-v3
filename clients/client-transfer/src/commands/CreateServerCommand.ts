@@ -68,6 +68,12 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *     PassiveIp: "STRING_VALUE",
  *     TlsSessionResumptionMode: "DISABLED" || "ENABLED" || "ENFORCED",
  *     SetStatOption: "DEFAULT" || "ENABLE_NO_OP",
+ *     SftpPorts: [ // SftpPorts
+ *       { // SftpPortWithOptions
+ *         SftpPort: Number("int"), // required
+ *         CommunicationMode: "CLIENT_TALK_FIRST" || "SERVER_TALK_FIRST",
+ *       },
+ *     ],
  *     As2Transports: [ // As2Transports
  *       "HTTP",
  *     ],

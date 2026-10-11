@@ -23,6 +23,7 @@ import type {
   CapacityReservationDeliveryPreference,
   CapacityReservationFleetState,
   CapacityReservationInstancePlatform,
+  CapacityReservationLaunchStatus,
   CapacityReservationModificationQuoteState,
   CapacityReservationState,
   CapacityReservationTenancy,
@@ -8021,7 +8022,9 @@ export interface CopyImageRequest {
    *             </li>
    *             <li>
    *                <p>For public and shared AMIs, user-defined tags that are attached by other Amazon Web Services
-   *           accounts</p>
+   *           accounts, except tags with the <code>ec2:SharedTag/</code> prefix. For more information
+   *           about tag sharing, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#sharing-tags">Sharing
+   *           tags</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *             </li>
    *          </ul>
    *          <p>Default: Your user-defined AMI tags are not copied.</p>
@@ -9864,6 +9867,28 @@ export interface CapacityReservation {
    * @public
    */
   ZeroSizePreference?: ZeroSizePreference | undefined;
+
+  /**
+   * <note>
+   *             <p>Only supported for UltraServers.</p>
+   *          </note>
+   *          <p>Indicates whether you can launch instances into the Capacity Reservation. A Capacity
+   * 			Reservation can have the following launch statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>launchable</code> - You can launch instances into the Capacity
+   * 					Reservation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unlaunchable</code> - You can't launch instances into the Capacity
+   * 					Reservation. For example, the Capacity Reservation is not active.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LaunchStatus?: CapacityReservationLaunchStatus | undefined;
 }
 
 /**

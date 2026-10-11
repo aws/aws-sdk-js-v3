@@ -45,6 +45,11 @@ import {
 } from "./commands/GetCaseAttachmentUploadUrlCommand";
 import { type GetCaseCommandInput, type GetCaseCommandOutput, GetCaseCommand } from "./commands/GetCaseCommand";
 import {
+  type GetFindingMetricsCommandInput,
+  type GetFindingMetricsCommandOutput,
+  GetFindingMetricsCommand,
+} from "./commands/GetFindingMetricsCommand";
+import {
   type GetMembershipCommandInput,
   type GetMembershipCommandOutput,
   GetMembershipCommand,
@@ -132,6 +137,7 @@ const commands = {
   GetCaseCommand,
   GetCaseAttachmentDownloadUrlCommand,
   GetCaseAttachmentUploadUrlCommand,
+  GetFindingMetricsCommand,
   GetMembershipCommand,
   ListCaseEditsCommand,
   ListCasesCommand,
@@ -315,6 +321,23 @@ export interface SecurityIR {
     args: GetCaseAttachmentUploadUrlCommandInput,
     options: SecurityIRRequestOptions,
     cb: (err: any, data?: GetCaseAttachmentUploadUrlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFindingMetricsCommand}
+   */
+  getFindingMetrics(
+    args: GetFindingMetricsCommandInput,
+    options?: SecurityIRRequestOptions
+  ): Promise<GetFindingMetricsCommandOutput>;
+  getFindingMetrics(
+    args: GetFindingMetricsCommandInput,
+    cb: (err: any, data?: GetFindingMetricsCommandOutput) => void
+  ): void;
+  getFindingMetrics(
+    args: GetFindingMetricsCommandInput,
+    options: SecurityIRRequestOptions,
+    cb: (err: any, data?: GetFindingMetricsCommandOutput) => void
   ): void;
 
   /**

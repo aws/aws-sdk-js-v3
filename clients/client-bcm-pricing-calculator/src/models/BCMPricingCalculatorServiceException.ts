@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from BCMPricingCalculator service.
  */
 export class BCMPricingCalculatorServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.bcmpricingcalculator#BCMPricingCalculatorServiceException";
   /**
    * @internal
    */

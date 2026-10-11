@@ -9,11 +9,16 @@ import type {
 import type { BatchGetCommandInput, BatchGetCommandOutput } from "./commands/BatchGetCommand";
 import type { BatchWriteCommandInput, BatchWriteCommandOutput } from "./commands/BatchWriteCommand";
 import type { DeleteCommandInput, DeleteCommandOutput } from "./commands/DeleteCommand";
+import type { DescribeExportCommandInput, DescribeExportCommandOutput } from "./commands/DescribeExportCommand";
 import type { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "./commands/ExecuteStatementCommand";
 import type {
   ExecuteTransactionCommandInput,
   ExecuteTransactionCommandOutput,
 } from "./commands/ExecuteTransactionCommand";
+import type {
+  ExportTableToPointInTimeCommandInput,
+  ExportTableToPointInTimeCommandOutput,
+} from "./commands/ExportTableToPointInTimeCommand";
 import type { GetCommandInput, GetCommandOutput } from "./commands/GetCommand";
 import type { PutCommandInput, PutCommandOutput } from "./commands/PutCommand";
 import type { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
@@ -44,8 +49,10 @@ export type ServiceInputTypes =
   | BatchGetCommandInput
   | BatchWriteCommandInput
   | DeleteCommandInput
+  | DescribeExportCommandInput
   | ExecuteStatementCommandInput
   | ExecuteTransactionCommandInput
+  | ExportTableToPointInTimeCommandInput
   | GetCommandInput
   | PutCommandInput
   | QueryCommandInput
@@ -64,8 +71,10 @@ export type ServiceOutputTypes =
   | BatchGetCommandOutput
   | BatchWriteCommandOutput
   | DeleteCommandOutput
+  | DescribeExportCommandOutput
   | ExecuteStatementCommandOutput
   | ExecuteTransactionCommandOutput
+  | ExportTableToPointInTimeCommandOutput
   | GetCommandOutput
   | PutCommandOutput
   | QueryCommandOutput

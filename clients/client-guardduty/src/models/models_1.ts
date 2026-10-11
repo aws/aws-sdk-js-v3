@@ -25,6 +25,7 @@ import type {
   MalwareProtectionResourceType,
   MalwareProtectionScanStatus,
   MalwareProtectionScanType,
+  ManagedBy,
   OrderBy,
   OrgFeature,
   OrgFeatureAdditionalConfiguration,
@@ -1109,6 +1110,12 @@ export interface MemberAdditionalConfigurationResult {
    * @public
    */
   UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Indicates what manages the additional configuration. A value of <code>GUARDDUTY_POLICY</code> means a GuardDuty policy manages the additional configuration.</p>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
 }
 
 /**
@@ -1139,6 +1146,12 @@ export interface MemberFeaturesConfigurationResult {
    * @public
    */
   AdditionalConfiguration?: MemberAdditionalConfigurationResult[] | undefined;
+
+  /**
+   * <p>Indicates what manages the feature. A value of <code>GUARDDUTY_POLICY</code> means a GuardDuty policy manages the feature.</p>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
 }
 
 /**

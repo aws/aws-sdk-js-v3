@@ -38,7 +38,6 @@ import type {
   FlowDefinitionStatus,
   HomeEfsFileSystemCreation,
   HubContentType,
-  HubStatus,
   InputMode,
   IPAddressType,
   JobCategory,
@@ -46,6 +45,7 @@ import type {
   LastUpdateStatusValue,
   ModelSpeculativeDecodingS3DataType,
   ModelSpeculativeDecodingTechnique,
+  MonitoringType,
   NotebookInstanceAcceleratorType,
   OfflineStoreStatusValue,
   OptimizationJobDeploymentInstanceType,
@@ -126,7 +126,6 @@ import type {
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupDetails,
   ClusterRestrictedInstanceGroupsConfigOutput,
-  ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -143,6 +142,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ClusterTieredStorageConfig,
   CodeRepository,
   CognitoConfig,
   CognitoMemberDefinition,
@@ -165,7 +165,6 @@ import type {
   FeatureDefinition,
   FlowDefinitionOutputConfig,
   GitConfig,
-  HubS3StorageConfig,
   HumanLoopActivationConfig,
   HumanLoopConfig,
   HumanLoopRequestSource,
@@ -175,10 +174,12 @@ import type {
   MetadataProperties,
   MetricsConfig,
   ModelDeployConfig,
+  MonitoringAppSpecification,
+  MonitoringBaselineConfig,
+  MonitoringInput,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
-  MonitoringScheduleConfig,
   MonitoringStoppingCondition,
   NeoVpcConfig,
   NetworkConfig,
@@ -194,6 +195,120 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Defines the monitoring job.</p>
+ * @public
+ */
+export interface MonitoringJobDefinition {
+  /**
+   * <p>Baseline configuration used to validate that the data conforms to the specified constraints and statistics</p>
+   * @public
+   */
+  BaselineConfig?: MonitoringBaselineConfig | undefined;
+
+  /**
+   * <p>The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.</p>
+   * @public
+   */
+  MonitoringInputs: MonitoringInput[] | undefined;
+
+  /**
+   * <p>The array of outputs from the monitoring job to be uploaded to Amazon S3.</p>
+   * @public
+   */
+  MonitoringOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.</p>
+   * @public
+   */
+  MonitoringResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Configures the monitoring job to run a specified Docker container image.</p>
+   * @public
+   */
+  MonitoringAppSpecification: MonitoringAppSpecification | undefined;
+
+  /**
+   * <p>Specifies a time limit for how long the monitoring job is allowed to run.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition | undefined;
+
+  /**
+   * <p>Sets the environment variables in the Docker container.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies networking options for an monitoring job.</p>
+   * @public
+   */
+  NetworkConfig?: NetworkConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+}
+
+/**
+ * <p>Configuration details about the monitoring schedule.</p>
+ * @public
+ */
+export interface ScheduleConfig {
+  /**
+   * <p>A cron expression that describes details about the monitoring schedule.</p> <p>The supported cron expressions are:</p> <ul> <li> <p>If you want to set the job to start every hour, use the following:</p> <p> <code>Hourly: cron(0 * ? * * *)</code> </p> </li> <li> <p>If you want to start the job daily:</p> <p> <code>cron(0 [00-23] ? * * *)</code> </p> </li> <li> <p>If you want to run the job one time, immediately, use the following keyword:</p> <p> <code>NOW</code> </p> </li> </ul> <p>For example, the following are valid cron expressions:</p> <ul> <li> <p>Daily at noon UTC: <code>cron(0 12 ? * * *)</code> </p> </li> <li> <p>Daily at midnight UTC: <code>cron(0 0 ? * * *)</code> </p> </li> </ul> <p>To support running every 6, 12 hours, the following are also supported:</p> <p> <code>cron(0 [00-23]/[01-24] ? * * *)</code> </p> <p>For example, the following are valid cron expressions:</p> <ul> <li> <p>Every 12 hours, starting at 5pm UTC: <code>cron(0 17/12 ? * * *)</code> </p> </li> <li> <p>Every two hours starting at midnight: <code>cron(0 0/2 ? * * *)</code> </p> </li> </ul> <note> <ul> <li> <p>Even though the cron expression is set to start at 5PM UTC, note that there could be a delay of 0-20 minutes from the actual requested time to run the execution. </p> </li> <li> <p>We recommend that if you would like a daily schedule, you do not provide this parameter. Amazon SageMaker AI will pick a time for running every day.</p> </li> </ul> </note> <p>You can also specify the keyword <code>NOW</code> to run the monitoring job immediately, one time, without recurring.</p>
+   * @public
+   */
+  ScheduleExpression: string | undefined;
+
+  /**
+   * <p>Sets the start time for a monitoring job window. Express this time as an offset to the times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration format. For example, if you want to monitor the five hours of data in your dataset that precede the start of each monitoring job, you would specify: <code>"-PT5H"</code>.</p> <p>The start time that you specify must not precede the end time that you specify by more than 24 hours. You specify the end time with the <code>DataAnalysisEndTime</code> parameter.</p> <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is required.</p>
+   * @public
+   */
+  DataAnalysisStartTime?: string | undefined;
+
+  /**
+   * <p>Sets the end time for a monitoring job window. Express this time as an offset to the times that you schedule your monitoring jobs to run. You schedule monitoring jobs with the <code>ScheduleExpression</code> parameter. Specify this offset in ISO 8601 duration format. For example, if you want to end the window one hour before the start of each monitoring job, you would specify: <code>"-PT1H"</code>.</p> <p>The end time that you specify must not follow the start time that you specify by more than 24 hours. You specify the start time with the <code>DataAnalysisStartTime</code> parameter.</p> <p>If you set <code>ScheduleExpression</code> to <code>NOW</code>, this parameter is required.</p>
+   * @public
+   */
+  DataAnalysisEndTime?: string | undefined;
+}
+
+/**
+ * <p>Configures the monitoring schedule and defines the monitoring job.</p>
+ * @public
+ */
+export interface MonitoringScheduleConfig {
+  /**
+   * <p>Configures the monitoring schedule.</p>
+   * @public
+   */
+  ScheduleConfig?: ScheduleConfig | undefined;
+
+  /**
+   * <p>Defines the monitoring job.</p>
+   * @public
+   */
+  MonitoringJobDefinition?: MonitoringJobDefinition | undefined;
+
+  /**
+   * <p>The name of the monitoring job definition to schedule.</p>
+   * @public
+   */
+  MonitoringJobDefinitionName?: string | undefined;
+
+  /**
+   * <p>The type of the monitoring job definition to schedule.</p>
+   * @public
+   */
+  MonitoringType?: MonitoringType | undefined;
+}
 
 /**
  * @public
@@ -8088,116 +8203,4 @@ export interface DescribeHubRequest {
    * @public
    */
   HubName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHubResponse {
-  /**
-   * <p>The name of the hub.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the hub.</p>
-   * @public
-   */
-  HubArn: string | undefined;
-
-  /**
-   * <p>The display name of the hub.</p>
-   * @public
-   */
-  HubDisplayName?: string | undefined;
-
-  /**
-   * <p>A description of the hub.</p>
-   * @public
-   */
-  HubDescription?: string | undefined;
-
-  /**
-   * <p>The searchable keywords for the hub.</p>
-   * @public
-   */
-  HubSearchKeywords?: string[] | undefined;
-
-  /**
-   * <p>The Amazon S3 storage configuration for the hub.</p>
-   * @public
-   */
-  S3StorageConfig?: HubS3StorageConfig | undefined;
-
-  /**
-   * <p>The status of the hub.</p>
-   * @public
-   */
-  HubStatus: HubStatus | undefined;
-
-  /**
-   * <p>The failure reason if importing hub content failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The date and time that the hub was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the hub was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHubContentRequest {
-  /**
-   * <p>The name of the hub that contains the content to describe.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The type of content in the hub.</p>
-   * @public
-   */
-  HubContentType: HubContentType | undefined;
-
-  /**
-   * <p>The name of the content to describe.</p>
-   * @public
-   */
-  HubContentName: string | undefined;
-
-  /**
-   * <p>The version of the content to describe.</p>
-   * @public
-   */
-  HubContentVersion?: string | undefined;
-}
-
-/**
- * <p>Any dependencies related to hub content, such as scripts, model artifacts, datasets, or notebooks.</p>
- * @public
- */
-export interface HubContentDependency {
-  /**
-   * <p>The hub content dependency origin path.</p>
-   * @public
-   */
-  DependencyOriginPath?: string | undefined;
-
-  /**
-   * <p>The hub content dependency copy path.</p>
-   * @public
-   */
-  DependencyCopyPath?: string | undefined;
 }

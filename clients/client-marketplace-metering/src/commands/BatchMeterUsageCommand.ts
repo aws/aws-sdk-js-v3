@@ -43,8 +43,19 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *          <p>
  *             <code>BatchMeterUsage</code> can process up to 25
  *         <code>UsageRecords</code> at a time, and each request must be less than
- *       1 MB in size. Optionally, you can have multiple usage allocations for
- *       usage data that's split into buckets according to predefined tags.</p>
+ *       1 MB in size.</p>
+ *          <p>
+ *             <b>Vendor-metered tagging</b>
+ *          </p>
+ *          <p>
+ *             <code>BatchMeterUsage</code> supports vendor-metered tagging. Optionally, you can
+ *       split the usage in a <code>UsageRecord</code> into buckets by including
+ *       <code>UsageAllocations</code>, where each <code>UsageAllocation</code> has a set of
+ *       <code>Tags</code> that you define. Vendor-metered tagging doesn't change the price,
+ *       dimensions, or the total usage that you report. It gives buyers a more granular view of
+ *       their usage of your product so they can perform cost allocation in the Amazon Web Services Billing and
+ *       Cost Management console. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/metering-for-usage.html#saas-vendor-metered-tagging">Vendor-metered tagging</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-tagging">BatchMeterUsage with usage allocation tagging code example</a> in the
+ *         <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
  *          <p>
  *             <code>BatchMeterUsage</code> returns a list of
  *         <code>UsageRecordResult</code> objects, which have each

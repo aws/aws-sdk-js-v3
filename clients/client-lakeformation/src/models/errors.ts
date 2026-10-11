@@ -8,6 +8,7 @@ import { LakeFormationServiceException as __BaseException } from "./LakeFormatio
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -34,6 +35,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -60,6 +62,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class EntityNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#EntityNotFoundException";
   readonly name = "EntityNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -86,6 +89,7 @@ export class EntityNotFoundException extends __BaseException {
  * @public
  */
 export class InternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#InternalServiceException";
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   /**
@@ -112,6 +116,7 @@ export class InternalServiceException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
@@ -138,6 +143,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class OperationTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#OperationTimeoutException";
   readonly name = "OperationTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
@@ -164,6 +170,7 @@ export class OperationTimeoutException extends __BaseException {
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#AlreadyExistsException";
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -190,6 +197,7 @@ export class AlreadyExistsException extends __BaseException {
  * @public
  */
 export class TransactionCommitInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#TransactionCommitInProgressException";
   readonly name = "TransactionCommitInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -216,6 +224,7 @@ export class TransactionCommitInProgressException extends __BaseException {
  * @public
  */
 export class TransactionCommittedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#TransactionCommittedException";
   readonly name = "TransactionCommittedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -242,6 +251,7 @@ export class TransactionCommittedException extends __BaseException {
  * @public
  */
 export class TransactionCanceledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#TransactionCanceledException";
   readonly name = "TransactionCanceledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -268,6 +278,7 @@ export class TransactionCanceledException extends __BaseException {
  * @public
  */
 export class ResourceNumberLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#ResourceNumberLimitExceededException";
   readonly name = "ResourceNumberLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -294,6 +305,7 @@ export class ResourceNumberLimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#ResourceNotReadyException";
   readonly name = "ResourceNotReadyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -320,6 +332,7 @@ export class ResourceNotReadyException extends __BaseException {
  * @public
  */
 export class ExpiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#ExpiredException";
   readonly name = "ExpiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -346,6 +359,7 @@ export class ExpiredException extends __BaseException {
  * @public
  */
 export class StatisticsNotReadyYetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#StatisticsNotReadyYetException";
   readonly name = "StatisticsNotReadyYetException" as const;
   readonly $fault = "client" as const;
   /**
@@ -372,6 +386,7 @@ export class StatisticsNotReadyYetException extends __BaseException {
  * @public
  */
 export class ThrottledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#ThrottledException";
   readonly name = "ThrottledException" as const;
   readonly $fault = "client" as const;
   $retryable = {
@@ -401,6 +416,7 @@ export class ThrottledException extends __BaseException {
  * @public
  */
 export class GlueEncryptionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#GlueEncryptionException";
   readonly name = "GlueEncryptionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -427,6 +443,7 @@ export class GlueEncryptionException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -453,6 +470,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class PermissionTypeMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#PermissionTypeMismatchException";
   readonly name = "PermissionTypeMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -479,6 +497,7 @@ export class PermissionTypeMismatchException extends __BaseException {
  * @public
  */
 export class WorkUnitsNotReadyYetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#WorkUnitsNotReadyYetException";
   readonly name = "WorkUnitsNotReadyYetException" as const;
   readonly $fault = "client" as const;
   /**

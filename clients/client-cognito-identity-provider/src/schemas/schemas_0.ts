@@ -13,11 +13,13 @@ const _ACSU = "AdminConfirmSignUp";
 const _ACSUR = "AdminConfirmSignUpRequest";
 const _ACSURd = "AdminConfirmSignUpResponse";
 const _ACT = "AnalyticsConfigurationType";
+const _ACTc = "AcrConfigurationType";
 const _ACU = "AdminCreateUser";
 const _ACUC = "AdminCreateUserConfig";
 const _ACUCT = "AdminCreateUserConfigType";
 const _ACUR = "AdminCreateUserRequest";
 const _ACURd = "AdminCreateUserResponse";
+const _ACc = "AcrConfiguration";
 const _ACn = "AnalyticsConfiguration";
 const _ADE = "AccessDeniedException";
 const _ADPFU = "AdminDisableProviderForUser";
@@ -60,6 +62,7 @@ const _AI = "ApplicationId";
 const _AIA = "AdminInitiateAuth";
 const _AIAR = "AdminInitiateAuthRequest";
 const _AIARd = "AdminInitiateAuthResponse";
+const _ALCT = "AcrLevelConfigType";
 const _ALD = "AdminListDevices";
 const _ALDR = "AdminListDevicesRequest";
 const _ALDRd = "AdminListDevicesResponse";
@@ -76,6 +79,7 @@ const _ALUAER = "AdminListUserAuthEventsRequest";
 const _ALUAERd = "AdminListUserAuthEventsResponse";
 const _AM = "AnalyticsMetadata";
 const _AMT = "AnalyticsMetadataType";
+const _AMc = "AcrMapping";
 const _AMt = "AttributeMapping";
 const _AN = "AttributeName";
 const _AOAF = "AllowedOAuthFlows";
@@ -137,6 +141,7 @@ const _AUPCSRd = "AddUserPoolClientSecretResponse";
 const _AUUA = "AdminUpdateUserAttributes";
 const _AUUAR = "AdminUpdateUserAttributesRequest";
 const _AUUARd = "AdminUpdateUserAttributesResponse";
+const _AV = "AcrValue";
 const _AVA = "AutoVerifiedAttributes";
 const _AVT = "AttributeValueType";
 const _AWSAI = "AWSAccountId";
@@ -1448,6 +1453,11 @@ export var AccountTakeoverRiskConfigurationType$: StaticStructureSchema = [3, n0
   [_A, _NC],
   [() => AccountTakeoverActionsType$, () => NotifyConfigurationType$], 1
 ];
+export var AcrLevelConfigType$: StaticStructureSchema = [3, n0, _ALCT,
+  0,
+  [_AV],
+  [0], 1
+];
 export var AddCustomAttributesRequest$: StaticStructureSchema = [3, n0, _ACAR,
   0,
   [_UPI, _CA],
@@ -1660,8 +1670,8 @@ export var AdminRespondToAuthChallengeRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var AdminRespondToAuthChallengeResponse$: StaticStructureSchema = [3, n0, _ARTACRd,
   0,
-  [_CN, _S, _CP, _AR],
-  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0]]
+  [_CN, _S, _CP, _AR, _AC],
+  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0], 64 | 0]
 ];
 export var AdminSetUserMFAPreferenceRequest$: StaticStructureSchema = [3, n0, _ASUMFAPR,
   0,
@@ -1880,8 +1890,8 @@ export var CreateGroupResponse$: StaticStructureSchema = [3, n0, _CGRr,
 ];
 export var CreateIdentityProviderRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
-  [_UPI, _PN, _PTr, _PD, _AMt, _II],
-  [0, 0, 0, 128 | 0, 128 | 0, 64 | 0], 4
+  [_UPI, _PN, _PTr, _PD, _AMt, _II, _AMc],
+  [0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 128 | 0], 4
 ];
 export var CreateIdentityProviderResponse$: StaticStructureSchema = [3, n0, _CIPRr,
   0,
@@ -1960,8 +1970,8 @@ export var CreateUserPoolReplicaResponse$: StaticStructureSchema = [3, n0, _CUPR
 ];
 export var CreateUserPoolRequest$: StaticStructureSchema = [3, n0, _CUPR,
   0,
-  [_PNo, _Po, _DP, _LC, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _MC, _UAUS, _DC, _EC, _SCm, _UPT, _ACUC, _Sch, _UPAO, _UC, _ARS, _UPTs, _KC, _IC],
-  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, 0, () => UserAttributeUpdateSettingsType$, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => SchemaAttributesListType, () => UserPoolAddOnsType$, () => UsernameConfigurationType$, () => AccountRecoverySettingType$, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$], 1
+  [_PNo, _Po, _DP, _LC, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _MC, _UAUS, _DC, _EC, _SCm, _UPT, _ACUC, _Sch, _UPAO, _UC, _ARS, _UPTs, _KC, _IC, _ACc],
+  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, 0, () => UserAttributeUpdateSettingsType$, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => SchemaAttributesListType, () => UserPoolAddOnsType$, () => UsernameConfigurationType$, () => AccountRecoverySettingType$, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$, () => AcrConfigurationType], 1
 ];
 export var CreateUserPoolResponse$: StaticStructureSchema = [3, n0, _CUPRr,
   0,
@@ -2425,8 +2435,8 @@ export var HttpHeader$: StaticStructureSchema = [3, n0, _HHt,
 ];
 export var IdentityProviderType$: StaticStructureSchema = [3, n0, _IPT,
   0,
-  [_UPI, _PN, _PTr, _PD, _AMt, _II, _LMD, _CDr],
-  [0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 4, 4]
+  [_UPI, _PN, _PTr, _PD, _AMt, _II, _AMc, _LMD, _CDr],
+  [0, 0, 0, 128 | 0, 128 | 0, 64 | 0, 128 | 0, 4, 4]
 ];
 export var InboundFederationLambdaType$: StaticStructureSchema = [3, n0, _IFLT,
   0,
@@ -2710,8 +2720,8 @@ export var RespondToAuthChallengeRequest$: StaticStructureSchema = [3, n0, _RTAC
 ];
 export var RespondToAuthChallengeResponse$: StaticStructureSchema = [3, n0, _RTACRe,
   0,
-  [_CN, _S, _CP, _AR],
-  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0]]
+  [_CN, _S, _CP, _AR, _AC],
+  [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0], 64 | 0]
 ];
 export var RevokeTokenRequest$: StaticStructureSchema = [3, n0, _RTRe,
   0,
@@ -2955,8 +2965,8 @@ export var UpdateGroupResponse$: StaticStructureSchema = [3, n0, _UGRp,
 ];
 export var UpdateIdentityProviderRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
-  [_UPI, _PN, _PD, _AMt, _II],
-  [0, 0, 128 | 0, 128 | 0, 64 | 0], 2
+  [_UPI, _PN, _PD, _AMt, _II, _AMc],
+  [0, 0, 128 | 0, 128 | 0, 64 | 0, 128 | 0], 2
 ];
 export var UpdateIdentityProviderResponse$: StaticStructureSchema = [3, n0, _UIPRp,
   0,
@@ -3045,8 +3055,8 @@ export var UpdateUserPoolReplicaResponse$: StaticStructureSchema = [3, n0, _UUPR
 ];
 export var UpdateUserPoolRequest$: StaticStructureSchema = [3, n0, _UUPR,
   0,
-  [_UPI, _Po, _DP, _LC, _AVA, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _EC, _SCm, _UPT, _ACUC, _UPAO, _ARS, _PNo, _UPTs, _KC, _IC],
-  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => AccountRecoverySettingType$, 0, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$], 1
+  [_UPI, _Po, _DP, _LC, _AVA, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _EC, _SCm, _UPT, _ACUC, _UPAO, _ARS, _PNo, _UPTs, _KC, _IC, _ACc],
+  [0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => AccountRecoverySettingType$, 0, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$, () => AcrConfigurationType], 1
 ];
 export var UpdateUserPoolResponse$: StaticStructureSchema = [3, n0, _UUPRp,
   0,
@@ -3105,8 +3115,8 @@ export var UserPoolReplicaType$: StaticStructureSchema = [3, n0, _UPRT,
 ];
 export var UserPoolType$: StaticStructureSchema = [3, n0, _UPTse,
   0,
-  [_Id, _Na, _Po, _DP, _LC, _St, _LMD, _CDr, _SAc, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _ENOU, _EC, _SCm, _UPT, _SCF, _ECF, _Do, _CDu, _ACUC, _UPAO, _UC, _Ar, _ARS, _UPTs, _KC, _IC],
-  [0, 0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 0, 4, 4, () => SchemaAttributesListType, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, 1, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, 0, 0, 0, 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => UsernameConfigurationType$, 0, () => AccountRecoverySettingType$, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$]
+  [_Id, _Na, _Po, _DP, _LC, _St, _LMD, _CDr, _SAc, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _ENOU, _EC, _SCm, _UPT, _SCF, _ECF, _Do, _CDu, _ACUC, _UPAO, _UC, _Ar, _ARS, _UPTs, _KC, _IC, _ACc],
+  [0, 0, () => UserPoolPolicyType$, 0, () => LambdaConfigType$, 0, 4, 4, () => SchemaAttributesListType, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => VerificationMessageTemplateType$, 0, () => UserAttributeUpdateSettingsType$, 0, () => DeviceConfigurationType$, 1, () => EmailConfigurationType$, () => SmsConfigurationType$, 128 | 0, 0, 0, 0, 0, () => AdminCreateUserConfigType$, () => UserPoolAddOnsType$, () => UsernameConfigurationType$, 0, () => AccountRecoverySettingType$, 0, () => KeyConfigurationType$, () => IssuerConfigurationType$, () => AcrConfigurationType]
 ];
 export var UserType$: StaticStructureSchema = [3, n0, _UTs,
   0,
@@ -3257,6 +3267,10 @@ var WebAuthnAuthenticatorTransportsList = 64 | 0;
 var WebAuthnCredentialDescriptionListType: StaticListSchema = [1, n0, _WACDLT,
   0, () => WebAuthnCredentialDescription$
 ];
+var AcrConfigurationType: StaticMapSchema = [2, n0, _ACTc,
+  0, 0, () => AcrLevelConfigType$
+];
+var AcrMappingType = 128 | 0;
 var AttributeMappingType = 128 | 0;
 var AuthParametersType: StaticMapSchema = [2, n0, _APT,
   8, 0, 0

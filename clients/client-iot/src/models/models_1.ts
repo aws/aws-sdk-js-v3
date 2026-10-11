@@ -126,7 +126,8 @@ export interface DeleteTopicRuleDestinationResponse {}
 export interface DeleteV2LoggingLevelRequest {
   /**
    * <p>The type of resource for which you are configuring logging. Must be
-   *             <code>THING_Group</code>.</p>
+   *             <code>DEFAULT</code>, <code>THING_GROUP</code>, <code>CLIENT_ID</code>,
+   *             <code>SOURCE_IP</code>, or <code>PRINCIPAL_ID</code>.</p>
    * @public
    */
   targetType: LogTargetType | undefined;

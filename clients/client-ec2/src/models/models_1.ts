@@ -16,6 +16,7 @@ import type {
   BurstablePerformance,
   CapacityReservationPreference,
   ClientVpnAuthenticationType,
+  ClientVpnDeviceTrustProviderType,
   ClientVpnEndpointStatusCode,
   ClientVpnRouteStatusCode,
   ConnectivityType,
@@ -309,6 +310,68 @@ export interface ConnectionLogOptions {
    * @public
    */
   CloudwatchLogStream?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include the authorization policy evaluation context in the connection logs for the Client VPN endpoint.</p>
+   * @public
+   */
+  IncludeAuthorizationPolicyContext?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a device trust provider to configure for a Client VPN endpoint.</p>
+ * @public
+ */
+export interface ClientVpnTrustProviderRequest {
+  /**
+   * <p>The type of the device trust provider. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>crowdstrike</code> - CrowdStrike device trust provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>jamf</code> - Jamf device trust provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>jumpcloud</code> - JumpCloud device trust provider.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TrustProviderType?: ClientVpnDeviceTrustProviderType | undefined;
+
+  /**
+   * <p>The tenant ID associated with your device trust provider account.</p>
+   * @public
+   */
+  TenantId?: string | undefined;
+
+  /**
+   * <p>The URL of the public signing key that is used to verify the identity token issued by the device trust provider.</p>
+   * @public
+   */
+  PublicSigningKeyUrl?: string | undefined;
+}
+
+/**
+ * <p>Describes the device posture options for a Client VPN endpoint. Device posture options specify the device trust providers that the endpoint uses to evaluate the security posture of connecting devices.</p>
+ * @public
+ */
+export interface DevicePostureOptions {
+  /**
+   * <p>The device trust providers to configure for the Client VPN endpoint.</p>
+   * @public
+   */
+  TrustProviders?: ClientVpnTrustProviderRequest[] | undefined;
+
+  /**
+   * <p>Indicates whether device posture evaluation is enabled for the Client VPN endpoint. Specify <code>false</code> to disable device posture, which clears the configured device trust providers.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -518,6 +581,12 @@ export interface CreateClientVpnEndpointRequest {
    * @public
    */
   TransitGatewayConfiguration?: TransitGatewayConfigurationInputStructure | undefined;
+
+  /**
+   * <p>The device posture options for the Client VPN endpoint. Use this parameter to specify the device trust providers that the endpoint uses to evaluate the security posture of connecting devices.</p>
+   * @public
+   */
+  DevicePostureOptions?: DevicePostureOptions | undefined;
 }
 
 /**
@@ -14102,108 +14171,4 @@ export interface AttachmentEnaSrdSpecification {
    * @public
    */
   EnaSrdUdpSpecification?: AttachmentEnaSrdUdpSpecification | undefined;
-}
-
-/**
- * <p>Describes a network interface attachment.</p>
- * @public
- */
-export interface NetworkInterfaceAttachment {
-  /**
-   * <p>The timestamp indicating when the attachment initiated.</p>
-   * @public
-   */
-  AttachTime?: Date | undefined;
-
-  /**
-   * <p>The ID of the network interface attachment.</p>
-   * @public
-   */
-  AttachmentId?: string | undefined;
-
-  /**
-   * <p>Indicates whether the network interface is deleted when the instance is
-   *             terminated.</p>
-   * @public
-   */
-  DeleteOnTermination?: boolean | undefined;
-
-  /**
-   * <p>The device index of the network interface attachment on the instance.</p>
-   * @public
-   */
-  DeviceIndex?: number | undefined;
-
-  /**
-   * <p>The index of the network card.</p>
-   * @public
-   */
-  NetworkCardIndex?: number | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the owner of the instance.</p>
-   * @public
-   */
-  InstanceOwnerId?: string | undefined;
-
-  /**
-   * <p>The attachment state.</p>
-   * @public
-   */
-  Status?: AttachmentStatus | undefined;
-
-  /**
-   * <p>Configures ENA Express for the network interface that this action attaches to the
-   *             instance.</p>
-   * @public
-   */
-  EnaSrdSpecification?: AttachmentEnaSrdSpecification | undefined;
-
-  /**
-   * <p>The number of ENA queues created with the instance.</p>
-   * @public
-   */
-  EnaQueueCount?: number | undefined;
-}
-
-/**
- * <p>A security group connection tracking configuration that enables you to set the idle
- *             timeout for connection tracking on an Elastic network interface. For more information,
- *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
- *             <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface ConnectionTrackingConfiguration {
-  /**
-   * <p>Timeout (in seconds) for idle TCP
-   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
-   * 						days). Default: 350 seconds for Nitro v6 instance types (excluding
-   * 						P6e-GB200); 432000 seconds for all other instance types (including
-   * 						P6e-GB200). Recommended: Less than 432000 seconds.</p>
-   * @public
-   */
-  TcpEstablishedTimeout?: number | undefined;
-
-  /**
-   * <p>Timeout (in seconds) for idle UDP
-   * 						flows classified as streams which have seen more than one request-response
-   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
-   * 						seconds.</p>
-   * @public
-   */
-  UdpStreamTimeout?: number | undefined;
-
-  /**
-   * <p>Timeout (in seconds) for idle UDP flows that
-   * 						have seen traffic only in a single direction or a single request-response
-   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
-   * @public
-   */
-  UdpTimeout?: number | undefined;
 }

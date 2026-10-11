@@ -7,7 +7,9 @@ import type {
   AdsInteractionPublishOptInEventType,
   AlertCategory,
   ApsRegion,
+  BeaconEventType,
   ChannelState,
+  ClientSideBeaconingMode,
   CompressionMethod,
   EventName,
   FillPolicy,
@@ -559,6 +561,30 @@ export interface FunctionRef {
 }
 
 /**
+ * <p>The optional response-caching configuration shared by the HTTP-based function types (<code>HTTP_REQUEST</code>, <code>AWS_SERVICE_REQUEST</code>, and <code>VAST_REQUEST</code>). When you provide this configuration, MediaTailor caches the function's responses that have one of the following HTTP status codes: <code>200</code>, <code>203</code>, <code>204</code>, <code>404</code>, <code>405</code>, <code>410</code>, <code>414</code>, and <code>501</code>. For a cacheable response, MediaTailor caches it for the number of seconds given by the response's <code>Cache-Control</code> <code>max-age</code> directive, limited to the range between <code>TtlMinimumSeconds</code> and <code>TtlMaximumSeconds</code>. If the response has no <code>Cache-Control</code> <code>max-age</code> directive, MediaTailor caches it for <code>TtlMinimumSeconds</code> seconds. Cached HTTP responses are scoped per playback configuration, not per function.</p>
+ * @public
+ */
+export interface HttpRequestCacheConfiguration {
+  /**
+   * <p>The lower bound, in seconds, on how long MediaTailor caches a response. MediaTailor also uses this value as the cache duration when a response has no <code>Cache-Control</code> <code>max-age</code> directive.</p>
+   * @public
+   */
+  TtlMinimumSeconds: number | undefined;
+
+  /**
+   * <p>The upper bound, in seconds, on how long MediaTailor caches a response. This value must be greater than or equal to <code>TtlMinimumSeconds</code>.</p>
+   * @public
+   */
+  TtlMaximumSeconds: number | undefined;
+
+  /**
+   * <p>A JSONata expression that MediaTailor evaluates to a custom cache key. By default, the cache key is a hash of the HTTP URL, the request body, and the HTTP method; request headers are not included. You can specify a custom cache key expression to vary caching by request headers and more. The evaluated key must be smaller than 1 KB; otherwise the HTTP function will fail.</p>
+   * @public
+   */
+  Key?: string | undefined;
+}
+
+/**
  * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html">AWS_SERVICE_REQUEST</a> in the <i>MediaTailor User Guide</i>.</p>
  * @public
  */
@@ -604,6 +630,12 @@ export interface AwsServiceRequestConfiguration {
    * @public
    */
   Headers?: Record<string, string> | undefined;
+
+  /**
+   * <p>The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the AWS service, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.</p>
+   * @public
+   */
+  Cache?: HttpRequestCacheConfiguration | undefined;
 
   /**
    * <p>The AWS service to call. Valid value: <code>elemental-inference</code> (AWS Elemental Inference).</p>
@@ -718,6 +750,12 @@ export interface HttpRequestConfiguration {
    * @public
    */
   Headers?: Record<string, string> | undefined;
+
+  /**
+   * <p>The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.</p>
+   * @public
+   */
+  Cache?: HttpRequestCacheConfiguration | undefined;
 }
 
 /**
@@ -796,6 +834,12 @@ export interface VastRequestConfiguration {
    * @public
    */
   Headers?: Record<string, string> | undefined;
+
+  /**
+   * <p>The optional response-caching configuration for the function. When present, MediaTailor caches the responses that the function receives from the HTTP endpoint, within the time-to-live (TTL) bounds that you specify. Omit this configuration to disable response caching.</p>
+   * @public
+   */
+  Cache?: HttpRequestCacheConfiguration | undefined;
 }
 
 /**
@@ -1090,6 +1134,36 @@ export interface AvailSuppression {
    * @public
    */
   FillPolicy?: FillPolicy | undefined;
+}
+
+/**
+ * <p>The beaconing settings that apply to client-side reporting sessions: whether MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on.</p>
+ * @public
+ */
+export interface ClientSideBeaconingConfiguration {
+  /**
+   * <p>Specifies whether MediaTailor includes its beacons in the ad tracking response. Valid values, which are case-sensitive:</p> <ul> <li> <p> <code>INSIGHTS</code> – MediaTailor includes its beacons in the ad tracking response.</p> </li> <li> <p> <code>DISABLED</code> – MediaTailor doesn't include its beacons in the ad tracking response.</p> </li> </ul> <p>If you send a <code>ClientSide</code> object, this setting is required. If you omit <code>BeaconingConfiguration</code> or <code>ClientSide</code> entirely, MediaTailor uses <code>INSIGHTS</code>.</p> <p> <code>PutPlaybackConfiguration</code> replaces the whole playback configuration. To keep beaconing off, include <code>DISABLED</code> in every subsequent write.</p>
+   * @public
+   */
+  ReportingMode: ClientSideBeaconingMode | undefined;
+
+  /**
+   * <p>The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. The default is an empty list. This parameter is valid only when <code>ReportingMode</code> is <code>INSIGHTS</code>. MediaTailor rejects the request if you specify a value while <code>ReportingMode</code> is <code>DISABLED</code>, or if you specify duplicate values.</p>
+   * @public
+   */
+  AdditionalEventTypes?: BeaconEventType[] | undefined;
+}
+
+/**
+ * <p>The beaconing configuration for a playback configuration. Beaconing controls whether MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons.</p>
+ * @public
+ */
+export interface BeaconingConfiguration {
+  /**
+   * <p>The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses <code>INSIGHTS</code> reporting mode.</p>
+   * @public
+   */
+  ClientSide?: ClientSideBeaconingConfiguration | undefined;
 }
 
 /**
@@ -1516,6 +1590,12 @@ export interface PlaybackConfiguration {
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
+
+  /**
+   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response.</p>
+   * @public
+   */
+  BeaconingConfiguration?: BeaconingConfiguration | undefined;
 }
 
 /**
@@ -4351,6 +4431,12 @@ export interface GetPlaybackConfigurationResponse {
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
+
+  /**
+   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response. MediaTailor always returns this setting. If you created the playback configuration before this setting existed, MediaTailor reports <code>ReportingMode</code> as <code>INSIGHTS</code>. This is also the value MediaTailor uses for that configuration at playback time.</p>
+   * @public
+   */
+  BeaconingConfiguration?: BeaconingConfiguration | undefined;
 }
 
 /**
@@ -4890,6 +4976,12 @@ export interface PutPlaybackConfigurationRequest {
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
+
+  /**
+   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses <code>INSIGHTS</code>.</p>
+   * @public
+   */
+  BeaconingConfiguration?: BeaconingConfiguration | undefined;
 }
 
 /**
@@ -5063,6 +5155,12 @@ export interface PutPlaybackConfigurationResponse {
    * @public
    */
   AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
+
+  /**
+   * <p>The beaconing configuration for this playback configuration, which controls whether MediaTailor includes beacons of its own in the ad tracking response.</p>
+   * @public
+   */
+  BeaconingConfiguration?: BeaconingConfiguration | undefined;
 }
 
 /**

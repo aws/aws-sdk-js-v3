@@ -830,6 +830,16 @@ import {
   type GetStatementCommandOutput,
   GetStatementCommand,
 } from "./commands/GetStatementCommand";
+import {
+  type GetSystemLogsForJobRunCommandInput,
+  type GetSystemLogsForJobRunCommandOutput,
+  GetSystemLogsForJobRunCommand,
+} from "./commands/GetSystemLogsForJobRunCommand";
+import {
+  type GetSystemLogsForSessionCommandInput,
+  type GetSystemLogsForSessionCommandOutput,
+  GetSystemLogsForSessionCommand,
+} from "./commands/GetSystemLogsForSessionCommand";
 import { type GetTableCommandInput, type GetTableCommandOutput, GetTableCommand } from "./commands/GetTableCommand";
 import {
   type GetTableOptimizerCommandInput,
@@ -1681,6 +1691,8 @@ const commands = {
   GetSessionCommand,
   GetSessionEndpointCommand,
   GetStatementCommand,
+  GetSystemLogsForJobRunCommand,
+  GetSystemLogsForSessionCommand,
   GetTableCommand,
   GetTableOptimizerCommand,
   GetTablesCommand,
@@ -4803,6 +4815,40 @@ export interface Glue {
     args: GetStatementCommandInput,
     options: GlueRequestOptions,
     cb: (err: any, data?: GetStatementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSystemLogsForJobRunCommand}
+   */
+  getSystemLogsForJobRun(
+    args: GetSystemLogsForJobRunCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<GetSystemLogsForJobRunCommandOutput>;
+  getSystemLogsForJobRun(
+    args: GetSystemLogsForJobRunCommandInput,
+    cb: (err: any, data?: GetSystemLogsForJobRunCommandOutput) => void
+  ): void;
+  getSystemLogsForJobRun(
+    args: GetSystemLogsForJobRunCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: GetSystemLogsForJobRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSystemLogsForSessionCommand}
+   */
+  getSystemLogsForSession(
+    args: GetSystemLogsForSessionCommandInput,
+    options?: GlueRequestOptions
+  ): Promise<GetSystemLogsForSessionCommandOutput>;
+  getSystemLogsForSession(
+    args: GetSystemLogsForSessionCommandInput,
+    cb: (err: any, data?: GetSystemLogsForSessionCommandOutput) => void
+  ): void;
+  getSystemLogsForSession(
+    args: GetSystemLogsForSessionCommandInput,
+    options: GlueRequestOptions,
+    cb: (err: any, data?: GetSystemLogsForSessionCommandOutput) => void
   ): void;
 
   /**

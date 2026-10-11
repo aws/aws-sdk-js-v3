@@ -33,6 +33,7 @@ const _AD = "AdapterDetails";
 const _ADC = "ActiveDeviceCount";
 const _ADD = "AthenaDatasetDefinition";
 const _ADS = "AccountDefaultStatus";
+const _ADc = "AccountingDatabase";
 const _ADl = "AlarmDetails";
 const _ADlg = "AlgorithmDescription";
 const _ADp = "AppDetails";
@@ -257,6 +258,7 @@ const _Ac = "Accelerators";
 const _Acc = "Accelerator";
 const _Acce = "Accept";
 const _Act = "Actions";
+const _Ad = "Advisory";
 const _Ag = "Aggregation";
 const _Al = "Alarms";
 const _Ali = "Aliases";
@@ -338,6 +340,7 @@ const _Br = "Branch";
 const _Bu = "Bucket";
 const _C = "Count";
 const _CA = "ContainerArguments";
+const _CAD = "ClusterAccountingDatabase";
 const _CAFO = "CrossAccountFilterOption";
 const _CAI = "CreateAlgorithmInput";
 const _CAIBJ = "CreateAIBenchmarkJob";
@@ -831,7 +834,8 @@ const _Ci = "Cidrs";
 const _Cl = "Cluster";
 const _Co = "Containers";
 const _Cod = "Code";
-const _Com = "Completed";
+const _Com = "Component";
+const _Comp = "Completed";
 const _Con = "Constraints";
 const _Cond = "Condition";
 const _Cont = "Content";
@@ -921,6 +925,7 @@ const _DCJR = "DeleteCompilationJobRequest";
 const _DCJRe = "DescribeCompilationJobRequest";
 const _DCJRes = "DescribeCompilationJobResponse";
 const _DCJe = "DescribeCompilationJob";
+const _DCM = "DatabaseConfigurationMetadata";
 const _DCMDQ = "DriftCheckModelDataQuality";
 const _DCMQ = "DriftCheckModelQuality";
 const _DCN = "DescribeClusterNode";
@@ -956,6 +961,7 @@ const _DCSCRe = "DescribeClusterSchedulerConfigRequest";
 const _DCSCRes = "DescribeClusterSchedulerConfigResponse";
 const _DCSCe = "DescribeClusterSchedulerConfig";
 const _DCa = "DatasetConfig";
+const _DCat = "DatabaseConfiguration";
 const _DCe = "DeploymentConfig";
 const _DCel = "DeleteCluster";
 const _DCele = "DeleteContext";
@@ -2871,6 +2877,7 @@ const _Ph = "Phase";
 const _Pha = "Phases";
 const _Pi = "Pipeline";
 const _Pl = "Placement";
+const _Po = "Port";
 const _Pr = "Properties";
 const _Pre = "Predefined";
 const _Pri = "Priority";
@@ -2990,7 +2997,8 @@ const _RSTA = "RequestedStartTimeAfter";
 const _RSa = "RandomSeed";
 const _RSe = "RetryStrategy";
 const _RSec = "RecommendationStatus";
-const _RSo = "RoutingStrategy";
+const _RSo = "RollbackStatus";
+const _RSou = "RoutingStrategy";
 const _RT = "ResourceType";
 const _RTIC = "RealTimeInferenceConfig";
 const _RTIR = "RealTimeInferenceRecommendations";
@@ -3105,6 +3113,8 @@ const _SFSC = "S3FileSystemConfig";
 const _SG = "SecurityGroups";
 const _SGI = "SecurityGroupIds";
 const _SGIFDB = "SecurityGroupIdForDomainBoundary";
+const _SH = "SlurmHealth";
+const _SHM = "SlurmHealthMetadata";
 const _SHP = "StaticHyperParameters";
 const _SHPTJ = "StopHyperParameterTuningJob";
 const _SHPTJR = "StopHyperParameterTuningJobRequest";
@@ -4605,6 +4615,11 @@ export var ClarifyTextConfig$: StaticStructureSchema = [3, n0, _CTC,
   [_L, _G],
   [0, 0], 2
 ];
+export var ClusterAccountingDatabase$: StaticStructureSchema = [3, n0, _CAD,
+  0,
+  [_En, _SAe, _Po, _N],
+  [0, 0, 1, 0], 2
+];
 export var ClusterAutoPatchConfig$: StaticStructureSchema = [3, n0, _CAPC,
   0,
   [_PS, _PSa, _DCe],
@@ -4757,8 +4772,8 @@ export var ClusterOrchestratorEksConfig$: StaticStructureSchema = [3, n0, _COEC,
 ];
 export var ClusterOrchestratorSlurmConfig$: StaticStructureSchema = [3, n0, _COSC,
   0,
-  [_SCS],
-  [0]
+  [_SCS, _ADc],
+  [0, () => ClusterAccountingDatabase$]
 ];
 export var ClusterPatchSchedule$: StaticStructureSchema = [3, n0, _CPSl,
   0,
@@ -5659,6 +5674,11 @@ export var CustomPosixUserConfig$: StaticStructureSchema = [3, n0, _CPUC,
   0,
   [_Ui, _Gi],
   [1, 1], 2
+];
+export var DatabaseConfigurationMetadata$: StaticStructureSchema = [3, n0, _DCM,
+  0,
+  [_RSo, _Ad, _FM],
+  [0, 0, 0]
 ];
 export var DataCaptureConfig$: StaticStructureSchema = [3, n0, _DCC,
   0,
@@ -9842,7 +9862,7 @@ export var ProductionVariantManagedInstanceScalingScaleInPolicy$: StaticStructur
 ];
 export var ProductionVariantRoutingConfig$: StaticStructureSchema = [3, n0, _PVRC,
   0,
-  [_RSo, _PARC],
+  [_RSou, _PARC],
   [0, () => PrefixAwareRoutingConfig$], 1
 ];
 export var ProductionVariantServerlessConfig$: StaticStructureSchema = [3, n0, _PVSC,
@@ -10325,6 +10345,11 @@ export var ShuffleConfig$: StaticStructureSchema = [3, n0, _SCh,
   [_Se],
   [1], 1
 ];
+export var SlurmHealthMetadata$: StaticStructureSchema = [3, n0, _SHM,
+  0,
+  [_Com, _St, _Rea],
+  [0, 0, 0], 2
+];
 export var SourceAlgorithm$: StaticStructureSchema = [3, n0, _SAo,
   0,
   [_ANlg, _MDU, _MDS, _MDET],
@@ -10737,7 +10762,7 @@ export var TrainingJobDefinition$: StaticStructureSchema = [3, n0, _TJD,
 ];
 export var TrainingJobStatusCounters$: StaticStructureSchema = [3, n0, _TJSC,
   0,
-  [_Com, _IPnr, _REe, _NRE, _Sto],
+  [_Comp, _IPnr, _REe, _NRE, _Sto],
   [1, 1, 1, 1, 1]
 ];
 export var TrainingJobStepMetadata$: StaticStructureSchema = [3, n0, _TJSM,
@@ -12421,8 +12446,8 @@ export var CustomFileSystemConfig$: StaticUnionSchema = [4, n0, _CFSCu,
 ];
 export var EventMetadata$: StaticUnionSchema = [4, n0, _EMv,
   0,
-  [_Cl, _IGn, _IGS, _Ins],
-  [() => ClusterMetadata$, () => InstanceGroupMetadata$, () => InstanceGroupScalingMetadata$, () => InstanceMetadata$]
+  [_Cl, _IGn, _IGS, _Ins, _DCat, _SH],
+  [() => ClusterMetadata$, () => InstanceGroupMetadata$, () => InstanceGroupScalingMetadata$, () => InstanceMetadata$, () => DatabaseConfigurationMetadata$, () => SlurmHealthMetadata$]
 ];
 export var MetricSpecification$: StaticUnionSchema = [4, n0, _MSet,
   0,

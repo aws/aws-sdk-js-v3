@@ -369,6 +369,7 @@ const _IRA = "IamRoleArn";
 const _IRE = "InvalidRoleException";
 const _ISCR = "ImageStateChangeReason";
 const _ISL = "IconS3Location";
+const _ISM = "ImageSoftwareMetadata";
 const _ISWO = "ImageSharedWithOthers";
 const _IT = "InstanceType";
 const _ITm = "ImageType";
@@ -607,6 +608,7 @@ const _er = "errors";
 const _hE = "httpError";
 const _i = "image";
 const _iP = "imagePermissions";
+const _nGDV = "nvidiaGridDriverVersion";
 const _nID = "newImageDescription";
 const _nIDN = "newImageDisplayName";
 const _nIN = "newImageName";
@@ -1567,8 +1569,8 @@ export var GetExportImageTaskResult$: StaticStructureSchema = [3, n0, _GEITRe,
 ];
 export var Image$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_N, _A, _BIA, _DN, _St, _Vi, _IBS, _IBN, _Pl, _D, _SCR, _App, _CT, _PBIRD, _AAV, _IP, _IE, _LAAV, _SIFu, _DAPE, _ISWO, _MSI, _ITm],
-  [0, 0, 0, 0, 0, 0, 2, 0, 0, 0, () => ImageStateChangeReason$, () => Applications, 4, 4, 0, () => ImagePermissions$, () => ResourceErrors, 0, 64 | 0, 0, 0, 2, 0], 1
+  [_N, _A, _BIA, _DN, _St, _Vi, _IBS, _IBN, _Pl, _D, _SCR, _App, _CT, _PBIRD, _AAV, _IP, _IE, _LAAV, _SIFu, _DAPE, _ISWO, _MSI, _ITm, _ISM],
+  [0, 0, 0, 0, 0, 0, 2, 0, 0, 0, () => ImageStateChangeReason$, () => Applications, 4, 4, 0, () => ImagePermissions$, () => ResourceErrors, 0, 64 | 0, 0, 0, 2, 0, () => ImageSoftwareMetadata$], 1
 ];
 export var ImageBuilder$: StaticStructureSchema = [3, n0, _IB,
   0,
@@ -1584,6 +1586,11 @@ export var ImagePermissions$: StaticStructureSchema = [3, n0, _IP,
   0,
   [_aF, _aIB],
   [2, 2]
+];
+export var ImageSoftwareMetadata$: StaticStructureSchema = [3, n0, _ISM,
+  0,
+  [_nGDV],
+  [0]
 ];
 export var ImageStateChangeReason$: StaticStructureSchema = [3, n0, _ISCR,
   0,

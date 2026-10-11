@@ -61,6 +61,7 @@ export interface ListProcurementPortalPreferencesCommandOutput extends ListProcu
  * //       },
  * //       EinvoiceDeliveryEnabled: true || false, // required
  * //       PurchaseOrderRetrievalEnabled: true || false, // required
+ * //       MarketplacePunchOutEnabled: true || false,
  * //       EinvoiceDeliveryPreferenceStatus: "PENDING_VERIFICATION" || "VALIDATED" || "TEST_INITIALIZED" || "TEST_INITIALIZATION_FAILED" || "TEST_FAILED" || "ACTIVE" || "SUSPENDED",
  * //       EinvoiceDeliveryPreferenceStatusReason: "STRING_VALUE",
  * //       PurchaseOrderRetrievalPreferenceStatus: "PENDING_VERIFICATION" || "VALIDATED" || "TEST_INITIALIZED" || "TEST_INITIALIZATION_FAILED" || "TEST_FAILED" || "ACTIVE" || "SUSPENDED",
@@ -123,6 +124,7 @@ export interface ListProcurementPortalPreferencesCommandOutput extends ListProcu
  *       EinvoiceDeliveryEnabled: true,
  *       EinvoiceDeliveryPreferenceStatus: "PENDING_VERIFICATION",
  *       LastUpdateDate: 1.750375489242E9,
+ *       MarketplacePunchOutEnabled: false,
  *       ProcurementPortalName: "COUPA",
  *       ProcurementPortalPreferenceArn: "arn:aws:invoicing::111111111111:procurement-portal-preference/1c7c6d71-fbc1-45bd-a18c-40cb61810679",
  *       PurchaseOrderRetrievalEnabled: true,
@@ -147,6 +149,7 @@ export interface ListProcurementPortalPreferencesCommandOutput extends ListProcu
  *       EinvoiceDeliveryEnabled: true,
  *       EinvoiceDeliveryPreferenceStatus: "PENDING_VERIFICATION",
  *       LastUpdateDate: 1.750375489242E9,
+ *       MarketplacePunchOutEnabled: false,
  *       ProcurementPortalName: "COUPA",
  *       ProcurementPortalPreferenceArn: "arn:aws:invoicing::111111111111:procurement-portal-preference/ae467ebd-ec8c-4089-b904-a7cd9e76f970",
  *       PurchaseOrderRetrievalEnabled: true,
@@ -189,6 +192,7 @@ export interface ListProcurementPortalPreferencesCommandOutput extends ListProcu
  *       EinvoiceDeliveryPreferenceStatus: "TEST_INITIALIZED",
  *       EinvoiceDeliveryPreferenceStatusReason: "test initialized example reason",
  *       LastUpdateDate: 1.750375489242E9,
+ *       MarketplacePunchOutEnabled: true,
  *       ProcurementPortalName: "COUPA",
  *       ProcurementPortalPreferenceArn: "arn:aws:invoicing::111111111111:procurement-portal-preference/f71dd02e-f855-4b13-b793-0fd25c0b3ecd",
  *       PurchaseOrderRetrievalEnabled: true,

@@ -8,6 +8,7 @@ import { CostExplorerServiceException as __BaseException } from "./CostExplorerS
  * @public
  */
 export class AnalysisNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#AnalysisNotFoundException";
   readonly name = "AnalysisNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class AnalysisNotFoundException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class UnknownMonitorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#UnknownMonitorException";
   readonly name = "UnknownMonitorException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -75,6 +78,7 @@ export class UnknownMonitorException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -97,6 +101,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class UnknownSubscriptionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#UnknownSubscriptionException";
   readonly name = "UnknownSubscriptionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -119,6 +124,7 @@ export class UnknownSubscriptionException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -143,6 +149,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -165,6 +172,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class DataUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#DataUnavailableException";
   readonly name = "DataUnavailableException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -187,6 +195,7 @@ export class DataUnavailableException extends __BaseException {
  * @public
  */
 export class BillExpirationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#BillExpirationException";
   readonly name = "BillExpirationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -211,6 +220,7 @@ export class BillExpirationException extends __BaseException {
  * @public
  */
 export class BillingViewHealthStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#BillingViewHealthStatusException";
   readonly name = "BillingViewHealthStatusException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -234,6 +244,7 @@ export class BillingViewHealthStatusException extends __BaseException {
  * @public
  */
 export class RequestChangedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#RequestChangedException";
   readonly name = "RequestChangedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -258,6 +269,7 @@ export class RequestChangedException extends __BaseException {
  * @public
  */
 export class UnresolvableUsageUnitException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#UnresolvableUsageUnitException";
   readonly name = "UnresolvableUsageUnitException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -280,6 +292,7 @@ export class UnresolvableUsageUnitException extends __BaseException {
  * @public
  */
 export class GenerationExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#GenerationExistsException";
   readonly name = "GenerationExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -304,6 +317,7 @@ export class GenerationExistsException extends __BaseException {
  * @public
  */
 export class BackfillLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#BackfillLimitExceededException";
   readonly name = "BackfillLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -327,6 +341,7 @@ export class BackfillLimitExceededException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.costexplorer#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

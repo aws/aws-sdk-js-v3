@@ -168,6 +168,8 @@ const _HCPea = "HealthCheckPath";
 const _HR = "HealthReason";
 const _HS = "HealthState";
 const _IA = "IpAddresses";
+const _IAD = "IpAddressDetail";
+const _IADp = "IpAddressDetails";
 const _IAE = "InvalidArgumentException";
 const _IAF = "IpAddressFamily";
 const _IAT = "IpAddressType";
@@ -231,6 +233,7 @@ const _M = "Message";
 const _MR = "MaxResults";
 const _N = "Name";
 const _NT = "NextToken";
+const _NZ = "NetworkZone";
 const _P = "Principals";
 const _PBC = "ProvisionByoipCidr";
 const _PBCR = "ProvisionByoipCidrRequest";
@@ -823,10 +826,15 @@ export var EndpointIdentifier$: StaticStructureSchema = [3, n0, _EIn,
   [_EI, _CIPPE],
   [0, 2], 1
 ];
+export var IpAddressDetail$: StaticStructureSchema = [3, n0, _IAD,
+  0,
+  [_IAp, _NZ],
+  [0, 0]
+];
 export var IpSet$: StaticStructureSchema = [3, n0, _ISp,
   0,
-  [_IF, _IA, _IAF],
-  [0, 64 | 0, 0]
+  [_IF, _IA, _IAF, _IADp],
+  [0, 64 | 0, 0, () => IpAddressDetails]
 ];
 export var ListAcceleratorsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
@@ -1183,6 +1191,9 @@ var EndpointIdentifiers: StaticListSchema = [1, n0, _EIndp,
   0, () => EndpointIdentifier$
 ];
 var EndpointIds = 64 | 0;
+var IpAddressDetails: StaticListSchema = [1, n0, _IADp,
+  0, () => IpAddressDetail$
+];
 var IpAddresses = 64 | 0;
 var IpSets: StaticListSchema = [1, n0, _IS,
   0, () => IpSet$

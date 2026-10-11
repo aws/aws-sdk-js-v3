@@ -10,6 +10,7 @@ import {
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class IdempotencyTokenInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#IdempotencyTokenInUseException";
   readonly name = "IdempotencyTokenInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -70,6 +73,7 @@ export class IdempotencyTokenInUseException extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#IdempotentParameterMismatchException";
   readonly name = "IdempotentParameterMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +94,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -110,6 +115,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -130,6 +136,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class NotManagementAccountException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#NotManagementAccountException";
   readonly name = "NotManagementAccountException" as const;
   readonly $fault = "client" as const;
   /**
@@ -150,6 +157,7 @@ export class NotManagementAccountException extends __BaseException {
  * @public
  */
 export class OptInRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#OptInRequiredException";
   readonly name = "OptInRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -170,6 +178,7 @@ export class OptInRequiredException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -190,6 +199,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -210,6 +220,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -230,6 +241,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**

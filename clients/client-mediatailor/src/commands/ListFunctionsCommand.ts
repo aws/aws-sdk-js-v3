@@ -56,6 +56,11 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //         Headers: {
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //         Cache: { // HttpRequestCacheConfiguration
+ * //           TtlMinimumSeconds: Number("int"), // required
+ * //           TtlMaximumSeconds: Number("int"), // required
+ * //           Key: "STRING_VALUE",
+ * //         },
  * //       },
  * //       AwsServiceRequestConfiguration: { // AwsServiceRequestConfiguration
  * //         Runtime: "JSONATA", // required
@@ -68,6 +73,11 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //         Body: "STRING_VALUE",
  * //         Headers: {
  * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Cache: {
+ * //           TtlMinimumSeconds: Number("int"), // required
+ * //           TtlMaximumSeconds: Number("int"), // required
+ * //           Key: "STRING_VALUE",
  * //         },
  * //         TargetService: "STRING_VALUE", // required
  * //         TargetRegion: "STRING_VALUE", // required
@@ -111,6 +121,11 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //         Url: "STRING_VALUE", // required
  * //         Body: "STRING_VALUE",
  * //         Headers: "<__mapOf__string>",
+ * //         Cache: {
+ * //           TtlMinimumSeconds: Number("int"), // required
+ * //           TtlMaximumSeconds: Number("int"), // required
+ * //           Key: "STRING_VALUE",
+ * //         },
  * //       },
  * //       Tags: "<__mapOf__string>",
  * //       Arn: "STRING_VALUE",

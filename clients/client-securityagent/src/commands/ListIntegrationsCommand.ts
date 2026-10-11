@@ -34,7 +34,7 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsOutput, _
  * const client = new SecurityAgentClient(config);
  * const input = { // ListIntegrationsInput
  *   filter: { // IntegrationFilter Union: only one key present
- *     provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE",
+ *     provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS",
  *     providerType: "SOURCE_CODE" || "DOCUMENTATION",
  *   },
  *   nextToken: "STRING_VALUE",
@@ -47,10 +47,11 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsOutput, _
  * //     { // IntegrationSummary
  * //       integrationId: "STRING_VALUE", // required
  * //       installationId: "STRING_VALUE", // required
- * //       provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE", // required
+ * //       provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS", // required
  * //       providerType: "SOURCE_CODE" || "DOCUMENTATION", // required
  * //       displayName: "STRING_VALUE", // required
  * //       targetUrl: "STRING_VALUE",
+ * //       webhookUrl: "STRING_VALUE",
  * //       privateConnectionName: "STRING_VALUE",
  * //     },
  * //   ],

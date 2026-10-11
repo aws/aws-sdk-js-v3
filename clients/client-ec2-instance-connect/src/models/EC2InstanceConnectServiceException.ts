@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from EC2InstanceConnect service.
  */
 export class EC2InstanceConnectServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.ec2instanceconnect#EC2InstanceConnectServiceException";
   /**
    * @internal
    */

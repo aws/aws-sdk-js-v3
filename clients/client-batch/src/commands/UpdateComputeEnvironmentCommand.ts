@@ -132,6 +132,12 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *   ecsSettings: { // EcsSettings
  *     containerInsights: "ENABLED" || "ENHANCED" || "DISABLED",
  *   },
+ *   eksConfiguration: { // EksConfigurationUpdate
+ *     accessEntry: { // EksAccessEntry
+ *       desiredState: "ENABLED" || "DISABLED" || "INHERIT_FROM_CLUSTER", // required
+ *       status: "ACTIVE" || "INACTIVE",
+ *     },
+ *   },
  * };
  * const command = new UpdateComputeEnvironmentCommand(input);
  * const response = await client.send(command);

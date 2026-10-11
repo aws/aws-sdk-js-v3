@@ -480,6 +480,24 @@ export type FaceSearchSortBy = (typeof FaceSearchSortBy)[keyof typeof FaceSearch
  * @public
  * @enum
  */
+export const FeedbackCode = {
+  EYES_CLOSED_DETECTED: "EYES_CLOSED_DETECTED",
+  FACE_NOT_ALIGNED: "FACE_NOT_ALIGNED",
+  FACE_NOT_VISIBLE: "FACE_NOT_VISIBLE",
+  FACE_OBSTRUCTION_DETECTED: "FACE_OBSTRUCTION_DETECTED",
+  HIGH_LIGHTING_DETECTED: "HIGH_LIGHTING_DETECTED",
+  LOW_LIGHTING_DETECTED: "LOW_LIGHTING_DETECTED",
+  LOW_VIDEO_QUALITY_DETECTED: "LOW_VIDEO_QUALITY_DETECTED",
+} as const;
+/**
+ * @public
+ */
+export type FeedbackCode = (typeof FeedbackCode)[keyof typeof FeedbackCode];
+
+/**
+ * @public
+ * @enum
+ */
 export const VideoJobStatus = {
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",

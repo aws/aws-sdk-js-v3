@@ -23,10 +23,7 @@ export interface ListAvailablePhoneNumbersCommandInput extends ListAvailablePhon
 export interface ListAvailablePhoneNumbersCommandOutput extends ListAvailablePhoneNumbersResult, __MetadataBearer {}
 
 /**
- * Search available phone numbers from aggregator inventory, optionally filtered by pattern.
- * If NumberPreference is omitted, returns unfiltered available numbers.
- * Returns empty list (not an exception) when no numbers match.
- * ResourceNotFoundException is thrown only for invalid RegistrationId (campaign not found).
+ * <p>Retrieves a list of phone numbers that are available to request, based on the country, capabilities, and number type that you specify. You can optionally provide a number preference to return only numbers that match a specific digit pattern.</p> <p>If no numbers match your search, this operation returns an empty list rather than an error. This operation currently supports only <code>TEN_DLC</code> number types in the <code>US</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

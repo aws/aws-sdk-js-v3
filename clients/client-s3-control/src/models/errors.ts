@@ -10,6 +10,7 @@ import { S3ControlServiceException as __BaseException } from "./S3ControlService
  * @public
  */
 export class BucketAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#BucketAlreadyExists";
   readonly name = "BucketAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class BucketAlreadyExists extends __BaseException {
  * @public
  */
 export class BucketAlreadyOwnedByYou extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#BucketAlreadyOwnedByYou";
   readonly name = "BucketAlreadyOwnedByYou" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class BucketAlreadyOwnedByYou extends __BaseException {
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -72,6 +75,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class IdempotencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#IdempotencyException";
   readonly name = "IdempotencyException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -94,6 +98,7 @@ export class IdempotencyException extends __BaseException {
  * @public
  */
 export class InternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#InternalServiceException";
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -116,6 +121,7 @@ export class InternalServiceException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -138,6 +144,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -162,6 +169,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class NoSuchPublicAccessBlockConfiguration extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#NoSuchPublicAccessBlockConfiguration";
   readonly name = "NoSuchPublicAccessBlockConfiguration" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -184,6 +192,7 @@ export class NoSuchPublicAccessBlockConfiguration extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -206,6 +215,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -228,6 +238,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -250,6 +261,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class JobStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3control#JobStatusException";
   readonly name = "JobStatusException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

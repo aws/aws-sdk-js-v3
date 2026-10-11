@@ -53,6 +53,27 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ExportFromTime": 946702799.999,
       "ExportToTime": 946702799.999,
       "ExportViewType": "__ExportViewType__"
+    },
+    "FilterSpecification": {
+      "FilterExpression": "__FilterExpression__",
+      "ProjectionExpression": "__ProjectionExpression__",
+      "KeyConditionExpression": "__KeyConditionExpression__",
+      "ExpressionAttributeNames": {
+        "key1": "__value__",
+        "key2": "__value__",
+        "key3": "__value__"
+      },
+      "ExpressionAttributeValues": {
+        "key1": {
+          "BOOL": false
+        },
+        "key2": {
+          "S": "__S__"
+        },
+        "key3": {
+          "N": "__N__"
+        }
+      }
     }
   }
 }
@@ -85,6 +106,27 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ExportFromTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       ExportToTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       ExportViewType: "__ExportViewType__"
+    },
+    FilterSpecification: {
+      FilterExpression: "__FilterExpression__",
+      ProjectionExpression: "__ProjectionExpression__",
+      KeyConditionExpression: "__KeyConditionExpression__",
+      ExpressionAttributeNames: {
+        key1: "__value__",
+        key2: "__value__",
+        key3: "__value__"
+      },
+      ExpressionAttributeValues: {
+        key1: {
+          BOOL: (boolean) false
+        },
+        key2: {
+          S: "__S__"
+        },
+        key3: {
+          N: "__N__"
+        }
+      }
     }
   },
   $metadata: {

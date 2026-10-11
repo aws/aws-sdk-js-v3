@@ -4,6 +4,7 @@ import type {
   AdMarkerHls,
   CmafEncryptionMethod,
   ContainerType,
+  ContentKeyPeriodTiming,
   CustomAdType,
   DashAudioTimelinePattern,
   DashCompactness,
@@ -27,6 +28,7 @@ import type {
   ScteFilter,
   ScteInManifests,
   ScteInSegments,
+  SpekeVersion,
   StreamNameOutputMode,
   TsEncryptionMethod,
   UriPathType,
@@ -819,6 +821,24 @@ export interface DashDvbSettings {
 }
 
 /**
+ * <p>The multiview combination for a pinned manifest. MediaPackage serves the manifest with this layout and these sources, so players request it without an <code>aws.multiview</code> query parameter.</p> <p>If a request for a pinned manifest also includes an <code>aws.multiview</code> query parameter, MediaPackage rejects the request, even when that parameter requests the same combination.</p>
+ * @public
+ */
+export interface MultiviewFilterConfiguration {
+  /**
+   * <p>The layout that MediaPackage uses to composite the tiles into a single output. This layout must be one of the <code>AvailableLayouts</code> of the channel that this origin endpoint is on.</p>
+   * @public
+   */
+  Layout: MultiviewLayoutType | undefined;
+
+  /**
+   * <p>The source channels to composite, in tile order. Each channel must be one of the <code>AvailableSources</code> of the channel that this origin endpoint is on, and the number of channels must equal the number of tiles in <code>Layout</code>.</p>
+   * @public
+   */
+  Sources: string[] | undefined;
+}
+
+/**
  * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
  * @public
  */
@@ -858,6 +878,12 @@ export interface FilterConfiguration {
    * @public
    */
   ClipStartTime?: Date | undefined;
+
+  /**
+   * <p>Optionally pin this manifest to a single multiview combination, so that players request it without an <code>aws.multiview</code> query parameter. When you pin a combination, note that you cannot use the <code>aws.multiview</code> query parameter for this manifest's endpoint URL, even when that parameter requests the same combination.</p> <p>This setting is valid only on an origin endpoint whose channel has an <code>InputType</code> of <code>MULTIVIEW</code>.</p>
+   * @public
+   */
+  Multiview?: MultiviewFilterConfiguration | undefined;
 }
 
 /**
@@ -1305,6 +1331,18 @@ export interface EncryptionMethod {
 }
 
 /**
+ * <p>The configuration that controls the content key period timing information that MediaPackage signals to your DRM key provider.</p>
+ * @public
+ */
+export interface ContentKeyPeriodConfiguration {
+  /**
+   * <p>Specifies what timing information MediaPackage signals in the <code>ContentKeyPeriod</code> to your DRM key provider. If you don't specify a value, the default is <code>INDEX_ONLY</code>. Signaling start and end times (<code>START_END_ONLY</code> or <code>INDEX_WITH_START_END</code>) also requires key rotation to be enabled.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>INDEX_ONLY</code> - Signals only the content key index. This is the default and matches the current behavior. It's supported for both SPEKE Version 2.0 and 2.1.</p> </li> <li> <p> <code>START_END_ONLY</code> - Signals only the start and end times the key is used for. Requires <code>SpekeVersion</code> <code>V2_1</code>.</p> </li> <li> <p> <code>INDEX_WITH_START_END</code> - Signals both the content key index and the start and end times the key is used for. Requires <code>SpekeVersion</code> <code>V2_1</code>.</p> </li> </ul>
+   * @public
+   */
+  ContentKeyPeriodTiming?: ContentKeyPeriodTiming | undefined;
+}
+
+/**
  * <p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>
  * @public
  */
@@ -1362,6 +1400,18 @@ export interface SpekeKeyProvider {
    * @public
    */
   CertificateArn?: string | undefined;
+
+  /**
+   * <p>Specifies the SPEKE version used with your DRM key provider. If you don't specify a value, the default is <code>V2_0</code>.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>V2_0</code> - Follows the SPEKE Version 2.0 contract and signals only the content key index in key requests. This is the default.</p> </li> <li> <p> <code>V2_1</code> - Follows the SPEKE Version 2.1 contract and additionally supports signaling the start and end times a content key is used for, using <code>ContentKeyPeriodConfiguration</code>.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/speke/latest/documentation/standard-payload-components-v2.html">SPEKE Version 2.0 payload</a>.</p>
+   * @public
+   */
+  SpekeVersion?: SpekeVersion | undefined;
+
+  /**
+   * <p>The configuration that controls whether MediaPackage signals the start and end times a content key is used for, in the <code>ContentKeyPeriod</code> sent to your DRM key provider. Signaling this timing is supported only when key rotation is enabled (<code>KeyRotationIntervalSeconds</code> is set to a non-zero value) and <code>SpekeVersion</code> is <code>V2_1</code>. You can update these settings on an existing origin endpoint.</p>
+   * @public
+   */
+  ContentKeyPeriodConfiguration?: ContentKeyPeriodConfiguration | undefined;
 }
 
 /**

@@ -68,6 +68,7 @@ export type {
   DataSourceSport,
   DictionaryLanguage,
   DictionaryStatus,
+  ExtendedAnalysisMode,
   FeedStatus,
   FilterName,
   OutputStatus,

@@ -244,6 +244,13 @@ GetCaseAttachmentUploadUrl
 </details>
 <details>
 <summary>
+GetFindingMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/security-ir/command/GetFindingMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-security-ir/Interface/GetFindingMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-security-ir/Interface/GetFindingMetricsCommandOutput/)
+</details>
+<details>
+<summary>
 GetMembership
 </summary>
 

@@ -86,6 +86,9 @@ const _LRHCIRR = "ListRoute53HealthChecksInRegionRequest";
 const _LRHCIRRi = "ListRoute53HealthChecksInRegionResponse";
 const _LRHCR = "ListRoute53HealthChecksRequest";
 const _LRHCRi = "ListRoute53HealthChecksResponse";
+const _LSQW = "ListServiceQuotaWarnings";
+const _LSQWR = "ListServiceQuotaWarningsRequest";
+const _LSQWRi = "ListServiceQuotaWarningsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -121,6 +124,8 @@ const _SL = "ServiceList";
 const _SPE = "StartPlanExecution";
 const _SPER = "StartPlanExecutionRequest";
 const _SPERt = "StartPlanExecutionResponse";
+const _SQWS = "ServiceQuotaWarningSummary";
+const _SQWSL = "ServiceQuotaWarningSummaryList";
 const _SRO = "S3ReportOutput";
 const _SROC = "S3ReportOutputConfiguration";
 const _SS = "StepState";
@@ -151,6 +156,7 @@ const _WL = "WorkflowList";
 const _a = "arn";
 const _aA = "associatedAlarms";
 const _aAN = "associatedAlarmName";
+const _aI = "accountId";
 const _aPE = "activePlanExecution";
 const _aPSC = "auroraProvisionedScalingConfig";
 const _aR = "approvalRole";
@@ -171,6 +177,7 @@ const _c = "client";
 const _cA = "clusterArn";
 const _cALC = "customActionLambdaConfig";
 const _cAR = "crossAccountRole";
+const _cI = "caseId";
 const _cMA = "capacityMonitoringApproach";
 const _cT = "clientToken";
 const _co = "comment";
@@ -214,6 +221,7 @@ const _iA = "instanceArns";
 const _k = "kind";
 const _kRT = "kubernetesResourceType";
 const _l = "lambdas";
+const _lCA = "lastCheckedAt";
 const _lESMC = "lambdaEventSourceMappingConfig";
 const _lET = "lastEvaluationTime";
 const _lEV = "lastEvaluatedVersion";
@@ -230,11 +238,15 @@ const _na = "namespace";
 const _o = "owner";
 const _p = "plan";
 const _pA = "planArn";
+const _pAl = "planArns";
 const _pC = "parallelConfig";
 const _pEI = "previousEventId";
 const _pR = "primaryRegion";
 const _pV = "planVersion";
 const _pl = "plans";
+const _qC = "quotaCode";
+const _qN = "quotaName";
+const _qR = "quotaRegion";
 const _r = "regions";
 const _rA = "recoveryApproach";
 const _rARC = "regionAndRoutingControls";
@@ -250,6 +262,7 @@ const _rHCC = "route53HealthCheckConfig";
 const _rI = "resourceId";
 const _rIM = "retryIntervalMinutes";
 const _rIe = "resourceIdentifier";
+const _rIeq = "requestId";
 const _rN = "recordName";
 const _rO = "reportOutput";
 const _rPRRC = "rdsPromoteReadReplicaConfig";
@@ -266,10 +279,13 @@ const _re = "resources";
 const _reg = "region";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.arcregionswitch";
 const _sA = "serviceArn";
-const _sC = "s3Configuration";
+const _sC = "serviceCode";
+const _sCo = "s3Configuration";
 const _sM = "stepMode";
 const _sN = "stepName";
 const _sOK = "s3ObjectKey";
+const _sQCE = "serviceQuotaChecksEnabled";
+const _sQWS = "serviceQuotaWarningSummaries";
 const _sR = "scalingResources";
 const _sRO = "s3ReportOutput";
 const _sS = "stepStates";
@@ -290,7 +306,9 @@ const _u = "ungraceful";
 const _uA = "updatedAt";
 const _v = "version";
 const _w = "workflows";
+const _wCA = "warningCreatedAt";
 const _wD = "workflowDescription";
+const _wELBTGH = "waitELBTargetGroupHealthy";
 const _wM = "warningMessage";
 const _wS = "warningStatus";
 const _wTA = "workflowTargetAction";
@@ -433,8 +451,8 @@ export var CancelPlanExecutionResponse$: StaticStructureSchema = [3, n0, _CPERa,
 ];
 export var CreatePlanRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_w, _eRx, _n, _r, _rA, _d, _rTOM, _aA, _t, _rC, _pR, _ta],
-  [() => WorkflowList, 0, 0, 64 | 0, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 0, 128 | 0], 5
+  [_w, _eRx, _n, _r, _rA, _d, _rTOM, _aA, _t, _rC, _sQCE, _pR, _ta],
+  [() => WorkflowList, 0, 0, 64 | 0, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 2, 0, 128 | 0], 5
 ];
 export var CreatePlanResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -468,8 +486,8 @@ export var DocumentDbUngraceful$: StaticStructureSchema = [3, n0, _DDU,
 ];
 export var Ec2AsgCapacityIncreaseConfiguration$: StaticStructureSchema = [3, n0, _EACIC,
   0,
-  [_as, _tM, _u, _tP, _cMA],
-  [() => AsgList, 1, () => Ec2Ungraceful$, 1, 0], 1
+  [_as, _tM, _u, _tP, _cMA, _wELBTGH],
+  [() => AsgList, 1, () => Ec2Ungraceful$, 1, 0, 0], 1
 ];
 export var Ec2Ungraceful$: StaticStructureSchema = [3, n0, _EU,
   0,
@@ -478,8 +496,8 @@ export var Ec2Ungraceful$: StaticStructureSchema = [3, n0, _EU,
 ];
 export var EcsCapacityIncreaseConfiguration$: StaticStructureSchema = [3, n0, _ECIC,
   0,
-  [_ser, _tM, _u, _tP, _cMA],
-  [() => ServiceList, 1, () => EcsUngraceful$, 1, 0], 1
+  [_ser, _tM, _u, _tP, _cMA, _wELBTGH],
+  [() => ServiceList, 1, () => EcsUngraceful$, 1, 0, 0], 1
 ];
 export var EcsUngraceful$: StaticStructureSchema = [3, n0, _EUc,
   0,
@@ -666,6 +684,16 @@ export var ListRoute53HealthChecksResponse$: StaticStructureSchema = [3, n0, _LR
   [_hC, _nT],
   [() => Route53HealthCheckList, 0]
 ];
+export var ListServiceQuotaWarningsRequest$: StaticStructureSchema = [3, n0, _LSQWR,
+  0,
+  [_pAl, _mR, _nT],
+  [64 | 0, 1, 0]
+];
+export var ListServiceQuotaWarningsResponse$: StaticStructureSchema = [3, n0, _LSQWRi,
+  0,
+  [_sQWS, _nT],
+  [() => ServiceQuotaWarningSummaryList, 0], 1
+];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_a],
@@ -698,8 +726,8 @@ export var ParallelExecutionBlockConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var Plan$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_a, _w, _eRx, _n, _r, _rA, _o, _d, _rTOM, _aA, _t, _rC, _pR, _v, _uA],
-  [0, () => WorkflowList, 0, 0, 64 | 0, 0, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 0, 0, 4], 7
+  [_a, _w, _eRx, _n, _r, _rA, _o, _d, _rTOM, _aA, _t, _rC, _sQCE, _pR, _v, _uA],
+  [0, () => WorkflowList, 0, 0, 64 | 0, 0, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 2, 0, 0, 4], 7
 ];
 export var RdsCreateCrossRegionReplicaConfiguration$: StaticStructureSchema = [3, n0, _RCCRRC,
   0,
@@ -765,6 +793,11 @@ export var Service$: StaticStructureSchema = [3, n0, _S,
   0,
   [_cAR, _eIx, _cA, _sA],
   [0, 0, 0, 0]
+];
+export var ServiceQuotaWarningSummary$: StaticStructureSchema = [3, n0, _SQWS,
+  0,
+  [_aI, _qR, _sta, _pA, _sC, _qC, _qN, _rIeq, _cI, _wM, _lCA, _wCA],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4], 4
 ];
 export var StartPlanExecutionRequest$: StaticStructureSchema = [3, n0, _SPER,
   0,
@@ -838,8 +871,8 @@ export var UpdatePlanExecutionStepResponse$: StaticStructureSchema = [3, n0, _UP
 ];
 export var UpdatePlanRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_a, _w, _eRx, _d, _rTOM, _aA, _t, _rC],
-  [0, () => WorkflowList, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$], 3
+  [_a, _w, _eRx, _d, _rTOM, _aA, _t, _rC, _sQCE],
+  [0, () => WorkflowList, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 2], 3
 ];
 export var UpdatePlanResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -877,6 +910,7 @@ var KubernetesScalingApps: StaticListSchema = [1, n0, _KSA,
 var LambdaList: StaticListSchema = [1, n0, _LL,
   0, () => Lambdas$
 ];
+var PlanArnList = 64 | 0;
 var PlanList: StaticListSchema = [1, n0, _PL,
   0, () => AbbreviatedPlan$
 ];
@@ -896,6 +930,9 @@ var Route53ResourceRecordSetList: StaticListSchema = [1, n0, _RRRSL,
 ];
 var ServiceList: StaticListSchema = [1, n0, _SL,
   0, () => Service$
+];
+var ServiceQuotaWarningSummaryList: StaticListSchema = [1, n0, _SQWSL,
+  0, () => ServiceQuotaWarningSummary$
 ];
 var Steps: StaticListSchema = [1, n0, _Ste,
   0, () => Step$
@@ -945,7 +982,7 @@ export var ReportOutput$: StaticUnionSchema = [4, n0, _RO,
 ];
 export var ReportOutputConfiguration$: StaticUnionSchema = [4, n0, _ROC,
   0,
-  [_sC],
+  [_sCo],
   [() => S3ReportOutputConfiguration$]
 ];
 export var ApprovePlanExecutionStep$: StaticOperationSchema = [9, n0, _APES,
@@ -989,6 +1026,9 @@ export var ListRoute53HealthChecks$: StaticOperationSchema = [9, n0, _LRHC,
 ];
 export var ListRoute53HealthChecksInRegion$: StaticOperationSchema = [9, n0, _LRHCIR,
   0, () => ListRoute53HealthChecksInRegionRequest$, () => ListRoute53HealthChecksInRegionResponse$
+];
+export var ListServiceQuotaWarnings$: StaticOperationSchema = [9, n0, _LSQW,
+  0, () => ListServiceQuotaWarningsRequest$, () => ListServiceQuotaWarningsResponse$
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$

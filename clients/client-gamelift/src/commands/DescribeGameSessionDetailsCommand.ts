@@ -26,7 +26,7 @@ export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSes
  * <p>
  *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
  *          <p>Retrieves additional game session properties, including the game session protection
- *             policy in force, a set of one or more game sessions in a specific fleet location. You
+ *             policy in force, for a set of one or more game sessions in a specific fleet location. You
  *             can optionally filter the results by current game session status.</p>
  *          <p>This operation can be used in the following ways: </p>
  *          <ul>

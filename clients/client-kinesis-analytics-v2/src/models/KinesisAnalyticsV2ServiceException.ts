@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  */
 export class KinesisAnalyticsV2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.kinesisanalyticsv2#KinesisAnalyticsV2ServiceException";
   /**
    * @internal
    */

@@ -109,10 +109,22 @@ import type {
   SecurityProfileItem,
   SuccessfulBatchAssociationSummary,
   TaskTemplateConstraints,
-  TaskTemplateDefaults,
+  TaskTemplateDefaultFieldValue,
   TaskTemplateFieldIdentifier,
   Validation,
 } from "./models_0";
+
+/**
+ * <p>Describes default values for fields on a template.</p>
+ * @public
+ */
+export interface TaskTemplateDefaults {
+  /**
+   * <p>Default value for the field.</p>
+   * @public
+   */
+  DefaultFieldValues?: TaskTemplateDefaultFieldValue[] | undefined;
+}
 
 /**
  * <p>Describes a single task template field.</p>
@@ -8241,29 +8253,4 @@ export interface ContactMetricInfo {
    * @public
    */
   Name: ContactMetricName | undefined;
-}
-
-/**
- * @public
- */
-export interface GetContactMetricsRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Connect Customer. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>A list of contact level metrics to retrieve.Supported metrics include POSITION_IN_QUEUE (the contact's
-   *    current position in the queue) and ESTIMATED_WAIT_TIME (the predicted time in seconds until the contact is
-   *    connected to an agent)</p>
-   * @public
-   */
-  Metrics: ContactMetricInfo[] | undefined;
 }

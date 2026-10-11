@@ -81,6 +81,7 @@ export * from "./ListJobParameterDefinitionsCommand";
 export * from "./ListJobsCommand";
 export * from "./ListLicenseEndpointsCommand";
 export * from "./ListLimitsCommand";
+export * from "./ListMembershipsCommand";
 export * from "./ListMeteredProductsCommand";
 export * from "./ListMonitorsCommand";
 export * from "./ListQueueEnvironmentsCommand";

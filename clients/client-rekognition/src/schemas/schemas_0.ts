@@ -238,7 +238,9 @@ const _FDai = "FailureDetails";
 const _FH = "FrameHeight";
 const _FI = "FaceId";
 const _FIa = "FaceIds";
+const _FIe = "FeedbackItem";
 const _FL = "FaceList";
+const _FLe = "FeedbackList";
 const _FM = "FaceMatches";
 const _FML = "FaceMatchList";
 const _FMT = "FaceMatchThreshold";
@@ -258,6 +260,7 @@ const _FW = "FrameWidth";
 const _Fa = "Faces";
 const _Fe = "Feature";
 const _Fea = "Features";
+const _Fee = "Feedback";
 const _Fi = "Filters";
 const _Fo = "Foreground";
 const _For = "Format";
@@ -441,6 +444,7 @@ const _MUa = "MaxUsers";
 const _MV = "ModelVersions";
 const _MVo = "ModelVersion";
 const _Ma = "Maximum";
+const _Me = "Metadata";
 const _Mi = "Minimum";
 const _Mo = "Moderation";
 const _Mu = "Mustache";
@@ -534,6 +538,7 @@ const _SCRRt = "StartCelebrityRecognitionResponse";
 const _SCi = "SimplifiedColor";
 const _SCt = "StatusCode";
 const _SD = "S3Destination";
+const _SDKT = "SDKType";
 const _SDe = "SegmentDetection";
 const _SDeg = "SegmentDetections";
 const _SF = "SearchedFace";
@@ -570,6 +575,7 @@ const _SMAJ = "StartMediaAnalysisJob";
 const _SMAJR = "StartMediaAnalysisJobRequest";
 const _SMAJRt = "StartMediaAnalysisJobResponse";
 const _SMC = "StatusMessageCode";
+const _SMe = "SessionMetadata";
 const _SNFE = "SessionNotFoundException";
 const _SNSTA = "SNSTopicArn";
 const _SO = "S3Object";
@@ -1510,6 +1516,11 @@ export var FaceSearchSettings$: StaticStructureSchema = [3, n0, _FSS,
   [_CI, _FMT],
   [0, 1]
 ];
+export var FeedbackItem$: StaticStructureSchema = [3, n0, _FIe,
+  0,
+  [_C, _M],
+  [0, 0], 2
+];
 export var Gender$: StaticStructureSchema = [3, n0, _Ge,
   0,
   [_V, _Con],
@@ -1577,8 +1588,8 @@ export var GetFaceLivenessSessionResultsRequest$: StaticStructureSchema = [3, n0
 ];
 export var GetFaceLivenessSessionResultsResponse$: StaticStructureSchema = [3, n0, _GFLSRRe,
   0,
-  [_SIe, _St, _Con, _RI, _AIu, _Ch],
-  [0, 0, 1, [() => AuditImage$, 0], [() => AuditImages, 0], () => Challenge$], 2
+  [_SIe, _St, _Con, _RI, _AIu, _Ch, _Fee, _Me],
+  [0, 0, 1, [() => AuditImage$, 0], [() => AuditImages, 0], () => Challenge$, () => FeedbackList, () => SessionMetadata$], 2
 ];
 export var GetFaceSearchRequest$: StaticStructureSchema = [3, n0, _GFSR,
   0,
@@ -2075,6 +2086,11 @@ export var SegmentTypeInfo$: StaticStructureSchema = [3, n0, _STI,
   [_Ty, _MVo],
   [0, 0]
 ];
+export var SessionMetadata$: StaticStructureSchema = [3, n0, _SMe,
+  0,
+  [_SDKT],
+  [0], 1
+];
 export var ShotSegment$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_Ind, _Con],
@@ -2508,6 +2524,9 @@ var FaceMatchList: StaticListSchema = [1, n0, _FML,
 var FaceModelVersionList = 64 | 0;
 var FaceRecordList: StaticListSchema = [1, n0, _FRL,
   0, () => FaceRecord$
+];
+var FeedbackList: StaticListSchema = [1, n0, _FLe,
+  0, () => FeedbackItem$
 ];
 var GeneralLabelsFilterList = 64 | 0;
 var HumanLoopActivationReasons = 64 | 0;

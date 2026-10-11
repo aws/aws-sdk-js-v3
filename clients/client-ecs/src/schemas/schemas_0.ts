@@ -460,6 +460,8 @@ const _SRLBe = "ServiceRevisionLoadBalancers";
 const _SRO = "ServiceRevisionOverrides";
 const _SRS = "ServiceRevisionSummary";
 const _SRSL = "ServiceRevisionsSummaryList";
+const _SRVLC = "ServiceRevisionVpcLatticeConfiguration";
+const _SRVLCe = "ServiceRevisionVpcLatticeConfigurations";
 const _SRe = "ServiceRevision";
 const _SRer = "ServiceRegistries";
 const _SRerv = "ServiceRevisions";
@@ -560,6 +562,7 @@ const _VF = "VolumeFrom";
 const _VFL = "VolumeFromList";
 const _VI = "VersionInfo";
 const _VL = "VolumeList";
+const _VLAC = "VpcLatticeAdvancedConfiguration";
 const _VLC = "VpcLatticeConfiguration";
 const _VLCp = "VpcLatticeConfigurations";
 const _a = "attachments";
@@ -2637,8 +2640,8 @@ export var RepositoryCredentials$: StaticStructureSchema = [3, n0, _RC,
 ];
 export var ResolvedConfiguration$: StaticStructureSchema = [3, n0, _RCe,
   0,
-  [_lB],
-  [() => ServiceRevisionLoadBalancers]
+  [_lB, _vLC],
+  [() => ServiceRevisionLoadBalancers, () => ServiceRevisionVpcLatticeConfigurations]
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -2804,6 +2807,11 @@ export var ServiceRevisionSummary$: StaticStructureSchema = [3, n0, _SRS,
   0,
   [_ar, _rTCe, _rTCu, _pTCe, _rTTW, _rPTW],
   [0, 1, 1, 1, 1, 1]
+];
+export var ServiceRevisionVpcLatticeConfiguration$: StaticStructureSchema = [3, n0, _SRVLC,
+  0,
+  [_tGA, _pLR],
+  [0, 0]
 ];
 export var ServiceVolumeConfiguration$: StaticStructureSchema = [3, n0, _SVC,
   0,
@@ -3120,10 +3128,15 @@ export var VolumeFrom$: StaticStructureSchema = [3, n0, _VF,
   [_sCo, _rO],
   [0, 2]
 ];
+export var VpcLatticeAdvancedConfiguration$: StaticStructureSchema = [3, n0, _VLAC,
+  0,
+  [_aTGA, _pLR, _tLR],
+  [0, 0, 0]
+];
 export var VpcLatticeConfiguration$: StaticStructureSchema = [3, n0, _VLC,
   0,
-  [_rA, _tGA, _pN],
-  [0, 0, 0], 3
+  [_rA, _tGA, _pN, _aCd],
+  [0, 0, 0, () => VpcLatticeAdvancedConfiguration$], 3
 ];
 var AcceleratorManufacturerSet: StaticListSchema = [1, n0, _AMS,
   0, [0,
@@ -3401,6 +3414,9 @@ var ServiceRevisions: StaticListSchema = [1, n0, _SRerv,
 ];
 var ServiceRevisionsSummaryList: StaticListSchema = [1, n0, _SRSL,
   0, () => ServiceRevisionSummary$
+];
+var ServiceRevisionVpcLatticeConfigurations: StaticListSchema = [1, n0, _SRVLCe,
+  0, () => ServiceRevisionVpcLatticeConfiguration$
 ];
 var Services: StaticListSchema = [1, n0, _Serv,
   0, () => Service$

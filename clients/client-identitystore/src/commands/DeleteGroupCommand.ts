@@ -35,6 +35,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * const input = { // DeleteGroupRequest
  *   IdentityStoreId: "STRING_VALUE", // required
  *   GroupId: "STRING_VALUE", // required
+ *   Revision: "STRING_VALUE",
  * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);

@@ -8,6 +8,7 @@ import { ImagebuilderServiceException as __BaseException } from "./ImagebuilderS
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -24,10 +25,13 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the permitted request rate for the specific operation.</p>
+ * <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  * @public
  */
 export class CallRateLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#CallRateLimitExceededException";
   readonly name = "CallRateLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -44,12 +48,13 @@ export class CallRateLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ * <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  * @public
  */
 export class ClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#ClientException";
   readonly name = "ClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -70,6 +75,7 @@ export class ClientException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -91,6 +97,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#IdempotentParameterMismatchException";
   readonly name = "IdempotentParameterMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -107,10 +114,12 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p>You have requested an action that that the service doesn't support.</p>
+ * <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -132,6 +141,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,11 +158,12 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ * <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  * @public
  */
 export class ServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#ServiceException";
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   /**
@@ -173,6 +184,7 @@ export class ServiceException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -193,6 +205,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class DryRunOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#DryRunOperationException";
   readonly name = "DryRunOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -209,11 +222,13 @@ export class DryRunOperationException extends __BaseException {
 }
 
 /**
- * <p>You have specified two or more mutually exclusive parameters. Review the error message
- * 			for details.</p>
+ * <p>You have specified a combination of parameters that isn't valid. For
+ * 			example, two mutually exclusive parameters, or a parameter without its
+ * 			required companion parameter. Review the error message for details.</p>
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#InvalidParameterCombinationException";
   readonly name = "InvalidParameterCombinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -234,6 +249,7 @@ export class InvalidParameterCombinationException extends __BaseException {
  * @public
  */
 export class InvalidVersionNumberException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#InvalidVersionNumberException";
   readonly name = "InvalidVersionNumberException" as const;
   readonly $fault = "client" as const;
   /**
@@ -256,6 +272,7 @@ export class InvalidVersionNumberException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -276,6 +293,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -297,6 +315,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ResourceDependencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#ResourceDependencyException";
   readonly name = "ResourceDependencyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -317,6 +336,7 @@ export class ResourceDependencyException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -337,6 +357,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -357,6 +378,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#InvalidPaginationTokenException";
   readonly name = "InvalidPaginationTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -378,6 +400,7 @@ export class InvalidPaginationTokenException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -398,6 +421,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.imagebuilder#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**

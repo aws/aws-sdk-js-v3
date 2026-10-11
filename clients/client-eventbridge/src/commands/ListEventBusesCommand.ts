@@ -49,6 +49,7 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * //       Policy: "STRING_VALUE",
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       ManagedBy: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

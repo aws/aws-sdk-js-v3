@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { DeleteAgentGoalRequest, DeleteAgentGoalResponse } from "../models/models_0";
 import { DeleteAgentGoal$ } from "../schemas/schemas_0";
 
@@ -70,7 +70,7 @@ export interface DeleteAgentGoalCommandOutput extends DeleteAgentGoalResponse, _
  * @public
  */
 export class DeleteAgentGoalCommand extends command<DeleteAgentGoalCommandInput, DeleteAgentGoalCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "DeleteAgentGoal",
   DeleteAgentGoal$

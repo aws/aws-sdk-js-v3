@@ -25,6 +25,12 @@ export interface TerminateServiceJobsCommandOutput extends TerminateServiceJobsR
 /**
  * <p>Terminates up to 50 service jobs in a job queue. This is a bulk version of <a>TerminateServiceJob</a>.</p>
  *          <p>Batch reports the result for each service job individually in the response. Service jobs that were processed successfully are reported in the <code>successful</code> list. Service jobs that encountered errors are reported in the <code>errors</code> list. The response returns an HTTP status code of <code>200</code> even when some service jobs encountered errors, so check the <code>errors</code> list. Service jobs that can't be found are treated as successfully processed.</p>
+ *          <important>
+ *             <p>This operation requires <code>batch:TerminateServiceJob</code> permission for each service job in the
+ *             request. There is no separate <code>batch:TerminateServiceJobs</code> IAM action. If a caller's IAM
+ *             policy grants <code>batch:TerminateServiceJob</code>, they can use both the singular
+ *             <code>TerminateServiceJob</code> and bulk <code>TerminateServiceJobs</code> operations.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

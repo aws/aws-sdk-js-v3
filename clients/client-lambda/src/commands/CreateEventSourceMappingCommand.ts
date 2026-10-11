@@ -83,7 +83,7 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *   ],
  *   SourceAccessConfigurations: [ // SourceAccessConfigurations
  *     { // SourceAccessConfiguration
- *       Type: "BASIC_AUTH" || "VPC_SUBNET" || "VPC_SECURITY_GROUP" || "SASL_SCRAM_512_AUTH" || "SASL_SCRAM_256_AUTH" || "VIRTUAL_HOST" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ *       Type: "BASIC_AUTH" || "VPC_SUBNET" || "VPC_SECURITY_GROUP" || "SASL_SCRAM_512_AUTH" || "SASL_SCRAM_256_AUTH" || "VIRTUAL_HOST" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE" || "OAUTHBEARER_AUTH" || "OAUTHBEARER_SCOPE" || "OAUTHBEARER_AUDIENCE" || "OAUTHBEARER_LOGICAL_CLUSTER" || "OAUTHBEARER_IDENTITY_POOL" || "IAM_AUTH" || "IAM_OAUTHBEARER_AUTH",
  *       URI: "STRING_VALUE",
  *     },
  *   ],
@@ -104,7 +104,7 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *       EventRecordFormat: "JSON" || "SOURCE",
  *       AccessConfigs: [ // KafkaSchemaRegistryAccessConfigList
  *         { // KafkaSchemaRegistryAccessConfig
- *           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ *           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE" || "OAUTHBEARER_AUTH",
  *           URI: "STRING_VALUE",
  *         },
  *       ],
@@ -122,7 +122,7 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *       EventRecordFormat: "JSON" || "SOURCE",
  *       AccessConfigs: [
  *         {
- *           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ *           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE" || "OAUTHBEARER_AUTH",
  *           URI: "STRING_VALUE",
  *         },
  *       ],
@@ -198,7 +198,7 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * //   ],
  * //   SourceAccessConfigurations: [ // SourceAccessConfigurations
  * //     { // SourceAccessConfiguration
- * //       Type: "BASIC_AUTH" || "VPC_SUBNET" || "VPC_SECURITY_GROUP" || "SASL_SCRAM_512_AUTH" || "SASL_SCRAM_256_AUTH" || "VIRTUAL_HOST" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //       Type: "BASIC_AUTH" || "VPC_SUBNET" || "VPC_SECURITY_GROUP" || "SASL_SCRAM_512_AUTH" || "SASL_SCRAM_256_AUTH" || "VIRTUAL_HOST" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE" || "OAUTHBEARER_AUTH" || "OAUTHBEARER_SCOPE" || "OAUTHBEARER_AUDIENCE" || "OAUTHBEARER_LOGICAL_CLUSTER" || "OAUTHBEARER_IDENTITY_POOL" || "IAM_AUTH" || "IAM_OAUTHBEARER_AUTH",
  * //       URI: "STRING_VALUE",
  * //     },
  * //   ],
@@ -223,7 +223,7 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * //       EventRecordFormat: "JSON" || "SOURCE",
  * //       AccessConfigs: [ // KafkaSchemaRegistryAccessConfigList
  * //         { // KafkaSchemaRegistryAccessConfig
- * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE" || "OAUTHBEARER_AUTH",
  * //           URI: "STRING_VALUE",
  * //         },
  * //       ],
@@ -241,7 +241,7 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * //       EventRecordFormat: "JSON" || "SOURCE",
  * //       AccessConfigs: [
  * //         {
- * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE" || "OAUTHBEARER_AUTH",
  * //           URI: "STRING_VALUE",
  * //         },
  * //       ],

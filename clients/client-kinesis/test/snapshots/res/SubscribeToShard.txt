@@ -18,22 +18,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     {
       "SequenceNumber": "__SequenceNumber__",
       "Data": "AQAAAQ==",
-      "PartitionKey": "__PartitionKey__",
       "ApproximateArrivalTimestamp": 946702799.999,
+      "PartitionKey": "__PartitionKey__",
       "EncryptionType": "__EncryptionType__"
     },
     {
       "SequenceNumber": "__SequenceNumber__",
       "Data": "AQAAAQ==",
-      "PartitionKey": "__PartitionKey__",
       "ApproximateArrivalTimestamp": 946702799.999,
+      "PartitionKey": "__PartitionKey__",
       "EncryptionType": "__EncryptionType__"
     },
     {
       "SequenceNumber": "__SequenceNumber__",
       "Data": "AQAAAQ==",
-      "PartitionKey": "__PartitionKey__",
       "ApproximateArrivalTimestamp": 946702799.999,
+      "PartitionKey": "__PartitionKey__",
       "EncryptionType": "__EncryptionType__"
     }
   ],
@@ -79,7 +79,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ]
 }
 
-[message-crc] 2015832336
+[message-crc] 144805074
 ============================================================
 
 [chunk (event-stream object view)]
@@ -204,22 +204,22 @@ Cg==
           {
             SequenceNumber: "__SequenceNumber__",
             Data: (Uint8Array) bytes[1, 0, 0, 1],
-            PartitionKey: "__PartitionKey__",
             ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            PartitionKey: "__PartitionKey__",
             EncryptionType: "__EncryptionType__"
           },
           {
             SequenceNumber: "__SequenceNumber__",
             Data: (Uint8Array) bytes[1, 0, 0, 1],
-            PartitionKey: "__PartitionKey__",
             ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            PartitionKey: "__PartitionKey__",
             EncryptionType: "__EncryptionType__"
           },
           {
             SequenceNumber: "__SequenceNumber__",
             Data: (Uint8Array) bytes[1, 0, 0, 1],
-            PartitionKey: "__PartitionKey__",
             ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            PartitionKey: "__PartitionKey__",
             EncryptionType: "__EncryptionType__"
           }
         ],
@@ -386,22 +386,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     {
       "SequenceNumber": "__SequenceNumber__",
       "Data": "AQAAAQ==",
-      "PartitionKey": "__PartitionKey__",
       "ApproximateArrivalTimestamp": 946702799.999,
+      "PartitionKey": "__PartitionKey__",
       "EncryptionType": "__EncryptionType__"
     },
     {
       "SequenceNumber": "__SequenceNumber__",
       "Data": "AQAAAQ==",
-      "PartitionKey": "__PartitionKey__",
       "ApproximateArrivalTimestamp": 946702799.999,
+      "PartitionKey": "__PartitionKey__",
       "EncryptionType": "__EncryptionType__"
     },
     {
       "SequenceNumber": "__SequenceNumber__",
       "Data": "AQAAAQ==",
-      "PartitionKey": "__PartitionKey__",
       "ApproximateArrivalTimestamp": 946702799.999,
+      "PartitionKey": "__PartitionKey__",
       "EncryptionType": "__EncryptionType__"
     }
   ],
@@ -447,7 +447,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ]
 }
 
-[message-crc] 2015832336
+[message-crc] 144805074
 ============================================================
 
 [chunk (event-stream object view)]
@@ -590,22 +590,22 @@ Cg==
           {
             SequenceNumber: "__SequenceNumber__",
             Data: (Uint8Array) bytes[1, 0, 0, 1],
-            PartitionKey: "__PartitionKey__",
             ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            PartitionKey: "__PartitionKey__",
             EncryptionType: "__EncryptionType__"
           },
           {
             SequenceNumber: "__SequenceNumber__",
             Data: (Uint8Array) bytes[1, 0, 0, 1],
-            PartitionKey: "__PartitionKey__",
             ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            PartitionKey: "__PartitionKey__",
             EncryptionType: "__EncryptionType__"
           },
           {
             SequenceNumber: "__SequenceNumber__",
             Data: (Uint8Array) bytes[1, 0, 0, 1],
-            PartitionKey: "__PartitionKey__",
             ApproximateArrivalTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            PartitionKey: "__PartitionKey__",
             EncryptionType: "__EncryptionType__"
           }
         ],

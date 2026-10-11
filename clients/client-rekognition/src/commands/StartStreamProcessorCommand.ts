@@ -23,7 +23,14 @@ export interface StartStreamProcessorCommandInput extends StartStreamProcessorRe
 export interface StartStreamProcessorCommandOutput extends StartStreamProcessorResponse, __MetadataBearer {}
 
 /**
- * <p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.
+ * <important>
+ *             <p>Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
+ * <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition feature availability changes</a>.</p>
+ *             <p>
+ *                <b>This change does not impact the availability of other Amazon Rekognition features.</b>
+ *             </p>
+ *          </important>
+ *          <p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.
  *             To tell <code>StartStreamProcessor</code> which stream processor to start, use the value of the <code>Name</code> field specified in the call to
  *             <code>CreateStreamProcessor</code>.</p>
  *          <p>If you are using a label detection stream processor to detect labels, you need to provide a <code>Start selector</code> and a <code>Stop selector</code> to determine the length of the stream processing time.</p>

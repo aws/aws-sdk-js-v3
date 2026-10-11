@@ -659,6 +659,10 @@ import type {
   DeleteCarrierGatewayCommandOutput,
 } from "./commands/DeleteCarrierGatewayCommand";
 import type {
+  DeleteClientVpnEndpointAuthorizationPolicyCommandInput,
+  DeleteClientVpnEndpointAuthorizationPolicyCommandOutput,
+} from "./commands/DeleteClientVpnEndpointAuthorizationPolicyCommand";
+import type {
   DeleteClientVpnEndpointCommandInput,
   DeleteClientVpnEndpointCommandOutput,
 } from "./commands/DeleteClientVpnEndpointCommand";
@@ -2064,6 +2068,10 @@ import type {
   GetCapacityReservationUsageCommandInput,
   GetCapacityReservationUsageCommandOutput,
 } from "./commands/GetCapacityReservationUsageCommand";
+import type {
+  GetClientVpnEndpointAuthorizationPolicyCommandInput,
+  GetClientVpnEndpointAuthorizationPolicyCommandOutput,
+} from "./commands/GetClientVpnEndpointAuthorizationPolicyCommand";
 import type { GetCoipPoolUsageCommandInput, GetCoipPoolUsageCommandOutput } from "./commands/GetCoipPoolUsageCommand";
 import type { GetConsoleOutputCommandInput, GetConsoleOutputCommandOutput } from "./commands/GetConsoleOutputCommand";
 import type {
@@ -2363,6 +2371,10 @@ import type {
   ModifyCapacityReservationFleetCommandInput,
   ModifyCapacityReservationFleetCommandOutput,
 } from "./commands/ModifyCapacityReservationFleetCommand";
+import type {
+  ModifyClientVpnEndpointAuthorizationPolicyCommandInput,
+  ModifyClientVpnEndpointAuthorizationPolicyCommandOutput,
+} from "./commands/ModifyClientVpnEndpointAuthorizationPolicyCommand";
 import type {
   ModifyClientVpnEndpointCommandInput,
   ModifyClientVpnEndpointCommandOutput,
@@ -3133,6 +3145,7 @@ export type ServiceInputTypes =
   | DeleteApplicationStatusCheckCommandInput
   | DeleteCapacityManagerDataExportCommandInput
   | DeleteCarrierGatewayCommandInput
+  | DeleteClientVpnEndpointAuthorizationPolicyCommandInput
   | DeleteClientVpnEndpointCommandInput
   | DeleteClientVpnRouteCommandInput
   | DeleteCoipCidrCommandInput
@@ -3516,6 +3529,7 @@ export type ServiceInputTypes =
   | GetCapacityManagerMetricDimensionsCommandInput
   | GetCapacityManagerMonitoredTagKeysCommandInput
   | GetCapacityReservationUsageCommandInput
+  | GetClientVpnEndpointAuthorizationPolicyCommandInput
   | GetCoipPoolUsageCommandInput
   | GetConsoleOutputCommandInput
   | GetConsoleScreenshotCommandInput
@@ -3599,6 +3613,7 @@ export type ServiceInputTypes =
   | ModifyAvailabilityZoneGroupCommandInput
   | ModifyCapacityReservationCommandInput
   | ModifyCapacityReservationFleetCommandInput
+  | ModifyClientVpnEndpointAuthorizationPolicyCommandInput
   | ModifyClientVpnEndpointCommandInput
   | ModifyDefaultCreditSpecificationCommandInput
   | ModifyEbsDefaultKmsKeyIdCommandInput
@@ -3942,6 +3957,7 @@ export type ServiceOutputTypes =
   | DeleteApplicationStatusCheckCommandOutput
   | DeleteCapacityManagerDataExportCommandOutput
   | DeleteCarrierGatewayCommandOutput
+  | DeleteClientVpnEndpointAuthorizationPolicyCommandOutput
   | DeleteClientVpnEndpointCommandOutput
   | DeleteClientVpnRouteCommandOutput
   | DeleteCoipCidrCommandOutput
@@ -4325,6 +4341,7 @@ export type ServiceOutputTypes =
   | GetCapacityManagerMetricDimensionsCommandOutput
   | GetCapacityManagerMonitoredTagKeysCommandOutput
   | GetCapacityReservationUsageCommandOutput
+  | GetClientVpnEndpointAuthorizationPolicyCommandOutput
   | GetCoipPoolUsageCommandOutput
   | GetConsoleOutputCommandOutput
   | GetConsoleScreenshotCommandOutput
@@ -4408,6 +4425,7 @@ export type ServiceOutputTypes =
   | ModifyAvailabilityZoneGroupCommandOutput
   | ModifyCapacityReservationCommandOutput
   | ModifyCapacityReservationFleetCommandOutput
+  | ModifyClientVpnEndpointAuthorizationPolicyCommandOutput
   | ModifyClientVpnEndpointCommandOutput
   | ModifyDefaultCreditSpecificationCommandOutput
   | ModifyEbsDefaultKmsKeyIdCommandOutput

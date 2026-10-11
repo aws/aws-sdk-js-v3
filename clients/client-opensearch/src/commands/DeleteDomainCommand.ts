@@ -116,6 +116,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * //     EncryptionAtRestOptions: { // EncryptionAtRestOptions
  * //       Enabled: true || false,
  * //       KmsKeyId: "STRING_VALUE",
+ * //       EncryptionMode: "DISK" || "NATIVE",
  * //     },
  * //     NodeToNodeEncryptionOptions: { // NodeToNodeEncryptionOptions
  * //       Enabled: true || false,

@@ -398,6 +398,7 @@ import {
   CapacityReservationGroup$,
   CapacityReservationInfo$,
   CapacityReservationInstancePlatform,
+  CapacityReservationLaunchStatus,
   CapacityReservationModificationQuote$,
   CapacityReservationModificationQuoteState,
   CapacityReservationOptions$,
@@ -436,11 +437,14 @@ import {
   ClientVpnAuthentication$,
   ClientVpnAuthenticationRequest$,
   ClientVpnAuthenticationType,
+  ClientVpnAuthorizationPolicyShadowMode,
+  ClientVpnAuthorizationPolicyStatus,
   ClientVpnAuthorizationRuleStatus$,
   ClientVpnAuthorizationRuleStatusCode,
   ClientVpnConnection$,
   ClientVpnConnectionStatus$,
   ClientVpnConnectionStatusCode,
+  ClientVpnDeviceTrustProviderType,
   ClientVpnEndpoint$,
   ClientVpnEndpointAttributeStatus$,
   ClientVpnEndpointAttributeStatusCode,
@@ -449,6 +453,8 @@ import {
   ClientVpnRoute$,
   ClientVpnRouteStatus$,
   ClientVpnRouteStatusCode,
+  ClientVpnTrustProvider$,
+  ClientVpnTrustProviderRequest$,
   CloudWatchLogOptions$,
   CloudWatchLogOptionsSpecification$,
   CoipAddressUsage$,
@@ -976,6 +982,10 @@ import {
   DeleteCarrierGatewayRequest$,
   DeleteCarrierGatewayResult$,
   DeleteClientVpnEndpoint$,
+  DeleteClientVpnEndpointAuthorizationPolicy$,
+  DeleteClientVpnEndpointAuthorizationPolicyCommand,
+  DeleteClientVpnEndpointAuthorizationPolicyRequest$,
+  DeleteClientVpnEndpointAuthorizationPolicyResult$,
   DeleteClientVpnEndpointCommand,
   DeleteClientVpnEndpointRequest$,
   DeleteClientVpnEndpointResult$,
@@ -2179,6 +2189,8 @@ import {
   DetachVpnGatewayCommand,
   DetachVpnGatewayRequest$,
   DeviceOptions$,
+  DevicePostureOptions$,
+  DevicePostureResponseOptions$,
   DeviceTrustProviderType,
   DeviceType,
   DhcpConfiguration$,
@@ -2646,6 +2658,10 @@ import {
   GetCapacityReservationUsageCommand,
   GetCapacityReservationUsageRequest$,
   GetCapacityReservationUsageResult$,
+  GetClientVpnEndpointAuthorizationPolicy$,
+  GetClientVpnEndpointAuthorizationPolicyCommand,
+  GetClientVpnEndpointAuthorizationPolicyRequest$,
+  GetClientVpnEndpointAuthorizationPolicyResult$,
   GetCoipPoolUsage$,
   GetCoipPoolUsageCommand,
   GetCoipPoolUsageRequest$,
@@ -3385,6 +3401,10 @@ import {
   ModifyCapacityReservationRequest$,
   ModifyCapacityReservationResult$,
   ModifyClientVpnEndpoint$,
+  ModifyClientVpnEndpointAuthorizationPolicy$,
+  ModifyClientVpnEndpointAuthorizationPolicyCommand,
+  ModifyClientVpnEndpointAuthorizationPolicyRequest$,
+  ModifyClientVpnEndpointAuthorizationPolicyResult$,
   ModifyClientVpnEndpointCommand,
   ModifyClientVpnEndpointRequest$,
   ModifyClientVpnEndpointResult$,
@@ -5230,6 +5250,8 @@ assert(typeof DeleteCarrierGatewayCommand === "function");
 assert(typeof DeleteCarrierGateway$ === "object");
 assert(typeof DeleteClientVpnEndpointCommand === "function");
 assert(typeof DeleteClientVpnEndpoint$ === "object");
+assert(typeof DeleteClientVpnEndpointAuthorizationPolicyCommand === "function");
+assert(typeof DeleteClientVpnEndpointAuthorizationPolicy$ === "object");
 assert(typeof DeleteClientVpnRouteCommand === "function");
 assert(typeof DeleteClientVpnRoute$ === "object");
 assert(typeof DeleteCoipCidrCommand === "function");
@@ -5994,6 +6016,8 @@ assert(typeof GetCapacityManagerMonitoredTagKeysCommand === "function");
 assert(typeof GetCapacityManagerMonitoredTagKeys$ === "object");
 assert(typeof GetCapacityReservationUsageCommand === "function");
 assert(typeof GetCapacityReservationUsage$ === "object");
+assert(typeof GetClientVpnEndpointAuthorizationPolicyCommand === "function");
+assert(typeof GetClientVpnEndpointAuthorizationPolicy$ === "object");
 assert(typeof GetCoipPoolUsageCommand === "function");
 assert(typeof GetCoipPoolUsage$ === "object");
 assert(typeof GetConsoleOutputCommand === "function");
@@ -6162,6 +6186,8 @@ assert(typeof ModifyCapacityReservationFleetCommand === "function");
 assert(typeof ModifyCapacityReservationFleet$ === "object");
 assert(typeof ModifyClientVpnEndpointCommand === "function");
 assert(typeof ModifyClientVpnEndpoint$ === "object");
+assert(typeof ModifyClientVpnEndpointAuthorizationPolicyCommand === "function");
+assert(typeof ModifyClientVpnEndpointAuthorizationPolicy$ === "object");
 assert(typeof ModifyDefaultCreditSpecificationCommand === "function");
 assert(typeof ModifyDefaultCreditSpecification$ === "object");
 assert(typeof ModifyEbsDefaultKmsKeyIdCommand === "function");
@@ -6727,6 +6753,8 @@ assert(typeof ClientVpnEndpointAttributeStatus$ === "object");
 assert(typeof ClientVpnEndpointStatus$ === "object");
 assert(typeof ClientVpnRoute$ === "object");
 assert(typeof ClientVpnRouteStatus$ === "object");
+assert(typeof ClientVpnTrustProvider$ === "object");
+assert(typeof ClientVpnTrustProviderRequest$ === "object");
 assert(typeof CloudWatchLogOptions$ === "object");
 assert(typeof CloudWatchLogOptionsSpecification$ === "object");
 assert(typeof CoipAddressUsage$ === "object");
@@ -7001,6 +7029,8 @@ assert(typeof DeleteCapacityManagerDataExportRequest$ === "object");
 assert(typeof DeleteCapacityManagerDataExportResult$ === "object");
 assert(typeof DeleteCarrierGatewayRequest$ === "object");
 assert(typeof DeleteCarrierGatewayResult$ === "object");
+assert(typeof DeleteClientVpnEndpointAuthorizationPolicyRequest$ === "object");
+assert(typeof DeleteClientVpnEndpointAuthorizationPolicyResult$ === "object");
 assert(typeof DeleteClientVpnEndpointRequest$ === "object");
 assert(typeof DeleteClientVpnEndpointResult$ === "object");
 assert(typeof DeleteClientVpnRouteRequest$ === "object");
@@ -7598,6 +7628,8 @@ assert(typeof DetachVerifiedAccessTrustProviderResult$ === "object");
 assert(typeof DetachVolumeRequest$ === "object");
 assert(typeof DetachVpnGatewayRequest$ === "object");
 assert(typeof DeviceOptions$ === "object");
+assert(typeof DevicePostureOptions$ === "object");
+assert(typeof DevicePostureResponseOptions$ === "object");
 assert(typeof DhcpConfiguration$ === "object");
 assert(typeof DhcpOptions$ === "object");
 assert(typeof DimensionCondition$ === "object");
@@ -7848,6 +7880,8 @@ assert(typeof GetCapacityManagerMonitoredTagKeysRequest$ === "object");
 assert(typeof GetCapacityManagerMonitoredTagKeysResult$ === "object");
 assert(typeof GetCapacityReservationUsageRequest$ === "object");
 assert(typeof GetCapacityReservationUsageResult$ === "object");
+assert(typeof GetClientVpnEndpointAuthorizationPolicyRequest$ === "object");
+assert(typeof GetClientVpnEndpointAuthorizationPolicyResult$ === "object");
 assert(typeof GetCoipPoolUsageRequest$ === "object");
 assert(typeof GetCoipPoolUsageResult$ === "object");
 assert(typeof GetConsoleOutputRequest$ === "object");
@@ -8292,6 +8326,8 @@ assert(typeof ModifyCapacityReservationFleetRequest$ === "object");
 assert(typeof ModifyCapacityReservationFleetResult$ === "object");
 assert(typeof ModifyCapacityReservationRequest$ === "object");
 assert(typeof ModifyCapacityReservationResult$ === "object");
+assert(typeof ModifyClientVpnEndpointAuthorizationPolicyRequest$ === "object");
+assert(typeof ModifyClientVpnEndpointAuthorizationPolicyResult$ === "object");
 assert(typeof ModifyClientVpnEndpointRequest$ === "object");
 assert(typeof ModifyClientVpnEndpointResult$ === "object");
 assert(typeof ModifyDefaultCreditSpecificationRequest$ === "object");
@@ -9068,6 +9104,7 @@ assert(typeof CapacityReservationCancellationQuoteState === "object");
 assert(typeof CapacityReservationDeliveryPreference === "object");
 assert(typeof CapacityReservationFleetState === "object");
 assert(typeof CapacityReservationInstancePlatform === "object");
+assert(typeof CapacityReservationLaunchStatus === "object");
 assert(typeof CapacityReservationModificationQuoteState === "object");
 assert(typeof CapacityReservationPreference === "object");
 assert(typeof CapacityReservationState === "object");
@@ -9078,8 +9115,11 @@ assert(typeof CarrierGatewayState === "object");
 assert(typeof ChronologicalOrder === "object");
 assert(typeof ClientCertificateRevocationListStatusCode === "object");
 assert(typeof ClientVpnAuthenticationType === "object");
+assert(typeof ClientVpnAuthorizationPolicyShadowMode === "object");
+assert(typeof ClientVpnAuthorizationPolicyStatus === "object");
 assert(typeof ClientVpnAuthorizationRuleStatusCode === "object");
 assert(typeof ClientVpnConnectionStatusCode === "object");
+assert(typeof ClientVpnDeviceTrustProviderType === "object");
 assert(typeof ClientVpnEndpointAttributeStatusCode === "object");
 assert(typeof ClientVpnEndpointStatusCode === "object");
 assert(typeof ClientVpnRouteStatusCode === "object");

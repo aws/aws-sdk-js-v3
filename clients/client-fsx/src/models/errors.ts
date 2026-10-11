@@ -9,6 +9,7 @@ import { FSxServiceException as __BaseException } from "./FSxServiceException";
  * @public
  */
 export class AccessPointAlreadyOwnedByYou extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#AccessPointAlreadyOwnedByYou";
   readonly name = "AccessPointAlreadyOwnedByYou" as const;
   readonly $fault = "client" as const;
   /**
@@ -42,6 +43,7 @@ export class AccessPointAlreadyOwnedByYou extends __BaseException {
  * @public
  */
 export class ActiveDirectoryError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#ActiveDirectoryError";
   readonly name = "ActiveDirectoryError" as const;
   readonly $fault = "client" as const;
   /**
@@ -82,6 +84,7 @@ export class ActiveDirectoryError extends __BaseException {
  * @public
  */
 export class BadRequest extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#BadRequest";
   readonly name = "BadRequest" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +111,7 @@ export class BadRequest extends __BaseException {
  * @public
  */
 export class FileSystemNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#FileSystemNotFound";
   readonly name = "FileSystemNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -134,6 +138,7 @@ export class FileSystemNotFound extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   /**
@@ -160,6 +165,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class DataRepositoryTaskEnded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#DataRepositoryTaskEnded";
   readonly name = "DataRepositoryTaskEnded" as const;
   readonly $fault = "client" as const;
   /**
@@ -186,6 +192,7 @@ export class DataRepositoryTaskEnded extends __BaseException {
  * @public
  */
 export class DataRepositoryTaskNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#DataRepositoryTaskNotFound";
   readonly name = "DataRepositoryTaskNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -212,6 +219,7 @@ export class DataRepositoryTaskNotFound extends __BaseException {
  * @public
  */
 export class UnsupportedOperation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#UnsupportedOperation";
   readonly name = "UnsupportedOperation" as const;
   readonly $fault = "client" as const;
   /**
@@ -238,6 +246,7 @@ export class UnsupportedOperation extends __BaseException {
  * @public
  */
 export class BackupNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#BackupNotFound";
   readonly name = "BackupNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -266,6 +275,7 @@ export class BackupNotFound extends __BaseException {
  * @public
  */
 export class IncompatibleParameterError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#IncompatibleParameterError";
   readonly name = "IncompatibleParameterError" as const;
   readonly $fault = "client" as const;
   /**
@@ -300,6 +310,7 @@ export class IncompatibleParameterError extends __BaseException {
  * @public
  */
 export class IncompatibleRegionForMultiAZ extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#IncompatibleRegionForMultiAZ";
   readonly name = "IncompatibleRegionForMultiAZ" as const;
   readonly $fault = "client" as const;
   /**
@@ -327,6 +338,7 @@ export class IncompatibleRegionForMultiAZ extends __BaseException {
  * @public
  */
 export class InvalidDestinationKmsKey extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#InvalidDestinationKmsKey";
   readonly name = "InvalidDestinationKmsKey" as const;
   readonly $fault = "client" as const;
   /**
@@ -354,6 +366,7 @@ export class InvalidDestinationKmsKey extends __BaseException {
  * @public
  */
 export class InvalidRegion extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#InvalidRegion";
   readonly name = "InvalidRegion" as const;
   readonly $fault = "client" as const;
   /**
@@ -381,6 +394,7 @@ export class InvalidRegion extends __BaseException {
  * @public
  */
 export class InvalidSourceKmsKey extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#InvalidSourceKmsKey";
   readonly name = "InvalidSourceKmsKey" as const;
   readonly $fault = "client" as const;
   /**
@@ -408,6 +422,7 @@ export class InvalidSourceKmsKey extends __BaseException {
  * @public
  */
 export class ServiceLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#ServiceLimitExceeded";
   readonly name = "ServiceLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -442,6 +457,7 @@ export class ServiceLimitExceeded extends __BaseException {
  * @public
  */
 export class SourceBackupUnavailable extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#SourceBackupUnavailable";
   readonly name = "SourceBackupUnavailable" as const;
   readonly $fault = "client" as const;
   /**
@@ -475,6 +491,7 @@ export class SourceBackupUnavailable extends __BaseException {
  * @public
  */
 export class InvalidAccessPoint extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#InvalidAccessPoint";
   readonly name = "InvalidAccessPoint" as const;
   readonly $fault = "client" as const;
   /**
@@ -508,6 +525,7 @@ export class InvalidAccessPoint extends __BaseException {
  * @public
  */
 export class InvalidRequest extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#InvalidRequest";
   readonly name = "InvalidRequest" as const;
   readonly $fault = "client" as const;
   /**
@@ -542,6 +560,7 @@ export class InvalidRequest extends __BaseException {
  * @public
  */
 export class TooManyAccessPoints extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#TooManyAccessPoints";
   readonly name = "TooManyAccessPoints" as const;
   readonly $fault = "client" as const;
   /**
@@ -575,6 +594,7 @@ export class TooManyAccessPoints extends __BaseException {
  * @public
  */
 export class VolumeNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#VolumeNotFound";
   readonly name = "VolumeNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -602,6 +622,7 @@ export class VolumeNotFound extends __BaseException {
  * @public
  */
 export class BackupInProgress extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#BackupInProgress";
   readonly name = "BackupInProgress" as const;
   readonly $fault = "client" as const;
   /**
@@ -629,6 +650,7 @@ export class BackupInProgress extends __BaseException {
  * @public
  */
 export class DataRepositoryTaskExecuting extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#DataRepositoryTaskExecuting";
   readonly name = "DataRepositoryTaskExecuting" as const;
   readonly $fault = "client" as const;
   /**
@@ -655,6 +677,7 @@ export class DataRepositoryTaskExecuting extends __BaseException {
  * @public
  */
 export class InvalidNetworkSettings extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#InvalidNetworkSettings";
   readonly name = "InvalidNetworkSettings" as const;
   readonly $fault = "client" as const;
   /**
@@ -702,6 +725,7 @@ export class InvalidNetworkSettings extends __BaseException {
  * @public
  */
 export class InvalidPerUnitStorageThroughput extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#InvalidPerUnitStorageThroughput";
   readonly name = "InvalidPerUnitStorageThroughput" as const;
   readonly $fault = "client" as const;
   /**
@@ -728,6 +752,7 @@ export class InvalidPerUnitStorageThroughput extends __BaseException {
  * @public
  */
 export class MissingFileCacheConfiguration extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#MissingFileCacheConfiguration";
   readonly name = "MissingFileCacheConfiguration" as const;
   readonly $fault = "client" as const;
   /**
@@ -754,6 +779,7 @@ export class MissingFileCacheConfiguration extends __BaseException {
  * @public
  */
 export class InvalidExportPath extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#InvalidExportPath";
   readonly name = "InvalidExportPath" as const;
   readonly $fault = "client" as const;
   /**
@@ -780,6 +806,7 @@ export class InvalidExportPath extends __BaseException {
  * @public
  */
 export class InvalidImportPath extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#InvalidImportPath";
   readonly name = "InvalidImportPath" as const;
   readonly $fault = "client" as const;
   /**
@@ -806,6 +833,7 @@ export class InvalidImportPath extends __BaseException {
  * @public
  */
 export class MissingFileSystemConfiguration extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#MissingFileSystemConfiguration";
   readonly name = "MissingFileSystemConfiguration" as const;
   readonly $fault = "client" as const;
   /**
@@ -832,6 +860,7 @@ export class MissingFileSystemConfiguration extends __BaseException {
  * @public
  */
 export class MissingVolumeConfiguration extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#MissingVolumeConfiguration";
   readonly name = "MissingVolumeConfiguration" as const;
   readonly $fault = "client" as const;
   /**
@@ -858,6 +887,7 @@ export class MissingVolumeConfiguration extends __BaseException {
  * @public
  */
 export class StorageVirtualMachineNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#StorageVirtualMachineNotFound";
   readonly name = "StorageVirtualMachineNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -884,6 +914,7 @@ export class StorageVirtualMachineNotFound extends __BaseException {
  * @public
  */
 export class BackupBeingCopied extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#BackupBeingCopied";
   readonly name = "BackupBeingCopied" as const;
   readonly $fault = "client" as const;
   /**
@@ -918,6 +949,7 @@ export class BackupBeingCopied extends __BaseException {
  * @public
  */
 export class BackupRestoring extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#BackupRestoring";
   readonly name = "BackupRestoring" as const;
   readonly $fault = "client" as const;
   /**
@@ -951,6 +983,7 @@ export class BackupRestoring extends __BaseException {
  * @public
  */
 export class DataRepositoryAssociationNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#DataRepositoryAssociationNotFound";
   readonly name = "DataRepositoryAssociationNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -977,6 +1010,7 @@ export class DataRepositoryAssociationNotFound extends __BaseException {
  * @public
  */
 export class FileCacheNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#FileCacheNotFound";
   readonly name = "FileCacheNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -1003,6 +1037,7 @@ export class FileCacheNotFound extends __BaseException {
  * @public
  */
 export class SnapshotNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#SnapshotNotFound";
   readonly name = "SnapshotNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -1029,6 +1064,7 @@ export class SnapshotNotFound extends __BaseException {
  * @public
  */
 export class InvalidDataRepositoryType extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#InvalidDataRepositoryType";
   readonly name = "InvalidDataRepositoryType" as const;
   readonly $fault = "client" as const;
   /**
@@ -1055,6 +1091,7 @@ export class InvalidDataRepositoryType extends __BaseException {
  * @public
  */
 export class S3AccessPointAttachmentNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#S3AccessPointAttachmentNotFound";
   readonly name = "S3AccessPointAttachmentNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -1082,6 +1119,7 @@ export class S3AccessPointAttachmentNotFound extends __BaseException {
  * @public
  */
 export class NotServiceResourceError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#NotServiceResourceError";
   readonly name = "NotServiceResourceError" as const;
   readonly $fault = "client" as const;
   /**
@@ -1115,6 +1153,7 @@ export class NotServiceResourceError extends __BaseException {
  * @public
  */
 export class ResourceDoesNotSupportTagging extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#ResourceDoesNotSupportTagging";
   readonly name = "ResourceDoesNotSupportTagging" as const;
   readonly $fault = "client" as const;
   /**
@@ -1149,6 +1188,7 @@ export class ResourceDoesNotSupportTagging extends __BaseException {
  * @public
  */
 export class ResourceNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#ResourceNotFound";
   readonly name = "ResourceNotFound" as const;
   readonly $fault = "client" as const;
   /**

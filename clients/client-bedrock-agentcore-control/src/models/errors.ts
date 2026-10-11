@@ -10,6 +10,7 @@ import type { ValidationExceptionField } from "./models_0";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -70,6 +73,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -90,6 +94,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -110,6 +115,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -130,6 +136,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   reason: ValidationExceptionReason | undefined;
@@ -154,6 +161,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class DecryptionFailure extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#DecryptionFailure";
   readonly name = "DecryptionFailure" as const;
   readonly $fault = "client" as const;
   /**
@@ -174,6 +182,7 @@ export class DecryptionFailure extends __BaseException {
  * @public
  */
 export class EncryptionFailure extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#EncryptionFailure";
   readonly name = "EncryptionFailure" as const;
   readonly $fault = "client" as const;
   /**
@@ -194,6 +203,7 @@ export class EncryptionFailure extends __BaseException {
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#ResourceLimitExceededException";
   readonly name = "ResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -214,6 +224,7 @@ export class ResourceLimitExceededException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -234,6 +245,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class RetryableConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#RetryableConflictException";
   readonly name = "RetryableConflictException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -255,6 +267,7 @@ export class RetryableConflictException extends __BaseException {
  * @public
  */
 export class ServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#ServiceException";
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -276,6 +289,7 @@ export class ServiceException extends __BaseException {
  * @public
  */
 export class ThrottledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#ThrottledException";
   readonly name = "ThrottledException" as const;
   readonly $fault = "client" as const;
   $retryable = {};
@@ -297,6 +311,7 @@ export class ThrottledException extends __BaseException {
  * @public
  */
 export class SubscriptionRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#SubscriptionRequiredException";
   readonly name = "SubscriptionRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -331,6 +346,7 @@ export class SubscriptionRequiredException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.bedrockagentcorecontrol#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**

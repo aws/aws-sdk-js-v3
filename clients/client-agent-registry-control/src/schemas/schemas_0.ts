@@ -17,6 +17,9 @@ const _CCVTu = "CustomClaimValidationsType";
 const _CD = "CustomDescriptor";
 const _CE = "ConflictException";
 const _CJWTAC = "CustomJWTAuthorizerConfiguration";
+const _CMD = "CustomMetadataDocument";
+const _CMSC = "CustomMetadataSchemaConfiguration";
+const _CMSD = "CustomMetadataSchemaDefinition";
 const _CMVT = "ClaimMatchValueType";
 const _CR = "CreateRegistry";
 const _CRR = "CreateRegistryRequest";
@@ -79,6 +82,8 @@ const _RRS = "RegistryRecordSummary";
 const _RRSL = "RegistryRecordSummaryList";
 const _RS = "RegistrySummary";
 const _RSL = "RegistrySummaryList";
+const _RTSO = "RecordTypeSchemaOverride";
+const _RTSOL = "RecordTypeSchemaOverrideList";
 const _SD = "SourceDetails";
 const _SMLR = "SelfManagedLatticeResource";
 const _SQEE = "ServiceQuotaExceededException";
@@ -104,6 +109,8 @@ const _UAUD = "UpdatedAgUiDescriptor";
 const _UAUDF = "UpdatedAgUiDescriptorFields";
 const _UCD = "UpdatedCustomDescriptor";
 const _UCDF = "UpdatedCustomDescriptorFields";
+const _UCMM = "UpdatedCustomMetadataMap";
+const _UCMSC = "UpdatedCustomMetadataSchemaConfiguration";
 const _UD = "UpdatedDescription";
 const _UDC = "UpdatedDiscoveryConfiguration";
 const _UDD = "UpdatedDescriptorData";
@@ -158,7 +165,10 @@ const _cB = "createdBy";
 const _cBAD = "createdByAutoDetection";
 const _cC = "customClaims";
 const _cJWTA = "customJWTAuthorizer";
+const _cM = "customMetadata";
 const _cMO = "claimMatchOperator";
+const _cMSC = "customMetadataSchemaConfiguration";
+const _cMSCS = "customMetadataSchemaComplianceStatus";
 const _cMV = "claimMatchValue";
 const _cP = "credentialProvider";
 const _cPC = "credentialProviderConfigurations";
@@ -170,6 +180,7 @@ const _cu = "custom";
 const _d = "data";
 const _dC = "discoveryConfiguration";
 const _dN = "displayName";
+const _dS = "defaultSchema";
 const _dSV = "dataSchemaVersion";
 const _dU = "discoveryUrl";
 const _de = "descriptors";
@@ -218,6 +229,7 @@ const _rI = "registryId";
 const _rIe = "recordId";
 const _rR = "registryRecords";
 const _rT = "recordType";
+const _rTSO = "recordTypeSchemaOverrides";
 const _rV = "recordVersion";
 const _re = "registries";
 const _reg = "region";
@@ -233,6 +245,7 @@ const _sP = "serverProtocol";
 const _sR = "statusReason";
 const _sT = "sourceType";
 const _sc = "scope";
+const _sch = "schema";
 const _sco = "scopes";
 const _se = "server";
 const _ser = "service";
@@ -329,6 +342,8 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var CustomMetadataDocument: StaticSimpleSchema = [0, n0, _CMD, 8, 15];
+var CustomMetadataSchemaDefinition: StaticSimpleSchema = [0, n0, _CMSD, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var DescriptorData: StaticSimpleSchema = [0, n0, _DD, 8, 0];
 export var A2aAgentCardDescriptor$: StaticStructureSchema = [3, n0, _AACD,
@@ -393,8 +408,8 @@ export var AutoDetectionConfiguration$: StaticStructureSchema = [3, n0, _ADC,
 ];
 export var CreateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _CRRR,
   0,
-  [_rI, _n, _rT, _de, _dN, _des, _rV, _cT, _p, _t],
-  [[0, 1], 0, 0, [() => Descriptors$, 0], 0, [() => Description, 0], 0, [0, 4], () => ProvenanceList, 128 | 0], 4
+  [_rI, _n, _rT, _de, _dN, _des, _rV, _cT, _p, _cM, _t],
+  [[0, 1], 0, 0, [() => Descriptors$, 0], 0, [() => Description, 0], 0, [0, 4], () => ProvenanceList, [() => CustomMetadataDocument, 0], 128 | 0], 4
 ];
 export var CreateRegistryRecordResponse$: StaticStructureSchema = [3, n0, _CRRRr,
   0,
@@ -403,8 +418,8 @@ export var CreateRegistryRecordResponse$: StaticStructureSchema = [3, n0, _CRRRr
 ];
 export var CreateRegistryRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_n, _des, _eC, _dC, _cT, _t, _aCp, _aDC],
-  [0, [() => Description, 0], () => EncryptionConfiguration$, () => DiscoveryConfiguration$, [0, 4], 128 | 0, () => ApprovalConfiguration$, () => AutoDetectionConfiguration$], 1
+  [_n, _des, _eC, _dC, _cT, _t, _aCp, _cMSC, _aDC],
+  [0, [() => Description, 0], () => EncryptionConfiguration$, () => DiscoveryConfiguration$, [0, 4], 128 | 0, () => ApprovalConfiguration$, [() => CustomMetadataSchemaConfiguration$, 0], () => AutoDetectionConfiguration$], 1
 ];
 export var CreateRegistryResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -425,6 +440,11 @@ export var CustomJWTAuthorizerConfiguration$: StaticStructureSchema = [3, n0, _C
   0,
   [_dU, _aA, _aCl, _aS, _cC, _pE, _pEO],
   [0, 64 | 0, 64 | 0, 64 | 0, () => CustomClaimValidationsType, () => PrivateEndpoint$, () => PrivateEndpointOverrides], 1
+];
+export var CustomMetadataSchemaConfiguration$: StaticStructureSchema = [3, n0, _CMSC,
+  8,
+  [_dS, _rTSO],
+  [[() => CustomMetadataSchemaDefinition, 0], [() => RecordTypeSchemaOverrideList, 0]]
 ];
 export var DeleteRegistryRecordRequest$: StaticStructureSchema = [3, n0, _DRRR,
   0,
@@ -478,8 +498,8 @@ export var GetRegistryRecordRequest$: StaticStructureSchema = [3, n0, _GRRR,
 ];
 export var GetRegistryRecordResponse$: StaticStructureSchema = [3, n0, _GRRRe,
   0,
-  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _p, _cBAD, _cB],
-  [0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], [() => Descriptors$, 0], 0, 0, () => ProvenanceList, 2, 0], 8
+  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _p, _cBAD, _cB, _cM, _cMSCS],
+  [0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], [() => Descriptors$, 0], 0, 0, () => ProvenanceList, 2, 0, [() => CustomMetadataDocument, 0], 0], 8
 ];
 export var GetRegistryRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
@@ -488,8 +508,8 @@ export var GetRegistryRequest$: StaticStructureSchema = [3, n0, _GRR,
 ];
 export var GetRegistryResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
-  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _eC, _aCp, _sR, _aDu],
-  [0, 0, 0, 0, 5, 5, [() => Description, 0], () => DiscoveryConfiguration$, () => EncryptionConfiguration$, () => ApprovalConfiguration$, 0, () => AutoDetection$], 6
+  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _eC, _aCp, _cMSC, _sR, _aDu],
+  [0, 0, 0, 0, 5, 5, [() => Description, 0], () => DiscoveryConfiguration$, () => EncryptionConfiguration$, () => ApprovalConfiguration$, [() => CustomMetadataSchemaConfiguration$, 0], 0, () => AutoDetection$], 6
 ];
 export var HttpDescriptor$: StaticStructureSchema = [3, n0, _HD,
   0,
@@ -561,6 +581,11 @@ export var ProvenanceSummary$: StaticStructureSchema = [3, n0, _PS,
   [_rel, _sIo, _sT],
   [0, 0, 0], 2
 ];
+export var RecordTypeSchemaOverride$: StaticStructureSchema = [3, n0, _RTSO,
+  0,
+  [_rT, _sch],
+  [0, [() => CustomMetadataSchemaDefinition, 0]], 2
+];
 export var RegistryFilter$: StaticStructureSchema = [3, n0, _RF,
   0,
   [_n, _v],
@@ -588,8 +613,8 @@ export var RegistryRecordOAuthCredentialProvider$: StaticStructureSchema = [3, n
 ];
 export var RegistryRecordSummary$: StaticStructureSchema = [3, n0, _RRS,
   0,
-  [_rAe, _rA, _rIe, _n, _rT, _rV, _st, _cA, _uA, _dN, _des, _cBAD, _cB, _pSL],
-  [0, 0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], 2, 0, () => ProvenanceSummaryList], 9
+  [_rAe, _rA, _rIe, _n, _rT, _rV, _st, _cA, _uA, _dN, _des, _cBAD, _cB, _pSL, _cMSCS],
+  [0, 0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], 2, 0, () => ProvenanceSummaryList, 0], 9
 ];
 export var RegistrySummary$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -701,6 +726,16 @@ export var UpdatedCustomDescriptorFields$: StaticStructureSchema = [3, n0, _UCDF
   [_d],
   [[() => UpdatedDescriptorData$, 0]]
 ];
+export var UpdatedCustomMetadataMap$: StaticStructureSchema = [3, n0, _UCMM,
+  0,
+  [_oV],
+  [[() => CustomMetadataDocument, 0]]
+];
+export var UpdatedCustomMetadataSchemaConfiguration$: StaticStructureSchema = [3, n0, _UCMSC,
+  0,
+  [_oV],
+  [[() => CustomMetadataSchemaConfiguration$, 0]]
+];
 export var UpdatedDataSchemaVersion$: StaticStructureSchema = [3, n0, _UDSV,
   0,
   [_oV],
@@ -783,13 +818,13 @@ export var UpdatedMcpToolsDescriptorFields$: StaticStructureSchema = [3, n0, _UM
 ];
 export var UpdateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _URRR,
   0,
-  [_rI, _rIe, _n, _dN, _des, _rT, _de, _rV, _tS, _p],
-  [[0, 1], [0, 1], 0, () => UpdatedDisplayName$, [() => UpdatedDescription$, 0], 0, [() => UpdatedDescriptors$, 0], 0, 2, () => ProvenanceList], 2
+  [_rI, _rIe, _n, _dN, _des, _rT, _de, _rV, _cM, _tS, _p],
+  [[0, 1], [0, 1], 0, () => UpdatedDisplayName$, [() => UpdatedDescription$, 0], 0, [() => UpdatedDescriptors$, 0], 0, [() => UpdatedCustomMetadataMap$, 0], 2, () => ProvenanceList], 2
 ];
 export var UpdateRegistryRecordResponse$: StaticStructureSchema = [3, n0, _URRRp,
   0,
-  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _p, _cBAD, _cB],
-  [0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], [() => Descriptors$, 0], 0, 0, () => ProvenanceList, 2, 0], 8
+  [_rAe, _rA, _rIe, _n, _rT, _st, _cA, _uA, _dN, _des, _de, _rV, _sR, _p, _cBAD, _cB, _cM, _cMSCS],
+  [0, 0, 0, 0, 0, 0, 5, 5, 0, [() => Description, 0], [() => Descriptors$, 0], 0, 0, () => ProvenanceList, 2, 0, [() => CustomMetadataDocument, 0], 0], 8
 ];
 export var UpdateRegistryRecordStatusRequest$: StaticStructureSchema = [3, n0, _URRSR,
   0,
@@ -803,13 +838,13 @@ export var UpdateRegistryRecordStatusResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateRegistryRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
-  [_rI, _n, _des, _dC, _aCp, _aDC],
-  [[0, 1], 0, [() => UpdatedDescription$, 0], () => UpdatedDiscoveryConfiguration$, () => UpdatedApprovalConfiguration$, () => UpdatedAutoDetectionConfiguration$], 1
+  [_rI, _n, _des, _dC, _aCp, _cMSC, _aDC],
+  [[0, 1], 0, [() => UpdatedDescription$, 0], () => UpdatedDiscoveryConfiguration$, () => UpdatedApprovalConfiguration$, [() => UpdatedCustomMetadataSchemaConfiguration$, 0], () => UpdatedAutoDetectionConfiguration$], 1
 ];
 export var UpdateRegistryResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
-  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _eC, _aCp, _sR, _aDu],
-  [0, 0, 0, 0, 5, 5, [() => Description, 0], () => DiscoveryConfiguration$, () => EncryptionConfiguration$, () => ApprovalConfiguration$, 0, () => AutoDetection$], 6
+  [_n, _rI, _rAe, _st, _cA, _uA, _des, _dC, _eC, _aCp, _cMSC, _sR, _aDu],
+  [0, 0, 0, 0, 5, 5, [() => Description, 0], () => DiscoveryConfiguration$, () => EncryptionConfiguration$, () => ApprovalConfiguration$, [() => CustomMetadataSchemaConfiguration$, 0], 0, () => AutoDetection$], 6
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
@@ -838,6 +873,10 @@ var ProvenanceList: StaticListSchema = [1, n0, _PL,
 ];
 var ProvenanceSummaryList: StaticListSchema = [1, n0, _PSL,
   0, () => ProvenanceSummary$
+];
+var RecordTypeSchemaOverrideList: StaticListSchema = [1, n0, _RTSOL,
+  0, [() => RecordTypeSchemaOverride$,
+    0]
 ];
 var RegistryFilterList: StaticListSchema = [1, n0, _RFL,
   0, () => RegistryFilter$

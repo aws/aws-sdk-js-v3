@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from B2bi service.
  */
 export class B2biServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.b2bi#B2biServiceException";
   /**
    * @internal
    */

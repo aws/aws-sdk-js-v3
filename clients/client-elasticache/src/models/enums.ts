@@ -282,6 +282,19 @@ export type DataStorageUnit = (typeof DataStorageUnit)[keyof typeof DataStorageU
  * @public
  * @enum
  */
+export const ConnectionType = {
+  PUBLIC: "public",
+  VPC: "vpc",
+} as const;
+/**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
+
+/**
+ * @public
+ * @enum
+ */
 export const InputAuthenticationType = {
   IAM: "iam",
   NO_PASSWORD: "no-password-required",

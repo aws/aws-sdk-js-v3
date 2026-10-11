@@ -48,7 +48,10 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * // { // ListGroupsResponse
  * //   Groups: [ // Groups // required
  * //     { // Group
+ * //       IdentityStoreId: "STRING_VALUE", // required
  * //       GroupId: "STRING_VALUE", // required
+ * //       GroupArn: "STRING_VALUE", // required
+ * //       Revision: "STRING_VALUE", // required
  * //       DisplayName: "STRING_VALUE",
  * //       ExternalIds: [ // ExternalIds
  * //         { // ExternalId
@@ -61,7 +64,6 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //       CreatedBy: "STRING_VALUE",
  * //       UpdatedBy: "STRING_VALUE",
- * //       IdentityStoreId: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

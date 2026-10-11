@@ -9,6 +9,7 @@ import { S3ServiceException as __BaseException } from "./S3ServiceException";
  * @public
  */
 export class NoSuchUpload extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#NoSuchUpload";
   readonly name = "NoSuchUpload" as const;
   readonly $fault = "client" as const;
   /**
@@ -31,6 +32,7 @@ export class NoSuchUpload extends __BaseException {
  * @public
  */
 export class AccessDenied extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#AccessDenied";
   readonly name = "AccessDenied" as const;
   readonly $fault = "client" as const;
   /**
@@ -52,6 +54,7 @@ export class AccessDenied extends __BaseException {
  * @public
  */
 export class ObjectNotInActiveTierError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#ObjectNotInActiveTierError";
   readonly name = "ObjectNotInActiveTierError" as const;
   readonly $fault = "client" as const;
   /**
@@ -73,6 +76,7 @@ export class ObjectNotInActiveTierError extends __BaseException {
  * @public
  */
 export class BucketAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#BucketAlreadyExists";
   readonly name = "BucketAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -96,6 +100,7 @@ export class BucketAlreadyExists extends __BaseException {
  * @public
  */
 export class BucketAlreadyOwnedByYou extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#BucketAlreadyOwnedByYou";
   readonly name = "BucketAlreadyOwnedByYou" as const;
   readonly $fault = "client" as const;
   /**
@@ -116,6 +121,7 @@ export class BucketAlreadyOwnedByYou extends __BaseException {
  * @public
  */
 export class NoSuchBucket extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#NoSuchBucket";
   readonly name = "NoSuchBucket" as const;
   readonly $fault = "client" as const;
   /**
@@ -136,6 +142,7 @@ export class NoSuchBucket extends __BaseException {
  * @public
  */
 export class NoSuchKey extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#NoSuchKey";
   readonly name = "NoSuchKey" as const;
   readonly $fault = "client" as const;
   /**
@@ -162,6 +169,7 @@ export class NoSuchKey extends __BaseException {
  * @public
  */
 export class InvalidObjectState extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#InvalidObjectState";
   readonly name = "InvalidObjectState" as const;
   readonly $fault = "client" as const;
   StorageClass?: StorageClass | undefined;
@@ -186,6 +194,7 @@ export class InvalidObjectState extends __BaseException {
  * @public
  */
 export class NoSuchAnnotation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#NoSuchAnnotation";
   readonly name = "NoSuchAnnotation" as const;
   readonly $fault = "client" as const;
   /**
@@ -206,6 +215,7 @@ export class NoSuchAnnotation extends __BaseException {
  * @public
  */
 export class NotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#NotFound";
   readonly name = "NotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -226,6 +236,7 @@ export class NotFound extends __BaseException {
  * @public
  */
 export class InvalidPrefix extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#InvalidPrefix";
   readonly name = "InvalidPrefix" as const;
   readonly $fault = "client" as const;
   /**
@@ -247,6 +258,7 @@ export class InvalidPrefix extends __BaseException {
  * @public
  */
 export class EncryptionTypeMismatch extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#EncryptionTypeMismatch";
   readonly name = "EncryptionTypeMismatch" as const;
   readonly $fault = "client" as const;
   /**
@@ -268,6 +280,7 @@ export class EncryptionTypeMismatch extends __BaseException {
  * @public
  */
 export class InvalidRequest extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#InvalidRequest";
   readonly name = "InvalidRequest" as const;
   readonly $fault = "client" as const;
   /**
@@ -288,6 +301,7 @@ export class InvalidRequest extends __BaseException {
  * @public
  */
 export class InvalidWriteOffset extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#InvalidWriteOffset";
   readonly name = "InvalidWriteOffset" as const;
   readonly $fault = "client" as const;
   /**
@@ -310,6 +324,7 @@ export class InvalidWriteOffset extends __BaseException {
  * @public
  */
 export class TooManyParts extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#TooManyParts";
   readonly name = "TooManyParts" as const;
   readonly $fault = "client" as const;
   /**
@@ -330,6 +345,7 @@ export class TooManyParts extends __BaseException {
  * @public
  */
 export class AnnotationLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#AnnotationLimitExceeded";
   readonly name = "AnnotationLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -350,6 +366,7 @@ export class AnnotationLimitExceeded extends __BaseException {
  * @public
  */
 export class AnnotationNameTooLong extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#AnnotationNameTooLong";
   readonly name = "AnnotationNameTooLong" as const;
   readonly $fault = "client" as const;
   /**
@@ -370,6 +387,7 @@ export class AnnotationNameTooLong extends __BaseException {
  * @public
  */
 export class InvalidAnnotationName extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#InvalidAnnotationName";
   readonly name = "InvalidAnnotationName" as const;
   readonly $fault = "client" as const;
   /**
@@ -390,6 +408,7 @@ export class InvalidAnnotationName extends __BaseException {
  * @public
  */
 export class UnsupportedMediaType extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#UnsupportedMediaType";
   readonly name = "UnsupportedMediaType" as const;
   readonly $fault = "client" as const;
   /**
@@ -416,6 +435,7 @@ export class UnsupportedMediaType extends __BaseException {
  * @public
  */
 export class IdempotencyParameterMismatch extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#IdempotencyParameterMismatch";
   readonly name = "IdempotencyParameterMismatch" as const;
   readonly $fault = "client" as const;
   /**
@@ -436,6 +456,7 @@ export class IdempotencyParameterMismatch extends __BaseException {
  * @public
  */
 export class ObjectAlreadyInActiveTierError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.s3#ObjectAlreadyInActiveTierError";
   readonly name = "ObjectAlreadyInActiveTierError" as const;
   readonly $fault = "client" as const;
   /**

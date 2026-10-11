@@ -741,6 +741,7 @@ const _Mem = "Member";
 const _Mo = "Model";
 const _N = "Name";
 const _NC = "NetworkConfig";
+const _NCo = "NotificationConfig";
 const _NE = "NotebookError";
 const _NEE = "NotebookExportError";
 const _NETE = "NotEqualToExpression";
@@ -883,6 +884,7 @@ const _S = "Subscriptions";
 const _SA = "SubscribedAsset";
 const _SAL = "SubscribedAssetListing";
 const _SAu = "SubscribedAssets";
+const _SBN = "S3BucketName";
 const _SC = "ScheduleConfiguration";
 const _SCt = "StorageConfig";
 const _SD = "ShortDescription";
@@ -893,6 +895,9 @@ const _SDe = "S3Destination";
 const _SEPI = "SparkEmrPropertiesInput";
 const _SEPO = "SparkEmrPropertiesOutput";
 const _SEPP = "SparkEmrPropertiesPatch";
+const _SF = "S3File";
+const _SFL = "S3FilesLocation";
+const _SFLi = "S3FileList";
 const _SG = "SubscribedGroup";
 const _SGA = "SparkGlueArgs";
 const _SGI = "SubscribedGroupInput";
@@ -943,6 +948,7 @@ const _SNS = "StartNotebookSync";
 const _SNSI = "StartNotebookSyncInput";
 const _SNSO = "StartNotebookSyncOutput";
 const _SO = "SearchOutput";
+const _SOK = "S3ObjectKey";
 const _SP = "SubscribedProject";
 const _SPI = "S3PropertiesInput";
 const _SPIn = "SnowflakePropertiesInput";
@@ -1158,9 +1164,11 @@ const _at = "attributes";
 const _au = "auth";
 const _b = "branch";
 const _bAC = "basicAuthenticationCredentials";
+const _bC = "blueprintCategory";
 const _bNG = "businessNameGeneration";
 const _bT = "beforeTimestamp";
 const _bV = "blueprintVersion";
+const _bu = "bucket";
 const _c = "client";
 const _cA = "createdAt";
 const _cAC = "customAuthenticationCredentials";
@@ -1327,6 +1335,7 @@ const _fE = "filterExpressions";
 const _fF = "fileFormat";
 const _fI = "filterIds";
 const _fIo = "formsInput";
+const _fL = "fileList";
 const _fN = "formNames";
 const _fNi = "fileName";
 const _fNir = "firstName";
@@ -1497,13 +1506,15 @@ const _mo = "model";
 const _n = "name";
 const _nAT = "networkAccessType";
 const _nC = "networkConfiguration";
+const _nCo = "notificationConfiguration";
 const _nET = "notEqualTo";
 const _nI = "notebookId";
 const _nIo = "notebookIdentifier";
 const _nIot = "notIn";
 const _nL = "notLike";
-const _nO = "newOwner";
+const _nO = "notifyOn";
 const _nOW = "numberOfWorkers";
+const _nOe = "newOwner";
 const _nQF = "numQueriesFailed";
 const _nT = "nextToken";
 const _na = "namespace";
@@ -1588,8 +1599,9 @@ const _prov = "provider";
 const _qET = "queryEndTime";
 const _qST = "queryStartTime";
 const _r = "revision";
-const _rA = "ruleAction";
+const _rA = "roleArn";
 const _rAe = "resourceArn";
+const _rAu = "ruleAction";
 const _rC = "resourceConfigurations";
 const _rCC = "redshiftCredentialConfiguration";
 const _rCS = "redshiftClusterSource";
@@ -1655,6 +1667,7 @@ const _sD = "shortDescription";
 const _sDC = "skipDeletionCheck";
 const _sDPC = "successfullyDeletedProjectCount";
 const _sEP = "sparkEmrProperties";
+const _sF = "s3Files";
 const _sGCM = "subscriptionGrantCreationMode";
 const _sGI = "securityGroupIds";
 const _sGIL = "securityGroupIdList";
@@ -1922,6 +1935,8 @@ var ProjectName: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 var ProjectProfileName: StaticSimpleSchema = [0, n0, _PPN, 8, 0];
 var RequestReason: StaticSimpleSchema = [0, n0, _RR, 8, 0];
 var RuleName: StaticSimpleSchema = [0, n0, _RN, 8, 0];
+var S3BucketName: StaticSimpleSchema = [0, n0, _SBN, 8, 0];
+var S3ObjectKey: StaticSimpleSchema = [0, n0, _SOK, 8, 0];
 var S3SourceLocation: StaticSimpleSchema = [0, n0, _SSL, 8, 0];
 var ShortDescription: StaticSimpleSchema = [0, n0, _SD, 8, 0];
 var SubscriptionTargetName: StaticSimpleSchema = [0, n0, _STN, 8, 0];
@@ -2435,13 +2450,13 @@ export var CreateEnvironmentActionOutput$: StaticStructureSchema = [3, n0, _CEAO
 ];
 export var CreateEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _CEBI,
   0,
-  [_dI, _n, _pPr, _de, _uP],
-  [[0, 1], 0, () => ProvisioningProperties$, [() => Description, 0], [() => CustomParameterList, 0]], 3
+  [_dI, _n, _pPr, _de, _uP, _bC],
+  [[0, 1], 0, () => ProvisioningProperties$, [() => Description, 0], [() => CustomParameterList, 0], 0], 3
 ];
 export var CreateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _CEBO,
   0,
-  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _cA, _uA],
-  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
+  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _bC, _cA, _uA],
+  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 0, 5, 5], 4
 ];
 export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
   0,
@@ -3050,8 +3065,8 @@ export var EnvironmentBlueprintConfigurationItem$: StaticStructureSchema = [3, n
 ];
 export var EnvironmentBlueprintSummary$: StaticStructureSchema = [3, n0, _EBS,
   0,
-  [_id, _n, _prov, _pPr, _de, _cA, _uA],
-  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], 5, 5], 4
+  [_id, _n, _prov, _pPr, _de, _cA, _uA, _bC],
+  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], 5, 5, 0], 4
 ];
 export var EnvironmentConfig$: StaticStructureSchema = [3, n0, _ECn,
   0,
@@ -3295,8 +3310,8 @@ export var GetEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _GEBI,
 ];
 export var GetEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _GEBO,
   0,
-  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _cA, _uA],
-  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
+  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _bC, _cA, _uA],
+  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 0, 5, 5], 4
 ];
 export var GetEnvironmentCredentialsInput$: StaticStructureSchema = [3, n0, _GECI,
   0,
@@ -3455,8 +3470,8 @@ export var GetNotebookRunInput$: StaticStructureSchema = [3, n0, _GNRI,
 ];
 export var GetNotebookRunOutput$: StaticStructureSchema = [3, n0, _GNRO,
   0,
-  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
-  [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
+  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _nCo, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
+  [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => NotificationConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
 ];
 export var GetProjectInput$: StaticStructureSchema = [3, n0, _GPI,
   0,
@@ -3675,8 +3690,8 @@ export var HyperPodPropertiesOutput$: StaticStructureSchema = [3, n0, _HPPO,
 ];
 export var IamPropertiesInput$: StaticStructureSchema = [3, n0, _IPI,
   0,
-  [_gLSE],
-  [2]
+  [_gLSE, _rA],
+  [2, 0]
 ];
 export var IamPropertiesOutput$: StaticStructureSchema = [3, n0, _IPO,
   0,
@@ -4121,7 +4136,7 @@ export var ListProjectsOutput$: StaticStructureSchema = [3, n0, _LPOi,
 export var ListRulesInput$: StaticStructureSchema = [3, n0, _LRIi,
   0,
   [_dI, _tT, _tIa, _rTu, _ac, _pIro, _aTs, _dPa, _iC, _mRa, _nT],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _rTu }], [0, { [_hQ]: _rA }], [64 | 0, { [_hQ]: _pIro }], [64 | 0, { [_hQ]: _aTs }], [2, { [_hQ]: _dPa }], [2, { [_hQ]: _iC }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 3
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _rTu }], [0, { [_hQ]: _rAu }], [64 | 0, { [_hQ]: _pIro }], [64 | 0, { [_hQ]: _aTs }], [2, { [_hQ]: _dPa }], [2, { [_hQ]: _iC }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 3
 ];
 export var ListRulesOutput$: StaticStructureSchema = [3, n0, _LRO,
   0,
@@ -4282,6 +4297,11 @@ export var NotEqualToExpression$: StaticStructureSchema = [3, n0, _NETE,
   0,
   [_cN, _v],
   [0, 0], 2
+];
+export var NotificationConfig$: StaticStructureSchema = [3, n0, _NCo,
+  0,
+  [_nO],
+  [64 | 0], 1
 ];
 export var NotificationOutput$: StaticStructureSchema = [3, n0, _NO,
   0,
@@ -4638,6 +4658,16 @@ export var S3Destination$: StaticStructureSchema = [3, n0, _SDe,
   [_u],
   [[() => NotebookS3Uri, 0]]
 ];
+export var S3File$: StaticStructureSchema = [3, n0, _SF,
+  0,
+  [_k],
+  [[() => S3ObjectKey, 0]], 1
+];
+export var S3FilesLocation$: StaticStructureSchema = [3, n0, _SFL,
+  0,
+  [_bu, _fL],
+  [[() => S3BucketName, 0], [() => S3FileList, 0]], 2
+];
 export var S3PropertiesInput$: StaticStructureSchema = [3, n0, _SPI,
   0,
   [_sU, _sAGLI, _rSAGL],
@@ -4820,23 +4850,23 @@ export var StartNotebookExportOutput$: StaticStructureSchema = [3, n0, _SNEO,
 ];
 export var StartNotebookImportInput$: StaticStructureSchema = [3, n0, _SNII,
   0,
-  [_dI, _oPIw, _sLo, _n, _de, _cT],
-  [[0, 1], 0, [() => SourceLocation$, 0], [() => NotebookName, 0], [() => Description, 0], [0, 4]], 4
+  [_dI, _oPIw, _sLo, _n, _de, _ty, _cT],
+  [[0, 1], 0, [() => SourceLocation$, 0], [() => NotebookName, 0], [() => Description, 0], 0, [0, 4]], 4
 ];
 export var StartNotebookImportOutput$: StaticStructureSchema = [3, n0, _SNIO,
   0,
-  [_nI, _st, _dIo, _oPI, _n, _de, _sLo, _cA, _cB],
-  [0, 0, 0, 0, [() => NotebookName, 0], [() => Description, 0], [() => SourceLocation$, 0], 4, 0]
+  [_nI, _st, _dIo, _oPI, _n, _de, _ty, _sLo, _cA, _cB],
+  [0, 0, 0, 0, [() => NotebookName, 0], [() => Description, 0], 0, [() => SourceLocation$, 0], 4, 0]
 ];
 export var StartNotebookRunInput$: StaticStructureSchema = [3, n0, _SNRI,
   0,
-  [_dI, _oPIw, _nIo, _sIch, _cCo, _nC, _tC, _tSr, _me, _par, _cT],
-  [[0, 1], 0, 0, 0, () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => TriggerSource$, [() => Metadata, 0], [() => _Parameters, 0], [0, 4]], 3
+  [_dI, _oPIw, _nIo, _sIch, _cCo, _nC, _tC, _nCo, _tSr, _me, _par, _cT],
+  [[0, 1], 0, 0, 0, () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => NotificationConfig$, () => TriggerSource$, [() => Metadata, 0], [() => _Parameters, 0], [0, 4]], 3
 ];
 export var StartNotebookRunOutput$: StaticStructureSchema = [3, n0, _SNRO,
   0,
-  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
-  [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
+  [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _nCo, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
+  [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => NotificationConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
 ];
 export var StartNotebookSyncInput$: StaticStructureSchema = [3, n0, _SNSI,
   0,
@@ -5090,13 +5120,13 @@ export var UpdateEnvironmentActionOutput$: StaticStructureSchema = [3, n0, _UEAO
 ];
 export var UpdateEnvironmentBlueprintInput$: StaticStructureSchema = [3, n0, _UEBI,
   0,
-  [_dI, _i, _de, _pPr, _uP],
-  [[0, 1], [0, 1], 0, () => ProvisioningProperties$, [() => CustomParameterList, 0]], 2
+  [_dI, _i, _de, _pPr, _uP, _bC],
+  [[0, 1], [0, 1], 0, () => ProvisioningProperties$, [() => CustomParameterList, 0], 0], 2
 ];
 export var UpdateEnvironmentBlueprintOutput$: StaticStructureSchema = [3, n0, _UEBO,
   0,
-  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _cA, _uA],
-  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 5, 5], 4
+  [_id, _n, _prov, _pPr, _de, _dP, _uP, _gT, _bC, _cA, _uA],
+  [0, 0, 0, () => ProvisioningProperties$, [() => Description, 0], () => DeploymentProperties$, [() => CustomParameterList, 0], 64 | 0, 0, 5, 5], 4
 ];
 export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
   0,
@@ -5180,7 +5210,7 @@ export var UpdateProjectProfileOutput$: StaticStructureSchema = [3, n0, _UPPO,
 ];
 export var UpdateRootDomainUnitOwnerInput$: StaticStructureSchema = [3, n0, _URDUOI,
   0,
-  [_dI, _cOu, _nO, _cT],
+  [_dI, _cOu, _nOe, _cT],
   [[0, 1], 0, 0, [0, 4]], 3
 ];
 export var UpdateRootDomainUnitOwnerOutput$: StaticStructureSchema = [3, n0, _URDUOO,
@@ -5550,6 +5580,7 @@ var NotificationsList: StaticListSchema = [1, n0, _NL,
     0]
 ];
 var NotificationSubjects = 64 | 0;
+var NotifyOnStates = 64 | 0;
 var PhysicalEndpoints: StaticListSchema = [1, n0, _PEh,
   0, [() => PhysicalEndpoint$,
     0]
@@ -5612,6 +5643,10 @@ var RuleAssetTypeList = 64 | 0;
 var RuleProjectIdentifierList = 64 | 0;
 var RuleSummaries: StaticListSchema = [1, n0, _RSul,
   0, [() => RuleSummary$,
+    0]
+];
+var S3FileList: StaticListSchema = [1, n0, _SFLi,
+  0, [() => S3File$,
     0]
 ];
 var S3LocationList = 64 | 0;
@@ -5959,8 +5994,8 @@ export var SelfGrantStatusOutput$: StaticUnionSchema = [4, n0, _SGSO,
 ];
 export var SourceLocation$: StaticUnionSchema = [4, n0, _SLo,
   0,
-  [_s_],
-  [[() => S3SourceLocation, 0]]
+  [_s_, _sF],
+  [[() => S3SourceLocation, 0], [() => S3FilesLocation$, 0]]
 ];
 export var SubscribedListingItem$: StaticUnionSchema = [4, n0, _SLIubs,
   0,

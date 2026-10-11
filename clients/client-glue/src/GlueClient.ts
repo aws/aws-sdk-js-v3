@@ -486,6 +486,14 @@ import type {
   GetSessionEndpointCommandOutput,
 } from "./commands/GetSessionEndpointCommand";
 import type { GetStatementCommandInput, GetStatementCommandOutput } from "./commands/GetStatementCommand";
+import type {
+  GetSystemLogsForJobRunCommandInput,
+  GetSystemLogsForJobRunCommandOutput,
+} from "./commands/GetSystemLogsForJobRunCommand";
+import type {
+  GetSystemLogsForSessionCommandInput,
+  GetSystemLogsForSessionCommandOutput,
+} from "./commands/GetSystemLogsForSessionCommand";
 import type { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import type {
   GetTableOptimizerCommandInput,
@@ -1005,6 +1013,8 @@ export type ServiceInputTypes =
   | GetSessionCommandInput
   | GetSessionEndpointCommandInput
   | GetStatementCommandInput
+  | GetSystemLogsForJobRunCommandInput
+  | GetSystemLogsForSessionCommandInput
   | GetTableCommandInput
   | GetTableOptimizerCommandInput
   | GetTableVersionCommandInput
@@ -1310,6 +1320,8 @@ export type ServiceOutputTypes =
   | GetSessionCommandOutput
   | GetSessionEndpointCommandOutput
   | GetStatementCommandOutput
+  | GetSystemLogsForJobRunCommandOutput
+  | GetSystemLogsForSessionCommandOutput
   | GetTableCommandOutput
   | GetTableOptimizerCommandOutput
   | GetTableVersionCommandOutput

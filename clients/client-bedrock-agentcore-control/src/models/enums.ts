@@ -1486,6 +1486,19 @@ export type PaymentConnectorStatus = (typeof PaymentConnectorStatus)[keyof typeo
  * @public
  * @enum
  */
+export const CoinbaseCdpSecret = {
+  API_KEY: "API_KEY",
+  WALLET_SECRET: "WALLET_SECRET",
+} as const;
+/**
+ * @public
+ */
+export type CoinbaseCdpSecret = (typeof CoinbaseCdpSecret)[keyof typeof CoinbaseCdpSecret];
+
+/**
+ * @public
+ * @enum
+ */
 export const PolicyEngineStatus = {
   ACTIVE: "ACTIVE",
   CREATE_FAILED: "CREATE_FAILED",

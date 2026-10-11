@@ -40,8 +40,10 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
  * // { // CreateGroupResponse
- * //   GroupId: "STRING_VALUE", // required
  * //   IdentityStoreId: "STRING_VALUE", // required
+ * //   GroupId: "STRING_VALUE", // required
+ * //   GroupArn: "STRING_VALUE", // required
+ * //   Revision: "STRING_VALUE", // required
  * // };
  *
  * ```

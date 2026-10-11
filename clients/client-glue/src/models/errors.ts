@@ -9,6 +9,7 @@ import { GlueServiceException as __BaseException } from "./GlueServiceException"
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -35,6 +36,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#AlreadyExistsException";
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -61,6 +63,7 @@ export class AlreadyExistsException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -87,6 +90,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class EntityNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#EntityNotFoundException";
   readonly name = "EntityNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -120,6 +124,7 @@ export class EntityNotFoundException extends __BaseException {
  * @public
  */
 export class InternalServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#InternalServiceException";
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   /**
@@ -146,6 +151,7 @@ export class InternalServiceException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
@@ -179,6 +185,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -205,6 +212,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class GlueEncryptionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#GlueEncryptionException";
   readonly name = "GlueEncryptionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -231,6 +239,7 @@ export class GlueEncryptionException extends __BaseException {
  * @public
  */
 export class OperationTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#OperationTimeoutException";
   readonly name = "OperationTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
@@ -257,6 +266,7 @@ export class OperationTimeoutException extends __BaseException {
  * @public
  */
 export class ResourceNumberLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ResourceNumberLimitExceededException";
   readonly name = "ResourceNumberLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -283,6 +293,7 @@ export class ResourceNumberLimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ResourceNotReadyException";
   readonly name = "ResourceNotReadyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -309,6 +320,7 @@ export class ResourceNotReadyException extends __BaseException {
  * @public
  */
 export class FederationSourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#FederationSourceException";
   readonly name = "FederationSourceException" as const;
   readonly $fault = "client" as const;
   /**
@@ -342,6 +354,7 @@ export class FederationSourceException extends __BaseException {
  * @public
  */
 export class FederationSourceRetryableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#FederationSourceRetryableException";
   readonly name = "FederationSourceRetryableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -368,6 +381,7 @@ export class FederationSourceRetryableException extends __BaseException {
  * @public
  */
 export class InvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#InvalidStateException";
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -394,6 +408,7 @@ export class InvalidStateException extends __BaseException {
  * @public
  */
 export class IllegalSessionStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#IllegalSessionStateException";
   readonly name = "IllegalSessionStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -420,6 +435,7 @@ export class IllegalSessionStateException extends __BaseException {
  * @public
  */
 export class FederatedResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#FederatedResourceAlreadyExistsException";
   readonly name = "FederatedResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -453,6 +469,7 @@ export class FederatedResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ColumnStatisticsTaskRunningException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ColumnStatisticsTaskRunningException";
   readonly name = "ColumnStatisticsTaskRunningException" as const;
   readonly $fault = "client" as const;
   /**
@@ -479,6 +496,7 @@ export class ColumnStatisticsTaskRunningException extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#IdempotentParameterMismatchException";
   readonly name = "IdempotentParameterMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -505,6 +523,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -531,6 +550,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -557,6 +577,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class IntegrationConflictOperationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#IntegrationConflictOperationFault";
   readonly name = "IntegrationConflictOperationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -583,6 +604,7 @@ export class IntegrationConflictOperationFault extends __BaseException {
  * @public
  */
 export class IntegrationQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#IntegrationQuotaExceededFault";
   readonly name = "IntegrationQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -609,6 +631,7 @@ export class IntegrationQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -635,6 +658,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class KMSKeyNotAccessibleFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#KMSKeyNotAccessibleFault";
   readonly name = "KMSKeyNotAccessibleFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -661,6 +685,7 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -687,6 +712,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class OperationNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#OperationNotSupportedException";
   readonly name = "OperationNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -713,6 +739,7 @@ export class OperationNotSupportedException extends __BaseException {
  * @public
  */
 export class CrawlerRunningException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#CrawlerRunningException";
   readonly name = "CrawlerRunningException" as const;
   readonly $fault = "client" as const;
   /**
@@ -739,6 +766,7 @@ export class CrawlerRunningException extends __BaseException {
  * @public
  */
 export class SchedulerTransitioningException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#SchedulerTransitioningException";
   readonly name = "SchedulerTransitioningException" as const;
   readonly $fault = "client" as const;
   /**
@@ -765,6 +793,7 @@ export class SchedulerTransitioningException extends __BaseException {
  * @public
  */
 export class IntegrationNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#IntegrationNotFoundFault";
   readonly name = "IntegrationNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -791,6 +820,7 @@ export class IntegrationNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidIntegrationStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#InvalidIntegrationStateFault";
   readonly name = "InvalidIntegrationStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -817,6 +847,7 @@ export class InvalidIntegrationStateFault extends __BaseException {
  * @public
  */
 export class ConditionCheckFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ConditionCheckFailureException";
   readonly name = "ConditionCheckFailureException" as const;
   readonly $fault = "client" as const;
   /**
@@ -843,6 +874,7 @@ export class ConditionCheckFailureException extends __BaseException {
  * @public
  */
 export class TargetResourceNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#TargetResourceNotFound";
   readonly name = "TargetResourceNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -869,6 +901,7 @@ export class TargetResourceNotFound extends __BaseException {
  * @public
  */
 export class PermissionTypeMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#PermissionTypeMismatchException";
   readonly name = "PermissionTypeMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -896,6 +929,7 @@ export class PermissionTypeMismatchException extends __BaseException {
  * @public
  */
 export class ConcurrentRunsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ConcurrentRunsExceededException";
   readonly name = "ConcurrentRunsExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -922,6 +956,7 @@ export class ConcurrentRunsExceededException extends __BaseException {
  * @public
  */
 export class IllegalWorkflowStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#IllegalWorkflowStateException";
   readonly name = "IllegalWorkflowStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -948,6 +983,7 @@ export class IllegalWorkflowStateException extends __BaseException {
  * @public
  */
 export class SessionBusyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#SessionBusyException";
   readonly name = "SessionBusyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -974,6 +1010,7 @@ export class SessionBusyException extends __BaseException {
  * @public
  */
 export class IllegalBlueprintStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#IllegalBlueprintStateException";
   readonly name = "IllegalBlueprintStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1000,6 +1037,7 @@ export class IllegalBlueprintStateException extends __BaseException {
  * @public
  */
 export class NoScheduleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#NoScheduleException";
   readonly name = "NoScheduleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1026,6 +1064,7 @@ export class NoScheduleException extends __BaseException {
  * @public
  */
 export class SchedulerRunningException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#SchedulerRunningException";
   readonly name = "SchedulerRunningException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1052,6 +1091,7 @@ export class SchedulerRunningException extends __BaseException {
  * @public
  */
 export class MaterializedViewRefreshTaskRunningException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#MaterializedViewRefreshTaskRunningException";
   readonly name = "MaterializedViewRefreshTaskRunningException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1078,6 +1118,7 @@ export class MaterializedViewRefreshTaskRunningException extends __BaseException
  * @public
  */
 export class MLTransformNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#MLTransformNotReadyException";
   readonly name = "MLTransformNotReadyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1104,6 +1145,7 @@ export class MLTransformNotReadyException extends __BaseException {
  * @public
  */
 export class ColumnStatisticsTaskNotRunningException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ColumnStatisticsTaskNotRunningException";
   readonly name = "ColumnStatisticsTaskNotRunningException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1130,6 +1172,7 @@ export class ColumnStatisticsTaskNotRunningException extends __BaseException {
  * @public
  */
 export class ColumnStatisticsTaskStoppingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#ColumnStatisticsTaskStoppingException";
   readonly name = "ColumnStatisticsTaskStoppingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1156,6 +1199,7 @@ export class ColumnStatisticsTaskStoppingException extends __BaseException {
  * @public
  */
 export class CrawlerNotRunningException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#CrawlerNotRunningException";
   readonly name = "CrawlerNotRunningException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1182,6 +1226,7 @@ export class CrawlerNotRunningException extends __BaseException {
  * @public
  */
 export class CrawlerStoppingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#CrawlerStoppingException";
   readonly name = "CrawlerStoppingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1208,6 +1253,7 @@ export class CrawlerStoppingException extends __BaseException {
  * @public
  */
 export class SchedulerNotRunningException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#SchedulerNotRunningException";
   readonly name = "SchedulerNotRunningException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1234,6 +1280,7 @@ export class SchedulerNotRunningException extends __BaseException {
  * @public
  */
 export class MaterializedViewRefreshTaskNotRunningException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#MaterializedViewRefreshTaskNotRunningException";
   readonly name = "MaterializedViewRefreshTaskNotRunningException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1260,6 +1307,7 @@ export class MaterializedViewRefreshTaskNotRunningException extends __BaseExcept
  * @public
  */
 export class MaterializedViewRefreshTaskStoppingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#MaterializedViewRefreshTaskStoppingException";
   readonly name = "MaterializedViewRefreshTaskStoppingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1286,6 +1334,7 @@ export class MaterializedViewRefreshTaskStoppingException extends __BaseExceptio
  * @public
  */
 export class VersionMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glue#VersionMismatchException";
   readonly name = "VersionMismatchException" as const;
   readonly $fault = "client" as const;
   /**

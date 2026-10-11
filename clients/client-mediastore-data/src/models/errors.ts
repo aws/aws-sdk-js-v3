@@ -8,6 +8,7 @@ import { MediaStoreDataServiceException as __BaseException } from "./MediaStoreD
  * @public
  */
 export class ContainerNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediastoredata#ContainerNotFoundException";
   readonly name = "ContainerNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class ContainerNotFoundException extends __BaseException {
  * @public
  */
 export class InternalServerError extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediastoredata#InternalServerError";
   readonly name = "InternalServerError" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class InternalServerError extends __BaseException {
  * @public
  */
 export class ObjectNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediastoredata#ObjectNotFoundException";
   readonly name = "ObjectNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -74,6 +77,7 @@ export class ObjectNotFoundException extends __BaseException {
  * @public
  */
 export class RequestedRangeNotSatisfiableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.mediastoredata#RequestedRangeNotSatisfiableException";
   readonly name = "RequestedRangeNotSatisfiableException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

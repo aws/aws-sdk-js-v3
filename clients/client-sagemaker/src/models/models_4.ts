@@ -34,7 +34,6 @@ import type {
   IsTrackingServerActive,
   JobCategory,
   JobStatus,
-  JobType,
   LabelingJobStatus,
   LineageType,
   ListInferenceRecommendationsJobsSortBy,
@@ -79,7 +78,6 @@ import type {
   PipelineExecutionStatus,
   PipelineStatus,
   ProcessingJobStatus,
-  Processor,
   ProjectSortBy,
   ProjectSortOrder,
   ProjectStatus,
@@ -125,7 +123,6 @@ import type {
   UserProfileSortKey,
   UserProfileStatus,
   VariantPropertyType,
-  VendorGuidance,
   WarmPoolResourceStatus,
 } from "./enums";
 import type {
@@ -149,7 +146,6 @@ import type {
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupsConfig,
   ClusterRestrictedInstanceGroupSpecification,
-  ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
   DeploymentConfiguration,
   InferenceSpecification,
@@ -167,6 +163,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ClusterTieredStorageConfig,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
   ConditionStepMetadata,
@@ -176,8 +173,6 @@ import type {
   DriftCheckBaselines,
   EdgeOutputConfig,
   FeatureDefinition,
-  InferenceComponentRuntimeConfig,
-  InferenceComponentSpecification,
   InferenceExecutionConfig,
   ManagedConfiguration,
   MetadataProperties,
@@ -188,7 +183,6 @@ import type {
   ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
   ModelVariantConfig,
-  MonitoringScheduleConfig,
   NetworkConfig,
   RetryStrategy,
   SchedulerConfig,
@@ -209,6 +203,7 @@ import type {
   ModelArtifacts,
   ModelClientConfig,
   ModelPackageConfig,
+  MonitoringScheduleConfig,
   ParallelismConfiguration,
   ProcessingInput,
   ProcessingOutputConfig,
@@ -237,6 +232,7 @@ import type {
   FeatureGroup,
   FeatureMetadata,
   Filter,
+  FlowDefinitionSummary,
   GitConfigForUpdate,
   HubContent,
   HubContentInfo,
@@ -247,7 +243,6 @@ import type {
   HyperParameterTuningJobSummary,
   Image,
   ImageVersion,
-  InferenceComponentDeploymentConfig,
   InferenceComponentMetadata,
   InferenceComponentSummary,
   InferenceExperimentSummary,
@@ -280,6 +275,105 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListFlowDefinitionsResponse {
+  /**
+   * <p>An array of objects describing the flow definitions.</p>
+   * @public
+   */
+  FlowDefinitionSummaries: FlowDefinitionSummary[] | undefined;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHubContentsRequest {
+  /**
+   * <p>The name of the hub to list the contents of.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The type of hub content to list.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>Only list hub content if the name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>The upper bound of the hub content schema verion.</p>
+   * @public
+   */
+  MaxSchemaVersion?: string | undefined;
+
+  /**
+   * <p>Only list hub content that was created before the time specified.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Only list hub content that was created after the time specified.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Sort hub content versions by either name or creation time.</p>
+   * @public
+   */
+  SortBy?: HubContentSortBy | undefined;
+
+  /**
+   * <p>Sort hubs by ascending or descending order.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum amount of hub content to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the response to a previous <code>ListHubContents</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of hub content, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHubContentsResponse {
+  /**
+   * <p>The summaries of the listed hub content.</p>
+   * @public
+   */
+  HubContentSummaries: HubContentInfo[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of hub content, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -10492,127 +10586,4 @@ export interface UpdateImageResponse {
    * @public
    */
   ImageArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateImageVersionRequest {
-  /**
-   * <p>The name of the image.</p>
-   * @public
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The alias of the image version.</p>
-   * @public
-   */
-  Alias?: string | undefined;
-
-  /**
-   * <p>The version of the image.</p>
-   * @public
-   */
-  Version?: number | undefined;
-
-  /**
-   * <p>A list of aliases to add.</p>
-   * @public
-   */
-  AliasesToAdd?: string[] | undefined;
-
-  /**
-   * <p>A list of aliases to delete.</p>
-   * @public
-   */
-  AliasesToDelete?: string[] | undefined;
-
-  /**
-   * <p>The availability of the image version specified by the maintainer.</p> <ul> <li> <p> <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p> </li> <li> <p> <code>STABLE</code>: The image version is stable.</p> </li> <li> <p> <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p> </li> <li> <p> <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p> </li> </ul>
-   * @public
-   */
-  VendorGuidance?: VendorGuidance | undefined;
-
-  /**
-   * <p>Indicates SageMaker AI job type compatibility.</p> <ul> <li> <p> <code>TRAINING</code>: The image version is compatible with SageMaker AI training jobs.</p> </li> <li> <p> <code>INFERENCE</code>: The image version is compatible with SageMaker AI inference jobs.</p> </li> <li> <p> <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker AI notebook kernels.</p> </li> </ul>
-   * @public
-   */
-  JobType?: JobType | undefined;
-
-  /**
-   * <p>The machine learning framework vended in the image version.</p>
-   * @public
-   */
-  MLFramework?: string | undefined;
-
-  /**
-   * <p>The supported programming language and its version.</p>
-   * @public
-   */
-  ProgrammingLang?: string | undefined;
-
-  /**
-   * <p>Indicates CPU or GPU compatibility.</p> <ul> <li> <p> <code>CPU</code>: The image version is compatible with CPU.</p> </li> <li> <p> <code>GPU</code>: The image version is compatible with GPU.</p> </li> </ul>
-   * @public
-   */
-  Processor?: Processor | undefined;
-
-  /**
-   * <p>Indicates Horovod compatibility.</p>
-   * @public
-   */
-  Horovod?: boolean | undefined;
-
-  /**
-   * <p>The maintainer description of the image version.</p>
-   * @public
-   */
-  ReleaseNotes?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateImageVersionResponse {
-  /**
-   * <p>The ARN of the image version.</p>
-   * @public
-   */
-  ImageVersionArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInferenceComponentInput {
-  /**
-   * <p>The name of the inference component.</p>
-   * @public
-   */
-  InferenceComponentName: string | undefined;
-
-  /**
-   * <p>Details about the resources to deploy with this inference component, including the model, container, and compute resources.</p>
-   * @public
-   */
-  Specification?: InferenceComponentSpecification | undefined;
-
-  /**
-   * <p>A list of specification objects for the inference component, one per instance type. Use this parameter when you want to specify different model or resource configurations for the inference component on each instance type. You can use either this parameter or the singular <code>Specification</code> parameter, but not both.</p>
-   * @public
-   */
-  Specifications?: InferenceComponentSpecification[] | undefined;
-
-  /**
-   * <p>Runtime settings for a model that is deployed with an inference component.</p>
-   * @public
-   */
-  RuntimeConfig?: InferenceComponentRuntimeConfig | undefined;
-
-  /**
-   * <p>The deployment configuration for the inference component. The configuration contains the desired deployment strategy and rollback settings.</p>
-   * @public
-   */
-  DeploymentConfig?: InferenceComponentDeploymentConfig | undefined;
 }

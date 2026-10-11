@@ -423,22 +423,25 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -446,6 +449,34 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example Check the status of an image build
+ * ```javascript
+ * // The following example retrieves an image build version to check its status while the build is running. The response is shortened to show a subset of the fields that Image Builder returns.
+ * const input = {
+ *   imageBuildVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0/1"
+ * };
+ * const command = new GetImageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   image: {
+ *     arn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0/1",
+ *     dateCreated: "2026-09-03T05:44:21.121Z",
+ *     enhancedImageMetadataEnabled: true,
+ *     name: "my-example-recipe",
+ *     platform: "Linux",
+ *     sourcePipelineArn: "arn:aws:imagebuilder:us-west-2:111122223333:image-pipeline/my-example-pipeline",
+ *     state: {
+ *       status: "BUILDING"
+ *     },
+ *     type: "AMI",
+ *     version: "1.0.0/1"
+ *   },
+ *   requestId: "4be892f0-e1d1-47f9-8bc1-d08ec5dec640"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

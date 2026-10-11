@@ -8,6 +8,7 @@ import { SecurityHubServiceException as __BaseException } from "./SecurityHubSer
  * @public
  */
 export class InternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#InternalException";
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -32,6 +33,7 @@ export class InternalException extends __BaseException {
  * @public
  */
 export class InvalidAccessException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#InvalidAccessException";
   readonly name = "InvalidAccessException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -57,6 +59,7 @@ export class InvalidAccessException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -82,6 +85,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -106,6 +110,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -130,6 +135,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -154,6 +160,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -180,6 +187,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -206,6 +214,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -230,6 +239,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -254,6 +264,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ResourceConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#ResourceConflictException";
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -278,6 +289,7 @@ export class ResourceConflictException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -302,6 +314,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class OrganizationalUnitNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#OrganizationalUnitNotFoundException";
   readonly name = "OrganizationalUnitNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -326,6 +339,7 @@ export class OrganizationalUnitNotFoundException extends __BaseException {
  * @public
  */
 export class OrganizationNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#OrganizationNotFoundException";
   readonly name = "OrganizationNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -353,6 +367,7 @@ export class OrganizationNotFoundException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.securityhub#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

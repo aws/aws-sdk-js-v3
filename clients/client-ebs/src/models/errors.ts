@@ -15,6 +15,7 @@ import type {
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ebs#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -43,6 +44,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ebs#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -66,6 +68,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class RequestThrottledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ebs#RequestThrottledException";
   readonly name = "RequestThrottledException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -94,6 +97,7 @@ export class RequestThrottledException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ebs#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -122,6 +126,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ebs#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -150,6 +155,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ebs#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -180,6 +186,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ConcurrentLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ebs#ConcurrentLimitExceededException";
   readonly name = "ConcurrentLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -203,6 +210,7 @@ export class ConcurrentLimitExceededException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ebs#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

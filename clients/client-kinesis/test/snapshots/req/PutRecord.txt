@@ -10,14 +10,14 @@ host: localhost
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: edd3dd3a25c8ea0a89991f5455f55bc5c2fe03314a4689960958c4fd331f5959
+x-amz-content-sha256: 23cc2a3dbaca48cd29a7e32c68b5545dc37dc818f22c56a1323fa25156959e25
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/kinesis/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [Uint8Array (json)]
 {
   "Data": "AQAAAQ==",
-  "PartitionKey": "__PartitionKey__",
   "StreamName": "__StreamName__",
+  "PartitionKey": "__PartitionKey__",
   "ExplicitHashKey": "__ExplicitHashKey__",
   "SequenceNumberForOrdering": "__SequenceNumberForOrdering__",
   "StreamARN": "__StreamARN__",

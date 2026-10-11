@@ -67,7 +67,7 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * //         voiceId: "STRING_VALUE", // required
  * //       },
  * //       speechRecognitionSettings: { // SpeechRecognitionSettings
- * //         speechModelPreference: "Standard" || "Neural" || "Deepgram",
+ * //         speechModelPreference: "Standard" || "Neural" || "Deepgram" || "Advanced",
  * //         speechModelConfig: { // SpeechModelConfig
  * //           deepgramConfig: { // DeepgramSpeechModelConfig
  * //             apiTokenSecretArn: "STRING_VALUE", // required
@@ -88,6 +88,9 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * //         startDelayInMilliseconds: Number("int"),
  * //         minimumPlayDurationInMilliseconds: Number("int"),
  * //         responseDeliveryDelayInMilliseconds: Number("int"),
+ * //       },
+ * //       speakerDiarizationSettings: { // SpeakerDiarizationSettings
+ * //         enabled: true || false, // required
  * //       },
  * //     },
  * //     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification

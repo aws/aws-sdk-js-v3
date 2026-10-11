@@ -366,9 +366,23 @@ export interface ResolveCustomerRequest {
 }
 
 /**
+ * <p>Metadata associated with a resolved customer. Includes the <code>AgreementId</code> of
+ *             the Amazon Web Services Marketplace agreement the customer accepted.</p>
+ * @public
+ */
+export interface Metadata {
+  /**
+   * <p>The unique identifier of the Amazon Web Services Marketplace agreement the customer accepted. Use it to
+   *             call Amazon Web Services Marketplace Agreement APIs.</p>
+   * @public
+   */
+  AgreementId?: string | undefined;
+}
+
+/**
  * <p>The result of the <code>ResolveCustomer</code> operation. Contains the
  *                 <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code>,
- *                 <code>ProductCode</code>, and <code>LicenseArn</code>.</p>
+ *                 <code>ProductCode</code>, <code>LicenseArn</code>, and <code>Metadata</code>.</p>
  * @public
  */
 export interface ResolveCustomerResult {
@@ -406,4 +420,11 @@ export interface ResolveCustomerResult {
    * @public
    */
   LicenseArn?: string | undefined;
+
+  /**
+   * <p>The metadata associated with the resolved customer, including the
+   *             <code>AgreementId</code> of the Amazon Web Services Marketplace agreement the customer accepted.</p>
+   * @public
+   */
+  Metadata?: Metadata | undefined;
 }

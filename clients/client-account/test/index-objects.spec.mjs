@@ -59,6 +59,7 @@ import {
   ListRegionsRequest$,
   ListRegionsResponse$,
   paginateListRegions,
+  PhoneNumberVerificationStatus,
   PrimaryEmailUpdateStatus,
   PutAccountName$,
   PutAccountNameCommand,
@@ -75,6 +76,10 @@ import {
   ResourceNotFoundException$,
   ResourceUnavailableException,
   ResourceUnavailableException$,
+  SendPhoneNumberVerification$,
+  SendPhoneNumberVerificationCommand,
+  SendPhoneNumberVerificationRequest$,
+  SendPhoneNumberVerificationResponse$,
   StartPrimaryEmailUpdate$,
   StartPrimaryEmailUpdateCommand,
   StartPrimaryEmailUpdateRequest$,
@@ -85,6 +90,10 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
+  VerifyPhoneNumber$,
+  VerifyPhoneNumberCommand,
+  VerifyPhoneNumberRequest$,
+  VerifyPhoneNumberResponse$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -121,8 +130,12 @@ assert(typeof PutAlternateContactCommand === "function");
 assert(typeof PutAlternateContact$ === "object");
 assert(typeof PutContactInformationCommand === "function");
 assert(typeof PutContactInformation$ === "object");
+assert(typeof SendPhoneNumberVerificationCommand === "function");
+assert(typeof SendPhoneNumberVerification$ === "object");
 assert(typeof StartPrimaryEmailUpdateCommand === "function");
 assert(typeof StartPrimaryEmailUpdate$ === "object");
+assert(typeof VerifyPhoneNumberCommand === "function");
+assert(typeof VerifyPhoneNumber$ === "object");
 // structural schemas
 assert(typeof AcceptPrimaryEmailUpdateRequest$ === "object");
 assert(typeof AcceptPrimaryEmailUpdateResponse$ === "object");
@@ -151,13 +164,18 @@ assert(typeof PutAccountNameRequest$ === "object");
 assert(typeof PutAlternateContactRequest$ === "object");
 assert(typeof PutContactInformationRequest$ === "object");
 assert(typeof Region$ === "object");
+assert(typeof SendPhoneNumberVerificationRequest$ === "object");
+assert(typeof SendPhoneNumberVerificationResponse$ === "object");
 assert(typeof StartPrimaryEmailUpdateRequest$ === "object");
 assert(typeof StartPrimaryEmailUpdateResponse$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
+assert(typeof VerifyPhoneNumberRequest$ === "object");
+assert(typeof VerifyPhoneNumberResponse$ === "object");
 // enums
 assert(typeof AccountState === "object");
 assert(typeof AlternateContactType === "object");
 assert(typeof AwsAccountState === "object");
+assert(typeof PhoneNumberVerificationStatus === "object");
 assert(typeof PrimaryEmailUpdateStatus === "object");
 assert(typeof RegionOptStatus === "object");
 assert(typeof ValidationExceptionReason === "object");

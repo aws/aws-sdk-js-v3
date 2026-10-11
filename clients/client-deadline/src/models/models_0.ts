@@ -28,6 +28,7 @@ import type {
   Ec2MarketType,
   EnvironmentTemplateType,
   FileSystemLocationType,
+  FleetSoftwareAddOnName,
   FleetStatus,
   JobAttachmentsFileSystem,
   JobEntityErrorCode,
@@ -477,6 +478,12 @@ export interface AssignedSession {
    * @public
    */
   logConfiguration: LogConfiguration | undefined;
+
+  /**
+   * <p>Key-value hints that the service provides to guide how the session runs. This value is used by the worker agent.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -1049,10 +1056,18 @@ export interface BatchGetJobError {
  * @public
  */
 export type JobParameter =
+  | JobParameter.BoolMember
+  | JobParameter.BoolListMember
   | JobParameter.FloatMember
+  | JobParameter.FloatListMember
   | JobParameter.IntMember
+  | JobParameter.IntListMember
+  | JobParameter.IntListListMember
   | JobParameter.PathMember
+  | JobParameter.PathListMember
+  | JobParameter.RangeExprMember
   | JobParameter.StringMember
+  | JobParameter.StringListMember
   | JobParameter.$UnknownMember;
 
 /**
@@ -1068,6 +1083,14 @@ export namespace JobParameter {
     float?: never;
     string?: never;
     path?: never;
+    bool?: never;
+    rangeExpr?: never;
+    stringList?: never;
+    pathList?: never;
+    intList?: never;
+    floatList?: never;
+    boolList?: never;
+    intListList?: never;
     $unknown?: never;
   }
 
@@ -1080,6 +1103,14 @@ export namespace JobParameter {
     float: string;
     string?: never;
     path?: never;
+    bool?: never;
+    rangeExpr?: never;
+    stringList?: never;
+    pathList?: never;
+    intList?: never;
+    floatList?: never;
+    boolList?: never;
+    intListList?: never;
     $unknown?: never;
   }
 
@@ -1092,6 +1123,14 @@ export namespace JobParameter {
     float?: never;
     string: string;
     path?: never;
+    bool?: never;
+    rangeExpr?: never;
+    stringList?: never;
+    pathList?: never;
+    intList?: never;
+    floatList?: never;
+    boolList?: never;
+    intListList?: never;
     $unknown?: never;
   }
 
@@ -1104,6 +1143,174 @@ export namespace JobParameter {
     float?: never;
     string?: never;
     path: string;
+    bool?: never;
+    rangeExpr?: never;
+    stringList?: never;
+    pathList?: never;
+    intList?: never;
+    floatList?: never;
+    boolList?: never;
+    intListList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A boolean value represented as a string. Accepted values are <code>true</code>, <code>false</code>, <code>yes</code>, <code>no</code>, <code>on</code>, <code>off</code>, <code>1</code>, and <code>0</code>, case-insensitive.</p>
+   * @public
+   */
+  export interface BoolMember {
+    int?: never;
+    float?: never;
+    string?: never;
+    path?: never;
+    bool: string;
+    rangeExpr?: never;
+    stringList?: never;
+    pathList?: never;
+    intList?: never;
+    floatList?: never;
+    boolList?: never;
+    intListList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An Open Job Description range expression represented as a string, such as <code>1-10:2</code>.</p>
+   * @public
+   */
+  export interface RangeExprMember {
+    int?: never;
+    float?: never;
+    string?: never;
+    path?: never;
+    bool?: never;
+    rangeExpr: string;
+    stringList?: never;
+    pathList?: never;
+    intList?: never;
+    floatList?: never;
+    boolList?: never;
+    intListList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of UTF-8 strings.</p>
+   * @public
+   */
+  export interface StringListMember {
+    int?: never;
+    float?: never;
+    string?: never;
+    path?: never;
+    bool?: never;
+    rangeExpr?: never;
+    stringList: string[];
+    pathList?: never;
+    intList?: never;
+    floatList?: never;
+    boolList?: never;
+    intListList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of file system paths, each represented as a string.</p>
+   * @public
+   */
+  export interface PathListMember {
+    int?: never;
+    float?: never;
+    string?: never;
+    path?: never;
+    bool?: never;
+    rangeExpr?: never;
+    stringList?: never;
+    pathList: string[];
+    intList?: never;
+    floatList?: never;
+    boolList?: never;
+    intListList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of signed integers, each represented as a string.</p>
+   * @public
+   */
+  export interface IntListMember {
+    int?: never;
+    float?: never;
+    string?: never;
+    path?: never;
+    bool?: never;
+    rangeExpr?: never;
+    stringList?: never;
+    pathList?: never;
+    intList: string[];
+    floatList?: never;
+    boolList?: never;
+    intListList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of double precision IEEE-754 floating point numbers, each represented as a string.</p>
+   * @public
+   */
+  export interface FloatListMember {
+    int?: never;
+    float?: never;
+    string?: never;
+    path?: never;
+    bool?: never;
+    rangeExpr?: never;
+    stringList?: never;
+    pathList?: never;
+    intList?: never;
+    floatList: string[];
+    boolList?: never;
+    intListList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of boolean values, each represented as a string.</p>
+   * @public
+   */
+  export interface BoolListMember {
+    int?: never;
+    float?: never;
+    string?: never;
+    path?: never;
+    bool?: never;
+    rangeExpr?: never;
+    stringList?: never;
+    pathList?: never;
+    intList?: never;
+    floatList?: never;
+    boolList: string[];
+    intListList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of lists of signed integers, each represented as a string.</p>
+   * @public
+   */
+  export interface IntListListMember {
+    int?: never;
+    float?: never;
+    string?: never;
+    path?: never;
+    bool?: never;
+    rangeExpr?: never;
+    stringList?: never;
+    pathList?: never;
+    intList?: never;
+    floatList?: never;
+    boolList?: never;
+    intListList: string[][];
     $unknown?: never;
   }
 
@@ -1115,6 +1322,14 @@ export namespace JobParameter {
     float?: never;
     string?: never;
     path?: never;
+    bool?: never;
+    rangeExpr?: never;
+    stringList?: never;
+    pathList?: never;
+    intList?: never;
+    floatList?: never;
+    boolList?: never;
+    intListList?: never;
     $unknown: [string, any];
   }
 
@@ -1127,6 +1342,14 @@ export namespace JobParameter {
     float: (value: string) => T;
     string: (value: string) => T;
     path: (value: string) => T;
+    bool: (value: string) => T;
+    rangeExpr: (value: string) => T;
+    stringList: (value: string[]) => T;
+    pathList: (value: string[]) => T;
+    intList: (value: string[]) => T;
+    floatList: (value: string[]) => T;
+    boolList: (value: string[]) => T;
+    intListList: (value: string[][]) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1508,6 +1731,18 @@ export interface EnvironmentDetailsEntity {
    * @public
    */
   template: __DocumentType | undefined;
+
+  /**
+   * <p>The Open Job Description extensions that the environment uses. This value is used by the worker agent.</p>
+   * @public
+   */
+  extensions?: string[] | undefined;
+
+  /**
+   * <p>The resolved symbol table for the environment's expressions, serialized as JSON. This value is used by the worker agent.</p>
+   * @public
+   */
+  resolvedSymbolTable?: string | undefined;
 }
 
 /**
@@ -1678,6 +1913,12 @@ export interface JobDetailsEntity {
   schemaVersion: string | undefined;
 
   /**
+   * <p>The Open Job Description extensions that the job template uses. This value is used by the worker agent.</p>
+   * @public
+   */
+  extensions?: string[] | undefined;
+
+  /**
    * <p>The path mapping rules.</p>
    * @public
    */
@@ -1718,6 +1959,18 @@ export interface StepDetailsEntity {
    * @public
    */
   dependencies: string[] | undefined;
+
+  /**
+   * <p>The Open Job Description extensions that the step uses. This value is used by the worker agent.</p>
+   * @public
+   */
+  extensions?: string[] | undefined;
+
+  /**
+   * <p>The resolved symbol table for the step's expressions, serialized as JSON. This value is used by the worker agent.</p>
+   * @public
+   */
+  resolvedSymbolTable?: string | undefined;
 }
 
 /**
@@ -4577,6 +4830,18 @@ export interface Ec2EbsVolume {
 }
 
 /**
+ * <p>Software that the service installs on worker hosts in a service-managed fleet.</p>
+ * @public
+ */
+export interface FleetSoftwareAddOn {
+  /**
+   * <p>The name of the software add-on. The supported value is <code>docker</code>.</p>
+   * @public
+   */
+  name: FleetSoftwareAddOnName | undefined;
+}
+
+/**
  * <p>The Amazon EC2 instance capabilities.</p>
  * @public
  */
@@ -4640,6 +4905,12 @@ export interface ServiceManagedEc2InstanceCapabilities {
    * @public
    */
   customAttributes?: FleetAttributeCapability[] | undefined;
+
+  /**
+   * <p>The software add-ons that the service installs on worker hosts when they launch.</p>
+   * @public
+   */
+  softwareAddOns?: FleetSoftwareAddOn[] | undefined;
 }
 
 /**
@@ -5761,7 +6032,7 @@ export interface CreateWorkerResponse {
 }
 
 /**
- * <p>The time stamp in date-time format.</p>
+ * <p>The timestamp in date-time format.</p>
  * @public
  */
 export interface DateTimeFilterExpression {
@@ -9555,45 +9826,4 @@ export interface ListSessionsResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStepConsumersRequest {
-  /**
-   * <p>The farm ID for the list of step consumers.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID for the step consumer.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The job ID for the step consumer.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The step ID to include on the list.</p>
-   * @public
-   */
-  stepId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
 }

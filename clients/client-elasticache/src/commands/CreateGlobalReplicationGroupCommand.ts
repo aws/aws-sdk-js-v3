@@ -51,6 +51,12 @@ export interface CreateGlobalReplicationGroupCommandOutput extends CreateGlobalR
  *   GlobalReplicationGroupIdSuffix: "STRING_VALUE", // required
  *   GlobalReplicationGroupDescription: "STRING_VALUE",
  *   PrimaryReplicationGroupId: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
@@ -107,6 +113,11 @@ export interface CreateGlobalReplicationGroupCommandOutput extends CreateGlobalR
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than
+ *             the allowed number of tags. The maximum number of tags permitted on a resource is
+ *             50.</p>
  *
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>

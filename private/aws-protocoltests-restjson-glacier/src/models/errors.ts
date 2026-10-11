@@ -7,6 +7,7 @@ import { GlacierServiceException as __BaseException } from "./GlacierServiceExce
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   type?: string | undefined;
@@ -30,6 +31,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class MissingParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#MissingParameterValueException";
   readonly name = "MissingParameterValueException" as const;
   readonly $fault = "client" as const;
   type?: string | undefined;
@@ -53,6 +55,7 @@ export class MissingParameterValueException extends __BaseException {
  * @public
  */
 export class RequestTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#RequestTimeoutException";
   readonly name = "RequestTimeoutException" as const;
   readonly $fault = "client" as const;
   type?: string | undefined;
@@ -76,6 +79,7 @@ export class RequestTimeoutException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   type?: string | undefined;
@@ -99,6 +103,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.glacier#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   type?: string | undefined;

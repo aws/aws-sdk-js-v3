@@ -3,6 +3,19 @@
  * @public
  * @enum
  */
+export const ExtendedAnalysisMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ExtendedAnalysisMode = (typeof ExtendedAnalysisMode)[keyof typeof ExtendedAnalysisMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const SummaryGenerationMode = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",

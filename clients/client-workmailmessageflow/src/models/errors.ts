@@ -8,6 +8,7 @@ import { WorkMailMessageFlowServiceException as __BaseException } from "./WorkMa
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmailmessageflow#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -44,6 +45,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidContentLocation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmailmessageflow#InvalidContentLocation";
   readonly name = "InvalidContentLocation" as const;
   readonly $fault = "client" as const;
   /**
@@ -64,6 +66,7 @@ export class InvalidContentLocation extends __BaseException {
  * @public
  */
 export class MessageFrozen extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmailmessageflow#MessageFrozen";
   readonly name = "MessageFrozen" as const;
   readonly $fault = "client" as const;
   /**
@@ -85,6 +88,7 @@ export class MessageFrozen extends __BaseException {
  * @public
  */
 export class MessageRejected extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmailmessageflow#MessageRejected";
   readonly name = "MessageRejected" as const;
   readonly $fault = "client" as const;
   /**

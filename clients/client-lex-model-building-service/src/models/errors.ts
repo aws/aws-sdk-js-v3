@@ -11,6 +11,7 @@ import type { ResourceReference } from "./models_0";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelbuildingservice#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -33,6 +34,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelbuildingservice#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -54,6 +56,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelbuildingservice#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -74,6 +77,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelbuildingservice#InternalFailureException";
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -94,6 +98,7 @@ export class InternalFailureException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelbuildingservice#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   retryAfterSeconds?: string | undefined;
@@ -117,6 +122,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelbuildingservice#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -139,6 +145,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class PreconditionFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelbuildingservice#PreconditionFailedException";
   readonly name = "PreconditionFailedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -174,6 +181,7 @@ export class PreconditionFailedException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexmodelbuildingservice#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   referenceType?: ReferenceType | undefined;

@@ -109,6 +109,13 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * //       contentText: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   errors: [ // RetrieveErrorList
+ * //     { // RetrieveError
+ * //       associationId: "STRING_VALUE", // required
+ * //       code: "STRING_VALUE", // required
+ * //       message: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```

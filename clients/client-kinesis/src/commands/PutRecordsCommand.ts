@@ -97,7 +97,7 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  *     { // PutRecordsRequestEntry
  *       Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
  *       ExplicitHashKey: "STRING_VALUE",
- *       PartitionKey: "STRING_VALUE", // required
+ *       PartitionKey: "STRING_VALUE",
  *     },
  *   ],
  *   StreamName: "STRING_VALUE",

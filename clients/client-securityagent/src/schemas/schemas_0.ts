@@ -3,9 +3,15 @@ const _AA = "AddArtifact";
 const _AAI = "AddArtifactInput";
 const _AAO = "AddArtifactOutput";
 const _ADE = "AccessDeniedException";
+const _ADOII = "AzureDevOpsIntegrationInput";
+const _ADORC = "AzureDevOpsResourceCapabilities";
+const _ADORM = "AzureDevOpsRepositoryMetadata";
+const _ADORR = "AzureDevOpsRepositoryResource";
 const _AL = "ActorList";
+const _AM = "ActorMessage";
 const _AMI = "ArtifactMetadataItem";
-const _AML = "ArtifactMetadataList";
+const _AML = "ActorMessageList";
+const _AMLr = "ArtifactMetadataList";
 const _AS = "AgentSpace";
 const _ASL = "AgentSpaceList";
 const _ASLp = "ApplicationSummaryList";
@@ -24,6 +30,7 @@ const _BCSRI = "BatchCreateSecurityRequirementsInput";
 const _BCSRO = "BatchCreateSecurityRequirementsOutput";
 const _BCSRR = "BatchCreateSecurityRequirementResult";
 const _BCSRRL = "BatchCreateSecurityRequirementResultList";
+const _BDCII = "BitbucketDataCenterIntegrationInput";
 const _BDCR = "BatchDeleteCodeReviews";
 const _BDCRI = "BatchDeleteCodeReviewsInput";
 const _BDCRO = "BatchDeleteCodeReviewsOutput";
@@ -100,6 +107,7 @@ const _CAS = "CreateAgentSpace";
 const _CASI = "CreateAgentSpaceInput";
 const _CASO = "CreateAgentSpaceOutput";
 const _CC = "CertificateChain";
+const _CCC = "CiCdConfiguration";
 const _CCP = "CaCertificatePem";
 const _CCR = "CreateCodeReview";
 const _CCRI = "CreateCodeReviewInput";
@@ -143,6 +151,7 @@ const _CRSo = "CodeReviewSummary";
 const _CRT = "CodeRemediationTask";
 const _CRTD = "CodeRemediationTaskDetails";
 const _CRTDL = "CodeRemediationTaskDetailsList";
+const _CS = "ClientSecret";
 const _CSRE = "CreateSecurityRequirementEntry";
 const _CSREL = "CreateSecurityRequirementEntryList";
 const _CSRP = "CreateSecurityRequirementPack";
@@ -249,6 +258,9 @@ const _ISRO = "ImportSecurityRequirementsOutput";
 const _ISm = "ImportSource";
 const _LA = "ListApplications";
 const _LAI = "ListArtifactsInput";
+const _LAM = "ListActorMessages";
+const _LAMI = "ListActorMessagesInput";
+const _LAMO = "ListActorMessagesOutput";
 const _LAO = "ListArtifactsOutput";
 const _LAR = "ListApplicationsRequest";
 const _LARi = "ListApplicationsResponse";
@@ -339,8 +351,11 @@ const _PRC = "ProviderResourceCapabilities";
 const _PS = "PentestSummary";
 const _PSL = "PentestSummaryList";
 const _RD = "ReportDestination";
+const _RF = "ReportFilters";
 const _RNFE = "ResourceNotFoundException";
 const _S = "Step";
+const _SC = "ScopeChange";
+const _SCL = "ScopeChangeList";
 const _SCR = "SourceCodeRepository";
 const _SCRI = "StartCodeRemediationInput";
 const _SCRJ = "StartCodeReviewJob";
@@ -354,8 +369,11 @@ const _SCRO = "StartCodeRemediationOutput";
 const _SCRt = "StartCodeRemediation";
 const _SEA = "SensitiveEmailAddress";
 const _SL = "StepList";
+const _SMB = "SensitiveMessageBody";
 const _SMI = "SelfManagedInput";
 const _SMIe = "ServiceManagedInput";
+const _SMS = "SensitiveMessageSender";
+const _SMSe = "SensitiveMessageSubject";
 const _SPJ = "StartPentestJob";
 const _SPJI = "StartPentestJobInput";
 const _SPJIt = "StopPentestJobInput";
@@ -363,6 +381,7 @@ const _SPJO = "StartPentestJobOutput";
 const _SPJOt = "StopPentestJobOutput";
 const _SPJt = "StopPentestJob";
 const _SQEE = "ServiceQuotaExceededException";
+const _SR = "ScopeResult";
 const _SRA = "SecurityRequirementArtifact";
 const _SRAL = "SecurityRequirementArtifactList";
 const _SRDC = "SecurityRequirementDocumentContent";
@@ -387,6 +406,10 @@ const _TDSL = "TargetDomainSummaryList";
 const _TE = "ThrottlingException";
 const _TEL = "ThreatEvidenceList";
 const _TES = "ThreatEvidenceShape";
+const _TF = "TriggerFilter";
+const _TFG = "TriggerFilterGroup";
+const _TFGr = "TriggerFilterGroups";
+const _TFL = "TriggerFilterList";
 const _TL = "TaskList";
 const _TLh = "ThreatList";
 const _TM = "ThreatModel";
@@ -407,6 +430,7 @@ const _TRO = "TagResourceOutput";
 const _TS = "TaskSummary";
 const _TSL = "TaskSummaryList";
 const _TSLh = "ThreatSummaryList";
+const _TSe = "TestScope";
 const _TSh = "ThreatSummary";
 const _Th = "Threat";
 const _UA = "UpdateApplication";
@@ -422,6 +446,9 @@ const _UCRO = "UpdateCodeReviewOutput";
 const _UF = "UpdateFinding";
 const _UFI = "UpdateFindingInput";
 const _UFO = "UpdateFindingOutput";
+const _UI = "UpdateIntegration";
+const _UII = "UpdateIntegrationInput";
+const _UIO = "UpdateIntegrationOutput";
 const _UIR = "UpdateIntegratedResources";
 const _UIRI = "UpdateIntegratedResourcesInput";
 const _UIRO = "UpdateIntegratedResourcesOutput";
@@ -461,14 +488,19 @@ const _VSEVL = "VerificationScriptEnvVarList";
 const _VTD = "VerifyTargetDomain";
 const _VTDI = "VerifyTargetDomainInput";
 const _VTDO = "VerifyTargetDomainOutput";
+const _WS = "WebhookSecret";
 const _a = "authentication";
 const _aC = "artifactContent";
 const _aD = "allowedDomains";
+const _aDO = "azureDevOps";
+const _aDOR = "azureDevOpsRepository";
 const _aI = "artifactId";
+const _aIc = "actorIdentifier";
 const _aIp = "applicationId";
 const _aIr = "artifactIds";
 const _aML = "artifactMetadataList";
 const _aN = "applicationName";
+const _aNn = "annotationNotes";
 const _aR = "awsResources";
 const _aRl = "alignmentRationale";
 const _aS = "agentSpaces";
@@ -485,19 +517,25 @@ const _ac = "actors";
 const _an = "anchor";
 const _ar = "artifact";
 const _as = "assets";
-const _b = "branch";
+const _b = "body";
+const _bCS = "baseCommitSha";
+const _bDC = "bitbucketDataCenter";
 const _bR = "bitbucketRepository";
 const _bi = "bitbucket";
+const _br = "branch";
 const _c = "client";
 const _cA = "createdAt";
 const _cB = "createdBy";
+const _cC = "cicdConfiguration";
 const _cD = "createDocument";
 const _cDL = "codeDiffLink";
 const _cDo = "confluenceDocument";
 const _cET = "certificateExpiryTime";
 const _cH = "customHeaders";
-const _cI = "containerId";
+const _cI = "clientId";
+const _cIo = "containerId";
 const _cL = "codeLocations";
+const _cLo = "confidenceLevels";
 const _cN = "customerNote";
 const _cNa = "categoryName";
 const _cR = "codeReviews";
@@ -514,7 +552,9 @@ const _cRS = "codeReviewSettings";
 const _cRSo = "codeRemediationStrategy";
 const _cRSod = "codeReviewSummaries";
 const _cRT = "codeRemediationTask";
+const _cRo = "complianceReport";
 const _cS = "controlsScanning";
+const _cSl = "clientSecret";
 const _cSs = "csrfState";
 const _cT = "contextType";
 const _cUS = "cleanUpStrategy";
@@ -544,6 +584,7 @@ const _dS = "diffSource";
 const _dSRN = "deletedSecurityRequirementNames";
 const _dT = "dnsTxt";
 const _de = "deleted";
+const _dec = "decision";
 const _do = "domain";
 const _doc = "documents";
 const _e = "error";
@@ -559,8 +600,10 @@ const _eV = "envVars";
 const _ef = "effect";
 const _em = "email";
 const _en = "endpoints";
+const _ena = "enabled";
 const _er = "errors";
 const _ev = "evaluation";
+const _eve = "events";
 const _evi = "evidence";
 const _f = "failed";
 const _fD = "fetchDocument";
@@ -571,8 +614,10 @@ const _fM = "failureMessage";
 const _fN = "fileName";
 const _fP = "filePath";
 const _fS = "findingsSummaries";
+const _fT = "findingTypes";
 const _fi = "findings";
 const _fil = "filter";
+const _filt = "filters";
 const _fo = "format";
 const _g = "github";
 const _gI = "groupId";
@@ -582,6 +627,7 @@ const _gRi = "gitlabRepository";
 const _gi = "gitlab";
 const _h = "http";
 const _hA = "hostAddress";
+const _hCS = "headCommitSha";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _hR = "httpRoute";
@@ -626,13 +672,15 @@ const _lUB = "lastUpdatedBy";
 const _m = "message";
 const _mFA = "mfaForwardingAddress";
 const _mI = "membershipId";
+const _mM = "matchMode";
 const _mR = "maxResults";
 const _mS = "membershipSummaries";
 const _mT = "memberType";
 const _mTH = "maxTaskHours";
 const _mTa = "managementType";
-const _me = "metadata";
-const _met = "method";
+const _me = "messages";
+const _met = "metadata";
+const _meth = "method";
 const _mo = "mode";
 const _n = "name";
 const _nF = "notFound";
@@ -640,17 +688,19 @@ const _nT = "nextToken";
 const _nTC = "networkTrafficConfig";
 const _nTRT = "networkTrafficRuleType";
 const _na = "namespace";
-const _o = "overview";
+const _o = "organization";
 const _oFI = "originalFindingId";
 const _oN = "organizationName";
 const _op = "operation";
+const _ov = "overview";
 const _ow = "owner";
-const _p = "pentests";
+const _p = "project";
 const _pC = "privateConnections";
 const _pCN = "privateConnectionName";
-const _pI = "packId";
-const _pIa = "pageId";
+const _pI = "projectId";
+const _pIa = "packId";
 const _pIac = "packageId";
+const _pIag = "pageId";
 const _pIar = "parentId";
 const _pIe = "pentestIds";
 const _pIen = "pentestId";
@@ -665,26 +715,34 @@ const _pS = "pentestSummaries";
 const _pT = "providerType";
 const _pa = "pattern";
 const _pat = "path";
+const _patt = "patterns";
+const _pe = "pentests";
 const _pr = "provider";
 const _pre = "prerequisites";
 const _pref = "prefix";
 const _qC = "quotaCode";
 const _r = "remediation";
-const _rA = "roleArn";
+const _rA = "receivedAt";
 const _rAe = "resourceArn";
+const _rAo = "roleArn";
 const _rC = "remediateCode";
 const _rCI = "resourceConfigurationId";
+const _rCe = "remediationCode";
 const _rD = "reportDestination";
+const _rF = "reportFilters";
 const _rGI = "resourceGatewayId";
 const _rI = "resourceId";
 const _rJI = "revalidationJobIds";
 const _rL = "riskLevel";
+const _rLi = "riskLevels";
 const _rN = "repoName";
 const _rP = "routePath";
 const _rS = "riskScore";
 const _rT = "riskType";
 const _rTe = "redirectTo";
 const _rTes = "resourceType";
+const _rTi = "riskTypes";
+const _rU = "reportUrl";
 const _re = "recommendation";
 const _rea = "reason";
 const _reas = "reasoning";
@@ -696,6 +754,7 @@ const _sA = "secretArns";
 const _sAu = "subnetArns";
 const _sB = "s3Buckets";
 const _sC = "serviceCode";
+const _sCc = "scopeChanges";
 const _sCo = "sourceCode";
 const _sD = "scopeDocs";
 const _sFI = "selectedFindingIds";
@@ -713,6 +772,7 @@ const _sRN = "securityRequirementNames";
 const _sRNe = "securityRequirementName";
 const _sRPS = "securityRequirementPackSummaries";
 const _sRS = "securityRequirementSummaries";
+const _sRc = "scopeResult";
 const _sRe = "serviceRole";
 const _sRt = "statusReason";
 const _sT = "spaceTitle";
@@ -721,13 +781,17 @@ const _sU = "siteUrl";
 const _sUc = "scriptUrl";
 const _sUr = "s3Uri";
 const _se = "server";
+const _sec = "secret";
+const _sen = "sender";
 const _sev = "severity";
 const _so = "source";
 const _st = "state";
 const _sta = "status";
 const _stat = "statement";
+const _statu = "statuses";
 const _ste = "steps";
 const _str = "stride";
+const _su = "subject";
 const _t = "type";
 const _tA = "threatAction";
 const _tCC = "trustedCaCertificates";
@@ -738,6 +802,7 @@ const _tDN = "targetDomainName";
 const _tDS = "targetDomainSummaries";
 const _tDa = "taskDetails";
 const _tE = "targetEndpoint";
+const _tFG = "triggerFilterGroups";
 const _tH = "taskHours";
 const _tI = "taskIds";
 const _tIa = "taskId";
@@ -757,8 +822,11 @@ const _tMJT = "threatModelJobTasks";
 const _tMJTI = "threatModelJobTaskIds";
 const _tMJTS = "threatModelJobTaskSummaries";
 const _tMS = "threatModelSummaries";
-const _tS = "threatSource";
+const _tRI = "triggerRunId";
+const _tS = "testScope";
 const _tSa = "taskSummaries";
+const _tSas = "taskStatuses";
+const _tSh = "threatSource";
 const _tT = "tokenType";
 const _tU = "targetUrl";
 const _ta = "tasks";
@@ -790,6 +858,8 @@ const _vSa = "validationStatus";
 const _vSe = "verificationScript";
 const _vp = "vpcs";
 const _w = "workspace";
+const _wA = "webhookAction";
+const _wU = "webhookUrl";
 const n0 = "com.amazonaws.securityagent";
 
 // smithy-typescript generated code
@@ -874,12 +944,22 @@ export const errorTypeRegistries = [
 var AccessToken: StaticSimpleSchema = [0, n0, _AT, 8, 0];
 var CaCertificatePem: StaticSimpleSchema = [0, n0, _CCP, 8, 0];
 var CertificateChain: StaticSimpleSchema = [0, n0, _CC, 8, 0];
+var ClientSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
 var SecurityRequirementDocumentContent: StaticSimpleSchema = [0, n0, _SRDC, 8, 21];
 var SensitiveEmailAddress: StaticSimpleSchema = [0, n0, _SEA, 8, 0];
+var SensitiveMessageBody: StaticSimpleSchema = [0, n0, _SMB, 8, 0];
+var SensitiveMessageSender: StaticSimpleSchema = [0, n0, _SMS, 8, 0];
+var SensitiveMessageSubject: StaticSimpleSchema = [0, n0, _SMSe, 8, 0];
+var WebhookSecret: StaticSimpleSchema = [0, n0, _WS, 8, 0];
 export var Actor$: StaticStructureSchema = [3, n0, _A,
   0,
   [_i, _u, _a, _d, _eEM, _mFA],
   [0, 64 | 0, () => Authentication$, 0, 2, [() => SensitiveEmailAddress, 0]]
+];
+export var ActorMessage$: StaticStructureSchema = [3, n0, _AM,
+  0,
+  [_sen, _su, _b, _rA],
+  [[() => SensitiveMessageSender, 0], [() => SensitiveMessageSubject, 0], [() => SensitiveMessageBody, 0], 5]
 ];
 export var AddArtifactInput$: StaticStructureSchema = [3, n0, _AAI,
   0,
@@ -936,14 +1016,34 @@ export var AWSResources$: StaticStructureSchema = [3, n0, _AWSR,
   [_vp, _lG, _sB, _sA, _lFA, _iRa],
   [() => VpcConfigs, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
+export var AzureDevOpsIntegrationInput$: StaticStructureSchema = [3, n0, _ADOII,
+  0,
+  [_cod, _st, _oN],
+  [0, 0, 0], 3
+];
+export var AzureDevOpsRepositoryMetadata$: StaticStructureSchema = [3, n0, _ADORM,
+  0,
+  [_n, _pRI, _o, _p, _pI, _aTc],
+  [0, 0, 0, 0, 0, 0], 3
+];
+export var AzureDevOpsRepositoryResource$: StaticStructureSchema = [3, n0, _ADORR,
+  0,
+  [_n, _o, _p],
+  [0, 0, 0], 2
+];
+export var AzureDevOpsResourceCapabilities$: StaticStructureSchema = [3, n0, _ADORC,
+  0,
+  [_tFG, _lC, _rC],
+  [() => TriggerFilterGroups, 2, 2]
+];
 export var BatchCreateSecurityRequirementResult$: StaticStructureSchema = [3, n0, _BCSRR,
   0,
-  [_pI, _n, _d, _do, _ev, _cA, _uA, _r],
+  [_pIa, _n, _d, _do, _ev, _cA, _uA, _r],
   [0, 0, 0, 0, 0, 5, 5, 0], 7
 ];
 export var BatchCreateSecurityRequirementsInput$: StaticStructureSchema = [3, n0, _BCSRI,
   0,
-  [_pI, _sR],
+  [_pIa, _sR],
   [0, () => CreateSecurityRequirementEntryList], 2
 ];
 export var BatchCreateSecurityRequirementsOutput$: StaticStructureSchema = [3, n0, _BCSRO,
@@ -973,7 +1073,7 @@ export var BatchDeletePentestsOutput$: StaticStructureSchema = [3, n0, _BDPO,
 ];
 export var BatchDeleteSecurityRequirementsInput$: StaticStructureSchema = [3, n0, _BDSRI,
   0,
-  [_pI, _sRN],
+  [_pIa, _sRN],
   [0, 64 | 0], 2
 ];
 export var BatchDeleteSecurityRequirementsOutput$: StaticStructureSchema = [3, n0, _BDSRO,
@@ -1078,17 +1178,17 @@ export var BatchGetPentestsInput$: StaticStructureSchema = [3, n0, _BGPI,
 ];
 export var BatchGetPentestsOutput$: StaticStructureSchema = [3, n0, _BGPO,
   0,
-  [_p, _nF],
+  [_pe, _nF],
   [[() => PentestList, 0], 64 | 0]
 ];
 export var BatchGetSecurityRequirementResult$: StaticStructureSchema = [3, n0, _BGSRR,
   0,
-  [_pI, _n, _d, _do, _ev, _cA, _uA, _r],
+  [_pIa, _n, _d, _do, _ev, _cA, _uA, _r],
   [0, 0, 0, 0, 0, 5, 5, 0], 7
 ];
 export var BatchGetSecurityRequirementsInput$: StaticStructureSchema = [3, n0, _BGSRI,
   0,
-  [_pI, _sRN],
+  [_pIa, _sRN],
   [0, 64 | 0], 2
 ];
 export var BatchGetSecurityRequirementsOutput$: StaticStructureSchema = [3, n0, _BGSRO,
@@ -1153,13 +1253,18 @@ export var BatchSecurityRequirementError$: StaticStructureSchema = [3, n0, _BSRE
 ];
 export var BatchUpdateSecurityRequirementsInput$: StaticStructureSchema = [3, n0, _BUSRI,
   0,
-  [_pI, _sR],
+  [_pIa, _sR],
   [0, () => UpdateSecurityRequirementEntryList], 2
 ];
 export var BatchUpdateSecurityRequirementsOutput$: StaticStructureSchema = [3, n0, _BUSRO,
   0,
   [_uSRN, _er],
   [64 | 0, () => BatchSecurityRequirementErrors], 2
+];
+export var BitbucketDataCenterIntegrationInput$: StaticStructureSchema = [3, n0, _BDCII,
+  0,
+  [_tU, _cod, _st],
+  [0, 0, 0], 3
 ];
 export var BitbucketIntegrationInput$: StaticStructureSchema = [3, n0, _BII,
   0,
@@ -1178,13 +1283,18 @@ export var BitbucketRepositoryResource$: StaticStructureSchema = [3, n0, _BRR,
 ];
 export var BitbucketResourceCapabilities$: StaticStructureSchema = [3, n0, _BRC,
   0,
-  [_lC, _rC],
-  [2, 2]
+  [_tFG, _lC, _rC],
+  [() => TriggerFilterGroups, 2, 2]
 ];
 export var Category$: StaticStructureSchema = [3, n0, _C,
   0,
   [_n, _iP],
   [0, 2]
+];
+export var CiCdConfiguration$: StaticStructureSchema = [3, n0, _CCC,
+  0,
+  [_ena],
+  [2]
 ];
 export var CloudWatchLog$: StaticStructureSchema = [3, n0, _CWL,
   0,
@@ -1208,13 +1318,13 @@ export var CodeRemediationTaskDetails$: StaticStructureSchema = [3, n0, _CRTD,
 ];
 export var CodeReview$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_cRIo, _aSI, _ti, _as, _sRe, _lCo, _cRSo, _vM, _mTH, _cA, _uA],
-  [0, 0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 1, 5, 5], 4
+  [_cRIo, _aSI, _ti, _as, _sRe, _lCo, _cRSo, _vM, _mTH, _rD, _rF, _cA, _uA],
+  [0, 0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 1, () => ReportDestination$, () => ReportFilters$, 5, 5], 4
 ];
 export var CodeReviewJob$: StaticStructureSchema = [3, n0, _CRJ,
   0,
-  [_cRJIo, _cRIo, _ti, _o, _sta, _doc, _sCo, _ste, _eC, _sRe, _lCo, _eI, _iR, _cRSo, _mTH, _cA, _uA],
-  [0, 0, 0, 0, 0, () => DocumentList, () => SourceCodeRepositoryList, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => ErrorInformation$, () => IntegratedRepositoryList, 0, 1, 5, 5]
+  [_cRJIo, _cRIo, _ti, _ov, _sta, _doc, _sCo, _ste, _eC, _sRe, _lCo, _eI, _iR, _cRSo, _mTH, _rD, _cA, _uA],
+  [0, 0, 0, 0, 0, () => DocumentList, () => SourceCodeRepositoryList, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => ErrorInformation$, () => IntegratedRepositoryList, 0, 1, () => ReportDestination$, 5, 5]
 ];
 export var CodeReviewJobSummary$: StaticStructureSchema = [3, n0, _CRJS,
   0,
@@ -1243,12 +1353,12 @@ export var CodeReviewSummary$: StaticStructureSchema = [3, n0, _CRSo,
 ];
 export var ConfluenceDocumentMetadata$: StaticStructureSchema = [3, n0, _CDM,
   0,
-  [_n, _pRI, _sK, _pIa, _ti, _sT],
+  [_n, _pRI, _sK, _pIag, _ti, _sT],
   [0, 0, 0, 0, 0, 0], 4
 ];
 export var ConfluenceDocumentResource$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_n, _sK, _pIa, _ti, _sT],
+  [_n, _sK, _pIag, _ti, _sT],
   [0, 0, 0, 0, 0], 3
 ];
 export var ConfluenceIntegrationInput$: StaticStructureSchema = [3, n0, _CII,
@@ -1273,7 +1383,7 @@ export var CreateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _CASO,
 ];
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_iIA, _rA, _dKKI, _tag],
+  [_iIA, _rAo, _dKKI, _tag],
   [0, 0, 0, 128 | 0]
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
@@ -1283,13 +1393,13 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateCodeReviewInput$: StaticStructureSchema = [3, n0, _CCRI,
   0,
-  [_ti, _aSI, _as, _sRe, _lCo, _cRSo, _vM, _mTH],
-  [0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 1], 3
+  [_ti, _aSI, _as, _sRe, _lCo, _cRSo, _vM, _mTH, _rD, _rF],
+  [0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 1, () => ReportDestination$, () => ReportFilters$], 3
 ];
 export var CreateCodeReviewOutput$: StaticStructureSchema = [3, n0, _CCRO,
   0,
-  [_cRIo, _ti, _cA, _uA, _as, _sRe, _lCo, _aSI, _cRSo, _vM, _mTH],
-  [0, 0, 5, 5, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 0, 1], 1
+  [_cRIo, _ti, _cA, _uA, _as, _sRe, _lCo, _aSI, _cRSo, _vM, _mTH, _rD, _rF],
+  [0, 0, 5, 5, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 0, 1, () => ReportDestination$, () => ReportFilters$], 1
 ];
 export var CreateIntegrationInput$: StaticStructureSchema = [3, n0, _CIIr,
   0,
@@ -1313,13 +1423,13 @@ export var CreateMembershipResponse$: StaticStructureSchema = [3, n0, _CMRr,
 ];
 export var CreatePentestInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
-  [_ti, _aSI, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH],
-  [0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1], 2
+  [_ti, _aSI, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH, _rD, _rF, _cC, _tS],
+  [0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$], 2
 ];
 export var CreatePentestOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
-  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI],
-  [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0]
+  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI, _rD, _rF, _cC, _tS],
+  [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$]
 ];
 export var CreatePrivateConnectionInput$: StaticStructureSchema = [3, n0, _CPCI,
   0,
@@ -1343,7 +1453,7 @@ export var CreateSecurityRequirementPackInput$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateSecurityRequirementPackOutput$: StaticStructureSchema = [3, n0, _CSRPO,
   0,
-  [_pI, _sta, _kKI],
+  [_pIa, _sta, _kKI],
   [0, 0, 0], 2
 ];
 export var CreateTargetDomainInput$: StaticStructureSchema = [3, n0, _CTDI,
@@ -1358,7 +1468,7 @@ export var CreateTargetDomainOutput$: StaticStructureSchema = [3, n0, _CTDO,
 ];
 export var CreateThreatInput$: StaticStructureSchema = [3, n0, _CTI,
   0,
-  [_aSI, _tJI, _ti, _stat, _sev, _com, _str, _tS, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re],
+  [_aSI, _tJI, _ti, _stat, _sev, _com, _str, _tSh, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ThreatAnchorShape$, () => ThreatEvidenceList, 0], 2
 ];
 export var CreateThreatModelInput$: StaticStructureSchema = [3, n0, _CTMI,
@@ -1368,12 +1478,12 @@ export var CreateThreatModelInput$: StaticStructureSchema = [3, n0, _CTMI,
 ];
 export var CreateThreatModelOutput$: StaticStructureSchema = [3, n0, _CTMO,
   0,
-  [_tMIh, _ti, _aSI, _d, _as, _sD, _sRe, _lCo, _cA, _uA],
-  [0, 0, 0, 0, [() => Assets$, 0], () => DocumentList, 0, () => CloudWatchLog$, 5, 5], 1
+  [_tMIh, _ti, _aSI, _d, _as, _sD, _sRe, _lCo, _cA, _uA, _rD],
+  [0, 0, 0, 0, [() => Assets$, 0], () => DocumentList, 0, () => CloudWatchLog$, 5, 5, () => ReportDestination$], 1
 ];
 export var CreateThreatOutput$: StaticStructureSchema = [3, n0, _CTO,
   0,
-  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _str, _tS, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re, _cB, _uB, _cA, _uA],
+  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _str, _tSh, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re, _cB, _uB, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ThreatAnchorShape$, () => ThreatEvidenceList, 0, 0, 0, 5, 5], 2
 ];
 export var CustomHeader$: StaticStructureSchema = [3, n0, _CH,
@@ -1448,7 +1558,7 @@ export var DeletePrivateConnectionOutput$: StaticStructureSchema = [3, n0, _DPCO
 ];
 export var DeleteSecurityRequirementPackInput$: StaticStructureSchema = [3, n0, _DSRPI,
   0,
-  [_pI],
+  [_pIa],
   [0], 1
 ];
 export var DeleteSecurityRequirementPackOutput$: StaticStructureSchema = [3, n0, _DSRPO,
@@ -1513,8 +1623,8 @@ export var ExecutionContext$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_fIi, _aSI, _pIen, _pJIe, _cRIo, _cRJIo, _tIa, _n, _d, _sta, _rT, _rL, _rS, _reas, _conf, _vSa, _aSt, _cRT, _lUB, _cN, _cL, _vSe, _aRl, _rJI, _oFI, _cA, _uA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CodeRemediationTask$, 0, 0, () => CodeLocationList, () => VerificationScript$, 0, 64 | 0, 0, 5, 5], 2
+  [_fIi, _aSI, _pIen, _pJIe, _cRIo, _cRJIo, _tIa, _n, _d, _sta, _rT, _rL, _rS, _reas, _conf, _vSa, _aSt, _rCe, _cRT, _lUB, _cN, _cL, _vSe, _aRl, _rJI, _oFI, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CodeRemediationTask$, 0, 0, () => CodeLocationList, () => VerificationScript$, 0, 64 | 0, 0, 5, 5], 2
 ];
 export var FindingSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
@@ -1528,7 +1638,7 @@ export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_aIp, _do, _aN, _iC, _rA, _dKKI],
+  [_aIp, _do, _aN, _iC, _rAo, _dKKI],
   [0, 0, 0, () => IdCConfiguration$, 0, 0], 2
 ];
 export var GetArtifactInput$: StaticStructureSchema = [3, n0, _GAI,
@@ -1548,17 +1658,17 @@ export var GetIntegrationInput$: StaticStructureSchema = [3, n0, _GII,
 ];
 export var GetIntegrationOutput$: StaticStructureSchema = [3, n0, _GIO,
   0,
-  [_iIn, _iI, _pr, _pT, _dNi, _kKI, _tU, _pCN],
-  [0, 0, 0, 0, 0, 0, 0, 0], 4
+  [_iIn, _iI, _pr, _pT, _dNi, _kKI, _tU, _wU, _pCN],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0], 4
 ];
 export var GetSecurityRequirementPackInput$: StaticStructureSchema = [3, n0, _GSRPI,
   0,
-  [_pI],
+  [_pIa],
   [0], 1
 ];
 export var GetSecurityRequirementPackOutput$: StaticStructureSchema = [3, n0, _GSRPO,
   0,
-  [_pI, _n, _mTa, _sta, _cA, _uA, _d, _vN, _iS, _kKI],
+  [_pIa, _n, _mTa, _sta, _cA, _uA, _d, _vN, _iS, _kKI],
   [0, 0, 0, 0, 5, 5, 0, 0, 0, 0], 6
 ];
 export var GitHubIntegrationInput$: StaticStructureSchema = [3, n0, _GHII,
@@ -1578,8 +1688,8 @@ export var GitHubRepositoryResource$: StaticStructureSchema = [3, n0, _GHRR,
 ];
 export var GitHubResourceCapabilities$: StaticStructureSchema = [3, n0, _GHRC,
   0,
-  [_lC, _rC],
-  [2, 2]
+  [_tFG, _lC, _rC],
+  [() => TriggerFilterGroups, 2, 2]
 ];
 export var GitLabIntegrationInput$: StaticStructureSchema = [3, n0, _GLII,
   0,
@@ -1598,8 +1708,8 @@ export var GitLabRepositoryResource$: StaticStructureSchema = [3, n0, _GLRR,
 ];
 export var GitLabResourceCapabilities$: StaticStructureSchema = [3, n0, _GLRC,
   0,
-  [_lC, _rC],
-  [2, 2]
+  [_tFG, _lC, _rC],
+  [() => TriggerFilterGroups, 2, 2]
 ];
 export var HttpVerification$: StaticStructureSchema = [3, n0, _HV,
   0,
@@ -1613,18 +1723,18 @@ export var IdCConfiguration$: StaticStructureSchema = [3, n0, _ICC,
 ];
 export var ImportSecurityRequirementsInput$: StaticStructureSchema = [3, n0, _ISRI,
   0,
-  [_pI, _in],
+  [_pIa, _in],
   [0, [() => ImportSource$, 0]], 2
 ];
 export var ImportSecurityRequirementsOutput$: StaticStructureSchema = [3, n0, _ISRO,
   0,
-  [_pI, _iS],
+  [_pIa, _iS],
   [0, 0], 2
 ];
 export var InitiateProviderRegistrationInput$: StaticStructureSchema = [3, n0, _IPRI,
   0,
-  [_pr],
-  [0], 1
+  [_pr, _tU, _oN, _cI, _cSl],
+  [0, 0, 0, 0, [() => ClientSecret, 0]], 1
 ];
 export var InitiateProviderRegistrationOutput$: StaticStructureSchema = [3, n0, _IPRO,
   0,
@@ -1638,7 +1748,7 @@ export var IntegratedDocument$: StaticStructureSchema = [3, n0, _ID,
 ];
 export var IntegratedRepository$: StaticStructureSchema = [3, n0, _IR,
   0,
-  [_iIn, _pRI, _b],
+  [_iIn, _pRI, _br],
   [0, 0, 0], 2
 ];
 export var IntegratedResourceInputItem$: StaticStructureSchema = [3, n0, _IRII,
@@ -1653,8 +1763,18 @@ export var IntegratedResourceSummary$: StaticStructureSchema = [3, n0, _IRS,
 ];
 export var IntegrationSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
-  [_iIn, _iI, _pr, _pT, _dNi, _tU, _pCN],
-  [0, 0, 0, 0, 0, 0, 0], 5
+  [_iIn, _iI, _pr, _pT, _dNi, _tU, _wU, _pCN],
+  [0, 0, 0, 0, 0, 0, 0, 0], 5
+];
+export var ListActorMessagesInput$: StaticStructureSchema = [3, n0, _LAMI,
+  0,
+  [_aSI, _pIen, _aIc, _mR, _nT],
+  [0, 0, 0, 1, 0], 3
+];
+export var ListActorMessagesOutput$: StaticStructureSchema = [3, n0, _LAMO,
+  0,
+  [_me, _nT],
+  [[() => ActorMessageList, 0], 0]
 ];
 export var ListAgentSpacesInput$: StaticStructureSchema = [3, n0, _LASI,
   0,
@@ -1768,8 +1888,8 @@ export var ListMembershipsResponse$: StaticStructureSchema = [3, n0, _LMRi,
 ];
 export var ListPentestJobsForPentestInput$: StaticStructureSchema = [3, n0, _LPJFPI,
   0,
-  [_pIen, _aSI, _mR, _nT],
-  [0, 0, 1, 0], 2
+  [_pIen, _aSI, _mR, _nT, _jT],
+  [0, 0, 1, 0, 0], 2
 ];
 export var ListPentestJobsForPentestOutput$: StaticStructureSchema = [3, n0, _LPJFPO,
   0,
@@ -1823,7 +1943,7 @@ export var ListSecurityRequirementPacksOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var ListSecurityRequirementsInput$: StaticStructureSchema = [3, n0, _LSRI,
   0,
-  [_pI, _nT, _mR],
+  [_pIa, _nT, _mR],
   [0, 0, 1], 1
 ];
 export var ListSecurityRequirementsOutput$: StaticStructureSchema = [3, n0, _LSRO,
@@ -1898,7 +2018,7 @@ export var LogLocation$: StaticStructureSchema = [3, n0, _LL,
 ];
 export var MembershipSummary$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_mI, _aIp, _aSI, _mT, _cA, _uA, _cB, _uB, _con, _me],
+  [_mI, _aIp, _aSI, _mT, _cA, _uA, _cB, _uB, _con, _met],
   [0, 0, 0, 0, 5, 5, 0, 0, () => MembershipConfig$, () => MemberMetadata$], 8
 ];
 export var NetworkTrafficConfig$: StaticStructureSchema = [3, n0, _NTC,
@@ -1913,18 +2033,18 @@ export var NetworkTrafficRule$: StaticStructureSchema = [3, n0, _NTR,
 ];
 export var Pentest$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _cUS, _dMS, _mTH, _cA, _uA],
-  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 0, 64 | 0, 1, 5, 5], 4
+  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _cUS, _dMS, _mTH, _rD, _rF, _cC, _tS, _cA, _uA],
+  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$, 5, 5], 4
 ];
 export var PentestJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
-  [_pJIe, _pIen, _ti, _o, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _tCC, _cRSo, _cUS, _dMS, _mTH, _jT, _sFI, _cA, _uA],
-  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0], 0, 0, 64 | 0, 1, 0, 64 | 0, 5, 5]
+  [_pJIe, _pIen, _ti, _ov, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _tCC, _cRSo, _cUS, _dMS, _mTH, _jT, _sFI, _rD, _rU, _sRc, _sCc, _cC, _tS, _cA, _uA],
+  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0], 0, 0, 64 | 0, 1, 0, 64 | 0, () => ReportDestination$, 0, () => ScopeResult$, () => ScopeChangeList, () => CiCdConfiguration$, () => TestScope$, 5, 5]
 ];
 export var PentestJobSummary$: StaticStructureSchema = [3, n0, _PJS,
   0,
-  [_pJIe, _pIen, _ti, _sta, _cA, _uA],
-  [0, 0, 0, 0, 5, 5], 2
+  [_pJIe, _pIen, _ti, _sta, _cA, _uA, _jT, _rU],
+  [0, 0, 0, 0, 5, 5, 0, 0], 2
 ];
 export var PentestSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
@@ -1938,8 +2058,23 @@ export var PrivateConnectionSummary$: StaticStructureSchema = [3, n0, _PCS,
 ];
 export var ReportDestination$: StaticStructureSchema = [3, n0, _RD,
   0,
-  [_iIn, _cI, _pIar, _dI],
+  [_iIn, _cIo, _pIar, _dI],
   [0, 0, 0, 0], 2
+];
+export var ReportFilters$: StaticStructureSchema = [3, n0, _RF,
+  0,
+  [_rLi, _cLo, _statu, _rTi, _fT, _tSas, _aNn, _cRo],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 2, 2]
+];
+export var ScopeChange$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_iIn, _pRI, _hCS, _bCS, _tRI],
+  [0, 0, 0, 0, 0], 3
+];
+export var ScopeResult$: StaticStructureSchema = [3, n0, _SR,
+  0,
+  [_dec, _rea],
+  [0, 0], 2
 ];
 export var SecurityRequirementArtifact$: StaticStructureSchema = [3, n0, _SRA,
   0,
@@ -1948,12 +2083,12 @@ export var SecurityRequirementArtifact$: StaticStructureSchema = [3, n0, _SRA,
 ];
 export var SecurityRequirementPackSummary$: StaticStructureSchema = [3, n0, _SRPS,
   0,
-  [_pI, _n, _mTa, _sta, _cA, _uA, _d, _vN],
+  [_pIa, _n, _mTa, _sta, _cA, _uA, _d, _vN],
   [0, 0, 0, 0, 5, 5, 0, 0], 6
 ];
 export var SecurityRequirementSummary$: StaticStructureSchema = [3, n0, _SRS,
   0,
-  [_pI, _n, _d, _cA, _uA],
+  [_pIa, _n, _d, _cA, _uA],
   [0, 0, 0, 5, 5], 5
 ];
 export var SelfManagedInput$: StaticStructureSchema = [3, n0, _SMI,
@@ -1993,8 +2128,8 @@ export var StartCodeReviewJobOutput$: StaticStructureSchema = [3, n0, _SCRJO,
 ];
 export var StartPentestJobInput$: StaticStructureSchema = [3, n0, _SPJI,
   0,
-  [_aSI, _pIen, _jT, _sFI],
-  [0, 0, 0, 64 | 0], 2
+  [_aSI, _pIen, _jT, _sFI, _sCc],
+  [0, 0, 0, 64 | 0, () => ScopeChangeList], 2
 ];
 export var StartPentestJobOutput$: StaticStructureSchema = [3, n0, _SPJO,
   0,
@@ -2076,9 +2211,14 @@ export var TaskSummary$: StaticStructureSchema = [3, n0, _TS,
   [_tIa, _pIen, _pJIe, _aSI, _ti, _rT, _eS, _tH, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 0, 1, 5, 5], 1
 ];
+export var TestScope$: StaticStructureSchema = [3, n0, _TSe,
+  0,
+  [_t],
+  [0], 1
+];
 export var Threat$: StaticStructureSchema = [3, n0, _Th,
   0,
-  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _tS, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _str, _re, _cB, _uB, _cA, _uA],
+  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _tSh, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _str, _re, _cB, _uB, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ThreatAnchorShape$, () => ThreatEvidenceList, 64 | 0, 0, 0, 0, 5, 5]
 ];
 export var ThreatAnchorShape$: StaticStructureSchema = [3, n0, _TAS,
@@ -2093,13 +2233,13 @@ export var ThreatEvidenceShape$: StaticStructureSchema = [3, n0, _TES,
 ];
 export var ThreatModel$: StaticStructureSchema = [3, n0, _TM,
   0,
-  [_tMIh, _aSI, _ti, _as, _d, _sD, _sRe, _lCo, _cA, _uA],
-  [0, 0, 0, [() => Assets$, 0], 0, () => DocumentList, 0, () => CloudWatchLog$, 5, 5], 4
+  [_tMIh, _aSI, _ti, _as, _d, _sD, _sRe, _lCo, _rD, _cA, _uA],
+  [0, 0, 0, [() => Assets$, 0], 0, () => DocumentList, 0, () => CloudWatchLog$, () => ReportDestination$, 5, 5], 4
 ];
 export var ThreatModelJob$: StaticStructureSchema = [3, n0, _TMJ,
   0,
-  [_tMJIh, _tMIh, _aSI, _ti, _sta, _cA, _uA, _eST, _eET, _sCo, _iR, _doc, _sD, _eI, _sO],
-  [0, 0, 0, 0, 0, 5, 5, 5, 5, () => SourceCodeRepositoryList, () => IntegratedRepositoryList, () => DocumentList, () => DocumentList, () => ErrorInformation$, 0]
+  [_tMJIh, _tMIh, _aSI, _ti, _sta, _cA, _uA, _eST, _eET, _sCo, _iR, _doc, _sD, _eI, _sO, _rD],
+  [0, 0, 0, 0, 0, 5, 5, 5, 5, () => SourceCodeRepositoryList, () => IntegratedRepositoryList, () => DocumentList, () => DocumentList, () => ErrorInformation$, 0, () => ReportDestination$]
 ];
 export var ThreatModelJobSummary$: StaticStructureSchema = [3, n0, _TMJS,
   0,
@@ -2125,6 +2265,16 @@ export var ThreatSummary$: StaticStructureSchema = [3, n0, _TSh,
   0,
   [_tIhre, _tJI, _ti, _stat, _sev, _sta, _str, _cB, _uB, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 5, 5]
+];
+export var TriggerFilter$: StaticStructureSchema = [3, n0, _TF,
+  0,
+  [_t, _patt, _mM],
+  [0, 64 | 0, 0], 2
+];
+export var TriggerFilterGroup$: StaticStructureSchema = [3, n0, _TFG,
+  0,
+  [_eve, _filt],
+  [64 | 0, () => TriggerFilterList]
 ];
 export var TrustedCaCertificate$: StaticStructureSchema = [3, n0, _TCC,
   8,
@@ -2153,7 +2303,7 @@ export var UpdateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _UASO,
 ];
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
-  [_aIp, _rA, _dKKI],
+  [_aIp, _rAo, _dKKI],
   [0, 0, 0], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
@@ -2163,13 +2313,13 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
 ];
 export var UpdateCodeReviewInput$: StaticStructureSchema = [3, n0, _UCRI,
   0,
-  [_cRIo, _aSI, _ti, _as, _sRe, _lCo, _cRSo, _vM, _mTH],
-  [0, 0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 1], 2
+  [_cRIo, _aSI, _ti, _as, _sRe, _lCo, _cRSo, _vM, _mTH, _rD, _rF],
+  [0, 0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 1, () => ReportDestination$, () => ReportFilters$], 2
 ];
 export var UpdateCodeReviewOutput$: StaticStructureSchema = [3, n0, _UCRO,
   0,
-  [_cRIo, _ti, _cA, _uA, _as, _sRe, _lCo, _aSI, _cRSo, _vM, _mTH],
-  [0, 0, 5, 5, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 0, 1], 1
+  [_cRIo, _ti, _cA, _uA, _as, _sRe, _lCo, _aSI, _cRSo, _vM, _mTH, _rD, _rF],
+  [0, 0, 5, 5, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 0, 1, () => ReportDestination$, () => ReportFilters$], 1
 ];
 export var UpdateFindingInput$: StaticStructureSchema = [3, n0, _UFI,
   0,
@@ -2191,15 +2341,25 @@ export var UpdateIntegratedResourcesOutput$: StaticStructureSchema = [3, n0, _UI
   [],
   []
 ];
+export var UpdateIntegrationInput$: StaticStructureSchema = [3, n0, _UII,
+  0,
+  [_iIn, _wA],
+  [0, 0], 2
+];
+export var UpdateIntegrationOutput$: StaticStructureSchema = [3, n0, _UIO,
+  0,
+  [_iIn, _wU, _sec],
+  [0, 0, [() => WebhookSecret, 0]], 1
+];
 export var UpdatePentestInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
-  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH],
-  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1], 2
+  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH, _rD, _rF, _cC, _tS],
+  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$], 2
 ];
 export var UpdatePentestOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
-  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI],
-  [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0]
+  [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI, _rD, _rF, _cC, _tS],
+  [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0, () => ReportDestination$, () => ReportFilters$, () => CiCdConfiguration$, () => TestScope$]
 ];
 export var UpdatePrivateConnectionCertificateInput$: StaticStructureSchema = [3, n0, _UPCCI,
   0,
@@ -2218,12 +2378,12 @@ export var UpdateSecurityRequirementEntry$: StaticStructureSchema = [3, n0, _USR
 ];
 export var UpdateSecurityRequirementPackInput$: StaticStructureSchema = [3, n0, _USRPI,
   0,
-  [_pI, _n, _d, _sta],
+  [_pIa, _n, _d, _sta],
   [0, 0, 0, 0], 1
 ];
 export var UpdateSecurityRequirementPackOutput$: StaticStructureSchema = [3, n0, _USRPO,
   0,
-  [_pI, _n, _d, _sta],
+  [_pIa, _n, _d, _sta],
   [0, 0, 0, 0], 1
 ];
 export var UpdateTargetDomainInput$: StaticStructureSchema = [3, n0, _UTDI,
@@ -2238,22 +2398,22 @@ export var UpdateTargetDomainOutput$: StaticStructureSchema = [3, n0, _UTDO,
 ];
 export var UpdateThreatInput$: StaticStructureSchema = [3, n0, _UTI,
   0,
-  [_tIhre, _aSI, _ti, _sta, _com, _stat, _sev, _tS, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re],
+  [_tIhre, _aSI, _ti, _sta, _com, _stat, _sev, _tSh, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ThreatAnchorShape$, () => ThreatEvidenceList, 0], 2
 ];
 export var UpdateThreatModelInput$: StaticStructureSchema = [3, n0, _UTMI,
   0,
-  [_tMIh, _aSI, _ti, _d, _as, _sD, _sRe, _lCo],
-  [0, 0, 0, 0, [() => Assets$, 0], () => DocumentList, 0, () => CloudWatchLog$], 2
+  [_tMIh, _aSI, _ti, _d, _as, _sD, _sRe, _lCo, _rD],
+  [0, 0, 0, 0, [() => Assets$, 0], () => DocumentList, 0, () => CloudWatchLog$, () => ReportDestination$], 2
 ];
 export var UpdateThreatModelOutput$: StaticStructureSchema = [3, n0, _UTMO,
   0,
-  [_tMIh, _ti, _aSI, _d, _as, _sD, _sRe, _lCo, _cA, _uA],
-  [0, 0, 0, 0, [() => Assets$, 0], () => DocumentList, 0, () => CloudWatchLog$, 5, 5], 1
+  [_tMIh, _ti, _aSI, _d, _as, _sD, _sRe, _lCo, _cA, _uA, _rD],
+  [0, 0, 0, 0, [() => Assets$, 0], () => DocumentList, 0, () => CloudWatchLog$, 5, 5, () => ReportDestination$], 1
 ];
 export var UpdateThreatOutput$: StaticStructureSchema = [3, n0, _UTO,
   0,
-  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _str, _tS, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re, _cB, _uB, _cA, _uA],
+  [_tIhre, _tJI, _ti, _stat, _sev, _sta, _com, _str, _tSh, _pre, _tA, _tIhr, _iG, _iA, _an, _evi, _re, _cB, _uB, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 64 | 0, 64 | 0, () => ThreatAnchorShape$, () => ThreatEvidenceList, 0, 0, 0, 5, 5], 2
 ];
 export var UserConfig$: StaticStructureSchema = [3, n0, _UC,
@@ -2273,7 +2433,7 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 ];
 export var VerificationDetails$: StaticStructureSchema = [3, n0, _VD,
   0,
-  [_met, _dT, _hR],
+  [_meth, _dT, _hR],
   [0, () => DnsVerification$, () => HttpVerification$]
 ];
 export var VerificationScript$: StaticStructureSchema = [3, n0, _VS,
@@ -2306,6 +2466,10 @@ var ActorList: StaticListSchema = [1, n0, _AL,
   0, [() => Actor$,
     0]
 ];
+var ActorMessageList: StaticListSchema = [1, n0, _AML,
+  0, [() => ActorMessage$,
+    0]
+];
 var AgentSpaceIdList = 64 | 0;
 var AgentSpaceList: StaticListSchema = [1, n0, _ASL,
   0, () => AgentSpace$
@@ -2317,7 +2481,7 @@ var ApplicationSummaryList: StaticListSchema = [1, n0, _ASLp,
   0, () => ApplicationSummary$
 ];
 var ArtifactIds = 64 | 0;
-var ArtifactMetadataList: StaticListSchema = [1, n0, _AML,
+var ArtifactMetadataList: StaticListSchema = [1, n0, _AMLr,
   0, () => ArtifactMetadataItem$
 ];
 var ArtifactSummaryList: StaticListSchema = [1, n0, _ASLr,
@@ -2362,6 +2526,7 @@ var CodeReviewList: StaticListSchema = [1, n0, _CRL,
 var CodeReviewSummaryList: StaticListSchema = [1, n0, _CRSL,
   0, () => CodeReviewSummary$
 ];
+var ConfidenceLevelFilterList = 64 | 0;
 var CreateSecurityRequirementEntryList: StaticListSchema = [1, n0, _CSREL,
   0, () => CreateSecurityRequirementEntry$
 ];
@@ -2393,6 +2558,7 @@ var FindingIdList = 64 | 0;
 var FindingList: StaticListSchema = [1, n0, _FL,
   0, () => Finding$
 ];
+var FindingStatusFilterList = 64 | 0;
 var FindingSummaryList: StaticListSchema = [1, n0, _FSL,
   0, () => FindingSummary$
 ];
@@ -2439,8 +2605,14 @@ var PrivateConnectionList: StaticListSchema = [1, n0, _PCL,
 ];
 var PrivateConnectionSecurityGroupIds = 64 | 0;
 var PrivateConnectionSubnetIds = 64 | 0;
+var ReportFilterList = 64 | 0;
+var RiskLevelFilterList = 64 | 0;
+var RiskTypeFilterList = 64 | 0;
 var RiskTypeList = 64 | 0;
 var S3BucketArns = 64 | 0;
+var ScopeChangeList: StaticListSchema = [1, n0, _SCL,
+  0, () => ScopeChange$
+];
 var SecretArns = 64 | 0;
 var SecurityGroupArns = 64 | 0;
 var SecurityRequirementArtifactList: StaticListSchema = [1, n0, _SRAL,
@@ -2472,6 +2644,7 @@ var TargetDomainList: StaticListSchema = [1, n0, _TDL,
 var TargetDomainSummaryList: StaticListSchema = [1, n0, _TDSL,
   0, () => TargetDomainSummary$
 ];
+var TaskExecutionStatusFilterList = 64 | 0;
 var TaskIdList = 64 | 0;
 var TaskList: StaticListSchema = [1, n0, _TL,
   0, () => Task$
@@ -2510,6 +2683,14 @@ var ThreatModelSummaryList: StaticListSchema = [1, n0, _TMSL,
 var ThreatSummaryList: StaticListSchema = [1, n0, _TSLh,
   0, () => ThreatSummary$
 ];
+var TriggerEventList = 64 | 0;
+var TriggerFilterGroups: StaticListSchema = [1, n0, _TFGr,
+  0, () => TriggerFilterGroup$
+];
+var TriggerFilterList: StaticListSchema = [1, n0, _TFL,
+  0, () => TriggerFilter$
+];
+var TriggerRegexPatternList = 64 | 0;
 var TrustedCaCertificateList: StaticListSchema = [1, n0, _TCCL,
   0, [() => TrustedCaCertificate$,
     0]
@@ -2545,13 +2726,13 @@ export var ImportSource$: StaticUnionSchema = [4, n0, _ISm,
 ];
 export var IntegratedResource$: StaticUnionSchema = [4, n0, _IRn,
   0,
-  [_gR, _gRi, _bR, _cDo],
-  [() => GitHubRepositoryResource$, () => GitLabRepositoryResource$, () => BitbucketRepositoryResource$, () => ConfluenceDocumentResource$]
+  [_gR, _gRi, _bR, _cDo, _aDOR],
+  [() => GitHubRepositoryResource$, () => GitLabRepositoryResource$, () => BitbucketRepositoryResource$, () => ConfluenceDocumentResource$, () => AzureDevOpsRepositoryResource$]
 ];
 export var IntegratedResourceMetadata$: StaticUnionSchema = [4, n0, _IRM,
   0,
-  [_gR, _gRi, _bR, _cDo],
-  [() => GitHubRepositoryMetadata$, () => GitLabRepositoryMetadata$, () => BitbucketRepositoryMetadata$, () => ConfluenceDocumentMetadata$]
+  [_gR, _gRi, _bR, _cDo, _aDOR],
+  [() => GitHubRepositoryMetadata$, () => GitLabRepositoryMetadata$, () => BitbucketRepositoryMetadata$, () => ConfluenceDocumentMetadata$, () => AzureDevOpsRepositoryMetadata$]
 ];
 export var IntegrationFilter$: StaticUnionSchema = [4, n0, _IF,
   0,
@@ -2575,13 +2756,13 @@ export var PrivateConnectionMode$: StaticUnionSchema = [4, n0, _PCM,
 ];
 export var ProviderInput$: StaticUnionSchema = [4, n0, _PI,
   0,
-  [_g, _gi, _bi, _confl],
-  [() => GitHubIntegrationInput$, [() => GitLabIntegrationInput$, 0], () => BitbucketIntegrationInput$, () => ConfluenceIntegrationInput$]
+  [_g, _gi, _bi, _confl, _aDO, _bDC],
+  [() => GitHubIntegrationInput$, [() => GitLabIntegrationInput$, 0], () => BitbucketIntegrationInput$, () => ConfluenceIntegrationInput$, () => AzureDevOpsIntegrationInput$, () => BitbucketDataCenterIntegrationInput$]
 ];
 export var ProviderResourceCapabilities$: StaticUnionSchema = [4, n0, _PRC,
   0,
-  [_g, _gi, _bi, _confl],
-  [() => GitHubResourceCapabilities$, () => GitLabResourceCapabilities$, () => BitbucketResourceCapabilities$, () => ConfluenceResourceCapabilities$]
+  [_g, _gi, _bi, _confl, _aDO],
+  [() => GitHubResourceCapabilities$, () => GitLabResourceCapabilities$, () => BitbucketResourceCapabilities$, () => ConfluenceResourceCapabilities$, () => AzureDevOpsResourceCapabilities$]
 ];
 export var AddArtifact$: StaticOperationSchema = [9, n0, _AA,
   { [_h]: ["POST", "/AddArtifact", 201] }, () => AddArtifactInput$, () => AddArtifactOutput$
@@ -2727,6 +2908,9 @@ export var ImportSecurityRequirements$: StaticOperationSchema = [9, n0, _ISR,
 export var InitiateProviderRegistration$: StaticOperationSchema = [9, n0, _IPR,
   { [_h]: ["POST", "/oauth2/provider/register", 200] }, () => InitiateProviderRegistrationInput$, () => InitiateProviderRegistrationOutput$
 ];
+export var ListActorMessages$: StaticOperationSchema = [9, n0, _LAM,
+  { [_h]: ["POST", "/ListActorMessages", 200] }, () => ListActorMessagesInput$, () => ListActorMessagesOutput$
+];
 export var ListAgentSpaces$: StaticOperationSchema = [9, n0, _LAS,
   { [_h]: ["POST", "/ListAgentSpaces", 200] }, () => ListAgentSpacesInput$, () => ListAgentSpacesOutput$
 ];
@@ -2837,6 +3021,9 @@ export var UpdateFinding$: StaticOperationSchema = [9, n0, _UF,
 ];
 export var UpdateIntegratedResources$: StaticOperationSchema = [9, n0, _UIR,
   { [_h]: ["POST", "/UpdateIntegratedResources", 200] }, () => UpdateIntegratedResourcesInput$, () => UpdateIntegratedResourcesOutput$
+];
+export var UpdateIntegration$: StaticOperationSchema = [9, n0, _UI,
+  { [_h]: ["POST", "/UpdateIntegration", 200] }, () => UpdateIntegrationInput$, () => UpdateIntegrationOutput$
 ];
 export var UpdatePentest$: StaticOperationSchema = [9, n0, _UP,
   { [_h]: ["POST", "/UpdatePentest", 200] }, () => UpdatePentestInput$, () => UpdatePentestOutput$

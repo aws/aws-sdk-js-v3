@@ -9,6 +9,7 @@ import type { ComplexNestedErrorData } from "./models_0";
  * @public
  */
 export class ComplexError extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.ec2#ComplexError";
   readonly name = "ComplexError" as const;
   readonly $fault = "client" as const;
   TopLevel?: string | undefined;
@@ -33,6 +34,7 @@ export class ComplexError extends __BaseException {
  * @public
  */
 export class InvalidGreeting extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.ec2#InvalidGreeting";
   readonly name = "InvalidGreeting" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

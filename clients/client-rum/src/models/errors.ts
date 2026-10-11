@@ -8,6 +8,7 @@ import { RUMServiceException as __BaseException } from "./RUMServiceException";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rum#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rum#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -62,6 +64,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rum#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   $retryable = {};
@@ -90,6 +93,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rum#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -124,6 +128,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rum#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -144,6 +149,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rum#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   $retryable = {
@@ -188,6 +194,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rum#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -208,6 +215,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InvalidPolicyRevisionIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rum#InvalidPolicyRevisionIdException";
   readonly name = "InvalidPolicyRevisionIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -228,6 +236,7 @@ export class InvalidPolicyRevisionIdException extends __BaseException {
  * @public
  */
 export class PolicyNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rum#PolicyNotFoundException";
   readonly name = "PolicyNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -248,6 +257,7 @@ export class PolicyNotFoundException extends __BaseException {
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rum#MalformedPolicyDocumentException";
   readonly name = "MalformedPolicyDocumentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -268,6 +278,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
  * @public
  */
 export class PolicySizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.rum#PolicySizeLimitExceededException";
   readonly name = "PolicySizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**

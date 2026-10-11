@@ -33,6 +33,12 @@ export interface TerminateJobsCommandOutput extends TerminateJobsResponse, __Met
  *       HTTP status code of <code>200</code> even when some jobs encountered errors, so check the
  *       <code>errors</code> list. Jobs that can't be found are treated as successfully
  *       processed.</p>
+ *          <important>
+ *             <p>This operation requires <code>batch:TerminateJob</code> permission for each job in the
+ *         request. There is no separate <code>batch:TerminateJobs</code> IAM action. If a caller's IAM
+ *         policy grants <code>batch:TerminateJob</code>, they can use both the singular
+ *         <a>TerminateJob</a> and bulk <code>TerminateJobs</code> operations.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

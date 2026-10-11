@@ -1843,8 +1843,8 @@ export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD,
 ];
 export var ListConfigurationSetsRequest$: StaticStructureSchema = [3, n0, _LCSR,
   0,
-  [_NT, _PS],
-  [[0, { [_hQ]: _NT }], [1, { [_hQ]: _PS }]]
+  [_F, _NT, _PS],
+  [128 | 0, 0, 1]
 ];
 export var ListConfigurationSetsResponse$: StaticStructureSchema = [3, n0, _LCSRi,
   0,
@@ -1918,8 +1918,8 @@ export var ListDomainDeliverabilityCampaignsResponse$: StaticStructureSchema = [
 ];
 export var ListEmailIdentitiesRequest$: StaticStructureSchema = [3, n0, _LEIR,
   0,
-  [_NT, _PS],
-  [[0, { [_hQ]: _NT }], [1, { [_hQ]: _PS }]]
+  [_F, _NT, _PS],
+  [128 | 0, 0, 1]
 ];
 export var ListEmailIdentitiesResponse$: StaticStructureSchema = [3, n0, _LEIRi,
   0,
@@ -2043,8 +2043,8 @@ export var ListTenantResourcesResponse$: StaticStructureSchema = [3, n0, _LTRRi,
 ];
 export var ListTenantsRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
-  [_NT, _PS],
-  [0, 1]
+  [_F, _NT, _PS],
+  [128 | 0, 0, 1]
 ];
 export var ListTenantsResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -2558,8 +2558,8 @@ export var Tenant$: StaticStructureSchema = [3, n0, _Ten,
 ];
 export var TenantInfo$: StaticStructureSchema = [3, n0, _TIe,
   0,
-  [_TNe, _TI, _TA, _CTr],
-  [0, 0, 0, 4]
+  [_TNe, _TI, _TA, _CTr, _SS],
+  [0, 0, 0, 4, 0]
 ];
 export var TenantResource$: StaticStructureSchema = [3, n0, _TRe,
   0,
@@ -2884,12 +2884,15 @@ var Topics: StaticListSchema = [1, n0, _To,
 var BlacklistReport: StaticMapSchema = [2, n0, _BR,
   0, 0, () => BlacklistEntries
 ];
+var ConfigurationSetFilter = 128 | 0;
 var Dimensions = 128 | 0;
 var ExportDimensions: StaticMapSchema = [2, n0, _EDxp,
   0, 0, 64 | 0
 ];
+var IdentityFilter = 128 | 0;
 var ListRecommendationsFilter = 128 | 0;
 var ListTenantResourcesFilter = 128 | 0;
+var ListTenantsFilter = 128 | 0;
 var PolicyMap = 128 | 0;
 var ReputationEntityFilter = 128 | 0;
 export var SigningScheme$: StaticUnionSchema = [4, n0, _SSi,
@@ -3069,7 +3072,7 @@ export var GetTenant$: StaticOperationSchema = [9, n0, _GT,
   { [_h]: ["POST", "/v2/email/tenants/get", 200] }, () => GetTenantRequest$, () => GetTenantResponse$
 ];
 export var ListConfigurationSets$: StaticOperationSchema = [9, n0, _LCS,
-  { [_h]: ["GET", "/v2/email/configuration-sets", 200] }, () => ListConfigurationSetsRequest$, () => ListConfigurationSetsResponse$
+  { [_h]: ["POST", "/v2/email/list-configuration-sets", 200] }, () => ListConfigurationSetsRequest$, () => ListConfigurationSetsResponse$
 ];
 export var ListContactLists$: StaticOperationSchema = [9, n0, _LCL,
   { [_h]: ["GET", "/v2/email/contact-lists", 200] }, () => ListContactListsRequest$, () => ListContactListsResponse$
@@ -3090,7 +3093,7 @@ export var ListDomainDeliverabilityCampaigns$: StaticOperationSchema = [9, n0, _
   { [_h]: ["GET", "/v2/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns", 200] }, () => ListDomainDeliverabilityCampaignsRequest$, () => ListDomainDeliverabilityCampaignsResponse$
 ];
 export var ListEmailIdentities$: StaticOperationSchema = [9, n0, _LEI,
-  { [_h]: ["GET", "/v2/email/identities", 200] }, () => ListEmailIdentitiesRequest$, () => ListEmailIdentitiesResponse$
+  { [_h]: ["POST", "/v2/email/list-identities", 200] }, () => ListEmailIdentitiesRequest$, () => ListEmailIdentitiesResponse$
 ];
 export var ListEmailIdentityCertificates$: StaticOperationSchema = [9, n0, _LEIC,
   { [_h]: ["POST", "/v2/email/identity/certificates/list", 200] }, () => ListEmailIdentityCertificatesRequest$, () => ListEmailIdentityCertificatesResponse$

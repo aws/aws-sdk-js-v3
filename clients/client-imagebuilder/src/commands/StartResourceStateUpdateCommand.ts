@@ -23,8 +23,15 @@ export interface StartResourceStateUpdateCommandInput extends StartResourceState
 export interface StartResourceStateUpdateCommandOutput extends StartResourceStateUpdateResponse, __MetadataBearer {}
 
 /**
- * <p>Begins an asynchronous resource state update for lifecycle changes to the
- * 			specified image resources.</p>
+ * <p>Begins an ad-hoc state change for the specified image build version.
+ * 			This is a one-time operation - if you schedule the update, it runs only
+ * 			once. If the
+ * 			request includes underlying resources, or schedules the update far enough in
+ * 			the future, Image Builder runs the update as an asynchronous lifecycle execution and
+ * 			returns its identifier. Otherwise, for target states other than
+ * 			<code>DELETED</code>, the state change applies immediately. If a request
+ * 			that starts a lifecycle execution arrives while the image already has one in
+ * 			progress, Image Builder rejects it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,12 +88,14 @@ export interface StartResourceStateUpdateCommandOutput extends StartResourceStat
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -96,7 +105,8 @@ export interface StartResourceStateUpdateCommandOutput extends StartResourceStat
  * 			from a previous request that used the same client token.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource that you are trying to operate on is currently in use. Review the message
@@ -106,8 +116,8 @@ export interface StartResourceStateUpdateCommandOutput extends StartResourceStat
  *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -115,6 +125,31 @@ export interface StartResourceStateUpdateCommandOutput extends StartResourceStat
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example Schedule an image build version for deprecation
+ * ```javascript
+ * // The following example schedules the specified image build version and its AMI to move to the DEPRECATED state at the requested future time. It returns the ID of the lifecycle execution that applies the update.
+ * const input = {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE24680",
+ *   executionRole: "arn:aws:iam::111122223333:role/my-example-state-update-role",
+ *   includeResources: {
+ *     amis: true
+ *   },
+ *   resourceArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0/1",
+ *   state: {
+ *     status: "DEPRECATED"
+ *   },
+ *   updateAt: "2026-09-11T21:20:00Z"
+ * };
+ * const command = new StartResourceStateUpdateCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   lifecycleExecutionId: "lce-401aefc3-a829-46f6-8fc2-91497988a503",
+ *   resourceArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0/1"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

@@ -85,6 +85,10 @@ import type {
   CreatePromptVersionCommandOutput,
 } from "./commands/CreatePromptVersionCommand";
 import type {
+  CreateVpcConfigurationCommandInput,
+  CreateVpcConfigurationCommandOutput,
+} from "./commands/CreateVpcConfigurationCommand";
+import type {
   DeleteAgentActionGroupCommandInput,
   DeleteAgentActionGroupCommandOutput,
 } from "./commands/DeleteAgentActionGroupCommand";
@@ -114,6 +118,10 @@ import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
+import type {
+  DeleteVpcConfigurationCommandInput,
+  DeleteVpcConfigurationCommandOutput,
+} from "./commands/DeleteVpcConfigurationCommand";
 import type {
   DisassociateAgentCollaboratorCommandInput,
   DisassociateAgentCollaboratorCommandOutput,
@@ -152,6 +160,10 @@ import type {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
+import type {
+  GetVpcConfigurationCommandInput,
+  GetVpcConfigurationCommandOutput,
+} from "./commands/GetVpcConfigurationCommand";
 import type {
   IngestKnowledgeBaseDocumentsCommandInput,
   IngestKnowledgeBaseDocumentsCommandOutput,
@@ -195,6 +207,10 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type {
+  ListVpcConfigurationsCommandInput,
+  ListVpcConfigurationsCommandOutput,
+} from "./commands/ListVpcConfigurationsCommand";
 import type { PrepareAgentCommandInput, PrepareAgentCommandOutput } from "./commands/PrepareAgentCommand";
 import type { PrepareFlowCommandInput, PrepareFlowCommandOutput } from "./commands/PrepareFlowCommand";
 import type {
@@ -261,6 +277,7 @@ export type ServiceInputTypes =
   | CreateKnowledgeBaseCommandInput
   | CreatePromptCommandInput
   | CreatePromptVersionCommandInput
+  | CreateVpcConfigurationCommandInput
   | DeleteAgentActionGroupCommandInput
   | DeleteAgentAliasCommandInput
   | DeleteAgentCommandInput
@@ -273,6 +290,7 @@ export type ServiceInputTypes =
   | DeleteKnowledgeBaseDocumentsCommandInput
   | DeletePromptCommandInput
   | DeleteResourcePolicyCommandInput
+  | DeleteVpcConfigurationCommandInput
   | DisassociateAgentCollaboratorCommandInput
   | DisassociateAgentKnowledgeBaseCommandInput
   | GetAgentActionGroupCommandInput
@@ -290,6 +308,7 @@ export type ServiceInputTypes =
   | GetKnowledgeBaseDocumentsCommandInput
   | GetPromptCommandInput
   | GetResourcePolicyCommandInput
+  | GetVpcConfigurationCommandInput
   | IngestKnowledgeBaseDocumentsCommandInput
   | ListAgentActionGroupsCommandInput
   | ListAgentAliasesCommandInput
@@ -306,6 +325,7 @@ export type ServiceInputTypes =
   | ListKnowledgeBasesCommandInput
   | ListPromptsCommandInput
   | ListTagsForResourceCommandInput
+  | ListVpcConfigurationsCommandInput
   | PrepareAgentCommandInput
   | PrepareFlowCommandInput
   | PutResourcePolicyCommandInput
@@ -341,6 +361,7 @@ export type ServiceOutputTypes =
   | CreateKnowledgeBaseCommandOutput
   | CreatePromptCommandOutput
   | CreatePromptVersionCommandOutput
+  | CreateVpcConfigurationCommandOutput
   | DeleteAgentActionGroupCommandOutput
   | DeleteAgentAliasCommandOutput
   | DeleteAgentCommandOutput
@@ -353,6 +374,7 @@ export type ServiceOutputTypes =
   | DeleteKnowledgeBaseDocumentsCommandOutput
   | DeletePromptCommandOutput
   | DeleteResourcePolicyCommandOutput
+  | DeleteVpcConfigurationCommandOutput
   | DisassociateAgentCollaboratorCommandOutput
   | DisassociateAgentKnowledgeBaseCommandOutput
   | GetAgentActionGroupCommandOutput
@@ -370,6 +392,7 @@ export type ServiceOutputTypes =
   | GetKnowledgeBaseDocumentsCommandOutput
   | GetPromptCommandOutput
   | GetResourcePolicyCommandOutput
+  | GetVpcConfigurationCommandOutput
   | IngestKnowledgeBaseDocumentsCommandOutput
   | ListAgentActionGroupsCommandOutput
   | ListAgentAliasesCommandOutput
@@ -386,6 +409,7 @@ export type ServiceOutputTypes =
   | ListKnowledgeBasesCommandOutput
   | ListPromptsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVpcConfigurationsCommandOutput
   | PrepareAgentCommandOutput
   | PrepareFlowCommandOutput
   | PutResourcePolicyCommandOutput

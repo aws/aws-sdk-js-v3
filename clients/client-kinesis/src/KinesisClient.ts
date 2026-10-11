@@ -170,6 +170,10 @@ import type {
 import type { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "./commands/UpdateShardCountCommand";
 import type { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "./commands/UpdateStreamModeCommand";
 import type {
+  UpdateStreamRecordDistributionStrategyCommandInput,
+  UpdateStreamRecordDistributionStrategyCommandOutput,
+} from "./commands/UpdateStreamRecordDistributionStrategyCommand";
+import type {
   UpdateStreamWarmThroughputCommandInput,
   UpdateStreamWarmThroughputCommandOutput,
 } from "./commands/UpdateStreamWarmThroughputCommand";
@@ -231,6 +235,7 @@ export type ServiceInputTypes =
   | UpdateMaxRecordSizeCommandInput
   | UpdateShardCountCommandInput
   | UpdateStreamModeCommandInput
+  | UpdateStreamRecordDistributionStrategyCommandInput
   | UpdateStreamWarmThroughputCommandInput;
 
 /**
@@ -280,6 +285,7 @@ export type ServiceOutputTypes =
   | UpdateMaxRecordSizeCommandOutput
   | UpdateShardCountCommandOutput
   | UpdateStreamModeCommandOutput
+  | UpdateStreamRecordDistributionStrategyCommandOutput
   | UpdateStreamWarmThroughputCommandOutput;
 
 /**

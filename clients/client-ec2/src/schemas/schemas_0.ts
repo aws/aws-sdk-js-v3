@@ -223,6 +223,7 @@ const _APIAss = "AssociatePublicIpAddress";
 const _APIAssi = "AssignPrivateIpAddresses";
 const _APICB = "AmazonProvidedIpv6CidrBlock";
 const _APLE = "AddPrefixListEntry";
+const _APLET = "AuthorizationPolicyLastEvaluatedTime";
 const _APLEd = "AddPrefixListEntries";
 const _APM = "ApplyPendingMaintenance";
 const _APNGA = "AssignPrivateNatGatewayAddress";
@@ -1224,6 +1225,10 @@ const _CVRre = "CreateVpcRequest";
 const _CVRrea = "CreateVpcResult";
 const _CVSGIS = "ClientVpnSecurityGroupIdSet";
 const _CVTN = "ClientVpnTargetNetworks";
+const _CVTP = "ClientVpnTrustProvider";
+const _CVTPR = "ClientVpnTrustProviderRequest";
+const _CVTPRL = "ClientVpnTrustProviderRequestList";
+const _CVTPS = "ClientVpnTrustProviderSet";
 const _CVo = "CopyVolumes";
 const _CVr = "CreateVolume";
 const _CVre = "CreateVpc";
@@ -1415,6 +1420,9 @@ const _DCVC = "DescribeClientVpnConnections";
 const _DCVCR = "DescribeClientVpnConnectionsRequest";
 const _DCVCRe = "DescribeClientVpnConnectionsResult";
 const _DCVE = "DeleteClientVpnEndpoint";
+const _DCVEAP = "DeleteClientVpnEndpointAuthorizationPolicy";
+const _DCVEAPR = "DeleteClientVpnEndpointAuthorizationPolicyRequest";
+const _DCVEAPRe = "DeleteClientVpnEndpointAuthorizationPolicyResult";
 const _DCVER = "DeleteClientVpnEndpointRequest";
 const _DCVERe = "DeleteClientVpnEndpointResult";
 const _DCVERes = "DescribeClientVpnEndpointsRequest";
@@ -1956,8 +1964,10 @@ const _DPLR = "DescribePrefixListsRequest";
 const _DPLRe = "DescribePrefixListsResult";
 const _DPLe = "DestinationPrefixList";
 const _DPLes = "DescribePrefixLists";
+const _DPO = "DevicePostureOptions";
 const _DPR = "DestinationPortRanges";
 const _DPRL = "DeclarativePoliciesReportList";
+const _DPRO = "DevicePostureResponseOptions";
 const _DPRT = "DefaultPropagationRouteTable";
 const _DPRe = "DestinationPortRange";
 const _DPRec = "DeclarativePoliciesReport";
@@ -2885,6 +2895,9 @@ const _GCRURe = "GetCapacityReservationUsageResult";
 const _GCS = "GetConsoleScreenshot";
 const _GCSR = "GetConsoleScreenshotRequest";
 const _GCSRe = "GetConsoleScreenshotResult";
+const _GCVEAP = "GetClientVpnEndpointAuthorizationPolicy";
+const _GCVEAPR = "GetClientVpnEndpointAuthorizationPolicyRequest";
+const _GCVEAPRe = "GetClientVpnEndpointAuthorizationPolicyResult";
 const _GD = "GroupDescription";
 const _GDCS = "GetDefaultCreditSpecification";
 const _GDCSR = "GetDefaultCreditSpecificationRequest";
@@ -3172,6 +3185,7 @@ const _IAI = "IncludeAllInstances";
 const _IAIn = "InferenceAcceleratorInfo";
 const _IAL = "IpAddressList";
 const _IALp = "Ipv6AddressList";
+const _IAPC = "IncludeAuthorizationPolicyContext";
 const _IAPI = "Ipv4AddressesPerInterface";
 const _IAPIp = "Ipv6AddressesPerInterface";
 const _IAPSI = "Ipv4AddressesPerSecondaryInterface";
@@ -3866,7 +3880,7 @@ const _LPa = "LaunchPermissions";
 const _LPau = "LaunchPermission";
 const _LPi = "LimitPrice";
 const _LPo = "LoadPermission";
-const _LS = "LicenseSpecifications";
+const _LS = "LaunchStatus";
 const _LSC = "LastStatusChange";
 const _LSDT = "LastSuccessfulDiscoveryTime";
 const _LSI = "LockedSnapshotsInfo";
@@ -3885,7 +3899,8 @@ const _LSTo = "LocalStorageType";
 const _LSV = "LastSyncedVersion";
 const _LSa = "LaunchSpecification";
 const _LSau = "LaunchSpecifications";
-const _LSi = "LicenseSpecification";
+const _LSi = "LicenseSpecifications";
+const _LSic = "LicenseSpecification";
 const _LSo = "LocalStorage";
 const _LSoc = "LockState";
 const _LSock = "LockSnapshot";
@@ -4035,6 +4050,9 @@ const _MCRIRo = "MoveCapacityReservationInstancesResult";
 const _MCRR = "ModifyCapacityReservationRequest";
 const _MCRRo = "ModifyCapacityReservationResult";
 const _MCVE = "ModifyClientVpnEndpoint";
+const _MCVEAP = "ModifyClientVpnEndpointAuthorizationPolicy";
+const _MCVEAPR = "ModifyClientVpnEndpointAuthorizationPolicyRequest";
+const _MCVEAPRo = "ModifyClientVpnEndpointAuthorizationPolicyResult";
 const _MCVER = "ModifyClientVpnEndpointRequest";
 const _MCVERo = "ModifyClientVpnEndpointResult";
 const _MCa = "MaxCount";
@@ -5606,6 +5624,7 @@ const _SMO = "SpotMarketOptions";
 const _SMPPOLP = "SpotMaxPricePercentageOverLowestPrice";
 const _SMS = "SpotMaintenanceStrategies";
 const _SMTP = "SpotMaxTotalPrice";
+const _SMh = "ShadowMode";
 const _SMt = "StatusMessage";
 const _SMta = "StateMessage";
 const _SN = "ServiceName";
@@ -6021,6 +6040,8 @@ const _TPC = "ThreadsPerCore";
 const _TPCL = "ThreadsPerCoreList";
 const _TPT = "TrustProviderType";
 const _TPr = "TransportProtocol";
+const _TPru = "TrustProviders";
+const _TPrus = "TrustProvider";
 const _TR = "ThroughResources";
 const _TRC = "TargetResourceCount";
 const _TRD = "TemporaryRestoreDays";
@@ -6506,6 +6527,7 @@ const _aPHS = "alternatePathHintSet";
 const _aPIA = "associatePublicIpAddress";
 const _aPIAS = "assignedPrivateIpAddressesSet";
 const _aPICB = "amazonProvidedIpv6CidrBlock";
+const _aPLET = "authorizationPolicyLastEvaluatedTime";
 const _aPS = "addedPrincipalSet";
 const _aPSs = "asPathSet";
 const _aPZ = "autoProvisionZones";
@@ -6880,6 +6902,7 @@ const _dOn = "dnsOptions";
 const _dP = "deliveryPreference";
 const _dPLI = "destinationPrefixListId";
 const _dPLS = "destinationPrefixListSet";
+const _dPO = "devicePostureOptions";
 const _dPR = "destinationPortRange";
 const _dPRS = "destinationPortRangeSet";
 const _dPRT = "defaultPropagationRouteTable";
@@ -7495,14 +7518,15 @@ const _lOF = "logOutputFormat";
 const _lP = "loadPermissions";
 const _lPa = "launchPermission";
 const _lPi = "limitPrice";
-const _lS = "licenseSpecifications";
+const _lS = "launchStatus";
 const _lSC = "lastStatusChange";
 const _lSDT = "lastSuccessfulDiscoveryTime";
 const _lSTS = "localStorageTypeSet";
 const _lSV = "lastSyncedVersion";
 const _lSa = "launchSpecification";
 const _lSau = "launchSpecifications";
-const _lSi = "licenseSet";
+const _lSi = "licenseSpecifications";
+const _lSic = "licenseSet";
 const _lSo = "localStorage";
 const _lSoc = "lockState";
 const _lT = "launchTemplate";
@@ -7783,7 +7807,7 @@ const _pCSS = "postureComplianceStatusSet";
 const _pCa = "partitionCount";
 const _pCo = "poolCount";
 const _pCr = "productCode";
-const _pD = "passwordData";
+const _pD = "policyDocument";
 const _pDE = "privateDnsEnabled";
 const _pDEr = "privateDnsEntry";
 const _pDHG = "phase1DHGroup";
@@ -7806,10 +7830,10 @@ const _pDSDN = "publicDualStackDnsName";
 const _pDSDS = "privateDnsSpecifiedDomainSet";
 const _pDSI = "publicDefaultScopeId";
 const _pDSIr = "privateDefaultScopeId";
-const _pDa = "paymentDue";
+const _pDa = "passwordData";
+const _pDay = "paymentDue";
 const _pDl = "platformDetails";
-const _pDo = "policyDocument";
-const _pDoo = "poolDepth";
+const _pDo = "poolDepth";
 const _pDr = "productDescription";
 const _pE = "policyEnabled";
 const _pEA = "phase1EncryptionAlgorithm";
@@ -8202,6 +8226,7 @@ const _sM = "serviceManaged";
 const _sMPPOLP = "spotMaxPricePercentageOverLowestPrice";
 const _sMS = "spotMaintenanceStrategies";
 const _sMTP = "spotMaxTotalPrice";
+const _sMh = "shadowMode";
 const _sMt = "statusMessage";
 const _sMta = "stateMessage";
 const _sN = "serviceName";
@@ -8423,6 +8448,7 @@ const _tOET = "transferOfferExpirationTimestamp";
 const _tOS = "tunnelOptionSet";
 const _tP = "toPort";
 const _tPC = "threadsPerCore";
+const _tPS = "trustProviderSet";
 const _tPT = "trustProviderType";
 const _tPr = "transportProtocol";
 const _tRC = "targetResourceCount";
@@ -10168,7 +10194,7 @@ export var CapacityManagerTagDimension$: StaticStructureSchema = [3, n0, _CMTD,
 ];
 export var CapacityReservation$: StaticStructureSchema = [3, n0, _CRa,
   0,
-  [_CRI, _OI, _CRA, _AZI, _IT, _IPn, _AZ, _Te, _TIC, _AICv, _EO, _ES, _St, _SD, _ED, _EDTn, _IMC, _CD, _T, _OA, _CRFIa, _PGA, _CAap, _RT, _URBOI, _CIom, _DP, _CBI, _Inte, _ICA, _IInt, _ASd, _ADd, _OSD, _ZSP],
+  [_CRI, _OI, _CRA, _AZI, _IT, _IPn, _AZ, _Te, _TIC, _AICv, _EO, _ES, _St, _SD, _ED, _EDTn, _IMC, _CD, _T, _OA, _CRFIa, _PGA, _CAap, _RT, _URBOI, _CIom, _DP, _CBI, _Inte, _ICA, _IInt, _ASd, _ADd, _OSD, _ZSP, _LS],
   [[0, { [_eQN]: `CapacityReservationId`
   , [_xN]: _cRI }], [0, { [_eQN]: `OwnerId`
   , [_xN]: _oI }], [0, { [_eQN]: `CapacityReservationArn`
@@ -10204,7 +10230,8 @@ export var CapacityReservation$: StaticStructureSchema = [3, n0, _CRa,
   , [_xN]: _aSd }], [() => CapacityReservationAdjustmentDetails$, { [_eQN]: `AdjustmentDetails`
   , [_xN]: _aD }], [4, { [_eQN]: `OriginalStartDate`
   , [_xN]: _oSD }], [0, { [_eQN]: `ZeroSizePreference`
-  , [_xN]: _zSP }]]
+  , [_xN]: _zSP }], [0, { [_eQN]: `LaunchStatus`
+  , [_xN]: _lS }]]
 ];
 export var CapacityReservationAdjustmentDetails$: StaticStructureSchema = [3, n0, _CRAD,
   0,
@@ -10498,7 +10525,7 @@ export var ClientVpnAuthorizationRuleStatus$: StaticStructureSchema = [3, n0, _C
 ];
 export var ClientVpnConnection$: StaticStructureSchema = [3, n0, _CVC,
   0,
-  [_CVEI, _Tim, _CIon, _Us, _CET, _IB, _EB, _IPng, _EP, _CIl, _CIA, _CN, _Sta, _CETo, _PCS],
+  [_CVEI, _Tim, _CIon, _Us, _CET, _IB, _EB, _IPng, _EP, _CIl, _CIA, _CN, _Sta, _CETo, _PCS, _APLET],
   [[0, { [_eQN]: `ClientVpnEndpointId`
   , [_xN]: _cVEI }], [0, { [_eQN]: `Timestamp`
   , [_xN]: _ti }], [0, { [_eQN]: `ConnectionId`
@@ -10514,7 +10541,8 @@ export var ClientVpnConnection$: StaticStructureSchema = [3, n0, _CVC,
   , [_xN]: _cN }], [() => ClientVpnConnectionStatus$, { [_eQN]: `Status`
   , [_xN]: _sta }], [0, { [_eQN]: `ConnectionEndTime`
   , [_xN]: _cETo }], [() => ValueStringList, { [_eQN]: `PostureComplianceStatusSet`
-  , [_xN]: _pCSS }]]
+  , [_xN]: _pCSS }], [0, { [_eQN]: `AuthorizationPolicyLastEvaluatedTime`
+  , [_xN]: _aPLET }]]
 ];
 export var ClientVpnConnectionStatus$: StaticStructureSchema = [3, n0, _CVCS,
   0,
@@ -10525,7 +10553,7 @@ export var ClientVpnConnectionStatus$: StaticStructureSchema = [3, n0, _CVCS,
 ];
 export var ClientVpnEndpoint$: StaticStructureSchema = [3, n0, _CVE,
   0,
-  [_CVEI, _De, _Sta, _CTr, _DT, _DNn, _CCB, _DS, _STp, _VPp, _TPr, _VPpn, _ATNs, _SCA, _AO, _CLO, _T, _SGIe, _VI, _SSPU, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT, _TGC],
+  [_CVEI, _De, _Sta, _CTr, _DT, _DNn, _CCB, _DS, _STp, _VPp, _TPr, _VPpn, _ATNs, _SCA, _AO, _CLO, _T, _SGIe, _VI, _SSPU, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT, _TGC, _DPO],
   [[0, { [_eQN]: `ClientVpnEndpointId`
   , [_xN]: _cVEI }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [() => ClientVpnEndpointStatus$, { [_eQN]: `Status`
@@ -10554,7 +10582,8 @@ export var ClientVpnEndpoint$: StaticStructureSchema = [3, n0, _CVE,
   , [_xN]: _dOST }], [0, { [_eQN]: `EndpointIpAddressType`
   , [_xN]: _eIAT }], [0, { [_eQN]: `TrafficIpAddressType`
   , [_xN]: _tIAT }], [() => TransitGatewayConfigurationDescribeEndpointStructure$, { [_eQN]: `TransitGatewayConfiguration`
-  , [_xN]: _tGC }]]
+  , [_xN]: _tGC }], [() => DevicePostureResponseOptions$, { [_eQN]: `DevicePostureOptions`
+  , [_xN]: _dPO }]]
 ];
 export var ClientVpnEndpointAttributeStatus$: StaticStructureSchema = [3, n0, _CVEAS,
   0,
@@ -10589,6 +10618,19 @@ export var ClientVpnRouteStatus$: StaticStructureSchema = [3, n0, _CVRS,
   [[0, { [_eQN]: `Code`
   , [_xN]: _co }], [0, { [_eQN]: `Message`
   , [_xN]: _me }]]
+];
+export var ClientVpnTrustProvider$: StaticStructureSchema = [3, n0, _CVTP,
+  0,
+  [_TPT, _TIe, _PSKU],
+  [[0, { [_eQN]: `TrustProviderType`
+  , [_xN]: _tPT }], [0, { [_eQN]: `TenantId`
+  , [_xN]: _tIe }], [0, { [_eQN]: `PublicSigningKeyUrl`
+  , [_xN]: _pSKU }]]
+];
+export var ClientVpnTrustProviderRequest$: StaticStructureSchema = [3, n0, _CVTPR,
+  0,
+  [_TPT, _TIe, _PSKU],
+  [0, 0, 0]
 ];
 export var CloudWatchLogOptions$: StaticStructureSchema = [3, n0, _CWLO,
   0,
@@ -10648,13 +10690,13 @@ export var ConfirmProductInstanceResult$: StaticStructureSchema = [3, n0, _CPIRo
 ];
 export var ConnectionLogOptions$: StaticStructureSchema = [3, n0, _CLO,
   0,
-  [_En, _CLG, _CLS],
-  [2, 0, 0]
+  [_En, _CLG, _CLS, _IAPC],
+  [2, 0, 0, 2]
 ];
 export var ConnectionLogResponseOptions$: StaticStructureSchema = [3, n0, _CLRO,
   0,
-  [_En, _CLG, _CLS],
-  [2, 0, 0]
+  [_En, _CLG, _CLS, _IAPC],
+  [2, 0, 0, 2]
 ];
 export var ConnectionNotification$: StaticStructureSchema = [3, n0, _CNo,
   0,
@@ -10890,8 +10932,8 @@ export var CreateCarrierGatewayResult$: StaticStructureSchema = [3, n0, _CCGRr,
 ];
 export var CreateClientVpnEndpointRequest$: StaticStructureSchema = [3, n0, _CCVER,
   0,
-  [_SCA, _AO, _CLO, _CCB, _DS, _TPr, _VPpn, _De, _STp, _DR, _CT, _TS, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT, _TGC],
-  [0, [() => ClientVpnAuthenticationRequestList, { [_xN]: _Au }], () => ConnectionLogOptions$, 0, [() => ValueStringList, 0], 0, 1, 0, 2, 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }], [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2, 0, 0, [() => TransitGatewayConfigurationInputStructure$, 0]], 3
+  [_SCA, _AO, _CLO, _CCB, _DS, _TPr, _VPpn, _De, _STp, _DR, _CT, _TS, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _EIAT, _TIAT, _TGC, _DPO],
+  [0, [() => ClientVpnAuthenticationRequestList, { [_xN]: _Au }], () => ConnectionLogOptions$, 0, [() => ValueStringList, 0], 0, 1, 0, 2, 2, [0, 4], [() => TagSpecificationList, { [_xN]: _TSa }], [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2, 0, 0, [() => TransitGatewayConfigurationInputStructure$, 0], [() => DevicePostureOptions$, 0]], 3
 ];
 export var CreateClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _CCVERr,
   0,
@@ -12288,6 +12330,17 @@ export var DeleteCarrierGatewayResult$: StaticStructureSchema = [3, n0, _DCGRe,
   [_CG],
   [[() => CarrierGateway$, { [_eQN]: `CarrierGateway`
   , [_xN]: _cG }]]
+];
+export var DeleteClientVpnEndpointAuthorizationPolicyRequest$: StaticStructureSchema = [3, n0, _DCVEAPR,
+  0,
+  [_CVEI, _DR],
+  [0, 2], 1
+];
+export var DeleteClientVpnEndpointAuthorizationPolicyResult$: StaticStructureSchema = [3, n0, _DCVEAPRe,
+  0,
+  [_Sta],
+  [[0, { [_eQN]: `Status`
+  , [_xN]: _sta }]]
 ];
 export var DeleteClientVpnEndpointRequest$: StaticStructureSchema = [3, n0, _DCVER,
   0,
@@ -15948,6 +16001,17 @@ export var DeviceOptions$: StaticStructureSchema = [3, n0, _DOev,
   , [_xN]: _tIe }], [0, { [_eQN]: `PublicSigningKeyUrl`
   , [_xN]: _pSKU }]]
 ];
+export var DevicePostureOptions$: StaticStructureSchema = [3, n0, _DPO,
+  0,
+  [_TPru, _En],
+  [[() => ClientVpnTrustProviderRequestList, { [_xN]: _TPrus }], 2]
+];
+export var DevicePostureResponseOptions$: StaticStructureSchema = [3, n0, _DPRO,
+  0,
+  [_TPru],
+  [[() => ClientVpnTrustProviderSet, { [_eQN]: `TrustProviderSet`
+  , [_xN]: _tPS }]]
+];
 export var DhcpConfiguration$: StaticStructureSchema = [3, n0, _DChc,
   0,
   [_K, _Va],
@@ -17719,6 +17783,21 @@ export var GetCapacityReservationUsageResult$: StaticStructureSchema = [3, n0, _
   , [_xN]: _iCA }], [() => InterruptionInfo$, { [_eQN]: `InterruptionInfo`
   , [_xN]: _iIn }]]
 ];
+export var GetClientVpnEndpointAuthorizationPolicyRequest$: StaticStructureSchema = [3, n0, _GCVEAPR,
+  0,
+  [_CVEI, _DR],
+  [0, 2], 1
+];
+export var GetClientVpnEndpointAuthorizationPolicyResult$: StaticStructureSchema = [3, n0, _GCVEAPRe,
+  0,
+  [_CVEI, _PDo, _De, _SMh, _Sta],
+  [[0, { [_eQN]: `ClientVpnEndpointId`
+  , [_xN]: _cVEI }], [0, { [_eQN]: `PolicyDocument`
+  , [_xN]: _pD }], [0, { [_eQN]: `Description`
+  , [_xN]: _de }], [0, { [_eQN]: `ShadowMode`
+  , [_xN]: _sMh }], [0, { [_eQN]: `Status`
+  , [_xN]: _sta }]]
+];
 export var GetCoipPoolUsageRequest$: StaticStructureSchema = [3, n0, _GCPUR,
   0,
   [_PIo, _Fi, _MR, _NTe, _DR],
@@ -18247,7 +18326,7 @@ export var GetPasswordDataResult$: StaticStructureSchema = [3, n0, _GPDRe,
   [[0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [4, { [_eQN]: `Timestamp`
   , [_xN]: _ti }], [() => PasswordData, { [_eQN]: `PasswordData`
-  , [_xN]: _pD }]]
+  , [_xN]: _pDa }]]
 ];
 export var GetReservedInstancesExchangeQuoteRequest$: StaticStructureSchema = [3, n0, _GRIEQR,
   0,
@@ -18261,7 +18340,7 @@ export var GetReservedInstancesExchangeQuoteResult$: StaticStructureSchema = [3,
   , [_xN]: _cC }], [2, { [_eQN]: `IsValidExchange`
   , [_xN]: _iVE }], [4, { [_eQN]: `OutputReservedInstancesWillExpireAt`
   , [_xN]: _oRIWEA }], [0, { [_eQN]: `PaymentDue`
-  , [_xN]: _pDa }], [() => ReservationValue$, { [_eQN]: `ReservedInstanceValueRollup`
+  , [_xN]: _pDay }], [() => ReservationValue$, { [_eQN]: `ReservedInstanceValueRollup`
   , [_xN]: _rIVR }], [() => ReservedInstanceReservationValueSet, { [_eQN]: `ReservedInstanceValueSet`
   , [_xN]: _rIVS }], [() => ReservationValue$, { [_eQN]: `TargetConfigurationValueRollup`
   , [_xN]: _tCVR }], [() => TargetReservationValueSet, { [_eQN]: `TargetConfigurationValueSet`
@@ -18470,7 +18549,7 @@ export var GetVerifiedAccessEndpointPolicyResult$: StaticStructureSchema = [3, n
   [_PE, _PDo],
   [[2, { [_eQN]: `PolicyEnabled`
   , [_xN]: _pE }], [0, { [_eQN]: `PolicyDocument`
-  , [_xN]: _pDo }]]
+  , [_xN]: _pD }]]
 ];
 export var GetVerifiedAccessEndpointTargetsRequest$: StaticStructureSchema = [3, n0, _GVAETR,
   0,
@@ -18494,7 +18573,7 @@ export var GetVerifiedAccessGroupPolicyResult$: StaticStructureSchema = [3, n0, 
   [_PE, _PDo],
   [[2, { [_eQN]: `PolicyEnabled`
   , [_xN]: _pE }], [0, { [_eQN]: `PolicyDocument`
-  , [_xN]: _pDo }]]
+  , [_xN]: _pD }]]
 ];
 export var GetVpcResourcesBlockingEncryptionEnforcementRequest$: StaticStructureSchema = [3, n0, _GVRBEER,
   0,
@@ -19003,12 +19082,12 @@ export var ImportImageLicenseConfigurationResponse$: StaticStructureSchema = [3,
 ];
 export var ImportImageRequest$: StaticStructureSchema = [3, n0, _IIR,
   0,
-  [_Arc, _CDl, _CT, _De, _DCis, _DR, _Enc, _Hy, _KKI, _LTi, _Pl, _RNo, _LS, _TS, _UO, _BM],
+  [_Arc, _CDl, _CT, _De, _DCis, _DR, _Enc, _Hy, _KKI, _LTi, _Pl, _RNo, _LSi, _TS, _UO, _BM],
   [0, () => ClientData$, 0, 0, [() => ImageDiskContainerList, { [_xN]: _DCisk }], 2, 2, 0, 0, 0, 0, 0, [() => ImportImageLicenseSpecificationListRequest, 0], [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0]
 ];
 export var ImportImageResult$: StaticStructureSchema = [3, n0, _IIRm,
   0,
-  [_Arc, _De, _Enc, _Hy, _IIm, _ITI, _KKI, _LTi, _Pl, _Pro, _SDn, _Sta, _SMt, _LS, _T, _UO],
+  [_Arc, _De, _Enc, _Hy, _IIm, _ITI, _KKI, _LTi, _Pl, _Pro, _SDn, _Sta, _SMt, _LSi, _T, _UO],
   [[0, { [_eQN]: `Architecture`
   , [_xN]: _arc }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [2, { [_eQN]: `Encrypted`
@@ -19023,13 +19102,13 @@ export var ImportImageResult$: StaticStructureSchema = [3, n0, _IIRm,
   , [_xN]: _sDSn }], [0, { [_eQN]: `Status`
   , [_xN]: _sta }], [0, { [_eQN]: `StatusMessage`
   , [_xN]: _sMt }], [() => ImportImageLicenseSpecificationListResponse, { [_eQN]: `LicenseSpecifications`
-  , [_xN]: _lS }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _lSi }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [0, { [_eQN]: `UsageOperation`
   , [_xN]: _uO }]]
 ];
 export var ImportImageTask$: StaticStructureSchema = [3, n0, _IITm,
   0,
-  [_Arc, _De, _Enc, _Hy, _IIm, _ITI, _KKI, _LTi, _Pl, _Pro, _SDn, _Sta, _SMt, _T, _LS, _UO, _BM],
+  [_Arc, _De, _Enc, _Hy, _IIm, _ITI, _KKI, _LTi, _Pl, _Pro, _SDn, _Sta, _SMt, _T, _LSi, _UO, _BM],
   [[0, { [_eQN]: `Architecture`
   , [_xN]: _arc }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [2, { [_eQN]: `Encrypted`
@@ -19045,7 +19124,7 @@ export var ImportImageTask$: StaticStructureSchema = [3, n0, _IITm,
   , [_xN]: _sta }], [0, { [_eQN]: `StatusMessage`
   , [_xN]: _sMt }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [() => ImportImageLicenseSpecificationListResponse, { [_eQN]: `LicenseSpecifications`
-  , [_xN]: _lS }], [0, { [_eQN]: `UsageOperation`
+  , [_xN]: _lSi }], [0, { [_eQN]: `UsageOperation`
   , [_xN]: _uO }], [0, { [_eQN]: `BootMode`
   , [_xN]: _bM }]]
 ];
@@ -19228,7 +19307,7 @@ export var Instance$: StaticStructureSchema = [3, n0, _In,
   , [_xN]: _cRI }], [() => CapacityReservationSpecificationResponse$, { [_eQN]: `CapacityReservationSpecification`
   , [_xN]: _cRSa }], [() => HibernationOptions$, { [_eQN]: `HibernationOptions`
   , [_xN]: _hO }], [() => LicenseList, { [_eQN]: `LicenseSet`
-  , [_xN]: _lSi }], [() => InstanceMetadataOptionsResponse$, { [_eQN]: `MetadataOptions`
+  , [_xN]: _lSic }], [() => InstanceMetadataOptionsResponse$, { [_eQN]: `MetadataOptions`
   , [_xN]: _mO }], [() => EnclaveOptions$, { [_eQN]: `EnclaveOptions`
   , [_xN]: _eOn }], [0, { [_eQN]: `BootMode`
   , [_xN]: _bM }], [0, { [_eQN]: `PlatformDetails`
@@ -20126,7 +20205,7 @@ export var IpamPool$: StaticStructureSchema = [3, n0, _IPpam,
   , [_xN]: _iApa }], [0, { [_eQN]: `IpamRegion`
   , [_xN]: _iRp }], [0, { [_eQN]: `Locale`
   , [_xN]: _loc }], [1, { [_eQN]: `PoolDepth`
-  , [_xN]: _pDoo }], [0, { [_eQN]: `State`
+  , [_xN]: _pDo }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `StateMessage`
   , [_xN]: _sMta }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [2, { [_eQN]: `AutoImport`
@@ -21375,10 +21454,21 @@ export var ModifyCapacityReservationResult$: StaticStructureSchema = [3, n0, _MC
   , [_xN]: _aSd }], [() => CapacityReservationAdjustmentDetails$, { [_eQN]: `AdjustmentDetails`
   , [_xN]: _aD }]]
 ];
+export var ModifyClientVpnEndpointAuthorizationPolicyRequest$: StaticStructureSchema = [3, n0, _MCVEAPR,
+  0,
+  [_CVEI, _PDo, _De, _SMh, _CT, _DR],
+  [0, 0, 0, 0, [0, 4], 2], 1
+];
+export var ModifyClientVpnEndpointAuthorizationPolicyResult$: StaticStructureSchema = [3, n0, _MCVEAPRo,
+  0,
+  [_Sta],
+  [[0, { [_eQN]: `Status`
+  , [_xN]: _sta }]]
+];
 export var ModifyClientVpnEndpointRequest$: StaticStructureSchema = [3, n0, _MCVER,
   0,
-  [_CVEI, _SCA, _CLO, _DS, _VPpn, _De, _STp, _DR, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _TGC],
-  [0, 0, () => ConnectionLogOptions$, [() => DnsServersOptionsModifyStructure$, 0], 1, 0, 2, 2, [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2, [() => TransitGatewayConfigurationInputStructure$, 0]], 1
+  [_CVEI, _SCA, _CLO, _DS, _VPpn, _De, _STp, _DR, _SGIe, _VI, _SSP, _CCO, _STH, _CLBO, _CREO, _DOST, _TGC, _DPO],
+  [0, 0, () => ConnectionLogOptions$, [() => DnsServersOptionsModifyStructure$, 0], 1, 0, 2, 2, [() => ClientVpnSecurityGroupIdSet, { [_xN]: _SGI }], 0, 0, () => ClientConnectOptions$, 1, () => ClientLoginBannerOptions$, () => ClientRouteEnforcementOptions$, 2, [() => TransitGatewayConfigurationInputStructure$, 0], [() => DevicePostureOptions$, 0]], 1
 ];
 export var ModifyClientVpnEndpointResult$: StaticStructureSchema = [3, n0, _MCVERo,
   0,
@@ -21996,7 +22086,7 @@ export var ModifyVerifiedAccessEndpointPolicyResult$: StaticStructureSchema = [3
   [_PE, _PDo, _SSs],
   [[2, { [_eQN]: `PolicyEnabled`
   , [_xN]: _pE }], [0, { [_eQN]: `PolicyDocument`
-  , [_xN]: _pDo }], [() => VerifiedAccessSseSpecificationResponse$, { [_eQN]: `SseSpecification`
+  , [_xN]: _pD }], [() => VerifiedAccessSseSpecificationResponse$, { [_eQN]: `SseSpecification`
   , [_xN]: _sSs }]]
 ];
 export var ModifyVerifiedAccessEndpointPortRange$: StaticStructureSchema = [3, n0, _MVAEPRod,
@@ -22030,7 +22120,7 @@ export var ModifyVerifiedAccessGroupPolicyResult$: StaticStructureSchema = [3, n
   [_PE, _PDo, _SSs],
   [[2, { [_eQN]: `PolicyEnabled`
   , [_xN]: _pE }], [0, { [_eQN]: `PolicyDocument`
-  , [_xN]: _pDo }], [() => VerifiedAccessSseSpecificationResponse$, { [_eQN]: `SseSpecification`
+  , [_xN]: _pD }], [() => VerifiedAccessSseSpecificationResponse$, { [_eQN]: `SseSpecification`
   , [_xN]: _sSs }]]
 ];
 export var ModifyVerifiedAccessGroupRequest$: StaticStructureSchema = [3, n0, _MVAGR,
@@ -23715,8 +23805,8 @@ export var RequestIpamResourceTag$: StaticStructureSchema = [3, n0, _RIRT,
 ];
 export var RequestLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTD,
   0,
-  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LS, _HO, _MO, _EOn, _IRn, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
-  [0, 2, () => LaunchTemplateIamInstanceProfileSpecificationRequest$, [() => LaunchTemplateBlockDeviceMappingRequestList, { [_xN]: _BDM }], [() => LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList, { [_xN]: _NIe }], 0, 0, 0, () => LaunchTemplatesMonitoringRequest$, () => LaunchTemplatePlacementRequest$, 0, 2, 0, [() => SensitiveUserData, 0], [() => LaunchTemplateTagSpecificationRequestList, { [_xN]: _TSa }], [() => ElasticGpuSpecificationList, { [_xN]: _EGSla }], [() => LaunchTemplateElasticInferenceAcceleratorList, { [_xN]: _EIA }], [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGec }], () => LaunchTemplateInstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => LaunchTemplateCpuOptionsRequest$, () => LaunchTemplateCapacityReservationSpecificationRequest$, [() => LaunchTemplateLicenseSpecificationListRequest, { [_xN]: _LSi }], () => LaunchTemplateHibernationOptionsRequest$, () => LaunchTemplateInstanceMetadataOptionsRequest$, () => LaunchTemplateEnclaveOptionsRequest$, [() => InstanceRequirementsRequest$, 0], () => LaunchTemplatePrivateDnsNameOptionsRequest$, () => LaunchTemplateInstanceMaintenanceOptionsRequest$, 2, () => OperatorRequest$, () => LaunchTemplateNetworkPerformanceOptionsRequest$, [() => LaunchTemplateInstanceSecondaryInterfaceSpecificationRequestList, { [_xN]: _SIeco }]]
+  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LSi, _HO, _MO, _EOn, _IRn, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
+  [0, 2, () => LaunchTemplateIamInstanceProfileSpecificationRequest$, [() => LaunchTemplateBlockDeviceMappingRequestList, { [_xN]: _BDM }], [() => LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList, { [_xN]: _NIe }], 0, 0, 0, () => LaunchTemplatesMonitoringRequest$, () => LaunchTemplatePlacementRequest$, 0, 2, 0, [() => SensitiveUserData, 0], [() => LaunchTemplateTagSpecificationRequestList, { [_xN]: _TSa }], [() => ElasticGpuSpecificationList, { [_xN]: _EGSla }], [() => LaunchTemplateElasticInferenceAcceleratorList, { [_xN]: _EIA }], [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGec }], () => LaunchTemplateInstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => LaunchTemplateCpuOptionsRequest$, () => LaunchTemplateCapacityReservationSpecificationRequest$, [() => LaunchTemplateLicenseSpecificationListRequest, { [_xN]: _LSic }], () => LaunchTemplateHibernationOptionsRequest$, () => LaunchTemplateInstanceMetadataOptionsRequest$, () => LaunchTemplateEnclaveOptionsRequest$, [() => InstanceRequirementsRequest$, 0], () => LaunchTemplatePrivateDnsNameOptionsRequest$, () => LaunchTemplateInstanceMaintenanceOptionsRequest$, 2, () => OperatorRequest$, () => LaunchTemplateNetworkPerformanceOptionsRequest$, [() => LaunchTemplateInstanceSecondaryInterfaceSpecificationRequestList, { [_xN]: _SIeco }]]
 ];
 export var RequestSpotFleetRequest$: StaticStructureSchema = [3, n0, _RSFR,
   0,
@@ -24021,7 +24111,7 @@ export var ResponseError$: StaticStructureSchema = [3, n0, _REe,
 ];
 export var ResponseLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTDe,
   0,
-  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LS, _HO, _MO, _EOn, _IRn, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
+  [_KI, _EO, _IIP, _BDMl, _NIet, _IIm, _IT, _KN, _Mon, _Pla, _RDI, _DAT, _IISB, _UDs, _TS, _EGSlas, _EIAl, _SGIe, _SGe, _IMOns, _CSr, _CO, _CRSa, _LSi, _HO, _MO, _EOn, _IRn, _PDNO, _MOa, _DASi, _Op, _NPO, _SIec],
   [[0, { [_eQN]: `KernelId`
   , [_xN]: _kI }], [2, { [_eQN]: `EbsOptimized`
   , [_xN]: _eO }], [() => LaunchTemplateIamInstanceProfileSpecification$, { [_eQN]: `IamInstanceProfile`
@@ -24046,7 +24136,7 @@ export var ResponseLaunchTemplateData$: StaticStructureSchema = [3, n0, _RLTDe,
   , [_xN]: _cSr }], [() => LaunchTemplateCpuOptions$, { [_eQN]: `CpuOptions`
   , [_xN]: _cO }], [() => LaunchTemplateCapacityReservationSpecificationResponse$, { [_eQN]: `CapacityReservationSpecification`
   , [_xN]: _cRSa }], [() => LaunchTemplateLicenseList, { [_eQN]: `LicenseSet`
-  , [_xN]: _lSi }], [() => LaunchTemplateHibernationOptions$, { [_eQN]: `HibernationOptions`
+  , [_xN]: _lSic }], [() => LaunchTemplateHibernationOptions$, { [_eQN]: `HibernationOptions`
   , [_xN]: _hO }], [() => LaunchTemplateInstanceMetadataOptions$, { [_eQN]: `MetadataOptions`
   , [_xN]: _mO }], [() => LaunchTemplateEnclaveOptions$, { [_eQN]: `EnclaveOptions`
   , [_xN]: _eOn }], [() => InstanceRequirements$, { [_eQN]: `InstanceRequirements`
@@ -24393,8 +24483,8 @@ export var RunInstancesMonitoringEnabled$: StaticStructureSchema = [3, n0, _RIME
 ];
 export var RunInstancesRequest$: StaticStructureSchema = [3, n0, _RIRu,
   0,
-  [_MCa, _MCin, _BDMl, _IIm, _IT, _IAC, _IA, _KI, _KN, _Mon, _Pla, _RIa, _SGIe, _SGe, _SIu, _UDs, _EGSla, _EIAl, _TS, _LT, _IMOns, _CSr, _CO, _CRSa, _HO, _LS, _MO, _EOn, _PDNO, _MOa, _DASi, _EPI, _NPO, _Op, _SIec, _DR, _DAT, _IISB, _PIAr, _CT, _AId, _NIet, _IIP, _EO],
-  [1, 1, [() => BlockDeviceMappingRequestList, { [_xN]: _BDM }], 0, 0, 1, [() => InstanceIpv6AddressList, { [_xN]: _IApv }], 0, 0, [() => RunInstancesMonitoringEnabled$, 0], [() => Placement$, 0], 0, [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGec }], 0, [() => RunInstancesUserData, 0], [() => ElasticGpuSpecifications, 0], [() => ElasticInferenceAccelerators, { [_xN]: _EIA }], [() => TagSpecificationList, { [_xN]: _TSa }], () => LaunchTemplateSpecification$, () => InstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => CpuOptionsRequest$, () => CapacityReservationSpecification$, () => HibernationOptionsRequest$, [() => LicenseSpecificationListRequest, { [_xN]: _LSi }], () => InstanceMetadataOptionsRequest$, () => EnclaveOptionsRequest$, () => PrivateDnsNameOptionsRequest$, () => InstanceMaintenanceOptionsRequest$, 2, 2, () => InstanceNetworkPerformanceOptionsRequest$, () => OperatorRequest$, [() => InstanceSecondaryInterfaceSpecificationListRequest, { [_xN]: _SIeco }], [2, { [_eQN]: `DryRun`
+  [_MCa, _MCin, _BDMl, _IIm, _IT, _IAC, _IA, _KI, _KN, _Mon, _Pla, _RIa, _SGIe, _SGe, _SIu, _UDs, _EGSla, _EIAl, _TS, _LT, _IMOns, _CSr, _CO, _CRSa, _HO, _LSi, _MO, _EOn, _PDNO, _MOa, _DASi, _EPI, _NPO, _Op, _SIec, _DR, _DAT, _IISB, _PIAr, _CT, _AId, _NIet, _IIP, _EO],
+  [1, 1, [() => BlockDeviceMappingRequestList, { [_xN]: _BDM }], 0, 0, 1, [() => InstanceIpv6AddressList, { [_xN]: _IApv }], 0, 0, [() => RunInstancesMonitoringEnabled$, 0], [() => Placement$, 0], 0, [() => SecurityGroupIdStringList, { [_xN]: _SGI }], [() => SecurityGroupStringList, { [_xN]: _SGec }], 0, [() => RunInstancesUserData, 0], [() => ElasticGpuSpecifications, 0], [() => ElasticInferenceAccelerators, { [_xN]: _EIA }], [() => TagSpecificationList, { [_xN]: _TSa }], () => LaunchTemplateSpecification$, () => InstanceMarketOptionsRequest$, () => CreditSpecificationRequest$, () => CpuOptionsRequest$, () => CapacityReservationSpecification$, () => HibernationOptionsRequest$, [() => LicenseSpecificationListRequest, { [_xN]: _LSic }], () => InstanceMetadataOptionsRequest$, () => EnclaveOptionsRequest$, () => PrivateDnsNameOptionsRequest$, () => InstanceMaintenanceOptionsRequest$, 2, 2, () => InstanceNetworkPerformanceOptionsRequest$, () => OperatorRequest$, [() => InstanceSecondaryInterfaceSpecificationListRequest, { [_xN]: _SIeco }], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [2, { [_eQN]: `DisableApiTermination`
   , [_xN]: _dAT }], [0, { [_eQN]: `InstanceInitiatedShutdownBehavior`
   , [_xN]: _iISB }], [0, { [_eQN]: `PrivateIpAddress`
@@ -26910,7 +27000,7 @@ export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VE,
   , [_xN]: _vI }], [0, { [_eQN]: `ServiceName`
   , [_xN]: _sN }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `PolicyDocument`
-  , [_xN]: _pDo }], [() => ValueStringList, { [_eQN]: `RouteTableIdSet`
+  , [_xN]: _pD }], [() => ValueStringList, { [_eQN]: `RouteTableIdSet`
   , [_xN]: _rTIS }], [() => ValueStringList, { [_eQN]: `SubnetIdSet`
   , [_xN]: _sISu }], [() => GroupIdentifierSet, { [_eQN]: `GroupSet`
   , [_xN]: _gSr }], [0, { [_eQN]: `IpAddressType`
@@ -27541,6 +27631,14 @@ var ClientVpnRouteSet: StaticListSchema = [1, n0, _CVRSl,
 ];
 var ClientVpnSecurityGroupIdSet: StaticListSchema = [1, n0, _CVSGIS,
   0, [0,
+    { [_xN]: _it }]
+];
+var ClientVpnTrustProviderRequestList: StaticListSchema = [1, n0, _CVTPRL,
+  0, [() => ClientVpnTrustProviderRequest$,
+    { [_xN]: _it }]
+];
+var ClientVpnTrustProviderSet: StaticListSchema = [1, n0, _CVTPS,
+  0, [() => ClientVpnTrustProvider$,
     { [_xN]: _it }]
 ];
 var CoipAddressUsageSet: StaticListSchema = [1, n0, _CAUS,
@@ -30713,6 +30811,9 @@ export var DeleteCarrierGateway$: StaticOperationSchema = [9, n0, _DCG,
 export var DeleteClientVpnEndpoint$: StaticOperationSchema = [9, n0, _DCVE,
   0, () => DeleteClientVpnEndpointRequest$, () => DeleteClientVpnEndpointResult$
 ];
+export var DeleteClientVpnEndpointAuthorizationPolicy$: StaticOperationSchema = [9, n0, _DCVEAP,
+  0, () => DeleteClientVpnEndpointAuthorizationPolicyRequest$, () => DeleteClientVpnEndpointAuthorizationPolicyResult$
+];
 export var DeleteClientVpnRoute$: StaticOperationSchema = [9, n0, _DCVR,
   0, () => DeleteClientVpnRouteRequest$, () => DeleteClientVpnRouteResult$
 ];
@@ -31859,6 +31960,9 @@ export var GetCapacityManagerMonitoredTagKeys$: StaticOperationSchema = [9, n0, 
 export var GetCapacityReservationUsage$: StaticOperationSchema = [9, n0, _GCRU,
   0, () => GetCapacityReservationUsageRequest$, () => GetCapacityReservationUsageResult$
 ];
+export var GetClientVpnEndpointAuthorizationPolicy$: StaticOperationSchema = [9, n0, _GCVEAP,
+  0, () => GetClientVpnEndpointAuthorizationPolicyRequest$, () => GetClientVpnEndpointAuthorizationPolicyResult$
+];
 export var GetCoipPoolUsage$: StaticOperationSchema = [9, n0, _GCPU,
   0, () => GetCoipPoolUsageRequest$, () => GetCoipPoolUsageResult$
 ];
@@ -32110,6 +32214,9 @@ export var ModifyCapacityReservationFleet$: StaticOperationSchema = [9, n0, _MCR
 ];
 export var ModifyClientVpnEndpoint$: StaticOperationSchema = [9, n0, _MCVE,
   0, () => ModifyClientVpnEndpointRequest$, () => ModifyClientVpnEndpointResult$
+];
+export var ModifyClientVpnEndpointAuthorizationPolicy$: StaticOperationSchema = [9, n0, _MCVEAP,
+  0, () => ModifyClientVpnEndpointAuthorizationPolicyRequest$, () => ModifyClientVpnEndpointAuthorizationPolicyResult$
 ];
 export var ModifyDefaultCreditSpecification$: StaticOperationSchema = [9, n0, _MDCS,
   0, () => ModifyDefaultCreditSpecificationRequest$, () => ModifyDefaultCreditSpecificationResult$

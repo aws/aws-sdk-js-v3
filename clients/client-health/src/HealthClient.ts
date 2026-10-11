@@ -100,6 +100,10 @@ import type {
   DescribeHealthServiceStatusForOrganizationCommandOutput,
 } from "./commands/DescribeHealthServiceStatusForOrganizationCommand";
 import type {
+  DescribeServiceLifecycleCommandInput,
+  DescribeServiceLifecycleCommandOutput,
+} from "./commands/DescribeServiceLifecycleCommand";
+import type {
   DisableHealthServiceAccessForOrganizationCommandInput,
   DisableHealthServiceAccessForOrganizationCommandOutput,
 } from "./commands/DisableHealthServiceAccessForOrganizationCommand";
@@ -134,6 +138,7 @@ export type ServiceInputTypes =
   | DescribeEventsCommandInput
   | DescribeEventsForOrganizationCommandInput
   | DescribeHealthServiceStatusForOrganizationCommandInput
+  | DescribeServiceLifecycleCommandInput
   | DisableHealthServiceAccessForOrganizationCommandInput
   | EnableHealthServiceAccessForOrganizationCommandInput;
 
@@ -153,6 +158,7 @@ export type ServiceOutputTypes =
   | DescribeEventsCommandOutput
   | DescribeEventsForOrganizationCommandOutput
   | DescribeHealthServiceStatusForOrganizationCommandOutput
+  | DescribeServiceLifecycleCommandOutput
   | DisableHealthServiceAccessForOrganizationCommandOutput
   | EnableHealthServiceAccessForOrganizationCommandOutput;
 

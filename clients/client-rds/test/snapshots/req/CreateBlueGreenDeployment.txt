@@ -2,14 +2,14 @@ POST https://rds.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 630
+content-length: 1158
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rds#_.__ m/E,e
 host: rds.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: d674a1d46ceebaabc3524070c8425c879acfdc31c42fb92ec8286b41d76681d0
+x-amz-content-sha256: bc316a56ce080eeed70991fa361fdae062ea8fd27434bd0d6804f1e3c1025306
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -31,4 +31,10 @@ UpgradeTargetStorageConfig=false&
 TargetIops=0&
 TargetStorageType=__TargetStorageType__&
 TargetAllocatedStorage=0&
-TargetStorageThroughput=0
+TargetStorageThroughput=0&
+TargetResourceConfigurations.TargetResourceConfiguration.1.SourceArn=__SourceArn__&
+TargetResourceConfigurations.TargetResourceConfiguration.1.TargetKmsKeyId=__TargetKmsKeyId__&
+TargetResourceConfigurations.TargetResourceConfiguration.2.SourceArn=__SourceArn__&
+TargetResourceConfigurations.TargetResourceConfiguration.2.TargetKmsKeyId=__TargetKmsKeyId__&
+TargetResourceConfigurations.TargetResourceConfiguration.3.SourceArn=__SourceArn__&
+TargetResourceConfigurations.TargetResourceConfiguration.3.TargetKmsKeyId=__TargetKmsKeyId__

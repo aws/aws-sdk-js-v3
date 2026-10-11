@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from PinpointSMSVoiceV2 service.
  */
 export class PinpointSMSVoiceV2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.pinpointsmsvoicev2#PinpointSMSVoiceV2ServiceException";
   /**
    * @internal
    */

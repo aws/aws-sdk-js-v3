@@ -13,6 +13,7 @@ export * from "./ListPlansCommand";
 export * from "./ListPlansInRegionCommand";
 export * from "./ListRoute53HealthChecksCommand";
 export * from "./ListRoute53HealthChecksInRegionCommand";
+export * from "./ListServiceQuotaWarningsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./StartPlanExecutionCommand";
 export * from "./TagResourceCommand";

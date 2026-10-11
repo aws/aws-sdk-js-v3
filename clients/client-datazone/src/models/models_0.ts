@@ -4,6 +4,7 @@ import type {
   AttributeEntityType,
   AuthenticationType,
   AuthType,
+  BlueprintCategory,
   ChangeAction,
   ComputeEnvironments,
   ConfigurableActionTypeAuthorization,
@@ -5323,6 +5324,12 @@ export interface IamPropertiesInput {
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
+
+  /**
+   * <p>The ARN of the IAM role to associate with the connection as the project user role. To use this operation, you must have <code>iam:PassRole</code> permission for this role.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
 }
 
 /**
@@ -10316,6 +10323,12 @@ export interface CreateEnvironmentBlueprintInput {
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
+
+  /**
+   * <p>The category of the Amazon DataZone blueprint. The only valid value is <code>TOOLING</code>, which creates a blueprint that provisions the tooling resources of a project.</p>
+   * @public
+   */
+  blueprintCategory?: BlueprintCategory | undefined;
 }
 
 /**
@@ -10369,6 +10382,12 @@ export interface CreateEnvironmentBlueprintOutput {
    * @public
    */
   glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The category of the Amazon DataZone blueprint. The only valid value is <code>TOOLING</code>, which indicates a blueprint that provisions the tooling resources of a project.</p>
+   * @public
+   */
+  blueprintCategory?: BlueprintCategory | undefined;
 
   /**
    * <p>The timestamp at which the environment blueprint was created.</p>

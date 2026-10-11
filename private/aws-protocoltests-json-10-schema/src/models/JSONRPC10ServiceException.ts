@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from JSONRPC10 service.
  */
 export class JSONRPC10ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.aws.protocoltests.json10#JSONRPC10ServiceException";
   /**
    * @internal
    */

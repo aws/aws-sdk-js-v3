@@ -37,6 +37,7 @@ export interface UpdateAssistantAIAgentCommandOutput extends UpdateAssistantAIAg
  *   aiAgentType: "STRING_VALUE", // required
  *   configuration: { // AIAgentConfigurationData
  *     aiAgentId: "STRING_VALUE", // required
+ *     enabled: true || false,
  *   },
  *   orchestratorUseCase: "STRING_VALUE",
  * };
@@ -65,6 +66,7 @@ export interface UpdateAssistantAIAgentCommandOutput extends UpdateAssistantAIAg
  * //     aiAgentConfiguration: { // AIAgentConfigurationMap
  * //       "<keys>": { // AIAgentConfigurationData
  * //         aiAgentId: "STRING_VALUE", // required
+ * //         enabled: true || false,
  * //       },
  * //     },
  * //     orchestratorConfigurationList: [ // OrchestratorConfigurationList

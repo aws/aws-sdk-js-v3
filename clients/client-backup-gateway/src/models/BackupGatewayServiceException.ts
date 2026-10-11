@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from BackupGateway service.
  */
 export class BackupGatewayServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.backupgateway#BackupGatewayServiceException";
   /**
    * @internal
    */

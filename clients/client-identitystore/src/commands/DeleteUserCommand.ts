@@ -35,6 +35,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * const input = { // DeleteUserRequest
  *   IdentityStoreId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
+ *   Revision: "STRING_VALUE",
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);

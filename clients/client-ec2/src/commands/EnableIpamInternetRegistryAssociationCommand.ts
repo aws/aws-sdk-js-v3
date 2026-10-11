@@ -54,10 +54,10 @@ export interface EnableIpamInternetRegistryAssociationCommandOutput extends Enab
  * //     IpamInternetRegistryAssociationArn: "STRING_VALUE",
  * //     IpamId: "STRING_VALUE",
  * //     IpamRegion: "STRING_VALUE",
- * //     Rir: "ripe" || "apnic" || "arin" || "lacnic",
+ * //     Rir: "ripe" || "apnic" || "arin" || "lacnic" || "nicbr",
  * //     OrganizationHandle: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
- * //     State: "pending-enable" || "create-in-progress" || "create-failed" || "enable-in-progress" || "enable-complete" || "enable-failed" || "delete-in-progress" || "delete-complete" || "delete-failed",
+ * //     State: "pending-enable" || "create-in-progress" || "create-failed" || "enable-in-progress" || "enable-complete" || "enable-failed" || "disable-in-progress" || "disable-complete" || "disable-failed" || "delete-in-progress" || "delete-complete" || "delete-failed",
  * //     StateMessage: "STRING_VALUE",
  * //     ChildRequestXml: "STRING_VALUE",
  * //     Tags: [ // TagList

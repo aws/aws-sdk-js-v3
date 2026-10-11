@@ -25,7 +25,10 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
 /**
  * <p>Creates an account-level data protection policy, subscription filter policy, field index
  *       policy, transformer policy, or metric extraction policy that applies to all log groups, a
- *       subset of log groups, or a data source name and type combination in the account.</p>
+ *       subset of log groups, or a data source name and type combination in the account. Account-level
+ *       policies are Region-specific: a policy applies only to log groups in the Region where you
+ *       create it. To apply a policy across multiple Regions, create the policy separately in each
+ *       Region.</p>
  *          <important>
  *             <p>
  *                <code>PutAccountPolicy</code> is an account-wide administrative operation intended for

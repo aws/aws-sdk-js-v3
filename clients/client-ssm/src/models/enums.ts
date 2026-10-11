@@ -389,6 +389,19 @@ export type InventorySchemaDeleteOption =
  * @public
  * @enum
  */
+export const DeletionMode = {
+  RemoveSharing: "RemoveSharing",
+  RollbackMigration: "RollbackMigration",
+} as const;
+/**
+ * @public
+ */
+export type DeletionMode = (typeof DeletionMode)[keyof typeof DeletionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const DescribeActivationsFilterKeys = {
   ACTIVATION_IDS: "ActivationIds",
   DEFAULT_INSTANCE_NAME: "DefaultInstanceName",

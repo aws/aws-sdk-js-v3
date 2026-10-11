@@ -29,7 +29,7 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  *             match process is essentially identical to the process of forming new matches. Backfill
  *             requests use the same matchmaker that was used to make the original match, and they
  *             provide matchmaking data for all players currently in the game session. FlexMatch uses
- *             this information to select new players so that backfilled match continues to meet the
+ *             this information to select new players so that the backfilled match continues to meet the
  *             original match requirements. </p>
  *          <p>When using FlexMatch with Amazon GameLift Servers managed hosting, you can request a backfill match from
  *             a client service by calling this operation with a <code>GameSessions</code> ID. You also

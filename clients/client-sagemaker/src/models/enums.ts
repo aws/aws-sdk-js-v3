@@ -91,6 +91,7 @@ export const ClusterInstanceType = {
   ML_C7G_LARGE: "ml.c7g.large",
   ML_C7G_MEDIUM: "ml.c7g.medium",
   ML_C7G_XLARGE: "ml.c7g.xlarge",
+  ML_C8A_16XLARGE: "ml.c8a.16xlarge",
   ML_C8G_12XLARGE: "ml.c8g.12xlarge",
   ML_C8G_16XLARGE: "ml.c8g.16xlarge",
   ML_C8G_24XLARGE: "ml.c8g.24xlarge",
@@ -204,6 +205,7 @@ export const ClusterInstanceType = {
   ML_M7I_8XLARGE: "ml.m7i.8xlarge",
   ML_M7I_LARGE: "ml.m7i.large",
   ML_M7I_XLARGE: "ml.m7i.xlarge",
+  ML_M8A_16XLARGE: "ml.m8a.16xlarge",
   ML_M8G_12XLARGE: "ml.m8g.12xlarge",
   ML_M8G_16XLARGE: "ml.m8g.16xlarge",
   ML_M8G_24XLARGE: "ml.m8g.24xlarge",
@@ -1144,6 +1146,12 @@ export const TrainingInstanceType = {
   ML_C7I_48XLARGE: "ml.c7i.48xlarge",
   ML_C7I_4XLARGE: "ml.c7i.4xlarge",
   ML_C7I_8XLARGE: "ml.c7i.8xlarge",
+  ML_C7I_FLEX_12XLARGE: "ml.c7i-flex.12xlarge",
+  ML_C7I_FLEX_16XLARGE: "ml.c7i-flex.16xlarge",
+  ML_C7I_FLEX_2XLARGE: "ml.c7i-flex.2xlarge",
+  ML_C7I_FLEX_4XLARGE: "ml.c7i-flex.4xlarge",
+  ML_C7I_FLEX_8XLARGE: "ml.c7i-flex.8xlarge",
+  ML_C7I_FLEX_XLARGE: "ml.c7i-flex.xlarge",
   ML_C7I_LARGE: "ml.c7i.large",
   ML_C7I_XLARGE: "ml.c7i.xlarge",
   ML_C8I_12XLARGE: "ml.c8i.12xlarge",
@@ -1155,6 +1163,12 @@ export const TrainingInstanceType = {
   ML_C8I_4XLARGE: "ml.c8i.4xlarge",
   ML_C8I_8XLARGE: "ml.c8i.8xlarge",
   ML_C8I_96XLARGE: "ml.c8i.96xlarge",
+  ML_C8I_FLEX_12XLARGE: "ml.c8i-flex.12xlarge",
+  ML_C8I_FLEX_16XLARGE: "ml.c8i-flex.16xlarge",
+  ML_C8I_FLEX_2XLARGE: "ml.c8i-flex.2xlarge",
+  ML_C8I_FLEX_4XLARGE: "ml.c8i-flex.4xlarge",
+  ML_C8I_FLEX_8XLARGE: "ml.c8i-flex.8xlarge",
+  ML_C8I_FLEX_XLARGE: "ml.c8i-flex.xlarge",
   ML_C8I_XLARGE: "ml.c8i.xlarge",
   ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
   ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
@@ -1225,6 +1239,13 @@ export const TrainingInstanceType = {
   ML_M7I_48XLARGE: "ml.m7i.48xlarge",
   ML_M7I_4XLARGE: "ml.m7i.4xlarge",
   ML_M7I_8XLARGE: "ml.m7i.8xlarge",
+  ML_M7I_FLEX_12XLARGE: "ml.m7i-flex.12xlarge",
+  ML_M7I_FLEX_16XLARGE: "ml.m7i-flex.16xlarge",
+  ML_M7I_FLEX_2XLARGE: "ml.m7i-flex.2xlarge",
+  ML_M7I_FLEX_4XLARGE: "ml.m7i-flex.4xlarge",
+  ML_M7I_FLEX_8XLARGE: "ml.m7i-flex.8xlarge",
+  ML_M7I_FLEX_LARGE: "ml.m7i-flex.large",
+  ML_M7I_FLEX_XLARGE: "ml.m7i-flex.xlarge",
   ML_M7I_LARGE: "ml.m7i.large",
   ML_M7I_XLARGE: "ml.m7i.xlarge",
   ML_M8I_12XLARGE: "ml.m8i.12xlarge",
@@ -1236,6 +1257,13 @@ export const TrainingInstanceType = {
   ML_M8I_4XLARGE: "ml.m8i.4xlarge",
   ML_M8I_8XLARGE: "ml.m8i.8xlarge",
   ML_M8I_96XLARGE: "ml.m8i.96xlarge",
+  ML_M8I_FLEX_12XLARGE: "ml.m8i-flex.12xlarge",
+  ML_M8I_FLEX_16XLARGE: "ml.m8i-flex.16xlarge",
+  ML_M8I_FLEX_2XLARGE: "ml.m8i-flex.2xlarge",
+  ML_M8I_FLEX_4XLARGE: "ml.m8i-flex.4xlarge",
+  ML_M8I_FLEX_8XLARGE: "ml.m8i-flex.8xlarge",
+  ML_M8I_FLEX_LARGE: "ml.m8i-flex.large",
+  ML_M8I_FLEX_XLARGE: "ml.m8i-flex.xlarge",
   ML_M8I_LARGE: "ml.m8i.large",
   ML_M8I_XLARGE: "ml.m8i.xlarge",
   ML_P2_16XLARGE: "ml.p2.16xlarge",
@@ -1297,6 +1325,13 @@ export const TrainingInstanceType = {
   ML_R8I_4XLARGE: "ml.r8i.4xlarge",
   ML_R8I_8XLARGE: "ml.r8i.8xlarge",
   ML_R8I_96XLARGE: "ml.r8i.96xlarge",
+  ML_R8I_FLEX_12XLARGE: "ml.r8i-flex.12xlarge",
+  ML_R8I_FLEX_16XLARGE: "ml.r8i-flex.16xlarge",
+  ML_R8I_FLEX_2XLARGE: "ml.r8i-flex.2xlarge",
+  ML_R8I_FLEX_4XLARGE: "ml.r8i-flex.4xlarge",
+  ML_R8I_FLEX_8XLARGE: "ml.r8i-flex.8xlarge",
+  ML_R8I_FLEX_LARGE: "ml.r8i-flex.large",
+  ML_R8I_FLEX_XLARGE: "ml.r8i-flex.xlarge",
   ML_R8I_LARGE: "ml.r8i.large",
   ML_R8I_XLARGE: "ml.r8i.xlarge",
   ML_T3_2XLARGE: "ml.t3.2xlarge",
@@ -2603,6 +2638,60 @@ export type ClusterConfigMode = (typeof ClusterConfigMode)[keyof typeof ClusterC
  * @public
  * @enum
  */
+export const DatabaseConfigurationRollbackStatus = {
+  NOT_APPLICABLE: "NotApplicable",
+  REVERTED: "Reverted",
+  REVERT_FAILED: "RevertFailed",
+} as const;
+/**
+ * @public
+ */
+export type DatabaseConfigurationRollbackStatus =
+  (typeof DatabaseConfigurationRollbackStatus)[keyof typeof DatabaseConfigurationRollbackStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SlurmHealthComponent = {
+  SLURMDBD: "Slurmdbd",
+} as const;
+/**
+ * @public
+ */
+export type SlurmHealthComponent = (typeof SlurmHealthComponent)[keyof typeof SlurmHealthComponent];
+
+/**
+ * @public
+ * @enum
+ */
+export const SlurmHealthReason = {
+  DAEMON_DISABLED: "DaemonDisabled",
+  DAEMON_DOWN: "DaemonDown",
+  DB_UNREACHABLE: "DbUnreachable",
+} as const;
+/**
+ * @public
+ */
+export type SlurmHealthReason = (typeof SlurmHealthReason)[keyof typeof SlurmHealthReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const SlurmHealthStatus = {
+  HEALTHY: "Healthy",
+  UNHEALTHY: "Unhealthy",
+} as const;
+/**
+ * @public
+ */
+export type SlurmHealthStatus = (typeof SlurmHealthStatus)[keyof typeof SlurmHealthStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ClusterEventLevel = {
   ERROR: "Error",
   INFO: "Info",
@@ -3237,6 +3326,12 @@ export const ProcessingInstanceType = {
   ML_C7I_48XLARGE: "ml.c7i.48xlarge",
   ML_C7I_4XLARGE: "ml.c7i.4xlarge",
   ML_C7I_8XLARGE: "ml.c7i.8xlarge",
+  ML_C7I_FLEX_12XLARGE: "ml.c7i-flex.12xlarge",
+  ML_C7I_FLEX_16XLARGE: "ml.c7i-flex.16xlarge",
+  ML_C7I_FLEX_2XLARGE: "ml.c7i-flex.2xlarge",
+  ML_C7I_FLEX_4XLARGE: "ml.c7i-flex.4xlarge",
+  ML_C7I_FLEX_8XLARGE: "ml.c7i-flex.8xlarge",
+  ML_C7I_FLEX_XLARGE: "ml.c7i-flex.xlarge",
   ML_C7I_LARGE: "ml.c7i.large",
   ML_C7I_XLARGE: "ml.c7i.xlarge",
   ML_C8I_12XLARGE: "ml.c8i.12xlarge",
@@ -3248,6 +3343,12 @@ export const ProcessingInstanceType = {
   ML_C8I_4XLARGE: "ml.c8i.4xlarge",
   ML_C8I_8XLARGE: "ml.c8i.8xlarge",
   ML_C8I_96XLARGE: "ml.c8i.96xlarge",
+  ML_C8I_FLEX_12XLARGE: "ml.c8i-flex.12xlarge",
+  ML_C8I_FLEX_16XLARGE: "ml.c8i-flex.16xlarge",
+  ML_C8I_FLEX_2XLARGE: "ml.c8i-flex.2xlarge",
+  ML_C8I_FLEX_4XLARGE: "ml.c8i-flex.4xlarge",
+  ML_C8I_FLEX_8XLARGE: "ml.c8i-flex.8xlarge",
+  ML_C8I_FLEX_XLARGE: "ml.c8i-flex.xlarge",
   ML_C8I_XLARGE: "ml.c8i.xlarge",
   ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
   ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
@@ -3318,6 +3419,13 @@ export const ProcessingInstanceType = {
   ML_M7I_48XLARGE: "ml.m7i.48xlarge",
   ML_M7I_4XLARGE: "ml.m7i.4xlarge",
   ML_M7I_8XLARGE: "ml.m7i.8xlarge",
+  ML_M7I_FLEX_12XLARGE: "ml.m7i-flex.12xlarge",
+  ML_M7I_FLEX_16XLARGE: "ml.m7i-flex.16xlarge",
+  ML_M7I_FLEX_2XLARGE: "ml.m7i-flex.2xlarge",
+  ML_M7I_FLEX_4XLARGE: "ml.m7i-flex.4xlarge",
+  ML_M7I_FLEX_8XLARGE: "ml.m7i-flex.8xlarge",
+  ML_M7I_FLEX_LARGE: "ml.m7i-flex.large",
+  ML_M7I_FLEX_XLARGE: "ml.m7i-flex.xlarge",
   ML_M7I_LARGE: "ml.m7i.large",
   ML_M7I_XLARGE: "ml.m7i.xlarge",
   ML_M8I_12XLARGE: "ml.m8i.12xlarge",
@@ -3329,6 +3437,13 @@ export const ProcessingInstanceType = {
   ML_M8I_4XLARGE: "ml.m8i.4xlarge",
   ML_M8I_8XLARGE: "ml.m8i.8xlarge",
   ML_M8I_96XLARGE: "ml.m8i.96xlarge",
+  ML_M8I_FLEX_12XLARGE: "ml.m8i-flex.12xlarge",
+  ML_M8I_FLEX_16XLARGE: "ml.m8i-flex.16xlarge",
+  ML_M8I_FLEX_2XLARGE: "ml.m8i-flex.2xlarge",
+  ML_M8I_FLEX_4XLARGE: "ml.m8i-flex.4xlarge",
+  ML_M8I_FLEX_8XLARGE: "ml.m8i-flex.8xlarge",
+  ML_M8I_FLEX_LARGE: "ml.m8i-flex.large",
+  ML_M8I_FLEX_XLARGE: "ml.m8i-flex.xlarge",
   ML_M8I_LARGE: "ml.m8i.large",
   ML_M8I_XLARGE: "ml.m8i.xlarge",
   ML_P2_16XLARGE: "ml.p2.16xlarge",
@@ -3381,6 +3496,13 @@ export const ProcessingInstanceType = {
   ML_R8I_4XLARGE: "ml.r8i.4xlarge",
   ML_R8I_8XLARGE: "ml.r8i.8xlarge",
   ML_R8I_96XLARGE: "ml.r8i.96xlarge",
+  ML_R8I_FLEX_12XLARGE: "ml.r8i-flex.12xlarge",
+  ML_R8I_FLEX_16XLARGE: "ml.r8i-flex.16xlarge",
+  ML_R8I_FLEX_2XLARGE: "ml.r8i-flex.2xlarge",
+  ML_R8I_FLEX_4XLARGE: "ml.r8i-flex.4xlarge",
+  ML_R8I_FLEX_8XLARGE: "ml.r8i-flex.8xlarge",
+  ML_R8I_FLEX_LARGE: "ml.r8i-flex.large",
+  ML_R8I_FLEX_XLARGE: "ml.r8i-flex.xlarge",
   ML_R8I_LARGE: "ml.r8i.large",
   ML_R8I_XLARGE: "ml.r8i.xlarge",
   ML_T3_2XLARGE: "ml.t3.2xlarge",

@@ -159,6 +159,7 @@ export type {
   ListTagsForResourceResponse,
   Notification,
   NotificationWithSubscribers,
+  ProductAttributeValues,
   ResourceTag,
   ScpActionDefinition,
   Spend,

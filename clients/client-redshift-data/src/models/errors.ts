@@ -8,6 +8,7 @@ import { RedshiftDataServiceException as __BaseException } from "./RedshiftDataS
  * @public
  */
 export class ActiveSessionsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftdata#ActiveSessionsExceededException";
   readonly name = "ActiveSessionsExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class ActiveSessionsExceededException extends __BaseException {
  * @public
  */
 export class ActiveStatementsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftdata#ActiveStatementsExceededException";
   readonly name = "ActiveStatementsExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class ActiveStatementsExceededException extends __BaseException {
  * @public
  */
 export class ActiveWaitingRequestsExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftdata#ActiveWaitingRequestsExceededException";
   readonly name = "ActiveWaitingRequestsExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -74,6 +77,7 @@ export class ActiveWaitingRequestsExceededException extends __BaseException {
  * @public
  */
 export class BatchExecuteStatementException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftdata#BatchExecuteStatementException";
   readonly name = "BatchExecuteStatementException" as const;
   readonly $fault = "server" as const;
   Message: string | undefined;
@@ -102,6 +106,7 @@ export class BatchExecuteStatementException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftdata#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -128,6 +133,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftdata#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -161,6 +167,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftdata#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -187,6 +194,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class DatabaseConnectionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftdata#DatabaseConnectionException";
   readonly name = "DatabaseConnectionException" as const;
   readonly $fault = "server" as const;
   Message: string | undefined;
@@ -209,6 +217,7 @@ export class DatabaseConnectionException extends __BaseException {
  * @public
  */
 export class QueryTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftdata#QueryTimeoutException";
   readonly name = "QueryTimeoutException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -231,6 +240,7 @@ export class QueryTimeoutException extends __BaseException {
  * @public
  */
 export class ExecuteStatementException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.redshiftdata#ExecuteStatementException";
   readonly name = "ExecuteStatementException" as const;
   readonly $fault = "server" as const;
   /**

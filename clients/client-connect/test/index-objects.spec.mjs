@@ -226,7 +226,9 @@ import {
   ConflictException$,
   Connect,
   ConnectClient,
+  ConnectionCredentials$,
   ConnectionData$,
+  ConnectionType,
   ConnectServiceException,
   Contact$,
   ContactAnalysis$,
@@ -1558,6 +1560,7 @@ import {
   paginateListDataTableValues,
   paginateListDefaultVocabularies,
   paginateListEntitySecurityProfiles,
+  paginateListEvaluationFormAIVersions,
   paginateListEvaluationForms,
   paginateListEvaluationFormVersions,
   paginateListExtractionDefinitions,
@@ -1950,6 +1953,7 @@ import {
   SendChatIntegrationEventCommand,
   SendChatIntegrationEventRequest$,
   SendChatIntegrationEventResponse$,
+  SendInAppNotificationActionDefinition$,
   SendNotificationActionDefinition$,
   SendOutboundEmail$,
   SendOutboundEmailCommand,
@@ -2438,6 +2442,7 @@ import {
   VoiceRecordingTrack,
   WebNotificationContent$,
   WebNotificationSource$,
+  Websocket$,
   WidgetDestination$,
   WisdomInfo$,
   WorkloadTypeConcurrency$,
@@ -3386,6 +3391,7 @@ assert(typeof CommonAttributeAndCondition$ === "object");
 assert(typeof CompleteAttachedFileUploadRequest$ === "object");
 assert(typeof CompleteAttachedFileUploadResponse$ === "object");
 assert(typeof Condition$ === "object");
+assert(typeof ConnectionCredentials$ === "object");
 assert(typeof ConnectionData$ === "object");
 assert(typeof Contact$ === "object");
 assert(typeof ContactAnalysis$ === "object");
@@ -4298,6 +4304,7 @@ assert(typeof SecurityProfileSummary$ === "object");
 assert(typeof SegmentAttributeValue$ === "object");
 assert(typeof SendChatIntegrationEventRequest$ === "object");
 assert(typeof SendChatIntegrationEventResponse$ === "object");
+assert(typeof SendInAppNotificationActionDefinition$ === "object");
 assert(typeof SendNotificationActionDefinition$ === "object");
 assert(typeof SendOutboundEmailRequest$ === "object");
 assert(typeof SendOutboundEmailResponse$ === "object");
@@ -4547,6 +4554,7 @@ assert(typeof VoiceEnhancementConfig$ === "object");
 assert(typeof VoiceRecordingConfiguration$ === "object");
 assert(typeof WebNotificationContent$ === "object");
 assert(typeof WebNotificationSource$ === "object");
+assert(typeof Websocket$ === "object");
 assert(typeof WidgetDestination$ === "object");
 assert(typeof WisdomInfo$ === "object");
 assert(typeof WorkloadTypeConcurrency$ === "object");
@@ -4591,6 +4599,7 @@ assert(typeof ChannelWorkloadBehaviorType === "object");
 assert(typeof ChatEventType === "object");
 assert(typeof Comparison === "object");
 assert(typeof ConfigurableNotificationPriority === "object");
+assert(typeof ConnectionType === "object");
 assert(typeof ContactEvaluationAttributeComparisonType === "object");
 assert(typeof ContactEvaluationAttributeKey === "object");
 assert(typeof ContactField === "object");
@@ -4854,6 +4863,7 @@ assert(typeof paginateListDataTableValues === "function");
 assert(typeof paginateListDataTables === "function");
 assert(typeof paginateListDefaultVocabularies === "function");
 assert(typeof paginateListEntitySecurityProfiles === "function");
+assert(typeof paginateListEvaluationFormAIVersions === "function");
 assert(typeof paginateListEvaluationFormVersions === "function");
 assert(typeof paginateListEvaluationForms === "function");
 assert(typeof paginateListExtractionDefinitions === "function");

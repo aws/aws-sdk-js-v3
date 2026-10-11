@@ -35,6 +35,9 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  *       attempts to roll back to it, causing the update rollback to fail.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html">Continue rolling back an update</a> in the <i>CloudFormation User Guide</i>. For
  *       information for troubleshooting a failed update rollback, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">Update rollback failed</a>.</p>
+ *          <p>
+ *             <code>ForceRollback</code> and <code>ResourcesToSkip</code> are mutually exclusive.
+ *       For details, see <a>ContinueUpdateRollbackInput$ForceRollback</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +53,7 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  *     "STRING_VALUE",
  *   ],
  *   ClientRequestToken: "STRING_VALUE",
+ *   ForceRollback: true || false,
  * };
  * const command = new ContinueUpdateRollbackCommand(input);
  * const response = await client.send(command);

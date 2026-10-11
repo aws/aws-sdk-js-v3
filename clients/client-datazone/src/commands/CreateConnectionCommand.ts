@@ -128,6 +128,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *     },
  *     iamProperties: { // IamPropertiesInput
  *       glueLineageSyncEnabled: true || false,
+ *       roleArn: "STRING_VALUE",
  *     },
  *     redshiftProperties: { // RedshiftPropertiesInput
  *       storage: { // RedshiftStorageProperties Union: only one key present

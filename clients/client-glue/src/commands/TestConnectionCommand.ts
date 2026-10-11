@@ -45,7 +45,7 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  *     AuthenticationConfiguration: { // AuthenticationConfigurationInput
  *       AuthenticationType: "BASIC" || "OAUTH2" || "CUSTOM" || "IAM",
  *       OAuth2Properties: { // OAuth2PropertiesInput
- *         OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER",
+ *         OAuth2GrantType: "AUTHORIZATION_CODE" || "CLIENT_CREDENTIALS" || "JWT_BEARER" || "REFRESH_TOKEN",
  *         OAuth2ClientApplication: { // OAuth2ClientApplication
  *           UserManagedClientApplicationClientId: "STRING_VALUE",
  *           AWSManagedClientApplicationReference: "STRING_VALUE",

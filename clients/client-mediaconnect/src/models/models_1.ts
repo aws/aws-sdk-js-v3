@@ -6,10 +6,13 @@ import type {
   RouterOutputRoutedState,
   RouterOutputState,
   RouterOutputTier,
+  RouterOutputType,
   RoutingScope,
 } from "./enums";
 import type {
   FabricConfiguration,
+  ListedRouterNetworkInterface,
+  ListedRouterOutput,
   MaintenanceConfiguration,
   MaintenanceSchedule,
   Reservation,
@@ -22,6 +25,192 @@ import type {
   RouterOutput,
   RouterOutputConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListRouterNetworkInterfacesResponse {
+  /**
+   * <p>The summary information for the retrieved router network interfaces.</p>
+   * @public
+   */
+  RouterNetworkInterfaces: ListedRouterNetworkInterface[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A filter that can be used to retrieve a list of router outputs.</p>
+ * @public
+ */
+export type RouterOutputFilter =
+  | RouterOutputFilter.NameContainsMember
+  | RouterOutputFilter.NetworkInterfaceArnsMember
+  | RouterOutputFilter.OutputTypesMember
+  | RouterOutputFilter.RegionNamesMember
+  | RouterOutputFilter.RoutedInputArnsMember
+  | RouterOutputFilter.RoutingScopesMember
+  | RouterOutputFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RouterOutputFilter {
+  /**
+   * <p>The AWS Regions of the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface RegionNamesMember {
+    RegionNames: string[];
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the network interfaces associated with the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface NetworkInterfaceArnsMember {
+    RegionNames?: never;
+    NetworkInterfaceArns: string[];
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter criteria to list router outputs based on their routing scope.</p>
+   * @public
+   */
+  export interface RoutingScopesMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes: RoutingScope[];
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The types of router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface OutputTypesMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes: RouterOutputType[];
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ARNs of the router inputs associated with the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface RoutedInputArnsMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns: string[];
+    NameContains?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The names of the router outputs to include in the filter.</p>
+   * @public
+   */
+  export interface NameContainsMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains: string[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    RegionNames?: never;
+    NetworkInterfaceArns?: never;
+    RoutingScopes?: never;
+    OutputTypes?: never;
+    RoutedInputArns?: never;
+    NameContains?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    RegionNames: (value: string[]) => T;
+    NetworkInterfaceArns: (value: string[]) => T;
+    RoutingScopes: (value: RoutingScope[]) => T;
+    OutputTypes: (value: RouterOutputType[]) => T;
+    RoutedInputArns: (value: string[]) => T;
+    NameContains: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListRouterOutputsRequest {
+  /**
+   * <p>The maximum number of router outputs to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token used to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filters to apply when retrieving the list of router outputs.</p>
+   * @public
+   */
+  Filters?: RouterOutputFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRouterOutputsResponse {
+  /**
+   * <p>The summary information for the retrieved router outputs.</p>
+   * @public
+   */
+  RouterOutputs: ListedRouterOutput[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public

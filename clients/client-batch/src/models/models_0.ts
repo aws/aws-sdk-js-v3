@@ -12,6 +12,8 @@ import type {
   DeviceCgroupPermission,
   EFSAuthorizationConfigIAM,
   EFSTransitEncryption,
+  EksAccessEntryDesiredState,
+  EksAccessEntryStatus,
   FirelensConfigurationType,
   JobDefinitionType,
   JobQueueType,
@@ -1472,6 +1474,63 @@ export interface EcsSettings {
 }
 
 /**
+ * <p>Configures whether Batch manages an Amazon EKS access entry on the cluster for the compute
+ *    environment. For information on how the fields interact with the cluster's
+ *     <code>authenticationMode</code> and with other compute environments that share the cluster,
+ *    see <a href="https://docs.aws.amazon.com/batch/latest/userguide/eks-access-entries.html">Amazon EKS access entry
+ *     authentication</a> in the <i>Batch User Guide</i>.</p>
+ *          <note>
+ *             <p>Setting <code>desiredState=ENABLED</code> on a single compute environment does not guarantee that Batch creates an access
+ *     entry, and setting <code>desiredState=DISABLED</code> on a single compute environment does not guarantee that Batch deletes
+ *     one. Batch compares the <code>desiredState</code> across all compute environments that
+ *     target the same cluster. The Batch-managed access entry is created only when all compute environments have
+ *      <code>desiredState=ENABLED</code>, and deleted only when all have
+ *      <code>desiredState=DISABLED</code>. If you have multiple compute environments on the same
+ *     cluster, set <code>desiredState</code> consistently across all of them to avoid uncertainty.
+ *     For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/eks-access-entries.html#eks-access-entries-reconciliation">Reconciling
+ *      desiredState across compute environments</a> in the
+ *      <i>Batch User Guide</i>.</p>
+ *          </note>
+ * @public
+ */
+export interface EksAccessEntry {
+  /**
+   * <p>The desired access entry state for the compute environment. Valid values:</p>
+   *          <dl>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>Batch manages an access entry on the cluster for the compute environment.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>Batch deletes the Batch-managed access entry for the cluster. This value is rejected if the cluster's
+   *        <code>authenticationMode</code> is <code>API</code>, because such a cluster doesn't support
+   *       the <code>aws-auth</code> ConfigMap.</p>
+   *             </dd>
+   *             <dt>INHERIT_FROM_CLUSTER</dt>
+   *             <dd>
+   *                <p>Batch defers to the cluster's current access entry <code>status</code>. On a cluster whose
+   *       authentication mode is <code>API</code>, Batch creates and manages an access entry. On a
+   *       cluster whose authentication mode is <code>API_AND_CONFIG_MAP</code> or
+   *        <code>CONFIG_MAP</code>, Batch neither adds nor removes an access entry.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  desiredState: EksAccessEntryDesiredState | undefined;
+
+  /**
+   * <p>The observed state of the access entry on the cluster. <code>ACTIVE</code> means that an
+   *    access entry for the compute environment exists on the cluster and takes
+   *    precedence over the <code>aws-auth</code> ConfigMap. <code>INACTIVE</code> means that no
+   *    Batch-managed access entry is present. This is a read-only field returned by
+   *     <code>DescribeComputeEnvironments</code>.</p>
+   * @public
+   */
+  status?: EksAccessEntryStatus | undefined;
+}
+
+/**
  * <p>Configuration for the Amazon EKS cluster that supports the Batch compute environment. The
  *    cluster must exist before the compute environment can be created.</p>
  * @public
@@ -1494,6 +1553,28 @@ export interface EksConfiguration {
    * @public
    */
   kubernetesNamespace: string | undefined;
+
+  /**
+   * <p>The Batch-managed Amazon EKS access entry for the compute environment. Set
+   *     <code>desiredState</code> to declare whether Batch manages an access entry on the cluster. In
+   *    a <code>DescribeComputeEnvironments</code> response, <code>desiredState</code> is the value that
+   *    Batch recorded for the compute environment and <code>status</code> is the observed state of
+   *    the access entry on the cluster. To change the access entry on an existing compute environment,
+   *    use <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_EksConfigurationUpdate.html#Batch-Type-EksConfigurationUpdate-accessEntry">
+   *                <code>EksConfigurationUpdate.accessEntry</code>
+   *             </a>.</p>
+   *          <p>Whether the entry is provisioned on the cluster depends on the cluster's
+   *     <code>authenticationMode</code> and the <code>desiredState</code> recorded for each Batch compute
+   *    environment targeting the cluster. For more information,
+   *    see <a href="https://docs.aws.amazon.com/batch/latest/userguide/eks-access-entries.html">Amazon EKS access entry
+   *     authentication</a> in the <i>Batch User Guide</i>.</p>
+   *          <p>If you don't specify this field, Batch doesn't record a <code>desiredState</code> for the
+   *    compute environment and <code>DescribeComputeEnvironments</code> doesn't return one. For the
+   *    purpose of provisioning the access entry, Batch behaves as it does for
+   *     <code>INHERIT_FROM_CLUSTER</code>.</p>
+   * @public
+   */
+  accessEntry?: EksAccessEntry | undefined;
 }
 
 /**
@@ -1606,7 +1687,9 @@ export interface CreateComputeEnvironmentRequest {
    * <p>The details for the Amazon EKS cluster that supports the compute environment.</p>
    *          <note>
    *             <p>To create a compute environment that uses EKS resources, the caller must have
-   *         permissions to call <code>eks:DescribeCluster</code>.</p>
+   *         permissions to call <code>eks:DescribeCluster</code>. Additional Amazon EKS permissions are
+   *         required for Batch to manage an access entry on the cluster; see <a href="https://docs.aws.amazon.com/batch/latest/userguide/eks-access-entries.html">Amazon EKS access entry
+   *         authentication</a> in the <i>Batch User Guide</i>.</p>
    *          </note>
    * @public
    */
@@ -4159,8 +4242,8 @@ export interface TaskContainerProperties {
   repositoryCredentials?: RepositoryCredentials | undefined;
 
   /**
-   * <p>The type and amount of a resource to assign to a container. The only supported resource is a
-   *    GPU.</p>
+   * <p>The type and amount of a resource to assign to a container. The supported resources include
+   *    <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
    * @public
    */
   resourceRequirements?: ResourceRequirement[] | undefined;
@@ -10409,6 +10492,25 @@ export interface ComputeResourceUpdate {
 }
 
 /**
+ * <p>An object that represents the attributes of an Batch compute environment's Amazon EKS
+ *    configuration that can be updated. Currently <code>accessEntry</code> is the only attribute that you can
+ *    change after the compute environment is created. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/eks-access-entries.html">Amazon EKS access entry
+ *     authentication</a> in the <i>Batch User Guide</i>.</p>
+ * @public
+ */
+export interface EksConfigurationUpdate {
+  /**
+   * <p>The updated access entry configuration for the compute environment. Set
+   *     <code>desiredState</code> to declare whether Batch will manage an access entry on the cluster.
+   *    For the accepted values, see <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_EksAccessEntry.html">
+   *                <code>EksAccessEntry</code>
+   *             </a>.</p>
+   * @public
+   */
+  accessEntry?: EksAccessEntry | undefined;
+}
+
+/**
  * <p>Contains the parameters for <code>UpdateComputeEnvironment</code>.</p>
  * @public
  */
@@ -10506,6 +10608,16 @@ export interface UpdateComputeEnvironmentRequest {
    * @public
    */
   ecsSettings?: EcsSettings | undefined;
+
+  /**
+   * <p>Updates the Amazon EKS configuration for the compute environment. Only specify this
+   *       parameter if the compute environment's <code>containerOrchestrationType</code> is
+   *       <code>EKS</code>. Currently, the <code>accessEntry</code> setting is the only Amazon EKS configuration that
+   *       you can change after the compute environment is created. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/eks-access-entries.html">Amazon EKS access entry
+   *       authentication</a> in the <i>Batch User Guide</i>.</p>
+   * @public
+   */
+  eksConfiguration?: EksConfigurationUpdate | undefined;
 }
 
 /**

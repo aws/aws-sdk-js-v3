@@ -17,9 +17,15 @@ import type {
   CspmConnectorStatus,
   CspmEnablementStatus,
   EnablementStatus,
+  ExportDataType,
+  ExportFailureCode,
+  ExportStatus,
+  ExposureImpact,
+  ExposureSeverity,
   FeatureName,
   FeatureStatus,
   FindingHistoryUpdateSourceType,
+  FindingsExportFormat,
   FindingsTrendsStringField,
   GranularityField,
   HealthIssueCode,
@@ -38,11 +44,7 @@ import type {
   RecommendationStatus,
   RecommendationType,
   RecordState,
-  ResourcesDateField,
-  ResourcesMapField,
-  ResourcesNumberField,
-  ResourcesStringField,
-  ResourcesTrendsStringField,
+  RemediationStringField,
   RuleStatus,
   ScopeType,
   SecurityControlsProvider,
@@ -5472,6 +5474,34 @@ export interface BooleanConfigurationOptions {
 }
 
 /**
+ * @public
+ */
+export interface CancelExportJobV2Request {
+  /**
+   * <p>The unique identifier of the export job to cancel. This is the value returned by <code>StartExportJobV2</code>.</p>
+   * @public
+   */
+  ExportJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelExportJobV2Response {
+  /**
+   * <p>The unique identifier of the export job.</p>
+   * @public
+   */
+  ExportJobId: string | undefined;
+
+  /**
+   * <p>The state of the export job after the cancel request.</p>
+   * @public
+   */
+  Status: ExportStatus | undefined;
+}
+
+/**
  * <p>Enables filtering of security findings based on boolean field values in OCSF.</p>
  * @public
  */
@@ -8573,6 +8603,279 @@ export interface EnableSecurityHubV2Response {
 }
 
 /**
+ * <p>The Amazon S3 destination for an export, including the bucket, the Amazon Web Services KMS key used for encryption, and an optional object key prefix.</p>
+ * @public
+ */
+export interface S3ExportDestination {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket that Security Hub writes the export to. You must own the bucket, and its bucket policy must grant the Security Hub service principal (<code>exportv2.securityhub.amazonaws.com</code>) permission to write objects. For the required bucket policy, see the Examples section of <code>StartExportJobV2</code>.</p>
+   * @public
+   */
+  BucketArn: string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Web Services KMS key that Security Hub uses to encrypt the export objects with server-side encryption. The key policy must allow the Security Hub service principal (<code>exportv2.securityhub.amazonaws.com</code>) to use the key through Amazon S3. For the required key policy, see the Examples section of <code>StartExportJobV2</code>.</p>
+   *          <p>The key must meet all of the following requirements:</p>
+   *          <ul>
+   *             <li>
+   *                <p>It must be a symmetric key with a key usage of <code>ENCRYPT_DECRYPT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>It must be a single-Region key. Multi-Region keys, whose key IDs begin with <code>mrk-</code>, are rejected.</p>
+   *             </li>
+   *             <li>
+   *                <p>You must specify the full key ARN. Key IDs and aliases are rejected.</p>
+   *             </li>
+   *             <li>
+   *                <p>The key must be in the same Amazon Web Services account as the export job.</p>
+   *             </li>
+   *             <li>
+   *                <p>The key must be in the same Amazon Web Services Region as the export job.</p>
+   *             </li>
+   *             <li>
+   *                <p>The key must be in the <code>aws</code>, <code>aws-cn</code>, or <code>aws-us-gov</code> partition.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  KmsKeyArn: string | undefined;
+
+  /**
+   * <p>An optional key prefix that Security Hub prepends to the Amazon S3 object keys of the export output. Use a prefix to organize exports within the bucket. The value can be up to 512 characters.</p>
+   * @public
+   */
+  ObjectPrefix?: string | undefined;
+}
+
+/**
+ * <p>Specifies where Security Hub writes the export output. This is a union: you must specify exactly one member. Currently, the only supported member is <code>S3</code>.</p>
+ * @public
+ */
+export type ExportDestination =
+  | ExportDestination.S3Member
+  | ExportDestination.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ExportDestination {
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) bucket and Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Security Hub uses to write the export.</p>
+   * @public
+   */
+  export interface S3Member {
+    S3: S3ExportDestination;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    S3?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    S3: (value: S3ExportDestination) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A summary of the output configuration for a findings export, returned by <code>ListExportJobsV2</code>. Unlike the configuration returned by <code>GetExportJobV2</code>, it reports only the output format.</p>
+ * @public
+ */
+export interface FindingsOutputSummary {
+  /**
+   * <p>The output format of the export. <code>CSV</code> produces comma-separated rows that are suitable for spreadsheets and analysis tools. <code>OCSF_JSON</code> produces newline-delimited JSON records in the Open Cybersecurity Schema Framework (OCSF) format used elsewhere in Security Hub.</p>
+   * @public
+   */
+  Format: FindingsExportFormat | undefined;
+}
+
+/**
+ * <p>A summary of the output configuration for an export job. The populated member corresponds to the data type that was exported.</p>
+ * @public
+ */
+export type ExportOutputSummary =
+  | ExportOutputSummary.FindingsMember
+  | ExportOutputSummary.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ExportOutputSummary {
+  /**
+   * <p>The output configuration summary for a findings export.</p>
+   * @public
+   */
+  export interface FindingsMember {
+    Findings: FindingsOutputSummary;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Findings?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Findings: (value: FindingsOutputSummary) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Defines the data boundary for a findings export. Scopes determine which organizational units or organizations to retrieve data from.</p>
+ *          <p>Only a delegated administrator can use this structure. If a delegated administrator omits it, the export covers the entire organization; any other caller exports only findings from its own account.</p>
+ * @public
+ */
+export interface ExportScopes {
+  /**
+   * <p>A list of Organizations scopes to include in the export. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.</p>
+   * @public
+   */
+  AwsOrganizations?: AwsOrganizationScope[] | undefined;
+}
+
+/**
+ * <p>A summary of an export job, as returned by <code>ListExportJobsV2</code>.</p>
+ * @public
+ */
+export interface ExportSummary {
+  /**
+   * <p>The unique identifier of the export job.</p>
+   * @public
+   */
+  ExportJobId: string | undefined;
+
+  /**
+   * <p>The user-provided name of the export job, if one was specified.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The current state of the export job.</p>
+   * @public
+   */
+  Status: ExportStatus | undefined;
+
+  /**
+   * <p>The category of data that the export job produces.</p>
+   * @public
+   */
+  DataType: ExportDataType | undefined;
+
+  /**
+   * <p>The output configuration of the export job. For findings exports, this reports the output format. Present only for findings exports; absent for other data types.</p>
+   * @public
+   */
+  OutputConfiguration?: ExportOutputSummary | undefined;
+
+  /**
+   * <p>The organization scopes that the export job was started with, echoed verbatim. Absent if the caller didn't supply <code>Scopes</code>.</p>
+   * @public
+   */
+  Scopes?: ExportScopes | undefined;
+
+  /**
+   * <p>The destination that the export job writes to.</p>
+   * @public
+   */
+  Destination: ExportDestination | undefined;
+
+  /**
+   * <p>A code that classifies why the export job failed. Present only when <code>Status</code> is <code>FAILED</code>.</p>
+   * @public
+   */
+  FailureCode?: ExportFailureCode | undefined;
+
+  /**
+   * <p>A human-readable message about why the export job failed. Present only when <code>Status</code> is <code>FAILED</code>.</p>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+
+  /**
+   * <p>The time when the export job was created.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * @public
+   */
+  StartedAt: Date | undefined;
+
+  /**
+   * <p>The time when the export job reached a terminal state. Absent while the job is <code>RUNNING</code>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+}
+
+/**
+ * <p>Provides details about an exposure finding and the effect the specific remediation target has on it.</p>
+ * @public
+ */
+export interface ExposureFinding {
+  /**
+   * <p>The unique identifier (ID) of the Security Hub exposure finding, found under the
+   *          <code>metadata.uid</code> field of the finding.</p>
+   * @public
+   */
+  MetadataUid: string | undefined;
+
+  /**
+   * <p>The title of the exposure finding.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The severity of the exposure finding before the remediation target is resolved.</p>
+   * @public
+   */
+  PreviousSeverity: ExposureSeverity | undefined;
+
+  /**
+   * <p>The severity of the exposure finding after the remediation target is resolved.</p>
+   * @public
+   */
+  ProjectedSeverity: ExposureSeverity | undefined;
+
+  /**
+   * <p>The impact resolving a remediation target has on the exposure finding.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Reduces</code> specifies that resolving the remediation target lowers the severity of the exposure finding, but does not resolve it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Resolves</code> specifies that resolving the remediation target resolves the exposure finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Unchanged</code> specifies that resolving the remediation target does not change the severity of the exposure finding.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Impact: ExposureImpact | undefined;
+}
+
+/**
  * <p>A finding aggregator is a Security Hub CSPM resource that specifies cross-Region aggregation settings, including the
  * home Region and any linked Regions.</p>
  * @public
@@ -9305,6 +9608,17 @@ export interface GetEnabledStandardsResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExportJobV2Request {
+  /**
+   * <p>The unique identifier of the export job to retrieve. This is the value returned by <code>StartExportJobV2</code>.</p>
+   * @public
+   */
+  ExportJobId: string | undefined;
 }
 
 /**
@@ -10140,298 +10454,43 @@ export interface GetRecommendedPolicyV2Response {
 }
 
 /**
- * <p>Enables the filtering of Amazon Web Services resources based on date and timestamp attributes.</p>
+ * <p>The condition to apply to the string filter.</p>
  * @public
  */
-export interface ResourcesDateFilter {
+export interface RemediationStringFilterCondition {
   /**
-   * <p>The name of the field.</p>
+   * <p>The value the string filter is comparing against.</p>
    * @public
    */
-  FieldName?: ResourcesDateField | undefined;
-
-  /**
-   * <p>A date filter for querying findings.</p>
-   * @public
-   */
-  Filter?: DateFilter | undefined;
+  Value: string | undefined;
 }
 
 /**
- * <p>Enables filtering of Amazon Web Services resources based on key-value map attributes.</p>
+ * <p>A string filter for filtering remediation targets.</p>
  * @public
  */
-export interface ResourcesMapFilter {
+export interface RemediationStringFilter {
   /**
-   * <p>The name of the field.</p>
+   * <p>The name of the filter field. Valid values are <code>Resource.Type</code>, <code>Priority</code>, <code>Status</code>, <code>Resource.Id</code>, <code>Resource.ResourceOwnerAccountId</code>, and <code>Resource.CloudProvider</code>.</p>
    * @public
    */
-  FieldName?: ResourcesMapField | undefined;
+  FieldName: RemediationStringField | undefined;
 
   /**
-   * <p>A map filter for filtering Security Hub CSPM findings. Each map filter provides the field to check for, the
-   *          value to check for, and the comparison operator.</p>
+   * <p>The string filter definition.</p>
    * @public
    */
-  Filter?: MapFilter | undefined;
+  Filter: RemediationStringFilterCondition | undefined;
 }
 
 /**
- * <p>Enables filtering of Amazon Web Services resources based on numerical values.</p>
+ * <p>Enables the creation of criteria for remediation targets.</p>
  * @public
  */
-export interface ResourcesNumberFilter {
+export interface RemediationCompositeFilter {
   /**
-   * <p>The name of the field.</p>
+   * <p>Enables filtering based on string field values.</p>
    * @public
    */
-  FieldName?: ResourcesNumberField | undefined;
-
-  /**
-   * <p>A number filter for querying findings.</p>
-   * @public
-   */
-  Filter?: NumberFilter | undefined;
-}
-
-/**
- * <p>Enables filtering of Amazon Web Services resources based on string field values.</p>
- * @public
- */
-export interface ResourcesStringFilter {
-  /**
-   * <p>The name of the field.</p>
-   * @public
-   */
-  FieldName?: ResourcesStringField | undefined;
-
-  /**
-   * <p>A string filter for filtering Security Hub CSPM findings.</p>
-   * @public
-   */
-  Filter?: StringFilter | undefined;
-}
-
-/**
- * <p>Defines the data boundary for a resources query. Scopes determine which organizational units or organizations to retrieve data from.</p>
- * @public
- */
-export interface ResourceScopes {
-  /**
-   * <p>A list of Organizations scopes to include in the query results. Each entry in the list specifies an organization or organizational unit to include for the delegated administrator's account. If the list specifies multiple entries, the entries are combined using OR logic.</p>
-   * @public
-   */
-  AwsOrganizations?: AwsOrganizationScope[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetResourcesStatisticsV2Response {
-  /**
-   * <p>The aggregated statistics about resources based on the specified grouping rule.</p>
-   * @public
-   */
-  GroupByResults: GroupByResult[] | undefined;
-}
-
-/**
- * <p>A filter for string-based fields in resources trend data, such as resource type or account ID.</p>
- * @public
- */
-export interface ResourcesTrendsStringFilter {
-  /**
-   * <p>The name of the resources field to filter on. You can specify one of the following fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account_id</code> – The Amazon Web Services account ID that owns the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>region</code> – The Amazon Web Services Region of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_type</code> – The type of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_category</code> – The category of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_cloud_provider</code> – The cloud provider of the resource. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_region</code> – The Region of the resource. For an Amazon Web Services resource, this is the Amazon Web Services Region. For an Azure resource, this is the Azure Region, such as <code>eastus</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_owner_id</code> – The identifier of the account that owns the resource. For an Amazon Web Services resource, this is the Amazon Web Services account ID. For an Azure resource, this is the Azure subscription ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource_owner_organization_id</code> – The identifier of the organization that owns the resource. For an Amazon Web Services resource, this is the Amazon Web Services organization ID. For an Azure resource, this is the Azure tenant ID.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  FieldName?: ResourcesTrendsStringField | undefined;
-
-  /**
-   * <p>A string filter for filtering Security Hub CSPM findings.</p>
-   * @public
-   */
-  Filter?: StringFilter | undefined;
-}
-
-/**
- * <p>Contains counts of resources for trend analysis.</p>
- * @public
- */
-export interface ResourcesCount {
-  /**
-   * <p>The total count of all resources for the given time interval.</p>
-   * @public
-   */
-  AllResources: number | undefined;
-}
-
-/**
- * <p>Contains the aggregated resource count values for a specific point in the resources trend timeline.</p>
- * @public
- */
-export interface ResourcesTrendsValues {
-  /**
-   * <p>The resource count statistics for this data point in the trend timeline.</p>
-   * @public
-   */
-  ResourcesCount: ResourcesCount | undefined;
-}
-
-/**
- * <p>Contains the resource trend metrics data for a specific time point in the requested time period.</p>
- * @public
- */
-export interface ResourcesTrendsMetricsResult {
-  /**
-   * <p>The timestamp for this data point in the resources trend metrics.</p>
-   * @public
-   */
-  Timestamp: Date | undefined;
-
-  /**
-   * <p>The resource trend metric values associated with this timestamp, including resource counts.</p>
-   * @public
-   */
-  TrendsValues: ResourcesTrendsValues | undefined;
-}
-
-/**
- * @public
- */
-export interface GetResourcesTrendsV2Response {
-  /**
-   * <p>The time interval granularity for the returned trend data (such as DAILY or WEEKLY).</p>
-   * @public
-   */
-  Granularity: GranularityField | undefined;
-
-  /**
-   * <p>The collection of time-series trend metrics, including counts of resources across the specified time period.</p>
-   * @public
-   */
-  TrendsMetrics: ResourcesTrendsMetricsResult[] | undefined;
-
-  /**
-   * <p>The token to use for retrieving the next page of results, if more trend data is available.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A comprehensive distribution of security findings by severity level for Amazon Web Services resources.</p>
- * @public
- */
-export interface ResourceSeverityBreakdown {
-  /**
-   * <p>The number of findings not in any of the severity categories.</p>
-   * @public
-   */
-  Other?: number | undefined;
-
-  /**
-   * <p>The number of findings with a severity level of fatal.</p>
-   * @public
-   */
-  Fatal?: number | undefined;
-
-  /**
-   * <p>The number of findings with a severity level of critical.</p>
-   * @public
-   */
-  Critical?: number | undefined;
-
-  /**
-   * <p>The number of findings with a severity level of high.</p>
-   * @public
-   */
-  High?: number | undefined;
-
-  /**
-   * <p>The number of findings with a severity level of medium.</p>
-   * @public
-   */
-  Medium?: number | undefined;
-
-  /**
-   * <p>The number of findings with a severity level of low.</p>
-   * @public
-   */
-  Low?: number | undefined;
-
-  /**
-   * <p>The number of findings that provide security-related information.</p>
-   * @public
-   */
-  Informational?: number | undefined;
-
-  /**
-   * <p>The number of findings with a severity level cannot be determined.</p>
-   * @public
-   */
-  Unknown?: number | undefined;
-}
-
-/**
- * <p>A list of summaries for all finding types on a resource.</p>
- * @public
- */
-export interface ResourceFindingsSummary {
-  /**
-   * <p>The category or classification of the security finding.</p>
-   * @public
-   */
-  FindingType: string | undefined;
-
-  /**
-   * <p>The name of the product associated with the security finding.</p>
-   * @public
-   */
-  ProductName: string | undefined;
-
-  /**
-   * <p>The total count of security findings.</p>
-   * @public
-   */
-  TotalFindings: number | undefined;
-
-  /**
-   * <p>A breakdown of security findings by their severity levels.</p>
-   * @public
-   */
-  Severities?: ResourceSeverityBreakdown | undefined;
+  StringFilters?: RemediationStringFilter[] | undefined;
 }

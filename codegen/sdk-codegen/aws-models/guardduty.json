@@ -5992,6 +5992,13 @@
                         "smithy.api#documentation": "<p>The timestamp at which the additional configuration was last updated. This is in UTC format.</p>",
                         "smithy.api#jsonName": "updatedAt"
                     }
+                },
+                "ManagedBy": {
+                    "target": "com.amazonaws.guardduty#ManagedBy",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Indicates what manages the additional configuration. A value of <code>GUARDDUTY_POLICY</code> means a GuardDuty policy manages the additional configuration.</p>",
+                        "smithy.api#jsonName": "managedBy"
+                    }
                 }
             },
             "traits": {
@@ -6127,6 +6134,13 @@
                     "traits": {
                         "smithy.api#documentation": "<p>Additional configuration for a resource.</p>",
                         "smithy.api#jsonName": "additionalConfiguration"
+                    }
+                },
+                "ManagedBy": {
+                    "target": "com.amazonaws.guardduty#ManagedBy",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Indicates what manages the feature. A value of <code>GUARDDUTY_POLICY</code> means a GuardDuty policy manages the feature.</p>",
+                        "smithy.api#jsonName": "managedBy"
                     }
                 }
             },
@@ -7409,6 +7423,13 @@
                     "target": "smithy.api#Unit",
                     "traits": {
                         "smithy.api#enumValue": "EC2_AGENT_MANAGEMENT"
+                    }
+                },
+                "RDS_DATA_RISK": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#documentation": "<p>RDS Data Activity Monitoring, which monitors data activity on supported Amazon RDS database engines to detect potentially unauthorized access to your data.</p>",
+                        "smithy.api#enumValue": "RDS_DATA_RISK"
                     }
                 }
             }
@@ -16158,6 +16179,17 @@
                 "target": "com.amazonaws.guardduty#MalwareScan"
             }
         },
+        "com.amazonaws.guardduty#ManagedBy": {
+            "type": "enum",
+            "members": {
+                "GUARDDUTY_POLICY": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "GUARDDUTY_POLICY"
+                    }
+                }
+            }
+        },
         "com.amazonaws.guardduty#ManagementType": {
             "type": "enum",
             "members": {
@@ -16381,6 +16413,13 @@
                         "smithy.api#documentation": "<p>The timestamp at which the additional configuration was set for the member account. This is in UTC format.</p>",
                         "smithy.api#jsonName": "updatedAt"
                     }
+                },
+                "ManagedBy": {
+                    "target": "com.amazonaws.guardduty#ManagedBy",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Indicates what manages the additional configuration. A value of <code>GUARDDUTY_POLICY</code> means a GuardDuty policy manages the additional configuration.</p>",
+                        "smithy.api#jsonName": "managedBy"
+                    }
                 }
             },
             "traits": {
@@ -16505,6 +16544,13 @@
                     "traits": {
                         "smithy.api#documentation": "<p>Indicates the additional configuration of the feature that is configured for the member account.</p>",
                         "smithy.api#jsonName": "additionalConfiguration"
+                    }
+                },
+                "ManagedBy": {
+                    "target": "com.amazonaws.guardduty#ManagedBy",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Indicates what manages the feature. A value of <code>GUARDDUTY_POLICY</code> means a GuardDuty policy manages the feature.</p>",
+                        "smithy.api#jsonName": "managedBy"
                     }
                 }
             },
@@ -17091,6 +17137,13 @@
                     "target": "smithy.api#Unit",
                     "traits": {
                         "smithy.api#enumValue": "EC2_AGENT_MANAGEMENT"
+                    }
+                },
+                "RDS_DATA_RISK": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#documentation": "<p>RDS Data Activity Monitoring, which monitors data activity on supported Amazon RDS database engines to detect potentially unauthorized access to your data.</p>",
+                        "smithy.api#enumValue": "RDS_DATA_RISK"
                     }
                 }
             }
@@ -18426,6 +18479,13 @@
                     "traits": {
                         "smithy.api#documentation": "<p>Details on whether the Amazon Web Services account of the remote API caller is related to your GuardDuty environment. If this value is <code>True</code> the API caller is affiliated to your account in some way. If it is <code>False</code> the API caller is from outside your environment.</p>",
                         "smithy.api#jsonName": "affiliated"
+                    }
+                },
+                "AwsServiceName": {
+                    "target": "com.amazonaws.guardduty#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>If the remote account belongs to an Amazon Web Services service, this field indicates which service the remote account belongs to.</p>",
+                        "smithy.api#jsonName": "awsServiceName"
                     }
                 }
             },
@@ -23743,6 +23803,34 @@
                     "target": "smithy.api#Unit",
                     "traits": {
                         "smithy.api#enumValue": "RDS_DBI_PROTECTION_SERVERLESS"
+                    }
+                },
+                "RDS_DBI_PROTECTION_LIMITLESS": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Usage attributed to RDS Protection database infrastructure monitoring for Amazon Aurora DSQL Limitless databases.</p>",
+                        "smithy.api#enumValue": "RDS_DBI_PROTECTION_LIMITLESS"
+                    }
+                },
+                "RDS_DATA_ACTIVITY_DBI_PROTECTION_PROVISIONED": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Usage attributed to RDS Data Activity Monitoring for provisioned Amazon RDS databases.</p>",
+                        "smithy.api#enumValue": "RDS_DATA_ACTIVITY_DBI_PROTECTION_PROVISIONED"
+                    }
+                },
+                "RDS_DATA_ACTIVITY_DBI_PROTECTION_SERVERLESS": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Usage attributed to RDS Data Activity Monitoring for Amazon Aurora Serverless databases.</p>",
+                        "smithy.api#enumValue": "RDS_DATA_ACTIVITY_DBI_PROTECTION_SERVERLESS"
+                    }
+                },
+                "RDS_DATA_ACTIVITY_DBI_PROTECTION_LIMITLESS": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#documentation": "<p>Usage attributed to RDS Data Activity Monitoring for Amazon Aurora DSQL Limitless databases.</p>",
+                        "smithy.api#enumValue": "RDS_DATA_ACTIVITY_DBI_PROTECTION_LIMITLESS"
                     }
                 },
                 "AI_PROTECTION": {

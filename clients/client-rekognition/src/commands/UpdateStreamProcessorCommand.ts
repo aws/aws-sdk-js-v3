@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateStreamProcessorRequest, UpdateStreamProcessorResponse } from "../models/models_0";
+import type { UpdateStreamProcessorRequest, UpdateStreamProcessorResponse } from "../models/models_1";
 import { UpdateStreamProcessor$ } from "../schemas/schemas_0";
 
 /**
@@ -23,7 +23,14 @@ export interface UpdateStreamProcessorCommandInput extends UpdateStreamProcessor
 export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcessorResponse, __MetadataBearer {}
 
 /**
- * <p>
+ * <important>
+ *             <p>Service availability notice: Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
+ * <a href="https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-availability-changes.html">Rekognition feature availability changes</a>.</p>
+ *             <p>
+ *                <b>This change does not impact the availability of other Amazon Rekognition features.</b>
+ *             </p>
+ *          </important>
+ *          <p>
  *             Allows you to update a stream processor. You can change some settings and regions of interest and delete certain parameters.
  *         </p>
  * @example

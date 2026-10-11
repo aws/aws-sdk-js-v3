@@ -8,6 +8,7 @@ import { ServiceDiscoveryServiceException as __BaseException } from "./ServiceDi
  * @public
  */
 export class DuplicateRequest extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#DuplicateRequest";
   readonly name = "DuplicateRequest" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -38,6 +39,7 @@ export class DuplicateRequest extends __BaseException {
  * @public
  */
 export class InvalidInput extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#InvalidInput";
   readonly name = "InvalidInput" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -60,6 +62,7 @@ export class InvalidInput extends __BaseException {
  * @public
  */
 export class NamespaceAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#NamespaceAlreadyExists";
   readonly name = "NamespaceAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -96,6 +99,7 @@ export class NamespaceAlreadyExists extends __BaseException {
  * @public
  */
 export class ResourceLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#ResourceLimitExceeded";
   readonly name = "ResourceLimitExceeded" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -119,6 +123,7 @@ export class ResourceLimitExceeded extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -147,6 +152,7 @@ export class TooManyTagsException extends __BaseException {
  * @public
  */
 export class NamespaceNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#NamespaceNotFound";
   readonly name = "NamespaceNotFound" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -169,6 +175,7 @@ export class NamespaceNotFound extends __BaseException {
  * @public
  */
 export class ServiceAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#ServiceAlreadyExists";
   readonly name = "ServiceAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -212,6 +219,7 @@ export class ServiceAlreadyExists extends __BaseException {
  * @public
  */
 export class CustomHealthNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#CustomHealthNotFound";
   readonly name = "CustomHealthNotFound" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -235,6 +243,7 @@ export class CustomHealthNotFound extends __BaseException {
  * @public
  */
 export class ResourceInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#ResourceInUse";
   readonly name = "ResourceInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -257,6 +266,7 @@ export class ResourceInUse extends __BaseException {
  * @public
  */
 export class ServiceNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#ServiceNotFound";
   readonly name = "ServiceNotFound" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -280,6 +290,7 @@ export class ServiceNotFound extends __BaseException {
  * @public
  */
 export class InstanceNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#InstanceNotFound";
   readonly name = "InstanceNotFound" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -304,6 +315,7 @@ export class InstanceNotFound extends __BaseException {
  * @public
  */
 export class RequestLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#RequestLimitExceeded";
   readonly name = "RequestLimitExceeded" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -326,6 +338,7 @@ export class RequestLimitExceeded extends __BaseException {
  * @public
  */
 export class OperationNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#OperationNotFound";
   readonly name = "OperationNotFound" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -348,6 +361,7 @@ export class OperationNotFound extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -371,6 +385,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceAttributesLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicediscovery#ServiceAttributesLimitExceededException";
   readonly name = "ServiceAttributesLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

@@ -161,6 +161,7 @@ export interface GetCrawlerCommandOutput extends GetCrawlerResponse, __MetadataB
  * //       UseLakeFormationCredentials: true || false,
  * //       AccountId: "STRING_VALUE",
  * //     },
+ * //     CatalogId: "STRING_VALUE",
  * //   },
  * // };
  *

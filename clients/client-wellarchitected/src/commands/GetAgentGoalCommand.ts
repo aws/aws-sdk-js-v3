@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { GetAgentGoalRequest, GetAgentGoalResponse } from "../models/models_0";
 import { GetAgentGoal$ } from "../schemas/schemas_0";
 
@@ -84,7 +84,7 @@ export interface GetAgentGoalCommandOutput extends GetAgentGoalResponse, __Metad
  * @public
  */
 export class GetAgentGoalCommand extends command<GetAgentGoalCommandInput, GetAgentGoalCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "GetAgentGoal",
   GetAgentGoal$

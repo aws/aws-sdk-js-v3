@@ -37,6 +37,14 @@ export interface StartNotebookSyncCommandOutput extends StartNotebookSyncOutput,
  *   owningProjectIdentifier: "STRING_VALUE", // required
  *   sourceLocation: { // SourceLocation Union: only one key present
  *     s3: "STRING_VALUE",
+ *     s3Files: { // S3FilesLocation
+ *       bucket: "STRING_VALUE", // required
+ *       fileList: [ // S3FileList // required
+ *         { // S3File
+ *           key: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
  *   },
  *   gitMetadata: { // GitMetadata
  *     connectionId: "STRING_VALUE", // required
@@ -61,6 +69,14 @@ export interface StartNotebookSyncCommandOutput extends StartNotebookSyncOutput,
  * //   owningProjectId: "STRING_VALUE",
  * //   sourceLocation: { // SourceLocation Union: only one key present
  * //     s3: "STRING_VALUE",
+ * //     s3Files: { // S3FilesLocation
+ * //       bucket: "STRING_VALUE", // required
+ * //       fileList: [ // S3FileList // required
+ * //         { // S3File
+ * //           key: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   gitMetadata: { // GitMetadata
  * //     connectionId: "STRING_VALUE", // required

@@ -62,6 +62,16 @@ export interface DescribeDomainChangeProgressCommandOutput extends DescribeDomai
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
  * //     ConfigChangeStatus: "Pending" || "Initializing" || "Validating" || "ValidationFailed" || "ApplyingChanges" || "Completed" || "PendingUserInput" || "Cancelled",
  * //     InitiatedBy: "CUSTOMER" || "SERVICE",
+ * //     ValidationFailures: [ // ValidationFailures
+ * //       { // ValidationFailure
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //         Severity: "Critical" || "Warning",
+ * //       },
+ * //     ],
+ * //     AcceptedWarnings: [ // AcceptedWarningsList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *

@@ -1,3 +1,4 @@
+const _AI = "AgreementId";
 const _AUQ = "AllocatedUsageQuantity";
 const _BMU = "BatchMeterUsage";
 const _BMUR = "BatchMeterUsageRequest";
@@ -25,6 +26,7 @@ const _IUAE = "InvalidUsageAllocationsException";
 const _IUDE = "InvalidUsageDimensionException";
 const _K = "Key";
 const _LA = "LicenseArn";
+const _M = "Metadata";
 const _MRI = "MeteringRecordId";
 const _MU = "MeterUsage";
 const _MUR = "MeterUsageRequest";
@@ -235,6 +237,11 @@ export var BatchMeterUsageResult$: StaticStructureSchema = [3, n0, _BMURa,
   [_R, _URn],
   [() => UsageRecordResultList, () => UsageRecordList]
 ];
+export var Metadata$: StaticStructureSchema = [3, n0, _M,
+  0,
+  [_AI],
+  [0]
+];
 export var MeterUsageRequest$: StaticStructureSchema = [3, n0, _MUR,
   0,
   [_PC, _T, _UD, _UQ, _DR, _UA, _CT],
@@ -262,8 +269,8 @@ export var ResolveCustomerRequest$: StaticStructureSchema = [3, n0, _RCR,
 ];
 export var ResolveCustomerResult$: StaticStructureSchema = [3, n0, _RCRe,
   0,
-  [_CI, _PC, _CAWSAI, _LA],
-  [0, 0, 0, 0]
+  [_CI, _PC, _CAWSAI, _LA, _M],
+  [0, 0, 0, 0, () => Metadata$]
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,

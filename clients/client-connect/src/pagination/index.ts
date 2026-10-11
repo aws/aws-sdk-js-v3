@@ -24,6 +24,7 @@ export * from "./ListDataTablesPaginator";
 export * from "./ListDataTableValuesPaginator";
 export * from "./ListDefaultVocabulariesPaginator";
 export * from "./ListEntitySecurityProfilesPaginator";
+export * from "./ListEvaluationFormAIVersionsPaginator";
 export * from "./ListEvaluationFormsPaginator";
 export * from "./ListEvaluationFormVersionsPaginator";
 export * from "./ListExtractionDefinitionsPaginator";

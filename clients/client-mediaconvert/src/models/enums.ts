@@ -1830,6 +1830,19 @@ export type AudioSelectorType = (typeof AudioSelectorType)[keyof typeof AudioSel
  * @public
  * @enum
  */
+export const AudioSmpte337Passthrough = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type AudioSmpte337Passthrough = (typeof AudioSmpte337Passthrough)[keyof typeof AudioSmpte337Passthrough];
+
+/**
+ * @public
+ * @enum
+ */
 export const AncillaryConvert608To708 = {
   DISABLED: "DISABLED",
   UPCONVERT: "UPCONVERT",
@@ -5556,6 +5569,21 @@ export type FrameControl = (typeof FrameControl)[keyof typeof FrameControl];
  * @public
  * @enum
  */
+export const PassthroughSegmentationMode = {
+  AUTO: "AUTO",
+  DURATION_BASED: "DURATION_BASED",
+  GOP_COUNT: "GOP_COUNT",
+} as const;
+/**
+ * @public
+ */
+export type PassthroughSegmentationMode =
+  (typeof PassthroughSegmentationMode)[keyof typeof PassthroughSegmentationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const VideoSelectorMode = {
   AUTO: "AUTO",
   REMUX_ALL: "REMUX_ALL",
@@ -6736,8 +6764,11 @@ export type Type = (typeof Type)[keyof typeof Type];
  * @enum
  */
 export const Format = {
+  aac: "aac",
+  ac3: "ac3",
   asf: "asf",
   avi: "avi",
+  eac3: "eac3",
   flac: "flac",
   matroska: "matroska",
   mp3: "mp3",
@@ -6747,6 +6778,8 @@ export const Format = {
   mxf: "mxf",
   ogg: "ogg",
   quicktime: "quicktime",
+  three_g2: "three_g2",
+  three_gp: "three_gp",
   wave: "wave",
   webm: "webm",
 } as const;

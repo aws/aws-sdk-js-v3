@@ -8,6 +8,7 @@ import { ComprehendMedicalServiceException as __BaseException } from "./Comprehe
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehendmedical#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehendmedical#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -54,6 +56,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehendmedical#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -78,6 +81,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehendmedical#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -101,6 +105,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class InvalidEncodingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehendmedical#InvalidEncodingException";
   readonly name = "InvalidEncodingException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -124,6 +129,7 @@ export class InvalidEncodingException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehendmedical#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -147,6 +153,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class TextSizeLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehendmedical#TextSizeLimitExceededException";
   readonly name = "TextSizeLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -170,6 +177,7 @@ export class TextSizeLimitExceededException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.comprehendmedical#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

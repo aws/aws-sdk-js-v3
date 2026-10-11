@@ -949,6 +949,7 @@ export type {
   TagListMessage,
   TagSpecification,
   TargetHealth,
+  TargetResourceConfiguration,
   TenantDatabase,
   TenantDatabasePendingModifiedValues,
   TenantDatabasesMessage,

@@ -39,7 +39,10 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * const command = new DescribeGroupCommand(input);
  * const response = await client.send(command);
  * // { // DescribeGroupResponse
+ * //   IdentityStoreId: "STRING_VALUE", // required
  * //   GroupId: "STRING_VALUE", // required
+ * //   GroupArn: "STRING_VALUE", // required
+ * //   Revision: "STRING_VALUE", // required
  * //   DisplayName: "STRING_VALUE",
  * //   ExternalIds: [ // ExternalIds
  * //     { // ExternalId
@@ -52,7 +55,6 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * //   UpdatedAt: new Date("TIMESTAMP"),
  * //   CreatedBy: "STRING_VALUE",
  * //   UpdatedBy: "STRING_VALUE",
- * //   IdentityStoreId: "STRING_VALUE", // required
  * // };
  *
  * ```

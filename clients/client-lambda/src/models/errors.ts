@@ -9,6 +9,7 @@ import { LambdaServiceException as __BaseException } from "./LambdaServiceExcept
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#InvalidParameterValueException";
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -36,6 +37,7 @@ export class InvalidParameterValueException extends __BaseException {
  * @public
  */
 export class PolicyLengthExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#PolicyLengthExceededException";
   readonly name = "PolicyLengthExceededException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -58,6 +60,7 @@ export class PolicyLengthExceededException extends __BaseException {
  * @public
  */
 export class PreconditionFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#PreconditionFailedException";
   readonly name = "PreconditionFailedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -85,6 +88,7 @@ export class PreconditionFailedException extends __BaseException {
  * @public
  */
 export class ResourceConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#ResourceConflictException";
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -112,6 +116,7 @@ export class ResourceConflictException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -136,6 +141,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#ServiceException";
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -160,6 +166,7 @@ export class ServiceException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -191,6 +198,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class PublicPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#PublicPolicyException";
   readonly name = "PublicPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -224,6 +232,7 @@ export class PublicPolicyException extends __BaseException {
  * @public
  */
 export class AliasLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#AliasLimitExceededException";
   readonly name = "AliasLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -251,6 +260,7 @@ export class AliasLimitExceededException extends __BaseException {
  * @public
  */
 export class CapacityProviderLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#CapacityProviderLimitExceededException";
   readonly name = "CapacityProviderLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -278,6 +288,7 @@ export class CapacityProviderLimitExceededException extends __BaseException {
  * @public
  */
 export class KMSAccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#KMSAccessDeniedException";
   readonly name = "KMSAccessDeniedException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -302,6 +313,7 @@ export class KMSAccessDeniedException extends __BaseException {
  * @public
  */
 export class KMSDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#KMSDisabledException";
   readonly name = "KMSDisabledException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -326,6 +338,7 @@ export class KMSDisabledException extends __BaseException {
  * @public
  */
 export class KMSInvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#KMSInvalidStateException";
   readonly name = "KMSInvalidStateException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -350,6 +363,7 @@ export class KMSInvalidStateException extends __BaseException {
  * @public
  */
 export class KMSNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#KMSNotFoundException";
   readonly name = "KMSNotFoundException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -374,6 +388,7 @@ export class KMSNotFoundException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -398,6 +413,7 @@ export class ResourceInUseException extends __BaseException {
  * @public
  */
 export class CodeSigningConfigNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#CodeSigningConfigNotFoundException";
   readonly name = "CodeSigningConfigNotFoundException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -422,6 +438,7 @@ export class CodeSigningConfigNotFoundException extends __BaseException {
  * @public
  */
 export class CodeStorageExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#CodeStorageExceededException";
   readonly name = "CodeStorageExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -449,6 +466,7 @@ export class CodeStorageExceededException extends __BaseException {
  * @public
  */
 export class CodeVerificationFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#CodeVerificationFailedException";
   readonly name = "CodeVerificationFailedException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -473,6 +491,7 @@ export class CodeVerificationFailedException extends __BaseException {
  * @public
  */
 export class FunctionVersionsPerCapacityProviderLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#FunctionVersionsPerCapacityProviderLimitExceededException";
   readonly name = "FunctionVersionsPerCapacityProviderLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -500,6 +519,7 @@ export class FunctionVersionsPerCapacityProviderLimitExceededException extends _
  * @public
  */
 export class InvalidCodeSignatureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#InvalidCodeSignatureException";
   readonly name = "InvalidCodeSignatureException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -524,6 +544,7 @@ export class InvalidCodeSignatureException extends __BaseException {
  * @public
  */
 export class CodeArtifactUserDeletedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#CodeArtifactUserDeletedException";
   readonly name = "CodeArtifactUserDeletedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -551,6 +572,7 @@ export class CodeArtifactUserDeletedException extends __BaseException {
  * @public
  */
 export class CodeArtifactUserFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#CodeArtifactUserFailedException";
   readonly name = "CodeArtifactUserFailedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -578,6 +600,7 @@ export class CodeArtifactUserFailedException extends __BaseException {
  * @public
  */
 export class CodeArtifactUserPendingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#CodeArtifactUserPendingException";
   readonly name = "CodeArtifactUserPendingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -605,6 +628,7 @@ export class CodeArtifactUserPendingException extends __BaseException {
  * @public
  */
 export class DurableExecutionAlreadyStartedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#DurableExecutionAlreadyStartedException";
   readonly name = "DurableExecutionAlreadyStartedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -634,6 +658,7 @@ export class DurableExecutionAlreadyStartedException extends __BaseException {
  * @public
  */
 export class EC2AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#EC2AccessDeniedException";
   readonly name = "EC2AccessDeniedException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -658,6 +683,7 @@ export class EC2AccessDeniedException extends __BaseException {
  * @public
  */
 export class EC2ThrottledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#EC2ThrottledException";
   readonly name = "EC2ThrottledException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -682,6 +708,7 @@ export class EC2ThrottledException extends __BaseException {
  * @public
  */
 export class EC2UnexpectedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#EC2UnexpectedException";
   readonly name = "EC2UnexpectedException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -708,6 +735,7 @@ export class EC2UnexpectedException extends __BaseException {
  * @public
  */
 export class EFSIOException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#EFSIOException";
   readonly name = "EFSIOException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -732,6 +760,7 @@ export class EFSIOException extends __BaseException {
  * @public
  */
 export class EFSMountConnectivityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#EFSMountConnectivityException";
   readonly name = "EFSMountConnectivityException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -756,6 +785,7 @@ export class EFSMountConnectivityException extends __BaseException {
  * @public
  */
 export class EFSMountFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#EFSMountFailureException";
   readonly name = "EFSMountFailureException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -780,6 +810,7 @@ export class EFSMountFailureException extends __BaseException {
  * @public
  */
 export class EFSMountTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#EFSMountTimeoutException";
   readonly name = "EFSMountTimeoutException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -804,6 +835,7 @@ export class EFSMountTimeoutException extends __BaseException {
  * @public
  */
 export class ENILimitReachedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#ENILimitReachedException";
   readonly name = "ENILimitReachedException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -828,6 +860,7 @@ export class ENILimitReachedException extends __BaseException {
  * @public
  */
 export class ENINotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#ENINotReadyException";
   readonly name = "ENINotReadyException" as const;
   readonly $fault = "server" as const;
   /**
@@ -861,6 +894,7 @@ export class ENINotReadyException extends __BaseException {
  * @public
  */
 export class InvalidRequestContentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#InvalidRequestContentException";
   readonly name = "InvalidRequestContentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -888,6 +922,7 @@ export class InvalidRequestContentException extends __BaseException {
  * @public
  */
 export class InvalidRuntimeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#InvalidRuntimeException";
   readonly name = "InvalidRuntimeException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -912,6 +947,7 @@ export class InvalidRuntimeException extends __BaseException {
  * @public
  */
 export class InvalidSecurityGroupIDException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#InvalidSecurityGroupIDException";
   readonly name = "InvalidSecurityGroupIDException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -936,6 +972,7 @@ export class InvalidSecurityGroupIDException extends __BaseException {
  * @public
  */
 export class InvalidSubnetIDException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#InvalidSubnetIDException";
   readonly name = "InvalidSubnetIDException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -960,6 +997,7 @@ export class InvalidSubnetIDException extends __BaseException {
  * @public
  */
 export class InvalidZipFileException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#InvalidZipFileException";
   readonly name = "InvalidZipFileException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -984,6 +1022,7 @@ export class InvalidZipFileException extends __BaseException {
  * @public
  */
 export class ModeNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#ModeNotSupportedException";
   readonly name = "ModeNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1011,6 +1050,7 @@ export class ModeNotSupportedException extends __BaseException {
  * @public
  */
 export class NoPublishedVersionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#NoPublishedVersionException";
   readonly name = "NoPublishedVersionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1040,6 +1080,7 @@ export class NoPublishedVersionException extends __BaseException {
  * @public
  */
 export class RecursiveInvocationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#RecursiveInvocationException";
   readonly name = "RecursiveInvocationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1073,6 +1114,7 @@ export class RecursiveInvocationException extends __BaseException {
  * @public
  */
 export class RequestTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#RequestTooLargeException";
   readonly name = "RequestTooLargeException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -1095,6 +1137,7 @@ export class RequestTooLargeException extends __BaseException {
  * @public
  */
 export class ResourceNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#ResourceNotReadyException";
   readonly name = "ResourceNotReadyException" as const;
   readonly $fault = "server" as const;
   /**
@@ -1122,6 +1165,7 @@ export class ResourceNotReadyException extends __BaseException {
  * @public
  */
 export class S3FilesMountConnectivityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#S3FilesMountConnectivityException";
   readonly name = "S3FilesMountConnectivityException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1155,6 +1199,7 @@ export class S3FilesMountConnectivityException extends __BaseException {
  * @public
  */
 export class S3FilesMountFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#S3FilesMountFailureException";
   readonly name = "S3FilesMountFailureException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1188,6 +1233,7 @@ export class S3FilesMountFailureException extends __BaseException {
  * @public
  */
 export class S3FilesMountTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#S3FilesMountTimeoutException";
   readonly name = "S3FilesMountTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1221,6 +1267,7 @@ export class S3FilesMountTimeoutException extends __BaseException {
  * @public
  */
 export class SerializedRequestEntityTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#SerializedRequestEntityTooLargeException";
   readonly name = "SerializedRequestEntityTooLargeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1248,6 +1295,7 @@ export class SerializedRequestEntityTooLargeException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1281,6 +1329,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class SnapStartException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#SnapStartException";
   readonly name = "SnapStartException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -1305,6 +1354,7 @@ export class SnapStartException extends __BaseException {
  * @public
  */
 export class SnapStartNotReadyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#SnapStartNotReadyException";
   readonly name = "SnapStartNotReadyException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -1329,6 +1379,7 @@ export class SnapStartNotReadyException extends __BaseException {
  * @public
  */
 export class SnapStartRegenerationFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#SnapStartRegenerationFailureException";
   readonly name = "SnapStartRegenerationFailureException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1362,6 +1413,7 @@ export class SnapStartRegenerationFailureException extends __BaseException {
  * @public
  */
 export class SnapStartTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#SnapStartTimeoutException";
   readonly name = "SnapStartTimeoutException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -1386,6 +1438,7 @@ export class SnapStartTimeoutException extends __BaseException {
  * @public
  */
 export class SubnetIPAddressLimitReachedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#SubnetIPAddressLimitReachedException";
   readonly name = "SubnetIPAddressLimitReachedException" as const;
   readonly $fault = "server" as const;
   Type?: string | undefined;
@@ -1410,6 +1463,7 @@ export class SubnetIPAddressLimitReachedException extends __BaseException {
  * @public
  */
 export class UnsupportedMediaTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#UnsupportedMediaTypeException";
   readonly name = "UnsupportedMediaTypeException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -1432,6 +1486,7 @@ export class UnsupportedMediaTypeException extends __BaseException {
  * @public
  */
 export class ProvisionedConcurrencyConfigNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#ProvisionedConcurrencyConfigNotFoundException";
   readonly name = "ProvisionedConcurrencyConfigNotFoundException" as const;
   readonly $fault = "client" as const;
   Type?: string | undefined;
@@ -1454,6 +1509,7 @@ export class ProvisionedConcurrencyConfigNotFoundException extends __BaseExcepti
  * @public
  */
 export class CallbackTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lambda#CallbackTimeoutException";
   readonly name = "CallbackTimeoutException" as const;
   readonly $fault = "client" as const;
   /**

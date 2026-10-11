@@ -125,6 +125,7 @@ export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBloc
  * //     },
  * //     OriginalStartDate: new Date("TIMESTAMP"),
  * //     ZeroSizePreference: "retain" || "default",
+ * //     LaunchStatus: "launchable" || "unlaunchable",
  * //   },
  * //   CapacityBlocks: [ // CapacityBlockSet
  * //     { // CapacityBlock

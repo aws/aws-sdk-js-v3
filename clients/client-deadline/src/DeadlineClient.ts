@@ -247,6 +247,7 @@ import type {
   ListLicenseEndpointsCommandOutput,
 } from "./commands/ListLicenseEndpointsCommand";
 import type { ListLimitsCommandInput, ListLimitsCommandOutput } from "./commands/ListLimitsCommand";
+import type { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "./commands/ListMembershipsCommand";
 import type {
   ListMeteredProductsCommandInput,
   ListMeteredProductsCommandOutput,
@@ -445,6 +446,7 @@ export type ServiceInputTypes =
   | ListJobsCommandInput
   | ListLicenseEndpointsCommandInput
   | ListLimitsCommandInput
+  | ListMembershipsCommandInput
   | ListMeteredProductsCommandInput
   | ListMonitorsCommandInput
   | ListQueueEnvironmentsCommandInput
@@ -576,6 +578,7 @@ export type ServiceOutputTypes =
   | ListJobsCommandOutput
   | ListLicenseEndpointsCommandOutput
   | ListLimitsCommandOutput
+  | ListMembershipsCommandOutput
   | ListMeteredProductsCommandOutput
   | ListMonitorsCommandOutput
   | ListQueueEnvironmentsCommandOutput

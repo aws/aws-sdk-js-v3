@@ -10,6 +10,7 @@ import { BatchServiceException as __BaseException } from "./BatchServiceExceptio
  * @public
  */
 export class ClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.batch#ClientException";
   readonly name = "ClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class ClientException extends __BaseException {
  * @public
  */
 export class ServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.batch#ServerException";
   readonly name = "ServerException" as const;
   readonly $fault = "server" as const;
   /**

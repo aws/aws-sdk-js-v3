@@ -69,6 +69,11 @@ import {
   CreatePromptVersionCommand,
 } from "./commands/CreatePromptVersionCommand";
 import {
+  type CreateVpcConfigurationCommandInput,
+  type CreateVpcConfigurationCommandOutput,
+  CreateVpcConfigurationCommand,
+} from "./commands/CreateVpcConfigurationCommand";
+import {
   type DeleteAgentActionGroupCommandInput,
   type DeleteAgentActionGroupCommandOutput,
   DeleteAgentActionGroupCommand,
@@ -128,6 +133,11 @@ import {
   type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
 } from "./commands/DeleteResourcePolicyCommand";
+import {
+  type DeleteVpcConfigurationCommandInput,
+  type DeleteVpcConfigurationCommandOutput,
+  DeleteVpcConfigurationCommand,
+} from "./commands/DeleteVpcConfigurationCommand";
 import {
   type DisassociateAgentCollaboratorCommandInput,
   type DisassociateAgentCollaboratorCommandOutput,
@@ -201,6 +211,11 @@ import {
   type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
 } from "./commands/GetResourcePolicyCommand";
+import {
+  type GetVpcConfigurationCommandInput,
+  type GetVpcConfigurationCommandOutput,
+  GetVpcConfigurationCommand,
+} from "./commands/GetVpcConfigurationCommand";
 import {
   type IngestKnowledgeBaseDocumentsCommandInput,
   type IngestKnowledgeBaseDocumentsCommandOutput,
@@ -277,6 +292,11 @@ import {
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  type ListVpcConfigurationsCommandInput,
+  type ListVpcConfigurationsCommandOutput,
+  ListVpcConfigurationsCommand,
+} from "./commands/ListVpcConfigurationsCommand";
 import {
   type PrepareAgentCommandInput,
   type PrepareAgentCommandOutput,
@@ -381,6 +401,7 @@ import { paginateListIngestionJobs } from "./pagination/ListIngestionJobsPaginat
 import { paginateListKnowledgeBaseDocuments } from "./pagination/ListKnowledgeBaseDocumentsPaginator";
 import { paginateListKnowledgeBases } from "./pagination/ListKnowledgeBasesPaginator";
 import { paginateListPrompts } from "./pagination/ListPromptsPaginator";
+import { paginateListVpcConfigurations } from "./pagination/ListVpcConfigurationsPaginator";
 
 const commands = {
   AssociateAgentCollaboratorCommand,
@@ -395,6 +416,7 @@ const commands = {
   CreateKnowledgeBaseCommand,
   CreatePromptCommand,
   CreatePromptVersionCommand,
+  CreateVpcConfigurationCommand,
   DeleteAgentCommand,
   DeleteAgentActionGroupCommand,
   DeleteAgentAliasCommand,
@@ -407,6 +429,7 @@ const commands = {
   DeleteKnowledgeBaseDocumentsCommand,
   DeletePromptCommand,
   DeleteResourcePolicyCommand,
+  DeleteVpcConfigurationCommand,
   DisassociateAgentCollaboratorCommand,
   DisassociateAgentKnowledgeBaseCommand,
   GetAgentCommand,
@@ -424,6 +447,7 @@ const commands = {
   GetKnowledgeBaseDocumentsCommand,
   GetPromptCommand,
   GetResourcePolicyCommand,
+  GetVpcConfigurationCommand,
   IngestKnowledgeBaseDocumentsCommand,
   ListAgentActionGroupsCommand,
   ListAgentAliasesCommand,
@@ -440,6 +464,7 @@ const commands = {
   ListKnowledgeBasesCommand,
   ListPromptsCommand,
   ListTagsForResourceCommand,
+  ListVpcConfigurationsCommand,
   PrepareAgentCommand,
   PrepareFlowCommand,
   PutResourcePolicyCommand,
@@ -474,6 +499,7 @@ const paginators = {
   paginateListKnowledgeBaseDocuments,
   paginateListKnowledgeBases,
   paginateListPrompts,
+  paginateListVpcConfigurations,
 };
 
 /**
@@ -689,6 +715,23 @@ export interface BedrockAgent {
   ): void;
 
   /**
+   * @see {@link CreateVpcConfigurationCommand}
+   */
+  createVpcConfiguration(
+    args: CreateVpcConfigurationCommandInput,
+    options?: BedrockAgentRequestOptions
+  ): Promise<CreateVpcConfigurationCommandOutput>;
+  createVpcConfiguration(
+    args: CreateVpcConfigurationCommandInput,
+    cb: (err: any, data?: CreateVpcConfigurationCommandOutput) => void
+  ): void;
+  createVpcConfiguration(
+    args: CreateVpcConfigurationCommandInput,
+    options: BedrockAgentRequestOptions,
+    cb: (err: any, data?: CreateVpcConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAgentCommand}
    */
   deleteAgent(
@@ -890,6 +933,23 @@ export interface BedrockAgent {
     args: DeleteResourcePolicyCommandInput,
     options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVpcConfigurationCommand}
+   */
+  deleteVpcConfiguration(
+    args: DeleteVpcConfigurationCommandInput,
+    options?: BedrockAgentRequestOptions
+  ): Promise<DeleteVpcConfigurationCommandOutput>;
+  deleteVpcConfiguration(
+    args: DeleteVpcConfigurationCommandInput,
+    cb: (err: any, data?: DeleteVpcConfigurationCommandOutput) => void
+  ): void;
+  deleteVpcConfiguration(
+    args: DeleteVpcConfigurationCommandInput,
+    options: BedrockAgentRequestOptions,
+    cb: (err: any, data?: DeleteVpcConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1182,6 +1242,23 @@ export interface BedrockAgent {
   ): void;
 
   /**
+   * @see {@link GetVpcConfigurationCommand}
+   */
+  getVpcConfiguration(
+    args: GetVpcConfigurationCommandInput,
+    options?: BedrockAgentRequestOptions
+  ): Promise<GetVpcConfigurationCommandOutput>;
+  getVpcConfiguration(
+    args: GetVpcConfigurationCommandInput,
+    cb: (err: any, data?: GetVpcConfigurationCommandOutput) => void
+  ): void;
+  getVpcConfiguration(
+    args: GetVpcConfigurationCommandInput,
+    options: BedrockAgentRequestOptions,
+    cb: (err: any, data?: GetVpcConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link IngestKnowledgeBaseDocumentsCommand}
    */
   ingestKnowledgeBaseDocuments(
@@ -1455,6 +1532,23 @@ export interface BedrockAgent {
     args: ListTagsForResourceCommandInput,
     options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVpcConfigurationsCommand}
+   */
+  listVpcConfigurations(
+    args: ListVpcConfigurationsCommandInput,
+    options?: BedrockAgentRequestOptions
+  ): Promise<ListVpcConfigurationsCommandOutput>;
+  listVpcConfigurations(
+    args: ListVpcConfigurationsCommandInput,
+    cb: (err: any, data?: ListVpcConfigurationsCommandOutput) => void
+  ): void;
+  listVpcConfigurations(
+    args: ListVpcConfigurationsCommandInput,
+    options: BedrockAgentRequestOptions,
+    cb: (err: any, data?: ListVpcConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -1916,6 +2010,17 @@ export interface BedrockAgent {
     args?: ListPromptsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListPromptsCommandOutput>;
+
+  /**
+   * @see {@link ListVpcConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListVpcConfigurationsCommandOutput}.
+   */
+  paginateListVpcConfigurations(
+    args: ListVpcConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListVpcConfigurationsCommandOutput>;
 }
 
 /**

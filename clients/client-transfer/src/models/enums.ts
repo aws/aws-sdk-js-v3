@@ -184,6 +184,19 @@ export type CertificateUsageType = (typeof CertificateUsageType)[keyof typeof Ce
  * @public
  * @enum
  */
+export const CommunicationMode = {
+  CLIENT_TALK_FIRST: "CLIENT_TALK_FIRST",
+  SERVER_TALK_FIRST: "SERVER_TALK_FIRST",
+} as const;
+/**
+ * @public
+ */
+export type CommunicationMode = (typeof CommunicationMode)[keyof typeof CommunicationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConnectorEgressType = {
   SERVICE_MANAGED: "SERVICE_MANAGED",
   VPC_LATTICE: "VPC_LATTICE",

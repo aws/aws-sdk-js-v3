@@ -83,7 +83,8 @@ const _CCI = "CustomConfigurationInput";
 const _CCIR = "CreateCodeInterpreterRequest";
 const _CCIRr = "CreateCodeInterpreterResponse";
 const _CCIr = "CreateCodeInterpreter";
-const _CCL = "ContentConfigurationList";
+const _CCL = "CertificateConfigurationList";
+const _CCLo = "ContentConfigurationList";
 const _CCM = "ComponentConfigurationMap";
 const _CCP = "CreateCapacityProvider";
 const _CCPI = "CreateCapacityProviderInput";
@@ -91,8 +92,10 @@ const _CCPO = "CreateCapacityProviderOutput";
 const _CCPR = "CreateConsentPortalRequest";
 const _CCPRr = "CreateConsentPortalResponse";
 const _CCPr = "CreateConsentPortal";
+const _CCRT = "CoinbaseCdpRotationTargets";
 const _CCVT = "CustomClaimValidationType";
 const _CCVTu = "CustomClaimValidationsType";
+const _CCe = "CertificateConfiguration";
 const _CCo = "CodeConfiguration";
 const _CCom = "ComponentConfiguration";
 const _CComp = "ComputeConfiguration";
@@ -184,8 +187,9 @@ const _CPVC = "CapacityProviderVolumeConfiguration";
 const _CPr = "CredentialProvider";
 const _CPre = "CreatePolicy";
 const _CR = "CreateRegistry";
-const _CRC = "CustomReflectionConfiguration";
+const _CRC = "CredentialRotationConfig";
 const _CRCI = "CustomReflectionConfigurationInput";
+const _CRCu = "CustomReflectionConfiguration";
 const _CRR = "CreateRegistryRequest";
 const _CRRR = "CreateRegistryRecordRequest";
 const _CRRRr = "CreateRegistryRecordResponse";
@@ -825,6 +829,9 @@ const _RL = "ResourceLocation";
 const _RLEE = "ResourceLimitExceededException";
 const _RMC = "RuntimeMetadataConfiguration";
 const _RNFE = "ResourceNotFoundException";
+const _RPCC = "RotatePaymentConnectorCredentials";
+const _RPCCR = "RotatePaymentConnectorCredentialsRequest";
+const _RPCCRo = "RotatePaymentConnectorCredentialsResponse";
 const _RRCPC = "RegistryRecordCredentialProviderConfiguration";
 const _RRCPCL = "RegistryRecordCredentialProviderConfigurationList";
 const _RRCPU = "RegistryRecordCredentialProviderUnion";
@@ -841,6 +848,7 @@ const _RVC = "RootVolumeConfiguration";
 const _Re = "Resource";
 const _S = "Secret";
 const _SC = "S3Configuration";
+const _SCC = "S3CertificateConfiguration";
 const _SCO = "SemanticConsolidationOverride";
 const _SCOu = "SummaryConsolidationOverride";
 const _SCa = "SamplingConfig";
@@ -868,6 +876,7 @@ const _SL = "S3Location";
 const _SLV = "StringListValidation";
 const _SMB = "SystemManagedBlock";
 const _SMC = "SelfManagedConfiguration";
+const _SMCC = "SecretsManagerCertificateConfiguration";
 const _SMCI = "SelfManagedConfigurationInput";
 const _SMD = "SkillMdDefinition";
 const _SML = "SecretsManagerLocation";
@@ -1176,6 +1185,7 @@ const _cC = "computeConfiguration";
 const _cCC = "customConsolidationConfiguration";
 const _cCCo = "coinbaseCdpConfiguration";
 const _cCDP = "coinbaseCDP";
+const _cCe = "certificateConfigurations";
 const _cCl = "clusteringConfig";
 const _cCo = "contentConfigurations";
 const _cCod = "codeConfiguration";
@@ -1227,8 +1237,10 @@ const _cSJK = "clientSecretJsonKey";
 const _cSS = "clientSecretSource";
 const _cT = "clientToken";
 const _cTC = "customTransformConfiguration";
+const _cTR = "credentialsToRotate";
 const _cTr = "createdTime";
 const _cU = "containerUri";
+const _cUA = "credentialsUpdatedAt";
 const _cUa = "callbackUrl";
 const _cWC = "cloudWatchConfig";
 const _cWL = "cloudWatchLogs";
@@ -1251,6 +1263,7 @@ const _dA = "datasetArn";
 const _dC = "deletedCount";
 const _dI = "datasetId";
 const _dK = "dimensionKeys";
+const _dMLTP = "disableMcpListToolsPagination";
 const _dMM = "deleteManagedMemory";
 const _dMS = "deleteMemoryStrategies";
 const _dN = "datasetName";
@@ -1686,6 +1699,7 @@ const _s_ = "s3";
 const _sc = "scopes";
 const _sch = "schema";
 const _se = "server";
+const _sec = "secrets";
 const _sep = "separator";
 const _ser = "service";
 const _sk = "skills";
@@ -2173,6 +2187,11 @@ export var CoinbaseCdpConfigurationOutput$: StaticStructureSchema = [3, n0, _CCC
   [_aKI, _aKSA, _wSA, _aKSJK, _aKSS, _wSJK, _wSS],
   [0, () => Secret$, () => Secret$, 0, 0, 0, 0], 3
 ];
+export var CoinbaseCdpRotationTargets$: StaticStructureSchema = [3, n0, _CCRT,
+  0,
+  [_sec],
+  [64 | 0], 1
+];
 export var ComponentConfiguration$: StaticStructureSchema = [3, n0, _CCom,
   8,
   [_con],
@@ -2390,13 +2409,13 @@ export var CreateGatewayRuleResponse$: StaticStructureSchema = [3, n0, _CGRRr,
 ];
 export var CreateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _CGTR,
   0,
-  [_gI, _tC, _n, _d, _cT, _cPCr, _mC, _pE],
-  [[0, 1], [() => TargetConfiguration$, 0], [() => TargetName, 0], [() => TargetDescription, 0], [0, 4], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$], 2
+  [_gI, _tC, _n, _d, _cT, _cPCr, _mC, _pE, _cCe],
+  [[0, 1], [() => TargetConfiguration$, 0], [() => TargetName, 0], [() => TargetDescription, 0], [0, 4], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$, () => CertificateConfigurationList], 2
 ];
 export var CreateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _CGTRr,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT, _cCe],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0, () => CertificateConfigurationList], 8
 ];
 export var CreateHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _CHER,
   0,
@@ -2655,8 +2674,8 @@ export var DeleteConfigurationBundleRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DeleteConfigurationBundleResponse$: StaticStructureSchema = [3, n0, _DCBRe,
   0,
-  [_bIu, _st],
-  [0, 0], 2
+  [_bAu, _bIu, _st],
+  [0, 0, 0], 3
 ];
 export var DeleteConsentPortalRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
@@ -3025,8 +3044,8 @@ export var GatewaySummary$: StaticStructureSchema = [3, n0, _GS,
 ];
 export var GatewayTarget$: StaticStructureSchema = [3, n0, _GT,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT, _cCe],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0, () => CertificateConfigurationList], 8
 ];
 export var GetAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _GARER,
   0,
@@ -3185,8 +3204,8 @@ export var GetGatewayTargetRequest$: StaticStructureSchema = [3, n0, _GGTR,
 ];
 export var GetGatewayTargetResponse$: StaticStructureSchema = [3, n0, _GGTRe,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT, _cCe],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0, () => CertificateConfigurationList], 8
 ];
 export var GetHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _GHER,
   0,
@@ -3245,8 +3264,8 @@ export var GetPaymentConnectorRequest$: StaticStructureSchema = [3, n0, _GPCR,
 ];
 export var GetPaymentConnectorResponse$: StaticStructureSchema = [3, n0, _GPCRe,
   0,
-  [_pCI, _n, _t, _cPCr, _cA, _lUA, _st, _d, _aU],
-  [0, 0, 0, () => CredentialsProviderConfigurations, 5, 5, 0, 0, 0], 7
+  [_pCI, _n, _t, _cPCr, _cA, _lUA, _st, _d, _pM, _aU, _cUA],
+  [0, 0, 0, () => CredentialsProviderConfigurations, 5, 5, 0, 0, 0, 0, 5], 7
 ];
 export var GetPaymentCredentialProviderRequest$: StaticStructureSchema = [3, n0, _GPCPR,
   0,
@@ -4175,8 +4194,8 @@ export var McpDescriptor$: StaticStructureSchema = [3, n0, _MD,
 ];
 export var MCPGatewayConfiguration$: StaticStructureSchema = [3, n0, _MCPGC,
   0,
-  [_sVu, _ins, _sTe, _sCe, _sCtr],
-  [64 | 0, [() => McpInstructions, 0], 0, () => SessionConfiguration$, () => StreamingConfiguration$]
+  [_sVu, _ins, _sTe, _sCe, _sCtr, _dMLTP],
+  [64 | 0, [() => McpInstructions, 0], 0, () => SessionConfiguration$, () => StreamingConfiguration$, 2]
 ];
 export var McpLambdaTargetConfiguration$: StaticStructureSchema = [3, n0, _MLTC,
   0,
@@ -4345,8 +4364,8 @@ export var PassthroughTargetConfiguration$: StaticStructureSchema = [3, n0, _PTC
 ];
 export var PaymentConnectorSummary$: StaticStructureSchema = [3, n0, _PCS,
   0,
-  [_pCI, _n, _t, _st, _lUA],
-  [0, 0, 0, 0, 5], 5
+  [_pCI, _n, _t, _st, _lUA, _pM],
+  [0, 0, 0, 0, 5, 0], 5
 ];
 export var PaymentCredentialProviderConfiguration$: StaticStructureSchema = [3, n0, _PCPC,
   0,
@@ -4488,6 +4507,16 @@ export var RootVolumeConfiguration$: StaticStructureSchema = [3, n0, _RVC,
   [_vT, _io, _th, _enc, _kKI, _fSGB],
   [0, 1, 1, 2, 0, 1]
 ];
+export var RotatePaymentConnectorCredentialsRequest$: StaticStructureSchema = [3, n0, _RPCCR,
+  0,
+  [_pMI, _pCI, _cTR, _cT],
+  [[0, 1], [0, 1], () => CredentialRotationConfig$, [0, 4]], 3
+];
+export var RotatePaymentConnectorCredentialsResponse$: StaticStructureSchema = [3, n0, _RPCCRo,
+  0,
+  [_pCI, _pMI, _lUA, _st],
+  [0, 0, 5, 0], 4
+];
 export var Rule$: StaticStructureSchema = [3, n0, _R,
   0,
   [_sCa, _filt, _sCes],
@@ -4502,6 +4531,11 @@ export var RuntimeTargetConfiguration$: StaticStructureSchema = [3, n0, _RTC,
   0,
   [_ar, _q, _sch],
   [0, 0, [() => HttpApiSchemaConfiguration$, 0]], 1
+];
+export var S3CertificateConfiguration$: StaticStructureSchema = [3, n0, _SCC,
+  0,
+  [_ur, _bOAI],
+  [0, 0], 1
 ];
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -4557,6 +4591,11 @@ export var SecretReference$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_sIe, _jK],
   [0, 0], 2
+];
+export var SecretsManagerCertificateConfiguration$: StaticStructureSchema = [3, n0, _SMCC,
+  0,
+  [_sAe],
+  [0], 1
 ];
 export var SecretsManagerLocation$: StaticStructureSchema = [3, n0, _SML,
   0,
@@ -4875,8 +4914,8 @@ export var UpdateCapacityProviderOutput$: StaticStructureSchema = [3, n0, _UCPO,
 ];
 export var UpdateConfigurationBundleRequest$: StaticStructureSchema = [3, n0, _UCBR,
   0,
-  [_bIu, _pVI, _cT, _bN, _d, _com, _bNr, _cM, _cB, _kKA],
-  [[0, 1], 64 | 0, [0, 4], 0, [() => ConfigurationBundleDescription, 0], [() => ComponentConfigurationMap, 0], 0, 0, () => VersionCreatedBySource$, 0], 2
+  [_bIu, _pVI, _cM, _cT, _bN, _d, _com, _bNr, _cB, _kKA],
+  [[0, 1], 64 | 0, 0, [0, 4], 0, [() => ConfigurationBundleDescription, 0], [() => ComponentConfigurationMap, 0], 0, () => VersionCreatedBySource$, 0], 3
 ];
 export var UpdateConfigurationBundleResponse$: StaticStructureSchema = [3, n0, _UCBRp,
   0,
@@ -5050,13 +5089,13 @@ export var UpdateGatewayRuleResponse$: StaticStructureSchema = [3, n0, _UGRRp,
 ];
 export var UpdateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _UGTR,
   0,
-  [_gI, _tI, _tC, _n, _d, _cPCr, _mC, _pE],
-  [[0, 1], [0, 1], [() => TargetConfiguration$, 0], [() => TargetName, 0], [() => TargetDescription, 0], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$], 3
+  [_gI, _tI, _tC, _n, _d, _cPCr, _mC, _pE, _cCe],
+  [[0, 1], [0, 1], [() => TargetConfiguration$, 0], [() => TargetName, 0], [() => TargetDescription, 0], [() => CredentialProviderConfigurations, 0], () => MetadataConfiguration$, () => PrivateEndpoint$, () => CertificateConfigurationList], 3
 ];
 export var UpdateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _UGTRp,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
-  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT, _cCe],
+  [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0, () => CertificateConfigurationList], 8
 ];
 export var UpdateHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _UHER,
   0,
@@ -5336,6 +5375,9 @@ var CapacityProviderList: StaticListSchema = [1, n0, _CPL,
 var CategoricalScaleDefinitions: StaticListSchema = [1, n0, _CSDa,
   0, () => CategoricalScaleDefinition$
 ];
+var CertificateConfigurationList: StaticListSchema = [1, n0, _CCL,
+  0, () => CertificateConfiguration$
+];
 var Certificates: StaticListSchema = [1, n0, _Ce,
   0, () => Certificate$
 ];
@@ -5344,6 +5386,7 @@ var CodeInterpreterSummaries: StaticListSchema = [1, n0, _CISo,
   0, [() => CodeInterpreterSummary$,
     0]
 ];
+var CoinbaseCdpSecrets = 64 | 0;
 var CompositeIdentifierList = 64 | 0;
 var Conditions: StaticListSchema = [1, n0, _Co,
   0, () => Condition$
@@ -5368,7 +5411,7 @@ var ConsentPortalSources: StaticListSchema = [1, n0, _CPSons,
 var ConsentPortalSummaries: StaticListSchema = [1, n0, _CPSonse,
   0, () => ConsentPortalSummary$
 ];
-var ContentConfigurationList: StaticListSchema = [1, n0, _CCL,
+var ContentConfigurationList: StaticListSchema = [1, n0, _CCLo,
   0, () => ContentConfiguration$
 ];
 var CredentialProviderConfigurations: StaticListSchema = [1, n0, _CPCre,
@@ -5706,6 +5749,11 @@ export var AuthorizerConfiguration$: StaticUnionSchema = [4, n0, _ACu,
   [_cJWTA],
   [() => CustomJWTAuthorizerConfiguration$]
 ];
+export var CertificateConfiguration$: StaticUnionSchema = [4, n0, _CCe,
+  0,
+  [_s_, _sMe],
+  [() => S3CertificateConfiguration$, () => SecretsManagerCertificateConfiguration$]
+];
 export var CertificateLocation$: StaticUnionSchema = [4, n0, _CL,
   0,
   [_sMe],
@@ -5756,6 +5804,11 @@ export var CredentialProvider$: StaticUnionSchema = [4, n0, _CPr,
   [_oCP, _aKCP, _iCP],
   [[() => OAuthCredentialProvider$, 0], () => GatewayApiKeyCredentialProvider$, () => IamCredentialProvider$]
 ];
+export var CredentialRotationConfig$: StaticUnionSchema = [4, n0, _CRC,
+  0,
+  [_cCDP],
+  [() => CoinbaseCdpRotationTargets$]
+];
 export var CredentialsProviderConfiguration$: StaticUnionSchema = [4, n0, _CPCrede,
   0,
   [_cCDP, _sPt],
@@ -5786,7 +5839,7 @@ export var CustomExtractionConfigurationInput$: StaticUnionSchema = [4, n0, _CEC
   [_sEO, _uPEO, _eEO],
   [[() => SemanticOverrideExtractionConfigurationInput$, 0], [() => UserPreferenceOverrideExtractionConfigurationInput$, 0], [() => EpisodicOverrideExtractionConfigurationInput$, 0]]
 ];
-export var CustomReflectionConfiguration$: StaticUnionSchema = [4, n0, _CRC,
+export var CustomReflectionConfiguration$: StaticUnionSchema = [4, n0, _CRCu,
   0,
   [_eRO],
   [[() => EpisodicReflectionOverride$, 0]]
@@ -6496,6 +6549,9 @@ export var ListWorkloadIdentities$: StaticOperationSchema = [9, n0, _LWI,
 ];
 export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
   { [_ht]: ["PUT", "/resourcepolicy/{resourceArn}", 201] }, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
+];
+export var RotatePaymentConnectorCredentials$: StaticOperationSchema = [9, n0, _RPCC,
+  { [_ht]: ["POST", "/payments/managers/{paymentManagerId}/connectors/{paymentConnectorId}/rotate-credentials", 202] }, () => RotatePaymentConnectorCredentialsRequest$, () => RotatePaymentConnectorCredentialsResponse$
 ];
 export var SetTokenVaultCMK$: StaticOperationSchema = [9, n0, _STVCMK,
   { [_ht]: ["POST", "/identities/set-token-vault-cmk", 200] }, () => SetTokenVaultCMKRequest$, () => SetTokenVaultCMKResponse$

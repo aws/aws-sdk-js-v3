@@ -367,6 +367,7 @@ export const RecommendationType = {
   INTENT_ANSWER_CHUNK: "INTENT_ANSWER_CHUNK",
   KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
   NOTES_CHUNK: "NOTES_CHUNK",
+  PROACTIVE_RECOMMENDATION: "PROACTIVE_RECOMMENDATION",
   SUGGESTED_MESSAGE: "SUGGESTED_MESSAGE",
 } as const;
 /**
@@ -552,6 +553,23 @@ export const QueryResultType = {
  * @public
  */
 export type QueryResultType = (typeof QueryResultType)[keyof typeof QueryResultType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrieveErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  DEPENDENCY_FAILED: "DEPENDENCY_FAILED",
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  THROTTLED: "THROTTLED",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+/**
+ * @public
+ */
+export type RetrieveErrorCode = (typeof RetrieveErrorCode)[keyof typeof RetrieveErrorCode];
 
 /**
  * @public

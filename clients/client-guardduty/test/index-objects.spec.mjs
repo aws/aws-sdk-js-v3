@@ -534,6 +534,7 @@ import {
   MalwareProtectionScanType,
   MalwareScan$,
   MalwareScanDetails$,
+  ManagedBy,
   ManagementType,
   Master$,
   Member$,
@@ -1536,6 +1537,7 @@ assert(typeof MalwareProtectionPlanTaggingActionStatus === "object");
 assert(typeof MalwareProtectionResourceType === "object");
 assert(typeof MalwareProtectionScanStatus === "object");
 assert(typeof MalwareProtectionScanType === "object");
+assert(typeof ManagedBy === "object");
 assert(typeof ManagementType === "object");
 assert(typeof MfaStatus === "object");
 assert(typeof NetworkDirection === "object");

@@ -172,6 +172,7 @@ import {
   InvalidNextTokenException$,
   InvalidPortRangeException,
   InvalidPortRangeException$,
+  IpAddressDetail$,
   IpAddressFamily,
   IpAddressType,
   IpSet$,
@@ -495,6 +496,7 @@ assert(typeof EndpointConfiguration$ === "object");
 assert(typeof EndpointDescription$ === "object");
 assert(typeof EndpointGroup$ === "object");
 assert(typeof EndpointIdentifier$ === "object");
+assert(typeof IpAddressDetail$ === "object");
 assert(typeof IpSet$ === "object");
 assert(typeof ListAcceleratorsRequest$ === "object");
 assert(typeof ListAcceleratorsResponse$ === "object");

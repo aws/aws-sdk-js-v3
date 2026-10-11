@@ -7230,6 +7230,38 @@ export interface NotificationRecipientType {
 }
 
 /**
+ * <p>Information about the send in-app notification action.</p>
+ * @public
+ */
+export interface SendInAppNotificationActionDefinition {
+  /**
+   * <p>Notification content. Supports variable injection. For more information, see
+   * <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html">JSONPath reference</a>
+   * in the <i>Connect Customer Administrators Guide</i>.</p>
+   * @public
+   */
+  Content: Partial<Record<LocaleCode, string>> | undefined;
+
+  /**
+   * <p>Notification recipient.</p>
+   * @public
+   */
+  Recipient: NotificationRecipientType | undefined;
+
+  /**
+   * <p>Recipients to exclude from notification.</p>
+   * @public
+   */
+  Exclusion?: NotificationRecipientType | undefined;
+
+  /**
+   * <p>Notification priority.</p>
+   * @public
+   */
+  Priority?: ConfigurableNotificationPriority | undefined;
+}
+
+/**
  * <p>Information about the send notification action.</p>
  * @public
  */
@@ -7427,6 +7459,20 @@ export interface RuleAction {
    * @public
    */
   ExtractInformationAction?: ExtractInformationActionDefinition | undefined;
+
+  /**
+   * <p>Information about the send in-app notification action.</p>
+   *          <p>Supported only for <code>TriggerEventSource</code> values: <code>OnPostCallAnalysisAvailable</code> |
+   *     <code>OnRealTimeCallAnalysisAvailable</code> | <code>OnRealTimeChatAnalysisAvailable</code> |
+   *     <code>OnPostChatAnalysisAvailable</code> | <code>OnAfterCallWorkAvailable</code> |
+   *     <code>OnAfterChatWorkAvailable</code> | <code>OnEmailAnalysisAvailable</code> |
+   *     <code>OnContactEvaluationSubmit</code> | <code>OnCaseCreate</code> | <code>OnCaseUpdate</code> |
+   *     <code>OnSlaBreach</code> | <code>OnSchedulePublish</code> | <code>OnScheduleUpdate</code> |
+   *    <code>OnScheduleTimeOffRequestActivity</code>
+   *          </p>
+   * @public
+   */
+  SendInAppNotificationAction?: SendInAppNotificationActionDefinition | undefined;
 }
 
 /**
@@ -7859,16 +7905,4 @@ export interface TaskTemplateDefaultFieldValue {
    * @public
    */
   DefaultValue?: string | undefined;
-}
-
-/**
- * <p>Describes default values for fields on a template.</p>
- * @public
- */
-export interface TaskTemplateDefaults {
-  /**
-   * <p>Default value for the field.</p>
-   * @public
-   */
-  DefaultFieldValues?: TaskTemplateDefaultFieldValue[] | undefined;
 }

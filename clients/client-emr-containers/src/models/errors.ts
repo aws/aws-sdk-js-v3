@@ -8,6 +8,7 @@ import { EMRContainersServiceException as __BaseException } from "./EMRContainer
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.emrcontainers#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -28,6 +29,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.emrcontainers#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.emrcontainers#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class EKSRequestThrottledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.emrcontainers#EKSRequestThrottledException";
   readonly name = "EKSRequestThrottledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class EKSRequestThrottledException extends __BaseException {
  * @public
  */
 export class RequestThrottledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.emrcontainers#RequestThrottledException";
   readonly name = "RequestThrottledException" as const;
   readonly $fault = "client" as const;
   /**

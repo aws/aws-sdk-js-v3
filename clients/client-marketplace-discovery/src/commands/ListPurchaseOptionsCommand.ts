@@ -33,6 +33,7 @@ export interface ListPurchaseOptionsCommandOutput extends ListPurchaseOptionsOut
  * const config = {}; // type is MarketplaceDiscoveryClientConfig
  * const client = new MarketplaceDiscoveryClient(config);
  * const input = { // ListPurchaseOptionsInput
+ *   locale: "STRING_VALUE",
  *   filters: [ // PurchaseOptionFilterList
  *     { // PurchaseOptionFilter
  *       filterType: "PRODUCT_ID" || "SELLER_OF_RECORD_PROFILE_ID" || "PURCHASE_OPTION_TYPE" || "VISIBILITY_SCOPE" || "AVAILABILITY_STATUS", // required
@@ -132,7 +133,8 @@ export interface ListPurchaseOptionsCommandOutput extends ListPurchaseOptionsOut
  *         "prod-sampleOfferId"
  *       ]
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * };
  * const command = new ListPurchaseOptionsCommand(input);
  * const response = await client.send(command);
@@ -198,7 +200,8 @@ export interface ListPurchaseOptionsCommandOutput extends ListPurchaseOptionsOut
  *         "PRIVATE"
  *       ]
  *     }
- *   ]
+ *   ],
+ *   locale: "en-US"
  * };
  * const command = new ListPurchaseOptionsCommand(input);
  * const response = await client.send(command);

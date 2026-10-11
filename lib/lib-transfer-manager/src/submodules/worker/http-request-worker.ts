@@ -11,6 +11,7 @@
  * @internal
  */
 import { HttpRequest } from "@smithy/core/protocols";
+import { concatBytes } from "@smithy/core/serde";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import dns from "node:dns";
 import { openSync, readSync, closeSync, writeSync, unlinkSync, constants as fsConstants } from "node:fs";
@@ -46,7 +47,7 @@ const readErrorBodyBytes = async (body: any): Promise<Uint8Array | undefined> =>
       total += buf.length;
       if (total >= MAX_ERROR_BODY_BYTES) break;
     }
-    return new Uint8Array(Buffer.concat(chunks));
+    return concatBytes(chunks);
   } catch {
     return undefined;
   }
@@ -70,28 +71,32 @@ const buildHttpStatusError = async (
   };
 };
 
+// O_DIRECT support (opt-in via the useODirect Transfer Manager config, Linux-only).
+// Buffered writes go through the OS page cache, which on very large downloads
+// can fill faster than it drains and stall the write path. O_DIRECT skips the
+// cache. It requires the file offset, the write length, and the buffer address
+// all aligned to the device's logical block size (O_DIRECT_ALIGN).
 
-// ---------------------------------------------------------------------------
-// O_DIRECT support (opt-in via TM_O_DIRECT=1, Linux-only).
-//
-// Buffered writes route through the OS page cache; for very large downloads the
-// cache can fill faster than writeback drains, stalling the write path. O_DIRECT
-// bypasses the cache. It requires the write buffer's memory ADDRESS to be
-// block-aligned, but Node has no aligned-allocation API. So — exactly like the
-// s3-benchmark-runner — we over-allocate a normal Buffer by one block and probe
-// for an aligned byte offset ("pad") inside it by attempting real O_DIRECT writes
-// to a temp file until one succeeds. Falls back to buffered writes when O_DIRECT
-// is unavailable (non-Linux, or a filesystem that rejects it) or for a range's
-// sub-block tail. Pure JS; no native addon.
-// ---------------------------------------------------------------------------
+// 4096 for the alignment above: it covers 512e and 4Kn devices and matches the
+// page size on the platforms of interest.
 const O_DIRECT_ALIGN = 4096;
 const O_DIRECT_FLAG: number = (fsConstants as unknown as { O_DIRECT?: number }).O_DIRECT ?? 0;
-const O_DIRECT_ENABLED =
-  process.env.TM_O_DIRECT === "1" && process.platform === "linux" && O_DIRECT_FLAG > 0;
+const O_DIRECT_SUPPORTED = process.platform === "linux" && O_DIRECT_FLAG > 0;
 
-// One-time (per worker) result of whether O_DIRECT works on the destination fs.
+// Set from the config message the handler sends on worker startup.
+let oDirectEnabled = false;
+let oDirectRequested = false;
 let oDirectProbed = false;
 let oDirectUsable = false;
+
+/**
+ * Posts a diagnostic log line to the main thread for forwarding to the TM logger,
+ * since the worker has no access to the client logger.
+ * @internal
+ */
+function postLog(level: "warn" | "debug" | "trace", message: string): void {
+  parentPort?.postMessage({ type: "workerLog", level, message } satisfies HttpWorkerLogMessage);
+}
 
 /**
  * Probe for a block-aligned byte offset inside `buf` by attempting real O_DIRECT
@@ -116,11 +121,13 @@ function probeAlignedPad(dir: string, buf: Buffer): number {
         break;
       }
     } catch {
+      // A misaligned O_DIRECT write throws (EINVAL) that is the expected
+      // signal that this pad is not aligned, so swallow it and try the next.
       if (fd !== undefined) {
         try {
           closeSync(fd);
         } catch {
-          /* ignore */
+          // if failed to close ignore errors so cleanup doesn't crash the probe.
         }
       }
     }
@@ -128,13 +135,13 @@ function probeAlignedPad(dir: string, buf: Buffer): number {
   try {
     unlinkSync(probePath);
   } catch {
-    /* ignore */
+    // Disposable temp file with a unique name, ignore delete errors so cleanup don't fail the probe.
   }
   return found;
 }
 
 /**
- * One-time check of whether O_DIRECT is usable on the filesystem hosting `dir`.
+ * check whether O_DIRECT is usable on the filesystem hosting `dir`.
  * @internal
  */
 function ensureODirectProbed(dir: string): void {
@@ -144,6 +151,17 @@ function ensureODirectProbed(dir: string): void {
   oDirectProbed = true;
   const testBuf = Buffer.allocUnsafeSlow(O_DIRECT_ALIGN * 2);
   oDirectUsable = probeAlignedPad(dir, testBuf) >= 0;
+  if (!oDirectUsable) {
+    // O_DIRECT is supported by the platform but rejected by the filesystem
+    // hosting the download (common on tmpfs, overlayfs, some network mounts).
+    postLog(
+      "warn",
+      `useODirect was requested but O_DIRECT is not usable on the filesystem at "${dir}"; ` +
+        `falling back to buffered writes.`
+    );
+  } else {
+    postLog("debug", `O_DIRECT probe succeeded for filesystem at "${dir}"; using O_DIRECT writes.`);
+  }
 }
 
 /**
@@ -301,7 +319,8 @@ interface HttpWorkerDownloadStreamResultMessage {
 }
 
 /**
- * Worker → Main thread: a download request (file or transfer) failed.
+ * Worker → Main thread: download failed with no HTTP response
+ * (checksum/length mismatch, socket error).
  */
 interface HttpWorkerDownloadErrorMessage {
   type: "httpDownloadError";
@@ -330,6 +349,7 @@ interface HttpWorkerDownloadHttpErrorMessage {
 interface HttpWorkerConfigMessage {
   type: "config";
   maxSockets: number;
+  useODirect?: boolean;
 }
 
 /**
@@ -379,7 +399,23 @@ interface HttpWorkerReadyMessage {
   type: "ready";
 }
 
+/**
+ * Worker → Main thread: a diagnostic log line forwarding to the TM logger,
+ * used to surface O_DIRECT fallbacks.
+ */
+interface HttpWorkerLogMessage {
+  type: "workerLog";
+  level: "warn" | "debug" | "trace";
+  message: string;
+}
+
 // Checksum Helpers for Download.
+// Checksum helpers shared by the download and upload paths.
+
+/**
+ * Algorithms S3 supports that `createChecksum` cannot build.
+ */
+const UNVERIFIABLE_ALGORITHMS: ChecksumAlgorithm[] = ["SHA512", "XXHASH3", "XXHASH64", "XXHASH128"];
 
 function createChecksum(algorithm: ChecksumAlgorithm): Checksum | undefined {
   switch (algorithm) {
@@ -396,7 +432,11 @@ function createChecksum(algorithm: ChecksumAlgorithm): Checksum | undefined {
     case "MD5":
       return new Md5();
     default:
-      // Algorithms without a local implementation (e.g. XXHASH64, SHA512) skip inline validation.
+      // No native implementation for SHA512, XXHASH3, XXHASH64, XXHASH128.
+      // On worker threads, a download whose part carries one of these checksums
+      // throws, and a threaded upload rejects the part.
+      // To use these, run with workerThreadCount: 1, or set
+      // responseChecksumValidation: "WHEN_REQUIRED" to download without validation.
       return undefined;
   }
 }
@@ -431,6 +471,35 @@ function getChecksumHeaderValue(headers: Record<string, string>, algorithm: stri
   return headers[headerName];
 }
 
+/**
+ * Returns the checksum algorithm to validate a part against, picked from the
+ * per-part checksum header S3 sends when ChecksumMode=ENABLED. Undefined if no
+ * such header is present. Throws if S3 returns a checksum this worker cannot compute.
+ */
+function resolveDownloadChecksumAlgorithm(headers: Record<string, string>): ChecksumAlgorithm | undefined {
+  const candidates: ChecksumAlgorithm[] = ["CRC64NVME", "CRC32C", "CRC32", "SHA256", "SHA1"];
+  for (const algorithm of candidates) {
+    if (getChecksumHeaderValue(headers, algorithm)) {
+      return algorithm;
+    }
+  }
+
+  for (const algorithm of UNVERIFIABLE_ALGORITHMS) {
+    if (getChecksumHeaderValue(headers, algorithm)) {
+      throw Object.assign(
+        new Error(
+          `S3 returned a ${algorithm} checksum, which worker threads cannot compute. ` +
+            `Set workerThreadCount: 1 to validate this object, or set ` +
+            `responseChecksumValidation: "WHEN_REQUIRED" to download it without validation.`
+        ),
+        { name: "ChecksumValidationError", code: "CHECKSUM_ALGORITHM_UNSUPPORTED" }
+      );
+    }
+  }
+
+  return undefined;
+}
+
 if (parentPort) {
   let handler: NodeHttpHandler | undefined;
   const port = parentPort;
@@ -458,6 +527,20 @@ if (parentPort) {
     return buffer;
   };
 
+  /**
+   * Computes the part checksum with the algorithm the caller declared, so the
+   * value matches the trailer header. Throws when the algorithm has no local
+   * implementation.
+   */
+  const computeDeclaredChecksum = async (data: Buffer, algorithm: ChecksumAlgorithm): Promise<string> => {
+    const checksum = createChecksum(algorithm);
+    if (!checksum) {
+      throw new Error(`Unsupported checksum algorithm for threaded upload: ${algorithm}`);
+    }
+    checksum.update(data);
+    return finalizeChecksumToBase64(checksum);
+  };
+
   const buildAwsChunkedBody = (data: Buffer, checksumHeader?: string, checksumValue?: string): Buffer => {
     const hexLen = data.byteLength.toString(16);
     const parts: Buffer[] = [Buffer.from(`${hexLen}\r\n`), data, Buffer.from("\r\n0\r\n")];
@@ -478,9 +561,7 @@ if (parentPort) {
         const fileData = Buffer.from(msg.sharedBuffer, msg.offset, msg.length);
 
         if (msg.checksumAlgorithm && msg.checksumHeader) {
-          const crc = new Crc32();
-          crc.update(fileData);
-          const checksumValue = Buffer.from(await crc.digest()).toString("base64");
+          const checksumValue = await computeDeclaredChecksum(fileData, msg.checksumAlgorithm);
           body = buildAwsChunkedBody(fileData, msg.checksumHeader, checksumValue);
         } else {
           body = fileData;
@@ -489,9 +570,7 @@ if (parentPort) {
         const fileData = readFileSlice(msg.filePath, msg.offset, msg.length);
 
         if (msg.checksumAlgorithm && msg.checksumHeader) {
-          const crc = new Crc32();
-          crc.update(fileData);
-          const checksumValue = Buffer.from(await crc.digest()).toString("base64");
+          const checksumValue = await computeDeclaredChecksum(fileData, msg.checksumAlgorithm);
           body = buildAwsChunkedBody(fileData, msg.checksumHeader, checksumValue);
         } else {
           body = fileData;
@@ -552,7 +631,7 @@ if (parentPort) {
   };
 
   const processDownloadToFile = async (msg: HttpWorkerDownloadToFileMessage): Promise<void> => {
-    const { id, request: serialized, filePath, offset, expectedLength, checksumAlgorithm } = msg;
+    const { id, request: serialized, filePath, offset, expectedLength } = msg;
 
     try {
       // Send the signed HTTP request
@@ -575,7 +654,6 @@ if (parentPort) {
         return;
       }
 
-
       // Resolve where and how much to write from the response's ContentRange.
       //
       // ContentRange is the source of truth since S3 multipart objects can
@@ -586,14 +664,15 @@ if (parentPort) {
       const writeOffset = range ? range.start : offset;
       const targetLength = range ? range.end - range.start + 1 : expectedLength;
 
-      // open the file (file is pre-allocated). The buffered handle serves the
-      // buffered fallback path and the sub-block tail of an O_DIRECT write.
+      // open the file (file is pre-allocated)
       const fh = await open(filePath, "r+");
       try {
-        // Initialize inline checksum computation if requested
+        // Initialize inline checksum computation with the algorithm S3 returned.
+        // Undefined means S3 sent no checksum header, so validation is skipped.
+        const verifiableDownloadChecksumAlgorithm = resolveDownloadChecksumAlgorithm(response.headers);
         let checksum: Checksum | undefined;
-        if (checksumAlgorithm) {
-          checksum = createChecksum(checksumAlgorithm);
+        if (verifiableDownloadChecksumAlgorithm) {
+          checksum = createChecksum(verifiableDownloadChecksumAlgorithm);
         }
 
         let bytesWritten = 0;
@@ -604,24 +683,29 @@ if (parentPort) {
         // offset ("pad"). Anything else uses the buffered path below.
         let alignedBuf: Buffer | undefined;
         let pad = -1;
-        if (O_DIRECT_ENABLED && writeOffset % O_DIRECT_ALIGN === 0 && targetLength >= O_DIRECT_ALIGN) {
+        if (oDirectEnabled && writeOffset % O_DIRECT_ALIGN === 0 && targetLength >= O_DIRECT_ALIGN) {
           ensureODirectProbed(dirname(filePath));
           if (oDirectUsable) {
             alignedBuf = Buffer.allocUnsafeSlow(targetLength + O_DIRECT_ALIGN);
             pad = probeAlignedPad(dirname(filePath), alignedBuf);
           }
+        } else if (oDirectEnabled) {
+          // Requested + usable, but this part is not O_DIRECT-eligible: O_DIRECT needs
+          // a block-aligned write offset and a part at least one block long.
+          postLog(
+            "trace",
+            `O_DIRECT skipped: part not 4096-block-aligned (offset=${writeOffset}, length=${targetLength}, block=${O_DIRECT_ALIGN}), using buffered writes.`
+          );
         }
 
         if (alignedBuf && pad >= 0) {
-          // O_DIRECT path: assemble the whole range into the aligned buffer, write
-          // the block-aligned bulk with page-cache bypass, then write the
-          // sub-block tail (if any) through the buffered handle.
+          // For O_DIRECT path write the block-aligned bulk with page-cache bypass,
+          // then write the last part (if any, may be smaller than a block) buffered.
           if (response.body) {
             for await (const chunk of response.body) {
               const buf =
                 typeof chunk === "string" ? Buffer.from(chunk) : Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
 
-              // Verify cumulative bytes do not exceed the range's length
               if (bytesWritten + buf.length > targetLength) {
                 await fh.close();
                 port.postMessage({
@@ -636,7 +720,6 @@ if (parentPort) {
 
               buf.copy(alignedBuf, pad + bytesWritten, 0, buf.length);
 
-              // Update checksum inline
               if (checksum) {
                 checksum.update(buf);
               }
@@ -655,7 +738,7 @@ if (parentPort) {
               await directFh.close().catch(() => {});
             }
           }
-          // Sub-block tail (O_DIRECT cannot write a partial final block) goes
+          // Last part (O_DIRECT cannot write a partial final block) goes
           // through the buffered handle.
           const tailLength = bytesWritten - alignedLength;
           if (tailLength > 0) {
@@ -668,7 +751,6 @@ if (parentPort) {
               const buf =
                 typeof chunk === "string" ? Buffer.from(chunk) : Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
 
-              // Verify cumulative bytes do not exceed the range's length
               if (bytesWritten + buf.length > targetLength) {
                 await fh.close();
                 port.postMessage({
@@ -681,10 +763,8 @@ if (parentPort) {
                 return;
               }
 
-              // Write chunk to file at the correct position
               await fh.write(buf, 0, buf.length, writeOffset + bytesWritten);
 
-              // Update checksum inline
               if (checksum) {
                 checksum.update(buf);
               }
@@ -710,11 +790,11 @@ if (parentPort) {
 
         // Finalize checksum and validate against S3 header if present
         let checksumBase64: string | undefined;
-        if (checksum && checksumAlgorithm) {
+        if (checksum && verifiableDownloadChecksumAlgorithm) {
           checksumBase64 = await finalizeChecksumToBase64(checksum);
 
           // Check if S3 returned a per-part checksum header
-          const s3ChecksumValue = getChecksumHeaderValue(response.headers, checksumAlgorithm);
+          const s3ChecksumValue = getChecksumHeaderValue(response.headers, verifiableDownloadChecksumAlgorithm);
           if (s3ChecksumValue && s3ChecksumValue !== checksumBase64) {
             port.postMessage({
               type: "httpDownloadError",
@@ -776,7 +856,7 @@ if (parentPort) {
    * @internal
    */
   const processDownloadToTransfer = async (msg: HttpWorkerDownloadStreamMessage): Promise<void> => {
-    const { id, request: serialized, expectedSize, rangeIndex, checksumAlgorithm } = msg;
+    const { id, request: serialized, expectedSize, rangeIndex } = msg;
 
     try {
       // 1. Send the signed HTTP request
@@ -799,15 +879,16 @@ if (parentPort) {
         return;
       }
 
-
       // 2. Acquire a buffer for assembling the response body
       const ab = acquireTransferBuffer(expectedSize);
       const view = new Uint8Array(ab, 0, expectedSize);
 
-      // 3. Initialize inline checksum computation if requested
+      // 3. Initialize inline checksum computation with the algorithm S3 returned.
+      // Undefined means S3 sent no checksum header, so validation is skipped.
+      const verifiableDownloadChecksumAlgorithm = resolveDownloadChecksumAlgorithm(response.headers);
       let checksum: Checksum | undefined;
-      if (checksumAlgorithm) {
-        checksum = createChecksum(checksumAlgorithm);
+      if (verifiableDownloadChecksumAlgorithm) {
+        checksum = createChecksum(verifiableDownloadChecksumAlgorithm);
       }
 
       // 4. Stream response body chunks into the ArrayBuffer
@@ -832,7 +913,6 @@ if (parentPort) {
           // Copy chunk into the ArrayBuffer (this copy happens on the WORKER thread)
           view.set(buf, bytesWritten);
 
-          // Update checksum inline
           if (checksum) {
             checksum.update(buf);
           }
@@ -843,10 +923,10 @@ if (parentPort) {
 
       // 5. Finalize checksum and validate against S3 header if present
       let checksumBase64: string | undefined;
-      if (checksum && checksumAlgorithm) {
+      if (checksum && verifiableDownloadChecksumAlgorithm) {
         checksumBase64 = await finalizeChecksumToBase64(checksum);
 
-        const s3ChecksumValue = getChecksumHeaderValue(response.headers, checksumAlgorithm);
+        const s3ChecksumValue = getChecksumHeaderValue(response.headers, verifiableDownloadChecksumAlgorithm);
         if (s3ChecksumValue && s3ChecksumValue !== checksumBase64) {
           port.postMessage({
             type: "httpDownloadError",
@@ -903,7 +983,18 @@ if (parentPort) {
     }
 
     if (msg.type === "config") {
-      const { maxSockets } = msg as HttpWorkerConfigMessage;
+      const { maxSockets, useODirect } = msg as HttpWorkerConfigMessage;
+      oDirectRequested = useODirect === true;
+      oDirectEnabled = oDirectRequested && O_DIRECT_SUPPORTED;
+      if (oDirectRequested && !O_DIRECT_SUPPORTED) {
+        // User configured useODirect but it is not supported on this platform.
+        postLog(
+          "warn",
+          `useODirect was requested but O_DIRECT is not available on this platform ` +
+            `(platform=${process.platform}, O_DIRECT flag ${O_DIRECT_FLAG > 0 ? "present" : "absent"}); ` +
+            `falling back to buffered writes.`
+        );
+      }
       handler = new NodeHttpHandler({
         httpsAgent: new httpsAgent({
           maxSockets,

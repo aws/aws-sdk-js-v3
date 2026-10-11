@@ -189,6 +189,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <CloudwatchLogStream>
                     __CloudwatchLogStream__
                 </CloudwatchLogStream>
+                <IncludeAuthorizationPolicyContext>
+                    false
+                </IncludeAuthorizationPolicyContext>
             </connectionLogOptions>
             <tagSet>
                 <item>
@@ -304,6 +307,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </item>
                 </availabilityZoneIdSet>
             </transitGatewayConfiguration>
+            <devicePostureOptions>
+                <trustProviderSet>
+                    <item>
+                        <trustProviderType>
+                            __TrustProviderType__
+                        </trustProviderType>
+                        <tenantId>
+                            __TenantId__
+                        </tenantId>
+                        <publicSigningKeyUrl>
+                            __PublicSigningKeyUrl__
+                        </publicSigningKeyUrl>
+                    </item>
+                    <item>
+                        <trustProviderType>
+                            __TrustProviderType__
+                        </trustProviderType>
+                        <tenantId>
+                            __TenantId__
+                        </tenantId>
+                        <publicSigningKeyUrl>
+                            __PublicSigningKeyUrl__
+                        </publicSigningKeyUrl>
+                    </item>
+                    <item>
+                        <trustProviderType>
+                            __TrustProviderType__
+                        </trustProviderType>
+                        <tenantId>
+                            __TenantId__
+                        </tenantId>
+                        <publicSigningKeyUrl>
+                            __PublicSigningKeyUrl__
+                        </publicSigningKeyUrl>
+                    </item>
+                </trustProviderSet>
+            </devicePostureOptions>
         </item>
         <item>
             <clientVpnEndpointId>
@@ -465,6 +505,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <CloudwatchLogStream>
                     __CloudwatchLogStream__
                 </CloudwatchLogStream>
+                <IncludeAuthorizationPolicyContext>
+                    false
+                </IncludeAuthorizationPolicyContext>
             </connectionLogOptions>
             <tagSet>
                 <item>
@@ -580,6 +623,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </item>
                 </availabilityZoneIdSet>
             </transitGatewayConfiguration>
+            <devicePostureOptions>
+                <trustProviderSet>
+                    <item>
+                        <trustProviderType>
+                            __TrustProviderType__
+                        </trustProviderType>
+                        <tenantId>
+                            __TenantId__
+                        </tenantId>
+                        <publicSigningKeyUrl>
+                            __PublicSigningKeyUrl__
+                        </publicSigningKeyUrl>
+                    </item>
+                    <item>
+                        <trustProviderType>
+                            __TrustProviderType__
+                        </trustProviderType>
+                        <tenantId>
+                            __TenantId__
+                        </tenantId>
+                        <publicSigningKeyUrl>
+                            __PublicSigningKeyUrl__
+                        </publicSigningKeyUrl>
+                    </item>
+                    <item>
+                        <trustProviderType>
+                            __TrustProviderType__
+                        </trustProviderType>
+                        <tenantId>
+                            __TenantId__
+                        </tenantId>
+                        <publicSigningKeyUrl>
+                            __PublicSigningKeyUrl__
+                        </publicSigningKeyUrl>
+                    </item>
+                </trustProviderSet>
+            </devicePostureOptions>
         </item>
         <item>
             <clientVpnEndpointId>
@@ -741,6 +821,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <CloudwatchLogStream>
                     __CloudwatchLogStream__
                 </CloudwatchLogStream>
+                <IncludeAuthorizationPolicyContext>
+                    false
+                </IncludeAuthorizationPolicyContext>
             </connectionLogOptions>
             <tagSet>
                 <item>
@@ -856,6 +939,43 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </item>
                 </availabilityZoneIdSet>
             </transitGatewayConfiguration>
+            <devicePostureOptions>
+                <trustProviderSet>
+                    <item>
+                        <trustProviderType>
+                            __TrustProviderType__
+                        </trustProviderType>
+                        <tenantId>
+                            __TenantId__
+                        </tenantId>
+                        <publicSigningKeyUrl>
+                            __PublicSigningKeyUrl__
+                        </publicSigningKeyUrl>
+                    </item>
+                    <item>
+                        <trustProviderType>
+                            __TrustProviderType__
+                        </trustProviderType>
+                        <tenantId>
+                            __TenantId__
+                        </tenantId>
+                        <publicSigningKeyUrl>
+                            __PublicSigningKeyUrl__
+                        </publicSigningKeyUrl>
+                    </item>
+                    <item>
+                        <trustProviderType>
+                            __TrustProviderType__
+                        </trustProviderType>
+                        <tenantId>
+                            __TenantId__
+                        </tenantId>
+                        <publicSigningKeyUrl>
+                            __PublicSigningKeyUrl__
+                        </publicSigningKeyUrl>
+                    </item>
+                </trustProviderSet>
+            </devicePostureOptions>
         </item>
     </clientVpnEndpoint>
     <nextToken>
@@ -946,7 +1066,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ConnectionLogOptions: {
         Enabled: (boolean) false,
         CloudwatchLogGroup: "__CloudwatchLogGroup__",
-        CloudwatchLogStream: "__CloudwatchLogStream__"
+        CloudwatchLogStream: "__CloudwatchLogStream__",
+        IncludeAuthorizationPolicyContext: (boolean) false
       },
       Tags: [
         {
@@ -1000,6 +1121,25 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__",
           "__member__"
+        ]
+      },
+      DevicePostureOptions: {
+        TrustProviders: [
+          {
+            TrustProviderType: "__TrustProviderType__",
+            TenantId: "__TenantId__",
+            PublicSigningKeyUrl: "__PublicSigningKeyUrl__"
+          },
+          {
+            TrustProviderType: "__TrustProviderType__",
+            TenantId: "__TenantId__",
+            PublicSigningKeyUrl: "__PublicSigningKeyUrl__"
+          },
+          {
+            TrustProviderType: "__TrustProviderType__",
+            TenantId: "__TenantId__",
+            PublicSigningKeyUrl: "__PublicSigningKeyUrl__"
+          }
         ]
       }
     },
@@ -1082,7 +1222,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ConnectionLogOptions: {
         Enabled: (boolean) false,
         CloudwatchLogGroup: "__CloudwatchLogGroup__",
-        CloudwatchLogStream: "__CloudwatchLogStream__"
+        CloudwatchLogStream: "__CloudwatchLogStream__",
+        IncludeAuthorizationPolicyContext: (boolean) false
       },
       Tags: [
         {
@@ -1136,6 +1277,25 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__",
           "__member__"
+        ]
+      },
+      DevicePostureOptions: {
+        TrustProviders: [
+          {
+            TrustProviderType: "__TrustProviderType__",
+            TenantId: "__TenantId__",
+            PublicSigningKeyUrl: "__PublicSigningKeyUrl__"
+          },
+          {
+            TrustProviderType: "__TrustProviderType__",
+            TenantId: "__TenantId__",
+            PublicSigningKeyUrl: "__PublicSigningKeyUrl__"
+          },
+          {
+            TrustProviderType: "__TrustProviderType__",
+            TenantId: "__TenantId__",
+            PublicSigningKeyUrl: "__PublicSigningKeyUrl__"
+          }
         ]
       }
     },
@@ -1218,7 +1378,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ConnectionLogOptions: {
         Enabled: (boolean) false,
         CloudwatchLogGroup: "__CloudwatchLogGroup__",
-        CloudwatchLogStream: "__CloudwatchLogStream__"
+        CloudwatchLogStream: "__CloudwatchLogStream__",
+        IncludeAuthorizationPolicyContext: (boolean) false
       },
       Tags: [
         {
@@ -1272,6 +1433,25 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__",
           "__member__",
           "__member__"
+        ]
+      },
+      DevicePostureOptions: {
+        TrustProviders: [
+          {
+            TrustProviderType: "__TrustProviderType__",
+            TenantId: "__TenantId__",
+            PublicSigningKeyUrl: "__PublicSigningKeyUrl__"
+          },
+          {
+            TrustProviderType: "__TrustProviderType__",
+            TenantId: "__TenantId__",
+            PublicSigningKeyUrl: "__PublicSigningKeyUrl__"
+          },
+          {
+            TrustProviderType: "__TrustProviderType__",
+            TenantId: "__TenantId__",
+            PublicSigningKeyUrl: "__PublicSigningKeyUrl__"
+          }
         ]
       }
     }

@@ -35,6 +35,7 @@ export interface StopColumnStatisticsTaskRunCommandOutput extends StopColumnStat
  * const input = { // StopColumnStatisticsTaskRunRequest
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
+ *   CatalogID: "STRING_VALUE",
  * };
  * const command = new StopColumnStatisticsTaskRunCommand(input);
  * const response = await client.send(command);

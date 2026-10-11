@@ -1,0 +1,158 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ResourceMetricsConfiguration": {
+    "ResourceArn": "__ResourceArn__",
+    "CreatedAt": 946702799.999,
+    "UpdatedAt": 946702799.999,
+    "MetricSelections": [
+      {
+        "IncludeMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "IncludeMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "IncludeMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    ]
+  }
+}
+
+
+--- [output object] ---
+{
+  ResourceMetricsConfiguration: {
+    ResourceArn: "__ResourceArn__",
+    CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    UpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    MetricSelections: [
+      {
+        IncludeMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        IncludeMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        IncludeMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ResourceMetricsConfiguration": {
+    "ResourceArn": "__ResourceArn__",
+    "CreatedAt": 946702799.999,
+    "UpdatedAt": 946702799.999,
+    "MetricSelections": [
+      {
+        "IncludeMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "IncludeMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "IncludeMetrics": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    ]
+  }
+}
+
+
+--- [output object] ---
+{
+  ResourceMetricsConfiguration: {
+    ResourceArn: "__ResourceArn__",
+    CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    UpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    MetricSelections: [
+      {
+        IncludeMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        IncludeMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        IncludeMetrics: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

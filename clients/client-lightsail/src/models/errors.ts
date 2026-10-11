@@ -9,6 +9,7 @@ import { LightsailServiceException as __BaseException } from "./LightsailService
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lightsail#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -36,6 +37,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class AccountSetupInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lightsail#AccountSetupInProgressException";
   readonly name = "AccountSetupInProgressException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -69,6 +71,7 @@ export class AccountSetupInProgressException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lightsail#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -95,6 +98,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lightsail#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -121,6 +125,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class OperationFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lightsail#OperationFailureException";
   readonly name = "OperationFailureException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -148,6 +153,7 @@ export class OperationFailureException extends __BaseException {
  * @public
  */
 export class RegionSetupInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lightsail#RegionSetupInProgressException";
   readonly name = "RegionSetupInProgressException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;
@@ -187,6 +193,7 @@ export class RegionSetupInProgressException extends __BaseException {
  * @public
  */
 export class ServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lightsail#ServiceException";
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   code?: string | undefined;
@@ -213,6 +220,7 @@ export class ServiceException extends __BaseException {
  * @public
  */
 export class UnauthenticatedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lightsail#UnauthenticatedException";
   readonly name = "UnauthenticatedException" as const;
   readonly $fault = "client" as const;
   code?: string | undefined;

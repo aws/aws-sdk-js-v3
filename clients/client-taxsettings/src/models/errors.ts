@@ -10,6 +10,7 @@ import { TaxSettingsServiceException as __BaseException } from "./TaxSettingsSer
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.taxsettings#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class AttachmentUploadException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.taxsettings#AttachmentUploadException";
   readonly name = "AttachmentUploadException" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class AttachmentUploadException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.taxsettings#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -77,6 +80,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.taxsettings#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -104,6 +108,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.taxsettings#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -138,6 +143,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.taxsettings#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -165,6 +171,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class CaseCreationLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.taxsettings#CaseCreationLimitExceededException";
   readonly name = "CaseCreationLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**

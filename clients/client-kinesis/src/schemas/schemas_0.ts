@@ -202,6 +202,7 @@ const _PTEE = "ProvisionedThroughputExceededException";
 const _R = "Records";
 const _RARN = "ResourceARN";
 const _RC = "RecordConfiguration";
+const _RDS = "RecordDistributionStrategy";
 const _RFT = "RecordFormatType";
 const _RIUE = "ResourceInUseException";
 const _RL = "RecordList";
@@ -303,6 +304,8 @@ const _USCI = "UpdateShardCountInput";
 const _USCO = "UpdateShardCountOutput";
 const _USM = "UpdateStreamMode";
 const _USMI = "UpdateStreamModeInput";
+const _USRDS = "UpdateStreamRecordDistributionStrategy";
+const _USRDSI = "UpdateStreamRecordDistributionStrategyInput";
 const _USWT = "UpdateStreamWarmThroughput";
 const _USWTI = "UpdateStreamWarmThroughputInput";
 const _USWTO = "UpdateStreamWarmThroughputOutput";
@@ -549,8 +552,8 @@ export var CreateChannelOutput$: StaticStructureSchema = [3, n0, _CCO,
 ];
 export var CreateStreamInput$: StaticStructureSchema = [3, n0, _CSIr,
   0,
-  [_SN, _SC, _SMD, _T, _WTMB, _MRSIKB],
-  [0, 1, () => StreamModeDetails$, 128 | 0, 1, 1], 1
+  [_SN, _SC, _SMD, _T, _WTMB, _MRSIKB, _RDS],
+  [0, 1, () => StreamModeDetails$, 128 | 0, 1, 1, 0], 1
 ];
 export var DeadLetterQueueS3Configuration$: StaticStructureSchema = [3, n0, _DLQSC,
   0,
@@ -789,8 +792,8 @@ export var PartitionSpec$: StaticStructureSchema = [3, n0, _PSa,
 ];
 export var PutRecordInput$: StaticStructureSchema = [3, n0, _PRI,
   0,
-  [_D, _PK, _SN, _EHKx, _SNFO, _SARN, _SI, _DR],
-  [21, 0, 0, 0, 0, 0, 0, 2], 2
+  [_D, _SN, _PK, _EHKx, _SNFO, _SARN, _SI, _DR],
+  [21, 0, 0, 0, 0, 0, 0, 2], 1
 ];
 export var PutRecordOutput$: StaticStructureSchema = [3, n0, _PRO,
   0,
@@ -809,8 +812,8 @@ export var PutRecordsOutput$: StaticStructureSchema = [3, n0, _PROu,
 ];
 export var PutRecordsRequestEntry$: StaticStructureSchema = [3, n0, _PRRE,
   0,
-  [_D, _PK, _EHKx],
-  [21, 0, 0], 2
+  [_D, _EHKx, _PK],
+  [21, 0, 0], 1
 ];
 export var PutRecordsResultEntry$: StaticStructureSchema = [3, n0, _PRREu,
   0,
@@ -824,8 +827,8 @@ export var PutResourcePolicyInput$: StaticStructureSchema = [3, n0, _PRPI,
 ];
 export var _Record$: StaticStructureSchema = [3, n0, _Re,
   0,
-  [_SNe, _D, _PK, _AAT, _ET],
-  [0, 21, 0, 4, 0], 3
+  [_SNe, _D, _AAT, _PK, _ET],
+  [0, 21, 4, 0, 0], 2
 ];
 export var RecordConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
@@ -929,8 +932,8 @@ export var StreamDescription$: StaticStructureSchema = [3, n0, _SD,
 ];
 export var StreamDescriptionSummary$: StaticStructureSchema = [3, n0, _SDS,
   0,
-  [_SN, _SARN, _SSt, _RPH, _SCT, _EMn, _OSC, _SI, _SMD, _ET, _KI, _CCo, _WT, _MRSIKB, _CC],
-  [0, 0, 0, 1, 4, () => EnhancedMonitoringList, 1, 0, () => StreamModeDetails$, 0, 0, 1, () => WarmThroughputObject$, 1, 1], 7
+  [_SN, _SARN, _SSt, _RPH, _SCT, _EMn, _OSC, _SI, _SMD, _ET, _KI, _CCo, _WT, _MRSIKB, _CC, _RDS],
+  [0, 0, 0, 1, 4, () => EnhancedMonitoringList, 1, 0, () => StreamModeDetails$, 0, 0, 1, () => WarmThroughputObject$, 1, 1, 0], 7
 ];
 export var StreamFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
@@ -1016,6 +1019,11 @@ export var UpdateStreamModeInput$: StaticStructureSchema = [3, n0, _USMI,
   0,
   [_SARN, _SMD, _SI, _WTMB],
   [0, () => StreamModeDetails$, 0, 1], 2
+];
+export var UpdateStreamRecordDistributionStrategyInput$: StaticStructureSchema = [3, n0, _USRDSI,
+  0,
+  [_SARN, _RDS, _SI],
+  [0, 0, 0], 2
 ];
 export var UpdateStreamWarmThroughputInput$: StaticStructureSchema = [3, n0, _USWTI,
   0,
@@ -1219,6 +1227,9 @@ export var UpdateShardCount$: StaticOperationSchema = [9, n0, _USC,
 ];
 export var UpdateStreamMode$: StaticOperationSchema = [9, n0, _USM,
   0, () => UpdateStreamModeInput$, () => __Unit
+];
+export var UpdateStreamRecordDistributionStrategy$: StaticOperationSchema = [9, n0, _USRDS,
+  0, () => UpdateStreamRecordDistributionStrategyInput$, () => __Unit
 ];
 export var UpdateStreamWarmThroughput$: StaticOperationSchema = [9, n0, _USWT,
   0, () => UpdateStreamWarmThroughputInput$, () => UpdateStreamWarmThroughputOutput$

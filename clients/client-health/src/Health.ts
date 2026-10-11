@@ -68,6 +68,11 @@ import {
   DescribeHealthServiceStatusForOrganizationCommand,
 } from "./commands/DescribeHealthServiceStatusForOrganizationCommand";
 import {
+  type DescribeServiceLifecycleCommandInput,
+  type DescribeServiceLifecycleCommandOutput,
+  DescribeServiceLifecycleCommand,
+} from "./commands/DescribeServiceLifecycleCommand";
+import {
   type DisableHealthServiceAccessForOrganizationCommandInput,
   type DisableHealthServiceAccessForOrganizationCommandOutput,
   DisableHealthServiceAccessForOrganizationCommand,
@@ -89,6 +94,7 @@ import { paginateDescribeEventAggregates } from "./pagination/DescribeEventAggre
 import { paginateDescribeEventsForOrganization } from "./pagination/DescribeEventsForOrganizationPaginator";
 import { paginateDescribeEvents } from "./pagination/DescribeEventsPaginator";
 import { paginateDescribeEventTypes } from "./pagination/DescribeEventTypesPaginator";
+import { paginateDescribeServiceLifecycle } from "./pagination/DescribeServiceLifecyclePaginator";
 
 const commands = {
   DescribeAffectedAccountsForOrganizationCommand,
@@ -103,6 +109,7 @@ const commands = {
   DescribeEventsForOrganizationCommand,
   DescribeEventTypesCommand,
   DescribeHealthServiceStatusForOrganizationCommand,
+  DescribeServiceLifecycleCommand,
   DisableHealthServiceAccessForOrganizationCommand,
   EnableHealthServiceAccessForOrganizationCommand,
 };
@@ -114,6 +121,7 @@ const paginators = {
   paginateDescribeEvents,
   paginateDescribeEventsForOrganization,
   paginateDescribeEventTypes,
+  paginateDescribeServiceLifecycle,
 };
 
 /**
@@ -335,6 +343,24 @@ export interface Health {
   ): void;
 
   /**
+   * @see {@link DescribeServiceLifecycleCommand}
+   */
+  describeServiceLifecycle(): Promise<DescribeServiceLifecycleCommandOutput>;
+  describeServiceLifecycle(
+    args: DescribeServiceLifecycleCommandInput,
+    options?: HealthRequestOptions
+  ): Promise<DescribeServiceLifecycleCommandOutput>;
+  describeServiceLifecycle(
+    args: DescribeServiceLifecycleCommandInput,
+    cb: (err: any, data?: DescribeServiceLifecycleCommandOutput) => void
+  ): void;
+  describeServiceLifecycle(
+    args: DescribeServiceLifecycleCommandInput,
+    options: HealthRequestOptions,
+    cb: (err: any, data?: DescribeServiceLifecycleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableHealthServiceAccessForOrganizationCommand}
    */
   disableHealthServiceAccessForOrganization(): Promise<DisableHealthServiceAccessForOrganizationCommandOutput>;
@@ -446,6 +472,17 @@ export interface Health {
     args?: DescribeEventTypesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeEventTypesCommandOutput>;
+
+  /**
+   * @see {@link DescribeServiceLifecycleCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeServiceLifecycleCommandOutput}.
+   */
+  paginateDescribeServiceLifecycle(
+    args?: DescribeServiceLifecycleCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeServiceLifecycleCommandOutput>;
 }
 
 /**

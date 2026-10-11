@@ -38,6 +38,7 @@ export interface StopColumnStatisticsTaskRunScheduleCommandOutput extends StopCo
  * const input = { // StopColumnStatisticsTaskRunScheduleRequest
  *   DatabaseName: "STRING_VALUE", // required
  *   TableName: "STRING_VALUE", // required
+ *   CatalogID: "STRING_VALUE",
  * };
  * const command = new StopColumnStatisticsTaskRunScheduleCommand(input);
  * const response = await client.send(command);

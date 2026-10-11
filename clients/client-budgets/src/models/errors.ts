@@ -8,6 +8,7 @@ import { BudgetsServiceException as __BaseException } from "./BudgetsServiceExce
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -36,6 +37,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class BillingViewHealthStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#BillingViewHealthStatusException";
   readonly name = "BillingViewHealthStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -62,6 +64,7 @@ export class BillingViewHealthStatusException extends __BaseException {
  * @public
  */
 export class CreationLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#CreationLimitExceededException";
   readonly name = "CreationLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +91,7 @@ export class CreationLimitExceededException extends __BaseException {
  * @public
  */
 export class DuplicateRecordException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#DuplicateRecordException";
   readonly name = "DuplicateRecordException" as const;
   readonly $fault = "client" as const;
   /**
@@ -114,6 +118,7 @@ export class DuplicateRecordException extends __BaseException {
  * @public
  */
 export class InternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#InternalErrorException";
   readonly name = "InternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -140,6 +145,7 @@ export class InternalErrorException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -166,6 +172,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -192,6 +199,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -219,6 +227,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -246,6 +255,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ResourceLockedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#ResourceLockedException";
   readonly name = "ResourceLockedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -272,6 +282,7 @@ export class ResourceLockedException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -298,6 +309,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class ExpiredNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.budgets#ExpiredNextTokenException";
   readonly name = "ExpiredNextTokenException" as const;
   readonly $fault = "client" as const;
   /**

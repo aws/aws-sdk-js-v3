@@ -11,5 +11,6 @@ export * from "./DescribeEventTypesCommand";
 export * from "./DescribeEventsCommand";
 export * from "./DescribeEventsForOrganizationCommand";
 export * from "./DescribeHealthServiceStatusForOrganizationCommand";
+export * from "./DescribeServiceLifecycleCommand";
 export * from "./DisableHealthServiceAccessForOrganizationCommand";
 export * from "./EnableHealthServiceAccessForOrganizationCommand";

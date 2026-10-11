@@ -6759,7 +6759,7 @@ export interface CreateExpressGatewayServiceRequest {
   memory?: string | undefined;
 
   /**
-   * <p>The CPU architecture that the tasks in the Express service run on. Amazon ECS applies this value to the task definition revision that it registers for the service. If you don't specify a value, the default is <code>X86_64</code>.</p> <p>Valid values:</p> <ul> <li> <p> <code>X86_64</code> - The x86 64-bit architecture.</p> </li> <li> <p> <code>ARM64</code> - The 64-bit ARM architecture.</p> </li> </ul> <p>Make sure that the container image that you specify supports the architecture that you choose. The operating system family for an Express service is always <code>LINUX</code>.</p> <p>You can't specify <code>cpuArchitecture</code> when you also specify <code>taskDefinitionArn</code>, because this value applies only to a task definition that Amazon ECS registers on your behalf.</p>
+   * <p>The CPU architecture that the task runs on. If you don't specify a value, the default is <code>X86_64</code>.</p> <p>Valid values:</p> <ul> <li> <p> <code>X86_64</code> - The x86 64-bit architecture.</p> </li> <li> <p> <code>ARM64</code> - The 64-bit ARM architecture.</p> </li> </ul> <p>Ensure that the container image you specify supports the architecture you choose. The operating system family for an Express service is always <code>LINUX</code>.</p> <p>You can't specify <code>cpuArchitecture</code> together with <code>taskDefinitionArn</code>.</p>
    * @public
    */
   cpuArchitecture?: ExpressCpuArchitecture | undefined;
@@ -6843,7 +6843,7 @@ export interface ExpressGatewayServiceConfiguration {
   memory?: string | undefined;
 
   /**
-   * <p>The CPU architecture that the tasks in this service revision run on. This is the architecture from the task definition that the service revision uses, so it reflects the default or the previously configured architecture when the request that created the revision didn't specify one.</p> <p>Valid values:</p> <ul> <li> <p> <code>X86_64</code> - The x86 64-bit architecture.</p> </li> <li> <p> <code>ARM64</code> - The 64-bit ARM architecture.</p> </li> </ul> <p>This value isn't returned when the task definition for the service revision doesn't specify a runtime platform. Because the architecture comes from each service revision's own task definition, revisions of the same service can report different architectures.</p>
+   * <p>The CPU architecture that the task runs on.</p> <p>Valid values:</p> <ul> <li> <p> <code>X86_64</code> - The x86 64-bit architecture.</p> </li> <li> <p> <code>ARM64</code> - The 64-bit ARM architecture.</p> </li> </ul> <p>Different service revisions can report different architectures. This value isn't returned when the service uses a customer-provided task definition that doesn't specify a CPU architecture.</p>
    * @public
    */
   cpuArchitecture?: ExpressCpuArchitecture | undefined;
@@ -7491,6 +7491,30 @@ export interface ServiceVolumeConfiguration {
 }
 
 /**
+ * <p>The advanced settings for VPC Lattice used in blue/green deployments. Specify the alternate target group and listener rules required for traffic shifting during blue/green deployments. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html">Required resources for Amazon ECS blue/green deployments</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @public
+ */
+export interface VpcLatticeAdvancedConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the alternate target group associated with the VPC Lattice Configuration for Amazon ECS blue/green deployments.</p>
+   * @public
+   */
+  alternateTargetGroupArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the production listener rule or listener for routing production traffic.</p>
+   * @public
+   */
+  productionListenerRule?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the test listener rule or listener for routing test traffic.</p>
+   * @public
+   */
+  testListenerRule?: string | undefined;
+}
+
+/**
  * <p>The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.</p>
  * @public
  */
@@ -7512,6 +7536,12 @@ export interface VpcLatticeConfiguration {
    * @public
    */
   portName: string | undefined;
+
+  /**
+   * <p>The advanced settings for VPC Lattice used in blue/green deployments. Specify the alternate target group and listener rules required for traffic shifting during blue/green deployments. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html">Required resources for Amazon ECS blue/green deployments</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * @public
+   */
+  advancedConfiguration?: VpcLatticeAdvancedConfiguration | undefined;
 }
 
 /**
@@ -8687,7 +8717,7 @@ export interface UpdateExpressGatewayServiceRequest {
   memory?: string | undefined;
 
   /**
-   * <p>The CPU architecture that the tasks in the Express service run on. Amazon ECS applies this value to the task definition revision that it registers for the service. If you don't specify a value, the service keeps the architecture that it currently runs on.</p> <p>Valid values:</p> <ul> <li> <p> <code>X86_64</code> - The x86 64-bit architecture.</p> </li> <li> <p> <code>ARM64</code> - The 64-bit ARM architecture.</p> </li> </ul> <p>Changing the architecture starts a new deployment that replaces the running tasks. Make sure that the container image that the service uses supports the architecture that you choose. The operating system family for an Express service is always <code>LINUX</code>.</p> <p>You can't specify <code>cpuArchitecture</code> when you also specify <code>taskDefinitionArn</code>, because this value applies only to a task definition that Amazon ECS registers on your behalf.</p>
+   * <p>The CPU architecture that the task runs on. If you don't specify a value, the service keeps its current architecture.</p> <p>Valid values:</p> <ul> <li> <p> <code>X86_64</code> - The x86 64-bit architecture.</p> </li> <li> <p> <code>ARM64</code> - The 64-bit ARM architecture.</p> </li> </ul> <p>Changing the architecture starts a new deployment that replaces the running tasks. Ensure that the container image you specify supports the architecture you choose. The operating system family for an Express service is always <code>LINUX</code>.</p> <p>You can't specify <code>cpuArchitecture</code> together with <code>taskDefinitionArn</code>.</p>
    * @public
    */
   cpuArchitecture?: ExpressCpuArchitecture | undefined;
@@ -9407,34 +9437,4 @@ export interface ManagedLogGroup {
    * @public
    */
   logGroupName: string | undefined;
-}
-
-/**
- * <p>The CloudWatch metric alarm associated with the Express service's scaling policy.</p>
- * @public
- */
-export interface ManagedMetricAlarm {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the CloudWatch metric alarm.</p>
-   * @public
-   */
-  arn?: string | undefined;
-
-  /**
-   * <p>The status of the CloudWatch metric alarm.</p>
-   * @public
-   */
-  status: ManagedResourceStatus | undefined;
-
-  /**
-   * <p>Information about why the CloudWatch metric alarm is in the current status.</p>
-   * @public
-   */
-  statusReason?: string | undefined;
-
-  /**
-   * <p>The Unix timestamp for when the CloudWatch metric alarm was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
 }

@@ -8,6 +8,7 @@ import { CloudFrontServiceException as __BaseException } from "./CloudFrontServi
  * @public
  */
 export class AccessDenied extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#AccessDenied";
   readonly name = "AccessDenied" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -30,6 +31,7 @@ export class AccessDenied extends __BaseException {
  * @public
  */
 export class IllegalUpdate extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#IllegalUpdate";
   readonly name = "IllegalUpdate" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -52,6 +54,7 @@ export class IllegalUpdate extends __BaseException {
  * @public
  */
 export class InvalidArgument extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidArgument";
   readonly name = "InvalidArgument" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -74,6 +77,7 @@ export class InvalidArgument extends __BaseException {
  * @public
  */
 export class NoSuchDistribution extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchDistribution";
   readonly name = "NoSuchDistribution" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -96,6 +100,7 @@ export class NoSuchDistribution extends __BaseException {
  * @public
  */
 export class TooManyDistributionCNAMEs extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyDistributionCNAMEs";
   readonly name = "TooManyDistributionCNAMEs" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -118,6 +123,7 @@ export class TooManyDistributionCNAMEs extends __BaseException {
  * @public
  */
 export class EntityLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#EntityLimitExceeded";
   readonly name = "EntityLimitExceeded" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -140,6 +146,7 @@ export class EntityLimitExceeded extends __BaseException {
  * @public
  */
 export class EntityNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#EntityNotFound";
   readonly name = "EntityNotFound" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -162,6 +169,7 @@ export class EntityNotFound extends __BaseException {
  * @public
  */
 export class InvalidIfMatchVersion extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidIfMatchVersion";
   readonly name = "InvalidIfMatchVersion" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -184,6 +192,7 @@ export class InvalidIfMatchVersion extends __BaseException {
  * @public
  */
 export class PreconditionFailed extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#PreconditionFailed";
   readonly name = "PreconditionFailed" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -206,6 +215,7 @@ export class PreconditionFailed extends __BaseException {
  * @public
  */
 export class BatchTooLarge extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#BatchTooLarge";
   readonly name = "BatchTooLarge" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -228,6 +238,7 @@ export class BatchTooLarge extends __BaseException {
  * @public
  */
 export class CachePolicyAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#CachePolicyAlreadyExists";
   readonly name = "CachePolicyAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -250,6 +261,7 @@ export class CachePolicyAlreadyExists extends __BaseException {
  * @public
  */
 export class CachePolicyInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#CachePolicyInUse";
   readonly name = "CachePolicyInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -272,6 +284,7 @@ export class CachePolicyInUse extends __BaseException {
  * @public
  */
 export class CannotChangeImmutablePublicKeyFields extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#CannotChangeImmutablePublicKeyFields";
   readonly name = "CannotChangeImmutablePublicKeyFields" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -294,6 +307,7 @@ export class CannotChangeImmutablePublicKeyFields extends __BaseException {
  * @public
  */
 export class CannotDeleteEntityWhileInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#CannotDeleteEntityWhileInUse";
   readonly name = "CannotDeleteEntityWhileInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -316,6 +330,7 @@ export class CannotDeleteEntityWhileInUse extends __BaseException {
  * @public
  */
 export class CannotUpdateEntityWhileInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#CannotUpdateEntityWhileInUse";
   readonly name = "CannotUpdateEntityWhileInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -338,6 +353,7 @@ export class CannotUpdateEntityWhileInUse extends __BaseException {
  * @public
  */
 export class CNAMEAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#CNAMEAlreadyExists";
   readonly name = "CNAMEAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -360,6 +376,7 @@ export class CNAMEAlreadyExists extends __BaseException {
  * @public
  */
 export class DistributionAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#DistributionAlreadyExists";
   readonly name = "DistributionAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -382,6 +399,7 @@ export class DistributionAlreadyExists extends __BaseException {
  * @public
  */
 export class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
   readonly name = "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -404,6 +422,7 @@ export class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior exten
  * @public
  */
 export class InconsistentQuantities extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InconsistentQuantities";
   readonly name = "InconsistentQuantities" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -426,6 +445,7 @@ export class InconsistentQuantities extends __BaseException {
  * @public
  */
 export class InvalidDefaultRootObject extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidDefaultRootObject";
   readonly name = "InvalidDefaultRootObject" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -448,6 +468,7 @@ export class InvalidDefaultRootObject extends __BaseException {
  * @public
  */
 export class InvalidErrorCode extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidErrorCode";
   readonly name = "InvalidErrorCode" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -470,6 +491,7 @@ export class InvalidErrorCode extends __BaseException {
  * @public
  */
 export class InvalidForwardCookies extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidForwardCookies";
   readonly name = "InvalidForwardCookies" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -492,6 +514,7 @@ export class InvalidForwardCookies extends __BaseException {
  * @public
  */
 export class InvalidFunctionAssociation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidFunctionAssociation";
   readonly name = "InvalidFunctionAssociation" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -514,6 +537,7 @@ export class InvalidFunctionAssociation extends __BaseException {
  * @public
  */
 export class InvalidGeoRestrictionParameter extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidGeoRestrictionParameter";
   readonly name = "InvalidGeoRestrictionParameter" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -536,6 +560,7 @@ export class InvalidGeoRestrictionParameter extends __BaseException {
  * @public
  */
 export class InvalidHeadersForS3Origin extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidHeadersForS3Origin";
   readonly name = "InvalidHeadersForS3Origin" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -558,6 +583,7 @@ export class InvalidHeadersForS3Origin extends __BaseException {
  * @public
  */
 export class InvalidLambdaFunctionAssociation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidLambdaFunctionAssociation";
   readonly name = "InvalidLambdaFunctionAssociation" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -580,6 +606,7 @@ export class InvalidLambdaFunctionAssociation extends __BaseException {
  * @public
  */
 export class InvalidLocationCode extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidLocationCode";
   readonly name = "InvalidLocationCode" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -602,6 +629,7 @@ export class InvalidLocationCode extends __BaseException {
  * @public
  */
 export class InvalidMinimumProtocolVersion extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidMinimumProtocolVersion";
   readonly name = "InvalidMinimumProtocolVersion" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -624,6 +652,7 @@ export class InvalidMinimumProtocolVersion extends __BaseException {
  * @public
  */
 export class InvalidOrigin extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidOrigin";
   readonly name = "InvalidOrigin" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -646,6 +675,7 @@ export class InvalidOrigin extends __BaseException {
  * @public
  */
 export class InvalidOriginAccessControl extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidOriginAccessControl";
   readonly name = "InvalidOriginAccessControl" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -668,6 +698,7 @@ export class InvalidOriginAccessControl extends __BaseException {
  * @public
  */
 export class InvalidOriginAccessIdentity extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidOriginAccessIdentity";
   readonly name = "InvalidOriginAccessIdentity" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -690,6 +721,7 @@ export class InvalidOriginAccessIdentity extends __BaseException {
  * @public
  */
 export class InvalidOriginKeepaliveTimeout extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidOriginKeepaliveTimeout";
   readonly name = "InvalidOriginKeepaliveTimeout" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -712,6 +744,7 @@ export class InvalidOriginKeepaliveTimeout extends __BaseException {
  * @public
  */
 export class InvalidOriginReadTimeout extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidOriginReadTimeout";
   readonly name = "InvalidOriginReadTimeout" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -734,6 +767,7 @@ export class InvalidOriginReadTimeout extends __BaseException {
  * @public
  */
 export class InvalidProtocolSettings extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidProtocolSettings";
   readonly name = "InvalidProtocolSettings" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -756,6 +790,7 @@ export class InvalidProtocolSettings extends __BaseException {
  * @public
  */
 export class InvalidQueryStringParameters extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidQueryStringParameters";
   readonly name = "InvalidQueryStringParameters" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -778,6 +813,7 @@ export class InvalidQueryStringParameters extends __BaseException {
  * @public
  */
 export class InvalidRelativePath extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidRelativePath";
   readonly name = "InvalidRelativePath" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -800,6 +836,7 @@ export class InvalidRelativePath extends __BaseException {
  * @public
  */
 export class InvalidRequiredProtocol extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidRequiredProtocol";
   readonly name = "InvalidRequiredProtocol" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -822,6 +859,7 @@ export class InvalidRequiredProtocol extends __BaseException {
  * @public
  */
 export class InvalidResponseCode extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidResponseCode";
   readonly name = "InvalidResponseCode" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -844,6 +882,7 @@ export class InvalidResponseCode extends __BaseException {
  * @public
  */
 export class InvalidTTLOrder extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidTTLOrder";
   readonly name = "InvalidTTLOrder" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -866,6 +905,7 @@ export class InvalidTTLOrder extends __BaseException {
  * @public
  */
 export class InvalidViewerCertificate extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidViewerCertificate";
   readonly name = "InvalidViewerCertificate" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -888,6 +928,7 @@ export class InvalidViewerCertificate extends __BaseException {
  * @public
  */
 export class InvalidWebACLId extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidWebACLId";
   readonly name = "InvalidWebACLId" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -910,6 +951,7 @@ export class InvalidWebACLId extends __BaseException {
  * @public
  */
 export class MissingBody extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#MissingBody";
   readonly name = "MissingBody" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -932,6 +974,7 @@ export class MissingBody extends __BaseException {
  * @public
  */
 export class NoSuchCachePolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchCachePolicy";
   readonly name = "NoSuchCachePolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -954,6 +997,7 @@ export class NoSuchCachePolicy extends __BaseException {
  * @public
  */
 export class NoSuchFieldLevelEncryptionConfig extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionConfig";
   readonly name = "NoSuchFieldLevelEncryptionConfig" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -976,6 +1020,7 @@ export class NoSuchFieldLevelEncryptionConfig extends __BaseException {
  * @public
  */
 export class NoSuchOrigin extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchOrigin";
   readonly name = "NoSuchOrigin" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -998,6 +1043,7 @@ export class NoSuchOrigin extends __BaseException {
  * @public
  */
 export class NoSuchOriginRequestPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchOriginRequestPolicy";
   readonly name = "NoSuchOriginRequestPolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1020,6 +1066,7 @@ export class NoSuchOriginRequestPolicy extends __BaseException {
  * @public
  */
 export class NoSuchRealtimeLogConfig extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchRealtimeLogConfig";
   readonly name = "NoSuchRealtimeLogConfig" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1042,6 +1089,7 @@ export class NoSuchRealtimeLogConfig extends __BaseException {
  * @public
  */
 export class NoSuchResponseHeadersPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy";
   readonly name = "NoSuchResponseHeadersPolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1064,6 +1112,7 @@ export class NoSuchResponseHeadersPolicy extends __BaseException {
  * @public
  */
 export class RealtimeLogConfigOwnerMismatch extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#RealtimeLogConfigOwnerMismatch";
   readonly name = "RealtimeLogConfigOwnerMismatch" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1086,6 +1135,7 @@ export class RealtimeLogConfigOwnerMismatch extends __BaseException {
  * @public
  */
 export class TooManyCacheBehaviors extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyCacheBehaviors";
   readonly name = "TooManyCacheBehaviors" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1108,6 +1158,7 @@ export class TooManyCacheBehaviors extends __BaseException {
  * @public
  */
 export class TooManyCertificates extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyCertificates";
   readonly name = "TooManyCertificates" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1130,6 +1181,7 @@ export class TooManyCertificates extends __BaseException {
  * @public
  */
 export class TooManyCookieNamesInWhiteList extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyCookieNamesInWhiteList";
   readonly name = "TooManyCookieNamesInWhiteList" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1152,6 +1204,7 @@ export class TooManyCookieNamesInWhiteList extends __BaseException {
  * @public
  */
 export class TooManyDistributions extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyDistributions";
   readonly name = "TooManyDistributions" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1174,6 +1227,7 @@ export class TooManyDistributions extends __BaseException {
  * @public
  */
 export class TooManyDistributionsAssociatedToCachePolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToCachePolicy";
   readonly name = "TooManyDistributionsAssociatedToCachePolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1196,6 +1250,7 @@ export class TooManyDistributionsAssociatedToCachePolicy extends __BaseException
  * @public
  */
 export class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
   readonly name = "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1218,6 +1273,7 @@ export class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig extends 
  * @public
  */
 export class TooManyDistributionsAssociatedToKeyGroup extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToKeyGroup";
   readonly name = "TooManyDistributionsAssociatedToKeyGroup" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1240,6 +1296,7 @@ export class TooManyDistributionsAssociatedToKeyGroup extends __BaseException {
  * @public
  */
 export class TooManyDistributionsAssociatedToOriginAccessControl extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginAccessControl";
   readonly name = "TooManyDistributionsAssociatedToOriginAccessControl" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1262,6 +1319,7 @@ export class TooManyDistributionsAssociatedToOriginAccessControl extends __BaseE
  * @public
  */
 export class TooManyDistributionsAssociatedToOriginRequestPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginRequestPolicy";
   readonly name = "TooManyDistributionsAssociatedToOriginRequestPolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1284,6 +1342,7 @@ export class TooManyDistributionsAssociatedToOriginRequestPolicy extends __BaseE
  * @public
  */
 export class TooManyDistributionsAssociatedToResponseHeadersPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToResponseHeadersPolicy";
   readonly name = "TooManyDistributionsAssociatedToResponseHeadersPolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1306,6 +1365,7 @@ export class TooManyDistributionsAssociatedToResponseHeadersPolicy extends __Bas
  * @public
  */
 export class TooManyDistributionsWithFunctionAssociations extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyDistributionsWithFunctionAssociations";
   readonly name = "TooManyDistributionsWithFunctionAssociations" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1328,6 +1388,7 @@ export class TooManyDistributionsWithFunctionAssociations extends __BaseExceptio
  * @public
  */
 export class TooManyDistributionsWithLambdaAssociations extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyDistributionsWithLambdaAssociations";
   readonly name = "TooManyDistributionsWithLambdaAssociations" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1350,6 +1411,7 @@ export class TooManyDistributionsWithLambdaAssociations extends __BaseException 
  * @public
  */
 export class TooManyDistributionsWithSingleFunctionARN extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyDistributionsWithSingleFunctionARN";
   readonly name = "TooManyDistributionsWithSingleFunctionARN" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1372,6 +1434,7 @@ export class TooManyDistributionsWithSingleFunctionARN extends __BaseException {
  * @public
  */
 export class TooManyFunctionAssociations extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyFunctionAssociations";
   readonly name = "TooManyFunctionAssociations" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1394,6 +1457,7 @@ export class TooManyFunctionAssociations extends __BaseException {
  * @public
  */
 export class TooManyHeadersInForwardedValues extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyHeadersInForwardedValues";
   readonly name = "TooManyHeadersInForwardedValues" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1416,6 +1480,7 @@ export class TooManyHeadersInForwardedValues extends __BaseException {
  * @public
  */
 export class TooManyKeyGroupsAssociatedToDistribution extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyKeyGroupsAssociatedToDistribution";
   readonly name = "TooManyKeyGroupsAssociatedToDistribution" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1438,6 +1503,7 @@ export class TooManyKeyGroupsAssociatedToDistribution extends __BaseException {
  * @public
  */
 export class TooManyLambdaFunctionAssociations extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyLambdaFunctionAssociations";
   readonly name = "TooManyLambdaFunctionAssociations" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1460,6 +1526,7 @@ export class TooManyLambdaFunctionAssociations extends __BaseException {
  * @public
  */
 export class TooManyOriginCustomHeaders extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyOriginCustomHeaders";
   readonly name = "TooManyOriginCustomHeaders" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1482,6 +1549,7 @@ export class TooManyOriginCustomHeaders extends __BaseException {
  * @public
  */
 export class TooManyOriginGroupsPerDistribution extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyOriginGroupsPerDistribution";
   readonly name = "TooManyOriginGroupsPerDistribution" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1504,6 +1572,7 @@ export class TooManyOriginGroupsPerDistribution extends __BaseException {
  * @public
  */
 export class TooManyOrigins extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyOrigins";
   readonly name = "TooManyOrigins" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1526,6 +1595,7 @@ export class TooManyOrigins extends __BaseException {
  * @public
  */
 export class TooManyQueryStringParameters extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyQueryStringParameters";
   readonly name = "TooManyQueryStringParameters" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1548,6 +1618,7 @@ export class TooManyQueryStringParameters extends __BaseException {
  * @public
  */
 export class TooManyTrustedSigners extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyTrustedSigners";
   readonly name = "TooManyTrustedSigners" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1570,6 +1641,7 @@ export class TooManyTrustedSigners extends __BaseException {
  * @public
  */
 export class TrustedKeyGroupDoesNotExist extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TrustedKeyGroupDoesNotExist";
   readonly name = "TrustedKeyGroupDoesNotExist" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1592,6 +1664,7 @@ export class TrustedKeyGroupDoesNotExist extends __BaseException {
  * @public
  */
 export class TrustedSignerDoesNotExist extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TrustedSignerDoesNotExist";
   readonly name = "TrustedSignerDoesNotExist" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1614,6 +1687,7 @@ export class TrustedSignerDoesNotExist extends __BaseException {
  * @public
  */
 export class EntityAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#EntityAlreadyExists";
   readonly name = "EntityAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1636,6 +1710,7 @@ export class EntityAlreadyExists extends __BaseException {
  * @public
  */
 export class InvalidTagging extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidTagging";
   readonly name = "InvalidTagging" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1658,6 +1733,7 @@ export class InvalidTagging extends __BaseException {
  * @public
  */
 export class UnsupportedOperation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#UnsupportedOperation";
   readonly name = "UnsupportedOperation" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1680,6 +1756,7 @@ export class UnsupportedOperation extends __BaseException {
  * @public
  */
 export class TooManyCachePolicies extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyCachePolicies";
   readonly name = "TooManyCachePolicies" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1702,6 +1779,7 @@ export class TooManyCachePolicies extends __BaseException {
  * @public
  */
 export class TooManyCookiesInCachePolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyCookiesInCachePolicy";
   readonly name = "TooManyCookiesInCachePolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1724,6 +1802,7 @@ export class TooManyCookiesInCachePolicy extends __BaseException {
  * @public
  */
 export class TooManyHeadersInCachePolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyHeadersInCachePolicy";
   readonly name = "TooManyHeadersInCachePolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1746,6 +1825,7 @@ export class TooManyHeadersInCachePolicy extends __BaseException {
  * @public
  */
 export class TooManyQueryStringsInCachePolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyQueryStringsInCachePolicy";
   readonly name = "TooManyQueryStringsInCachePolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1768,6 +1848,7 @@ export class TooManyQueryStringsInCachePolicy extends __BaseException {
  * @public
  */
 export class CloudFrontOriginAccessIdentityAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#CloudFrontOriginAccessIdentityAlreadyExists";
   readonly name = "CloudFrontOriginAccessIdentityAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1790,6 +1871,7 @@ export class CloudFrontOriginAccessIdentityAlreadyExists extends __BaseException
  * @public
  */
 export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyCloudFrontOriginAccessIdentities";
   readonly name = "TooManyCloudFrontOriginAccessIdentities" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1812,6 +1894,7 @@ export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
  * @public
  */
 export class EntitySizeLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#EntitySizeLimitExceeded";
   readonly name = "EntitySizeLimitExceeded" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1834,6 +1917,7 @@ export class EntitySizeLimitExceeded extends __BaseException {
  * @public
  */
 export class ContinuousDeploymentPolicyAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#ContinuousDeploymentPolicyAlreadyExists";
   readonly name = "ContinuousDeploymentPolicyAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1856,6 +1940,7 @@ export class ContinuousDeploymentPolicyAlreadyExists extends __BaseException {
  * @public
  */
 export class StagingDistributionInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#StagingDistributionInUse";
   readonly name = "StagingDistributionInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1878,6 +1963,7 @@ export class StagingDistributionInUse extends __BaseException {
  * @public
  */
 export class TooManyContinuousDeploymentPolicies extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyContinuousDeploymentPolicies";
   readonly name = "TooManyContinuousDeploymentPolicies" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1900,6 +1986,7 @@ export class TooManyContinuousDeploymentPolicies extends __BaseException {
  * @public
  */
 export class ContinuousDeploymentPolicyInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#ContinuousDeploymentPolicyInUse";
   readonly name = "ContinuousDeploymentPolicyInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1922,6 +2009,7 @@ export class ContinuousDeploymentPolicyInUse extends __BaseException {
  * @public
  */
 export class IllegalOriginAccessConfiguration extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#IllegalOriginAccessConfiguration";
   readonly name = "IllegalOriginAccessConfiguration" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1944,6 +2032,7 @@ export class IllegalOriginAccessConfiguration extends __BaseException {
  * @public
  */
 export class InvalidDomainNameForOriginAccessControl extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidDomainNameForOriginAccessControl";
   readonly name = "InvalidDomainNameForOriginAccessControl" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1966,6 +2055,7 @@ export class InvalidDomainNameForOriginAccessControl extends __BaseException {
  * @public
  */
 export class NoSuchContinuousDeploymentPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchContinuousDeploymentPolicy";
   readonly name = "NoSuchContinuousDeploymentPolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1988,6 +2078,7 @@ export class NoSuchContinuousDeploymentPolicy extends __BaseException {
  * @public
  */
 export class InvalidAssociation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#InvalidAssociation";
   readonly name = "InvalidAssociation" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2010,6 +2101,7 @@ export class InvalidAssociation extends __BaseException {
  * @public
  */
 export class FieldLevelEncryptionConfigAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#FieldLevelEncryptionConfigAlreadyExists";
   readonly name = "FieldLevelEncryptionConfigAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2032,6 +2124,7 @@ export class FieldLevelEncryptionConfigAlreadyExists extends __BaseException {
  * @public
  */
 export class NoSuchFieldLevelEncryptionProfile extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionProfile";
   readonly name = "NoSuchFieldLevelEncryptionProfile" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2054,6 +2147,7 @@ export class NoSuchFieldLevelEncryptionProfile extends __BaseException {
  * @public
  */
 export class QueryArgProfileEmpty extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#QueryArgProfileEmpty";
   readonly name = "QueryArgProfileEmpty" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2076,6 +2170,7 @@ export class QueryArgProfileEmpty extends __BaseException {
  * @public
  */
 export class TooManyFieldLevelEncryptionConfigs extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionConfigs";
   readonly name = "TooManyFieldLevelEncryptionConfigs" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2098,6 +2193,7 @@ export class TooManyFieldLevelEncryptionConfigs extends __BaseException {
  * @public
  */
 export class TooManyFieldLevelEncryptionContentTypeProfiles extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionContentTypeProfiles";
   readonly name = "TooManyFieldLevelEncryptionContentTypeProfiles" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2120,6 +2216,7 @@ export class TooManyFieldLevelEncryptionContentTypeProfiles extends __BaseExcept
  * @public
  */
 export class TooManyFieldLevelEncryptionQueryArgProfiles extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionQueryArgProfiles";
   readonly name = "TooManyFieldLevelEncryptionQueryArgProfiles" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2142,6 +2239,7 @@ export class TooManyFieldLevelEncryptionQueryArgProfiles extends __BaseException
  * @public
  */
 export class FieldLevelEncryptionProfileAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#FieldLevelEncryptionProfileAlreadyExists";
   readonly name = "FieldLevelEncryptionProfileAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2164,6 +2262,7 @@ export class FieldLevelEncryptionProfileAlreadyExists extends __BaseException {
  * @public
  */
 export class FieldLevelEncryptionProfileSizeExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#FieldLevelEncryptionProfileSizeExceeded";
   readonly name = "FieldLevelEncryptionProfileSizeExceeded" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2186,6 +2285,7 @@ export class FieldLevelEncryptionProfileSizeExceeded extends __BaseException {
  * @public
  */
 export class NoSuchPublicKey extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchPublicKey";
   readonly name = "NoSuchPublicKey" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2208,6 +2308,7 @@ export class NoSuchPublicKey extends __BaseException {
  * @public
  */
 export class TooManyFieldLevelEncryptionEncryptionEntities extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionEncryptionEntities";
   readonly name = "TooManyFieldLevelEncryptionEncryptionEntities" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2230,6 +2331,7 @@ export class TooManyFieldLevelEncryptionEncryptionEntities extends __BaseExcepti
  * @public
  */
 export class TooManyFieldLevelEncryptionFieldPatterns extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionFieldPatterns";
   readonly name = "TooManyFieldLevelEncryptionFieldPatterns" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2252,6 +2354,7 @@ export class TooManyFieldLevelEncryptionFieldPatterns extends __BaseException {
  * @public
  */
 export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyFieldLevelEncryptionProfiles";
   readonly name = "TooManyFieldLevelEncryptionProfiles" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2274,6 +2377,7 @@ export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
  * @public
  */
 export class FunctionAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#FunctionAlreadyExists";
   readonly name = "FunctionAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2296,6 +2400,7 @@ export class FunctionAlreadyExists extends __BaseException {
  * @public
  */
 export class FunctionSizeLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#FunctionSizeLimitExceeded";
   readonly name = "FunctionSizeLimitExceeded" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2318,6 +2423,7 @@ export class FunctionSizeLimitExceeded extends __BaseException {
  * @public
  */
 export class TooManyFunctions extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyFunctions";
   readonly name = "TooManyFunctions" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2340,6 +2446,7 @@ export class TooManyFunctions extends __BaseException {
  * @public
  */
 export class TooManyInvalidationsInProgress extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyInvalidationsInProgress";
   readonly name = "TooManyInvalidationsInProgress" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2362,6 +2469,7 @@ export class TooManyInvalidationsInProgress extends __BaseException {
  * @public
  */
 export class KeyGroupAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#KeyGroupAlreadyExists";
   readonly name = "KeyGroupAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2384,6 +2492,7 @@ export class KeyGroupAlreadyExists extends __BaseException {
  * @public
  */
 export class TooManyKeyGroups extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyKeyGroups";
   readonly name = "TooManyKeyGroups" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2406,6 +2515,7 @@ export class TooManyKeyGroups extends __BaseException {
  * @public
  */
 export class TooManyPublicKeysInKeyGroup extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyPublicKeysInKeyGroup";
   readonly name = "TooManyPublicKeysInKeyGroup" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2428,6 +2538,7 @@ export class TooManyPublicKeysInKeyGroup extends __BaseException {
  * @public
  */
 export class MonitoringSubscriptionAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#MonitoringSubscriptionAlreadyExists";
   readonly name = "MonitoringSubscriptionAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2450,6 +2561,7 @@ export class MonitoringSubscriptionAlreadyExists extends __BaseException {
  * @public
  */
 export class OriginAccessControlAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#OriginAccessControlAlreadyExists";
   readonly name = "OriginAccessControlAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2472,6 +2584,7 @@ export class OriginAccessControlAlreadyExists extends __BaseException {
  * @public
  */
 export class TooManyOriginAccessControls extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyOriginAccessControls";
   readonly name = "TooManyOriginAccessControls" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2494,6 +2607,7 @@ export class TooManyOriginAccessControls extends __BaseException {
  * @public
  */
 export class OriginRequestPolicyAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#OriginRequestPolicyAlreadyExists";
   readonly name = "OriginRequestPolicyAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2516,6 +2630,7 @@ export class OriginRequestPolicyAlreadyExists extends __BaseException {
  * @public
  */
 export class TooManyCookiesInOriginRequestPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyCookiesInOriginRequestPolicy";
   readonly name = "TooManyCookiesInOriginRequestPolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2538,6 +2653,7 @@ export class TooManyCookiesInOriginRequestPolicy extends __BaseException {
  * @public
  */
 export class TooManyHeadersInOriginRequestPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyHeadersInOriginRequestPolicy";
   readonly name = "TooManyHeadersInOriginRequestPolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2560,6 +2676,7 @@ export class TooManyHeadersInOriginRequestPolicy extends __BaseException {
  * @public
  */
 export class TooManyOriginRequestPolicies extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyOriginRequestPolicies";
   readonly name = "TooManyOriginRequestPolicies" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2582,6 +2699,7 @@ export class TooManyOriginRequestPolicies extends __BaseException {
  * @public
  */
 export class TooManyQueryStringsInOriginRequestPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyQueryStringsInOriginRequestPolicy";
   readonly name = "TooManyQueryStringsInOriginRequestPolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2604,6 +2722,7 @@ export class TooManyQueryStringsInOriginRequestPolicy extends __BaseException {
  * @public
  */
 export class PublicKeyAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#PublicKeyAlreadyExists";
   readonly name = "PublicKeyAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2626,6 +2745,7 @@ export class PublicKeyAlreadyExists extends __BaseException {
  * @public
  */
 export class TooManyPublicKeys extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyPublicKeys";
   readonly name = "TooManyPublicKeys" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2648,6 +2768,7 @@ export class TooManyPublicKeys extends __BaseException {
  * @public
  */
 export class RealtimeLogConfigAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#RealtimeLogConfigAlreadyExists";
   readonly name = "RealtimeLogConfigAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2670,6 +2791,7 @@ export class RealtimeLogConfigAlreadyExists extends __BaseException {
  * @public
  */
 export class TooManyRealtimeLogConfigs extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyRealtimeLogConfigs";
   readonly name = "TooManyRealtimeLogConfigs" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2692,6 +2814,7 @@ export class TooManyRealtimeLogConfigs extends __BaseException {
  * @public
  */
 export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#ResponseHeadersPolicyAlreadyExists";
   readonly name = "ResponseHeadersPolicyAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2714,6 +2837,7 @@ export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
  * @public
  */
 export class TooLongCSPInResponseHeadersPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooLongCSPInResponseHeadersPolicy";
   readonly name = "TooLongCSPInResponseHeadersPolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2736,6 +2860,7 @@ export class TooLongCSPInResponseHeadersPolicy extends __BaseException {
  * @public
  */
 export class TooManyCustomHeadersInResponseHeadersPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyCustomHeadersInResponseHeadersPolicy";
   readonly name = "TooManyCustomHeadersInResponseHeadersPolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2758,6 +2883,7 @@ export class TooManyCustomHeadersInResponseHeadersPolicy extends __BaseException
  * @public
  */
 export class TooManyRemoveHeadersInResponseHeadersPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyRemoveHeadersInResponseHeadersPolicy";
   readonly name = "TooManyRemoveHeadersInResponseHeadersPolicy" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2780,6 +2906,7 @@ export class TooManyRemoveHeadersInResponseHeadersPolicy extends __BaseException
  * @public
  */
 export class TooManyResponseHeadersPolicies extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyResponseHeadersPolicies";
   readonly name = "TooManyResponseHeadersPolicies" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2802,6 +2929,7 @@ export class TooManyResponseHeadersPolicies extends __BaseException {
  * @public
  */
 export class StreamingDistributionAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#StreamingDistributionAlreadyExists";
   readonly name = "StreamingDistributionAlreadyExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2824,6 +2952,7 @@ export class StreamingDistributionAlreadyExists extends __BaseException {
  * @public
  */
 export class TooManyStreamingDistributionCNAMEs extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyStreamingDistributionCNAMEs";
   readonly name = "TooManyStreamingDistributionCNAMEs" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2846,6 +2975,7 @@ export class TooManyStreamingDistributionCNAMEs extends __BaseException {
  * @public
  */
 export class TooManyStreamingDistributions extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TooManyStreamingDistributions";
   readonly name = "TooManyStreamingDistributions" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2868,6 +2998,7 @@ export class TooManyStreamingDistributions extends __BaseException {
  * @public
  */
 export class IllegalDelete extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#IllegalDelete";
   readonly name = "IllegalDelete" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2890,6 +3021,7 @@ export class IllegalDelete extends __BaseException {
  * @public
  */
 export class CloudFrontOriginAccessIdentityInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#CloudFrontOriginAccessIdentityInUse";
   readonly name = "CloudFrontOriginAccessIdentityInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2912,6 +3044,7 @@ export class CloudFrontOriginAccessIdentityInUse extends __BaseException {
  * @public
  */
 export class NoSuchCloudFrontOriginAccessIdentity extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchCloudFrontOriginAccessIdentity";
   readonly name = "NoSuchCloudFrontOriginAccessIdentity" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2934,6 +3067,7 @@ export class NoSuchCloudFrontOriginAccessIdentity extends __BaseException {
  * @public
  */
 export class ResourceNotDisabled extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#ResourceNotDisabled";
   readonly name = "ResourceNotDisabled" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2956,6 +3090,7 @@ export class ResourceNotDisabled extends __BaseException {
  * @public
  */
 export class DistributionNotDisabled extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#DistributionNotDisabled";
   readonly name = "DistributionNotDisabled" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -2978,6 +3113,7 @@ export class DistributionNotDisabled extends __BaseException {
  * @public
  */
 export class ResourceInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#ResourceInUse";
   readonly name = "ResourceInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3000,6 +3136,7 @@ export class ResourceInUse extends __BaseException {
  * @public
  */
 export class FieldLevelEncryptionConfigInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#FieldLevelEncryptionConfigInUse";
   readonly name = "FieldLevelEncryptionConfigInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3022,6 +3159,7 @@ export class FieldLevelEncryptionConfigInUse extends __BaseException {
  * @public
  */
 export class FieldLevelEncryptionProfileInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#FieldLevelEncryptionProfileInUse";
   readonly name = "FieldLevelEncryptionProfileInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3044,6 +3182,7 @@ export class FieldLevelEncryptionProfileInUse extends __BaseException {
  * @public
  */
 export class FunctionInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#FunctionInUse";
   readonly name = "FunctionInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3066,6 +3205,7 @@ export class FunctionInUse extends __BaseException {
  * @public
  */
 export class NoSuchFunctionExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchFunctionExists";
   readonly name = "NoSuchFunctionExists" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3088,6 +3228,7 @@ export class NoSuchFunctionExists extends __BaseException {
  * @public
  */
 export class NoSuchResource extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchResource";
   readonly name = "NoSuchResource" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3110,6 +3251,7 @@ export class NoSuchResource extends __BaseException {
  * @public
  */
 export class NoSuchMonitoringSubscription extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchMonitoringSubscription";
   readonly name = "NoSuchMonitoringSubscription" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3132,6 +3274,7 @@ export class NoSuchMonitoringSubscription extends __BaseException {
  * @public
  */
 export class NoSuchOriginAccessControl extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchOriginAccessControl";
   readonly name = "NoSuchOriginAccessControl" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3154,6 +3297,7 @@ export class NoSuchOriginAccessControl extends __BaseException {
  * @public
  */
 export class OriginAccessControlInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#OriginAccessControlInUse";
   readonly name = "OriginAccessControlInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3176,6 +3320,7 @@ export class OriginAccessControlInUse extends __BaseException {
  * @public
  */
 export class OriginRequestPolicyInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#OriginRequestPolicyInUse";
   readonly name = "OriginRequestPolicyInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3198,6 +3343,7 @@ export class OriginRequestPolicyInUse extends __BaseException {
  * @public
  */
 export class PublicKeyInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#PublicKeyInUse";
   readonly name = "PublicKeyInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3220,6 +3366,7 @@ export class PublicKeyInUse extends __BaseException {
  * @public
  */
 export class RealtimeLogConfigInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#RealtimeLogConfigInUse";
   readonly name = "RealtimeLogConfigInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3242,6 +3389,7 @@ export class RealtimeLogConfigInUse extends __BaseException {
  * @public
  */
 export class ResponseHeadersPolicyInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#ResponseHeadersPolicyInUse";
   readonly name = "ResponseHeadersPolicyInUse" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3264,6 +3412,7 @@ export class ResponseHeadersPolicyInUse extends __BaseException {
  * @public
  */
 export class NoSuchStreamingDistribution extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchStreamingDistribution";
   readonly name = "NoSuchStreamingDistribution" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3286,6 +3435,7 @@ export class NoSuchStreamingDistribution extends __BaseException {
  * @public
  */
 export class StreamingDistributionNotDisabled extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#StreamingDistributionNotDisabled";
   readonly name = "StreamingDistributionNotDisabled" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3308,6 +3458,7 @@ export class StreamingDistributionNotDisabled extends __BaseException {
  * @public
  */
 export class NoSuchInvalidation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#NoSuchInvalidation";
   readonly name = "NoSuchInvalidation" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -3330,6 +3481,7 @@ export class NoSuchInvalidation extends __BaseException {
  * @public
  */
 export class TestFunctionFailed extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudfront#TestFunctionFailed";
   readonly name = "TestFunctionFailed" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;

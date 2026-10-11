@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type {
   StartAgentRecommendationGenerationRequest,
   StartAgentRecommendationGenerationResponse,
@@ -106,7 +106,7 @@ export interface StartAgentRecommendationGenerationCommandOutput extends StartAg
  * @public
  */
 export class StartAgentRecommendationGenerationCommand extends command<StartAgentRecommendationGenerationCommandInput, StartAgentRecommendationGenerationCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "StartAgentRecommendationGeneration",
   StartAgentRecommendationGeneration$

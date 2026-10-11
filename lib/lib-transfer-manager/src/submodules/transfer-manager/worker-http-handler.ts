@@ -11,14 +11,13 @@
  */
 import { HttpResponse } from "@smithy/core/protocols";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
-import type { HttpHandlerOptions, HttpRequest, HttpResponse as HttpResponseShape } from "@smithy/types";
+import type { HttpHandlerOptions, HttpRequest, HttpResponse as HttpResponseShape, Logger } from "@smithy/types";
 import type { ChecksumAlgorithm } from "@aws-sdk/client-s3";
 import { existsSync } from "node:fs";
 import { cpus } from "node:os";
 import * as path from "node:path";
 import { Readable } from "node:stream";
 import { Worker } from "node:worker_threads";
-
 
 /**
  * Rebuilds an Error from a worker failure with no HTTP response (checksum/length
@@ -31,7 +30,6 @@ function buildDownloadError(msg: HttpWorkerDownloadErrorMessage): Error {
   if (msg.code) error.code = msg.code;
   return error;
 }
-
 
 /**
  * Creates an empty Readable stream that immediately ends.
@@ -135,6 +133,7 @@ export interface HttpWorkerReturnBufferMessage {
 export interface HttpWorkerConfigMessage {
   type: "config";
   maxSockets: number;
+  useODirect?: boolean;
 }
 
 export interface HttpWorkerDoneMessage {
@@ -168,6 +167,18 @@ export interface HttpWorkerReadyMessage {
 }
 
 /**
+ * Worker → Main thread: a diagnostic log line relayed to the TM logger.
+ * The worker thread has no access to the client logger, so O_DIRECT fallback
+ * diagnostics are forwarded here and logged on the main thread.
+ * @internal
+ */
+export interface HttpWorkerLogMessage {
+  type: "workerLog";
+  level: "warn" | "debug" | "trace";
+  message: string;
+}
+
+/**
  * Worker → Main thread: download part completed successfully.
  * @internal
  */
@@ -181,7 +192,8 @@ export interface HttpWorkerDownloadResultMessage {
 }
 
 /**
- * Worker → Main thread: download part failed.
+ * Worker → Main thread: download failed with no HTTP response
+ * (checksum/length mismatch, socket error).
  * @internal
  */
 export interface HttpWorkerDownloadErrorMessage {
@@ -229,6 +241,7 @@ export type HttpWorkerOutboundMessage =
   | HttpWorkerResponseMessage
   | HttpWorkerErrorMessage
   | HttpWorkerReadyMessage
+  | HttpWorkerLogMessage
   | HttpWorkerDownloadResultMessage
   | HttpWorkerDownloadErrorMessage
   | HttpWorkerDownloadHttpErrorMessage
@@ -245,6 +258,7 @@ export interface FileSource {
   filePath: string;
   partSize: number;
   totalFileSize: number;
+  startOffset?: number;
   checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
@@ -253,6 +267,8 @@ export interface FileSource {
 export interface SharedBufferSource {
   type: "sharedBuffer";
   sharedBuffer: SharedArrayBuffer;
+  /** Byte offset of the caller's Uint8Array view into sharedBuffer. */
+  startOffset?: number;
   partSize: number;
   totalSize: number;
   checksumAlgorithm?: ChecksumAlgorithm;
@@ -364,7 +380,8 @@ export interface DownloadToFileResult {
 export interface DownloadStreamResult {
   rangeIndex: number;
   /**
-   * The ArrayBuffer transferred from the worker (zero-copy).
+   * The ArrayBuffer transferred from the worker (zero-copy). Empty on non-2xx
+   * responses; see {@link DownloadStreamResult.errorBody}.
    */
   buffer: ArrayBuffer;
   byteLength: number;
@@ -397,6 +414,8 @@ export class WorkerHttpHandler {
   private workerThreadCount: number;
   private maxConcurrentUploads: number;
   private maxConcurrentDownloads: number;
+  private useODirect: boolean;
+  private logger: Logger | undefined;
   private initialized = false;
   private initPromise: Promise<void> | undefined;
   private fallbackHandler: NodeHttpHandler;
@@ -422,10 +441,14 @@ export class WorkerHttpHandler {
     workerThreadCount?: number;
     maxConcurrentUploads?: number;
     maxConcurrentDownloads?: number;
+    useODirect?: boolean;
+    logger?: Logger;
   }) {
     this.workerThreadCount = options?.workerThreadCount ?? defaultWorkerCount();
     this.maxConcurrentUploads = options?.maxConcurrentUploads ?? 32;
     this.maxConcurrentDownloads = options?.maxConcurrentDownloads ?? 32;
+    this.useODirect = options?.useODirect ?? false;
+    this.logger = options?.logger;
     this.fallbackHandler = new NodeHttpHandler();
   }
 
@@ -495,6 +518,7 @@ export class WorkerHttpHandler {
                 50,
                 Math.ceil(Math.max(this.maxConcurrentUploads, this.maxConcurrentDownloads) / this.workerThreadCount)
               ),
+              useODirect: this.useODirect,
             } satisfies HttpWorkerConfigMessage);
             readyCount++;
             if (!settled && readyCount === this.workerThreadCount) {
@@ -502,6 +526,12 @@ export class WorkerHttpHandler {
               this.initialized = true;
               resolve();
             }
+            return;
+          }
+
+          if (msg.type === "workerLog") {
+            // Relay worker-side diagnostics like O_DIRECT fallbacks to the TM logger, no-op if none.
+            this.logger?.[msg.level]?.(`[S3TransferManager:worker] ${msg.message}`);
             return;
           }
 
@@ -778,8 +808,9 @@ export class WorkerHttpHandler {
       // IMPORTANT: We strip per-part checksum headers (x-amz-checksum-*)
       // because the flexible-checksums middleware would try to validate the
       // body checksum against these headers — but there's no body to validate
-      // (it was written to file by the worker). The worker already validated
-      // the per-part CRC inline and stored the result in completedDownloads.
+      // (it was written to file by the worker). The worker validates the
+      // per-part checksum inline against the algorithm S3 returned and stores
+      // the result in completedDownloads.
       const responseHeaders: Record<string, string> = {};
       for (const [key, value] of Object.entries(result.headers)) {
         if (!key.startsWith("x-amz-checksum-")) {
@@ -851,7 +882,7 @@ export class WorkerHttpHandler {
         }
       }
 
-        // Store the transfer result for the caller to retrieve after s3.send() returns.
+      // Store the transfer result for the caller to retrieve after s3.send() returns.
       if (downloadStream.resultToken) {
         this.completedTransfers.set(downloadStream.resultToken, result);
       }
@@ -889,9 +920,10 @@ export class WorkerHttpHandler {
     };
 
     if (dataSource.type === "file") {
-      const { filePath, partSize, totalFileSize, checksumAlgorithm, checksumHeader } = dataSource;
-      const offset = (partNumber - 1) * partSize;
-      const length = Math.min(partSize, totalFileSize - offset);
+      const { filePath, partSize, totalFileSize, startOffset = 0, checksumAlgorithm, checksumHeader } = dataSource;
+      const partOffset = (partNumber - 1) * partSize;
+      const length = Math.min(partSize, totalFileSize - partOffset);
+      const offset = startOffset + partOffset;
 
       const message: HttpWorkerFileRequestMessage = {
         type: "httpRequestFromFile",
@@ -907,9 +939,10 @@ export class WorkerHttpHandler {
       return this.dispatchToWorker(id, message);
     }
 
-    const { sharedBuffer, partSize, totalSize, checksumAlgorithm, checksumHeader } = dataSource;
-    const offset = (partNumber - 1) * partSize;
-    const length = Math.min(partSize, totalSize - offset);
+    const { sharedBuffer, startOffset = 0, partSize, totalSize, checksumAlgorithm, checksumHeader } = dataSource;
+    const partOffset = (partNumber - 1) * partSize;
+    const offset = startOffset + partOffset;
+    const length = Math.min(partSize, totalSize - partOffset);
 
     const message: HttpWorkerRAMRequestMessage = {
       type: "httpRequestFromRAM",

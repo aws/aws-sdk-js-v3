@@ -51,6 +51,10 @@ import {
   DescribeHealthServiceStatusForOrganization$,
   DescribeHealthServiceStatusForOrganizationCommand,
   DescribeHealthServiceStatusForOrganizationResponse$,
+  DescribeServiceLifecycle$,
+  DescribeServiceLifecycleCommand,
+  DescribeServiceLifecycleRequest$,
+  DescribeServiceLifecycleResponse$,
   DisableHealthServiceAccessForOrganization$,
   DisableHealthServiceAccessForOrganizationCommand,
   EnableHealthServiceAccessForOrganization$,
@@ -81,6 +85,7 @@ import {
   HealthServiceException,
   InvalidPaginationToken,
   InvalidPaginationToken$,
+  LifecycleEvent$,
   OrganizationAffectedEntitiesErrorItem$,
   OrganizationEntityAggregate$,
   OrganizationEvent$,
@@ -94,6 +99,9 @@ import {
   paginateDescribeEvents,
   paginateDescribeEventsForOrganization,
   paginateDescribeEventTypes,
+  paginateDescribeServiceLifecycle,
+  ServiceLifecycle$,
+  ServiceLifecycleFilter$,
   UnsupportedLocale,
   UnsupportedLocale$,
 } from "../dist-cjs/index.js";
@@ -126,6 +134,8 @@ assert(typeof DescribeEventTypesCommand === "function");
 assert(typeof DescribeEventTypes$ === "object");
 assert(typeof DescribeHealthServiceStatusForOrganizationCommand === "function");
 assert(typeof DescribeHealthServiceStatusForOrganization$ === "object");
+assert(typeof DescribeServiceLifecycleCommand === "function");
+assert(typeof DescribeServiceLifecycle$ === "object");
 assert(typeof DisableHealthServiceAccessForOrganizationCommand === "function");
 assert(typeof DisableHealthServiceAccessForOrganization$ === "object");
 assert(typeof EnableHealthServiceAccessForOrganizationCommand === "function");
@@ -157,6 +167,8 @@ assert(typeof DescribeEventsResponse$ === "object");
 assert(typeof DescribeEventTypesRequest$ === "object");
 assert(typeof DescribeEventTypesResponse$ === "object");
 assert(typeof DescribeHealthServiceStatusForOrganizationResponse$ === "object");
+assert(typeof DescribeServiceLifecycleRequest$ === "object");
+assert(typeof DescribeServiceLifecycleResponse$ === "object");
 assert(typeof EntityAccountFilter$ === "object");
 assert(typeof EntityAggregate$ === "object");
 assert(typeof EntityFilter$ === "object");
@@ -169,12 +181,15 @@ assert(typeof EventDetailsErrorItem$ === "object");
 assert(typeof EventFilter$ === "object");
 assert(typeof EventType$ === "object");
 assert(typeof EventTypeFilter$ === "object");
+assert(typeof LifecycleEvent$ === "object");
 assert(typeof OrganizationAffectedEntitiesErrorItem$ === "object");
 assert(typeof OrganizationEntityAggregate$ === "object");
 assert(typeof OrganizationEvent$ === "object");
 assert(typeof OrganizationEventDetails$ === "object");
 assert(typeof OrganizationEventDetailsErrorItem$ === "object");
 assert(typeof OrganizationEventFilter$ === "object");
+assert(typeof ServiceLifecycle$ === "object");
+assert(typeof ServiceLifecycleFilter$ === "object");
 // enums
 assert(typeof EntityStatusCode === "object");
 assert(typeof EventActionability === "object");
@@ -201,4 +216,5 @@ assert(typeof paginateDescribeEventAggregates === "function");
 assert(typeof paginateDescribeEventTypes === "function");
 assert(typeof paginateDescribeEvents === "function");
 assert(typeof paginateDescribeEventsForOrganization === "function");
+assert(typeof paginateDescribeServiceLifecycle === "function");
 console.log(`Health index test passed.`);

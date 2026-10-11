@@ -9,6 +9,7 @@ import type { QueryCompileError } from "./models_0";
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -49,6 +51,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class OperationAbortedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#OperationAbortedException";
   readonly name = "OperationAbortedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -69,6 +72,7 @@ export class OperationAbortedException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -111,6 +116,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -131,6 +137,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -151,6 +158,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -171,6 +179,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InvalidOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#InvalidOperationException";
   readonly name = "InvalidOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -191,6 +200,7 @@ export class InvalidOperationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -211,6 +221,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -231,6 +242,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -251,6 +263,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -277,6 +290,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class DataAlreadyAcceptedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException";
   readonly name = "DataAlreadyAcceptedException" as const;
   readonly $fault = "client" as const;
   expectedSequenceToken?: string | undefined;
@@ -301,6 +315,7 @@ export class DataAlreadyAcceptedException extends __BaseException {
  * @public
  */
 export class InternalStreamingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#InternalStreamingException";
   readonly name = "InternalStreamingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -329,6 +344,7 @@ export class InternalStreamingException extends __BaseException {
  * @public
  */
 export class InvalidSequenceTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#InvalidSequenceTokenException";
   readonly name = "InvalidSequenceTokenException" as const;
   readonly $fault = "client" as const;
   expectedSequenceToken?: string | undefined;
@@ -352,6 +368,7 @@ export class InvalidSequenceTokenException extends __BaseException {
  * @public
  */
 export class UnrecognizedClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#UnrecognizedClientException";
   readonly name = "UnrecognizedClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -372,6 +389,7 @@ export class UnrecognizedClientException extends __BaseException {
  * @public
  */
 export class SessionStreamingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#SessionStreamingException";
   readonly name = "SessionStreamingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -393,6 +411,7 @@ export class SessionStreamingException extends __BaseException {
  * @public
  */
 export class SessionTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#SessionTimeoutException";
   readonly name = "SessionTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
@@ -416,6 +435,7 @@ export class SessionTimeoutException extends __BaseException {
  * @public
  */
 export class MalformedQueryException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#MalformedQueryException";
   readonly name = "MalformedQueryException" as const;
   readonly $fault = "client" as const;
   /**
@@ -443,6 +463,7 @@ export class MalformedQueryException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchlogs#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**

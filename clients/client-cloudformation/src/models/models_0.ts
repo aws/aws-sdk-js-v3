@@ -1408,6 +1408,29 @@ export interface ContinueUpdateRollbackInput {
    * @public
    */
   ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>Specifies whether CloudFormation forces the rollback to continue by skipping resources
+   *       currently in the <code>UPDATE_FAILED</code> state. Use this instead of listing each resource
+   *       individually in <code>ResourcesToSkip</code>. Only resources that entered the
+   *         <code>UPDATE_FAILED</code> state because a rollback failed are skipped. If you don't specify
+   *       a value, the default is <code>false</code> and CloudFormation doesn't skip any resources.</p>
+   *          <p>
+   *             <code>ForceRollback</code> and <code>ResourcesToSkip</code> are mutually exclusive.
+   *       Specifying both in the same request returns a validation error.</p>
+   *          <important>
+   *             <p>We recommend that you <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">troubleshoot</a> resources before skipping them. CloudFormation sets the status of the
+   *         skipped resources to <code>UPDATE_COMPLETE</code> and continues to roll back the stack,
+   *         including resources in nested stacks. After the rollback completes, the skipped resources no
+   *         longer match the resources in the stack template. Before performing another stack update,
+   *         you must update the stack or resources to be consistent with each other. If you don't,
+   *         subsequent stack updates might fail, and the stack will become unrecoverable.</p>
+   *             <p>Drift detection reports skipped resources as <code>NOT_CHECKED</code>. For guidance,
+   *         see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html">Continue rolling back an update</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  ForceRollback?: boolean | undefined;
 }
 
 /**
@@ -9612,9 +9635,11 @@ export interface StackResourceDriftInformationSummary {
    *      expected configuration.</p>
    *                <p>Any resources that don't currently support drift detection have a status of
    *       <code>NOT_CHECKED</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">Resource
-   *       type support for imports and drift detection</a>. If you performed an <a>ContinueUpdateRollback</a> operation on a stack, any resources included in
-   *       <code>ResourcesToSkip</code> will also have a status of <code>NOT_CHECKED</code>. For more
-   *      information about skipping resources during rollback operations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html">Continue rolling back an update</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       type support for imports and drift detection</a>. If you performed a <a>ContinueUpdateRollback</a> operation on a stack, resources skipped using
+   *       <code>ResourcesToSkip</code> or <code>ForceRollback</code> also have a status of
+   *       <code>NOT_CHECKED</code>. To detect whether a skipped resource actually differs from the
+   *       template, run <a>DetectStackResourceDrift</a>. For more information about
+   *       skipping resources during rollback operations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html">Continue rolling back an update</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>

@@ -154,6 +154,11 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //                 ],
  * //               },
  * //             ],
+ * //             softwareAddOns: [ // FleetSoftwareAddOns
+ * //               { // FleetSoftwareAddOn
+ * //                 name: "docker", // required
+ * //               },
+ * //             ],
  * //           },
  * //           instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
  * //             type: "on-demand" || "spot" || "wait-and-save", // required

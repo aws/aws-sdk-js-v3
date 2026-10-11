@@ -121,6 +121,17 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  *       ],
  *     },
  *   },
+ *   customMetadataSchemaConfiguration: { // UpdatedCustomMetadataSchemaConfiguration
+ *     optionalValue: { // CustomMetadataSchemaConfiguration
+ *       defaultSchema: "STRING_VALUE",
+ *       recordTypeSchemaOverrides: [ // RecordTypeSchemaOverrideList
+ *         { // RecordTypeSchemaOverride
+ *           recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
+ *           schema: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
  *   autoDetectionConfiguration: { // UpdatedAutoDetectionConfiguration
  *     optionalValue: { // AutoDetectionConfiguration
  *       scope: "ORGANIZATION", // required
@@ -216,6 +227,15 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * //   approvalConfiguration: { // ApprovalConfiguration
  * //     autoApprovalRules: [ // AutoApprovalRuleList
  * //       "APPROVE_ALL",
+ * //     ],
+ * //   },
+ * //   customMetadataSchemaConfiguration: { // CustomMetadataSchemaConfiguration
+ * //     defaultSchema: "STRING_VALUE",
+ * //     recordTypeSchemaOverrides: [ // RecordTypeSchemaOverrideList
+ * //       { // RecordTypeSchemaOverride
+ * //         recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
+ * //         schema: "STRING_VALUE", // required
+ * //       },
  * //     ],
  * //   },
  * //   status: "CREATING" || "READY" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED", // required

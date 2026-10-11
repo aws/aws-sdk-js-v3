@@ -10,6 +10,7 @@ import { RAMServiceException as __BaseException } from "./RAMServiceException";
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#IdempotentParameterMismatchException";
   readonly name = "IdempotentParameterMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
  * @public
  */
 export class InvalidClientTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#InvalidClientTokenException";
   readonly name = "InvalidClientTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class InvalidClientTokenException extends __BaseException {
  * @public
  */
 export class MalformedArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#MalformedArnException";
   readonly name = "MalformedArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -71,6 +74,7 @@ export class MalformedArnException extends __BaseException {
  * @public
  */
 export class OperationNotPermittedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#OperationNotPermittedException";
   readonly name = "OperationNotPermittedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -91,6 +95,7 @@ export class OperationNotPermittedException extends __BaseException {
  * @public
  */
 export class ResourceShareInvitationAlreadyAcceptedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#ResourceShareInvitationAlreadyAcceptedException";
   readonly name = "ResourceShareInvitationAlreadyAcceptedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -111,6 +116,7 @@ export class ResourceShareInvitationAlreadyAcceptedException extends __BaseExcep
  * @public
  */
 export class ResourceShareInvitationAlreadyRejectedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#ResourceShareInvitationAlreadyRejectedException";
   readonly name = "ResourceShareInvitationAlreadyRejectedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -132,6 +138,7 @@ export class ResourceShareInvitationAlreadyRejectedException extends __BaseExcep
  * @public
  */
 export class ResourceShareInvitationArnNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException";
   readonly name = "ResourceShareInvitationArnNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -153,6 +160,7 @@ export class ResourceShareInvitationArnNotFoundException extends __BaseException
  * @public
  */
 export class ResourceShareInvitationExpiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#ResourceShareInvitationExpiredException";
   readonly name = "ResourceShareInvitationExpiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -174,6 +182,7 @@ export class ResourceShareInvitationExpiredException extends __BaseException {
  * @public
  */
 export class ServerInternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#ServerInternalException";
   readonly name = "ServerInternalException" as const;
   readonly $fault = "server" as const;
   /**
@@ -194,6 +203,7 @@ export class ServerInternalException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -214,6 +224,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -235,6 +246,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class InvalidStateTransitionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#InvalidStateTransitionException";
   readonly name = "InvalidStateTransitionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -258,6 +270,7 @@ export class InvalidStateTransitionException extends __BaseException {
  * @public
  */
 export class ResourceShareLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#ResourceShareLimitExceededException";
   readonly name = "ResourceShareLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -279,6 +292,7 @@ export class ResourceShareLimitExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -299,6 +313,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class UnknownResourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#UnknownResourceException";
   readonly name = "UnknownResourceException" as const;
   readonly $fault = "client" as const;
   /**
@@ -319,6 +334,7 @@ export class UnknownResourceException extends __BaseException {
  * @public
  */
 export class InvalidPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#InvalidPolicyException";
   readonly name = "InvalidPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -339,6 +355,7 @@ export class InvalidPolicyException extends __BaseException {
  * @public
  */
 export class MalformedPolicyTemplateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#MalformedPolicyTemplateException";
   readonly name = "MalformedPolicyTemplateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -360,6 +377,7 @@ export class MalformedPolicyTemplateException extends __BaseException {
  * @public
  */
 export class PermissionAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#PermissionAlreadyExistsException";
   readonly name = "PermissionAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -382,6 +400,7 @@ export class PermissionAlreadyExistsException extends __BaseException {
  * @public
  */
 export class PermissionLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#PermissionLimitExceededException";
   readonly name = "PermissionLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -404,6 +423,7 @@ export class PermissionLimitExceededException extends __BaseException {
  * @public
  */
 export class PermissionVersionsLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#PermissionVersionsLimitExceededException";
   readonly name = "PermissionVersionsLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -425,6 +445,7 @@ export class PermissionVersionsLimitExceededException extends __BaseException {
  * @public
  */
 export class TagLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#TagLimitExceededException";
   readonly name = "TagLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -446,6 +467,7 @@ export class TagLimitExceededException extends __BaseException {
  * @public
  */
 export class TagPolicyViolationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#TagPolicyViolationException";
   readonly name = "TagPolicyViolationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -468,6 +490,7 @@ export class TagPolicyViolationException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -488,6 +511,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class ResourceArnNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#ResourceArnNotFoundException";
   readonly name = "ResourceArnNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -509,6 +533,7 @@ export class ResourceArnNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidMaxResultsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#InvalidMaxResultsException";
   readonly name = "InvalidMaxResultsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -529,6 +554,7 @@ export class InvalidMaxResultsException extends __BaseException {
  * @public
  */
 export class MissingRequiredParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#MissingRequiredParameterException";
   readonly name = "MissingRequiredParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -549,6 +575,7 @@ export class MissingRequiredParameterException extends __BaseException {
  * @public
  */
 export class InvalidResourceTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#InvalidResourceTypeException";
   readonly name = "InvalidResourceTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -570,6 +597,7 @@ export class InvalidResourceTypeException extends __BaseException {
  * @public
  */
 export class UnmatchedPolicyPermissionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ram#UnmatchedPolicyPermissionException";
   readonly name = "UnmatchedPolicyPermissionException" as const;
   readonly $fault = "client" as const;
   /**

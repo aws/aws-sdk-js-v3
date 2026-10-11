@@ -103,6 +103,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * // { // CreateUserResponse
  * //   IdentityStoreId: "STRING_VALUE", // required
  * //   UserId: "STRING_VALUE", // required
+ * //   UserArn: "STRING_VALUE", // required
+ * //   Revision: "STRING_VALUE", // required
  * // };
  *
  * ```

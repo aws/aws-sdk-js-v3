@@ -9,6 +9,7 @@ import { SESServiceException as __BaseException } from "./SESServiceException";
  * @public
  */
 export class AccountSendingPausedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#AccountSendingPausedException";
   readonly name = "AccountSendingPausedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class AccountSendingPausedException extends __BaseException {
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#AlreadyExistsException";
   readonly name = "AlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -57,6 +59,7 @@ export class AlreadyExistsException extends __BaseException {
  * @public
  */
 export class CannotDeleteException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#CannotDeleteException";
   readonly name = "CannotDeleteException" as const;
   readonly $fault = "client" as const;
   /**
@@ -87,6 +90,7 @@ export class CannotDeleteException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -107,6 +111,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class RuleSetDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#RuleSetDoesNotExistException";
   readonly name = "RuleSetDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -135,6 +140,7 @@ export class RuleSetDoesNotExistException extends __BaseException {
  * @public
  */
 export class ConfigurationSetAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#ConfigurationSetAlreadyExistsException";
   readonly name = "ConfigurationSetAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -162,6 +168,7 @@ export class ConfigurationSetAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ConfigurationSetDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#ConfigurationSetDoesNotExistException";
   readonly name = "ConfigurationSetDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -190,6 +197,7 @@ export class ConfigurationSetDoesNotExistException extends __BaseException {
  * @public
  */
 export class ConfigurationSetSendingPausedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#ConfigurationSetSendingPausedException";
   readonly name = "ConfigurationSetSendingPausedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -218,6 +226,7 @@ export class ConfigurationSetSendingPausedException extends __BaseException {
  * @public
  */
 export class InvalidConfigurationSetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidConfigurationSetException";
   readonly name = "InvalidConfigurationSetException" as const;
   readonly $fault = "client" as const;
   /**
@@ -239,6 +248,7 @@ export class InvalidConfigurationSetException extends __BaseException {
  * @public
  */
 export class EventDestinationAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#EventDestinationAlreadyExistsException";
   readonly name = "EventDestinationAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -274,6 +284,7 @@ export class EventDestinationAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidCloudWatchDestinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidCloudWatchDestinationException";
   readonly name = "InvalidCloudWatchDestinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -309,6 +320,7 @@ export class InvalidCloudWatchDestinationException extends __BaseException {
  * @public
  */
 export class InvalidFirehoseDestinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidFirehoseDestinationException";
   readonly name = "InvalidFirehoseDestinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -344,6 +356,7 @@ export class InvalidFirehoseDestinationException extends __BaseException {
  * @public
  */
 export class InvalidSNSDestinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidSNSDestinationException";
   readonly name = "InvalidSNSDestinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -388,6 +401,7 @@ export class InvalidSNSDestinationException extends __BaseException {
  * @public
  */
 export class InvalidTrackingOptionsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidTrackingOptionsException";
   readonly name = "InvalidTrackingOptionsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -409,6 +423,7 @@ export class InvalidTrackingOptionsException extends __BaseException {
  * @public
  */
 export class TrackingOptionsAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#TrackingOptionsAlreadyExistsException";
   readonly name = "TrackingOptionsAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -437,6 +452,7 @@ export class TrackingOptionsAlreadyExistsException extends __BaseException {
  * @public
  */
 export class CustomVerificationEmailInvalidContentException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#CustomVerificationEmailInvalidContentException";
   readonly name = "CustomVerificationEmailInvalidContentException" as const;
   readonly $fault = "client" as const;
   /**
@@ -458,6 +474,7 @@ export class CustomVerificationEmailInvalidContentException extends __BaseExcept
  * @public
  */
 export class CustomVerificationEmailTemplateAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#CustomVerificationEmailTemplateAlreadyExistsException";
   readonly name = "CustomVerificationEmailTemplateAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -487,6 +504,7 @@ export class CustomVerificationEmailTemplateAlreadyExistsException extends __Bas
  * @public
  */
 export class FromEmailAddressNotVerifiedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#FromEmailAddressNotVerifiedException";
   readonly name = "FromEmailAddressNotVerifiedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -518,6 +536,7 @@ export class FromEmailAddressNotVerifiedException extends __BaseException {
  * @public
  */
 export class InvalidLambdaFunctionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidLambdaFunctionException";
   readonly name = "InvalidLambdaFunctionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -548,6 +567,7 @@ export class InvalidLambdaFunctionException extends __BaseException {
  * @public
  */
 export class InvalidS3ConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidS3ConfigurationException";
   readonly name = "InvalidS3ConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -578,6 +598,7 @@ export class InvalidS3ConfigurationException extends __BaseException {
  * @public
  */
 export class InvalidSnsTopicException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidSnsTopicException";
   readonly name = "InvalidSnsTopicException" as const;
   readonly $fault = "client" as const;
   /**
@@ -605,6 +626,7 @@ export class InvalidSnsTopicException extends __BaseException {
  * @public
  */
 export class RuleDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#RuleDoesNotExistException";
   readonly name = "RuleDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -633,6 +655,7 @@ export class RuleDoesNotExistException extends __BaseException {
  * @public
  */
 export class InvalidTemplateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidTemplateException";
   readonly name = "InvalidTemplateException" as const;
   readonly $fault = "client" as const;
   TemplateName?: string | undefined;
@@ -656,6 +679,7 @@ export class InvalidTemplateException extends __BaseException {
  * @public
  */
 export class CustomVerificationEmailTemplateDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException";
   readonly name = "CustomVerificationEmailTemplateDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -683,6 +707,7 @@ export class CustomVerificationEmailTemplateDoesNotExistException extends __Base
  * @public
  */
 export class EventDestinationDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#EventDestinationDoesNotExistException";
   readonly name = "EventDestinationDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -717,6 +742,7 @@ export class EventDestinationDoesNotExistException extends __BaseException {
  * @public
  */
 export class TrackingOptionsDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#TrackingOptionsDoesNotExistException";
   readonly name = "TrackingOptionsDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -746,6 +772,7 @@ export class TrackingOptionsDoesNotExistException extends __BaseException {
  * @public
  */
 export class TemplateDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#TemplateDoesNotExistException";
   readonly name = "TemplateDoesNotExistException" as const;
   readonly $fault = "client" as const;
   TemplateName?: string | undefined;
@@ -768,6 +795,7 @@ export class TemplateDoesNotExistException extends __BaseException {
  * @public
  */
 export class InvalidDeliveryOptionsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidDeliveryOptionsException";
   readonly name = "InvalidDeliveryOptionsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -789,6 +817,7 @@ export class InvalidDeliveryOptionsException extends __BaseException {
  * @public
  */
 export class InvalidPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidPolicyException";
   readonly name = "InvalidPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -810,6 +839,7 @@ export class InvalidPolicyException extends __BaseException {
  * @public
  */
 export class InvalidRenderingParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#InvalidRenderingParameterException";
   readonly name = "InvalidRenderingParameterException" as const;
   readonly $fault = "client" as const;
   TemplateName?: string | undefined;
@@ -835,6 +865,7 @@ export class InvalidRenderingParameterException extends __BaseException {
  * @public
  */
 export class MailFromDomainNotVerifiedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#MailFromDomainNotVerifiedException";
   readonly name = "MailFromDomainNotVerifiedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -856,6 +887,7 @@ export class MailFromDomainNotVerifiedException extends __BaseException {
  * @public
  */
 export class MessageRejected extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#MessageRejected";
   readonly name = "MessageRejected" as const;
   readonly $fault = "client" as const;
   /**
@@ -878,6 +910,7 @@ export class MessageRejected extends __BaseException {
  * @public
  */
 export class MissingRenderingAttributeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#MissingRenderingAttributeException";
   readonly name = "MissingRenderingAttributeException" as const;
   readonly $fault = "client" as const;
   TemplateName?: string | undefined;
@@ -900,6 +933,7 @@ export class MissingRenderingAttributeException extends __BaseException {
  * @public
  */
 export class ProductionAccessNotGrantedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.ses#ProductionAccessNotGrantedException";
   readonly name = "ProductionAccessNotGrantedException" as const;
   readonly $fault = "client" as const;
   /**

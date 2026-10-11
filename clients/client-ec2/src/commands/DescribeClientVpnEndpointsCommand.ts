@@ -96,6 +96,7 @@ export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientV
  * //         Enabled: true || false,
  * //         CloudwatchLogGroup: "STRING_VALUE",
  * //         CloudwatchLogStream: "STRING_VALUE",
+ * //         IncludeAuthorizationPolicyContext: true || false,
  * //       },
  * //       Tags: [ // TagList
  * //         { // Tag
@@ -135,6 +136,15 @@ export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientV
  * //         ],
  * //         AvailabilityZoneIds: [ // ClientVpnAvailabilityZoneIdSet
  * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       DevicePostureOptions: { // DevicePostureResponseOptions
+ * //         TrustProviders: [ // ClientVpnTrustProviderSet
+ * //           { // ClientVpnTrustProvider
+ * //             TrustProviderType: "crowdstrike" || "jamf" || "jumpcloud",
+ * //             TenantId: "STRING_VALUE",
+ * //             PublicSigningKeyUrl: "STRING_VALUE",
+ * //           },
  * //         ],
  * //       },
  * //     },

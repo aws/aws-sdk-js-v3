@@ -30,6 +30,7 @@ import type {
   ResourceType,
   RiskLevel,
   RiskType,
+  ScopeDecision,
   SecurityRequirementArtifactFormat,
   SecurityRequirementPackImportStatus,
   SecurityRequirementPackStatus,
@@ -39,12 +40,17 @@ import type {
   StrideCategory,
   TargetDomainStatus,
   TaskExecutionStatus,
+  TestScopeType,
   ThreatActor,
   ThreatSeverity,
   ThreatStatus,
+  TriggerEvent,
+  TriggerFilterMatchMode,
+  TriggerFilterType,
   UserRole,
   ValidationMode,
   ValidationStatus,
+  WebhookAction,
 } from "./enums";
 
 /**
@@ -105,6 +111,36 @@ export interface Actor {
    * @public
    */
   mfaForwardingAddress?: string | undefined;
+}
+
+/**
+ * <p>A message received at an actor's server-generated email MFA address.</p>
+ * @public
+ */
+export interface ActorMessage {
+  /**
+   * <p>The address the message was sent from.</p>
+   * @public
+   */
+  sender?: string | undefined;
+
+  /**
+   * <p>The subject line of the message.</p>
+   * @public
+   */
+  subject?: string | undefined;
+
+  /**
+   * <p>The plain-text body of the message, containing the MFA code or verification link.</p>
+   * @public
+   */
+  body?: string | undefined;
+
+  /**
+   * <p>The time the message was received.</p>
+   * @public
+   */
+  receivedAt?: Date | undefined;
 }
 
 /**
@@ -171,19 +207,19 @@ export interface ValidationExceptionField {
  */
 export interface VpcConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the VPC.</p>
+   * <p>The Amazon Resource Name (ARN) or ID of the VPC.</p>
    * @public
    */
   vpcArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the security groups for the VPC configuration.</p>
+   * <p>The Amazon Resource Names (ARNs) or IDs of the security groups for the VPC configuration.</p>
    * @public
    */
   securityGroupArns?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the subnets for the VPC configuration.</p>
+   * <p>The Amazon Resource Names (ARNs) or IDs of the subnets for the VPC configuration.</p>
    * @public
    */
   subnetArns?: string[] | undefined;
@@ -1089,7 +1125,7 @@ export namespace CaCertificateSource {
  */
 export interface TrustedCaCertificate {
   /**
-   * <p>The source that AWS Security Agent reads the certificate from.</p>
+   * <p>The source that Security Agent reads the certificate from.</p>
    * @public
    */
   source: CaCertificateSource | undefined;
@@ -1135,6 +1171,162 @@ export interface Assets {
    * @public
    */
   trustedCaCertificates?: TrustedCaCertificate[] | undefined;
+}
+
+/**
+ * <p>Connection details for an Azure DevOps integration.</p>
+ * @public
+ */
+export interface AzureDevOpsIntegrationInput {
+  /**
+   * <p>The OAuth 2.0 authorization code returned to your redirect URL after the connection is authorized.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>The CSRF state value returned by <code>InitiateProviderRegistration</code> and echoed back on the authorization redirect.</p>
+   * @public
+   */
+  state: string | undefined;
+
+  /**
+   * <p>The name of the Azure DevOps organization to connect, for example <code>my-org</code>.</p>
+   * @public
+   */
+  organizationName: string | undefined;
+}
+
+/**
+ * <p>Metadata for an integrated Azure DevOps repository.</p>
+ * @public
+ */
+export interface AzureDevOpsRepositoryMetadata {
+  /**
+   * <p>Name of the resource e.g. repository name, etc.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Provider Id of the resource e.g. GitHub repository id, etc.</p>
+   * @public
+   */
+  providerResourceId: string | undefined;
+
+  /**
+   * <p>The name of the Azure DevOps organization that owns the repository.</p>
+   * @public
+   */
+  organization: string | undefined;
+
+  /**
+   * <p>The name of the Azure DevOps project that contains the repository.</p>
+   * @public
+   */
+  project?: string | undefined;
+
+  /**
+   * <p>The GUID of the Azure DevOps project that contains the repository.</p>
+   * @public
+   */
+  projectId?: string | undefined;
+
+  /**
+   * <p>Defines the visibility level of provider resources. PRIVATE indicates restricted access, while PUBLIC indicates open access.</p>
+   * @public
+   */
+  accessType?: AccessType | undefined;
+}
+
+/**
+ * <p>An Azure DevOps repository integrated as a resource.</p>
+ * @public
+ */
+export interface AzureDevOpsRepositoryResource {
+  /**
+   * <p>Name of the resource e.g. repository name, etc.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The name of the Azure DevOps organization that owns the repository.</p>
+   * @public
+   */
+  organization: string | undefined;
+
+  /**
+   * <p>The name of the Azure DevOps project that contains the repository.</p>
+   * @public
+   */
+  project?: string | undefined;
+}
+
+/**
+ * <p>A condition on a pull request value.</p>
+ * @public
+ */
+export interface TriggerFilter {
+  /**
+   * <p>The pull request value to match.</p>
+   * @public
+   */
+  type: TriggerFilterType | undefined;
+
+  /**
+   * <p>The regular expressions to match against the value.</p>
+   * @public
+   */
+  patterns: string[] | undefined;
+
+  /**
+   * <p>Whether the value must match the patterns. The default is <code>INCLUDE</code>.</p>
+   * @public
+   */
+  matchMode?: TriggerFilterMatchMode | undefined;
+}
+
+/**
+ * <p>A set of conditions that start an automatic code review when they all pass. A filter group must include <code>events</code>, <code>filters</code>, or both.</p>
+ * @public
+ */
+export interface TriggerFilterGroup {
+  /**
+   * <p>Passes when the pull request event is one of the listed events. If you omit this, the group matches <code>PULL_REQUEST_READY_FOR_REVIEW</code> and <code>PULL_REQUEST_DRAFT</code> events only.</p>
+   * @public
+   */
+  events?: TriggerEvent[] | undefined;
+
+  /**
+   * <p>Passes when every filter passes. If you omit this, the group matches its events on any target branch and with any labels.</p>
+   * @public
+   */
+  filters?: TriggerFilter[] | undefined;
+}
+
+/**
+ * <p>Capabilities for an integrated Azure DevOps repository.</p>
+ * @public
+ */
+export interface AzureDevOpsResourceCapabilities {
+  /**
+   * <p>The filter groups that control which pull request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * @public
+   */
+  triggerFilterGroups?: TriggerFilterGroup[] | undefined;
+
+  /**
+   * <p>Whether to post code review comments on pull requests.</p>
+   * @public
+   */
+  leaveComments?: boolean | undefined;
+
+  /**
+   * <p>Whether to create pull requests with automated fixes.</p>
+   * @public
+   */
+  remediateCode?: boolean | undefined;
 }
 
 /**
@@ -1358,6 +1550,18 @@ export interface BatchDeletePentestsInput {
 }
 
 /**
+ * <p>The configuration that enables a pentest to run as part of a CI/CD pipeline, scoped to the code changes in each pipeline run.</p>
+ * @public
+ */
+export interface CiCdConfiguration {
+  /**
+   * <p>Whether CI/CD pentesting is enabled for this pentest.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
  * <p>The Amazon CloudWatch Logs configuration for pentest job logging.</p>
  * @public
  */
@@ -1433,6 +1637,102 @@ export interface NetworkTrafficConfig {
    * @public
    */
   customHeaders?: CustomHeader[] | undefined;
+}
+
+/**
+ * <p>Destination for publishing scan reports to an integrated document provider.</p>
+ * @public
+ */
+export interface ReportDestination {
+  /**
+   * <p>The integration identifier for the document provider.</p>
+   * @public
+   */
+  integrationId: string | undefined;
+
+  /**
+   * <p>The container identifier where the report will be published.</p>
+   * @public
+   */
+  containerId: string | undefined;
+
+  /**
+   * <p>The parent document identifier under which the report will be created.</p>
+   * @public
+   */
+  parentId?: string | undefined;
+
+  /**
+   * <p>The existing document identifier to update instead of creating a new document.</p>
+   * @public
+   */
+  documentId?: string | undefined;
+}
+
+/**
+ * <p>The report-generation filters applied when a pentest or code review report is exported.</p>
+ * @public
+ */
+export interface ReportFilters {
+  /**
+   * <p>The severity levels to include in the report.</p>
+   * @public
+   */
+  riskLevels?: RiskLevel[] | undefined;
+
+  /**
+   * <p>The confidence levels to include in the report.</p>
+   * @public
+   */
+  confidenceLevels?: ConfidenceLevel[] | undefined;
+
+  /**
+   * <p>The finding statuses to include in the report.</p>
+   * @public
+   */
+  statuses?: FindingStatus[] | undefined;
+
+  /**
+   * <p>The risk types to include in the report.</p>
+   * @public
+   */
+  riskTypes?: RiskType[] | undefined;
+
+  /**
+   * <p>The finding types to include in the report.</p>
+   * @public
+   */
+  findingTypes?: string[] | undefined;
+
+  /**
+   * <p>The task execution statuses to include in the report's task table.</p>
+   * @public
+   */
+  taskStatuses?: TaskExecutionStatus[] | undefined;
+
+  /**
+   * <p>Whether to include reviewer annotation notes under each finding.</p>
+   * @public
+   */
+  annotationNotes?: boolean | undefined;
+
+  /**
+   * <p>Whether to include the compliance-ready report additions.</p>
+   * @public
+   */
+  complianceReport?: boolean | undefined;
+}
+
+/**
+ * <p>The category of application a pentest targets.</p>
+ * @public
+ */
+export interface TestScope {
+  /**
+   * <p>The category of application under test.</p>
+   * @public
+   */
+  type: TestScopeType | undefined;
 }
 
 /**
@@ -1517,6 +1817,30 @@ export interface Pentest {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
+
+  /**
+   * <p>The CI/CD pentesting configuration for this pentest. Present when the pentest is set up to run from a CI/CD pipeline.</p>
+   * @public
+   */
+  cicdConfiguration?: CiCdConfiguration | undefined;
+
+  /**
+   * <p>The category of application a pentest targets.</p>
+   * @public
+   */
+  testScope?: TestScope | undefined;
 
   /**
    * <p>The date and time the pentest was created, in UTC format.</p>
@@ -1869,6 +2193,12 @@ export interface CodeReviewJob {
   maxTaskHours?: number | undefined;
 
   /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
    * <p>The date and time the code review job was created, in UTC format.</p>
    * @public
    */
@@ -2125,6 +2455,18 @@ export interface CodeReview {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 
   /**
    * <p>The date and time the code review was created, in UTC format.</p>
@@ -2409,6 +2751,12 @@ export interface Finding {
   attackScript?: string | undefined;
 
   /**
+   * <p>The suggested fix for the finding, describing the changes recommended to remediate the vulnerability, with example code or configuration.</p>
+   * @public
+   */
+  remediationCode?: string | undefined;
+
+  /**
    * <p>The code remediation task associated with the finding, if code remediation was initiated.</p>
    * @public
    */
@@ -2503,6 +2851,60 @@ export interface BatchGetPentestJobsInput {
    * @public
    */
   agentSpaceId: string | undefined;
+}
+
+/**
+ * <p>A code change in a CI/CD pipeline run that defines what a CI/CD pentest job tests. Each scope change identifies an integrated repository and the commit range for the change.</p>
+ * @public
+ */
+export interface ScopeChange {
+  /**
+   * <p>The identifier of the integration for the source-code provider that hosts the repository.</p>
+   * @public
+   */
+  integrationId: string | undefined;
+
+  /**
+   * <p>The provider-specific identifier of the repository the change belongs to.</p>
+   * @public
+   */
+  providerResourceId: string | undefined;
+
+  /**
+   * <p>The commit SHA that the change is compared against. When omitted, the change is evaluated against the head commit alone.</p>
+   * @public
+   */
+  baseCommitSha?: string | undefined;
+
+  /**
+   * <p>The commit SHA at the tip of the change to be tested.</p>
+   * @public
+   */
+  headCommitSha: string | undefined;
+
+  /**
+   * <p>The identifier of the CI/CD pipeline run that triggered this pentest job.</p>
+   * @public
+   */
+  triggerRunId?: string | undefined;
+}
+
+/**
+ * <p>The outcome of scoping a CI/CD pentest job's code changes, including the decision and the reason for it.</p>
+ * @public
+ */
+export interface ScopeResult {
+  /**
+   * <p>The scoping decision for the job's code changes.</p>
+   * @public
+   */
+  decision: ScopeDecision | undefined;
+
+  /**
+   * <p>A human-readable explanation of the scoping decision.</p>
+   * @public
+   */
+  reason: string | undefined;
 }
 
 /**
@@ -2661,7 +3063,7 @@ export interface PentestJob {
   maxTaskHours?: number | undefined;
 
   /**
-   * <p>The type of the pentest job. Valid values are FULL and REVALIDATION.</p>
+   * <p>The type of the pentest job. Valid values are FULL, REVALIDATION, and CICD.</p>
    * @public
    */
   jobType?: JobType | undefined;
@@ -2671,6 +3073,42 @@ export interface PentestJob {
    * @public
    */
   selectedFindingIds?: string[] | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The URL to view this pentest job's findings report in the console.</p>
+   * @public
+   */
+  reportUrl?: string | undefined;
+
+  /**
+   * <p>The scoping outcome for this CI/CD pentest job. Present only for jobs of type CICD.</p>
+   * @public
+   */
+  scopeResult?: ScopeResult | undefined;
+
+  /**
+   * <p>The code changes that defined the scope of this CI/CD pentest job. Present only for jobs of type CICD.</p>
+   * @public
+   */
+  scopeChanges?: ScopeChange[] | undefined;
+
+  /**
+   * <p>The configuration that enables a pentest to run as part of a CI/CD pipeline, scoped to the code changes in each pipeline run.</p>
+   * @public
+   */
+  cicdConfiguration?: CiCdConfiguration | undefined;
+
+  /**
+   * <p>The category of application a pentest targets.</p>
+   * @public
+   */
+  testScope?: TestScope | undefined;
 
   /**
    * <p>The date and time the pentest job was created, in UTC format.</p>
@@ -3209,6 +3647,12 @@ export interface ThreatModelJob {
    * @public
    */
   systemOverview?: string | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
 }
 
 /**
@@ -3401,6 +3845,12 @@ export interface ThreatModel {
    * @public
    */
   logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
 
   /**
    * <p>The date and time the threat model was created, in UTC format.</p>
@@ -3714,6 +4164,30 @@ export interface BatchUpdateSecurityRequirementsOutput {
 }
 
 /**
+ * <p>Connection details for a self-managed Bitbucket Data Center integration.</p>
+ * @public
+ */
+export interface BitbucketDataCenterIntegrationInput {
+  /**
+   * <p>The HTTPS URL of your Bitbucket Data Center instance, for example <code>https://bitbucket.example.com</code>.</p>
+   * @public
+   */
+  targetUrl: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 authorization code returned to your redirect URL after the connection is authorized.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>The CSRF state value returned by <code>InitiateProviderRegistration</code> and echoed back on the authorization redirect.</p>
+   * @public
+   */
+  state: string | undefined;
+}
+
+/**
  * <p>The configuration for creating a Bitbucket integration.</p>
  * @public
  */
@@ -3796,6 +4270,12 @@ export interface BitbucketRepositoryResource {
  * @public
  */
 export interface BitbucketResourceCapabilities {
+  /**
+   * <p>The filter groups that control which pull request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * @public
+   */
+  triggerFilterGroups?: TriggerFilterGroup[] | undefined;
+
   /**
    * <p>Whether to post code review comments on pull requests.</p>
    * @public
@@ -4131,6 +4611,18 @@ export interface CreateCodeReviewInput {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 }
 
 /**
@@ -4203,6 +4695,18 @@ export interface CreateCodeReviewOutput {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
 }
 
 /**
@@ -4276,7 +4780,9 @@ export interface GitLabIntegrationInput {
  * @public
  */
 export type ProviderInput =
+  | ProviderInput.AzureDevOpsMember
   | ProviderInput.BitbucketMember
+  | ProviderInput.BitbucketDataCenterMember
   | ProviderInput.ConfluenceMember
   | ProviderInput.GithubMember
   | ProviderInput.GitlabMember
@@ -4295,6 +4801,8 @@ export namespace ProviderInput {
     gitlab?: never;
     bitbucket?: never;
     confluence?: never;
+    azureDevOps?: never;
+    bitbucketDataCenter?: never;
     $unknown?: never;
   }
 
@@ -4307,6 +4815,8 @@ export namespace ProviderInput {
     gitlab: GitLabIntegrationInput;
     bitbucket?: never;
     confluence?: never;
+    azureDevOps?: never;
+    bitbucketDataCenter?: never;
     $unknown?: never;
   }
 
@@ -4319,6 +4829,8 @@ export namespace ProviderInput {
     gitlab?: never;
     bitbucket: BitbucketIntegrationInput;
     confluence?: never;
+    azureDevOps?: never;
+    bitbucketDataCenter?: never;
     $unknown?: never;
   }
 
@@ -4331,6 +4843,36 @@ export namespace ProviderInput {
     gitlab?: never;
     bitbucket?: never;
     confluence: ConfluenceIntegrationInput;
+    azureDevOps?: never;
+    bitbucketDataCenter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Azure DevOps-specific input for creating an integration.</p>
+   * @public
+   */
+  export interface AzureDevOpsMember {
+    github?: never;
+    gitlab?: never;
+    bitbucket?: never;
+    confluence?: never;
+    azureDevOps: AzureDevOpsIntegrationInput;
+    bitbucketDataCenter?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Bitbucket Data Center-specific input for creating an integration.</p>
+   * @public
+   */
+  export interface BitbucketDataCenterMember {
+    github?: never;
+    gitlab?: never;
+    bitbucket?: never;
+    confluence?: never;
+    azureDevOps?: never;
+    bitbucketDataCenter: BitbucketDataCenterIntegrationInput;
     $unknown?: never;
   }
 
@@ -4342,6 +4884,8 @@ export namespace ProviderInput {
     gitlab?: never;
     bitbucket?: never;
     confluence?: never;
+    azureDevOps?: never;
+    bitbucketDataCenter?: never;
     $unknown: [string, any];
   }
 
@@ -4354,6 +4898,8 @@ export namespace ProviderInput {
     gitlab: (value: GitLabIntegrationInput) => T;
     bitbucket: (value: BitbucketIntegrationInput) => T;
     confluence: (value: ConfluenceIntegrationInput) => T;
+    azureDevOps: (value: AzureDevOpsIntegrationInput) => T;
+    bitbucketDataCenter: (value: BitbucketDataCenterIntegrationInput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -4363,7 +4909,7 @@ export namespace ProviderInput {
  */
 export interface CreateIntegrationInput {
   /**
-   * <p>The integration provider. Currently, only GITHUB is supported.</p>
+   * <p>The integration provider.</p>
    * @public
    */
   provider: Provider | undefined;
@@ -4573,6 +5119,30 @@ export interface CreatePentestInput {
    * @public
    */
   maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
+
+  /**
+   * <p>The CI/CD pentesting configuration to apply to the pentest.</p>
+   * @public
+   */
+  cicdConfiguration?: CiCdConfiguration | undefined;
+
+  /**
+   * <p>The category of application a pentest targets.</p>
+   * @public
+   */
+  testScope?: TestScope | undefined;
 }
 
 /**
@@ -4633,6 +5203,30 @@ export interface CreatePentestOutput {
    * @public
    */
   agentSpaceId?: string | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
+
+  /**
+   * <p>The CI/CD pentesting configuration applied to the pentest.</p>
+   * @public
+   */
+  cicdConfiguration?: CiCdConfiguration | undefined;
+
+  /**
+   * <p>The category of application a pentest targets.</p>
+   * @public
+   */
+  testScope?: TestScope | undefined;
 }
 
 /**
@@ -5225,36 +5819,6 @@ export interface CreateThreatOutput {
 }
 
 /**
- * <p>Destination for publishing scan reports to an integrated document provider.</p>
- * @public
- */
-export interface ReportDestination {
-  /**
-   * <p>The integration identifier for the document provider.</p>
-   * @public
-   */
-  integrationId: string | undefined;
-
-  /**
-   * <p>The container identifier where the report will be published.</p>
-   * @public
-   */
-  containerId: string | undefined;
-
-  /**
-   * <p>The parent document identifier under which the report will be created.</p>
-   * @public
-   */
-  parentId?: string | undefined;
-
-  /**
-   * <p>The existing document identifier to update instead of creating a new document.</p>
-   * @public
-   */
-  documentId?: string | undefined;
-}
-
-/**
  * <p>Input for creating a new threat model.</p>
  * @public
  */
@@ -5372,6 +5936,12 @@ export interface CreateThreatModelOutput {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
 }
 
 /**
@@ -5939,6 +6509,12 @@ export interface GetIntegrationOutput {
   targetUrl?: string | undefined;
 
   /**
+   * <p>The payload URL of the integration's webhook, once it has been created. The signing secret is never returned on a read.</p>
+   * @public
+   */
+  webhookUrl?: string | undefined;
+
+  /**
    * <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
    * @public
    */
@@ -6075,6 +6651,12 @@ export interface GitHubRepositoryResource {
  */
 export interface GitHubResourceCapabilities {
   /**
+   * <p>The filter groups that control which pull request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * @public
+   */
+  triggerFilterGroups?: TriggerFilterGroup[] | undefined;
+
+  /**
    * <p>Indicates whether the integration can leave comments on pull requests.</p>
    * @public
    */
@@ -6140,6 +6722,12 @@ export interface GitLabRepositoryResource {
  * @public
  */
 export interface GitLabResourceCapabilities {
+  /**
+   * <p>The filter groups that control which merge request events start an automatic code review when <code>leaveComments</code> is enabled. A review starts when any group matches. If you omit this, a review starts on <code>PULL_REQUEST_READY_FOR_REVIEW</code> events.</p>
+   * @public
+   */
+  triggerFilterGroups?: TriggerFilterGroup[] | undefined;
+
   /**
    * <p>Whether to post code review comments on merge request discussions.</p>
    * @public
@@ -6255,10 +6843,34 @@ export interface ImportSecurityRequirementsOutput {
  */
 export interface InitiateProviderRegistrationInput {
   /**
-   * <p>The provider to initiate registration with. Currently, only GITHUB is supported.</p>
+   * <p>The provider to initiate registration with.</p>
    * @public
    */
   provider: Provider | undefined;
+
+  /**
+   * <p>The HTTPS URL of a self-managed provider instance. Omit for SaaS providers.</p>
+   * @public
+   */
+  targetUrl?: string | undefined;
+
+  /**
+   * <p>The name of the organization to connect.</p>
+   * @public
+   */
+  organizationName?: string | undefined;
+
+  /**
+   * <p>The client ID of the OAuth application registered on your self-managed provider instance.</p>
+   * @public
+   */
+  clientId?: string | undefined;
+
+  /**
+   * <p>The client secret of the OAuth application registered on your self-managed provider instance.</p>
+   * @public
+   */
+  clientSecret?: string | undefined;
 }
 
 /**
@@ -6283,6 +6895,7 @@ export interface InitiateProviderRegistrationOutput {
  * @public
  */
 export type IntegratedResource =
+  | IntegratedResource.AzureDevOpsRepositoryMember
   | IntegratedResource.BitbucketRepositoryMember
   | IntegratedResource.ConfluenceDocumentMember
   | IntegratedResource.GithubRepositoryMember
@@ -6302,6 +6915,7 @@ export namespace IntegratedResource {
     gitlabRepository?: never;
     bitbucketRepository?: never;
     confluenceDocument?: never;
+    azureDevOpsRepository?: never;
     $unknown?: never;
   }
 
@@ -6314,6 +6928,7 @@ export namespace IntegratedResource {
     gitlabRepository: GitLabRepositoryResource;
     bitbucketRepository?: never;
     confluenceDocument?: never;
+    azureDevOpsRepository?: never;
     $unknown?: never;
   }
 
@@ -6326,6 +6941,7 @@ export namespace IntegratedResource {
     gitlabRepository?: never;
     bitbucketRepository: BitbucketRepositoryResource;
     confluenceDocument?: never;
+    azureDevOpsRepository?: never;
     $unknown?: never;
   }
 
@@ -6338,6 +6954,20 @@ export namespace IntegratedResource {
     gitlabRepository?: never;
     bitbucketRepository?: never;
     confluenceDocument: ConfluenceDocumentResource;
+    azureDevOpsRepository?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Azure DevOps repository resource information.</p>
+   * @public
+   */
+  export interface AzureDevOpsRepositoryMember {
+    githubRepository?: never;
+    gitlabRepository?: never;
+    bitbucketRepository?: never;
+    confluenceDocument?: never;
+    azureDevOpsRepository: AzureDevOpsRepositoryResource;
     $unknown?: never;
   }
 
@@ -6349,6 +6979,7 @@ export namespace IntegratedResource {
     gitlabRepository?: never;
     bitbucketRepository?: never;
     confluenceDocument?: never;
+    azureDevOpsRepository?: never;
     $unknown: [string, any];
   }
 
@@ -6361,6 +6992,7 @@ export namespace IntegratedResource {
     gitlabRepository: (value: GitLabRepositoryResource) => T;
     bitbucketRepository: (value: BitbucketRepositoryResource) => T;
     confluenceDocument: (value: ConfluenceDocumentResource) => T;
+    azureDevOpsRepository: (value: AzureDevOpsRepositoryResource) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6370,6 +7002,7 @@ export namespace IntegratedResource {
  * @public
  */
 export type ProviderResourceCapabilities =
+  | ProviderResourceCapabilities.AzureDevOpsMember
   | ProviderResourceCapabilities.BitbucketMember
   | ProviderResourceCapabilities.ConfluenceMember
   | ProviderResourceCapabilities.GithubMember
@@ -6389,6 +7022,7 @@ export namespace ProviderResourceCapabilities {
     gitlab?: never;
     bitbucket?: never;
     confluence?: never;
+    azureDevOps?: never;
     $unknown?: never;
   }
 
@@ -6401,6 +7035,7 @@ export namespace ProviderResourceCapabilities {
     gitlab: GitLabResourceCapabilities;
     bitbucket?: never;
     confluence?: never;
+    azureDevOps?: never;
     $unknown?: never;
   }
 
@@ -6413,6 +7048,7 @@ export namespace ProviderResourceCapabilities {
     gitlab?: never;
     bitbucket: BitbucketResourceCapabilities;
     confluence?: never;
+    azureDevOps?: never;
     $unknown?: never;
   }
 
@@ -6425,6 +7061,20 @@ export namespace ProviderResourceCapabilities {
     gitlab?: never;
     bitbucket?: never;
     confluence: ConfluenceResourceCapabilities;
+    azureDevOps?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Azure DevOps-specific resource capabilities.</p>
+   * @public
+   */
+  export interface AzureDevOpsMember {
+    github?: never;
+    gitlab?: never;
+    bitbucket?: never;
+    confluence?: never;
+    azureDevOps: AzureDevOpsResourceCapabilities;
     $unknown?: never;
   }
 
@@ -6436,6 +7086,7 @@ export namespace ProviderResourceCapabilities {
     gitlab?: never;
     bitbucket?: never;
     confluence?: never;
+    azureDevOps?: never;
     $unknown: [string, any];
   }
 
@@ -6448,6 +7099,7 @@ export namespace ProviderResourceCapabilities {
     gitlab: (value: GitLabResourceCapabilities) => T;
     bitbucket: (value: BitbucketResourceCapabilities) => T;
     confluence: (value: ConfluenceResourceCapabilities) => T;
+    azureDevOps: (value: AzureDevOpsResourceCapabilities) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6475,6 +7127,7 @@ export interface IntegratedResourceInputItem {
  * @public
  */
 export type IntegratedResourceMetadata =
+  | IntegratedResourceMetadata.AzureDevOpsRepositoryMember
   | IntegratedResourceMetadata.BitbucketRepositoryMember
   | IntegratedResourceMetadata.ConfluenceDocumentMember
   | IntegratedResourceMetadata.GithubRepositoryMember
@@ -6494,6 +7147,7 @@ export namespace IntegratedResourceMetadata {
     gitlabRepository?: never;
     bitbucketRepository?: never;
     confluenceDocument?: never;
+    azureDevOpsRepository?: never;
     $unknown?: never;
   }
 
@@ -6506,6 +7160,7 @@ export namespace IntegratedResourceMetadata {
     gitlabRepository: GitLabRepositoryMetadata;
     bitbucketRepository?: never;
     confluenceDocument?: never;
+    azureDevOpsRepository?: never;
     $unknown?: never;
   }
 
@@ -6518,6 +7173,7 @@ export namespace IntegratedResourceMetadata {
     gitlabRepository?: never;
     bitbucketRepository: BitbucketRepositoryMetadata;
     confluenceDocument?: never;
+    azureDevOpsRepository?: never;
     $unknown?: never;
   }
 
@@ -6530,6 +7186,20 @@ export namespace IntegratedResourceMetadata {
     gitlabRepository?: never;
     bitbucketRepository?: never;
     confluenceDocument: ConfluenceDocumentMetadata;
+    azureDevOpsRepository?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Azure DevOps repository metadata.</p>
+   * @public
+   */
+  export interface AzureDevOpsRepositoryMember {
+    githubRepository?: never;
+    gitlabRepository?: never;
+    bitbucketRepository?: never;
+    confluenceDocument?: never;
+    azureDevOpsRepository: AzureDevOpsRepositoryMetadata;
     $unknown?: never;
   }
 
@@ -6541,6 +7211,7 @@ export namespace IntegratedResourceMetadata {
     gitlabRepository?: never;
     bitbucketRepository?: never;
     confluenceDocument?: never;
+    azureDevOpsRepository?: never;
     $unknown: [string, any];
   }
 
@@ -6553,6 +7224,7 @@ export namespace IntegratedResourceMetadata {
     gitlabRepository: (value: GitLabRepositoryMetadata) => T;
     bitbucketRepository: (value: BitbucketRepositoryMetadata) => T;
     confluenceDocument: (value: ConfluenceDocumentMetadata) => T;
+    azureDevOpsRepository: (value: AzureDevOpsRepositoryMetadata) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6699,6 +7371,12 @@ export interface IntegrationSummary {
   targetUrl?: string | undefined;
 
   /**
+   * <p>The payload URL of the integration's webhook, once it has been created. The signing secret is never returned on a read.</p>
+   * @public
+   */
+  webhookUrl?: string | undefined;
+
+  /**
    * <p>The name of the private connection used to reach the integration's self-hosted instance over private networking, if one is configured.</p>
    * @public
    */
@@ -6714,6 +7392,100 @@ export interface ListIntegrationsOutput {
    * @public
    */
   integrationSummaries: IntegrationSummary[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Input for creating or rotating an integration's webhook.</p>
+ * @public
+ */
+export interface UpdateIntegrationInput {
+  /**
+   * <p>The ID of the integration whose webhook you want to create or rotate.</p>
+   * @public
+   */
+  integrationId: string | undefined;
+
+  /**
+   * <p>The action to perform on the integration's webhook.</p>
+   * @public
+   */
+  webhookAction: WebhookAction | undefined;
+}
+
+/**
+ * <p>Output for the UpdateIntegration operation.</p>
+ * @public
+ */
+export interface UpdateIntegrationOutput {
+  /**
+   * <p>The ID of the integration.</p>
+   * @public
+   */
+  integrationId: string | undefined;
+
+  /**
+   * <p>The payload URL to configure on your provider instance. Returned when a webhook is created; unchanged by a rotate.</p>
+   * @public
+   */
+  webhookUrl?: string | undefined;
+
+  /**
+   * <p>The HMAC signing secret for the webhook. Returned only once, in this response; it is never returned again.</p>
+   * @public
+   */
+  secret?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListActorMessagesInput {
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that owns the pentest.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the pentest that the actor belongs to.</p>
+   * @public
+   */
+  pentestId: string | undefined;
+
+  /**
+   * <p>The identifier of the actor whose messages to list. The identifier is case-insensitive.</p>
+   * @public
+   */
+  actorIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListActorMessagesOutput {
+  /**
+   * <p>The list of messages received for the actor, most recent first.</p>
+   * @public
+   */
+  messages?: ActorMessage[] | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the nextToken value returned from the previous request.</p>
@@ -7307,6 +8079,12 @@ export interface ListPentestJobsForPentestInput {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>Filters the returned pentest jobs to only those of the specified job type.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
 }
 
 /**
@@ -7349,6 +8127,18 @@ export interface PentestJobSummary {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The type of the pentest job. Valid values are FULL, REVALIDATION, and CICD.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
+
+  /**
+   * <p>The URL to view this pentest job's findings report in the console.</p>
+   * @public
+   */
+  reportUrl?: string | undefined;
 }
 
 /**
@@ -8619,7 +9409,7 @@ export interface StartPentestJobInput {
   pentestId: string | undefined;
 
   /**
-   * <p>The type of pentest job to start. Valid values are FULL and REVALIDATION. When set to REVALIDATION, the selectedFindingIds parameter is required.</p>
+   * <p>The type of pentest job to start. Valid values are FULL, REVALIDATION, and CICD. When set to REVALIDATION, the selectedFindingIds parameter is required. When set to CICD, the scopeChanges parameter defines the code changes to test.</p>
    * @public
    */
   jobType?: JobType | undefined;
@@ -8629,6 +9419,12 @@ export interface StartPentestJobInput {
    * @public
    */
   selectedFindingIds?: string[] | undefined;
+
+  /**
+   * <p>The code changes that define the scope of a CI/CD pentest job. Provide this when starting a job with jobType CICD to test only the changes in the current pipeline run.</p>
+   * @public
+   */
+  scopeChanges?: ScopeChange[] | undefined;
 }
 
 /**
@@ -8989,734 +9785,16 @@ export interface UpdateCodeReviewInput {
    * @public
    */
   maxTaskHours?: number | undefined;
-}
 
-/**
- * <p>Output for the UpdateCodeReview operation.</p>
- * @public
- */
-export interface UpdateCodeReviewOutput {
   /**
-   * <p>The unique identifier of the code review.</p>
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
    * @public
    */
-  codeReviewId: string | undefined;
+  reportDestination?: ReportDestination | undefined;
 
   /**
-   * <p>The title of the code review.</p>
+   * <p>The report-generation filters applied when the report is exported.</p>
    * @public
    */
-  title?: string | undefined;
-
-  /**
-   * <p>The date and time the code review was created, in UTC format.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the code review was last updated, in UTC format.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The assets included in the code review.</p>
-   * @public
-   */
-  assets?: Assets | undefined;
-
-  /**
-   * <p>The IAM service role used for the code review.</p>
-   * @public
-   */
-  serviceRole?: string | undefined;
-
-  /**
-   * <p>The CloudWatch Logs configuration for the code review.</p>
-   * @public
-   */
-  logConfig?: CloudWatchLog | undefined;
-
-  /**
-   * <p>The unique identifier of the agent space that contains the code review.</p>
-   * @public
-   */
-  agentSpaceId?: string | undefined;
-
-  /**
-   * <p>The code remediation strategy for the code review.</p>
-   * @public
-   */
-  codeRemediationStrategy?: CodeRemediationStrategy | undefined;
-
-  /**
-   * <p>The validation mode for the code review.</p>
-   * @public
-   */
-  validationMode?: ValidationMode | undefined;
-
-  /**
-   * <p>The maximum number of billable task hours configured for jobs started from this code review. Null if no budget cap is set.</p>
-   * @public
-   */
-  maxTaskHours?: number | undefined;
-}
-
-/**
- * <p>Input for updating an existing security finding.</p>
- * @public
- */
-export interface UpdateFindingInput {
-  /**
-   * <p>The unique identifier of the finding to update.</p>
-   * @public
-   */
-  findingId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the agent space that contains the finding.</p>
-   * @public
-   */
-  agentSpaceId: string | undefined;
-
-  /**
-   * <p>The updated name for the finding.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The updated description for the finding.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The updated risk type for the finding.</p>
-   * @public
-   */
-  riskType?: string | undefined;
-
-  /**
-   * <p>The updated risk level for the finding.</p>
-   * @public
-   */
-  riskLevel?: RiskLevel | undefined;
-
-  /**
-   * <p>The updated numerical risk score for the finding.</p>
-   * @public
-   */
-  riskScore?: string | undefined;
-
-  /**
-   * <p>The updated attack script for the finding.</p>
-   * @public
-   */
-  attackScript?: string | undefined;
-
-  /**
-   * <p>The updated reasoning for the finding.</p>
-   * @public
-   */
-  reasoning?: string | undefined;
-
-  /**
-   * <p>The updated status for the finding.</p>
-   * @public
-   */
-  status?: FindingStatus | undefined;
-
-  /**
-   * <p>A customer-provided note on the finding.</p>
-   * @public
-   */
-  customerNote?: string | undefined;
-}
-
-/**
- * <p>Output for the UpdateFinding operation.</p>
- * @public
- */
-export interface UpdateFindingOutput {}
-
-/**
- * @public
- */
-export interface UpdateIntegratedResourcesInput {
-  /**
-   * <p>The unique identifier of the agent space.</p>
-   * @public
-   */
-  agentSpaceId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the integration.</p>
-   * @public
-   */
-  integrationId: string | undefined;
-
-  /**
-   * <p>The list of integrated resource items to update.</p>
-   * @public
-   */
-  items: IntegratedResourceInputItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIntegratedResourcesOutput {}
-
-/**
- * <p>Input for updating an existing pentest.</p>
- * @public
- */
-export interface UpdatePentestInput {
-  /**
-   * <p>The unique identifier of the pentest to update.</p>
-   * @public
-   */
-  pentestId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the agent space that contains the pentest.</p>
-   * @public
-   */
-  agentSpaceId: string | undefined;
-
-  /**
-   * <p>The updated title of the pentest.</p>
-   * @public
-   */
-  title?: string | undefined;
-
-  /**
-   * <p>The updated assets for the pentest.</p>
-   * @public
-   */
-  assets?: Assets | undefined;
-
-  /**
-   * <p>The updated list of risk types to exclude from the pentest.</p>
-   * @public
-   */
-  excludeRiskTypes?: RiskType[] | undefined;
-
-  /**
-   * <p>The updated IAM service role for the pentest.</p>
-   * @public
-   */
-  serviceRole?: string | undefined;
-
-  /**
-   * <p>The updated CloudWatch Logs configuration for the pentest.</p>
-   * @public
-   */
-  logConfig?: CloudWatchLog | undefined;
-
-  /**
-   * <p>The updated VPC configuration for the pentest.</p>
-   * @public
-   */
-  vpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>The updated network traffic configuration for the pentest.</p>
-   * @public
-   */
-  networkTrafficConfig?: NetworkTrafficConfig | undefined;
-
-  /**
-   * <p>The updated code remediation strategy for the pentest.</p>
-   * @public
-   */
-  codeRemediationStrategy?: CodeRemediationStrategy | undefined;
-
-  /**
-   * <p>The updated list of managed skills to disable for this pentest. Valid values include FINDING_PERSONALIZATION and LOGIN_OPTIMIZATION.</p>
-   * @public
-   */
-  disableManagedSkills?: SkillType[] | undefined;
-
-  /**
-   * <p>The updated maximum number of billable task hours allowed for jobs started from this pentest.</p>
-   * @public
-   */
-  maxTaskHours?: number | undefined;
-}
-
-/**
- * <p>Output for the UpdatePentest operation.</p>
- * @public
- */
-export interface UpdatePentestOutput {
-  /**
-   * <p>The unique identifier of the pentest.</p>
-   * @public
-   */
-  pentestId?: string | undefined;
-
-  /**
-   * <p>The title of the pentest.</p>
-   * @public
-   */
-  title?: string | undefined;
-
-  /**
-   * <p>The date and time the pentest was created, in UTC format.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the pentest was last updated, in UTC format.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The assets included in the pentest.</p>
-   * @public
-   */
-  assets?: Assets | undefined;
-
-  /**
-   * <p>The list of risk types excluded from the pentest.</p>
-   * @public
-   */
-  excludeRiskTypes?: RiskType[] | undefined;
-
-  /**
-   * <p>The IAM service role used for the pentest.</p>
-   * @public
-   */
-  serviceRole?: string | undefined;
-
-  /**
-   * <p>The CloudWatch Logs configuration for the pentest.</p>
-   * @public
-   */
-  logConfig?: CloudWatchLog | undefined;
-
-  /**
-   * <p>The unique identifier of the agent space that contains the pentest.</p>
-   * @public
-   */
-  agentSpaceId?: string | undefined;
-}
-
-/**
- * <p>Input for updating an existing threat.</p>
- * @public
- */
-export interface UpdateThreatInput {
-  /**
-   * <p>The unique identifier of the threat to update.</p>
-   * @public
-   */
-  threatId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the agent space.</p>
-   * @public
-   */
-  agentSpaceId: string | undefined;
-
-  /**
-   * <p>A short title summarizing the threat.</p>
-   * @public
-   */
-  title?: string | undefined;
-
-  /**
-   * <p>The updated status of the threat.</p>
-   * @public
-   */
-  status?: ThreatStatus | undefined;
-
-  /**
-   * <p>Optional customer comment.</p>
-   * @public
-   */
-  comments?: string | undefined;
-
-  /**
-   * <p>The updated natural-language threat statement.</p>
-   * @public
-   */
-  statement?: string | undefined;
-
-  /**
-   * <p>The updated severity level of the threat.</p>
-   * @public
-   */
-  severity?: ThreatSeverity | undefined;
-
-  /**
-   * <p>The updated actor or origin of the threat.</p>
-   * @public
-   */
-  threatSource?: string | undefined;
-
-  /**
-   * <p>The updated conditions required for the threat to be exploitable.</p>
-   * @public
-   */
-  prerequisites?: string | undefined;
-
-  /**
-   * <p>The updated description of what the threat source can do.</p>
-   * @public
-   */
-  threatAction?: string | undefined;
-
-  /**
-   * <p>The updated direct consequence of the threat action.</p>
-   * @public
-   */
-  threatImpact?: string | undefined;
-
-  /**
-   * <p>The updated security goals affected by the threat.</p>
-   * @public
-   */
-  impactedGoal?: string[] | undefined;
-
-  /**
-   * <p>The updated list of specific assets affected by the threat.</p>
-   * @public
-   */
-  impactedAssets?: string[] | undefined;
-
-  /**
-   * <p>The updated DFD element this threat is anchored to.</p>
-   * @public
-   */
-  anchor?: ThreatAnchorShape | undefined;
-
-  /**
-   * <p>The updated source code files supporting the threat.</p>
-   * @public
-   */
-  evidence?: ThreatEvidenceShape[] | undefined;
-
-  /**
-   * <p>The updated recommended mitigation guidance for this threat.</p>
-   * @public
-   */
-  recommendation?: string | undefined;
-}
-
-/**
- * <p>Output for the UpdateThreat operation.</p>
- * @public
- */
-export interface UpdateThreatOutput {
-  /**
-   * <p>The unique identifier of the threat.</p>
-   * @public
-   */
-  threatId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the threat model job the threat belongs to.</p>
-   * @public
-   */
-  threatJobId: string | undefined;
-
-  /**
-   * <p>A short title summarizing the threat.</p>
-   * @public
-   */
-  title?: string | undefined;
-
-  /**
-   * <p>The natural-language threat statement.</p>
-   * @public
-   */
-  statement?: string | undefined;
-
-  /**
-   * <p>The severity level of the threat.</p>
-   * @public
-   */
-  severity?: ThreatSeverity | undefined;
-
-  /**
-   * <p>The current status of the threat.</p>
-   * @public
-   */
-  status?: ThreatStatus | undefined;
-
-  /**
-   * <p>Optional customer comment on the threat.</p>
-   * @public
-   */
-  comments?: string | undefined;
-
-  /**
-   * <p>The STRIDE categories applicable to this threat.</p>
-   * @public
-   */
-  stride?: StrideCategory[] | undefined;
-
-  /**
-   * <p>The actor or origin of the threat.</p>
-   * @public
-   */
-  threatSource?: string | undefined;
-
-  /**
-   * <p>The conditions required for the threat to be exploitable.</p>
-   * @public
-   */
-  prerequisites?: string | undefined;
-
-  /**
-   * <p>What the threat source can do.</p>
-   * @public
-   */
-  threatAction?: string | undefined;
-
-  /**
-   * <p>The direct consequence of the threat action.</p>
-   * @public
-   */
-  threatImpact?: string | undefined;
-
-  /**
-   * <p>The security goals affected by the threat.</p>
-   * @public
-   */
-  impactedGoal?: string[] | undefined;
-
-  /**
-   * <p>The specific assets affected by the threat.</p>
-   * @public
-   */
-  impactedAssets?: string[] | undefined;
-
-  /**
-   * <p>The DFD element this threat is anchored to.</p>
-   * @public
-   */
-  anchor?: ThreatAnchorShape | undefined;
-
-  /**
-   * <p>The source code files supporting the threat.</p>
-   * @public
-   */
-  evidence?: ThreatEvidenceShape[] | undefined;
-
-  /**
-   * <p>The recommended mitigation guidance for this threat.</p>
-   * @public
-   */
-  recommendation?: string | undefined;
-
-  /**
-   * <p>Who created this threat.</p>
-   * @public
-   */
-  createdBy?: ThreatActor | undefined;
-
-  /**
-   * <p>Who last updated this threat.</p>
-   * @public
-   */
-  updatedBy?: ThreatActor | undefined;
-
-  /**
-   * <p>The date and time the threat was created, in UTC format.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the threat was last updated, in UTC format.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-}
-
-/**
- * <p>Input for updating an existing threat model.</p>
- * @public
- */
-export interface UpdateThreatModelInput {
-  /**
-   * <p>The unique identifier of the threat model to update.</p>
-   * @public
-   */
-  threatModelId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the agent space that contains the threat model.</p>
-   * @public
-   */
-  agentSpaceId: string | undefined;
-
-  /**
-   * <p>The updated title of the threat model.</p>
-   * @public
-   */
-  title?: string | undefined;
-
-  /**
-   * <p>The updated description of the application or system being threat modeled.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The updated assets for the threat model.</p>
-   * @public
-   */
-  assets?: Assets | undefined;
-
-  /**
-   * <p>The updated scoped documents for the agent to focus on during threat modeling.</p>
-   * @public
-   */
-  scopeDocs?: DocumentInfo[] | undefined;
-
-  /**
-   * <p>The updated IAM service role for the threat model.</p>
-   * @public
-   */
-  serviceRole?: string | undefined;
-
-  /**
-   * <p>The updated CloudWatch Logs configuration for the threat model.</p>
-   * @public
-   */
-  logConfig?: CloudWatchLog | undefined;
-}
-
-/**
- * <p>Output for the UpdateThreatModel operation.</p>
- * @public
- */
-export interface UpdateThreatModelOutput {
-  /**
-   * <p>The unique identifier of the threat model.</p>
-   * @public
-   */
-  threatModelId: string | undefined;
-
-  /**
-   * <p>The title of the threat model.</p>
-   * @public
-   */
-  title?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the agent space that contains the threat model.</p>
-   * @public
-   */
-  agentSpaceId?: string | undefined;
-
-  /**
-   * <p>A description of the application or system being threat modeled.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The assets included in the threat model.</p>
-   * @public
-   */
-  assets?: Assets | undefined;
-
-  /**
-   * <p>The scoped documents for the agent to focus on during threat modeling.</p>
-   * @public
-   */
-  scopeDocs?: DocumentInfo[] | undefined;
-
-  /**
-   * <p>The IAM service role used for the threat model.</p>
-   * @public
-   */
-  serviceRole?: string | undefined;
-
-  /**
-   * <p>The CloudWatch Logs configuration for the threat model.</p>
-   * @public
-   */
-  logConfig?: CloudWatchLog | undefined;
-
-  /**
-   * <p>The date and time the threat model was created, in UTC format.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the threat model was last updated, in UTC format.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-}
-
-/**
- * <p>Input for verifying ownership for a registered target domain in an agent space.</p>
- * @public
- */
-export interface VerifyTargetDomainInput {
-  /**
-   * <p>The unique identifier of the target domain to verify.</p>
-   * @public
-   */
-  targetDomainId: string | undefined;
-}
-
-/**
- * <p>Output for verifying ownership for a registered target domain in an agent space.</p>
- * @public
- */
-export interface VerifyTargetDomainOutput {
-  /**
-   * <p>The unique identifier of the target domain.</p>
-   * @public
-   */
-  targetDomainId?: string | undefined;
-
-  /**
-   * <p>The domain name of the target domain.</p>
-   * @public
-   */
-  domainName?: string | undefined;
-
-  /**
-   * <p>The date and time the target domain was created, in UTC format.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the target domain was last updated, in UTC format.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The date and time the target domain was verified, in UTC format.</p>
-   * @public
-   */
-  verifiedAt?: Date | undefined;
-
-  /**
-   * <p>The verification status of the target domain.</p>
-   * @public
-   */
-  status?: TargetDomainStatus | undefined;
-
-  /**
-   * <p>The reason for the current target domain verification status.</p>
-   * @public
-   */
-  verificationStatusReason?: string | undefined;
+  reportFilters?: ReportFilters | undefined;
 }

@@ -8,6 +8,7 @@ import { KafkaServiceException as __BaseException } from "./KafkaServiceExceptio
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -41,6 +42,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -74,6 +76,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#InternalServerErrorException";
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -107,6 +110,7 @@ export class InternalServerErrorException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -140,6 +144,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#ServiceUnavailableException";
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
@@ -173,6 +178,7 @@ export class ServiceUnavailableException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -206,6 +212,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -239,6 +246,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class ClusterConnectivityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#ClusterConnectivityException";
   readonly name = "ClusterConnectivityException" as const;
   readonly $fault = "client" as const;
   /**
@@ -272,6 +280,7 @@ export class ClusterConnectivityException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -305,6 +314,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ControllerMovedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#ControllerMovedException";
   readonly name = "ControllerMovedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -338,6 +348,7 @@ export class ControllerMovedException extends __BaseException {
  * @public
  */
 export class GroupSubscribedToTopicException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#GroupSubscribedToTopicException";
   readonly name = "GroupSubscribedToTopicException" as const;
   readonly $fault = "client" as const;
   /**
@@ -371,6 +382,7 @@ export class GroupSubscribedToTopicException extends __BaseException {
  * @public
  */
 export class KafkaRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#KafkaRequestException";
   readonly name = "KafkaRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -404,6 +416,7 @@ export class KafkaRequestException extends __BaseException {
  * @public
  */
 export class KafkaTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#KafkaTimeoutException";
   readonly name = "KafkaTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
@@ -437,6 +450,7 @@ export class KafkaTimeoutException extends __BaseException {
  * @public
  */
 export class NotControllerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#NotControllerException";
   readonly name = "NotControllerException" as const;
   readonly $fault = "client" as const;
   /**
@@ -470,6 +484,7 @@ export class NotControllerException extends __BaseException {
  * @public
  */
 export class ReassignmentInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#ReassignmentInProgressException";
   readonly name = "ReassignmentInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -503,6 +518,7 @@ export class ReassignmentInProgressException extends __BaseException {
  * @public
  */
 export class TopicExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#TopicExistsException";
   readonly name = "TopicExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -536,6 +552,7 @@ export class TopicExistsException extends __BaseException {
  * @public
  */
 export class UnknownTopicOrPartitionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.kafka#UnknownTopicOrPartitionException";
   readonly name = "UnknownTopicOrPartitionException" as const;
   readonly $fault = "client" as const;
   /**

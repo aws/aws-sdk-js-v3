@@ -116,6 +116,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * //     EncryptionAtRestOptions: { // EncryptionAtRestOptions
  * //       Enabled: true || false,
  * //       KmsKeyId: "STRING_VALUE",
+ * //       EncryptionMode: "DISK" || "NATIVE",
  * //     },
  * //     NodeToNodeEncryptionOptions: { // NodeToNodeEncryptionOptions
  * //       Enabled: true || false,

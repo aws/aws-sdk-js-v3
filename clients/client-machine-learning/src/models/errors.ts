@@ -8,6 +8,7 @@ import { MachineLearningServiceException as __BaseException } from "./MachineLea
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.machinelearning#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   code?: number | undefined;
@@ -30,6 +31,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.machinelearning#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   code?: number | undefined;
@@ -51,6 +53,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class InvalidTagException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.machinelearning#InvalidTagException";
   readonly name = "InvalidTagException" as const;
   readonly $fault = "client" as const;
   /**
@@ -71,6 +74,7 @@ export class InvalidTagException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.machinelearning#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   code?: number | undefined;
@@ -92,6 +96,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class TagLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.machinelearning#TagLimitExceededException";
   readonly name = "TagLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -112,6 +117,7 @@ export class TagLimitExceededException extends __BaseException {
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.machinelearning#IdempotentParameterMismatchException";
   readonly name = "IdempotentParameterMismatchException" as const;
   readonly $fault = "client" as const;
   code?: number | undefined;
@@ -134,6 +140,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.machinelearning#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   code?: number | undefined;
@@ -156,6 +163,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class PredictorNotMountedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.machinelearning#PredictorNotMountedException";
   readonly name = "PredictorNotMountedException" as const;
   readonly $fault = "client" as const;
   /**

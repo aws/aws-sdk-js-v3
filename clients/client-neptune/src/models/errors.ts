@@ -9,6 +9,7 @@ import { NeptuneServiceException as __BaseException } from "./NeptuneServiceExce
  * @public
  */
 export class DBClusterNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterNotFoundFault";
   readonly name = "DBClusterNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class DBClusterNotFoundFault extends __BaseException {
  * @public
  */
 export class DBClusterRoleAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterRoleAlreadyExistsFault";
   readonly name = "DBClusterRoleAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -49,6 +51,7 @@ export class DBClusterRoleAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBClusterRoleQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterRoleQuotaExceededFault";
   readonly name = "DBClusterRoleQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -69,6 +72,7 @@ export class DBClusterRoleQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InvalidDBClusterStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidDBClusterStateFault";
   readonly name = "InvalidDBClusterStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class InvalidDBClusterStateFault extends __BaseException {
  * @public
  */
 export class SourceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#SourceNotFoundFault";
   readonly name = "SourceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class SourceNotFoundFault extends __BaseException {
  * @public
  */
 export class SubscriptionNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#SubscriptionNotFoundFault";
   readonly name = "SubscriptionNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -130,6 +136,7 @@ export class SubscriptionNotFoundFault extends __BaseException {
  * @public
  */
 export class DBInstanceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBInstanceNotFoundFault";
   readonly name = "DBInstanceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -151,6 +158,7 @@ export class DBInstanceNotFoundFault extends __BaseException {
  * @public
  */
 export class DBSnapshotNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBSnapshotNotFoundFault";
   readonly name = "DBSnapshotNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -171,6 +179,7 @@ export class DBSnapshotNotFoundFault extends __BaseException {
  * @public
  */
 export class ResourceNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#ResourceNotFoundFault";
   readonly name = "ResourceNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -191,6 +200,7 @@ export class ResourceNotFoundFault extends __BaseException {
  * @public
  */
 export class DBParameterGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBParameterGroupAlreadyExistsFault";
   readonly name = "DBParameterGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -213,6 +223,7 @@ export class DBParameterGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBParameterGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBParameterGroupNotFoundFault";
   readonly name = "DBParameterGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -233,6 +244,7 @@ export class DBParameterGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class DBParameterGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBParameterGroupQuotaExceededFault";
   readonly name = "DBParameterGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -253,6 +265,7 @@ export class DBParameterGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBClusterSnapshotAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterSnapshotAlreadyExistsFault";
   readonly name = "DBClusterSnapshotAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -275,6 +288,7 @@ export class DBClusterSnapshotAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBClusterSnapshotNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault";
   readonly name = "DBClusterSnapshotNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -295,6 +309,7 @@ export class DBClusterSnapshotNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidDBClusterSnapshotStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault";
   readonly name = "InvalidDBClusterSnapshotStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -315,6 +330,7 @@ export class InvalidDBClusterSnapshotStateFault extends __BaseException {
  * @public
  */
 export class KMSKeyNotAccessibleFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#KMSKeyNotAccessibleFault";
   readonly name = "KMSKeyNotAccessibleFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -335,6 +351,7 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
  * @public
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#SnapshotQuotaExceededFault";
   readonly name = "SnapshotQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -355,6 +372,7 @@ export class SnapshotQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBClusterAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterAlreadyExistsFault";
   readonly name = "DBClusterAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -377,6 +395,7 @@ export class DBClusterAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBClusterParameterGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterParameterGroupNotFoundFault";
   readonly name = "DBClusterParameterGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -397,6 +416,7 @@ export class DBClusterParameterGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class DBClusterQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterQuotaExceededFault";
   readonly name = "DBClusterQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -418,6 +438,7 @@ export class DBClusterQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBSubnetGroupDoesNotCoverEnoughAZs";
   readonly name = "DBSubnetGroupDoesNotCoverEnoughAZs" as const;
   readonly $fault = "client" as const;
   /**
@@ -440,6 +461,7 @@ export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
  * @public
  */
 export class DBSubnetGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBSubnetGroupNotFoundFault";
   readonly name = "DBSubnetGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -460,6 +482,7 @@ export class DBSubnetGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class GlobalClusterNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#GlobalClusterNotFoundFault";
   readonly name = "GlobalClusterNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -482,6 +505,7 @@ export class GlobalClusterNotFoundFault extends __BaseException {
  * @public
  */
 export class InsufficientStorageClusterCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InsufficientStorageClusterCapacityFault";
   readonly name = "InsufficientStorageClusterCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -502,6 +526,7 @@ export class InsufficientStorageClusterCapacityFault extends __BaseException {
  * @public
  */
 export class InvalidDBInstanceStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidDBInstanceStateFault";
   readonly name = "InvalidDBInstanceStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -522,6 +547,7 @@ export class InvalidDBInstanceStateFault extends __BaseException {
  * @public
  */
 export class InvalidDBSubnetGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidDBSubnetGroupStateFault";
   readonly name = "InvalidDBSubnetGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -542,6 +568,7 @@ export class InvalidDBSubnetGroupStateFault extends __BaseException {
  * @public
  */
 export class InvalidGlobalClusterStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidGlobalClusterStateFault";
   readonly name = "InvalidGlobalClusterStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -563,6 +590,7 @@ export class InvalidGlobalClusterStateFault extends __BaseException {
  * @public
  */
 export class InvalidSubnet extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidSubnet";
   readonly name = "InvalidSubnet" as const;
   readonly $fault = "client" as const;
   /**
@@ -584,6 +612,7 @@ export class InvalidSubnet extends __BaseException {
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidVPCNetworkStateFault";
   readonly name = "InvalidVPCNetworkStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -604,6 +633,7 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
  * @public
  */
 export class NetworkTypeNotSupportedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#NetworkTypeNotSupportedFault";
   readonly name = "NetworkTypeNotSupportedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -624,6 +654,7 @@ export class NetworkTypeNotSupportedFault extends __BaseException {
  * @public
  */
 export class StorageQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#StorageQuotaExceededFault";
   readonly name = "StorageQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -644,6 +675,7 @@ export class StorageQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBClusterEndpointAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterEndpointAlreadyExistsFault";
   readonly name = "DBClusterEndpointAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -664,6 +696,7 @@ export class DBClusterEndpointAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBClusterEndpointQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterEndpointQuotaExceededFault";
   readonly name = "DBClusterEndpointQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -685,6 +718,7 @@ export class DBClusterEndpointQuotaExceededFault extends __BaseException {
  * @public
  */
 export class AuthorizationNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#AuthorizationNotFoundFault";
   readonly name = "AuthorizationNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -705,6 +739,7 @@ export class AuthorizationNotFoundFault extends __BaseException {
  * @public
  */
 export class DBInstanceAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBInstanceAlreadyExistsFault";
   readonly name = "DBInstanceAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -727,6 +762,7 @@ export class DBInstanceAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBSecurityGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBSecurityGroupNotFoundFault";
   readonly name = "DBSecurityGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -748,6 +784,7 @@ export class DBSecurityGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class DomainNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DomainNotFoundFault";
   readonly name = "DomainNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -768,6 +805,7 @@ export class DomainNotFoundFault extends __BaseException {
  * @public
  */
 export class InstanceQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InstanceQuotaExceededFault";
   readonly name = "InstanceQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -788,6 +826,7 @@ export class InstanceQuotaExceededFault extends __BaseException {
  * @public
  */
 export class InsufficientDBInstanceCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InsufficientDBInstanceCapacityFault";
   readonly name = "InsufficientDBInstanceCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -808,6 +847,7 @@ export class InsufficientDBInstanceCapacityFault extends __BaseException {
  * @public
  */
 export class OptionGroupNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#OptionGroupNotFoundFault";
   readonly name = "OptionGroupNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -828,6 +868,7 @@ export class OptionGroupNotFoundFault extends __BaseException {
  * @public
  */
 export class ProvisionedIopsNotAvailableInAZFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#ProvisionedIopsNotAvailableInAZFault";
   readonly name = "ProvisionedIopsNotAvailableInAZFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -849,6 +890,7 @@ export class ProvisionedIopsNotAvailableInAZFault extends __BaseException {
  * @public
  */
 export class StorageTypeNotSupportedFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#StorageTypeNotSupportedFault";
   readonly name = "StorageTypeNotSupportedFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -870,6 +912,7 @@ export class StorageTypeNotSupportedFault extends __BaseException {
  * @public
  */
 export class DBSubnetGroupAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBSubnetGroupAlreadyExistsFault";
   readonly name = "DBSubnetGroupAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -890,6 +933,7 @@ export class DBSubnetGroupAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class DBSubnetGroupQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBSubnetGroupQuotaExceededFault";
   readonly name = "DBSubnetGroupQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -910,6 +954,7 @@ export class DBSubnetGroupQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBSubnetQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBSubnetQuotaExceededFault";
   readonly name = "DBSubnetQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -930,6 +975,7 @@ export class DBSubnetQuotaExceededFault extends __BaseException {
  * @public
  */
 export class EventSubscriptionQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#EventSubscriptionQuotaExceededFault";
   readonly name = "EventSubscriptionQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -950,6 +996,7 @@ export class EventSubscriptionQuotaExceededFault extends __BaseException {
  * @public
  */
 export class SNSInvalidTopicFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#SNSInvalidTopicFault";
   readonly name = "SNSInvalidTopicFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -970,6 +1017,7 @@ export class SNSInvalidTopicFault extends __BaseException {
  * @public
  */
 export class SNSNoAuthorizationFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#SNSNoAuthorizationFault";
   readonly name = "SNSNoAuthorizationFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -990,6 +1038,7 @@ export class SNSNoAuthorizationFault extends __BaseException {
  * @public
  */
 export class SNSTopicArnNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#SNSTopicArnNotFoundFault";
   readonly name = "SNSTopicArnNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1010,6 +1059,7 @@ export class SNSTopicArnNotFoundFault extends __BaseException {
  * @public
  */
 export class SubscriptionAlreadyExistFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#SubscriptionAlreadyExistFault";
   readonly name = "SubscriptionAlreadyExistFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1030,6 +1080,7 @@ export class SubscriptionAlreadyExistFault extends __BaseException {
  * @public
  */
 export class SubscriptionCategoryNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#SubscriptionCategoryNotFoundFault";
   readonly name = "SubscriptionCategoryNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1050,6 +1101,7 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
  * @public
  */
 export class GlobalClusterAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#GlobalClusterAlreadyExistsFault";
   readonly name = "GlobalClusterAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1070,6 +1122,7 @@ export class GlobalClusterAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class GlobalClusterQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#GlobalClusterQuotaExceededFault";
   readonly name = "GlobalClusterQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1090,6 +1143,7 @@ export class GlobalClusterQuotaExceededFault extends __BaseException {
  * @public
  */
 export class DBClusterEndpointNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterEndpointNotFoundFault";
   readonly name = "DBClusterEndpointNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1110,6 +1164,7 @@ export class DBClusterEndpointNotFoundFault extends __BaseException {
  * @public
  */
 export class InvalidDBClusterEndpointStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidDBClusterEndpointStateFault";
   readonly name = "InvalidDBClusterEndpointStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1131,6 +1186,7 @@ export class InvalidDBClusterEndpointStateFault extends __BaseException {
  * @public
  */
 export class InvalidDBParameterGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidDBParameterGroupStateFault";
   readonly name = "InvalidDBParameterGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1152,6 +1208,7 @@ export class InvalidDBParameterGroupStateFault extends __BaseException {
  * @public
  */
 export class DBSnapshotAlreadyExistsFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBSnapshotAlreadyExistsFault";
   readonly name = "DBSnapshotAlreadyExistsFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1172,6 +1229,7 @@ export class DBSnapshotAlreadyExistsFault extends __BaseException {
  * @public
  */
 export class InvalidDBSubnetStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidDBSubnetStateFault";
   readonly name = "InvalidDBSubnetStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1192,6 +1250,7 @@ export class InvalidDBSubnetStateFault extends __BaseException {
  * @public
  */
 export class InvalidEventSubscriptionStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidEventSubscriptionStateFault";
   readonly name = "InvalidEventSubscriptionStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1212,6 +1271,7 @@ export class InvalidEventSubscriptionStateFault extends __BaseException {
  * @public
  */
 export class InvalidDBSecurityGroupStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidDBSecurityGroupStateFault";
   readonly name = "InvalidDBSecurityGroupStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1232,6 +1292,7 @@ export class InvalidDBSecurityGroupStateFault extends __BaseException {
  * @public
  */
 export class SharedSnapshotQuotaExceededFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#SharedSnapshotQuotaExceededFault";
   readonly name = "SharedSnapshotQuotaExceededFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1253,6 +1314,7 @@ export class SharedSnapshotQuotaExceededFault extends __BaseException {
  * @public
  */
 export class CertificateNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#CertificateNotFoundFault";
   readonly name = "CertificateNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1273,6 +1335,7 @@ export class CertificateNotFoundFault extends __BaseException {
  * @public
  */
 export class DBUpgradeDependencyFailureFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBUpgradeDependencyFailureFault";
   readonly name = "DBUpgradeDependencyFailureFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1293,6 +1356,7 @@ export class DBUpgradeDependencyFailureFault extends __BaseException {
  * @public
  */
 export class SubnetAlreadyInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#SubnetAlreadyInUse";
   readonly name = "SubnetAlreadyInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -1313,6 +1377,7 @@ export class SubnetAlreadyInUse extends __BaseException {
  * @public
  */
 export class DBClusterRoleNotFoundFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#DBClusterRoleNotFoundFault";
   readonly name = "DBClusterRoleNotFoundFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1333,6 +1398,7 @@ export class DBClusterRoleNotFoundFault extends __BaseException {
  * @public
  */
 export class InsufficientDBClusterCapacityFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InsufficientDBClusterCapacityFault";
   readonly name = "InsufficientDBClusterCapacityFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1353,6 +1419,7 @@ export class InsufficientDBClusterCapacityFault extends __BaseException {
  * @public
  */
 export class InvalidDBSnapshotStateFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidDBSnapshotStateFault";
   readonly name = "InvalidDBSnapshotStateFault" as const;
   readonly $fault = "client" as const;
   /**
@@ -1373,6 +1440,7 @@ export class InvalidDBSnapshotStateFault extends __BaseException {
  * @public
  */
 export class InvalidRestoreFault extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.neptune#InvalidRestoreFault";
   readonly name = "InvalidRestoreFault" as const;
   readonly $fault = "client" as const;
   /**

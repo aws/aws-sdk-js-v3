@@ -62,6 +62,7 @@ import {
   CategoricalScaleDefinition$,
   CedarPolicy$,
   Certificate$,
+  CertificateConfiguration$,
   CertificateLocation$,
   ClaimMatchOperatorType,
   ClaimMatchValueType$,
@@ -79,6 +80,8 @@ import {
   CodeInterpreterSummary$,
   CoinbaseCdpConfigurationInput$,
   CoinbaseCdpConfigurationOutput$,
+  CoinbaseCdpRotationTargets$,
+  CoinbaseCdpSecret,
   ComponentConfiguration$,
   ComputeConfiguration$,
   ConcurrentModificationException,
@@ -226,6 +229,7 @@ import {
   CredentialProviderConfiguration$,
   CredentialProviderType,
   CredentialProviderVendorType,
+  CredentialRotationConfig$,
   CredentialsProviderConfiguration$,
   CustomClaimValidationType$,
   CustomConfigurationInput$,
@@ -1004,10 +1008,15 @@ import {
   RetryableConflictException,
   RetryableConflictException$,
   RootVolumeConfiguration$,
+  RotatePaymentConnectorCredentials$,
+  RotatePaymentConnectorCredentialsCommand,
+  RotatePaymentConnectorCredentialsRequest$,
+  RotatePaymentConnectorCredentialsResponse$,
   RouteToTargetAction$,
   Rule$,
   RuntimeMetadataConfiguration$,
   RuntimeTargetConfiguration$,
+  S3CertificateConfiguration$,
   S3Configuration$,
   S3FilesAccessPointConfiguration$,
   S3FilesConfiguration$,
@@ -1021,6 +1030,7 @@ import {
   SearchType,
   Secret$,
   SecretReference$,
+  SecretsManagerCertificateConfiguration$,
   SecretsManagerLocation$,
   SecretSourceType,
   SelfManagedConfiguration$,
@@ -1558,6 +1568,8 @@ assert(typeof ListWorkloadIdentitiesCommand === "function");
 assert(typeof ListWorkloadIdentities$ === "object");
 assert(typeof PutResourcePolicyCommand === "function");
 assert(typeof PutResourcePolicy$ === "object");
+assert(typeof RotatePaymentConnectorCredentialsCommand === "function");
+assert(typeof RotatePaymentConnectorCredentials$ === "object");
 assert(typeof SetTokenVaultCMKCommand === "function");
 assert(typeof SetTokenVaultCMK$ === "object");
 assert(typeof StartPolicyGenerationCommand === "function");
@@ -1666,6 +1678,7 @@ assert(typeof CapacityReservationTarget$ === "object");
 assert(typeof CategoricalScaleDefinition$ === "object");
 assert(typeof CedarPolicy$ === "object");
 assert(typeof Certificate$ === "object");
+assert(typeof CertificateConfiguration$ === "object");
 assert(typeof CertificateLocation$ === "object");
 assert(typeof ClaimMatchValueType$ === "object");
 assert(typeof CloudWatchLogsInputConfig$ === "object");
@@ -1678,6 +1691,7 @@ assert(typeof CodeInterpreterNetworkConfiguration$ === "object");
 assert(typeof CodeInterpreterSummary$ === "object");
 assert(typeof CoinbaseCdpConfigurationInput$ === "object");
 assert(typeof CoinbaseCdpConfigurationOutput$ === "object");
+assert(typeof CoinbaseCdpRotationTargets$ === "object");
 assert(typeof ComponentConfiguration$ === "object");
 assert(typeof ComputeConfiguration$ === "object");
 assert(typeof Condition$ === "object");
@@ -1756,6 +1770,7 @@ assert(typeof CreateWorkloadIdentityRequest$ === "object");
 assert(typeof CreateWorkloadIdentityResponse$ === "object");
 assert(typeof CredentialProvider$ === "object");
 assert(typeof CredentialProviderConfiguration$ === "object");
+assert(typeof CredentialRotationConfig$ === "object");
 assert(typeof CredentialsProviderConfiguration$ === "object");
 assert(typeof CustomClaimValidationType$ === "object");
 assert(typeof CustomConfigurationInput$ === "object");
@@ -2203,10 +2218,13 @@ assert(typeof RequestHeaderConfiguration$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ResourceLocation$ === "object");
 assert(typeof RootVolumeConfiguration$ === "object");
+assert(typeof RotatePaymentConnectorCredentialsRequest$ === "object");
+assert(typeof RotatePaymentConnectorCredentialsResponse$ === "object");
 assert(typeof RouteToTargetAction$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof RuntimeMetadataConfiguration$ === "object");
 assert(typeof RuntimeTargetConfiguration$ === "object");
+assert(typeof S3CertificateConfiguration$ === "object");
 assert(typeof S3Configuration$ === "object");
 assert(typeof S3FilesAccessPointConfiguration$ === "object");
 assert(typeof S3FilesConfiguration$ === "object");
@@ -2218,6 +2236,7 @@ assert(typeof SamplingConfig$ === "object");
 assert(typeof SchemaDefinition$ === "object");
 assert(typeof Secret$ === "object");
 assert(typeof SecretReference$ === "object");
+assert(typeof SecretsManagerCertificateConfiguration$ === "object");
 assert(typeof SecretsManagerLocation$ === "object");
 assert(typeof SelfManagedConfiguration$ === "object");
 assert(typeof SelfManagedConfigurationInput$ === "object");
@@ -2391,6 +2410,7 @@ assert(typeof ClientAuthenticationMethodType === "object");
 assert(typeof ClusteringFrequency === "object");
 assert(typeof CodeInterpreterNetworkMode === "object");
 assert(typeof CodeInterpreterStatus === "object");
+assert(typeof CoinbaseCdpSecret === "object");
 assert(typeof ConfigurationBundleStatus === "object");
 assert(typeof ConsentPortalSourceType === "object");
 assert(typeof ConsentPortalStatus === "object");

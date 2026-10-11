@@ -139,6 +139,11 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  *             ],
  *           },
  *         ],
+ *         softwareAddOns: [ // FleetSoftwareAddOns
+ *           { // FleetSoftwareAddOn
+ *             name: "docker", // required
+ *           },
+ *         ],
  *       },
  *       instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
  *         type: "on-demand" || "spot" || "wait-and-save", // required

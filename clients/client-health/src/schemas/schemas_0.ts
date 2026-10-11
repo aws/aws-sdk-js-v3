@@ -43,6 +43,9 @@ const _DETRe = "DescribeEventTypesResponse";
 const _DHSAFO = "DisableHealthServiceAccessForOrganization";
 const _DHSSFO = "DescribeHealthServiceStatusForOrganization";
 const _DHSSFOR = "DescribeHealthServiceStatusForOrganizationResponse";
+const _DSL = "DescribeServiceLifecycle";
+const _DSLR = "DescribeServiceLifecycleRequest";
+const _DSLRe = "DescribeServiceLifecycleResponse";
 const _DTR = "DateTimeRange";
 const _E = "Event";
 const _EA = "EntityAggregate";
@@ -63,6 +66,8 @@ const _ET = "EventType";
 const _ETF = "EventTypeFilter";
 const _ETL = "EventTypeList";
 const _IPT = "InvalidPaginationToken";
+const _LE = "LifecycleEvent";
+const _LEL = "LifecycleEventList";
 const _OAEEI = "OrganizationAffectedEntitiesErrorItem";
 const _OE = "OrganizationEvent";
 const _OEA = "OrganizationEntityAggregate";
@@ -74,6 +79,9 @@ const _OEDFL = "OrganizationEventDetailFiltersList";
 const _OEF = "OrganizationEventFilter";
 const _OEFL = "OrganizationEntityFiltersList";
 const _OEL = "OrganizationEventList";
+const _SL = "ServiceLifecycle";
+const _SLF = "ServiceLifecycleFilter";
+const _SLL = "ServiceLifecycleList";
 const _UL = "UnsupportedLocale";
 const _a = "arn";
 const _aA = "affectedAccounts";
@@ -91,7 +99,9 @@ const _c = "client";
 const _ca = "category";
 const _co = "count";
 const _cod = "code";
+const _d = "date";
 const _dTRL = "dateTimeRangeList";
+const _de = "description";
 const _e = "error";
 const _eA = "entityArn";
 const _eAn = "entityAggregates";
@@ -123,8 +133,11 @@ const _f = "from";
 const _fS = "failedSet";
 const _fi = "filter";
 const _hSASFO = "healthServiceAccessStatusForOrganization";
+const _iR = "impactRisks";
 const _l = "locale";
 const _lD = "latestDescription";
+const _lE = "lifecycleEvents";
+const _lET = "lifecycleEventType";
 const _lUT = "lastUpdatedTime";
 const _lUTa = "lastUpdatedTimes";
 const _m = "message";
@@ -136,10 +149,12 @@ const _oEDF = "organizationEventDetailFilters";
 const _oEF = "organizationEntityFilters";
 const _p = "personas";
 const _r = "region";
+const _rV = "recommendedVersion";
 const _re = "regions";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.health";
 const _sC = "statusCode";
 const _sCt = "statusCodes";
+const _sL = "serviceLifecycles";
 const _sS = "successfulSet";
 const _sT = "startTime";
 const _sTt = "startTimes";
@@ -148,7 +163,9 @@ const _ser = "services";
 const _st = "statuses";
 const _t = "tags";
 const _tF = "tagFilter";
+const _ti = "title";
 const _to = "to";
+const _v = "version";
 const n0 = "com.amazonaws.health";
 
 // smithy-typescript generated code
@@ -326,6 +343,16 @@ export var DescribeHealthServiceStatusForOrganizationResponse$: StaticStructureS
   [_hSASFO],
   [0]
 ];
+export var DescribeServiceLifecycleRequest$: StaticStructureSchema = [3, n0, _DSLR,
+  0,
+  [_fi, _nT, _mR],
+  [() => ServiceLifecycleFilter$, 0, 1]
+];
+export var DescribeServiceLifecycleResponse$: StaticStructureSchema = [3, n0, _DSLRe,
+  0,
+  [_sL, _nT],
+  [() => ServiceLifecycleList, 0]
+];
 export var EntityAccountFilter$: StaticStructureSchema = [3, n0, _EAF,
   0,
   [_eAv, _aAI, _sCt],
@@ -386,6 +413,11 @@ export var EventTypeFilter$: StaticStructureSchema = [3, n0, _ETF,
   [_eTCve, _ser, _eTCven, _act, _p],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
+export var LifecycleEvent$: StaticStructureSchema = [3, n0, _LE,
+  0,
+  [_lET, _d, _re, _iR, _de],
+  [0, 4, 64 | 0, 64 | 0, 0]
+];
 export var OrganizationAffectedEntitiesErrorItem$: StaticStructureSchema = [3, n0, _OAEEI,
   0,
   [_aAI, _eAv, _eN, _eMr],
@@ -415,6 +447,16 @@ export var OrganizationEventFilter$: StaticStructureSchema = [3, n0, _OEF,
   0,
   [_act, _eTCve, _aAIw, _ser, _re, _sT, _eTn, _lUT, _eAnt, _eVn, _eTCven, _eSCv, _p],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => DateTimeRange$, () => DateTimeRange$, () => DateTimeRange$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+];
+export var ServiceLifecycle$: StaticStructureSchema = [3, n0, _SL,
+  0,
+  [_se, _v, _ti, _rV, _lE],
+  [0, 0, 0, 0, () => LifecycleEventList]
+];
+export var ServiceLifecycleFilter$: StaticStructureSchema = [3, n0, _SLF,
+  0,
+  [_se],
+  [0]
 ];
 var __Unit = "unit" as const;
 var AccountEntityAggregatesList: StaticListSchema = [1, n0, _AEAL,
@@ -470,6 +512,10 @@ var EventTypeList: StaticListSchema = [1, n0, _ETL,
 ];
 var eventTypeList2 = 64 | 0;
 var EventTypePersonaList = 64 | 0;
+var ImpactRiskList = 64 | 0;
+var LifecycleEventList: StaticListSchema = [1, n0, _LEL,
+  0, () => LifecycleEvent$
+];
 var OrganizationAccountIdsList = 64 | 0;
 var OrganizationEntityAccountFiltersList: StaticListSchema = [1, n0, _OEAFL,
   0, () => EntityAccountFilter$
@@ -488,6 +534,9 @@ var OrganizationEventList: StaticListSchema = [1, n0, _OEL,
   0, () => OrganizationEvent$
 ];
 var regionList = 64 | 0;
+var ServiceLifecycleList: StaticListSchema = [1, n0, _SLL,
+  0, () => ServiceLifecycle$
+];
 var serviceList = 64 | 0;
 var tagFilter: StaticListSchema = [1, n0, _tF,
   0, 128 | 0
@@ -531,6 +580,9 @@ export var DescribeEventTypes$: StaticOperationSchema = [9, n0, _DET,
 ];
 export var DescribeHealthServiceStatusForOrganization$: StaticOperationSchema = [9, n0, _DHSSFO,
   2, () => __Unit, () => DescribeHealthServiceStatusForOrganizationResponse$
+];
+export var DescribeServiceLifecycle$: StaticOperationSchema = [9, n0, _DSL,
+  2, () => DescribeServiceLifecycleRequest$, () => DescribeServiceLifecycleResponse$
 ];
 export var DisableHealthServiceAccessForOrganization$: StaticOperationSchema = [9, n0, _DHSAFO,
   2, () => __Unit, () => __Unit

@@ -156,7 +156,9 @@ const _O = "Or";
 const _OA = "OldAction";
 const _ON = "OldNotification";
 const _OS = "OldSubscriber";
-const _PA = "PolicyArn";
+const _PA = "ProductAttributes";
+const _PAV = "ProductAttributeValues";
+const _PAo = "PolicyArn";
 const _PBL = "PlannedBudgetLimits";
 const _PI = "PolicyId";
 const _R = "Roles";
@@ -590,8 +592,8 @@ export var ExecuteBudgetActionResponse$: StaticStructureSchema = [3, n0, _EBARx,
 ];
 export var Expression$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_O, _An, _Not, _Di, _Ta, _CC],
-  [() => Expressions, () => Expressions, () => Expression$, () => ExpressionDimensionValues$, () => TagValues$, () => CostCategoryValues$]
+  [_O, _An, _Not, _Di, _Ta, _CC, _PA],
+  [() => Expressions, () => Expressions, () => Expression$, () => ExpressionDimensionValues$, () => TagValues$, () => CostCategoryValues$, () => ProductAttributeValues$]
 ];
 export var ExpressionDimensionValues$: StaticStructureSchema = [3, n0, _EDV,
   0,
@@ -610,7 +612,7 @@ export var HistoricalOptions$: StaticStructureSchema = [3, n0, _HO,
 ];
 export var IamActionDefinition$: StaticStructureSchema = [3, n0, _IAD,
   0,
-  [_PA, _R, _G, _U],
+  [_PAo, _R, _G, _U],
   [0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
@@ -632,6 +634,11 @@ export var NotificationWithSubscribers$: StaticStructureSchema = [3, n0, _NWSo,
   0,
   [_No, _Su],
   [() => Notification$, [() => Subscribers, 0]], 2
+];
+export var ProductAttributeValues$: StaticStructureSchema = [3, n0, _PAV,
+  0,
+  [_K, _V, _MO],
+  [0, 64 | 0, 64 | 0], 1
 ];
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTe,
   0,

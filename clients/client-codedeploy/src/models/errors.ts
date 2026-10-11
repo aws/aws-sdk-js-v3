@@ -9,6 +9,7 @@ import { CodeDeployServiceException as __BaseException } from "./CodeDeployServi
  * @public
  */
 export class InstanceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InstanceLimitExceededException";
   readonly name = "InstanceLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class InstanceLimitExceededException extends __BaseException {
  * @public
  */
 export class InstanceNameRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InstanceNameRequiredException";
   readonly name = "InstanceNameRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -49,6 +51,7 @@ export class InstanceNameRequiredException extends __BaseException {
  * @public
  */
 export class InstanceNotRegisteredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InstanceNotRegisteredException";
   readonly name = "InstanceNotRegisteredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -69,6 +72,7 @@ export class InstanceNotRegisteredException extends __BaseException {
  * @public
  */
 export class InvalidInstanceNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidInstanceNameException";
   readonly name = "InvalidInstanceNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class InvalidInstanceNameException extends __BaseException {
  * @public
  */
 export class InvalidTagException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidTagException";
   readonly name = "InvalidTagException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class InvalidTagException extends __BaseException {
  * @public
  */
 export class TagLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#TagLimitExceededException";
   readonly name = "TagLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -129,6 +135,7 @@ export class TagLimitExceededException extends __BaseException {
  * @public
  */
 export class TagRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#TagRequiredException";
   readonly name = "TagRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -149,6 +156,7 @@ export class TagRequiredException extends __BaseException {
  * @public
  */
 export class AlarmsLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#AlarmsLimitExceededException";
   readonly name = "AlarmsLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -170,6 +178,7 @@ export class AlarmsLimitExceededException extends __BaseException {
  * @public
  */
 export class ApplicationAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#ApplicationAlreadyExistsException";
   readonly name = "ApplicationAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -190,6 +199,7 @@ export class ApplicationAlreadyExistsException extends __BaseException {
  * @public
  */
 export class ApplicationDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#ApplicationDoesNotExistException";
   readonly name = "ApplicationDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -210,6 +220,7 @@ export class ApplicationDoesNotExistException extends __BaseException {
  * @public
  */
 export class ApplicationLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#ApplicationLimitExceededException";
   readonly name = "ApplicationLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -230,6 +241,7 @@ export class ApplicationLimitExceededException extends __BaseException {
  * @public
  */
 export class ApplicationNameRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#ApplicationNameRequiredException";
   readonly name = "ApplicationNameRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -251,6 +263,7 @@ export class ApplicationNameRequiredException extends __BaseException {
  * @public
  */
 export class ArnNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#ArnNotSupportedException";
   readonly name = "ArnNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -271,6 +284,7 @@ export class ArnNotSupportedException extends __BaseException {
  * @public
  */
 export class BatchLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#BatchLimitExceededException";
   readonly name = "BatchLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -291,6 +305,7 @@ export class BatchLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidApplicationNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidApplicationNameException";
   readonly name = "InvalidApplicationNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -311,6 +326,7 @@ export class InvalidApplicationNameException extends __BaseException {
  * @public
  */
 export class InvalidRevisionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidRevisionException";
   readonly name = "InvalidRevisionException" as const;
   readonly $fault = "client" as const;
   /**
@@ -331,6 +347,7 @@ export class InvalidRevisionException extends __BaseException {
  * @public
  */
 export class RevisionRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#RevisionRequiredException";
   readonly name = "RevisionRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -351,6 +368,7 @@ export class RevisionRequiredException extends __BaseException {
  * @public
  */
 export class DeploymentConfigDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException";
   readonly name = "DeploymentConfigDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -371,6 +389,7 @@ export class DeploymentConfigDoesNotExistException extends __BaseException {
  * @public
  */
 export class DeploymentGroupNameRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException";
   readonly name = "DeploymentGroupNameRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -391,6 +410,7 @@ export class DeploymentGroupNameRequiredException extends __BaseException {
  * @public
  */
 export class InvalidDeploymentGroupNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException";
   readonly name = "InvalidDeploymentGroupNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -411,6 +431,7 @@ export class InvalidDeploymentGroupNameException extends __BaseException {
  * @public
  */
 export class DeploymentDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentDoesNotExistException";
   readonly name = "DeploymentDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -431,6 +452,7 @@ export class DeploymentDoesNotExistException extends __BaseException {
  * @public
  */
 export class DeploymentIdRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentIdRequiredException";
   readonly name = "DeploymentIdRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -453,6 +475,7 @@ export class DeploymentIdRequiredException extends __BaseException {
  * @public
  */
 export class InstanceIdRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InstanceIdRequiredException";
   readonly name = "InstanceIdRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -473,6 +496,7 @@ export class InstanceIdRequiredException extends __BaseException {
  * @public
  */
 export class InvalidComputePlatformException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidComputePlatformException";
   readonly name = "InvalidComputePlatformException" as const;
   readonly $fault = "client" as const;
   /**
@@ -493,6 +517,7 @@ export class InvalidComputePlatformException extends __BaseException {
  * @public
  */
 export class InvalidDeploymentIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidDeploymentIdException";
   readonly name = "InvalidDeploymentIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -513,6 +538,7 @@ export class InvalidDeploymentIdException extends __BaseException {
  * @public
  */
 export class DeploymentNotStartedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentNotStartedException";
   readonly name = "DeploymentNotStartedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -533,6 +559,7 @@ export class DeploymentNotStartedException extends __BaseException {
  * @public
  */
 export class DeploymentTargetDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentTargetDoesNotExistException";
   readonly name = "DeploymentTargetDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -553,6 +580,7 @@ export class DeploymentTargetDoesNotExistException extends __BaseException {
  * @public
  */
 export class DeploymentTargetIdRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentTargetIdRequiredException";
   readonly name = "DeploymentTargetIdRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -576,6 +604,7 @@ export class DeploymentTargetIdRequiredException extends __BaseException {
  * @public
  */
 export class DeploymentTargetListSizeExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentTargetListSizeExceededException";
   readonly name = "DeploymentTargetListSizeExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -598,6 +627,7 @@ export class DeploymentTargetListSizeExceededException extends __BaseException {
  * @public
  */
 export class InstanceDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InstanceDoesNotExistException";
   readonly name = "InstanceDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -618,6 +648,7 @@ export class InstanceDoesNotExistException extends __BaseException {
  * @public
  */
 export class InvalidDeploymentTargetIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidDeploymentTargetIdException";
   readonly name = "InvalidDeploymentTargetIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -638,6 +669,7 @@ export class InvalidDeploymentTargetIdException extends __BaseException {
  * @public
  */
 export class BucketNameFilterRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#BucketNameFilterRequiredException";
   readonly name = "BucketNameFilterRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -658,6 +690,7 @@ export class BucketNameFilterRequiredException extends __BaseException {
  * @public
  */
 export class DeploymentAlreadyCompletedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentAlreadyCompletedException";
   readonly name = "DeploymentAlreadyCompletedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -678,6 +711,7 @@ export class DeploymentAlreadyCompletedException extends __BaseException {
  * @public
  */
 export class DeploymentIsNotInReadyStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentIsNotInReadyStateException";
   readonly name = "DeploymentIsNotInReadyStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -698,6 +732,7 @@ export class DeploymentIsNotInReadyStateException extends __BaseException {
  * @public
  */
 export class InvalidDeploymentStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidDeploymentStatusException";
   readonly name = "InvalidDeploymentStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -718,6 +753,7 @@ export class InvalidDeploymentStatusException extends __BaseException {
  * @public
  */
 export class InvalidDeploymentWaitTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidDeploymentWaitTypeException";
   readonly name = "InvalidDeploymentWaitTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -738,6 +774,7 @@ export class InvalidDeploymentWaitTypeException extends __BaseException {
  * @public
  */
 export class UnsupportedActionForDeploymentTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException";
   readonly name = "UnsupportedActionForDeploymentTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -758,6 +795,7 @@ export class UnsupportedActionForDeploymentTypeException extends __BaseException
  * @public
  */
 export class InvalidTagsToAddException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidTagsToAddException";
   readonly name = "InvalidTagsToAddException" as const;
   readonly $fault = "client" as const;
   /**
@@ -778,6 +816,7 @@ export class InvalidTagsToAddException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -799,6 +838,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class DeploymentGroupDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException";
   readonly name = "DeploymentGroupDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -819,6 +859,7 @@ export class DeploymentGroupDoesNotExistException extends __BaseException {
  * @public
  */
 export class DeploymentLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentLimitExceededException";
   readonly name = "DeploymentLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -839,6 +880,7 @@ export class DeploymentLimitExceededException extends __BaseException {
  * @public
  */
 export class DescriptionTooLongException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DescriptionTooLongException";
   readonly name = "DescriptionTooLongException" as const;
   readonly $fault = "client" as const;
   /**
@@ -876,6 +918,7 @@ export class DescriptionTooLongException extends __BaseException {
  * @public
  */
 export class InvalidAlarmConfigException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidAlarmConfigException";
   readonly name = "InvalidAlarmConfigException" as const;
   readonly $fault = "client" as const;
   /**
@@ -898,6 +941,7 @@ export class InvalidAlarmConfigException extends __BaseException {
  * @public
  */
 export class InvalidAutoRollbackConfigException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidAutoRollbackConfigException";
   readonly name = "InvalidAutoRollbackConfigException" as const;
   readonly $fault = "client" as const;
   /**
@@ -919,6 +963,7 @@ export class InvalidAutoRollbackConfigException extends __BaseException {
  * @public
  */
 export class InvalidAutoScalingGroupException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidAutoScalingGroupException";
   readonly name = "InvalidAutoScalingGroupException" as const;
   readonly $fault = "client" as const;
   /**
@@ -939,6 +984,7 @@ export class InvalidAutoScalingGroupException extends __BaseException {
  * @public
  */
 export class InvalidDeploymentConfigNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException";
   readonly name = "InvalidDeploymentConfigNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -959,6 +1005,7 @@ export class InvalidDeploymentConfigNameException extends __BaseException {
  * @public
  */
 export class InvalidECSServiceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidECSServiceException";
   readonly name = "InvalidECSServiceException" as const;
   readonly $fault = "client" as const;
   /**
@@ -981,6 +1028,7 @@ export class InvalidECSServiceException extends __BaseException {
  * @public
  */
 export class InvalidFileExistsBehaviorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidFileExistsBehaviorException";
   readonly name = "InvalidFileExistsBehaviorException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1001,6 +1049,7 @@ export class InvalidFileExistsBehaviorException extends __BaseException {
  * @public
  */
 export class InvalidGitHubAccountTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidGitHubAccountTokenException";
   readonly name = "InvalidGitHubAccountTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1023,6 +1072,7 @@ export class InvalidGitHubAccountTokenException extends __BaseException {
  * @public
  */
 export class InvalidIgnoreApplicationStopFailuresValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidIgnoreApplicationStopFailuresValueException";
   readonly name = "InvalidIgnoreApplicationStopFailuresValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1043,6 +1093,7 @@ export class InvalidIgnoreApplicationStopFailuresValueException extends __BaseEx
  * @public
  */
 export class InvalidInputException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidInputException";
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1063,6 +1114,7 @@ export class InvalidInputException extends __BaseException {
  * @public
  */
 export class InvalidLoadBalancerInfoException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidLoadBalancerInfoException";
   readonly name = "InvalidLoadBalancerInfoException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1085,6 +1137,7 @@ export class InvalidLoadBalancerInfoException extends __BaseException {
  * @public
  */
 export class InvalidRoleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidRoleException";
   readonly name = "InvalidRoleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1120,6 +1173,7 @@ export class InvalidRoleException extends __BaseException {
  * @public
  */
 export class InvalidTargetInstancesException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidTargetInstancesException";
   readonly name = "InvalidTargetInstancesException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1141,6 +1195,7 @@ export class InvalidTargetInstancesException extends __BaseException {
  * @public
  */
 export class InvalidTrafficRoutingConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException";
   readonly name = "InvalidTrafficRoutingConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1163,6 +1218,7 @@ export class InvalidTrafficRoutingConfigurationException extends __BaseException
  * @public
  */
 export class InvalidUpdateOutdatedInstancesOnlyValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidUpdateOutdatedInstancesOnlyValueException";
   readonly name = "InvalidUpdateOutdatedInstancesOnlyValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1183,6 +1239,7 @@ export class InvalidUpdateOutdatedInstancesOnlyValueException extends __BaseExce
  * @public
  */
 export class RevisionDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#RevisionDoesNotExistException";
   readonly name = "RevisionDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1203,6 +1260,7 @@ export class RevisionDoesNotExistException extends __BaseException {
  * @public
  */
 export class DeploymentConfigAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentConfigAlreadyExistsException";
   readonly name = "DeploymentConfigAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1223,6 +1281,7 @@ export class DeploymentConfigAlreadyExistsException extends __BaseException {
  * @public
  */
 export class DeploymentConfigLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentConfigLimitExceededException";
   readonly name = "DeploymentConfigLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1243,6 +1302,7 @@ export class DeploymentConfigLimitExceededException extends __BaseException {
  * @public
  */
 export class DeploymentConfigNameRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentConfigNameRequiredException";
   readonly name = "DeploymentConfigNameRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1263,6 +1323,7 @@ export class DeploymentConfigNameRequiredException extends __BaseException {
  * @public
  */
 export class InvalidMinimumHealthyHostValueException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidMinimumHealthyHostValueException";
   readonly name = "InvalidMinimumHealthyHostValueException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1283,6 +1344,7 @@ export class InvalidMinimumHealthyHostValueException extends __BaseException {
  * @public
  */
 export class InvalidZonalDeploymentConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidZonalDeploymentConfigurationException";
   readonly name = "InvalidZonalDeploymentConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1304,6 +1366,7 @@ export class InvalidZonalDeploymentConfigurationException extends __BaseExceptio
  * @public
  */
 export class DeploymentGroupAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentGroupAlreadyExistsException";
   readonly name = "DeploymentGroupAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1324,6 +1387,7 @@ export class DeploymentGroupAlreadyExistsException extends __BaseException {
  * @public
  */
 export class DeploymentGroupLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentGroupLimitExceededException";
   readonly name = "DeploymentGroupLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1345,6 +1409,7 @@ export class DeploymentGroupLimitExceededException extends __BaseException {
  * @public
  */
 export class ECSServiceMappingLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#ECSServiceMappingLimitExceededException";
   readonly name = "ECSServiceMappingLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1366,6 +1431,7 @@ export class ECSServiceMappingLimitExceededException extends __BaseException {
  * @public
  */
 export class InvalidBlueGreenDeploymentConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidBlueGreenDeploymentConfigurationException";
   readonly name = "InvalidBlueGreenDeploymentConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1388,6 +1454,7 @@ export class InvalidBlueGreenDeploymentConfigurationException extends __BaseExce
  * @public
  */
 export class InvalidDeploymentStyleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidDeploymentStyleException";
   readonly name = "InvalidDeploymentStyleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1409,6 +1476,7 @@ export class InvalidDeploymentStyleException extends __BaseException {
  * @public
  */
 export class InvalidEC2TagCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidEC2TagCombinationException";
   readonly name = "InvalidEC2TagCombinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1429,6 +1497,7 @@ export class InvalidEC2TagCombinationException extends __BaseException {
  * @public
  */
 export class InvalidEC2TagException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidEC2TagException";
   readonly name = "InvalidEC2TagException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1450,6 +1519,7 @@ export class InvalidEC2TagException extends __BaseException {
  * @public
  */
 export class InvalidOnPremisesTagCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidOnPremisesTagCombinationException";
   readonly name = "InvalidOnPremisesTagCombinationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1470,6 +1540,7 @@ export class InvalidOnPremisesTagCombinationException extends __BaseException {
  * @public
  */
 export class InvalidTargetGroupPairException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidTargetGroupPairException";
   readonly name = "InvalidTargetGroupPairException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1490,6 +1561,7 @@ export class InvalidTargetGroupPairException extends __BaseException {
  * @public
  */
 export class InvalidTriggerConfigException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidTriggerConfigException";
   readonly name = "InvalidTriggerConfigException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1510,6 +1582,7 @@ export class InvalidTriggerConfigException extends __BaseException {
  * @public
  */
 export class LifecycleHookLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#LifecycleHookLimitExceededException";
   readonly name = "LifecycleHookLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1530,6 +1603,7 @@ export class LifecycleHookLimitExceededException extends __BaseException {
  * @public
  */
 export class RoleRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#RoleRequiredException";
   readonly name = "RoleRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1551,6 +1625,7 @@ export class RoleRequiredException extends __BaseException {
  * @public
  */
 export class TagSetListLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#TagSetListLimitExceededException";
   readonly name = "TagSetListLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1571,6 +1646,7 @@ export class TagSetListLimitExceededException extends __BaseException {
  * @public
  */
 export class TriggerTargetsLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#TriggerTargetsLimitExceededException";
   readonly name = "TriggerTargetsLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1591,6 +1667,7 @@ export class TriggerTargetsLimitExceededException extends __BaseException {
  * @public
  */
 export class DeploymentConfigInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#DeploymentConfigInUseException";
   readonly name = "DeploymentConfigInUseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1611,6 +1688,7 @@ export class DeploymentConfigInUseException extends __BaseException {
  * @public
  */
 export class InvalidOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidOperationException";
   readonly name = "InvalidOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1631,6 +1709,7 @@ export class InvalidOperationException extends __BaseException {
  * @public
  */
 export class GitHubAccountTokenDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#GitHubAccountTokenDoesNotExistException";
   readonly name = "GitHubAccountTokenDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1651,6 +1730,7 @@ export class GitHubAccountTokenDoesNotExistException extends __BaseException {
  * @public
  */
 export class GitHubAccountTokenNameRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#GitHubAccountTokenNameRequiredException";
   readonly name = "GitHubAccountTokenNameRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1671,6 +1751,7 @@ export class GitHubAccountTokenNameRequiredException extends __BaseException {
  * @public
  */
 export class InvalidGitHubAccountTokenNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidGitHubAccountTokenNameException";
   readonly name = "InvalidGitHubAccountTokenNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1691,6 +1772,7 @@ export class InvalidGitHubAccountTokenNameException extends __BaseException {
  * @public
  */
 export class OperationNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#OperationNotSupportedException";
   readonly name = "OperationNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1711,6 +1793,7 @@ export class OperationNotSupportedException extends __BaseException {
  * @public
  */
 export class ResourceValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#ResourceValidationException";
   readonly name = "ResourceValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1731,6 +1814,7 @@ export class ResourceValidationException extends __BaseException {
  * @public
  */
 export class InvalidBucketNameFilterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidBucketNameFilterException";
   readonly name = "InvalidBucketNameFilterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1751,6 +1835,7 @@ export class InvalidBucketNameFilterException extends __BaseException {
  * @public
  */
 export class InvalidDeployedStateFilterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidDeployedStateFilterException";
   readonly name = "InvalidDeployedStateFilterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1771,6 +1856,7 @@ export class InvalidDeployedStateFilterException extends __BaseException {
  * @public
  */
 export class InvalidKeyPrefixFilterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidKeyPrefixFilterException";
   readonly name = "InvalidKeyPrefixFilterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1791,6 +1877,7 @@ export class InvalidKeyPrefixFilterException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1812,6 +1899,7 @@ export class InvalidNextTokenException extends __BaseException {
  * @public
  */
 export class InvalidSortByException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidSortByException";
   readonly name = "InvalidSortByException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1832,6 +1920,7 @@ export class InvalidSortByException extends __BaseException {
  * @public
  */
 export class InvalidSortOrderException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidSortOrderException";
   readonly name = "InvalidSortOrderException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1853,6 +1942,7 @@ export class InvalidSortOrderException extends __BaseException {
  * @public
  */
 export class InvalidDeploymentInstanceTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidDeploymentInstanceTypeException";
   readonly name = "InvalidDeploymentInstanceTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1873,6 +1963,7 @@ export class InvalidDeploymentInstanceTypeException extends __BaseException {
  * @public
  */
 export class InvalidInstanceStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidInstanceStatusException";
   readonly name = "InvalidInstanceStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1895,6 +1986,7 @@ export class InvalidInstanceStatusException extends __BaseException {
  * @public
  */
 export class InvalidInstanceTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidInstanceTypeException";
   readonly name = "InvalidInstanceTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1915,6 +2007,7 @@ export class InvalidInstanceTypeException extends __BaseException {
  * @public
  */
 export class InvalidTargetFilterNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidTargetFilterNameException";
   readonly name = "InvalidTargetFilterNameException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1935,6 +2028,7 @@ export class InvalidTargetFilterNameException extends __BaseException {
  * @public
  */
 export class InvalidExternalIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidExternalIdException";
   readonly name = "InvalidExternalIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1955,6 +2049,7 @@ export class InvalidExternalIdException extends __BaseException {
  * @public
  */
 export class InvalidTimeRangeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidTimeRangeException";
   readonly name = "InvalidTimeRangeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1975,6 +2070,7 @@ export class InvalidTimeRangeException extends __BaseException {
  * @public
  */
 export class InvalidRegistrationStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidRegistrationStatusException";
   readonly name = "InvalidRegistrationStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1995,6 +2091,7 @@ export class InvalidRegistrationStatusException extends __BaseException {
  * @public
  */
 export class InvalidTagFilterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidTagFilterException";
   readonly name = "InvalidTagFilterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2015,6 +2112,7 @@ export class InvalidTagFilterException extends __BaseException {
  * @public
  */
 export class InvalidArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidArnException";
   readonly name = "InvalidArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2035,6 +2133,7 @@ export class InvalidArnException extends __BaseException {
  * @public
  */
 export class ResourceArnRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#ResourceArnRequiredException";
   readonly name = "ResourceArnRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2057,6 +2156,7 @@ export class ResourceArnRequiredException extends __BaseException {
  * @public
  */
 export class InvalidLifecycleEventHookExecutionIdException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidLifecycleEventHookExecutionIdException";
   readonly name = "InvalidLifecycleEventHookExecutionIdException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2078,6 +2178,7 @@ export class InvalidLifecycleEventHookExecutionIdException extends __BaseExcepti
  * @public
  */
 export class InvalidLifecycleEventHookExecutionStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidLifecycleEventHookExecutionStatusException";
   readonly name = "InvalidLifecycleEventHookExecutionStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2099,6 +2200,7 @@ export class InvalidLifecycleEventHookExecutionStatusException extends __BaseExc
  * @public
  */
 export class LifecycleEventAlreadyCompletedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#LifecycleEventAlreadyCompletedException";
   readonly name = "LifecycleEventAlreadyCompletedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2119,6 +2221,7 @@ export class LifecycleEventAlreadyCompletedException extends __BaseException {
  * @public
  */
 export class IamArnRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#IamArnRequiredException";
   readonly name = "IamArnRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2140,6 +2243,7 @@ export class IamArnRequiredException extends __BaseException {
  * @public
  */
 export class IamSessionArnAlreadyRegisteredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#IamSessionArnAlreadyRegisteredException";
   readonly name = "IamSessionArnAlreadyRegisteredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2160,6 +2264,7 @@ export class IamSessionArnAlreadyRegisteredException extends __BaseException {
  * @public
  */
 export class IamUserArnAlreadyRegisteredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#IamUserArnAlreadyRegisteredException";
   readonly name = "IamUserArnAlreadyRegisteredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2180,6 +2285,7 @@ export class IamUserArnAlreadyRegisteredException extends __BaseException {
  * @public
  */
 export class IamUserArnRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#IamUserArnRequiredException";
   readonly name = "IamUserArnRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2200,6 +2306,7 @@ export class IamUserArnRequiredException extends __BaseException {
  * @public
  */
 export class InstanceNameAlreadyRegisteredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InstanceNameAlreadyRegisteredException";
   readonly name = "InstanceNameAlreadyRegisteredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2220,6 +2327,7 @@ export class InstanceNameAlreadyRegisteredException extends __BaseException {
  * @public
  */
 export class InvalidIamSessionArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidIamSessionArnException";
   readonly name = "InvalidIamSessionArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2240,6 +2348,7 @@ export class InvalidIamSessionArnException extends __BaseException {
  * @public
  */
 export class InvalidIamUserArnException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#InvalidIamUserArnException";
   readonly name = "InvalidIamUserArnException" as const;
   readonly $fault = "client" as const;
   /**
@@ -2261,6 +2370,7 @@ export class InvalidIamUserArnException extends __BaseException {
  * @public
  */
 export class MultipleIamArnsProvidedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.codedeploy#MultipleIamArnsProvidedException";
   readonly name = "MultipleIamArnsProvidedException" as const;
   readonly $fault = "client" as const;
   /**

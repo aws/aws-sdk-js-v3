@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from SSMContacts service.
  */
 export class SSMContactsServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.ssmcontacts#SSMContactsServiceException";
   /**
    * @internal
    */

@@ -626,10 +626,14 @@ export type RekognitionClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface RekognitionClientResolvedConfig extends RekognitionClientResolvedConfigType {}
 
 /**
- * <p>This is the API Reference for <a href="https://docs.aws.amazon.com/rekognition/latest/dg/images.html">Amazon Rekognition Image</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html">Amazon Rekognition Custom Labels</a>,
- *         <a href="https://docs.aws.amazon.com/rekognition/latest/dg/video.html">Amazon Rekognition Stored
- *         Video</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html">Amazon Rekognition Streaming Video</a>. It provides descriptions of actions, data types, common
- *       parameters, and common errors.</p>
+ * <p>This is the API Reference for
+ *         <a href="https://docs.aws.amazon.com/rekognition/latest/dg/images.html">Amazon Rekognition Image</a>,
+ *         <a href="https://docs.aws.amazon.com/rekognition/latest/dg/bulk-analysis.html">Amazon Rekognition Bulk Image Analysis</a>,
+ *         <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html">Amazon Rekognition Custom Labels</a>,
+ *         <a href="https://docs.aws.amazon.com/rekognition/latest/dg/video.html">Amazon Rekognition Stored Video</a>,
+ *         <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-liveness.html">Amazon Rekognition Face Liveness</a>,
+ *         <a href="https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html">Amazon Rekognition Streaming Video</a>.
+ *         It provides descriptions of actions, data types, common parameters, and common errors.</p>
  *          <p>
  *             <b>Amazon Rekognition Image</b>
  *          </p>
@@ -711,22 +715,12 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetMediaAnalysisJob.html">GetMediaAnalysisJob</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html">IndexFaces</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListCollections.html">ListCollections</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListMediaAnalysisJob.html">ListMediaAnalysisJob</a>
  *                </p>
  *             </li>
  *             <li>
@@ -762,6 +756,21 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html">SearchUsersByImage</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Amazon Rekognition Bulk Image Analysis</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetMediaAnalysisJob.html">GetMediaAnalysisJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListMediaAnalysisJob.html">ListMediaAnalysisJob</a>
  *                </p>
  *             </li>
  *             <li>
@@ -876,7 +885,7 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Amazon Rekognition Video Stored Video</b>
+ *             <b>Amazon Rekognition Stored Video</b>
  *          </p>
  *          <ul>
  *             <li>
@@ -961,7 +970,27 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Amazon Rekognition Video Streaming Video</b>
+ *             <b>Amazon Rekognition Face Liveness</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateFaceLivenessSession.html">CreateFaceLivenessSession</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceLivenessSessionResults.html">GetFaceLivenessSessionResults</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_rekognitionstreaming_StartFaceLivenessSession.html">StartFaceLivenessSession</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Amazon Rekognition Streaming Video</b>
  *          </p>
  *          <ul>
  *             <li>

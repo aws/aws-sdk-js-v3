@@ -10,6 +10,7 @@ import { LexRuntimeServiceServiceException as __BaseException } from "./LexRunti
  * @public
  */
 export class BadRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimeservice#BadRequestException";
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -31,6 +32,7 @@ export class BadRequestException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimeservice#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -51,6 +53,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimeservice#InternalFailureException";
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   /**
@@ -71,6 +74,7 @@ export class InternalFailureException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimeservice#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   retryAfterSeconds?: string | undefined;
@@ -94,6 +98,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class NotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimeservice#NotFoundException";
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -116,6 +121,7 @@ export class NotFoundException extends __BaseException {
  * @public
  */
 export class BadGatewayException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimeservice#BadGatewayException";
   readonly name = "BadGatewayException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -153,6 +159,7 @@ export class BadGatewayException extends __BaseException {
  * @public
  */
 export class DependencyFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimeservice#DependencyFailedException";
   readonly name = "DependencyFailedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -175,6 +182,7 @@ export class DependencyFailedException extends __BaseException {
  * @public
  */
 export class LoopDetectedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimeservice#LoopDetectedException";
   readonly name = "LoopDetectedException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -197,6 +205,7 @@ export class LoopDetectedException extends __BaseException {
  * @public
  */
 export class NotAcceptableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimeservice#NotAcceptableException";
   readonly name = "NotAcceptableException" as const;
   readonly $fault = "client" as const;
   /**
@@ -217,6 +226,7 @@ export class NotAcceptableException extends __BaseException {
  * @public
  */
 export class RequestTimeoutException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimeservice#RequestTimeoutException";
   readonly name = "RequestTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
@@ -238,6 +248,7 @@ export class RequestTimeoutException extends __BaseException {
  * @public
  */
 export class UnsupportedMediaTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lexruntimeservice#UnsupportedMediaTypeException";
   readonly name = "UnsupportedMediaTypeException" as const;
   readonly $fault = "client" as const;
   /**

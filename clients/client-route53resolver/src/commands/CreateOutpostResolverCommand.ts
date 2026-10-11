@@ -24,6 +24,10 @@ export interface CreateOutpostResolverCommandOutput extends CreateOutpostResolve
 
 /**
  * <p>Creates a Route 53 Resolver on an Outpost.</p>
+ *          <note>
+ *             <p>This operation applies to first-generation Outposts only. On second-generation Outposts, Resolver
+ * 				is enabled by default and managed automatically by Amazon Web Services, so you don't need to create it.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

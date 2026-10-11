@@ -10,6 +10,7 @@ import { QBusinessServiceException as __BaseException } from "./QBusinessService
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.qbusiness#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -30,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.qbusiness#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -64,6 +66,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.qbusiness#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -84,6 +87,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.qbusiness#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -118,6 +122,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.qbusiness#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -152,6 +157,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.qbusiness#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -172,6 +178,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.qbusiness#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -206,6 +213,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ExternalResourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.qbusiness#ExternalResourceException";
   readonly name = "ExternalResourceException" as const;
   readonly $fault = "client" as const;
   /**
@@ -226,6 +234,7 @@ export class ExternalResourceException extends __BaseException {
  * @public
  */
 export class LicenseNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.qbusiness#LicenseNotFoundException";
   readonly name = "LicenseNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -246,6 +255,7 @@ export class LicenseNotFoundException extends __BaseException {
  * @public
  */
 export class MediaTooLargeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.qbusiness#MediaTooLargeException";
   readonly name = "MediaTooLargeException" as const;
   readonly $fault = "client" as const;
   /**

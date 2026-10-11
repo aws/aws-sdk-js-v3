@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from PcaConnectorScep service.
  */
 export class PcaConnectorScepServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.pcaconnectorscep#PcaConnectorScepServiceException";
   /**
    * @internal
    */

@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep0, _mw0, command } from "../commandBuilder";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { GetAgentProfileRequest, GetAgentProfileResponse } from "../models/models_0";
 import { GetAgentProfile$ } from "../schemas/schemas_0";
 
@@ -104,7 +104,7 @@ export interface GetAgentProfileCommandOutput extends GetAgentProfileResponse, _
  * @public
  */
 export class GetAgentProfileCommand extends command<GetAgentProfileCommandInput, GetAgentProfileCommandOutput>(
-  _ep0,
+  _ep1,
   _mw0,
   "GetAgentProfile",
   GetAgentProfile$

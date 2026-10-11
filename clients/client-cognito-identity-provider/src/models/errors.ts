@@ -8,6 +8,7 @@ import { CognitoIdentityProviderServiceException as __BaseException } from "./Co
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalErrorException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#InternalErrorException";
   readonly name = "InternalErrorException" as const;
   readonly $fault = "server" as const;
   /**
@@ -49,6 +51,7 @@ export class InternalErrorException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -76,6 +79,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#NotAuthorizedException";
   readonly name = "NotAuthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -96,6 +100,7 @@ export class NotAuthorizedException extends __BaseException {
  * @public
  */
 export class OperationNotEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#OperationNotEnabledException";
   readonly name = "OperationNotEnabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -117,6 +122,7 @@ export class OperationNotEnabledException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -138,6 +144,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -159,6 +166,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class UserImportInProgressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UserImportInProgressException";
   readonly name = "UserImportInProgressException" as const;
   readonly $fault = "client" as const;
   /**
@@ -179,6 +187,7 @@ export class UserImportInProgressException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -200,6 +209,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -220,6 +230,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class UserNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UserNotFoundException";
   readonly name = "UserNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -240,6 +251,7 @@ export class UserNotFoundException extends __BaseException {
  * @public
  */
 export class InvalidLambdaResponseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException";
   readonly name = "InvalidLambdaResponseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -261,6 +273,7 @@ export class InvalidLambdaResponseException extends __BaseException {
  * @public
  */
 export class TooManyFailedAttemptsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#TooManyFailedAttemptsException";
   readonly name = "TooManyFailedAttemptsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -282,6 +295,7 @@ export class TooManyFailedAttemptsException extends __BaseException {
  * @public
  */
 export class UnexpectedLambdaException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException";
   readonly name = "UnexpectedLambdaException" as const;
   readonly $fault = "client" as const;
   /**
@@ -303,6 +317,7 @@ export class UnexpectedLambdaException extends __BaseException {
  * @public
  */
 export class UserLambdaValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException";
   readonly name = "UserLambdaValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -324,6 +339,7 @@ export class UserLambdaValidationException extends __BaseException {
  * @public
  */
 export class CodeDeliveryFailureException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException";
   readonly name = "CodeDeliveryFailureException" as const;
   readonly $fault = "client" as const;
   /**
@@ -344,6 +360,7 @@ export class CodeDeliveryFailureException extends __BaseException {
  * @public
  */
 export class InvalidPasswordException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#InvalidPasswordException";
   readonly name = "InvalidPasswordException" as const;
   readonly $fault = "client" as const;
   /**
@@ -365,6 +382,7 @@ export class InvalidPasswordException extends __BaseException {
  * @public
  */
 export class InvalidSmsRoleAccessPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException";
   readonly name = "InvalidSmsRoleAccessPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -388,6 +406,7 @@ export class InvalidSmsRoleAccessPolicyException extends __BaseException {
  * @public
  */
 export class InvalidSmsRoleTrustRelationshipException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException";
   readonly name = "InvalidSmsRoleTrustRelationshipException" as const;
   readonly $fault = "client" as const;
   /**
@@ -408,6 +427,7 @@ export class InvalidSmsRoleTrustRelationshipException extends __BaseException {
  * @public
  */
 export class PreconditionNotMetException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#PreconditionNotMetException";
   readonly name = "PreconditionNotMetException" as const;
   readonly $fault = "client" as const;
   /**
@@ -428,6 +448,7 @@ export class PreconditionNotMetException extends __BaseException {
  * @public
  */
 export class UnsupportedUserStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UnsupportedUserStateException";
   readonly name = "UnsupportedUserStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -449,6 +470,7 @@ export class UnsupportedUserStateException extends __BaseException {
  * @public
  */
 export class UsernameExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UsernameExistsException";
   readonly name = "UsernameExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -469,6 +491,7 @@ export class UsernameExistsException extends __BaseException {
  * @public
  */
 export class UserNotConfirmedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException";
   readonly name = "UserNotConfirmedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -493,6 +516,7 @@ export class UserNotConfirmedException extends __BaseException {
  * @public
  */
 export class AliasExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#AliasExistsException";
   readonly name = "AliasExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -513,6 +537,7 @@ export class AliasExistsException extends __BaseException {
  * @public
  */
 export class InvalidUserPoolConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException";
   readonly name = "InvalidUserPoolConfigurationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -529,11 +554,46 @@ export class InvalidUserPoolConfigurationException extends __BaseException {
 }
 
 /**
+ * <p>This exception is thrown when a feature that you attempted to use or configure
+ *             isn't included in your user pool's current feature plan. This can occur
+ *             when:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You configure a feature that your feature plan doesn't support.</p>
+ *             </li>
+ *             <li>
+ *                <p>You make a request that uses a feature that requires a higher feature
+ *                     plan.</p>
+ *             </li>
+ *          </ul>
+ *          <p>To resolve this issue, upgrade your user pool to a feature plan that includes the
+ *             feature.</p>
+ * @public
+ */
+export class FeatureUnavailableInTierException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#FeatureUnavailableInTierException";
+  readonly name = "FeatureUnavailableInTierException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FeatureUnavailableInTierException, __BaseException>) {
+    super({
+      name: "FeatureUnavailableInTierException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FeatureUnavailableInTierException.prototype);
+  }
+}
+
+/**
  * <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
  *             status code: 400.</p>
  * @public
  */
 export class InvalidEmailRoleAccessPolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException";
   readonly name = "InvalidEmailRoleAccessPolicyException" as const;
   readonly $fault = "client" as const;
   /**
@@ -555,6 +615,7 @@ export class InvalidEmailRoleAccessPolicyException extends __BaseException {
  * @public
  */
 export class MFAMethodNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#MFAMethodNotFoundException";
   readonly name = "MFAMethodNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -575,6 +636,7 @@ export class MFAMethodNotFoundException extends __BaseException {
  * @public
  */
 export class PasswordResetRequiredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException";
   readonly name = "PasswordResetRequiredException" as const;
   readonly $fault = "client" as const;
   /**
@@ -596,6 +658,7 @@ export class PasswordResetRequiredException extends __BaseException {
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UnsupportedOperationException";
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -616,6 +679,7 @@ export class UnsupportedOperationException extends __BaseException {
  * @public
  */
 export class UserPoolAddOnNotEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException";
   readonly name = "UserPoolAddOnNotEnabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -637,6 +701,7 @@ export class UserPoolAddOnNotEnabledException extends __BaseException {
  * @public
  */
 export class CodeMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#CodeMismatchException";
   readonly name = "CodeMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -657,6 +722,7 @@ export class CodeMismatchException extends __BaseException {
  * @public
  */
 export class ExpiredCodeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#ExpiredCodeException";
   readonly name = "ExpiredCodeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -678,6 +744,7 @@ export class ExpiredCodeException extends __BaseException {
  * @public
  */
 export class PasswordHistoryPolicyViolationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#PasswordHistoryPolicyViolationException";
   readonly name = "PasswordHistoryPolicyViolationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -699,6 +766,7 @@ export class PasswordHistoryPolicyViolationException extends __BaseException {
  * @public
  */
 export class SoftwareTokenMFANotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#SoftwareTokenMFANotFoundException";
   readonly name = "SoftwareTokenMFANotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -720,6 +788,7 @@ export class SoftwareTokenMFANotFoundException extends __BaseException {
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -741,6 +810,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class ForbiddenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#ForbiddenException";
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
@@ -762,6 +832,7 @@ export class ForbiddenException extends __BaseException {
  * @public
  */
 export class WebAuthnChallengeNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#WebAuthnChallengeNotFoundException";
   readonly name = "WebAuthnChallengeNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -783,6 +854,7 @@ export class WebAuthnChallengeNotFoundException extends __BaseException {
  * @public
  */
 export class WebAuthnClientMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#WebAuthnClientMismatchException";
   readonly name = "WebAuthnClientMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -804,6 +876,7 @@ export class WebAuthnClientMismatchException extends __BaseException {
  * @public
  */
 export class WebAuthnCredentialNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#WebAuthnCredentialNotSupportedException";
   readonly name = "WebAuthnCredentialNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -825,6 +898,7 @@ export class WebAuthnCredentialNotSupportedException extends __BaseException {
  * @public
  */
 export class WebAuthnNotEnabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#WebAuthnNotEnabledException";
   readonly name = "WebAuthnNotEnabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -846,6 +920,7 @@ export class WebAuthnNotEnabledException extends __BaseException {
  * @public
  */
 export class WebAuthnOriginNotAllowedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#WebAuthnOriginNotAllowedException";
   readonly name = "WebAuthnOriginNotAllowedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -867,6 +942,7 @@ export class WebAuthnOriginNotAllowedException extends __BaseException {
  * @public
  */
 export class WebAuthnRelyingPartyMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#WebAuthnRelyingPartyMismatchException";
   readonly name = "WebAuthnRelyingPartyMismatchException" as const;
   readonly $fault = "client" as const;
   /**
@@ -888,6 +964,7 @@ export class WebAuthnRelyingPartyMismatchException extends __BaseException {
  * @public
  */
 export class DeviceKeyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#DeviceKeyExistsException";
   readonly name = "DeviceKeyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -909,6 +986,7 @@ export class DeviceKeyExistsException extends __BaseException {
  * @public
  */
 export class GroupExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#GroupExistsException";
   readonly name = "GroupExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -930,6 +1008,7 @@ export class GroupExistsException extends __BaseException {
  * @public
  */
 export class DuplicateProviderException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#DuplicateProviderException";
   readonly name = "DuplicateProviderException" as const;
   readonly $fault = "client" as const;
   /**
@@ -951,6 +1030,7 @@ export class DuplicateProviderException extends __BaseException {
  * @public
  */
 export class ManagedLoginBrandingExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#ManagedLoginBrandingExistsException";
   readonly name = "ManagedLoginBrandingExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -972,6 +1052,7 @@ export class ManagedLoginBrandingExistsException extends __BaseException {
  * @public
  */
 export class TermsExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#TermsExistsException";
   readonly name = "TermsExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -988,32 +1069,12 @@ export class TermsExistsException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a feature you attempted to configure isn't
- *             available in your current feature plan.</p>
- * @public
- */
-export class FeatureUnavailableInTierException extends __BaseException {
-  readonly name = "FeatureUnavailableInTierException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<FeatureUnavailableInTierException, __BaseException>) {
-    super({
-      name: "FeatureUnavailableInTierException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, FeatureUnavailableInTierException.prototype);
-  }
-}
-
-/**
  * <p>This exception is thrown when you've attempted to change your feature plan but
  *             the operation isn't permitted.</p>
  * @public
  */
 export class TierChangeNotAllowedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#TierChangeNotAllowedException";
   readonly name = "TierChangeNotAllowedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1034,6 +1095,7 @@ export class TierChangeNotAllowedException extends __BaseException {
  * @public
  */
 export class UserPoolTaggingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UserPoolTaggingException";
   readonly name = "UserPoolTaggingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1054,6 +1116,7 @@ export class UserPoolTaggingException extends __BaseException {
  * @public
  */
 export class InvalidOAuthFlowException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#InvalidOAuthFlowException";
   readonly name = "InvalidOAuthFlowException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1074,6 +1137,7 @@ export class InvalidOAuthFlowException extends __BaseException {
  * @public
  */
 export class ScopeDoesNotExistException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#ScopeDoesNotExistException";
   readonly name = "ScopeDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1094,6 +1158,7 @@ export class ScopeDoesNotExistException extends __BaseException {
  * @public
  */
 export class UnsupportedIdentityProviderException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UnsupportedIdentityProviderException";
   readonly name = "UnsupportedIdentityProviderException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1115,6 +1180,7 @@ export class UnsupportedIdentityProviderException extends __BaseException {
  * @public
  */
 export class RefreshTokenReuseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#RefreshTokenReuseException";
   readonly name = "RefreshTokenReuseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1136,6 +1202,7 @@ export class RefreshTokenReuseException extends __BaseException {
  * @public
  */
 export class UnauthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UnauthorizedException";
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1156,6 +1223,7 @@ export class UnauthorizedException extends __BaseException {
  * @public
  */
 export class UnsupportedTokenTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#UnsupportedTokenTypeException";
   readonly name = "UnsupportedTokenTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1177,6 +1245,7 @@ export class UnsupportedTokenTypeException extends __BaseException {
  * @public
  */
 export class WebAuthnConfigurationMissingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#WebAuthnConfigurationMissingException";
   readonly name = "WebAuthnConfigurationMissingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1197,6 +1266,7 @@ export class WebAuthnConfigurationMissingException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -1218,6 +1288,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class EnableSoftwareTokenMFAException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cognitoidentityprovider#EnableSoftwareTokenMFAException";
   readonly name = "EnableSoftwareTokenMFAException" as const;
   readonly $fault = "client" as const;
   /**

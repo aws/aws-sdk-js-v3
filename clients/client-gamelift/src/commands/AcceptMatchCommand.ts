@@ -42,7 +42,7 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *          <ul>
  *             <li>
  *                <p>If the ticket has one or more players who rejected the match or failed to
- *                 respond, the ticket status is set <code>CANCELLED</code> and processing is
+ *                 respond, the ticket status is set to <code>CANCELLED</code> and processing is
  *                 terminated.</p>
  *             </li>
  *             <li>

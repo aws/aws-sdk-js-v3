@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RedshiftDataClient` and
-the commands you need, for example `ListSchemasCommand`:
+the commands you need, for example `ListDatabasesCommand`:
 
 ```js
 // ES5 example
-const { RedshiftDataClient, ListSchemasCommand } = require("@aws-sdk/client-redshift-data");
+const { RedshiftDataClient, ListDatabasesCommand } = require("@aws-sdk/client-redshift-data");
 ```
 
 ```ts
 // ES6+ example
-import { RedshiftDataClient, ListSchemasCommand } from "@aws-sdk/client-redshift-data";
+import { RedshiftDataClient, ListDatabasesCommand } from "@aws-sdk/client-redshift-data";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new RedshiftDataClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListSchemasCommand(params);
+const command = new ListDatabasesCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new RedshiftData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listSchemas(params);
+  const data = await client.listDatabases(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listSchemas(params)
+  .listDatabases(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listSchemas(params, (err, data) => {
+client.listDatabases(params, (err, data) => {
   // process err and data.
 });
 ```

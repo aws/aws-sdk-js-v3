@@ -7,6 +7,7 @@ import type {
   AZMode,
   ChangeType,
   ClusterMode,
+  ConnectionType,
   DataStorageUnit,
   DataTieringStatus,
   DestinationType,
@@ -36,7 +37,7 @@ import type {
 /**
  * <p>A tag that can be added to an ElastiCache cluster or replication group. Tags are
  *             composed of a Key/Value pair. You can use tags to categorize and track all your
- *             ElastiCache resources, with the exception of global replication group. When you add or
+ *             ElastiCache resources. When you add or
  *             remove tags on replication groups, those actions will be replicated to all nodes in the
  *             replication group. A tag with a null Value is permitted.</p>
  * @public
@@ -3618,6 +3619,13 @@ export interface CreateGlobalReplicationGroupMessage {
    * @public
    */
   PrimaryReplicationGroupId: string | undefined;
+
+  /**
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must
+   *             be accompanied by a tag value, although null is accepted.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4644,6 +4652,17 @@ export interface CreateServerlessCacheRequest {
    * @public
    */
   NetworkType?: NetworkType | undefined;
+
+  /**
+   * <p>The connection type for the serverless cache.
+   *            Must be either <code>vpc</code> | <code>public</code>.
+   *            Use <code>vpc</code> to access the cache through a VPC endpoint, or <code>public</code> to access the cache over the internet.
+   *            If not specified, defaults to <code>vpc</code>.
+   *            This value cannot be changed after the serverless cache is created.
+   *            Setting this to <code>public</code> requires Valkey 9 or above.</p>
+   * @public
+   */
+  ConnectionType?: ConnectionType | undefined;
 }
 
 /**
@@ -4775,6 +4794,14 @@ export interface ServerlessCache {
    * @public
    */
   NetworkType?: NetworkType | undefined;
+
+  /**
+   * <p>The connection type for the serverless cache.
+   *            Must be either <code>vpc</code> | <code>public</code>.
+   *            If not specified, defaults to <code>vpc</code>.</p>
+   * @public
+   */
+  ConnectionType?: ConnectionType | undefined;
 }
 
 /**

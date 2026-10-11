@@ -44,7 +44,7 @@ export interface GetMedicalScribeListeningSessionCommandOutput extends GetMedica
  * //     sessionId: "STRING_VALUE",
  * //     domainId: "STRING_VALUE",
  * //     subscriptionId: "STRING_VALUE",
- * //     languageCode: "en-US",
+ * //     languageCode: "en-US" || "multi",
  * //     mediaSampleRateHertz: Number("int"),
  * //     mediaEncoding: "pcm" || "flac",
  * //     channelDefinitions: [ // MedicalScribeChannelDefinitions

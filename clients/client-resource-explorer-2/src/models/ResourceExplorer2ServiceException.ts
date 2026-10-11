@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from ResourceExplorer2 service.
  */
 export class ResourceExplorer2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.resourceexplorer2#ResourceExplorer2ServiceException";
   /**
    * @internal
    */

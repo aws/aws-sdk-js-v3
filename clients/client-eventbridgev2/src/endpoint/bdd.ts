@@ -1,0 +1,107 @@
+// smithy-typescript generated code
+import { BinaryDecisionDiagram } from "@smithy/core/endpoints";
+
+const t="ref";
+const a=-1,
+b=false,
+c=true,
+d="isSet",
+e="PartitionResult",
+f="stringEquals",
+g="ParsedBusArn",
+h="getAttr",
+i="isValidHostLabel",
+j="booleanEquals",
+k={[t]:"Endpoint"},
+l={[t]:"AccountIdEndpointMode"},
+m={[t]:g},
+n={[t]:"AccountId"},
+o={[t]:e},
+p={},
+q={"metricValues":["O"]},
+s=[{[t]:"EventBusArn"}];
+const _data={
+  conditions: [
+    [d,[k]],
+    ["aws.partition",[{[t]:"Region"}],e],
+    [d,[l]],
+    [f,[l,"disabled"]],
+    [d,s],
+    ["aws.parseArn",s,g],
+    [f,[{fn:h,argv:[m,"service"]},"events"]],
+    [i,[{fn:h,argv:[m,"accountId"]},b]],
+    [d,[n]],
+    [f,[l,"required"]],
+    [i,[n,b]],
+    [j,[{[t]:"UseFIPS"},c]],
+    [j,[{[t]:"UseDualStack"},c]],
+    [j,[{fn:h,argv:[o,"supportsDualStack"]},c]],
+    [j,[{fn:h,argv:[o,"supportsFIPS"]},c]]
+  ],
+  results: [
+    [a],
+    [a,"Invalid Configuration: FIPS and custom endpoint are not supported"],
+    [a,"Invalid Configuration: Dualstack and custom endpoint are not supported"],
+    [k,p],
+    ["https://{ParsedBusArn#accountId}.eventsv2-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",q],
+    [a,"FIPS and DualStack are enabled, but this partition does not support one or both"],
+    ["https://{ParsedBusArn#accountId}.eventsv2-fips.{Region}.{PartitionResult#dnsSuffix}",q],
+    [a,"FIPS is enabled but this partition does not support FIPS"],
+    ["https://{ParsedBusArn#accountId}.eventsv2.{Region}.{PartitionResult#dualStackDnsSuffix}",q],
+    [a,"DualStack is enabled but this partition does not support DualStack"],
+    ["https://{ParsedBusArn#accountId}.eventsv2.{Region}.{PartitionResult#dnsSuffix}",q],
+    ["https://{AccountId}.eventsv2-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",q],
+    ["https://{AccountId}.eventsv2-fips.{Region}.{PartitionResult#dnsSuffix}",q],
+    ["https://{AccountId}.eventsv2.{Region}.{PartitionResult#dualStackDnsSuffix}",q],
+    ["https://{AccountId}.eventsv2.{Region}.{PartitionResult#dnsSuffix}",q],
+    [a,"Credentials-sourced account ID parameter is invalid"],
+    [a,"AccountIdEndpointMode is required but no AccountID was provided or able to be loaded"],
+    ["https://eventsv2-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",p],
+    ["https://eventsv2-fips.{Region}.{PartitionResult#dnsSuffix}",p],
+    ["https://eventsv2.{Region}.{PartitionResult#dualStackDnsSuffix}",p],
+    ["https://eventsv2.{Region}.{PartitionResult#dnsSuffix}",p]
+  ]
+};
+
+const root = 2;
+const r = 100_000_000;
+const nodes = new Int32Array([
+  -1, 1, -1,
+  0, 34, 3,
+  1, 4, r + 0,
+  2, 5, 27,
+  3, 26, 6,
+  4, 7, 10,
+  5, 8, 10,
+  6, 9, 10,
+  7, 19, 10,
+  8, 11, 26,
+  10, 12, r + 15,
+  11, 15, 13,
+  12, 14, r + 14,
+  13, r + 13, r + 9,
+  12, 17, 16,
+  14, r + 12, r + 7,
+  13, 18, r + 5,
+  14, r + 11, r + 5,
+  11, 22, 20,
+  12, 21, r + 10,
+  13, r + 8, r + 9,
+  12, 24, 23,
+  14, r + 6, r + 7,
+  13, 25, r + 5,
+  14, r + 4, r + 5,
+  9, r + 16, 27,
+  11, 30, 28,
+  12, 29, r + 20,
+  13, r + 19, r + 9,
+  12, 32, 31,
+  14, r + 18, r + 7,
+  13, 33, r + 5,
+  14, r + 17, r + 5,
+  11, r + 1, 35,
+  12, r + 2, r + 3,
+]);
+export const bdd = BinaryDecisionDiagram.from(
+  nodes, root, _data.conditions, _data.results
+);

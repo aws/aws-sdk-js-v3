@@ -9,6 +9,7 @@ import { WorkMailServiceException as __BaseException } from "./WorkMailServiceEx
  * @public
  */
 export class EntityNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#EntityNotFoundException";
   readonly name = "EntityNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -32,6 +33,7 @@ export class EntityNotFoundException extends __BaseException {
  * @public
  */
 export class EntityStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#EntityStateException";
   readonly name = "EntityStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -54,6 +56,7 @@ export class EntityStateException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -77,6 +80,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class OrganizationNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#OrganizationNotFoundException";
   readonly name = "OrganizationNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -100,6 +104,7 @@ export class OrganizationNotFoundException extends __BaseException {
  * @public
  */
 export class OrganizationStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#OrganizationStateException";
   readonly name = "OrganizationStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -122,6 +127,7 @@ export class OrganizationStateException extends __BaseException {
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#UnsupportedOperationException";
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -144,6 +150,7 @@ export class UnsupportedOperationException extends __BaseException {
  * @public
  */
 export class DirectoryServiceAuthenticationFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException";
   readonly name = "DirectoryServiceAuthenticationFailedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -166,6 +173,7 @@ export class DirectoryServiceAuthenticationFailedException extends __BaseExcepti
  * @public
  */
 export class DirectoryUnavailableException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#DirectoryUnavailableException";
   readonly name = "DirectoryUnavailableException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -188,6 +196,7 @@ export class DirectoryUnavailableException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -211,6 +220,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class EmailAddressInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#EmailAddressInUseException";
   readonly name = "EmailAddressInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -233,6 +243,7 @@ export class EmailAddressInUseException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -255,6 +266,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class MailDomainNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#MailDomainNotFoundException";
   readonly name = "MailDomainNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -278,6 +290,7 @@ export class MailDomainNotFoundException extends __BaseException {
  * @public
  */
 export class MailDomainStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#MailDomainStateException";
   readonly name = "MailDomainStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -300,6 +313,7 @@ export class MailDomainStateException extends __BaseException {
  * @public
  */
 export class NameAvailabilityException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#NameAvailabilityException";
   readonly name = "NameAvailabilityException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -322,6 +336,7 @@ export class NameAvailabilityException extends __BaseException {
  * @public
  */
 export class ReservedNameException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#ReservedNameException";
   readonly name = "ReservedNameException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -344,6 +359,7 @@ export class ReservedNameException extends __BaseException {
  * @public
  */
 export class DirectoryInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#DirectoryInUseException";
   readonly name = "DirectoryInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -367,6 +383,7 @@ export class DirectoryInUseException extends __BaseException {
  * @public
  */
 export class InvalidPasswordException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#InvalidPasswordException";
   readonly name = "InvalidPasswordException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -390,6 +407,7 @@ export class InvalidPasswordException extends __BaseException {
  * @public
  */
 export class InvalidCustomSesConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#InvalidCustomSesConfigurationException";
   readonly name = "InvalidCustomSesConfigurationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -412,6 +430,7 @@ export class InvalidCustomSesConfigurationException extends __BaseException {
  * @public
  */
 export class MailDomainInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#MailDomainInUseException";
   readonly name = "MailDomainInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -435,6 +454,7 @@ export class MailDomainInUseException extends __BaseException {
  * @public
  */
 export class EntityAlreadyRegisteredException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#EntityAlreadyRegisteredException";
   readonly name = "EntityAlreadyRegisteredException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -459,6 +479,7 @@ export class EntityAlreadyRegisteredException extends __BaseException {
  * @public
  */
 export class InvalidConfigurationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#InvalidConfigurationException";
   readonly name = "InvalidConfigurationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -481,6 +502,7 @@ export class InvalidConfigurationException extends __BaseException {
  * @public
  */
 export class TooManyTagsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.workmail#TooManyTagsException";
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

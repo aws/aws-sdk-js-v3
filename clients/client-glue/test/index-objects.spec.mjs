@@ -966,6 +966,14 @@ import {
   GetStatementCommand,
   GetStatementRequest$,
   GetStatementResponse$,
+  GetSystemLogsForJobRun$,
+  GetSystemLogsForJobRunCommand,
+  GetSystemLogsForJobRunRequest$,
+  GetSystemLogsForJobRunResponse$,
+  GetSystemLogsForSession$,
+  GetSystemLogsForSessionCommand,
+  GetSystemLogsForSessionRequest$,
+  GetSystemLogsForSessionResponse$,
   GetTable$,
   GetTableCommand,
   GetTableOptimizer$,
@@ -1760,6 +1768,7 @@ import {
   TableOptimizerRun$,
   TableOptimizerType,
   TableOptimizerVpcConfiguration$,
+  TableResourceShareType,
   TableStatus$,
   TableVersion$,
   TableVersionError$,
@@ -2314,6 +2323,10 @@ assert(typeof GetSessionEndpointCommand === "function");
 assert(typeof GetSessionEndpoint$ === "object");
 assert(typeof GetStatementCommand === "function");
 assert(typeof GetStatement$ === "object");
+assert(typeof GetSystemLogsForJobRunCommand === "function");
+assert(typeof GetSystemLogsForJobRun$ === "object");
+assert(typeof GetSystemLogsForSessionCommand === "function");
+assert(typeof GetSystemLogsForSession$ === "object");
 assert(typeof GetTableCommand === "function");
 assert(typeof GetTable$ === "object");
 assert(typeof GetTableOptimizerCommand === "function");
@@ -3109,6 +3122,10 @@ assert(typeof GetSessionRequest$ === "object");
 assert(typeof GetSessionResponse$ === "object");
 assert(typeof GetStatementRequest$ === "object");
 assert(typeof GetStatementResponse$ === "object");
+assert(typeof GetSystemLogsForJobRunRequest$ === "object");
+assert(typeof GetSystemLogsForJobRunResponse$ === "object");
+assert(typeof GetSystemLogsForSessionRequest$ === "object");
+assert(typeof GetSystemLogsForSessionResponse$ === "object");
 assert(typeof GetTableOptimizerRequest$ === "object");
 assert(typeof GetTableOptimizerResponse$ === "object");
 assert(typeof GetTableRequest$ === "object");
@@ -3771,6 +3788,7 @@ assert(typeof SubObjectSourceType === "object");
 assert(typeof TableAttributes === "object");
 assert(typeof TableOptimizerEventType === "object");
 assert(typeof TableOptimizerType === "object");
+assert(typeof TableResourceShareType === "object");
 assert(typeof TargetFormat === "object");
 assert(typeof TaskRunSortColumnType === "object");
 assert(typeof TaskStatusType === "object");

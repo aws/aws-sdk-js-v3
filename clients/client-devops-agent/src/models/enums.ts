@@ -520,6 +520,24 @@ export type PrivateConnectionType = (typeof PrivateConnectionType)[keyof typeof 
  * @public
  * @enum
  */
+export const DayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+/**
+ * @public
+ */
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecommendationPriority = {
   /**
    * <p>High priority recommendation requiring immediate attention</p>

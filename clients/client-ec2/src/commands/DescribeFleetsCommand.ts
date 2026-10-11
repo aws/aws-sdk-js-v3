@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeFleetsRequest } from "../models/models_3";
-import type { DescribeFleetsResult } from "../models/models_4";
+import type { DescribeFleetsRequest, DescribeFleetsResult } from "../models/models_4";
 import { DescribeFleets$ } from "../schemas/schemas_0";
 
 /**

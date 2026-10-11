@@ -671,6 +671,10 @@ export interface DimensionValues {
    *          <p>
    *             <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code> and
    *                 <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html">AnomalySubscriptions</a>.</p>
+   *          <p>Use <code>PRODUCT_ATTRIBUTE</code> only as the <code>Dimension</code> in
+   *                 <code>GetDimensionValues</code>. To filter or group by product attributes, use the
+   *                 <code>ProductAttributes</code> field of <code>Expression</code> or the
+   *                 <code>PRODUCT_ATTRIBUTE</code> group type.</p>
    * @public
    */
   Key?: Dimension | undefined;
@@ -690,6 +694,129 @@ export interface DimensionValues {
    *             supported.</p>
    *          <p>The default values for <code>MatchOptions</code> are <code>EQUALS</code> and
    *                 <code>CASE_SENSITIVE</code>.</p>
+   * @public
+   */
+  MatchOptions?: MatchOption[] | undefined;
+}
+
+/**
+ * <p>The product attribute values that you can use to filter the costs of supported services.
+ *             Currently, Amazon Bedrock is the only supported service.</p>
+ *          <p>The following product attribute keys are available for each supported service:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Amazon Bedrock</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>provider</code> - The model provider, such as
+ *                                 <code>Anthropic</code>, <code>Cohere</code>, or
+ *                             <code>OpenAI</code>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>model</code> - The model, such as <code>Claude Sonnet 5</code> or
+ *                                 <code>Claude Haiku 4.5</code>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>inferenceType</code> - The type of inference usage, such as
+ *                                 <code>Input tokens</code> or <code>Output tokens</code>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>feature</code> - The feature that was used, such as
+ *                                 <code>On-demand Inference</code> or <code>Reranker</code>.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ *          <p>The following operations support product attributes: <code>GetCostAndUsage</code>,
+ *                 <code>GetCostAndUsageWithResources</code>, <code>GetDimensionValues</code> (in the
+ *                 <code>COST_AND_USAGE</code> context), <code>GetTags</code>, and
+ *                 <code>GetCostCategories</code>.</p>
+ *          <p>Product attribute data is available for time periods that start on or after September 1,
+ *             2026. Requests for earlier time periods that use product attributes fail with a
+ *                 <code>DataUnavailableException</code>.</p>
+ *          <p>The <code>SERVICE</code> filter rules for product attributes depend on the
+ *             operation:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>GetCostAndUsage</code> and <code>GetCostAndUsageWithResources</code> -
+ *                     Optional.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>GetDimensionValues</code> - Required when the filter includes
+ *                         <code>ProductAttributes</code>, for any <code>Dimension</code>. Otherwise,
+ *                     optional.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>GetTags</code> and <code>GetCostCategories</code> - Required when the
+ *                     filter includes <code>ProductAttributes</code>.</p>
+ *             </li>
+ *          </ul>
+ *          <p>A <code>SERVICE</code> filter must contain only supported services, or the request
+ *             fails with a <code>ValidationException</code>. Service names are matched exactly. To list
+ *             them, use <code>GetDimensionValues</code> with <code>Dimension</code> set to
+ *                 <code>SERVICE</code> and the same <code>TimePeriod</code>, for example with
+ *                 <code>SearchString</code> set to <code>Bedrock</code>.</p>
+ *          <p>The costs of a supported service can appear under multiple service names. When the
+ *                 <code>SERVICE</code> filter is optional, omit it so that your results include all of
+ *             those costs.</p>
+ *          <p>For example, the following <code>Expression</code> filters for the costs of one
+ *             model: <code>\{ "ProductAttributes": \{ "Key": "model", "Values": [
+ *                 "Claude Sonnet 5" ], "MatchOptions": [ "EQUALS" ] \} \}</code>
+ *          </p>
+ * @public
+ */
+export interface ProductAttributeValues {
+  /**
+   * <p>The name of the product attribute, such as <code>model</code>. The keys that are
+   *             available depend on the service. For the keys of each supported service, see
+   *                 <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+   *                <code>ProductAttributeValues</code>
+   *             </a>.</p>
+   *          <p>Keys are case-sensitive. A key that doesn't exist doesn't return an error:
+   *                 <code>EQUALS</code> matches no costs, and <code>ABSENT</code> matches all costs of
+   *             supported services.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The specific values of the product attribute, such as <code>Claude Sonnet 5</code> for
+   *             the <code>model</code> key. Values are matched exactly, including case. To list the values
+   *             of a key, use <code>GetDimensionValues</code> with <code>Dimension</code> set to
+   *                 <code>PRODUCT_ATTRIBUTE</code> and <code>DimensionKey</code> set to the key.</p>
+   *          <p>To match costs that have no value for the key, set <code>MatchOptions</code> to
+   *                 <code>ABSENT</code> and omit <code>Values</code>. Otherwise, <code>Values</code> is
+   *             required.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+
+  /**
+   * <p>The match options that you can use to filter your results. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EQUALS</code> - Matches the values that you specify.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ABSENT</code> - Matches costs that have no value for the key. Omit
+   *                         <code>Values</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CASE_SENSITIVE</code> - Use only with <code>EQUALS</code>. Values are
+   *                     always matched case-sensitively.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
    * @public
    */
   MatchOptions?: MatchOption[] | undefined;
@@ -4561,7 +4688,7 @@ export interface ListCostCategoryDefinitionsRequest {
 
   /**
    * <p>
-   *       Filter cost category definitions that are supported by given resource types based on the latest version. If the filter is present, the result only includes Cost Categories that supports input resource type. If the filter isn't provided, no filtering is applied. The valid values are <code>billing:rispgroupsharing</code> and <code>billing:billingview</code>.
+   *       Filter cost category definitions that are supported by given resource types based on the latest version. If the filter is present, the result only includes Cost Categories that supports input resource type. If the filter isn't provided, no filtering is applied. The valid values are <code>billing:rispgroupsharing</code>, <code>billing:billingview</code>, and <code>billing:creditsharing</code>.
    *     </p>
    * @public
    */
@@ -5168,9 +5295,10 @@ export interface UpdateCostCategoryDefinitionResponse {
  *                <p>Simple dimension values.</p>
  *                <ul>
  *                   <li>
- *                      <p>There are three types of simple dimension values:
- *                                 <code>CostCategories</code>, <code>Tags</code>, and
- *                                 <code>Dimensions</code>.</p>
+ *                      <p>There are four types of simple dimension values:
+ *                                 <code>CostCategories</code>, <code>Tags</code>,
+ *                                 <code>Dimensions</code>, and
+ *                             <code>ProductAttributes</code>.</p>
  *                      <ul>
  *                         <li>
  *                            <p>Specify the <code>CostCategories</code> field to define a
@@ -5184,6 +5312,20 @@ export interface UpdateCostCategoryDefinitionResponse {
  *                            <p>Specify the <code>Dimensions</code> field to define a filter
  *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
  *                                  <code>DimensionValues</code>
+ *                               </a>.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>Specify the <code>ProductAttributes</code> field to define a
+ *                                     filter that acts on the product attributes of supported
+ *                                     services, such as Amazon Bedrock. Only
+ *                                         <code>GetCostAndUsage</code>,
+ *                                         <code>GetCostAndUsageWithResources</code>,
+ *                                         <code>GetDimensionValues</code> (in the
+ *                                         <code>COST_AND_USAGE</code> context),
+ *                                         <code>GetTags</code>, and <code>GetCostCategories</code>
+ *                                     support <code>ProductAttributes</code>. For the supported
+ *                                     services, keys and <code>SERVICE</code> filter rules, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+ *                                  <code>ProductAttributeValues</code>
  *                               </a>.</p>
  *                         </li>
  *                      </ul>
@@ -5319,6 +5461,19 @@ export interface Expression {
    * @public
    */
   CostCategories?: CostCategoryValues | undefined;
+
+  /**
+   * <p>The filter that's based on <code>ProductAttributeValues</code>. Use it to filter the
+   *             costs of supported services, such as Amazon Bedrock, by product attributes. The following
+   *             operations support this filter: <code>GetCostAndUsage</code>,
+   *                 <code>GetCostAndUsageWithResources</code>, <code>GetDimensionValues</code> (in the
+   *                 <code>COST_AND_USAGE</code> context), <code>GetTags</code>, and
+   *                 <code>GetCostCategories</code>. For the supported services and keys, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+   *                <code>ProductAttributeValues</code>
+   *             </a>.</p>
+   * @public
+   */
+  ProductAttributes?: ProductAttributeValues | undefined;
 }
 
 /**
@@ -5575,9 +5730,10 @@ export interface CostAndUsageComparison {
    *                <p>Simple dimension values.</p>
    *                <ul>
    *                   <li>
-   *                      <p>There are three types of simple dimension values:
-   *                                 <code>CostCategories</code>, <code>Tags</code>, and
-   *                                 <code>Dimensions</code>.</p>
+   *                      <p>There are four types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>,
+   *                                 <code>Dimensions</code>, and
+   *                             <code>ProductAttributes</code>.</p>
    *                      <ul>
    *                         <li>
    *                            <p>Specify the <code>CostCategories</code> field to define a
@@ -5591,6 +5747,20 @@ export interface CostAndUsageComparison {
    *                            <p>Specify the <code>Dimensions</code> field to define a filter
    *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
    *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>ProductAttributes</code> field to define a
+   *                                     filter that acts on the product attributes of supported
+   *                                     services, such as Amazon Bedrock. Only
+   *                                         <code>GetCostAndUsage</code>,
+   *                                         <code>GetCostAndUsageWithResources</code>,
+   *                                         <code>GetDimensionValues</code> (in the
+   *                                         <code>COST_AND_USAGE</code> context),
+   *                                         <code>GetTags</code>, and <code>GetCostCategories</code>
+   *                                     support <code>ProductAttributes</code>. For the supported
+   *                                     services, keys and <code>SERVICE</code> filter rules, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+   *                                  <code>ProductAttributeValues</code>
    *                               </a>.</p>
    *                         </li>
    *                      </ul>
@@ -5765,9 +5935,10 @@ export interface CostComparisonDriver {
    *                <p>Simple dimension values.</p>
    *                <ul>
    *                   <li>
-   *                      <p>There are three types of simple dimension values:
-   *                                 <code>CostCategories</code>, <code>Tags</code>, and
-   *                                 <code>Dimensions</code>.</p>
+   *                      <p>There are four types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>,
+   *                                 <code>Dimensions</code>, and
+   *                             <code>ProductAttributes</code>.</p>
    *                      <ul>
    *                         <li>
    *                            <p>Specify the <code>CostCategories</code> field to define a
@@ -5781,6 +5952,20 @@ export interface CostComparisonDriver {
    *                            <p>Specify the <code>Dimensions</code> field to define a filter
    *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
    *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>ProductAttributes</code> field to define a
+   *                                     filter that acts on the product attributes of supported
+   *                                     services, such as Amazon Bedrock. Only
+   *                                         <code>GetCostAndUsage</code>,
+   *                                         <code>GetCostAndUsageWithResources</code>,
+   *                                         <code>GetDimensionValues</code> (in the
+   *                                         <code>COST_AND_USAGE</code> context),
+   *                                         <code>GetTags</code>, and <code>GetCostCategories</code>
+   *                                     support <code>ProductAttributes</code>. For the supported
+   *                                     services, keys and <code>SERVICE</code> filter rules, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+   *                                  <code>ProductAttributeValues</code>
    *                               </a>.</p>
    *                         </li>
    *                      </ul>
@@ -5947,9 +6132,10 @@ export interface GetCostAndUsageComparisonsRequest {
    *                <p>Simple dimension values.</p>
    *                <ul>
    *                   <li>
-   *                      <p>There are three types of simple dimension values:
-   *                                 <code>CostCategories</code>, <code>Tags</code>, and
-   *                                 <code>Dimensions</code>.</p>
+   *                      <p>There are four types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>,
+   *                                 <code>Dimensions</code>, and
+   *                             <code>ProductAttributes</code>.</p>
    *                      <ul>
    *                         <li>
    *                            <p>Specify the <code>CostCategories</code> field to define a
@@ -5963,6 +6149,20 @@ export interface GetCostAndUsageComparisonsRequest {
    *                            <p>Specify the <code>Dimensions</code> field to define a filter
    *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
    *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>ProductAttributes</code> field to define a
+   *                                     filter that acts on the product attributes of supported
+   *                                     services, such as Amazon Bedrock. Only
+   *                                         <code>GetCostAndUsage</code>,
+   *                                         <code>GetCostAndUsageWithResources</code>,
+   *                                         <code>GetDimensionValues</code> (in the
+   *                                         <code>COST_AND_USAGE</code> context),
+   *                                         <code>GetTags</code>, and <code>GetCostCategories</code>
+   *                                     support <code>ProductAttributes</code>. For the supported
+   *                                     services, keys and <code>SERVICE</code> filter rules, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+   *                                  <code>ProductAttributeValues</code>
    *                               </a>.</p>
    *                         </li>
    *                      </ul>
@@ -6114,10 +6314,14 @@ export interface GetCostAndUsageRequest {
    *       define any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. </p>
    *          <p>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are
    *         <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
-   *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and
-   *         <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and
-   *         <code>CASE_SENSITIVE</code>. Default values are <code>EQUALS</code> and
-   *         <code>CASE_SENSITIVE</code>.</p>
+   *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code>,
+   *         <code>Tags</code>, and <code>ProductAttributes</code> are <code>EQUALS</code>,
+   *         <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>. Default values are <code>EQUALS</code>
+   *       and <code>CASE_SENSITIVE</code>.</p>
+   *          <p>You can filter by product attributes with or without grouping by them. If you filter or
+   *       group by product attributes, the results include only the costs of supported services, and a
+   *         <code>SERVICE</code> filter is optional. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">ProductAttributeValues</a>.</p>
+   *          <p>If you include a <code>SERVICE</code> filter, it must apply to the whole request: combine it with other filters by using <code>And</code>, and include it in every branch of an <code>Or</code>. A <code>SERVICE</code> filter inside <code>Not</code> doesn't meet this requirement, and the request fails with a <code>ValidationException</code>.</p>
    * @public
    */
   Filter?: Expression | undefined;
@@ -6146,7 +6350,8 @@ export interface GetCostAndUsageRequest {
 
   /**
    * <p>You can group Amazon Web Services costs using up to two different groups, either
-   *       dimensions, tag keys, cost categories, or any two group by types.</p>
+   *       dimensions, tag keys, cost categories, product attributes, or any two group by
+   *       types.</p>
    *          <p>Valid values for the <code>DIMENSION</code> type are <code>AZ</code>,
    *         <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>, <code>INVOICING_ENTITY</code>,
    *         <code>LINKED_ACCOUNT</code>, <code>OPERATION</code>, <code>PLATFORM</code>,
@@ -6154,6 +6359,16 @@ export interface GetCostAndUsageRequest {
    *         <code>RECORD_TYPE</code>, and <code>USAGE_TYPE</code>.</p>
    *          <p>When you group by the <code>TAG</code> type and include a valid tag key, you get all
    *       tag values, including empty strings.</p>
+   *          <p>To group by the <code>PRODUCT_ATTRIBUTE</code> type, set <code>Key</code> to a
+   *       product attribute key, such as <code>model</code>. For the keys of each supported service, see
+   *       <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">ProductAttributeValues</a>. The results include only the costs of supported services, and if you have no
+   *       such costs, the response contains no groups.</p>
+   *          <p>In the response, each group key has the format <code>key$value</code>, for example,
+   *         <code>model$Claude Sonnet 5</code>. Costs that have no value for the key are in the group
+   *         <code>key$</code>, for example, <code>model$</code>. Remove the <code>key$</code> prefix
+   *       before you use a value in a <code>ProductAttributes</code> filter. Keys are case-sensitive: if
+   *       you group by a key that doesn't exist, such as <code>Model</code>, all of your costs of
+   *       supported services are in the group <code>Model$</code>.</p>
    * @public
    */
   GroupBy?: GroupDefinition[] | undefined;
@@ -6210,10 +6425,12 @@ export interface GetCostAndUsageWithResourcesRequest {
    *             <code>"SERVICE = Amazon Elastic Compute Cloud - Compute"</code> in the filter.</p>
    *          <p>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are
    *         <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
-   *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and
-   *         <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and
-   *         <code>CASE_SENSITIVE</code>. Default values are <code>EQUALS</code> and
-   *         <code>CASE_SENSITIVE</code>.</p>
+   *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code>,
+   *         <code>Tags</code>, and <code>ProductAttributes</code> are <code>EQUALS</code>,
+   *         <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>. Default values are <code>EQUALS</code>
+   *       and <code>CASE_SENSITIVE</code>.</p>
+   *          <p>If you filter or group by product attributes, the <code>SERVICE</code> filter rules are
+   *       the same as for <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetCostAndUsage.html">GetCostAndUsage</a>.</p>
    * @public
    */
   Filter: Expression | undefined;
@@ -6243,7 +6460,12 @@ export interface GetCostAndUsageWithResourcesRequest {
 
   /**
    * <p>You can group Amazon Web Services costs using up to two different groups:
-   *         <code>DIMENSION</code>, <code>TAG</code>, <code>COST_CATEGORY</code>.</p>
+   *         <code>DIMENSION</code>, <code>TAG</code>, <code>COST_CATEGORY</code>, and
+   *         <code>PRODUCT_ATTRIBUTE</code>.</p>
+   *          <p>
+   *             <code>PRODUCT_ATTRIBUTE</code> groups work the same way as in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetCostAndUsage.html">GetCostAndUsage</a>. A
+   *         <code>PRODUCT_ATTRIBUTE</code> group or a <code>ProductAttributes</code> filter doesn't meet
+   *       the requirement to group by or filter by a <code>ResourceId</code>.</p>
    * @public
    */
   GroupBy?: GroupDefinition[] | undefined;
@@ -6302,9 +6524,10 @@ export interface GetCostCategoriesRequest {
    *                <p>Simple dimension values.</p>
    *                <ul>
    *                   <li>
-   *                      <p>There are three types of simple dimension values:
-   *                                 <code>CostCategories</code>, <code>Tags</code>, and
-   *                                 <code>Dimensions</code>.</p>
+   *                      <p>There are four types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>,
+   *                                 <code>Dimensions</code>, and
+   *                             <code>ProductAttributes</code>.</p>
    *                      <ul>
    *                         <li>
    *                            <p>Specify the <code>CostCategories</code> field to define a
@@ -6318,6 +6541,20 @@ export interface GetCostCategoriesRequest {
    *                            <p>Specify the <code>Dimensions</code> field to define a filter
    *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
    *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>ProductAttributes</code> field to define a
+   *                                     filter that acts on the product attributes of supported
+   *                                     services, such as Amazon Bedrock. Only
+   *                                         <code>GetCostAndUsage</code>,
+   *                                         <code>GetCostAndUsageWithResources</code>,
+   *                                         <code>GetDimensionValues</code> (in the
+   *                                         <code>COST_AND_USAGE</code> context),
+   *                                         <code>GetTags</code>, and <code>GetCostCategories</code>
+   *                                     support <code>ProductAttributes</code>. For the supported
+   *                                     services, keys and <code>SERVICE</code> filter rules, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+   *                                  <code>ProductAttributeValues</code>
    *                               </a>.</p>
    *                         </li>
    *                      </ul>
@@ -6545,9 +6782,10 @@ export interface GetCostComparisonDriversRequest {
    *                <p>Simple dimension values.</p>
    *                <ul>
    *                   <li>
-   *                      <p>There are three types of simple dimension values:
-   *                                 <code>CostCategories</code>, <code>Tags</code>, and
-   *                                 <code>Dimensions</code>.</p>
+   *                      <p>There are four types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>,
+   *                                 <code>Dimensions</code>, and
+   *                             <code>ProductAttributes</code>.</p>
    *                      <ul>
    *                         <li>
    *                            <p>Specify the <code>CostCategories</code> field to define a
@@ -6561,6 +6799,20 @@ export interface GetCostComparisonDriversRequest {
    *                            <p>Specify the <code>Dimensions</code> field to define a filter
    *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
    *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>ProductAttributes</code> field to define a
+   *                                     filter that acts on the product attributes of supported
+   *                                     services, such as Amazon Bedrock. Only
+   *                                         <code>GetCostAndUsage</code>,
+   *                                         <code>GetCostAndUsageWithResources</code>,
+   *                                         <code>GetDimensionValues</code> (in the
+   *                                         <code>COST_AND_USAGE</code> context),
+   *                                         <code>GetTags</code>, and <code>GetCostCategories</code>
+   *                                     support <code>ProductAttributes</code>. For the supported
+   *                                     services, keys and <code>SERVICE</code> filter rules, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+   *                                  <code>ProductAttributeValues</code>
    *                               </a>.</p>
    *                         </li>
    *                      </ul>
@@ -6892,9 +7144,31 @@ export interface GetDimensionValuesRequest {
    * <p>The name of the dimension. Each <code>Dimension</code> is available for a different
    *         <code>Context</code>. For more information, see <code>Context</code>.
    *         <code>LINK_ACCOUNT_NAME</code> and <code>SERVICE_CODE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>. </p>
+   *          <p>
+   *             <code>PRODUCT_ATTRIBUTE</code> returns the product attribute keys that are available for
+   *       your costs of supported services, or the values of the key that you specify in
+   *         <code>DimensionKey</code>. <code>PRODUCT_ATTRIBUTE</code> is supported only in the
+   *         <code>COST_AND_USAGE</code> context.</p>
    * @public
    */
   Dimension: Dimension | undefined;
+
+  /**
+   * <p>The product attribute key to return values for, such as <code>model</code>. If you omit
+   *         <code>DimensionKey</code> or set it to an empty string, the response lists the product
+   *       attribute keys that are available for your costs of supported services instead. For the
+   *       supported services, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">ProductAttributeValues</a>.</p>
+   *          <p>If you specify a key, the response lists the values of that key. If some of your costs
+   *       have no value for the key, the response includes an empty-string value. Keys are
+   *       case-sensitive, and a key that doesn't exist returns no values other than an empty
+   *       string.</p>
+   *          <p>You can specify <code>DimensionKey</code> only when <code>Dimension</code> is
+   *         <code>PRODUCT_ATTRIBUTE</code>. If you also specify <code>SortBy</code>,
+   *         <code>DimensionKey</code> is required. As a result, you can't list product attribute keys when
+   *       you use <code>SortBy</code>.</p>
+   * @public
+   */
+  DimensionKey?: string | undefined;
 
   /**
    * <p>The context for the call to <code>GetDimensionValues</code>. This can be
@@ -6964,6 +7238,10 @@ export interface GetDimensionValuesRequest {
    *             <li>
    *                <p>PLATFORM - The Amazon EC2 operating system. Examples are Windows or
    *           Linux.</p>
+   *             </li>
+   *             <li>
+   *                <p>PRODUCT_ATTRIBUTE - The product attributes of supported services, such as the model
+   *           provider or the model for Amazon Bedrock.</p>
    *             </li>
    *             <li>
    *                <p>PURCHASE_TYPE - The reservation type of the purchase that this usage is related to.
@@ -7088,9 +7366,10 @@ export interface GetDimensionValuesRequest {
    *                <p>Simple dimension values.</p>
    *                <ul>
    *                   <li>
-   *                      <p>There are three types of simple dimension values:
-   *                                 <code>CostCategories</code>, <code>Tags</code>, and
-   *                                 <code>Dimensions</code>.</p>
+   *                      <p>There are four types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>,
+   *                                 <code>Dimensions</code>, and
+   *                             <code>ProductAttributes</code>.</p>
    *                      <ul>
    *                         <li>
    *                            <p>Specify the <code>CostCategories</code> field to define a
@@ -7104,6 +7383,20 @@ export interface GetDimensionValuesRequest {
    *                            <p>Specify the <code>Dimensions</code> field to define a filter
    *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
    *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>ProductAttributes</code> field to define a
+   *                                     filter that acts on the product attributes of supported
+   *                                     services, such as Amazon Bedrock. Only
+   *                                         <code>GetCostAndUsage</code>,
+   *                                         <code>GetCostAndUsageWithResources</code>,
+   *                                         <code>GetDimensionValues</code> (in the
+   *                                         <code>COST_AND_USAGE</code> context),
+   *                                         <code>GetTags</code>, and <code>GetCostCategories</code>
+   *                                     support <code>ProductAttributes</code>. For the supported
+   *                                     services, keys and <code>SERVICE</code> filter rules, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+   *                                  <code>ProductAttributeValues</code>
    *                               </a>.</p>
    *                         </li>
    *                      </ul>
@@ -7516,9 +7809,10 @@ export interface GetReservationPurchaseRecommendationRequest {
    *                <p>Simple dimension values.</p>
    *                <ul>
    *                   <li>
-   *                      <p>There are three types of simple dimension values:
-   *                                 <code>CostCategories</code>, <code>Tags</code>, and
-   *                                 <code>Dimensions</code>.</p>
+   *                      <p>There are four types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>,
+   *                                 <code>Dimensions</code>, and
+   *                             <code>ProductAttributes</code>.</p>
    *                      <ul>
    *                         <li>
    *                            <p>Specify the <code>CostCategories</code> field to define a
@@ -7532,6 +7826,20 @@ export interface GetReservationPurchaseRecommendationRequest {
    *                            <p>Specify the <code>Dimensions</code> field to define a filter
    *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
    *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>ProductAttributes</code> field to define a
+   *                                     filter that acts on the product attributes of supported
+   *                                     services, such as Amazon Bedrock. Only
+   *                                         <code>GetCostAndUsage</code>,
+   *                                         <code>GetCostAndUsageWithResources</code>,
+   *                                         <code>GetDimensionValues</code> (in the
+   *                                         <code>COST_AND_USAGE</code> context),
+   *                                         <code>GetTags</code>, and <code>GetCostCategories</code>
+   *                                     support <code>ProductAttributes</code>. For the supported
+   *                                     services, keys and <code>SERVICE</code> filter rules, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+   *                                  <code>ProductAttributeValues</code>
    *                               </a>.</p>
    *                         </li>
    *                      </ul>
@@ -7895,9 +8203,10 @@ export interface GetRightsizingRecommendationRequest {
    *                <p>Simple dimension values.</p>
    *                <ul>
    *                   <li>
-   *                      <p>There are three types of simple dimension values:
-   *                                 <code>CostCategories</code>, <code>Tags</code>, and
-   *                                 <code>Dimensions</code>.</p>
+   *                      <p>There are four types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>,
+   *                                 <code>Dimensions</code>, and
+   *                             <code>ProductAttributes</code>.</p>
    *                      <ul>
    *                         <li>
    *                            <p>Specify the <code>CostCategories</code> field to define a
@@ -7911,6 +8220,20 @@ export interface GetRightsizingRecommendationRequest {
    *                            <p>Specify the <code>Dimensions</code> field to define a filter
    *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
    *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>ProductAttributes</code> field to define a
+   *                                     filter that acts on the product attributes of supported
+   *                                     services, such as Amazon Bedrock. Only
+   *                                         <code>GetCostAndUsage</code>,
+   *                                         <code>GetCostAndUsageWithResources</code>,
+   *                                         <code>GetDimensionValues</code> (in the
+   *                                         <code>COST_AND_USAGE</code> context),
+   *                                         <code>GetTags</code>, and <code>GetCostCategories</code>
+   *                                     support <code>ProductAttributes</code>. For the supported
+   *                                     services, keys and <code>SERVICE</code> filter rules, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+   *                                  <code>ProductAttributeValues</code>
    *                               </a>.</p>
    *                         </li>
    *                      </ul>
@@ -8491,9 +8814,10 @@ export interface GetTagsRequest {
    *                <p>Simple dimension values.</p>
    *                <ul>
    *                   <li>
-   *                      <p>There are three types of simple dimension values:
-   *                                 <code>CostCategories</code>, <code>Tags</code>, and
-   *                                 <code>Dimensions</code>.</p>
+   *                      <p>There are four types of simple dimension values:
+   *                                 <code>CostCategories</code>, <code>Tags</code>,
+   *                                 <code>Dimensions</code>, and
+   *                             <code>ProductAttributes</code>.</p>
    *                      <ul>
    *                         <li>
    *                            <p>Specify the <code>CostCategories</code> field to define a
@@ -8507,6 +8831,20 @@ export interface GetTagsRequest {
    *                            <p>Specify the <code>Dimensions</code> field to define a filter
    *                                     that acts on the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DimensionValues.html">
    *                                  <code>DimensionValues</code>
+   *                               </a>.</p>
+   *                         </li>
+   *                         <li>
+   *                            <p>Specify the <code>ProductAttributes</code> field to define a
+   *                                     filter that acts on the product attributes of supported
+   *                                     services, such as Amazon Bedrock. Only
+   *                                         <code>GetCostAndUsage</code>,
+   *                                         <code>GetCostAndUsageWithResources</code>,
+   *                                         <code>GetDimensionValues</code> (in the
+   *                                         <code>COST_AND_USAGE</code> context),
+   *                                         <code>GetTags</code>, and <code>GetCostCategories</code>
+   *                                     support <code>ProductAttributes</code>. For the supported
+   *                                     services, keys and <code>SERVICE</code> filter rules, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProductAttributeValues.html">
+   *                                  <code>ProductAttributeValues</code>
    *                               </a>.</p>
    *                         </li>
    *                      </ul>

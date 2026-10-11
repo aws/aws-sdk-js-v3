@@ -10,6 +10,7 @@ import type { ThrottleReason } from "./enums";
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.athena#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message?: string | undefined;
@@ -33,6 +34,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class InvalidRequestException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.athena#InvalidRequestException";
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
@@ -63,6 +65,7 @@ export class InvalidRequestException extends __BaseException {
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.athena#TooManyRequestsException";
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -92,6 +95,7 @@ export class TooManyRequestsException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.athena#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -125,6 +129,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class MetadataException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.athena#MetadataException";
   readonly name = "MetadataException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -147,6 +152,7 @@ export class MetadataException extends __BaseException {
  * @public
  */
 export class SessionAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.athena#SessionAlreadyExistsException";
   readonly name = "SessionAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

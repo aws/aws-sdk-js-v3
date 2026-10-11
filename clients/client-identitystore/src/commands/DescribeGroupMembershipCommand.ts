@@ -41,6 +41,7 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * // { // DescribeGroupMembershipResponse
  * //   IdentityStoreId: "STRING_VALUE", // required
  * //   MembershipId: "STRING_VALUE", // required
+ * //   MembershipArn: "STRING_VALUE", // required
  * //   GroupId: "STRING_VALUE", // required
  * //   MemberId: { // MemberId Union: only one key present
  * //     UserId: "STRING_VALUE",

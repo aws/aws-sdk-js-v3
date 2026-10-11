@@ -78,17 +78,10 @@ import type {
 import type {
   AccessControlConfiguration,
   AggregateOperation,
-  AnalysisDefaults,
-  AssetOptions,
-  CalculatedField,
-  ColumnConfiguration,
   DataPrepAggregationFunction,
   DataSetColumnIdMapping,
   Entity,
-  FilterGroup,
   FontConfiguration,
-  ParameterDeclaration,
-  QueryExecutionOptions,
   Sheet,
   TransformOperationSource,
 } from "./models_0";
@@ -113,19 +106,44 @@ import type {
   CreateColumnsOperation,
   DataSetReference,
   DataSourceParameters,
-  DestinationTable,
   DisplayFormatOptions,
   Governance,
   ResourcePermission,
-  SheetDefinition,
   SslProperties,
-  StaticFile,
   Tag,
-  TooltipSheetDefinition,
   TopicReference,
-  ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>Specifies the source of data for a destination table, including the transform operation and column mappings.</p>
+ * @public
+ */
+export interface DestinationTableSource {
+  /**
+   * <p>The identifier of the transform operation that provides data to the destination table.</p>
+   * @public
+   */
+  TransformOperationId: string | undefined;
+}
+
+/**
+ * <p>Defines a destination table in data preparation that receives the final transformed data.</p>
+ * @public
+ */
+export interface DestinationTable {
+  /**
+   * <p>Alias for the destination table.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source configuration that specifies which transform operation provides data to this destination table.</p>
+   * @public
+   */
+  Source: DestinationTableSource | undefined;
+}
 
 /**
  * <p>Metadata for a column that is used as the input of a transform operation.</p>
@@ -4353,92 +4371,6 @@ export interface TopicConfiguration {
 }
 
 /**
- * <p>The detailed definition of a template.</p>
- * @public
- */
-export interface TemplateVersionDefinition {
-  /**
-   * <p>An array of dataset configurations. These configurations define the required columns for each dataset used within a template.</p>
-   * @public
-   */
-  DataSetConfigurations: DataSetConfiguration[] | undefined;
-
-  /**
-   * <p>An array of topic configurations. These configurations define the required columns for each topic used within a template.</p>
-   * @public
-   */
-  TopicConfigurations?: TopicConfiguration[] | undefined;
-
-  /**
-   * <p>An array of sheet definitions for a template.</p>
-   * @public
-   */
-  Sheets?: SheetDefinition[] | undefined;
-
-  /**
-   * <p>An array of tooltip sheet definitions for a template.</p>
-   * @public
-   */
-  TooltipSheets?: TooltipSheetDefinition[] | undefined;
-
-  /**
-   * <p>An array of calculated field definitions for the template.</p>
-   * @public
-   */
-  CalculatedFields?: CalculatedField[] | undefined;
-
-  /**
-   * <p>An array of parameter declarations for a template.</p>
-   *          <p>
-   *             <i>Parameters</i> are named variables that can transfer a value for use by an action or an object.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the
-   *             <i>Amazon Quick Suite User Guide</i>.
-   *         </p>
-   * @public
-   */
-  ParameterDeclarations?: ParameterDeclaration[] | undefined;
-
-  /**
-   * <p>Filter definitions for a template.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html">Filtering Data</a> in the <i>Amazon Quick Suite User Guide</i>.
-   *         </p>
-   * @public
-   */
-  FilterGroups?: FilterGroup[] | undefined;
-
-  /**
-   * <p> An array of template-level column
-   *             configurations. Column configurations are used to set default formatting for a column that's used throughout a template. </p>
-   * @public
-   */
-  ColumnConfigurations?: ColumnConfiguration[] | undefined;
-
-  /**
-   * <p>The configuration for default analysis settings.</p>
-   * @public
-   */
-  AnalysisDefaults?: AnalysisDefaults | undefined;
-
-  /**
-   * <p>An array of option definitions for a template.</p>
-   * @public
-   */
-  Options?: AssetOptions | undefined;
-
-  /**
-   * <p>A structure that describes the query execution options.</p>
-   * @public
-   */
-  QueryExecutionOptions?: QueryExecutionOptions | undefined;
-
-  /**
-   * <p>The static files for the definition.</p>
-   * @public
-   */
-  StaticFiles?: StaticFile[] | undefined;
-}
-
-/**
  * <p>The source analysis of the template.</p>
  * @public
  */
@@ -4492,85 +4424,6 @@ export interface TemplateSourceEntity {
    * @public
    */
   SourceTemplate?: TemplateSourceTemplate | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTemplateRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. You use the ID for the Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the template that you want to create. This template is unique per Amazon Web Services Region; in
-   * 			each Amazon Web Services account.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>A display name for the template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A list of resource permissions to be set on the template. </p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The entity that you are using as a source when you create the template. In
-   * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
-   * 			<code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an
-   * 			analysis. Both of these require an Amazon Resource Name (ARN). For
-   * 			<code>SourceTemplate</code>, specify the ARN of the source template. For
-   * 			<code>SourceAnalysis</code>, specify the ARN of the source analysis. The <code>SourceTemplate</code>
-   * 			ARN can contain any Amazon Web Services account and any Quick Sight-supported Amazon Web Services Region. </p>
-   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
-   * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
-   * 			in the original. The schema in each dataset must match its placeholder. Use the <code>TopicReferences</code>
-   * 			entity to list the replacement topics for the topic placeholders listed in the original.
-   * 			The schema in each topic must match its placeholder.</p>
-   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
-   * 			order for the request to be valid.</p>
-   * @public
-   */
-  SourceEntity?: TemplateSourceEntity | undefined;
-
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>A description of the current template version being created. This API operation creates the
-   * 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
-   * 			version is created. Each version of the template maintains a description of the version
-   * 			in the <code>VersionDescription</code> field.</p>
-   * @public
-   */
-  VersionDescription?: string | undefined;
-
-  /**
-   * <p>The definition of a template.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
-   * 			order for the request to be valid.</p>
-   * @public
-   */
-  Definition?: TemplateVersionDefinition | undefined;
-
-  /**
-   * <p>TThe option to relax the validation needed to create a template with definition objects. This skips the validation step for specific errors.</p>
-   * @public
-   */
-  ValidationStrategy?: ValidationStrategy | undefined;
 }
 
 /**

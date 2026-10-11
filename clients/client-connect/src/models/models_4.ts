@@ -2,6 +2,7 @@
 import type {
   AnsweringMachineDetectionStatus,
   Channel,
+  ConnectionType,
   ContactFlowModuleState,
   ContactFlowModuleStatus,
   ContactFlowState,
@@ -18,6 +19,7 @@ import type {
   NotificationStatus,
   RoutingCriteriaStepStatus,
   SearchableQueueType,
+  TaskTemplateStatus,
   TestCaseStatus,
   ViewStatus,
   ViewType,
@@ -45,6 +47,7 @@ import type {
   OutboundStrategy,
   Reference,
   StringCondition,
+  TaskTemplateConstraints,
   UserInfo,
   UserProficiency,
 } from "./models_0";
@@ -67,7 +70,10 @@ import type {
   QualityMetrics,
   QueueInfo,
   RecordingInfo,
+  TaskTemplateDefaults,
+  TaskTemplateField,
   TaskTemplateInfoV2,
+  TestCaseEntryPoint,
   UserIdentityInfo,
   UserPhoneConfig,
   View,
@@ -80,6 +86,7 @@ import type { SignInConfig, TelephonyConfig } from "./models_2";
 import type {
   BooleanCondition,
   ChatMessage,
+  ChatStreamingConfiguration,
   ContactFlowModuleSearchFilter,
   ContactFlowSearchFilter,
   ContactSearchSummaryAgentInfo,
@@ -122,6 +129,230 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateTaskTemplateRequest {
+  /**
+   * <p>A unique identifier for the task template.</p>
+   * @public
+   */
+  TaskTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the task template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the task template.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
+   *          <p>Although this parameter is marked as optional, the request must contain either a <code>ContactFlowId</code> or a field of type <code>QUICK_CONNECT</code>.</p>
+   * @public
+   */
+  ContactFlowId?: string | undefined;
+
+  /**
+   * <p>The ContactFlowId for the flow that will be run if this template is used to create a self-assigned task.</p>
+   * @public
+   */
+  SelfAssignFlowId?: string | undefined;
+
+  /**
+   * <p>Constraints that are applicable to the fields listed.
+   * Although this parameter is marked as optional in the API model, the service requires it when calling <code>CreateTaskTemplate</code> or <code>UpdateTaskTemplate</code>.
+   * The <code>RequiredFields</code> array must contain at least one element, and the field of type <code>NAME</code> must be included in <code>RequiredFields</code>.</p>
+   * @public
+   */
+  Constraints?: TaskTemplateConstraints | undefined;
+
+  /**
+   * <p>The default values for fields when a task is created by referencing this template.</p>
+   * @public
+   */
+  Defaults?: TaskTemplateDefaults | undefined;
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   *          <p>Although this parameter is marked as optional, the service requires it when calling <code>UpdateTaskTemplate</code>.</p>
+   * @public
+   */
+  Status?: TaskTemplateStatus | undefined;
+
+  /**
+   * <p>Fields that are part of the template.</p>
+   *          <p>The request must contain exactly one field of type <code>NAME</code>. This field must also be listed in the <code>RequiredFields</code> array within the <code>Constraints</code> parameter.</p>
+   * @public
+   */
+  Fields?: TaskTemplateField[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTaskTemplateResponse {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The identifier of the task template resource.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the task template resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the task template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the task template.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
+   * @public
+   */
+  ContactFlowId?: string | undefined;
+
+  /**
+   * <p>The ContactFlowId for the flow that will be run if this template is used to create a self-assigned task.</p>
+   * @public
+   */
+  SelfAssignFlowId?: string | undefined;
+
+  /**
+   * <p>Constraints that are applicable to the fields listed.
+   * Although this parameter is marked as optional in the API model, the service requires it when calling <code>CreateTaskTemplate</code> or <code>UpdateTaskTemplate</code>.
+   * The <code>RequiredFields</code> array must contain at least one element, and the field of type <code>NAME</code> must be included in <code>RequiredFields</code>.</p>
+   * @public
+   */
+  Constraints?: TaskTemplateConstraints | undefined;
+
+  /**
+   * <p>The default values for fields when a task is created by referencing this template.</p>
+   * @public
+   */
+  Defaults?: TaskTemplateDefaults | undefined;
+
+  /**
+   * <p>Fields that are part of the template.</p>
+   * @public
+   */
+  Fields?: TaskTemplateField[] | undefined;
+
+  /**
+   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
+   * Tasks can only be created from <code>ACTIVE</code> templates.
+   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
+   * @public
+   */
+  Status?: TaskTemplateStatus | undefined;
+
+  /**
+   * <p>The timestamp when the task template was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the task template was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTestCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the test case to update.</p>
+   * @public
+   */
+  TestCaseId: string | undefined;
+
+  /**
+   * <p>The JSON string that represents the content of the test.</p>
+   * @public
+   */
+  Content?: string | undefined;
+
+  /**
+   * <p>Defines the starting point for your test.</p>
+   * @public
+   */
+  EntryPoint?: TestCaseEntryPoint | undefined;
+
+  /**
+   * <p>Defines the test attributes for precise data representation.</p>
+   * @public
+   */
+  InitializationData?: string | undefined;
+
+  /**
+   * <p>The name of the test case.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the test case.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates the test status as either SAVED or PUBLISHED. The PUBLISHED status will initiate validation on the content. The SAVED status does not initiate validation of the content.</p>
+   * @public
+   */
+  Status?: TestCaseStatus | undefined;
+
+  /**
+   * <p>The time at which the resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The region in which the resource was last modified</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
 
 /**
  * @public
@@ -2936,6 +3167,46 @@ export interface StartChatContactRequest {
    * @public
    */
   DisconnectOnCustomerExit?: DisconnectOnCustomerExitParticipantType[] | undefined;
+
+  /**
+   * <p>The types of connection information to return in the response. This parameter is optional.</p>
+   *          <p>To receive connection information, specify one or both of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONNECTION_CREDENTIALS</code>: Returns a connection token.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WEBSOCKET</code>: Returns a websocket URL.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>WEBSOCKET</code> and <code>CONNECTION_CREDENTIALS</code> are the values this operation acts on. No other
+   *    value returns connection information.</p>
+   *          <p>Request <code>WEBSOCKET</code> to get a URL the participant connects to directly. You do not need to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> for it. Request <code>CONNECTION_CREDENTIALS</code> on its own and the response
+   *    returns a connection token but no websocket URL.</p>
+   *          <p>If you omit this parameter, the response has no connection information.</p>
+   *          <note>
+   *             <p>When you start a new chat contact and the information you request cannot be returned, StartChatContact returns
+   *     an error rather than a response that omits it. When you retry a request with the same <code>ClientToken</code>, the
+   *     response repeats the original contact and can omit a websocket URL if the chat has already ended.</p>
+   *          </note>
+   * @public
+   */
+  ConnectionTypes?: ConnectionType[] | undefined;
+
+  /**
+   * <p>The streaming configuration, such as the Amazon SNS streaming endpoint. Use it to initiate real-time
+   *    message streaming when the chat is created. This parameter is optional.</p>
+   *          <p>Setting this parameter returns a <code>StreamingId</code> in the response, and you do not need to call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a>.</p>
+   *          <note>
+   *             <p>This parameter starts message streaming only. The response does not include connection information, and setting
+   *     this parameter does not remove the need to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>.</p>
+   *          </note>
+   * @public
+   */
+  ChatStreamingConfiguration?: ChatStreamingConfiguration | undefined;
 }
 
 /**

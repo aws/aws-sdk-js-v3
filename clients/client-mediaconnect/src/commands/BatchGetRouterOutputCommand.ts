@@ -65,6 +65,18 @@ export interface BatchGetRouterOutputCommandOutput extends BatchGetRouterOutputR
  * //                 },
  * //               },
  * //             },
+ * //             RtmpPush: { // RtmpPushRouterOutputConfiguration
+ * //               DestinationAddress: "STRING_VALUE", // required
+ * //               DestinationPort: Number("int"), // required
+ * //               ApplicationName: "STRING_VALUE", // required
+ * //               StreamName: "STRING_VALUE", // required
+ * //               TlsEncryption: { // TlsEncryption
+ * //                 EncryptionType: "PUBLIC",
+ * //                 EncryptionConfiguration: { // TlsEncryptionConfiguration Union: only one key present
+ * //                   Public: {},
+ * //                 },
+ * //               },
+ * //             },
  * //             SrtCaller: { // SrtCallerRouterOutputConfiguration
  * //               DestinationAddress: "STRING_VALUE", // required
  * //               DestinationPort: Number("int"), // required
@@ -83,7 +95,7 @@ export interface BatchGetRouterOutputCommandOutput extends BatchGetRouterOutputR
  * //               ForwardErrorCorrection: "ENABLED" || "DISABLED",
  * //             },
  * //           },
- * //           Protocol: "RTP" || "RIST" || "SRT_CALLER" || "SRT_LISTENER",
+ * //           Protocol: "RTP" || "RIST" || "SRT_CALLER" || "SRT_LISTENER" || "RTMP_PUSH",
  * //         },
  * //         MediaConnectFlow: { // MediaConnectFlowRouterOutputConfiguration
  * //           FlowArn: "STRING_VALUE",

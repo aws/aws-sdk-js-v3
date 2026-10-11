@@ -331,6 +331,8 @@ const _M = "Message";
 const _MAS = "MetadataAttributeSchema";
 const _MASL = "MetadataAttributeSchemaList";
 const _MCFR = "MetadataConfigurationForReranking";
+const _MFMC = "MantleFoundationModelConfiguration";
+const _MFMMC = "MantleFoundationModelModelConfiguration";
 const _MII = "ModelInvocationInput";
 const _MNRE = "ModelNotReadyException";
 const _MPC = "ModelPerformanceConfiguration";
@@ -759,6 +761,7 @@ const _mCe = "memoryConfiguration";
 const _mCem = "memoryContents";
 const _mCet = "metadataConfiguration";
 const _mF = "metadataFilters";
+const _mFMC = "mantleFoundationModelConfiguration";
 const _mI = "memoryId";
 const _mII = "modelInvocationInput";
 const _mIO = "modelInvocationOutput";
@@ -835,6 +838,7 @@ const _pCTTI = "previousConversationTurnsToInclude";
 const _pCe = "performanceConfig";
 const _pCr = "promptConfigurations";
 const _pE = "piiEntities";
+const _pI = "projectId";
 const _pM = "persistenceMode";
 const _pMa = "parserMode";
 const _pOC = "promptOverrideConfiguration";
@@ -1713,8 +1717,8 @@ export var FlowTraceNodeOutputNext$: StaticStructureSchema = [3, n0, _FTNON,
 ];
 export var FoundationModelConfiguration$: StaticStructureSchema = [3, n0, _FMC,
   0,
-  [_ty, _bFMC],
-  [0, () => BedrockFoundationModelConfiguration$], 1
+  [_ty, _bFMC, _mFMC],
+  [0, () => BedrockFoundationModelConfiguration$, () => MantleFoundationModelConfiguration$], 1
 ];
 export var FunctionDefinition$: StaticStructureSchema = [3, n0, _FD,
   0,
@@ -2150,6 +2154,16 @@ export var ManagedSearchRerankingConfiguration$: StaticStructureSchema = [3, n0,
   0,
   [_ty, _bRC],
   [0, [() => ManagedSearchBedrockRerankingConfiguration$, 0]], 1
+];
+export var MantleFoundationModelConfiguration$: StaticStructureSchema = [3, n0, _MFMC,
+  0,
+  [_mC],
+  [() => MantleFoundationModelModelConfiguration$], 1
+];
+export var MantleFoundationModelModelConfiguration$: StaticStructureSchema = [3, n0, _MFMMC,
+  0,
+  [_mA, _pI],
+  [0, 0], 1
 ];
 export var MemorySessionSummary$: StaticStructureSchema = [3, n0, _MSS,
   0,

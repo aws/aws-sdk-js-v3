@@ -8,6 +8,7 @@ import { ElasticsearchServiceServiceException as __BaseException } from "./Elast
  * @public
  */
 export class DisabledOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticsearchservice#DisabledOperationException";
   readonly name = "DisabledOperationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class DisabledOperationException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticsearchservice#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -48,6 +50,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticsearchservice#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticsearchservice#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class BaseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticsearchservice#BaseException";
   readonly name = "BaseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +113,7 @@ export class BaseException extends __BaseException {
  * @public
  */
 export class InternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticsearchservice#InternalException";
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   /**
@@ -128,6 +134,7 @@ export class InternalException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticsearchservice#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -148,6 +155,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticsearchservice#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -168,6 +176,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InvalidTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticsearchservice#InvalidTypeException";
   readonly name = "InvalidTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -188,6 +197,7 @@ export class InvalidTypeException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticsearchservice#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -208,6 +218,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.elasticsearchservice#InvalidPaginationTokenException";
   readonly name = "InvalidPaginationTokenException" as const;
   readonly $fault = "client" as const;
   /**

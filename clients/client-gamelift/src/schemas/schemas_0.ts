@@ -1173,8 +1173,8 @@ export var CreateContainerFleetOutput$: StaticStructureSchema = [3, n0, _CCFO,
 ];
 export var CreateContainerGroupDefinitionInput$: StaticStructureSchema = [3, n0, _CCGDI,
   0,
-  [_N, _TMLM, _TVL, _OS, _CGT, _GSCD, _SCD, _VD, _Ta],
-  [0, 1, 1, 0, 0, [() => GameServerContainerDefinitionInput$, 0], [() => SupportContainerDefinitionInputList, 0], 0, () => TagList], 4
+  [_N, _TMLM, _OS, _CGT, _TVL, _GSCD, _SCD, _VD, _Ta],
+  [0, 1, 0, 0, 1, [() => GameServerContainerDefinitionInput$, 0], [() => SupportContainerDefinitionInputList, 0], 0, () => TagList], 3
 ];
 export var CreateContainerGroupDefinitionOutput$: StaticStructureSchema = [3, n0, _CCGDO,
   0,
@@ -1848,13 +1848,13 @@ export var GameServer$: StaticStructureSchema = [3, n0, _GS,
 ];
 export var GameServerContainerDefinition$: StaticStructureSchema = [3, n0, _GSCD,
   0,
-  [_CNo, _DOe, _MP, _EO, _IU, _PCo, _RID, _SSV, _LCi],
-  [0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList, 0, [() => ContainerPortConfiguration$, 0], 0, 0, () => LinuxCapabilities$]
+  [_CNo, _DOe, _MP, _EO, _IU, _PCo, _RID, _SSV, _LCi, _Vc],
+  [0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList, 0, [() => ContainerPortConfiguration$, 0], 0, 0, () => LinuxCapabilities$, 1]
 ];
 export var GameServerContainerDefinitionInput$: StaticStructureSchema = [3, n0, _GSCDI,
   0,
-  [_CNo, _IU, _PCo, _SSV, _DOe, _MP, _EO, _LCi],
-  [0, 0, [() => ContainerPortConfiguration$, 0], 0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList, () => LinuxCapabilities$], 4
+  [_CNo, _IU, _PCo, _SSV, _DOe, _MP, _EO, _LCi, _Vc],
+  [0, 0, [() => ContainerPortConfiguration$, 0], 0, () => ContainerDependencyList, () => ContainerMountPointList, () => ContainerEnvironmentList, () => LinuxCapabilities$, 1], 4
 ];
 export var GameServerContainerGroupCounts$: StaticStructureSchema = [3, n0, _GSCGC,
   0,
@@ -2513,8 +2513,8 @@ export var UpdateContainerFleetOutput$: StaticStructureSchema = [3, n0, _UCFO,
 ];
 export var UpdateContainerGroupDefinitionInput$: StaticStructureSchema = [3, n0, _UCGDI,
   0,
-  [_N, _GSCD, _SCD, _TMLM, _TVL, _VD, _SVN, _OS],
-  [0, [() => GameServerContainerDefinitionInput$, 0], [() => SupportContainerDefinitionInputList, 0], 1, 1, 0, 1, 0], 1
+  [_N, _GSCD, _SCD, _TMLM, _TVL, _VD, _SVN, _OS, _RAem],
+  [0, [() => GameServerContainerDefinitionInput$, 0], [() => SupportContainerDefinitionInputList, 0], 1, 1, 0, 1, 0, 64 | 0], 1
 ];
 export var UpdateContainerGroupDefinitionOutput$: StaticStructureSchema = [3, n0, _UCGDO,
   0,
@@ -2679,6 +2679,7 @@ var ContainerGroupDefinitionList: StaticListSchema = [1, n0, _CGDL,
   0, [() => ContainerGroupDefinition$,
     0]
 ];
+var ContainerGroupDefinitionRemoveAttributeList = 64 | 0;
 var ContainerGroupPortMappingList: StaticListSchema = [1, n0, _CGPML,
   0, [() => ContainerGroupPortMapping$,
     0]

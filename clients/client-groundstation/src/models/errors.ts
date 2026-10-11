@@ -8,6 +8,7 @@ import { GroundStationServiceException as __BaseException } from "./GroundStatio
  * @public
  */
 export class DependencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.groundstation#DependencyException";
   readonly name = "DependencyException" as const;
   readonly $fault = "server" as const;
   /**
@@ -35,6 +36,7 @@ export class DependencyException extends __BaseException {
  * @public
  */
 export class InvalidParameterException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.groundstation#InvalidParameterException";
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
@@ -62,6 +64,7 @@ export class InvalidParameterException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.groundstation#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -82,6 +85,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.groundstation#ResourceLimitExceededException";
   readonly name = "ResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +113,7 @@ export class ResourceLimitExceededException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.groundstation#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -136,6 +141,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.groundstation#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**

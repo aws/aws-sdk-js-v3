@@ -552,6 +552,12 @@ export interface GetResourceDashboardRequest {
    * @public
    */
   resourceType: ResourceType | undefined;
+
+  /**
+   * <p>Allows access to system profile logs for Lake Formation-enabled sessions. Default is false.</p>
+   * @public
+   */
+  accessSystemProfileLogs?: boolean | undefined;
 }
 
 /**
@@ -2157,7 +2163,7 @@ export interface JobRun {
   totalExecutionDurationSeconds?: number | undefined;
 
   /**
-   * <p>Returns the job run timeout value from the <code>StartJobRun</code> call. If no timeout was specified, then it returns the default timeout of 720 minutes.</p>
+   * <p>Returns the job run timeout value from the <code>StartJobRun</code> call. If you didn't specify a timeout, this value defaults to 720 minutes.</p> <p>For BATCH mode job runs, the maximum value is 10080 minutes (7 days) starting with Amazon EMR release 7.11.</p>
    * @public
    */
   executionTimeoutMinutes?: number | undefined;
@@ -2408,7 +2414,7 @@ export interface StartJobRunRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The maximum duration for the job run to run. If the job run runs beyond this duration, it will be automatically cancelled.</p>
+   * <p>The maximum duration, in minutes, for the job run. If the job run exceeds this duration, Amazon EMR Serverless cancels it automatically.</p> <p>For BATCH mode job runs, the maximum value is 10080 minutes (7 days) starting with Amazon EMR release 7.11. Setting a value of 0 to disable the timeout is no longer supported for BATCH mode job runs.</p>
    * @public
    */
   executionTimeoutMinutes?: number | undefined;

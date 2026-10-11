@@ -34,6 +34,8 @@ import type {
   MapZoomMode,
   MaximumMinimumComputationType,
   MissingDataTreatmentOption,
+  OtherCategories,
+  PanelBorderStyle,
   PivotTableConditionalFormattingScopeRole,
   PivotTableDataPathType,
   PivotTableFieldCollapseState,
@@ -47,6 +49,8 @@ import type {
   SelectedTooltipType,
   SimpleTotalAggregationFunction,
   SingleYAxisOption,
+  SmallMultiplesAxisPlacement,
+  SmallMultiplesAxisScale,
   SortDirection,
   SparklineAxisBehavior,
   SparklineVisualType,
@@ -87,19 +91,221 @@ import type {
   DataLabelOptions,
   DecalSettings,
   DimensionField,
-  FieldSort,
   FontConfiguration,
   FormatConfiguration,
-  ItemsLimitConfiguration,
   LegendOptions,
   MeasureField,
   NumberDisplayFormatConfiguration,
   PercentageDisplayFormatConfiguration,
   ReferenceLine,
-  SmallMultiplesOptions,
   VisualCustomAction,
   VisualInteractionOptions,
 } from "./models_0";
+
+/**
+ * <p>The options that determine the title styles for each small multiples
+ *             panel.</p>
+ * @public
+ */
+export interface PanelTitleOptions {
+  /**
+   * <p>Determines whether or not panel titles are displayed.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>Sets the horizontal text alignment of the title within each panel.</p>
+   * @public
+   */
+  HorizontalTextAlignment?: HorizontalTextAlignment | undefined;
+}
+
+/**
+ * <p>A collection of options that configure how each panel displays in a small multiples chart.</p>
+ * @public
+ */
+export interface PanelConfiguration {
+  /**
+   * <p>Configures the title display within each small multiples panel.</p>
+   * @public
+   */
+  Title?: PanelTitleOptions | undefined;
+
+  /**
+   * <p>Determines whether or not each panel displays a border.</p>
+   * @public
+   */
+  BorderVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Sets the line thickness of panel borders.</p>
+   * @public
+   */
+  BorderThickness?: string | undefined;
+
+  /**
+   * <p>Sets the line style of panel borders.</p>
+   * @public
+   */
+  BorderStyle?: PanelBorderStyle | undefined;
+
+  /**
+   * <p>Sets the line color of panel borders.</p>
+   * @public
+   */
+  BorderColor?: string | undefined;
+
+  /**
+   * <p>Determines whether or not negative space between sibling panels is rendered.</p>
+   * @public
+   */
+  GutterVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Sets the total amount of negative space to display between sibling panels.</p>
+   * @public
+   */
+  GutterSpacing?: string | undefined;
+
+  /**
+   * <p>Determines whether or not a background for each small multiples panel is rendered.</p>
+   * @public
+   */
+  BackgroundVisibility?: Visibility | undefined;
+
+  /**
+   * <p>Sets the background color for each panel.</p>
+   * @public
+   */
+  BackgroundColor?: string | undefined;
+}
+
+/**
+ * <p>Configures the properties of a chart's axes that are used by small multiples panels.</p>
+ * @public
+ */
+export interface SmallMultiplesAxisProperties {
+  /**
+   * <p>Determines whether scale of the axes are shared or independent. The default value is <code>SHARED</code>.</p>
+   * @public
+   */
+  Scale?: SmallMultiplesAxisScale | undefined;
+
+  /**
+   * <p>Defines the placement of the axis. By default, axes are rendered <code>OUTSIDE</code> of the panels. Axes with <code>INDEPENDENT</code> scale are rendered <code>INSIDE</code> the panels.</p>
+   * @public
+   */
+  Placement?: SmallMultiplesAxisPlacement | undefined;
+}
+
+/**
+ * <p>Options that determine the layout and display options of a chart's small multiples.</p>
+ * @public
+ */
+export interface SmallMultiplesOptions {
+  /**
+   * <p>Sets the maximum number of visible rows to display in the grid of small multiples panels.</p>
+   *          <p>The default value is <code>Auto</code>,
+   *             which automatically adjusts the rows in the grid
+   *             to fit the overall layout and size of the given chart.</p>
+   * @public
+   */
+  MaxVisibleRows?: number | undefined;
+
+  /**
+   * <p>Sets the maximum number of visible columns to display in the grid of small multiples panels.</p>
+   *          <p>The default is <code>Auto</code>, which automatically adjusts the columns in the grid to fit the overall layout and size of the given chart.</p>
+   * @public
+   */
+  MaxVisibleColumns?: number | undefined;
+
+  /**
+   * <p>Configures the display options for each small multiples panel.</p>
+   * @public
+   */
+  PanelConfiguration?: PanelConfiguration | undefined;
+
+  /**
+   * <p>The properties of a small multiples X axis.</p>
+   * @public
+   */
+  XAxis?: SmallMultiplesAxisProperties | undefined;
+
+  /**
+   * <p>The properties of a small multiples Y axis.</p>
+   * @public
+   */
+  YAxis?: SmallMultiplesAxisProperties | undefined;
+}
+
+/**
+ * <p>The limit configuration of the visual display for an axis.</p>
+ * @public
+ */
+export interface ItemsLimitConfiguration {
+  /**
+   * <p>The limit on how many items of a field are showed in the chart. For
+   *             example, the number of slices that are displayed in a pie chart.</p>
+   * @public
+   */
+  ItemsLimit?: number | undefined;
+
+  /**
+   * <p>The <code>Show
+   *                 other</code> of an axis in the chart. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INCLUDE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXCLUDE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  OtherCategories?: OtherCategories | undefined;
+}
+
+/**
+ * <p>The sort configuration for a field in a
+ *             field well.</p>
+ * @public
+ */
+export interface FieldSort {
+  /**
+   * <p>The sort configuration target field.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The sort direction. Choose one of the following
+   *             options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ASC</code>: Ascending</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DESC</code>: Descending</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Direction: SortDirection | undefined;
+}
 
 /**
  * <p>The field sort options in a chart configuration.</p>
@@ -8324,138 +8530,4 @@ export interface TableCellConditionalFormatting {
    * @public
    */
   TextFormat?: TextConditionalFormat | undefined;
-}
-
-/**
- * <p>The conditional formatting of a table row.</p>
- * @public
- */
-export interface TableRowConditionalFormatting {
-  /**
-   * <p>The conditional formatting color (solid, gradient) of the background for a table row.</p>
-   * @public
-   */
-  BackgroundColor?: ConditionalFormattingColor | undefined;
-
-  /**
-   * <p>The conditional formatting color (solid, gradient) of the text for a table row.</p>
-   * @public
-   */
-  TextColor?: ConditionalFormattingColor | undefined;
-}
-
-/**
- * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
- * @public
- */
-export interface TableConditionalFormattingOption {
-  /**
-   * <p>The cell conditional formatting option for a table.</p>
-   * @public
-   */
-  Cell?: TableCellConditionalFormatting | undefined;
-
-  /**
-   * <p>The row conditional formatting option for a table.</p>
-   * @public
-   */
-  Row?: TableRowConditionalFormatting | undefined;
-}
-
-/**
- * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
- * @public
- */
-export interface TableConditionalFormatting {
-  /**
-   * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
-   * @public
-   */
-  ConditionalFormattingOptions?: TableConditionalFormattingOption[] | undefined;
-}
-
-/**
- * <p>A table visual.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tabular.html">Using tables as visuals</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
- * @public
- */
-export interface TableVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions | undefined;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions | undefined;
-
-  /**
-   * <p>The configuration settings of the visual.</p>
-   * @public
-   */
-  ChartConfiguration?: TableConfiguration | undefined;
-
-  /**
-   * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
-   * @public
-   */
-  ConditionalFormatting?: TableConditionalFormatting | undefined;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[] | undefined;
-
-  /**
-   * <p>The alt text for the visual.</p>
-   * @public
-   */
-  VisualContentAltText?: string | undefined;
-}
-
-/**
- * <p>Aggregated field wells of a tree map.</p>
- * @public
- */
-export interface TreeMapAggregatedFieldWells {
-  /**
-   * <p>The group by field well of a tree map. Values are grouped based on group by fields.</p>
-   * @public
-   */
-  Groups?: DimensionField[] | undefined;
-
-  /**
-   * <p>The size field well of a tree map. Values are aggregated based on group by fields.</p>
-   * @public
-   */
-  Sizes?: MeasureField[] | undefined;
-
-  /**
-   * <p>The color field well of a tree map. Values are grouped by aggregations based on group by fields.</p>
-   * @public
-   */
-  Colors?: MeasureField[] | undefined;
-}
-
-/**
- * <p>The field wells of a tree map.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface TreeMapFieldWells {
-  /**
-   * <p>The aggregated field wells of a tree map.</p>
-   * @public
-   */
-  TreeMapAggregatedFieldWells?: TreeMapAggregatedFieldWells | undefined;
 }

@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DisassociateTrunkInterfaceRequest, DisassociateTrunkInterfaceResult } from "../models/models_5";
+import type { DisassociateTrunkInterfaceRequest, DisassociateTrunkInterfaceResult } from "../models/models_6";
 import { DisassociateTrunkInterface$ } from "../schemas/schemas_0";
 
 /**

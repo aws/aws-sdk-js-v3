@@ -9,6 +9,7 @@ import { SnowballServiceException as __BaseException } from "./SnowballServiceEx
  * @public
  */
 export class InvalidJobStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.snowball#InvalidJobStateException";
   readonly name = "InvalidJobStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -32,6 +33,7 @@ export class InvalidJobStateException extends __BaseException {
  * @public
  */
 export class InvalidResourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.snowball#InvalidResourceException";
   readonly name = "InvalidResourceException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -61,6 +63,7 @@ export class InvalidResourceException extends __BaseException {
  * @public
  */
 export class KMSRequestFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.snowball#KMSRequestFailedException";
   readonly name = "KMSRequestFailedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -84,6 +87,7 @@ export class KMSRequestFailedException extends __BaseException {
  * @public
  */
 export class InvalidAddressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.snowball#InvalidAddressException";
   readonly name = "InvalidAddressException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -108,6 +112,7 @@ export class InvalidAddressException extends __BaseException {
  * @public
  */
 export class UnsupportedAddressException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.snowball#UnsupportedAddressException";
   readonly name = "UnsupportedAddressException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -131,6 +136,7 @@ export class UnsupportedAddressException extends __BaseException {
  * @public
  */
 export class Ec2RequestFailedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.snowball#Ec2RequestFailedException";
   readonly name = "Ec2RequestFailedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -153,6 +159,7 @@ export class Ec2RequestFailedException extends __BaseException {
  * @public
  */
 export class InvalidInputCombinationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.snowball#InvalidInputCombinationException";
   readonly name = "InvalidInputCombinationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -177,6 +184,7 @@ export class InvalidInputCombinationException extends __BaseException {
  * @public
  */
 export class ClusterLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.snowball#ClusterLimitExceededException";
   readonly name = "ClusterLimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -200,6 +208,7 @@ export class ClusterLimitExceededException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.snowball#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -231,6 +240,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ReturnShippingLabelAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.snowball#ReturnShippingLabelAlreadyExistsException";
   readonly name = "ReturnShippingLabelAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -255,6 +265,7 @@ export class ReturnShippingLabelAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.snowball#InvalidNextTokenException";
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

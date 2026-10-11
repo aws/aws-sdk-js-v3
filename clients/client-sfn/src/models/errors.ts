@@ -9,6 +9,7 @@ import { SFNServiceException as __BaseException } from "./SFNServiceException";
  * @public
  */
 export class ActivityAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ActivityAlreadyExists";
   readonly name = "ActivityAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class ActivityAlreadyExists extends __BaseException {
  * @public
  */
 export class ActivityDoesNotExist extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ActivityDoesNotExist";
   readonly name = "ActivityDoesNotExist" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class ActivityDoesNotExist extends __BaseException {
  * @public
  */
 export class ActivityLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ActivityLimitExceeded";
   readonly name = "ActivityLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -71,6 +74,7 @@ export class ActivityLimitExceeded extends __BaseException {
  * @public
  */
 export class ActivityWorkerLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ActivityWorkerLimitExceeded";
   readonly name = "ActivityWorkerLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -91,6 +95,7 @@ export class ActivityWorkerLimitExceeded extends __BaseException {
  * @public
  */
 export class InvalidEncryptionConfiguration extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#InvalidEncryptionConfiguration";
   readonly name = "InvalidEncryptionConfiguration" as const;
   readonly $fault = "client" as const;
   /**
@@ -111,6 +116,7 @@ export class InvalidEncryptionConfiguration extends __BaseException {
  * @public
  */
 export class InvalidName extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#InvalidName";
   readonly name = "InvalidName" as const;
   readonly $fault = "client" as const;
   /**
@@ -131,6 +137,7 @@ export class InvalidName extends __BaseException {
  * @public
  */
 export class KmsAccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#KmsAccessDeniedException";
   readonly name = "KmsAccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -151,6 +158,7 @@ export class KmsAccessDeniedException extends __BaseException {
  * @public
  */
 export class KmsThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#KmsThrottlingException";
   readonly name = "KmsThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -172,6 +180,7 @@ export class KmsThrottlingException extends __BaseException {
  * @public
  */
 export class TooManyTags extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#TooManyTags";
   readonly name = "TooManyTags" as const;
   readonly $fault = "client" as const;
   resourceName?: string | undefined;
@@ -195,6 +204,7 @@ export class TooManyTags extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -215,6 +225,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InvalidArn extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#InvalidArn";
   readonly name = "InvalidArn" as const;
   readonly $fault = "client" as const;
   /**
@@ -235,6 +246,7 @@ export class InvalidArn extends __BaseException {
  * @public
  */
 export class InvalidDefinition extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#InvalidDefinition";
   readonly name = "InvalidDefinition" as const;
   readonly $fault = "client" as const;
   /**
@@ -255,6 +267,7 @@ export class InvalidDefinition extends __BaseException {
  * @public
  */
 export class InvalidLoggingConfiguration extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#InvalidLoggingConfiguration";
   readonly name = "InvalidLoggingConfiguration" as const;
   readonly $fault = "client" as const;
   /**
@@ -276,6 +289,7 @@ export class InvalidLoggingConfiguration extends __BaseException {
  * @public
  */
 export class InvalidTracingConfiguration extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#InvalidTracingConfiguration";
   readonly name = "InvalidTracingConfiguration" as const;
   readonly $fault = "client" as const;
   /**
@@ -297,6 +311,7 @@ export class InvalidTracingConfiguration extends __BaseException {
  * @public
  */
 export class StateMachineAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#StateMachineAlreadyExists";
   readonly name = "StateMachineAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -317,6 +332,7 @@ export class StateMachineAlreadyExists extends __BaseException {
  * @public
  */
 export class StateMachineDeleting extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#StateMachineDeleting";
   readonly name = "StateMachineDeleting" as const;
   readonly $fault = "client" as const;
   /**
@@ -338,6 +354,7 @@ export class StateMachineDeleting extends __BaseException {
  * @public
  */
 export class StateMachineLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#StateMachineLimitExceeded";
   readonly name = "StateMachineLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -358,6 +375,7 @@ export class StateMachineLimitExceeded extends __BaseException {
  * @public
  */
 export class StateMachineTypeNotSupported extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#StateMachineTypeNotSupported";
   readonly name = "StateMachineTypeNotSupported" as const;
   readonly $fault = "client" as const;
   /**
@@ -378,6 +396,7 @@ export class StateMachineTypeNotSupported extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -405,6 +424,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class ResourceNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ResourceNotFound";
   readonly name = "ResourceNotFound" as const;
   readonly $fault = "client" as const;
   resourceName?: string | undefined;
@@ -428,6 +448,7 @@ export class ResourceNotFound extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -448,6 +469,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ExecutionDoesNotExist extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ExecutionDoesNotExist";
   readonly name = "ExecutionDoesNotExist" as const;
   readonly $fault = "client" as const;
   /**
@@ -468,6 +490,7 @@ export class ExecutionDoesNotExist extends __BaseException {
  * @public
  */
 export class KmsInvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#KmsInvalidStateException";
   readonly name = "KmsInvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -495,6 +518,7 @@ export class KmsInvalidStateException extends __BaseException {
  * @public
  */
 export class StateMachineDoesNotExist extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#StateMachineDoesNotExist";
   readonly name = "StateMachineDoesNotExist" as const;
   readonly $fault = "client" as const;
   /**
@@ -515,6 +539,7 @@ export class StateMachineDoesNotExist extends __BaseException {
  * @public
  */
 export class InvalidToken extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#InvalidToken";
   readonly name = "InvalidToken" as const;
   readonly $fault = "client" as const;
   /**
@@ -536,6 +561,7 @@ export class InvalidToken extends __BaseException {
  * @public
  */
 export class ExecutionLimitExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ExecutionLimitExceeded";
   readonly name = "ExecutionLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -556,6 +582,7 @@ export class ExecutionLimitExceeded extends __BaseException {
  * @public
  */
 export class ExecutionNotRedrivable extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ExecutionNotRedrivable";
   readonly name = "ExecutionNotRedrivable" as const;
   readonly $fault = "client" as const;
   /**
@@ -576,6 +603,7 @@ export class ExecutionNotRedrivable extends __BaseException {
  * @public
  */
 export class TaskDoesNotExist extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#TaskDoesNotExist";
   readonly name = "TaskDoesNotExist" as const;
   readonly $fault = "client" as const;
   /**
@@ -596,6 +624,7 @@ export class TaskDoesNotExist extends __BaseException {
  * @public
  */
 export class TaskTimedOut extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#TaskTimedOut";
   readonly name = "TaskTimedOut" as const;
   readonly $fault = "client" as const;
   /**
@@ -616,6 +645,7 @@ export class TaskTimedOut extends __BaseException {
  * @public
  */
 export class InvalidOutput extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#InvalidOutput";
   readonly name = "InvalidOutput" as const;
   readonly $fault = "client" as const;
   /**
@@ -641,6 +671,7 @@ export class InvalidOutput extends __BaseException {
  * @public
  */
 export class ExecutionAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#ExecutionAlreadyExists";
   readonly name = "ExecutionAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -661,6 +692,7 @@ export class ExecutionAlreadyExists extends __BaseException {
  * @public
  */
 export class InvalidExecutionInput extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#InvalidExecutionInput";
   readonly name = "InvalidExecutionInput" as const;
   readonly $fault = "client" as const;
   /**
@@ -682,6 +714,7 @@ export class InvalidExecutionInput extends __BaseException {
  * @public
  */
 export class MissingRequiredParameter extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.sfn#MissingRequiredParameter";
   readonly name = "MissingRequiredParameter" as const;
   readonly $fault = "client" as const;
   /**

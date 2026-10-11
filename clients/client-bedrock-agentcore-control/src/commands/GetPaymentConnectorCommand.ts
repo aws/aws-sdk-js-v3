@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetPaymentConnectorRequest } from "../models/models_1";
-import type { GetPaymentConnectorResponse } from "../models/models_2";
+import type { GetPaymentConnectorRequest, GetPaymentConnectorResponse } from "../models/models_2";
 import { GetPaymentConnector$ } from "../schemas/schemas_0";
 
 /**
@@ -44,6 +43,7 @@ export interface GetPaymentConnectorCommandOutput extends GetPaymentConnectorRes
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   type: "CoinbaseCDP" || "StripePrivy", // required
+ * //   provisionMode: "MANUAL" || "QUICK_CREATE",
  * //   credentialProviderConfigurations: [ // CredentialsProviderConfigurations // required
  * //     { // CredentialsProviderConfiguration Union: only one key present
  * //       coinbaseCDP: { // PaymentCredentialProviderConfiguration
@@ -58,6 +58,7 @@ export interface GetPaymentConnectorCommandOutput extends GetPaymentConnectorRes
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * //   status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED" || "AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED" || "PENDING_AUTHENTICATION" || "PROVISIONING" || "AUTHENTICATION_EXPIRED" || "AUTHENTICATION_FAILED", // required
  * //   authorizationUrl: "STRING_VALUE",
+ * //   credentialsUpdatedAt: new Date("TIMESTAMP"),
  * // };
  *
  * ```

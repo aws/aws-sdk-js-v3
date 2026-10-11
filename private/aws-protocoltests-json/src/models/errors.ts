@@ -9,6 +9,7 @@ import type { ComplexNestedErrorData, KitchenSink } from "./models_0";
  * @public
  */
 export class ComplexError extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.json#ComplexError";
   readonly name = "ComplexError" as const;
   readonly $fault = "client" as const;
   TopLevel?: string | undefined;
@@ -32,6 +33,7 @@ export class ComplexError extends __BaseException {
  * @public
  */
 export class ErrorWithoutMembers extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.json#ErrorWithoutMembers";
   readonly name = "ErrorWithoutMembers" as const;
   readonly $fault = "server" as const;
   /**
@@ -53,6 +55,7 @@ export class ErrorWithoutMembers extends __BaseException {
  * @public
  */
 export class FooError extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.json#FooError";
   readonly name = "FooError" as const;
   readonly $fault = "server" as const;
   /**
@@ -73,6 +76,7 @@ export class FooError extends __BaseException {
  * @public
  */
 export class InvalidGreeting extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.json#InvalidGreeting";
   readonly name = "InvalidGreeting" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -94,6 +98,7 @@ export class InvalidGreeting extends __BaseException {
  * @public
  */
 export class ErrorWithMembers extends __BaseException {
+  public static readonly shapeId: string = "aws.protocoltests.json#ErrorWithMembers";
   readonly name = "ErrorWithMembers" as const;
   readonly $fault = "client" as const;
   Code?: string | undefined;

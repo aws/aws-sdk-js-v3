@@ -58,12 +58,28 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example Remove a tag from a resource
+ * ```javascript
+ * // The following example removes the CostCenter tag key from the specified component build version.
+ * const input = {
+ *   resourceArn: "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-tagged-component/1.0.0/1",
+ *   tagKeys: [
+ *     "CostCenter"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
  *
  * @public
  */

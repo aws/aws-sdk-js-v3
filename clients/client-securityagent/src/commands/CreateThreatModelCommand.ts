@@ -188,6 +188,12 @@ export interface CreateThreatModelCommandOutput extends CreateThreatModelOutput,
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   reportDestination: { // ReportDestination
+ * //     integrationId: "STRING_VALUE", // required
+ * //     containerId: "STRING_VALUE", // required
+ * //     parentId: "STRING_VALUE",
+ * //     documentId: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

@@ -8,6 +8,7 @@ import { ServiceCatalogServiceException as __BaseException } from "./ServiceCata
  * @public
  */
 export class InvalidParametersException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicecatalog#InvalidParametersException";
   readonly name = "InvalidParametersException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -31,6 +32,7 @@ export class InvalidParametersException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicecatalog#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -53,6 +55,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicecatalog#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -75,6 +78,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class DuplicateResourceException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicecatalog#DuplicateResourceException";
   readonly name = "DuplicateResourceException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -98,6 +102,7 @@ export class DuplicateResourceException extends __BaseException {
  * @public
  */
 export class InvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicecatalog#InvalidStateException";
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -122,6 +127,7 @@ export class InvalidStateException extends __BaseException {
  * @public
  */
 export class TagOptionNotMigratedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicecatalog#TagOptionNotMigratedException";
   readonly name = "TagOptionNotMigratedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -144,6 +150,7 @@ export class TagOptionNotMigratedException extends __BaseException {
  * @public
  */
 export class OperationNotSupportedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicecatalog#OperationNotSupportedException";
   readonly name = "OperationNotSupportedException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -166,6 +173,7 @@ export class OperationNotSupportedException extends __BaseException {
  * @public
  */
 export class ResourceInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.servicecatalog#ResourceInUseException";
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;

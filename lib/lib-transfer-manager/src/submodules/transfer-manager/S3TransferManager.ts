@@ -24,6 +24,8 @@ import {
 } from "@aws-sdk/client-s3";
 import type { Logger } from "@smithy/types";
 import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import type { SdkError } from "@smithy/types";
+import { isThrottlingError, isTransientError } from "@smithy/core/retry";
 import { createReadStream, existsSync } from "node:fs";
 import { open, opendir, realpath, stat } from "node:fs/promises";
 import { join, relative, resolve, sep } from "node:path";
@@ -41,7 +43,6 @@ import {
 } from "./directory-transfer-utils";
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 import { FileManager } from "./file-manager";
-import { destroyStreams, joinStreams } from "./join-streams";
 import { LogLevel } from "./log-level";
 import type {
   CannedFailurePolicy,
@@ -63,29 +64,63 @@ import type {
   UploadRequest,
   UploadResponse,
 } from "./types";
-import {
-  type DataSource,
-  type DownloadDataToFile,
-  type DownloadStreamOptions,
-  createEmptyReadable,
-  defaultWorkerCount,
-  WorkerHttpHandler,
+import type {
+  DataSource,
+  DownloadDataToFile,
+  DownloadStreamOptions,
+  DownloadStreamResult,
 } from "./worker-http-handler";
+import type { destroyStreams, joinStreams } from "./join-streams";
 import { OrderedPartQueue } from "./ordered-part-queue";
 
 /**
- * Client for efficient transfer of objects to and from Amazon S3.
- * Provides methods to optimize uploading and downloading individual objects
- * as well as entire directories, with support for multipart operations,
- * concurrency control, and request cancellation.
- * Implements an eventTarget-based progress tracking system with methods to register,
- * dispatch, and remove listeners for transfer lifecycle events.
+ * Structural contract for the worker HTTP handler. Both the Node.js
+ * `WorkerHttpHandler` and the browser stub satisfy this shape, keeping the
+ * shared implementation environment-agnostic.
  *
- * @alpha
+ * @internal
  */
+export interface IWorkerHttpHandler {
+  getDownloadResult(token: string): { bytesWritten: number; checksum?: string } | undefined;
+  getStreamDownloadResult(token: string): DownloadStreamResult | undefined;
+}
 
-export class S3TransferManager implements IS3TransferManager {
-  private static MIN_PART_SIZE = 5 * 1024 * 1024; // 5MB
+/**
+ * @internal
+ */
+export interface WorkerHttpHandlerConstructor {
+  new (options?: {
+    workerThreadCount?: number;
+    maxConcurrentUploads?: number;
+    maxConcurrentDownloads?: number;
+    useODirect?: boolean;
+    logger?: Logger;
+  }): IWorkerHttpHandler;
+}
+
+/**
+ * @internal
+ */
+export interface S3TransferManagerRuntimeDependencies {
+  joinStreams: typeof joinStreams;
+  destroyStreams: typeof destroyStreams;
+  WorkerHttpHandler: WorkerHttpHandlerConstructor;
+  createEmptyReadable: () => any;
+  defaultWorkerCount: () => number;
+}
+
+/**
+ * @internal
+ */
+export interface S3TransferManagerConstructor {
+  new (config?: S3TransferManagerConfig): IS3TransferManager;
+}
+
+/**
+ * @internal
+ */
+abstract class S3TransferManagerBase implements IS3TransferManager {
+  protected static MIN_PART_SIZE = 5 * 1024 * 1024; // 5MB
 
   private readonly s3: S3Client;
   private readonly targetPartSizeBytes: number;
@@ -98,15 +133,22 @@ export class S3TransferManager implements IS3TransferManager {
   private readonly maxConcurrentDownloads: number;
   private readonly maxConcurrentUploads: number;
   private readonly workerThreadCount: number;
-  private readonly workerHttpHandler: WorkerHttpHandler | undefined;
+  private readonly workerHttpHandler: IWorkerHttpHandler | undefined;
   private readonly logger: Logger;
 
-  public constructor(config: S3TransferManagerConfig = {}) {
+  /**
+   * @internal
+   */
+  protected readonly deps: S3TransferManagerRuntimeDependencies;
+
+  protected constructor(config: S3TransferManagerConfig, deps: S3TransferManagerRuntimeDependencies) {
+    this.deps = deps;
     this.requestChecksumCalculation = config.requestChecksumCalculation ?? "WHEN_SUPPORTED";
     this.responseChecksumValidation = config.responseChecksumValidation ?? "WHEN_SUPPORTED";
     this.maxConcurrentUploads = config.maxConcurrentUploads ?? 32;
     this.maxConcurrentDownloads = config.maxConcurrentDownloads ?? 32;
-    this.workerThreadCount = config.workerThreadCount ?? defaultWorkerCount();
+    this.workerThreadCount = config.workerThreadCount ?? this.deps.defaultWorkerCount();
+    this.logger = config.logger ?? new LogLevel("warn");
 
     this.s3 =
       config.s3 ??
@@ -116,10 +158,12 @@ export class S3TransferManager implements IS3TransferManager {
       });
 
     if (this.workerThreadCount > 1) {
-      this.workerHttpHandler = new WorkerHttpHandler({
+      this.workerHttpHandler = new this.deps.WorkerHttpHandler({
         workerThreadCount: this.workerThreadCount,
         maxConcurrentUploads: this.maxConcurrentUploads,
         maxConcurrentDownloads: this.maxConcurrentDownloads,
+        useODirect: config.useODirect,
+        logger: this.logger,
       });
       if (this.s3.config) {
         this.s3.config.requestHandler = this.workerHttpHandler as any;
@@ -130,7 +174,6 @@ export class S3TransferManager implements IS3TransferManager {
     this.multipartUploadThresholdBytes = config.multipartUploadThresholdBytes ?? 16 * 1024 * 1024; // 16 MB
 
     this.multipartDownloadType = config.multipartDownloadType ?? "PART";
-    this.logger = config.logger ?? new LogLevel("warn");
     this.eventListeners = {
       transferInitiated: config.eventListeners?.transferInitiated ?? [],
       bytesTransferred: config.eventListeners?.bytesTransferred ?? [],
@@ -468,14 +511,14 @@ export class S3TransferManager implements IS3TransferManager {
       // yet handed to joinStreams are orphaned. Destroy them (attaching a no-op
       // error handler) so their underlying sockets don't raise an uncaught
       // "aborted"/ECONNRESET error when torn down.
-      await destroyStreams(streams);
+      await this.deps.destroyStreams(streams);
       removeLocalEventListeners();
       throw error;
     }
 
     const response = {
       ...metadata,
-      Body: await joinStreams(streams, {
+      Body: await this.deps.joinStreams(streams, {
         onBytes: (byteLength: number, index) => {
           this.dispatchEvent(
             Object.assign(new Event("bytesTransferred"), {
@@ -749,7 +792,7 @@ export class S3TransferManager implements IS3TransferManager {
               } as any);
 
               // Retrieve the download result from the WorkerHttpHandler's side-channel.
-              const downloadResult = (this.s3.config.requestHandler as unknown as WorkerHttpHandler).getDownloadResult(
+              const downloadResult = (this.s3.config.requestHandler as unknown as IWorkerHttpHandler).getDownloadResult(
                 resultToken
               );
               if (!downloadResult) {
@@ -1028,7 +1071,7 @@ export class S3TransferManager implements IS3TransferManager {
               this.validateRangeDownload(`bytes=${start}-${end}`, rangeResponse.ContentRange);
 
               // Retrieve the download result from the WorkerHttpHandler's side-channel.
-              const downloadResult = (this.s3.config.requestHandler as unknown as WorkerHttpHandler).getDownloadResult(
+              const downloadResult = (this.s3.config.requestHandler as unknown as IWorkerHttpHandler).getDownloadResult(
                 resultToken
               );
               if (!downloadResult) {
@@ -1831,7 +1874,7 @@ export class S3TransferManager implements IS3TransferManager {
       const [userRangeLeft, userRangeRight] = request.Range.replace("bytes=", "").split("-").map(Number);
       maxRange = userRangeRight;
       left = userRangeLeft;
-      right = Math.min(userRangeRight, left + S3TransferManager.MIN_PART_SIZE - 1);
+      right = Math.min(userRangeRight, left + S3TransferManagerBase.MIN_PART_SIZE - 1);
       totalSize = userRangeRight + 1;
     }
 
@@ -1871,12 +1914,12 @@ export class S3TransferManager implements IS3TransferManager {
     if (totalSize) {
       const contentLength = totalSize;
       const remainingBytes = Math.max(0, contentLength - (right - left + 1));
-      const additionalRequests = Math.ceil(remainingBytes / S3TransferManager.MIN_PART_SIZE);
+      const additionalRequests = Math.ceil(remainingBytes / S3TransferManagerBase.MIN_PART_SIZE);
       expectedRequestCount += additionalRequests;
     }
 
     left = right + 1;
-    right = Math.min(left + S3TransferManager.MIN_PART_SIZE - 1, maxRange);
+    right = Math.min(left + S3TransferManagerBase.MIN_PART_SIZE - 1, maxRange);
     remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
     const rangeTasks: (() => Promise<StreamingBlobPayloadOutputTypes>)[] = [];
     const rangeRequests: GetObjectCommandInput[] = [];
@@ -1912,7 +1955,7 @@ export class S3TransferManager implements IS3TransferManager {
       });
 
       left = right + 1;
-      right = Math.min(left + S3TransferManager.MIN_PART_SIZE - 1, maxRange);
+      right = Math.min(left + S3TransferManagerBase.MIN_PART_SIZE - 1, maxRange);
       remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
     }
 
@@ -2088,7 +2131,7 @@ export class S3TransferManager implements IS3TransferManager {
           } as any)
           .then(() => {
             const transferResult = (
-              this.s3.config.requestHandler as unknown as WorkerHttpHandler
+              this.s3.config.requestHandler as unknown as IWorkerHttpHandler
             ).getStreamDownloadResult(resultToken);
             if (!transferResult) {
               queue.setError(new Error(`Missing download result for part ${partNumber}`));
@@ -2311,7 +2354,7 @@ export class S3TransferManager implements IS3TransferManager {
           } as any)
           .then(() => {
             const transferResult = (
-              this.s3.config.requestHandler as unknown as WorkerHttpHandler
+              this.s3.config.requestHandler as unknown as IWorkerHttpHandler
             ).getStreamDownloadResult(resultToken);
             if (!transferResult) {
               queue.setError(new Error(`Missing download result for range ${start}-${end}`));
@@ -2538,8 +2581,8 @@ export class S3TransferManager implements IS3TransferManager {
    *
    */
   private validateConfig(): void {
-    if (this.targetPartSizeBytes < S3TransferManager.MIN_PART_SIZE) {
-      throw new Error(`targetPartSizeBytes must be at least ${S3TransferManager.MIN_PART_SIZE} bytes`);
+    if (this.targetPartSizeBytes < S3TransferManagerBase.MIN_PART_SIZE) {
+      throw new Error(`targetPartSizeBytes must be at least ${S3TransferManagerBase.MIN_PART_SIZE} bytes`);
     }
   }
 
@@ -2800,13 +2843,16 @@ export class S3TransferManager implements IS3TransferManager {
     emitEvents: boolean
   ): Promise<CompleteMultipartUploadCommandOutput> {
     const { partSize } = this.calculatePartSize(contentLength);
-    const filePath = (request.Body as any).path as string;
+    const body = request.Body as any;
+    const filePath = body.path as string;
+    const startOffset = typeof body.start === "number" ? body.start : 0;
 
     const buildDataSource = (checksumAlgorithm?: ChecksumAlgorithm, checksumHeader?: string): DataSource => ({
       type: "file",
       filePath,
       partSize,
       totalFileSize: contentLength,
+      startOffset,
       checksumAlgorithm,
       checksumHeader,
     });
@@ -2815,9 +2861,10 @@ export class S3TransferManager implements IS3TransferManager {
   }
 
   /**
-   * Uploads using worker threads with in-memory data. Copies the user's Buffer
-   * zero-copy per part.
-   *
+   * Uploads in-memory data with worker threads.
+   * To avoid copying the whole input, pass a Buffer or Uint8Array created from
+   * a SharedArrayBuffer. Other input is copied to shared memory before workers
+   * upload it in parts.
    */
   private async threadedUploadInParts(
     request: UploadRequest,
@@ -2827,14 +2874,17 @@ export class S3TransferManager implements IS3TransferManager {
   ): Promise<CompleteMultipartUploadCommandOutput> {
     const { partSize } = this.calculatePartSize(contentLength);
     const body = request.Body as Uint8Array;
-
-    // One-time copy into SharedArrayBuffer so all workers can read by offset.
-    const sharedBuffer = new SharedArrayBuffer(body.byteLength);
-    new Uint8Array(sharedBuffer).set(body);
+    const isSharedBufferBody = body.buffer instanceof SharedArrayBuffer;
+    const sharedBuffer = isSharedBufferBody ? body.buffer : new SharedArrayBuffer(body.byteLength);
+    if (!isSharedBufferBody) {
+      new Uint8Array(sharedBuffer).set(body);
+    }
+    const startOffset = isSharedBufferBody ? body.byteOffset : 0;
 
     const buildDataSource = (checksumAlgorithm?: ChecksumAlgorithm, checksumHeader?: string): DataSource => ({
       type: "sharedBuffer",
       sharedBuffer,
+      startOffset,
       partSize,
       totalSize: contentLength,
       checksumAlgorithm,
@@ -2842,6 +2892,24 @@ export class S3TransferManager implements IS3TransferManager {
     });
 
     return this.threadedMultipartUpload(request, contentLength, buildDataSource, transferOptions, emitEvents);
+  }
+
+  private async getWorkerUploadMaxAttempts(): Promise<number> {
+    const maxAttemptsProvider = (this.s3.config as { maxAttempts: () => Promise<number> | number }).maxAttempts;
+    return maxAttemptsProvider();
+  }
+
+  private isRetryableWorkerUploadError(error: unknown): boolean {
+    const sdkError = error as SdkError;
+    return isThrottlingError(sdkError) || isTransientError(sdkError);
+  }
+
+  private async waitForWorkerUploadRetry(attempt: number): Promise<void> {
+    const maxDelayMs = 1_000;
+    const baseDelayMs = 100;
+    const exponentialDelayMs = Math.min(maxDelayMs, baseDelayMs * 2 ** (attempt - 1));
+    const jitteredDelayMs = Math.round(exponentialDelayMs * (0.5 + Math.random()));
+    await new Promise<void>((resolve) => setTimeout(resolve, jitteredDelayMs));
   }
 
   /**
@@ -2886,6 +2954,48 @@ export class S3TransferManager implements IS3TransferManager {
 
     const abortController = new AbortController();
     const uploadAbortSignal = abortController.signal;
+    const maxWorkerUploadAttempts = await this.getWorkerUploadMaxAttempts();
+
+    const sendUploadPart = async (partNumber: number, length: number) => {
+      for (let attempt = 1; ; attempt++) {
+        if (uploadAbortSignal.aborted) {
+          throw Object.assign(new Error("Upload aborted due to part failure."), { name: "AbortError" });
+        }
+        this.checkAborted(transferOptions);
+
+        // A fresh placeholder is required for every attempt because Smithy's
+        // retry middleware cannot replay a streamed body. The worker can
+        // replay this part from its data source (SAB or file range).
+        const partRequest: UploadPartCommandInput = {
+          ...request,
+          Body: this.deps.createEmptyReadable(),
+          UploadId: uploadId,
+          PartNumber: partNumber,
+          ContentLength: length,
+          ...(checksumAlgorithm && {
+            ChecksumAlgorithm: checksumAlgorithm as any,
+          }),
+        };
+
+        try {
+          return await this.s3.send(new UploadPartCommand(partRequest), {
+            ...transferOptions,
+            dataSource,
+          } as any);
+        } catch (error) {
+          if (attempt >= maxWorkerUploadAttempts || !this.isRetryableWorkerUploadError(error)) {
+            throw error;
+          }
+
+          const errorName = (error as { name?: string }).name ?? "unknown error";
+          this.logger.warn(
+            `Retrying UploadPart ${partNumber} for ${request.Key} after ${errorName} ` +
+              `(attempt ${attempt + 1}/${maxWorkerUploadAttempts}).`
+          );
+          await this.waitForWorkerUploadRetry(attempt);
+        }
+      }
+    };
 
     try {
       const completedParts: CompletedPart[] = [];
@@ -2905,26 +3015,7 @@ export class S3TransferManager implements IS3TransferManager {
           const offset = (partNumber - 1) * partSize;
           const length = Math.min(partSize, contentLength - offset);
 
-          // Readable placeholder — the checksum middleware sees a stream,
-          // sets up aws-chunked headers, and the signer signs them.
-          // The worker fulfills this contract by sending aws-chunked framed data.
-          const placeholderBody = createEmptyReadable();
-
-          const partRequest: UploadPartCommandInput = {
-            ...request,
-            Body: placeholderBody,
-            UploadId: uploadId,
-            PartNumber: partNumber,
-            ContentLength: length,
-            ...(checksumAlgorithm && {
-              ChecksumAlgorithm: checksumAlgorithm as any,
-            }),
-          };
-
-          const partResponse = await this.s3.send(new UploadPartCommand(partRequest), {
-            ...transferOptions,
-            dataSource,
-          } as any);
+          const partResponse = await sendUploadPart(partNumber, length);
 
           const completedPart: CompletedPart = {
             PartNumber: partNumber,
@@ -3252,6 +3343,18 @@ export class S3TransferManager implements IS3TransferManager {
     }
   }
 }
+
+/**
+ * Binds environment runtime dependencies.
+ *
+ * @internal
+ */
+export const bindS3TransferManager = (deps: S3TransferManagerRuntimeDependencies): S3TransferManagerConstructor =>
+  class S3TransferManager extends S3TransferManagerBase {
+    public constructor(config: S3TransferManagerConfig = {}) {
+      super(config, deps);
+    }
+  };
 
 /**
  * Tests a value against a filter RegExp without leaking state. A `g`/`y` flag

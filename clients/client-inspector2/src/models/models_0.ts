@@ -239,6 +239,24 @@ export interface SeverityCounts {
    * @public
    */
   critical?: number | undefined;
+
+  /**
+   * <p>The total count of low severity findings.</p>
+   * @public
+   */
+  low?: number | undefined;
+
+  /**
+   * <p>The total count of informational severity findings.</p>
+   * @public
+   */
+  informational?: number | undefined;
+
+  /**
+   * <p>The total count of untriaged findings.</p>
+   * @public
+   */
+  untriaged?: number | undefined;
 }
 
 /**

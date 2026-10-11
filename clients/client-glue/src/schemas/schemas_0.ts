@@ -1150,6 +1150,12 @@ const _GSE = "GetSessionEndpoint";
 const _GSER = "GetSessionEndpointRequest";
 const _GSERe = "GetSessionEndpointResponse";
 const _GSI = "GetSchemaInput";
+const _GSLFJR = "GetSystemLogsForJobRun";
+const _GSLFJRR = "GetSystemLogsForJobRunRequest";
+const _GSLFJRRe = "GetSystemLogsForJobRunResponse";
+const _GSLFS = "GetSystemLogsForSession";
+const _GSLFSR = "GetSystemLogsForSessionRequest";
+const _GSLFSRe = "GetSystemLogsForSessionResponse";
 const _GSPL = "GlueStudioPathList";
 const _GSR = "GetSchemaResponse";
 const _GSRe = "GetSessionRequest";
@@ -1299,6 +1305,7 @@ const _ILTRP = "ImportLabelsTaskRunProperties";
 const _IM = "IcebergMetrics";
 const _IMDV = "IsMultiDialectView";
 const _IMV = "IsMaterializedView";
+const _IMs = "IsManaged";
 const _IN = "IntegrationName";
 const _INFF = "IntegrationNotFoundFault";
 const _INO = "IsNegOne";
@@ -2179,6 +2186,7 @@ const _SJS = "S3JsonSource";
 const _SL = "S3Location";
 const _SLD = "SchemaListDefinition";
 const _SLI = "SchemaListItem";
+const _SLU = "SystemLogsUrl";
 const _SLc = "ScriptLocation";
 const _SLe = "SerializationLibrary";
 const _SLes = "SessionList";
@@ -3781,8 +3789,8 @@ export var Crawl$: StaticStructureSchema = [3, n0, _Cra,
 ];
 export var Crawler$: StaticStructureSchema = [3, n0, _Craw,
   0,
-  [_N, _Rol, _Targ, _DN, _D, _Cla, _RP, _SCP, _LC, _Sta, _TP, _Sch, _CETr, _CTre, _LU, _LCa, _Ver, _Conf, _CSC, _LFC],
-  [0, 0, () => CrawlerTargets$, 0, 0, 64 | 0, () => RecrawlPolicy$, () => SchemaChangePolicy$, () => LineageConfiguration$, 0, 0, () => Schedule$, 1, 4, 4, () => LastCrawlInfo$, 1, 0, 0, () => LakeFormationConfiguration$]
+  [_N, _Rol, _Targ, _DN, _D, _Cla, _RP, _SCP, _LC, _Sta, _TP, _Sch, _CETr, _CTre, _LU, _LCa, _Ver, _Conf, _CSC, _LFC, _CI],
+  [0, 0, () => CrawlerTargets$, 0, 0, 64 | 0, () => RecrawlPolicy$, () => SchemaChangePolicy$, () => LineageConfiguration$, 0, 0, () => Schedule$, 1, 4, 4, () => LastCrawlInfo$, 1, 0, 0, () => LakeFormationConfiguration$, 0]
 ];
 export var CrawlerHistory$: StaticStructureSchema = [3, n0, _CH,
   0,
@@ -3861,8 +3869,8 @@ export var CreateConnectionResponse$: StaticStructureSchema = [3, n0, _CCRreate,
 ];
 export var CreateCrawlerRequest$: StaticStructureSchema = [3, n0, _CCRreater,
   0,
-  [_N, _Rol, _Targ, _DN, _D, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC, _Tag],
-  [0, 0, () => CrawlerTargets$, 0, 0, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0, 128 | 0], 3
+  [_N, _Rol, _Targ, _DN, _D, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC, _Tag, _CI],
+  [0, 0, () => CrawlerTargets$, 0, 0, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0, 128 | 0, 0], 3
 ];
 export var CreateCrawlerResponse$: StaticStructureSchema = [3, n0, _CCRreatera,
   0,
@@ -4431,8 +4439,8 @@ export var DeleteColumnStatisticsForTableResponse$: StaticStructureSchema = [3, 
 ];
 export var DeleteColumnStatisticsTaskSettingsRequest$: StaticStructureSchema = [3, n0, _DCSTSR,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var DeleteColumnStatisticsTaskSettingsResponse$: StaticStructureSchema = [3, n0, _DCSTSRe,
   0,
@@ -5186,8 +5194,8 @@ export var GetColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var GetColumnStatisticsTaskRunsRequest$: StaticStructureSchema = [3, n0, _GCSTRRet,
   0,
-  [_DN, _TN, _MRax, _NTe],
-  [0, 0, 1, 0], 2
+  [_DN, _TN, _MRax, _NTe, _CID],
+  [0, 0, 1, 0, 0], 2
 ];
 export var GetColumnStatisticsTaskRunsResponse$: StaticStructureSchema = [3, n0, _GCSTRReto,
   0,
@@ -5196,8 +5204,8 @@ export var GetColumnStatisticsTaskRunsResponse$: StaticStructureSchema = [3, n0,
 ];
 export var GetColumnStatisticsTaskSettingsRequest$: StaticStructureSchema = [3, n0, _GCSTSR,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var GetColumnStatisticsTaskSettingsResponse$: StaticStructureSchema = [3, n0, _GCSTSRe,
   0,
@@ -5749,6 +5757,26 @@ export var GetStatementResponse$: StaticStructureSchema = [3, n0, _GSRetta,
   [_Stat],
   [() => Statement$]
 ];
+export var GetSystemLogsForJobRunRequest$: StaticStructureSchema = [3, n0, _GSLFJRR,
+  0,
+  [_JN, _RIun],
+  [0, 0], 2
+];
+export var GetSystemLogsForJobRunResponse$: StaticStructureSchema = [3, n0, _GSLFJRRe,
+  0,
+  [_SLU],
+  [0]
+];
+export var GetSystemLogsForSessionRequest$: StaticStructureSchema = [3, n0, _GSLFSR,
+  0,
+  [_Id],
+  [0], 1
+];
+export var GetSystemLogsForSessionResponse$: StaticStructureSchema = [3, n0, _GSLFSRe,
+  0,
+  [_SLU],
+  [0]
+];
 export var GetTableOptimizerRequest$: StaticStructureSchema = [3, n0, _GTOR,
   0,
   [_CI, _DN, _TN, _Ty],
@@ -5771,8 +5799,8 @@ export var GetTableResponse$: StaticStructureSchema = [3, n0, _GTRe,
 ];
 export var GetTablesRequest$: StaticStructureSchema = [3, n0, _GTRet,
   0,
-  [_DN, _CI, _Ex, _NTe, _MRax, _TI, _QAOT, _ACu, _ISD, _ATG],
-  [0, 0, 0, 0, 1, 0, 4, () => AuditContext$, 2, 64 | 0], 1
+  [_DN, _CI, _Ex, _NTe, _MRax, _TI, _QAOT, _ACu, _RST, _ISD, _ATG],
+  [0, 0, 0, 0, 1, 0, 4, () => AuditContext$, 0, 2, 64 | 0], 1
 ];
 export var GetTablesResponse$: StaticStructureSchema = [3, n0, _GTReta,
   0,
@@ -7501,8 +7529,8 @@ export var StartColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0
 ];
 export var StartColumnStatisticsTaskRunScheduleRequest$: StaticStructureSchema = [3, n0, _SCSTRSR,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var StartColumnStatisticsTaskRunScheduleResponse$: StaticStructureSchema = [3, n0, _SCSTRSRt,
   0,
@@ -7671,8 +7699,8 @@ export var StatusDetails$: StaticStructureSchema = [3, n0, _SDtat,
 ];
 export var StopColumnStatisticsTaskRunRequest$: StaticStructureSchema = [3, n0, _SCSTRRto,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var StopColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0, _SCSTRRtop,
   0,
@@ -7681,8 +7709,8 @@ export var StopColumnStatisticsTaskRunResponse$: StaticStructureSchema = [3, n0,
 ];
 export var StopColumnStatisticsTaskRunScheduleRequest$: StaticStructureSchema = [3, n0, _SCSTRSRto,
   0,
-  [_DN, _TN],
-  [0, 0], 2
+  [_DN, _TN, _CID],
+  [0, 0, 0], 2
 ];
 export var StopColumnStatisticsTaskRunScheduleResponse$: StaticStructureSchema = [3, n0, _SCSTRSRtop,
   0,
@@ -7791,8 +7819,8 @@ export var TableIdentifier$: StaticStructureSchema = [3, n0, _TIab,
 ];
 export var TableInput$: StaticStructureSchema = [3, n0, _TIa,
   0,
-  [_N, _D, _Ow, _LAT, _LATa, _Ret, _SDto, _PK, _VOT, _VET, _TTab, _Par, _TT, _VD],
-  [0, 0, 0, 4, 4, 1, () => StorageDescriptor$, () => ColumnList, 0, 0, 0, 128 | 0, () => TableIdentifier$, () => ViewDefinitionInput$], 1
+  [_N, _D, _Ow, _LAT, _LATa, _Ret, _SDto, _PK, _VOT, _VET, _TTab, _Par, _TT, _FT, _VD],
+  [0, 0, 0, 4, 4, 1, () => StorageDescriptor$, () => ColumnList, 0, 0, 0, 128 | 0, () => TableIdentifier$, () => FederatedTable$, () => ViewDefinitionInput$], 1
 ];
 export var TableOptimizer$: StaticStructureSchema = [3, n0, _TOa,
   0,
@@ -8041,8 +8069,8 @@ export var UpdateConnectionResponse$: StaticStructureSchema = [3, n0, _UCRpdate,
 ];
 export var UpdateCrawlerRequest$: StaticStructureSchema = [3, n0, _UCRpdater,
   0,
-  [_N, _Rol, _DN, _D, _Targ, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC],
-  [0, 0, 0, 0, () => CrawlerTargets$, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0], 1
+  [_N, _Rol, _DN, _D, _Targ, _Sch, _Cla, _TP, _SCP, _RP, _LC, _LFC, _Conf, _CSC, _CI],
+  [0, 0, 0, 0, () => CrawlerTargets$, 0, 64 | 0, 0, () => SchemaChangePolicy$, () => RecrawlPolicy$, () => LineageConfiguration$, () => LakeFormationConfiguration$, 0, 0, 0], 1
 ];
 export var UpdateCrawlerResponse$: StaticStructureSchema = [3, n0, _UCRpdatera,
   0,
@@ -8326,13 +8354,13 @@ export var UserDefinedFunctionInput$: StaticStructureSchema = [3, n0, _UDFI,
 ];
 export var ViewDefinition$: StaticStructureSchema = [3, n0, _VD,
   0,
-  [_IPs, _Def, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _Repr, _SPI],
-  [2, 0, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, () => ViewRepresentationList, 128 | 0]
+  [_IPs, _IMs, _Def, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _Repr, _SPI],
+  [2, 2, 0, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, () => ViewRepresentationList, 128 | 0]
 ];
 export var ViewDefinitionInput$: StaticStructureSchema = [3, n0, _VDI,
   0,
-  [_IPs, _Def, _Repr, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _SPI],
-  [2, 0, () => ViewRepresentationInputList, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, 128 | 0]
+  [_IPs, _IMs, _Def, _Repr, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _SPI],
+  [2, 2, 0, () => ViewRepresentationInputList, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, 128 | 0]
 ];
 export var ViewRepresentation$: StaticStructureSchema = [3, n0, _VRi,
   0,
@@ -9544,6 +9572,12 @@ export var GetSessionEndpoint$: StaticOperationSchema = [9, n0, _GSE,
 ];
 export var GetStatement$: StaticOperationSchema = [9, n0, _GSett,
   0, () => GetStatementRequest$, () => GetStatementResponse$
+];
+export var GetSystemLogsForJobRun$: StaticOperationSchema = [9, n0, _GSLFJR,
+  0, () => GetSystemLogsForJobRunRequest$, () => GetSystemLogsForJobRunResponse$
+];
+export var GetSystemLogsForSession$: StaticOperationSchema = [9, n0, _GSLFS,
+  0, () => GetSystemLogsForSessionRequest$, () => GetSystemLogsForSessionResponse$
 ];
 export var GetTable$: StaticOperationSchema = [9, n0, _GTe,
   0, () => GetTableRequest$, () => GetTableResponse$

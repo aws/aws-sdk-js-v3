@@ -341,6 +341,8 @@ import {
   ManagedSearchConfiguration$,
   ManagedSearchRerankingConfiguration$,
   ManagedSearchRerankingConfigurationType,
+  MantleFoundationModelConfiguration$,
+  MantleFoundationModelModelConfiguration$,
   Memory$,
   MemorySessionSummary$,
   MemoryType,
@@ -852,6 +854,8 @@ assert(typeof ManagedSearchBedrockRerankingConfiguration$ === "object");
 assert(typeof ManagedSearchBedrockRerankingModelConfiguration$ === "object");
 assert(typeof ManagedSearchConfiguration$ === "object");
 assert(typeof ManagedSearchRerankingConfiguration$ === "object");
+assert(typeof MantleFoundationModelConfiguration$ === "object");
+assert(typeof MantleFoundationModelModelConfiguration$ === "object");
 assert(typeof Memory$ === "object");
 assert(typeof MemorySessionSummary$ === "object");
 assert(typeof Message$ === "object");

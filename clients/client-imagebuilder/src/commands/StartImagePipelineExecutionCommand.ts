@@ -23,7 +23,11 @@ export interface StartImagePipelineExecutionCommandInput extends StartImagePipel
 export interface StartImagePipelineExecutionCommandOutput extends StartImagePipelineExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Manually triggers a pipeline to create an image.</p>
+ * <p>Manually triggers a pipeline to create an image. You can start a build
+ * 			this way whether the pipeline is enabled or disabled. The response returns
+ * 			as soon as Image Builder creates the new image resource and queues the build. Use
+ * 			the returned <code>imageBuildVersionArn</code> with
+ * 			<a>GetImage</a> to track build progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,12 +60,14 @@ export interface StartImagePipelineExecutionCommandOutput extends StartImagePipe
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
+ * 			calls on your behalf. Retry with an increasing or variable delay between
+ * 			requests.</p>
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action, such as using an action or
- * 			resource on behalf of a user that doesn't have permissions to use the action or
- * 			resource, or specifying an invalid resource identifier.</p>
+ *  <p>A generic client error. This error usually indicates that the request
+ * 			failed a validation check, such as when a downstream service rejects a
+ * 			configured value.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
@@ -71,7 +77,8 @@ export interface StartImagePipelineExecutionCommandOutput extends StartImagePipe
  * 			from a previous request that used the same client token.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You have requested an action that that the service doesn't support.</p>
+ *  <p>The request is malformed or otherwise invalid. Verify the request and try
+ * 			again.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The resource that you are trying to operate on is currently in use. Review the message
@@ -81,8 +88,8 @@ export interface StartImagePipelineExecutionCommandOutput extends StartImagePipe
  *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>This exception is thrown when the service encounters an unrecoverable
- * 			exception.</p>
+ *  <p>An internal server error occurred while Image Builder processed the request.
+ * 			Retrying the request may succeed.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unable to process your request at this time.</p>
@@ -90,6 +97,24 @@ export interface StartImagePipelineExecutionCommandOutput extends StartImagePipe
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
+ * @example Start a pipeline build manually
+ * ```javascript
+ * // The following example starts a build for the specified pipeline. The response returns the ARN of the new image build version.
+ * const input = {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE66666",
+ *   imagePipelineArn: "arn:aws:imagebuilder:us-west-2:111122223333:image-pipeline/my-example-pipeline"
+ * };
+ * const command = new StartImagePipelineExecutionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   clientToken: "a1b2c3d4-5678-90ab-cdef-EXAMPLE66666",
+ *   imageBuildVersionArn: "arn:aws:imagebuilder:us-west-2:111122223333:image/my-example-recipe/1.0.0/1",
+ *   requestId: "f477f64c-9ece-4478-977d-5821f8ed051b"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

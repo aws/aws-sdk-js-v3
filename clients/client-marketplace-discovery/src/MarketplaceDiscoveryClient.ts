@@ -339,6 +339,7 @@ export class MarketplaceDiscoveryClient extends __Client<
         identityProviderConfigProvider: async (config: MarketplaceDiscoveryClientResolvedConfig) =>
           new DefaultIdentityProviderConfig({
             "aws.auth#sigv4": config.credentials,
+            "aws.auth#sigv4a": config.credentials,
           }),
       })
     );

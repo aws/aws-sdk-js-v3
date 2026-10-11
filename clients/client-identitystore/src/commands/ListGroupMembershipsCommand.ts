@@ -44,7 +44,8 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * //   GroupMemberships: [ // GroupMemberships // required
  * //     { // GroupMembership
  * //       IdentityStoreId: "STRING_VALUE", // required
- * //       MembershipId: "STRING_VALUE",
+ * //       MembershipId: "STRING_VALUE", // required
+ * //       MembershipArn: "STRING_VALUE", // required
  * //       GroupId: "STRING_VALUE",
  * //       MemberId: { // MemberId Union: only one key present
  * //         UserId: "STRING_VALUE",

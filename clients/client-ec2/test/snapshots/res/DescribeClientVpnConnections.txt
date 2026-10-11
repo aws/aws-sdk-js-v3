@@ -88,6 +88,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __member__
                 </item>
             </postureComplianceStatusSet>
+            <authorizationPolicyLastEvaluatedTime>
+                __AuthorizationPolicyLastEvaluatedTime__
+            </authorizationPolicyLastEvaluatedTime>
         </item>
         <item>
             <clientVpnEndpointId>
@@ -148,6 +151,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __member__
                 </item>
             </postureComplianceStatusSet>
+            <authorizationPolicyLastEvaluatedTime>
+                __AuthorizationPolicyLastEvaluatedTime__
+            </authorizationPolicyLastEvaluatedTime>
         </item>
         <item>
             <clientVpnEndpointId>
@@ -208,6 +214,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __member__
                 </item>
             </postureComplianceStatusSet>
+            <authorizationPolicyLastEvaluatedTime>
+                __AuthorizationPolicyLastEvaluatedTime__
+            </authorizationPolicyLastEvaluatedTime>
         </item>
     </connections>
     <nextToken>
@@ -241,7 +250,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      AuthorizationPolicyLastEvaluatedTime: "__AuthorizationPolicyLastEvaluatedTime__"
     },
     {
       ClientVpnEndpointId: "__ClientVpnEndpointId__",
@@ -265,7 +275,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      AuthorizationPolicyLastEvaluatedTime: "__AuthorizationPolicyLastEvaluatedTime__"
     },
     {
       ClientVpnEndpointId: "__ClientVpnEndpointId__",
@@ -289,7 +300,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__",
         "__member__",
         "__member__"
-      ]
+      ],
+      AuthorizationPolicyLastEvaluatedTime: "__AuthorizationPolicyLastEvaluatedTime__"
     }
   ],
   NextToken: "__NextToken__",

@@ -8,6 +8,7 @@ import { CloudSearchServiceException as __BaseException } from "./CloudSearchSer
  * @public
  */
 export class BaseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudsearch#BaseException";
   readonly name = "BaseException" as const;
   readonly $fault = "client" as const;
   /**
@@ -42,6 +43,7 @@ export class BaseException extends __BaseException {
  * @public
  */
 export class InternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudsearch#InternalException";
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   /**
@@ -75,6 +77,7 @@ export class InternalException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudsearch#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -108,6 +111,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudsearch#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -141,6 +145,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudsearch#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -174,6 +179,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudsearch#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -207,6 +213,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidTypeException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudsearch#InvalidTypeException";
   readonly name = "InvalidTypeException" as const;
   readonly $fault = "client" as const;
   /**
@@ -240,6 +247,7 @@ export class InvalidTypeException extends __BaseException {
  * @public
  */
 export class DisabledOperationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudsearch#DisabledOperationException";
   readonly name = "DisabledOperationException" as const;
   readonly $fault = "client" as const;
   /**

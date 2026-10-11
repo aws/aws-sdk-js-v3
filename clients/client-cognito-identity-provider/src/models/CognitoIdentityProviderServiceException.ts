@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from CognitoIdentityProvider service.
  */
 export class CognitoIdentityProviderServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.cognitoidentityprovider#CognitoIdentityProviderServiceException";
   /**
    * @internal
    */

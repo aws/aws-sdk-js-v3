@@ -9,6 +9,7 @@ import { Route53ServiceException as __BaseException } from "./Route53ServiceExce
  * @public
  */
 export class ConcurrentModification extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#ConcurrentModification";
   readonly name = "ConcurrentModification" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class ConcurrentModification extends __BaseException {
  * @public
  */
 export class InvalidInput extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidInput";
   readonly name = "InvalidInput" as const;
   readonly $fault = "client" as const;
   /**
@@ -50,6 +52,7 @@ export class InvalidInput extends __BaseException {
  * @public
  */
 export class InvalidKeySigningKeyStatus extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidKeySigningKeyStatus";
   readonly name = "InvalidKeySigningKeyStatus" as const;
   readonly $fault = "client" as const;
   /**
@@ -71,6 +74,7 @@ export class InvalidKeySigningKeyStatus extends __BaseException {
  * @public
  */
 export class InvalidKMSArn extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidKMSArn";
   readonly name = "InvalidKMSArn" as const;
   readonly $fault = "client" as const;
   /**
@@ -92,6 +96,7 @@ export class InvalidKMSArn extends __BaseException {
  * @public
  */
 export class InvalidSigningStatus extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidSigningStatus";
   readonly name = "InvalidSigningStatus" as const;
   readonly $fault = "client" as const;
   /**
@@ -112,6 +117,7 @@ export class InvalidSigningStatus extends __BaseException {
  * @public
  */
 export class NoSuchKeySigningKey extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchKeySigningKey";
   readonly name = "NoSuchKeySigningKey" as const;
   readonly $fault = "client" as const;
   /**
@@ -156,6 +162,7 @@ export class NoSuchKeySigningKey extends __BaseException {
  * @public
  */
 export class ConflictingDomainExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#ConflictingDomainExists";
   readonly name = "ConflictingDomainExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -177,6 +184,7 @@ export class ConflictingDomainExists extends __BaseException {
  * @public
  */
 export class InvalidVPCId extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidVPCId";
   readonly name = "InvalidVPCId" as const;
   readonly $fault = "client" as const;
   /**
@@ -199,6 +207,7 @@ export class InvalidVPCId extends __BaseException {
  * @public
  */
 export class LimitsExceeded extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#LimitsExceeded";
   readonly name = "LimitsExceeded" as const;
   readonly $fault = "client" as const;
   /**
@@ -219,6 +228,7 @@ export class LimitsExceeded extends __BaseException {
  * @public
  */
 export class NoSuchHostedZone extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchHostedZone";
   readonly name = "NoSuchHostedZone" as const;
   readonly $fault = "client" as const;
   /**
@@ -240,6 +250,7 @@ export class NoSuchHostedZone extends __BaseException {
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NotAuthorizedException";
   readonly name = "NotAuthorizedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -264,6 +275,7 @@ export class NotAuthorizedException extends __BaseException {
  * @public
  */
 export class PriorRequestNotComplete extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#PriorRequestNotComplete";
   readonly name = "PriorRequestNotComplete" as const;
   readonly $fault = "client" as const;
   /**
@@ -285,6 +297,7 @@ export class PriorRequestNotComplete extends __BaseException {
  * @public
  */
 export class PublicZoneVPCAssociation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#PublicZoneVPCAssociation";
   readonly name = "PublicZoneVPCAssociation" as const;
   readonly $fault = "client" as const;
   /**
@@ -305,6 +318,7 @@ export class PublicZoneVPCAssociation extends __BaseException {
  * @public
  */
 export class CidrBlockInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#CidrBlockInUseException";
   readonly name = "CidrBlockInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -328,6 +342,7 @@ export class CidrBlockInUseException extends __BaseException {
  * @public
  */
 export class CidrCollectionVersionMismatchException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#CidrCollectionVersionMismatchException";
   readonly name = "CidrCollectionVersionMismatchException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -350,6 +365,7 @@ export class CidrCollectionVersionMismatchException extends __BaseException {
  * @public
  */
 export class NoSuchCidrCollectionException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchCidrCollectionException";
   readonly name = "NoSuchCidrCollectionException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -373,6 +389,7 @@ export class NoSuchCidrCollectionException extends __BaseException {
  * @public
  */
 export class InvalidChangeBatch extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidChangeBatch";
   readonly name = "InvalidChangeBatch" as const;
   readonly $fault = "client" as const;
   /**
@@ -400,6 +417,7 @@ export class InvalidChangeBatch extends __BaseException {
  * @public
  */
 export class NoSuchHealthCheck extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchHealthCheck";
   readonly name = "NoSuchHealthCheck" as const;
   readonly $fault = "client" as const;
   /**
@@ -420,6 +438,7 @@ export class NoSuchHealthCheck extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -440,6 +459,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class CidrCollectionAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#CidrCollectionAlreadyExistsException";
   readonly name = "CidrCollectionAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -475,6 +495,7 @@ export class CidrCollectionAlreadyExistsException extends __BaseException {
  * @public
  */
 export class HealthCheckAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#HealthCheckAlreadyExists";
   readonly name = "HealthCheckAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -502,6 +523,7 @@ export class HealthCheckAlreadyExists extends __BaseException {
  * @public
  */
 export class TooManyHealthChecks extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#TooManyHealthChecks";
   readonly name = "TooManyHealthChecks" as const;
   readonly $fault = "client" as const;
   /**
@@ -525,6 +547,7 @@ export class TooManyHealthChecks extends __BaseException {
  * @public
  */
 export class DelegationSetNotAvailable extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#DelegationSetNotAvailable";
   readonly name = "DelegationSetNotAvailable" as const;
   readonly $fault = "client" as const;
   /**
@@ -545,6 +568,7 @@ export class DelegationSetNotAvailable extends __BaseException {
  * @public
  */
 export class DelegationSetNotReusable extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#DelegationSetNotReusable";
   readonly name = "DelegationSetNotReusable" as const;
   readonly $fault = "client" as const;
   /**
@@ -567,6 +591,7 @@ export class DelegationSetNotReusable extends __BaseException {
  * @public
  */
 export class HostedZoneAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#HostedZoneAlreadyExists";
   readonly name = "HostedZoneAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -587,6 +612,7 @@ export class HostedZoneAlreadyExists extends __BaseException {
  * @public
  */
 export class InvalidDomainName extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidDomainName";
   readonly name = "InvalidDomainName" as const;
   readonly $fault = "client" as const;
   /**
@@ -607,6 +633,7 @@ export class InvalidDomainName extends __BaseException {
  * @public
  */
 export class NoSuchDelegationSet extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchDelegationSet";
   readonly name = "NoSuchDelegationSet" as const;
   readonly $fault = "client" as const;
   /**
@@ -636,6 +663,7 @@ export class NoSuchDelegationSet extends __BaseException {
  * @public
  */
 export class TooManyHostedZones extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#TooManyHostedZones";
   readonly name = "TooManyHostedZones" as const;
   readonly $fault = "client" as const;
   /**
@@ -656,6 +684,7 @@ export class TooManyHostedZones extends __BaseException {
  * @public
  */
 export class InvalidArgument extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidArgument";
   readonly name = "InvalidArgument" as const;
   readonly $fault = "client" as const;
   /**
@@ -676,6 +705,7 @@ export class InvalidArgument extends __BaseException {
  * @public
  */
 export class InvalidKeySigningKeyName extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidKeySigningKeyName";
   readonly name = "InvalidKeySigningKeyName" as const;
   readonly $fault = "client" as const;
   /**
@@ -696,6 +726,7 @@ export class InvalidKeySigningKeyName extends __BaseException {
  * @public
  */
 export class KeySigningKeyAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#KeySigningKeyAlreadyExists";
   readonly name = "KeySigningKeyAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -717,6 +748,7 @@ export class KeySigningKeyAlreadyExists extends __BaseException {
  * @public
  */
 export class TooManyKeySigningKeys extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#TooManyKeySigningKeys";
   readonly name = "TooManyKeySigningKeys" as const;
   readonly $fault = "client" as const;
   /**
@@ -761,6 +793,7 @@ export class TooManyKeySigningKeys extends __BaseException {
  * @public
  */
 export class InsufficientCloudWatchLogsResourcePolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InsufficientCloudWatchLogsResourcePolicy";
   readonly name = "InsufficientCloudWatchLogsResourcePolicy" as const;
   readonly $fault = "client" as const;
   /**
@@ -781,6 +814,7 @@ export class InsufficientCloudWatchLogsResourcePolicy extends __BaseException {
  * @public
  */
 export class NoSuchCloudWatchLogsLogGroup extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchCloudWatchLogsLogGroup";
   readonly name = "NoSuchCloudWatchLogsLogGroup" as const;
   readonly $fault = "client" as const;
   /**
@@ -802,6 +836,7 @@ export class NoSuchCloudWatchLogsLogGroup extends __BaseException {
  * @public
  */
 export class QueryLoggingConfigAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#QueryLoggingConfigAlreadyExists";
   readonly name = "QueryLoggingConfigAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -823,6 +858,7 @@ export class QueryLoggingConfigAlreadyExists extends __BaseException {
  * @public
  */
 export class DelegationSetAlreadyCreated extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#DelegationSetAlreadyCreated";
   readonly name = "DelegationSetAlreadyCreated" as const;
   readonly $fault = "client" as const;
   /**
@@ -843,6 +879,7 @@ export class DelegationSetAlreadyCreated extends __BaseException {
  * @public
  */
 export class DelegationSetAlreadyReusable extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#DelegationSetAlreadyReusable";
   readonly name = "DelegationSetAlreadyReusable" as const;
   readonly $fault = "client" as const;
   /**
@@ -863,6 +900,7 @@ export class DelegationSetAlreadyReusable extends __BaseException {
  * @public
  */
 export class HostedZoneNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#HostedZoneNotFound";
   readonly name = "HostedZoneNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -884,6 +922,7 @@ export class HostedZoneNotFound extends __BaseException {
  * @public
  */
 export class InvalidTrafficPolicyDocument extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidTrafficPolicyDocument";
   readonly name = "InvalidTrafficPolicyDocument" as const;
   readonly $fault = "client" as const;
   /**
@@ -910,6 +949,7 @@ export class InvalidTrafficPolicyDocument extends __BaseException {
  * @public
  */
 export class TooManyTrafficPolicies extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#TooManyTrafficPolicies";
   readonly name = "TooManyTrafficPolicies" as const;
   readonly $fault = "client" as const;
   /**
@@ -930,6 +970,7 @@ export class TooManyTrafficPolicies extends __BaseException {
  * @public
  */
 export class TrafficPolicyAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#TrafficPolicyAlreadyExists";
   readonly name = "TrafficPolicyAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -950,6 +991,7 @@ export class TrafficPolicyAlreadyExists extends __BaseException {
  * @public
  */
 export class NoSuchTrafficPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchTrafficPolicy";
   readonly name = "NoSuchTrafficPolicy" as const;
   readonly $fault = "client" as const;
   /**
@@ -976,6 +1018,7 @@ export class NoSuchTrafficPolicy extends __BaseException {
  * @public
  */
 export class TooManyTrafficPolicyInstances extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#TooManyTrafficPolicyInstances";
   readonly name = "TooManyTrafficPolicyInstances" as const;
   readonly $fault = "client" as const;
   /**
@@ -996,6 +1039,7 @@ export class TooManyTrafficPolicyInstances extends __BaseException {
  * @public
  */
 export class TrafficPolicyInstanceAlreadyExists extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#TrafficPolicyInstanceAlreadyExists";
   readonly name = "TrafficPolicyInstanceAlreadyExists" as const;
   readonly $fault = "client" as const;
   /**
@@ -1021,6 +1065,7 @@ export class TrafficPolicyInstanceAlreadyExists extends __BaseException {
  * @public
  */
 export class TooManyTrafficPolicyVersionsForCurrentPolicy extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#TooManyTrafficPolicyVersionsForCurrentPolicy";
   readonly name = "TooManyTrafficPolicyVersionsForCurrentPolicy" as const;
   readonly $fault = "client" as const;
   /**
@@ -1045,6 +1090,7 @@ export class TooManyTrafficPolicyVersionsForCurrentPolicy extends __BaseExceptio
  * @public
  */
 export class TooManyVPCAssociationAuthorizations extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#TooManyVPCAssociationAuthorizations";
   readonly name = "TooManyVPCAssociationAuthorizations" as const;
   readonly $fault = "client" as const;
   /**
@@ -1065,6 +1111,7 @@ export class TooManyVPCAssociationAuthorizations extends __BaseException {
  * @public
  */
 export class KeySigningKeyInParentDSRecord extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#KeySigningKeyInParentDSRecord";
   readonly name = "KeySigningKeyInParentDSRecord" as const;
   readonly $fault = "client" as const;
   /**
@@ -1087,6 +1134,7 @@ export class KeySigningKeyInParentDSRecord extends __BaseException {
  * @public
  */
 export class KeySigningKeyInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#KeySigningKeyInUse";
   readonly name = "KeySigningKeyInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -1107,6 +1155,7 @@ export class KeySigningKeyInUse extends __BaseException {
  * @public
  */
 export class CidrCollectionInUseException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#CidrCollectionInUseException";
   readonly name = "CidrCollectionInUseException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1131,6 +1180,7 @@ export class CidrCollectionInUseException extends __BaseException {
  * @public
  */
 export class HealthCheckInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#HealthCheckInUse";
   readonly name = "HealthCheckInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -1151,6 +1201,7 @@ export class HealthCheckInUse extends __BaseException {
  * @public
  */
 export class HostedZoneNotEmpty extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#HostedZoneNotEmpty";
   readonly name = "HostedZoneNotEmpty" as const;
   readonly $fault = "client" as const;
   /**
@@ -1171,6 +1222,7 @@ export class HostedZoneNotEmpty extends __BaseException {
  * @public
  */
 export class NoSuchQueryLoggingConfig extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchQueryLoggingConfig";
   readonly name = "NoSuchQueryLoggingConfig" as const;
   readonly $fault = "client" as const;
   /**
@@ -1192,6 +1244,7 @@ export class NoSuchQueryLoggingConfig extends __BaseException {
  * @public
  */
 export class DelegationSetInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#DelegationSetInUse";
   readonly name = "DelegationSetInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -1213,6 +1266,7 @@ export class DelegationSetInUse extends __BaseException {
  * @public
  */
 export class TrafficPolicyInUse extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#TrafficPolicyInUse";
   readonly name = "TrafficPolicyInUse" as const;
   readonly $fault = "client" as const;
   /**
@@ -1233,6 +1287,7 @@ export class TrafficPolicyInUse extends __BaseException {
  * @public
  */
 export class NoSuchTrafficPolicyInstance extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchTrafficPolicyInstance";
   readonly name = "NoSuchTrafficPolicyInstance" as const;
   readonly $fault = "client" as const;
   /**
@@ -1254,6 +1309,7 @@ export class NoSuchTrafficPolicyInstance extends __BaseException {
  * @public
  */
 export class VPCAssociationAuthorizationNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#VPCAssociationAuthorizationNotFound";
   readonly name = "VPCAssociationAuthorizationNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -1274,6 +1330,7 @@ export class VPCAssociationAuthorizationNotFound extends __BaseException {
  * @public
  */
 export class DNSSECNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#DNSSECNotFound";
   readonly name = "DNSSECNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -1296,6 +1353,7 @@ export class DNSSECNotFound extends __BaseException {
  * @public
  */
 export class LastVPCAssociation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#LastVPCAssociation";
   readonly name = "LastVPCAssociation" as const;
   readonly $fault = "client" as const;
   /**
@@ -1316,6 +1374,7 @@ export class LastVPCAssociation extends __BaseException {
  * @public
  */
 export class VPCAssociationNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#VPCAssociationNotFound";
   readonly name = "VPCAssociationNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -1337,6 +1396,7 @@ export class VPCAssociationNotFound extends __BaseException {
  * @public
  */
 export class HostedZonePartiallyDelegated extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#HostedZonePartiallyDelegated";
   readonly name = "HostedZonePartiallyDelegated" as const;
   readonly $fault = "client" as const;
   /**
@@ -1357,6 +1417,7 @@ export class HostedZonePartiallyDelegated extends __BaseException {
  * @public
  */
 export class KeySigningKeyWithActiveStatusNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#KeySigningKeyWithActiveStatusNotFound";
   readonly name = "KeySigningKeyWithActiveStatusNotFound" as const;
   readonly $fault = "client" as const;
   /**
@@ -1377,6 +1438,7 @@ export class KeySigningKeyWithActiveStatusNotFound extends __BaseException {
  * @public
  */
 export class NoSuchChange extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchChange";
   readonly name = "NoSuchChange" as const;
   readonly $fault = "client" as const;
   /**
@@ -1399,6 +1461,7 @@ export class NoSuchChange extends __BaseException {
  * @public
  */
 export class NoSuchGeoLocation extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchGeoLocation";
   readonly name = "NoSuchGeoLocation" as const;
   readonly $fault = "client" as const;
   /**
@@ -1420,6 +1483,7 @@ export class NoSuchGeoLocation extends __BaseException {
  * @public
  */
 export class IncompatibleVersion extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#IncompatibleVersion";
   readonly name = "IncompatibleVersion" as const;
   readonly $fault = "client" as const;
   /**
@@ -1440,6 +1504,7 @@ export class IncompatibleVersion extends __BaseException {
  * @public
  */
 export class HostedZoneNotPrivate extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#HostedZoneNotPrivate";
   readonly name = "HostedZoneNotPrivate" as const;
   readonly $fault = "client" as const;
   /**
@@ -1460,6 +1525,7 @@ export class HostedZoneNotPrivate extends __BaseException {
  * @public
  */
 export class NoSuchCidrLocationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#NoSuchCidrLocationException";
   readonly name = "NoSuchCidrLocationException" as const;
   readonly $fault = "client" as const;
   Message?: string | undefined;
@@ -1483,6 +1549,7 @@ export class NoSuchCidrLocationException extends __BaseException {
  * @public
  */
 export class InvalidPaginationToken extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#InvalidPaginationToken";
   readonly name = "InvalidPaginationToken" as const;
   readonly $fault = "client" as const;
   /**
@@ -1504,6 +1571,7 @@ export class InvalidPaginationToken extends __BaseException {
  * @public
  */
 export class HealthCheckVersionMismatch extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#HealthCheckVersionMismatch";
   readonly name = "HealthCheckVersionMismatch" as const;
   readonly $fault = "client" as const;
   /**
@@ -1527,6 +1595,7 @@ export class HealthCheckVersionMismatch extends __BaseException {
  * @public
  */
 export class ConflictingTypes extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#ConflictingTypes";
   readonly name = "ConflictingTypes" as const;
   readonly $fault = "client" as const;
   /**

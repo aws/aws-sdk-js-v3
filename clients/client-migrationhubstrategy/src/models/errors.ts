@@ -9,6 +9,7 @@ import { MigrationHubStrategyServiceException as __BaseException } from "./Migra
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubstrategy#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
@@ -29,6 +30,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubstrategy#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
@@ -49,6 +51,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubstrategy#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -69,6 +72,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubstrategy#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
@@ -89,6 +93,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubstrategy#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class DependencyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubstrategy#DependencyException";
   readonly name = "DependencyException" as const;
   readonly $fault = "server" as const;
   /**
@@ -129,6 +135,7 @@ export class DependencyException extends __BaseException {
  * @public
  */
 export class ServiceLinkedRoleLockClientException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubstrategy#ServiceLinkedRoleLockClientException";
   readonly name = "ServiceLinkedRoleLockClientException" as const;
   readonly $fault = "client" as const;
   /**
@@ -150,6 +157,7 @@ export class ServiceLinkedRoleLockClientException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubstrategy#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
@@ -171,6 +179,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubstrategy#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**

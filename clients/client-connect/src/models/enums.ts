@@ -23,6 +23,7 @@ export const ActionType = {
   END_ASSOCIATED_TASKS: "END_ASSOCIATED_TASKS",
   EXTRACT_INFORMATION: "EXTRACT_INFORMATION",
   GENERATE_EVENTBRIDGE_EVENT: "GENERATE_EVENTBRIDGE_EVENT",
+  SEND_IN_APP_NOTIFICATION: "SEND_IN_APP_NOTIFICATION",
   SEND_NOTIFICATION: "SEND_NOTIFICATION",
   SUBMIT_AUTO_EVALUATION: "SUBMIT_AUTO_EVALUATION",
   UPDATE_CASE: "UPDATE_CASE",
@@ -1977,6 +1978,7 @@ export type InstanceReplicationStatus = (typeof InstanceReplicationStatus)[keyof
  * @enum
  */
 export const InstanceAttributeType = {
+  AUTO_MUTE_AGENT_ON_HOLD: "AUTO_MUTE_AGENT_ON_HOLD",
   AUTO_RESOLVE_BEST_VOICES: "AUTO_RESOLVE_BEST_VOICES",
   CONTACTFLOW_LOGS: "CONTACTFLOW_LOGS",
   CONTACT_LENS: "CONTACT_LENS",
@@ -3117,6 +3119,21 @@ export const NotificationType = {
  * @public
  */
 export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectionType = {
+  AUTHENTICATION_SESSION: "AUTHENTICATION_SESSION",
+  CONNECTION_CREDENTIALS: "CONNECTION_CREDENTIALS",
+  WEBRTC_CONNECTION: "WEBRTC_CONNECTION",
+  WEBSOCKET: "WEBSOCKET",
+} as const;
+/**
+ * @public
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
 
 /**
  * @public

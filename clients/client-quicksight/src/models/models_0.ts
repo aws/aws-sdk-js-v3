@@ -20,7 +20,6 @@ import type {
   ComparisonOperator,
   ConnectionAuthType,
   ControlSortDirection,
-  CrossDatasetTypes,
   DashboardBehavior,
   DataLabelContent,
   DataLabelOverlap,
@@ -38,7 +37,6 @@ import type {
   FontDecoration,
   FontStyle,
   FontWeightName,
-  HorizontalTextAlignment,
   ImageCustomActionTrigger,
   LayoutElementType,
   LegendPosition,
@@ -47,8 +45,6 @@ import type {
   NumericEqualityMatchOperator,
   NumericFilterSelectAllOptions,
   NumericSeparatorSymbol,
-  OtherCategories,
-  PanelBorderStyle,
   PaperOrientation,
   PaperSize,
   ParameterValueType,
@@ -74,8 +70,6 @@ import type {
   SheetLayoutGroupMemberType,
   SimpleAttributeAggregationFunction,
   SimpleNumericalAggregationFunction,
-  SmallMultiplesAxisPlacement,
-  SmallMultiplesAxisScale,
   SortDirection,
   SpecialValue,
   TargetVisualOptions,
@@ -3504,6 +3498,170 @@ export interface DefaultFilterDropDownControlOptions {
 }
 
 /**
+ * <p>The title format text configuration for a sheet control. This is a tagged union type. Specify either <code>PlainText</code> or <code>RichText</code>, but not both.</p>
+ * @public
+ */
+export interface ControlTitleFormatText {
+  /**
+   * <p>The plain text format of the title text.</p>
+   * @public
+   */
+  PlainText?: string | undefined;
+
+  /**
+   * <p>The rich text format of the title text.</p>
+   * @public
+   */
+  RichText?: string | undefined;
+}
+
+/**
+ * <p>The display options of a control.</p>
+ * @public
+ */
+export interface HierarchyFilterDropDownControlDisplayOptions {
+  /**
+   * <p>The options to configure the title visibility, name, and font size.</p>
+   * @public
+   */
+  TitleOptions?: LabelOptions | undefined;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   * @public
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
+}
+
+/**
+ * <p>The default options that correspond to the <code>HierarchyDropdown</code> filter control type.</p>
+ * @public
+ */
+export interface DefaultHierarchyFilterDropDownControlOptions {
+  /**
+   * <p>The display options of a control.</p>
+   * @public
+   */
+  DisplayOptions?: HierarchyFilterDropDownControlDisplayOptions | undefined;
+
+  /**
+   * <p>The type of the <code>DefaultHierarchyFilterDropDownControlOptions</code>. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from a dropdown menu.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from a dropdown menu.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: SheetControlListType | undefined;
+
+  /**
+   * <p>The visibility configuration of the Apply button on a <code>HierarchyFilterDropDownControl</code>.</p>
+   * @public
+   */
+  CommitMode?: CommitMode | undefined;
+
+  /**
+   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * @public
+   */
+  ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
+}
+
+/**
+ * <p>The configuration of the search options in a hierarchy list control.</p>
+ * @public
+ */
+export interface HierarchyFilterListControlSearchOptions {
+  /**
+   * <p>The visibility configuration of the search options in a hierarchy list control.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+}
+
+/**
+ * <p>The display options of a control.</p>
+ * @public
+ */
+export interface HierarchyFilterListControlDisplayOptions {
+  /**
+   * <p>The options to configure the title visibility, name, and font size.</p>
+   * @public
+   */
+  TitleOptions?: LabelOptions | undefined;
+
+  /**
+   * <p>The configuration of info icon label options.</p>
+   * @public
+   */
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
+
+  /**
+   * <p>The configuration of the search options in a hierarchy list control.</p>
+   * @public
+   */
+  SearchOptions?: HierarchyFilterListControlSearchOptions | undefined;
+}
+
+/**
+ * <p>The default options that correspond to the <code>HierarchyList</code> filter control type.</p>
+ * @public
+ */
+export interface DefaultHierarchyFilterListControlOptions {
+  /**
+   * <p>The display options of a control.</p>
+   * @public
+   */
+  DisplayOptions?: HierarchyFilterListControlDisplayOptions | undefined;
+
+  /**
+   * <p>The type of the <code>DefaultHierarchyFilterListControlOptions</code>. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from the list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from the list.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: SheetControlListType | undefined;
+
+  /**
+   * <p>The visibility configuration of the Apply button on a <code>HierarchyFilterListControl</code>.</p>
+   * @public
+   */
+  CommitMode?: CommitMode | undefined;
+
+  /**
+   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * @public
+   */
+  ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
+}
+
+/**
  * <p>The configuration of the search options in a list control.</p>
  * @public
  */
@@ -3827,24 +3985,18 @@ export interface DefaultFilterControlOptions {
    * @public
    */
   DefaultRelativeDateTimeOptions?: DefaultRelativeDateTimeControlOptions | undefined;
-}
-
-/**
- * <p>The title format text configuration for a sheet control. This is a tagged union type. Specify either <code>PlainText</code> or <code>RichText</code>, but not both.</p>
- * @public
- */
-export interface ControlTitleFormatText {
-  /**
-   * <p>The plain text format of the title text.</p>
-   * @public
-   */
-  PlainText?: string | undefined;
 
   /**
-   * <p>The rich text format of the title text.</p>
+   * <p>The default options that correspond to the <code>HierarchyList</code> filter control type.</p>
    * @public
    */
-  RichText?: string | undefined;
+  DefaultHierarchyList?: DefaultHierarchyFilterListControlOptions | undefined;
+
+  /**
+   * <p>The default options that correspond to the <code>HierarchyDropdown</code> filter control type.</p>
+   * @public
+   */
+  DefaultHierarchyDropdown?: DefaultHierarchyFilterDropDownControlOptions | undefined;
 }
 
 /**
@@ -3900,6 +4052,19 @@ export interface CategoryFilter {
    * @public
    */
   DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration | undefined;
+}
+
+/**
+ * <p>One level of the drill-down path of a <code>HierarchyFilter</code>.</p>
+ * @public
+ */
+export interface HierarchyFilterLevel {
+  /**
+   * <p>The column that this level of the hierarchy drills down by. This column must belong to
+   *             the same dataset as <code>HierarchyFilter$Column</code>.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
 }
 
 /**
@@ -4552,63 +4717,6 @@ export interface TopBottomFilter {
 }
 
 /**
- * <p>With a <code>Filter</code>, you can remove portions of data from a particular visual or view.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface Filter {
-  /**
-   * <p>A <code>CategoryFilter</code> filters text values.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html">Adding text filters</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
-   * @public
-   */
-  CategoryFilter?: CategoryFilter | undefined;
-
-  /**
-   * <p>A <code>NumericRangeFilter</code> filters numeric values that are either inside or outside a given numeric range.</p>
-   * @public
-   */
-  NumericRangeFilter?: NumericRangeFilter | undefined;
-
-  /**
-   * <p>A <code>NumericEqualityFilter</code> filters numeric values that equal or do not equal a given numeric value.</p>
-   * @public
-   */
-  NumericEqualityFilter?: NumericEqualityFilter | undefined;
-
-  /**
-   * <p>A <code>TimeEqualityFilter</code> filters date-time values that equal or do not equal
-   *             a given date/time value.</p>
-   * @public
-   */
-  TimeEqualityFilter?: TimeEqualityFilter | undefined;
-
-  /**
-   * <p>A <code>TimeRangeFilter</code> filters date-time values that are either inside or outside a given date/time range.</p>
-   * @public
-   */
-  TimeRangeFilter?: TimeRangeFilter | undefined;
-
-  /**
-   * <p>A <code>RelativeDatesFilter</code> filters date values that are relative to a given date.</p>
-   * @public
-   */
-  RelativeDatesFilter?: RelativeDatesFilter | undefined;
-
-  /**
-   * <p>A <code>TopBottomFilter</code> filters data to the top or bottom values for a given column.</p>
-   * @public
-   */
-  TopBottomFilter?: TopBottomFilter | undefined;
-
-  /**
-   * <p>A <code>NestedFilter</code> filters data with a subset of data that is defined by the nested inner filter.</p>
-   * @public
-   */
-  NestedFilter?: NestedFilter | undefined;
-}
-
-/**
  * <p>The filter that is applied to the options.</p>
  * @public
  */
@@ -4674,56 +4782,6 @@ export interface FilterScopeConfiguration {
    * @public
    */
   AllSheets?: AllSheetsFilterScopeConfiguration | undefined;
-}
-
-/**
- * <p>A grouping of individual filters. Filter groups are applied to the same group of visuals.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html">Adding filter conditions (group filters) with AND and OR operators</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
- * @public
- */
-export interface FilterGroup {
-  /**
-   * <p>The value that uniquely identifies a <code>FilterGroup</code> within a dashboard, template, or analysis.</p>
-   * @public
-   */
-  FilterGroupId: string | undefined;
-
-  /**
-   * <p>The list of filters that are present in a <code>FilterGroup</code>.</p>
-   * @public
-   */
-  Filters: Filter[] | undefined;
-
-  /**
-   * <p>The configuration that specifies what scope to apply to a <code>FilterGroup</code>.</p>
-   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
-   * @public
-   */
-  ScopeConfiguration: FilterScopeConfiguration | undefined;
-
-  /**
-   * <p>The status of the <code>FilterGroup</code>.</p>
-   * @public
-   */
-  Status?: WidgetStatus | undefined;
-
-  /**
-   * <p>The filter new feature which can apply filter group to all data sets. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_DATASETS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_DATASET</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  CrossDataset: CrossDatasetTypes | undefined;
 }
 
 /**
@@ -5468,6 +5526,136 @@ export interface FilterDropDownControl {
 }
 
 /**
+ * <p>A control from a hierarchy filter that displays the hierarchy as a dropdown list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.</p>
+ * @public
+ */
+export interface HierarchyFilterDropDownControl {
+  /**
+   * <p>The ID of the <code>HierarchyFilterDropDownControl</code>.</p>
+   * @public
+   */
+  FilterControlId: string | undefined;
+
+  /**
+   * <p>The source filter ID of the <code>HierarchyFilterDropDownControl</code>. This must be
+   *             the <code>FilterId</code> of a <code>HierarchyFilter</code>.</p>
+   * @public
+   */
+  SourceFilterId: string | undefined;
+
+  /**
+   * <p>The title of the <code>HierarchyFilterDropDownControl</code>.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>The display options of a control.</p>
+   * @public
+   */
+  DisplayOptions?: HierarchyFilterDropDownControlDisplayOptions | undefined;
+
+  /**
+   * <p>The type of the <code>HierarchyFilterDropDownControl</code>. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from a dropdown menu.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from a dropdown menu.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: SheetControlListType | undefined;
+
+  /**
+   * <p>The visibility configuration of the Apply button on a <code>HierarchyFilterDropDownControl</code>.</p>
+   * @public
+   */
+  CommitMode?: CommitMode | undefined;
+
+  /**
+   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * @public
+   */
+  ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
+}
+
+/**
+ * <p>A control from a hierarchy filter that displays the hierarchy as a list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.</p>
+ * @public
+ */
+export interface HierarchyFilterListControl {
+  /**
+   * <p>The ID of the <code>HierarchyFilterListControl</code>.</p>
+   * @public
+   */
+  FilterControlId: string | undefined;
+
+  /**
+   * <p>The source filter ID of the <code>HierarchyFilterListControl</code>. This must be the
+   *             <code>FilterId</code> of a <code>HierarchyFilter</code>.</p>
+   * @public
+   */
+  SourceFilterId: string | undefined;
+
+  /**
+   * <p>The title of the <code>HierarchyFilterListControl</code>.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>The display options of a control.</p>
+   * @public
+   */
+  DisplayOptions?: HierarchyFilterListControlDisplayOptions | undefined;
+
+  /**
+   * <p>The type of the <code>HierarchyFilterListControl</code>. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from the list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from the list.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: SheetControlListType | undefined;
+
+  /**
+   * <p>The visibility configuration of the Apply button on a <code>HierarchyFilterListControl</code>.</p>
+   * @public
+   */
+  CommitMode?: CommitMode | undefined;
+
+  /**
+   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * @public
+   */
+  ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
+
+  /**
+   * <p>The title text format configuration for the control.</p>
+   * @public
+   */
+  ControlTitleFormatText?: ControlTitleFormatText | undefined;
+}
+
+/**
  * <p>A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.</p>
  * @public
  */
@@ -5780,6 +5968,18 @@ export interface FilterControl {
    * @public
    */
   CrossSheet?: FilterCrossSheetControl | undefined;
+
+  /**
+   * <p>A control from a hierarchy filter that displays the hierarchy as a list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.</p>
+   * @public
+   */
+  HierarchyList?: HierarchyFilterListControl | undefined;
+
+  /**
+   * <p>A control from a hierarchy filter that displays the hierarchy as a dropdown list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.</p>
+   * @public
+   */
+  HierarchyDropdown?: HierarchyFilterDropDownControl | undefined;
 }
 
 /**
@@ -8484,209 +8684,4 @@ export interface BarSeriesItem {
    * @public
    */
   DataFieldBarSeriesItem?: DataFieldBarSeriesItem | undefined;
-}
-
-/**
- * <p>The options that determine the title styles for each small multiples
- *             panel.</p>
- * @public
- */
-export interface PanelTitleOptions {
-  /**
-   * <p>Determines whether or not panel titles are displayed.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-
-  /**
-   * <p>Configures the display properties of the given text.</p>
-   * @public
-   */
-  FontConfiguration?: FontConfiguration | undefined;
-
-  /**
-   * <p>Sets the horizontal text alignment of the title within each panel.</p>
-   * @public
-   */
-  HorizontalTextAlignment?: HorizontalTextAlignment | undefined;
-}
-
-/**
- * <p>A collection of options that configure how each panel displays in a small multiples chart.</p>
- * @public
- */
-export interface PanelConfiguration {
-  /**
-   * <p>Configures the title display within each small multiples panel.</p>
-   * @public
-   */
-  Title?: PanelTitleOptions | undefined;
-
-  /**
-   * <p>Determines whether or not each panel displays a border.</p>
-   * @public
-   */
-  BorderVisibility?: Visibility | undefined;
-
-  /**
-   * <p>Sets the line thickness of panel borders.</p>
-   * @public
-   */
-  BorderThickness?: string | undefined;
-
-  /**
-   * <p>Sets the line style of panel borders.</p>
-   * @public
-   */
-  BorderStyle?: PanelBorderStyle | undefined;
-
-  /**
-   * <p>Sets the line color of panel borders.</p>
-   * @public
-   */
-  BorderColor?: string | undefined;
-
-  /**
-   * <p>Determines whether or not negative space between sibling panels is rendered.</p>
-   * @public
-   */
-  GutterVisibility?: Visibility | undefined;
-
-  /**
-   * <p>Sets the total amount of negative space to display between sibling panels.</p>
-   * @public
-   */
-  GutterSpacing?: string | undefined;
-
-  /**
-   * <p>Determines whether or not a background for each small multiples panel is rendered.</p>
-   * @public
-   */
-  BackgroundVisibility?: Visibility | undefined;
-
-  /**
-   * <p>Sets the background color for each panel.</p>
-   * @public
-   */
-  BackgroundColor?: string | undefined;
-}
-
-/**
- * <p>Configures the properties of a chart's axes that are used by small multiples panels.</p>
- * @public
- */
-export interface SmallMultiplesAxisProperties {
-  /**
-   * <p>Determines whether scale of the axes are shared or independent. The default value is <code>SHARED</code>.</p>
-   * @public
-   */
-  Scale?: SmallMultiplesAxisScale | undefined;
-
-  /**
-   * <p>Defines the placement of the axis. By default, axes are rendered <code>OUTSIDE</code> of the panels. Axes with <code>INDEPENDENT</code> scale are rendered <code>INSIDE</code> the panels.</p>
-   * @public
-   */
-  Placement?: SmallMultiplesAxisPlacement | undefined;
-}
-
-/**
- * <p>Options that determine the layout and display options of a chart's small multiples.</p>
- * @public
- */
-export interface SmallMultiplesOptions {
-  /**
-   * <p>Sets the maximum number of visible rows to display in the grid of small multiples panels.</p>
-   *          <p>The default value is <code>Auto</code>,
-   *             which automatically adjusts the rows in the grid
-   *             to fit the overall layout and size of the given chart.</p>
-   * @public
-   */
-  MaxVisibleRows?: number | undefined;
-
-  /**
-   * <p>Sets the maximum number of visible columns to display in the grid of small multiples panels.</p>
-   *          <p>The default is <code>Auto</code>, which automatically adjusts the columns in the grid to fit the overall layout and size of the given chart.</p>
-   * @public
-   */
-  MaxVisibleColumns?: number | undefined;
-
-  /**
-   * <p>Configures the display options for each small multiples panel.</p>
-   * @public
-   */
-  PanelConfiguration?: PanelConfiguration | undefined;
-
-  /**
-   * <p>The properties of a small multiples X axis.</p>
-   * @public
-   */
-  XAxis?: SmallMultiplesAxisProperties | undefined;
-
-  /**
-   * <p>The properties of a small multiples Y axis.</p>
-   * @public
-   */
-  YAxis?: SmallMultiplesAxisProperties | undefined;
-}
-
-/**
- * <p>The limit configuration of the visual display for an axis.</p>
- * @public
- */
-export interface ItemsLimitConfiguration {
-  /**
-   * <p>The limit on how many items of a field are showed in the chart. For
-   *             example, the number of slices that are displayed in a pie chart.</p>
-   * @public
-   */
-  ItemsLimit?: number | undefined;
-
-  /**
-   * <p>The <code>Show
-   *                 other</code> of an axis in the chart. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INCLUDE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EXCLUDE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  OtherCategories?: OtherCategories | undefined;
-}
-
-/**
- * <p>The sort configuration for a field in a
- *             field well.</p>
- * @public
- */
-export interface FieldSort {
-  /**
-   * <p>The sort configuration target field.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The sort direction. Choose one of the following
-   *             options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ASC</code>: Ascending</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DESC</code>: Descending</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Direction: SortDirection | undefined;
 }

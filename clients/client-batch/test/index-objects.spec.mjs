@@ -144,9 +144,13 @@ import {
   EFSAuthorizationConfigIAM,
   EFSTransitEncryption,
   EFSVolumeConfiguration$,
+  EksAccessEntry$,
+  EksAccessEntryDesiredState,
+  EksAccessEntryStatus,
   EksAttemptContainerDetail$,
   EksAttemptDetail$,
   EksConfiguration$,
+  EksConfigurationUpdate$,
   EksContainer$,
   EksContainerDetail$,
   EksContainerEnvironmentVariable$,
@@ -574,9 +578,11 @@ assert(typeof EcsTaskDetails$ === "object");
 assert(typeof EcsTaskProperties$ === "object");
 assert(typeof EFSAuthorizationConfig$ === "object");
 assert(typeof EFSVolumeConfiguration$ === "object");
+assert(typeof EksAccessEntry$ === "object");
 assert(typeof EksAttemptContainerDetail$ === "object");
 assert(typeof EksAttemptDetail$ === "object");
 assert(typeof EksConfiguration$ === "object");
+assert(typeof EksConfigurationUpdate$ === "object");
 assert(typeof EksContainer$ === "object");
 assert(typeof EksContainerDetail$ === "object");
 assert(typeof EksContainerEnvironmentVariable$ === "object");
@@ -748,6 +754,8 @@ assert(typeof CRUpdateAllocationStrategy === "object");
 assert(typeof DeviceCgroupPermission === "object");
 assert(typeof EFSAuthorizationConfigIAM === "object");
 assert(typeof EFSTransitEncryption === "object");
+assert(typeof EksAccessEntryDesiredState === "object");
+assert(typeof EksAccessEntryStatus === "object");
 assert(typeof FirelensConfigurationType === "object");
 assert(typeof JobDefinitionType === "object");
 assert(typeof JobQueueType === "object");

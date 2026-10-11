@@ -68,6 +68,14 @@ export interface S3TransferManagerConfig {
    */
   workerThreadCount?: number;
   /**
+   * When enabled, downloaded parts are written with O_DIRECT, bypassing the OS
+   * page cache. Applies to file downloads only. Only available on Linux.
+   * Requires the part size and file offset to be block aligned.
+   *
+   * Defaults to false.
+   */
+  useODirect?: boolean;
+  /**
    * Logger for S3 Transfer Manager operations.
    */
   logger?: Logger;
@@ -148,7 +156,7 @@ export interface DownloadToFileResponse extends Omit<DownloadResponse, "Body"> {
 export type TransferOptions = HttpHandlerOptions & { eventListeners?: TransferEventListeners };
 
 /**
- * Client for efficient transfer of objects to and from Amazon S3.
+ * High-level utility for efficient transfer of objects to and from Amazon S3.
  * Provides methods to optimize uploading and downloading individual objects
  * as well as entire directories, with support for multipart operations,
  * concurrency control, and request cancellation.

@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import type {
-  _InstanceType,
   AccountAttributeName,
   AddressAttributeName,
   AggregationStatusEnum,
@@ -21,6 +20,7 @@ import type {
   CapacityReservationTenancy,
   ClientVpnAuthenticationType,
   ClientVpnConnectionStatusCode,
+  ClientVpnDeviceTrustProviderType,
   ClientVpnEndpointAttributeStatusCode,
   ConversionTaskState,
   DeleteQueuedReservedInstancesErrorCode,
@@ -34,9 +34,9 @@ import type {
   FleetCapacityReservationTenancy,
   FleetEventType,
   FleetInstanceMatchCriteria,
-  InstanceLifecycle,
   IpamPoolCidrFailureCode,
   IpamPoolCidrState,
+  LaunchTemplateErrorCode,
   MetricType,
   OutputFormat,
   PeriodType,
@@ -52,7 +52,6 @@ import type {
 import type {
   AccountAttribute,
   AccountVpcEncryptionControl,
-  ActiveInstance,
   Address,
   AddressAttribute,
   AddressTransfer,
@@ -82,9 +81,6 @@ import type {
   DhcpOptions,
   EgressOnlyInternetGateway,
   ExportTask,
-  FleetLaunchTemplateOverrides,
-  FleetLaunchTemplateSpecification,
-  LaunchTemplateAndOverridesResponse,
   LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
@@ -95,8 +91,6 @@ import type {
   VpcEncryptionControl,
 } from "./models_1";
 import type {
-  DeleteLaunchTemplateVersionsResponseErrorItem,
-  DeleteLaunchTemplateVersionsResponseSuccessItem,
   GroupIdentifier,
   RouteServer,
   RouteServerEndpoint,
@@ -120,6 +114,116 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteLaunchTemplateVersionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
+   * @public
+   */
+  LaunchTemplateId?: string | undefined;
+
+  /**
+   * <p>The name of the launch template.</p>
+   *          <p>You must specify either the launch template ID or the launch template name, but not
+   *             both.</p>
+   * @public
+   */
+  LaunchTemplateName?: string | undefined;
+
+  /**
+   * <p>The version numbers of one or more launch template versions to delete. You can specify
+   *             up to 200 launch template version numbers.</p>
+   * @public
+   */
+  Versions: string[] | undefined;
+}
+
+/**
+ * <p>Describes a launch template version that was successfully deleted.</p>
+ * @public
+ */
+export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
+  /**
+   * <p>The ID of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateId?: string | undefined;
+
+  /**
+   * <p>The name of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateName?: string | undefined;
+
+  /**
+   * <p>The version number of the launch template.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+}
+
+/**
+ * <p>Describes the error that's returned when you cannot delete a launch template
+ *             version.</p>
+ * @public
+ */
+export interface ResponseError {
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  Code?: LaunchTemplateErrorCode | undefined;
+
+  /**
+   * <p>The error message, if applicable.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Describes a launch template version that could not be deleted.</p>
+ * @public
+ */
+export interface DeleteLaunchTemplateVersionsResponseErrorItem {
+  /**
+   * <p>The ID of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateId?: string | undefined;
+
+  /**
+   * <p>The name of the launch template.</p>
+   * @public
+   */
+  LaunchTemplateName?: string | undefined;
+
+  /**
+   * <p>The version number of the launch template.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>Information about the error.</p>
+   * @public
+   */
+  ResponseError?: ResponseError | undefined;
+}
 
 /**
  * @public
@@ -6343,6 +6447,12 @@ export interface ClientVpnConnection {
    * @public
    */
   PostureComplianceStatuses?: string[] | undefined;
+
+  /**
+   * <p>The date and time the authorization policy was last evaluated for the client connection, if applicable.</p>
+   * @public
+   */
+  AuthorizationPolicyLastEvaluatedTime?: string | undefined;
 }
 
 /**
@@ -6603,6 +6713,62 @@ export interface ConnectionLogResponseOptions {
    * @public
    */
   CloudwatchLogStream?: string | undefined;
+
+  /**
+   * <p>Specifies whether the authorization policy evaluation context is included in the connection logs for the Client VPN endpoint.</p>
+   * @public
+   */
+  IncludeAuthorizationPolicyContext?: boolean | undefined;
+}
+
+/**
+ * <p>Information about a device trust provider configured for a Client VPN endpoint.</p>
+ * @public
+ */
+export interface ClientVpnTrustProvider {
+  /**
+   * <p>The type of the device trust provider. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>crowdstrike</code> - CrowdStrike device trust provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>jamf</code> - Jamf device trust provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>jumpcloud</code> - JumpCloud device trust provider.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TrustProviderType?: ClientVpnDeviceTrustProviderType | undefined;
+
+  /**
+   * <p>The tenant ID associated with your device trust provider account.</p>
+   * @public
+   */
+  TenantId?: string | undefined;
+
+  /**
+   * <p>The URL of the public signing key that is used to verify the identity token issued by the device trust provider.</p>
+   * @public
+   */
+  PublicSigningKeyUrl?: string | undefined;
+}
+
+/**
+ * <p>Information about the device posture options for a Client VPN endpoint.</p>
+ * @public
+ */
+export interface DevicePostureResponseOptions {
+  /**
+   * <p>The device trust providers configured for the Client VPN endpoint.</p>
+   * @public
+   */
+  TrustProviders?: ClientVpnTrustProvider[] | undefined;
 }
 
 /**
@@ -6819,6 +6985,12 @@ export interface ClientVpnEndpoint {
    * @public
    */
   TransitGatewayConfiguration?: TransitGatewayConfigurationDescribeEndpointStructure | undefined;
+
+  /**
+   * <p>The device trust providers configured for the Client VPN endpoint, if applicable.</p>
+   * @public
+   */
+  DevicePostureOptions?: DevicePostureResponseOptions | undefined;
 }
 
 /**
@@ -8677,242 +8849,4 @@ export interface DescribeFleetHistoryResult {
    * @public
    */
   StartTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFleetInstancesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   * @public
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFleetInstancesResult {
-  /**
-   * <p>The running instances. This list is refreshed periodically and might be out of
-   *          date.</p>
-   * @public
-   */
-  ActiveInstances?: ActiveInstance[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   * @public
-   */
-  FleetId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFleetsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The IDs of the EC2 Fleets.</p>
-   *          <note>
-   *             <p>If a fleet is of type <code>instant</code>, you must specify the fleet ID, otherwise
-   *             it does not appear in the response.</p>
-   *          </note>
-   * @public
-   */
-  FleetIds?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>activity-status</code> - The progress of the EC2 Fleet ( <code>error</code> |
-   *                   <code>pending-fulfillment</code> | <code>pending-termination</code> |
-   *                   <code>fulfilled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>excess-capacity-termination-policy</code> - Indicates whether to terminate
-   *                running instances if the target capacity is decreased below the current EC2 Fleet size
-   *                   (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fleet-state</code> - The state of the EC2 Fleet (<code>submitted</code> |
-   *                   <code>active</code> | <code>deleted</code> | <code>failed</code> |
-   *                   <code>deleted-running</code> | <code>deleted-terminating</code> |
-   *                   <code>modifying</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>replace-unhealthy-instances</code> - Indicates whether EC2 Fleet should replace
-   *                unhealthy instances (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>type</code> - The type of request (<code>instant</code> |
-   *                   <code>request</code> | <code>maintain</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes the instances that could not be launched by the fleet.</p>
- * @public
- */
-export interface DescribeFleetError {
-  /**
-   * <p>The launch templates and overrides that were used for launching the instances. The
-   *          values that you specify in the Overrides replace the values in the launch template.</p>
-   * @public
-   */
-  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse | undefined;
-
-  /**
-   * <p>Indicates if the instance that could not be launched was a Spot, On-Demand, Capacity Block for ML,
-   *          or interruptible Capacity Reservation instance. If you are using <code>ReservedCapacityOptions</code> with
-   *          <code>on-demand-capacity-reservation</code> in the <code>ReservationTypes</code> list, the
-   *          value can also be <code>on-demand-capacity-reservation</code>.</p>
-   * @public
-   */
-  Lifecycle?: InstanceLifecycle | undefined;
-
-  /**
-   * <p>The error code that indicates why the instance could not be launched. For more
-   *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>The error message that describes why the instance could not be launched. For more
-   *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
-   * @public
-   */
-  ErrorMessage?: string | undefined;
-}
-
-/**
- * <p>Describes the instances that were launched by the fleet.</p>
- * @public
- */
-export interface DescribeFleetsInstances {
-  /**
-   * <p>The launch templates and overrides that were used for launching the instances. The
-   *          values that you specify in the Overrides replace the values in the launch template.</p>
-   * @public
-   */
-  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse | undefined;
-
-  /**
-   * <p>Indicates if the instance that was launched is a Spot, On-Demand, Capacity Block for ML,
-   *          or interruptible Capacity Reservation instance.</p>
-   * @public
-   */
-  Lifecycle?: InstanceLifecycle | undefined;
-
-  /**
-   * <p>The IDs of the instances.</p>
-   * @public
-   */
-  InstanceIds?: string[] | undefined;
-
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The value is <code>windows</code> for Windows instances in an EC2 Fleet. Otherwise, the value is
-   *          blank.</p>
-   * @public
-   */
-  Platform?: PlatformValues | undefined;
-}
-
-/**
- * <p>Describes a launch template and overrides.</p>
- * @public
- */
-export interface FleetLaunchTemplateConfig {
-  /**
-   * <p>The launch template.</p>
-   * @public
-   */
-  LaunchTemplateSpecification?: FleetLaunchTemplateSpecification | undefined;
-
-  /**
-   * <p>Any parameters that you specify override the same parameters in the launch
-   *          template.</p>
-   * @public
-   */
-  Overrides?: FleetLaunchTemplateOverrides[] | undefined;
 }

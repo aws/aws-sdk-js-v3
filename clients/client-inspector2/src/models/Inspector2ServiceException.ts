@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from Inspector2 service.
  */
 export class Inspector2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.inspector2#Inspector2ServiceException";
   /**
    * @internal
    */

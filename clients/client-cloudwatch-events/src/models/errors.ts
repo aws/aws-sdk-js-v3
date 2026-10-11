@@ -8,6 +8,7 @@ import { CloudWatchEventsServiceException as __BaseException } from "./CloudWatc
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchevents#ConcurrentModificationException";
   readonly name = "ConcurrentModificationException" as const;
   readonly $fault = "client" as const;
   /**
@@ -28,6 +29,7 @@ export class ConcurrentModificationException extends __BaseException {
  * @public
  */
 export class InternalException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchevents#InternalException";
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   /**
@@ -48,6 +50,7 @@ export class InternalException extends __BaseException {
  * @public
  */
 export class InvalidStateException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchevents#InvalidStateException";
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
@@ -68,6 +71,7 @@ export class InvalidStateException extends __BaseException {
  * @public
  */
 export class OperationDisabledException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchevents#OperationDisabledException";
   readonly name = "OperationDisabledException" as const;
   readonly $fault = "client" as const;
   /**
@@ -88,6 +92,7 @@ export class OperationDisabledException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchevents#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
@@ -109,6 +114,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class IllegalStatusException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchevents#IllegalStatusException";
   readonly name = "IllegalStatusException" as const;
   readonly $fault = "client" as const;
   /**
@@ -130,6 +136,7 @@ export class IllegalStatusException extends __BaseException {
  * @public
  */
 export class LimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchevents#LimitExceededException";
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
@@ -150,6 +157,7 @@ export class LimitExceededException extends __BaseException {
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchevents#ResourceAlreadyExistsException";
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
@@ -170,6 +178,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  * @public
  */
 export class InvalidEventPatternException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchevents#InvalidEventPatternException";
   readonly name = "InvalidEventPatternException" as const;
   readonly $fault = "client" as const;
   /**
@@ -195,6 +204,7 @@ export class InvalidEventPatternException extends __BaseException {
  * @public
  */
 export class ManagedRuleException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchevents#ManagedRuleException";
   readonly name = "ManagedRuleException" as const;
   readonly $fault = "client" as const;
   /**
@@ -215,6 +225,7 @@ export class ManagedRuleException extends __BaseException {
  * @public
  */
 export class PolicyLengthExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.cloudwatchevents#PolicyLengthExceededException";
   readonly name = "PolicyLengthExceededException" as const;
   readonly $fault = "client" as const;
   /**

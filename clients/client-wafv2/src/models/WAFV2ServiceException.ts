@@ -14,6 +14,7 @@ export { __ServiceException };
  * Base exception class for all service exceptions from WAFV2 service.
  */
 export class WAFV2ServiceException extends __ServiceException {
+  public static readonly shapeId: string = "smithy.ts.sdk.synthetic.com.amazonaws.wafv2#WAFV2ServiceException";
   /**
    * @internal
    */

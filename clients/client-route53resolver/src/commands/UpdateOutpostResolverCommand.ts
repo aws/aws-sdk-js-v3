@@ -24,6 +24,10 @@ export interface UpdateOutpostResolverCommandOutput extends UpdateOutpostResolve
 
 /**
  * <p>You can use <code>UpdateOutpostResolver</code> to  update the instance count, type, or  name of a Resolver on an Outpost.</p>
+ *          <note>
+ *             <p>This operation applies to first-generation Outposts only. On second-generation Outposts, Resolver
+ * 				is managed automatically by Amazon Web Services and can't be updated directly.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -10,6 +10,7 @@ import {
  * @public
  */
 export class AccessDeniedException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubrefactorspaces#AccessDeniedException";
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -32,6 +33,7 @@ export class AccessDeniedException extends __BaseException {
  * @public
  */
 export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubrefactorspaces#ConflictException";
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -67,6 +69,7 @@ export class ConflictException extends __BaseException {
  * @public
  */
 export class InternalServerException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubrefactorspaces#InternalServerException";
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   Message: string | undefined;
@@ -89,6 +92,7 @@ export class InternalServerException extends __BaseException {
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubrefactorspaces#ResourceNotFoundException";
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -124,6 +128,7 @@ export class ResourceNotFoundException extends __BaseException {
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubrefactorspaces#ServiceQuotaExceededException";
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -175,6 +180,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @public
  */
 export class ThrottlingException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubrefactorspaces#ThrottlingException";
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -220,6 +226,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  */
 export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubrefactorspaces#ValidationException";
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;
@@ -242,6 +249,7 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export class InvalidResourcePolicyException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.migrationhubrefactorspaces#InvalidResourcePolicyException";
   readonly name = "InvalidResourcePolicyException" as const;
   readonly $fault = "client" as const;
   Message: string | undefined;

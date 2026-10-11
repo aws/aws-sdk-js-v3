@@ -72,6 +72,11 @@ import {
   ListRoute53HealthChecksInRegionCommand,
 } from "./commands/ListRoute53HealthChecksInRegionCommand";
 import {
+  type ListServiceQuotaWarningsCommandInput,
+  type ListServiceQuotaWarningsCommandOutput,
+  ListServiceQuotaWarningsCommand,
+} from "./commands/ListServiceQuotaWarningsCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -115,6 +120,7 @@ import { paginateListPlansInRegion } from "./pagination/ListPlansInRegionPaginat
 import { paginateListPlans } from "./pagination/ListPlansPaginator";
 import { paginateListRoute53HealthChecksInRegion } from "./pagination/ListRoute53HealthChecksInRegionPaginator";
 import { paginateListRoute53HealthChecks } from "./pagination/ListRoute53HealthChecksPaginator";
+import { paginateListServiceQuotaWarnings } from "./pagination/ListServiceQuotaWarningsPaginator";
 import { waitUntilPlanEvaluationStatusPassed } from "./waiters/waitForPlanEvaluationStatusPassed";
 import { waitUntilPlanExecutionCompleted } from "./waiters/waitForPlanExecutionCompleted";
 
@@ -133,6 +139,7 @@ const commands = {
   ListPlansInRegionCommand,
   ListRoute53HealthChecksCommand,
   ListRoute53HealthChecksInRegionCommand,
+  ListServiceQuotaWarningsCommand,
   ListTagsForResourceCommand,
   StartPlanExecutionCommand,
   TagResourceCommand,
@@ -150,6 +157,7 @@ const paginators = {
   paginateListPlansInRegion,
   paginateListRoute53HealthChecks,
   paginateListRoute53HealthChecksInRegion,
+  paginateListServiceQuotaWarnings,
 };
 const waiters = {
   waitUntilPlanEvaluationStatusPassed,
@@ -405,6 +413,24 @@ export interface ARCRegionSwitch {
   ): void;
 
   /**
+   * @see {@link ListServiceQuotaWarningsCommand}
+   */
+  listServiceQuotaWarnings(): Promise<ListServiceQuotaWarningsCommandOutput>;
+  listServiceQuotaWarnings(
+    args: ListServiceQuotaWarningsCommandInput,
+    options?: ARCRegionSwitchRequestOptions
+  ): Promise<ListServiceQuotaWarningsCommandOutput>;
+  listServiceQuotaWarnings(
+    args: ListServiceQuotaWarningsCommandInput,
+    cb: (err: any, data?: ListServiceQuotaWarningsCommandOutput) => void
+  ): void;
+  listServiceQuotaWarnings(
+    args: ListServiceQuotaWarningsCommandInput,
+    options: ARCRegionSwitchRequestOptions,
+    cb: (err: any, data?: ListServiceQuotaWarningsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -610,6 +636,17 @@ export interface ARCRegionSwitch {
     args: ListRoute53HealthChecksInRegionCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListRoute53HealthChecksInRegionCommandOutput>;
+
+  /**
+   * @see {@link ListServiceQuotaWarningsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListServiceQuotaWarningsCommandOutput}.
+   */
+  paginateListServiceQuotaWarnings(
+    args?: ListServiceQuotaWarningsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListServiceQuotaWarningsCommandOutput>;
 
   /**
    * @see {@link GetPlanEvaluationStatusCommand}
