@@ -120,13 +120,14 @@ build-signature-v4-multi-region-browser-bundle:
 	node ./packages-internal/signature-v4-multi-region/test-browser/browser-build/esbuild.js
 
 build-transfer-manager-browser-bundle:
-	node ./lib/lib-transfer-manager/test/browser-build/esbuild.js
+	node ./preview/lib-transfer-manager/test/browser-build/esbuild.js
 
 # removes nested node_modules folders
 clean-nested:
 	rm -rf ./lib/*/node_modules
 	rm -rf ./packages/*/node_modules
 	rm -rf ./packages-internal/*/node_modules
+	rm -rf ./preview/*/node_modules
 	rm -rf ./clients/*/node_modules
 	rm -rf ./private/*/node_modules
 
