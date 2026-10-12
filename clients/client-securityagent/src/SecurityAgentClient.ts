@@ -76,6 +76,14 @@ import type {
   BatchDeleteThreatModelsCommandOutput,
 } from "./commands/BatchDeleteThreatModelsCommand";
 import type {
+  BatchDisassociateFindingIssueCommandInput,
+  BatchDisassociateFindingIssueCommandOutput,
+} from "./commands/BatchDisassociateFindingIssueCommand";
+import type {
+  BatchExportFindingsCommandInput,
+  BatchExportFindingsCommandOutput,
+} from "./commands/BatchExportFindingsCommand";
+import type {
   BatchGetAgentSpacesCommandInput,
   BatchGetAgentSpacesCommandOutput,
 } from "./commands/BatchGetAgentSpacesCommand";
@@ -349,6 +357,8 @@ export type ServiceInputTypes =
   | BatchDeletePentestsCommandInput
   | BatchDeleteSecurityRequirementsCommandInput
   | BatchDeleteThreatModelsCommandInput
+  | BatchDisassociateFindingIssueCommandInput
+  | BatchExportFindingsCommandInput
   | BatchGetAgentSpacesCommandInput
   | BatchGetArtifactMetadataCommandInput
   | BatchGetCodeReviewJobTasksCommandInput
@@ -448,6 +458,8 @@ export type ServiceOutputTypes =
   | BatchDeletePentestsCommandOutput
   | BatchDeleteSecurityRequirementsCommandOutput
   | BatchDeleteThreatModelsCommandOutput
+  | BatchDisassociateFindingIssueCommandOutput
+  | BatchExportFindingsCommandOutput
   | BatchGetAgentSpacesCommandOutput
   | BatchGetArtifactMetadataCommandOutput
   | BatchGetCodeReviewJobTasksCommandOutput

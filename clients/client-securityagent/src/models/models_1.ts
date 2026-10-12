@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   CodeRemediationStrategy,
+  DomainVerificationMethod,
   FindingStatus,
   RiskLevel,
   RiskType,
@@ -24,8 +25,267 @@ import type {
   TestScope,
   ThreatAnchorShape,
   ThreatEvidenceShape,
+  VerificationDetails,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Input for stopping the execution of a code review job.</p>
+ * @public
+ */
+export interface StopCodeReviewJobInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the code review job to stop.</p>
+   * @public
+   */
+  codeReviewJobId: string | undefined;
+}
+
+/**
+ * <p>Output for the StopCodeReviewJob operation.</p>
+ * @public
+ */
+export interface StopCodeReviewJobOutput {}
+
+/**
+ * <p>Input for stopping the execution of a pentest.</p>
+ * @public
+ */
+export interface StopPentestJobInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the pentest job to stop.</p>
+   * @public
+   */
+  pentestJobId: string | undefined;
+}
+
+/**
+ * <p>Output for the StopPentestJob operation.</p>
+ * @public
+ */
+export interface StopPentestJobOutput {}
+
+/**
+ * <p>Input for stopping a threat model job.</p>
+ * @public
+ */
+export interface StopThreatModelJobInput {
+  /**
+   * <p>The unique identifier of the agent space.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the threat model job to stop.</p>
+   * @public
+   */
+  threatModelJobId: string | undefined;
+}
+
+/**
+ * <p>Output for the StopThreatModelJob operation.</p>
+ * @public
+ */
+export interface StopThreatModelJobOutput {}
+
+/**
+ * <p>Input for TagResource operation.</p>
+ * @public
+ */
+export interface TagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The tags to add to the resource.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Output for TagResource operation.</p>
+ * @public
+ */
+export interface TagResourceOutput {}
+
+/**
+ * <p>Input for updating a target domain.</p>
+ * @public
+ */
+export interface UpdateTargetDomainInput {
+  /**
+   * <p>The unique identifier of the target domain to update.</p>
+   * @public
+   */
+  targetDomainId: string | undefined;
+
+  /**
+   * <p>The updated verification method for the target domain.</p>
+   * @public
+   */
+  verificationMethod: DomainVerificationMethod | undefined;
+}
+
+/**
+ * <p>Output for the UpdateTargetDomain operation.</p>
+ * @public
+ */
+export interface UpdateTargetDomainOutput {
+  /**
+   * <p>The unique identifier of the target domain.</p>
+   * @public
+   */
+  targetDomainId: string | undefined;
+
+  /**
+   * <p>The domain name of the target domain.</p>
+   * @public
+   */
+  domainName: string | undefined;
+
+  /**
+   * <p>The current verification status of the target domain.</p>
+   * @public
+   */
+  verificationStatus: TargetDomainStatus | undefined;
+
+  /**
+   * <p>The reason for the current target domain verification status.</p>
+   * @public
+   */
+  verificationStatusReason?: string | undefined;
+
+  /**
+   * <p>The updated verification details for the target domain.</p>
+   * @public
+   */
+  verificationDetails?: VerificationDetails | undefined;
+
+  /**
+   * <p>The date and time the target domain was created, in UTC format.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the target domain was verified, in UTC format.</p>
+   * @public
+   */
+  verifiedAt?: Date | undefined;
+}
+
+/**
+ * <p>Input for UntagResource operation.</p>
+ * @public
+ */
+export interface UntagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The list of tag keys to remove from the resource.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * <p>Output for UntagResource operation.</p>
+ * @public
+ */
+export interface UntagResourceOutput {}
+
+/**
+ * <p>Input for updating an existing code review.</p>
+ * @public
+ */
+export interface UpdateCodeReviewInput {
+  /**
+   * <p>The unique identifier of the code review to update.</p>
+   * @public
+   */
+  codeReviewId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the agent space that contains the code review.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>The updated title of the code review.</p>
+   * @public
+   */
+  title?: string | undefined;
+
+  /**
+   * <p>The updated assets for the code review.</p>
+   * @public
+   */
+  assets?: Assets | undefined;
+
+  /**
+   * <p>The updated IAM service role for the code review.</p>
+   * @public
+   */
+  serviceRole?: string | undefined;
+
+  /**
+   * <p>The updated CloudWatch Logs configuration for the code review.</p>
+   * @public
+   */
+  logConfig?: CloudWatchLog | undefined;
+
+  /**
+   * <p>The updated code remediation strategy for the code review.</p>
+   * @public
+   */
+  codeRemediationStrategy?: CodeRemediationStrategy | undefined;
+
+  /**
+   * <p>The updated validation mode for the code review. Valid values are SIMULATED and DISABLED.</p>
+   * @public
+   */
+  validationMode?: ValidationMode | undefined;
+
+  /**
+   * <p>The updated maximum number of billable task hours allowed for jobs started from this code review.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The destination for publishing scan reports to an integrated document provider.</p>
+   * @public
+   */
+  reportDestination?: ReportDestination | undefined;
+
+  /**
+   * <p>The report-generation filters applied when the report is exported.</p>
+   * @public
+   */
+  reportFilters?: ReportFilters | undefined;
+}
 
 /**
  * <p>Output for the UpdateCodeReview operation.</p>

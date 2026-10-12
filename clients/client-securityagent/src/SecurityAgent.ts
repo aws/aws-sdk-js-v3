@@ -38,6 +38,16 @@ import {
   BatchDeleteThreatModelsCommand,
 } from "./commands/BatchDeleteThreatModelsCommand";
 import {
+  type BatchDisassociateFindingIssueCommandInput,
+  type BatchDisassociateFindingIssueCommandOutput,
+  BatchDisassociateFindingIssueCommand,
+} from "./commands/BatchDisassociateFindingIssueCommand";
+import {
+  type BatchExportFindingsCommandInput,
+  type BatchExportFindingsCommandOutput,
+  BatchExportFindingsCommand,
+} from "./commands/BatchExportFindingsCommand";
+import {
   type BatchGetAgentSpacesCommandInput,
   type BatchGetAgentSpacesCommandOutput,
   BatchGetAgentSpacesCommand,
@@ -509,6 +519,8 @@ const commands = {
   BatchDeletePentestsCommand,
   BatchDeleteSecurityRequirementsCommand,
   BatchDeleteThreatModelsCommand,
+  BatchDisassociateFindingIssueCommand,
+  BatchExportFindingsCommand,
   BatchGetAgentSpacesCommand,
   BatchGetArtifactMetadataCommand,
   BatchGetCodeReviewJobsCommand,
@@ -732,6 +744,40 @@ export interface SecurityAgent {
     args: BatchDeleteThreatModelsCommandInput,
     options: SecurityAgentRequestOptions,
     cb: (err: any, data?: BatchDeleteThreatModelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDisassociateFindingIssueCommand}
+   */
+  batchDisassociateFindingIssue(
+    args: BatchDisassociateFindingIssueCommandInput,
+    options?: SecurityAgentRequestOptions
+  ): Promise<BatchDisassociateFindingIssueCommandOutput>;
+  batchDisassociateFindingIssue(
+    args: BatchDisassociateFindingIssueCommandInput,
+    cb: (err: any, data?: BatchDisassociateFindingIssueCommandOutput) => void
+  ): void;
+  batchDisassociateFindingIssue(
+    args: BatchDisassociateFindingIssueCommandInput,
+    options: SecurityAgentRequestOptions,
+    cb: (err: any, data?: BatchDisassociateFindingIssueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchExportFindingsCommand}
+   */
+  batchExportFindings(
+    args: BatchExportFindingsCommandInput,
+    options?: SecurityAgentRequestOptions
+  ): Promise<BatchExportFindingsCommandOutput>;
+  batchExportFindings(
+    args: BatchExportFindingsCommandInput,
+    cb: (err: any, data?: BatchExportFindingsCommandOutput) => void
+  ): void;
+  batchExportFindings(
+    args: BatchExportFindingsCommandInput,
+    options: SecurityAgentRequestOptions,
+    cb: (err: any, data?: BatchExportFindingsCommandOutput) => void
   ): void;
 
   /**

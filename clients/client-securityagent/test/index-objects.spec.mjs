@@ -44,6 +44,17 @@ import {
   BatchDeleteThreatModelsCommand,
   BatchDeleteThreatModelsInput$,
   BatchDeleteThreatModelsOutput$,
+  BatchDisassociateFindingIssue$,
+  BatchDisassociateFindingIssueCommand,
+  BatchDisassociateFindingIssueError$,
+  BatchDisassociateFindingIssueInput$,
+  BatchDisassociateFindingIssueOutput$,
+  BatchExportFindingError$,
+  BatchExportFindingResult$,
+  BatchExportFindings$,
+  BatchExportFindingsCommand,
+  BatchExportFindingsInput$,
+  BatchExportFindingsOutput$,
   BatchGetAgentSpaces$,
   BatchGetAgentSpacesCommand,
   BatchGetAgentSpacesInput$,
@@ -284,8 +295,14 @@ import {
   InternalServerException,
   InternalServerException$,
   IpAddressType,
+  IssueDestination$,
+  JiraIntegrationInput$,
+  JiraProjectMetadata$,
+  JiraProjectResource$,
+  JiraResourceCapabilities$,
   JobStatus,
   JobType,
+  LinkedIssue$,
   ListActorMessages$,
   ListActorMessagesCommand,
   ListActorMessagesInput$,
@@ -609,6 +626,10 @@ assert(typeof BatchDeleteSecurityRequirementsCommand === "function");
 assert(typeof BatchDeleteSecurityRequirements$ === "object");
 assert(typeof BatchDeleteThreatModelsCommand === "function");
 assert(typeof BatchDeleteThreatModels$ === "object");
+assert(typeof BatchDisassociateFindingIssueCommand === "function");
+assert(typeof BatchDisassociateFindingIssue$ === "object");
+assert(typeof BatchExportFindingsCommand === "function");
+assert(typeof BatchExportFindings$ === "object");
 assert(typeof BatchGetAgentSpacesCommand === "function");
 assert(typeof BatchGetAgentSpaces$ === "object");
 assert(typeof BatchGetArtifactMetadataCommand === "function");
@@ -814,6 +835,13 @@ assert(typeof BatchDeleteSecurityRequirementsInput$ === "object");
 assert(typeof BatchDeleteSecurityRequirementsOutput$ === "object");
 assert(typeof BatchDeleteThreatModelsInput$ === "object");
 assert(typeof BatchDeleteThreatModelsOutput$ === "object");
+assert(typeof BatchDisassociateFindingIssueError$ === "object");
+assert(typeof BatchDisassociateFindingIssueInput$ === "object");
+assert(typeof BatchDisassociateFindingIssueOutput$ === "object");
+assert(typeof BatchExportFindingError$ === "object");
+assert(typeof BatchExportFindingResult$ === "object");
+assert(typeof BatchExportFindingsInput$ === "object");
+assert(typeof BatchExportFindingsOutput$ === "object");
 assert(typeof BatchGetAgentSpacesInput$ === "object");
 assert(typeof BatchGetAgentSpacesOutput$ === "object");
 assert(typeof BatchGetArtifactMetadataInput$ === "object");
@@ -955,6 +983,12 @@ assert(typeof IntegratedResourceMetadata$ === "object");
 assert(typeof IntegratedResourceSummary$ === "object");
 assert(typeof IntegrationFilter$ === "object");
 assert(typeof IntegrationSummary$ === "object");
+assert(typeof IssueDestination$ === "object");
+assert(typeof JiraIntegrationInput$ === "object");
+assert(typeof JiraProjectMetadata$ === "object");
+assert(typeof JiraProjectResource$ === "object");
+assert(typeof JiraResourceCapabilities$ === "object");
+assert(typeof LinkedIssue$ === "object");
 assert(typeof ListActorMessagesInput$ === "object");
 assert(typeof ListActorMessagesOutput$ === "object");
 assert(typeof ListAgentSpacesInput$ === "object");

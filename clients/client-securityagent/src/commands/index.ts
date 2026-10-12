@@ -5,6 +5,8 @@ export * from "./BatchDeleteCodeReviewsCommand";
 export * from "./BatchDeletePentestsCommand";
 export * from "./BatchDeleteSecurityRequirementsCommand";
 export * from "./BatchDeleteThreatModelsCommand";
+export * from "./BatchDisassociateFindingIssueCommand";
+export * from "./BatchExportFindingsCommand";
 export * from "./BatchGetAgentSpacesCommand";
 export * from "./BatchGetArtifactMetadataCommand";
 export * from "./BatchGetCodeReviewJobTasksCommand";

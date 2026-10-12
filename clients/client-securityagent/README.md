@@ -223,6 +223,20 @@ BatchDeleteThreatModels
 </details>
 <details>
 <summary>
+BatchDisassociateFindingIssue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityagent/command/BatchDisassociateFindingIssueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/BatchDisassociateFindingIssueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/BatchDisassociateFindingIssueCommandOutput/)
+</details>
+<details>
+<summary>
+BatchExportFindings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityagent/command/BatchExportFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/BatchExportFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityagent/Interface/BatchExportFindingsCommandOutput/)
+</details>
+<details>
+<summary>
 BatchGetAgentSpaces
 </summary>
 

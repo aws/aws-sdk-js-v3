@@ -33,7 +33,7 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationOutput,
  * const config = {}; // type is SecurityAgentClientConfig
  * const client = new SecurityAgentClient(config);
  * const input = { // CreateIntegrationInput
- *   provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS", // required
+ *   provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS" || "JIRA", // required
  *   input: { // ProviderInput Union: only one key present
  *     github: { // GitHubIntegrationInput
  *       code: "STRING_VALUE", // required
@@ -69,6 +69,12 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationOutput,
  *       targetUrl: "STRING_VALUE", // required
  *       code: "STRING_VALUE", // required
  *       state: "STRING_VALUE", // required
+ *     },
+ *     jira: { // JiraIntegrationInput
+ *       installationId: "STRING_VALUE", // required
+ *       code: "STRING_VALUE", // required
+ *       state: "STRING_VALUE", // required
+ *       siteUrl: "STRING_VALUE", // required
  *     },
  *   },
  *   integrationDisplayName: "STRING_VALUE", // required

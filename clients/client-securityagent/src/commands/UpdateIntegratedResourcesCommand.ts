@@ -62,6 +62,12 @@ export interface UpdateIntegratedResourcesCommandOutput extends UpdateIntegrated
  *           organization: "STRING_VALUE", // required
  *           project: "STRING_VALUE",
  *         },
+ *         jiraProject: { // JiraProjectResource
+ *           name: "STRING_VALUE", // required
+ *           projectKey: "STRING_VALUE", // required
+ *           projectId: "STRING_VALUE", // required
+ *           projectName: "STRING_VALUE",
+ *         },
  *       },
  *       capabilities: { // ProviderResourceCapabilities Union: only one key present
  *         github: { // GitHubResourceCapabilities
@@ -148,6 +154,10 @@ export interface UpdateIntegratedResourcesCommandOutput extends UpdateIntegrated
  *           ],
  *           leaveComments: true || false,
  *           remediateCode: true || false,
+ *         },
+ *         jira: { // JiraResourceCapabilities
+ *           createIssue: true || false,
+ *           commentIssue: true || false,
  *         },
  *       },
  *     },

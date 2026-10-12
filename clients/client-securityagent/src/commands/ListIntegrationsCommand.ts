@@ -34,8 +34,8 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsOutput, _
  * const client = new SecurityAgentClient(config);
  * const input = { // ListIntegrationsInput
  *   filter: { // IntegrationFilter Union: only one key present
- *     provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS",
- *     providerType: "SOURCE_CODE" || "DOCUMENTATION",
+ *     provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS" || "JIRA",
+ *     providerType: "SOURCE_CODE" || "DOCUMENTATION" || "ISSUE_TRACKING",
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -47,8 +47,8 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsOutput, _
  * //     { // IntegrationSummary
  * //       integrationId: "STRING_VALUE", // required
  * //       installationId: "STRING_VALUE", // required
- * //       provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS", // required
- * //       providerType: "SOURCE_CODE" || "DOCUMENTATION", // required
+ * //       provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS" || "JIRA", // required
+ * //       providerType: "SOURCE_CODE" || "DOCUMENTATION" || "ISSUE_TRACKING", // required
  * //       displayName: "STRING_VALUE", // required
  * //       targetUrl: "STRING_VALUE",
  * //       webhookUrl: "STRING_VALUE",

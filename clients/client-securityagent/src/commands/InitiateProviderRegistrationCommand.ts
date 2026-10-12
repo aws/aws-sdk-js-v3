@@ -33,7 +33,7 @@ export interface InitiateProviderRegistrationCommandOutput extends InitiateProvi
  * const config = {}; // type is SecurityAgentClientConfig
  * const client = new SecurityAgentClient(config);
  * const input = { // InitiateProviderRegistrationInput
- *   provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS", // required
+ *   provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS" || "JIRA", // required
  *   targetUrl: "STRING_VALUE",
  *   organizationName: "STRING_VALUE",
  *   clientId: "STRING_VALUE",

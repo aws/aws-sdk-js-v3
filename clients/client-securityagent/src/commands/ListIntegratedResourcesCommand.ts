@@ -35,7 +35,7 @@ export interface ListIntegratedResourcesCommandOutput extends ListIntegratedReso
  * const input = { // ListIntegratedResourcesInput
  *   agentSpaceId: "STRING_VALUE", // required
  *   integrationId: "STRING_VALUE",
- *   resourceType: "CODE_REPOSITORY" || "DOCUMENT",
+ *   resourceType: "CODE_REPOSITORY" || "DOCUMENT" || "PROJECT",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -79,6 +79,13 @@ export interface ListIntegratedResourcesCommandOutput extends ListIntegratedReso
  * //           project: "STRING_VALUE",
  * //           projectId: "STRING_VALUE",
  * //           accessType: "PRIVATE" || "PUBLIC",
+ * //         },
+ * //         jiraProject: { // JiraProjectMetadata
+ * //           name: "STRING_VALUE", // required
+ * //           providerResourceId: "STRING_VALUE", // required
+ * //           projectKey: "STRING_VALUE", // required
+ * //           projectId: "STRING_VALUE", // required
+ * //           projectName: "STRING_VALUE",
  * //         },
  * //       },
  * //       capabilities: { // ProviderResourceCapabilities Union: only one key present
@@ -166,6 +173,10 @@ export interface ListIntegratedResourcesCommandOutput extends ListIntegratedReso
  * //           ],
  * //           leaveComments: true || false,
  * //           remediateCode: true || false,
+ * //         },
+ * //         jira: { // JiraResourceCapabilities
+ * //           createIssue: true || false,
+ * //           commentIssue: true || false,
  * //         },
  * //       },
  * //     },

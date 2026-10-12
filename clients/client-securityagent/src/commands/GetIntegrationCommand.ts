@@ -40,11 +40,12 @@ export interface GetIntegrationCommandOutput extends GetIntegrationOutput, __Met
  * // { // GetIntegrationOutput
  * //   integrationId: "STRING_VALUE", // required
  * //   installationId: "STRING_VALUE", // required
- * //   provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS", // required
- * //   providerType: "SOURCE_CODE" || "DOCUMENTATION", // required
+ * //   provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "CONFLUENCE" || "AZURE_DEVOPS" || "JIRA", // required
+ * //   providerType: "SOURCE_CODE" || "DOCUMENTATION" || "ISSUE_TRACKING", // required
  * //   displayName: "STRING_VALUE",
  * //   kmsKeyId: "STRING_VALUE",
  * //   targetUrl: "STRING_VALUE",
+ * //   siteUrl: "STRING_VALUE",
  * //   webhookUrl: "STRING_VALUE",
  * //   privateConnectionName: "STRING_VALUE",
  * // };

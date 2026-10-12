@@ -465,6 +465,23 @@ export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
  * @public
  * @enum
  */
+export const Provider = {
+  AZURE_DEVOPS: "AZURE_DEVOPS",
+  BITBUCKET: "BITBUCKET",
+  CONFLUENCE: "CONFLUENCE",
+  GITHUB: "GITHUB",
+  GITLAB: "GITLAB",
+  JIRA: "JIRA",
+} as const;
+/**
+ * @public
+ */
+export type Provider = (typeof Provider)[keyof typeof Provider];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContextType = {
   /**
    * <p>Client-side error encountered during execution.</p>
@@ -833,22 +850,6 @@ export type GitLabTokenType = (typeof GitLabTokenType)[keyof typeof GitLabTokenT
  * @public
  * @enum
  */
-export const Provider = {
-  AZURE_DEVOPS: "AZURE_DEVOPS",
-  BITBUCKET: "BITBUCKET",
-  CONFLUENCE: "CONFLUENCE",
-  GITHUB: "GITHUB",
-  GITLAB: "GITLAB",
-} as const;
-/**
- * @public
- */
-export type Provider = (typeof Provider)[keyof typeof Provider];
-
-/**
- * @public
- * @enum
- */
 export const UserRole = {
   /**
    * <p>Default member role with standard permissions.</p>
@@ -952,6 +953,7 @@ export type SecurityRequirementPackStatus =
  */
 export const ProviderType = {
   DOCUMENTATION: "DOCUMENTATION",
+  ISSUE_TRACKING: "ISSUE_TRACKING",
   SOURCE_CODE: "SOURCE_CODE",
 } as const;
 /**
@@ -1031,6 +1033,7 @@ export type WebhookAction = (typeof WebhookAction)[keyof typeof WebhookAction];
 export const ResourceType = {
   CODE_REPOSITORY: "CODE_REPOSITORY",
   DOCUMENT: "DOCUMENT",
+  PROJECT: "PROJECT",
 } as const;
 /**
  * @public
