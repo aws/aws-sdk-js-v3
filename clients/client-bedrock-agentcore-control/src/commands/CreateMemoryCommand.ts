@@ -82,6 +82,10 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *             },
  *           ],
  *         },
+ *         recordExpirySpecification: { // RecordExpirySpecification Union: only one key present
+ *           recordExpiryDurationDays: Number("int"),
+ *           action: "REMOVE",
+ *         },
  *       },
  *       summaryMemoryStrategy: { // SummaryMemoryStrategyInput
  *         name: "STRING_VALUE", // required
@@ -124,6 +128,10 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *             },
  *           ],
  *         },
+ *         recordExpirySpecification: {//  Union: only one key present
+ *           recordExpiryDurationDays: Number("int"),
+ *           action: "REMOVE",
+ *         },
  *       },
  *       userPreferenceMemoryStrategy: { // UserPreferenceMemoryStrategyInput
  *         name: "STRING_VALUE", // required
@@ -163,6 +171,10 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *               },
  *             },
  *           ],
+ *         },
+ *         recordExpirySpecification: {//  Union: only one key present
+ *           recordExpiryDurationDays: Number("int"),
+ *           action: "REMOVE",
  *         },
  *       },
  *       customMemoryStrategy: { // CustomMemoryStrategyInput
@@ -298,6 +310,10 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *             },
  *           ],
  *         },
+ *         recordExpirySpecification: {//  Union: only one key present
+ *           recordExpiryDurationDays: Number("int"),
+ *           action: "REMOVE",
+ *         },
  *       },
  *       episodicMemoryStrategy: { // EpisodicMemoryStrategyInput
  *         name: "STRING_VALUE", // required
@@ -310,6 +326,10 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *           memoryRecordSchema: "<MemoryRecordSchema>",
  *         },
  *         memoryRecordSchema: "<MemoryRecordSchema>",
+ *         recordExpirySpecification: {//  Union: only one key present
+ *           recordExpiryDurationDays: Number("int"),
+ *           action: "REMOVE",
+ *         },
  *       },
  *     },
  *   ],
@@ -521,6 +541,7 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //         updatedAt: new Date("TIMESTAMP"),
  * //         status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
  * //         memoryRecordSchema: "<MemoryRecordSchema>",
+ * //         recordExpiryDurationDays: Number("int"),
  * //       },
  * //     ],
  * //     indexedKeys: [ // IndexedKeysList

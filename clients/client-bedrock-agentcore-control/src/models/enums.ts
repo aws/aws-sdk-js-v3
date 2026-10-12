@@ -1100,6 +1100,18 @@ export type ExtractionType = (typeof ExtractionType)[keyof typeof ExtractionType
  * @public
  * @enum
  */
+export const RecordExpiryAction = {
+  REMOVE: "REMOVE",
+} as const;
+/**
+ * @public
+ */
+export type RecordExpiryAction = (typeof RecordExpiryAction)[keyof typeof RecordExpiryAction];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContentLevel = {
   FULL_CONTENT: "FULL_CONTENT",
   METADATA_ONLY: "METADATA_ONLY",

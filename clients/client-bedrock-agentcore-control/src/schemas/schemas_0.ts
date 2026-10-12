@@ -824,6 +824,7 @@ const _RCa = "RateConfigs";
 const _RCe = "ReasoningConfiguration";
 const _RCec = "RecordingConfig";
 const _RCef = "ReflectionConfiguration";
+const _RES = "RecordExpirySpecification";
 const _RHC = "RequestHeaderConfiguration";
 const _RL = "ResourceLocation";
 const _RLEE = "ResourceLimitExceededException";
@@ -1153,6 +1154,7 @@ const _aV = "allowedValues";
 const _aWC = "allowedWorkloadConfiguration";
 const _aa = "a2a";
 const _ac = "actions";
+const _act = "action";
 const _ar = "arn";
 const _au = "auth";
 const _b = "bundles";
@@ -1593,7 +1595,9 @@ const _rCe = "retrievalConfig";
 const _rD = "resultDestination";
 const _rDo = "routingDomain";
 const _rE = "runtimeEndpoints";
+const _rEDD = "recordExpiryDurationDays";
 const _rEMC = "responsesEvaluatorModelConfig";
+const _rES = "recordExpirySpecification";
 const _rGA = "resourceGatewayArn";
 const _rHA = "requestHeaderAllowlist";
 const _rHC = "requestHeaderConfiguration";
@@ -2569,8 +2573,8 @@ export var CustomJWTAuthorizerConfiguration$: StaticStructureSchema = [3, n0, _C
 ];
 export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
   0,
-  [_n, _d, _na, _nT, _con, _mRS],
-  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => CustomConfigurationInput$, 0], [() => MemoryRecordSchema$, 0]], 1
+  [_n, _d, _na, _nT, _con, _mRS, _rES],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => CustomConfigurationInput$, 0], [() => MemoryRecordSchema$, 0], () => RecordExpirySpecification$], 1
 ];
 export var CustomOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _COPCI,
   0,
@@ -2954,8 +2958,8 @@ export var EpisodicExtractionOverride$: StaticStructureSchema = [3, n0, _EEO,
 ];
 export var EpisodicMemoryStrategyInput$: StaticStructureSchema = [3, n0, _EMSI,
   0,
-  [_n, _d, _na, _nT, _rC, _mRS],
-  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => EpisodicReflectionConfigurationInput$, 0], [() => MemoryRecordSchema$, 0]], 1
+  [_n, _d, _na, _nT, _rC, _mRS, _rES],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => EpisodicReflectionConfigurationInput$, 0], [() => MemoryRecordSchema$, 0], () => RecordExpirySpecification$], 1
 ];
 export var EpisodicOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _EOCI,
   0,
@@ -4219,8 +4223,8 @@ export var MemoryRecordSchema$: StaticStructureSchema = [3, n0, _MRS,
 ];
 export var MemoryStrategy$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_sIt, _n, _t, _na, _nT, _d, _con, _cA, _uA, _st, _mRS],
-  [0, 0, 0, 64 | 0, 64 | 0, [() => Description, 0], [() => StrategyConfiguration$, 0], 4, 4, 0, [() => MemoryRecordSchema$, 0]], 5
+  [_sIt, _n, _t, _na, _nT, _d, _con, _cA, _uA, _st, _mRS, _rEDD],
+  [0, 0, 0, 64 | 0, 64 | 0, [() => Description, 0], [() => StrategyConfiguration$, 0], 4, 4, 0, [() => MemoryRecordSchema$, 0], 1], 5
 ];
 export var MemorySummary$: StaticStructureSchema = [3, n0, _MSe,
   0,
@@ -4279,8 +4283,8 @@ export var ModifyMemoryStrategies$: StaticStructureSchema = [3, n0, _MMS,
 ];
 export var ModifyMemoryStrategyInput$: StaticStructureSchema = [3, n0, _MMSI,
   0,
-  [_mSI, _d, _na, _nT, _con, _mRS],
-  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => ModifyStrategyConfiguration$, 0], [() => MemoryRecordSchema$, 0]], 1
+  [_mSI, _d, _na, _nT, _con, _mRS, _rES],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => ModifyStrategyConfiguration$, 0], [() => MemoryRecordSchema$, 0], () => RecordExpirySpecification$], 1
 ];
 export var ModifySelfManagedConfiguration$: StaticStructureSchema = [3, n0, _MSMC,
   0,
@@ -4624,8 +4628,8 @@ export var SemanticExtractionOverride$: StaticStructureSchema = [3, n0, _SEO,
 ];
 export var SemanticMemoryStrategyInput$: StaticStructureSchema = [3, n0, _SMSI,
   0,
-  [_n, _d, _na, _nT, _mRS],
-  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0]], 1
+  [_n, _d, _na, _nT, _mRS, _rES],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0], () => RecordExpirySpecification$], 1
 ];
 export var SemanticOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _SOCI,
   0,
@@ -4769,8 +4773,8 @@ export var SummaryConsolidationOverride$: StaticStructureSchema = [3, n0, _SCOu,
 ];
 export var SummaryMemoryStrategyInput$: StaticStructureSchema = [3, n0, _SMSIu,
   0,
-  [_n, _d, _na, _nT, _mRS],
-  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0]], 1
+  [_n, _d, _na, _nT, _mRS, _rES],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0], () => RecordExpirySpecification$], 1
 ];
 export var SummaryOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _SOCIu,
   0,
@@ -5249,8 +5253,8 @@ export var UserPreferenceExtractionOverride$: StaticStructureSchema = [3, n0, _U
 ];
 export var UserPreferenceMemoryStrategyInput$: StaticStructureSchema = [3, n0, _UPMSI,
   0,
-  [_n, _d, _na, _nT, _mRS],
-  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0]], 1
+  [_n, _d, _na, _nT, _mRS, _rES],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => MemoryRecordSchema$, 0], () => RecordExpirySpecification$], 1
 ];
 export var UserPreferenceOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _UPOCI,
   0,
@@ -6063,6 +6067,11 @@ export var RatingScale$: StaticUnionSchema = [4, n0, _RSa,
   8,
   [_nu, _ca],
   [() => NumericalScaleDefinitions, () => CategoricalScaleDefinitions]
+];
+export var RecordExpirySpecification$: StaticUnionSchema = [4, n0, _RES,
+  0,
+  [_rEDD, _act],
+  [1, 0]
 ];
 export var ReflectionConfiguration$: StaticUnionSchema = [4, n0, _RCef,
   0,

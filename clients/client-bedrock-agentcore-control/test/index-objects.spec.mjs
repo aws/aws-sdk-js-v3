@@ -982,6 +982,8 @@ import {
   RateConfig$,
   RatingScale$,
   ReasoningConfiguration$,
+  RecordExpiryAction,
+  RecordExpirySpecification$,
   RecordingConfig$,
   ReflectionConfiguration$,
   RegistryAuthorizerType,
@@ -2206,6 +2208,7 @@ assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof RateConfig$ === "object");
 assert(typeof RatingScale$ === "object");
 assert(typeof ReasoningConfiguration$ === "object");
+assert(typeof RecordExpirySpecification$ === "object");
 assert(typeof RecordingConfig$ === "object");
 assert(typeof ReflectionConfiguration$ === "object");
 assert(typeof RegistryRecordCredentialProviderConfiguration$ === "object");
@@ -2478,6 +2481,7 @@ assert(typeof PolicyStatus === "object");
 assert(typeof PolicyValidationMode === "object");
 assert(typeof PrincipalMatchOperator === "object");
 assert(typeof Provider === "object");
+assert(typeof RecordExpiryAction === "object");
 assert(typeof RegistryAuthorizerType === "object");
 assert(typeof RegistryRecordCredentialProviderType === "object");
 assert(typeof RegistryRecordOAuthGrantType === "object");

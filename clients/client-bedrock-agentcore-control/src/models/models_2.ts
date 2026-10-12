@@ -54,6 +54,59 @@ import type {
 /**
  * @public
  */
+export interface CreatePaymentConnectorResponse {
+  /**
+   * <p>The unique identifier of the created payment connector.</p>
+   * @public
+   */
+  paymentConnectorId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the parent payment manager.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The name of the created payment connector.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the created payment connector.</p>
+   * @public
+   */
+  type: PaymentConnectorType | undefined;
+
+  /**
+   * <p>The credential provider configurations for the created payment connector.</p>
+   * @public
+   */
+  credentialProviderConfigurations: CredentialsProviderConfiguration[] | undefined;
+
+  /**
+   * <p>The timestamp when the payment connector was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The current status of the payment connector. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: PaymentConnectorStatus | undefined;
+
+  /**
+   * <p>The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is <code>PENDING_AUTHENTICATION</code>.</p>
+   * @public
+   */
+  authorizationUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeletePaymentConnectorRequest {
   /**
    * <p>The unique identifier of the parent payment manager.</p>
@@ -1790,7 +1843,7 @@ export interface StartPolicyGenerationRequest {
   name: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure the idempotency of the request. The AWS SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without starting a duplicate generation.</p>
+   * <p>A unique, case-sensitive identifier to ensure the idempotency of the request. The Amazon Web Services SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without starting a duplicate generation.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1902,7 +1955,7 @@ export interface CreatePolicyRequest {
   policyEngineId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure the idempotency of the request. The AWS SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without creating a duplicate policy.</p>
+   * <p>A unique, case-sensitive identifier to ensure the idempotency of the request. The Amazon Web Services SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without creating a duplicate policy.</p>
    * @public
    */
   clientToken?: string | undefined;
