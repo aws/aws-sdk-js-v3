@@ -67,6 +67,7 @@ import {
   BridgeSource$,
   BridgeState,
   Colorimetry,
+  ColorInformation$,
   ConflictException,
   ConflictException$,
   ConnectionStatus,
@@ -593,7 +594,10 @@ import {
   UpdateRouterOutputCommand,
   UpdateRouterOutputRequest$,
   UpdateRouterOutputResponse$,
+  VideoColorimetry,
+  VideoMatrixCoefficients,
   VideoMonitoringSetting$,
+  VideoTransferCharacteristics,
   VpcInterface$,
   VpcInterfaceAttachment$,
   VpcInterfaceRequest$,
@@ -834,6 +838,7 @@ assert(typeof BridgeNetworkOutput$ === "object");
 assert(typeof BridgeNetworkSource$ === "object");
 assert(typeof BridgeOutput$ === "object");
 assert(typeof BridgeSource$ === "object");
+assert(typeof ColorInformation$ === "object");
 assert(typeof ContentQualityAnalysisFeatureConfiguration$ === "object");
 assert(typeof CreateBridgeRequest$ === "object");
 assert(typeof CreateBridgeResponse$ === "object");
@@ -1186,6 +1191,9 @@ assert(typeof Status === "object");
 assert(typeof Tcs === "object");
 assert(typeof ThumbnailState === "object");
 assert(typeof TlsEncryptionType === "object");
+assert(typeof VideoColorimetry === "object");
+assert(typeof VideoMatrixCoefficients === "object");
+assert(typeof VideoTransferCharacteristics === "object");
 // errors
 assert(AddFlowOutputs420Exception.prototype instanceof MediaConnectServiceException);
 assert(typeof AddFlowOutputs420Exception$ === "object");

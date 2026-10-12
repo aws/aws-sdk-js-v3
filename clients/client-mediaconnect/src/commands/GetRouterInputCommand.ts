@@ -162,7 +162,7 @@ export interface GetRouterInputCommandOutput extends GetRouterInputResponse, __M
  * //     RegionName: "STRING_VALUE", // required
  * //     AvailabilityZone: "STRING_VALUE", // required
  * //     MaximumBitrate: Number("long"), // required
- * //     Tier: "INPUT_100" || "INPUT_50" || "INPUT_20", // required
+ * //     Tier: "INPUT_100" || "INPUT_50" || "INPUT_20" || "INPUT_500" || "INPUT_250", // required
  * //     RoutingScope: "REGIONAL" || "GLOBAL", // required
  * //     CreatedAt: new Date("TIMESTAMP"), // required
  * //     UpdatedAt: new Date("TIMESTAMP"), // required

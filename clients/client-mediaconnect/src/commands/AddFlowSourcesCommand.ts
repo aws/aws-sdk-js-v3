@@ -85,6 +85,7 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  *       },
  *       NdiSourceSettings: { // NdiSourceSettings
  *         SourceName: "STRING_VALUE",
+ *         AudioReferenceLevel: Number("int"),
  *       },
  *       SourceTags: { // __mapOfString
  *         "<keys>": "STRING_VALUE",
@@ -164,8 +165,10 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  * //         NdiProgramName: "STRING_VALUE",
  * //         NdiSourceSettings: { // NdiSourceSettings
  * //           SourceName: "STRING_VALUE",
+ * //           AudioReferenceLevel: Number("int"),
  * //         },
  * //         NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
+ * //         NdiAudioReferenceLevel: Number("int"),
  * //       },
  * //       VpcInterfaceName: "STRING_VALUE",
  * //       WhitelistCidr: "STRING_VALUE",

@@ -97,6 +97,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *     },
  *   },
  *   NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
+ *   NdiAudioReferenceLevel: Number("int"),
  * };
  * const command = new UpdateFlowOutputCommand(input);
  * const response = await client.send(command);
@@ -163,8 +164,10 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * //       NdiProgramName: "STRING_VALUE",
  * //       NdiSourceSettings: { // NdiSourceSettings
  * //         SourceName: "STRING_VALUE",
+ * //         AudioReferenceLevel: Number("int"),
  * //       },
  * //       NdiOutputTimecodeSource: "EMBEDDED_TIMECODE" || "UTC_SYSTEM_TIME",
+ * //       NdiAudioReferenceLevel: Number("int"),
  * //     },
  * //     VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //       VpcInterfaceName: "STRING_VALUE",

@@ -131,7 +131,7 @@ export interface BatchGetRouterOutputCommandOutput extends BatchGetRouterOutputR
  * //       AvailabilityZone: "STRING_VALUE", // required
  * //       MaximumBitrate: Number("long"), // required
  * //       RoutingScope: "REGIONAL" || "GLOBAL", // required
- * //       Tier: "OUTPUT_100" || "OUTPUT_50" || "OUTPUT_20", // required
+ * //       Tier: "OUTPUT_100" || "OUTPUT_50" || "OUTPUT_20" || "OUTPUT_500" || "OUTPUT_250", // required
  * //       CreatedAt: new Date("TIMESTAMP"), // required
  * //       UpdatedAt: new Date("TIMESTAMP"), // required
  * //       Messages: [ // RouterOutputMessages // required

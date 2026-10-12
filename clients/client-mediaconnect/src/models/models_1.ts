@@ -22,9 +22,33 @@ import type {
   RouterInputTransitEncryption,
   RouterNetworkInterface,
   RouterNetworkInterfaceConfiguration,
+  RouterNetworkInterfaceFilter,
   RouterOutput,
   RouterOutputConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListRouterNetworkInterfacesRequest {
+  /**
+   * <p>The maximum number of router network interfaces to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token used to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filters to apply when retrieving the list of router network interfaces.</p>
+   * @public
+   */
+  Filters?: RouterNetworkInterfaceFilter[] | undefined;
+}
 
 /**
  * @public
@@ -439,7 +463,7 @@ export interface UpdateRouterInputRequest {
   RoutingScope?: RoutingScope | undefined;
 
   /**
-   * <p>The updated tier level for the router input.</p>
+   * <p>The updated tier level for the router input. The tier sets the maximum bitrate, in Mbps, for the router input. Valid values include the following:</p> <ul> <li> <p> <code>INPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>INPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>INPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>INPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>INPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
    * @public
    */
   Tier?: RouterInputTier | undefined;
@@ -709,7 +733,7 @@ export interface UpdateRouterOutputRequest {
   RoutingScope?: RoutingScope | undefined;
 
   /**
-   * <p>The updated tier level for the router output.</p>
+   * <p>The updated tier level for the router output. The tier sets the maximum bitrate, in Mbps, for the router output. Valid values include the following:</p> <ul> <li> <p> <code>OUTPUT_20</code> – 20 Mbps</p> </li> <li> <p> <code>OUTPUT_50</code> – 50 Mbps</p> </li> <li> <p> <code>OUTPUT_100</code> – 100 Mbps</p> </li> <li> <p> <code>OUTPUT_250</code> – 250 Mbps</p> </li> <li> <p> <code>OUTPUT_500</code> – 500 Mbps</p> </li> </ul> <p>The 250 Mbps and 500 Mbps tiers are high-bitrate tiers that support TR-07 (JPEG XS) workflows.</p>
    * @public
    */
   Tier?: RouterOutputTier | undefined;
