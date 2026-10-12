@@ -474,6 +474,9 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //               ],
  * //             },
  * //           },
+ * //           RLSProperties: { // RLSProperties
+ * //             DefaultRLSPolicy: "STRING_VALUE",
+ * //           },
  * //         },
  * //         ViewValidations: [
  * //           {
@@ -486,6 +489,9 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //           },
  * //         ],
  * //       },
+ * //     },
+ * //     RLSProperties: {
+ * //       DefaultRLSPolicy: "STRING_VALUE",
  * //     },
  * //   },
  * //   AuthorizedColumns: "<NameStringList>",

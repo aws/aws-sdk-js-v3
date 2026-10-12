@@ -462,6 +462,9 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * //                 ],
  * //               },
  * //             },
+ * //             RLSProperties: { // RLSProperties
+ * //               DefaultRLSPolicy: "STRING_VALUE",
+ * //             },
  * //           },
  * //           ViewValidations: [
  * //             {
@@ -474,6 +477,9 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * //             },
  * //           ],
  * //         },
+ * //       },
+ * //       RLSProperties: {
+ * //         DefaultRLSPolicy: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

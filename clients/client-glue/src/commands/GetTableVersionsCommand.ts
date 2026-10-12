@@ -456,6 +456,9 @@ export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse,
  * //                   ],
  * //                 },
  * //               },
+ * //               RLSProperties: { // RLSProperties
+ * //                 DefaultRLSPolicy: "STRING_VALUE",
+ * //               },
  * //             },
  * //             ViewValidations: [
  * //               {
@@ -468,6 +471,9 @@ export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse,
  * //               },
  * //             ],
  * //           },
+ * //         },
+ * //         RLSProperties: {
+ * //           DefaultRLSPolicy: "STRING_VALUE",
  * //         },
  * //       },
  * //       VersionId: "STRING_VALUE",

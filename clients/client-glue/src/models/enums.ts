@@ -2237,6 +2237,19 @@ export type StatisticEvaluationLevel = (typeof StatisticEvaluationLevel)[keyof t
  * @public
  * @enum
  */
+export const DataQualityEngine = {
+  PYTHON: "PYTHON",
+  SPARK: "SPARK",
+} as const;
+/**
+ * @public
+ */
+export type DataQualityEngine = (typeof DataQualityEngine)[keyof typeof DataQualityEngine];
+
+/**
+ * @public
+ * @enum
+ */
 export const EnableHybridValues = {
   FALSE: "FALSE",
   TRUE: "TRUE",

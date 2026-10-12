@@ -89,6 +89,10 @@ import type {
   BatchGetDataQualityResultCommandOutput,
 } from "./commands/BatchGetDataQualityResultCommand";
 import type {
+  BatchGetDataQualityResultV2CommandInput,
+  BatchGetDataQualityResultV2CommandOutput,
+} from "./commands/BatchGetDataQualityResultV2Command";
+import type {
   BatchGetDataQualityRulesetEvaluationRunCommandInput,
   BatchGetDataQualityRulesetEvaluationRunCommandOutput,
 } from "./commands/BatchGetDataQualityRulesetEvaluationRunCommand";
@@ -403,6 +407,10 @@ import type {
   GetDataQualityResultCommandOutput,
 } from "./commands/GetDataQualityResultCommand";
 import type {
+  GetDataQualityResultV2CommandInput,
+  GetDataQualityResultV2CommandOutput,
+} from "./commands/GetDataQualityResultV2Command";
+import type {
   GetDataQualityRuleRecommendationRunCommandInput,
   GetDataQualityRuleRecommendationRunCommandOutput,
 } from "./commands/GetDataQualityRuleRecommendationRunCommand";
@@ -558,6 +566,10 @@ import type {
   ListDataQualityResultsCommandOutput,
 } from "./commands/ListDataQualityResultsCommand";
 import type {
+  ListDataQualityResultsV2CommandInput,
+  ListDataQualityResultsV2CommandOutput,
+} from "./commands/ListDataQualityResultsV2Command";
+import type {
   ListDataQualityRuleRecommendationRunsCommandInput,
   ListDataQualityRuleRecommendationRunsCommandOutput,
 } from "./commands/ListDataQualityRuleRecommendationRunsCommand";
@@ -625,6 +637,10 @@ import type {
   ModifyIntegrationCommandInput,
   ModifyIntegrationCommandOutput,
 } from "./commands/ModifyIntegrationCommand";
+import type {
+  PublishDataQualityResultV2CommandInput,
+  PublishDataQualityResultV2CommandOutput,
+} from "./commands/PublishDataQualityResultV2Command";
 import type { PutAssetCommandInput, PutAssetCommandOutput } from "./commands/PutAssetCommand";
 import type { PutAssetTypeCommandInput, PutAssetTypeCommandOutput } from "./commands/PutAssetTypeCommand";
 import type { PutAttachmentCommandInput, PutAttachmentCommandOutput } from "./commands/PutAttachmentCommand";
@@ -852,6 +868,7 @@ export type ServiceInputTypes =
   | BatchGetCrawlersCommandInput
   | BatchGetCustomEntityTypesCommandInput
   | BatchGetDataQualityResultCommandInput
+  | BatchGetDataQualityResultV2CommandInput
   | BatchGetDataQualityRulesetEvaluationRunCommandInput
   | BatchGetDevEndpointsCommandInput
   | BatchGetIterableFormsCommandInput
@@ -971,6 +988,7 @@ export type ServiceInputTypes =
   | GetDataQualityModelCommandInput
   | GetDataQualityModelResultCommandInput
   | GetDataQualityResultCommandInput
+  | GetDataQualityResultV2CommandInput
   | GetDataQualityRuleRecommendationRunCommandInput
   | GetDataQualityRulesetCommandInput
   | GetDataQualityRulesetEvaluationRunCommandInput
@@ -1042,6 +1060,7 @@ export type ServiceInputTypes =
   | ListCrawlsCommandInput
   | ListCustomEntityTypesCommandInput
   | ListDataQualityResultsCommandInput
+  | ListDataQualityResultsV2CommandInput
   | ListDataQualityRuleRecommendationRunsCommandInput
   | ListDataQualityRulesetEvaluationRunsCommandInput
   | ListDataQualityRulesetsCommandInput
@@ -1068,6 +1087,7 @@ export type ServiceInputTypes =
   | ListUsageProfilesCommandInput
   | ListWorkflowsCommandInput
   | ModifyIntegrationCommandInput
+  | PublishDataQualityResultV2CommandInput
   | PutAssetCommandInput
   | PutAssetTypeCommandInput
   | PutAttachmentCommandInput
@@ -1159,6 +1179,7 @@ export type ServiceOutputTypes =
   | BatchGetCrawlersCommandOutput
   | BatchGetCustomEntityTypesCommandOutput
   | BatchGetDataQualityResultCommandOutput
+  | BatchGetDataQualityResultV2CommandOutput
   | BatchGetDataQualityRulesetEvaluationRunCommandOutput
   | BatchGetDevEndpointsCommandOutput
   | BatchGetIterableFormsCommandOutput
@@ -1278,6 +1299,7 @@ export type ServiceOutputTypes =
   | GetDataQualityModelCommandOutput
   | GetDataQualityModelResultCommandOutput
   | GetDataQualityResultCommandOutput
+  | GetDataQualityResultV2CommandOutput
   | GetDataQualityRuleRecommendationRunCommandOutput
   | GetDataQualityRulesetCommandOutput
   | GetDataQualityRulesetEvaluationRunCommandOutput
@@ -1349,6 +1371,7 @@ export type ServiceOutputTypes =
   | ListCrawlsCommandOutput
   | ListCustomEntityTypesCommandOutput
   | ListDataQualityResultsCommandOutput
+  | ListDataQualityResultsV2CommandOutput
   | ListDataQualityRuleRecommendationRunsCommandOutput
   | ListDataQualityRulesetEvaluationRunsCommandOutput
   | ListDataQualityRulesetsCommandOutput
@@ -1375,6 +1398,7 @@ export type ServiceOutputTypes =
   | ListUsageProfilesCommandOutput
   | ListWorkflowsCommandOutput
   | ModifyIntegrationCommandOutput
+  | PublishDataQualityResultV2CommandOutput
   | PutAssetCommandOutput
   | PutAssetTypeCommandOutput
   | PutAttachmentCommandOutput

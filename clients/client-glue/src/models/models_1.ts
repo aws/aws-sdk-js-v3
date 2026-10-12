@@ -16,7 +16,6 @@ import type {
   ConnectionType,
   CsvHeaderOption,
   CsvSerdeOption,
-  DatabaseAttributes,
   DataFormat,
   DataOperation,
   DataQualityEncryptionMode,
@@ -40,7 +39,6 @@ import type {
   PropertyLocation,
   PropertyType,
   RegistryStatus,
-  ResourceShareType,
   ResourceType,
   S3EncryptionMode,
   ScheduleType,
@@ -69,8 +67,6 @@ import type {
   ConnectionsList,
   Crawler,
   CrawlerTargets,
-  CreateCsvClassifierRequest,
-  CreateGrokClassifierRequest,
   ErrorDetail,
   EventBatchingCondition,
   FederatedCatalog,
@@ -89,6 +85,109 @@ import type {
   TableOptimizerConfiguration,
   TargetRedshiftCatalog,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCatalogResponse {}
+
+/**
+ * <p>Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.</p>
+ * @public
+ */
+export interface CreateCsvClassifierRequest {
+  /**
+   * <p>The name of the classifier.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A custom symbol to denote what separates each column entry in the row.</p>
+   * @public
+   */
+  Delimiter?: string | undefined;
+
+  /**
+   * <p>A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.</p>
+   * @public
+   */
+  QuoteSymbol?: string | undefined;
+
+  /**
+   * <p>Indicates whether the CSV file contains a header.</p>
+   * @public
+   */
+  ContainsHeader?: CsvHeaderOption | undefined;
+
+  /**
+   * <p>A list of strings representing column names.</p>
+   * @public
+   */
+  Header?: string[] | undefined;
+
+  /**
+   * <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
+   * @public
+   */
+  DisableValueTrimming?: boolean | undefined;
+
+  /**
+   * <p>Enables the processing of files that contain only one column.</p>
+   * @public
+   */
+  AllowSingleColumn?: boolean | undefined;
+
+  /**
+   * <p>Enables the configuration of custom datatypes.</p>
+   * @public
+   */
+  CustomDatatypeConfigured?: boolean | undefined;
+
+  /**
+   * <p>Creates a list of supported custom datatypes.</p>
+   * @public
+   */
+  CustomDatatypes?: string[] | undefined;
+
+  /**
+   * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
+   * @public
+   */
+  Serde?: CsvSerdeOption | undefined;
+}
+
+/**
+ * <p>Specifies a <code>grok</code> classifier for <code>CreateClassifier</code>
+ *       to create.</p>
+ * @public
+ */
+export interface CreateGrokClassifierRequest {
+  /**
+   * <p>An identifier of the data format that the classifier matches,
+   *       such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.</p>
+   * @public
+   */
+  Classification: string | undefined;
+
+  /**
+   * <p>The name of the new classifier.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The grok pattern used by this classifier.</p>
+   * @public
+   */
+  GrokPattern: string | undefined;
+
+  /**
+   * <p>Optional custom grok patterns used by this classifier.</p>
+   * @public
+   */
+  CustomPatterns?: string | undefined;
+}
 
 /**
  * <p>Specifies a JSON classifier for <code>CreateClassifier</code> to create.</p>
@@ -8605,81 +8704,4 @@ export interface GetDatabaseResponse {
    * @public
    */
   Database?: Database | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDatabasesRequest {
-  /**
-   * <p>The ID of the Data Catalog from which to retrieve <code>Databases</code>. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of databases to return in one response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FEDERATED</code>, <code>FOREIGN</code> or <code>ALL</code>. </p>
-   *          <ul>
-   *             <li>
-   *                <p>If set to <code>FEDERATED</code>, will list the federated databases (referencing an external entity) shared with your account.</p>
-   *             </li>
-   *             <li>
-   *                <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p>
-   *             </li>
-   *             <li>
-   *                <p>If set to <code>ALL</code>, will list the databases shared with your account, as well as the databases in yor local account. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceShareType?: ResourceShareType | undefined;
-
-  /**
-   * <p>Specifies the database fields returned by the <code>GetDatabases</code> call. This parameter doesn’t accept an empty list. The request must include the <code>NAME</code>.</p>
-   * @public
-   */
-  AttributesToGet?: DatabaseAttributes[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDatabasesResponse {
-  /**
-   * <p>A list of <code>Database</code> objects from the specified catalog.</p>
-   * @public
-   */
-  DatabaseList: Database[] | undefined;
-
-  /**
-   * <p>A continuation token for paginating the returned list of tokens,
-   *       returned if the current segment of the list is not the last.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataCatalogEncryptionSettingsRequest {
-  /**
-   * <p>The ID of the Data Catalog to retrieve the security configuration for. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
 }

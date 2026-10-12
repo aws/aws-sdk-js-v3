@@ -458,6 +458,9 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //               ],
  * //             },
  * //           },
+ * //           RLSProperties: { // RLSProperties
+ * //             DefaultRLSPolicy: "STRING_VALUE",
+ * //           },
  * //         },
  * //         ViewValidations: [
  * //           {
@@ -470,6 +473,9 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //           },
  * //         ],
  * //       },
+ * //     },
+ * //     RLSProperties: {
+ * //       DefaultRLSPolicy: "STRING_VALUE",
  * //     },
  * //   },
  * // };

@@ -30,6 +30,7 @@ export * from "./ListConnectionTypesPaginator";
 export * from "./ListCrawlersPaginator";
 export * from "./ListCustomEntityTypesPaginator";
 export * from "./ListDataQualityResultsPaginator";
+export * from "./ListDataQualityResultsV2Paginator";
 export * from "./ListDataQualityRuleRecommendationRunsPaginator";
 export * from "./ListDataQualityRulesetEvaluationRunsPaginator";
 export * from "./ListDataQualityRulesetsPaginator";

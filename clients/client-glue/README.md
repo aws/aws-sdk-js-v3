@@ -252,6 +252,13 @@ BatchGetDataQualityResult
 </details>
 <details>
 <summary>
+BatchGetDataQualityResultV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/BatchGetDataQualityResultV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/BatchGetDataQualityResultV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/BatchGetDataQualityResultV2CommandOutput/)
+</details>
+<details>
+<summary>
 BatchGetDataQualityRulesetEvaluationRun
 </summary>
 
@@ -1106,6 +1113,13 @@ GetDataQualityResult
 </details>
 <details>
 <summary>
+GetDataQualityResultV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetDataQualityResultV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataQualityResultV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataQualityResultV2CommandOutput/)
+</details>
+<details>
+<summary>
 GetDataQualityRuleRecommendationRun
 </summary>
 
@@ -1582,6 +1596,13 @@ ListDataQualityResults
 </details>
 <details>
 <summary>
+ListDataQualityResultsV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListDataQualityResultsV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDataQualityResultsV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDataQualityResultsV2CommandOutput/)
+</details>
+<details>
+<summary>
 ListDataQualityRuleRecommendationRuns
 </summary>
 
@@ -1761,6 +1782,13 @@ ModifyIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ModifyIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ModifyIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ModifyIntegrationCommandOutput/)
+</details>
+<details>
+<summary>
+PublishDataQualityResultV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/PublishDataQualityResultV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PublishDataQualityResultV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PublishDataQualityResultV2CommandOutput/)
 </details>
 <details>
 <summary>

@@ -72,6 +72,10 @@ import {
   BatchGetDataQualityResultCommand,
   BatchGetDataQualityResultRequest$,
   BatchGetDataQualityResultResponse$,
+  BatchGetDataQualityResultV2$,
+  BatchGetDataQualityResultV2Command,
+  BatchGetDataQualityResultV2Request$,
+  BatchGetDataQualityResultV2Response$,
   BatchGetDataQualityRulesetEvaluationRun$,
   BatchGetDataQualityRulesetEvaluationRunCommand,
   BatchGetDataQualityRulesetEvaluationRunRequest$,
@@ -399,8 +403,10 @@ import {
   DatapointInclusionAnnotation$,
   DataQualityAggregatedMetrics$,
   DataQualityAnalyzerResult$,
+  DataQualityConfigurationV2$,
   DataQualityEncryption$,
   DataQualityEncryptionMode,
+  DataQualityEngine,
   DataQualityEvaluationRunAdditionalRunOptions$,
   DataQualityGlueTable$,
   DataQualityMetricValues$,
@@ -409,6 +415,9 @@ import {
   DataQualityResult$,
   DataQualityResultDescription$,
   DataQualityResultFilterCriteria$,
+  DataQualityResultsV2Description$,
+  DataQualityResultsV2FilterCriteria$,
+  DataQualityResultV2Item$,
   DataQualityRuleRecommendationRunAdditionalRunOptions$,
   DataQualityRuleRecommendationRunDescription$,
   DataQualityRuleRecommendationRunFilter$,
@@ -421,6 +430,7 @@ import {
   DataQualityRulesetFilterCriteria$,
   DataQualityRulesetListDetails$,
   DataQualityTargetTable$,
+  DataQualityTelemetry$,
   DataSource$,
   Datatype$,
   DateColumnStatisticsData$,
@@ -810,6 +820,10 @@ import {
   GetDataQualityResultCommand,
   GetDataQualityResultRequest$,
   GetDataQualityResultResponse$,
+  GetDataQualityResultV2$,
+  GetDataQualityResultV2Command,
+  GetDataQualityResultV2Request$,
+  GetDataQualityResultV2Response$,
   GetDataQualityRuleRecommendationRun$,
   GetDataQualityRuleRecommendationRunCommand,
   GetDataQualityRuleRecommendationRunRequest$,
@@ -1204,6 +1218,10 @@ import {
   ListDataQualityResultsCommand,
   ListDataQualityResultsRequest$,
   ListDataQualityResultsResponse$,
+  ListDataQualityResultsV2$,
+  ListDataQualityResultsV2Command,
+  ListDataQualityResultsV2Request$,
+  ListDataQualityResultsV2Response$,
   ListDataQualityRuleRecommendationRuns$,
   ListDataQualityRuleRecommendationRunsCommand,
   ListDataQualityRuleRecommendationRunsRequest$,
@@ -1397,6 +1415,7 @@ import {
   paginateListCrawlers,
   paginateListCustomEntityTypes,
   paginateListDataQualityResults,
+  paginateListDataQualityResultsV2,
   paginateListDataQualityRuleRecommendationRuns,
   paginateListDataQualityRulesetEvaluationRuns,
   paginateListDataQualityRulesets,
@@ -1448,6 +1467,10 @@ import {
   PropertyLocation,
   PropertyPredicate$,
   PropertyType,
+  PublishDataQualityResultV2$,
+  PublishDataQualityResultV2Command,
+  PublishDataQualityResultV2Request$,
+  PublishDataQualityResultV2Response$,
   PutAsset$,
   PutAssetCommand,
   PutAssetRequest$,
@@ -1545,6 +1568,7 @@ import {
   ResumeWorkflowRunResponse$,
   RetentionConfiguration$,
   RetentionMetrics$,
+  RLSProperties$,
   Route$,
   RowLevelResultsOptions$,
   RunIdentifier$,
@@ -2001,6 +2025,8 @@ assert(typeof BatchGetCustomEntityTypesCommand === "function");
 assert(typeof BatchGetCustomEntityTypes$ === "object");
 assert(typeof BatchGetDataQualityResultCommand === "function");
 assert(typeof BatchGetDataQualityResult$ === "object");
+assert(typeof BatchGetDataQualityResultV2Command === "function");
+assert(typeof BatchGetDataQualityResultV2$ === "object");
 assert(typeof BatchGetDataQualityRulesetEvaluationRunCommand === "function");
 assert(typeof BatchGetDataQualityRulesetEvaluationRun$ === "object");
 assert(typeof BatchGetDevEndpointsCommand === "function");
@@ -2245,6 +2271,8 @@ assert(typeof GetDataQualityModelResultCommand === "function");
 assert(typeof GetDataQualityModelResult$ === "object");
 assert(typeof GetDataQualityResultCommand === "function");
 assert(typeof GetDataQualityResult$ === "object");
+assert(typeof GetDataQualityResultV2Command === "function");
+assert(typeof GetDataQualityResultV2$ === "object");
 assert(typeof GetDataQualityRuleRecommendationRunCommand === "function");
 assert(typeof GetDataQualityRuleRecommendationRun$ === "object");
 assert(typeof GetDataQualityRulesetCommand === "function");
@@ -2381,6 +2409,8 @@ assert(typeof ListCustomEntityTypesCommand === "function");
 assert(typeof ListCustomEntityTypes$ === "object");
 assert(typeof ListDataQualityResultsCommand === "function");
 assert(typeof ListDataQualityResults$ === "object");
+assert(typeof ListDataQualityResultsV2Command === "function");
+assert(typeof ListDataQualityResultsV2$ === "object");
 assert(typeof ListDataQualityRuleRecommendationRunsCommand === "function");
 assert(typeof ListDataQualityRuleRecommendationRuns$ === "object");
 assert(typeof ListDataQualityRulesetEvaluationRunsCommand === "function");
@@ -2433,6 +2463,8 @@ assert(typeof ListWorkflowsCommand === "function");
 assert(typeof ListWorkflows$ === "object");
 assert(typeof ModifyIntegrationCommand === "function");
 assert(typeof ModifyIntegration$ === "object");
+assert(typeof PublishDataQualityResultV2Command === "function");
+assert(typeof PublishDataQualityResultV2$ === "object");
 assert(typeof PutAssetCommand === "function");
 assert(typeof PutAsset$ === "object");
 assert(typeof PutAssetTypeCommand === "function");
@@ -2630,6 +2662,8 @@ assert(typeof BatchGetCustomEntityTypesRequest$ === "object");
 assert(typeof BatchGetCustomEntityTypesResponse$ === "object");
 assert(typeof BatchGetDataQualityResultRequest$ === "object");
 assert(typeof BatchGetDataQualityResultResponse$ === "object");
+assert(typeof BatchGetDataQualityResultV2Request$ === "object");
+assert(typeof BatchGetDataQualityResultV2Response$ === "object");
 assert(typeof BatchGetDataQualityRulesetEvaluationRunRequest$ === "object");
 assert(typeof BatchGetDataQualityRulesetEvaluationRunResponse$ === "object");
 assert(typeof BatchGetDevEndpointsRequest$ === "object");
@@ -2816,6 +2850,7 @@ assert(typeof DataLakePrincipal$ === "object");
 assert(typeof DatapointInclusionAnnotation$ === "object");
 assert(typeof DataQualityAggregatedMetrics$ === "object");
 assert(typeof DataQualityAnalyzerResult$ === "object");
+assert(typeof DataQualityConfigurationV2$ === "object");
 assert(typeof DataQualityEncryption$ === "object");
 assert(typeof DataQualityEvaluationRunAdditionalRunOptions$ === "object");
 assert(typeof DataQualityGlueTable$ === "object");
@@ -2824,6 +2859,9 @@ assert(typeof DataQualityObservation$ === "object");
 assert(typeof DataQualityResult$ === "object");
 assert(typeof DataQualityResultDescription$ === "object");
 assert(typeof DataQualityResultFilterCriteria$ === "object");
+assert(typeof DataQualityResultsV2Description$ === "object");
+assert(typeof DataQualityResultsV2FilterCriteria$ === "object");
+assert(typeof DataQualityResultV2Item$ === "object");
 assert(typeof DataQualityRuleRecommendationRunAdditionalRunOptions$ === "object");
 assert(typeof DataQualityRuleRecommendationRunDescription$ === "object");
 assert(typeof DataQualityRuleRecommendationRunFilter$ === "object");
@@ -2835,6 +2873,7 @@ assert(typeof DataQualityRulesetEvaluationRunFilter$ === "object");
 assert(typeof DataQualityRulesetFilterCriteria$ === "object");
 assert(typeof DataQualityRulesetListDetails$ === "object");
 assert(typeof DataQualityTargetTable$ === "object");
+assert(typeof DataQualityTelemetry$ === "object");
 assert(typeof DataSource$ === "object");
 assert(typeof Datatype$ === "object");
 assert(typeof DateColumnStatisticsData$ === "object");
@@ -3044,6 +3083,8 @@ assert(typeof GetDataQualityModelResultRequest$ === "object");
 assert(typeof GetDataQualityModelResultResponse$ === "object");
 assert(typeof GetDataQualityResultRequest$ === "object");
 assert(typeof GetDataQualityResultResponse$ === "object");
+assert(typeof GetDataQualityResultV2Request$ === "object");
+assert(typeof GetDataQualityResultV2Response$ === "object");
 assert(typeof GetDataQualityRuleRecommendationRunRequest$ === "object");
 assert(typeof GetDataQualityRuleRecommendationRunResponse$ === "object");
 assert(typeof GetDataQualityRulesetEvaluationRunRequest$ === "object");
@@ -3248,6 +3289,8 @@ assert(typeof ListCustomEntityTypesRequest$ === "object");
 assert(typeof ListCustomEntityTypesResponse$ === "object");
 assert(typeof ListDataQualityResultsRequest$ === "object");
 assert(typeof ListDataQualityResultsResponse$ === "object");
+assert(typeof ListDataQualityResultsV2Request$ === "object");
+assert(typeof ListDataQualityResultsV2Response$ === "object");
 assert(typeof ListDataQualityRuleRecommendationRunsRequest$ === "object");
 assert(typeof ListDataQualityRuleRecommendationRunsResponse$ === "object");
 assert(typeof ListDataQualityRulesetEvaluationRunsRequest$ === "object");
@@ -3352,6 +3395,8 @@ assert(typeof ProfileConfiguration$ === "object");
 assert(typeof ProfilingResultsOptions$ === "object");
 assert(typeof Property$ === "object");
 assert(typeof PropertyPredicate$ === "object");
+assert(typeof PublishDataQualityResultV2Request$ === "object");
+assert(typeof PublishDataQualityResultV2Response$ === "object");
 assert(typeof PutAssetRequest$ === "object");
 assert(typeof PutAssetResponse$ === "object");
 assert(typeof PutAssetTypeRequest$ === "object");
@@ -3402,6 +3447,7 @@ assert(typeof ResumeWorkflowRunRequest$ === "object");
 assert(typeof ResumeWorkflowRunResponse$ === "object");
 assert(typeof RetentionConfiguration$ === "object");
 assert(typeof RetentionMetrics$ === "object");
+assert(typeof RLSProperties$ === "object");
 assert(typeof Route$ === "object");
 assert(typeof RowLevelResultsOptions$ === "object");
 assert(typeof RunIdentifier$ === "object");
@@ -3689,6 +3735,7 @@ assert(typeof DatabaseAttributes === "object");
 assert(typeof DataFormat === "object");
 assert(typeof DataOperation === "object");
 assert(typeof DataQualityEncryptionMode === "object");
+assert(typeof DataQualityEngine === "object");
 assert(typeof DataQualityModelStatus === "object");
 assert(typeof DataQualityRuleResultStatus === "object");
 assert(typeof DdbExportType === "object");
@@ -3937,6 +3984,7 @@ assert(typeof paginateListConnectionTypes === "function");
 assert(typeof paginateListCrawlers === "function");
 assert(typeof paginateListCustomEntityTypes === "function");
 assert(typeof paginateListDataQualityResults === "function");
+assert(typeof paginateListDataQualityResultsV2 === "function");
 assert(typeof paginateListDataQualityRuleRecommendationRuns === "function");
 assert(typeof paginateListDataQualityRulesetEvaluationRuns === "function");
 assert(typeof paginateListDataQualityRulesets === "function");
