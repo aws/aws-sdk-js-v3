@@ -21,6 +21,10 @@ import {
   ListNetworkConnectorsCommand,
   ListNetworkConnectorsRequest$,
   ListNetworkConnectorsResponse$,
+  ListNetworkConnectorVersions$,
+  ListNetworkConnectorVersionsCommand,
+  ListNetworkConnectorVersionsRequest$,
+  ListNetworkConnectorVersionsResponse$,
   NetworkConnectorConfiguration$,
   NetworkConnectorLastUpdateStatus,
   NetworkConnectorLastUpdateStatusReasonCode,
@@ -30,9 +34,11 @@ import {
   NetworkConnectorStateReasonCode,
   NetworkConnectorSummary$,
   NetworkConnectorType,
+  NetworkConnectorVersionSummary$,
   NetworkConnectorVpcEgressConfiguration$,
   NetworkProtocol,
   paginateListNetworkConnectors,
+  paginateListNetworkConnectorVersions,
   ResourceConflictException,
   ResourceConflictException$,
   ResourceNotFoundException,
@@ -60,6 +66,8 @@ assert(typeof GetNetworkConnectorCommand === "function");
 assert(typeof GetNetworkConnector$ === "object");
 assert(typeof ListNetworkConnectorsCommand === "function");
 assert(typeof ListNetworkConnectors$ === "object");
+assert(typeof ListNetworkConnectorVersionsCommand === "function");
+assert(typeof ListNetworkConnectorVersions$ === "object");
 assert(typeof UpdateNetworkConnectorCommand === "function");
 assert(typeof UpdateNetworkConnector$ === "object");
 // structural schemas
@@ -71,8 +79,11 @@ assert(typeof GetNetworkConnectorRequest$ === "object");
 assert(typeof GetNetworkConnectorResponse$ === "object");
 assert(typeof ListNetworkConnectorsRequest$ === "object");
 assert(typeof ListNetworkConnectorsResponse$ === "object");
+assert(typeof ListNetworkConnectorVersionsRequest$ === "object");
+assert(typeof ListNetworkConnectorVersionsResponse$ === "object");
 assert(typeof NetworkConnectorConfiguration$ === "object");
 assert(typeof NetworkConnectorSummary$ === "object");
+assert(typeof NetworkConnectorVersionSummary$ === "object");
 assert(typeof NetworkConnectorVpcEgressConfiguration$ === "object");
 assert(typeof UpdateNetworkConnectorRequest$ === "object");
 assert(typeof UpdateNetworkConnectorResponse$ === "object");
@@ -100,5 +111,6 @@ assert(TooManyRequestsException.prototype instanceof LambdaCoreServiceException)
 assert(typeof TooManyRequestsException$ === "object");
 assert(LambdaCoreServiceException.prototype instanceof Error);
 // paginators
+assert(typeof paginateListNetworkConnectorVersions === "function");
 assert(typeof paginateListNetworkConnectors === "function");
 console.log(`LambdaCore index test passed.`);

@@ -33,7 +33,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The account has reached the maximum number of network connectors allowed. Delete unused connectors or request a limit increase through Service Quotas.</p>
+ * <p>The request would exceed a network connector limit. For <code>CreateNetworkConnector</code>, the account has reached the maximum number of network connectors allowed. For <code>UpdateNetworkConnector</code>, the connector has reached the maximum number of versions allowed.</p>
  * @public
  */
 export class NetworkConnectorLimitExceededException extends __BaseException {

@@ -2,5 +2,6 @@
 export * from "./CreateNetworkConnectorCommand";
 export * from "./DeleteNetworkConnectorCommand";
 export * from "./GetNetworkConnectorCommand";
+export * from "./ListNetworkConnectorVersionsCommand";
 export * from "./ListNetworkConnectorsCommand";
 export * from "./UpdateNetworkConnectorCommand";

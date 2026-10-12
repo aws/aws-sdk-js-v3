@@ -23,7 +23,7 @@ export interface CreateNetworkConnectorCommandInput extends CreateNetworkConnect
 export interface CreateNetworkConnectorCommandOutput extends CreateNetworkConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a network connector that enables Lambda compute resources to route outbound traffic through your Amazon VPC. The network connector provisions elastic network interfaces (ENIs) in the subnets you specify, providing a managed network path to private resources such as databases, caches, and internal APIs.</p> <p>This operation is asynchronous. The network connector starts in <code>PENDING</code> state while ENIs are provisioned in your VPC (provisioning typically takes up to 10 minutes). Use <code>GetNetworkConnector</code> to poll the connector state until it reaches <code>ACTIVE</code>. Once active, you can attach the connector to Lambda MicroVMs at run time using the <code>egressNetworkConnectors</code> parameter on <code>RunMicroVm</code>.</p> <p>This operation is idempotent when you provide a <code>ClientToken</code> — if you retry a request that completed successfully using the same client token, the operation returns the existing connector without creating a duplicate.</p>
+ * <p>Creates a network connector that enables Lambda compute resources to route outbound traffic through your Amazon VPC. The network connector provisions elastic network interfaces (ENIs) in the subnets you specify, providing a managed network path to private resources such as databases, caches, and internal APIs.</p> <p>This operation is asynchronous. The network connector starts in <code>PENDING</code> state while ENIs are provisioned in your VPC (provisioning typically takes up to 10 minutes). Use <code>GetNetworkConnector</code> to poll the connector state until it reaches <code>ACTIVE</code>. Once active, you can attach the connector to supported Lambda compute resources — such as MicroVMs and WebFunctions — at run time. For how to attach a connector, see the documentation for the specific compute type.</p> <p>This operation is idempotent when you provide a <code>ClientToken</code> — if you retry a request that completed successfully using the same client token, the operation returns the existing connector without creating a duplicate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,7 +44,7 @@ export interface CreateNetworkConnectorCommandOutput extends CreateNetworkConnec
  *       ],
  *       NetworkProtocol: "IPv4" || "DualStack",
  *       AssociatedComputeResourceTypes: [ // AssociatedComputeResourceTypesList
- *         "MicroVm",
+ *         "MicroVm" || "WebFunction",
  *       ],
  *     },
  *   },
@@ -60,6 +60,8 @@ export interface CreateNetworkConnectorCommandOutput extends CreateNetworkConnec
  * //   Arn: "STRING_VALUE", // required
  * //   Name: "STRING_VALUE", // required
  * //   Id: "STRING_VALUE", // required
+ * //   VersionArn: "STRING_VALUE",
+ * //   Version: Number("long"),
  * //   Configuration: { // NetworkConnectorConfiguration Union: only one key present
  * //     VpcEgressConfiguration: { // NetworkConnectorVpcEgressConfiguration
  * //       SubnetIds: [ // NetworkConnectorSubnetIds
@@ -70,7 +72,7 @@ export interface CreateNetworkConnectorCommandOutput extends CreateNetworkConnec
  * //       ],
  * //       NetworkProtocol: "IPv4" || "DualStack",
  * //       AssociatedComputeResourceTypes: [ // AssociatedComputeResourceTypesList
- * //         "MicroVm",
+ * //         "MicroVm" || "WebFunction",
  * //       ],
  * //     },
  * //   },
@@ -90,7 +92,7 @@ export interface CreateNetworkConnectorCommandOutput extends CreateNetworkConnec
  *  <p>One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.</p>
  *
  * @throws {@link NetworkConnectorLimitExceededException} (client fault)
- *  <p>The account has reached the maximum number of network connectors allowed. Delete unused connectors or request a limit increase through Service Quotas.</p>
+ *  <p>The request would exceed a network connector limit. For <code>CreateNetworkConnector</code>, the account has reached the maximum number of network connectors allowed. For <code>UpdateNetworkConnector</code>, the connector has reached the maximum number of versions allowed.</p>
  *
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to update a connector that is not in <code>ACTIVE</code> state.</p>

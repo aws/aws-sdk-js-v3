@@ -48,6 +48,8 @@ export interface ListNetworkConnectorsCommandOutput extends ListNetworkConnector
  * //       Type: "VPC_EGRESS", // required
  * //       State: "PENDING" || "ACTIVE" || "INACTIVE" || "FAILED" || "DELETING" || "DELETE_FAILED",
  * //       LastModified: new Date("TIMESTAMP"),
+ * //       LatestVersionArn: "STRING_VALUE",
+ * //       LatestVersion: Number("long"),
  * //     },
  * //   ],
  * //   NextMarker: "STRING_VALUE",
