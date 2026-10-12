@@ -2107,6 +2107,12 @@ export interface VpcConfig {
    * @public
    */
   subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.</p>
+   * @public
+   */
+  vpcOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -2178,6 +2184,12 @@ export interface VpcConfigResponse {
    * @public
    */
   vpcId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.</p>
+   * @public
+   */
+  vpcOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -3590,7 +3602,7 @@ export interface DefaultRunSetting {
   configurationName?: string | undefined;
 
   /**
-   * Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+   * <p>Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.</p>
    * @public
    */
   sessionPolicy?: string | undefined;
@@ -5390,7 +5402,7 @@ export interface GetRunResponse {
   engineSettings?: __DocumentType | undefined;
 
   /**
-   * Inline policy json for scoping down permissions via a session policy on the IAM role.
+   * <p>Inline policy json for scoping down permissions via a session policy on the IAM role.</p>
    * @public
    */
   sessionPolicy?: string | undefined;
@@ -9193,7 +9205,7 @@ export interface StartRunRequest {
   configurationName?: string | undefined;
 
   /**
-   * Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+   * <p>Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.</p>
    * @public
    */
   sessionPolicy?: string | undefined;

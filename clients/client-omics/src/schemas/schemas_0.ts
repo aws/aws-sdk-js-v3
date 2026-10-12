@@ -739,6 +739,7 @@ const _vI = "vpcId";
 const _vIJ = "variantImportJobs";
 const _vN = "versionName";
 const _vO = "versionOptions";
+const _vOAI = "vpcOwnerAccountId";
 const _vOc = "vcfOptions";
 const _vS = "variantStores";
 const _vSB = "versionSizeBytes";
@@ -2284,13 +2285,13 @@ export var VersionDeleteError$: StaticStructureSchema = [3, n0, _VDE,
 ];
 export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   0,
-  [_sGI, _sIub],
-  [64 | 0, 64 | 0]
+  [_sGI, _sIub, _vOAI],
+  [64 | 0, 64 | 0, 0]
 ];
 export var VpcConfigResponse$: StaticStructureSchema = [3, n0, _VCR,
   0,
-  [_sGI, _sIub, _vI],
-  [64 | 0, 64 | 0, 0]
+  [_sGI, _sIub, _vI, _vOAI],
+  [64 | 0, 64 | 0, 0, 0]
 ];
 export var WorkflowListItem$: StaticStructureSchema = [3, n0, _WLI,
   0,

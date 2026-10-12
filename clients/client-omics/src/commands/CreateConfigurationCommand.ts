@@ -43,6 +43,7 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  *       subnetIds: [ // SubnetIds
  *         "STRING_VALUE",
  *       ],
+ *       vpcOwnerAccountId: "STRING_VALUE",
  *     },
  *   },
  *   tags: { // TagMap
@@ -66,6 +67,7 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * //         "STRING_VALUE",
  * //       ],
  * //       vpcId: "STRING_VALUE",
+ * //       vpcOwnerAccountId: "STRING_VALUE",
  * //     },
  * //   },
  * //   status: "STRING_VALUE",
