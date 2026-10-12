@@ -4,6 +4,8 @@ import type {
   AccountDefaultStatus,
   BooleanOperator,
   CrossAccountFilterOption,
+  HubContentSupportStatus,
+  HubContentType,
   IPAddressType,
   JobType,
   ModelApprovalStatus,
@@ -16,6 +18,7 @@ import type {
   ResourceType,
   RootAccess,
   SearchSortOrder,
+  ThroughputMode,
   TrackingServerSize,
   VendorGuidance,
   WorkforceIpAddressType,
@@ -27,6 +30,7 @@ import type {
   Tag,
 } from "./models_0";
 import type {
+  FeatureDefinition,
   InferenceComponentRuntimeConfig,
   InferenceComponentSpecification,
   InferenceExperimentDataStorageConfig,
@@ -59,14 +63,402 @@ import type {
   WorkerAccessConfiguration,
   WorkforceVpcConfigRequest,
 } from "./models_2";
-import type { Filter, InferenceComponentDeploymentConfig, Workforce, Workteam } from "./models_3";
+import type {
+  DesiredWeightAndCapacity,
+  FeatureParameter,
+  Filter,
+  InferenceComponentDeploymentConfig,
+  Workforce,
+  Workteam,
+} from "./models_3";
 import type {
   NestedFilters,
+  OnlineStoreConfigUpdate,
   ProfilerConfigForUpdate,
   RemoteDebugConfigForUpdate,
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * @public
+   */
+  EndpointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointWeightsAndCapacitiesInput {
+  /**
+   * <p>The name of an existing SageMaker endpoint.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>An object that provides new capacity and weight values for a variant.</p>
+   * @public
+   */
+  DesiredWeightsAndCapacities: DesiredWeightAndCapacity[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointWeightsAndCapacitiesOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated endpoint.</p>
+   * @public
+   */
+  EndpointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExperimentRequest {
+  /**
+   * <p>The name of the experiment to update.</p>
+   * @public
+   */
+  ExperimentName: string | undefined;
+
+  /**
+   * <p>The name of the experiment as displayed. The name doesn't need to be unique. If <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the experiment.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExperimentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   * @public
+   */
+  ExperimentArn?: string | undefined;
+}
+
+/**
+ * <p>The new throughput configuration for the feature group. You can switch between on-demand and provisioned modes or update the read / write capacity of provisioned feature groups. You can switch a feature group to on-demand only once in a 24 hour period. </p>
+ * @public
+ */
+export interface ThroughputConfigUpdate {
+  /**
+   * <p>Target throughput mode of the feature group. Throughput update is an asynchronous operation, and the outcome should be monitored by polling <code>LastUpdateStatus</code> field in <code>DescribeFeatureGroup</code> response. You cannot update a feature group's throughput while another update is in progress. </p>
+   * @public
+   */
+  ThroughputMode?: ThroughputMode | undefined;
+
+  /**
+   * <p>For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling. </p>
+   * @public
+   */
+  ProvisionedReadCapacityUnits?: number | undefined;
+
+  /**
+   * <p>For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling. </p>
+   * @public
+   */
+  ProvisionedWriteCapacityUnits?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFeatureGroupRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the feature group that you're updating.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>Updates the feature group. Updating a feature group is an asynchronous operation. When you get an HTTP 200 response, you've made a valid request. It takes some time after you've made a valid request for Feature Store to update the feature group.</p>
+   * @public
+   */
+  FeatureAdditions?: FeatureDefinition[] | undefined;
+
+  /**
+   * <p>Updates the feature group online store configuration.</p>
+   * @public
+   */
+  OnlineStoreConfig?: OnlineStoreConfigUpdate | undefined;
+
+  /**
+   * <p>The new throughput configuration for the feature group. You can switch between on-demand and provisioned modes or update the read / write capacity of provisioned feature groups. You can switch a feature group to on-demand only once in a 24 hour period. </p>
+   * @public
+   */
+  ThroughputConfig?: ThroughputConfigUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFeatureGroupResponse {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the feature group that you're updating.</p>
+   * @public
+   */
+  FeatureGroupArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFeatureMetadataRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the feature group containing the feature that you're updating.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature that you're updating.</p>
+   * @public
+   */
+  FeatureName: string | undefined;
+
+  /**
+   * <p>A description that you can write to better describe the feature.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs that you can add to better describe the feature.</p>
+   * @public
+   */
+  ParameterAdditions?: FeatureParameter[] | undefined;
+
+  /**
+   * <p>A list of parameter keys that you can specify to remove parameters that describe your feature.</p>
+   * @public
+   */
+  ParameterRemovals?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubRequest {
+  /**
+   * <p>The name of the hub to update.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>A description of the updated hub.</p>
+   * @public
+   */
+  HubDescription?: string | undefined;
+
+  /**
+   * <p>The display name of the hub.</p>
+   * @public
+   */
+  HubDisplayName?: string | undefined;
+
+  /**
+   * <p>The searchable keywords for the hub.</p>
+   * @public
+   */
+  HubSearchKeywords?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated hub.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentRequest {
+  /**
+   * <p>The name of the SageMaker hub that contains the hub content you want to update. You can optionally use the hub ARN instead.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The name of the hub content resource that you want to update.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The content type of the resource that you want to update. Only specify a <code>Model</code> or <code>Notebook</code> resource for this API. To update a <code>ModelReference</code>, use the <code>UpdateHubContentReference</code> API instead.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The hub content version that you want to update. For example, if you have two versions of a resource in your hub, you can update the second version.</p>
+   * @public
+   */
+  HubContentVersion: string | undefined;
+
+  /**
+   * <p>The display name of the hub content.</p>
+   * @public
+   */
+  HubContentDisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the hub content.</p>
+   * @public
+   */
+  HubContentDescription?: string | undefined;
+
+  /**
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formatting.</p>
+   * @public
+   */
+  HubContentMarkdown?: string | undefined;
+
+  /**
+   * <p>The searchable keywords of the hub content.</p>
+   * @public
+   */
+  HubContentSearchKeywords?: string[] | undefined;
+
+  /**
+   * <p>Indicates the current status of the hub content resource.</p>
+   * @public
+   */
+  SupportStatus?: HubContentSupportStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentResponse {
+  /**
+   * <p>The ARN of the private model hub that contains the updated hub content.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The ARN of the hub content resource that was updated.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentReferenceRequest {
+  /**
+   * <p>The name of the SageMaker hub that contains the hub content you want to update. You can optionally use the hub ARN instead.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The name of the hub content resource that you want to update.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The content type of the resource that you want to update. Only specify a <code>ModelReference</code> resource for this API. To update a <code>Model</code> or <code>Notebook</code> resource, use the <code>UpdateHubContent</code> API instead.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The minimum hub content version of the referenced model that you want to use. The minimum version must be older than the latest available version of the referenced model. To support all versions of a model, set the value to <code>1.0.0</code>.</p>
+   * @public
+   */
+  MinVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHubContentReferenceResponse {
+  /**
+   * <p>The ARN of the private model hub that contains the updated hub content.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The ARN of the hub content resource that was updated.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateImageRequest {
+  /**
+   * <p>A list of properties to delete. Only the <code>Description</code> and <code>DisplayName</code> properties can be deleted.</p>
+   * @public
+   */
+  DeleteProperties?: string[] | undefined;
+
+  /**
+   * <p>The new description for the image.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The new display name for the image.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The name of the image to update.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The new ARN for the IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateImageResponse {
+  /**
+   * <p>The ARN of the image.</p>
+   * @public
+   */
+  ImageArn?: string | undefined;
+}
 
 /**
  * @public

@@ -24,14 +24,10 @@ import type {
   DirectInternetAccess,
   DomainStatus,
   EdgePackagingJobStatus,
-  EndpointConfigSortKey,
-  EndpointSortKey,
   EndpointStatus,
   EventSortBy,
   ExecutionRoleIdentityConfig,
   ExecutionStatus,
-  FeatureGroupSortBy,
-  FeatureGroupSortOrder,
   FeatureGroupStatus,
   FeatureType,
   FlowDefinitionStatus,
@@ -63,7 +59,6 @@ import type {
   ListCompilationJobsSortBy,
   ListDeviceFleetsSortBy,
   ListEdgeDeploymentPlansSortBy,
-  ListEdgePackagingJobsSortBy,
   MaintenanceStatus,
   ManagedStorageType,
   MlflowAppStatus,
@@ -85,7 +80,6 @@ import type {
   Operator,
   OptimizationJobDeploymentInstanceType,
   OptimizationJobStatus,
-  OrderKey,
   PartnerAppAuthType,
   PartnerAppStatus,
   PartnerAppType,
@@ -116,16 +110,17 @@ import type {
   SortAssociationsBy,
   SortClusterSchedulerConfigBy,
   SortContextsBy,
-  SortExperimentsBy,
   SortOrder,
   SortQuotaBy,
   SpaceStatus,
   StudioLifecycleConfigAppType,
+  ThroughputMode,
   TrackingServerMaintenanceStatus,
   TrackingServerSize,
   TrackingServerStatus,
   TrainingJobStatus,
   TrainingPlanStatus,
+  TrainingSessionStatus,
   TransformJobStatus,
   UserProfileStatus,
   VendorGuidance,
@@ -156,13 +151,13 @@ import type {
   Autotune,
   AvailableUpgrade,
   BatchDataCaptureConfig,
+  BillableTokenUsage,
   CfnTemplateProviderDetail,
   Channel,
   CheckpointConfig,
   ClusterEventSummary,
   ClusterNodeSummary,
   ClusterSchedulerConfigSummary,
-  ClusterSummary,
   InferenceSpecification,
   OutputDataConfig,
   OutputParameter,
@@ -177,6 +172,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ClusterSummary,
   CodeRepositorySummary,
   CognitoConfig,
   CompilationJobSummary,
@@ -189,7 +185,11 @@ import type {
   EdgeOutputConfig,
   EndpointInfo,
   FeatureDefinition,
+  FlowDefinitionOutputConfig,
   HubS3StorageConfig,
+  HumanLoopActivationConfig,
+  HumanLoopConfig,
+  HumanLoopRequestSource,
   HumanTaskConfig,
   HyperParameterTrainingJobDefinition,
   HyperParameterTuningJobConfig,
@@ -227,7 +227,6 @@ import type {
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStoppingCondition,
-  NetworkConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
   ProductionVariantServerlessConfig,
@@ -252,19 +251,19 @@ import type {
   DeploymentRecommendation,
   ExperimentConfig,
   ExperimentSource,
-  FeatureParameter,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   LastUpdateStatus,
+  LoraConfig,
   MemberDefinition,
   MlflowConfig,
   ModelArtifacts,
   ModelClientConfig,
   ModelPackageConfig,
   MonitoringScheduleConfig,
+  NetworkConfig,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
-  OfflineStoreStatus,
   OptimizationConfig,
   OptimizationJobModelSource,
   OptimizationJobOutputConfig,
@@ -287,11 +286,343 @@ import type {
   SpaceSettings,
   SpaceSharingSettings,
   TensorBoardOutputConfig,
+  TrainingSessionModelConfig,
+  TrainingSessionOutputConfig,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * <p>The status of <code>OfflineStore</code>.</p>
+ * @public
+ */
+export interface OfflineStoreStatus {
+  /**
+   * <p>An <code>OfflineStore</code> status.</p>
+   * @public
+   */
+  Status: OfflineStoreStatusValue | undefined;
+
+  /**
+   * <p>The justification for why the OfflineStoreStatus is Blocked (if applicable).</p>
+   * @public
+   */
+  BlockedReason?: string | undefined;
+}
+
+/**
+ * <p>Active throughput configuration of the feature group. There are two modes: <code>ON_DEMAND</code> and <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled. </p> <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType"> <code>Standard</code> </a> tier online store. </p>
+ * @public
+ */
+export interface ThroughputConfigDescription {
+  /**
+   * <p>The mode used for your feature group throughput: <code>ON_DEMAND</code> or <code>PROVISIONED</code>. </p>
+   * @public
+   */
+  ThroughputMode: ThroughputMode | undefined;
+
+  /**
+   * <p> For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling. </p> <p>This field is not applicable for on-demand feature groups. </p>
+   * @public
+   */
+  ProvisionedReadCapacityUnits?: number | undefined;
+
+  /**
+   * <p> For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling. </p> <p>This field is not applicable for on-demand feature groups. </p>
+   * @public
+   */
+  ProvisionedWriteCapacityUnits?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFeatureGroupResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the <code>FeatureGroup</code>. </p>
+   * @public
+   */
+  FeatureGroupArn: string | undefined;
+
+  /**
+   * <p>he name of the <code>FeatureGroup</code>.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the <code>Feature</code> used for <code>RecordIdentifier</code>, whose value uniquely identifies a record stored in the feature store.</p>
+   * @public
+   */
+  RecordIdentifierFeatureName: string | undefined;
+
+  /**
+   * <p>The name of the feature that stores the <code>EventTime</code> of a Record in a <code>FeatureGroup</code>.</p> <p> An <code>EventTime</code> is a point in time when a new event occurs that corresponds to the creation or update of a <code>Record</code> in a <code>FeatureGroup</code>. All <code>Records</code> in the <code>FeatureGroup</code> have a corresponding <code>EventTime</code>.</p>
+   * @public
+   */
+  EventTimeFeatureName: string | undefined;
+
+  /**
+   * <p>A list of the <code>Features</code> in the <code>FeatureGroup</code>. Each feature is defined by a <code>FeatureName</code> and <code>FeatureType</code>.</p>
+   * @public
+   */
+  FeatureDefinitions: FeatureDefinition[] | undefined;
+
+  /**
+   * <p>A timestamp indicating when SageMaker created the <code>FeatureGroup</code>.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating when the feature group was last updated.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The configuration for the <code>OnlineStore</code>.</p>
+   * @public
+   */
+  OnlineStoreConfig?: OnlineStoreConfig | undefined;
+
+  /**
+   * <p>The configuration of the offline store. It includes the following configurations:</p> <ul> <li> <p>Amazon S3 location of the offline store.</p> </li> <li> <p>Configuration of the Glue data catalog.</p> </li> <li> <p>Table format of the offline store.</p> </li> <li> <p>Option to disable the automatic creation of a Glue table for the offline store.</p> </li> <li> <p>Encryption configuration.</p> </li> </ul>
+   * @public
+   */
+  OfflineStoreConfig?: OfflineStoreConfig | undefined;
+
+  /**
+   * <p>Active throughput configuration of the feature group. There are two modes: <code>ON_DEMAND</code> and <code>PROVISIONED</code>. With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled. </p> <p>Note: <code>PROVISIONED</code> throughput mode is supported only for feature groups that are offline-only, or use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType"> <code>Standard</code> </a> tier online store. </p>
+   * @public
+   */
+  ThroughputConfig?: ThroughputConfigDescription | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the OfflineStore if an OfflineStoreConfig is provided.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The status of the feature group.</p>
+   * @public
+   */
+  FeatureGroupStatus?: FeatureGroupStatus | undefined;
+
+  /**
+   * <p>The status of the <code>OfflineStore</code>. Notifies you if replicating data into the <code>OfflineStore</code> has failed. Returns either: <code>Active</code> or <code>Blocked</code> </p>
+   * @public
+   */
+  OfflineStoreStatus?: OfflineStoreStatus | undefined;
+
+  /**
+   * <p>A value indicating whether the update made to the feature group was successful.</p>
+   * @public
+   */
+  LastUpdateStatus?: LastUpdateStatus | undefined;
+
+  /**
+   * <p>The reason that the <code>FeatureGroup</code> failed to be replicated in the <code>OfflineStore</code>. This is failure can occur because:</p> <ul> <li> <p>The <code>FeatureGroup</code> could not be created in the <code>OfflineStore</code>.</p> </li> <li> <p>The <code>FeatureGroup</code> could not be deleted from the <code>OfflineStore</code>.</p> </li> </ul>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>A free form description of the feature group.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>).</p>
+   * @public
+   */
+  NextToken: string | undefined;
+
+  /**
+   * <p>The size of the <code>OnlineStore</code> in bytes.</p>
+   * @public
+   */
+  OnlineStoreTotalSizeBytes?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFeatureMetadataRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the feature group containing the feature.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature.</p>
+   * @public
+   */
+  FeatureName: string | undefined;
+}
+
+/**
+ * <p>A key-value pair that you specify to describe the feature.</p>
+ * @public
+ */
+export interface FeatureParameter {
+  /**
+   * <p>A key that must contain a value to describe the feature.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The value that belongs to a key.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFeatureMetadataResponse {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the feature group that contains the feature.</p>
+   * @public
+   */
+  FeatureGroupArn: string | undefined;
+
+  /**
+   * <p>The name of the feature group that you've specified.</p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature that you've specified.</p>
+   * @public
+   */
+  FeatureName: string | undefined;
+
+  /**
+   * <p>The data type of the feature.</p>
+   * @public
+   */
+  FeatureType: FeatureType | undefined;
+
+  /**
+   * <p>A timestamp indicating when the feature was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>A timestamp indicating when the metadata for the feature group was modified. For example, if you add a parameter describing the feature, the timestamp changes to reflect the last time you </p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The description you added to describe the feature.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The key-value pairs that you added to describe the feature.</p>
+   * @public
+   */
+  Parameters?: FeatureParameter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowDefinitionRequest {
+  /**
+   * <p>The name of the flow definition.</p>
+   * @public
+   */
+  FlowDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow defintion.</p>
+   * @public
+   */
+  FlowDefinitionArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
+   * @public
+   */
+  FlowDefinitionName: string | undefined;
+
+  /**
+   * <p>The status of the flow definition. Valid values are listed below.</p>
+   * @public
+   */
+  FlowDefinitionStatus: FlowDefinitionStatus | undefined;
+
+  /**
+   * <p>The timestamp when the flow definition was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Container for configuring the source of human task requests. Used to specify if Amazon Rekognition or Amazon Textract is used as an integration source.</p>
+   * @public
+   */
+  HumanLoopRequestSource?: HumanLoopRequestSource | undefined;
+
+  /**
+   * <p>An object containing information about what triggers a human review workflow.</p>
+   * @public
+   */
+  HumanLoopActivationConfig?: HumanLoopActivationConfig | undefined;
+
+  /**
+   * <p>An object containing information about who works on the task, the workforce task price, and other task details.</p>
+   * @public
+   */
+  HumanLoopConfig?: HumanLoopConfig | undefined;
+
+  /**
+   * <p>An object containing information about the output file.</p>
+   * @public
+   */
+  OutputConfig: FlowDefinitionOutputConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) execution role for the flow definition.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The reason your flow definition failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHubRequest {
+  /**
+   * <p>The name of the hub to describe.</p>
+   * @public
+   */
+  HubName: string | undefined;
+}
 
 /**
  * @public
@@ -5732,6 +6063,130 @@ export interface DescribeTrainingPlanExtensionHistoryResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrainingSessionRequest {
+  /**
+   * <p>The name of the training session to describe.</p>
+   * @public
+   */
+  TrainingSessionName: string | undefined;
+}
+
+/**
+ * <p>Contains detailed information about a training session.</p>
+ * @public
+ */
+export interface TrainingSessionDetail {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training session.</p>
+   * @public
+   */
+  TrainingSessionArn: string | undefined;
+
+  /**
+   * <p>The name of the training session.</p>
+   * @public
+   */
+  TrainingSessionName: string | undefined;
+
+  /**
+   * <p>The current status of the training session.</p>
+   * @public
+   */
+  TrainingSessionStatus: TrainingSessionStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package group where checkpoints are published.</p>
+   * @public
+   */
+  ModelPackageGroupArn?: string | undefined;
+
+  /**
+   * <p>The date and time that the training session was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the training session was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The date and time that the training session ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>If the training session failed or is blocked, detailed error information.</p>
+   * @public
+   */
+  ErrorDetails?: string | undefined;
+
+  /**
+   * <p>The sequence number of the last training operation received by the session.</p>
+   * @public
+   */
+  LastReceivedSequenceNumber?: number | undefined;
+
+  /**
+   * <p>The billable token usage for the training session.</p>
+   * @public
+   */
+  BillableTokenUsage?: BillableTokenUsage | undefined;
+
+  /**
+   * <p>The Virtual Private Cloud (VPC) configuration for the training session.</p>
+   * @public
+   */
+  VpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the training session.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The Low-Rank Adaptation (LoRA) configuration for the training session.</p>
+   * @public
+   */
+  LoraConfig?: LoraConfig | undefined;
+
+  /**
+   * <p>The configuration for the base model.</p>
+   * @public
+   */
+  ModelConfig?: TrainingSessionModelConfig | undefined;
+
+  /**
+   * <p>The output configuration for the training session.</p>
+   * @public
+   */
+  OutputConfig?: TrainingSessionOutputConfig | undefined;
+
+  /**
+   * <p>The tags associated with the training session.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrainingSessionResponse {
+  /**
+   * <p>The detailed information about the training session.</p>
+   * @public
+   */
+  TrainingSessionDetail: TrainingSessionDetail | undefined;
 }
 
 /**
@@ -11505,424 +11960,4 @@ export interface ListEdgeDeploymentPlansRequest {
    * @public
    */
   SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEdgeDeploymentPlansResponse {
-  /**
-   * <p>List of summaries of edge deployment plans.</p>
-   * @public
-   */
-  EdgeDeploymentPlanSummaries: EdgeDeploymentPlanSummary[] | undefined;
-
-  /**
-   * <p>The token to use when calling the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEdgePackagingJobsRequest {
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Maximum number of results to select.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Select jobs where the job was created after specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Select jobs where the job was created before specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Select jobs where the job was updated after specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Select jobs where the job was updated before specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Filter for jobs containing this name in their packaging job name.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Filter for jobs where the model name contains this string.</p>
-   * @public
-   */
-  ModelNameContains?: string | undefined;
-
-  /**
-   * <p>The job status to filter for.</p>
-   * @public
-   */
-  StatusEquals?: EdgePackagingJobStatus | undefined;
-
-  /**
-   * <p>Use to specify what column to sort by.</p>
-   * @public
-   */
-  SortBy?: ListEdgePackagingJobsSortBy | undefined;
-
-  /**
-   * <p>What direction to sort by.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEdgePackagingJobsResponse {
-  /**
-   * <p>Summaries of edge packaging jobs.</p>
-   * @public
-   */
-  EdgePackagingJobSummaries: EdgePackagingJobSummary[] | undefined;
-
-  /**
-   * <p>Token to use when calling the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEndpointConfigsInput {
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: EndpointConfigSortKey | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: OrderKey | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListEndpointConfig</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of endpoint configurations, use the token in the next request. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of training jobs to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A string in the endpoint configuration name. This filter returns only endpoint configurations whose name contains the specified string. </p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that returns only endpoint configurations created before the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only endpoint configurations with a creation time greater than or equal to the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEndpointConfigsOutput {
-  /**
-   * <p>An array of endpoint configurations.</p>
-   * @public
-   */
-  EndpointConfigs: EndpointConfigSummary[] | undefined;
-
-  /**
-   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of endpoint configurations, use it in the subsequent request </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEndpointsInput {
-  /**
-   * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: EndpointSortKey | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: OrderKey | undefined;
-
-  /**
-   * <p>If the result of a <code>ListEndpoints</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of endpoints, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of endpoints to return in the response. This value defaults to 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A string in endpoint names. This filter returns only endpoints whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that returns only endpoints that were created before the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only endpoints with a creation time greater than or equal to the specified time (timestamp).</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p> A filter that returns only endpoints that were modified before the specified timestamp. </p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p> A filter that returns only endpoints that were modified after the specified timestamp. </p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p> A filter that returns only endpoints with the specified status.</p>
-   * @public
-   */
-  StatusEquals?: EndpointStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEndpointsOutput {
-  /**
-   * <p> An array or endpoint objects. </p>
-   * @public
-   */
-  Endpoints: EndpointSummary[] | undefined;
-
-  /**
-   * <p> If the response is truncated, SageMaker returns this token. To retrieve the next set of training jobs, use it in the subsequent request. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListExperimentsRequest {
-  /**
-   * <p>A filter that returns only experiments created after the specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only experiments created before the specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortExperimentsBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListExperiments</code> didn't return the full set of experiments, the call returns a token for getting the next set of experiments.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of experiments to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListExperimentsResponse {
-  /**
-   * <p>A list of the summaries of your experiments.</p>
-   * @public
-   */
-  ExperimentSummaries?: ExperimentSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of experiments, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFeatureGroupsRequest {
-  /**
-   * <p>A string that partially matches one or more <code>FeatureGroup</code>s names. Filters <code>FeatureGroup</code>s by name. </p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A <code>FeatureGroup</code> status. Filters by <code>FeatureGroup</code> status. </p>
-   * @public
-   */
-  FeatureGroupStatusEquals?: FeatureGroupStatus | undefined;
-
-  /**
-   * <p>An <code>OfflineStore</code> status. Filters by <code>OfflineStore</code> status. </p>
-   * @public
-   */
-  OfflineStoreStatusEquals?: OfflineStoreStatusValue | undefined;
-
-  /**
-   * <p>Use this parameter to search for <code>FeatureGroups</code>s created after a specific date and time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Use this parameter to search for <code>FeatureGroups</code>s created before a specific date and time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The order in which feature groups are listed.</p>
-   * @public
-   */
-  SortOrder?: FeatureGroupSortOrder | undefined;
-
-  /**
-   * <p>The value on which the feature group list is sorted.</p>
-   * @public
-   */
-  SortBy?: FeatureGroupSortBy | undefined;
-
-  /**
-   * <p>The maximum number of results returned by <code>ListFeatureGroups</code>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token to resume pagination of <code>ListFeatureGroups</code> results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFeatureGroupsResponse {
-  /**
-   * <p>A summary of feature groups.</p>
-   * @public
-   */
-  FeatureGroupSummaries: FeatureGroupSummary[] | undefined;
-
-  /**
-   * <p>A token to resume pagination of <code>ListFeatureGroups</code> results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFlowDefinitionsRequest {
-  /**
-   * <p>A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only flow definitions that were created before the specified timestamp.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }

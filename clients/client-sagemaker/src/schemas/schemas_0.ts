@@ -263,6 +263,7 @@ const _Ag = "Aggregation";
 const _Al = "Alarms";
 const _Ali = "Aliases";
 const _Alia = "Alias";
+const _Alp = "Alpha";
 const _Ap = "Apps";
 const _Ar = "Arn";
 const _Arc = "Arch";
@@ -333,6 +334,7 @@ const _BTC = "BillableTokenCount";
 const _BTI = "BatchTransformInput";
 const _BTIS = "BillableTimeInSeconds";
 const _BTJ = "BestTrainingJob";
+const _BTU = "BillableTokenUsage";
 const _BU = "BaseUrl";
 const _BUFDCC = "BaselineUsedForDriftCheckConstraints";
 const _BUFDCS = "BaselineUsedForDriftCheckStatistics";
@@ -794,7 +796,10 @@ const _CTPf = "CfnTemplateProvider";
 const _CTPr = "CreateTrainingPlan";
 const _CTR = "CreateTrialRequest";
 const _CTRr = "CreateTrialResponse";
+const _CTS = "CreateTrainingSession";
 const _CTSC = "ClusterTieredStorageConfig";
+const _CTSR = "CreateTrainingSessionRequest";
+const _CTSRr = "CreateTrainingSessionResponse";
 const _CTa = "CallbackToken";
 const _CTap = "CapacityType";
 const _CTh = "ChannelType";
@@ -1343,6 +1348,12 @@ const _DTR = "DeleteTrialRequest";
 const _DTRe = "DeleteTrialResponse";
 const _DTRes = "DescribeTrialRequest";
 const _DTResc = "DescribeTrialResponse";
+const _DTS = "DeleteTrainingSession";
+const _DTSR = "DeleteTrainingSessionRequest";
+const _DTSRe = "DeleteTrainingSessionResponse";
+const _DTSRes = "DescribeTrainingSessionRequest";
+const _DTSResc = "DescribeTrainingSessionResponse";
+const _DTSe = "DescribeTrainingSession";
 const _DTe = "DesiredTaints";
 const _DTel = "DeleteTags";
 const _DTele = "DeleteTrial";
@@ -1429,6 +1440,7 @@ const _EDSM = "EdgeDeploymentStatusMessage";
 const _EDSST = "EdgeDeploymentStageStartTime";
 const _EDSd = "EdgeDeploymentStatus";
 const _EDn = "EndDate";
+const _EDr = "ErrorDetails";
 const _EE = "EfaEnis";
 const _EEM = "EnableEnhancedMetrics";
 const _EET = "ExtensionEndTime";
@@ -1928,6 +1940,7 @@ const _KC = "KubernetesConfig";
 const _KGAS = "KernelGatewayAppSettings";
 const _KGIC = "KernelGatewayImageConfig";
 const _KK = "KmsKey";
+const _KKA = "KmsKeyArn";
 const _KKI = "KmsKeyId";
 const _KS = "KendraSettings";
 const _KSe = "KernelSpecs";
@@ -1969,7 +1982,7 @@ const _LAistp = "ListApps";
 const _LAistr = "ListArtifacts";
 const _LAists = "ListAssociations";
 const _LBTJ = "LastBatchTransformJob";
-const _LC = "LabelCounters";
+const _LC = "LoraConfig";
 const _LCA = "LifecycleConfigArns";
 const _LCAi = "LifecycleConfigArn";
 const _LCC = "LifeCycleConfig";
@@ -2001,6 +2014,7 @@ const _LCRisto = "ListCodeRepositories";
 const _LCSC = "ListClusterSchedulerConfigs";
 const _LCSCR = "ListClusterSchedulerConfigsRequest";
 const _LCSCRi = "ListClusterSchedulerConfigsResponse";
+const _LCa = "LabelCounters";
 const _LCi = "ListClusters";
 const _LCis = "ListContexts";
 const _LD = "ListDevices";
@@ -2216,6 +2230,7 @@ const _LPis = "ListProjects";
 const _LRC = "ListResourceCatalogs";
 const _LRCR = "ListResourceCatalogsRequest";
 const _LRCRi = "ListResourceCatalogsResponse";
+const _LRSN = "LastReceivedSequenceNumber";
 const _LRT = "LastRunTime";
 const _LS = "ListSpaces";
 const _LSD = "ListStageDevices";
@@ -2254,6 +2269,9 @@ const _LTPR = "ListTrainingPlansRequest";
 const _LTPRi = "ListTrainingPlansResponse";
 const _LTR = "ListTrialsRequest";
 const _LTRi = "ListTrialsResponse";
+const _LTS = "ListTrainingSessions";
+const _LTSR = "ListTrainingSessionsRequest";
+const _LTSRi = "ListTrainingSessionsResponse";
 const _LTi = "LineageTypes";
 const _LTin = "LineageType";
 const _LTis = "ListTags";
@@ -2346,7 +2364,8 @@ const _MCi = "MinCount";
 const _MCin = "MinCapacity";
 const _MCo = "ModelConfigs";
 const _MCod = "ModelCard";
-const _MCode = "ModelConfiguration";
+const _MCode = "ModelConfig";
+const _MCodel = "ModelConfiguration";
 const _MD = "ModelDetails";
 const _MDC = "ModelDeployConfig";
 const _MDDTIS = "ModelDataDownloadTimeoutInSeconds";
@@ -2831,8 +2850,9 @@ const _PSro = "ProfilingStatus";
 const _PSroj = "ProjectSummary";
 const _PT = "PerformanceTarget";
 const _PTA = "ProbabilityThresholdAttribute";
-const _PTC = "PreTrainingConstraints";
+const _PTC = "PrefillTokenCount";
 const _PTCo = "PostTrainingConstraints";
+const _PTCr = "PreTrainingConstraints";
 const _PTR = "PreTrainingReport";
 const _PTRa = "ParametersToRemove";
 const _PTRo = "PostTrainingReport";
@@ -2869,6 +2889,7 @@ const _Pa = "Parquet";
 const _Par = "Parameter";
 const _Pare = "Parent";
 const _Paren = "Parents";
+const _Pat = "Path";
 const _Pe = "Percentage";
 const _Pef = "Peft";
 const _Pen = "Pending";
@@ -3014,6 +3035,7 @@ const _RUTRe = "RenderUiTemplateResponse";
 const _RV = "RootVolume";
 const _RWT = "RecordWrapperType";
 const _Ra = "Range";
+const _Ran = "Rank";
 const _Re = "Recommendations";
 const _Rea = "Reason";
 const _Reg = "Regex";
@@ -3164,6 +3186,7 @@ const _SLCL = "StudioLifecycleConfigsList";
 const _SLCN = "StudioLifecycleConfigName";
 const _SLJ = "StopLabelingJob";
 const _SLJR = "StopLabelingJobRequest";
+const _SLo = "S3Location";
 const _SLp = "SpaceList";
 const _SM = "StatusMessage";
 const _SMA = "S3ModelArtifacts";
@@ -3280,6 +3303,7 @@ const _STAc = "ScheduledTimeAfter";
 const _STAt = "StartTimeAfter";
 const _STB = "ScheduledTimeBefore";
 const _STBt = "StartTimeBefore";
+const _STC = "SampleTokenCount";
 const _STIT = "SupportedTransformInstanceTypes";
 const _STITu = "SupportedTrainingInstanceTypes";
 const _STJ = "StopTrainingJob";
@@ -3291,6 +3315,9 @@ const _STO = "StartTimeOffset";
 const _STPO = "SearchTrainingPlanOfferings";
 const _STPOR = "SearchTrainingPlanOfferingsRequest";
 const _STPORe = "SearchTrainingPlanOfferingsResponse";
+const _STS = "StopTrainingSession";
+const _STSR = "StopTrainingSessionRequest";
+const _STSRt = "StopTrainingSessionResponse";
 const _STc = "ScalingType";
 const _STch = "ScheduledTime";
 const _STh = "SharingType";
@@ -3477,20 +3504,29 @@ const _TRCr = "TrafficRoutingConfig";
 const _TRa = "TargetResources";
 const _TS = "TrainingSpecification";
 const _TSA = "TrackingServerArn";
+const _TSAr = "TrainingSessionArn";
 const _TSC = "TargetStateCount";
 const _TSCPE = "TotalStepCountPerEpoch";
 const _TSCi = "TieredStorageConfig";
 const _TSCim = "TimeSeriesConfig";
+const _TSD = "TrainingSessionDetail";
 const _TSDS = "TransformS3DataSource";
 const _TSFJC = "TimeSeriesForecastingJobConfig";
 const _TSFS = "TimeSeriesForecastingSettings";
+const _TSMC = "TrainingSessionModelConfig";
 const _TSMS = "TrackingServerMaintenanceStatus";
 const _TSN = "TrackingServerName";
+const _TSNr = "TrainingSessionName";
+const _TSOC = "TrainingSessionOutputConfig";
 const _TSS = "TrackingServerSize";
-const _TSSL = "TrackingServerSummaryList";
+const _TSSL = "TrainingSessionS3Location";
+const _TSSLr = "TrackingServerSummaryList";
 const _TSSr = "TrackingServerStatus";
 const _TSSra = "TrackingServerSummaries";
 const _TSSrac = "TrackingServerSummary";
+const _TSSrai = "TrainingSessionSummaries";
+const _TSSrain = "TrainingSessionStatus";
+const _TSSraini = "TrainingSessionSummary";
 const _TST = "TrainingStartTime";
 const _TSTi = "TimeSeriesTransformations";
 const _TSTr = "TransformStartTime";
@@ -3500,6 +3536,7 @@ const _TSr = "TrialSummaries";
 const _TSri = "TrialSource";
 const _TSria = "TrialSummary";
 const _TT = "TaskTitle";
+const _TTC = "TrainingTokenCount";
 const _TTIS = "TrainingTimeInSeconds";
 const _TTLIS = "TaskTimeLimitInSeconds";
 const _TTSPC = "TargetTrackingScalingPolicyConfiguration";
@@ -4459,6 +4496,11 @@ export var Bias$: StaticStructureSchema = [3, n0, _B,
   0,
   [_R, _PTR, _PTRo],
   [() => MetricsSource$, () => MetricsSource$, () => MetricsSource$]
+];
+export var BillableTokenUsage$: StaticStructureSchema = [3, n0, _BTU,
+  0,
+  [_PTC, _STC, _TTC],
+  [1, 1, 1]
 ];
 export var BlueGreenUpdatePolicy$: StaticStructureSchema = [3, n0, _BGUP,
   0,
@@ -5600,6 +5642,16 @@ export var CreateTrainingPlanResponse$: StaticStructureSchema = [3, n0, _CTPRr,
   [_TPA],
   [0], 1
 ];
+export var CreateTrainingSessionRequest$: StaticStructureSchema = [3, n0, _CTSR,
+  0,
+  [_TSNr, _LC, _RAo, _MCode, _OCu, _MPGA, _VC, _Ta],
+  [0, () => LoraConfig$, 0, () => TrainingSessionModelConfig$, () => TrainingSessionOutputConfig$, 0, () => VpcConfig$, () => TagList], 5
+];
+export var CreateTrainingSessionResponse$: StaticStructureSchema = [3, n0, _CTSRr,
+  0,
+  [_TSAr],
+  [0], 1
+];
 export var CreateTransformJobRequest$: StaticStructureSchema = [3, n0, _CTJRre,
   0,
   [_TJNr, _MNod, _TIr, _TO, _TR, _MCT, _MCCo, _MPIMB, _BS, _E, _DCC, _DP, _Ta, _ECxp],
@@ -6145,6 +6197,16 @@ export var DeleteTrainingJobRequest$: StaticStructureSchema = [3, n0, _DTJR,
   [_TJN],
   [0], 1
 ];
+export var DeleteTrainingSessionRequest$: StaticStructureSchema = [3, n0, _DTSR,
+  0,
+  [_TSNr],
+  [0], 1
+];
+export var DeleteTrainingSessionResponse$: StaticStructureSchema = [3, n0, _DTSRe,
+  0,
+  [],
+  []
+];
 export var DeleteTrialComponentRequest$: StaticStructureSchema = [3, n0, _DTCR,
   0,
   [_TCN],
@@ -6647,7 +6709,7 @@ export var DescribeLabelingJobRequest$: StaticStructureSchema = [3, n0, _DLJR,
 ];
 export var DescribeLabelingJobResponse$: StaticStructureSchema = [3, n0, _DLJRe,
   0,
-  [_LJS, _LC, _CT, _LMT, _JRC, _LJN, _LJA, _ICnp, _OCu, _RAo, _HTC, _FR, _LAN, _LCCSU, _SCto, _LJAC, _Ta, _LJO],
+  [_LJS, _LCa, _CT, _LMT, _JRC, _LJN, _LJA, _ICnp, _OCu, _RAo, _HTC, _FR, _LAN, _LCCSU, _SCto, _LJAC, _Ta, _LJO],
   [0, () => LabelCounters$, 4, 4, 0, 0, 0, () => LabelingJobInputConfig$, () => LabelingJobOutputConfig$, 0, () => HumanTaskConfig$, 0, 0, 0, () => LabelingJobStoppingConditions$, () => LabelingJobAlgorithmsConfig$, () => TagList, () => LabelingJobOutput$], 11
 ];
 export var DescribeLineageGroupRequest$: StaticStructureSchema = [3, n0, _DLGR,
@@ -6930,6 +6992,16 @@ export var DescribeTrainingPlanResponse$: StaticStructureSchema = [3, n0, _DTPRe
   [_TPA, _TPN, _St, _SM, _DH, _DM, _STt, _ETn, _UF, _CCur, _TICo, _AICv, _IUIC, _UIC, _ASIC, _TUSC, _TRa, _RCS],
   [0, 0, 0, 0, 1, 1, 4, 4, 0, 0, 1, 1, 1, 1, 1, 1, 64 | 0, () => ReservedCapacitySummaries], 3
 ];
+export var DescribeTrainingSessionRequest$: StaticStructureSchema = [3, n0, _DTSRes,
+  0,
+  [_TSNr],
+  [0], 1
+];
+export var DescribeTrainingSessionResponse$: StaticStructureSchema = [3, n0, _DTSResc,
+  0,
+  [_TSD],
+  [() => TrainingSessionDetail$], 1
+];
 export var DescribeTransformJobRequest$: StaticStructureSchema = [3, n0, _DTJResc,
   0,
   [_TJNr],
@@ -7087,7 +7159,7 @@ export var DriftCheckBaselines$: StaticStructureSchema = [3, n0, _DCB,
 ];
 export var DriftCheckBias$: StaticStructureSchema = [3, n0, _DCBr,
   0,
-  [_CF, _PTC, _PTCo],
+  [_CF, _PTCr, _PTCo],
   [() => FileSource$, () => MetricsSource$, () => MetricsSource$]
 ];
 export var DriftCheckExplainability$: StaticStructureSchema = [3, n0, _DCE,
@@ -7827,7 +7899,7 @@ export var InferenceMetrics$: StaticStructureSchema = [3, n0, _IMn,
 ];
 export var InferenceRecommendation$: StaticStructureSchema = [3, n0, _IRnfe,
   0,
-  [_ECnd, _MCode, _RIe, _Met, _IET, _IST],
+  [_ECnd, _MCodel, _RIe, _Met, _IET, _IST],
   [() => EndpointOutputConfiguration$, () => ModelConfiguration$, 0, () => RecommendationMetrics$, 4, 4], 2
 ];
 export var InferenceRecommendationsJob$: StaticStructureSchema = [3, n0, _IRJ,
@@ -7980,7 +8052,7 @@ export var KernelSpec$: StaticStructureSchema = [3, n0, _KSer,
   [_N, _DNi],
   [0, 0], 1
 ];
-export var LabelCounters$: StaticStructureSchema = [3, n0, _LC,
+export var LabelCounters$: StaticStructureSchema = [3, n0, _LCa,
   0,
   [_TL, _HL, _MLa, _FNRE, _Unl],
   [1, 1, 1, 1, 1]
@@ -8007,7 +8079,7 @@ export var LabelingJobDataSource$: StaticStructureSchema = [3, n0, _LJDS,
 ];
 export var LabelingJobForWorkteamSummary$: StaticStructureSchema = [3, n0, _LJFWS,
   0,
-  [_JRC, _WRAI, _CT, _LJN, _LC, _NOHWPDO],
+  [_JRC, _WRAI, _CT, _LJN, _LCa, _NOHWPDO],
   [0, 0, 4, 0, () => LabelCountersForWorkteam$, 1], 3
 ];
 export var LabelingJobInputConfig$: StaticStructureSchema = [3, n0, _LJIC,
@@ -8047,7 +8119,7 @@ export var LabelingJobStoppingConditions$: StaticStructureSchema = [3, n0, _LJSC
 ];
 export var LabelingJobSummary$: StaticStructureSchema = [3, n0, _LJSa,
   0,
-  [_LJN, _LJA, _CT, _LMT, _LJS, _LC, _WAo, _PHTLA, _ACLA, _FR, _LJO, _ICnp],
+  [_LJN, _LJA, _CT, _LMT, _LJS, _LCa, _WAo, _PHTLA, _ACLA, _FR, _LJO, _ICnp],
   [0, 0, 4, 4, 0, () => LabelCounters$, 0, 0, 0, 0, () => LabelingJobOutput$, () => LabelingJobInputConfig$], 7
 ];
 export var LambdaStepMetadata$: StaticStructureSchema = [3, n0, _LSM,
@@ -8900,6 +8972,16 @@ export var ListTrainingPlansResponse$: StaticStructureSchema = [3, n0, _LTPRi,
   [_TPSr, _NTe],
   [() => TrainingPlanSummaries, 0], 1
 ];
+export var ListTrainingSessionsRequest$: StaticStructureSchema = [3, n0, _LTSR,
+  0,
+  [_NTe, _MR, _CTA, _CTB, _NCa, _SE],
+  [0, 1, 4, 4, 0, 0]
+];
+export var ListTrainingSessionsResponse$: StaticStructureSchema = [3, n0, _LTSRi,
+  0,
+  [_NTe, _TSSrai],
+  [0, () => TrainingSessionSummaries]
+];
 export var ListTransformJobsRequest$: StaticStructureSchema = [3, n0, _LTJRis,
   0,
   [_CTA, _CTB, _LMTA, _LMTB, _NCa, _SE, _SBo, _SO, _NTe, _MR],
@@ -8969,6 +9051,11 @@ export var ListWorkteamsResponse$: StaticStructureSchema = [3, n0, _LWRist,
   0,
   [_Work, _NTe],
   [() => Workteams, 0], 1
+];
+export var LoraConfig$: StaticStructureSchema = [3, n0, _LC,
+  0,
+  [_Ran, _Alp],
+  [1, 1], 2
 ];
 export var ManagedConfiguration$: StaticStructureSchema = [3, n0, _MCan,
   0,
@@ -9110,7 +9197,7 @@ export var ModelCompilationConfig$: StaticStructureSchema = [3, n0, _MCCod,
   [_Im, _OEv],
   [0, 128 | 0]
 ];
-export var ModelConfiguration$: StaticStructureSchema = [3, n0, _MCode,
+export var ModelConfiguration$: StaticStructureSchema = [3, n0, _MCodel,
   0,
   [_ISN, _EPnvi, _CJN],
   [0, () => EnvironmentParameters, 0]
@@ -9987,7 +10074,7 @@ export var RecommendationJobContainerConfig$: StaticStructureSchema = [3, n0, _R
 ];
 export var RecommendationJobInferenceBenchmark$: StaticStructureSchema = [3, n0, _RJIB,
   0,
-  [_MCode, _Met, _EMnd, _ECnd, _FR, _IET, _IST],
+  [_MCodel, _Met, _EMnd, _ECnd, _FR, _IET, _IST],
   [() => ModelConfiguration$, () => RecommendationMetrics$, () => InferenceMetrics$, () => EndpointOutputConfiguration$, 0, 4, 4], 1
 ];
 export var RecommendationJobInputConfig$: StaticStructureSchema = [3, n0, _RJIC,
@@ -10610,6 +10697,16 @@ export var StopTrainingJobRequest$: StaticStructureSchema = [3, n0, _STJR,
   [_TJN],
   [0], 1
 ];
+export var StopTrainingSessionRequest$: StaticStructureSchema = [3, n0, _STSR,
+  0,
+  [_TSNr],
+  [0], 1
+];
+export var StopTrainingSessionResponse$: StaticStructureSchema = [3, n0, _STSRt,
+  0,
+  [],
+  []
+];
 export var StopTransformJobRequest$: StaticStructureSchema = [3, n0, _STJRt,
   0,
   [_TJNr],
@@ -10809,6 +10906,31 @@ export var TrainingRepositoryAuthConfig$: StaticStructureSchema = [3, n0, _TRAC,
   0,
   [_TRCPA],
   [0], 1
+];
+export var TrainingSessionDetail$: StaticStructureSchema = [3, n0, _TSD,
+  0,
+  [_TSAr, _TSNr, _TSSrain, _CT, _MPGA, _LMT, _ETn, _EDr, _LRSN, _BTU, _VC, _RAo, _LC, _MCode, _OCu, _Ta],
+  [0, 0, 0, 4, 0, 4, 4, 0, 1, () => BillableTokenUsage$, () => VpcConfig$, 0, () => LoraConfig$, () => TrainingSessionModelConfig$, () => TrainingSessionOutputConfig$, () => TagList], 4
+];
+export var TrainingSessionModelConfig$: StaticStructureSchema = [3, n0, _TSMC,
+  0,
+  [_BMA, _AEc],
+  [0, 2], 1
+];
+export var TrainingSessionOutputConfig$: StaticStructureSchema = [3, n0, _TSOC,
+  0,
+  [_SLo],
+  [() => TrainingSessionS3Location$], 1
+];
+export var TrainingSessionS3Location$: StaticStructureSchema = [3, n0, _TSSL,
+  0,
+  [_Pat, _KKA],
+  [0, 0], 1
+];
+export var TrainingSessionSummary$: StaticStructureSchema = [3, n0, _TSSraini,
+  0,
+  [_TSAr, _TSSrain, _CT, _LMT],
+  [0, 0, 4, 4], 3
 ];
 export var TrainingSpecification$: StaticStructureSchema = [3, n0, _TS,
   0,
@@ -12271,7 +12393,7 @@ var TaskKeywords = 64 | 0;
 var TemplateProviderDetailList: StaticListSchema = [1, n0, _TPDL,
   0, () => TemplateProviderDetail$
 ];
-var TrackingServerSummaryList: StaticListSchema = [1, n0, _TSSL,
+var TrackingServerSummaryList: StaticListSchema = [1, n0, _TSSLr,
   0, () => TrackingServerSummary$
 ];
 var TrainingContainerArguments = 64 | 0;
@@ -12296,6 +12418,9 @@ var TrainingPlanOfferings: StaticListSchema = [1, n0, _TPO,
 ];
 var TrainingPlanSummaries: StaticListSchema = [1, n0, _TPSr,
   0, () => TrainingPlanSummary$
+];
+var TrainingSessionSummaries: StaticListSchema = [1, n0, _TSSrai,
+  0, () => TrainingSessionSummary$
 ];
 var TransformInstanceTypes = 64 | 0;
 var TransformJobSummaries: StaticListSchema = [1, n0, _TJSran,
@@ -12702,6 +12827,9 @@ export var CreateTrainingJob$: StaticOperationSchema = [9, n0, _CTJ,
 export var CreateTrainingPlan$: StaticOperationSchema = [9, n0, _CTPr,
   0, () => CreateTrainingPlanRequest$, () => CreateTrainingPlanResponse$
 ];
+export var CreateTrainingSession$: StaticOperationSchema = [9, n0, _CTS,
+  0, () => CreateTrainingSessionRequest$, () => CreateTrainingSessionResponse$
+];
 export var CreateTransformJob$: StaticOperationSchema = [9, n0, _CTJr,
   0, () => CreateTransformJobRequest$, () => CreateTransformJobResponse$
 ];
@@ -12890,6 +13018,9 @@ export var DeleteTags$: StaticOperationSchema = [9, n0, _DTel,
 ];
 export var DeleteTrainingJob$: StaticOperationSchema = [9, n0, _DTJ,
   0, () => DeleteTrainingJobRequest$, () => __Unit
+];
+export var DeleteTrainingSession$: StaticOperationSchema = [9, n0, _DTS,
+  0, () => DeleteTrainingSessionRequest$, () => DeleteTrainingSessionResponse$
 ];
 export var DeleteTrial$: StaticOperationSchema = [9, n0, _DTele,
   0, () => DeleteTrialRequest$, () => DeleteTrialResponse$
@@ -13118,6 +13249,9 @@ export var DescribeTrainingPlan$: StaticOperationSchema = [9, n0, _DTP,
 ];
 export var DescribeTrainingPlanExtensionHistory$: StaticOperationSchema = [9, n0, _DTPEH,
   0, () => DescribeTrainingPlanExtensionHistoryRequest$, () => DescribeTrainingPlanExtensionHistoryResponse$
+];
+export var DescribeTrainingSession$: StaticOperationSchema = [9, n0, _DTSe,
+  0, () => DescribeTrainingSessionRequest$, () => DescribeTrainingSessionResponse$
 ];
 export var DescribeTransformJob$: StaticOperationSchema = [9, n0, _DTJes,
   0, () => DescribeTransformJobRequest$, () => DescribeTransformJobResponse$
@@ -13422,6 +13556,9 @@ export var ListTrainingJobsForHyperParameterTuningJob$: StaticOperationSchema = 
 export var ListTrainingPlans$: StaticOperationSchema = [9, n0, _LTP,
   0, () => ListTrainingPlansRequest$, () => ListTrainingPlansResponse$
 ];
+export var ListTrainingSessions$: StaticOperationSchema = [9, n0, _LTS,
+  0, () => ListTrainingSessionsRequest$, () => ListTrainingSessionsResponse$
+];
 export var ListTransformJobs$: StaticOperationSchema = [9, n0, _LTJi,
   0, () => ListTransformJobsRequest$, () => ListTransformJobsResponse$
 ];
@@ -13547,6 +13684,9 @@ export var StopProcessingJob$: StaticOperationSchema = [9, n0, _SPJ,
 ];
 export var StopTrainingJob$: StaticOperationSchema = [9, n0, _STJ,
   0, () => StopTrainingJobRequest$, () => __Unit
+];
+export var StopTrainingSession$: StaticOperationSchema = [9, n0, _STS,
+  0, () => StopTrainingSessionRequest$, () => StopTrainingSessionResponse$
 ];
 export var StopTransformJob$: StaticOperationSchema = [9, n0, _STJt,
   0, () => StopTransformJobRequest$, () => __Unit

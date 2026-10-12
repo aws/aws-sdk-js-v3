@@ -293,6 +293,10 @@ import type {
   CreateTrainingPlanCommandOutput,
 } from "./commands/CreateTrainingPlanCommand";
 import type {
+  CreateTrainingSessionCommandInput,
+  CreateTrainingSessionCommandOutput,
+} from "./commands/CreateTrainingSessionCommand";
+import type {
   CreateTransformJobCommandInput,
   CreateTransformJobCommandOutput,
 } from "./commands/CreateTransformJobCommand";
@@ -472,6 +476,10 @@ import type {
   DeleteTrainingJobCommandInput,
   DeleteTrainingJobCommandOutput,
 } from "./commands/DeleteTrainingJobCommand";
+import type {
+  DeleteTrainingSessionCommandInput,
+  DeleteTrainingSessionCommandOutput,
+} from "./commands/DeleteTrainingSessionCommand";
 import type { DeleteTrialCommandInput, DeleteTrialCommandOutput } from "./commands/DeleteTrialCommand";
 import type {
   DeleteTrialComponentCommandInput,
@@ -722,6 +730,10 @@ import type {
   DescribeTrainingPlanExtensionHistoryCommandInput,
   DescribeTrainingPlanExtensionHistoryCommandOutput,
 } from "./commands/DescribeTrainingPlanExtensionHistoryCommand";
+import type {
+  DescribeTrainingSessionCommandInput,
+  DescribeTrainingSessionCommandOutput,
+} from "./commands/DescribeTrainingSessionCommand";
 import type {
   DescribeTransformJobCommandInput,
   DescribeTransformJobCommandOutput,
@@ -1025,6 +1037,10 @@ import type {
   ListTrainingPlansCommandOutput,
 } from "./commands/ListTrainingPlansCommand";
 import type {
+  ListTrainingSessionsCommandInput,
+  ListTrainingSessionsCommandOutput,
+} from "./commands/ListTrainingSessionsCommand";
+import type {
   ListTransformJobsCommandInput,
   ListTransformJobsCommandOutput,
 } from "./commands/ListTransformJobsCommand";
@@ -1153,6 +1169,10 @@ import type {
   StopProcessingJobCommandOutput,
 } from "./commands/StopProcessingJobCommand";
 import type { StopTrainingJobCommandInput, StopTrainingJobCommandOutput } from "./commands/StopTrainingJobCommand";
+import type {
+  StopTrainingSessionCommandInput,
+  StopTrainingSessionCommandOutput,
+} from "./commands/StopTrainingSessionCommand";
 import type { StopTransformJobCommandInput, StopTransformJobCommandOutput } from "./commands/StopTransformJobCommand";
 import type { UpdateActionCommandInput, UpdateActionCommandOutput } from "./commands/UpdateActionCommand";
 import type {
@@ -1365,6 +1385,7 @@ export type ServiceInputTypes =
   | CreateStudioLifecycleConfigCommandInput
   | CreateTrainingJobCommandInput
   | CreateTrainingPlanCommandInput
+  | CreateTrainingSessionCommandInput
   | CreateTransformJobCommandInput
   | CreateTrialCommandInput
   | CreateTrialComponentCommandInput
@@ -1428,6 +1449,7 @@ export type ServiceInputTypes =
   | DeleteStudioLifecycleConfigCommandInput
   | DeleteTagsCommandInput
   | DeleteTrainingJobCommandInput
+  | DeleteTrainingSessionCommandInput
   | DeleteTrialCommandInput
   | DeleteTrialComponentCommandInput
   | DeleteUserProfileCommandInput
@@ -1504,6 +1526,7 @@ export type ServiceInputTypes =
   | DescribeTrainingJobCommandInput
   | DescribeTrainingPlanCommandInput
   | DescribeTrainingPlanExtensionHistoryCommandInput
+  | DescribeTrainingSessionCommandInput
   | DescribeTransformJobCommandInput
   | DescribeTrialCommandInput
   | DescribeTrialComponentCommandInput
@@ -1605,6 +1628,7 @@ export type ServiceInputTypes =
   | ListTrainingJobsCommandInput
   | ListTrainingJobsForHyperParameterTuningJobCommandInput
   | ListTrainingPlansCommandInput
+  | ListTrainingSessionsCommandInput
   | ListTransformJobsCommandInput
   | ListTrialComponentsCommandInput
   | ListTrialsCommandInput
@@ -1647,6 +1671,7 @@ export type ServiceInputTypes =
   | StopPipelineExecutionCommandInput
   | StopProcessingJobCommandInput
   | StopTrainingJobCommandInput
+  | StopTrainingSessionCommandInput
   | StopTransformJobCommandInput
   | UpdateActionCommandInput
   | UpdateAppImageConfigCommandInput
@@ -1774,6 +1799,7 @@ export type ServiceOutputTypes =
   | CreateStudioLifecycleConfigCommandOutput
   | CreateTrainingJobCommandOutput
   | CreateTrainingPlanCommandOutput
+  | CreateTrainingSessionCommandOutput
   | CreateTransformJobCommandOutput
   | CreateTrialCommandOutput
   | CreateTrialComponentCommandOutput
@@ -1837,6 +1863,7 @@ export type ServiceOutputTypes =
   | DeleteStudioLifecycleConfigCommandOutput
   | DeleteTagsCommandOutput
   | DeleteTrainingJobCommandOutput
+  | DeleteTrainingSessionCommandOutput
   | DeleteTrialCommandOutput
   | DeleteTrialComponentCommandOutput
   | DeleteUserProfileCommandOutput
@@ -1913,6 +1940,7 @@ export type ServiceOutputTypes =
   | DescribeTrainingJobCommandOutput
   | DescribeTrainingPlanCommandOutput
   | DescribeTrainingPlanExtensionHistoryCommandOutput
+  | DescribeTrainingSessionCommandOutput
   | DescribeTransformJobCommandOutput
   | DescribeTrialCommandOutput
   | DescribeTrialComponentCommandOutput
@@ -2014,6 +2042,7 @@ export type ServiceOutputTypes =
   | ListTrainingJobsCommandOutput
   | ListTrainingJobsForHyperParameterTuningJobCommandOutput
   | ListTrainingPlansCommandOutput
+  | ListTrainingSessionsCommandOutput
   | ListTransformJobsCommandOutput
   | ListTrialComponentsCommandOutput
   | ListTrialsCommandOutput
@@ -2056,6 +2085,7 @@ export type ServiceOutputTypes =
   | StopPipelineExecutionCommandOutput
   | StopProcessingJobCommandOutput
   | StopTrainingJobCommandOutput
+  | StopTrainingSessionCommandOutput
   | StopTransformJobCommandOutput
   | UpdateActionCommandOutput
   | UpdateAppImageConfigCommandOutput

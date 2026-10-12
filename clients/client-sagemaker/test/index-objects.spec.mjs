@@ -206,6 +206,7 @@ import {
   BedrockProvisionedModelThroughputMetadata$,
   BestObjectiveNotImproving$,
   Bias$,
+  BillableTokenUsage$,
   BlueGreenUpdatePolicy$,
   BooleanOperator,
   CacheHitResult$,
@@ -611,6 +612,10 @@ import {
   CreateTrainingPlanCommand,
   CreateTrainingPlanRequest$,
   CreateTrainingPlanResponse$,
+  CreateTrainingSession$,
+  CreateTrainingSessionCommand,
+  CreateTrainingSessionRequest$,
+  CreateTrainingSessionResponse$,
   CreateTransformJob$,
   CreateTransformJobCommand,
   CreateTransformJobRequest$,
@@ -854,6 +859,10 @@ import {
   DeleteTrainingJob$,
   DeleteTrainingJobCommand,
   DeleteTrainingJobRequest$,
+  DeleteTrainingSession$,
+  DeleteTrainingSessionCommand,
+  DeleteTrainingSessionRequest$,
+  DeleteTrainingSessionResponse$,
   DeleteTrial$,
   DeleteTrialCommand,
   DeleteTrialComponent$,
@@ -1163,6 +1172,10 @@ import {
   DescribeTrainingPlanExtensionHistoryResponse$,
   DescribeTrainingPlanRequest$,
   DescribeTrainingPlanResponse$,
+  DescribeTrainingSession$,
+  DescribeTrainingSessionCommand,
+  DescribeTrainingSessionRequest$,
+  DescribeTrainingSessionResponse$,
   DescribeTransformJob$,
   DescribeTransformJobCommand,
   DescribeTransformJobRequest$,
@@ -1846,6 +1859,10 @@ import {
   ListTrainingPlansCommand,
   ListTrainingPlansRequest$,
   ListTrainingPlansResponse$,
+  ListTrainingSessions$,
+  ListTrainingSessionsCommand,
+  ListTrainingSessionsRequest$,
+  ListTrainingSessionsResponse$,
   ListTransformJobs$,
   ListTransformJobsCommand,
   ListTransformJobsRequest$,
@@ -1876,6 +1893,7 @@ import {
   ListWorkteamsRequest$,
   ListWorkteamsResponse$,
   ListWorkteamsSortByOptions,
+  LoraConfig$,
   MaintenanceStatus,
   ManagedConfiguration$,
   ManagedInstanceScalingScaleInStrategy,
@@ -2148,6 +2166,7 @@ import {
   paginateListTrainingJobs,
   paginateListTrainingJobsForHyperParameterTuningJob,
   paginateListTrainingPlans,
+  paginateListTrainingSessions,
   paginateListTransformJobs,
   paginateListTrialComponents,
   paginateListTrials,
@@ -2521,6 +2540,10 @@ import {
   StopTrainingJob$,
   StopTrainingJobCommand,
   StopTrainingJobRequest$,
+  StopTrainingSession$,
+  StopTrainingSessionCommand,
+  StopTrainingSessionRequest$,
+  StopTrainingSessionResponse$,
   StopTransformJob$,
   StopTransformJobCommand,
   StopTransformJobRequest$,
@@ -2589,6 +2612,12 @@ import {
   TrainingProgressInfo$,
   TrainingRepositoryAccessMode,
   TrainingRepositoryAuthConfig$,
+  TrainingSessionDetail$,
+  TrainingSessionModelConfig$,
+  TrainingSessionOutputConfig$,
+  TrainingSessionS3Location$,
+  TrainingSessionStatus,
+  TrainingSessionSummary$,
   TrainingSpecification$,
   TransformDataSource$,
   TransformInput$,
@@ -3016,6 +3045,8 @@ assert(typeof CreateTrainingJobCommand === "function");
 assert(typeof CreateTrainingJob$ === "object");
 assert(typeof CreateTrainingPlanCommand === "function");
 assert(typeof CreateTrainingPlan$ === "object");
+assert(typeof CreateTrainingSessionCommand === "function");
+assert(typeof CreateTrainingSession$ === "object");
 assert(typeof CreateTransformJobCommand === "function");
 assert(typeof CreateTransformJob$ === "object");
 assert(typeof CreateTrialCommand === "function");
@@ -3142,6 +3173,8 @@ assert(typeof DeleteTagsCommand === "function");
 assert(typeof DeleteTags$ === "object");
 assert(typeof DeleteTrainingJobCommand === "function");
 assert(typeof DeleteTrainingJob$ === "object");
+assert(typeof DeleteTrainingSessionCommand === "function");
+assert(typeof DeleteTrainingSession$ === "object");
 assert(typeof DeleteTrialCommand === "function");
 assert(typeof DeleteTrial$ === "object");
 assert(typeof DeleteTrialComponentCommand === "function");
@@ -3294,6 +3327,8 @@ assert(typeof DescribeTrainingPlanCommand === "function");
 assert(typeof DescribeTrainingPlan$ === "object");
 assert(typeof DescribeTrainingPlanExtensionHistoryCommand === "function");
 assert(typeof DescribeTrainingPlanExtensionHistory$ === "object");
+assert(typeof DescribeTrainingSessionCommand === "function");
+assert(typeof DescribeTrainingSession$ === "object");
 assert(typeof DescribeTransformJobCommand === "function");
 assert(typeof DescribeTransformJob$ === "object");
 assert(typeof DescribeTrialCommand === "function");
@@ -3496,6 +3531,8 @@ assert(typeof ListTrainingJobsForHyperParameterTuningJobCommand === "function");
 assert(typeof ListTrainingJobsForHyperParameterTuningJob$ === "object");
 assert(typeof ListTrainingPlansCommand === "function");
 assert(typeof ListTrainingPlans$ === "object");
+assert(typeof ListTrainingSessionsCommand === "function");
+assert(typeof ListTrainingSessions$ === "object");
 assert(typeof ListTransformJobsCommand === "function");
 assert(typeof ListTransformJobs$ === "object");
 assert(typeof ListTrialComponentsCommand === "function");
@@ -3580,6 +3617,8 @@ assert(typeof StopProcessingJobCommand === "function");
 assert(typeof StopProcessingJob$ === "object");
 assert(typeof StopTrainingJobCommand === "function");
 assert(typeof StopTrainingJob$ === "object");
+assert(typeof StopTrainingSessionCommand === "function");
+assert(typeof StopTrainingSession$ === "object");
 assert(typeof StopTransformJobCommand === "function");
 assert(typeof StopTransformJob$ === "object");
 assert(typeof UpdateActionCommand === "function");
@@ -3808,6 +3847,7 @@ assert(typeof BedrockModelImportMetadata$ === "object");
 assert(typeof BedrockProvisionedModelThroughputMetadata$ === "object");
 assert(typeof BestObjectiveNotImproving$ === "object");
 assert(typeof Bias$ === "object");
+assert(typeof BillableTokenUsage$ === "object");
 assert(typeof BlueGreenUpdatePolicy$ === "object");
 assert(typeof CacheHitResult$ === "object");
 assert(typeof CallbackStepMetadata$ === "object");
@@ -4038,6 +4078,8 @@ assert(typeof CreateTrainingJobRequest$ === "object");
 assert(typeof CreateTrainingJobResponse$ === "object");
 assert(typeof CreateTrainingPlanRequest$ === "object");
 assert(typeof CreateTrainingPlanResponse$ === "object");
+assert(typeof CreateTrainingSessionRequest$ === "object");
+assert(typeof CreateTrainingSessionResponse$ === "object");
 assert(typeof CreateTransformJobRequest$ === "object");
 assert(typeof CreateTransformJobResponse$ === "object");
 assert(typeof CreateTrialComponentRequest$ === "object");
@@ -4149,6 +4191,8 @@ assert(typeof DeleteStudioLifecycleConfigRequest$ === "object");
 assert(typeof DeleteTagsInput$ === "object");
 assert(typeof DeleteTagsOutput$ === "object");
 assert(typeof DeleteTrainingJobRequest$ === "object");
+assert(typeof DeleteTrainingSessionRequest$ === "object");
+assert(typeof DeleteTrainingSessionResponse$ === "object");
 assert(typeof DeleteTrialComponentRequest$ === "object");
 assert(typeof DeleteTrialComponentResponse$ === "object");
 assert(typeof DeleteTrialRequest$ === "object");
@@ -4306,6 +4350,8 @@ assert(typeof DescribeTrainingPlanExtensionHistoryRequest$ === "object");
 assert(typeof DescribeTrainingPlanExtensionHistoryResponse$ === "object");
 assert(typeof DescribeTrainingPlanRequest$ === "object");
 assert(typeof DescribeTrainingPlanResponse$ === "object");
+assert(typeof DescribeTrainingSessionRequest$ === "object");
+assert(typeof DescribeTrainingSessionResponse$ === "object");
 assert(typeof DescribeTransformJobRequest$ === "object");
 assert(typeof DescribeTransformJobResponse$ === "object");
 assert(typeof DescribeTrialComponentRequest$ === "object");
@@ -4701,6 +4747,8 @@ assert(typeof ListTrainingJobsRequest$ === "object");
 assert(typeof ListTrainingJobsResponse$ === "object");
 assert(typeof ListTrainingPlansRequest$ === "object");
 assert(typeof ListTrainingPlansResponse$ === "object");
+assert(typeof ListTrainingSessionsRequest$ === "object");
+assert(typeof ListTrainingSessionsResponse$ === "object");
 assert(typeof ListTransformJobsRequest$ === "object");
 assert(typeof ListTransformJobsResponse$ === "object");
 assert(typeof ListTrialComponentsRequest$ === "object");
@@ -4715,6 +4763,7 @@ assert(typeof ListWorkforcesRequest$ === "object");
 assert(typeof ListWorkforcesResponse$ === "object");
 assert(typeof ListWorkteamsRequest$ === "object");
 assert(typeof ListWorkteamsResponse$ === "object");
+assert(typeof LoraConfig$ === "object");
 assert(typeof ManagedConfiguration$ === "object");
 assert(typeof MemberDefinition$ === "object");
 assert(typeof MetadataProperties$ === "object");
@@ -5046,6 +5095,8 @@ assert(typeof StopPipelineExecutionRequest$ === "object");
 assert(typeof StopPipelineExecutionResponse$ === "object");
 assert(typeof StopProcessingJobRequest$ === "object");
 assert(typeof StopTrainingJobRequest$ === "object");
+assert(typeof StopTrainingSessionRequest$ === "object");
+assert(typeof StopTrainingSessionResponse$ === "object");
 assert(typeof StopTransformJobRequest$ === "object");
 assert(typeof StudioLifecycleConfigDetails$ === "object");
 assert(typeof StudioWebPortalSettings$ === "object");
@@ -5086,6 +5137,11 @@ assert(typeof TrainingPlanOffering$ === "object");
 assert(typeof TrainingPlanSummary$ === "object");
 assert(typeof TrainingProgressInfo$ === "object");
 assert(typeof TrainingRepositoryAuthConfig$ === "object");
+assert(typeof TrainingSessionDetail$ === "object");
+assert(typeof TrainingSessionModelConfig$ === "object");
+assert(typeof TrainingSessionOutputConfig$ === "object");
+assert(typeof TrainingSessionS3Location$ === "object");
+assert(typeof TrainingSessionSummary$ === "object");
 assert(typeof TrainingSpecification$ === "object");
 assert(typeof TransformDataSource$ === "object");
 assert(typeof TransformInput$ === "object");
@@ -5583,6 +5639,7 @@ assert(typeof TrainingPlanSortBy === "object");
 assert(typeof TrainingPlanSortOrder === "object");
 assert(typeof TrainingPlanStatus === "object");
 assert(typeof TrainingRepositoryAccessMode === "object");
+assert(typeof TrainingSessionStatus === "object");
 assert(typeof TransformInstanceType === "object");
 assert(typeof TransformJobStatus === "object");
 assert(typeof TrialComponentPrimaryStatus === "object");
@@ -5717,6 +5774,7 @@ assert(typeof paginateListTags === "function");
 assert(typeof paginateListTrainingJobs === "function");
 assert(typeof paginateListTrainingJobsForHyperParameterTuningJob === "function");
 assert(typeof paginateListTrainingPlans === "function");
+assert(typeof paginateListTrainingSessions === "function");
 assert(typeof paginateListTransformJobs === "function");
 assert(typeof paginateListTrialComponents === "function");
 assert(typeof paginateListTrials === "function");

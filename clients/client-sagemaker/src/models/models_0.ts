@@ -60,7 +60,6 @@ import type {
   ClusterPatchingStrategy,
   ClusterSlurmConfigStrategy,
   ClusterSlurmNodeType,
-  ClusterStatus,
   CompressionType,
   DatabaseConfigurationRollbackStatus,
   DataSourceName,
@@ -5295,6 +5294,30 @@ export interface Bias {
 }
 
 /**
+ * <p>The billable token usage for a training session, broken down by operation type.</p>
+ * @public
+ */
+export interface BillableTokenUsage {
+  /**
+   * <p>The number of prefill tokens consumed.</p>
+   * @public
+   */
+  PrefillTokenCount?: number | undefined;
+
+  /**
+   * <p>The number of sample tokens consumed.</p>
+   * @public
+   */
+  SampleTokenCount?: number | undefined;
+
+  /**
+   * <p>The number of training tokens consumed.</p>
+   * @public
+   */
+  TrainingTokenCount?: number | undefined;
+}
+
+/**
  * <p>Specifies the type and size of the endpoint capacity to activate for a blue/green deployment, a rolling deployment, or a rollback strategy. You can specify your batches as either instance count or the overall percentage or your fleet.</p> <p>For a rollback strategy, if you don't specify the fields in this object, or if you set the <code>Value</code> to 100%, then SageMaker uses a blue/green rollback strategy and rolls all traffic back to the blue fleet.</p>
  * @public
  */
@@ -8250,46 +8273,4 @@ export interface ClusterSchedulerConfigSummary {
    * @public
    */
   ClusterArn?: string | undefined;
-}
-
-/**
- * <p>Lists a summary of the properties of a SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ClusterSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  ClusterArn: string | undefined;
-
-  /**
-   * <p>The name of the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>The time when the SageMaker HyperPod cluster is created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The status of the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  ClusterStatus: ClusterStatus | undefined;
-
-  /**
-   * <p>A list of Amazon Resource Names (ARNs) of the training plans associated with this cluster.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
-   * @public
-   */
-  TrainingPlanArns?: string[] | undefined;
-
-  /**
-   * <p>The aggregate status of the image version across the cluster's instance groups.</p>
-   * @public
-   */
-  ImageVersionStatus?: ClusterImageVersionStatus | undefined;
 }

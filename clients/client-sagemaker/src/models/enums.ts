@@ -5793,6 +5793,27 @@ export type SageMakerResourceName = (typeof SageMakerResourceName)[keyof typeof 
  * @public
  * @enum
  */
+export const TrainingSessionStatus = {
+  BLOCKED: "Blocked",
+  CREATED: "Created",
+  DELETING: "Deleting",
+  DELETION_FAILED: "DeletionFailed",
+  EXPIRED: "Expired",
+  FAILED: "Failed",
+  RUNNING: "Running",
+  SCHEDULED: "Scheduled",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+} as const;
+/**
+ * @public
+ */
+export type TrainingSessionStatus = (typeof TrainingSessionStatus)[keyof typeof TrainingSessionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const TransformJobStatus = {
   COMPLETED: "Completed",
   FAILED: "Failed",
