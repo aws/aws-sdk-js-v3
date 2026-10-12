@@ -10,6 +10,7 @@ import type {
   Provider,
   RequestSigner,
 } from "@smithy/types";
+import { SMITHY_CONTEXT_KEY } from "@smithy/types";
 
 import { getAgeHeader, getDateHeader, getSkewCorrectedDate, getUpdatedSystemClockOffset } from "../utils";
 import type { AwsSdkSigV4AAuthResolvedConfig } from "./resolveAwsSdkSigV4AConfig";
@@ -22,6 +23,16 @@ const throwSigningPropertyError = <T>(name: string, property: T | undefined): T 
     throw new Error(`Property \`${name}\` is not resolved for AWS SDK SigV4Auth`);
   }
   return property;
+};
+
+/**
+ * @internal
+ */
+const hasEventStreamOutput = (signingProperties: Record<string, unknown>): boolean => {
+  const context = signingProperties.context as HandlerExecutionContext | undefined;
+  const eventStream = (context?.[SMITHY_CONTEXT_KEY] as { eventStream?: { output?: boolean } } | undefined)
+    ?.eventStream;
+  return eventStream?.output === true;
 };
 
 /**
@@ -121,7 +132,15 @@ export class AwsSdkSigV4Signer implements HttpSigner {
     const noSkewCorrection = (await config.disableClockSkewCorrection?.()) === true;
     signingProperties._disableClockSkewCorrection = noSkewCorrection;
 
-    if (!noSkewCorrection) {
+    // For event-stream outputs the signing middleware does not resolve until the
+    // first stream event is deserialized, so the sampled response-received time is
+    // the first-event arrival time, not the HTTP response time. On a delayed first
+    // event this yields a bogus offset of ~-(delay)/2 and makes the event signer
+    // stamp stale `:date` values the service rejects as `Signature expired`.
+    const skipSkewSampling = noSkewCorrection || hasEventStreamOutput(signingProperties);
+    signingProperties._skipClockSkewSampling = skipSkewSampling;
+
+    if (!skipSkewSampling) {
       // Capture the clock offset before signing so errorHandler can detect concurrent corrections.
       signingProperties._preRequestSystemClockOffset = config.systemClockOffset;
       // Capture the raw send time (no skew applied) for the midpoint skew formula.
@@ -139,7 +158,7 @@ export class AwsSdkSigV4Signer implements HttpSigner {
   errorHandler(signingProperties: Record<string, unknown>): (error: Error) => never {
     return (error: Error) => {
       const errorException = error as AwsSdkSigV4Exception;
-      if (!signingProperties._disableClockSkewCorrection) {
+      if (!signingProperties._skipClockSkewSampling && !signingProperties._disableClockSkewCorrection) {
         const serverTime: string | undefined = errorException.ServerTime ?? getDateHeader(errorException.$response);
         if (serverTime) {
           const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
@@ -173,7 +192,7 @@ export class AwsSdkSigV4Signer implements HttpSigner {
   }
 
   successHandler(httpResponse: HttpResponse | unknown, signingProperties: Record<string, unknown>): void {
-    if (signingProperties._disableClockSkewCorrection) {
+    if (signingProperties._skipClockSkewSampling || signingProperties._disableClockSkewCorrection) {
       return;
     }
     const dateHeader = getDateHeader(httpResponse);
