@@ -298,6 +298,7 @@ export const ResourceType = {
   AWS_SECURITY_HUB: "AWS::SecurityHub::Hub",
   AWS_SECURITY_HUB_HUBV2: "AWS::SecurityHub::HubV2",
   AWS_WAF_V2_WEB_ACL: "AWS::WAFv2::WebACL",
+  AWS_XRAY_TRANSACTION_SEARCH_CONFIG: "AWS::XRay::TransactionSearchConfig",
 } as const;
 /**
  * @public
