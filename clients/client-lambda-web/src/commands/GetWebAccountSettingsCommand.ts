@@ -23,7 +23,7 @@ export interface GetWebAccountSettingsCommandInput extends GetWebAccountSettings
 export interface GetWebAccountSettingsCommandOutput extends GetWebAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about your AWS Lambda Web Functions account settings for the current AWS Region, including the quotas that apply to web functions and your current usage.</p> <note> <p>This API is experimental and for internal AWS use only. It is not yet available to external customers.</p> </note>
+ * <p>Retrieves details about your AWS Lambda Web Functions account settings for the current AWS Region, including the quotas that apply to web functions and your current usage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,13 +56,13 @@ export interface GetWebAccountSettingsCommandOutput extends GetWebAccountSetting
  * @see {@link LambdaWebClientResolvedConfig | config} for LambdaWebClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this operation.</p>
+ *  <p>You don't have permission to perform this operation. Check the IAM policies for your identity and any resource-based policy on the web function.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Try again later.</p>
+ *  <p>The request failed because of an internal error in the service. Retry the request. If the error persists, open a support case.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Reduce the frequency of requests and try again.</p>
+ *  <p>The request was denied because it exceeded the request rate that Lambda allows for your account. Reduce the frequency of requests and retry with exponential backoff.</p>
  *
  * @throws {@link LambdaWebServiceException}
  * <p>Base exception class for all service exceptions from LambdaWeb service.</p>
