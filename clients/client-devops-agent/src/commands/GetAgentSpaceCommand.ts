@@ -34,6 +34,7 @@ export interface GetAgentSpaceCommandOutput extends GetAgentSpaceOutput, __Metad
  * const client = new DevOpsAgentClient(config);
  * const input = { // GetAgentSpaceInput
  *   agentSpaceId: "STRING_VALUE", // required
+ *   includedData: "METADATA_ONLY" || "ALL_DATA",
  * };
  * const command = new GetAgentSpaceCommand(input);
  * const response = await client.send(command);

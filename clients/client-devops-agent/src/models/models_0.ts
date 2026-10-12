@@ -14,6 +14,7 @@ import type {
   GitLabTokenType,
   GoalStatus,
   GoalType,
+  IncludedData,
   IpAddressType,
   MCPServerAuthorizationMethod,
   MonitorAccountType,
@@ -165,6 +166,12 @@ export interface RegisteredMCPServerDetails {
    * @public
    */
   apiKeyHeader?: string | undefined;
+
+  /**
+   * <p>The configured custom authentication header names when the MCP server uses custom-header authentication. Secret values are not returned.</p>
+   * @public
+   */
+  customHeaderNames?: string[] | undefined;
 }
 
 /**
@@ -2837,6 +2844,12 @@ export interface GetAgentSpaceInput {
    * @public
    */
   agentSpaceId: string | undefined;
+
+  /**
+   * <p>How much data to include in the response.</p>
+   * @public
+   */
+  includedData?: IncludedData | undefined;
 }
 
 /**
@@ -2915,6 +2928,12 @@ export interface ListAgentSpacesInput {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>How much data to include in the response.</p>
+   * @public
+   */
+  includedData?: IncludedData | undefined;
 }
 
 /**
@@ -4795,6 +4814,12 @@ export interface GetAccountUsageOutput {
    * @public
    */
   monthlyAccountOnDemandHours?: UsageMetric | undefined;
+
+  /**
+   * <p>Represents a usage metric with its configured limit and current usage value.</p>
+   * @public
+   */
+  monthlyAccountGraderHours?: UsageMetric | undefined;
 
   /**
    * <p>The start time of the usage tracking period</p>
@@ -7293,6 +7318,18 @@ export interface MCPServerBearerTokenConfig {
 }
 
 /**
+ * <p>Configuration for authenticating to an MCP server with custom HTTP headers.</p>
+ * @public
+ */
+export interface MCPServerCustomHeadersConfig {
+  /**
+   * <p>Custom headers map.</p>
+   * @public
+   */
+  headers: Record<string, string> | undefined;
+}
+
+/**
  * <p>OAuth 3-legged authorization configuration for MCP server.</p>
  * @public
  */
@@ -7402,6 +7439,7 @@ export type MCPServerAuthorizationConfig =
   | MCPServerAuthorizationConfig.ApiKeyMember
   | MCPServerAuthorizationConfig.AuthorizationDiscoveryMember
   | MCPServerAuthorizationConfig.BearerTokenMember
+  | MCPServerAuthorizationConfig.CustomHeadersMember
   | MCPServerAuthorizationConfig.OAuth3LOMember
   | MCPServerAuthorizationConfig.OAuthClientCredentialsMember
   | MCPServerAuthorizationConfig.$UnknownMember;
@@ -7419,6 +7457,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO?: never;
     apiKey?: never;
     bearerToken?: never;
+    customHeaders?: never;
     authorizationDiscovery?: never;
     $unknown?: never;
   }
@@ -7432,6 +7471,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO: MCPServerOAuth3LOConfig;
     apiKey?: never;
     bearerToken?: never;
+    customHeaders?: never;
     authorizationDiscovery?: never;
     $unknown?: never;
   }
@@ -7445,6 +7485,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO?: never;
     apiKey: MCPServerAPIKeyConfig;
     bearerToken?: never;
+    customHeaders?: never;
     authorizationDiscovery?: never;
     $unknown?: never;
   }
@@ -7458,6 +7499,21 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO?: never;
     apiKey?: never;
     bearerToken: MCPServerBearerTokenConfig;
+    customHeaders?: never;
+    authorizationDiscovery?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>MCP server configuration with one or more custom authentication headers.</p>
+   * @public
+   */
+  export interface CustomHeadersMember {
+    oAuthClientCredentials?: never;
+    oAuth3LO?: never;
+    apiKey?: never;
+    bearerToken?: never;
+    customHeaders: MCPServerCustomHeadersConfig;
     authorizationDiscovery?: never;
     $unknown?: never;
   }
@@ -7471,6 +7527,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO?: never;
     apiKey?: never;
     bearerToken?: never;
+    customHeaders?: never;
     authorizationDiscovery: MCPServerAuthorizationDiscoveryConfig;
     $unknown?: never;
   }
@@ -7483,6 +7540,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO?: never;
     apiKey?: never;
     bearerToken?: never;
+    customHeaders?: never;
     authorizationDiscovery?: never;
     $unknown: [string, any];
   }
@@ -7496,6 +7554,7 @@ export namespace MCPServerAuthorizationConfig {
     oAuth3LO: (value: MCPServerOAuth3LOConfig) => T;
     apiKey: (value: MCPServerAPIKeyConfig) => T;
     bearerToken: (value: MCPServerBearerTokenConfig) => T;
+    customHeaders: (value: MCPServerCustomHeadersConfig) => T;
     authorizationDiscovery: (value: MCPServerAuthorizationDiscoveryConfig) => T;
     _: (name: string, value: any) => T;
   }

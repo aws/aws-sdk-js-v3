@@ -182,6 +182,7 @@ import {
   IdentityCenterServiceException,
   IdentityCenterServiceException$,
   IdpAuthConfiguration$,
+  IncludedData,
   InternalServerException,
   InternalServerException$,
   InvalidParameterException,
@@ -266,6 +267,7 @@ import {
   MCPServerAuthorizationMethod,
   MCPServerBearerTokenConfig$,
   MCPServerConfiguration$,
+  MCPServerCustomHeadersConfig$,
   MCPServerDatadogConfiguration$,
   MCPServerDetails$,
   MCPServerGrafanaConfiguration$,
@@ -748,6 +750,7 @@ assert(typeof MCPServerAuthorizationConfig$ === "object");
 assert(typeof MCPServerAuthorizationDiscoveryConfig$ === "object");
 assert(typeof MCPServerBearerTokenConfig$ === "object");
 assert(typeof MCPServerConfiguration$ === "object");
+assert(typeof MCPServerCustomHeadersConfig$ === "object");
 assert(typeof MCPServerDatadogConfiguration$ === "object");
 assert(typeof MCPServerDetails$ === "object");
 assert(typeof MCPServerGrafanaConfiguration$ === "object");
@@ -891,6 +894,7 @@ assert(typeof GithubRepoOwnerType === "object");
 assert(typeof GitLabTokenType === "object");
 assert(typeof GoalStatus === "object");
 assert(typeof GoalType === "object");
+assert(typeof IncludedData === "object");
 assert(typeof IpAddressType === "object");
 assert(typeof MCPServerAuthorizationMethod === "object");
 assert(typeof MonitorAccountType === "object");

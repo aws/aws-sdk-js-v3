@@ -58,16 +58,22 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //       mcpserverdatadog: { // RegisteredMCPServerDetails
  * //         name: "STRING_VALUE", // required
  * //         endpoint: "STRING_VALUE", // required
- * //         authorizationMethod: "oauth-client-credentials" || "oauth-3lo" || "api-key" || "bearer-token", // required
+ * //         authorizationMethod: "oauth-client-credentials" || "oauth-3lo" || "api-key" || "bearer-token" || "custom-headers", // required
  * //         description: "STRING_VALUE",
  * //         apiKeyHeader: "STRING_VALUE",
+ * //         customHeaderNames: [ // CustomHeaderNames
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       mcpserver: {
  * //         name: "STRING_VALUE", // required
  * //         endpoint: "STRING_VALUE", // required
- * //         authorizationMethod: "oauth-client-credentials" || "oauth-3lo" || "api-key" || "bearer-token", // required
+ * //         authorizationMethod: "oauth-client-credentials" || "oauth-3lo" || "api-key" || "bearer-token" || "custom-headers", // required
  * //         description: "STRING_VALUE",
  * //         apiKeyHeader: "STRING_VALUE",
+ * //         customHeaderNames: [
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       servicenow: { // RegisteredServiceNowDetails
  * //         instanceUrl: "STRING_VALUE",
@@ -80,9 +86,12 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //       mcpserversplunk: {
  * //         name: "STRING_VALUE", // required
  * //         endpoint: "STRING_VALUE", // required
- * //         authorizationMethod: "oauth-client-credentials" || "oauth-3lo" || "api-key" || "bearer-token", // required
+ * //         authorizationMethod: "oauth-client-credentials" || "oauth-3lo" || "api-key" || "bearer-token" || "custom-headers", // required
  * //         description: "STRING_VALUE",
  * //         apiKeyHeader: "STRING_VALUE",
+ * //         customHeaderNames: [
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       mcpservernewrelic: { // RegisteredNewRelicDetails
  * //         accountId: "STRING_VALUE", // required
@@ -102,7 +111,7 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //       },
  * //       mcpservergrafana: { // RegisteredGrafanaServerDetails
  * //         endpoint: "STRING_VALUE", // required
- * //         authorizationMethod: "oauth-client-credentials" || "oauth-3lo" || "api-key" || "bearer-token", // required
+ * //         authorizationMethod: "oauth-client-credentials" || "oauth-3lo" || "api-key" || "bearer-token" || "custom-headers", // required
  * //       },
  * //       pagerduty: { // RegisteredPagerDutyDetails
  * //         scopes: [ // PagerDutyScopesList // required

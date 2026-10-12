@@ -372,6 +372,9 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  * @see {@link UpdateAssociationCommandOutput} for command's `response` shape.
  * @see {@link DevOpsAgentClientResolvedConfig | config} for DevOpsAgentClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request conflicts with the current state of the resource.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
  *
@@ -383,9 +386,6 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access to the requested resource is denied due to insufficient permissions.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
  *
  * @throws {@link ContentSizeExceededException} (client fault)
  *  <p>This exception is thrown when the content size exceeds the allowed limit.</p>

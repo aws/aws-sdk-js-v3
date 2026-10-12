@@ -35,6 +35,7 @@ export interface ListAgentSpacesCommandOutput extends ListAgentSpacesOutput, __M
  * const input = { // ListAgentSpacesInput
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   includedData: "METADATA_ONLY" || "ALL_DATA",
  * };
  * const command = new ListAgentSpacesCommand(input);
  * const response = await client.send(command);

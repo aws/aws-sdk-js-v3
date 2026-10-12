@@ -219,6 +219,7 @@ const _MCPSADC = "MCPServerAuthorizationDiscoveryConfig";
 const _MCPSAPIKC = "MCPServerAPIKeyConfig";
 const _MCPSBTC = "MCPServerBearerTokenConfig";
 const _MCPSC = "MCPServerConfiguration";
+const _MCPSCHC = "MCPServerCustomHeadersConfig";
 const _MCPSD = "MCPServerDetails";
 const _MCPSDC = "MCPServerDatadogConfiguration";
 const _MCPSGC = "MCPServerGrafanaConfiguration";
@@ -443,6 +444,7 @@ const _cBSo = "contentBlockStop";
 const _cE = "customerEmail";
 const _cET = "certificateExpiryTime";
 const _cH = "customHeaders";
+const _cHN = "customHeaderNames";
 const _cI = "clientId";
 const _cIh = "channelId";
 const _cN = "clientName";
@@ -499,12 +501,13 @@ const _gV = "goalVersion";
 const _gi = "github";
 const _git = "gitlab";
 const _go = "goal";
-const _h = "heartbeat";
+const _h = "headers";
 const _hA = "hostAddress";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hLT = "hasLinkedTasks";
 const _hQ = "httpQuery";
+const _he = "heartbeat";
 const _ht = "http";
 const _i = "iam";
 const _iAA = "idcApplicationArn";
@@ -512,6 +515,7 @@ const _iAPE = "ipv4AddressesPerEni";
 const _iAT = "ipAddressType";
 const _iCI = "idpClientId";
 const _iCS = "idpClientSecret";
+const _iD = "includedData";
 const _iI = "interruptId";
 const _iIA = "idcInstanceArn";
 const _iIn = "instanceIdentifier";
@@ -535,6 +539,7 @@ const _la = "last";
 const _li = "limit";
 const _m = "message";
 const _mAEH = "monthlyAccountEvaluationHours";
+const _mAGH = "monthlyAccountGraderHours";
 const _mAIH = "monthlyAccountInvestigationHours";
 const _mAODH = "monthlyAccountOnDemandHours";
 const _mASLH = "monthlyAccountSystemLearningHours";
@@ -1146,13 +1151,13 @@ export var GetAccountUsageInput$: StaticStructureSchema = [3, n0, _GAUI,
 ];
 export var GetAccountUsageOutput$: StaticStructureSchema = [3, n0, _GAUO,
   0,
-  [_uPST, _uPET, _mAIH, _mAEH, _mASLH, _mAODH],
-  [5, 5, () => UsageMetric$, () => UsageMetric$, () => UsageMetric$, () => UsageMetric$], 2
+  [_uPST, _uPET, _mAIH, _mAEH, _mASLH, _mAODH, _mAGH],
+  [5, 5, () => UsageMetric$, () => UsageMetric$, () => UsageMetric$, () => UsageMetric$, () => UsageMetric$], 2
 ];
 export var GetAgentSpaceInput$: StaticStructureSchema = [3, n0, _GASI,
   0,
-  [_aSI],
-  [[0, 1]], 1
+  [_aSI, _iD],
+  [[0, 1], [0, { [_hQ]: _iD }]], 1
 ];
 export var GetAgentSpaceOutput$: StaticStructureSchema = [3, n0, _GASO,
   0,
@@ -1311,8 +1316,8 @@ export var JournalRecord$: StaticStructureSchema = [3, n0, _JR,
 ];
 export var ListAgentSpacesInput$: StaticStructureSchema = [3, n0, _LASI,
   0,
-  [_mR, _nT],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [_mR, _nT, _iD],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _iD }]]
 ];
 export var ListAgentSpacesOutput$: StaticStructureSchema = [3, n0, _LASO,
   0,
@@ -1509,6 +1514,11 @@ export var MCPServerConfiguration$: StaticStructureSchema = [3, n0, _MCPSC,
   [_to, _tD],
   [64 | 0, () => MCPToolDetailsList], 1
 ];
+export var MCPServerCustomHeadersConfig$: StaticStructureSchema = [3, n0, _MCPSCHC,
+  0,
+  [_h],
+  [[() => CustomHeaders, 0]], 1
+];
 export var MCPServerDatadogConfiguration$: StaticStructureSchema = [3, n0, _MCPSDC,
   0,
   [_eET],
@@ -1666,8 +1676,8 @@ export var RegisteredGrafanaServerDetails$: StaticStructureSchema = [3, n0, _RGS
 ];
 export var RegisteredMCPServerDetails$: StaticStructureSchema = [3, n0, _RMCPSD,
   0,
-  [_n, _end, _aM, _d, _aKH],
-  [0, 0, 0, [() => Description, 0], 0], 3
+  [_n, _end, _aM, _d, _aKH, _cHN],
+  [0, 0, 0, [() => Description, 0], 0, 64 | 0], 3
 ];
 export var RegisteredMCPServerSigV4Details$: StaticStructureSchema = [3, n0, _RMCPSSVD,
   0,
@@ -2112,6 +2122,7 @@ var AssociationsList: StaticListSchema = [1, n0, _ALs,
 var ChatExecutionList: StaticListSchema = [1, n0, _CEL,
   0, () => ChatExecution$
 ];
+var CustomHeaderNames = 64 | 0;
 var DocumentList = 64 | 15;
 var DynatraceResourceList = 64 | 0;
 var ExecutionList: StaticListSchema = [1, n0, _EL,
@@ -2231,8 +2242,8 @@ export var DynatraceServiceAuthorizationConfig$: StaticUnionSchema = [4, n0, _DS
 ];
 export var MCPServerAuthorizationConfig$: StaticUnionSchema = [4, n0, _MCPSAC,
   0,
-  [_oACC, _oALO, _aK, _bTe, _aD],
-  [[() => MCPServerOAuthClientCredentialsConfig$, 0], [() => MCPServerOAuth3LOConfig$, 0], [() => MCPServerAPIKeyConfig$, 0], [() => MCPServerBearerTokenConfig$, 0], () => MCPServerAuthorizationDiscoveryConfig$]
+  [_oACC, _oALO, _aK, _bTe, _cH, _aD],
+  [[() => MCPServerOAuthClientCredentialsConfig$, 0], [() => MCPServerOAuth3LOConfig$, 0], [() => MCPServerAPIKeyConfig$, 0], [() => MCPServerBearerTokenConfig$, 0], [() => MCPServerCustomHeadersConfig$, 0], () => MCPServerAuthorizationDiscoveryConfig$]
 ];
 export var Message$: StaticUnionSchema = [4, n0, _M,
   0,
@@ -2281,7 +2292,7 @@ export var SendMessageContentBlockDelta$: StaticUnionSchema = [4, n0, _SMCBD,
 ];
 export var SendMessageEvents$: StaticUnionSchema = [4, n0, _SME,
   { [_str]: 1 },
-  [_rC, _rIP, _rCe, _rF, _su, _h, _cBS, _cBD, _cBSo],
+  [_rC, _rIP, _rCe, _rF, _su, _he, _cBS, _cBD, _cBSo],
   [() => SendMessageResponseCreatedEvent$, () => SendMessageResponseInProgressEvent$, () => SendMessageResponseCompletedEvent$, () => SendMessageResponseFailedEvent$, () => SendMessageSummaryEvent$, () => SendMessageHeartbeatEvent$, () => SendMessageContentBlockStartEvent$, () => SendMessageContentBlockDeltaEvent$, () => SendMessageContentBlockStopEvent$]
 ];
 export var ServiceConfiguration$: StaticUnionSchema = [4, n0, _SCe,
