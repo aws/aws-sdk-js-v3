@@ -493,6 +493,7 @@ const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResult";
 const _PS = "ProtectStatus";
 const _PT = "PreferenceType";
+const _PTr = "PricingTier";
 const _Po = "Policy";
 const _Poo = "Pools";
 const _R = "Reason";
@@ -1736,8 +1737,8 @@ export var PhoneNumberFilter$: StaticStructureSchema = [3, n0, _PNF,
 ];
 export var PhoneNumberInformation$: StaticStructureSchema = [3, n0, _PNIh,
   0,
-  [_PNA, _PN, _S, _ICC, _MT, _NCum, _NTu, _MLP, _TWE, _SMOOE, _OOLN, _DPE, _CTr, _PNIho, _TWCA, _TWCR, _ISEn, _PI, _RIeg, _MLe],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 2, 0, 2, 4, 0, 0, 0, 2, 0, 0, () => MessagingLimits$], 13
+  [_PNA, _PN, _S, _ICC, _MT, _NCum, _NTu, _MLP, _TWE, _SMOOE, _OOLN, _DPE, _CTr, _PNIho, _TWCA, _TWCR, _ISEn, _PI, _RIeg, _MLe, _PTr],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 2, 0, 2, 4, 0, 0, 0, 2, 0, 0, () => MessagingLimits$, 0], 13
 ];
 export var PoolFilter$: StaticStructureSchema = [3, n0, _PF,
   0,
@@ -2091,8 +2092,8 @@ export var SenderIdFilter$: StaticStructureSchema = [3, n0, _SIF,
 ];
 export var SenderIdInformation$: StaticStructureSchema = [3, n0, _SII,
   0,
-  [_SIA, _SI, _ICC, _MTe, _MLP, _DPE, _Reg, _RIeg, _MLe],
-  [0, 0, 0, 64 | 0, 0, 2, 2, 0, () => MessagingLimits$], 7
+  [_SIA, _SI, _ICC, _MTe, _MLP, _DPE, _Reg, _RIeg, _MLe, _PTr],
+  [0, 0, 0, 64 | 0, 0, 2, 2, 0, () => MessagingLimits$, 0], 7
 ];
 export var SendMediaMessageRequest$: StaticStructureSchema = [3, n0, _SMMR,
   0,

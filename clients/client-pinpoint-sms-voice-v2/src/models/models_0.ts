@@ -3681,6 +3681,12 @@ export interface PhoneNumberInformation {
   MessagingLimits?: MessagingLimits | undefined;
 
   /**
+   * <p>The pricing model.</p>
+   * @public
+   */
+  PricingTier?: string | undefined;
+
+  /**
    * <p>The time when the phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
@@ -5347,6 +5353,12 @@ export interface SenderIdInformation {
    * @public
    */
   MessagingLimits?: MessagingLimits | undefined;
+
+  /**
+   * <p>The pricing model.</p>
+   * @public
+   */
+  PricingTier?: string | undefined;
 }
 
 /**
