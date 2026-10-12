@@ -11,7 +11,7 @@
       "@aws-sdk/*": ["./packages/*/"],
       "@aws-sdk/client-*": ["./clients/client-*/"],
       "@aws-sdk/aws-*": ["./private/aws-*/"],
-      "@aws-sdk/lib-*": ["./lib/*"]
+      "@aws-sdk/lib-*": ["./lib/*", "./preview/lib-*"]
     },
     "preserveConstEnums": true,
     "removeComments": true,
@@ -22,6 +22,6 @@
     "jsxFactory": "JSX.createElement",
     "jsxFragmentFactory": "JSX.Fragment"
   },
-  "include": ["packages/", "packages-internal/", "lib/"],
+  "include": ["packages/", "packages-internal/", "preview/", "lib/"],
   "exclude": ["node_modules/", "**/*.spec.ts", "**/*.fixture.ts", "vitest.*.ts"]
 }
