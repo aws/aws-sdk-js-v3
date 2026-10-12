@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Training Session is a managed service for training on shared GPU infrastructure. It provides full lifecycle management of training sessions and exposes low-level primitive APIs for operations like forward-backward passes, optimizer steps, and state management. ([94f3242](https://github.com/aws/aws-sdk-js-v3/commit/94f32429aea7baa006630ce44805ca80686dbf6f))
+
+
+
+
+
 # [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

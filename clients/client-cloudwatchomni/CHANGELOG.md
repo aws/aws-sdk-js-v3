@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
+
+
+### Features
+
+* **client-cloudwatchomni:** Adds support for updating agentCoreEvaluationRoleArn in UpdateSpace API ([afef003](https://github.com/aws/aws-sdk-js-v3/commit/afef0038f1ef114ba91b6448dfbc2510e142ea5a))
+
+
+
+
+
 # [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatchomni

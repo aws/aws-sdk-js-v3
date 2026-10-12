@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
+
+
+### Features
+
+* **client-pinpoint-sms-voice-v2:** DescribePhoneNumbers and DescribeSenderIds now return an optional PricingTier field that indicates whether a phone number, sender ID, short code, or long code is classified as Domestic or International, enabling customers to identify origination identities eligible for local pricing. ([47e4631](https://github.com/aws/aws-sdk-js-v3/commit/47e4631e3b209544cf574f0ed817cf32158768dd))
+
+
+
+
+
 # [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint-sms-voice-v2

@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
+
+
+### Bug Fixes
+
+* **core/httpAuthSchemes:** skip clock-skew sampling for event-stream outputs ([#8346](https://github.com/aws/aws-sdk-js-v3/issues/8346)) ([345466f](https://github.com/aws/aws-sdk-js-v3/commit/345466f4d6c0c2ab2610b6badae7d9da0d15064e))
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** AgentCore Memory now supports configuring Long-Term Memory Time-to-Live (TTL) on Memory Strategies. ([93d530e](https://github.com/aws/aws-sdk-js-v3/commit/93d530e96da92999011f8e3f93fe85d8cad1c408))
+* **client-bedrock-agentcore:** AgentCore Memory now supports Long-Term Memory Time-to-Live on Batch APIs. ([39cfa46](https://github.com/aws/aws-sdk-js-v3/commit/39cfa46b71a714439733658aa56adb9d2611e91d))
+* **client-cloudwatchomni:** Adds support for updating agentCoreEvaluationRoleArn in UpdateSpace API ([afef003](https://github.com/aws/aws-sdk-js-v3/commit/afef0038f1ef114ba91b6448dfbc2510e142ea5a))
+* **client-devops-agent:** Adds support for the includedData field in GetAgentSpace and ListAgentSpaces APIs ([1613a42](https://github.com/aws/aws-sdk-js-v3/commit/1613a4230f0c762947211f944755b41d3f7f2126))
+* **client-glue:** Adds new AWS Glue Data Quality APIs to retrieve and list data quality evaluation results. The new GetDataQualityResultV2, BatchGetDataQualityResultV2, and ListDataQualityResultsV2 operations return data quality results published from any supported data processing engine. ([0f677b7](https://github.com/aws/aws-sdk-js-v3/commit/0f677b72837926a2414deb7dde3a0bd247330662))
+* **client-lambda-core:** Lambda Network Connector now supports Lambda Web Functions, letting them reach private VPC resources, and adds versioning, each connector update creates an immutable version that revisions pin to, so customers can roll out and roll back networking changes without affecting running workloads ([7ca09fa](https://github.com/aws/aws-sdk-js-v3/commit/7ca09fa294148c71923687a58b6257adf5e4811b))
+* **client-lambda-web:** Lambda Web Functions GA launch. Lambda Web Functions enable customers to run web applications and API backends ([e817ea0](https://github.com/aws/aws-sdk-js-v3/commit/e817ea058b80163523a6616e65d1db871d41f675))
+* **client-mediaconnect:** This release adds support for MediaConnect Router high-bitrate tiers. It also adds a configurable audio reference level for NDI flows, and enhanced source metadata that includes color information and transport stream ID. ([187bb04](https://github.com/aws/aws-sdk-js-v3/commit/187bb0417a4a9d14b99c4d6a64159d7f3be81d6f))
+* **client-observabilityadmin:** Adding support for TransactionSearch telemetry rules. ([49992d7](https://github.com/aws/aws-sdk-js-v3/commit/49992d7e5109fb08d869bd2bacf31642377b95fe))
+* **client-omics:** AWS HealthOmics now supports private workflow runs using VPC resources shared across accounts via AWS RAM. A new optional vpcOwnerAccountId field in CreateConfiguration's VpcConfig allows customers to specify the account that owns the shared subnets and security groups. ([a5ee15f](https://github.com/aws/aws-sdk-js-v3/commit/a5ee15fead2302137f48b96fcf18d5c7a66cc0a2))
+* **client-pcs:** Adding scheduler version to RegisterComputeNodeGroup API. A compute node uses this value to run the matching scheduler version. ([8085dcd](https://github.com/aws/aws-sdk-js-v3/commit/8085dcdacd18430b1f477835e695a6f9ef617678))
+* **client-pinpoint-sms-voice-v2:** DescribePhoneNumbers and DescribeSenderIds now return an optional PricingTier field that indicates whether a phone number, sender ID, short code, or long code is classified as Domestic or International, enabling customers to identify origination identities eligible for local pricing. ([47e4631](https://github.com/aws/aws-sdk-js-v3/commit/47e4631e3b209544cf574f0ed817cf32158768dd))
+* **client-sagemaker:** Amazon SageMaker Training Session is a managed service for training on shared GPU infrastructure. It provides full lifecycle management of training sessions and exposes low-level primitive APIs for operations like forward-backward passes, optimizer steps, and state management. ([94f3242](https://github.com/aws/aws-sdk-js-v3/commit/94f32429aea7baa006630ce44805ca80686dbf6f))
+* **client-sagemakertrainingsessionruntime:** Amazon SageMaker Training Session Runtime provides APIs for executing operations within active training sessions, including asynchronous training operations, sampling and inference requests, and streaming real-time model responses, enabling programmatic control over the training loop. ([9c1af7b](https://github.com/aws/aws-sdk-js-v3/commit/9c1af7bd812075fcfd2d6a3943c8534f9c5ea0ed))
+* **client-securityagent:** Adds support for Jira integration provider in AWS Security Agent. ([892b1e4](https://github.com/aws/aws-sdk-js-v3/commit/892b1e4ecf1d0c2edee070de655fcf56a6d83279))
+* **clients:** update client endpoints as of 2026-10-12 ([39b0719](https://github.com/aws/aws-sdk-js-v3/commit/39b071929ab017e3d811d891f6d4dc90c77b2a5d))
+
+
+
+
+
 # [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
 
 

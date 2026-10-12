@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
+
+
+### Features
+
+* **client-glue:** Adds new AWS Glue Data Quality APIs to retrieve and list data quality evaluation results. The new GetDataQualityResultV2, BatchGetDataQualityResultV2, and ListDataQualityResultsV2 operations return data quality results published from any supported data processing engine. ([0f677b7](https://github.com/aws/aws-sdk-js-v3/commit/0f677b72837926a2414deb7dde3a0bd247330662))
+
+
+
+
+
 # [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

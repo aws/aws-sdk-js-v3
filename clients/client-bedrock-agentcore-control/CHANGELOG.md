@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** AgentCore Memory now supports configuring Long-Term Memory Time-to-Live (TTL) on Memory Strategies. ([93d530e](https://github.com/aws/aws-sdk-js-v3/commit/93d530e96da92999011f8e3f93fe85d8cad1c408))
+
+
+
+
+
 # [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

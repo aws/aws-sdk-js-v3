@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
+
+
+### Features
+
+* **client-pcs:** Adding scheduler version to RegisterComputeNodeGroup API. A compute node uses this value to run the matching scheduler version. ([8085dcd](https://github.com/aws/aws-sdk-js-v3/commit/8085dcdacd18430b1f477835e695a6f9ef617678))
+
+
+
+
+
 # [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-pcs

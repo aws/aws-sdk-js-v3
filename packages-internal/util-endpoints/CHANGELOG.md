@@ -49,6 +49,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.47 (2026-10-12)
+### Chores
+* **util-endpoints:** update dependencies.
+
+
+
 # 3.996.46 (2026-10-08)
 ### Chores
 * **codegen:** sync for endpoint cache fix and pre-schema error fallback ([#8341](https://github.com/aws/aws-sdk-js-v3/issues/8341)) ([5773a75](https://github.com/aws/aws-sdk-js-v3/commit/5773a7515472dbdf2760c61e4a462b71800c50e7))

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
+
+
+### Features
+
+* **client-lambda-core:** Lambda Network Connector now supports Lambda Web Functions, letting them reach private VPC resources, and adds versioning, each connector update creates an immutable version that revisions pin to, so customers can roll out and roll back networking changes without affecting running workloads ([7ca09fa](https://github.com/aws/aws-sdk-js-v3/commit/7ca09fa294148c71923687a58b6257adf5e4811b))
+
+
+
+
+
 # [3.1149.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1148.0...v3.1149.0) (2026-10-09)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda-core
