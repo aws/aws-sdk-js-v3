@@ -34,6 +34,7 @@ import type {
   ProgrammingLanguage,
   RecommendationStatus,
   RecommendationType,
+  RecordExpiryAction,
   ResourceContentType,
   ResultDestination,
   Role,
@@ -8030,7 +8031,7 @@ export namespace HarnessModelConfiguration {
 }
 
 /**
- * <p>Passed to show that AWS Skills should be included.</p>
+ * <p>Passed to show that Amazon Web Services Skills should be included.</p>
  * @public
  */
 export interface HarnessSkillAwsSkillsSource {
@@ -8147,7 +8148,7 @@ export namespace HarnessSkill {
   }
 
   /**
-   * <p>AWS Skills baked into the Harness's underlying Runtime.</p>
+   * <p>Amazon Web Services Skills baked into the Harness's underlying Runtime.</p>
    * @public
    */
   export interface AwsSkillsMember {
@@ -9430,6 +9431,59 @@ export interface InvokeHarnessResponse {
 }
 
 /**
+ * <p>Specifies the record expiry (long-term memory time-to-live) applied to the records in a batch request. Provide exactly one of <code>recordExpiryDurationDays</code> or <code>action</code>. Set <code>recordExpiryDurationDays</code> to configure or update the expiry, or set <code>action</code> to <code>REMOVE</code> to remove a previously configured expiry.</p>
+ * @public
+ */
+export type RecordExpirySpecification =
+  | RecordExpirySpecification.ActionMember
+  | RecordExpirySpecification.RecordExpiryDurationDaysMember
+  | RecordExpirySpecification.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RecordExpirySpecification {
+  /**
+   * <p>The duration, in days, after which the records in this request expire. The minimum is 31 days.</p>
+   * @public
+   */
+  export interface RecordExpiryDurationDaysMember {
+    recordExpiryDurationDays: number;
+    action?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The action to apply to the existing record expiry configuration. Set to <code>REMOVE</code> to remove a previously configured expiry so that the records no longer expire. This value does not apply when creating records.</p>
+   * @public
+   */
+  export interface ActionMember {
+    recordExpiryDurationDays?: never;
+    action: RecordExpiryAction;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    recordExpiryDurationDays?: never;
+    action?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    recordExpiryDurationDays: (value: number) => T;
+    action: (value: RecordExpiryAction) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Contains the content of a memory record.</p>
  * @public
  */
@@ -9618,6 +9672,12 @@ export interface BatchCreateMemoryRecordsInput {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>The record expiry (long-term memory time-to-live) applied to every record created by this request. Set <code>recordExpiryDurationDays</code> to the number of days after which the records expire. Only the expiry provided here is applied; the records' strategy association has no effect on their expiry. If you do not provide this value, the records do not expire. The <code>REMOVE</code> action does not apply when creating records.</p>
+   * @public
+   */
+  recordExpirySpecification?: RecordExpirySpecification | undefined;
 }
 
 /**
@@ -9788,6 +9848,12 @@ export interface BatchUpdateMemoryRecordsInput {
    * @public
    */
   records: MemoryRecordUpdateInput[] | undefined;
+
+  /**
+   * <p>The record expiry (long-term memory time-to-live) applied to every record updated by this request. Set <code>recordExpiryDurationDays</code> to configure or overwrite the number of days after which the records expire, or set <code>action</code> to <code>REMOVE</code> to clear a previously configured expiry so that the records no longer expire.</p> <p>When you do not provide this value, the service determines each record's expiry from its current state:</p> <ul> <li> <p>If the record already has an expiry configured, the service resets and reapplies the expiry based on the last applied <code>recordExpiryDurationDays</code>.</p> </li> <li> <p>If the record does not have an expiry configured, no expiry is applied and the record remains non-expiring. This is the outcome regardless of whether the record's strategy configures an expiry.</p> </li> </ul> <p>Providing an explicit <code>recordExpiryDurationDays</code> always takes precedence: it overwrites an existing expiry, or sets one on a record that previously had none.</p>
+   * @public
+   */
+  recordExpirySpecification?: RecordExpirySpecification | undefined;
 }
 
 /**
@@ -10171,15 +10237,4 @@ export interface DeleteEventInput {
    * @public
    */
   actorId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteEventOutput {
-  /**
-   * <p>The identifier of the event that was deleted.</p>
-   * @public
-   */
-  eventId: string | undefined;
 }

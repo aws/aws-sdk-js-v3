@@ -604,6 +604,18 @@ export type HarnessStopReason = (typeof HarnessStopReason)[keyof typeof HarnessS
  * @public
  * @enum
  */
+export const RecordExpiryAction = {
+  REMOVE: "REMOVE",
+} as const;
+/**
+ * @public
+ */
+export type RecordExpiryAction = (typeof RecordExpiryAction)[keyof typeof RecordExpiryAction];
+
+/**
+ * @public
+ * @enum
+ */
 export const MemoryRecordStatus = {
   FAILED: "FAILED",
   SUCCEEDED: "SUCCEEDED",
