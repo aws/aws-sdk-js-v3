@@ -1832,6 +1832,12 @@ export interface RegisterComputeNodeGroupInstanceResponse {
    * @public
    */
   nodeLifecycleActions?: NodeLifecycleActions | undefined;
+
+  /**
+   * <p>The scheduler version that the cluster is running. A compute node uses this value to run the matching scheduler version.</p>
+   * @public
+   */
+  schedulerVersion?: string | undefined;
 }
 
 /**

@@ -91,6 +91,7 @@ export interface RegisterComputeNodeGroupInstanceCommandOutput extends RegisterC
  * //     },
  * //     scriptCachingPolicy: "CACHE_ONCE" || "REFRESH_ON_REBOOT",
  * //   },
+ * //   schedulerVersion: "STRING_VALUE",
  * // };
  *
  * ```
