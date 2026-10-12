@@ -149,7 +149,6 @@ export interface GetContextGraphCommandOutput extends GetContextGraphOutput, __M
  * //         metrics: [ // MetricMetadataList
  * //           { // MetricMetadata
  * //             name: "STRING_VALUE",
- * //             namespace: "STRING_VALUE",
  * //             preferredStat: "STRING_VALUE",
  * //             metricType: "STRING_VALUE",
  * //             attributes: { // MetadataAttributeMap
@@ -224,7 +223,6 @@ export interface GetContextGraphCommandOutput extends GetContextGraphOutput, __M
  * //             metrics: [
  * //               {
  * //                 name: "STRING_VALUE",
- * //                 namespace: "STRING_VALUE",
  * //                 preferredStat: "STRING_VALUE",
  * //                 metricType: "STRING_VALUE",
  * //                 attributes: {

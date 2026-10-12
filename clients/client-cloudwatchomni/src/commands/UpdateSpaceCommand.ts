@@ -37,6 +37,7 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceOutput, __MetadataB
  * const input = { // UpdateSpaceInput
  *   spaceId: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
+ *   agentCoreEvaluationRoleArn: "STRING_VALUE",
  *   encryptionConfiguration: { // EncryptionConfiguration
  *     encryptionStrategy: "AWS_OWNED" || "CUSTOMER_MANAGED", // required
  *     kmsKeyArn: "STRING_VALUE",
