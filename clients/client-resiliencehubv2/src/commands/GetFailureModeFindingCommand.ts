@@ -74,6 +74,7 @@ export interface GetFailureModeFindingCommandOutput extends GetFailureModeFindin
  * //       },
  * //     ],
  * //     updatedAt: new Date("TIMESTAMP"),
+ * //     investigationDeepLink: "STRING_VALUE",
  * //   },
  * // };
  *

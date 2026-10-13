@@ -165,6 +165,15 @@ export interface ImportAppCommandOutput extends ImportAppResponse, __MetadataBea
  * //     organizationId: "STRING_VALUE",
  * //     ouId: "STRING_VALUE",
  * //     accountId: "STRING_VALUE",
+ * //     devOpsAgentConfiguration: { // DevOpsAgentConfigurationView
+ * //       agentSpaceArn: "STRING_VALUE",
+ * //       agentSpaceId: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       status: "CONNECTING" || "CONNECTED" || "DISCONNECTED" || "FAILED",
+ * //       operatorAppUrl: "STRING_VALUE",
+ * //       connectedAt: new Date("TIMESTAMP"),
+ * //       statusReason: "STRING_VALUE",
+ * //     },
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //   },
@@ -189,6 +198,9 @@ export interface ImportAppCommandOutput extends ImportAppResponse, __MetadataBea
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Service quota exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation error — invalid input parameters.</p>

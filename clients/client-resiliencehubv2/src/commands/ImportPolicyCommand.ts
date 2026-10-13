@@ -100,6 +100,9 @@ export interface ImportPolicyCommandOutput extends ImportPolicyResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource not found.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Service quota exceeded.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>Validation error — invalid input parameters.</p>
  *

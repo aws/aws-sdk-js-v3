@@ -76,6 +76,7 @@ export interface UpdateFailureModeFindingCommandOutput extends UpdateFailureMode
  * //       },
  * //     ],
  * //     updatedAt: new Date("TIMESTAMP"),
+ * //     investigationDeepLink: "STRING_VALUE",
  * //   },
  * // };
  *

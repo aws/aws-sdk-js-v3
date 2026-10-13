@@ -113,6 +113,13 @@ import {
   DependencyInsightsErrorCode,
   DependencyInsightsStatus,
   DependencySummary$,
+  DevOpsAgentConfidence,
+  DevOpsAgentConfiguration$,
+  DevOpsAgentConfigurationView$,
+  DevOpsAgentConnectionStatus,
+  DevOpsAgentInvestigation$,
+  DevOpsAgentInvestigationStatus,
+  DevOpsAgentVerdict,
   DisasterRecoverySource$,
   EdgePropertySummary$,
   EffectivePolicyValues$,
@@ -726,6 +733,9 @@ assert(typeof DeleteUserJourneyResponse$ === "object");
 assert(typeof DependencyDiscoveryConfig$ === "object");
 assert(typeof DependencyInsight$ === "object");
 assert(typeof DependencySummary$ === "object");
+assert(typeof DevOpsAgentConfiguration$ === "object");
+assert(typeof DevOpsAgentConfigurationView$ === "object");
+assert(typeof DevOpsAgentInvestigation$ === "object");
 assert(typeof DisasterRecoverySource$ === "object");
 assert(typeof EdgePropertySummary$ === "object");
 assert(typeof EffectivePolicyValues$ === "object");
@@ -962,6 +972,10 @@ assert(typeof DependencyDiscoveryInput === "object");
 assert(typeof DependencyDiscoveryStatus === "object");
 assert(typeof DependencyInsightsErrorCode === "object");
 assert(typeof DependencyInsightsStatus === "object");
+assert(typeof DevOpsAgentConfidence === "object");
+assert(typeof DevOpsAgentConnectionStatus === "object");
+assert(typeof DevOpsAgentInvestigationStatus === "object");
+assert(typeof DevOpsAgentVerdict === "object");
 assert(typeof EksLabelSelectorOperator === "object");
 assert(typeof FailureCategory === "object");
 assert(typeof FindingSeverity === "object");

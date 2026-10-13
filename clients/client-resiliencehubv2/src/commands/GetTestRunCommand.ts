@@ -135,6 +135,13 @@ export interface GetTestRunCommandOutput extends GetTestRunResponse, __MetadataB
  * //       "STRING_VALUE",
  * //     ],
  * //     accountTargeting: "SINGLE_ACCOUNT" || "MULTI_ACCOUNT",
+ * //     devOpsAgentInvestigation: { // DevOpsAgentInvestigation
+ * //       verdict: "PASS" || "FAIL",
+ * //       confidence: "HIGH" || "MEDIUM" || "LOW",
+ * //       deepLink: "STRING_VALUE",
+ * //       status: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED",
+ * //       summary: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

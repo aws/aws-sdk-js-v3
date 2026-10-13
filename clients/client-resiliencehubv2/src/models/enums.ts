@@ -283,6 +283,22 @@ export type DependencyDiscoveryStatus = (typeof DependencyDiscoveryStatus)[keyof
  * @public
  * @enum
  */
+export const DevOpsAgentConnectionStatus = {
+  CONNECTED: "CONNECTED",
+  CONNECTING: "CONNECTING",
+  DISCONNECTED: "DISCONNECTED",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type DevOpsAgentConnectionStatus =
+  (typeof DevOpsAgentConnectionStatus)[keyof typeof DevOpsAgentConnectionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const PolicyValueSource = {
   CROSS_ACCOUNT: "CROSS_ACCOUNT",
   SELF: "SELF",
@@ -436,6 +452,51 @@ export const QueryGranularity = {
  * @public
  */
 export type QueryGranularity = (typeof QueryGranularity)[keyof typeof QueryGranularity];
+
+/**
+ * @public
+ * @enum
+ */
+export const DevOpsAgentConfidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type DevOpsAgentConfidence = (typeof DevOpsAgentConfidence)[keyof typeof DevOpsAgentConfidence];
+
+/**
+ * @public
+ * @enum
+ */
+export const DevOpsAgentInvestigationStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type DevOpsAgentInvestigationStatus =
+  (typeof DevOpsAgentInvestigationStatus)[keyof typeof DevOpsAgentInvestigationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DevOpsAgentVerdict = {
+  FAIL: "FAIL",
+  PASS: "PASS",
+} as const;
+/**
+ * @public
+ */
+export type DevOpsAgentVerdict = (typeof DevOpsAgentVerdict)[keyof typeof DevOpsAgentVerdict];
 
 /**
  * @public
