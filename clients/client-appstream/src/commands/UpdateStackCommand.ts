@@ -52,7 +52,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *   RedirectURL: "STRING_VALUE",
  *   FeedbackURL: "STRING_VALUE",
  *   AttributesToDelete: [ // StackAttributes
- *     "STORAGE_CONNECTORS" || "STORAGE_CONNECTOR_HOMEFOLDERS" || "STORAGE_CONNECTOR_GOOGLE_DRIVE" || "STORAGE_CONNECTOR_ONE_DRIVE" || "REDIRECT_URL" || "FEEDBACK_URL" || "THEME_NAME" || "USER_SETTINGS" || "EMBED_HOST_DOMAINS" || "IAM_ROLE_ARN" || "ACCESS_ENDPOINTS" || "STREAMING_EXPERIENCE_SETTINGS" || "CONTENT_REDIRECTION" || "AGENT_ACCESS_CONFIG",
+ *     "STORAGE_CONNECTORS" || "STORAGE_CONNECTOR_HOMEFOLDERS" || "STORAGE_CONNECTOR_GOOGLE_DRIVE" || "STORAGE_CONNECTOR_ONE_DRIVE" || "REDIRECT_URL" || "FEEDBACK_URL" || "THEME_NAME" || "USER_SETTINGS" || "EMBED_HOST_DOMAINS" || "IAM_ROLE_ARN" || "ACCESS_ENDPOINTS" || "STREAMING_EXPERIENCE_SETTINGS" || "CONTENT_REDIRECTION" || "AGENT_ACCESS_CONFIG" || "STORAGE_CONNECTOR_AUTHENTICATION",
  *   ],
  *   UserSettings: [ // UserSettingList
  *     { // UserSetting
@@ -101,6 +101,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *     ScreenImageFormat: "PNG" || "JPEG",
  *     UserControlMode: "VIEW_ONLY" || "VIEW_STOP" || "DISABLED",
  *   },
+ *   StorageConnectorAuthentication: "FORCE_REAUTHENTICATION" || "REUSE_CREDENTIALS",
  * };
  * const command = new UpdateStackCommand(input);
  * const response = await client.send(command);
@@ -179,6 +180,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  * //       ScreenImageFormat: "PNG" || "JPEG", // required
  * //       UserControlMode: "VIEW_ONLY" || "VIEW_STOP" || "DISABLED",
  * //     },
+ * //     StorageConnectorAuthentication: "FORCE_REAUTHENTICATION" || "REUSE_CREDENTIALS",
  * //   },
  * // };
  *

@@ -438,6 +438,7 @@ import {
   StopImageBuilderRequest$,
   StopImageBuilderResult$,
   StorageConnector$,
+  StorageConnectorAuthentication,
   StorageConnectorType,
   StreamingExperienceSettings$,
   StreamView,
@@ -964,6 +965,7 @@ assert(typeof SessionState === "object");
 assert(typeof SoftwareDeploymentStatus === "object");
 assert(typeof StackAttribute === "object");
 assert(typeof StackErrorCode === "object");
+assert(typeof StorageConnectorAuthentication === "object");
 assert(typeof StorageConnectorType === "object");
 assert(typeof StreamView === "object");
 assert(typeof ThemeAttribute === "object");

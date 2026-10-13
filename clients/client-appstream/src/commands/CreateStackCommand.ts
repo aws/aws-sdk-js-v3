@@ -100,6 +100,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *     ScreenImageFormat: "PNG" || "JPEG", // required
  *     UserControlMode: "VIEW_ONLY" || "VIEW_STOP" || "DISABLED",
  *   },
+ *   StorageConnectorAuthentication: "FORCE_REAUTHENTICATION" || "REUSE_CREDENTIALS",
  * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
@@ -178,6 +179,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * //       ScreenImageFormat: "PNG" || "JPEG", // required
  * //       UserControlMode: "VIEW_ONLY" || "VIEW_STOP" || "DISABLED",
  * //     },
+ * //     StorageConnectorAuthentication: "FORCE_REAUTHENTICATION" || "REUSE_CREDENTIALS",
  * //   },
  * // };
  *

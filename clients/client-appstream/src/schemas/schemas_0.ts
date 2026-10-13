@@ -460,6 +460,7 @@ const _SB = "S3Bucket";
 const _SBA = "S3BucketArn";
 const _SBN = "S3BucketName";
 const _SC = "StorageConnectors";
+const _SCA = "StorageConnectorAuthentication";
 const _SCL = "StorageConnectorList";
 const _SCR = "StateChangeReason";
 const _SCe = "SessionContext";
@@ -1039,8 +1040,8 @@ export var CreateImportedImageResult$: StaticStructureSchema = [3, n0, _CIIRr,
 ];
 export var CreateStackRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_N, _D, _DN, _SC, _RURL, _FURL, _US, _AS, _T, _AEc, _EHD, _SES, _CR, _AAC],
-  [0, 0, 0, () => StorageConnectorList, 0, 0, () => UserSettingList, () => ApplicationSettings$, 128 | 0, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfig$], 1
+  [_N, _D, _DN, _SC, _RURL, _FURL, _US, _AS, _T, _AEc, _EHD, _SES, _CR, _AAC, _SCA],
+  [0, 0, 0, () => StorageConnectorList, 0, 0, () => UserSettingList, () => ApplicationSettings$, 128 | 0, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfig$, 0], 1
 ];
 export var CreateStackResult$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -1699,8 +1700,8 @@ export var SoftwareAssociations$: StaticStructureSchema = [3, n0, _SA,
 ];
 export var Stack$: StaticStructureSchema = [3, n0, _Stac,
   0,
-  [_N, _A, _D, _DN, _CT, _SC, _RURL, _FURL, _SE, _US, _AS, _AEc, _EHD, _SES, _CR, _AAC],
-  [0, 0, 0, 0, 4, () => StorageConnectorList, 0, 0, () => StackErrors, () => UserSettingList, () => ApplicationSettingsResponse$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfig$], 1
+  [_N, _A, _D, _DN, _CT, _SC, _RURL, _FURL, _SE, _US, _AS, _AEc, _EHD, _SES, _CR, _AAC, _SCA],
+  [0, 0, 0, 0, 4, () => StorageConnectorList, 0, 0, () => StackErrors, () => UserSettingList, () => ApplicationSettingsResponse$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfig$, 0], 1
 ];
 export var StackError$: StaticStructureSchema = [3, n0, _SEt,
   0,
@@ -1879,8 +1880,8 @@ export var UpdateImagePermissionsResult$: StaticStructureSchema = [3, n0, _UIPRp
 ];
 export var UpdateStackRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_N, _DN, _D, _SC, _DSC, _RURL, _FURL, _ATD, _US, _AS, _AEc, _EHD, _SES, _CR, _AAC],
-  [0, 0, 0, () => StorageConnectorList, 2, 0, 0, 64 | 0, () => UserSettingList, () => ApplicationSettings$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfigForUpdate$], 1
+  [_N, _DN, _D, _SC, _DSC, _RURL, _FURL, _ATD, _US, _AS, _AEc, _EHD, _SES, _CR, _AAC, _SCA],
+  [0, 0, 0, () => StorageConnectorList, 2, 0, 0, 64 | 0, () => UserSettingList, () => ApplicationSettings$, () => AccessEndpointList, 64 | 0, () => StreamingExperienceSettings$, () => ContentRedirection$, () => AgentAccessConfigForUpdate$, 0], 1
 ];
 export var UpdateStackResult$: StaticStructureSchema = [3, n0, _USRp,
   0,

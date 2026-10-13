@@ -308,6 +308,7 @@ export type {
   SoftwareDeploymentStatus,
   StackAttribute,
   StackErrorCode,
+  StorageConnectorAuthentication,
   StorageConnectorType,
   StreamView,
   ThemeAttribute,
