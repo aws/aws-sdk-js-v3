@@ -11,6 +11,7 @@ import type {
   FreeTrialStatusValue,
   FreeTrialType,
   MapFilterComparison,
+  ResourceCriticality,
   RuleStatus,
   RuleStatusV2,
   SeverityLabel,
@@ -1323,6 +1324,18 @@ export interface AutomationRulesFindingFieldsUpdateV2 {
 }
 
 /**
+ * <p>Allows you to define the structure for modifying specific fields of resources.</p>
+ * @public
+ */
+export interface AutomationRulesResourceFieldsUpdateV2 {
+  /**
+   * <p>The criticality level to be assigned to resources that match the automation rule criteria.</p>
+   * @public
+   */
+  Criticality: ResourceCriticality | undefined;
+}
+
+/**
  * <p>Allows you to configure automated responses.</p>
  * @public
  */
@@ -1344,6 +1357,12 @@ export interface AutomationRulesActionV2 {
    * @public
    */
   ExternalIntegrationConfiguration?: ExternalIntegrationConfiguration | undefined;
+
+  /**
+   * <p>The changes to be applied to resource fields when an automation rule is triggered.</p>
+   * @public
+   */
+  ResourceFieldsUpdate?: AutomationRulesResourceFieldsUpdateV2 | undefined;
 }
 
 /**
@@ -13106,29 +13125,4 @@ export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropert
    * @public
    */
   Value?: string | undefined;
-}
-
-/**
- * <p>The configuration details for the App Mesh
- *          proxy.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
-  /**
-   * <p>The name of the container that will serve as the App Mesh proxy.</p>
-   * @public
-   */
-  ContainerName?: string | undefined;
-
-  /**
-   * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
-   * @public
-   */
-  ProxyConfigurationProperties?: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[] | undefined;
-
-  /**
-   * <p>The proxy type.</p>
-   * @public
-   */
-  Type?: string | undefined;
 }

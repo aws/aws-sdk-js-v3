@@ -26,16 +26,16 @@ import type {
   GranularityField,
   GroupByField,
   GuidanceFormat,
+  RecommendationStatus,
+  RecommendationType,
   RecordState,
   RegionAvailabilityStatus,
   RemediationPriority,
   RemediationStatus,
+  RemediationStringField,
   ResourceCategory,
+  ResourceCriticality,
   ResourceGroupByField,
-  ResourcesDateField,
-  ResourcesMapField,
-  ResourcesNumberField,
-  ResourcesStringField,
   ResourcesTrendsStringField,
   ResourceSubCategory,
   RuleStatusV2,
@@ -55,10 +55,7 @@ import type {
   AutomationRulesActionV2,
   AutomationRulesMetadata,
   AutomationRulesMetadataV2,
-  DateFilter,
-  MapFilter,
   NoteUpdate,
-  NumberFilter,
   StringFilter,
 } from "./models_0";
 import type { AwsOrganizationScope } from "./models_1";
@@ -69,6 +66,7 @@ import type {
   ConfigurationPolicyAssociationSummary,
   ConfigurationPolicySummary,
   ConnectorSummary,
+  CriticalitySource,
   CspmConnectorSummary,
   CspmProviderUpdateConfiguration,
   ExportDestination,
@@ -90,11 +88,175 @@ import type {
   OrganizationConfiguration,
   ParameterConfiguration,
   Policy,
-  RemediationCompositeFilter,
+  RecommendationError,
+  ResourcesDateFilter,
+  ResourcesMapFilter,
+  ResourcesNumberFilter,
+  ResourcesStringFilter,
   Result,
   SortCriterion,
   Target,
 } from "./models_2";
+
+/**
+ * <p>Contains information about the action to take for a policy in an unused permissions finding.</p>
+ * @public
+ */
+export interface UnusedPermissionsRecommendationStep {
+  /**
+   * <p>A recommendation of whether to create or detach a policy for an unused permissions finding.</p>
+   * @public
+   */
+  RecommendedAction?: string | undefined;
+
+  /**
+   * <p>The contents of the existing policy identified by <code>ExistingPolicyId</code> which needs to be replaced,
+   *           when the <code>RecommendedAction</code> is <code>CREATE_POLICY</code>.</p>
+   * @public
+   */
+  ExistingPolicy?: string | undefined;
+
+  /**
+   * <p>The ID of an existing policy to be replaced or detached.</p>
+   * @public
+   */
+  ExistingPolicyId?: string | undefined;
+
+  /**
+   * <p>The time at which the existing policy for the unused permissions finding was last updated.</p>
+   * @public
+   */
+  PolicyUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The contents of the least-privileged recommended replacement for <code>ExistingPolicyId</code>,
+   *           when the <code>RecommendedAction</code> is <code>CREATE_POLICY</code>.</p>
+   * @public
+   */
+  RecommendedPolicy?: string | undefined;
+}
+
+/**
+ * <p>Contains information about a recommended step to remediate a Security Hub finding.</p>
+ * @public
+ */
+export type RecommendationStep =
+  | RecommendationStep.UnusedPermissionsMember
+  | RecommendationStep.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RecommendationStep {
+  /**
+   * <p>A recommended step to remediate an unused permissions finding.</p>
+   * @public
+   */
+  export interface UnusedPermissionsMember {
+    UnusedPermissions: UnusedPermissionsRecommendationStep;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    UnusedPermissions?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    UnusedPermissions: (value: UnusedPermissionsRecommendationStep) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetRecommendedPolicyV2Response {
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The type of recommendation for the finding.</p>
+   * @public
+   */
+  RecommendationType?: RecommendationType | undefined;
+
+  /**
+   * <p>The recommended steps to take to resolve the finding.</p>
+   * @public
+   */
+  RecommendationSteps?: RecommendationStep[] | undefined;
+
+  /**
+   * <p>Detailed information for a <code>FAILED</code> retrieval status.</p>
+   * @public
+   */
+  Error?: RecommendationError | undefined;
+
+  /**
+   * <p>The current status of the recommended policy retrieval.</p>
+   * @public
+   */
+  Status?: RecommendationStatus | undefined;
+
+  /**
+   * <p>The ARN of the resource of the finding.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+}
+
+/**
+ * <p>The condition to apply to the string filter.</p>
+ * @public
+ */
+export interface RemediationStringFilterCondition {
+  /**
+   * <p>The value the string filter is comparing against.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>A string filter for filtering remediation targets.</p>
+ * @public
+ */
+export interface RemediationStringFilter {
+  /**
+   * <p>The name of the filter field. Valid values are <code>Resource.Type</code>, <code>Priority</code>, <code>Status</code>, <code>Resource.Id</code>, <code>Resource.ResourceOwnerAccountId</code>, and <code>Resource.CloudProvider</code>.</p>
+   * @public
+   */
+  FieldName: RemediationStringField | undefined;
+
+  /**
+   * <p>The string filter definition.</p>
+   * @public
+   */
+  Filter: RemediationStringFilterCondition | undefined;
+}
+
+/**
+ * <p>Enables the creation of criteria for remediation targets.</p>
+ * @public
+ */
+export interface RemediationCompositeFilter {
+  /**
+   * <p>Enables filtering based on string field values.</p>
+   * @public
+   */
+  StringFilters?: RemediationStringFilter[] | undefined;
+}
 
 /**
  * <p>Contains the criteria used to filter remediation targets, such as resource type, priority,
@@ -746,79 +908,6 @@ export interface GetRemediationsV2Response {
 }
 
 /**
- * <p>Enables the filtering of Amazon Web Services resources based on date and timestamp attributes.</p>
- * @public
- */
-export interface ResourcesDateFilter {
-  /**
-   * <p>The name of the field.</p>
-   * @public
-   */
-  FieldName?: ResourcesDateField | undefined;
-
-  /**
-   * <p>A date filter for querying findings.</p>
-   * @public
-   */
-  Filter?: DateFilter | undefined;
-}
-
-/**
- * <p>Enables filtering of Amazon Web Services resources based on key-value map attributes.</p>
- * @public
- */
-export interface ResourcesMapFilter {
-  /**
-   * <p>The name of the field.</p>
-   * @public
-   */
-  FieldName?: ResourcesMapField | undefined;
-
-  /**
-   * <p>A map filter for filtering Security Hub CSPM findings. Each map filter provides the field to check for, the
-   *          value to check for, and the comparison operator.</p>
-   * @public
-   */
-  Filter?: MapFilter | undefined;
-}
-
-/**
- * <p>Enables filtering of Amazon Web Services resources based on numerical values.</p>
- * @public
- */
-export interface ResourcesNumberFilter {
-  /**
-   * <p>The name of the field.</p>
-   * @public
-   */
-  FieldName?: ResourcesNumberField | undefined;
-
-  /**
-   * <p>A number filter for querying findings.</p>
-   * @public
-   */
-  Filter?: NumberFilter | undefined;
-}
-
-/**
- * <p>Enables filtering of Amazon Web Services resources based on string field values.</p>
- * @public
- */
-export interface ResourcesStringFilter {
-  /**
-   * <p>The name of the field.</p>
-   * @public
-   */
-  FieldName?: ResourcesStringField | undefined;
-
-  /**
-   * <p>A string filter for filtering Security Hub CSPM findings.</p>
-   * @public
-   */
-  Filter?: StringFilter | undefined;
-}
-
-/**
  * <p>Defines the data boundary for a resources query. Scopes determine which organizational units or organizations to retrieve data from.</p>
  * @public
  */
@@ -1202,6 +1291,18 @@ export interface ResourceResult {
    * @public
    */
   ResourceInfo?: ResourceInfo | undefined;
+
+  /**
+   * <p>The criticality assigned to a resource.</p>
+   * @public
+   */
+  ResourceCriticality?: ResourceCriticality | undefined;
+
+  /**
+   * <p>The sources of criticalities determined from a resource.</p>
+   * @public
+   */
+  CriticalitySources?: CriticalitySource[] | undefined;
 }
 
 /**
@@ -3400,45 +3501,6 @@ export interface ResourcesTrendsFilters {
 }
 
 /**
- * <p>Defines the parameters and conditions used to evaluate and filter security findings.</p>
- * @public
- */
-export type Criteria =
-  | Criteria.OcsfFindingCriteriaMember
-  | Criteria.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Criteria {
-  /**
-   * <p>The filtering conditions that align with OCSF standards.</p>
-   * @public
-   */
-  export interface OcsfFindingCriteriaMember {
-    OcsfFindingCriteria: OcsfFindingFilters;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    OcsfFindingCriteria?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    OcsfFindingCriteria: (value: OcsfFindingFilters) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
  * <p>The configuration for a findings export: the output format, an optional set of filters, and the fields to include.</p>
  * @public
  */
@@ -3663,59 +3725,6 @@ export interface ResourceGroupByRule {
 }
 
 /**
- * @public
- */
-export interface CreateAutomationRuleV2Request {
-  /**
-   * <p>The name of the V2 automation rule.</p>
-   * @public
-   */
-  RuleName: string | undefined;
-
-  /**
-   * <p>The status of the V2 automation rule.</p>
-   * @public
-   */
-  RuleStatus?: RuleStatusV2 | undefined;
-
-  /**
-   * <p>A description of the V2 automation rule.</p>
-   * @public
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>The value for the rule priority.</p>
-   * @public
-   */
-  RuleOrder: number | undefined;
-
-  /**
-   * <p>The filtering type and configuration of the automation rule.</p>
-   * @public
-   */
-  Criteria: Criteria | undefined;
-
-  /**
-   * <p>A list of actions to be performed when the rule criteria is met.</p>
-   * @public
-   */
-  Actions: AutomationRulesActionV2[] | undefined;
-
-  /**
-   * <p>A list of key-value pairs associated with the V2 automation rule.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>A unique identifier used to ensure idempotency.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
  * <p>Specifies what data to export and how to format it. This is a union: you must specify exactly one member. Currently, the only supported member is <code>Findings</code>.</p>
  * @public
  */
@@ -3752,118 +3761,6 @@ export namespace ExportOutput {
     Findings: (value: FindingsOutput) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * @public
- */
-export interface GetAutomationRuleV2Response {
-  /**
-   * <p>The ARN of the V2 automation rule.</p>
-   * @public
-   */
-  RuleArn?: string | undefined;
-
-  /**
-   * <p>The ID of the V2 automation rule.</p>
-   * @public
-   */
-  RuleId?: string | undefined;
-
-  /**
-   * <p>The value for the rule priority.</p>
-   * @public
-   */
-  RuleOrder?: number | undefined;
-
-  /**
-   * <p>The name of the V2 automation rule.</p>
-   * @public
-   */
-  RuleName?: string | undefined;
-
-  /**
-   * <p>The status of the V2 automation automation rule.</p>
-   * @public
-   */
-  RuleStatus?: RuleStatusV2 | undefined;
-
-  /**
-   * <p>A description of the automation rule.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The filtering type and configuration of the V2 automation rule.</p>
-   * @public
-   */
-  Criteria?: Criteria | undefined;
-
-  /**
-   * <p>A list of actions performed when the rule criteria is met.</p>
-   * @public
-   */
-  Actions?: AutomationRulesActionV2[] | undefined;
-
-  /**
-   * <p>The timestamp when the V2 automation rule was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the V2 automation rule was updated.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAutomationRuleV2Request {
-  /**
-   * <p>The ARN of the automation rule.</p>
-   * @public
-   */
-  Identifier: string | undefined;
-
-  /**
-   * <p>The status of the automation rule.</p>
-   * @public
-   */
-  RuleStatus?: RuleStatusV2 | undefined;
-
-  /**
-   * <p>Represents a value for the rule priority.</p>
-   * @public
-   */
-  RuleOrder?: number | undefined;
-
-  /**
-   * <p>A description of the automation rule.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The name of the automation rule.</p>
-   * @public
-   */
-  RuleName?: string | undefined;
-
-  /**
-   * <p>The filtering type and configuration of the automation rule.</p>
-   * @public
-   */
-  Criteria?: Criteria | undefined;
-
-  /**
-   * <p>A list of actions to be performed when the rule criteria is met.</p>
-   * @public
-   */
-  Actions?: AutomationRulesActionV2[] | undefined;
 }
 
 /**
@@ -4040,4 +3937,222 @@ export interface StartExportJobV2Request {
    * @public
    */
   ClientToken?: string | undefined;
+}
+
+/**
+ * <p>Defines the parameters and conditions used to evaluate and filter security findings or resources.</p>
+ * @public
+ */
+export type Criteria =
+  | Criteria.OcsfFindingCriteriaMember
+  | Criteria.ResourceCriteriaMember
+  | Criteria.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Criteria {
+  /**
+   * <p>The filtering conditions that align with OCSF standards.</p>
+   * @public
+   */
+  export interface OcsfFindingCriteriaMember {
+    OcsfFindingCriteria: OcsfFindingFilters;
+    ResourceCriteria?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The filtering conditions for resources.</p>
+   * @public
+   */
+  export interface ResourceCriteriaMember {
+    OcsfFindingCriteria?: never;
+    ResourceCriteria: ResourcesFilters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    OcsfFindingCriteria?: never;
+    ResourceCriteria?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    OcsfFindingCriteria: (value: OcsfFindingFilters) => T;
+    ResourceCriteria: (value: ResourcesFilters) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateAutomationRuleV2Request {
+  /**
+   * <p>The name of the V2 automation rule.</p>
+   * @public
+   */
+  RuleName: string | undefined;
+
+  /**
+   * <p>The status of the V2 automation rule.</p>
+   * @public
+   */
+  RuleStatus?: RuleStatusV2 | undefined;
+
+  /**
+   * <p>A description of the V2 automation rule.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The value for the rule priority.</p>
+   * @public
+   */
+  RuleOrder: number | undefined;
+
+  /**
+   * <p>The filtering type and configuration of the automation rule.</p>
+   * @public
+   */
+  Criteria: Criteria | undefined;
+
+  /**
+   * <p>A list of actions to be performed when the rule criteria is met.</p>
+   * @public
+   */
+  Actions: AutomationRulesActionV2[] | undefined;
+
+  /**
+   * <p>A list of key-value pairs associated with the V2 automation rule.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique identifier used to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAutomationRuleV2Response {
+  /**
+   * <p>The ARN of the V2 automation rule.</p>
+   * @public
+   */
+  RuleArn?: string | undefined;
+
+  /**
+   * <p>The ID of the V2 automation rule.</p>
+   * @public
+   */
+  RuleId?: string | undefined;
+
+  /**
+   * <p>The value for the rule priority.</p>
+   * @public
+   */
+  RuleOrder?: number | undefined;
+
+  /**
+   * <p>The name of the V2 automation rule.</p>
+   * @public
+   */
+  RuleName?: string | undefined;
+
+  /**
+   * <p>The status of the V2 automation automation rule.</p>
+   * @public
+   */
+  RuleStatus?: RuleStatusV2 | undefined;
+
+  /**
+   * <p>A description of the automation rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The filtering type and configuration of the V2 automation rule.</p>
+   * @public
+   */
+  Criteria?: Criteria | undefined;
+
+  /**
+   * <p>A list of actions performed when the rule criteria is met.</p>
+   * @public
+   */
+  Actions?: AutomationRulesActionV2[] | undefined;
+
+  /**
+   * <p>The timestamp when the V2 automation rule was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the V2 automation rule was updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAutomationRuleV2Request {
+  /**
+   * <p>The ARN of the automation rule.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The status of the automation rule.</p>
+   * @public
+   */
+  RuleStatus?: RuleStatusV2 | undefined;
+
+  /**
+   * <p>Represents a value for the rule priority.</p>
+   * @public
+   */
+  RuleOrder?: number | undefined;
+
+  /**
+   * <p>A description of the automation rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The name of the automation rule.</p>
+   * @public
+   */
+  RuleName?: string | undefined;
+
+  /**
+   * <p>The filtering type and configuration of the automation rule.</p>
+   * @public
+   */
+  Criteria?: Criteria | undefined;
+
+  /**
+   * <p>A list of actions to be performed when the rule criteria is met.</p>
+   * @public
+   */
+  Actions?: AutomationRulesActionV2[] | undefined;
 }

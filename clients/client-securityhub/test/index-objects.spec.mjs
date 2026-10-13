@@ -46,6 +46,7 @@ import {
   AutomationRulesFindingFilters$,
   AutomationRulesMetadata$,
   AutomationRulesMetadataV2$,
+  AutomationRulesResourceFieldsUpdateV2$,
   AvailabilityZone$,
   AwsAmazonMqBrokerDetails$,
   AwsAmazonMqBrokerEncryptionOptionsDetails$,
@@ -681,6 +682,8 @@ import {
   CreateTicketV2Request$,
   CreateTicketV2Response$,
   Criteria$,
+  CriticalitySource$,
+  CriticalitySourceType,
   CspmConnectorProviderName,
   CspmConnectorStatus,
   CspmConnectorSummary$,
@@ -1223,6 +1226,7 @@ import {
   ResourceCategory,
   ResourceConflictException,
   ResourceConflictException$,
+  ResourceCriticality,
   ResourceDetails$,
   ResourceFindingsSummary$,
   ResourceGroupByField,
@@ -1730,6 +1734,7 @@ assert(typeof AutomationRulesFindingFieldsUpdateV2$ === "object");
 assert(typeof AutomationRulesFindingFilters$ === "object");
 assert(typeof AutomationRulesMetadata$ === "object");
 assert(typeof AutomationRulesMetadataV2$ === "object");
+assert(typeof AutomationRulesResourceFieldsUpdateV2$ === "object");
 assert(typeof AvailabilityZone$ === "object");
 assert(typeof AwsAmazonMqBrokerDetails$ === "object");
 assert(typeof AwsAmazonMqBrokerEncryptionOptionsDetails$ === "object");
@@ -2303,6 +2308,7 @@ assert(typeof CreateMembersResponse$ === "object");
 assert(typeof CreateTicketV2Request$ === "object");
 assert(typeof CreateTicketV2Response$ === "object");
 assert(typeof Criteria$ === "object");
+assert(typeof CriticalitySource$ === "object");
 assert(typeof CspmConnectorSummary$ === "object");
 assert(typeof CspmHealthCheck$ === "object");
 assert(typeof CspmProviderConfiguration$ === "object");
@@ -2758,6 +2764,7 @@ assert(typeof ConnectorProviderName === "object");
 assert(typeof ConnectorStatus === "object");
 assert(typeof ControlFindingGenerator === "object");
 assert(typeof ControlStatus === "object");
+assert(typeof CriticalitySourceType === "object");
 assert(typeof CspmConnectorProviderName === "object");
 assert(typeof CspmConnectorStatus === "object");
 assert(typeof CspmEnablementStatus === "object");
@@ -2806,6 +2813,7 @@ assert(typeof RemediationPriority === "object");
 assert(typeof RemediationStatus === "object");
 assert(typeof RemediationStringField === "object");
 assert(typeof ResourceCategory === "object");
+assert(typeof ResourceCriticality === "object");
 assert(typeof ResourceGroupByField === "object");
 assert(typeof ResourcesDateField === "object");
 assert(typeof ResourcesMapField === "object");

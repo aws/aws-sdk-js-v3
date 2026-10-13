@@ -13,6 +13,7 @@ import type {
   ConnectorStatus,
   ControlFindingGenerator,
   ControlStatus,
+  CriticalitySourceType,
   CspmConnectorProviderName,
   CspmConnectorStatus,
   CspmEnablementStatus,
@@ -41,10 +42,11 @@ import type {
   OrganizationConfigurationStatus,
   ParameterValueType,
   Partition,
-  RecommendationStatus,
-  RecommendationType,
   RecordState,
-  RemediationStringField,
+  ResourcesDateField,
+  ResourcesMapField,
+  ResourcesNumberField,
+  ResourcesStringField,
   RuleStatus,
   ScopeType,
   SecurityControlsProvider,
@@ -178,7 +180,7 @@ import type {
   AwsWafRegionalRuleDetails,
   AwsWafRegionalRuleGroupDetails,
   AwsWafRegionalWebAclDetails,
-  AwsWafRuleDetails,
+  AwsWafRulePredicateListDetails,
   Compliance,
   DataClassificationDetails,
   Detection,
@@ -192,6 +194,43 @@ import type {
   ProcessDetails,
   Remediation,
 } from "./models_1";
+
+/**
+ * <p>Provides information about a WAF rule. This rule specifies the web requests that you want to allow, block, or count.
+ *       </p>
+ * @public
+ */
+export interface AwsWafRuleDetails {
+  /**
+   * <p>The name of the metrics for this rule.
+   *       </p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>A descriptive name for the rule.
+   *       </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
+   *          for each object, indicates whether you want to negate the settings.
+   *       </p>
+   * @public
+   */
+  PredicateList?: AwsWafRulePredicateListDetails[] | undefined;
+
+  /**
+   * <p>The ID of the WAF rule.
+   *       </p>
+   * @public
+   */
+  RuleId?: string | undefined;
+}
 
 /**
  * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
@@ -6490,6 +6529,79 @@ export interface CreateAutomationRuleResponse {
 }
 
 /**
+ * <p>Enables the filtering of Amazon Web Services resources based on date and timestamp attributes.</p>
+ * @public
+ */
+export interface ResourcesDateFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: ResourcesDateField | undefined;
+
+  /**
+   * <p>A date filter for querying findings.</p>
+   * @public
+   */
+  Filter?: DateFilter | undefined;
+}
+
+/**
+ * <p>Enables filtering of Amazon Web Services resources based on key-value map attributes.</p>
+ * @public
+ */
+export interface ResourcesMapFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: ResourcesMapField | undefined;
+
+  /**
+   * <p>A map filter for filtering Security Hub CSPM findings. Each map filter provides the field to check for, the
+   *          value to check for, and the comparison operator.</p>
+   * @public
+   */
+  Filter?: MapFilter | undefined;
+}
+
+/**
+ * <p>Enables filtering of Amazon Web Services resources based on numerical values.</p>
+ * @public
+ */
+export interface ResourcesNumberFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: ResourcesNumberField | undefined;
+
+  /**
+   * <p>A number filter for querying findings.</p>
+   * @public
+   */
+  Filter?: NumberFilter | undefined;
+}
+
+/**
+ * <p>Enables filtering of Amazon Web Services resources based on string field values.</p>
+ * @public
+ */
+export interface ResourcesStringFilter {
+  /**
+   * <p>The name of the field.</p>
+   * @public
+   */
+  FieldName?: ResourcesStringField | undefined;
+
+  /**
+   * <p>A string filter for filtering Security Hub CSPM findings.</p>
+   * @public
+   */
+  Filter?: StringFilter | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateAutomationRuleV2Response {
@@ -7236,6 +7348,24 @@ export interface CreateTicketV2Response {
    * @public
    */
   TicketSrcUrl?: string | undefined;
+}
+
+/**
+ * <p>Details the source and reason of a criticality.</p>
+ * @public
+ */
+export interface CriticalitySource {
+  /**
+   * <p>The source of the criticality.</p>
+   * @public
+   */
+  Source: CriticalitySourceType | undefined;
+
+  /**
+   * <p>The reason the criticality was assigned.</p>
+   * @public
+   */
+  Reason: string | undefined;
 }
 
 /**
@@ -10333,164 +10463,4 @@ export interface RecommendationError {
    * @public
    */
   Message?: string | undefined;
-}
-
-/**
- * <p>Contains information about the action to take for a policy in an unused permissions finding.</p>
- * @public
- */
-export interface UnusedPermissionsRecommendationStep {
-  /**
-   * <p>A recommendation of whether to create or detach a policy for an unused permissions finding.</p>
-   * @public
-   */
-  RecommendedAction?: string | undefined;
-
-  /**
-   * <p>The contents of the existing policy identified by <code>ExistingPolicyId</code> which needs to be replaced,
-   *           when the <code>RecommendedAction</code> is <code>CREATE_POLICY</code>.</p>
-   * @public
-   */
-  ExistingPolicy?: string | undefined;
-
-  /**
-   * <p>The ID of an existing policy to be replaced or detached.</p>
-   * @public
-   */
-  ExistingPolicyId?: string | undefined;
-
-  /**
-   * <p>The time at which the existing policy for the unused permissions finding was last updated.</p>
-   * @public
-   */
-  PolicyUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The contents of the least-privileged recommended replacement for <code>ExistingPolicyId</code>,
-   *           when the <code>RecommendedAction</code> is <code>CREATE_POLICY</code>.</p>
-   * @public
-   */
-  RecommendedPolicy?: string | undefined;
-}
-
-/**
- * <p>Contains information about a recommended step to remediate a Security Hub finding.</p>
- * @public
- */
-export type RecommendationStep =
-  | RecommendationStep.UnusedPermissionsMember
-  | RecommendationStep.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RecommendationStep {
-  /**
-   * <p>A recommended step to remediate an unused permissions finding.</p>
-   * @public
-   */
-  export interface UnusedPermissionsMember {
-    UnusedPermissions: UnusedPermissionsRecommendationStep;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    UnusedPermissions?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    UnusedPermissions: (value: UnusedPermissionsRecommendationStep) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface GetRecommendedPolicyV2Response {
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The type of recommendation for the finding.</p>
-   * @public
-   */
-  RecommendationType?: RecommendationType | undefined;
-
-  /**
-   * <p>The recommended steps to take to resolve the finding.</p>
-   * @public
-   */
-  RecommendationSteps?: RecommendationStep[] | undefined;
-
-  /**
-   * <p>Detailed information for a <code>FAILED</code> retrieval status.</p>
-   * @public
-   */
-  Error?: RecommendationError | undefined;
-
-  /**
-   * <p>The current status of the recommended policy retrieval.</p>
-   * @public
-   */
-  Status?: RecommendationStatus | undefined;
-
-  /**
-   * <p>The ARN of the resource of the finding.</p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-}
-
-/**
- * <p>The condition to apply to the string filter.</p>
- * @public
- */
-export interface RemediationStringFilterCondition {
-  /**
-   * <p>The value the string filter is comparing against.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
-
-/**
- * <p>A string filter for filtering remediation targets.</p>
- * @public
- */
-export interface RemediationStringFilter {
-  /**
-   * <p>The name of the filter field. Valid values are <code>Resource.Type</code>, <code>Priority</code>, <code>Status</code>, <code>Resource.Id</code>, <code>Resource.ResourceOwnerAccountId</code>, and <code>Resource.CloudProvider</code>.</p>
-   * @public
-   */
-  FieldName: RemediationStringField | undefined;
-
-  /**
-   * <p>The string filter definition.</p>
-   * @public
-   */
-  Filter: RemediationStringFilterCondition | undefined;
-}
-
-/**
- * <p>Enables the creation of criteria for remediation targets.</p>
- * @public
- */
-export interface RemediationCompositeFilter {
-  /**
-   * <p>Enables filtering based on string field values.</p>
-   * @public
-   */
-  StringFilters?: RemediationStringFilter[] | undefined;
 }

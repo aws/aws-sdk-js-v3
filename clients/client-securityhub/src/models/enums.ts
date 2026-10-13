@@ -180,9 +180,26 @@ export type AutoEnableStandards = (typeof AutoEnableStandards)[keyof typeof Auto
  * @public
  * @enum
  */
+export const ResourceCriticality = {
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  UNKNOWN: "Unknown",
+  VERY_HIGH: "Very High",
+} as const;
+/**
+ * @public
+ */
+export type ResourceCriticality = (typeof ResourceCriticality)[keyof typeof ResourceCriticality];
+
+/**
+ * @public
+ * @enum
+ */
 export const AutomationRulesActionTypeV2 = {
   EXTERNAL_INTEGRATION: "EXTERNAL_INTEGRATION",
   FINDING_FIELDS_UPDATE: "FINDING_FIELDS_UPDATE",
+  RESOURCE_FIELDS_UPDATE: "RESOURCE_FIELDS_UPDATE",
 } as const;
 /**
  * @public
@@ -835,6 +852,8 @@ export const OcsfStringField = {
   FINDING_INFO_TITLE: "finding_info.title",
   FINDING_INFO_TYPES: "finding_info.types",
   FINDING_INFO_UID: "finding_info.uid",
+  IMPACT: "impact",
+  LIKELIHOOD: "likelihood",
   MALWARE_NAME: "malware.name",
   MALWARE_SCAN_INFO_UID: "malware_scan_info.uid",
   MALWARE_SEVERITY: "malware.severity",
@@ -848,6 +867,7 @@ export const OcsfStringField = {
   RESOURCES_CLOUD_FUNCTION_RUNTIME: "resources.cloud_function.runtime",
   RESOURCES_CLOUD_FUNCTION_USER_UID: "resources.cloud_function.user.uid",
   RESOURCES_CLOUD_PARTITION: "resources.cloud_partition",
+  RESOURCES_CRITICALITY: "resources.criticality",
   RESOURCES_DEVICE_ENCRYPTION_DETAILS_KEY_UID: "resources.device.encryption_details.key_uid",
   RESOURCES_DEVICE_IMAGE_UID: "resources.device.image.uid",
   RESOURCES_IMAGE_ARCHITECTURE: "resources.image.architecture",
@@ -958,6 +978,91 @@ export type ControlFindingGenerator = (typeof ControlFindingGenerator)[keyof typ
  * @public
  * @enum
  */
+export const ResourcesDateField = {
+  RESOURCE_CREATION_TIME_DT: "ResourceCreationTime",
+  RESOURCE_DETAIL_CAPTURE_TIME_DT: "ResourceDetailCaptureTime",
+} as const;
+/**
+ * @public
+ */
+export type ResourcesDateField = (typeof ResourcesDateField)[keyof typeof ResourcesDateField];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourcesMapField = {
+  TAG: "ResourceTags",
+} as const;
+/**
+ * @public
+ */
+export type ResourcesMapField = (typeof ResourcesMapField)[keyof typeof ResourcesMapField];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourcesNumberField = {
+  SELF_HOSTED_AI_AGENT_FRAMEWORK_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount",
+  SELF_HOSTED_AI_AGENT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount",
+  SELF_HOSTED_AI_AGENT_TOOLS_AND_IDENTITY_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount",
+  SELF_HOSTED_AI_DEVELOPMENT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount",
+  SELF_HOSTED_AI_EXTERNAL_ENDPOINT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount",
+  SELF_HOSTED_AI_MODEL_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount",
+  SELF_HOSTED_AI_MODEL_SERVING_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount",
+  SELF_HOSTED_TOTAL_AI_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
+  SEVERITY_CRITICAL: "FindingsSummary.Severities.Critical",
+  SEVERITY_FATAL: "FindingsSummary.Severities.Fatal",
+  SEVERITY_HIGH: "FindingsSummary.Severities.High",
+  SEVERITY_INFORMATIONAL: "FindingsSummary.Severities.Informational",
+  SEVERITY_LOW: "FindingsSummary.Severities.Low",
+  SEVERITY_MEDIUM: "FindingsSummary.Severities.Medium",
+  SEVERITY_OTHER: "FindingsSummary.Severities.Other",
+  SEVERITY_UNKNOWN: "FindingsSummary.Severities.Unknown",
+  TOTAL_FINDINGS: "FindingsSummary.TotalFindings",
+} as const;
+/**
+ * @public
+ */
+export type ResourcesNumberField = (typeof ResourcesNumberField)[keyof typeof ResourcesNumberField];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourcesStringField = {
+  ACCOUNT_ID: "AccountId",
+  ACCOUNT_NAME: "AccountName",
+  CANONICAL_ID: "ResourceInfo.AIDetails.CanonicalId",
+  DISCOVERY_TYPE: "DiscoveryType",
+  FINDING_TYPE: "FindingsSummary.FindingType",
+  HOST_RESOURCE_GUID: "ResourceInfo.AIDetails.HostResourceGuid",
+  HOST_RESOURCE_TYPE: "ResourceInfo.AIDetails.HostResourceType",
+  PRODUCT_NAME: "FindingsSummary.ProductName",
+  REGION: "Region",
+  RESOURCE_CATEGORY: "ResourceCategory",
+  RESOURCE_CLOUD_PARTITION: "ResourceCloudPartition",
+  RESOURCE_CRITICALITY: "ResourceCriticality",
+  RESOURCE_GUID: "ResourceGuid",
+  RESOURCE_ID: "ResourceId",
+  RESOURCE_NAME: "ResourceName",
+  RESOURCE_OWNER_ACCOUNT_ID: "ResourceOwnerAccountId",
+  RESOURCE_OWNER_ORG_ID: "ResourceOwnerOrgId",
+  RESOURCE_PROVIDER: "ResourceProvider",
+  RESOURCE_REGION: "ResourceRegion",
+  RESOURCE_SUB_CATEGORY: "ResourceSubCategory",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
+/**
+ * @public
+ */
+export type ResourcesStringField = (typeof ResourcesStringField)[keyof typeof ResourcesStringField];
+
+/**
+ * @public
+ * @enum
+ */
 export const CspmConnectorStatus = {
   CONNECTED: "CONNECTED",
   DEGRADED: "DEGRADED",
@@ -995,6 +1100,20 @@ export const TicketCreationMode = {
  * @public
  */
 export type TicketCreationMode = (typeof TicketCreationMode)[keyof typeof TicketCreationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const CriticalitySourceType = {
+  AUTOMATION_RULE: "AutomationRule",
+  RESOURCE_NAME: "ResourceName",
+  TAG_INFERENCE: "TagInference",
+} as const;
+/**
+ * @public
+ */
+export type CriticalitySourceType = (typeof CriticalitySourceType)[keyof typeof CriticalitySourceType];
 
 /**
  * @public
@@ -1407,10 +1526,13 @@ export const GroupByField = {
   FINDING_INFO_RELATED_EVENTS_TRAITS_CATEGORY: "finding_info.related_events.traits.category",
   FINDING_INFO_TITLE: "finding_info.title",
   FINDING_INFO_TYPES: "finding_info.types",
+  IMPACT: "impact",
+  LIKELIHOOD: "likelihood",
   METADATA_PRODUCT_NAME: "metadata.product.name",
   METADATA_PRODUCT_UID: "metadata.product.uid",
   METADATA_PRODUCT_VENDOR_NAME: "metadata.product.vendor_name",
   RESOURCES_CLOUD_PARTITION: "resources.cloud_partition",
+  RESOURCES_CRITICALITY: "resources.criticality",
   RESOURCES_NAME: "resources.name",
   RESOURCES_OWNER_ACCOUNT_NAME: "resources.owner.account.name",
   RESOURCES_OWNER_ACCOUNT_UID: "resources.owner.account.uid",
@@ -1540,90 +1662,6 @@ export type RemediationStatus = (typeof RemediationStatus)[keyof typeof Remediat
  * @public
  * @enum
  */
-export const ResourcesDateField = {
-  RESOURCE_CREATION_TIME_DT: "ResourceCreationTime",
-  RESOURCE_DETAIL_CAPTURE_TIME_DT: "ResourceDetailCaptureTime",
-} as const;
-/**
- * @public
- */
-export type ResourcesDateField = (typeof ResourcesDateField)[keyof typeof ResourcesDateField];
-
-/**
- * @public
- * @enum
- */
-export const ResourcesMapField = {
-  TAG: "ResourceTags",
-} as const;
-/**
- * @public
- */
-export type ResourcesMapField = (typeof ResourcesMapField)[keyof typeof ResourcesMapField];
-
-/**
- * @public
- * @enum
- */
-export const ResourcesNumberField = {
-  SELF_HOSTED_AI_AGENT_FRAMEWORK_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount",
-  SELF_HOSTED_AI_AGENT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount",
-  SELF_HOSTED_AI_AGENT_TOOLS_AND_IDENTITY_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount",
-  SELF_HOSTED_AI_DEVELOPMENT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount",
-  SELF_HOSTED_AI_EXTERNAL_ENDPOINT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount",
-  SELF_HOSTED_AI_MODEL_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount",
-  SELF_HOSTED_AI_MODEL_SERVING_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount",
-  SELF_HOSTED_TOTAL_AI_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
-  SEVERITY_CRITICAL: "FindingsSummary.Severities.Critical",
-  SEVERITY_FATAL: "FindingsSummary.Severities.Fatal",
-  SEVERITY_HIGH: "FindingsSummary.Severities.High",
-  SEVERITY_INFORMATIONAL: "FindingsSummary.Severities.Informational",
-  SEVERITY_LOW: "FindingsSummary.Severities.Low",
-  SEVERITY_MEDIUM: "FindingsSummary.Severities.Medium",
-  SEVERITY_OTHER: "FindingsSummary.Severities.Other",
-  SEVERITY_UNKNOWN: "FindingsSummary.Severities.Unknown",
-  TOTAL_FINDINGS: "FindingsSummary.TotalFindings",
-} as const;
-/**
- * @public
- */
-export type ResourcesNumberField = (typeof ResourcesNumberField)[keyof typeof ResourcesNumberField];
-
-/**
- * @public
- * @enum
- */
-export const ResourcesStringField = {
-  ACCOUNT_ID: "AccountId",
-  ACCOUNT_NAME: "AccountName",
-  CANONICAL_ID: "ResourceInfo.AIDetails.CanonicalId",
-  DISCOVERY_TYPE: "DiscoveryType",
-  FINDING_TYPE: "FindingsSummary.FindingType",
-  HOST_RESOURCE_GUID: "ResourceInfo.AIDetails.HostResourceGuid",
-  HOST_RESOURCE_TYPE: "ResourceInfo.AIDetails.HostResourceType",
-  PRODUCT_NAME: "FindingsSummary.ProductName",
-  REGION: "Region",
-  RESOURCE_CATEGORY: "ResourceCategory",
-  RESOURCE_CLOUD_PARTITION: "ResourceCloudPartition",
-  RESOURCE_GUID: "ResourceGuid",
-  RESOURCE_ID: "ResourceId",
-  RESOURCE_NAME: "ResourceName",
-  RESOURCE_OWNER_ACCOUNT_ID: "ResourceOwnerAccountId",
-  RESOURCE_OWNER_ORG_ID: "ResourceOwnerOrgId",
-  RESOURCE_PROVIDER: "ResourceProvider",
-  RESOURCE_REGION: "ResourceRegion",
-  RESOURCE_SUB_CATEGORY: "ResourceSubCategory",
-  RESOURCE_TYPE: "ResourceType",
-} as const;
-/**
- * @public
- */
-export type ResourcesStringField = (typeof ResourcesStringField)[keyof typeof ResourcesStringField];
-
-/**
- * @public
- * @enum
- */
 export const ResourceGroupByField = {
   ACCOUNT_ID: "AccountId",
   ACCOUNT_NAME: "AccountName",
@@ -1634,6 +1672,7 @@ export const ResourceGroupByField = {
   REGION: "Region",
   RESOURCE_CATEGORY: "ResourceCategory",
   RESOURCE_CLOUD_PARTITION: "ResourceCloudPartition",
+  RESOURCE_CRITICALITY: "ResourceCriticality",
   RESOURCE_NAME: "ResourceName",
   RESOURCE_OWNER_ACCOUNT_ID: "ResourceOwnerAccountId",
   RESOURCE_OWNER_ORG_ID: "ResourceOwnerOrgId",

@@ -736,6 +736,7 @@ const _ARPCWLE = "AwsRdsPendingCloudWatchLogsExports";
 const _ARPD = "ActionRemotePortDetails";
 const _ARPDs = "AssumeRolePolicyDocument";
 const _ARQLCD = "AwsRoute53QueryLoggingConfigDetails";
+const _ARRFUV = "AutomationRulesResourceFieldsUpdateV2";
 const _ARTIS = "AuthorizerResultTtlInSeconds";
 const _ARc = "AcceptanceRequired";
 const _ARg = "AggregationRegion";
@@ -1263,6 +1264,7 @@ const _CSGNl = "ClusterSubnetGroupName";
 const _CSI = "CustSubscriptionId";
 const _CSIA = "CodeSecurityIntegrationArn";
 const _CSL = "ConnectorSummaryList";
+const _CSLr = "CriticalitySourceList";
 const _CSN = "CharacterSetName";
 const _CSP = "CdcStartPosition";
 const _CSPd = "CdcStopPosition";
@@ -1281,6 +1283,8 @@ const _CSon = "ConnectorSummary";
 const _CSonn = "ConnectorStatus";
 const _CSont = "ControlStatus";
 const _CSr = "CreditSpecification";
+const _CSri = "CriticalitySource";
+const _CSrit = "CriticalitySources";
 const _CT = "CreatedTime";
 const _CTIS = "CacheTtlInSeconds";
 const _CTLP = "CertificateTransparencyLoggingPreference";
@@ -2813,7 +2817,9 @@ const _RCeq = "RequiresCompatibilities";
 const _RCes = "ResponseCode";
 const _RCeso = "ResourceConfig";
 const _RCesou = "ResourceCategory";
-const _RCesour = "ResourcesCount";
+const _RCesour = "ResourceCriticality";
+const _RCesourc = "ResourcesCount";
+const _RCesource = "ResourceCriteria";
 const _RCo = "RoutingConfig";
 const _RD = "RootDirectory";
 const _RDCTD = "ResourceDetailCaptureTimeDt";
@@ -2837,6 +2843,7 @@ const _RFP = "RekeyFuzzPercentage";
 const _RFPA = "RelatedFindingsProductArn";
 const _RFS = "ResourceFindingsSummary";
 const _RFSL = "ResourceFindingsSummaryList";
+const _RFU = "ResourceFieldsUpdate";
 const _RFe = "RelatedFinding";
 const _RFem = "RemediationFilters";
 const _RFes = "ResourcesFilters";
@@ -3908,8 +3915,8 @@ export var AutomationRulesActionTypeObjectV2$: StaticStructureSchema = [3, n0, _
 ];
 export var AutomationRulesActionV2$: StaticStructureSchema = [3, n0, _ARAV,
   0,
-  [_T, _FFU, _EIC],
-  [0, () => AutomationRulesFindingFieldsUpdateV2$, () => ExternalIntegrationConfiguration$], 1
+  [_T, _FFU, _EIC, _RFU],
+  [0, () => AutomationRulesFindingFieldsUpdateV2$, () => ExternalIntegrationConfiguration$, () => AutomationRulesResourceFieldsUpdateV2$], 1
 ];
 export var AutomationRulesConfig$: StaticStructureSchema = [3, n0, _ARC,
   0,
@@ -3940,6 +3947,11 @@ export var AutomationRulesMetadataV2$: StaticStructureSchema = [3, n0, _ARMV,
   0,
   [_RA, _RIu, _RO, _RN, _RS, _D, _Act, _CA, _UA],
   [0, 0, 1, 0, 0, 0, () => AutomationRulesActionTypeListV2, 5, 5]
+];
+export var AutomationRulesResourceFieldsUpdateV2$: StaticStructureSchema = [3, n0, _ARRFUV,
+  0,
+  [_Cri],
+  [0], 1
 ];
 export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ,
   0,
@@ -6796,6 +6808,11 @@ export var CreateTicketV2Response$: StaticStructureSchema = [3, n0, _CTVRr,
   [_TIi, _TSU],
   [0, 0], 1
 ];
+export var CriticalitySource$: StaticStructureSchema = [3, n0, _CSri,
+  0,
+  [_So, _R],
+  [0, 0], 2
+];
 export var CspmConnectorSummary$: StaticStructureSchema = [3, n0, _CCSs,
   0,
   [_CAon, _CIo, _N, _D, _PSr, _CA, _CB, _ESn],
@@ -8238,8 +8255,8 @@ export var ResourceOwnerOrg$: StaticStructureSchema = [3, n0, _ROO,
 ];
 export var ResourceResult$: StaticStructureSchema = [3, n0, _RResou,
   0,
-  [_RI, _AIc, _Reg, _RT, _RDCTD, _RCeso, _RGes, _ANcc, _RPe, _ROAI, _ROOI, _RCP, _RR, _RCesou, _RNes, _RCTD, _FSin, _RTe, _RSC, _DTi, _RIeso],
-  [0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ResourceFindingsSummaryList, () => ResourceTagList, 0, 0, () => ResourceInfo$], 6
+  [_RI, _AIc, _Reg, _RT, _RDCTD, _RCeso, _RGes, _ANcc, _RPe, _ROAI, _ROOI, _RCP, _RR, _RCesou, _RNes, _RCTD, _FSin, _RTe, _RSC, _DTi, _RIeso, _RCesour, _CSrit],
+  [0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ResourceFindingsSummaryList, () => ResourceTagList, 0, 0, () => ResourceInfo$, 0, () => CriticalitySourceList], 6
 ];
 export var ResourcesCompositeFilter$: StaticStructureSchema = [3, n0, _RCFe,
   0,
@@ -8251,7 +8268,7 @@ export var ResourceScopes$: StaticStructureSchema = [3, n0, _RSeso,
   [_AOw],
   [() => AwsOrganizationScopeList]
 ];
-export var ResourcesCount$: StaticStructureSchema = [3, n0, _RCesour,
+export var ResourcesCount$: StaticStructureSchema = [3, n0, _RCesourc,
   0,
   [_ARl],
   [1], 1
@@ -8308,7 +8325,7 @@ export var ResourcesTrendsStringFilter$: StaticStructureSchema = [3, n0, _RTSF,
 ];
 export var ResourcesTrendsValues$: StaticStructureSchema = [3, n0, _RTV,
   0,
-  [_RCesour],
+  [_RCesourc],
   [() => ResourcesCount$], 1
 ];
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTeso,
@@ -9437,6 +9454,9 @@ var ConfigurationPolicySummaryList: StaticListSchema = [1, n0, _CPSLo,
 var ConnectorSummaryList: StaticListSchema = [1, n0, _CSL,
   0, () => ConnectorSummary$
 ];
+var CriticalitySourceList: StaticListSchema = [1, n0, _CSLr,
+  0, () => CriticalitySource$
+];
 var CspmConnectorSummaryList: StaticListSchema = [1, n0, _CCSL,
   0, () => CspmConnectorSummary$
 ];
@@ -9831,8 +9851,8 @@ export var ConfigurationOptions$: StaticUnionSchema = [4, n0, _COon,
 ];
 export var Criteria$: StaticUnionSchema = [4, n0, _Cr,
   0,
-  [_OFC],
-  [() => OcsfFindingFilters$]
+  [_OFC, _RCesource],
+  [() => OcsfFindingFilters$, () => ResourcesFilters$]
 ];
 export var CspmProviderConfiguration$: StaticUnionSchema = [4, n0, _CPC,
   0,

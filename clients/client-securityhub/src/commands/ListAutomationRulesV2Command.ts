@@ -49,7 +49,7 @@ export interface ListAutomationRulesV2CommandOutput extends ListAutomationRulesV
  * //       Description: "STRING_VALUE",
  * //       Actions: [ // AutomationRulesActionTypeListV2
  * //         { // AutomationRulesActionTypeObjectV2
- * //           Type: "FINDING_FIELDS_UPDATE" || "EXTERNAL_INTEGRATION",
+ * //           Type: "FINDING_FIELDS_UPDATE" || "EXTERNAL_INTEGRATION" || "RESOURCE_FIELDS_UPDATE",
  * //         },
  * //       ],
  * //       CreatedAt: new Date("TIMESTAMP"),
