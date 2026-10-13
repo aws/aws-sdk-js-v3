@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+> **Note on versioning.** This package was previously developed as a private,
+> unpublished package under `lib/lib-transfer-manager`, versioned in lockstep with
+> the SDK release line. It now lives in `preview/`, is versioned independently
+> starting from `0.0.0`, and is published under the `preview` npm tag. Entries below
+> this note use the former lockstep version numbers and were never published to npm.
+
 # [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
 
 **Note:** Version bump only for package @aws-sdk/lib-transfer-manager

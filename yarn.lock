@@ -10499,9 +10499,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/lib-transfer-manager@workspace:lib/lib-transfer-manager":
+"@aws-sdk/lib-transfer-manager@workspace:preview/lib-transfer-manager":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/lib-transfer-manager@workspace:lib/lib-transfer-manager"
+  resolution: "@aws-sdk/lib-transfer-manager@workspace:preview/lib-transfer-manager"
   dependencies:
     "@aws-sdk/checksums": "workspace:^3.1001.3"
     "@aws-sdk/client-s3": "workspace:3.1150.0"
