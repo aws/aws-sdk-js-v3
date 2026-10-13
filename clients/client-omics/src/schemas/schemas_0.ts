@@ -481,6 +481,7 @@ const _c = "client";
 const _cA = "createdAfter";
 const _cAo = "connectionArn";
 const _cAr = "createdAt";
+const _cAre = "credentialArn";
 const _cB = "createdBefore";
 const _cBOI = "cacheBucketOwnerId";
 const _cBa = "cacheBehavior";
@@ -1955,8 +1956,8 @@ export var ReferenceStoreFilter$: StaticStructureSchema = [3, n0, _RSFef,
 ];
 export var RegistryMapping$: StaticStructureSchema = [3, n0, _RMe,
   0,
-  [_uRU, _eRP, _uRP, _eAI],
-  [0, 0, 0, 0]
+  [_uRU, _eRP, _uRP, _eAI, _cAre],
+  [0, 0, 0, 0, 0], 2
 ];
 export var RunBatchListItem$: StaticStructureSchema = [3, n0, _RBLI,
   0,

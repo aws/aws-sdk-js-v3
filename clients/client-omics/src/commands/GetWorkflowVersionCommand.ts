@@ -76,10 +76,11 @@ export interface GetWorkflowVersionCommandOutput extends GetWorkflowVersionRespo
  * //   containerRegistryMap: { // ContainerRegistryMap
  * //     registryMappings: [ // RegistryMappingsList
  * //       { // RegistryMapping
- * //         upstreamRegistryUrl: "STRING_VALUE",
- * //         ecrRepositoryPrefix: "STRING_VALUE",
+ * //         upstreamRegistryUrl: "STRING_VALUE", // required
+ * //         ecrRepositoryPrefix: "STRING_VALUE", // required
  * //         upstreamRepositoryPrefix: "STRING_VALUE",
  * //         ecrAccountId: "STRING_VALUE",
+ * //         credentialArn: "STRING_VALUE",
  * //       },
  * //     ],
  * //     imageMappings: [ // ImageMappingsList
