@@ -2559,6 +2559,19 @@ export type ClarifyTextLanguage = (typeof ClarifyTextLanguage)[keyof typeof Clar
  * @public
  * @enum
  */
+export const CleanupFailureErrorCode = {
+  CLIENT_ERROR: "ClientError",
+  INTERNAL_FAILURE: "InternalFailure",
+} as const;
+/**
+ * @public
+ */
+export type CleanupFailureErrorCode = (typeof CleanupFailureErrorCode)[keyof typeof CleanupFailureErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ClusterPatchingStrategy = {
   WHEN_ALL_IDLE: "WhenAllIdle",
   WHEN_IDLE: "WhenIdle",
@@ -5584,6 +5597,10 @@ export type PipelineStatus = (typeof PipelineStatus)[keyof typeof PipelineStatus
  * @enum
  */
 export const PipelineExecutionStatus = {
+  /**
+   * <p>The pipeline completed all reachable work after one or more steps failed. Every failed step was handled by a scheduled downstream step whose trigger is <code>Failed</code> or <code>Any</code>.</p>
+   */
+  COMPLETED_WITH_FAILURES: "CompletedWithFailures",
   EXECUTING: "Executing",
   FAILED: "Failed",
   STOPPED: "Stopped",
@@ -5978,6 +5995,20 @@ export const Operator = {
  * @public
  */
 export type Operator = (typeof Operator)[keyof typeof Operator];
+
+/**
+ * @public
+ * @enum
+ */
+export const ForEachStatus = {
+  FAILED: "Failed",
+  STOPPED: "Stopped",
+  SUCCEEDED: "Succeeded",
+} as const;
+/**
+ * @public
+ */
+export type ForEachStatus = (typeof ForEachStatus)[keyof typeof ForEachStatus];
 
 /**
  * @public

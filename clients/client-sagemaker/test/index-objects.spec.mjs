@@ -109,6 +109,7 @@ import {
   AthenaDatasetDefinition$,
   AthenaResultCompressionType,
   AthenaResultFormat,
+  AthenaStepMetadata$,
   AttachClusterNodeNetworkInterface$,
   AttachClusterNodeNetworkInterfaceCommand,
   AttachClusterNodeNetworkInterfaceRequest$,
@@ -250,6 +251,9 @@ import {
   ClarifyTextConfig$,
   ClarifyTextGranularity,
   ClarifyTextLanguage,
+  CleanupFailure$,
+  CleanupFailureErrorCode,
+  CleanupStepMetadata$,
   ClusterAccountingDatabase$,
   ClusterAutoPatchConfig$,
   ClusterAutoPatchConfigDetails$,
@@ -1257,6 +1261,7 @@ import {
   EFSFileSystemConfig$,
   EmrServerlessComputeConfig$,
   EmrServerlessSettings$,
+  EMRServerlessStepMetadata$,
   EmrSettings$,
   EMRStepMetadata$,
   EnabledOrDisabled,
@@ -1326,6 +1331,9 @@ import {
   FlowDefinitionOutputConfig$,
   FlowDefinitionStatus,
   FlowDefinitionSummary$,
+  ForEachSelectorResult$,
+  ForEachStatus,
+  ForEachStepMetadata$,
   Framework,
   FSxLustreConfig$,
   FSxLustreFileSystem$,
@@ -1478,6 +1486,7 @@ import {
   IntegerParameterRangeSpecification$,
   IPAddressType,
   IsTrackingServerActive,
+  IterationContext$,
   Job$,
   JobCategory,
   JobConfigSchemaVersionSummary$,
@@ -3787,6 +3796,7 @@ assert(typeof AsyncInferenceConfig$ === "object");
 assert(typeof AsyncInferenceNotificationConfig$ === "object");
 assert(typeof AsyncInferenceOutputConfig$ === "object");
 assert(typeof AthenaDatasetDefinition$ === "object");
+assert(typeof AthenaStepMetadata$ === "object");
 assert(typeof AttachClusterNodeNetworkInterfaceRequest$ === "object");
 assert(typeof AttachClusterNodeNetworkInterfaceResponse$ === "object");
 assert(typeof AttachClusterNodeVolumeRequest$ === "object");
@@ -3879,6 +3889,8 @@ assert(typeof ClarifyInferenceConfig$ === "object");
 assert(typeof ClarifyShapBaselineConfig$ === "object");
 assert(typeof ClarifyShapConfig$ === "object");
 assert(typeof ClarifyTextConfig$ === "object");
+assert(typeof CleanupFailure$ === "object");
+assert(typeof CleanupStepMetadata$ === "object");
 assert(typeof ClusterAccountingDatabase$ === "object");
 assert(typeof ClusterAutoPatchConfig$ === "object");
 assert(typeof ClusterAutoPatchConfigDetails$ === "object");
@@ -4405,6 +4417,7 @@ assert(typeof EFSFileSystem$ === "object");
 assert(typeof EFSFileSystemConfig$ === "object");
 assert(typeof EmrServerlessComputeConfig$ === "object");
 assert(typeof EmrServerlessSettings$ === "object");
+assert(typeof EMRServerlessStepMetadata$ === "object");
 assert(typeof EmrSettings$ === "object");
 assert(typeof EMRStepMetadata$ === "object");
 assert(typeof EnableSagemakerServicecatalogPortfolioInput$ === "object");
@@ -4449,6 +4462,8 @@ assert(typeof FinalAutoMLJobObjectiveMetric$ === "object");
 assert(typeof FinalHyperParameterTuningJobObjectiveMetric$ === "object");
 assert(typeof FlowDefinitionOutputConfig$ === "object");
 assert(typeof FlowDefinitionSummary$ === "object");
+assert(typeof ForEachSelectorResult$ === "object");
+assert(typeof ForEachStepMetadata$ === "object");
 assert(typeof FSxLustreConfig$ === "object");
 assert(typeof FSxLustreFileSystem$ === "object");
 assert(typeof FSxLustreFileSystemConfig$ === "object");
@@ -4551,6 +4566,7 @@ assert(typeof InstancePreference$ === "object");
 assert(typeof InstanceRequirementsEniConfiguration$ === "object");
 assert(typeof IntegerParameterRange$ === "object");
 assert(typeof IntegerParameterRangeSpecification$ === "object");
+assert(typeof IterationContext$ === "object");
 assert(typeof Job$ === "object");
 assert(typeof JobConfigSchemaVersionSummary$ === "object");
 assert(typeof JobSecondaryStatusTransition$ === "object");
@@ -5345,6 +5361,7 @@ assert(typeof CaptureStatus === "object");
 assert(typeof ClarifyFeatureType === "object");
 assert(typeof ClarifyTextGranularity === "object");
 assert(typeof ClarifyTextLanguage === "object");
+assert(typeof CleanupFailureErrorCode === "object");
 assert(typeof ClusterAutoScalerType === "object");
 assert(typeof ClusterAutoScalingMode === "object");
 assert(typeof ClusterAutoScalingStatus === "object");
@@ -5411,6 +5428,7 @@ assert(typeof FileSystemType === "object");
 assert(typeof FillingType === "object");
 assert(typeof FlatInvocations === "object");
 assert(typeof FlowDefinitionStatus === "object");
+assert(typeof ForEachStatus === "object");
 assert(typeof Framework === "object");
 assert(typeof HomeEfsFileSystemCreation === "object");
 assert(typeof HubContentSortBy === "object");

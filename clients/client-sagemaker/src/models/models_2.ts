@@ -39,7 +39,6 @@ import type {
   IPAddressType,
   JobCategory,
   JoinSource,
-  LastUpdateStatusValue,
   ModelSpeculativeDecodingS3DataType,
   ModelSpeculativeDecodingTechnique,
   MonitoringType,
@@ -111,6 +110,7 @@ import type {
   AutoMLResolvedAttributes,
   AutoMLSecurityConfig,
   BatchDataCaptureConfig,
+  BatchTransformInput,
   CfnCreateTemplateProvider,
   Channel,
   CheckpointConfig,
@@ -156,6 +156,7 @@ import type {
   EdgeDeploymentConfig,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
+  EndpointInput,
   ExplainerConfig,
   GitConfig,
   InputConfig,
@@ -164,12 +165,11 @@ import type {
   MetadataProperties,
   MetricsConfig,
   ModelDeployConfig,
-  MonitoringAppSpecification,
-  MonitoringBaselineConfig,
-  MonitoringInput,
+  MonitoringConstraintsResource,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
+  MonitoringStatisticsResource,
   MonitoringStoppingCondition,
   NeoVpcConfig,
   OutputConfig,
@@ -182,6 +182,84 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
+ * @public
+ */
+export interface MonitoringBaselineConfig {
+  /**
+   * <p>The name of the job that performs baselining for the monitoring job.</p>
+   * @public
+   */
+  BaseliningJobName?: string | undefined;
+
+  /**
+   * <p>The baseline constraint file in Amazon S3 that the current monitoring job should validated against.</p>
+   * @public
+   */
+  ConstraintsResource?: MonitoringConstraintsResource | undefined;
+
+  /**
+   * <p>The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.</p>
+   * @public
+   */
+  StatisticsResource?: MonitoringStatisticsResource | undefined;
+}
+
+/**
+ * <p>Container image configuration object for the monitoring job.</p>
+ * @public
+ */
+export interface MonitoringAppSpecification {
+  /**
+   * <p>The container image to be run by the monitoring job.</p>
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>Specifies the entrypoint for a container used to run the monitoring job.</p>
+   * @public
+   */
+  ContainerEntrypoint?: string[] | undefined;
+
+  /**
+   * <p>An array of arguments for the container used to run the monitoring job.</p>
+   * @public
+   */
+  ContainerArguments?: string[] | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  RecordPreprocessorSourceUri?: string | undefined;
+
+  /**
+   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
+   * @public
+   */
+  PostAnalyticsProcessorSourceUri?: string | undefined;
+}
+
+/**
+ * <p>The inputs for a monitoring job.</p>
+ * @public
+ */
+export interface MonitoringInput {
+  /**
+   * <p>The endpoint for a monitoring job.</p>
+   * @public
+   */
+  EndpointInput?: EndpointInput | undefined;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   * @public
+   */
+  BatchTransformInput?: BatchTransformInput | undefined;
+}
 
 /**
  * <p>Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.</p>
@@ -7936,98 +8014,4 @@ export interface ExperimentSource {
    * @public
    */
   SourceType?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExperimentResponse {
-  /**
-   * <p>The name of the experiment.</p>
-   * @public
-   */
-  ExperimentName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
-   * @public
-   */
-  ExperimentArn?: string | undefined;
-
-  /**
-   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the type.</p>
-   * @public
-   */
-  Source?: ExperimentSource | undefined;
-
-  /**
-   * <p>The description of the experiment.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>When the experiment was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Who created the experiment.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>When the experiment was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Who last modified the experiment.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFeatureGroupRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> you want described. </p>
-   * @public
-   */
-  FeatureGroupName: string | undefined;
-
-  /**
-   * <p>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>). 2,500 <code>Features</code> are returned by default.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A value that indicates whether the update was successful.</p>
- * @public
- */
-export interface LastUpdateStatus {
-  /**
-   * <p>A value that indicates whether the update was made successful.</p>
-   * @public
-   */
-  Status: LastUpdateStatusValue | undefined;
-
-  /**
-   * <p>If the update wasn't successful, indicates the reason why it failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
 }

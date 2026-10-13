@@ -100,6 +100,12 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //           StepName: "STRING_VALUE",
  * //           LogFilePath: "STRING_VALUE",
  * //         },
+ * //         EMRServerless: { // EMRServerlessStepMetadata
+ * //           ApplicationId: "STRING_VALUE",
+ * //           JobRunId: "STRING_VALUE",
+ * //           JobRunName: "STRING_VALUE",
+ * //           LogFilePath: "STRING_VALUE",
+ * //         },
  * //         QualityCheck: { // QualityCheckStepMetadata
  * //           CheckType: "STRING_VALUE",
  * //           BaselineUsedForDriftCheckStatistics: "STRING_VALUE",
@@ -169,10 +175,46 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //         Job: { // JobStepMetadata
  * //           Arn: "STRING_VALUE",
  * //         },
+ * //         Athena: { // AthenaStepMetadata
+ * //           QueryExecutionId: "STRING_VALUE",
+ * //           S3OutputLocation: "STRING_VALUE",
+ * //         },
+ * //         Cleanup: { // CleanupStepMetadata
+ * //           CleanedSteps: [ // CleanupStepNameList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           FailedSteps: [ // CleanupFailureList
+ * //             { // CleanupFailure
+ * //               StepName: "STRING_VALUE",
+ * //               ErrorCode: "ClientError" || "InternalFailure",
+ * //               ErrorMessage: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           SkippedSteps: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         ForEach: { // ForEachStepMetadata
+ * //           Status: "Succeeded" || "Failed" || "Stopped",
+ * //           InputItemCount: Number("int"),
+ * //           TotalStepCount: Number("int"),
+ * //           SucceededStepCount: Number("int"),
+ * //           FailedStepCount: Number("int"),
+ * //           StoppedStepCount: Number("int"),
+ * //           Selector: { // ForEachSelectorResult
+ * //             StepName: "STRING_VALUE",
+ * //             Index: Number("int"),
+ * //           },
+ * //         },
  * //       },
  * //       AttemptCount: Number("int"),
  * //       SelectiveExecutionResult: { // SelectiveExecutionResult
  * //         SourcePipelineExecutionArn: "STRING_VALUE",
+ * //       },
+ * //       IterationContext: { // IterationContext
+ * //         ParentStepName: "STRING_VALUE",
+ * //         Index: Number("int"),
+ * //         Item: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

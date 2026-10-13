@@ -45,6 +45,7 @@ import type {
   ClarifyFeatureType,
   ClarifyTextGranularity,
   ClarifyTextLanguage,
+  CleanupFailureErrorCode,
   ClusterAutoScalerType,
   ClusterAutoScalingMode,
   ClusterAutoScalingStatus,
@@ -88,7 +89,6 @@ import type {
   S3DataDistribution,
   S3DataType,
   S3ModelDataType,
-  SchedulerResourceStatus,
   SlurmHealthComponent,
   SlurmHealthReason,
   SlurmHealthStatus,
@@ -3204,6 +3204,24 @@ export interface AthenaDatasetDefinition {
 }
 
 /**
+ * <p>The query execution identifier and the result output location for the Amazon Athena query that an Athena step runs.</p>
+ * @public
+ */
+export interface AthenaStepMetadata {
+  /**
+   * <p>The unique identifier of the Amazon Athena query execution that was run by this step execution.</p>
+   * @public
+   */
+  QueryExecutionId?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 location of the Amazon Athena query results. This is the effective output location reported by <code>GetQueryExecution</code> for the query. This value can be absent when the query uses Athena managed query results.</p>
+   * @public
+   */
+  S3OutputLocation?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface AttachClusterNodeNetworkInterfaceRequest {
@@ -6200,6 +6218,54 @@ export interface ClarifyExplainerConfig {
 }
 
 /**
+ * <p>The Amazon S3 output resources associated with an upstream step that the Cleanup step could not delete.</p>
+ * @public
+ */
+export interface CleanupFailure {
+  /**
+   * <p>The name of the upstream step whose Amazon S3 output resources the Cleanup step could not delete.</p>
+   * @public
+   */
+  StepName?: string | undefined;
+
+  /**
+   * <p>The error code that identifies why the Cleanup step could not delete the output resources associated with the upstream step.</p>
+   * @public
+   */
+  ErrorCode?: CleanupFailureErrorCode | undefined;
+
+  /**
+   * <p>A message describing why the Cleanup step could not delete the output resources associated with the upstream step.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+}
+
+/**
+ * <p>The cleanup outcomes for Amazon S3 output resources associated with upstream steps.</p>
+ * @public
+ */
+export interface CleanupStepMetadata {
+  /**
+   * <p>The names of upstream steps whose Amazon S3 output resources the Cleanup step deleted successfully.</p>
+   * @public
+   */
+  CleanedSteps?: string[] | undefined;
+
+  /**
+   * <p>The upstream steps whose Amazon S3 output resources the Cleanup step could not delete.</p>
+   * @public
+   */
+  FailedSteps?: CleanupFailure[] | undefined;
+
+  /**
+   * <p>The names of upstream steps that the Cleanup step skipped. The Cleanup step skips a step when the output properties needed to locate its resources are unavailable.</p>
+   * @public
+   */
+  SkippedSteps?: string[] | undefined;
+}
+
+/**
  * <p>The external MySQL-compatible database that the Slurm accounting daemon (<code>slurmdbd</code>) connects to for a SageMaker HyperPod cluster. You provide the database credentials in an Amazon Web Services Secrets Manager secret instead of in the request.</p>
  * @public
  */
@@ -8135,142 +8201,4 @@ export interface ClusterRestrictedInstanceGroupsConfigOutput {
    * @public
    */
   SharedEnvironmentConfig: ClusterSharedEnvironmentConfigDetails | undefined;
-}
-
-/**
- * <p>The configuration for the restricted instance groups (RIG) environment.</p>
- * @public
- */
-export interface EnvironmentConfig {
-  /**
-   * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
-   * @public
-   */
-  FSxLustreConfig?: FSxLustreConfig | undefined;
-}
-
-/**
- * <p>The specifications of a restricted instance group that you need to define.</p>
- * @public
- */
-export interface ClusterRestrictedInstanceGroupSpecification {
-  /**
-   * <p>Specifies the number of instances to add to the restricted instance group of a SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * <p>Specifies the name of the restricted instance group.</p>
-   * @public
-   */
-  InstanceGroupName: string | undefined;
-
-  /**
-   * <p>Specifies the instance type of the restricted instance group.</p>
-   * @public
-   */
-  InstanceType: ClusterInstanceType | undefined;
-
-  /**
-   * <p>Specifies an IAM execution role to be assumed by the restricted instance group.</p>
-   * @public
-   */
-  ExecutionRole: string | undefined;
-
-  /**
-   * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading. For more information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * @public
-   */
-  ThreadsPerCore?: number | undefined;
-
-  /**
-   * <p>Specifies the additional storage configurations for the instances in the SageMaker HyperPod cluster restricted instance group.</p>
-   * @public
-   */
-  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
-
-  /**
-   * <p>A flag indicating whether deep health checks should be performed when the cluster restricted instance group is created or updated.</p>
-   * @public
-   */
-  OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
-   * @public
-   */
-  TrainingPlanArn?: string | undefined;
-
-  /**
-   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
-   * @public
-   */
-  OverrideVpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
-   * @public
-   */
-  ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
-
-  /**
-   * <p>The configuration for the restricted instance groups (RIG) environment.</p>
-   * @public
-   */
-  EnvironmentConfig?: EnvironmentConfig | undefined;
-}
-
-/**
- * <p>Summary of the cluster policy.</p>
- * @public
- */
-export interface ClusterSchedulerConfigSummary {
-  /**
-   * <p>ARN of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigArn: string | undefined;
-
-  /**
-   * <p>ID of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigId: string | undefined;
-
-  /**
-   * <p>Version of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigVersion?: number | undefined;
-
-  /**
-   * <p>Name of the cluster policy.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Creation time of the cluster policy.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Last modified time of the cluster policy.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Status of the cluster policy.</p>
-   * @public
-   */
-  Status: SchedulerResourceStatus | undefined;
-
-  /**
-   * <p>ARN of the cluster.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
 }

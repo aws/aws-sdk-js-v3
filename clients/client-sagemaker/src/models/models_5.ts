@@ -2,8 +2,11 @@
 import type {
   _InstanceType,
   AccountDefaultStatus,
+  AppNetworkAccessType,
+  AppSecurityGroupManagement,
   BooleanOperator,
   CrossAccountFilterOption,
+  HomeEfsFileSystemCreation,
   HubContentSupportStatus,
   HubContentType,
   IPAddressType,
@@ -18,8 +21,10 @@ import type {
   ResourceType,
   RootAccess,
   SearchSortOrder,
+  TagPropagation,
   ThroughputMode,
   TrackingServerSize,
+  VariantPropertyType,
   VendorGuidance,
   WorkforceIpAddressType,
 } from "./enums";
@@ -30,6 +35,9 @@ import type {
   Tag,
 } from "./models_0";
 import type {
+  DefaultSpaceSettings,
+  DeploymentConfig,
+  EdgeOutputConfig,
   FeatureDefinition,
   InferenceComponentRuntimeConfig,
   InferenceComponentSpecification,
@@ -65,6 +73,8 @@ import type {
 } from "./models_2";
 import type {
   DesiredWeightAndCapacity,
+  Device,
+  DomainSettingsForUpdate,
   FeatureParameter,
   Filter,
   InferenceComponentDeploymentConfig,
@@ -79,6 +89,198 @@ import type {
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateContextResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the context.</p>
+   * @public
+   */
+  ContextArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDeviceFleetRequest {
+  /**
+   * <p>The name of the fleet.</p>
+   * @public
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the device.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>Description of the fleet.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Output configuration for storing sample data collected by the fleet.</p>
+   * @public
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-\{DeviceFleetName\}".</p> <p>For example, if your device fleet is called "demo-fleet", the name of the role alias will be "SageMakerEdge-demo-fleet".</p>
+   * @public
+   */
+  EnableIotRoleAlias?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDevicesRequest {
+  /**
+   * <p>The name of the fleet the devices belong to.</p>
+   * @public
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>List of devices to register with Edge Manager agent.</p>
+   * @public
+   */
+  Devices: Device[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDomainRequest {
+  /**
+   * <p>The ID of the domain to be updated.</p>
+   * @public
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>A collection of settings.</p>
+   * @public
+   */
+  DefaultUserSettings?: UserSettings | undefined;
+
+  /**
+   * <p>A collection of <code>DomainSettings</code> configuration values to update.</p>
+   * @public
+   */
+  DomainSettingsForUpdate?: DomainSettingsForUpdate | undefined;
+
+  /**
+   * <p>The entity that creates and manages the required security groups for inter-app communication in <code>VPCOnly</code> mode. Required when <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided. If setting up the domain for use with RStudio, this value must be set to <code>Service</code>.</p>
+   * @public
+   */
+  AppSecurityGroupManagement?: AppSecurityGroupManagement | undefined;
+
+  /**
+   * <p>The default settings for shared spaces that users create in the domain.</p>
+   * @public
+   */
+  DefaultSpaceSettings?: DefaultSpaceSettings | undefined;
+
+  /**
+   * <p>The VPC subnets that Studio uses for communication.</p> <p>If removing subnets, ensure there are no apps in the <code>InService</code>, <code>Pending</code>, or <code>Deleting</code> state.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>Specifies the VPC used for non-EFS traffic.</p> <ul> <li> <p> <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker AI, which allows direct internet access.</p> </li> <li> <p> <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.</p> </li> </ul> <p>This configuration can only be modified if there are no apps in the <code>InService</code>, <code>Pending</code>, or <code>Deleting</code> state. The configuration cannot be updated if <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is already set or <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided as part of the same request.</p>
+   * @public
+   */
+  AppNetworkAccessType?: AppNetworkAccessType | undefined;
+
+  /**
+   * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to <code>DISABLED</code>.</p>
+   * @public
+   */
+  TagPropagation?: TagPropagation | undefined;
+
+  /**
+   * <p>Indicates whether to create a home EFS file system for the domain. You can change from <code>Disabled</code> to <code>Enabled</code> to provision EFS on demand, but you cannot change from <code>Enabled</code> to <code>Disabled</code>.</p>
+   * @public
+   */
+  HomeEfsFileSystemCreation?: HomeEfsFileSystemCreation | undefined;
+
+  /**
+   * <p>The identifier for the VPC used by the domain for network communication. Use this field only when adding VPC configuration to a SageMaker AI domain used in Amazon SageMaker Unified Studio that was created without VPC settings. SageMaker AI doesn't automatically apply VPC updates to existing applications. Stop and restart your applications to apply the changes.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDomainResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain.</p>
+   * @public
+   */
+  DomainArn?: string | undefined;
+}
+
+/**
+ * <p>Specifies a production variant property type for an Endpoint.</p> <p>If you are updating an endpoint with the <code>RetainAllVariantProperties</code> option of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a> set to <code>true</code>, the <code>VariantProperty</code> objects listed in the <code>ExcludeRetainedVariantProperties</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a> override the existing variant properties of the endpoint.</p>
+ * @public
+ */
+export interface VariantProperty {
+  /**
+   * <p>The type of variant property. The supported values are:</p> <ul> <li> <p> <code>DesiredInstanceCount</code>: Overrides the existing variant instance counts using the <code>InitialInstanceCount</code> values in the <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p> </li> <li> <p> <code>DesiredWeight</code>: Overrides the existing variant weights using the <code>InitialVariantWeight</code> values in the <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p> </li> <li> <p> <code>DataCaptureConfig</code>: (Not currently supported.)</p> </li> </ul>
+   * @public
+   */
+  VariantPropertyType: VariantPropertyType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEndpointInput {
+  /**
+   * <p>The name of the endpoint whose configuration you want to update.</p>
+   * @public
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The name of the new endpoint configuration.</p>
+   * @public
+   */
+  EndpointConfigName: string | undefined;
+
+  /**
+   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To retain the variant properties of an endpoint when updating it, set <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant properties specified in a new <code>EndpointConfig</code> call when updating an endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default is <code>false</code>.</p>
+   * @public
+   */
+  RetainAllVariantProperties?: boolean | undefined;
+
+  /**
+   * <p>When you are updating endpoint resources with <code>RetainAllVariantProperties</code>, whose value is set to <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list of type <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">VariantProperty</a> to override with the values provided by <code>EndpointConfig</code>. If you don't specify a value for <code>ExcludeRetainedVariantProperties</code>, no variant properties are overridden. </p>
+   * @public
+   */
+  ExcludeRetainedVariantProperties?: VariantProperty[] | undefined;
+
+  /**
+   * <p>The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.</p>
+   * @public
+   */
+  DeploymentConfig?: DeploymentConfig | undefined;
+
+  /**
+   * <p>Specifies whether to reuse the last deployment configuration. The default value is false (the configuration is not reused).</p>
+   * @public
+   */
+  RetainDeploymentConfig?: boolean | undefined;
+}
 
 /**
  * @public

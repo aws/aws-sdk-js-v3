@@ -1573,7 +1573,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         PipelineArn: "STRING_VALUE",
  * //         PipelineExecutionArn: "STRING_VALUE",
  * //         PipelineExecutionDisplayName: "STRING_VALUE",
- * //         PipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded",
+ * //         PipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded" || "CompletedWithFailures",
  * //         PipelineExecutionDescription: "STRING_VALUE",
  * //         PipelineExperimentConfig: { // PipelineExperimentConfig
  * //           ExperimentName: "STRING_VALUE",
@@ -1615,7 +1615,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         LastModifiedBy: "<UserContext>",
  * //         LastExecutedPipelineExecutionArn: "STRING_VALUE",
  * //         LastExecutedPipelineExecutionDisplayName: "STRING_VALUE",
- * //         LastExecutedPipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded",
+ * //         LastExecutedPipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded" || "CompletedWithFailures",
  * //       },
  * //       FeatureGroup: { // FeatureGroup
  * //         FeatureGroupArn: "STRING_VALUE",

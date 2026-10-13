@@ -4,8 +4,6 @@ import type {
   AccountDefaultStatus,
   ActionStatus,
   ActivationState,
-  AppNetworkAccessType,
-  AppSecurityGroupManagement,
   AppType,
   BatchStrategy,
   ClusterNodeProvisioningMode,
@@ -21,7 +19,6 @@ import type {
   FeatureGroupSortOrder,
   FeatureGroupStatus,
   FeatureStatus,
-  HomeEfsFileSystemCreation,
   HubContentSortBy,
   HubContentType,
   HubSortBy,
@@ -41,6 +38,8 @@ import type {
   JobStatus,
   LabelingJobStatus,
   LineageType,
+  ListDeviceFleetsSortBy,
+  ListEdgeDeploymentPlansSortBy,
   ListEdgePackagingJobsSortBy,
   ListInferenceRecommendationsJobsSortBy,
   ListLabelingJobsForWorkteamSortByOptions,
@@ -117,7 +116,6 @@ import type {
   StorageType,
   StudioLifecycleConfigAppType,
   StudioLifecycleConfigSortKey,
-  TagPropagation,
   TrackingServerStatus,
   TrainingJobSortByOptions,
   TrainingJobStatus,
@@ -130,13 +128,13 @@ import type {
   UltraServerHealthStatus,
   UserProfileSortKey,
   UserProfileStatus,
-  VariantPropertyType,
   WarmPoolResourceStatus,
 } from "./enums";
 import type {
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AppSpecification,
+  AthenaStepMetadata,
   AutoMLJobStepMetadata,
   BatchDataCaptureConfig,
   BatchTransformInput,
@@ -149,11 +147,11 @@ import type {
   Channel,
   CheckpointConfig,
   ClarifyCheckStepMetadata,
+  CleanupStepMetadata,
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupsConfig,
-  ClusterRestrictedInstanceGroupSpecification,
   CodeEditorAppImageConfig,
   DeploymentConfiguration,
   InferenceSpecification,
@@ -171,15 +169,13 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ClusterRestrictedInstanceGroupSpecification,
   ClusterTieredStorageConfig,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
   ConditionStepMetadata,
   ContainerDefinition,
-  DefaultSpaceSettings,
-  DeploymentConfig,
   DriftCheckBaselines,
-  EdgeOutputConfig,
   InferenceExecutionConfig,
   ManagedConfiguration,
   MetadataProperties,
@@ -195,7 +191,6 @@ import type {
   SourceAlgorithmSpecification,
   TtlDuration,
   UiTemplate,
-  UserSettings,
 } from "./models_1";
 import type {
   DataProcessing,
@@ -226,10 +221,13 @@ import type {
 import type {
   Device,
   DeviceDeploymentSummary,
-  DomainSettingsForUpdate,
+  DeviceFleetSummary,
+  DeviceSummary,
+  DomainDetails,
   Edge,
   EdgeDeploymentPlanSummary,
   EdgePackagingJobSummary,
+  EMRServerlessStepMetadata,
   EMRStepMetadata,
   Endpoint,
   EndpointConfigStepMetadata,
@@ -244,6 +242,7 @@ import type {
   FeatureMetadata,
   Filter,
   FlowDefinitionSummary,
+  ForEachStepMetadata,
   GitConfigForUpdate,
   HubContent,
   HubContentInfo,
@@ -259,6 +258,7 @@ import type {
   InferenceExperimentSummary,
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
+  IterationContext,
   Job,
   JobConfigSchemaVersionSummary,
   JobStepMetadata,
@@ -286,6 +286,233 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListDeviceFleetsRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to select.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filter fleets where packaging job was created after specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Filter fleets where the edge packaging job was created before specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Select fleets where the job was updated after X</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Select fleets where the job was updated before X</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Filter for fleets containing this name in their fleet device name.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>The column to sort by.</p>
+   * @public
+   */
+  SortBy?: ListDeviceFleetsSortBy | undefined;
+
+  /**
+   * <p>What direction to sort in.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDeviceFleetsResponse {
+  /**
+   * <p>Summary of the device fleet.</p>
+   * @public
+   */
+  DeviceFleetSummaries: DeviceFleetSummary[] | undefined;
+
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDevicesRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to select.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Select fleets where the job was updated after X</p>
+   * @public
+   */
+  LatestHeartbeatAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that searches devices that contains this name in any of their models.</p>
+   * @public
+   */
+  ModelName?: string | undefined;
+
+  /**
+   * <p>Filter for fleets containing this name in their device fleet name.</p>
+   * @public
+   */
+  DeviceFleetName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDevicesResponse {
+  /**
+   * <p>Summary of devices.</p>
+   * @public
+   */
+  DeviceSummaries: DeviceSummary[] | undefined;
+
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainsRequest {
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainsResponse {
+  /**
+   * <p>The list of domains.</p>
+   * @public
+   */
+  Domains?: DomainDetails[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEdgeDeploymentPlansRequest {
+  /**
+   * <p>The response from the last list when returning a list large enough to need tokening.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to select (50 by default).</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Selects edge deployment plans created after this time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Selects edge deployment plans created before this time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Selects edge deployment plans that were last updated after this time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Selects edge deployment plans that were last updated before this time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Selects edge deployment plans with names containing this name.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Selects edge deployment plans with a device fleet name containing this name.</p>
+   * @public
+   */
+  DeviceFleetNameContains?: string | undefined;
+
+  /**
+   * <p>The column by which to sort the edge deployment plans. Can be one of <code>NAME</code>, <code>DEVICEFLEETNAME</code>, <code>CREATIONTIME</code>, <code>LASTMODIFIEDTIME</code>.</p>
+   * @public
+   */
+  SortBy?: ListEdgeDeploymentPlansSortBy | undefined;
+
+  /**
+   * <p>The direction of the sorting (ascending or descending).</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
 
 /**
  * @public
@@ -4495,6 +4722,12 @@ export interface PipelineExecutionStepMetadata {
   EMR?: EMRStepMetadata | undefined;
 
   /**
+   * <p>The configurations and outcomes of an Amazon EMR Serverless step execution.</p>
+   * @public
+   */
+  EMRServerless?: EMRServerlessStepMetadata | undefined;
+
+  /**
    * <p>The configurations and outcomes of the check step execution. This includes: </p> <ul> <li> <p>The type of the check conducted.</p> </li> <li> <p>The Amazon S3 URIs of baseline constraints and statistics files to be used for the drift check.</p> </li> <li> <p>The Amazon S3 URIs of newly calculated baseline constraints and statistics.</p> </li> <li> <p>The model package group name provided.</p> </li> <li> <p>The Amazon S3 URI of the violation report if violations detected.</p> </li> <li> <p>The Amazon Resource Name (ARN) of check processing job initiated by the step execution.</p> </li> <li> <p>The Boolean flags indicating if the drift check is skipped.</p> </li> <li> <p>If step property <code>BaselineUsedForDriftCheck</code> is set the same as <code>CalculatedBaseline</code>.</p> </li> </ul>
    * @public
    */
@@ -4571,6 +4804,24 @@ export interface PipelineExecutionStepMetadata {
    * @public
    */
   Job?: JobStepMetadata | undefined;
+
+  /**
+   * <p>The metadata for the Athena step execution.</p>
+   * @public
+   */
+  Athena?: AthenaStepMetadata | undefined;
+
+  /**
+   * <p>The metadata for the cleanup step execution.</p>
+   * @public
+   */
+  Cleanup?: CleanupStepMetadata | undefined;
+
+  /**
+   * <p>The metadata for the ForEach step execution.</p>
+   * @public
+   */
+  ForEach?: ForEachStepMetadata | undefined;
 }
 
 /**
@@ -4655,6 +4906,12 @@ export interface PipelineExecutionStep {
    * @public
    */
   SelectiveExecutionResult?: SelectiveExecutionResult | undefined;
+
+  /**
+   * <p>The context for the iteration of a ForEach step that generated this step execution.</p>
+   * @public
+   */
+  IterationContext?: IterationContext | undefined;
 }
 
 /**
@@ -10549,196 +10806,4 @@ export interface UpdateContextRequest {
    * @public
    */
   PropertiesToRemove?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateContextResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the context.</p>
-   * @public
-   */
-  ContextArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDeviceFleetRequest {
-  /**
-   * <p>The name of the fleet.</p>
-   * @public
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the device.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>Description of the fleet.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Output configuration for storing sample data collected by the fleet.</p>
-   * @public
-   */
-  OutputConfig: EdgeOutputConfig | undefined;
-
-  /**
-   * <p>Whether to create an Amazon Web Services IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-\{DeviceFleetName\}".</p> <p>For example, if your device fleet is called "demo-fleet", the name of the role alias will be "SageMakerEdge-demo-fleet".</p>
-   * @public
-   */
-  EnableIotRoleAlias?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDevicesRequest {
-  /**
-   * <p>The name of the fleet the devices belong to.</p>
-   * @public
-   */
-  DeviceFleetName: string | undefined;
-
-  /**
-   * <p>List of devices to register with Edge Manager agent.</p>
-   * @public
-   */
-  Devices: Device[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainRequest {
-  /**
-   * <p>The ID of the domain to be updated.</p>
-   * @public
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>A collection of settings.</p>
-   * @public
-   */
-  DefaultUserSettings?: UserSettings | undefined;
-
-  /**
-   * <p>A collection of <code>DomainSettings</code> configuration values to update.</p>
-   * @public
-   */
-  DomainSettingsForUpdate?: DomainSettingsForUpdate | undefined;
-
-  /**
-   * <p>The entity that creates and manages the required security groups for inter-app communication in <code>VPCOnly</code> mode. Required when <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided. If setting up the domain for use with RStudio, this value must be set to <code>Service</code>.</p>
-   * @public
-   */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | undefined;
-
-  /**
-   * <p>The default settings for shared spaces that users create in the domain.</p>
-   * @public
-   */
-  DefaultSpaceSettings?: DefaultSpaceSettings | undefined;
-
-  /**
-   * <p>The VPC subnets that Studio uses for communication.</p> <p>If removing subnets, ensure there are no apps in the <code>InService</code>, <code>Pending</code>, or <code>Deleting</code> state.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>Specifies the VPC used for non-EFS traffic.</p> <ul> <li> <p> <code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon SageMaker AI, which allows direct internet access.</p> </li> <li> <p> <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.</p> </li> </ul> <p>This configuration can only be modified if there are no apps in the <code>InService</code>, <code>Pending</code>, or <code>Deleting</code> state. The configuration cannot be updated if <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is already set or <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided as part of the same request.</p>
-   * @public
-   */
-  AppNetworkAccessType?: AppNetworkAccessType | undefined;
-
-  /**
-   * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to <code>DISABLED</code>.</p>
-   * @public
-   */
-  TagPropagation?: TagPropagation | undefined;
-
-  /**
-   * <p>Indicates whether to create a home EFS file system for the domain. You can change from <code>Disabled</code> to <code>Enabled</code> to provision EFS on demand, but you cannot change from <code>Enabled</code> to <code>Disabled</code>.</p>
-   * @public
-   */
-  HomeEfsFileSystemCreation?: HomeEfsFileSystemCreation | undefined;
-
-  /**
-   * <p>The identifier for the VPC used by the domain for network communication. Use this field only when adding VPC configuration to a SageMaker AI domain used in Amazon SageMaker Unified Studio that was created without VPC settings. SageMaker AI doesn't automatically apply VPC updates to existing applications. Stop and restart your applications to apply the changes.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the domain.</p>
-   * @public
-   */
-  DomainArn?: string | undefined;
-}
-
-/**
- * <p>Specifies a production variant property type for an Endpoint.</p> <p>If you are updating an endpoint with the <code>RetainAllVariantProperties</code> option of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a> set to <code>true</code>, the <code>VariantProperty</code> objects listed in the <code>ExcludeRetainedVariantProperties</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpointInput</a> override the existing variant properties of the endpoint.</p>
- * @public
- */
-export interface VariantProperty {
-  /**
-   * <p>The type of variant property. The supported values are:</p> <ul> <li> <p> <code>DesiredInstanceCount</code>: Overrides the existing variant instance counts using the <code>InitialInstanceCount</code> values in the <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p> </li> <li> <p> <code>DesiredWeight</code>: Overrides the existing variant weights using the <code>InitialVariantWeight</code> values in the <code>ProductionVariants</code> of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.</p> </li> <li> <p> <code>DataCaptureConfig</code>: (Not currently supported.)</p> </li> </ul>
-   * @public
-   */
-  VariantPropertyType: VariantPropertyType | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEndpointInput {
-  /**
-   * <p>The name of the endpoint whose configuration you want to update.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The name of the new endpoint configuration.</p>
-   * @public
-   */
-  EndpointConfigName: string | undefined;
-
-  /**
-   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To retain the variant properties of an endpoint when updating it, set <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant properties specified in a new <code>EndpointConfig</code> call when updating an endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default is <code>false</code>.</p>
-   * @public
-   */
-  RetainAllVariantProperties?: boolean | undefined;
-
-  /**
-   * <p>When you are updating endpoint resources with <code>RetainAllVariantProperties</code>, whose value is set to <code>true</code>, <code>ExcludeRetainedVariantProperties</code> specifies the list of type <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">VariantProperty</a> to override with the values provided by <code>EndpointConfig</code>. If you don't specify a value for <code>ExcludeRetainedVariantProperties</code>, no variant properties are overridden. </p>
-   * @public
-   */
-  ExcludeRetainedVariantProperties?: VariantProperty[] | undefined;
-
-  /**
-   * <p>The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.</p>
-   * @public
-   */
-  DeploymentConfig?: DeploymentConfig | undefined;
-
-  /**
-   * <p>Specifies whether to reuse the last deployment configuration. The default value is false (the configuration is not reused).</p>
-   * @public
-   */
-  RetainDeploymentConfig?: boolean | undefined;
 }

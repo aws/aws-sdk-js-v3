@@ -103,167 +103,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "StepName": "__StepName__",
           "LogFilePath": "__LogFilePath__"
         },
-        "QualityCheck": {
-          "CheckType": "__CheckType__",
-          "BaselineUsedForDriftCheckStatistics": "__BaselineUsedForDriftCheckStatistics__",
-          "BaselineUsedForDriftCheckConstraints": "__BaselineUsedForDriftCheckConstraints__",
-          "CalculatedBaselineStatistics": "__CalculatedBaselineStatistics__",
-          "CalculatedBaselineConstraints": "__CalculatedBaselineConstraints__",
-          "ModelPackageGroupName": "__ModelPackageGroupName__",
-          "ViolationReport": "__ViolationReport__",
-          "CheckJobArn": "__CheckJobArn__",
-          "SkipCheck": false,
-          "RegisterNewBaseline": false
-        },
-        "ClarifyCheck": {
-          "CheckType": "__CheckType__",
-          "BaselineUsedForDriftCheckConstraints": "__BaselineUsedForDriftCheckConstraints__",
-          "CalculatedBaselineConstraints": "__CalculatedBaselineConstraints__",
-          "ModelPackageGroupName": "__ModelPackageGroupName__",
-          "ViolationReport": "__ViolationReport__",
-          "CheckJobArn": "__CheckJobArn__",
-          "SkipCheck": false,
-          "RegisterNewBaseline": false
-        },
-        "Fail": {
-          "ErrorMessage": "__ErrorMessage__"
-        },
-        "AutoMLJob": {
-          "Arn": "__Arn__"
-        },
-        "Endpoint": {
-          "Arn": "__Arn__"
-        },
-        "EndpointConfig": {
-          "Arn": "__Arn__"
-        },
-        "BedrockCustomModel": {
-          "Arn": "__Arn__"
-        },
-        "BedrockCustomModelDeployment": {
-          "Arn": "__Arn__"
-        },
-        "BedrockProvisionedModelThroughput": {
-          "Arn": "__Arn__"
-        },
-        "BedrockModelImport": {
-          "Arn": "__Arn__"
-        },
-        "InferenceComponent": {
-          "Arn": "__Arn__"
-        },
-        "Lineage": {
-          "ActionArns": {
-            "key1": "__value__",
-            "key2": "__value__",
-            "key3": "__value__"
-          },
-          "ArtifactArns": {
-            "key1": "__value__",
-            "key2": "__value__",
-            "key3": "__value__"
-          },
-          "ContextArns": {
-            "key1": "__value__",
-            "key2": "__value__",
-            "key3": "__value__"
-          },
-          "Associations": [
-            {
-              "SourceArn": "__SourceArn__",
-              "DestinationArn": "__DestinationArn__"
-            },
-            {
-              "SourceArn": "__SourceArn__",
-              "DestinationArn": "__DestinationArn__"
-            },
-            {
-              "SourceArn": "__SourceArn__",
-              "DestinationArn": "__DestinationArn__"
-            }
-          ]
-        },
-        "Job": {
-          "Arn": "__Arn__"
-        }
-      },
-      "AttemptCount": 0,
-      "SelectiveExecutionResult": {
-        "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
-      }
-    },
-    {
-      "StepName": "__StepName__",
-      "StepDisplayName": "__StepDisplayName__",
-      "StepDescription": "__StepDescription__",
-      "StartTime": 946702799.999,
-      "EndTime": 946702799.999,
-      "StepStatus": "__StepStatus__",
-      "CacheHitResult": {
-        "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
-      },
-      "FailureReason": "__FailureReason__",
-      "Metadata": {
-        "TrainingJob": {
-          "Arn": "__Arn__"
-        },
-        "ProcessingJob": {
-          "Arn": "__Arn__"
-        },
-        "TransformJob": {
-          "Arn": "__Arn__"
-        },
-        "TuningJob": {
-          "Arn": "__Arn__"
-        },
-        "Model": {
-          "Arn": "__Arn__"
-        },
-        "RegisterModel": {
-          "Arn": "__Arn__"
-        },
-        "Condition": {
-          "Outcome": "__Outcome__"
-        },
-        "Callback": {
-          "CallbackToken": "__CallbackToken__",
-          "SqsQueueUrl": "__SqsQueueUrl__",
-          "OutputParameters": [
-            {
-              "Name": "__Name__",
-              "Value": "__Value__"
-            },
-            {
-              "Name": "__Name__",
-              "Value": "__Value__"
-            },
-            {
-              "Name": "__Name__",
-              "Value": "__Value__"
-            }
-          ]
-        },
-        "Lambda": {
-          "Arn": "__Arn__",
-          "OutputParameters": [
-            {
-              "Name": "__Name__",
-              "Value": "__Value__"
-            },
-            {
-              "Name": "__Name__",
-              "Value": "__Value__"
-            },
-            {
-              "Name": "__Name__",
-              "Value": "__Value__"
-            }
-          ]
-        },
-        "EMR": {
-          "ClusterId": "__ClusterId__",
-          "StepId": "__StepId__",
-          "StepName": "__StepName__",
+        "EMRServerless": {
+          "ApplicationId": "__ApplicationId__",
+          "JobRunId": "__JobRunId__",
+          "JobRunName": "__JobRunName__",
           "LogFilePath": "__LogFilePath__"
         },
         "QualityCheck": {
@@ -348,11 +191,61 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         },
         "Job": {
           "Arn": "__Arn__"
+        },
+        "Athena": {
+          "QueryExecutionId": "__QueryExecutionId__",
+          "S3OutputLocation": "__S3OutputLocation__"
+        },
+        "Cleanup": {
+          "CleanedSteps": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "FailedSteps": [
+            {
+              "StepName": "__StepName__",
+              "ErrorCode": "__ErrorCode__",
+              "ErrorMessage": "__ErrorMessage__"
+            },
+            {
+              "StepName": "__StepName__",
+              "ErrorCode": "__ErrorCode__",
+              "ErrorMessage": "__ErrorMessage__"
+            },
+            {
+              "StepName": "__StepName__",
+              "ErrorCode": "__ErrorCode__",
+              "ErrorMessage": "__ErrorMessage__"
+            }
+          ],
+          "SkippedSteps": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "ForEach": {
+          "Status": "__Status__",
+          "InputItemCount": 0,
+          "TotalStepCount": 0,
+          "SucceededStepCount": 0,
+          "FailedStepCount": 0,
+          "StoppedStepCount": 0,
+          "Selector": {
+            "StepName": "__StepName__",
+            "Index": 0
+          }
         }
       },
       "AttemptCount": 0,
       "SelectiveExecutionResult": {
         "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
+      },
+      "IterationContext": {
+        "ParentStepName": "__ParentStepName__",
+        "Index": 0,
+        "Item": "__Item__"
       }
     },
     {
@@ -427,6 +320,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "ClusterId": "__ClusterId__",
           "StepId": "__StepId__",
           "StepName": "__StepName__",
+          "LogFilePath": "__LogFilePath__"
+        },
+        "EMRServerless": {
+          "ApplicationId": "__ApplicationId__",
+          "JobRunId": "__JobRunId__",
+          "JobRunName": "__JobRunName__",
           "LogFilePath": "__LogFilePath__"
         },
         "QualityCheck": {
@@ -511,11 +410,280 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         },
         "Job": {
           "Arn": "__Arn__"
+        },
+        "Athena": {
+          "QueryExecutionId": "__QueryExecutionId__",
+          "S3OutputLocation": "__S3OutputLocation__"
+        },
+        "Cleanup": {
+          "CleanedSteps": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "FailedSteps": [
+            {
+              "StepName": "__StepName__",
+              "ErrorCode": "__ErrorCode__",
+              "ErrorMessage": "__ErrorMessage__"
+            },
+            {
+              "StepName": "__StepName__",
+              "ErrorCode": "__ErrorCode__",
+              "ErrorMessage": "__ErrorMessage__"
+            },
+            {
+              "StepName": "__StepName__",
+              "ErrorCode": "__ErrorCode__",
+              "ErrorMessage": "__ErrorMessage__"
+            }
+          ],
+          "SkippedSteps": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "ForEach": {
+          "Status": "__Status__",
+          "InputItemCount": 0,
+          "TotalStepCount": 0,
+          "SucceededStepCount": 0,
+          "FailedStepCount": 0,
+          "StoppedStepCount": 0,
+          "Selector": {
+            "StepName": "__StepName__",
+            "Index": 0
+          }
         }
       },
       "AttemptCount": 0,
       "SelectiveExecutionResult": {
         "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
+      },
+      "IterationContext": {
+        "ParentStepName": "__ParentStepName__",
+        "Index": 0,
+        "Item": "__Item__"
+      }
+    },
+    {
+      "StepName": "__StepName__",
+      "StepDisplayName": "__StepDisplayName__",
+      "StepDescription": "__StepDescription__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "StepStatus": "__StepStatus__",
+      "CacheHitResult": {
+        "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
+      },
+      "FailureReason": "__FailureReason__",
+      "Metadata": {
+        "TrainingJob": {
+          "Arn": "__Arn__"
+        },
+        "ProcessingJob": {
+          "Arn": "__Arn__"
+        },
+        "TransformJob": {
+          "Arn": "__Arn__"
+        },
+        "TuningJob": {
+          "Arn": "__Arn__"
+        },
+        "Model": {
+          "Arn": "__Arn__"
+        },
+        "RegisterModel": {
+          "Arn": "__Arn__"
+        },
+        "Condition": {
+          "Outcome": "__Outcome__"
+        },
+        "Callback": {
+          "CallbackToken": "__CallbackToken__",
+          "SqsQueueUrl": "__SqsQueueUrl__",
+          "OutputParameters": [
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            }
+          ]
+        },
+        "Lambda": {
+          "Arn": "__Arn__",
+          "OutputParameters": [
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            }
+          ]
+        },
+        "EMR": {
+          "ClusterId": "__ClusterId__",
+          "StepId": "__StepId__",
+          "StepName": "__StepName__",
+          "LogFilePath": "__LogFilePath__"
+        },
+        "EMRServerless": {
+          "ApplicationId": "__ApplicationId__",
+          "JobRunId": "__JobRunId__",
+          "JobRunName": "__JobRunName__",
+          "LogFilePath": "__LogFilePath__"
+        },
+        "QualityCheck": {
+          "CheckType": "__CheckType__",
+          "BaselineUsedForDriftCheckStatistics": "__BaselineUsedForDriftCheckStatistics__",
+          "BaselineUsedForDriftCheckConstraints": "__BaselineUsedForDriftCheckConstraints__",
+          "CalculatedBaselineStatistics": "__CalculatedBaselineStatistics__",
+          "CalculatedBaselineConstraints": "__CalculatedBaselineConstraints__",
+          "ModelPackageGroupName": "__ModelPackageGroupName__",
+          "ViolationReport": "__ViolationReport__",
+          "CheckJobArn": "__CheckJobArn__",
+          "SkipCheck": false,
+          "RegisterNewBaseline": false
+        },
+        "ClarifyCheck": {
+          "CheckType": "__CheckType__",
+          "BaselineUsedForDriftCheckConstraints": "__BaselineUsedForDriftCheckConstraints__",
+          "CalculatedBaselineConstraints": "__CalculatedBaselineConstraints__",
+          "ModelPackageGroupName": "__ModelPackageGroupName__",
+          "ViolationReport": "__ViolationReport__",
+          "CheckJobArn": "__CheckJobArn__",
+          "SkipCheck": false,
+          "RegisterNewBaseline": false
+        },
+        "Fail": {
+          "ErrorMessage": "__ErrorMessage__"
+        },
+        "AutoMLJob": {
+          "Arn": "__Arn__"
+        },
+        "Endpoint": {
+          "Arn": "__Arn__"
+        },
+        "EndpointConfig": {
+          "Arn": "__Arn__"
+        },
+        "BedrockCustomModel": {
+          "Arn": "__Arn__"
+        },
+        "BedrockCustomModelDeployment": {
+          "Arn": "__Arn__"
+        },
+        "BedrockProvisionedModelThroughput": {
+          "Arn": "__Arn__"
+        },
+        "BedrockModelImport": {
+          "Arn": "__Arn__"
+        },
+        "InferenceComponent": {
+          "Arn": "__Arn__"
+        },
+        "Lineage": {
+          "ActionArns": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          },
+          "ArtifactArns": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          },
+          "ContextArns": {
+            "key1": "__value__",
+            "key2": "__value__",
+            "key3": "__value__"
+          },
+          "Associations": [
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            },
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            },
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            }
+          ]
+        },
+        "Job": {
+          "Arn": "__Arn__"
+        },
+        "Athena": {
+          "QueryExecutionId": "__QueryExecutionId__",
+          "S3OutputLocation": "__S3OutputLocation__"
+        },
+        "Cleanup": {
+          "CleanedSteps": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "FailedSteps": [
+            {
+              "StepName": "__StepName__",
+              "ErrorCode": "__ErrorCode__",
+              "ErrorMessage": "__ErrorMessage__"
+            },
+            {
+              "StepName": "__StepName__",
+              "ErrorCode": "__ErrorCode__",
+              "ErrorMessage": "__ErrorMessage__"
+            },
+            {
+              "StepName": "__StepName__",
+              "ErrorCode": "__ErrorCode__",
+              "ErrorMessage": "__ErrorMessage__"
+            }
+          ],
+          "SkippedSteps": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "ForEach": {
+          "Status": "__Status__",
+          "InputItemCount": 0,
+          "TotalStepCount": 0,
+          "SucceededStepCount": 0,
+          "FailedStepCount": 0,
+          "StoppedStepCount": 0,
+          "Selector": {
+            "StepName": "__StepName__",
+            "Index": 0
+          }
+        }
+      },
+      "AttemptCount": 0,
+      "SelectiveExecutionResult": {
+        "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
+      },
+      "IterationContext": {
+        "ParentStepName": "__ParentStepName__",
+        "Index": 0,
+        "Item": "__Item__"
       }
     }
   ],
@@ -600,167 +768,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           StepName: "__StepName__",
           LogFilePath: "__LogFilePath__"
         },
-        QualityCheck: {
-          CheckType: "__CheckType__",
-          BaselineUsedForDriftCheckStatistics: "__BaselineUsedForDriftCheckStatistics__",
-          BaselineUsedForDriftCheckConstraints: "__BaselineUsedForDriftCheckConstraints__",
-          CalculatedBaselineStatistics: "__CalculatedBaselineStatistics__",
-          CalculatedBaselineConstraints: "__CalculatedBaselineConstraints__",
-          ModelPackageGroupName: "__ModelPackageGroupName__",
-          ViolationReport: "__ViolationReport__",
-          CheckJobArn: "__CheckJobArn__",
-          SkipCheck: (boolean) false,
-          RegisterNewBaseline: (boolean) false
-        },
-        ClarifyCheck: {
-          CheckType: "__CheckType__",
-          BaselineUsedForDriftCheckConstraints: "__BaselineUsedForDriftCheckConstraints__",
-          CalculatedBaselineConstraints: "__CalculatedBaselineConstraints__",
-          ModelPackageGroupName: "__ModelPackageGroupName__",
-          ViolationReport: "__ViolationReport__",
-          CheckJobArn: "__CheckJobArn__",
-          SkipCheck: (boolean) false,
-          RegisterNewBaseline: (boolean) false
-        },
-        Fail: {
-          ErrorMessage: "__ErrorMessage__"
-        },
-        AutoMLJob: {
-          Arn: "__Arn__"
-        },
-        Endpoint: {
-          Arn: "__Arn__"
-        },
-        EndpointConfig: {
-          Arn: "__Arn__"
-        },
-        BedrockCustomModel: {
-          Arn: "__Arn__"
-        },
-        BedrockCustomModelDeployment: {
-          Arn: "__Arn__"
-        },
-        BedrockProvisionedModelThroughput: {
-          Arn: "__Arn__"
-        },
-        BedrockModelImport: {
-          Arn: "__Arn__"
-        },
-        InferenceComponent: {
-          Arn: "__Arn__"
-        },
-        Lineage: {
-          ActionArns: {
-            key1: "__value__",
-            key2: "__value__",
-            key3: "__value__"
-          },
-          ArtifactArns: {
-            key1: "__value__",
-            key2: "__value__",
-            key3: "__value__"
-          },
-          ContextArns: {
-            key1: "__value__",
-            key2: "__value__",
-            key3: "__value__"
-          },
-          Associations: [
-            {
-              SourceArn: "__SourceArn__",
-              DestinationArn: "__DestinationArn__"
-            },
-            {
-              SourceArn: "__SourceArn__",
-              DestinationArn: "__DestinationArn__"
-            },
-            {
-              SourceArn: "__SourceArn__",
-              DestinationArn: "__DestinationArn__"
-            }
-          ]
-        },
-        Job: {
-          Arn: "__Arn__"
-        }
-      },
-      AttemptCount: (number) 0,
-      SelectiveExecutionResult: {
-        SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
-      }
-    },
-    {
-      StepName: "__StepName__",
-      StepDisplayName: "__StepDisplayName__",
-      StepDescription: "__StepDescription__",
-      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-      StepStatus: "__StepStatus__",
-      CacheHitResult: {
-        SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
-      },
-      FailureReason: "__FailureReason__",
-      Metadata: {
-        TrainingJob: {
-          Arn: "__Arn__"
-        },
-        ProcessingJob: {
-          Arn: "__Arn__"
-        },
-        TransformJob: {
-          Arn: "__Arn__"
-        },
-        TuningJob: {
-          Arn: "__Arn__"
-        },
-        Model: {
-          Arn: "__Arn__"
-        },
-        RegisterModel: {
-          Arn: "__Arn__"
-        },
-        Condition: {
-          Outcome: "__Outcome__"
-        },
-        Callback: {
-          CallbackToken: "__CallbackToken__",
-          SqsQueueUrl: "__SqsQueueUrl__",
-          OutputParameters: [
-            {
-              Name: "__Name__",
-              Value: "__Value__"
-            },
-            {
-              Name: "__Name__",
-              Value: "__Value__"
-            },
-            {
-              Name: "__Name__",
-              Value: "__Value__"
-            }
-          ]
-        },
-        Lambda: {
-          Arn: "__Arn__",
-          OutputParameters: [
-            {
-              Name: "__Name__",
-              Value: "__Value__"
-            },
-            {
-              Name: "__Name__",
-              Value: "__Value__"
-            },
-            {
-              Name: "__Name__",
-              Value: "__Value__"
-            }
-          ]
-        },
-        EMR: {
-          ClusterId: "__ClusterId__",
-          StepId: "__StepId__",
-          StepName: "__StepName__",
+        EMRServerless: {
+          ApplicationId: "__ApplicationId__",
+          JobRunId: "__JobRunId__",
+          JobRunName: "__JobRunName__",
           LogFilePath: "__LogFilePath__"
         },
         QualityCheck: {
@@ -845,11 +856,61 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         },
         Job: {
           Arn: "__Arn__"
+        },
+        Athena: {
+          QueryExecutionId: "__QueryExecutionId__",
+          S3OutputLocation: "__S3OutputLocation__"
+        },
+        Cleanup: {
+          CleanedSteps: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          FailedSteps: [
+            {
+              StepName: "__StepName__",
+              ErrorCode: "__ErrorCode__",
+              ErrorMessage: "__ErrorMessage__"
+            },
+            {
+              StepName: "__StepName__",
+              ErrorCode: "__ErrorCode__",
+              ErrorMessage: "__ErrorMessage__"
+            },
+            {
+              StepName: "__StepName__",
+              ErrorCode: "__ErrorCode__",
+              ErrorMessage: "__ErrorMessage__"
+            }
+          ],
+          SkippedSteps: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        ForEach: {
+          Status: "__Status__",
+          InputItemCount: (number) 0,
+          TotalStepCount: (number) 0,
+          SucceededStepCount: (number) 0,
+          FailedStepCount: (number) 0,
+          StoppedStepCount: (number) 0,
+          Selector: {
+            StepName: "__StepName__",
+            Index: (number) 0
+          }
         }
       },
       AttemptCount: (number) 0,
       SelectiveExecutionResult: {
         SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
+      },
+      IterationContext: {
+        ParentStepName: "__ParentStepName__",
+        Index: (number) 0,
+        Item: "__Item__"
       }
     },
     {
@@ -924,6 +985,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           ClusterId: "__ClusterId__",
           StepId: "__StepId__",
           StepName: "__StepName__",
+          LogFilePath: "__LogFilePath__"
+        },
+        EMRServerless: {
+          ApplicationId: "__ApplicationId__",
+          JobRunId: "__JobRunId__",
+          JobRunName: "__JobRunName__",
           LogFilePath: "__LogFilePath__"
         },
         QualityCheck: {
@@ -1008,11 +1075,280 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         },
         Job: {
           Arn: "__Arn__"
+        },
+        Athena: {
+          QueryExecutionId: "__QueryExecutionId__",
+          S3OutputLocation: "__S3OutputLocation__"
+        },
+        Cleanup: {
+          CleanedSteps: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          FailedSteps: [
+            {
+              StepName: "__StepName__",
+              ErrorCode: "__ErrorCode__",
+              ErrorMessage: "__ErrorMessage__"
+            },
+            {
+              StepName: "__StepName__",
+              ErrorCode: "__ErrorCode__",
+              ErrorMessage: "__ErrorMessage__"
+            },
+            {
+              StepName: "__StepName__",
+              ErrorCode: "__ErrorCode__",
+              ErrorMessage: "__ErrorMessage__"
+            }
+          ],
+          SkippedSteps: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        ForEach: {
+          Status: "__Status__",
+          InputItemCount: (number) 0,
+          TotalStepCount: (number) 0,
+          SucceededStepCount: (number) 0,
+          FailedStepCount: (number) 0,
+          StoppedStepCount: (number) 0,
+          Selector: {
+            StepName: "__StepName__",
+            Index: (number) 0
+          }
         }
       },
       AttemptCount: (number) 0,
       SelectiveExecutionResult: {
         SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
+      },
+      IterationContext: {
+        ParentStepName: "__ParentStepName__",
+        Index: (number) 0,
+        Item: "__Item__"
+      }
+    },
+    {
+      StepName: "__StepName__",
+      StepDisplayName: "__StepDisplayName__",
+      StepDescription: "__StepDescription__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StepStatus: "__StepStatus__",
+      CacheHitResult: {
+        SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
+      },
+      FailureReason: "__FailureReason__",
+      Metadata: {
+        TrainingJob: {
+          Arn: "__Arn__"
+        },
+        ProcessingJob: {
+          Arn: "__Arn__"
+        },
+        TransformJob: {
+          Arn: "__Arn__"
+        },
+        TuningJob: {
+          Arn: "__Arn__"
+        },
+        Model: {
+          Arn: "__Arn__"
+        },
+        RegisterModel: {
+          Arn: "__Arn__"
+        },
+        Condition: {
+          Outcome: "__Outcome__"
+        },
+        Callback: {
+          CallbackToken: "__CallbackToken__",
+          SqsQueueUrl: "__SqsQueueUrl__",
+          OutputParameters: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        Lambda: {
+          Arn: "__Arn__",
+          OutputParameters: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        EMR: {
+          ClusterId: "__ClusterId__",
+          StepId: "__StepId__",
+          StepName: "__StepName__",
+          LogFilePath: "__LogFilePath__"
+        },
+        EMRServerless: {
+          ApplicationId: "__ApplicationId__",
+          JobRunId: "__JobRunId__",
+          JobRunName: "__JobRunName__",
+          LogFilePath: "__LogFilePath__"
+        },
+        QualityCheck: {
+          CheckType: "__CheckType__",
+          BaselineUsedForDriftCheckStatistics: "__BaselineUsedForDriftCheckStatistics__",
+          BaselineUsedForDriftCheckConstraints: "__BaselineUsedForDriftCheckConstraints__",
+          CalculatedBaselineStatistics: "__CalculatedBaselineStatistics__",
+          CalculatedBaselineConstraints: "__CalculatedBaselineConstraints__",
+          ModelPackageGroupName: "__ModelPackageGroupName__",
+          ViolationReport: "__ViolationReport__",
+          CheckJobArn: "__CheckJobArn__",
+          SkipCheck: (boolean) false,
+          RegisterNewBaseline: (boolean) false
+        },
+        ClarifyCheck: {
+          CheckType: "__CheckType__",
+          BaselineUsedForDriftCheckConstraints: "__BaselineUsedForDriftCheckConstraints__",
+          CalculatedBaselineConstraints: "__CalculatedBaselineConstraints__",
+          ModelPackageGroupName: "__ModelPackageGroupName__",
+          ViolationReport: "__ViolationReport__",
+          CheckJobArn: "__CheckJobArn__",
+          SkipCheck: (boolean) false,
+          RegisterNewBaseline: (boolean) false
+        },
+        Fail: {
+          ErrorMessage: "__ErrorMessage__"
+        },
+        AutoMLJob: {
+          Arn: "__Arn__"
+        },
+        Endpoint: {
+          Arn: "__Arn__"
+        },
+        EndpointConfig: {
+          Arn: "__Arn__"
+        },
+        BedrockCustomModel: {
+          Arn: "__Arn__"
+        },
+        BedrockCustomModelDeployment: {
+          Arn: "__Arn__"
+        },
+        BedrockProvisionedModelThroughput: {
+          Arn: "__Arn__"
+        },
+        BedrockModelImport: {
+          Arn: "__Arn__"
+        },
+        InferenceComponent: {
+          Arn: "__Arn__"
+        },
+        Lineage: {
+          ActionArns: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          },
+          ArtifactArns: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          },
+          ContextArns: {
+            key1: "__value__",
+            key2: "__value__",
+            key3: "__value__"
+          },
+          Associations: [
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            },
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            },
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            }
+          ]
+        },
+        Job: {
+          Arn: "__Arn__"
+        },
+        Athena: {
+          QueryExecutionId: "__QueryExecutionId__",
+          S3OutputLocation: "__S3OutputLocation__"
+        },
+        Cleanup: {
+          CleanedSteps: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          FailedSteps: [
+            {
+              StepName: "__StepName__",
+              ErrorCode: "__ErrorCode__",
+              ErrorMessage: "__ErrorMessage__"
+            },
+            {
+              StepName: "__StepName__",
+              ErrorCode: "__ErrorCode__",
+              ErrorMessage: "__ErrorMessage__"
+            },
+            {
+              StepName: "__StepName__",
+              ErrorCode: "__ErrorCode__",
+              ErrorMessage: "__ErrorMessage__"
+            }
+          ],
+          SkippedSteps: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        ForEach: {
+          Status: "__Status__",
+          InputItemCount: (number) 0,
+          TotalStepCount: (number) 0,
+          SucceededStepCount: (number) 0,
+          FailedStepCount: (number) 0,
+          StoppedStepCount: (number) 0,
+          Selector: {
+            StepName: "__StepName__",
+            Index: (number) 0
+          }
+        }
+      },
+      AttemptCount: (number) 0,
+      SelectiveExecutionResult: {
+        SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
+      },
+      IterationContext: {
+        ParentStepName: "__ParentStepName__",
+        Index: (number) 0,
+        Item: "__Item__"
       }
     }
   ],

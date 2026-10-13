@@ -31,6 +31,7 @@ import type {
   FeatureGroupStatus,
   FeatureType,
   FlowDefinitionStatus,
+  ForEachStatus,
   HubContentStatus,
   HubContentSupportStatus,
   HubContentType,
@@ -53,12 +54,11 @@ import type {
   JobStatus,
   JobType,
   LabelingJobStatus,
+  LastUpdateStatusValue,
   ListAIBenchmarkJobsSortBy,
   ListAIRecommendationJobsSortBy,
   ListAIWorkloadConfigsSortBy,
   ListCompilationJobsSortBy,
-  ListDeviceFleetsSortBy,
-  ListEdgeDeploymentPlansSortBy,
   MaintenanceStatus,
   ManagedStorageType,
   MlflowAppStatus,
@@ -157,7 +157,6 @@ import type {
   CheckpointConfig,
   ClusterEventSummary,
   ClusterNodeSummary,
-  ClusterSchedulerConfigSummary,
   InferenceSpecification,
   OutputDataConfig,
   OutputParameter,
@@ -172,6 +171,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ClusterSchedulerConfigSummary,
   ClusterSummary,
   CodeRepositorySummary,
   CognitoConfig,
@@ -253,7 +253,6 @@ import type {
   ExperimentSource,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
-  LastUpdateStatus,
   LoraConfig,
   MemberDefinition,
   MlflowConfig,
@@ -293,6 +292,100 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeExperimentResponse {
+  /**
+   * <p>The name of the experiment.</p>
+   * @public
+   */
+  ExperimentName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   * @public
+   */
+  ExperimentArn?: string | undefined;
+
+  /**
+   * <p>The name of the experiment as displayed. If <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source and, optionally, the type.</p>
+   * @public
+   */
+  Source?: ExperimentSource | undefined;
+
+  /**
+   * <p>The description of the experiment.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>When the experiment was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Who created the experiment.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>When the experiment was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Who last modified the experiment.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFeatureGroupRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> you want described. </p>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>A token to resume pagination of the list of <code>Features</code> (<code>FeatureDefinitions</code>). 2,500 <code>Features</code> are returned by default.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A value that indicates whether the update was successful.</p>
+ * @public
+ */
+export interface LastUpdateStatus {
+  /**
+   * <p>A value that indicates whether the update was made successful.</p>
+   * @public
+   */
+  Status: LastUpdateStatusValue | undefined;
+
+  /**
+   * <p>If the update wasn't successful, indicates the reason why it failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
 
 /**
  * <p>The status of <code>OfflineStore</code>.</p>
@@ -7842,6 +7935,36 @@ export interface EdgePackagingJobSummary {
 }
 
 /**
+ * <p>The configurations and outcomes of an Amazon EMR Serverless step execution.</p>
+ * @public
+ */
+export interface EMRServerlessStepMetadata {
+  /**
+   * <p>The identifier of the Amazon EMR Serverless application.</p>
+   * @public
+   */
+  ApplicationId?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon EMR Serverless job run.</p>
+   * @public
+   */
+  JobRunId?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon EMR Serverless job run.</p>
+   * @public
+   */
+  JobRunName?: string | undefined;
+
+  /**
+   * <p>The path to the log file for the Amazon EMR Serverless job run.</p>
+   * @public
+   */
+  LogFilePath?: string | undefined;
+}
+
+/**
  * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
  * @public
  */
@@ -8507,6 +8630,72 @@ export interface FlowDefinitionSummary {
    * @public
    */
   FailureReason?: string | undefined;
+}
+
+/**
+ * <p>The result of the selector that identifies an iteration of a ForEach step.</p>
+ * @public
+ */
+export interface ForEachSelectorResult {
+  /**
+   * <p>The name of the step associated with the iteration.</p>
+   * @public
+   */
+  StepName?: string | undefined;
+
+  /**
+   * <p>The index of the iteration within the ForEach step.</p>
+   * @public
+   */
+  Index?: number | undefined;
+}
+
+/**
+ * <p>The status, the iteration-step counts, and the selector information for a ForEach step execution.</p>
+ * @public
+ */
+export interface ForEachStepMetadata {
+  /**
+   * <p>The status of the ForEach step execution.</p>
+   * @public
+   */
+  Status?: ForEachStatus | undefined;
+
+  /**
+   * <p>The number of input items that the ForEach step iterates over.</p>
+   * @public
+   */
+  InputItemCount?: number | undefined;
+
+  /**
+   * <p>The total number of steps generated across all iterations of the ForEach step.</p>
+   * @public
+   */
+  TotalStepCount?: number | undefined;
+
+  /**
+   * <p>The number of iteration steps that completed successfully.</p>
+   * @public
+   */
+  SucceededStepCount?: number | undefined;
+
+  /**
+   * <p>The number of iteration steps that failed.</p>
+   * @public
+   */
+  FailedStepCount?: number | undefined;
+
+  /**
+   * <p>The number of iteration steps that were stopped.</p>
+   * @public
+   */
+  StoppedStepCount?: number | undefined;
+
+  /**
+   * <p>Identifies the body step and iteration selected within the ForEach step.</p>
+   * @public
+   */
+  Selector?: ForEachSelectorResult | undefined;
 }
 
 /**
@@ -9795,6 +9984,30 @@ export interface InferenceRecommendationsJobStep {
    * @public
    */
   InferenceBenchmark?: RecommendationJobInferenceBenchmark | undefined;
+}
+
+/**
+ * <p>The context for an iteration of a ForEach step.</p>
+ * @public
+ */
+export interface IterationContext {
+  /**
+   * <p>The name of the ForEach step that generated this iteration.</p>
+   * @public
+   */
+  ParentStepName?: string | undefined;
+
+  /**
+   * <p>The index of the iteration within the ForEach step.</p>
+   * @public
+   */
+  Index?: number | undefined;
+
+  /**
+   * <p>The input item that is being processed in this iteration.</p>
+   * @public
+   */
+  Item?: string | undefined;
 }
 
 /**
@@ -11733,231 +11946,4 @@ export interface ListDataQualityJobDefinitionsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDeviceFleetsRequest {
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to select.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filter fleets where packaging job was created after specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Filter fleets where the edge packaging job was created before specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Select fleets where the job was updated after X</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Select fleets where the job was updated before X</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Filter for fleets containing this name in their fleet device name.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>The column to sort by.</p>
-   * @public
-   */
-  SortBy?: ListDeviceFleetsSortBy | undefined;
-
-  /**
-   * <p>What direction to sort in.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDeviceFleetsResponse {
-  /**
-   * <p>Summary of the device fleet.</p>
-   * @public
-   */
-  DeviceFleetSummaries: DeviceFleetSummary[] | undefined;
-
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDevicesRequest {
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Maximum number of results to select.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Select fleets where the job was updated after X</p>
-   * @public
-   */
-  LatestHeartbeatAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that searches devices that contains this name in any of their models.</p>
-   * @public
-   */
-  ModelName?: string | undefined;
-
-  /**
-   * <p>Filter for fleets containing this name in their device fleet name.</p>
-   * @public
-   */
-  DeviceFleetName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDevicesResponse {
-  /**
-   * <p>Summary of devices.</p>
-   * @public
-   */
-  DeviceSummaries: DeviceSummary[] | undefined;
-
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDomainsRequest {
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>This parameter defines the maximum number of results that can be return in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDomainsResponse {
-  /**
-   * <p>The list of domains.</p>
-   * @public
-   */
-  Domains?: DomainDetails[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEdgeDeploymentPlansRequest {
-  /**
-   * <p>The response from the last list when returning a list large enough to need tokening.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to select (50 by default).</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Selects edge deployment plans created after this time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Selects edge deployment plans created before this time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Selects edge deployment plans that were last updated after this time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Selects edge deployment plans that were last updated before this time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Selects edge deployment plans with names containing this name.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Selects edge deployment plans with a device fleet name containing this name.</p>
-   * @public
-   */
-  DeviceFleetNameContains?: string | undefined;
-
-  /**
-   * <p>The column by which to sort the edge deployment plans. Can be one of <code>NAME</code>, <code>DEVICEFLEETNAME</code>, <code>CREATIONTIME</code>, <code>LASTMODIFIEDTIME</code>.</p>
-   * @public
-   */
-  SortBy?: ListEdgeDeploymentPlansSortBy | undefined;
-
-  /**
-   * <p>The direction of the sorting (ascending or descending).</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
 }

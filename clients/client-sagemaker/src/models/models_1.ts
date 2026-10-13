@@ -16,6 +16,7 @@ import type {
   CapacityReservationPreference,
   ClusterConfigMode,
   ClusterImageVersionStatus,
+  ClusterInstanceType,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
   ClusterStatus,
@@ -25,6 +26,7 @@ import type {
   ConditionOutcome,
   ContainerMode,
   ContentClassifier,
+  DeepHealthCheckType,
   DeviceSubsetType,
   EdgePresetDeploymentType,
   ExecutionRoleIdentityConfig,
@@ -152,11 +154,12 @@ import type {
   ClarifyExplainerConfig,
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
+  ClusterInstanceStorageConfig,
   ClusterOrchestrator,
   ClusterRestrictedInstanceGroupsConfig,
-  ClusterRestrictedInstanceGroupSpecification,
   CodeEditorAppImageConfig,
   ComputeQuotaResourceConfig,
+  FSxLustreConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
@@ -166,11 +169,150 @@ import type {
   OutputDataConfig,
   ResourceConfig,
   ResourceSpec,
+  ScheduledUpdateConfig,
   StoppingCondition,
   Tag,
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The configuration for the restricted instance groups (RIG) environment.</p>
+ * @public
+ */
+export interface EnvironmentConfig {
+  /**
+   * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
+   * @public
+   */
+  FSxLustreConfig?: FSxLustreConfig | undefined;
+}
+
+/**
+ * <p>The specifications of a restricted instance group that you need to define.</p>
+ * @public
+ */
+export interface ClusterRestrictedInstanceGroupSpecification {
+  /**
+   * <p>Specifies the number of instances to add to the restricted instance group of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>Specifies the name of the restricted instance group.</p>
+   * @public
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * <p>Specifies the instance type of the restricted instance group.</p>
+   * @public
+   */
+  InstanceType: ClusterInstanceType | undefined;
+
+  /**
+   * <p>Specifies an IAM execution role to be assumed by the restricted instance group.</p>
+   * @public
+   */
+  ExecutionRole: string | undefined;
+
+  /**
+   * <p>The number you specified to <code>TreadsPerCore</code> in <code>CreateCluster</code> for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading. For more information, see the reference table of <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">CPU cores and threads per CPU core per instance type</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
+   */
+  ThreadsPerCore?: number | undefined;
+
+  /**
+   * <p>Specifies the additional storage configurations for the instances in the SageMaker HyperPod cluster restricted instance group.</p>
+   * @public
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>A flag indicating whether deep health checks should be performed when the cluster restricted instance group is created or updated.</p>
+   * @public
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training plan to filter clusters by. For more information about reserving GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The configuration object of the schedule that SageMaker follows when updating the AMI.</p>
+   * @public
+   */
+  ScheduledUpdateConfig?: ScheduledUpdateConfig | undefined;
+
+  /**
+   * <p>The configuration for the restricted instance groups (RIG) environment.</p>
+   * @public
+   */
+  EnvironmentConfig?: EnvironmentConfig | undefined;
+}
+
+/**
+ * <p>Summary of the cluster policy.</p>
+ * @public
+ */
+export interface ClusterSchedulerConfigSummary {
+  /**
+   * <p>ARN of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigArn: string | undefined;
+
+  /**
+   * <p>ID of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigId: string | undefined;
+
+  /**
+   * <p>Version of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigVersion?: number | undefined;
+
+  /**
+   * <p>Name of the cluster policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Creation time of the cluster policy.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Last modified time of the cluster policy.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Status of the cluster policy.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>ARN of the cluster.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+}
 
 /**
  * <p>Lists a summary of the properties of a SageMaker HyperPod cluster.</p>
@@ -8423,82 +8565,4 @@ export interface CreateModelQualityJobDefinitionResponse {
    * @public
    */
   JobDefinitionArn: string | undefined;
-}
-
-/**
- * <p>Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.</p>
- * @public
- */
-export interface MonitoringBaselineConfig {
-  /**
-   * <p>The name of the job that performs baselining for the monitoring job.</p>
-   * @public
-   */
-  BaseliningJobName?: string | undefined;
-
-  /**
-   * <p>The baseline constraint file in Amazon S3 that the current monitoring job should validated against.</p>
-   * @public
-   */
-  ConstraintsResource?: MonitoringConstraintsResource | undefined;
-
-  /**
-   * <p>The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.</p>
-   * @public
-   */
-  StatisticsResource?: MonitoringStatisticsResource | undefined;
-}
-
-/**
- * <p>Container image configuration object for the monitoring job.</p>
- * @public
- */
-export interface MonitoringAppSpecification {
-  /**
-   * <p>The container image to be run by the monitoring job.</p>
-   * @public
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>Specifies the entrypoint for a container used to run the monitoring job.</p>
-   * @public
-   */
-  ContainerEntrypoint?: string[] | undefined;
-
-  /**
-   * <p>An array of arguments for the container used to run the monitoring job.</p>
-   * @public
-   */
-  ContainerArguments?: string[] | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flattened JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  RecordPreprocessorSourceUri?: string | undefined;
-
-  /**
-   * <p>An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.</p>
-   * @public
-   */
-  PostAnalyticsProcessorSourceUri?: string | undefined;
-}
-
-/**
- * <p>The inputs for a monitoring job.</p>
- * @public
- */
-export interface MonitoringInput {
-  /**
-   * <p>The endpoint for a monitoring job.</p>
-   * @public
-   */
-  EndpointInput?: EndpointInput | undefined;
-
-  /**
-   * <p>Input object for the batch transform job.</p>
-   * @public
-   */
-  BatchTransformInput?: BatchTransformInput | undefined;
 }
