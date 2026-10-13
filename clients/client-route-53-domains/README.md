@@ -280,6 +280,13 @@ GetDomainDetail
 </details>
 <details>
 <summary>
+GetDomainPrices
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route-53-domains/command/GetDomainPricesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/GetDomainPricesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route-53-domains/Interface/GetDomainPricesCommandOutput/)
+</details>
+<details>
+<summary>
 GetDomainSuggestions
 </summary>
 

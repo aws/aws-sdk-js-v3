@@ -171,6 +171,10 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  *     ],
  *   },
  *   PrivacyProtectBillingContact: true || false,
+ *   Consent: { // Consent
+ *     MaxPrice: Number("double"), // required
+ *     Currency: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new TransferDomainCommand(input);
  * const response = await client.send(command);

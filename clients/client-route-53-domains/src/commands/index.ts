@@ -13,6 +13,7 @@ export * from "./EnableDomainAutoRenewCommand";
 export * from "./EnableDomainTransferLockCommand";
 export * from "./GetContactReachabilityStatusCommand";
 export * from "./GetDomainDetailCommand";
+export * from "./GetDomainPricesCommand";
 export * from "./GetDomainSuggestionsCommand";
 export * from "./GetOperationDetailCommand";
 export * from "./ListDomainsCommand";

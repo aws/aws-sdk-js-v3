@@ -9,6 +9,7 @@ import type {
   OperationStatus,
   OperationType,
   Operator,
+  PriceType,
   ReachabilityStatus,
   SortOrder,
   StatusFlag,
@@ -223,6 +224,33 @@ export interface CheckDomainAvailabilityRequest {
 }
 
 /**
+ * <p>Currency-specific price information.</p>
+ * @public
+ */
+export interface PriceWithCurrency {
+  /**
+   * <p>The price of a domain, in a specific currency.</p>
+   * @public
+   */
+  Price: number | undefined;
+
+  /**
+   * <p>The currency specifier.</p>
+   * @public
+   */
+  Currency: string | undefined;
+
+  /**
+   * <p>Indicates whether the domain has standard or premium pricing. A value of
+   * 			<code>STANDARD</code> means the domain is priced at the regular rate for its TLD. A
+   * 			value of <code>REGISTRY_PREMIUM</code> means the domain has registry premium pricing,
+   * 			which may be different than the standard rate.</p>
+   * @public
+   */
+  PriceType?: PriceType | undefined;
+}
+
+/**
  * <p>The CheckDomainAvailability response includes the following elements.</p>
  * @public
  */
@@ -284,6 +312,17 @@ export interface CheckDomainAvailabilityResponse {
    * @public
    */
   Availability?: DomainAvailability | undefined;
+
+  /**
+   * <p>The price to register the domain name, in the currency that <code>Currency</code>
+   * 			specifies. If the domain has registry premium pricing, this price is different from the
+   * 			standard rate for the TLD that <code>ListPrices</code> returns. Use
+   * 				<code>PriceType</code> to determine which rate applies.</p>
+   *          <p>This element is returned only when <code>Availability</code> is
+   * 				<code>AVAILABLE</code>.</p>
+   * @public
+   */
+  Price?: PriceWithCurrency | undefined;
 }
 
 /**
@@ -351,7 +390,16 @@ export interface DomainTransferability {
    *             </dd>
    *             <dt>DONT_KNOW</dt>
    *             <dd>
-   *                <p>The TLD registry didn't respond in time or didn't provide a definitive answer about domain transferability, which can occur due to registry maintenance or temporary delays.</p>
+   *                <p>The TLD registry didn't reply with a definitive answer about whether the
+   * 						domain name can be transferred. Route 53 can return this response for a
+   * 						variety of reasons, for example, the registry is performing maintenance. Try
+   * 						again later.</p>
+   *             </dd>
+   *             <dt>PENDING</dt>
+   *             <dd>
+   *                <p>The TLD registry didn't return a response in the expected amount of time.
+   * 						When the response is delayed, it usually takes just a few extra seconds. You
+   * 						can resubmit the request immediately.</p>
    *             </dd>
    *             <dt>DOMAIN_IN_OWN_ACCOUNT</dt>
    *             <dd>
@@ -388,21 +436,33 @@ export interface CheckDomainTransferabilityResponse {
    * @public
    */
   Message?: string | undefined;
+
+  /**
+   * <p>The price to transfer the domain name to Route 53, in the currency that
+   * 				<code>Currency</code> specifies. If the domain has registry premium pricing, this
+   * 			price is different from the standard rate for the TLD that <code>ListPrices</code>
+   * 			returns. Use <code>PriceType</code> to determine which rate applies.</p>
+   *          <p>This element is returned only when Route 53 can determine whether the domain is
+   * 			transferable.</p>
+   * @public
+   */
+  Price?: PriceWithCurrency | undefined;
 }
 
 /**
- * <p> Customer's consent for the owner change request. </p>
+ * <p> The maximum amount that you agree to pay for an operation, and the
+ * 			currency for that amount. </p>
  * @public
  */
 export interface Consent {
   /**
-   * <p> Maximum amount the customer agreed to accept. </p>
+   * <p> The maximum amount that you agree to accept. </p>
    * @public
    */
   MaxPrice: number | undefined;
 
   /**
-   * <p> Currency for the <code>MaxPrice</code>. </p>
+   * <p> The currency for the <code>MaxPrice</code>. </p>
    * @public
    */
   Currency: string | undefined;
@@ -1650,18 +1710,19 @@ export interface DnssecKey {
   Algorithm?: number | undefined;
 
   /**
-   * <p>Defines the type of key. It can be either a KSK (key-signing-key, value 257) or ZSK
-   * 			(zone-signing-key, value 256). Using KSK is always encouraged. Only use ZSK if your DNS
-   * 			provider isn't Route 53 and you don’t have KSK available.</p>
-   *          <p>If you have KSK and ZSK keys, always use KSK to create a delegations signer (DS)
-   * 			record. If you have ZSK keys only – use ZSK to create a DS record.</p>
+   * <p>The DNSKEY flags that indicate the key type. This field is deprecated; the
+   * 			<code>DnssecKey</code> response no longer returns the flags.</p>
+   *
+   * @deprecated (since 2026-10-01) The DnssecKey response no longer returns the flags.
    * @public
    */
   Flags?: number | undefined;
 
   /**
-   * <p>The base64-encoded public key part of the key pair that is passed to the registry
-   * 			.</p>
+   * <p>The base64-encoded public key of the key pair. This field is deprecated; the
+   * 			<code>DnssecKey</code> response no longer returns the public key.</p>
+   *
+   * @deprecated (since 2026-10-01) The DnssecKey response no longer returns the public key.
    * @public
    */
   PublicKey?: string | undefined;
@@ -1697,30 +1758,12 @@ export interface DnssecKey {
 }
 
 /**
- * <p>Currency-specific price information.</p>
- * @public
- */
-export interface PriceWithCurrency {
-  /**
-   * <p>The price of a domain, in a specific currency.</p>
-   * @public
-   */
-  Price: number | undefined;
-
-  /**
-   * <p>The currency specifier.</p>
-   * @public
-   */
-  Currency: string | undefined;
-}
-
-/**
- * <p>Information about the domain price associated with a TLD.</p>
+ * <p>Information about the prices associated with a TLD or a domain name.</p>
  * @public
  */
 export interface DomainPrice {
   /**
-   * <p>The name of the TLD for which the prices apply.</p>
+   * <p>The TLD or domain name that the prices apply to.</p>
    * @public
    */
   Name?: string | undefined;
@@ -1768,7 +1811,9 @@ export interface DomainSuggestion {
   DomainName?: string | undefined;
 
   /**
-   * <p>Whether the domain name is available for registering.</p>
+   * <p>Specifies whether the domain name is available for registering. This element is
+   * 			populated only if you specified <code>true</code> for <code>OnlyAvailable</code> in the
+   * 			request.</p>
    *          <note>
    *             <p>You can register only the domains that are designated as
    * 				<code>AVAILABLE</code>.</p>
@@ -1821,6 +1866,14 @@ export interface DomainSuggestion {
    * @public
    */
   Availability?: string | undefined;
+
+  /**
+   * <p>The price to register the suggested domain name, in the currency that
+   * 			<code>Currency</code> specifies. This element is populated only if you specified
+   * 			<code>true</code> for <code>OnlyAvailable</code> in the request.</p>
+   * @public
+   */
+  Price?: PriceWithCurrency | undefined;
 }
 
 /**
@@ -2196,6 +2249,31 @@ export interface GetDomainDetailResponse {
 }
 
 /**
+ * <p>The GetDomainPrices request includes the following element.</p>
+ * @public
+ */
+export interface GetDomainPricesRequest {
+  /**
+   * <p>The name of the domain that you want to get the prices for.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * <p>The GetDomainPrices response includes the following element.</p>
+ * @public
+ */
+export interface GetDomainPricesResponse {
+  /**
+   * <p>The registration, transfer, owner change, renewal, and restoration prices for
+   * 			the specified domain.</p>
+   * @public
+   */
+  DomainPrice?: DomainPrice | undefined;
+}
+
+/**
  * @public
  */
 export interface GetDomainSuggestionsRequest {
@@ -2241,11 +2319,22 @@ export interface GetDomainSuggestionsRequest {
    * <p>If <code>OnlyAvailable</code> is <code>true</code>, Route 53 returns only domain names
    * 			that are available. If <code>OnlyAvailable</code> is <code>false</code>, Route 53
    * 			returns domain names without checking whether they're available to be registered. To
-   * 			determine whether the domain is available, you can call
-   * 				<code>checkDomainAvailability</code> for each suggestion.</p>
+   * 			determine whether the domain is available, call <code>checkDomainAvailability</code> for
+   * 			each suggestion.</p>
+   *          <p>If <code>OnlyAvailable</code> is <code>false</code>, Route 53 does not return pricing
+   * 			information for the suggested domain names.</p>
    * @public
    */
   OnlyAvailable: boolean | undefined;
+
+  /**
+   * <p>If <code>true</code>, Route 53 returns only domain names that are priced at the
+   * 			standard registration rate for their TLD. If <code>false</code>, Route 53 includes
+   * 			domain names with premium pricing in the suggestions list. The default is
+   * 			<code>true</code>.</p>
+   * @public
+   */
+  OnlyStandardPrices?: boolean | undefined;
 }
 
 /**
@@ -2869,6 +2958,15 @@ export interface RegisterDomainRequest {
    * @public
    */
   PrivacyProtectBillingContact?: boolean | undefined;
+
+  /**
+   * <p>Specifies the maximum price that you agree to pay to register the domain name. This element is
+   * 			required if the domain has registry premium pricing, and optional if the domain
+   * 			is priced at the standard rate for its TLD. If you include it and the registration
+   * 			price is more than <code>MaxPrice</code>, the request fails.</p>
+   * @public
+   */
+  Consent?: Consent | undefined;
 }
 
 /**
@@ -2943,6 +3041,15 @@ export interface RenewDomainRequest {
    * @public
    */
   CurrentExpiryYear: number | undefined;
+
+  /**
+   * <p>Specifies the maximum price that you agree to pay to renew the domain name. This element is
+   * 			required if the domain has registry premium pricing, and optional if the domain
+   * 			is priced at the standard rate for its TLD. If you include it and the renewal
+   * 			price is more than <code>MaxPrice</code>, the request fails.</p>
+   * @public
+   */
+  Consent?: Consent | undefined;
 }
 
 /**
@@ -3185,6 +3292,15 @@ export interface TransferDomainRequest {
    * @public
    */
   PrivacyProtectBillingContact?: boolean | undefined;
+
+  /**
+   * <p>Specifies the maximum price that you agree to pay to transfer the domain name to Route 53. This element is
+   * 			required if the domain has registry premium pricing, and optional if the domain
+   * 			is priced at the standard rate for its TLD. If you include it and the transfer
+   * 			price is more than <code>MaxPrice</code>, the request fails.</p>
+   * @public
+   */
+  Consent?: Consent | undefined;
 }
 
 /**
@@ -3272,7 +3388,7 @@ export interface UpdateDomainContactRequest {
   TechContact?: ContactDetail | undefined;
 
   /**
-   * <p> Customer's consent for the owner change request. Required if the domain is not free (consent price is more than $0.00).</p>
+   * <p> The maximum amount that you agree to pay for the owner change. Required if the domain is not free (consent price is more than USD $0.00).</p>
    * @public
    */
   Consent?: Consent | undefined;

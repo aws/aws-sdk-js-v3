@@ -36,6 +36,7 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  *   DomainName: "STRING_VALUE", // required
  *   SuggestionCount: Number("int"), // required
  *   OnlyAvailable: true || false, // required
+ *   OnlyStandardPrices: true || false,
  * };
  * const command = new GetDomainSuggestionsCommand(input);
  * const response = await client.send(command);
@@ -44,6 +45,11 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  * //     { // DomainSuggestion
  * //       DomainName: "STRING_VALUE",
  * //       Availability: "STRING_VALUE",
+ * //       Price: { // PriceWithCurrency
+ * //         Price: Number("double"), // required
+ * //         Currency: "STRING_VALUE", // required
+ * //         PriceType: "STANDARD" || "REGISTRY_PREMIUM",
+ * //       },
  * //     },
  * //   ],
  * // };

@@ -76,6 +76,10 @@ import {
   GetDomainDetailCommand,
   GetDomainDetailRequest$,
   GetDomainDetailResponse$,
+  GetDomainPrices$,
+  GetDomainPricesCommand,
+  GetDomainPricesRequest$,
+  GetDomainPricesResponse$,
   GetDomainSuggestions$,
   GetDomainSuggestionsCommand,
   GetDomainSuggestionsRequest$,
@@ -115,6 +119,7 @@ import {
   paginateListOperations,
   paginateListPrices,
   paginateViewBilling,
+  PriceType,
   PriceWithCurrency$,
   PushDomain$,
   PushDomainCommand,
@@ -219,6 +224,8 @@ assert(typeof GetContactReachabilityStatusCommand === "function");
 assert(typeof GetContactReachabilityStatus$ === "object");
 assert(typeof GetDomainDetailCommand === "function");
 assert(typeof GetDomainDetail$ === "object");
+assert(typeof GetDomainPricesCommand === "function");
+assert(typeof GetDomainPrices$ === "object");
 assert(typeof GetDomainSuggestionsCommand === "function");
 assert(typeof GetDomainSuggestions$ === "object");
 assert(typeof GetOperationDetailCommand === "function");
@@ -299,6 +306,8 @@ assert(typeof GetContactReachabilityStatusRequest$ === "object");
 assert(typeof GetContactReachabilityStatusResponse$ === "object");
 assert(typeof GetDomainDetailRequest$ === "object");
 assert(typeof GetDomainDetailResponse$ === "object");
+assert(typeof GetDomainPricesRequest$ === "object");
+assert(typeof GetDomainPricesResponse$ === "object");
 assert(typeof GetDomainSuggestionsRequest$ === "object");
 assert(typeof GetDomainSuggestionsResponse$ === "object");
 assert(typeof GetOperationDetailRequest$ === "object");
@@ -352,6 +361,7 @@ assert(typeof ListOperationsSortAttributeName === "object");
 assert(typeof OperationStatus === "object");
 assert(typeof OperationType === "object");
 assert(typeof Operator === "object");
+assert(typeof PriceType === "object");
 assert(typeof ReachabilityStatus === "object");
 assert(typeof SortOrder === "object");
 assert(typeof StatusFlag === "object");

@@ -36,12 +36,18 @@ export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataB
  *                <p>Owner change</p>
  *             </li>
  *             <li>
- *                <p>Domain renewal</p>
+ *                <p>Renewal</p>
  *             </li>
  *             <li>
- *                <p>Domain restoration</p>
+ *                <p>Restoration</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>The prices that <code>ListPrices</code> returns are the standard rates for a TLD.
+ * 					<code>ListPrices</code> doesn't return registry premium prices, which apply to
+ * 				individual domain names rather than to a TLD. To get accurate pricing for a specific
+ * 				domain name, including premium prices, call <code>GetDomainPrices</code>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,22 +70,27 @@ export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataB
  * //       RegistrationPrice: { // PriceWithCurrency
  * //         Price: Number("double"), // required
  * //         Currency: "STRING_VALUE", // required
+ * //         PriceType: "STANDARD" || "REGISTRY_PREMIUM",
  * //       },
  * //       TransferPrice: {
  * //         Price: Number("double"), // required
  * //         Currency: "STRING_VALUE", // required
+ * //         PriceType: "STANDARD" || "REGISTRY_PREMIUM",
  * //       },
  * //       RenewalPrice: {
  * //         Price: Number("double"), // required
  * //         Currency: "STRING_VALUE", // required
+ * //         PriceType: "STANDARD" || "REGISTRY_PREMIUM",
  * //       },
  * //       ChangeOwnershipPrice: {
  * //         Price: Number("double"), // required
  * //         Currency: "STRING_VALUE", // required
+ * //         PriceType: "STANDARD" || "REGISTRY_PREMIUM",
  * //       },
  * //       RestorationPrice: {
  * //         Price: Number("double"), // required
  * //         Currency: "STRING_VALUE", // required
+ * //         PriceType: "STANDARD" || "REGISTRY_PREMIUM",
  * //       },
  * //     },
  * //   ],
