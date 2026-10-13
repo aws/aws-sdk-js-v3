@@ -52,6 +52,11 @@ spawn("npx", args, {
   execSync("git checkout -- packages/*/package.json");
   execSync("git checkout -- private/*/package.json");
   execSync("git checkout -- lib/*/package.json");
+  try {
+    execSync("git checkout -- preview/*/package.json");
+  } catch {
+    /* no preview packages to roll back */
+  }
   execSync("git checkout -- lerna.json");
 
   // Kill the background verdaccio server
