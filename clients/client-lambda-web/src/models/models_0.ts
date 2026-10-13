@@ -47,7 +47,7 @@ export interface AccountQuotas {
  */
 export interface AccountUsage {
   /**
-   * <p>The number of web functions in your account in the current AWS Region.</p>
+   * <p>The number of web functions in your account in the current AWS Region. This count includes web functions in all states, not only functions in the <code>Active</code> state.</p>
    * @public
    */
   functionCount: number | undefined;
