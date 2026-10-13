@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1150.0...v3.1151.0) (2026-10-13)
+
+
+### Features
+
+* **client-connect:** New APIs to support aliases and versions for ContactFlow. ([39466ba](https://github.com/aws/aws-sdk-js-v3/commit/39466baaf544133768153f920bafe6b97dfc3323))
+
+
+
+
+
 # [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

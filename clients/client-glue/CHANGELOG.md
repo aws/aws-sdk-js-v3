@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1150.0...v3.1151.0) (2026-10-13)
+
+
+### Features
+
+* **client-glue:** Amazon Glue releasing support for adding custom namespace for S3 Tables in Glue zero-ETL integration ([48500f2](https://github.com/aws/aws-sdk-js-v3/commit/48500f23702d7ecbe21a385adf829e07853309f4))
+
+
+
+
+
 # [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
 
 

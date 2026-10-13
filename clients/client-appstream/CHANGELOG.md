@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1150.0...v3.1151.0) (2026-10-13)
+
+
+### Features
+
+* **client-appstream:** Adds support for administrators to require users to re-authenticate OneDrive and Google Drive storage connectors when a streaming session is reused. ([2b6f2af](https://github.com/aws/aws-sdk-js-v3/commit/2b6f2af5b0c06ec6185450e03b4bf4198a1a2a44))
+
+
+
+
+
 # [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream

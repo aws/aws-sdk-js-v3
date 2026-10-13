@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1150.0...v3.1151.0) (2026-10-13)
+
+
+### Features
+
+* **client-lakeformation:** Added new LakeFormation APIs and documentation updates for Simple Row-level Security (RLS). ([c7a586f](https://github.com/aws/aws-sdk-js-v3/commit/c7a586fc4addf0c2dd3851a90311a377e62137f8))
+
+
+
+
+
 # [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
 
 **Note:** Version bump only for package @aws-sdk/client-lakeformation

@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1150.0...v3.1151.0) (2026-10-13)
+
+
+### Features
+
+* **client-agent-registry-control:** AWS Agent Registry is improving recently launched custom metadata schema feature to make shared attributes easier to manage. ([ed00d0b](https://github.com/aws/aws-sdk-js-v3/commit/ed00d0bb8d831f1b2461b637356f327a1afd9837))
+* **client-appintegrations:** This release adds the Connect JWT authentication type and the AudienceOverride field to AuthConfig, letting A2A server applications authenticate with JWTs issued by Amazon Connect. ([3b212b2](https://github.com/aws/aws-sdk-js-v3/commit/3b212b20265a8d1f62178c7dd65f6f3e8368efde))
+* **client-appstream:** Adds support for administrators to require users to re-authenticate OneDrive and Google Drive storage connectors when a streaming session is reused. ([2b6f2af](https://github.com/aws/aws-sdk-js-v3/commit/2b6f2af5b0c06ec6185450e03b4bf4198a1a2a44))
+* **client-arc-region-switch:** Adds support for SSM Execution Block in Region switch plans ([c402e01](https://github.com/aws/aws-sdk-js-v3/commit/c402e01bff1bcbadd96444ae68bb7d589674e9b7))
+* **client-connect:** New APIs to support aliases and versions for ContactFlow. ([39466ba](https://github.com/aws/aws-sdk-js-v3/commit/39466baaf544133768153f920bafe6b97dfc3323))
+* **client-datasync:** AWS DataSync Enhanced mode now supports FSx for OpenZFS, NFS 4.2, and object metadata controls ([88d8a75](https://github.com/aws/aws-sdk-js-v3/commit/88d8a754cbf34190d1ef979cba6fa3ece4e678d0))
+* **client-gamelift:** Adds support for new instance types in the C8a, C8i, C9g, M8a, M8i, and M9g families for managed EC2 and container fleets ([5145677](https://github.com/aws/aws-sdk-js-v3/commit/5145677226e133de057c148d8060e0edb4ff567f))
+* **client-glue:** Amazon Glue releasing support for adding custom namespace for S3 Tables in Glue zero-ETL integration ([48500f2](https://github.com/aws/aws-sdk-js-v3/commit/48500f23702d7ecbe21a385adf829e07853309f4))
+* **client-lakeformation:** Added new LakeFormation APIs and documentation updates for Simple Row-level Security (RLS). ([c7a586f](https://github.com/aws/aws-sdk-js-v3/commit/c7a586fc4addf0c2dd3851a90311a377e62137f8))
+* **client-omics:** With Expanded container registry support, you can use container images from registries such as Seqera (Wave), NVIDIA NGC, and Google Artifact Registry with AWS HealthOmics private workflows, without manually migrating images into Amazon ECR or editing your workflow definitions. ([db38274](https://github.com/aws/aws-sdk-js-v3/commit/db38274026895b84d7d8e31b4f835999dbe800cd))
+* **client-resiliencehubv2:** Adds support for DevOpsAgent integration where users can specify the agent space ARN at service level and launch investigations directly from Resilience Hub v2. ([08ae7d3](https://github.com/aws/aws-sdk-js-v3/commit/08ae7d3b399b324603079c026593b00e75506e39))
+* **client-route-53-domains:** Route 53 Domains now supports premium domains. This release adds consent objects to operations on premium domains and a new GetDomainPrices API. Also, the Flags and PublicKey fields were deprecated from the DnssecKey response. ([c5cc6f5](https://github.com/aws/aws-sdk-js-v3/commit/c5cc6f506dc764122f7ed68d82cd178c94be068b))
+* **client-sagemaker:** Adds Amazon Athena, Cleanup, ForEach, and Amazon EMR Serverless step metadata, ForEach iteration context, and the CompletedWithFailures execution status to SageMaker Pipelines. ([48f082b](https://github.com/aws/aws-sdk-js-v3/commit/48f082bafc3e4373aa65aeeb03135c9ecf26bb28))
+* **client-securityhub:** Adds and updates APIs to support criticality. This feature allows customers to create automation rules to assign criticality to resources matching a criteria. With this release, resources and exposure findings will include the criticality. ([f9bae28](https://github.com/aws/aws-sdk-js-v3/commit/f9bae28995f8fabb275820769ebc1fedb5c80d30))
+* **clients:** update client endpoints as of 2026-10-13 ([d399458](https://github.com/aws/aws-sdk-js-v3/commit/d399458247460784fed4fbe11c14e98f0a07847a))
+
+
+
+
+
 # [3.1150.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1149.0...v3.1150.0) (2026-10-12)
 
 
