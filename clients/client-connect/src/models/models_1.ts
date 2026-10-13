@@ -11,7 +11,6 @@ import type {
   ContactFlowState,
   ContactFlowStatus,
   ContactFlowType,
-  ContactMetricName,
   ContactParticipantRole,
   DataTableAttributeValueType,
   DataTableLockLevel,
@@ -24,8 +23,6 @@ import type {
   EvaluationSuggestedAnswerStatus,
   EvaluationTranscriptType,
   EvaluationType,
-  FileStatusType,
-  FileUseCaseType,
   FlowAssociationResourceType,
   InstanceAttributeType,
   InstanceReplicationStatus,
@@ -91,6 +88,7 @@ import type {
   HoursOfOperationConfig,
   HoursOfOperationOverrideConfig,
   InstanceStorageConfig,
+  InvisibleFieldInfo,
   LexBot,
   LexV2Bot,
   MediaConcurrency,
@@ -102,17 +100,59 @@ import type {
   PreEvaluationFilters,
   PrimaryValue,
   QuickConnectConfig,
+  ReadOnlyFieldInfo,
   RecurrenceConfig,
+  RequiredFieldInfo,
   RoutingProfileQueueReference,
   RuleAction,
   RuleTriggerEventSource,
   SecurityProfileItem,
   SuccessfulBatchAssociationSummary,
-  TaskTemplateConstraints,
-  TaskTemplateDefaultFieldValue,
   TaskTemplateFieldIdentifier,
   Validation,
 } from "./models_0";
+
+/**
+ * <p>Describes constraints that apply to the template fields.</p>
+ * @public
+ */
+export interface TaskTemplateConstraints {
+  /**
+   * <p>Lists the fields that are required to be filled by agents.</p>
+   * @public
+   */
+  RequiredFields?: RequiredFieldInfo[] | undefined;
+
+  /**
+   * <p>Lists the fields that are read-only to agents, and cannot be edited.</p>
+   * @public
+   */
+  ReadOnlyFields?: ReadOnlyFieldInfo[] | undefined;
+
+  /**
+   * <p>Lists the fields that are invisible to agents.</p>
+   * @public
+   */
+  InvisibleFields?: InvisibleFieldInfo[] | undefined;
+}
+
+/**
+ * <p>Describes a default field and its corresponding value.</p>
+ * @public
+ */
+export interface TaskTemplateDefaultFieldValue {
+  /**
+   * <p>Identifier of a field. </p>
+   * @public
+   */
+  Id?: TaskTemplateFieldIdentifier | undefined;
+
+  /**
+   * <p>Default value for the field.</p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
+}
 
 /**
  * <p>Describes default values for fields on a template.</p>
@@ -1713,6 +1753,34 @@ export interface DeleteContactFlowRequest {
  * @public
  */
 export interface DeleteContactFlowResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowAliasRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  AliasId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactFlowAliasResponse {}
 
 /**
  * @public
@@ -4241,6 +4309,94 @@ export interface DescribeContactFlowResponse {
    * @public
    */
   ContactFlow?: ContactFlow | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactFlowAliasRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  AliasId: string | undefined;
+}
+
+/**
+ * <p>Contains information about a flow alias.</p>
+ * @public
+ */
+export interface ContactFlowAliasInfo {
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * @public
+   */
+  ContactFlowArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  AliasId?: string | undefined;
+
+  /**
+   * <p>The version of the flow.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The name of the alias.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the alias.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeContactFlowAliasResponse {
+  /**
+   * <p>Information about the flow alias.</p>
+   * @public
+   */
+  ContactFlowAlias?: ContactFlowAliasInfo | undefined;
 }
 
 /**
@@ -8068,189 +8224,4 @@ export interface DataTableEvaluatedValue {
    * @public
    */
   EvaluatedValue: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EvaluateDataTableValuesResponse {
-  /**
-   * <p>A list of evaluated values with their computed results, error information, and metadata.</p>
-   * @public
-   */
-  Values: DataTableEvaluatedValue[] | undefined;
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * Request to GetAttachedFile API.
- * @public
- */
-export interface GetAttachedFileRequest {
-  /**
-   * <p>The unique identifier of the Connect Customer instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the attached file resource.</p>
-   * @public
-   */
-  FileId: string | undefined;
-
-  /**
-   * <p>Optional override for the expiry of the pre-signed S3 URL in seconds. The default value is 300.</p>
-   * @public
-   */
-  UrlExpiryInSeconds?: number | undefined;
-
-  /**
-   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>, and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Task</a>.</p>
-   *          <note>
-   *             <p>This value must be a valid ARN.</p>
-   *          </note>
-   * @public
-   */
-  AssociatedResourceArn: string | undefined;
-}
-
-/**
- * <p>Metadata used to download the attached file.</p>
- * @public
- */
-export interface DownloadUrlMetadata {
-  /**
-   * <p>A pre-signed URL that should be used to download the attached file. </p>
-   * @public
-   */
-  Url?: string | undefined;
-
-  /**
-   * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ.
-   *    For example, 2019-11-08T02:41:28.172Z.</p>
-   * @public
-   */
-  UrlExpiry?: string | undefined;
-}
-
-/**
- * Response from GetAttachedFile API.
- * @public
- */
-export interface GetAttachedFileResponse {
-  /**
-   * <p>The unique identifier of the attached file resource (ARN).</p>
-   * @public
-   */
-  FileArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the attached file resource.</p>
-   * @public
-   */
-  FileId?: string | undefined;
-
-  /**
-   * <p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601 format:
-   *     <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example, <code>2024-05-03T02:41:28.172Z</code>.</p>
-   * @public
-   */
-  CreationTime?: string | undefined;
-
-  /**
-   * <p>The current status of the attached file.</p>
-   * @public
-   */
-  FileStatus?: FileStatusType | undefined;
-
-  /**
-   * <p>A case-sensitive name of the attached file being uploaded.</p>
-   * @public
-   */
-  FileName?: string | undefined;
-
-  /**
-   * <p>The size of the attached file in bytes.</p>
-   * @public
-   */
-  FileSizeInBytes: number | undefined;
-
-  /**
-   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>, and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Task</a>.</p>
-   * @public
-   */
-  AssociatedResourceArn?: string | undefined;
-
-  /**
-   * <p>The use case for the file.</p>
-   * @public
-   */
-  FileUseCaseType?: FileUseCaseType | undefined;
-
-  /**
-   * <p>Represents the identity that created the file.</p>
-   * @public
-   */
-  CreatedBy?: CreatedByInfo | undefined;
-
-  /**
-   * <p>URL and expiry to be used when downloading the attached file. </p>
-   * @public
-   */
-  DownloadUrlMetadata?: DownloadUrlMetadata | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{ "Tags":
-   *     \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface GetContactAttributesRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the initial contact.</p>
-   * @public
-   */
-  InitialContactId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetContactAttributesResponse {
-  /**
-   * <p>Information about the attributes.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Contains the details of a metric to be retrieved for a contact. Use this object to specify which
- *    contact level metrics you want to include in your GetContactMetrics request.</p>
- * @public
- */
-export interface ContactMetricInfo {
-  /**
-   * <p>The name of the metric to retrieve. Supported values are POSITION_IN_QUEUE (returns the contact's
-   *    current position in the queue) and ESTIMATED_WAIT_TIME (returns the predicted wait time in seconds).</p>
-   * @public
-   */
-  Name: ContactMetricName | undefined;
 }

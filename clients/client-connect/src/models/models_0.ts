@@ -3802,6 +3802,58 @@ export interface ProblemDetail {
 }
 
 /**
+ * @public
+ */
+export interface CreateContactFlowAliasRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The description of the alias.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The version of the flow.</p>
+   * @public
+   */
+  ContactFlowVersion: number | undefined;
+
+  /**
+   * <p>The name of the alias.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContactFlowAliasResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * @public
+   */
+  ContactFlowArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
  * <p>The external invocation configuration for the flow module</p>
  * @public
  */
@@ -7863,46 +7915,4 @@ export interface RequiredFieldInfo {
    * @public
    */
   Id?: TaskTemplateFieldIdentifier | undefined;
-}
-
-/**
- * <p>Describes constraints that apply to the template fields.</p>
- * @public
- */
-export interface TaskTemplateConstraints {
-  /**
-   * <p>Lists the fields that are required to be filled by agents.</p>
-   * @public
-   */
-  RequiredFields?: RequiredFieldInfo[] | undefined;
-
-  /**
-   * <p>Lists the fields that are read-only to agents, and cannot be edited.</p>
-   * @public
-   */
-  ReadOnlyFields?: ReadOnlyFieldInfo[] | undefined;
-
-  /**
-   * <p>Lists the fields that are invisible to agents.</p>
-   * @public
-   */
-  InvisibleFields?: InvisibleFieldInfo[] | undefined;
-}
-
-/**
- * <p>Describes a default field and its corresponding value.</p>
- * @public
- */
-export interface TaskTemplateDefaultFieldValue {
-  /**
-   * <p>Identifier of a field. </p>
-   * @public
-   */
-  Id?: TaskTemplateFieldIdentifier | undefined;
-
-  /**
-   * <p>Default value for the field.</p>
-   * @public
-   */
-  DefaultValue?: string | undefined;
 }

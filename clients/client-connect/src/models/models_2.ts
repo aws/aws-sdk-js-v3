@@ -27,6 +27,8 @@ import type {
   EvaluationType,
   EventSourceName,
   ExecutionRecordStatus,
+  FileStatusType,
+  FileUseCaseType,
   FilterV2StringConditionComparisonOperator,
   FlowAssociationResourceType,
   Grouping,
@@ -41,7 +43,6 @@ import type {
   MediaType,
   MetricStatus,
   MetricType,
-  MonitorCapability,
   NotificationPriority,
   NotificationSource,
   NotificationStatus,
@@ -86,6 +87,7 @@ import type {
   AIAgent,
   AnalyticsDataAssociationResult,
   Application,
+  CreatedByInfo,
   DataTableLockVersion,
   Distribution,
   FlowAssociationSummary,
@@ -97,13 +99,12 @@ import type {
   PrimaryValueResponse,
   QueueReference,
   SecurityProfileItem,
-  TaskTemplateConstraints,
   UserProficiency,
 } from "./models_0";
 import type {
   Attribute,
-  ContactMetricInfo,
   DataTableAttribute,
+  DataTableEvaluatedValue,
   EvaluationContactParticipant,
   EvaluationScore,
   ExtensionConfiguration,
@@ -111,9 +112,195 @@ import type {
   HoursOfOperationOverride,
   HoursOfOperationsIdentifier,
   Notification,
+  TaskTemplateConstraints,
   TaskTemplateDefaults,
   TaskTemplateField,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface EvaluateDataTableValuesResponse {
+  /**
+   * <p>A list of evaluated values with their computed results, error information, and metadata.</p>
+   * @public
+   */
+  Values: DataTableEvaluatedValue[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * Request to GetAttachedFile API.
+ * @public
+ */
+export interface GetAttachedFileRequest {
+  /**
+   * <p>The unique identifier of the Connect Customer instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId: string | undefined;
+
+  /**
+   * <p>Optional override for the expiry of the pre-signed S3 URL in seconds. The default value is 300.</p>
+   * @public
+   */
+  UrlExpiryInSeconds?: number | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>, and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Task</a>.</p>
+   *          <note>
+   *             <p>This value must be a valid ARN.</p>
+   *          </note>
+   * @public
+   */
+  AssociatedResourceArn: string | undefined;
+}
+
+/**
+ * <p>Metadata used to download the attached file.</p>
+ * @public
+ */
+export interface DownloadUrlMetadata {
+  /**
+   * <p>A pre-signed URL that should be used to download the attached file. </p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ.
+   *    For example, 2019-11-08T02:41:28.172Z.</p>
+   * @public
+   */
+  UrlExpiry?: string | undefined;
+}
+
+/**
+ * Response from GetAttachedFile API.
+ * @public
+ */
+export interface GetAttachedFileResponse {
+  /**
+   * <p>The unique identifier of the attached file resource (ARN).</p>
+   * @public
+   */
+  FileArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the attached file resource.</p>
+   * @public
+   */
+  FileId?: string | undefined;
+
+  /**
+   * <p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601 format:
+   *     <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example, <code>2024-05-03T02:41:28.172Z</code>.</p>
+   * @public
+   */
+  CreationTime?: string | undefined;
+
+  /**
+   * <p>The current status of the attached file.</p>
+   * @public
+   */
+  FileStatus?: FileStatusType | undefined;
+
+  /**
+   * <p>A case-sensitive name of the attached file being uploaded.</p>
+   * @public
+   */
+  FileName?: string | undefined;
+
+  /**
+   * <p>The size of the attached file in bytes.</p>
+   * @public
+   */
+  FileSizeInBytes: number | undefined;
+
+  /**
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>, and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Task</a>.</p>
+   * @public
+   */
+  AssociatedResourceArn?: string | undefined;
+
+  /**
+   * <p>The use case for the file.</p>
+   * @public
+   */
+  FileUseCaseType?: FileUseCaseType | undefined;
+
+  /**
+   * <p>Represents the identity that created the file.</p>
+   * @public
+   */
+  CreatedBy?: CreatedByInfo | undefined;
+
+  /**
+   * <p>URL and expiry to be used when downloading the attached file. </p>
+   * @public
+   */
+  DownloadUrlMetadata?: DownloadUrlMetadata | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{ "Tags":
+   *     \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContactAttributesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the initial contact.</p>
+   * @public
+   */
+  InitialContactId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetContactAttributesResponse {
+  /**
+   * <p>Information about the attributes.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains the details of a metric to be retrieved for a contact. Use this object to specify which
+ *    contact level metrics you want to include in your GetContactMetrics request.</p>
+ * @public
+ */
+export interface ContactMetricInfo {
+  /**
+   * <p>The name of the metric to retrieve. Supported values are POSITION_IN_QUEUE (returns the contact's
+   *    current position in the queue) and ESTIMATED_WAIT_TIME (returns the predicted wait time in seconds).</p>
+   * @public
+   */
+  Name: ContactMetricName | undefined;
+}
 
 /**
  * @public
@@ -5158,6 +5345,101 @@ export interface ListContactEvaluationsResponse {
 /**
  * @public
  */
+export interface ListContactFlowAliasesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains summary information about a flow alias.</p>
+ * @public
+ */
+export interface ContactFlowAliasSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow alias.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The identifier of the alias.</p>
+   * @public
+   */
+  AliasId?: string | undefined;
+
+  /**
+   * <p>The version of the flow.</p>
+   * @public
+   */
+  Version?: number | undefined;
+
+  /**
+   * <p>The name of the alias.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+
+  /**
+   * <p>The description of the alias.</p>
+   * @public
+   */
+  AliasDescription?: string | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListContactFlowAliasesResponse {
+  /**
+   * <p>Information about the flow aliases.</p>
+   * @public
+   */
+  ContactFlowAliasSummaryList?: ContactFlowAliasSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListContactFlowModuleAliasesRequest {
   /**
    * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -5519,7 +5801,7 @@ export interface ListContactFlowVersionsRequest {
  */
 export interface ContactFlowVersionSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the view version.</p>
+   * <p>The Amazon Resource Name (ARN) of the flow version.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -5535,6 +5817,18 @@ export interface ContactFlowVersionSummary {
    * @public
    */
   Version?: number | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -11022,252 +11316,4 @@ export interface MediaItem {
    * @public
    */
   Source?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkspaceMediaResponse {
-  /**
-   * <p>A list of media assets for the workspace.</p>
-   * @public
-   */
-  Media?: MediaItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkspacePagesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the workspace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains information about a page configuration in a workspace, including the view assigned to the page.</p>
- * @public
- */
-export interface WorkspacePage {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the view associated with this page.</p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-
-  /**
-   * <p>The page identifier. System pages include <code>HOME</code> and <code>AGENT_EXPERIENCE</code>.</p>
-   * @public
-   */
-  Page?: string | undefined;
-
-  /**
-   * <p>The URL-friendly identifier for the page.</p>
-   * @public
-   */
-  Slug?: string | undefined;
-
-  /**
-   * <p>A JSON string containing input parameters passed to the view when the page is rendered.</p>
-   * @public
-   */
-  InputData?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkspacePagesResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of page configurations in the workspace.</p>
-   * @public
-   */
-  WorkspacePageList: WorkspacePage[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkspacesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Contains summary information about a workspace.</p>
- * @public
- */
-export interface WorkspaceSummary {
-  /**
-   * <p>The unique identifier of the workspace.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The name of the workspace.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the workspace.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The timestamp when the workspace was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where the workspace was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListWorkspacesResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A summary list of workspaces.</p>
-   * @public
-   */
-  WorkspaceSummaryList: WorkspaceSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface MonitorContactRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>Specify which monitoring actions the user is allowed to take. For example, whether the user is allowed to
-   *    escalate from silent monitoring to barge. AllowedMonitorCapabilities is required if barge is enabled.</p>
-   * @public
-   */
-  AllowedMonitorCapabilities?: MonitorCapability[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface MonitorContactResponse {
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId?: string | undefined;
-
-  /**
-   * <p>The ARN of the contact.</p>
-   * @public
-   */
-  ContactArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PauseContactRequest {
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the <code>instanceId</code> in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
 }

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  AgentAvailabilityTimer,
   AnsweringMachineDetectionStatus,
   Channel,
   ConnectionType,
@@ -17,7 +18,9 @@ import type {
   EvaluationFormVersionStatus,
   InitiateAs,
   NotificationStatus,
+  QueueStatus,
   RoutingCriteriaStepStatus,
+  RulePublishStatus,
   SearchableQueueType,
   TaskTemplateStatus,
   TestCaseStatus,
@@ -31,7 +34,9 @@ import type {
   AgentConfig,
   AgentInfo,
   AgentStatusSearchFilter,
+  AIAgent,
   AllowedCapabilities,
+  Application,
   Campaign,
   Endpoint,
   EvaluationFormAutoEvaluationConfiguration,
@@ -44,10 +49,18 @@ import type {
   EvaluationFormScoringStrategy,
   EvaluationFormTargetConfiguration,
   EvaluationReviewConfiguration,
+  FlowModule,
+  GranularAccessControlConfiguration,
+  MediaConcurrency,
+  OutboundCallerConfig,
+  OutboundEmailConfig,
   OutboundStrategy,
+  PreEvaluationFilters,
+  QuickConnectConfig,
   Reference,
+  RoutingProfileQueueConfig,
+  RuleAction,
   StringCondition,
-  TaskTemplateConstraints,
   UserInfo,
   UserProficiency,
 } from "./models_0";
@@ -70,6 +83,7 @@ import type {
   QualityMetrics,
   QueueInfo,
   RecordingInfo,
+  TaskTemplateConstraints,
   TaskTemplateDefaults,
   TaskTemplateField,
   TaskTemplateInfoV2,
@@ -129,6 +143,380 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateQueueOutboundCallerConfigRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+   * @public
+   */
+  OutboundCallerConfig: OutboundCallerConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueOutboundEmailConfigRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The outbound email address ID for a specified queue.</p>
+   * @public
+   */
+  OutboundEmailConfig: OutboundEmailConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQueueStatusRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The status of the queue.</p>
+   * @public
+   */
+  Status: QueueStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuickConnectConfigRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   * @public
+   */
+  QuickConnectId: string | undefined;
+
+  /**
+   * <p>Information about the configuration settings for the quick connect.</p>
+   * @public
+   */
+  QuickConnectConfig: QuickConnectConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQuickConnectNameRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   * @public
+   */
+  QuickConnectId: string | undefined;
+
+  /**
+   * <p>The name of the quick connect.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the quick connect.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRoutingProfileAgentAvailabilityTimerRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>Whether agents with this routing profile will have their routing order calculated based on <i>time since
+   *     their last inbound contact</i> or <i>longest idle time</i>. </p>
+   * @public
+   */
+  AgentAvailabilityTimer: AgentAvailabilityTimer | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRoutingProfileConcurrencyRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
+   * @public
+   */
+  MediaConcurrencies: MediaConcurrency[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRoutingProfileDefaultOutboundQueueRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>The identifier for the default outbound queue.</p>
+   * @public
+   */
+  DefaultOutboundQueueId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRoutingProfileNameRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>The name of the routing profile. Must not be more than 127 characters.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the routing profile. Must not be more than 250 characters.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRoutingProfileQueuesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>The queues to be updated for this routing profile. Queues must
+   *    first be associated to the routing profile. You can do this using AssociateRoutingProfileQueues.</p>
+   * @public
+   */
+  QueueConfigs: RoutingProfileQueueConfig[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRuleRequest {
+  /**
+   * <p>A unique identifier for the rule.</p>
+   * @public
+   */
+  RuleId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the rule. You can change the name only if <code>TriggerEventSource</code> is one of the following
+   *    values: <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> |
+   *     <code>OnSalesforceCaseCreate</code>
+   *          </p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The conditions of the rule.</p>
+   * @public
+   */
+  Function: string | undefined;
+
+  /**
+   * <p>A list of actions to be run when the rule is triggered.</p>
+   * @public
+   */
+  Actions: RuleAction[] | undefined;
+
+  /**
+   * <p>The publish status of the rule.</p>
+   * @public
+   */
+  PublishStatus: RulePublishStatus | undefined;
+
+  /**
+   * <p>The pre-evaluation filters for the rule, that restrict the rule to be applied to only certain resources based
+   *    on the resource's attributes, such as tags assigned to a contact. The pre-evaluation filters are applied even before
+   *    rule conditions are evaluated and are used to enforce tag-based-access-control while applying rules.</p>
+   * @public
+   */
+  PreEvaluationFilters?: PreEvaluationFilters | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSecurityProfileRequest {
+  /**
+   * <p>The description of the security profile.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The permissions granted to a security profile. For a list of valid permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security profile permissions</a>.</p>
+   * @public
+   */
+  Permissions?: string[] | undefined;
+
+  /**
+   * <p>The identifier for the security profle.</p>
+   * @public
+   */
+  SecurityProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The list of tags that a security profile uses to restrict access to resources in Connect Customer.</p>
+   * @public
+   */
+  AllowedAccessControlTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The list of resources that a security profile applies tag restrictions to in Connect Customer.</p>
+   * @public
+   */
+  TagRestrictedResources?: string[] | undefined;
+
+  /**
+   * <p>A list of the third-party application's metadata.</p>
+   * @public
+   */
+  Applications?: Application[] | undefined;
+
+  /**
+   * <p>The list of resources that a security profile applies hierarchy restrictions to in Connect Customer. Following
+   *    are acceptable ResourceNames: <code>User</code>.</p>
+   * @public
+   */
+  HierarchyRestrictedResources?: string[] | undefined;
+
+  /**
+   * <p>The identifier of the hierarchy group that a security profile uses to restrict access to resources in Connect Customer.</p>
+   * @public
+   */
+  AllowedAccessControlHierarchyGroupId?: string | undefined;
+
+  /**
+   * <p> A list of Flow Modules an AI Agent can invoke as a tool </p>
+   * @public
+   */
+  AllowedFlowModules?: FlowModule[] | undefined;
+
+  /**
+   * <p>A list of AI agents that the security profile will give access to.</p>
+   * @public
+   */
+  AllowedAIAgents?: AIAgent[] | undefined;
+
+  /**
+   * <p>The granular access control configuration for the security profile, including data table permissions.</p>
+   * @public
+   */
+  GranularAccessControlConfiguration?: GranularAccessControlConfiguration | undefined;
+}
 
 /**
  * @public

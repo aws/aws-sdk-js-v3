@@ -12,6 +12,7 @@ export * from "./ListAuthenticationProfilesPaginator";
 export * from "./ListBotsPaginator";
 export * from "./ListChildHoursOfOperationsPaginator";
 export * from "./ListContactEvaluationsPaginator";
+export * from "./ListContactFlowAliasesPaginator";
 export * from "./ListContactFlowModuleAliasesPaginator";
 export * from "./ListContactFlowModulesPaginator";
 export * from "./ListContactFlowModuleVersionsPaginator";

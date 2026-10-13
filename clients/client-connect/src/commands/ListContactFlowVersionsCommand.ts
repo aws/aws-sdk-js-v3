@@ -46,6 +46,8 @@ export interface ListContactFlowVersionsCommandOutput extends ListContactFlowVer
  * //       Arn: "STRING_VALUE",
  * //       VersionDescription: "STRING_VALUE",
  * //       Version: Number("long"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
