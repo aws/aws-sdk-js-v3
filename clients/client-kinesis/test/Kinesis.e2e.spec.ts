@@ -6,7 +6,9 @@ import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 describe("@aws-sdk/client-kinesis", () => {
   const STREAM_NAME = `aws-sdk-js-v3-e2e-test-${crypto.randomUUID()}`;
   const SHARD_COUNT = 1;
-  const SESSION_CONCURRENCY = 7;
+  // Kinesis advertises SETTINGS_MAX_CONCURRENT_STREAMS = 5 and refuses streams above it. As of 2026-10, some
+  // Kinesis hosts then answer a refused stream's body with GOAWAY (PROTOCOL_ERROR), and Node fails the session.
+  const SESSION_CONCURRENCY = 5;
 
   const client = new Kinesis({
     region: "us-west-2",
