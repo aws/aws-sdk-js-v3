@@ -370,6 +370,19 @@ const main = () => {
         }
         mkdirSync(dirname(dest), { recursive: true });
         cpSync(from, dest, { recursive: true });
+        // A vendored package whose code was never committed still carries a
+        // package.json, so it passes the test above and is copied as an empty shell.
+        // Catch it here rather than in 4b, where it reads as a pile of unrelated
+        // resolution failures instead of one missing input.
+        const entryPoint =
+          JSON.parse(readFileSync(join(dest, "package.json"), "utf-8")).main ?? "index.js";
+        if (!existsSync(join(dest, entryPoint))) {
+          throw new Error(
+            `vendor/${name} has no ${entryPoint} — vendor/ is incomplete.\n` +
+              `  dist-cjs is matched by .gitignore's dist-* rule, so confirm the files are tracked:\n` +
+              `    git ls-files scripts/generate-lambda-provided-sdk/vendor | wc -l`
+          );
+        }
         vendored += 1;
       }
     };

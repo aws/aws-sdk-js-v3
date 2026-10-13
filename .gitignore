@@ -57,6 +57,7 @@ turbo.dev.json
 .rollup.cache
 coverage
 dist-*
+!scripts/generate-lambda-provided-sdk/vendor/**
 
 /verdaccio/*
 /storage/.verdaccio-db.json
