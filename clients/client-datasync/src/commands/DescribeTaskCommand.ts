@@ -68,6 +68,7 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * //     TransferMode: "CHANGED" || "ALL",
  * //     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
  * //     ObjectTags: "PRESERVE" || "NONE",
+ * //     ObjectMetadata: "PRESERVE" || "NONE",
  * //   },
  * //   Excludes: [ // FilterList
  * //     { // FilterRule

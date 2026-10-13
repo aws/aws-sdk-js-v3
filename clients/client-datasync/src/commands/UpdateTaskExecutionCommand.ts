@@ -57,6 +57,7 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  *     TransferMode: "CHANGED" || "ALL",
  *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
  *     ObjectTags: "PRESERVE" || "NONE",
+ *     ObjectMetadata: "PRESERVE" || "NONE",
  *   },
  * };
  * const command = new UpdateTaskExecutionCommand(input);

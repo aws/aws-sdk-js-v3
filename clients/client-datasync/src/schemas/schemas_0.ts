@@ -226,6 +226,7 @@ const _NN = "NameNodes";
 const _NT = "NextToken";
 const _O = "Options";
 const _OM = "OverwriteMode";
+const _OMb = "ObjectMetadata";
 const _OO = "OverrideOptions";
 const _OPC = "OnPremConfig";
 const _OSSK = "ObjectStorageSecretKey";
@@ -886,8 +887,8 @@ export var OnPremConfig$: StaticStructureSchema = [3, n0, _OPC,
 ];
 export var Options$: StaticStructureSchema = [3, n0, _O,
   0,
-  [_VM, _OM, _At, _M, _Ui, _G, _PDF, _PD, _PP, _BPS, _TQ, _LL, _TMr, _SDCF, _OT],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+  [_VM, _OM, _At, _M, _Ui, _G, _PDF, _PD, _PP, _BPS, _TQ, _LL, _TMr, _SDCF, _OT, _OMb],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
 ];
 export var Platform$: StaticStructureSchema = [3, n0, _P,
   0,

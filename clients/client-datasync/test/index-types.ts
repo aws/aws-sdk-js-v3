@@ -179,6 +179,7 @@ export type {
   ManifestFormat,
   Mtime,
   NfsVersion,
+  ObjectMetadata,
   ObjectStorageServerProtocol,
   ObjectTags,
   ObjectVersionIds,

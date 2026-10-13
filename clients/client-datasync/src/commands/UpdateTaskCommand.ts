@@ -51,6 +51,7 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  *     TransferMode: "CHANGED" || "ALL",
  *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
  *     ObjectTags: "PRESERVE" || "NONE",
+ *     ObjectMetadata: "PRESERVE" || "NONE",
  *   },
  *   Excludes: [ // FilterList
  *     { // FilterRule

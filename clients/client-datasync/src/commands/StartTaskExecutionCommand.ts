@@ -58,6 +58,7 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  *     TransferMode: "CHANGED" || "ALL",
  *     SecurityDescriptorCopyFlags: "NONE" || "OWNER_DACL" || "OWNER_DACL_SACL",
  *     ObjectTags: "PRESERVE" || "NONE",
+ *     ObjectMetadata: "PRESERVE" || "NONE",
  *   },
  *   Includes: [ // FilterList
  *     { // FilterRule

@@ -185,6 +185,7 @@ import {
   Mtime,
   NfsMountOptions$,
   NfsVersion,
+  ObjectMetadata,
   ObjectStorageServerProtocol,
   ObjectTags,
   ObjectVersionIds,
@@ -590,6 +591,7 @@ assert(typeof ManifestAction === "object");
 assert(typeof ManifestFormat === "object");
 assert(typeof Mtime === "object");
 assert(typeof NfsVersion === "object");
+assert(typeof ObjectMetadata === "object");
 assert(typeof ObjectStorageServerProtocol === "object");
 assert(typeof ObjectTags === "object");
 assert(typeof ObjectVersionIds === "object");
