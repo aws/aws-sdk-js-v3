@@ -29,6 +29,7 @@ import type {
   Route53HealthCheckStatus,
   RoutingControlStateChange,
   ServiceQuotaWarningStatus,
+  SsmSendCommandUngracefulBehavior,
   StepStatus,
   UpdatePlanExecutionAction,
   UpdatePlanExecutionStepAction,
@@ -1634,6 +1635,108 @@ export interface Route53HealthCheckConfiguration {
 }
 
 /**
+ * <p>A single <code>SendCommand</code> target filter, consisting of a target key and the values matched by that key.</p>
+ * @public
+ */
+export interface SsmTarget {
+  /**
+   * <p>The target key, such as <code>tag:Environment</code> or <code>InstanceIds</code>.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The values matched by this target key. Multiple values combine with a logical OR.</p>
+   * @public
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * <p>The Systems Manager document to run and the managed nodes to target for a single Amazon Web Services Region.</p>
+ * @public
+ */
+export interface SsmDocumentConfig {
+  /**
+   * <p>The cross-account role for the configuration.</p>
+   * @public
+   */
+  crossAccountRole?: string | undefined;
+
+  /**
+   * <p>The external ID (secret key) for the configuration.</p>
+   * @public
+   */
+  externalId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Systems Manager document to run.</p>
+   * @public
+   */
+  documentArn: string | undefined;
+
+  /**
+   * <p>The target filters that Systems Manager resolves to managed nodes when the command runs. To target specific managed nodes, use the <code>InstanceIds</code> key. You can specify up to five target filters.</p>
+   * @public
+   */
+  targets: SsmTarget[] | undefined;
+
+  /**
+   * <p>The parameters that are passed to this Region's Systems Manager document. You set parameters for each document, so each Region can run its document with its own parameters.</p>
+   * @public
+   */
+  parameters?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>The version of the Systems Manager document to run for this Region. When you omit it, Systems Manager runs the document's default version.</p>
+   * @public
+   */
+  documentVersion?: string | undefined;
+}
+
+/**
+ * <p>The ungraceful execution settings for an AWS Systems Manager <code>SendCommand</code> execution block.</p>
+ * @public
+ */
+export interface SsmSendCommandUngraceful {
+  /**
+   * <p>Specifies whether to skip running this command during an ungraceful execution. Set to <code>skip</code> to skip the command.</p>
+   * @public
+   */
+  behavior?: SsmSendCommandUngracefulBehavior | undefined;
+}
+
+/**
+ * <p>Configuration for an AWS Systems Manager <code>SendCommand</code> execution block in a Region switch plan. This execution block runs a Systems Manager document on the managed nodes that you target in each Amazon Web Services Region of the plan.</p>
+ * @public
+ */
+export interface SsmSendCommandConfiguration {
+  /**
+   * <p>The timeout value specified for the configuration.</p>
+   * @public
+   */
+  timeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The Systems Manager document and target configuration for each Amazon Web Services Region in the plan. Provide an entry for each Amazon Web Services Region that you want the command to run in.</p>
+   * @public
+   */
+  regionDocuments: Record<string, SsmDocumentConfig> | undefined;
+
+  /**
+   * <p>How often, in minutes, Region switch retries the command if it returns a failure.</p>
+   * @public
+   */
+  retryIntervalMinutes: number | undefined;
+
+  /**
+   * <p>Specifies the settings that determine how the execution block behaves when the plan runs ungracefully, such as whether to skip the command.</p>
+   * @public
+   */
+  ungraceful?: SsmSendCommandUngraceful | undefined;
+}
+
+/**
  * <p>Represents the state of a step in a plan execution.</p>
  * @public
  */
@@ -2442,6 +2545,7 @@ export type ExecutionBlockConfiguration =
   | ExecutionBlockConfiguration.RdsSwitchoverReadReplicaConfigMember
   | ExecutionBlockConfiguration.RegionSwitchPlanConfigMember
   | ExecutionBlockConfiguration.Route53HealthCheckConfigMember
+  | ExecutionBlockConfiguration.SsmSendCommandConfigMember
   | ExecutionBlockConfiguration.$UnknownMember;
 
 /**
@@ -2471,6 +2575,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2497,6 +2602,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2523,6 +2629,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2549,6 +2656,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2575,6 +2683,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2601,6 +2710,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2627,6 +2737,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2653,6 +2764,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2679,6 +2791,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2705,6 +2818,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2731,6 +2845,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2757,6 +2872,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2783,6 +2899,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2809,6 +2926,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2835,6 +2953,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2861,6 +2980,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig: AuroraProvisionedScalingConfiguration;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2887,6 +3007,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig: NeptuneGlobalDatabaseConfiguration;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown?: never;
   }
 
@@ -2913,6 +3034,34 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig: RdsSwitchoverReadReplicaConfiguration;
+    ssmSendCommandConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies an AWS Systems Manager <code>SendCommand</code> execution block.</p>
+   * @public
+   */
+  export interface SsmSendCommandConfigMember {
+    customActionLambdaConfig?: never;
+    ec2AsgCapacityIncreaseConfig?: never;
+    executionApprovalConfig?: never;
+    arcRoutingControlConfig?: never;
+    globalAuroraConfig?: never;
+    parallelConfig?: never;
+    regionSwitchPlanConfig?: never;
+    ecsCapacityIncreaseConfig?: never;
+    eksResourceScalingConfig?: never;
+    route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig: SsmSendCommandConfiguration;
     $unknown?: never;
   }
 
@@ -2938,6 +3087,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
     rdsSwitchoverReadReplicaConfig?: never;
+    ssmSendCommandConfig?: never;
     $unknown: [string, any];
   }
 
@@ -2964,6 +3114,7 @@ export namespace ExecutionBlockConfiguration {
     auroraProvisionedScalingConfig: (value: AuroraProvisionedScalingConfiguration) => T;
     neptuneGlobalDatabaseConfig: (value: NeptuneGlobalDatabaseConfiguration) => T;
     rdsSwitchoverReadReplicaConfig: (value: RdsSwitchoverReadReplicaConfiguration) => T;
+    ssmSendCommandConfig: (value: SsmSendCommandConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }

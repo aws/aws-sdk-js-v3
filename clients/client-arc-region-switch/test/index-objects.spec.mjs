@@ -169,6 +169,11 @@ import {
   Service$,
   ServiceQuotaWarningStatus,
   ServiceQuotaWarningSummary$,
+  SsmDocumentConfig$,
+  SsmSendCommandConfiguration$,
+  SsmSendCommandUngraceful$,
+  SsmSendCommandUngracefulBehavior,
+  SsmTarget$,
   StartPlanExecution$,
   StartPlanExecutionCommand,
   StartPlanExecutionRequest$,
@@ -343,6 +348,10 @@ assert(typeof S3ReportOutput$ === "object");
 assert(typeof S3ReportOutputConfiguration$ === "object");
 assert(typeof Service$ === "object");
 assert(typeof ServiceQuotaWarningSummary$ === "object");
+assert(typeof SsmDocumentConfig$ === "object");
+assert(typeof SsmSendCommandConfiguration$ === "object");
+assert(typeof SsmSendCommandUngraceful$ === "object");
+assert(typeof SsmTarget$ === "object");
 assert(typeof StartPlanExecutionRequest$ === "object");
 assert(typeof StartPlanExecutionResponse$ === "object");
 assert(typeof Step$ === "object");
@@ -390,6 +399,7 @@ assert(typeof ResourceWarningStatus === "object");
 assert(typeof Route53HealthCheckStatus === "object");
 assert(typeof RoutingControlStateChange === "object");
 assert(typeof ServiceQuotaWarningStatus === "object");
+assert(typeof SsmSendCommandUngracefulBehavior === "object");
 assert(typeof StepStatus === "object");
 assert(typeof UpdatePlanExecutionAction === "object");
 assert(typeof UpdatePlanExecutionStepAction === "object");

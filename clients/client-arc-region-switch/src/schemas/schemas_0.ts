@@ -114,12 +114,15 @@ const _ROL = "ReportOutputList";
 const _RPRRC = "RdsPromoteReadReplicaConfiguration";
 const _RRRS = "Route53ResourceRecordSet";
 const _RRRSL = "Route53ResourceRecordSetList";
+const _RSDM = "RegionSsmDocumentMap";
 const _RSPC = "RegionSwitchPlanConfiguration";
 const _RSR = "RegionalScalingResource";
 const _RSRRC = "RdsSwitchoverReadReplicaConfiguration";
 const _RU = "RdsUngraceful";
 const _RW = "ResourceWarning";
 const _S = "Service";
+const _SDC = "SsmDocumentConfig";
+const _SDP = "SsmDocumentParameters";
 const _SL = "ServiceList";
 const _SPE = "StartPlanExecution";
 const _SPER = "StartPlanExecutionRequest";
@@ -129,7 +132,11 @@ const _SQWSL = "ServiceQuotaWarningSummaryList";
 const _SRO = "S3ReportOutput";
 const _SROC = "S3ReportOutputConfiguration";
 const _SS = "StepState";
+const _SSCC = "SsmSendCommandConfiguration";
+const _SSCU = "SsmSendCommandUngraceful";
 const _SSt = "StepStates";
+const _ST = "SsmTarget";
+const _STL = "SsmTargetList";
 const _St = "Step";
 const _Ste = "Steps";
 const _T = "Trigger";
@@ -184,10 +191,12 @@ const _co = "comment";
 const _con = "conditions";
 const _cond = "condition";
 const _d = "description";
+const _dA = "documentArn";
 const _dCA = "databaseClusterArns";
 const _dDC = "documentDbConfig";
 const _dIAM = "dbInstanceArnMap";
 const _dR = "deactivateRegion";
+const _dV = "documentVersion";
 const _e = "error";
 const _eA = "executionAction";
 const _eAC = "executionApprovalConfig";
@@ -220,6 +229,7 @@ const _i = "items";
 const _iA = "instanceArns";
 const _k = "kind";
 const _kRT = "kubernetesResourceType";
+const _ke = "key";
 const _l = "lambdas";
 const _lCA = "lastCheckedAt";
 const _lESMC = "lambdaEventSourceMappingConfig";
@@ -243,6 +253,7 @@ const _pC = "parallelConfig";
 const _pEI = "previousEventId";
 const _pR = "primaryRegion";
 const _pV = "planVersion";
+const _pa = "parameters";
 const _pl = "plans";
 const _qC = "quotaCode";
 const _qN = "quotaName";
@@ -254,6 +265,7 @@ const _rAe = "resourceArn";
 const _rC = "reportConfiguration";
 const _rCA = "routingControlArn";
 const _rCCRRRC = "rdsCreateCrossRegionReadReplicaConfig";
+const _rD = "regionDocuments";
 const _rDCA = "regionDatabaseClusterArns";
 const _rEI = "recoveryExecutionId";
 const _rESM = "regionEventSourceMappings";
@@ -289,6 +301,7 @@ const _sQWS = "serviceQuotaWarningSummaries";
 const _sR = "scalingResources";
 const _sRO = "s3ReportOutput";
 const _sS = "stepStates";
+const _sSCC = "ssmSendCommandConfig";
 const _sT = "startTime";
 const _se = "server";
 const _ser = "services";
@@ -300,11 +313,13 @@ const _tM = "timeoutMinutes";
 const _tP = "targetPercent";
 const _tR = "targetRegion";
 const _ta = "tags";
+const _tar = "targets";
 const _ti = "timestamp";
 const _ty = "type";
 const _u = "ungraceful";
 const _uA = "updatedAt";
 const _v = "version";
+const _va = "values";
 const _w = "workflows";
 const _wCA = "warningCreatedAt";
 const _wD = "workflowDescription";
@@ -799,6 +814,26 @@ export var ServiceQuotaWarningSummary$: StaticStructureSchema = [3, n0, _SQWS,
   [_aI, _qR, _sta, _pA, _sC, _qC, _qN, _rIeq, _cI, _wM, _lCA, _wCA],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4], 4
 ];
+export var SsmDocumentConfig$: StaticStructureSchema = [3, n0, _SDC,
+  0,
+  [_dA, _tar, _cAR, _eIx, _pa, _dV],
+  [0, () => SsmTargetList, 0, 0, [2, n0, _SDP, 0, 0, 64 | 0], 0], 2
+];
+export var SsmSendCommandConfiguration$: StaticStructureSchema = [3, n0, _SSCC,
+  0,
+  [_rD, _rIM, _tM, _u],
+  [() => RegionSsmDocumentMap, 1, 1, () => SsmSendCommandUngraceful$], 2
+];
+export var SsmSendCommandUngraceful$: StaticStructureSchema = [3, n0, _SSCU,
+  0,
+  [_b],
+  [0]
+];
+export var SsmTarget$: StaticStructureSchema = [3, n0, _ST,
+  0,
+  [_ke, _va],
+  [0, 64 | 0], 2
+];
 export var StartPlanExecutionRequest$: StaticStructureSchema = [3, n0, _SPER,
   0,
   [_pA, _tR, _ac, _mo, _co, _lV, _rEI, _cT],
@@ -934,6 +969,11 @@ var ServiceList: StaticListSchema = [1, n0, _SL,
 var ServiceQuotaWarningSummaryList: StaticListSchema = [1, n0, _SQWSL,
   0, () => ServiceQuotaWarningSummary$
 ];
+var SsmParameterValues = 64 | 0;
+var SsmTargetList: StaticListSchema = [1, n0, _STL,
+  0, () => SsmTarget$
+];
+var SsmTargetValueList = 64 | 0;
 var Steps: StaticListSchema = [1, n0, _Ste,
   0, () => Step$
 ];
@@ -969,11 +1009,17 @@ var RegionEventSourceMappingMap: StaticMapSchema = [2, n0, _RESMM,
   0, 0, () => EventSourceMapping$
 ];
 var RegionNeptuneClusterArnMap = 128 | 0;
+var RegionSsmDocumentMap: StaticMapSchema = [2, n0, _RSDM,
+  0, 0, () => SsmDocumentConfig$
+];
+var SsmDocumentParameters: StaticMapSchema = [2, n0, _SDP,
+  0, 0, 64 | 0
+];
 var Tags = 128 | 0;
 export var ExecutionBlockConfiguration$: StaticUnionSchema = [4, n0, _EBC,
   0,
-  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC, _rPRRC, _rCCRRRC, _lESMC, _aSSC, _aPSC, _nGDC, _rSRRC],
-  [() => CustomActionLambdaConfiguration$, () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, () => ParallelExecutionBlockConfiguration$, () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$, () => RdsPromoteReadReplicaConfiguration$, () => RdsCreateCrossRegionReplicaConfiguration$, () => LambdaEventSourceMappingConfiguration$, () => AuroraServerlessScalingConfiguration$, () => AuroraProvisionedScalingConfiguration$, () => NeptuneGlobalDatabaseConfiguration$, () => RdsSwitchoverReadReplicaConfiguration$]
+  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC, _rPRRC, _rCCRRRC, _lESMC, _aSSC, _aPSC, _nGDC, _rSRRC, _sSCC],
+  [() => CustomActionLambdaConfiguration$, () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, () => ParallelExecutionBlockConfiguration$, () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$, () => RdsPromoteReadReplicaConfiguration$, () => RdsCreateCrossRegionReplicaConfiguration$, () => LambdaEventSourceMappingConfiguration$, () => AuroraServerlessScalingConfiguration$, () => AuroraProvisionedScalingConfiguration$, () => NeptuneGlobalDatabaseConfiguration$, () => RdsSwitchoverReadReplicaConfiguration$, () => SsmSendCommandConfiguration$]
 ];
 export var ReportOutput$: StaticUnionSchema = [4, n0, _RO,
   0,

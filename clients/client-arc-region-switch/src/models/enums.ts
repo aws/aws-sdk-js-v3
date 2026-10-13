@@ -370,6 +370,19 @@ export type RdsUngracefulBehavior = (typeof RdsUngracefulBehavior)[keyof typeof 
  * @public
  * @enum
  */
+export const SsmSendCommandUngracefulBehavior = {
+  SKIP: "skip",
+} as const;
+/**
+ * @public
+ */
+export type SsmSendCommandUngracefulBehavior =
+  (typeof SsmSendCommandUngracefulBehavior)[keyof typeof SsmSendCommandUngracefulBehavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExecutionBlockType = {
   AURORA: "AuroraGlobalDatabase",
   AURORA_PROVISIONED_SCALING: "AuroraProvisionedScaling",
@@ -389,6 +402,7 @@ export const ExecutionBlockType = {
   REGION_SWITCH: "ARCRegionSwitchPlan",
   ROUTE53_HEALTH_CHECK: "Route53HealthCheck",
   ROUTING_CONTROL: "ARCRoutingControl",
+  SSM_SEND_COMMAND: "SSMSendCommand",
 } as const;
 /**
  * @public
