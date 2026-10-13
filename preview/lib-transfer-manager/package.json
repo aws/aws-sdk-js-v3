@@ -1,9 +1,9 @@
 {
   "name": "@aws-sdk/lib-transfer-manager",
-  "version": "3.1150.0",
+  "version": "0.0.0",
   "private": true,
   "description": "S3 Transfer Manager for AWS SDK JS v3",
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-transfer-manager",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/preview/lib-transfer-manager",
   "license": "Apache-2.0",
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -12,7 +12,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "lib/lib-transfer-manager"
+    "directory": "preview/lib-transfer-manager"
   },
   "files": [
     "./transfer-manager.d.ts",
@@ -64,6 +64,9 @@
       "import": "./dist-es/submodules/transfer-manager/index.js",
       "require": "./dist-cjs/submodules/transfer-manager/index.js"
     }
+  },
+  "publishConfig": {
+    "tag": "preview"
   },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
