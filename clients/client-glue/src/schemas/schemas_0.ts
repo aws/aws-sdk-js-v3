@@ -2404,6 +2404,7 @@ const _TLri = "TriggerList";
 const _TN = "TableName";
 const _TND = "TriggerNodeDetails";
 const _TNF = "TriggersNotFound";
+const _TNa = "TargetNamespace";
 const _TNo = "TopicName";
 const _TNr = "TriggerNames";
 const _TNra = "TransformName";
@@ -6216,8 +6217,8 @@ export var Integration$: StaticStructureSchema = [3, n0, _Int,
 ];
 export var IntegrationConfig$: StaticStructureSchema = [3, n0, _ICn,
   0,
-  [_RIef, _SPo, _CSon],
-  [0, 128 | 0, 2]
+  [_RIef, _SPo, _CSon, _TNa],
+  [0, 128 | 0, 2, 0]
 ];
 export var IntegrationError$: StaticStructureSchema = [3, n0, _IEn,
   0,

@@ -54,6 +54,7 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationRespons
  *       "<keys>": "STRING_VALUE",
  *     },
  *     ContinuousSync: true || false,
+ *     TargetNamespace: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateIntegrationCommand(input);
@@ -89,6 +90,7 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationRespons
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     ContinuousSync: true || false,
+ * //     TargetNamespace: "STRING_VALUE",
  * //   },
  * // };
  *
