@@ -108,6 +108,10 @@ export interface GetEffectivePermissionsForPathCommandOutput extends GetEffectiv
  * //           CatalogId: "STRING_VALUE",
  * //           Name: "STRING_VALUE", // required
  * //         },
+ * //         RLSPolicy: { // RLSPolicyResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           Name: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       Condition: { // Condition
  * //         Expression: "STRING_VALUE",

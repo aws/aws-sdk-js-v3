@@ -14,6 +14,10 @@ import {
   AssumeDecoratedRoleWithSAMLCommand,
   AssumeDecoratedRoleWithSAMLRequest$,
   AssumeDecoratedRoleWithSAMLResponse$,
+  AttachRLSPolicy$,
+  AttachRLSPolicyCommand,
+  AttachRLSPolicyRequest$,
+  AttachRLSPolicyResponse$,
   AuditContext$,
   BatchGrantPermissions$,
   BatchGrantPermissionsCommand,
@@ -30,6 +34,7 @@ import {
   CancelTransactionRequest$,
   CancelTransactionResponse$,
   CatalogResource$,
+  Column$,
   ColumnLFTag$,
   ColumnWildcard$,
   CommitTransaction$,
@@ -62,6 +67,10 @@ import {
   CreateLFTagExpressionResponse$,
   CreateLFTagRequest$,
   CreateLFTagResponse$,
+  CreateRLSPolicy$,
+  CreateRLSPolicyCommand,
+  CreateRLSPolicyRequest$,
+  CreateRLSPolicyResponse$,
   CredentialsScope,
   DatabaseResource$,
   DataCellsFilter$,
@@ -95,6 +104,10 @@ import {
   DeleteObjectsOnCancelCommand,
   DeleteObjectsOnCancelRequest$,
   DeleteObjectsOnCancelResponse$,
+  DeleteRLSPolicy$,
+  DeleteRLSPolicyCommand,
+  DeleteRLSPolicyRequest$,
+  DeleteRLSPolicyResponse$,
   DeregisterResource$,
   DeregisterResourceCommand,
   DeregisterResourceRequest$,
@@ -111,6 +124,10 @@ import {
   DescribeTransactionCommand,
   DescribeTransactionRequest$,
   DescribeTransactionResponse$,
+  DetachRLSPolicy$,
+  DetachRLSPolicyCommand,
+  DetachRLSPolicyRequest$,
+  DetachRLSPolicyResponse$,
   DetailsMap$,
   EnableStatus,
   EntityNotFoundException,
@@ -162,6 +179,10 @@ import {
   GetResourceLFTagsCommand,
   GetResourceLFTagsRequest$,
   GetResourceLFTagsResponse$,
+  GetRLSPolicy$,
+  GetRLSPolicyCommand,
+  GetRLSPolicyRequest$,
+  GetRLSPolicyResponse$,
   GetTableObjects$,
   GetTableObjectsCommand,
   GetTableObjectsRequest$,
@@ -231,6 +252,14 @@ import {
   ListResourcesCommand,
   ListResourcesRequest$,
   ListResourcesResponse$,
+  ListRLSPolicies$,
+  ListRLSPoliciesCommand,
+  ListRLSPoliciesRequest$,
+  ListRLSPoliciesResponse$,
+  ListRLSPolicyAttachments$,
+  ListRLSPolicyAttachmentsCommand,
+  ListRLSPolicyAttachmentsRequest$,
+  ListRLSPolicyAttachmentsResponse$,
   ListTableStorageOptimizers$,
   ListTableStorageOptimizersCommand,
   ListTableStorageOptimizersRequest$,
@@ -251,6 +280,8 @@ import {
   paginateListLFTags,
   paginateListPermissions,
   paginateListResources,
+  paginateListRLSPolicies,
+  paginateListRLSPolicyAttachments,
   paginateListTableStorageOptimizers,
   paginateListTransactions,
   paginateSearchDatabasesByLFTags,
@@ -293,6 +324,9 @@ import {
   RevokePermissionsCommand,
   RevokePermissionsRequest$,
   RevokePermissionsResponse$,
+  RLSPolicy$,
+  RLSPolicyAttachment$,
+  RLSPolicyResource$,
   RowFilter$,
   SearchDatabasesByLFTags$,
   SearchDatabasesByLFTagsCommand,
@@ -354,6 +388,10 @@ import {
   UpdateResourceCommand,
   UpdateResourceRequest$,
   UpdateResourceResponse$,
+  UpdateRLSPolicy$,
+  UpdateRLSPolicyCommand,
+  UpdateRLSPolicyRequest$,
+  UpdateRLSPolicyResponse$,
   UpdateTableObjects$,
   UpdateTableObjectsCommand,
   UpdateTableObjectsRequest$,
@@ -378,6 +416,8 @@ assert(typeof AddLFTagsToResourceCommand === "function");
 assert(typeof AddLFTagsToResource$ === "object");
 assert(typeof AssumeDecoratedRoleWithSAMLCommand === "function");
 assert(typeof AssumeDecoratedRoleWithSAML$ === "object");
+assert(typeof AttachRLSPolicyCommand === "function");
+assert(typeof AttachRLSPolicy$ === "object");
 assert(typeof BatchGrantPermissionsCommand === "function");
 assert(typeof BatchGrantPermissions$ === "object");
 assert(typeof BatchRevokePermissionsCommand === "function");
@@ -396,6 +436,8 @@ assert(typeof CreateLFTagCommand === "function");
 assert(typeof CreateLFTag$ === "object");
 assert(typeof CreateLFTagExpressionCommand === "function");
 assert(typeof CreateLFTagExpression$ === "object");
+assert(typeof CreateRLSPolicyCommand === "function");
+assert(typeof CreateRLSPolicy$ === "object");
 assert(typeof DeleteDataCellsFilterCommand === "function");
 assert(typeof DeleteDataCellsFilter$ === "object");
 assert(typeof DeleteLakeFormationIdentityCenterConfigurationCommand === "function");
@@ -408,6 +450,8 @@ assert(typeof DeleteLFTagExpressionCommand === "function");
 assert(typeof DeleteLFTagExpression$ === "object");
 assert(typeof DeleteObjectsOnCancelCommand === "function");
 assert(typeof DeleteObjectsOnCancel$ === "object");
+assert(typeof DeleteRLSPolicyCommand === "function");
+assert(typeof DeleteRLSPolicy$ === "object");
 assert(typeof DeregisterResourceCommand === "function");
 assert(typeof DeregisterResource$ === "object");
 assert(typeof DescribeLakeFormationIdentityCenterConfigurationCommand === "function");
@@ -416,6 +460,8 @@ assert(typeof DescribeResourceCommand === "function");
 assert(typeof DescribeResource$ === "object");
 assert(typeof DescribeTransactionCommand === "function");
 assert(typeof DescribeTransaction$ === "object");
+assert(typeof DetachRLSPolicyCommand === "function");
+assert(typeof DetachRLSPolicy$ === "object");
 assert(typeof ExtendTransactionCommand === "function");
 assert(typeof ExtendTransaction$ === "object");
 assert(typeof GetDataCellsFilterCommand === "function");
@@ -436,6 +482,8 @@ assert(typeof GetQueryStatisticsCommand === "function");
 assert(typeof GetQueryStatistics$ === "object");
 assert(typeof GetResourceLFTagsCommand === "function");
 assert(typeof GetResourceLFTags$ === "object");
+assert(typeof GetRLSPolicyCommand === "function");
+assert(typeof GetRLSPolicy$ === "object");
 assert(typeof GetTableObjectsCommand === "function");
 assert(typeof GetTableObjects$ === "object");
 assert(typeof GetTemporaryDataLocationCredentialsCommand === "function");
@@ -462,6 +510,10 @@ assert(typeof ListPermissionsCommand === "function");
 assert(typeof ListPermissions$ === "object");
 assert(typeof ListResourcesCommand === "function");
 assert(typeof ListResources$ === "object");
+assert(typeof ListRLSPoliciesCommand === "function");
+assert(typeof ListRLSPolicies$ === "object");
+assert(typeof ListRLSPolicyAttachmentsCommand === "function");
+assert(typeof ListRLSPolicyAttachments$ === "object");
 assert(typeof ListTableStorageOptimizersCommand === "function");
 assert(typeof ListTableStorageOptimizers$ === "object");
 assert(typeof ListTransactionsCommand === "function");
@@ -492,6 +544,8 @@ assert(typeof UpdateLFTagExpressionCommand === "function");
 assert(typeof UpdateLFTagExpression$ === "object");
 assert(typeof UpdateResourceCommand === "function");
 assert(typeof UpdateResource$ === "object");
+assert(typeof UpdateRLSPolicyCommand === "function");
+assert(typeof UpdateRLSPolicy$ === "object");
 assert(typeof UpdateTableObjectsCommand === "function");
 assert(typeof UpdateTableObjects$ === "object");
 assert(typeof UpdateTableStorageOptimizerCommand === "function");
@@ -503,6 +557,8 @@ assert(typeof AddObjectInput$ === "object");
 assert(typeof AllRowsWildcard$ === "object");
 assert(typeof AssumeDecoratedRoleWithSAMLRequest$ === "object");
 assert(typeof AssumeDecoratedRoleWithSAMLResponse$ === "object");
+assert(typeof AttachRLSPolicyRequest$ === "object");
+assert(typeof AttachRLSPolicyResponse$ === "object");
 assert(typeof AuditContext$ === "object");
 assert(typeof BatchGrantPermissionsRequest$ === "object");
 assert(typeof BatchGrantPermissionsResponse$ === "object");
@@ -513,6 +569,7 @@ assert(typeof BatchRevokePermissionsResponse$ === "object");
 assert(typeof CancelTransactionRequest$ === "object");
 assert(typeof CancelTransactionResponse$ === "object");
 assert(typeof CatalogResource$ === "object");
+assert(typeof Column$ === "object");
 assert(typeof ColumnLFTag$ === "object");
 assert(typeof ColumnWildcard$ === "object");
 assert(typeof CommitTransactionRequest$ === "object");
@@ -528,6 +585,8 @@ assert(typeof CreateLFTagExpressionRequest$ === "object");
 assert(typeof CreateLFTagExpressionResponse$ === "object");
 assert(typeof CreateLFTagRequest$ === "object");
 assert(typeof CreateLFTagResponse$ === "object");
+assert(typeof CreateRLSPolicyRequest$ === "object");
+assert(typeof CreateRLSPolicyResponse$ === "object");
 assert(typeof DatabaseResource$ === "object");
 assert(typeof DataCellsFilter$ === "object");
 assert(typeof DataCellsFilterResource$ === "object");
@@ -547,6 +606,8 @@ assert(typeof DeleteLFTagResponse$ === "object");
 assert(typeof DeleteObjectInput$ === "object");
 assert(typeof DeleteObjectsOnCancelRequest$ === "object");
 assert(typeof DeleteObjectsOnCancelResponse$ === "object");
+assert(typeof DeleteRLSPolicyRequest$ === "object");
+assert(typeof DeleteRLSPolicyResponse$ === "object");
 assert(typeof DeregisterResourceRequest$ === "object");
 assert(typeof DeregisterResourceResponse$ === "object");
 assert(typeof DescribeLakeFormationIdentityCenterConfigurationRequest$ === "object");
@@ -555,6 +616,8 @@ assert(typeof DescribeResourceRequest$ === "object");
 assert(typeof DescribeResourceResponse$ === "object");
 assert(typeof DescribeTransactionRequest$ === "object");
 assert(typeof DescribeTransactionResponse$ === "object");
+assert(typeof DetachRLSPolicyRequest$ === "object");
+assert(typeof DetachRLSPolicyResponse$ === "object");
 assert(typeof DetailsMap$ === "object");
 assert(typeof ErrorDetail$ === "object");
 assert(typeof ExecutionStatistics$ === "object");
@@ -580,6 +643,8 @@ assert(typeof GetQueryStatisticsRequest$ === "object");
 assert(typeof GetQueryStatisticsResponse$ === "object");
 assert(typeof GetResourceLFTagsRequest$ === "object");
 assert(typeof GetResourceLFTagsResponse$ === "object");
+assert(typeof GetRLSPolicyRequest$ === "object");
+assert(typeof GetRLSPolicyResponse$ === "object");
 assert(typeof GetTableObjectsRequest$ === "object");
 assert(typeof GetTableObjectsResponse$ === "object");
 assert(typeof GetTemporaryDataLocationCredentialsRequest$ === "object");
@@ -614,6 +679,10 @@ assert(typeof ListPermissionsRequest$ === "object");
 assert(typeof ListPermissionsResponse$ === "object");
 assert(typeof ListResourcesRequest$ === "object");
 assert(typeof ListResourcesResponse$ === "object");
+assert(typeof ListRLSPoliciesRequest$ === "object");
+assert(typeof ListRLSPoliciesResponse$ === "object");
+assert(typeof ListRLSPolicyAttachmentsRequest$ === "object");
+assert(typeof ListRLSPolicyAttachmentsResponse$ === "object");
 assert(typeof ListTableStorageOptimizersRequest$ === "object");
 assert(typeof ListTableStorageOptimizersResponse$ === "object");
 assert(typeof ListTransactionsRequest$ === "object");
@@ -637,6 +706,9 @@ assert(typeof Resource$ === "object");
 assert(typeof ResourceInfo$ === "object");
 assert(typeof RevokePermissionsRequest$ === "object");
 assert(typeof RevokePermissionsResponse$ === "object");
+assert(typeof RLSPolicy$ === "object");
+assert(typeof RLSPolicyAttachment$ === "object");
+assert(typeof RLSPolicyResource$ === "object");
 assert(typeof RowFilter$ === "object");
 assert(typeof SearchDatabasesByLFTagsRequest$ === "object");
 assert(typeof SearchDatabasesByLFTagsResponse$ === "object");
@@ -666,6 +738,8 @@ assert(typeof UpdateLFTagRequest$ === "object");
 assert(typeof UpdateLFTagResponse$ === "object");
 assert(typeof UpdateResourceRequest$ === "object");
 assert(typeof UpdateResourceResponse$ === "object");
+assert(typeof UpdateRLSPolicyRequest$ === "object");
+assert(typeof UpdateRLSPolicyResponse$ === "object");
 assert(typeof UpdateTableObjectsRequest$ === "object");
 assert(typeof UpdateTableObjectsResponse$ === "object");
 assert(typeof UpdateTableStorageOptimizerRequest$ === "object");
@@ -740,6 +814,8 @@ assert(typeof paginateListLFTagExpressions === "function");
 assert(typeof paginateListLFTags === "function");
 assert(typeof paginateListLakeFormationOptIns === "function");
 assert(typeof paginateListPermissions === "function");
+assert(typeof paginateListRLSPolicies === "function");
+assert(typeof paginateListRLSPolicyAttachments === "function");
 assert(typeof paginateListResources === "function");
 assert(typeof paginateListTableStorageOptimizers === "function");
 assert(typeof paginateListTransactions === "function");

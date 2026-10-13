@@ -218,6 +218,24 @@ export interface LFTagPolicyResource {
 }
 
 /**
+ * <p>A structure that identifies a row-level security policy as a resource, used when granting permissions on the policy.</p>
+ * @public
+ */
+export interface RLSPolicyResource {
+  /**
+   * <p>The identifier for the Data Catalog that contains the policy. By default, the account ID.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the row-level security policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
  * <p>A wildcard object representing every table under a database.</p>
  * @public
  */
@@ -361,6 +379,12 @@ export interface Resource {
    * @public
    */
   LFTagExpression?: LFTagExpressionResource | undefined;
+
+  /**
+   * <p>A row-level security policy resource. Specify this when granting or revoking permissions on a row-level security policy.</p>
+   * @public
+   */
+  RLSPolicy?: RLSPolicyResource | undefined;
 }
 
 /**
@@ -529,18 +553,6 @@ export interface AssumeDecoratedRoleWithSAMLResponse {
 }
 
 /**
- * <p>A structure used to include auditing information on the privileged API. </p>
- * @public
- */
-export interface AuditContext {
-  /**
-   * <p>The filter engine can populate the 'AdditionalAuditContext' information with the request ID for you to track. This information will be displayed in CloudTrail log in your account.</p>
-   * @public
-   */
-  AdditionalAuditContext?: string | undefined;
-}
-
-/**
  * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
  * @public
  */
@@ -563,6 +575,58 @@ export interface DataLakePrincipal {
    * @public
    */
   DataLakePrincipalIdentifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AttachRLSPolicyRequest {
+  /**
+   * <p>The name of the row-level security policy to attach.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The resource to which the row-level security policy is attached.</p>
+   * @public
+   */
+  Resource: Resource | undefined;
+
+  /**
+   * <p>The principal to which the row-level security policy applies.</p>
+   * @public
+   */
+  Principal?: DataLakePrincipal | undefined;
+
+  /**
+   * <p>A Lake Formation condition, which applies to the row-level security policy attachment and contains an expression.</p>
+   * @public
+   */
+  Condition?: Condition | undefined;
+
+  /**
+   * <p>Indicates whether this policy becomes the default row-level security policy for the resource. The default policy applies to all principals by default.</p>
+   * @public
+   */
+  SetDefault?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AttachRLSPolicyResponse {}
+
+/**
+ * <p>A structure used to include auditing information on the privileged API. </p>
+ * @public
+ */
+export interface AuditContext {
+  /**
+   * <p>The filter engine can populate the 'AdditionalAuditContext' information with the request ID for you to track. This information will be displayed in CloudTrail log in your account.</p>
+   * @public
+   */
+  AdditionalAuditContext?: string | undefined;
 }
 
 /**
@@ -1066,6 +1130,52 @@ export interface CreateLFTagExpressionRequest {
 export interface CreateLFTagExpressionResponse {}
 
 /**
+ * <p>A column in a table that a row-level security policy's filter expression can reference.</p>
+ * @public
+ */
+export interface Column {
+  /**
+   * <p>The name of the column.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The data type of the column.</p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRLSPolicyRequest {
+  /**
+   * <p>A unique name for the row-level security policy within the Data Catalog.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The list of columns that the filter expression references. These columns define the shape of the data that the policy can be attached to.</p>
+   * @public
+   */
+  AttachmentColumns: Column[] | undefined;
+
+  /**
+   * <p>A filter predicate, written in a SQL-like syntax, that Lake Formation evaluates against each row. Only the rows for which the expression evaluates to true are returned to the principal.</p>
+   * @public
+   */
+  FilterExpression: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRLSPolicyResponse {}
+
+/**
  * @public
  */
 export interface DeleteDataCellsFilterRequest {
@@ -1248,6 +1358,22 @@ export interface DeleteObjectsOnCancelRequest {
  * @public
  */
 export interface DeleteObjectsOnCancelResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteRLSPolicyRequest {
+  /**
+   * <p>The name of the row-level security policy to delete.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRLSPolicyResponse {}
 
 /**
  * @public
@@ -1466,6 +1592,46 @@ export interface DescribeTransactionResponse {
    */
   TransactionDescription?: TransactionDescription | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DetachRLSPolicyRequest {
+  /**
+   * <p>The name of the row-level security policy to detach.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The resource from which the row-level security policy is detached.</p>
+   * @public
+   */
+  Resource: Resource | undefined;
+
+  /**
+   * <p>The principal for which the row-level security policy is detached.</p>
+   * @public
+   */
+  Principal?: DataLakePrincipal | undefined;
+
+  /**
+   * <p>A Lake Formation condition, which applies to the row-level security policy attachment and contains an expression.</p>
+   * @public
+   */
+  Condition?: Condition | undefined;
+
+  /**
+   * <p>Indicates whether to remove this policy as the default row-level security policy for the resource.</p>
+   * @public
+   */
+  RemoveDefault?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DetachRLSPolicyResponse {}
 
 /**
  * @public
@@ -2057,6 +2223,58 @@ export interface GetResourceLFTagsResponse {
    * @public
    */
   LFTagsOnColumns?: ColumnLFTag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRLSPolicyRequest {
+  /**
+   * <p>The name of the row-level security policy to retrieve.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * <p>A structure that describes a row-level security policy, including the columns its filter expression references and the filter expression itself.</p>
+ * @public
+ */
+export interface RLSPolicy {
+  /**
+   * <p>The identifier for the Data Catalog that contains the policy. By default, the account ID.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the row-level security policy.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The list of columns that the filter expression references.</p>
+   * @public
+   */
+  AttachmentColumns?: Column[] | undefined;
+
+  /**
+   * <p>The filter predicate, written in a SQL-like syntax, that determines which rows are returned to the principal.</p>
+   * @public
+   */
+  FilterExpression?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRLSPolicyResponse {
+  /**
+   * <p>An <code>RLSPolicy</code> structure containing the definition of the requested row-level security policy.</p>
+   * @public
+   */
+  RLSPolicy?: RLSPolicy | undefined;
 }
 
 /**
@@ -3013,6 +3231,134 @@ export interface ListResourcesResponse {
 /**
  * @public
  */
+export interface ListRLSPoliciesRequest {
+  /**
+   * <p>The maximum number of row-level security policies to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRLSPoliciesResponse {
+  /**
+   * <p>A list of <code>RLSPolicy</code> structures.</p>
+   * @public
+   */
+  RLSPolicies?: RLSPolicy[] | undefined;
+
+  /**
+   * <p>A continuation token, if not all row-level security policies have been returned.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRLSPolicyAttachmentsRequest {
+  /**
+   * <p>If specified, returns only the attachments for the given resource.</p>
+   * @public
+   */
+  Resource?: Resource | undefined;
+
+  /**
+   * <p>If specified, returns only the attachments for the given principal.</p>
+   * @public
+   */
+  Principal?: DataLakePrincipal | undefined;
+
+  /**
+   * <p>If specified, returns only the attachments for the row-level security policy with this name.</p>
+   * @public
+   */
+  PolicyName?: string | undefined;
+
+  /**
+   * <p>The maximum number of attachments to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A structure that describes the attachment of a row-level security policy to a resource for a principal.</p>
+ * @public
+ */
+export interface RLSPolicyAttachment {
+  /**
+   * <p>The identifier for the Data Catalog that contains the attachment. By default, the account ID.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>The name of the attached row-level security policy.</p>
+   * @public
+   */
+  PolicyName?: string | undefined;
+
+  /**
+   * <p>The principal to which the attached policy applies.</p>
+   * @public
+   */
+  Principal?: DataLakePrincipal | undefined;
+
+  /**
+   * <p>The resource to which the policy is attached.</p>
+   * @public
+   */
+  Resource?: Resource | undefined;
+
+  /**
+   * <p>A Lake Formation condition, which applies to the row-level security policy attachment and contains an expression.</p>
+   * @public
+   */
+  Condition?: Condition | undefined;
+
+  /**
+   * <p>Indicates whether this attachment is the default row-level security policy for the resource.</p>
+   * @public
+   */
+  DefaultRLSPolicy?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRLSPolicyAttachmentsResponse {
+  /**
+   * <p>A list of <code>RLSPolicyAttachment</code> structures.</p>
+   * @public
+   */
+  RLSPolicyAttachments?: RLSPolicyAttachment[] | undefined;
+
+  /**
+   * <p>A continuation token, if not all attachments have been returned.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTableStorageOptimizersRequest {
   /**
    * <p>The Catalog ID of the table.</p>
@@ -3714,6 +4060,28 @@ export interface UpdateResourceRequest {
  * @public
  */
 export interface UpdateResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateRLSPolicyRequest {
+  /**
+   * <p>The name of the row-level security policy to update.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The new filter predicate, written in a SQL-like syntax, that replaces the policy's current filter expression.</p>
+   * @public
+   */
+  FilterExpression?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRLSPolicyResponse {}
 
 /**
  * <p>An object to delete from the governed table.</p>

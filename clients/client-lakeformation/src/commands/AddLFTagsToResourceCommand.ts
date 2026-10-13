@@ -95,6 +95,10 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
  *     },
+ *     RLSPolicy: { // RLSPolicyResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *     },
  *   },
  *   LFTags: [ // LFTagsList // required
  *     { // LFTagPair

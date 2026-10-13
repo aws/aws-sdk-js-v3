@@ -193,6 +193,33 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
+ * <p>A resource numerical limit was exceeded.</p>
+ * @public
+ */
+export class ResourceNumberLimitExceededException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.lakeformation#ResourceNumberLimitExceededException";
+  readonly name = "ResourceNumberLimitExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNumberLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceNumberLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNumberLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>Contains details about an error related to a transaction commit that was in progress.</p>
  * @public
  */
@@ -269,33 +296,6 @@ export class TransactionCanceledException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TransactionCanceledException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A resource numerical limit was exceeded.</p>
- * @public
- */
-export class ResourceNumberLimitExceededException extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.lakeformation#ResourceNumberLimitExceededException";
-  readonly name = "ResourceNumberLimitExceededException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>A message describing the problem.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNumberLimitExceededException, __BaseException>) {
-    super({
-      name: "ResourceNumberLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNumberLimitExceededException.prototype);
     this.Message = opts.Message;
   }
 }
