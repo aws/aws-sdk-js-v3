@@ -353,6 +353,10 @@ export interface GetShardIteratorInput {
    *                   <code>LATEST</code> - Start reading just after the most recent stream record in the
    *           shard, so that you always read the most recent data in the shard.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AT_TIMESTAMP</code> - Start reading from the position denoted by a specific timestamp, provided in the parameter <code>Timestamp</code>.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -363,6 +367,19 @@ export interface GetShardIteratorInput {
    * @public
    */
   SequenceNumber?: string | undefined;
+
+  /**
+   * <p>The timestamp of the stream record from which to start reading. Used with shard
+   *       iterator type <code>AT_TIMESTAMP</code>. A timestamp is the Unix epoch date with precision in
+   *       milliseconds. For example, <code>1791316726.480</code>. The iterator points to the first stream record whose
+   *       <code>ApproximateCreationDateTime</code> is at or after the specified timestamp. If no record
+   *       with that exact timestamp exists, the iterator points to the next (later) record. If the
+   *       timestamp is older than the current trim horizon, the iterator points to the oldest
+   *       untrimmed stream record (<code>TRIM_HORIZON</code>). If the timestamp is in the future,
+   *       the request returns a <code>ValidationException</code>.</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
 }
 
 /**
@@ -743,7 +760,8 @@ export namespace AttributeValue {
  */
 export interface StreamRecord {
   /**
-   * <p>The approximate date and time when the stream record was created, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format and rounded down to the closest second.</p>
+   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format and rounded down to the closest second.
+   *             Some tools and SDKs may convert this value to a different format, such as <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>.</p>
    * @public
    */
   ApproximateCreationDateTime?: Date | undefined;

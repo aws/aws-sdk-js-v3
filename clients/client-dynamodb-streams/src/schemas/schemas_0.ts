@@ -70,9 +70,10 @@ const _S_ = "S";
 const _Sh = "Shard";
 const _Sha = "Shards";
 const _St = "Stream";
-const _T = "Type";
+const _T = "Timestamp";
 const _TDAE = "TrimmedDataAccessException";
 const _TN = "TableName";
+const _Ty = "Type";
 const _aR = "awsRegion";
 const _c = "client";
 const _d = "dynamodb";
@@ -173,8 +174,8 @@ export var GetRecordsOutput$: StaticStructureSchema = [3, n0, _GRO,
 ];
 export var GetShardIteratorInput$: StaticStructureSchema = [3, n0, _GSII,
   0,
-  [_SA, _SIh, _SIT, _SN],
-  [0, 0, 0, 0], 3
+  [_SA, _SIh, _SIT, _SN, _T],
+  [0, 0, 0, 0, 4], 3
 ];
 export var GetShardIteratorOutput$: StaticStructureSchema = [3, n0, _GSIO,
   0,
@@ -183,7 +184,7 @@ export var GetShardIteratorOutput$: StaticStructureSchema = [3, n0, _GSIO,
 ];
 export var Identity$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_PI, _T],
+  [_PI, _Ty],
   [0, 0]
 ];
 export var KeySchemaElement$: StaticStructureSchema = [3, n0, _KSE,
@@ -218,7 +219,7 @@ export var Shard$: StaticStructureSchema = [3, n0, _Sh,
 ];
 export var ShardFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
-  [_T, _SIh],
+  [_Ty, _SIh],
   [0, 0]
 ];
 export var _Stream$: StaticStructureSchema = [3, n0, _St,
