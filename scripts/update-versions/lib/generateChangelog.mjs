@@ -52,6 +52,7 @@ export async function generateInternalPackageChangelogs() {
 
   const graph = new Graph();
   const changed = [];
+  const packagePathByName = {};
   for (const baseDir of INDEPENDENT_PACKAGE_FOLDERS) {
     const baseDirPath = path.join(root, baseDir);
     if (!fs.existsSync(baseDirPath)) {
@@ -60,6 +61,7 @@ export async function generateInternalPackageChangelogs() {
     for (const packagePath of listFolders(baseDirPath, false)) {
       const pkgJson = JSON.parse(fs.readFileSync(path.join(packagePath, "package.json"), "utf-8"));
       graph.register(pkgJson);
+      packagePathByName[pkgJson.name] = packagePath;
 
       const pkgName = await generateChangelog(packagePath, since);
       if (pkgName) {
@@ -71,7 +73,10 @@ export async function generateInternalPackageChangelogs() {
   const transitiveDeps = [...graph.getTransitiveDependencySet(changed)].filter((p) => !changed.includes(p));
 
   for (const pkg of transitiveDeps) {
-    const location = path.join(root, "packages-internal", pkg.replace("@aws-sdk/", ""));
+    // Independently-versioned packages are spread across preview/ and packages-internal/
+    // folder, so the location is the one recorded while registering the package
+    // rather than one derived from its name.
+    const location = packagePathByName[pkg];
     await generateTransitiveChangelog(location);
   }
 }
