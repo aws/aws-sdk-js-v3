@@ -122,6 +122,7 @@ const _CCI = "CoveredContainerInstances";
 const _CCIo = "CompatibleContainerInstances";
 const _CD = "CloudDetails";
 const _CDR = "CreateDetectorRequest";
+const _CDRN = "CustomDetectionRuleName";
 const _CDRr = "CreateDetectorResponse";
 const _CDo = "ConnectionDirection";
 const _CDon = "ContainerDetails";
@@ -283,12 +284,17 @@ const _DPDRes = "DescribePublishingDestinationRequest";
 const _DPDResc = "DescribePublishingDestinationResponse";
 const _DPDe = "DescribePublishingDestination";
 const _DRA = "DnsRequestAction";
+const _DREFR = "DetectionRuleEcsFargateRequirements";
+const _DRER = "DetectionRuleEc2Requirements";
+const _DRERe = "DetectionRuleEksRequirements";
 const _DRF = "DetectionRuleFilter";
 const _DRFL = "DetectionRuleFilterList";
 const _DRI = "DbiResourceId";
 const _DROC = "DetectionRuleOrgConfiguration";
 const _DROCS = "DetectionRuleOrgConfigurationSummary";
 const _DROCSL = "DetectionRuleOrgConfigurationSummaryList";
+const _DRRMD = "DetectionRuleRuntimeMonitoringDetails";
+const _DRRP = "DetectionRuleRuntimePlatforms";
 const _DS = "DataSources";
 const _DSC = "DataSourceConfigurations";
 const _DSCR = "DataSourceConfigurationsResult";
@@ -331,6 +337,7 @@ const _ECDc = "EcsClusterDetails";
 const _ECc = "EcsCluster";
 const _ECk = "EksCluster";
 const _ED = "ErrorDetails";
+const _EF = "EcsFargate";
 const _EFS = "EventFirstSeen";
 const _EI = "Ec2Image";
 const _EID = "Ec2InstanceDetails";
@@ -365,6 +372,8 @@ const _EVb = "EbsVolumes";
 const _EVbs = "EbsVolume";
 const _EVn = "EngineVersion";
 const _EVq = "EqualsValue";
+const _Ec = "Ec2";
+const _Ek = "Eks";
 const _En = "Enable";
 const _End = "Endpoints";
 const _Eng = "Engine";
@@ -684,6 +693,7 @@ const _MACRe = "MemberAdditionalConfigurationResults";
 const _MACe = "MemberAccountsCount";
 const _MACem = "MemberAdditionalConfigurations";
 const _MALR = "MemberAccountLimitReached";
+const _MAV = "MinAgentVersion";
 const _MB = "ManagedBy";
 const _MD = "ModelDetail";
 const _MDSC = "MemberDataSourceConfigurations";
@@ -819,7 +829,8 @@ const _Pa = "Path";
 const _Par = "Partition";
 const _Para = "Parameters";
 const _Pi = "Pid";
-const _Pl = "Platform";
+const _Pl = "Platforms";
+const _Pla = "Platform";
 const _Po = "Port";
 const _Pr = "Profiles";
 const _Pri = "Privileged";
@@ -851,6 +862,7 @@ const _RIev = "RevisionId";
 const _RL = "RiskLevel";
 const _RLAA = "RdsLoginAttemptAction";
 const _RLDD = "RdsLimitlessDbDetails";
+const _RMD = "RuntimeMonitoringDetails";
 const _RN = "ResourceName";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "RecoveryPoint";
@@ -1227,6 +1239,7 @@ const _cC = "countryCode";
 const _cCI = "coveredContainerInstances";
 const _cCIo = "compatibleContainerInstances";
 const _cD = "connectionDirection";
+const _cDRN = "customDetectionRuleName";
 const _cDo = "containerDetails";
 const _cID = "containerInstanceDetails";
 const _cK = "criterionKey";
@@ -1307,6 +1320,7 @@ const _eCDc = "ecsClusterDetails";
 const _eCc = "ecsCluster";
 const _eCk = "eksCluster";
 const _eD = "errorDetails";
+const _eF = "ecsFargate";
 const _eFS = "eventFirstSeen";
 const _eI = "ec2Instance";
 const _eID = "ec2InstanceDetails";
@@ -1336,6 +1350,8 @@ const _eVb = "ebsVolumes";
 const _eVbs = "ebsVolume";
 const _eVc = "ec2Vpc";
 const _eVn = "engineVersion";
+const _ec = "ec2";
+const _ek = "eks";
 const _em = "email";
 const _en = "enable";
 const _end = "endpoints";
@@ -1492,6 +1508,7 @@ const _m = "message";
 const _mA = "modifiedAt";
 const _mAC = "memberAccountsCount";
 const _mALR = "memberAccountLimitReached";
+const _mAV = "minAgentVersion";
 const _mB = "managedBy";
 const _mD = "modelDetails";
 const _mE = "mapEquals";
@@ -1572,7 +1589,8 @@ const _pa = "path";
 const _par = "partition";
 const _para = "parameters";
 const _pi = "pid";
-const _pl = "platform";
+const _pl = "platforms";
+const _pla = "platform";
 const _po = "port";
 const _pr = "profiles";
 const _pri = "privileged";
@@ -1600,6 +1618,7 @@ const _rIev = "revisionId";
 const _rL = "riskLevel";
 const _rLAA = "rdsLoginAttemptAction";
 const _rLDD = "rdsLimitlessDbDetails";
+const _rMD = "runtimeMonitoringDetails";
 const _rN = "resourceName";
 const _rP = "recoveryPoint";
 const _rPA = "recoveryPointArn";
@@ -2479,6 +2498,21 @@ export var Detection$: StaticStructureSchema = [3, n0, _Det,
   [_An, _Seq],
   [[() => Anomaly$, { [_jN]: _an }], [() => Sequence$, { [_jN]: _seq }]]
 ];
+export var DetectionRuleEc2Requirements$: StaticStructureSchema = [3, n0, _DRER,
+  0,
+  [_MAV],
+  [[0, { [_jN]: _mAV }]]
+];
+export var DetectionRuleEcsFargateRequirements$: StaticStructureSchema = [3, n0, _DREFR,
+  0,
+  [_MAV],
+  [[0, { [_jN]: _mAV }]]
+];
+export var DetectionRuleEksRequirements$: StaticStructureSchema = [3, n0, _DRERe,
+  0,
+  [_MAV],
+  [[0, { [_jN]: _mAV }]]
+];
 export var DetectionRuleFilter$: StaticStructureSchema = [3, n0, _DRF,
   0,
   [_N, _Va, _Co],
@@ -2493,6 +2527,16 @@ export var DetectionRuleOrgConfigurationSummary$: StaticStructureSchema = [3, n0
   0,
   [_RI, _Mo, _St, _CA, _UAp, _SR, _EA],
   [[0, { [_jN]: _rI }], [0, { [_jN]: _mo }], [0, { [_jN]: _st }], [4, { [_jN]: _cA }], [4, { [_jN]: _uAp }], [0, { [_jN]: _sR }], [4, { [_jN]: _eA }]], 5
+];
+export var DetectionRuleRuntimeMonitoringDetails$: StaticStructureSchema = [3, n0, _DRRMD,
+  0,
+  [_Pl],
+  [[() => DetectionRuleRuntimePlatforms$, { [_jN]: _pl }]]
+];
+export var DetectionRuleRuntimePlatforms$: StaticStructureSchema = [3, n0, _DRRP,
+  0,
+  [_Ek, _Ec, _EF],
+  [[() => DetectionRuleEksRequirements$, { [_jN]: _ek }], [() => DetectionRuleEc2Requirements$, { [_jN]: _ec }], [() => DetectionRuleEcsFargateRequirements$, { [_jN]: _eF }]]
 ];
 export var DetectorAdditionalConfiguration$: StaticStructureSchema = [3, n0, _DAC,
   0,
@@ -2606,8 +2650,8 @@ export var Ec2ImageDetails$: StaticStructureSchema = [3, n0, _EIDc,
 ];
 export var Ec2Instance$: StaticStructureSchema = [3, n0, _EIc,
   0,
-  [_AZ, _ID, _IS, _IIP, _IT, _OA, _Pl, _PC, _ENIU],
-  [[0, { [_jN]: _aZ }], [0, { [_jN]: _iD }], [0, { [_jN]: _iS }], [() => IamInstanceProfile$, 0], [0, { [_jN]: _iT }], [0, { [_jN]: _oA }], [0, { [_jN]: _pl }], [() => ProductCodes, { [_jN]: _pC }], [64 | 0, { [_jN]: _eNIU }]]
+  [_AZ, _ID, _IS, _IIP, _IT, _OA, _Pla, _PC, _ENIU],
+  [[0, { [_jN]: _aZ }], [0, { [_jN]: _iD }], [0, { [_jN]: _iS }], [() => IamInstanceProfile$, 0], [0, { [_jN]: _iT }], [0, { [_jN]: _oA }], [0, { [_jN]: _pla }], [() => ProductCodes, { [_jN]: _pC }], [64 | 0, { [_jN]: _eNIU }]]
 ];
 export var Ec2LaunchTemplate$: StaticStructureSchema = [3, n0, _ELT,
   0,
@@ -2691,8 +2735,8 @@ export var FilterCriterion$: StaticStructureSchema = [3, n0, _FC,
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _Fi,
   0,
-  [_AIc, _Ar, _CA, _I, _R, _Res, _SV, _Sev, _T, _UAp, _Conf, _D, _Par, _Se, _Ti, _AASA],
-  [[0, { [_jN]: _aIc }], [0, { [_jN]: _ar }], [0, { [_jN]: _cA }], [0, { [_jN]: _i }], [0, { [_jN]: _r }], [() => Resource$, { [_jN]: _res }], [0, { [_jN]: _sV }], [1, { [_jN]: _sev }], [0, { [_jN]: _t }], [0, { [_jN]: _uAp }], [1, { [_jN]: _co }], [0, { [_jN]: _d }], [0, { [_jN]: _par }], [() => Service$, { [_jN]: _ser }], [0, { [_jN]: _ti }], [0, { [_jN]: _aASA }]], 10
+  [_AIc, _Ar, _CA, _I, _R, _Res, _SV, _Sev, _T, _UAp, _Conf, _D, _Par, _Se, _Ti, _AASA, _CDRN],
+  [[0, { [_jN]: _aIc }], [0, { [_jN]: _ar }], [0, { [_jN]: _cA }], [0, { [_jN]: _i }], [0, { [_jN]: _r }], [() => Resource$, { [_jN]: _res }], [0, { [_jN]: _sV }], [1, { [_jN]: _sev }], [0, { [_jN]: _t }], [0, { [_jN]: _uAp }], [1, { [_jN]: _co }], [0, { [_jN]: _d }], [0, { [_jN]: _par }], [() => Service$, { [_jN]: _ser }], [0, { [_jN]: _ti }], [0, { [_jN]: _aASA }], [0, { [_jN]: _cDRN }]], 10
 ];
 export var FindingCriteria$: StaticStructureSchema = [3, n0, _FCin,
   0,
@@ -3001,8 +3045,8 @@ export var Indicator$: StaticStructureSchema = [3, n0, _Ind,
 ];
 export var InstanceDetails$: StaticStructureSchema = [3, n0, _IDn,
   0,
-  [_AZ, _IIP, _ID, _IIm, _IIn, _IS, _IT, _OA, _LTau, _NI, _Pl, _PC, _Ta],
-  [[0, { [_jN]: _aZ }], [() => IamInstanceProfile$, { [_jN]: _iIP }], [0, { [_jN]: _iD }], [0, { [_jN]: _iIm }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iS }], [0, { [_jN]: _iT }], [0, { [_jN]: _oA }], [0, { [_jN]: _lTau }], [() => NetworkInterfaces, { [_jN]: _nI }], [0, { [_jN]: _pl }], [() => ProductCodes, { [_jN]: _pC }], [() => Tags, { [_jN]: _ta }]]
+  [_AZ, _IIP, _ID, _IIm, _IIn, _IS, _IT, _OA, _LTau, _NI, _Pla, _PC, _Ta],
+  [[0, { [_jN]: _aZ }], [() => IamInstanceProfile$, { [_jN]: _iIP }], [0, { [_jN]: _iD }], [0, { [_jN]: _iIm }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iS }], [0, { [_jN]: _iT }], [0, { [_jN]: _oA }], [0, { [_jN]: _lTau }], [() => NetworkInterfaces, { [_jN]: _nI }], [0, { [_jN]: _pla }], [() => ProductCodes, { [_jN]: _pC }], [() => Tags, { [_jN]: _ta }]]
 ];
 export var Investigation$: StaticStructureSchema = [3, n0, _In,
   0,
@@ -3701,8 +3745,8 @@ export var RuleDefinition$: StaticStructureSchema = [3, n0, _RDu,
 ];
 export var RuleDetail$: StaticStructureSchema = [3, n0, _RDul,
   0,
-  [_RI, _Ar, _N, _D, _Sev, _DSat, _Tac, _Tec, _Se, _Def, _CA, _Lan, _Sch, _UAp],
-  [[0, { [_jN]: _rI }], [0, { [_jN]: _ar }], [0, { [_jN]: _n }], [0, { [_jN]: _d }], [0, { [_jN]: _sev }], [0, { [_jN]: _dSa }], [0, { [_jN]: _tac }], [0, { [_jN]: _tec }], [0, { [_jN]: _ser }], [() => RuleDefinition$, { [_jN]: _def }], [4, { [_jN]: _cA }], [0, { [_jN]: _lan }], [0, { [_jN]: _sch }], [4, { [_jN]: _uAp }]], 11
+  [_RI, _Ar, _N, _D, _Sev, _DSat, _Tac, _Tec, _Se, _Def, _CA, _Lan, _Sch, _RMD, _UAp],
+  [[0, { [_jN]: _rI }], [0, { [_jN]: _ar }], [0, { [_jN]: _n }], [0, { [_jN]: _d }], [0, { [_jN]: _sev }], [0, { [_jN]: _dSa }], [0, { [_jN]: _tac }], [0, { [_jN]: _tec }], [0, { [_jN]: _ser }], [() => RuleDefinition$, { [_jN]: _def }], [4, { [_jN]: _cA }], [0, { [_jN]: _lan }], [0, { [_jN]: _sch }], [() => DetectionRuleRuntimeMonitoringDetails$, { [_jN]: _rMD }], [4, { [_jN]: _uAp }]], 11
 ];
 export var RuleSummary$: StaticStructureSchema = [3, n0, _RSu,
   0,

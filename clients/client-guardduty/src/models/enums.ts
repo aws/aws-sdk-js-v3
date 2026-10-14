@@ -927,6 +927,7 @@ export type DetectionRuleConfigurationStatus =
  */
 export const DetectionRuleDataSource = {
   CLOUDTRAIL_MANAGEMENT_EVENT: "CloudTrailManagementEvent",
+  RUNTIME_MONITORING: "RuntimeMonitoring",
 } as const;
 /**
  * @public

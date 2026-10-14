@@ -1160,6 +1160,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //       Type: "STRING_VALUE", // required
  * //       UpdatedAt: "STRING_VALUE", // required
  * //       AssociatedAttackSequenceArn: "STRING_VALUE",
+ * //       CustomDetectionRuleName: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

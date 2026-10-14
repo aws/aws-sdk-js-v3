@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetCustomDetectionRuleRequest, GetCustomDetectionRuleResponse } from "../models/models_0";
+import type { GetCustomDetectionRuleRequest } from "../models/models_0";
+import type { GetCustomDetectionRuleResponse } from "../models/models_1";
 import { GetCustomDetectionRule$ } from "../schemas/schemas_0";
 
 /**
@@ -44,7 +45,7 @@ export interface GetCustomDetectionRuleCommandOutput extends GetCustomDetectionR
  * //     Name: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE", // required
  * //     Severity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW", // required
- * //     DataSource: "CloudTrailManagementEvent", // required
+ * //     DataSource: "CloudTrailManagementEvent" || "RuntimeMonitoring", // required
  * //     Tactic: "STRING_VALUE", // required
  * //     Technique: "STRING_VALUE", // required
  * //     Service: "STRING_VALUE", // required
@@ -53,6 +54,19 @@ export interface GetCustomDetectionRuleCommandOutput extends GetCustomDetectionR
  * //     },
  * //     Language: "SQL",
  * //     Schema: "CloudTrail",
+ * //     RuntimeMonitoringDetails: { // DetectionRuleRuntimeMonitoringDetails
+ * //       Platforms: { // DetectionRuleRuntimePlatforms
+ * //         Eks: { // DetectionRuleEksRequirements
+ * //           MinAgentVersion: "STRING_VALUE",
+ * //         },
+ * //         Ec2: { // DetectionRuleEc2Requirements
+ * //           MinAgentVersion: "STRING_VALUE",
+ * //         },
+ * //         EcsFargate: { // DetectionRuleEcsFargateRequirements
+ * //           MinAgentVersion: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
  * //     CreatedAt: new Date("TIMESTAMP"), // required
  * //     UpdatedAt: new Date("TIMESTAMP"),
  * //   },
