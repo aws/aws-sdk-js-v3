@@ -8,6 +8,9 @@ export { setCredentialFeature } from "./setCredentialFeature";
 export { setFeature } from "./setFeature";
 export { setTokenFeature } from "./setTokenFeature";
 
+// JS-7140 default socket timeout
+export { isDefaultSocketTimeoutEnabled, withDefaultSocketTimeout } from "./default-socket-timeout";
+
 // middleware-host-header
 export {
   hostHeaderMiddleware,

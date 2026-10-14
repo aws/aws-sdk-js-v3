@@ -131,7 +131,7 @@ public class AddWebsocketPlugin implements TypeScriptIntegration {
         }
     }
 
-    private static boolean isWebsocketSupported(ServiceShape service) {
+    static boolean isWebsocketSupported(ServiceShape service) {
         Set<String> websocketServices = SetUtils.of("Transcribe Streaming", "RekognitionStreaming", "Bedrock Runtime");
         String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
         return websocketServices.contains(serviceId);
