@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1151.0...v3.1152.0) (2026-10-14)
+
+
+### Features
+
+* **client-cloudfront:** This release adds a new "IpAddressType" field to "VPCOriginEndpointConfig", allowing customers to specify whether their VPC origin accepts IPv4-only or dualstack connections. ([6bae641](https://github.com/aws/aws-sdk-js-v3/commit/6bae6413938d6e5c07943f48c1e5d84d8283f7bb))
+
+
+
+
+
 # [3.1151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1150.0...v3.1151.0) (2026-10-13)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudfront

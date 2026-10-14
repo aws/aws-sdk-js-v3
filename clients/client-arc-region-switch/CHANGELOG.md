@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1151.0...v3.1152.0) (2026-10-14)
+
+
+### Features
+
+* **client-arc-region-switch:** Features - Adds support for an optional payload to invoke the Lambda function with as part of the Custom action Lambda execution block ([d21aa72](https://github.com/aws/aws-sdk-js-v3/commit/d21aa72b05ec8c1e32822574fbabacaafa799382))
+
+
+
+
+
 # [3.1151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1150.0...v3.1151.0) (2026-10-13)
 
 

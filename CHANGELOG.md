@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1151.0...v3.1152.0) (2026-10-14)
+
+
+### Features
+
+* **client-arc-region-switch:** Features - Adds support for an optional payload to invoke the Lambda function with as part of the Custom action Lambda execution block ([d21aa72](https://github.com/aws/aws-sdk-js-v3/commit/d21aa72b05ec8c1e32822574fbabacaafa799382))
+* **client-bedrock-agentcore-control:** This release supports scoping Amazon Bedrock AgentCore Gateway rate limits by request header or request body field. ([30c5bca](https://github.com/aws/aws-sdk-js-v3/commit/30c5bca25f88043a285593ca76ecb3d36dce6206))
+* **client-cloudfront:** This release adds a new "IpAddressType" field to "VPCOriginEndpointConfig", allowing customers to specify whether their VPC origin accepts IPv4-only or dualstack connections. ([6bae641](https://github.com/aws/aws-sdk-js-v3/commit/6bae6413938d6e5c07943f48c1e5d84d8283f7bb))
+* **client-dynamodb-streams:** Add support for a new iterator type (AT TIMESTAMP) for DynamoDB Streams GetShardIterator API that allows reading from a specific point in time from the stream. ([150e6ae](https://github.com/aws/aws-sdk-js-v3/commit/150e6ae315ed77756d261a62d4598c0208195c9a))
+* **client-ec2:** Adds T8i instance sizes to the InstanceType enum. T8i instances are low-cost burstable instances powered by custom sixth generation Intel Xeon 6 processors, available exclusively on AWS, and built on the latest sixth generation AWS Nitro cards ([65c6056](https://github.com/aws/aws-sdk-js-v3/commit/65c6056b0bc8fab6261ac7b52e8a3421a4281152))
+* **client-guardduty:** Releasing support for Custom Detection Rule Runtime Monitoring ([0cb32b8](https://github.com/aws/aws-sdk-js-v3/commit/0cb32b8fef5d0f269c6cc4d5ad599f2fb819fc09))
+* **client-imagebuilder:** This release adds parentInstance to infrastructure configurations, so builds can use an already-running instance from an Amazon EC2 Auto Scaling group. It also adds terminateInstanceOnCompletion, which keeps build and test instances running after image creation ends. ([e8a5e26](https://github.com/aws/aws-sdk-js-v3/commit/e8a5e26b4bd8fafd9332718ed4619ecc4e31d37a))
+* **client-lambda:** AWS Lambda now supports an optional X-Ray trace header for chained invocations in durable executions, enabling child invocations to be linked to the initiating span. ([08219be](https://github.com/aws/aws-sdk-js-v3/commit/08219be0475f234f09f35b3e461d7a12d69f3dd2))
+* **client-organizations:** With dual-stack enabled, all requests now resolve to the endpoint in the partition's primary Region (for example, organizations.us-east-1.api.aws) and are signed for that Region. Previously, requests from other Regions resolved to a nonexistent endpoint. No API changes. ([9324745](https://github.com/aws/aws-sdk-js-v3/commit/9324745e8c9c2c684a636fe2e307be3fe0571b22))
+* **client-transfer:** AWS Transfer Family now lets you store SFTP server host keys in AWS Secrets Manager in your own AWS account. This gives you greater control over your server identity and helps simplify server migrations and failover. ([9d0e886](https://github.com/aws/aws-sdk-js-v3/commit/9d0e88661d8029e1715580646e67e8594e786417))
+* **clients:** update client endpoints as of 2026-10-14 ([91a8a07](https://github.com/aws/aws-sdk-js-v3/commit/91a8a07c64dbb5cfb15497d8a5f2ae1f5b2608ad))
+* **lib-transfer-manager:** publish as a preview package ([#8355](https://github.com/aws/aws-sdk-js-v3/issues/8355)) ([4108092](https://github.com/aws/aws-sdk-js-v3/commit/41080929c1e5a81980f0bda4a35eadd0b6e048a9))
+
+
+
+
+
 # [3.1151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1150.0...v3.1151.0) (2026-10-13)
 
 

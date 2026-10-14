@@ -10,6 +10,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 > this note use the former lockstep version numbers and were never published to npm.
 
 
+
+# 0.1.0 (2026-10-14)
+### Features
+* **lib-transfer-manager:** publish as a preview package ([#8355](https://github.com/aws/aws-sdk-js-v3/issues/8355)) ([4108092](https://github.com/aws/aws-sdk-js-v3/commit/41080929c1e5a81980f0bda4a35eadd0b6e048a9))
+
+
+
 # 0.0.0 (2026-10-13)
 ### Chores
 * **lib-transfer-manager:** move lib-transfer-manager to preview/ folder ([#8351](https://github.com/aws/aws-sdk-js-v3/issues/8351)) ([5037a00](https://github.com/aws/aws-sdk-js-v3/commit/5037a0065a1f6ae6a87ff7ce4884e3ef3be61a64))

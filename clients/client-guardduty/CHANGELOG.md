@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1151.0...v3.1152.0) (2026-10-14)
+
+
+### Features
+
+* **client-guardduty:** Releasing support for Custom Detection Rule Runtime Monitoring ([0cb32b8](https://github.com/aws/aws-sdk-js-v3/commit/0cb32b8fef5d0f269c6cc4d5ad599f2fb819fc09))
+
+
+
+
+
 # [3.1151.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1150.0...v3.1151.0) (2026-10-13)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty

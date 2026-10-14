@@ -47,7 +47,7 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.978.3",
     "@aws-sdk/nested-clients": "workspace:^3.997.48",
-    "@aws-sdk/token-providers": "workspace:3.1151.0",
+    "@aws-sdk/token-providers": "workspace:3.1152.0",
     "@aws-sdk/types": "workspace:^3.974.6",
     "@smithy/core": "^3.35.2",
     "@smithy/types": "^4.19.0",
