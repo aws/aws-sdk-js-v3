@@ -4,11 +4,6 @@
  */
 package software.amazon.smithy.aws.typescript.codegen;
 
-import java.io.IOException;
-import java.io.UncheckedIOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.model.Model;
@@ -20,7 +15,7 @@ import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegrati
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
- * Adds the DynamoDB BatchGet paginators to the generated clients.
+ * Adds the DynamoDB BatchGet paginator to the generated document client.
  */
 @SmithyInternalApi
 public final class AddBatchGetPaginatorPlugin implements TypeScriptIntegration {
@@ -50,31 +45,9 @@ public final class AddBatchGetPaginatorPlugin implements TypeScriptIntegration {
 
         context.writerDelegator()
             .useFileWriter(
-                BatchGetPaginatorGenerator.LOW_LEVEL_FILE,
-                BatchGetPaginatorGenerator::generateLowLevel
-            );
-        context.writerDelegator()
-            .useFileWriter(
                 BatchGetPaginatorGenerator.DOCUMENT_FILE,
                 BatchGetPaginatorGenerator::generateDocument
             );
-        String lowLevelExport = "export * from \"./PaginatedBatchGetItem\";";
-        try {
-            String index = Files.readString(
-                context.fileManifest().resolvePath(Paths.get(BatchGetPaginatorGenerator.LOW_LEVEL_INDEX)),
-                StandardCharsets.UTF_8
-            );
-            if (!index.contains(lowLevelExport)) {
-                context.fileManifest()
-                    .writeFile(
-                        BatchGetPaginatorGenerator.LOW_LEVEL_INDEX,
-                        index + (index.endsWith("\n") ? "" : "\n") + lowLevelExport + "\n"
-                    );
-            }
-        } catch (IOException exception) {
-            throw new UncheckedIOException("Unable to update the DynamoDB pagination index", exception);
-        }
-
         TypeScriptWriter documentIndex = context.writerDelegator()
             .getWriters()
             .get(DocumentClientPaginationGenerator.getIndexFilelocation());

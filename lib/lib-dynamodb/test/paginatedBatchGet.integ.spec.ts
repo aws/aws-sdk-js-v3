@@ -1,6 +1,6 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
-import { DynamoDBDocumentClient, paginatedBatchGet } from "@aws-sdk/lib-dynamodb";
+import { DynamoDBDocument, DynamoDBDocumentClient, paginatedBatchGet } from "@aws-sdk/lib-dynamodb";
 import { HttpResponse } from "@smithy/core/protocols";
 import { toUtf8 } from "@smithy/core/serde";
 import { describe, expect, test as it } from "vitest";
@@ -53,6 +53,58 @@ describe("paginatedBatchGet", () => {
     }
 
     expect(pages.map((page) => page.Responses)).toEqual([{ table: [{ id: "1" }] }, { table: [{ id: "2" }] }]);
+    expect(input.RequestItems).toEqual({ table: { Keys: [{ id: "1" }, { id: "2" }] } });
+  });
+
+  it("exposes BatchGet pagination on the aggregated document client", async () => {
+    const baseClient = new DynamoDB({
+      credentials: { accessKeyId: "INTEG_TEST", secretAccessKey: "INTEG_TEST" },
+      region: "us-west-2",
+    });
+    const ddb = DynamoDBDocument.from(baseClient);
+    const input = { RequestItems: { table: { Keys: [{ id: "1" }, { id: "2" }] } } };
+
+    requireRequestsFrom(ddb)
+      .toMatch(
+        {
+          body(body) {
+            expect(JSON.parse(toUtf8(body)).RequestItems).toEqual({
+              table: { Keys: [{ id: { S: "1" } }, { id: { S: "2" } }] },
+            });
+          },
+        },
+        {
+          body(body) {
+            expect(JSON.parse(toUtf8(body)).RequestItems).toEqual({
+              table: { Keys: [{ id: { S: "2" } }] },
+            });
+          },
+        }
+      )
+      .respondWith(
+        new HttpResponse({
+          statusCode: 200,
+          headers: {},
+          body: Buffer.from(
+            JSON.stringify({
+              Responses: { table: [{ id: { S: "1" } }] },
+              UnprocessedKeys: { table: { Keys: [{ id: { S: "2" } }] } },
+            })
+          ),
+        }),
+        new HttpResponse({
+          statusCode: 200,
+          headers: {},
+          body: Buffer.from(JSON.stringify({ Responses: { table: [{ id: { S: "2" } }] }, UnprocessedKeys: {} })),
+        })
+      );
+
+    const pages = [];
+    for await (const page of ddb.paginatedBatchGet(input)) {
+      pages.push(page.Responses?.table);
+    }
+
+    expect(pages).toEqual([[{ id: "1" }], [{ id: "2" }]]);
     expect(input.RequestItems).toEqual({ table: { Keys: [{ id: "1" }, { id: "2" }] } });
   });
 
@@ -114,10 +166,7 @@ describe("paginatedBatchGet", () => {
       pages.push(page);
     }
 
-    expect(pages.map((page) => page.Responses)).toEqual([
-      { first: [{ id: "1" }] },
-      { second: [{ id: "2" }] },
-    ]);
+    expect(pages.map((page) => page.Responses)).toEqual([{ first: [{ id: "1" }] }, { second: [{ id: "2" }] }]);
     expect(input.RequestItems).toEqual({
       first: { Keys: [{ id: "1" }] },
       second: { Keys: [{ id: "2" }] },
@@ -156,10 +205,7 @@ describe("paginatedBatchGet", () => {
           body: Buffer.from(
             JSON.stringify({
               Responses: {
-                table: [
-                  { id: { S: "2" } },
-                  { id: { S: "1" } },
-                ],
+                table: [{ id: { S: "2" } }, { id: { S: "1" } }],
               },
               UnprocessedKeys: unprocessedKeys,
             })

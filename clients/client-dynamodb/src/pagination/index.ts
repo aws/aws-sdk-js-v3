@@ -6,4 +6,3 @@ export * from "./ListImportsPaginator";
 export * from "./ListTablesPaginator";
 export * from "./QueryPaginator";
 export * from "./ScanPaginator";
-export * from "./PaginatedBatchGetItem";

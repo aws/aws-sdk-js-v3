@@ -4,27 +4,43 @@
  */
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.nio.file.Paths;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
- * Generates DynamoDB BatchGet paginators, which use UnprocessedKeys rather than a pagination token.
+ * Generates the DynamoDB document client BatchGet paginator, which uses UnprocessedKeys rather than a pagination token.
  */
 @SmithyInternalApi
 final class BatchGetPaginatorGenerator {
-    static final String LOW_LEVEL_PAGINATION_FOLDER = "src/pagination";
-    static final String LOW_LEVEL_FILE = LOW_LEVEL_PAGINATION_FOLDER + "/PaginatedBatchGetItem.ts";
-    static final String LOW_LEVEL_INDEX = LOW_LEVEL_PAGINATION_FOLDER + "/index.ts";
     static final String DOCUMENT_FILE = "doc-client-pagination/PaginatedBatchGet.ts";
 
     private BatchGetPaginatorGenerator() {}
 
-    static void generateLowLevel(TypeScriptWriter writer) {
-        generate(writer, "BatchGetItem", "DynamoDBClient", "paginatedBatchGetItem");
-    }
-
     static void generateDocument(TypeScriptWriter writer) {
         generate(writer, "BatchGet", "DynamoDBDocumentClient", "paginatedBatchGet");
+    }
+
+    static void generateAggregatedClientMethod(TypeScriptWriter writer, String inputType, String outputType) {
+        writer.addRelativeImport(
+            "paginatedBatchGet",
+            "paginatedBatchGet",
+            Paths.get(".", DocumentClientPaginationGenerator.PAGINATION_FOLDER, "PaginatedBatchGet")
+        );
+        writer.writeDocs(
+            "Issues BatchGet requests until every key is processed. Each response is yielded as a page.\n"
+                + "When a response contains unprocessed keys, the next request includes only those keys.\n"
+                + "Each BatchGet request must contain no more than 100 items."
+        );
+        writer.write(
+            """
+            public paginatedBatchGet(args: $1L): AsyncGenerator<$2L> {
+              return paginatedBatchGet({ client: this }, args);
+            }
+            """,
+            inputType,
+            outputType
+        );
     }
 
     private static void generate(TypeScriptWriter writer, String operation, String client, String function) {
