@@ -68,6 +68,7 @@ export interface CheckpointDurableExecutionCommandOutput extends CheckpointDurab
  *       ChainedInvokeOptions: { // ChainedInvokeOptions
  *         FunctionName: "STRING_VALUE", // required
  *         TenantId: "STRING_VALUE",
+ *         XAmznTraceId: "STRING_VALUE",
  *       },
  *     },
  *   ],
