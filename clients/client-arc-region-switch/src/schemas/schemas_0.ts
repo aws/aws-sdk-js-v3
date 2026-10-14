@@ -68,7 +68,7 @@ const _L = "Lambdas";
 const _LESMC = "LambdaEventSourceMappingConfiguration";
 const _LESMU = "LambdaEventSourceMappingUngraceful";
 const _LL = "LambdaList";
-const _LP = "ListPlans";
+const _LP = "LambdaPayload";
 const _LPE = "ListPlanExecutions";
 const _LPEE = "ListPlanExecutionEvents";
 const _LPEER = "ListPlanExecutionEventsRequest";
@@ -80,6 +80,7 @@ const _LPIRR = "ListPlansInRegionRequest";
 const _LPIRRi = "ListPlansInRegionResponse";
 const _LPR = "ListPlansRequest";
 const _LPRi = "ListPlansResponse";
+const _LPi = "ListPlans";
 const _LRHC = "ListRoute53HealthChecks";
 const _LRHCIR = "ListRoute53HealthChecksInRegion";
 const _LRHCIRR = "ListRoute53HealthChecksInRegionRequest";
@@ -253,7 +254,8 @@ const _pC = "parallelConfig";
 const _pEI = "previousEventId";
 const _pR = "primaryRegion";
 const _pV = "planVersion";
-const _pa = "parameters";
+const _pa = "payload";
+const _par = "parameters";
 const _pl = "plans";
 const _qC = "quotaCode";
 const _qN = "quotaName";
@@ -340,6 +342,7 @@ import type {
   StaticListSchema,
   StaticMapSchema,
   StaticOperationSchema,
+  StaticSimpleSchema,
   StaticStructureSchema,
   StaticUnionSchema,
 } from "@smithy/types";
@@ -404,6 +407,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var LambdaPayload: StaticSimpleSchema = [0, n0, _LP, 8, 0];
 export var AbbreviatedExecution$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_pA, _eI, _sT, _mo, _eS, _eA, _eR, _v, _uA, _co, _eT, _rEI, _aRT],
@@ -467,17 +471,17 @@ export var CancelPlanExecutionResponse$: StaticStructureSchema = [3, n0, _CPERa,
 export var CreatePlanRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_w, _eRx, _n, _r, _rA, _d, _rTOM, _aA, _t, _rC, _sQCE, _pR, _ta],
-  [() => WorkflowList, 0, 0, 64 | 0, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 2, 0, 128 | 0], 5
+  [[() => WorkflowList, 0], 0, 0, 64 | 0, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 2, 0, 128 | 0], 5
 ];
 export var CreatePlanResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
   [_p],
-  [() => Plan$]
+  [[() => Plan$, 0]]
 ];
 export var CustomActionLambdaConfiguration$: StaticStructureSchema = [3, n0, _CALC,
   0,
   [_l, _rIM, _rTR, _tM, _u],
-  [() => LambdaList, 1, 0, 1, () => LambdaUngraceful$], 3
+  [[() => LambdaList, 0], 1, 0, 1, () => LambdaUngraceful$], 3
 ];
 export var DeletePlanRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
@@ -577,7 +581,7 @@ export var GetPlanExecutionRequest$: StaticStructureSchema = [3, n0, _GPER,
 export var GetPlanExecutionResponse$: StaticStructureSchema = [3, n0, _GPERe,
   0,
   [_pA, _eI, _sT, _mo, _eS, _eA, _eR, _v, _uA, _co, _eT, _rEI, _sS, _p, _aRT, _gRD, _nT],
-  [0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 4, 0, () => StepStates, () => Plan$, 0, () => GeneratedReportDetails, 0], 7
+  [0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 4, 0, () => StepStates, [() => Plan$, 0], 0, () => GeneratedReportDetails, 0], 7
 ];
 export var GetPlanInRegionRequest$: StaticStructureSchema = [3, n0, _GPIRR,
   0,
@@ -587,7 +591,7 @@ export var GetPlanInRegionRequest$: StaticStructureSchema = [3, n0, _GPIRR,
 export var GetPlanInRegionResponse$: StaticStructureSchema = [3, n0, _GPIRRe,
   0,
   [_p],
-  [() => Plan$]
+  [[() => Plan$, 0]]
 ];
 export var GetPlanRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
@@ -597,7 +601,7 @@ export var GetPlanRequest$: StaticStructureSchema = [3, n0, _GPR,
 export var GetPlanResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
   [_p],
-  [() => Plan$]
+  [[() => Plan$, 0]]
 ];
 export var GlobalAuroraConfiguration$: StaticStructureSchema = [3, n0, _GAC,
   0,
@@ -631,8 +635,8 @@ export var LambdaEventSourceMappingUngraceful$: StaticStructureSchema = [3, n0, 
 ];
 export var Lambdas$: StaticStructureSchema = [3, n0, _L,
   0,
-  [_cAR, _eIx, _a],
-  [0, 0, 0]
+  [_cAR, _eIx, _a, _pa],
+  [0, 0, 0, [() => LambdaPayload, 0]]
 ];
 export var LambdaUngraceful$: StaticStructureSchema = [3, n0, _LU,
   0,
@@ -737,12 +741,12 @@ export var NeptuneUngraceful$: StaticStructureSchema = [3, n0, _NU,
 export var ParallelExecutionBlockConfiguration$: StaticStructureSchema = [3, n0, _PEBC,
   0,
   [_ste],
-  [() => Steps], 1
+  [[() => Steps, 0]], 1
 ];
 export var Plan$: StaticStructureSchema = [3, n0, _P,
   0,
   [_a, _w, _eRx, _n, _r, _rA, _o, _d, _rTOM, _aA, _t, _rC, _sQCE, _pR, _v, _uA],
-  [0, () => WorkflowList, 0, 0, 64 | 0, 0, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 2, 0, 0, 4], 7
+  [0, [() => WorkflowList, 0], 0, 0, 64 | 0, 0, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 2, 0, 0, 4], 7
 ];
 export var RdsCreateCrossRegionReplicaConfiguration$: StaticStructureSchema = [3, n0, _RCCRRC,
   0,
@@ -816,7 +820,7 @@ export var ServiceQuotaWarningSummary$: StaticStructureSchema = [3, n0, _SQWS,
 ];
 export var SsmDocumentConfig$: StaticStructureSchema = [3, n0, _SDC,
   0,
-  [_dA, _tar, _cAR, _eIx, _pa, _dV],
+  [_dA, _tar, _cAR, _eIx, _par, _dV],
   [0, () => SsmTargetList, 0, 0, [2, n0, _SDP, 0, 0, 64 | 0], 0], 2
 ];
 export var SsmSendCommandConfiguration$: StaticStructureSchema = [3, n0, _SSCC,
@@ -847,7 +851,7 @@ export var StartPlanExecutionResponse$: StaticStructureSchema = [3, n0, _SPERt,
 export var Step$: StaticStructureSchema = [3, n0, _St,
   0,
   [_n, _eBC, _eBT, _d],
-  [0, () => ExecutionBlockConfiguration$, 0, 0], 3
+  [0, [() => ExecutionBlockConfiguration$, 0], 0, 0], 3
 ];
 export var StepState$: StaticStructureSchema = [3, n0, _SS,
   0,
@@ -907,17 +911,17 @@ export var UpdatePlanExecutionStepResponse$: StaticStructureSchema = [3, n0, _UP
 export var UpdatePlanRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_a, _w, _eRx, _d, _rTOM, _aA, _t, _rC, _sQCE],
-  [0, () => WorkflowList, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 2], 3
+  [0, [() => WorkflowList, 0], 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 2], 3
 ];
 export var UpdatePlanResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
   [_p],
-  [() => Plan$]
+  [[() => Plan$, 0]]
 ];
 export var Workflow$: StaticStructureSchema = [3, n0, _W,
   0,
   [_wTA, _ste, _wTR, _wD],
-  [0, () => Steps, 0, 0], 1
+  [0, [() => Steps, 0], 0, 0], 1
 ];
 var AbbreviatedExecutionsList: StaticListSchema = [1, n0, _AEL,
   0, () => AbbreviatedExecution$
@@ -943,7 +947,8 @@ var KubernetesScalingApps: StaticListSchema = [1, n0, _KSA,
   0, () => KubernetesScalingApplication
 ];
 var LambdaList: StaticListSchema = [1, n0, _LL,
-  0, () => Lambdas$
+  0, [() => Lambdas$,
+    0]
 ];
 var PlanArnList = 64 | 0;
 var PlanList: StaticListSchema = [1, n0, _PL,
@@ -975,7 +980,8 @@ var SsmTargetList: StaticListSchema = [1, n0, _STL,
 ];
 var SsmTargetValueList = 64 | 0;
 var Steps: StaticListSchema = [1, n0, _Ste,
-  0, () => Step$
+  0, [() => Step$,
+    0]
 ];
 var StepStates: StaticListSchema = [1, n0, _SSt,
   0, () => StepState$
@@ -988,7 +994,8 @@ var TriggerList: StaticListSchema = [1, n0, _TL,
   0, () => Trigger$
 ];
 var WorkflowList: StaticListSchema = [1, n0, _WL,
-  0, () => Workflow$
+  0, [() => Workflow$,
+    0]
 ];
 var AssociatedAlarmMap: StaticMapSchema = [2, n0, _AAM,
   0, 0, () => AssociatedAlarm$
@@ -1019,7 +1026,7 @@ var Tags = 128 | 0;
 export var ExecutionBlockConfiguration$: StaticUnionSchema = [4, n0, _EBC,
   0,
   [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC, _rPRRC, _rCCRRRC, _lESMC, _aSSC, _aPSC, _nGDC, _rSRRC, _sSCC],
-  [() => CustomActionLambdaConfiguration$, () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, () => ParallelExecutionBlockConfiguration$, () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$, () => RdsPromoteReadReplicaConfiguration$, () => RdsCreateCrossRegionReplicaConfiguration$, () => LambdaEventSourceMappingConfiguration$, () => AuroraServerlessScalingConfiguration$, () => AuroraProvisionedScalingConfiguration$, () => NeptuneGlobalDatabaseConfiguration$, () => RdsSwitchoverReadReplicaConfiguration$, () => SsmSendCommandConfiguration$]
+  [[() => CustomActionLambdaConfiguration$, 0], () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, [() => ParallelExecutionBlockConfiguration$, 0], () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$, () => RdsPromoteReadReplicaConfiguration$, () => RdsCreateCrossRegionReplicaConfiguration$, () => LambdaEventSourceMappingConfiguration$, () => AuroraServerlessScalingConfiguration$, () => AuroraProvisionedScalingConfiguration$, () => NeptuneGlobalDatabaseConfiguration$, () => RdsSwitchoverReadReplicaConfiguration$, () => SsmSendCommandConfiguration$]
 ];
 export var ReportOutput$: StaticUnionSchema = [4, n0, _RO,
   0,
@@ -1061,7 +1068,7 @@ export var ListPlanExecutionEvents$: StaticOperationSchema = [9, n0, _LPEE,
 export var ListPlanExecutions$: StaticOperationSchema = [9, n0, _LPE,
   0, () => ListPlanExecutionsRequest$, () => ListPlanExecutionsResponse$
 ];
-export var ListPlans$: StaticOperationSchema = [9, n0, _LP,
+export var ListPlans$: StaticOperationSchema = [9, n0, _LPi,
   0, () => ListPlansRequest$, () => ListPlansResponse$
 ];
 export var ListPlansInRegion$: StaticOperationSchema = [9, n0, _LPIR,

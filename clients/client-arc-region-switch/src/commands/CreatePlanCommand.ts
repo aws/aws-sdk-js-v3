@@ -48,6 +48,7 @@ export interface CreatePlanCommandOutput extends CreatePlanResponse, __MetadataB
  *                   crossAccountRole: "STRING_VALUE",
  *                   externalId: "STRING_VALUE",
  *                   arn: "STRING_VALUE",
+ *                   payload: "STRING_VALUE",
  *                 },
  *               ],
  *               retryIntervalMinutes: Number("float"), // required
@@ -115,6 +116,7 @@ export interface CreatePlanCommandOutput extends CreatePlanResponse, __MetadataB
  *                           crossAccountRole: "STRING_VALUE",
  *                           externalId: "STRING_VALUE",
  *                           arn: "STRING_VALUE",
+ *                           payload: "STRING_VALUE",
  *                         },
  *                       ],
  *                       retryIntervalMinutes: Number("float"), // required
@@ -613,6 +615,7 @@ export interface CreatePlanCommandOutput extends CreatePlanResponse, __MetadataB
  * //                     crossAccountRole: "STRING_VALUE",
  * //                     externalId: "STRING_VALUE",
  * //                     arn: "STRING_VALUE",
+ * //                     payload: "STRING_VALUE",
  * //                   },
  * //                 ],
  * //                 retryIntervalMinutes: Number("float"), // required
@@ -680,6 +683,7 @@ export interface CreatePlanCommandOutput extends CreatePlanResponse, __MetadataB
  * //                             crossAccountRole: "STRING_VALUE",
  * //                             externalId: "STRING_VALUE",
  * //                             arn: "STRING_VALUE",
+ * //                             payload: "STRING_VALUE",
  * //                           },
  * //                         ],
  * //                         retryIntervalMinutes: Number("float"), // required

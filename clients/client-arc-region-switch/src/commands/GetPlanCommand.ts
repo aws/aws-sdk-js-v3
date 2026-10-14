@@ -55,6 +55,7 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * //                     crossAccountRole: "STRING_VALUE",
  * //                     externalId: "STRING_VALUE",
  * //                     arn: "STRING_VALUE",
+ * //                     payload: "STRING_VALUE",
  * //                   },
  * //                 ],
  * //                 retryIntervalMinutes: Number("float"), // required
@@ -122,6 +123,7 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * //                             crossAccountRole: "STRING_VALUE",
  * //                             externalId: "STRING_VALUE",
  * //                             arn: "STRING_VALUE",
+ * //                             payload: "STRING_VALUE",
  * //                           },
  * //                         ],
  * //                         retryIntervalMinutes: Number("float"), // required

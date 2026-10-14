@@ -840,6 +840,12 @@ export interface Lambdas {
    * @public
    */
   arn?: string | undefined;
+
+  /**
+   * <p>The JSON payload to send to the Lambda function invocation. If you don't specify a payload, Region switch invokes the function with only the execution metadata.</p> <p>If you provide a JSON object, Region switch merges execution metadata keys (<code>InvokedBy</code>, <code>PlanArn</code>, <code>ExecutionId</code>, <code>StepName</code>) into the top level. If one of your keys has the same name as a metadata key, your key takes precedence.</p> <p>If you provide any other JSON type (string, number, boolean, or array), Region switch forwards it to the Lambda function unchanged, without adding metadata.</p>
+   * @public
+   */
+  payload?: string | undefined;
 }
 
 /**
@@ -1257,12 +1263,12 @@ export interface ExecutionApprovalConfiguration {
 }
 
 /**
- * <p>Configuration for handling failures when performing operations on Aurora global databases.</p>
+ * <p>Configuration for an Aurora global database execution block in ungraceful mode.</p>
  * @public
  */
 export interface GlobalAuroraUngraceful {
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * <p>The ungraceful behavior. The only valid value is <code>failover</code>, which calls <code>FailoverGlobalCluster</code> with <code>AllowDataLoss</code> set to <code>true</code> and might cause data loss.</p>
    * @public
    */
   ungraceful?: GlobalAuroraUngracefulBehavior | undefined;
@@ -1292,13 +1298,13 @@ export interface GlobalAuroraConfiguration {
   externalId?: string | undefined;
 
   /**
-   * <p>The behavior for a global database, that is, only allow switchover or also allow failover.</p>
+   * <p>The default behavior for the Aurora global database execution block. Valid values:</p> <ul> <li> <p> <code>switchoverOnly</code> - Calls <code>SwitchoverGlobalCluster</code> for a zero-data-loss switchover during graceful execution.</p> </li> <li> <p> <code>failover</code> - Calls <code>FailoverGlobalCluster</code> with <code>AllowDataLoss</code> set to <code>true</code>. This operation might cause data loss, including during graceful execution.</p> </li> </ul>
    * @public
    */
   behavior: GlobalAuroraDefaultBehavior | undefined;
 
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * <p>The behavior to use when the plan runs in ungraceful mode. If you omit this value, Region switch uses the value of <code>behavior</code>.</p>
    * @public
    */
   ungraceful?: GlobalAuroraUngraceful | undefined;
