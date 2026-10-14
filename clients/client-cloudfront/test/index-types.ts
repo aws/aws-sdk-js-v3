@@ -550,6 +550,7 @@ export type {
   ValidationTokenHost,
   ViewerMtlsMode,
   ViewerProtocolPolicy,
+  VpcIpAddressType,
   ActiveTrustedKeyGroups,
   ActiveTrustedSigners,
   Aliases,

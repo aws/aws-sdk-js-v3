@@ -626,6 +626,19 @@ export type TrustStoreStatus = (typeof TrustStoreStatus)[keyof typeof TrustStore
  * @public
  * @enum
  */
+export const VpcIpAddressType = {
+  DualStack: "dualstack",
+  Ipv4: "ipv4",
+} as const;
+/**
+ * @public
+ */
+export type VpcIpAddressType = (typeof VpcIpAddressType)[keyof typeof VpcIpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ManagedCertificateStatus = {
   Expired: "expired",
   Failed: "failed",

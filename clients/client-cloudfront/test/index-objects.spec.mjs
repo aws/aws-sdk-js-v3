@@ -1216,6 +1216,7 @@ import {
   ViewerMtlsConfig$,
   ViewerMtlsMode,
   ViewerProtocolPolicy,
+  VpcIpAddressType,
   VpcOrigin$,
   VpcOriginConfig$,
   VpcOriginEndpointConfig$,
@@ -2137,6 +2138,7 @@ assert(typeof TrustStoreStatus === "object");
 assert(typeof ValidationTokenHost === "object");
 assert(typeof ViewerMtlsMode === "object");
 assert(typeof ViewerProtocolPolicy === "object");
+assert(typeof VpcIpAddressType === "object");
 // errors
 assert(AccessDenied.prototype instanceof CloudFrontServiceException);
 assert(typeof AccessDenied$ === "object");

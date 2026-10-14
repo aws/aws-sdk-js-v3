@@ -16,6 +16,7 @@ import type {
   ResponseHeadersPolicyType,
   TrustStoreStatus,
   ValidationTokenHost,
+  VpcIpAddressType,
 } from "./enums";
 import type {
   Aliases,
@@ -3389,6 +3390,12 @@ export interface VpcOriginSummary {
    * @public
    */
   OriginEndpointArn: string | undefined;
+
+  /**
+   * <p>The IP address type of the CloudFront VPC origin. Valid values are <code>ipv4</code> and <code>dualstack</code>. IPv6-only is not supported for VPC origins.</p>
+   * @public
+   */
+  IpAddressType?: VpcIpAddressType | undefined;
 }
 
 /**

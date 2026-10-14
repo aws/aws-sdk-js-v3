@@ -45,6 +45,7 @@ export interface CreateVpcOriginCommandOutput extends CreateVpcOriginResult, __M
  *         "SSLv3" || "TLSv1" || "TLSv1.1" || "TLSv1.2",
  *       ],
  *     },
+ *     IpAddressType: "ipv4" || "dualstack",
  *   },
  *   Tags: { // Tags
  *     Items: [ // TagList
@@ -77,6 +78,7 @@ export interface CreateVpcOriginCommandOutput extends CreateVpcOriginResult, __M
  * //           "SSLv3" || "TLSv1" || "TLSv1.1" || "TLSv1.2",
  * //         ],
  * //       },
+ * //       IpAddressType: "ipv4" || "dualstack",
  * //     },
  * //   },
  * //   Location: "STRING_VALUE",

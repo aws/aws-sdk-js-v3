@@ -42,6 +42,7 @@ import type {
   ValidationTokenHost,
   ViewerMtlsMode,
   ViewerProtocolPolicy,
+  VpcIpAddressType,
 } from "./enums";
 
 /**
@@ -5516,6 +5517,12 @@ export interface VpcOriginEndpointConfig {
    * @public
    */
   OriginSslProtocols?: OriginSslProtocols | undefined;
+
+  /**
+   * <p>The IP address type of the CloudFront VPC origin endpoint configuration. Valid values are <code>ipv4</code> and <code>dualstack</code>. IPv6-only is not supported for VPC origins.</p>
+   * @public
+   */
+  IpAddressType?: VpcIpAddressType | undefined;
 }
 
 /**
