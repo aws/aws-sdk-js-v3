@@ -230,6 +230,13 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //         hostId: "STRING_VALUE",
  * //         hostResourceGroupArn: "STRING_VALUE",
  * //       },
+ * //       terminateInstanceOnCompletion: true || false,
+ * //       parentInstance: { // ParentInstanceConfiguration
+ * //         autoScalingGroup: { // AutoScalingGroupConfiguration
+ * //           name: "STRING_VALUE", // required
+ * //           capacityWaitTimeoutSeconds: Number("int"),
+ * //         },
+ * //       },
  * //     },
  * //     distributionConfiguration: { // DistributionConfiguration
  * //       arn: "STRING_VALUE",

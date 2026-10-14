@@ -502,6 +502,29 @@ export interface AutoDisablePolicy {
 }
 
 /**
+ * <p>Identifies the Amazon EC2 Auto Scaling group that Image Builder takes the build instance from,
+ * 			and how long Image Builder waits when the group has no instance available.</p>
+ * @public
+ */
+export interface AutoScalingGroupConfiguration {
+  /**
+   * <p>The name of the Auto Scaling group, in the same account and Amazon Web Services Region as the
+   * 			infrastructure configuration. To specify a group, you must have permissions to describe
+   * 			it.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The number of seconds that Image Builder waits for an instance to become available in the
+   * 			group before the build fails. If you set this value to 0 or omit it, the build fails as
+   * 			soon as the group has no instance available.</p>
+   * @public
+   */
+  capacityWaitTimeoutSeconds?: number | undefined;
+}
+
+/**
  * @public
  */
 export interface CancelImageCreationRequest {
@@ -2920,6 +2943,20 @@ export interface Logging {
 }
 
 /**
+ * <p>Settings for building on an instance that is already running, instead of an
+ * 			instance that Image Builder launches for the build.</p>
+ * @public
+ */
+export interface ParentInstanceConfiguration {
+  /**
+   * <p>The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from. This is
+   * 			required when you specify <code>parentInstance</code>.</p>
+   * @public
+   */
+  autoScalingGroup: AutoScalingGroupConfiguration | undefined;
+}
+
+/**
  * <p>By default, EC2 instances run on shared tenancy hardware. This means that multiple
  * 			Amazon Web Services accounts might share the same physical hardware. When you use dedicated hardware,
  * 			the physical server that hosts your instances is dedicated to your Amazon Web Services account.
@@ -3038,6 +3075,14 @@ export interface CreateInfrastructureConfigurationRequest {
   terminateInstanceOnFailure?: boolean | undefined;
 
   /**
+   * <p>Specifies whether Image Builder terminates build and test instances when image creation
+   * 			ends without a failure (success, cancellation, or expiration). Defaults to
+   * 			<code>true</code>.</p>
+   * @public
+   */
+  terminateInstanceOnCompletion?: boolean | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the SNS topic to which Image Builder sends image build event notifications.
    * 			Specify a standard topic. Image Builder doesn't support FIFO topics.
    * 			Image Builder validates the topic when you create or update the configuration. You
@@ -3101,6 +3146,18 @@ export interface CreateInfrastructureConfigurationRequest {
    * @public
    */
   placement?: Placement | undefined;
+
+  /**
+   * <p>The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of
+   * 			launching a new instance. This applies only to the build phase.</p>
+   *          <p>To use this feature, the execution role for the build must have permissions to
+   * 			describe the Auto Scaling group, tag the instance while it's still in the group, and
+   * 			detach it from the group. For more information, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/infra-config-parent-instance.html">Build on an
+   * 				instance from an Auto Scaling group</a> in the <i>EC2 Image Builder User
+   * 				Guide</i>.</p>
+   * @public
+   */
+  parentInstance?: ParentInstanceConfiguration | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure
@@ -4612,6 +4669,20 @@ export interface InfrastructureConfiguration {
    * @public
    */
   placement?: Placement | undefined;
+
+  /**
+   * <p>Specifies whether Image Builder terminates build and test instances when image creation
+   * 			ends without a failure.</p>
+   * @public
+   */
+  terminateInstanceOnCompletion?: boolean | undefined;
+
+  /**
+   * <p>The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of
+   * 			launching a new instance. This applies only to the build phase.</p>
+   * @public
+   */
+  parentInstance?: ParentInstanceConfiguration | undefined;
 }
 
 /**
@@ -10005,6 +10076,14 @@ export interface UpdateInfrastructureConfigurationRequest {
   terminateInstanceOnFailure?: boolean | undefined;
 
   /**
+   * <p>Specifies whether Image Builder terminates build and test instances when image creation
+   * 			ends without a failure (success, cancellation, or expiration). Defaults to
+   * 			<code>true</code>.</p>
+   * @public
+   */
+  terminateInstanceOnCompletion?: boolean | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the SNS topic to which Image Builder
    * 			sends image build event notifications. Specify a standard topic. Image Builder doesn't support FIFO
    * 			topics. Image Builder validates the topic when you create or update the configuration.
@@ -10061,6 +10140,18 @@ export interface UpdateInfrastructureConfigurationRequest {
    * @public
    */
   placement?: Placement | undefined;
+
+  /**
+   * <p>The Amazon EC2 Auto Scaling group that Image Builder takes the build instance from, instead of
+   * 			launching a new instance. This applies only to the build phase.</p>
+   *          <p>To use this feature, the execution role for the build must have permissions to
+   * 			describe the Auto Scaling group, tag the instance while it's still in the group, and
+   * 			detach it from the group. For more information, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/infra-config-parent-instance.html">Build on an
+   * 				instance from an Auto Scaling group</a> in the <i>EC2 Image Builder User
+   * 				Guide</i>.</p>
+   * @public
+   */
+  parentInstance?: ParentInstanceConfiguration | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier you provide to ensure

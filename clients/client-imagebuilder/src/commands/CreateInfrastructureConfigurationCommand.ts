@@ -55,6 +55,7 @@ export interface CreateInfrastructureConfigurationCommandOutput extends CreateIn
  *   },
  *   keyPair: "STRING_VALUE",
  *   terminateInstanceOnFailure: true || false,
+ *   terminateInstanceOnCompletion: true || false,
  *   snsTopicArn: "STRING_VALUE",
  *   resourceTags: { // ResourceTagMap
  *     "<keys>": "STRING_VALUE",
@@ -71,6 +72,12 @@ export interface CreateInfrastructureConfigurationCommandOutput extends CreateIn
  *     tenancy: "default" || "dedicated" || "host",
  *     hostId: "STRING_VALUE",
  *     hostResourceGroupArn: "STRING_VALUE",
+ *   },
+ *   parentInstance: { // ParentInstanceConfiguration
+ *     autoScalingGroup: { // AutoScalingGroupConfiguration
+ *       name: "STRING_VALUE", // required
+ *       capacityWaitTimeoutSeconds: Number("int"),
+ *     },
  *   },
  *   clientToken: "STRING_VALUE", // required
  *   dryRun: true || false,

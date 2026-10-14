@@ -5,6 +5,7 @@ const _ADE = "AccessDeniedException";
 const _ADP = "AutoDisablePolicy";
 const _AIC = "AdditionalInstanceConfiguration";
 const _AL = "AmiList";
+const _ASGC = "AutoScalingGroupConfiguration";
 const _C = "Component";
 const _CC = "ComponentConfiguration";
 const _CCL = "ComponentConfigurationList";
@@ -316,6 +317,7 @@ const _PCPRu = "PutComponentPolicyResponse";
 const _PCRP = "PutContainerRecipePolicy";
 const _PCRPR = "PutContainerRecipePolicyRequest";
 const _PCRPRu = "PutContainerRecipePolicyResponse";
+const _PIC = "ParentInstanceConfiguration";
 const _PIP = "PutImagePolicy";
 const _PIPR = "PutImagePolicyRequest";
 const _PIPRu = "PutImagePolicyResponse";
@@ -410,6 +412,7 @@ const _aDP = "autoDisablePolicy";
 const _aI = "accountId";
 const _aIC = "additionalInstanceConfiguration";
 const _aN = "attemptNumber";
+const _aSG = "autoScalingGroup";
 const _aT = "amiTags";
 const _aTg = "aggregationType";
 const _aW = "amiWatermarks";
@@ -440,6 +443,7 @@ const _cTo = "containerTags";
 const _cTon = "containerType";
 const _cVA = "componentVersionArn";
 const _cVL = "componentVersionList";
+const _cWTS = "capacityWaitTimeoutSeconds";
 const _co = "components";
 const _com = "component";
 const _con = "containers";
@@ -590,6 +594,7 @@ const _pD = "policyDetails";
 const _pESC = "pipelineExecutionStartCondition";
 const _pG = "parallelGroup";
 const _pI = "parentImage";
+const _pIa = "parentInstance";
 const _pLGN = "pipelineLogGroupName";
 const _pM = "packageManager";
 const _pN = "phaseName";
@@ -674,6 +679,7 @@ const _ste = "steps";
 const _t = "type";
 const _tAI = "targetAccountIds";
 const _tAIa = "targetAccountId";
+const _tIOC = "terminateInstanceOnCompletion";
 const _tIOF = "terminateInstanceOnFailure";
 const _tK = "tagKeys";
 const _tM = "timeoutMinutes";
@@ -920,6 +926,11 @@ export var AutoDisablePolicy$: StaticStructureSchema = [3, n0, _ADP,
   [_fC],
   [1], 1
 ];
+export var AutoScalingGroupConfiguration$: StaticStructureSchema = [3, n0, _ASGC,
+  0,
+  [_n, _cWTS],
+  [0, 1], 1
+];
 export var CancelImageCreationRequest$: StaticStructureSchema = [3, n0, _CICR,
   0,
   [_iBVA, _cT],
@@ -1062,8 +1073,8 @@ export var CreateImageResponse$: StaticStructureSchema = [3, n0, _CIRr,
 ];
 export var CreateInfrastructureConfigurationRequest$: StaticStructureSchema = [3, n0, _CICRr,
   0,
-  [_n, _iPN, _d, _iTn, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _ta, _pl, _cT, _dR],
-  [0, 0, 0, 64 | 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 128 | 0, () => InstanceMetadataOptions$, 128 | 0, () => Placement$, [0, 4], 2], 2
+  [_n, _iPN, _d, _iTn, _sGI, _sI, _l, _kP, _tIOF, _tIOC, _sTA, _rT, _iMO, _ta, _pl, _pIa, _cT, _dR],
+  [0, 0, 0, 64 | 0, 64 | 0, 0, () => Logging$, 0, 2, 2, 0, 128 | 0, () => InstanceMetadataOptions$, 128 | 0, () => Placement$, () => ParentInstanceConfiguration$, [0, 4], 2], 2
 ];
 export var CreateInfrastructureConfigurationResponse$: StaticStructureSchema = [3, n0, _CICRre,
   0,
@@ -1547,8 +1558,8 @@ export var ImportVmImageResponse$: StaticStructureSchema = [3, n0, _IVIRm,
 ];
 export var InfrastructureConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
-  [_a, _n, _d, _iTn, _iPN, _sGI, _sI, _l, _kP, _tIOF, _sTA, _dC, _dU, _rT, _iMO, _ta, _pl],
-  [0, 0, 0, 64 | 0, 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 0, 0, 128 | 0, () => InstanceMetadataOptions$, 128 | 0, () => Placement$]
+  [_a, _n, _d, _iTn, _iPN, _sGI, _sI, _l, _kP, _tIOF, _sTA, _dC, _dU, _rT, _iMO, _ta, _pl, _tIOC, _pIa],
+  [0, 0, 0, 64 | 0, 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 0, 0, 128 | 0, () => InstanceMetadataOptions$, 128 | 0, () => Placement$, 2, () => ParentInstanceConfiguration$]
 ];
 export var InfrastructureConfigurationSummary$: StaticStructureSchema = [3, n0, _ICS,
   0,
@@ -1915,6 +1926,11 @@ export var PackageVulnerabilityDetails$: StaticStructureSchema = [3, n0, _PVD,
   [_vI, _vP, _so, _cv, _rV, _sU, _vSe, _vCA, _vUA, _rU],
   [0, () => VulnerablePackageList, 0, () => CvssScoreList, 64 | 0, 0, 0, 4, 4, 64 | 0], 1
 ];
+export var ParentInstanceConfiguration$: StaticStructureSchema = [3, n0, _PIC,
+  0,
+  [_aSG],
+  [() => AutoScalingGroupConfiguration$], 1
+];
 export var PipelineLoggingConfiguration$: StaticStructureSchema = [3, n0, _PLC,
   0,
   [_iLGN, _pLGN],
@@ -2122,8 +2138,8 @@ export var UpdateImagePipelineResponse$: StaticStructureSchema = [3, n0, _UIPRp,
 ];
 export var UpdateInfrastructureConfigurationRequest$: StaticStructureSchema = [3, n0, _UICR,
   0,
-  [_iCA, _iPN, _d, _iTn, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _pl, _cT],
-  [0, 0, 0, 64 | 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 128 | 0, () => InstanceMetadataOptions$, () => Placement$, [0, 4]], 2
+  [_iCA, _iPN, _d, _iTn, _sGI, _sI, _l, _kP, _tIOF, _tIOC, _sTA, _rT, _iMO, _pl, _pIa, _cT],
+  [0, 0, 0, 64 | 0, 64 | 0, 0, () => Logging$, 0, 2, 2, 0, 128 | 0, () => InstanceMetadataOptions$, () => Placement$, () => ParentInstanceConfiguration$, [0, 4]], 2
 ];
 export var UpdateInfrastructureConfigurationResponse$: StaticStructureSchema = [3, n0, _UICRp,
   0,

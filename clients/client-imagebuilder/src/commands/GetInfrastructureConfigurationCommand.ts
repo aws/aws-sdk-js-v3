@@ -78,6 +78,13 @@ export interface GetInfrastructureConfigurationCommandOutput extends GetInfrastr
  * //       hostId: "STRING_VALUE",
  * //       hostResourceGroupArn: "STRING_VALUE",
  * //     },
+ * //     terminateInstanceOnCompletion: true || false,
+ * //     parentInstance: { // ParentInstanceConfiguration
+ * //       autoScalingGroup: { // AutoScalingGroupConfiguration
+ * //         name: "STRING_VALUE", // required
+ * //         capacityWaitTimeoutSeconds: Number("int"),
+ * //       },
+ * //     },
  * //   },
  * // };
  *
