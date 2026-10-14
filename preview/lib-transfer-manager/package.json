@@ -1,7 +1,6 @@
 {
   "name": "@aws-sdk/lib-transfer-manager",
   "version": "0.0.0",
-  "private": true,
   "description": "S3 Transfer Manager for AWS SDK JS v3",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/preview/lib-transfer-manager",
   "license": "Apache-2.0",
