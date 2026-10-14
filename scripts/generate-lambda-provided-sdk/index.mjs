@@ -188,6 +188,42 @@ const copyPublishedFiles = (pkgDir, destDir, pkgJson) => {
  * optionalDependencies, and the three peerDependencies all point at clients that are
  * copied anyway. Walking devDependencies would drag in turbo, typescript and vitest.
  */
+/** Every package.json beneath `dir`'s nested node_modules, at any depth. */
+const nestedManifests = (dir) => {
+  const found = [];
+  const walk = (current) => {
+    const modules = join(current, "node_modules");
+    if (!existsSync(modules)) {
+      return;
+    }
+    for (const entry of readdirSync(modules, { withFileTypes: true })) {
+      if (!entry.isDirectory()) {
+        continue;
+      }
+      const full = join(modules, entry.name);
+      if (entry.name.startsWith("@")) {
+        for (const scoped of readdirSync(full, { withFileTypes: true })) {
+          if (!scoped.isDirectory()) {
+            continue;
+          }
+          const scopedDir = join(full, scoped.name);
+          if (existsSync(join(scopedDir, "package.json"))) {
+            found.push(join(scopedDir, "package.json"));
+            walk(scopedDir);
+          }
+        }
+        continue;
+      }
+      if (existsSync(join(full, "package.json"))) {
+        found.push(join(full, "package.json"));
+        walk(full);
+      }
+    }
+  };
+  walk(dir);
+  return found;
+};
+
 const copyExternalDependency = (name, seen, workspacePackages) => {
   if (seen.has(name) || workspacePackages.has(name)) {
     return;
@@ -216,6 +252,21 @@ const copyExternalDependency = (name, seen, workspacePackages) => {
   for (const child of Object.keys(manifest.dependencies ?? {})) {
     copyExternalDependency(child, seen, workspacePackages);
   }
+
+  // Collect the requirements of any nested node_modules the cpSync above brought along.
+  // `seen` is keyed on name, so the hoisted copy marks a name done and a nested copy of
+  // it is never revisited — leaving that copy's own dependencies uncopied.
+  for (const nestedPath of nestedManifests(dest)) {
+    let nested;
+    try {
+      nested = JSON.parse(readFileSync(nestedPath, "utf-8"));
+    } catch {
+      continue;
+    }
+    for (const child of Object.keys(nested.dependencies ?? {})) {
+      copyExternalDependency(child, seen, workspacePackages);
+    }
+  }
 };
 
 // ---------------------------------------------------------------- layout
@@ -242,6 +293,103 @@ const applyLayout = () => {
 };
 
 // ---------------------------------------------------------------- verification
+
+/**
+ * Assert every `dependencies` entry of every package in the tree resolves to something
+ * inside the tree. A backstop for the dependency walk: a miss here is a MODULE_NOT_FOUND
+ * for a customer function.
+ *
+ * Resolution stops at `outDir`. The payload is usually assembled inside this repo, so an
+ * unbounded upward walk finds the repo's own node_modules and passes a tree that cannot
+ * load. `dependencies` only, matching step 3.
+ */
+const verifyTreeComplete = () => {
+  /** @type {string[]} */
+  const packages = [];
+  const collect = (dir) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      // Never follow the root @smithy symlink. It points back into the tree, so walking
+      // it would double-count and resolve from a path Node never uses — Node realpaths
+      // a module's directory before resolving from it.
+      if (entry.isSymbolicLink() || !entry.isDirectory()) {
+        continue;
+      }
+      const full = join(dir, entry.name);
+      // Scope directories and node_modules are containers, not packages. Descending into
+      // a directory literally named node_modules is what makes the 100-odd packages under
+      // @aws-sdk/node_modules visible after step 5.
+      if (entry.name.startsWith("@") || entry.name === "node_modules") {
+        collect(full);
+        continue;
+      }
+      if (!existsSync(join(full, "package.json"))) {
+        continue;
+      }
+      packages.push(full);
+      const nested = join(full, "node_modules");
+      if (existsSync(nested)) {
+        collect(nested);
+      }
+    }
+  };
+  collect(nodeModulesDir);
+
+  /** Node's upward node_modules search, stopped at the payload root. */
+  const resolves = (fromDir, name) => {
+    let dir = fromDir;
+    for (;;) {
+      if (existsSync(join(dir, "node_modules", name, "package.json"))) {
+        return true;
+      }
+      if (dir === outDir) {
+        return false;
+      }
+      const parent = dirname(dir);
+      if (parent === dir || !dir.startsWith(outDir)) {
+        return false;
+      }
+      dir = parent;
+    }
+  };
+
+  const missing = [];
+  let edges = 0;
+  for (const pkgDir of packages) {
+    let manifest;
+    try {
+      manifest = JSON.parse(readFileSync(join(pkgDir, "package.json"), "utf-8"));
+    } catch {
+      continue; // not a real manifest; step 4's entry-point guard covers malformed packages
+    }
+    for (const [dep, range] of Object.entries(manifest.dependencies ?? {})) {
+      // file:/link:/git: specifiers are not resolved from node_modules.
+      if (typeof range === "string" && /^(?:file|link|workspace|git|https?):/.test(range)) {
+        continue;
+      }
+      edges += 1;
+      if (!resolves(pkgDir, dep)) {
+        missing.push(
+          `${manifest.name}@${manifest.version} requires ${dep} (${range}), absent from the tree\n` +
+            `      at ${relative(nodeModulesDir, pkgDir)}`
+        );
+      }
+    }
+  }
+
+  if (missing.length) {
+    throw new Error(
+      `the assembled tree is not self-contained — ${missing.length} dependency ` +
+        `${missing.length === 1 ? "edge" : "edges"} cannot resolve:\n  ` +
+        missing.join("\n  ") +
+        `\n\n  A require of the package named on the left will throw MODULE_NOT_FOUND for a ` +
+        `customer.\n  Most likely cause: step 3 copied a package whose nested node_modules ` +
+        `came along with it,\n  but only the outer package's manifest was walked, so the ` +
+        `nested copy's own\n  dependencies were never collected.`
+    );
+  }
+
+  log(`5b. tree is self-contained: ${edges} dependency edges across ${packages.length} packages`);
+};
 
 /**
  * Import a few packages from the finished tree as an outside consumer would, including
@@ -309,11 +457,20 @@ const main = () => {
   log(`2. copied ${fileCount} published files; stripped workspace: from ${rewritten} manifests`);
 
   // 3. Copy the runtime dependency closure out of the root node_modules.
+
+  // Declared by the vendored 4.x @smithy packages but by nothing publishable, so the walk
+  // cannot reach them. Copying here makes the workspace version win over vendor/, which
+  // step 4 will then skip. Missing names throw.
+  const CLOSURE_EXTRAS = ["@smithy/util-utf8"];
+
   const seen = new Set();
   for (const [, { manifest }] of workspacePackages) {
     for (const dep of Object.keys(manifest.dependencies ?? {})) {
       copyExternalDependency(dep, seen, workspacePackages);
     }
+  }
+  for (const name of CLOSURE_EXTRAS) {
+    copyExternalDependency(name, seen, workspacePackages);
   }
   const external = readdirSync(nodeModulesDir).filter((e) => e !== "@aws-sdk").length;
   log(`3. copied runtime closure: ${external} external entries`);
@@ -514,6 +671,9 @@ const main = () => {
   // 5. Rearrange into the layout consumers expect.
   applyLayout();
   log(`5. layout applied (@aws-sdk/node_modules + root @smithy symlink)`);
+
+  // 5b. Prove the tree is self-contained.
+  verifyTreeComplete();
 
   // 6. Prove the result loads before anyone publishes it.
   smokeTest();
