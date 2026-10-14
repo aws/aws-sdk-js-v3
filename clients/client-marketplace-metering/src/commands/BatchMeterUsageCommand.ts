@@ -23,7 +23,16 @@ export interface BatchMeterUsageCommandInput extends BatchMeterUsageRequest {}
 export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __MetadataBearer {}
 
 /**
- * <important>
+ * <note>
+ *             <p>The Amazon Web Services Marketplace AI Metering Agent Skill (<code>aws-marketplace-metering</code>) helps an AI
+ *                 coding agent integrate your SaaS product's usage reporting with the
+ *                 <code>BatchMeterUsage</code> API. The skill is a curated package of instructions and
+ *                 reference material that guides your AI coding agent through building, deploying, and
+ *                 testing the metering integration. To get the skill on demand without checking it out
+ *                 locally, install the <a href="https://docs.aws.amazon.com/agent-toolkit/latest/userguide/mcp-server.html">Amazon Web Services MCP Server</a> in your coding agent; the agent then discovers and loads
+ *                 the skill at runtime. The skill source is also available on <a href="https://github.com/aws/agent-toolkit-for-aws/blob/main/skills/specialized-skills/aws-marketplace-skills/aws-marketplace-metering">GitHub</a>. For more information, see <a href="https://aws.amazon.com/blogs/awsmarketplace/build-aws-marketplace-saas-metering-with-the-metering-agent-skill/">Get started with the Amazon Web Services Marketplace AI Metering Agent Skill</a> on the Amazon Web Services Marketplace blog.</p>
+ *          </note>
+ *          <important>
  *             <p>Amazon Web Services Marketplace is introducing Concurrent Agreements, enabling buyers to make multiple purchases per Amazon Web Services account. Starting June 1, 2026, new SaaS products must use <code>CustomerAWSAccountId</code> (instead of <code>CustomerIdentifier</code>), <code>LicenseArn</code> (instead of <code>ProductCode</code>) to support this feature. <code>BatchMeterUsage</code> does not support <code>CustomerIdentifier</code> for new integrations. Existing integrations continue to work. Review the new integration for Concurrent Agreements <a href="https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements">here</a>. For additional implementation details, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-licensearn-example">BatchMeterUsage code example with LicenseArn</a> in the <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
  *          </important>
  *          <p>To post metering records for customers, SaaS applications call
