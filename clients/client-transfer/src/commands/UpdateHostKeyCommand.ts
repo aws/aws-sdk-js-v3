@@ -23,7 +23,7 @@ export interface UpdateHostKeyCommandInput extends UpdateHostKeyRequest {}
 export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the description for the host key that's specified by the <code>ServerId</code> and <code>HostKeyId</code> parameters.</p>
+ * <p>Updates the host key that's specified by the <code>ServerId</code> and <code>HostKeyId</code> parameters. You can update the description of the host key, change where the host key is stored by specifying the <code>StorageType</code>, and specify the KMS key used to encrypt the host key when it's stored in Secrets Manager.</p> <p>To change a host key's storage type from <code>SERVICE_MANAGED</code> to <code>SECRETS_MANAGER</code>, you must have the <code>transfer:ExportHostKey</code> permission. <code>transfer:ExportHostKey</code> is a permission-only action that has no corresponding API operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -35,7 +35,9 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * const input = { // UpdateHostKeyRequest
  *   ServerId: "STRING_VALUE", // required
  *   HostKeyId: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   StorageType: "SERVICE_MANAGED" || "SECRETS_MANAGER",
+ *   KmsKey: "STRING_VALUE",
  * };
  * const command = new UpdateHostKeyCommand(input);
  * const response = await client.send(command);

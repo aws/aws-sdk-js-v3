@@ -20,6 +20,7 @@ import type {
   ExecutionErrorType,
   ExecutionStatus,
   HomeDirectoryType,
+  HostKeyStorageType,
   IdentityProviderType,
   IpAddressType,
   MapType,
@@ -1988,6 +1989,12 @@ export interface CreateServerRequest {
    * @public
    */
   IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>Specifies whether the host key is stored by Transfer Family (<code>SERVICE_MANAGED</code>) or in Secrets Manager (<code>SECRETS_MANAGER</code>). When you specify <code>SECRETS_MANAGER</code>, Transfer Family stores the private host key material in an Secrets Manager secret.</p>
+   * @public
+   */
+  HostKeyStorageType?: HostKeyStorageType | undefined;
 }
 
 /**
@@ -3005,6 +3012,18 @@ export interface DescribedHostKey {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Specifies whether the host key is stored by Transfer Family (<code>SERVICE_MANAGED</code>) or in Secrets Manager (<code>SECRETS_MANAGER</code>).</p>
+   * @public
+   */
+  StorageType?: HostKeyStorageType | undefined;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret that stores the host key material, when <code>StorageType</code> is <code>SECRETS_MANAGER</code>.</p>
+   * @public
+   */
+  SecretId?: string | undefined;
 }
 
 /**
@@ -3874,6 +3893,18 @@ export interface ImportHostKeyRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Specifies whether the host key is stored by Transfer Family (<code>SERVICE_MANAGED</code>) or in Secrets Manager (<code>SECRETS_MANAGER</code>). When you specify <code>SECRETS_MANAGER</code>, Transfer Family stores the private host key material in an Secrets Manager secret.</p>
+   * @public
+   */
+  StorageType?: HostKeyStorageType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the Secrets Manager secret that stores the host key. If you specify a customer managed key, its key policy must allow the <code>AWSServiceRoleForTransfer</code> service-linked role to decrypt the secret. If you don't specify a value, Transfer Family uses the Amazon Web Services managed key for Secrets Manager.</p>
+   * @public
+   */
+  KmsKey?: string | undefined;
 }
 
 /**
@@ -4086,6 +4117,18 @@ export interface ListedHostKey {
    * @public
    */
   DateImported?: Date | undefined;
+
+  /**
+   * <p>Specifies whether the host key is stored by Transfer Family (<code>SERVICE_MANAGED</code>) or in Secrets Manager (<code>SECRETS_MANAGER</code>).</p>
+   * @public
+   */
+  StorageType?: HostKeyStorageType | undefined;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret that stores the host key material, when <code>StorageType</code> is <code>SECRETS_MANAGER</code>.</p>
+   * @public
+   */
+  SecretId?: string | undefined;
 }
 
 /**
@@ -5282,7 +5325,19 @@ export interface UpdateHostKeyRequest {
    * <p>An updated description for the host key.</p>
    * @public
    */
-  Description: string | undefined;
+  Description?: string | undefined;
+
+  /**
+   * <p>Specifies whether the host key is stored by Transfer Family (<code>SERVICE_MANAGED</code>) or in Secrets Manager (<code>SECRETS_MANAGER</code>). When you specify <code>SECRETS_MANAGER</code>, Transfer Family stores the private host key material in an Secrets Manager secret.</p>
+   * @public
+   */
+  StorageType?: HostKeyStorageType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the Secrets Manager secret that stores the host key. If you specify a customer managed key, its key policy must allow the <code>AWSServiceRoleForTransfer</code> service-linked role to decrypt the secret. If you don't specify a value, Transfer Family uses the Amazon Web Services managed key for Secrets Manager.</p>
+   * @public
+   */
+  KmsKey?: string | undefined;
 }
 
 /**

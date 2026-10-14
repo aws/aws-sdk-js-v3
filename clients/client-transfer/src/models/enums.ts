@@ -331,6 +331,19 @@ export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
  * @public
  * @enum
  */
+export const HostKeyStorageType = {
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+  SERVICE_MANAGED: "SERVICE_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type HostKeyStorageType = (typeof HostKeyStorageType)[keyof typeof HostKeyStorageType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SftpAuthenticationMethods = {
   PASSWORD: "PASSWORD",
   PUBLIC_KEY: "PUBLIC_KEY",

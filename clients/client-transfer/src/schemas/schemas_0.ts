@@ -203,6 +203,7 @@ const _HK = "HostKey";
 const _HKB = "HostKeyBody";
 const _HKF = "HostKeyFingerprint";
 const _HKI = "HostKeyId";
+const _HKST = "HostKeyStorageType";
 const _HKo = "HostKeys";
 const _IA = "InstanceArn";
 const _IAT = "IpAddressType";
@@ -226,6 +227,7 @@ const _ISPK = "ImportSshPublicKey";
 const _ISPKR = "ImportSshPublicKeyRequest";
 const _ISPKRm = "ImportSshPublicKeyResponse";
 const _K = "Key";
+const _KK = "KmsKey";
 const _LA = "ListedAccess";
 const _LAR = "ListAccessesRequest";
 const _LARi = "ListAccessesResponse";
@@ -378,6 +380,7 @@ const _SHKA = "SshHostKeyAlgorithms";
 const _SI = "ServerIds";
 const _SIFL = "S3InputFileLocation";
 const _SIe = "ServerId";
+const _SIec = "SecretId";
 const _SIes = "SessionId";
 const _SIo = "SourceIp";
 const _SIu = "SubnetIds";
@@ -413,9 +416,10 @@ const _SSOe = "SetStatOption";
 const _SSR = "StartServerRequest";
 const _SSRt = "StopServerRequest";
 const _SSt = "StopServer";
-const _ST = "StepType";
+const _ST = "StorageType";
 const _STa = "S3Tag";
 const _STag = "S3Tags";
+const _STt = "StepType";
 const _SUE = "ServiceUnavailableException";
 const _SWSS = "SendWorkflowStepState";
 const _SWSSR = "SendWorkflowStepStateRequest";
@@ -701,8 +705,8 @@ export var CreateProfileResponse$: StaticStructureSchema = [3, n0, _CPRr,
 ];
 export var CreateServerRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_Ce, _Do, _ED, _ET, _HK, _IPD, _IPT, _LR, _PALB, _PALBr, _Pr, _PD, _SPN, _T, _WD, _SLD, _SSO, _IAT],
-  [0, 0, () => EndpointDetails$, 0, [() => HostKey, 0], () => IdentityProviderDetails$, 0, 0, 0, 0, 64 | 0, () => ProtocolDetails$, 0, () => Tags, () => WorkflowDetails$, 64 | 0, () => S3StorageOptions$, 0]
+  [_Ce, _Do, _ED, _ET, _HK, _IPD, _IPT, _LR, _PALB, _PALBr, _Pr, _PD, _SPN, _T, _WD, _SLD, _SSO, _IAT, _HKST],
+  [0, 0, () => EndpointDetails$, 0, [() => HostKey, 0], () => IdentityProviderDetails$, 0, 0, 0, 0, 64 | 0, () => ProtocolDetails$, 0, () => Tags, () => WorkflowDetails$, 64 | 0, () => S3StorageOptions$, 0, 0]
 ];
 export var CreateServerResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -896,8 +900,8 @@ export var DescribedExecution$: StaticStructureSchema = [3, n0, _DE,
 ];
 export var DescribedHostKey$: StaticStructureSchema = [3, n0, _DHK,
   0,
-  [_Ar, _HKI, _HKF, _D, _Ty, _DI, _T],
-  [0, 0, 0, 0, 0, 4, () => Tags], 1
+  [_Ar, _HKI, _HKF, _D, _Ty, _DI, _T, _ST, _SIec],
+  [0, 0, 0, 0, 0, 4, () => Tags, 0, 0], 1
 ];
 export var DescribedIdentityCenterConfig$: StaticStructureSchema = [3, n0, _DICC,
   0,
@@ -1056,7 +1060,7 @@ export var ExecutionResults$: StaticStructureSchema = [3, n0, _ERx,
 ];
 export var ExecutionStepResult$: StaticStructureSchema = [3, n0, _ESR,
   0,
-  [_ST, _O, _Er],
+  [_STt, _O, _Er],
   [0, 0, () => ExecutionError$]
 ];
 export var FileLocation$: StaticStructureSchema = [3, n0, _FL,
@@ -1091,8 +1095,8 @@ export var ImportCertificateResponse$: StaticStructureSchema = [3, n0, _ICRm,
 ];
 export var ImportHostKeyRequest$: StaticStructureSchema = [3, n0, _IHKR,
   0,
-  [_SIe, _HKB, _D, _T],
-  [0, [() => HostKey, 0], 0, () => Tags], 2
+  [_SIe, _HKB, _D, _T, _ST, _KK],
+  [0, [() => HostKey, 0], 0, () => Tags, 0, 0], 2
 ];
 export var ImportHostKeyResponse$: StaticStructureSchema = [3, n0, _IHKRm,
   0,
@@ -1181,8 +1185,8 @@ export var ListedExecution$: StaticStructureSchema = [3, n0, _LE,
 ];
 export var ListedHostKey$: StaticStructureSchema = [3, n0, _LHK,
   0,
-  [_Ar, _HKI, _Fi, _D, _Ty, _DI],
-  [0, 0, 0, 0, 0, 4], 1
+  [_Ar, _HKI, _Fi, _D, _Ty, _DI, _ST, _SIec],
+  [0, 0, 0, 0, 0, 4, 0, 0], 1
 ];
 export var ListedProfile$: StaticStructureSchema = [3, n0, _LP,
   0,
@@ -1521,8 +1525,8 @@ export var UpdateConnectorVpcLatticeEgressConfig$: StaticStructureSchema = [3, n
 ];
 export var UpdateHostKeyRequest$: StaticStructureSchema = [3, n0, _UHKR,
   0,
-  [_SIe, _HKI, _D],
-  [0, 0, 0], 3
+  [_SIe, _HKI, _D, _ST, _KK],
+  [0, 0, 0, 0, 0], 2
 ];
 export var UpdateHostKeyResponse$: StaticStructureSchema = [3, n0, _UHKRp,
   0,

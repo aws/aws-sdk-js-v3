@@ -235,6 +235,7 @@ export type {
   ExecutionErrorType,
   ExecutionStatus,
   HomeDirectoryType,
+  HostKeyStorageType,
   IdentityProviderType,
   IpAddressType,
   MapType,

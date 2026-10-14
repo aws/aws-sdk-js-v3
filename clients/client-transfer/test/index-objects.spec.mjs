@@ -180,6 +180,7 @@ import {
   FileLocation$,
   HomeDirectoryMapEntry$,
   HomeDirectoryType,
+  HostKeyStorageType,
   IdentityCenterConfig$,
   IdentityProviderDetails$,
   IdentityProviderType,
@@ -804,6 +805,7 @@ assert(typeof EnforceMessageSigningType === "object");
 assert(typeof ExecutionErrorType === "object");
 assert(typeof ExecutionStatus === "object");
 assert(typeof HomeDirectoryType === "object");
+assert(typeof HostKeyStorageType === "object");
 assert(typeof IdentityProviderType === "object");
 assert(typeof IpAddressType === "object");
 assert(typeof MapType === "object");

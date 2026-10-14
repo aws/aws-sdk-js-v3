@@ -109,6 +109,7 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *     DirectoryListingOptimization: "ENABLED" || "DISABLED",
  *   },
  *   IpAddressType: "IPV4" || "DUALSTACK",
+ *   HostKeyStorageType: "SERVICE_MANAGED" || "SECRETS_MANAGER",
  * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);
