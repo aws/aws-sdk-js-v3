@@ -20,6 +20,12 @@ import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
  */
 const lastRefreshAttemptTimes = new Map<string, number>();
 
+/**
+ * Token refresh currently in flight per SSO session. Concurrent callers for the same session
+ * await the same refresh instead of each attempting one.
+ */
+const inFlightRefreshes = new Map<string, Promise<TokenIdentity>>();
+
 export interface FromSsoInit extends SourceProfileInit, CredentialProviderOptions {
   /**
    * @see SSOOIDCClientConfig in \@aws-sdk/client-sso-oidc.
@@ -98,6 +104,18 @@ export const fromSso =
       return existingToken;
     }
 
+    // Join a refresh already in flight for this SSO session.
+    const inFlightRefresh = inFlightRefreshes.get(ssoSessionName);
+    if (inFlightRefresh) {
+      try {
+        return await inFlightRefresh;
+      } catch (error) {
+        // return existing token if it's still valid.
+        validateTokenExpiry(existingToken);
+        return existingToken;
+      }
+    }
+
     // Skip new refresh, if last refresh for this SSO session was done within 30 seconds.
     const lastRefreshAttemptTime = lastRefreshAttemptTimes.get(ssoSessionName) ?? 0;
     if (Date.now() - lastRefreshAttemptTime < 30 * 1000) {
@@ -110,7 +128,7 @@ export const fromSso =
     validateTokenKey("clientSecret", ssoToken.clientSecret, true);
     validateTokenKey("refreshToken", ssoToken.refreshToken, true);
 
-    try {
+    const refresh = (async (): Promise<TokenIdentity> => {
       lastRefreshAttemptTimes.set(ssoSessionName, Date.now());
       const newSsoOidcToken = await getNewSsoOidcToken(ssoToken, ssoRegion, init, callerClientConfig);
       validateTokenKey("accessToken", newSsoOidcToken.accessToken);
@@ -132,9 +150,17 @@ export const fromSso =
         token: newSsoOidcToken.accessToken!,
         expiration: newTokenExpiration,
       };
+    })();
+
+    inFlightRefreshes.set(ssoSessionName, refresh);
+
+    try {
+      return await refresh;
     } catch (error) {
       // return existing token if it's still valid.
       validateTokenExpiry(existingToken);
       return existingToken;
+    } finally {
+      inFlightRefreshes.delete(ssoSessionName);
     }
   };
