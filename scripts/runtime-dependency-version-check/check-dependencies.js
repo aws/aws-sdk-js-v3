@@ -11,8 +11,9 @@ const root = path.join(__dirname, "..", "..");
 const packages = path.join(root, "packages");
 const packagesInternal = path.join(root, "packages-internal");
 const lib = path.join(root, "lib");
+const preview = path.join(root, "preview");
 const _private = path.join(root, "private");
-const topLevelFolders = [packages, packagesInternal, _private, lib];
+const topLevelFolders = [packages, packagesInternal, preview, _private, lib];
 const packageFolders = [];
 const walk = require("../utils/walk");
 const { listFolders } = require("../utils/list-folders");
@@ -62,7 +63,12 @@ const shouldIgnore = (dep) => ignored.includes(dep) || (dep.startsWith("node:") 
 
     const pkgJsonPath = path.join(containingFolder, packageFolder, "package.json");
 
-    if (containingFolder === packages || containingFolder === packagesInternal || containingFolder === lib) {
+    if (
+      containingFolder === packages ||
+      containingFolder === packagesInternal ||
+      containingFolder === preview ||
+      containingFolder === lib
+    ) {
       errors.push(...pkgJsonEnforcement(pkgJsonPath, true));
     }
 
