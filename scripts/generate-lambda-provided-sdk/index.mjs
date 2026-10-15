@@ -72,8 +72,10 @@ const skipLegacy = flag("skip-legacy");
 const treeOnly = flag("tree-only");
 
 const nodeModulesDir = join(outDir, "node_modules");
-const vendorDir = join(__dirname, "vendor");
-const vendorPopulate = relative(rootDir, join(__dirname, "vendor-populate.mjs"));
+// Declares the registry packages the payload needs but nothing in this workspace imports.
+// Step 4 reads the list from here; see that step's comment.
+const legacyDepsManifest = join(rootDir, "private", "aws-lambda-provided-sdk-deps", "package.json");
+const legacyDepsPackage = relative(rootDir, dirname(legacyDepsManifest));
 
 // Publishable packages kept out of the payload. Empty since the documentation
 // generators that used to be listed here were removed from the repo upstream.
@@ -457,20 +459,11 @@ const main = () => {
   log(`2. copied ${fileCount} published files; stripped workspace: from ${rewritten} manifests`);
 
   // 3. Copy the runtime dependency closure out of the root node_modules.
-
-  // Declared by the vendored 4.x @smithy packages but by nothing publishable, so the walk
-  // cannot reach them. Copying here makes the workspace version win over vendor/, which
-  // step 4 will then skip. Missing names throw.
-  const CLOSURE_EXTRAS = ["@smithy/util-utf8"];
-
   const seen = new Set();
   for (const [, { manifest }] of workspacePackages) {
     for (const dep of Object.keys(manifest.dependencies ?? {})) {
       copyExternalDependency(dep, seen, workspacePackages);
     }
-  }
-  for (const name of CLOSURE_EXTRAS) {
-    copyExternalDependency(name, seen, workspacePackages);
   }
   const external = readdirSync(nodeModulesDir).filter((e) => e !== "@aws-sdk").length;
   log(`3. copied runtime closure: ${external} external entries`);
@@ -479,19 +472,20 @@ const main = () => {
   //
   // Nothing is installed. Two mechanisms cover the whole set:
   //
-  //   Generated. The 47 deprecated @aws-sdk packages are forwarders — the entire
-  //   content of each is a re-export of the modern package that replaced it. Their
-  //   targets are recorded in shim-targets.json, taken from aws-sdk-js-v3
+  //   Generated. 46 of the 47 deprecated @aws-sdk packages are forwarders — the
+  //   entire content of each is a re-export of the modern package that replaced it.
+  //   Their targets are recorded in shim-targets.json, taken from aws-sdk-js-v3
   //   bb2232f76f4, which rewrote each deprecated package's src/index.ts to a single
   //   `export * from` before the packages were removed from the repo. That commit is
   //   the only remaining record of the mapping, and it cannot be re-derived: 41 of
   //   the 47 follow @aws-sdk/X -> @smithy/X, and the rest do not.
   //
-  //   Vendored. 31 packages are copied from vendor/. They are re-export targets the
-  //   modern SDK no longer depends on, so yarn install never fetches them and there
-  //   is nothing in the workspace to copy, plus @aws-sdk/middleware-sdk-eventbridge,
-  //   which ships real code rather than a forwarder. Real implementations cannot be
-  //   generated from a list of export names.
+  //   Copied from the root node_modules. The forwarders' re-export targets, which the
+  //   modern SDK no longer depends on, plus @aws-sdk/middleware-sdk-eventbridge, which
+  //   ships real code rather than a forwarder. Nothing publishable declares them, so
+  //   step 3's walk cannot reach them and yarn install would not fetch them;
+  //   private/aws-lambda-provided-sdk-deps declares them as devDependencies for that
+  //   reason, and this step reads the list from that manifest.
   //
   // This replaces an `npm install` of 88 pinned specs, which existed only to fight
   // npm's resolver: the shims' 2023 dependency ranges resolve @smithy to 1.x while
@@ -507,46 +501,53 @@ const main = () => {
       readFileSync(join(__dirname, "shim-targets.json"), "utf-8")
     );
 
-    // Vendored packages first: a generated forwarder cannot be verified until the
+    // Re-export targets first: a generated forwarder cannot be verified until the
     // thing it forwards to is present.
-    let vendored = 0;
-    const walkVendor = (dir) => {
-      for (const entry of readdirSync(dir, { withFileTypes: true })) {
-        if (!entry.isDirectory()) {
-          continue;
-        }
-        const from = join(dir, entry.name);
-        if (!existsSync(join(from, "package.json"))) {
-          walkVendor(from); // a scope directory, not a package
-          continue;
-        }
-        const name = relative(vendorDir, from);
-        const dest = join(nodeModulesDir, name);
-        if (existsSync(dest)) {
-          continue; // never shadow something built from this workspace
-        }
-        mkdirSync(dirname(dest), { recursive: true });
-        cpSync(from, dest, { recursive: true });
-        // A vendored package whose code was never committed still carries a
-        // package.json, so it passes the test above and is copied as an empty shell.
-        // Catch it here rather than in 4b, where it reads as a pile of unrelated
-        // resolution failures instead of one missing input.
-        const entryPoint =
-          JSON.parse(readFileSync(join(dest, "package.json"), "utf-8")).main ?? "index.js";
-        if (!existsSync(join(dest, entryPoint))) {
-          throw new Error(
-            `vendor/${name} has no ${entryPoint} — vendor/ is incomplete.\n` +
-              `  dist-cjs is matched by .gitignore's dist-* rule, so confirm the files are tracked:\n` +
-              `    git ls-files scripts/generate-lambda-provided-sdk/vendor | wc -l`
-          );
-        }
-        vendored += 1;
-      }
-    };
-    if (!existsSync(vendorDir)) {
-      throw new Error(`no vendor directory at ${vendorDir} — the payload cannot be completed.`);
+    if (!existsSync(legacyDepsManifest)) {
+      throw new Error(
+        `no manifest at ${legacyDepsManifest} — the payload cannot be completed.\n` +
+          `  ${legacyDepsPackage} is where the payload's registry-sourced packages are declared.`
+      );
     }
-    walkVendor(vendorDir);
+    const legacyNames = Object.keys(
+      JSON.parse(readFileSync(legacyDepsManifest, "utf-8")).devDependencies ?? {}
+    );
+
+    // Reserve every generated name before copying, so the recursive copy cannot fill a
+    // forwarder's slot with the package it forwards away from:
+    // @aws-sdk/middleware-sdk-eventbridge@3.193.0 depends on @aws-sdk/protocol-http@3.193.0,
+    // the real 2022 implementation, and the generator skips a destination that exists.
+    for (const [name, entry] of Object.entries(awsSdkShims)) {
+      if (entry?.target) {
+        seen.add(name);
+      }
+    }
+
+    // Steps 2 and 3 reach none of these names today, but a future SDK version could
+    // depend on one, and that copy has to win.
+    const preexisting = legacyNames.filter((name) => existsSync(join(nodeModulesDir, name)));
+    for (const name of preexisting) {
+      seen.add(name);
+    }
+    for (const name of legacyNames) {
+      copyExternalDependency(name, seen, workspacePackages);
+    }
+
+    // A package that reached the root node_modules without its entry point is a broken
+    // input. Catch it here rather than in 4b, where it reads as a pile of unrelated
+    // resolution failures instead of one bad package.
+    for (const name of legacyNames) {
+      const dest = join(nodeModulesDir, name);
+      const entryPoint =
+        JSON.parse(readFileSync(join(dest, "package.json"), "utf-8")).main ?? "index.js";
+      if (!existsSync(join(dest, entryPoint))) {
+        throw new Error(
+          `${name} has no ${entryPoint} — the copy in the root node_modules is incomplete.\n` +
+            `  Re-run yarn install, then check the version ${legacyDepsPackage} declares.`
+        );
+      }
+    }
+    const copied = legacyNames.length - preexisting.length;
 
     // CommonJS only, matching the payload that ships today: the reference's copy of
     // @aws-sdk/abort-controller has dist-cjs alone, with module and types stripped from
@@ -559,14 +560,12 @@ const main = () => {
         throw new Error(`shim-targets.json entry for ${name} is incomplete.`);
       }
       if (!entry.target) {
-        // Not a forwarder. It has to be vendored, and the copy above is the only
-        // thing that can have supplied it.
+        // Not a forwarder. It ships real code, so the copy above is the only thing
+        // that can have supplied it.
         if (!existsSync(join(nodeModulesDir, name))) {
           throw new Error(
-            `${name} has no re-export target and is not in vendor/ — nothing can produce it.\n` +
-              `  Vendor it with:\n` +
-              `    node ${vendorPopulate} --baseline <payload assembled with --skip-legacy>/node_modules --source <node_modules holding ${name}>\n` +
-              `  Add --check first to see what would change without writing.`
+            `${name} has no re-export target and was not copied — nothing can produce it.\n` +
+              `  Declare it in ${legacyDepsPackage} and re-run yarn install.`
           );
         }
         continue;
@@ -603,8 +602,8 @@ const main = () => {
       generated += 1;
     }
 
-    legacyAdded = vendored + generated;
-    log(`4. ${generated} forwarders generated, ${vendored} vendored packages copied`);
+    legacyAdded = copied + generated;
+    log(`4. ${generated} forwarders generated, ${copied} declared packages copied`);
 
     // 4b. Assert every forwarder actually delivers what the compatibility snapshot
     // records. __exportStar copies whatever the target exports at require time, so a
@@ -624,36 +623,34 @@ const main = () => {
         const actual = new Set(Object.keys(requireFromTree(name)));
         const missing = entry.exports.filter((symbol) => !actual.has(symbol));
         if (missing.length) {
-          shortfalls.push(`${name} -> ${entry.target ?? "(vendored)"} is missing ${missing.join(", ")}`);
+          shortfalls.push(`${name} -> ${entry.target ?? "(copied)"} is missing ${missing.join(", ")}`);
         }
       } catch (error) {
         // A newer SDK version can introduce a forwarder target — or a dependency of one —
-        // that the static vendor/ directory has never carried, and that surfaces here as a
-        // resolution failure rather than a missing symbol. It is the most likely way this
-        // step fails on a version bump, so say which module is actually absent and give the
-        // command that supplies it instead of reporting a bare error code.
+        // that nothing declares, and that surfaces here as a resolution failure rather
+        // than a missing symbol. It is the most likely way this step fails on a version
+        // bump, so say which module is actually absent instead of reporting a bare code.
         const unresolved =
           error.code === "MODULE_NOT_FOUND"
             ? /Cannot find module '([^']+)'/.exec(error.message)?.[1]
             : undefined;
-        // Only a bare package name, scoped or not, can be vendored. The same message
-        // fires for a relative request made from inside a vendored package, and
-        // "--source <node_modules holding ./lib/foo>" is not advice anyone can act on,
-        // so that case reports the gap without the remedy.
-        const vendorable = unresolved !== undefined && /^(?:@[^/:]+\/)?[^@./:][^/:]*$/.test(unresolved);
-        if (vendorable) {
+        // Only a bare package name, scoped or not, can be declared as a dependency. The
+        // same message fires for a relative request made from inside a copied package,
+        // and "declare ./lib/foo" is not advice anyone can act on, so that case reports
+        // the gap without the remedy.
+        const declarable = unresolved !== undefined && /^(?:@[^/:]+\/)?[^@./:][^/:]*$/.test(unresolved);
+        if (declarable) {
           shortfalls.push(
-            `${name} -> ${entry.target ?? "(vendored)"} cannot load: ${unresolved} is not in the ` +
+            `${name} -> ${entry.target ?? "(copied)"} cannot load: ${unresolved} is not in the ` +
               `assembled tree.\n    Neither this workspace nor its dependency closure provides ` +
-              `it, so it has to come from vendor/, which does not carry it. Add it with:\n` +
-              `      node ${vendorPopulate} --baseline <payload assembled with --skip-legacy>/node_modules --source <node_modules holding ${unresolved}>\n` +
-              `    Add --check first to see what would change without writing.`
+              `it, so it has to be declared. Add it to ${legacyDepsPackage} and re-run\n` +
+              `    yarn install.`
           );
         } else if (unresolved !== undefined) {
           shortfalls.push(
-            `${name} -> ${entry.target ?? "(vendored)"} cannot load: ${unresolved} is not ` +
+            `${name} -> ${entry.target ?? "(copied)"} cannot load: ${unresolved} is not ` +
               `resolvable from the assembled tree. It is not a bare package name, so it is a ` +
-              `file missing from inside an already-present package rather than a vendor/ gap.`
+              `file missing from inside an already-present package rather than a missing package.`
           );
         } else {
           shortfalls.push(`${name} failed to load: ${error.code ?? error.message}`);

@@ -58,7 +58,10 @@ const deps = {
   } */
 };
 
-const ignored = ["vitest"];
+// @aws-sdk/middleware-sdk-eventbridge was removed from the monorepo, so it has no
+// canonical workspace version. It is declared at a literal registry version only to
+// complete the Lambda-provided-SDK payload.
+const ignored = ["vitest", "@aws-sdk/middleware-sdk-eventbridge"];
 
 readPackages(clientPackages);
 checkVersions();

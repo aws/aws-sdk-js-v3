@@ -57,7 +57,6 @@ turbo.dev.json
 .rollup.cache
 coverage
 dist-*
-!scripts/generate-lambda-provided-sdk/vendor/**
 
 /verdaccio/*
 /storage/.verdaccio-db.json
@@ -87,3 +86,5 @@ temp-tarball/
 
 # Gradle composite build properties
 codegen/local.properties
+
+lambda-provided-sdk/
