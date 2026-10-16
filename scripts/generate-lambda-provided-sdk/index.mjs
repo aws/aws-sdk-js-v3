@@ -5,17 +5,6 @@
  * Assembles the node_modules tree that AWS Lambda pre-provisions for customer
  * functions, and zips it for publication as a GitHub release asset.
  *
- * @example
- * ```
- * yarn generate:lambda-provided-sdk
- * yarn generate:lambda-provided-sdk --out /tmp/lambda-sdk --skip-legacy
- * ```
- *
- * This replaces the previous process, which ran `npm install @aws-sdk/<pkg>@<version>`
- * against the public registry. That cannot run during a release build: packages are
- * published *after* the build stage, so the version being released does not exist on
- * the registry yet. Everything publishable is therefore taken from this workspace.
- *
  * Output layout, which consumers depend on and which must not change:
  *
  *   node_modules/
@@ -24,11 +13,6 @@
  *       node_modules/                   everything that is NOT @aws-sdk, nested here
  *         @smithy/ @aws-crypto/ tslib/ ...
  *     @smithy -> ./@aws-sdk/node_modules/@smithy
- *
- * The nesting is deliberate: SDK packages resolve their own dependencies by walking up
- * to @aws-sdk/node_modules, while customer code cannot reach tslib or @aws-crypto. The
- * root @smithy symlink is the one intentional exception, because customer code may
- * import @smithy/* directly. It is relative so it survives copying and zipping.
  */
 
 import { execFileSync as _execFileSync } from "node:child_process";
@@ -73,16 +57,23 @@ const treeOnly = flag("tree-only");
 
 const nodeModulesDir = join(outDir, "node_modules");
 // Declares the registry packages the payload needs but nothing in this workspace imports.
-// Step 4 reads the list from here; see that step's comment.
-const legacyDepsManifest = join(rootDir, "private", "aws-lambda-provided-sdk-deps", "package.json");
+const legacyDepsManifest = join(
+  rootDir,
+  "private",
+  "aws-lambda-provided-sdk-deps",
+  "package.json",
+);
 const legacyDepsPackage = relative(rootDir, dirname(legacyDepsManifest));
 
-// Publishable packages kept out of the payload. Empty since the documentation
-// generators that used to be listed here were removed from the repo upstream.
+// Publishable packages kept out of the payload.
 const EXCLUDED = new Set([]);
 
 // npm ships these regardless of the `files` field.
-const ALWAYS_INCLUDED = [/^package\.json$/, /^README(\..*)?$/i, /^LICEN[CS]E(\..*)?$/i];
+const ALWAYS_INCLUDED = [
+  /^package\.json$/,
+  /^README(\..*)?$/i,
+  /^LICEN[CS]E(\..*)?$/i,
+];
 
 const execFileSync = (cmd, args, opts) => {
   console.log(`executing: ${[cmd, ...args].join(" ")}`);
@@ -94,11 +85,9 @@ const log = (...args) => console.log(...args);
 // ---------------------------------------------------------------- manifests
 
 /**
- * Yarn writes local interdependencies with its `workspace:` protocol, e.g.
- * "@aws-sdk/core": "workspace:^3.977.6". The registry rewrites those on publish;
- * nothing in this workspace does. Left in place they are invalid semver ranges, so
- * any consumer that installs, resolves or audits the tree breaks. Node itself never
- * reads dependency ranges, which is why this is invisible at runtime.
+ * Strip yarn's `workspace:` protocol from local interdependencies, e.g.
+ * "@aws-sdk/core": "workspace:^3.977.6" — invalid semver outside this workspace,
+ * which the registry would normally rewrite on publish.
  */
 const stripWorkspaceProtocol = (manifestPath) => {
   const raw = readFileSync(manifestPath, "utf-8");
@@ -113,8 +102,7 @@ const stripWorkspaceProtocol = (manifestPath) => {
 
 /**
  * Translate one `files` entry into a matcher. Patterns in this repo are either
- * "dist-*&#47;**" or a root-level shim like "./client.js", but this handles the
- * general shape so a future pattern does not silently match nothing.
+ * "dist-*&#47;**" or a root-level shim like "./client.js"
  */
 const patternToRegExp = (pattern) => {
   let p = pattern.replace(/^\.\//, "").replace(/\/+$/, "");
@@ -127,7 +115,7 @@ const patternToRegExp = (pattern) => {
     .map((segment) =>
       segment === "**"
         ? "(?:.*)"
-        : segment.replace(/[.+^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^/]*")
+        : segment.replace(/[.+^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^/]*"),
     )
     .join("/")
     // "a/**" should also match "a" itself
@@ -154,17 +142,12 @@ const listFiles = (dir, prefix = "") => {
 
 /**
  * Copy a workspace package the way `npm publish` would, honouring its `files` field.
- *
- * Reading `files` per package matters: 502 of the publishable packages declare exactly
- * ["dist-*&#47;**"], but @aws-sdk/core, config, checksums, nested-clients and
- * middleware-sdk-s3 also ship root-level subpath shims (client.js, credentials.js,
- * sts.js and friends) that back customer-facing subpath imports. A hardcoded dist-*
- * allowlist drops those silently.
  */
 const copyPublishedFiles = (pkgDir, destDir, pkgJson) => {
   const patterns = (pkgJson.files ?? ["dist-*/**"]).map(patternToRegExp);
   const matches = (rel) =>
-    ALWAYS_INCLUDED.some((re) => re.test(rel)) || patterns.some((re) => re.test(rel));
+    ALWAYS_INCLUDED.some((re) => re.test(rel)) ||
+    patterns.some((re) => re.test(rel));
 
   let copied = 0;
   for (const rel of listFiles(pkgDir)) {
@@ -173,7 +156,10 @@ const copyPublishedFiles = (pkgDir, destDir, pkgJson) => {
     }
     const dest = join(destDir, ...rel.split("/"));
     mkdirSync(dirname(dest), { recursive: true });
-    cpSync(join(pkgDir, ...rel.split("/")), dest, { dereference: true, force: true });
+    cpSync(join(pkgDir, ...rel.split("/")), dest, {
+      dereference: true,
+      force: true,
+    });
     copied += 1;
   }
   return copied;
@@ -188,7 +174,7 @@ const copyPublishedFiles = (pkgDir, destDir, pkgJson) => {
  *
  * Only `dependencies` is walked. No publishable package in this repo declares
  * optionalDependencies, and the three peerDependencies all point at clients that are
- * copied anyway. Walking devDependencies would drag in turbo, typescript and vitest.
+ * copied anyway.
  */
 /** Every package.json beneath `dir`'s nested node_modules, at any depth. */
 const nestedManifests = (dir) => {
@@ -237,7 +223,7 @@ const copyExternalDependency = (name, seen, workspacePackages) => {
     // Loud on purpose. A silently omitted dependency is a runtime failure for a
     // customer function, discovered long after the release.
     throw new Error(
-      `${name} not found in root node_modules — run yarn install before assembling.`
+      `${name} not found in root node_modules — run yarn install before assembling.`,
     );
   }
 
@@ -275,7 +261,7 @@ const copyExternalDependency = (name, seen, workspacePackages) => {
 
 /**
  * Move everything that is not @aws-sdk down into @aws-sdk/node_modules, then create
- * the root @smithy symlink. See the layout note at the top of this file.
+ * the root @smithy symlink.
  */
 const applyLayout = () => {
   const nested = join(nodeModulesDir, "@aws-sdk", "node_modules");
@@ -289,9 +275,14 @@ const applyLayout = () => {
   }
 
   if (!existsSync(join(nested, "@smithy"))) {
-    throw new Error("@smithy not present in the assembled tree; cannot create the root symlink.");
+    throw new Error(
+      "@smithy not present in the assembled tree; cannot create the root symlink.",
+    );
   }
-  symlinkSync(join(".", "@aws-sdk", "node_modules", "@smithy"), join(nodeModulesDir, "@smithy"));
+  symlinkSync(
+    join(".", "@aws-sdk", "node_modules", "@smithy"),
+    join(nodeModulesDir, "@smithy"),
+  );
 };
 
 // ---------------------------------------------------------------- verification
@@ -310,16 +301,10 @@ const verifyTreeComplete = () => {
   const packages = [];
   const collect = (dir) => {
     for (const entry of readdirSync(dir, { withFileTypes: true })) {
-      // Never follow the root @smithy symlink. It points back into the tree, so walking
-      // it would double-count and resolve from a path Node never uses — Node realpaths
-      // a module's directory before resolving from it.
       if (entry.isSymbolicLink() || !entry.isDirectory()) {
         continue;
       }
       const full = join(dir, entry.name);
-      // Scope directories and node_modules are containers, not packages. Descending into
-      // a directory literally named node_modules is what makes the 100-odd packages under
-      // @aws-sdk/node_modules visible after step 5.
       if (entry.name.startsWith("@") || entry.name === "node_modules") {
         collect(full);
         continue;
@@ -359,20 +344,25 @@ const verifyTreeComplete = () => {
   for (const pkgDir of packages) {
     let manifest;
     try {
-      manifest = JSON.parse(readFileSync(join(pkgDir, "package.json"), "utf-8"));
+      manifest = JSON.parse(
+        readFileSync(join(pkgDir, "package.json"), "utf-8"),
+      );
     } catch {
-      continue; // not a real manifest; step 4's entry-point guard covers malformed packages
+      continue; // not a real manifest
     }
     for (const [dep, range] of Object.entries(manifest.dependencies ?? {})) {
       // file:/link:/git: specifiers are not resolved from node_modules.
-      if (typeof range === "string" && /^(?:file|link|workspace|git|https?):/.test(range)) {
+      if (
+        typeof range === "string" &&
+        /^(?:file|link|workspace|git|https?):/.test(range)
+      ) {
         continue;
       }
       edges += 1;
       if (!resolves(pkgDir, dep)) {
         missing.push(
           `${manifest.name}@${manifest.version} requires ${dep} (${range}), absent from the tree\n` +
-            `      at ${relative(nodeModulesDir, pkgDir)}`
+            `      at ${relative(nodeModulesDir, pkgDir)}`,
         );
       }
     }
@@ -386,11 +376,13 @@ const verifyTreeComplete = () => {
         `\n\n  A require of the package named on the left will throw MODULE_NOT_FOUND for a ` +
         `customer.\n  Most likely cause: step 3 copied a package whose nested node_modules ` +
         `came along with it,\n  but only the outer package's manifest was walked, so the ` +
-        `nested copy's own\n  dependencies were never collected.`
+        `nested copy's own\n  dependencies were never collected.`,
     );
   }
 
-  log(`5b. tree is self-contained: ${edges} dependency edges across ${packages.length} packages`);
+  log(
+    `5b. tree is self-contained: ${edges} dependency edges across ${packages.length} packages`,
+  );
 };
 
 /**
@@ -408,7 +400,7 @@ const smokeTest = () => {
   writeFileSync(
     consumer,
     targets.map((t) => `require(${JSON.stringify(t)});`).join("\n") +
-      `\nconsole.log("smoke test passed: ${targets.length} packages");\n`
+      `\nconsole.log("smoke test passed: ${targets.length} packages");\n`,
   );
   try {
     execFileSync(process.execPath, [consumer], { stdio: "inherit" });
@@ -424,7 +416,9 @@ const main = () => {
   log(`output : ${outDir}\n`);
 
   if (!existsSync(rootNodeModules)) {
-    throw new Error(`no node_modules at ${rootNodeModules} — run yarn install first.`);
+    throw new Error(
+      `no node_modules at ${rootNodeModules} — run yarn install first.`,
+    );
   }
 
   rmSync(outDir, { recursive: true, force: true });
@@ -456,7 +450,9 @@ const main = () => {
       rewritten += 1;
     }
   }
-  log(`2. copied ${fileCount} published files; stripped workspace: from ${rewritten} manifests`);
+  log(
+    `2. copied ${fileCount} published files; stripped workspace: from ${rewritten} manifests`,
+  );
 
   // 3. Copy the runtime dependency closure out of the root node_modules.
   const seen = new Set();
@@ -465,40 +461,31 @@ const main = () => {
       copyExternalDependency(dep, seen, workspacePackages);
     }
   }
-  const external = readdirSync(nodeModulesDir).filter((e) => e !== "@aws-sdk").length;
+  const external = readdirSync(nodeModulesDir).filter(
+    (e) => e !== "@aws-sdk",
+  ).length;
   log(`3. copied runtime closure: ${external} external entries`);
 
-  // 4. Add the deprecated packages this workspace cannot produce.
+  // 4. Add the deprecated packages this workspace cannot produce. Two mechanisms:
   //
-  // Nothing is installed. Two mechanisms cover the whole set:
+  //   Generated. Most of the deprecated @aws-sdk packages are forwarders whose entire
+  //   content is a re-export of the modern package that replaced it. Targets come from
+  //   shim-targets.json; see that file for provenance, and note the mapping is not
+  //   mechanical — not every @aws-sdk/X forwards to @smithy/X.
   //
-  //   Generated. 46 of the 47 deprecated @aws-sdk packages are forwarders — the
-  //   entire content of each is a re-export of the modern package that replaced it.
-  //   Their targets are recorded in shim-targets.json, taken from aws-sdk-js-v3
-  //   bb2232f76f4, which rewrote each deprecated package's src/index.ts to a single
-  //   `export * from` before the packages were removed from the repo. That commit is
-  //   the only remaining record of the mapping, and it cannot be re-derived: 41 of
-  //   the 47 follow @aws-sdk/X -> @smithy/X, and the rest do not.
-  //
-  //   Copied from the root node_modules. The forwarders' re-export targets, which the
-  //   modern SDK no longer depends on, plus @aws-sdk/middleware-sdk-eventbridge, which
-  //   ships real code rather than a forwarder. Nothing publishable declares them, so
-  //   step 3's walk cannot reach them and yarn install would not fetch them;
-  //   private/aws-lambda-provided-sdk-deps declares them as devDependencies for that
-  //   reason, and this step reads the list from that manifest.
-  //
-  // This replaces an `npm install` of 88 pinned specs, which existed only to fight
-  // npm's resolver: the shims' 2023 dependency ranges resolve @smithy to 1.x while
-  // the payload runs 4.x, so the twins had to be pinned by hand and nested
-  // node_modules filtered out. Writing the forwarders ourselves removes the resolver
-  // from the problem, and the export surface each one must provide is asserted
-  // directly rather than hoped for.
+  //   Copied from the root node_modules. The forwarders' re-export targets, plus
+  //   @aws-sdk/middleware-sdk-eventbridge, which ships real code. Nothing publishable
+  //   declares these, so step 3's walk cannot reach them; they are declared in
+  //   private/aws-lambda-provided-sdk-deps, which this step reads the list from.
+
   let legacyAdded = 0;
   if (skipLegacy) {
-    log(`4. SKIPPED legacy packages — tree is incomplete and will fail the compatibility gates`);
+    log(
+      `4. SKIPPED legacy packages — tree is incomplete and will fail the compatibility gates`,
+    );
   } else {
     const { awsSdkShims } = JSON.parse(
-      readFileSync(join(__dirname, "shim-targets.json"), "utf-8")
+      readFileSync(join(__dirname, "shim-targets.json"), "utf-8"),
     );
 
     // Re-export targets first: a generated forwarder cannot be verified until the
@@ -506,17 +493,16 @@ const main = () => {
     if (!existsSync(legacyDepsManifest)) {
       throw new Error(
         `no manifest at ${legacyDepsManifest} — the payload cannot be completed.\n` +
-          `  ${legacyDepsPackage} is where the payload's registry-sourced packages are declared.`
+          `  ${legacyDepsPackage} is where the payload's registry-sourced packages are declared.`,
       );
     }
     const legacyNames = Object.keys(
-      JSON.parse(readFileSync(legacyDepsManifest, "utf-8")).devDependencies ?? {}
+      JSON.parse(readFileSync(legacyDepsManifest, "utf-8")).devDependencies ??
+        {},
     );
 
     // Reserve every generated name before copying, so the recursive copy cannot fill a
-    // forwarder's slot with the package it forwards away from:
-    // @aws-sdk/middleware-sdk-eventbridge@3.193.0 depends on @aws-sdk/protocol-http@3.193.0,
-    // the real 2022 implementation, and the generator skips a destination that exists.
+    // forwarder's slot with the package it forwards away from
     for (const [name, entry] of Object.entries(awsSdkShims)) {
       if (entry?.target) {
         seen.add(name);
@@ -525,7 +511,9 @@ const main = () => {
 
     // Steps 2 and 3 reach none of these names today, but a future SDK version could
     // depend on one, and that copy has to win.
-    const preexisting = legacyNames.filter((name) => existsSync(join(nodeModulesDir, name)));
+    const preexisting = legacyNames.filter((name) =>
+      existsSync(join(nodeModulesDir, name)),
+    );
     for (const name of preexisting) {
       seen.add(name);
     }
@@ -533,39 +521,35 @@ const main = () => {
       copyExternalDependency(name, seen, workspacePackages);
     }
 
-    // A package that reached the root node_modules without its entry point is a broken
-    // input. Catch it here rather than in 4b, where it reads as a pile of unrelated
-    // resolution failures instead of one bad package.
+    // A package that reached the root node_modules without its entry point is a broken input
     for (const name of legacyNames) {
       const dest = join(nodeModulesDir, name);
       const entryPoint =
-        JSON.parse(readFileSync(join(dest, "package.json"), "utf-8")).main ?? "index.js";
+        JSON.parse(readFileSync(join(dest, "package.json"), "utf-8")).main ??
+        "index.js";
       if (!existsSync(join(dest, entryPoint))) {
         throw new Error(
           `${name} has no ${entryPoint} — the copy in the root node_modules is incomplete.\n` +
-            `  Re-run yarn install, then check the version ${legacyDepsPackage} declares.`
+            `  Re-run yarn install, then check the version ${legacyDepsPackage} declares.`,
         );
       }
     }
     const copied = legacyNames.length - preexisting.length;
 
-    // CommonJS only, matching the payload that ships today: the reference's copy of
-    // @aws-sdk/abort-controller has dist-cjs alone, with module and types stripped from
-    // its manifest. These packages declare no `exports` map, so resolution falls back to
-    // main / module / types — declaring the latter two while emitting only dist-cjs
-    // would point consumers at files that do not exist, so they are omitted entirely.
+    // Generated forwarders are CommonJS only, matching the payload that ships today.
+    // They declare no `exports` map, so a `module` or `types` field would point
+    // consumers at files that are never emitted.
     let generated = 0;
     for (const [name, entry] of Object.entries(awsSdkShims)) {
       if (!entry?.version || !Array.isArray(entry.exports)) {
         throw new Error(`shim-targets.json entry for ${name} is incomplete.`);
       }
       if (!entry.target) {
-        // Not a forwarder. It ships real code, so the copy above is the only thing
-        // that can have supplied it.
+        // Ships real code rather than a forwarder, so only the copy above can supply it.
         if (!existsSync(join(nodeModulesDir, name))) {
           throw new Error(
             `${name} has no re-export target and was not copied — nothing can produce it.\n` +
-              `  Declare it in ${legacyDepsPackage} and re-run yarn install.`
+              `  Declare it in ${legacyDepsPackage} and re-run yarn install.`,
           );
         }
         continue;
@@ -589,30 +573,28 @@ const main = () => {
             dependencies: { [entry.target]: "*", tslib: "^2.6.2" },
           },
           null,
-          2
-        ) + "\n"
+          2,
+        ) + "\n",
       );
       writeFileSync(
         join(dest, "dist-cjs", "index.js"),
         `"use strict";\n` +
           `Object.defineProperty(exports, "__esModule", { value: true });\n` +
           `const tslib_1 = require("tslib");\n` +
-          `tslib_1.__exportStar(require("${entry.target}"), exports);\n`
+          `tslib_1.__exportStar(require("${entry.target}"), exports);\n`,
       );
       generated += 1;
     }
 
     legacyAdded = copied + generated;
-    log(`4. ${generated} forwarders generated, ${copied} declared packages copied`);
+    log(
+      `4. ${generated} forwarders generated, ${copied} declared packages copied`,
+    );
 
-    // 4b. Assert every forwarder actually delivers what the compatibility snapshot
-    // records. __exportStar copies whatever the target exports at require time, so a
-    // forwarder pointing at the wrong package, or at one that dropped a symbol, is
-    // silently short rather than broken. The recorded export surface is a floor: more
-    // is fine, missing anything is not.
-    //
-    // Run before the layout move, while every package still sits directly under
-    // node_modules and resolves from the output root.
+    // 4b. Assert every forwarder delivers what the compatibility snapshot records.
+    // A forwarder pointing at the wrong package is silently short rather than broken,
+    // since __exportStar copies whatever the target happens to export. The recorded
+    // surface is a floor: extra exports are fine, missing ones are not.
     const requireFromTree = createRequire(join(outDir, "verify-shims.cjs"));
     const shortfalls = [];
     for (const [name, entry] of Object.entries(awsSdkShims)) {
@@ -623,46 +605,51 @@ const main = () => {
         const actual = new Set(Object.keys(requireFromTree(name)));
         const missing = entry.exports.filter((symbol) => !actual.has(symbol));
         if (missing.length) {
-          shortfalls.push(`${name} -> ${entry.target ?? "(copied)"} is missing ${missing.join(", ")}`);
+          shortfalls.push(
+            `${name} -> ${entry.target ?? "(copied)"} is missing ${missing.join(", ")}`,
+          );
         }
       } catch (error) {
-        // A newer SDK version can introduce a forwarder target — or a dependency of one —
-        // that nothing declares, and that surfaces here as a resolution failure rather
-        // than a missing symbol. It is the most likely way this step fails on a version
-        // bump, so say which module is actually absent instead of reporting a bare code.
+        // A failure here is usually a missing package rather than a missing symbol,
+        // which is how a version bump breaks this step. Name the absent module.
         const unresolved =
           error.code === "MODULE_NOT_FOUND"
             ? /Cannot find module '([^']+)'/.exec(error.message)?.[1]
             : undefined;
-        // Only a bare package name, scoped or not, can be declared as a dependency. The
-        // same message fires for a relative request made from inside a copied package,
-        // and "declare ./lib/foo" is not advice anyone can act on, so that case reports
-        // the gap without the remedy.
-        const declarable = unresolved !== undefined && /^(?:@[^/:]+\/)?[^@./:][^/:]*$/.test(unresolved);
+        // Only bare package names can be declared as dependencies, so a relative
+        // request gets the diagnosis without the remedy.
+        const declarable =
+          unresolved !== undefined &&
+          /^(?:@[^/:]+\/)?[^@./:][^/:]*$/.test(unresolved);
         if (declarable) {
           shortfalls.push(
             `${name} -> ${entry.target ?? "(copied)"} cannot load: ${unresolved} is not in the ` +
               `assembled tree.\n    Neither this workspace nor its dependency closure provides ` +
               `it, so it has to be declared. Add it to ${legacyDepsPackage} and re-run\n` +
-              `    yarn install.`
+              `    yarn install.`,
           );
         } else if (unresolved !== undefined) {
           shortfalls.push(
             `${name} -> ${entry.target ?? "(copied)"} cannot load: ${unresolved} is not ` +
               `resolvable from the assembled tree. It is not a bare package name, so it is a ` +
-              `file missing from inside an already-present package rather than a missing package.`
+              `file missing from inside an already-present package rather than a missing package.`,
           );
         } else {
-          shortfalls.push(`${name} failed to load: ${error.code ?? error.message}`);
+          shortfalls.push(
+            `${name} failed to load: ${error.code ?? error.message}`,
+          );
         }
       }
     }
     if (shortfalls.length) {
       throw new Error(
-        `deprecated packages are not usable as recorded:\n  ` + shortfalls.join("\n  ")
+        `deprecated packages are not usable as recorded:\n  ` +
+          shortfalls.join("\n  "),
       );
     }
-    log(`4b. verified ${Object.keys(awsSdkShims).length} deprecated packages against their recorded exports`);
+    log(
+      `4b. verified ${Object.keys(awsSdkShims).length} deprecated packages against their recorded exports`,
+    );
   }
 
   // 5. Rearrange into the layout consumers expect.
@@ -681,21 +668,19 @@ const main = () => {
   }
 
   // 6b. Stamp the payload so a copy of it can be identified.
-  //
-  // The asset name is fixed, because releases/latest/download/<name> only resolves
-  // against a literal name. So the zip itself carries no version, and once it is
-  // detached from its release page there is nothing to say which SDK build produced
-  // it. metadata.json is that record, and it is what makes bug reports actionable.
   const gitOutput = (args, fallback) => {
     try {
-      return execFileSync("git", args, { cwd: rootDir, encoding: "utf-8" }).trim();
+      return execFileSync("git", args, {
+        cwd: rootDir,
+        encoding: "utf-8",
+      }).trim();
     } catch {
       return fallback;
     }
   };
 
   const lernaVersion = JSON.parse(
-    readFileSync(join(rootDir, "lerna.json"), "utf-8")
+    readFileSync(join(rootDir, "lerna.json"), "utf-8"),
   ).version;
 
   const metadata = {
@@ -712,28 +697,33 @@ const main = () => {
     trimmed: false,
     legacyPackagesFrom: skipLegacy ? null : "shim-targets.json",
   };
-  writeFileSync(join(outDir, "metadata.json"), JSON.stringify(metadata, null, 2) + "\n");
+  writeFileSync(
+    join(outDir, "metadata.json"),
+    JSON.stringify(metadata, null, 2) + "\n",
+  );
 
   // The pinned list travels with the payload so the deprecated packages it contains
   // are auditable without reading the SDK repo at the matching commit.
-  copyFileSync(join(__dirname, "shim-targets.json"), join(outDir, "shim-targets.json"));
+  copyFileSync(
+    join(__dirname, "shim-targets.json"),
+    join(outDir, "shim-targets.json"),
+  );
 
-  log(`6. metadata.json  sdkVersion ${metadata.sdkVersion}, commit ${metadata.gitCommit.slice(0, 9)}`);
+  log(
+    `6. metadata.json  sdkVersion ${metadata.sdkVersion}, commit ${metadata.gitCommit.slice(0, 9)}`,
+  );
 
   // 7. Zip, and checksum the exact bytes that will be uploaded.
-  //
-  // The zip is produced here rather than left for CI to archive. Build systems that
-  // zip declared output paths do so after the build finishes, so a checksum computed
-  // during the build would not describe the file that actually ships.
-  //
-  // -y stores the @smithy symlink as a symlink instead of following it.
   const zipPath = join(outDir, zipName);
   execFileSync(
     "zip",
     ["-ryq", zipPath, "node_modules", "metadata.json", "shim-targets.json"],
-    { cwd: outDir }
+    { cwd: outDir },
   );
-  const checksum = execFileSync("sha256sum", [zipName], { cwd: outDir, encoding: "utf-8" });
+  const checksum = execFileSync("sha256sum", [zipName], {
+    cwd: outDir,
+    encoding: "utf-8",
+  });
   writeFileSync(join(outDir, `${zipName}.sha256`), checksum);
 
   log(`7. ${zipName}  ${(statSync(zipPath).size / 1024 / 1024).toFixed(1)} MB`);
