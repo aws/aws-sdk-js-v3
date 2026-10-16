@@ -125,11 +125,7 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
             );
 
             writerFactory.accept(
-                String.format(
-                    "%s%s/index.ts",
-                    DocumentClientUtils.DOC_CLIENT_PREFIX,
-                    DocumentClientPaginationGenerator.PAGINATION_FOLDER
-                ),
+                DocumentClientPaginationGenerator.getIndexFilelocation(),
                 writer -> {
                     writer.write("export * from './Interfaces';");
                     for (OperationShape operation : overridenOperationsList) {
