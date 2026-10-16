@@ -6,7 +6,7 @@ import type { AbsoluteLocation, BuildHandlerOptions } from "@smithy/types";
  */
 export const recursionDetectionMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
   step: "build",
-  tags: ["RECURSION_DETECTION", "TRACE_CONTEXT_PROPAGATION"],
+  tags: ["RECURSION_DETECTION", "BAGGAGE_PROPAGATION"],
   name: "recursionDetectionMiddleware",
   override: true,
   priority: "low",
