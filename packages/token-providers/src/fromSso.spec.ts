@@ -70,6 +70,7 @@ describe(fromSso.name, () => {
     vi.mocked(getNewSsoOidcToken).mockResolvedValue(mockNewTokenFromService);
     vi.mocked(validateTokenKey).mockImplementation(() => {});
     vi.mocked(validateTokenExpiry).mockImplementation(() => {});
+    vi.mocked(writeSSOTokenToFile).mockResolvedValue(undefined);
     vi.spyOn(Date, "now").mockReturnValue(mockDateNow);
   });
 
@@ -363,6 +364,34 @@ describe(fromSso.name, () => {
     });
   });
   describe("awaits refresh in progress for the same SSO session", () => {
+    it("waits for a refresh before reading a token file being replaced", async () => {
+      let resolveWrite: () => void;
+      let signalWriteStarted: () => void;
+      const writeStarted = new Promise<void>((resolve) => {
+        signalWriteStarted = resolve;
+      });
+      vi.mocked(writeSSOTokenToFile).mockImplementation(
+        () =>
+          new Promise<void>((resolve) => {
+            resolveWrite = resolve;
+            signalWriteStarted();
+          })
+      );
+
+      const { fromSso } = await import("./fromSso");
+      const firstCall = fromSso(mockInit)();
+      await writeStarted;
+
+      // A joining caller must not read the file while the first caller rewrites it.
+      vi.mocked(getSSOTokenFromFile).mockRejectedValue(new Error("cache file is being replaced"));
+      const secondCall = fromSso(mockInit)();
+      await new Promise((resolve) => setImmediate(resolve));
+      resolveWrite!();
+
+      await expect(Promise.all([firstCall, secondCall])).resolves.toStrictEqual([mockNewToken, mockNewToken]);
+      expect(getSSOTokenFromFile).toHaveBeenCalledTimes(1);
+    });
+
     it("resolves concurrent callers with the new token", async () => {
       // Hold the refresh pending, so both callers are in progress at the same time.
       let resolveNewToken: (newToken: any) => void;
