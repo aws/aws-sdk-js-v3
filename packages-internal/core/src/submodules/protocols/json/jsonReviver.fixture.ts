@@ -1,6 +1,10 @@
 import { NumericValue } from "@smithy/core/serde";
-
 /**
+ * Test fixture. `@smithy/core` does not re-export its internal `jsonReviver`
+ * from `@smithy/core/protocols`, so this copy backs the schema-testing specs
+ * for big-number-precision handling when parsing JSON fixtures. Named
+ * `.fixture.ts` so it is excluded from the published build (dist-*).
+ *
  * @param key - JSON object key.
  * @param value - parsed value.
  * @param context - original JSON string for reference. Not available until Node.js 21 and unavailable in Safari as
@@ -17,13 +21,11 @@ export function jsonReviver(key: string, value: any, context?: { source?: string
     const numericString = context.source;
     if (typeof value === "number") {
       const inSafeRange = value <= Number.MAX_SAFE_INTEGER && value >= Number.MIN_SAFE_INTEGER;
-
       if (inSafeRange) {
         // Within safe integer bounds. Check if the value is precisely representable.
         if (isRepresentable(numericString, value)) {
           return value;
         }
-
         // In range but not precisely representable (e.g. excess decimal digits).
         return new NumericValue(numericString, "bigDecimal");
       } else {
@@ -44,7 +46,6 @@ export function jsonReviver(key: string, value: any, context?: { source?: string
   }
   return value;
 }
-
 /**
  * Determines whether a numeric string represents a fractional value.
  * Accounts for exponent notation: "1.23E100" is integer (exponent >= fractional digits),
@@ -68,7 +69,6 @@ function isFractionalBigNumeric(s: string): boolean {
   // all fractional digits, the value is a whole integer.
   return exp < fracDigits;
 }
-
 /**
  * Determines whether a numeric source string is precisely representable by the
  * given JS number value. Returns true when the difference between the source
@@ -108,7 +108,6 @@ function isRepresentable(numericString: string, value: number): boolean {
   }
   return false;
 }
-
 /**
  * Expands a numeric string (potentially in exponent notation) to a normalized
  * plain decimal form with trailing fractional zeros stripped.
@@ -119,7 +118,6 @@ function expandToDecimal(s: string): string {
   const negative = s.startsWith("-");
   const abs = negative ? s.slice(1) : s;
   const eIndex = abs.search(/[eE]/);
-
   let result: string;
   if (eIndex === -1) {
     // No exponent, just normalize trailing fractional zeros.
@@ -150,14 +148,12 @@ function expandToDecimal(s: string): string {
       result = digits.slice(0, newDotPos) + "." + digits.slice(newDotPos);
     }
   }
-
   // Strip trailing fractional zeros.
   if (result.includes(".")) {
     result = result.replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "");
   }
   return (negative ? "-" : "") + result;
 }
-
 /**
  * Expands a numeric string in exponent notation to a BigInt by
  * manually shifting the significant digits. Handles cases where
@@ -169,7 +165,6 @@ function expandExponentToBigInt(s: string): bigint {
   const negative = s.startsWith("-");
   const mantissa = s.slice(negative ? 1 : 0, eIndex);
   const dotIndex = mantissa.indexOf(".");
-
   let digits: string;
   let shift: number;
   if (dotIndex === -1) {
@@ -181,10 +176,8 @@ function expandExponentToBigInt(s: string): bigint {
     const fracDigits = mantissa.length - dotIndex - 1;
     shift = exp - fracDigits;
   }
-
   // Strip trailing zeros from digits (they're already accounted for in shift).
   digits = digits.replace(/0+$/, "") || "0";
-
   const result = BigInt(digits) * 10n ** BigInt(shift + (mantissa.replace(".", "").length - digits.length));
   return negative ? -result : result;
 }

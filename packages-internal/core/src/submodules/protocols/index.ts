@@ -7,16 +7,22 @@ export { AwsJson1_1Protocol } from "./json/AwsJson1_1Protocol";
 export { AwsJsonRpcProtocol } from "./json/AwsJsonRpcProtocol";
 export { AwsRestJsonProtocol } from "./json/AwsRestJsonProtocol";
 
-export { JsonCodec } from "./json/codec-v1/JsonCodec";
-export type { JsonSettings } from "./json/JsonSettings";
-export { JsonShapeDeserializer } from "./json/codec-v1/JsonShapeDeserializer";
-export { JsonShapeSerializer } from "./json/codec-v1/JsonShapeSerializer";
-
-export { JsonCodec2 } from "./json/codec-v2/JsonCodec2";
-export { JsonShapeDeserializer2 } from "./json/codec-v2/JsonShapeDeserializer2";
-export { JsonShapeSerializer2 } from "./json/codec-v2/JsonShapeSerializer2";
-
-export { parseJsonBody, parseJsonErrorBody, loadRestJsonErrorCode, loadJsonRpcErrorCode } from "./json/parseJsonBody";
+// The JSON codec (v1 and v2) and JSON body helpers now live in @smithy/core.
+// Re-export them so this package's public surface is unchanged while the
+// implementation is shared instead of duplicated.
+export {
+  JsonCodec,
+  JsonCodec2,
+  JsonShapeDeserializer,
+  JsonShapeDeserializer2,
+  JsonShapeSerializer,
+  JsonShapeSerializer2,
+  loadJsonRpcErrorCode,
+  loadRestJsonErrorCode,
+  parseJsonBody,
+  parseJsonErrorBody,
+} from "@smithy/core/protocols";
+export type { JsonSettings } from "@smithy/core/protocols";
 
 // Query
 export { AwsEc2QueryProtocol } from "./query/AwsEc2QueryProtocol";

@@ -18,15 +18,17 @@ import type {
 } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import type { JsonSettings } from "../json/JsonSettings";
-import { JsonCodec } from "../json/codec-v1/JsonCodec";
-import { JsonCodec2 } from "../json/codec-v2/JsonCodec2";
-import { testCases } from "./new-document-type-test-cases.spec";
+import { JsonCodec, JsonCodec2 } from "@smithy/core/protocols";
+import type {
+  JsonSettings,
+  JsonShapeDeserializer,
+  JsonShapeDeserializer2,
+  JsonShapeSerializer,
+  JsonShapeSerializer2,
+} from "@smithy/core/protocols";
 import { toUtf8 } from "@smithy/core/serde";
-import type { JsonShapeSerializer } from "../json/codec-v1/JsonShapeSerializer";
-import type { JsonShapeSerializer2 } from "../json/codec-v2/JsonShapeSerializer2";
-import type { JsonShapeDeserializer } from "../json/codec-v1/JsonShapeDeserializer";
-import type { JsonShapeDeserializer2 } from "../json/codec-v2/JsonShapeDeserializer2";
+
+import { testCases } from "./new-document-type-test-cases.spec";
 
 /* eslint no-var: 0 */
 export var OmniWidget: StaticStructureSchema = [
