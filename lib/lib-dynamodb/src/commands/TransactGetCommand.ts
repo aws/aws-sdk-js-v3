@@ -19,13 +19,30 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
+export type TransactGetGet = Omit<Get, 'Key'> & {
+  Key: Record<string, NativeAttributeValue> | undefined;
+};
+
+/**
+ * @public
+ */
+export type TransactGetItem = Omit<ClientTransactGetItem, 'Get'> & {
+  Get: TransactGetGet | undefined;
+};
+
+/**
+ * @public
+ */
+export type TransactGetItemResponse = Omit<ItemResponse, 'Item'> & {
+  Item?: Record<string, NativeAttributeValue> | undefined;
+};
+
+/**
+ * @public
+ */
 export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "TransactItems"> & {
   TransactItems: (
-    Omit<TransactGetItem, "Get"> & {
-      Get: Omit<Get, "Key"> & {
-        Key: Record<string, NativeAttributeValue> | undefined;
-      } | undefined;
-    }
+    TransactGetItem
   )[] | undefined;
 };
 
@@ -34,9 +51,7 @@ export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "Tran
  */
 export type TransactGetCommandOutput = Omit<__TransactGetItemsCommandOutput, "Responses"> & {
   Responses?: (
-    Omit<ItemResponse, "Item"> & {
-      Item?: Record<string, NativeAttributeValue> | undefined;
-    }
+    TransactGetItemResponse
   )[] | undefined;
 };
 
@@ -102,7 +117,7 @@ export class TransactGetCommand extends DynamoDBDocumentClientCommand<
 import type {
   Get,
   ItemResponse,
-  TransactGetItem,
+  TransactGetItem as ClientTransactGetItem,
   TransactGetItemsCommandInput as __TransactGetItemsCommandInput,
   TransactGetItemsCommandOutput as __TransactGetItemsCommandOutput,
 } from "@aws-sdk/client-dynamodb";
