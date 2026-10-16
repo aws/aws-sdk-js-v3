@@ -20,6 +20,12 @@ import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
  */
 const lastRefreshAttemptTimes = new Map<string, number>();
 
+/**
+ * Token refresh currently in flight per SSO session. Concurrent callers for the same session
+ * await the same refresh instead of each attempting one.
+ */
+const inFlightRefreshes = new Map<string, Promise<TokenIdentity>>();
+
 export interface FromSsoInit extends SourceProfileInit, CredentialProviderOptions {
   /**
    * @see SSOOIDCClientConfig in \@aws-sdk/client-sso-oidc.
@@ -51,6 +57,13 @@ export const fromSso =
 
     // read sso-session from config file.
     const ssoSessionName = profile["sso_session"];
+
+    // Await an in-flight refresh to avoid reading a partially rewritten SSO token cache file.
+    const inFlightRefresh = inFlightRefreshes.get(ssoSessionName);
+    if (inFlightRefresh) {
+      return await inFlightRefresh;
+    }
+
     const ssoSessions = await loadSsoSessionData(init);
     const ssoSession = ssoSessions[ssoSessionName];
 
@@ -93,9 +106,16 @@ export const fromSso =
       token: accessToken,
       expiration: new Date(expiresAt),
     };
+
     if (existingToken.expiration!.getTime() - Date.now() > EXPIRE_WINDOW_MS) {
       // Token is valid and not expired.
       return existingToken;
+    }
+
+    // The refresh may have started while this caller read the token file.
+    const inFlightRefreshAfterReadingToken = inFlightRefreshes.get(ssoSessionName);
+    if (inFlightRefreshAfterReadingToken) {
+      return await inFlightRefreshAfterReadingToken;
     }
 
     // Skip new refresh, if last refresh for this SSO session was done within 30 seconds.
@@ -110,31 +130,41 @@ export const fromSso =
     validateTokenKey("clientSecret", ssoToken.clientSecret, true);
     validateTokenKey("refreshToken", ssoToken.refreshToken, true);
 
-    try {
-      lastRefreshAttemptTimes.set(ssoSessionName, Date.now());
-      const newSsoOidcToken = await getNewSsoOidcToken(ssoToken, ssoRegion, init, callerClientConfig);
-      validateTokenKey("accessToken", newSsoOidcToken.accessToken);
-      validateTokenKey("expiresIn", newSsoOidcToken.expiresIn);
-      const newTokenExpiration = new Date(Date.now() + newSsoOidcToken.expiresIn! * 1000);
-
+    const refresh = (async (): Promise<TokenIdentity> => {
       try {
-        await writeSSOTokenToFile(ssoSessionName, {
-          ...ssoToken,
-          accessToken: newSsoOidcToken.accessToken!,
-          expiresAt: newTokenExpiration.toISOString(),
-          refreshToken: newSsoOidcToken.refreshToken,
-        });
-      } catch (error) {
-        // Swallow error if unable to write token to file.
-      }
+        lastRefreshAttemptTimes.set(ssoSessionName, Date.now());
+        const newSsoOidcToken = await getNewSsoOidcToken(ssoToken, ssoRegion, init, callerClientConfig);
+        validateTokenKey("accessToken", newSsoOidcToken.accessToken);
+        validateTokenKey("expiresIn", newSsoOidcToken.expiresIn);
+        const newTokenExpiration = new Date(Date.now() + newSsoOidcToken.expiresIn! * 1000);
 
-      return {
-        token: newSsoOidcToken.accessToken!,
-        expiration: newTokenExpiration,
-      };
-    } catch (error) {
-      // return existing token if it's still valid.
-      validateTokenExpiry(existingToken);
-      return existingToken;
+        try {
+          await writeSSOTokenToFile(ssoSessionName, {
+            ...ssoToken,
+            accessToken: newSsoOidcToken.accessToken!,
+            expiresAt: newTokenExpiration.toISOString(),
+            refreshToken: newSsoOidcToken.refreshToken,
+          });
+        } catch (error) {
+          // Swallow error if unable to write token to file.
+        }
+
+        return {
+          token: newSsoOidcToken.accessToken!,
+          expiration: newTokenExpiration,
+        };
+      } catch (error) {
+        // Return the existing token if it is still valid.
+        validateTokenExpiry(existingToken);
+        return existingToken;
+      }
+    })();
+
+    inFlightRefreshes.set(ssoSessionName, refresh);
+
+    try {
+      return await refresh;
+    } finally {
+      inFlightRefreshes.delete(ssoSessionName);
     }
   };
