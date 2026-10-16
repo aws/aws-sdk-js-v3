@@ -54,6 +54,7 @@ import {
 } from "./commands/TransactWriteCommand";
 import { type UpdateCommandInput, type UpdateCommandOutput, UpdateCommand } from "./commands/UpdateCommand";
 import { DynamoDBDocumentClient, TranslateConfig } from "./DynamoDBDocumentClient";
+import { paginatedBatchGet } from "./pagination/PaginatedBatchGet";
 import type { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 
 /**
@@ -181,6 +182,15 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     } else {
       return this.send(command, optionsOrCb);
     }
+  }
+
+  /**
+   * Issues BatchGet requests until every key is processed. Each response is yielded as a page.
+   * When a response contains unprocessed keys, the next request includes only those keys.
+   * Each BatchGet request must contain no more than 100 items.
+   */
+  public paginatedBatchGet(args: BatchGetCommandInput): AsyncGenerator<BatchGetCommandOutput> {
+    return paginatedBatchGet({ client: this }, args);
   }
 
   /**
