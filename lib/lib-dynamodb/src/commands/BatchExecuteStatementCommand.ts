@@ -19,11 +19,31 @@ export { DynamoDBDocumentClientCommand, $Command };
 /**
  * @public
  */
+export type BatchExecuteStatementBatchStatementRequest = Omit<BatchStatementRequest, 'Parameters'> & {
+  Parameters?: NativeAttributeValue[] | undefined;
+};
+
+/**
+ * @public
+ */
+export type BatchExecuteStatementBatchStatementError = Omit<BatchStatementError, 'Item'> & {
+  Item?: Record<string, NativeAttributeValue> | undefined;
+};
+
+/**
+ * @public
+ */
+export type BatchExecuteStatementBatchStatementResponse = Omit<BatchStatementResponse, 'Error' | 'Item'> & {
+  Error?: BatchExecuteStatementBatchStatementError | undefined;
+  Item?: Record<string, NativeAttributeValue> | undefined;
+};
+
+/**
+ * @public
+ */
 export type BatchExecuteStatementCommandInput = Omit<__BatchExecuteStatementCommandInput, "Statements"> & {
   Statements: (
-    Omit<BatchStatementRequest, "Parameters"> & {
-      Parameters?: NativeAttributeValue[] | undefined;
-    }
+    BatchExecuteStatementBatchStatementRequest
   )[] | undefined;
 };
 
@@ -32,12 +52,7 @@ export type BatchExecuteStatementCommandInput = Omit<__BatchExecuteStatementComm
  */
 export type BatchExecuteStatementCommandOutput = Omit<__BatchExecuteStatementCommandOutput, "Responses"> & {
   Responses?: (
-    Omit<BatchStatementResponse, "Error" | "Item"> & {
-      Error?: Omit<BatchStatementError, "Item"> & {
-        Item?: Record<string, NativeAttributeValue> | undefined;
-      } | undefined;
-      Item?: Record<string, NativeAttributeValue> | undefined;
-    }
+    BatchExecuteStatementBatchStatementResponse
   )[] | undefined;
 };
 
