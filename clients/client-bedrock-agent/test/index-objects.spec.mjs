@@ -110,6 +110,14 @@ import {
   CreatePromptVersionCommand,
   CreatePromptVersionRequest$,
   CreatePromptVersionResponse$,
+  CreateRetrievalInstruction$,
+  CreateRetrievalInstructionCommand,
+  CreateRetrievalInstructionRequest$,
+  CreateRetrievalInstructionResponse$,
+  CreateRetrievalInstructionVersion$,
+  CreateRetrievalInstructionVersionCommand,
+  CreateRetrievalInstructionVersionRequest$,
+  CreateRetrievalInstructionVersionResponse$,
   CreateVpcConfiguration$,
   CreateVpcConfigurationCommand,
   CreateVpcConfigurationRequest$,
@@ -181,6 +189,10 @@ import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyRequest$,
   DeleteResourcePolicyResponse$,
+  DeleteRetrievalInstruction$,
+  DeleteRetrievalInstructionCommand,
+  DeleteRetrievalInstructionRequest$,
+  DeleteRetrievalInstructionResponse$,
   DeleteVpcConfiguration$,
   DeleteVpcConfigurationCommand,
   DeleteVpcConfigurationRequest$,
@@ -295,6 +307,10 @@ import {
   GetResourcePolicyCommand,
   GetResourcePolicyRequest$,
   GetResourcePolicyResponse$,
+  GetRetrievalInstruction$,
+  GetRetrievalInstructionCommand,
+  GetRetrievalInstructionRequest$,
+  GetRetrievalInstructionResponse$,
   GetVpcConfiguration$,
   GetVpcConfigurationCommand,
   GetVpcConfigurationRequest$,
@@ -402,6 +418,14 @@ import {
   ListPromptsCommand,
   ListPromptsRequest$,
   ListPromptsResponse$,
+  ListRetrievalInstructions$,
+  ListRetrievalInstructionsCommand,
+  ListRetrievalInstructionsRequest$,
+  ListRetrievalInstructionsResponse$,
+  ListRetrievalInstructionVersions$,
+  ListRetrievalInstructionVersionsCommand,
+  ListRetrievalInstructionVersionsRequest$,
+  ListRetrievalInstructionVersionsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -467,6 +491,8 @@ import {
   paginateListKnowledgeBaseDocuments,
   paginateListKnowledgeBases,
   paginateListPrompts,
+  paginateListRetrievalInstructions,
+  paginateListRetrievalInstructionVersions,
   paginateListVpcConfigurations,
   ParameterDetail$,
   ParsingConfiguration$,
@@ -540,6 +566,14 @@ import {
   RetrievalFlowNodeConfiguration$,
   RetrievalFlowNodeS3Configuration$,
   RetrievalFlowNodeServiceConfiguration$,
+  RetrievalInstructionContent$,
+  RetrievalInstructionFailureReason$,
+  RetrievalInstructionFailureReasonCode,
+  RetrievalInstructionFieldName,
+  RetrievalInstructionLastTransitionStatus,
+  RetrievalInstructionStatus,
+  RetrievalInstructionSummary$,
+  RetrievalInstructionVersionSummary$,
   S3Content$,
   S3DataSourceConfiguration$,
   S3Identifier$,
@@ -654,6 +688,10 @@ import {
   UpdatePromptCommand,
   UpdatePromptRequest$,
   UpdatePromptResponse$,
+  UpdateRetrievalInstruction$,
+  UpdateRetrievalInstructionCommand,
+  UpdateRetrievalInstructionRequest$,
+  UpdateRetrievalInstructionResponse$,
   UrlConfiguration$,
   ValidateFlowDefinition$,
   ValidateFlowDefinitionCommand,
@@ -712,6 +750,10 @@ assert(typeof CreatePromptCommand === "function");
 assert(typeof CreatePrompt$ === "object");
 assert(typeof CreatePromptVersionCommand === "function");
 assert(typeof CreatePromptVersion$ === "object");
+assert(typeof CreateRetrievalInstructionCommand === "function");
+assert(typeof CreateRetrievalInstruction$ === "object");
+assert(typeof CreateRetrievalInstructionVersionCommand === "function");
+assert(typeof CreateRetrievalInstructionVersion$ === "object");
 assert(typeof CreateVpcConfigurationCommand === "function");
 assert(typeof CreateVpcConfiguration$ === "object");
 assert(typeof DeleteAgentCommand === "function");
@@ -738,6 +780,8 @@ assert(typeof DeletePromptCommand === "function");
 assert(typeof DeletePrompt$ === "object");
 assert(typeof DeleteResourcePolicyCommand === "function");
 assert(typeof DeleteResourcePolicy$ === "object");
+assert(typeof DeleteRetrievalInstructionCommand === "function");
+assert(typeof DeleteRetrievalInstruction$ === "object");
 assert(typeof DeleteVpcConfigurationCommand === "function");
 assert(typeof DeleteVpcConfiguration$ === "object");
 assert(typeof DisassociateAgentCollaboratorCommand === "function");
@@ -774,6 +818,8 @@ assert(typeof GetPromptCommand === "function");
 assert(typeof GetPrompt$ === "object");
 assert(typeof GetResourcePolicyCommand === "function");
 assert(typeof GetResourcePolicy$ === "object");
+assert(typeof GetRetrievalInstructionCommand === "function");
+assert(typeof GetRetrievalInstruction$ === "object");
 assert(typeof GetVpcConfigurationCommand === "function");
 assert(typeof GetVpcConfiguration$ === "object");
 assert(typeof IngestKnowledgeBaseDocumentsCommand === "function");
@@ -806,6 +852,10 @@ assert(typeof ListKnowledgeBasesCommand === "function");
 assert(typeof ListKnowledgeBases$ === "object");
 assert(typeof ListPromptsCommand === "function");
 assert(typeof ListPrompts$ === "object");
+assert(typeof ListRetrievalInstructionsCommand === "function");
+assert(typeof ListRetrievalInstructions$ === "object");
+assert(typeof ListRetrievalInstructionVersionsCommand === "function");
+assert(typeof ListRetrievalInstructionVersions$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListVpcConfigurationsCommand === "function");
@@ -844,6 +894,8 @@ assert(typeof UpdateKnowledgeBaseCommand === "function");
 assert(typeof UpdateKnowledgeBase$ === "object");
 assert(typeof UpdatePromptCommand === "function");
 assert(typeof UpdatePrompt$ === "object");
+assert(typeof UpdateRetrievalInstructionCommand === "function");
+assert(typeof UpdateRetrievalInstruction$ === "object");
 assert(typeof ValidateFlowDefinitionCommand === "function");
 assert(typeof ValidateFlowDefinition$ === "object");
 // structural schemas
@@ -910,6 +962,10 @@ assert(typeof CreatePromptRequest$ === "object");
 assert(typeof CreatePromptResponse$ === "object");
 assert(typeof CreatePromptVersionRequest$ === "object");
 assert(typeof CreatePromptVersionResponse$ === "object");
+assert(typeof CreateRetrievalInstructionRequest$ === "object");
+assert(typeof CreateRetrievalInstructionResponse$ === "object");
+assert(typeof CreateRetrievalInstructionVersionRequest$ === "object");
+assert(typeof CreateRetrievalInstructionVersionResponse$ === "object");
 assert(typeof CreateVpcConfigurationRequest$ === "object");
 assert(typeof CreateVpcConfigurationResponse$ === "object");
 assert(typeof CuratedQuery$ === "object");
@@ -948,6 +1004,8 @@ assert(typeof DeletePromptRequest$ === "object");
 assert(typeof DeletePromptResponse$ === "object");
 assert(typeof DeleteResourcePolicyRequest$ === "object");
 assert(typeof DeleteResourcePolicyResponse$ === "object");
+assert(typeof DeleteRetrievalInstructionRequest$ === "object");
+assert(typeof DeleteRetrievalInstructionResponse$ === "object");
 assert(typeof DeleteVpcConfigurationRequest$ === "object");
 assert(typeof DeleteVpcConfigurationResponse$ === "object");
 assert(typeof DeletionProtectionConfiguration$ === "object");
@@ -1014,6 +1072,8 @@ assert(typeof GetPromptRequest$ === "object");
 assert(typeof GetPromptResponse$ === "object");
 assert(typeof GetResourcePolicyRequest$ === "object");
 assert(typeof GetResourcePolicyResponse$ === "object");
+assert(typeof GetRetrievalInstructionRequest$ === "object");
+assert(typeof GetRetrievalInstructionResponse$ === "object");
 assert(typeof GetVpcConfigurationRequest$ === "object");
 assert(typeof GetVpcConfigurationResponse$ === "object");
 assert(typeof GuardrailConfiguration$ === "object");
@@ -1075,6 +1135,10 @@ assert(typeof ListKnowledgeBasesRequest$ === "object");
 assert(typeof ListKnowledgeBasesResponse$ === "object");
 assert(typeof ListPromptsRequest$ === "object");
 assert(typeof ListPromptsResponse$ === "object");
+assert(typeof ListRetrievalInstructionsRequest$ === "object");
+assert(typeof ListRetrievalInstructionsResponse$ === "object");
+assert(typeof ListRetrievalInstructionVersionsRequest$ === "object");
+assert(typeof ListRetrievalInstructionVersionsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListVpcConfigurationsRequest$ === "object");
@@ -1168,6 +1232,10 @@ assert(typeof RerankingMetadataSelectiveModeConfiguration$ === "object");
 assert(typeof RetrievalFlowNodeConfiguration$ === "object");
 assert(typeof RetrievalFlowNodeS3Configuration$ === "object");
 assert(typeof RetrievalFlowNodeServiceConfiguration$ === "object");
+assert(typeof RetrievalInstructionContent$ === "object");
+assert(typeof RetrievalInstructionFailureReason$ === "object");
+assert(typeof RetrievalInstructionSummary$ === "object");
+assert(typeof RetrievalInstructionVersionSummary$ === "object");
 assert(typeof S3Content$ === "object");
 assert(typeof S3DataSourceConfiguration$ === "object");
 assert(typeof S3Identifier$ === "object");
@@ -1242,6 +1310,8 @@ assert(typeof UpdateKnowledgeBaseRequest$ === "object");
 assert(typeof UpdateKnowledgeBaseResponse$ === "object");
 assert(typeof UpdatePromptRequest$ === "object");
 assert(typeof UpdatePromptResponse$ === "object");
+assert(typeof UpdateRetrievalInstructionRequest$ === "object");
+assert(typeof UpdateRetrievalInstructionResponse$ === "object");
 assert(typeof UrlConfiguration$ === "object");
 assert(typeof ValidateFlowDefinitionRequest$ === "object");
 assert(typeof ValidateFlowDefinitionResponse$ === "object");
@@ -1328,6 +1398,10 @@ assert(typeof RedshiftServerlessAuthType === "object");
 assert(typeof RelayConversationHistory === "object");
 assert(typeof RequireConfirmation === "object");
 assert(typeof RerankingMetadataSelectionMode === "object");
+assert(typeof RetrievalInstructionFailureReasonCode === "object");
+assert(typeof RetrievalInstructionFieldName === "object");
+assert(typeof RetrievalInstructionLastTransitionStatus === "object");
+assert(typeof RetrievalInstructionStatus === "object");
 assert(typeof SalesforceAuthType === "object");
 assert(typeof SharePointAuthType === "object");
 assert(typeof SharePointHostType === "object");
@@ -1372,5 +1446,7 @@ assert(typeof paginateListIngestionJobs === "function");
 assert(typeof paginateListKnowledgeBaseDocuments === "function");
 assert(typeof paginateListKnowledgeBases === "function");
 assert(typeof paginateListPrompts === "function");
+assert(typeof paginateListRetrievalInstructionVersions === "function");
+assert(typeof paginateListRetrievalInstructions === "function");
 assert(typeof paginateListVpcConfigurations === "function");
 console.log(`BedrockAgent index test passed.`);

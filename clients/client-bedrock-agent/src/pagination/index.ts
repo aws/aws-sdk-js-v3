@@ -14,4 +14,6 @@ export * from "./ListIngestionJobsPaginator";
 export * from "./ListKnowledgeBaseDocumentsPaginator";
 export * from "./ListKnowledgeBasesPaginator";
 export * from "./ListPromptsPaginator";
+export * from "./ListRetrievalInstructionsPaginator";
+export * from "./ListRetrievalInstructionVersionsPaginator";
 export * from "./ListVpcConfigurationsPaginator";

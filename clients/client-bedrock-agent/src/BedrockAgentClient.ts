@@ -85,6 +85,14 @@ import type {
   CreatePromptVersionCommandOutput,
 } from "./commands/CreatePromptVersionCommand";
 import type {
+  CreateRetrievalInstructionCommandInput,
+  CreateRetrievalInstructionCommandOutput,
+} from "./commands/CreateRetrievalInstructionCommand";
+import type {
+  CreateRetrievalInstructionVersionCommandInput,
+  CreateRetrievalInstructionVersionCommandOutput,
+} from "./commands/CreateRetrievalInstructionVersionCommand";
+import type {
   CreateVpcConfigurationCommandInput,
   CreateVpcConfigurationCommandOutput,
 } from "./commands/CreateVpcConfigurationCommand";
@@ -118,6 +126,10 @@ import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
+import type {
+  DeleteRetrievalInstructionCommandInput,
+  DeleteRetrievalInstructionCommandOutput,
+} from "./commands/DeleteRetrievalInstructionCommand";
 import type {
   DeleteVpcConfigurationCommandInput,
   DeleteVpcConfigurationCommandOutput,
@@ -160,6 +172,10 @@ import type {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
+import type {
+  GetRetrievalInstructionCommandInput,
+  GetRetrievalInstructionCommandOutput,
+} from "./commands/GetRetrievalInstructionCommand";
 import type {
   GetVpcConfigurationCommandInput,
   GetVpcConfigurationCommandOutput,
@@ -204,6 +220,14 @@ import type {
 } from "./commands/ListKnowledgeBasesCommand";
 import type { ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
 import type {
+  ListRetrievalInstructionsCommandInput,
+  ListRetrievalInstructionsCommandOutput,
+} from "./commands/ListRetrievalInstructionsCommand";
+import type {
+  ListRetrievalInstructionVersionsCommandInput,
+  ListRetrievalInstructionVersionsCommandOutput,
+} from "./commands/ListRetrievalInstructionVersionsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -247,6 +271,10 @@ import type {
 } from "./commands/UpdateKnowledgeBaseCommand";
 import type { UpdatePromptCommandInput, UpdatePromptCommandOutput } from "./commands/UpdatePromptCommand";
 import type {
+  UpdateRetrievalInstructionCommandInput,
+  UpdateRetrievalInstructionCommandOutput,
+} from "./commands/UpdateRetrievalInstructionCommand";
+import type {
   ValidateFlowDefinitionCommandInput,
   ValidateFlowDefinitionCommandOutput,
 } from "./commands/ValidateFlowDefinitionCommand";
@@ -277,6 +305,8 @@ export type ServiceInputTypes =
   | CreateKnowledgeBaseCommandInput
   | CreatePromptCommandInput
   | CreatePromptVersionCommandInput
+  | CreateRetrievalInstructionCommandInput
+  | CreateRetrievalInstructionVersionCommandInput
   | CreateVpcConfigurationCommandInput
   | DeleteAgentActionGroupCommandInput
   | DeleteAgentAliasCommandInput
@@ -290,6 +320,7 @@ export type ServiceInputTypes =
   | DeleteKnowledgeBaseDocumentsCommandInput
   | DeletePromptCommandInput
   | DeleteResourcePolicyCommandInput
+  | DeleteRetrievalInstructionCommandInput
   | DeleteVpcConfigurationCommandInput
   | DisassociateAgentCollaboratorCommandInput
   | DisassociateAgentKnowledgeBaseCommandInput
@@ -308,6 +339,7 @@ export type ServiceInputTypes =
   | GetKnowledgeBaseDocumentsCommandInput
   | GetPromptCommandInput
   | GetResourcePolicyCommandInput
+  | GetRetrievalInstructionCommandInput
   | GetVpcConfigurationCommandInput
   | IngestKnowledgeBaseDocumentsCommandInput
   | ListAgentActionGroupsCommandInput
@@ -324,6 +356,8 @@ export type ServiceInputTypes =
   | ListKnowledgeBaseDocumentsCommandInput
   | ListKnowledgeBasesCommandInput
   | ListPromptsCommandInput
+  | ListRetrievalInstructionVersionsCommandInput
+  | ListRetrievalInstructionsCommandInput
   | ListTagsForResourceCommandInput
   | ListVpcConfigurationsCommandInput
   | PrepareAgentCommandInput
@@ -343,6 +377,7 @@ export type ServiceInputTypes =
   | UpdateFlowCommandInput
   | UpdateKnowledgeBaseCommandInput
   | UpdatePromptCommandInput
+  | UpdateRetrievalInstructionCommandInput
   | ValidateFlowDefinitionCommandInput;
 
 /**
@@ -361,6 +396,8 @@ export type ServiceOutputTypes =
   | CreateKnowledgeBaseCommandOutput
   | CreatePromptCommandOutput
   | CreatePromptVersionCommandOutput
+  | CreateRetrievalInstructionCommandOutput
+  | CreateRetrievalInstructionVersionCommandOutput
   | CreateVpcConfigurationCommandOutput
   | DeleteAgentActionGroupCommandOutput
   | DeleteAgentAliasCommandOutput
@@ -374,6 +411,7 @@ export type ServiceOutputTypes =
   | DeleteKnowledgeBaseDocumentsCommandOutput
   | DeletePromptCommandOutput
   | DeleteResourcePolicyCommandOutput
+  | DeleteRetrievalInstructionCommandOutput
   | DeleteVpcConfigurationCommandOutput
   | DisassociateAgentCollaboratorCommandOutput
   | DisassociateAgentKnowledgeBaseCommandOutput
@@ -392,6 +430,7 @@ export type ServiceOutputTypes =
   | GetKnowledgeBaseDocumentsCommandOutput
   | GetPromptCommandOutput
   | GetResourcePolicyCommandOutput
+  | GetRetrievalInstructionCommandOutput
   | GetVpcConfigurationCommandOutput
   | IngestKnowledgeBaseDocumentsCommandOutput
   | ListAgentActionGroupsCommandOutput
@@ -408,6 +447,8 @@ export type ServiceOutputTypes =
   | ListKnowledgeBaseDocumentsCommandOutput
   | ListKnowledgeBasesCommandOutput
   | ListPromptsCommandOutput
+  | ListRetrievalInstructionVersionsCommandOutput
+  | ListRetrievalInstructionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVpcConfigurationsCommandOutput
   | PrepareAgentCommandOutput
@@ -427,6 +468,7 @@ export type ServiceOutputTypes =
   | UpdateFlowCommandOutput
   | UpdateKnowledgeBaseCommandOutput
   | UpdatePromptCommandOutput
+  | UpdateRetrievalInstructionCommandOutput
   | ValidateFlowDefinitionCommandOutput;
 
 /**

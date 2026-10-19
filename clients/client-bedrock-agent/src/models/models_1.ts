@@ -20,6 +20,10 @@ import type {
   RedshiftQueryEngineStorageType,
   RedshiftQueryEngineType,
   RedshiftServerlessAuthType,
+  RetrievalInstructionFailureReasonCode,
+  RetrievalInstructionFieldName,
+  RetrievalInstructionLastTransitionStatus,
+  RetrievalInstructionStatus,
   SupplementalDataStorageLocationType,
   VpcConfigurationStatus,
   VpcProtocol,
@@ -2429,6 +2433,568 @@ export interface PutResourcePolicyResponse {
    * @public
    */
   revisionId: string | undefined;
+}
+
+/**
+ * <p>The instruction content, as a set of named fields. Every field is optional; at least one must be present. Service-side validation enforces per-field and aggregate size limits.</p>
+ * @public
+ */
+export interface RetrievalInstructionContent {
+  /**
+   * <p>How to interpret and decompose the question, and what to prioritise when searching.</p>
+   * @public
+   */
+  retrievalGuidance?: string | undefined;
+
+  /**
+   * <p>Who the assistant is: identity, tone and language.</p>
+   * @public
+   */
+  persona?: string | undefined;
+
+  /**
+   * <p>How the answer is structured, including how sources are cited.</p>
+   * @public
+   */
+  answerFormat?: string | undefined;
+
+  /**
+   * <p>Whether and how to answer: how strongly an answer must be supported, and what to do with questions outside scope.</p>
+   * @public
+   */
+  answerPolicy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRetrievalInstructionRequest {
+  /**
+   * <p>A caller-supplied token that makes a retried create return the existing resource rather than a second one. The window is 8 hours.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Specifies the name of the retrieval instruction.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The instruction content, as a set of named fields. Get does not return this field until the create review passes.</p>
+   * @public
+   */
+  instruction: RetrievalInstructionContent | undefined;
+
+  /**
+   * <p>Specifies a description of the retrieval instruction.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a customer managed AWS Key Management Service (AWS KMS) key used to encrypt the instruction content at rest. If you omit it, the service uses an AWS owned key. You fix the key at create and cannot change it later.</p>
+   * @public
+   */
+  customerEncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>Tags for the retrieval instruction.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRetrievalInstructionResponse {
+  /**
+   * <p>The identifier of the newly created retrieval instruction.</p>
+   * @public
+   */
+  retrievalInstructionId: string | undefined;
+
+  /**
+   * <p>The ARN of the newly created retrieval instruction.</p>
+   * @public
+   */
+  retrievalInstructionArn: string | undefined;
+
+  /**
+   * <p>The name of the retrieval instruction.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Always INACTIVE on this response. The content review has not run when this call returns, so the resource is not yet usable.</p>
+   * @public
+   */
+  status: RetrievalInstructionStatus | undefined;
+
+  /**
+   * <p>Always CREATING on this response. Poll GetRetrievalInstruction until this member is neither CREATING nor UPDATING, then read the outcome from it.</p>
+   * @public
+   */
+  lastTransitionStatus: RetrievalInstructionLastTransitionStatus | undefined;
+
+  /**
+   * <p>When you created the retrieval instruction.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>When the retrieval instruction was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRetrievalInstructionVersionRequest {
+  /**
+   * <p>The identifier of the retrieval instruction to version.</p>
+   * @public
+   */
+  retrievalInstructionId: string | undefined;
+
+  /**
+   * <p>A description of this version. Independent of the retrieval instruction's own description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A caller-supplied token that makes a retried call return the version created by the first call rather than a second version. The window is 8 hours.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRetrievalInstructionVersionResponse {
+  /**
+   * <p>The identifier of the retrieval instruction.</p>
+   * @public
+   */
+  retrievalInstructionId: string | undefined;
+
+  /**
+   * <p>The ARN of the retrieval instruction. Versions do not have their own ARN.</p>
+   * @public
+   */
+  retrievalInstructionArn: string | undefined;
+
+  /**
+   * <p>The number of the version created. Versions are numbered from 1 and allocated monotonically; a number is never reused, even after the version is deleted.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>When this version was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The description of this version, when one was supplied.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRetrievalInstructionRequest {
+  /**
+   * <p>The identifier of the retrieval instruction to delete.</p>
+   * @public
+   */
+  retrievalInstructionId: string | undefined;
+
+  /**
+   * <p>The version to delete. Omit this field to delete the retrieval instruction itself, which you can do only when it has no versions; while any version exists the service rejects the request with ConflictException. You cannot delete DRAFT on its own; deleting the retrieval instruction removes it.</p>
+   * @public
+   */
+  retrievalInstructionVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRetrievalInstructionResponse {
+  /**
+   * <p>The identifier of the deleted retrieval instruction.</p>
+   * @public
+   */
+  retrievalInstructionId: string | undefined;
+
+  /**
+   * <p>The ARN of the retrieval instruction.</p>
+   * @public
+   */
+  retrievalInstructionArn: string | undefined;
+
+  /**
+   * <p>The version that you deleted. Absent when you deleted the whole retrieval instruction.</p>
+   * @public
+   */
+  version?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRetrievalInstructionRequest {
+  /**
+   * <p>The identifier of the retrieval instruction to get.</p>
+   * @public
+   */
+  retrievalInstructionId: string | undefined;
+
+  /**
+   * <p>The version to return: a version number, or DRAFT for the retrieval instruction's current reviewed content. When omitted, DRAFT is used. This default is permanent: omitting retrievalInstructionVersion will never resolve to a numbered version.</p>
+   * @public
+   */
+  retrievalInstructionVersion?: string | undefined;
+}
+
+/**
+ * <p>One reason the most recent create or update did not succeed. code drives programmatic branching (fix the text, fix the configuration, or retry); message carries the specific cause.</p>
+ * @public
+ */
+export interface RetrievalInstructionFailureReason {
+  /**
+   * <p>The instruction field this entry is about. Present on review rejections of a specific field; absent when the failure applies to the whole review, because a client-side execution failure or a service fault has no single field.</p>
+   * @public
+   */
+  fieldName?: RetrievalInstructionFieldName | undefined;
+
+  /**
+   * <p>Stable, machine-readable classification by fault attribution. Valid values:</p> <ul> <li> <p>CONTENT_REJECTED – The review rejected the named field's content; revise the text and resubmit.</p> </li> <li> <p>CLIENT_ERROR – The review could not run for a customer-side reason, for example the customer managed AWS KMS key could not be used; fix the configuration and resubmit.</p> </li> <li> <p>INTERNAL_ERROR – The review could not complete due to a service fault; retry the create or update.</p> </li> </ul> <p>New values may be added over time; your client should tolerate values it does not recognize and treat them as a failure.</p>
+   * @public
+   */
+  code: RetrievalInstructionFailureReasonCode | undefined;
+
+  /**
+   * <p>Human-readable explanation of the specific cause. Never contains the customer's own text.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRetrievalInstructionResponse {
+  /**
+   * <p>The identifier of the retrieval instruction.</p>
+   * @public
+   */
+  retrievalInstructionId: string | undefined;
+
+  /**
+   * <p>The ARN of the retrieval instruction.</p>
+   * @public
+   */
+  retrievalInstructionArn: string | undefined;
+
+  /**
+   * <p>The name of the retrieval instruction.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Specifies whether you can use the instruction. You can resolve only an ACTIVE instruction at retrieval time. Monotone: INACTIVE to ACTIVE once, never back. Numbered versions are always ACTIVE.</p>
+   * @public
+   */
+  status: RetrievalInstructionStatus | undefined;
+
+  /**
+   * <p>The outcome or in-progress state of the most recent create or update. CREATING or UPDATING means the operation is still running. Independent of status. Always has a value from the create 202 onward. On a numbered version this is always CREATE_SUCCESSFUL: a version is created once, from reviewed content, and is immutable.</p>
+   * @public
+   */
+  lastTransitionStatus: RetrievalInstructionLastTransitionStatus | undefined;
+
+  /**
+   * <p>The reviewed content this instruction serves — what AgenticRetrieveStream resolves while status is ACTIVE. Absent until the first create review passes. Always present on a numbered version.</p>
+   * @public
+   */
+  instruction?: RetrievalInstructionContent | undefined;
+
+  /**
+   * <p>When the retrieval instruction was created. On a numbered version, when that version was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>When the retrieval instruction was last updated. Equal to createdAt on a numbered version, which is immutable.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>A description of the retrieval instruction. On a numbered version, the description of that version.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The ARN of the customer managed KMS key protecting this content, when one was supplied at create.</p>
+   * @public
+   */
+  customerEncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>Why the most recent create or update was rejected. One entry for each rejected field, or a single entry when the review itself failed. Each entry has a machine-readable code and a message, and names the field when it applies to one. The service includes this field only when lastTransitionStatus is CREATE_FAILED or UPDATE_FAILED. Never present on a numbered version.</p>
+   * @public
+   */
+  lastTransitionStatusReasons?: RetrievalInstructionFailureReason[] | undefined;
+
+  /**
+   * <p>The version this response describes: a version number, or DRAFT.</p>
+   * @public
+   */
+  version?: string | undefined;
+
+  /**
+   * <p>The largest version number that currently exists for this retrieval instruction, that is, the newest version you can retrieve. Present only on a DRAFT read, and only when at least one version exists. Because version numbers are never reused, deleting versions can leave gaps: this is the newest existing version, not a count and not the highest number ever created.</p>
+   * @public
+   */
+  latestVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRetrievalInstructionsRequest {
+  /**
+   * <p>Return only instructions with this availability status.</p>
+   * @public
+   */
+  status?: RetrievalInstructionStatus | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single page. The effective upper bound is enforced service-side.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from a previous ListRetrievalInstructions response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A summary of a retrieval instruction, without the content.</p>
+ * @public
+ */
+export interface RetrievalInstructionSummary {
+  /**
+   * <p>The identifier of the retrieval instruction.</p>
+   * @public
+   */
+  retrievalInstructionId: string | undefined;
+
+  /**
+   * <p>The ARN of the retrieval instruction.</p>
+   * @public
+   */
+  retrievalInstructionArn: string | undefined;
+
+  /**
+   * <p>The name of the retrieval instruction.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Whether the instruction can be used. Only ACTIVE is resolvable at retrieval time.</p>
+   * @public
+   */
+  status: RetrievalInstructionStatus | undefined;
+
+  /**
+   * <p>The outcome or in-progress state of the most recent create or update of the retrieval instruction.</p>
+   * @public
+   */
+  lastTransitionStatus: RetrievalInstructionLastTransitionStatus | undefined;
+
+  /**
+   * <p>When you created the retrieval instruction.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>When the retrieval instruction was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>A description of the retrieval instruction.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRetrievalInstructionsResponse {
+  /**
+   * <p>The retrieval instruction summaries in this page.</p>
+   * @public
+   */
+  retrievalInstructionSummaries: RetrievalInstructionSummary[] | undefined;
+
+  /**
+   * <p>The pagination token to pass to the next ListRetrievalInstructions call, absent on the last page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRetrievalInstructionVersionsRequest {
+  /**
+   * <p>The identifier of the retrieval instruction whose versions to list.</p>
+   * @public
+   */
+  retrievalInstructionId: string | undefined;
+
+  /**
+   * <p>Specifies the maximum number of versions to return in a single page. The service enforces the effective upper bound.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from a previous ListRetrievalInstructionVersions response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A summary of one numbered version of a retrieval instruction, without the content.</p>
+ * @public
+ */
+export interface RetrievalInstructionVersionSummary {
+  /**
+   * <p>The version number.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>When this version was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRetrievalInstructionVersionsResponse {
+  /**
+   * <p>The version summaries in this page, newest first.</p>
+   * @public
+   */
+  retrievalInstructionVersionSummaries: RetrievalInstructionVersionSummary[] | undefined;
+
+  /**
+   * <p>The pagination token to pass to the next ListRetrievalInstructionVersions call, absent on the last page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRetrievalInstructionRequest {
+  /**
+   * <p>The identifier of the retrieval instruction to update.</p>
+   * @public
+   */
+  retrievalInstructionId: string | undefined;
+
+  /**
+   * <p>The replacement instruction content. This is a full replacement of all four fields, not a patch. During UPDATING, Get continues to return the previously-served content until the update review passes.</p>
+   * @public
+   */
+  instruction: RetrievalInstructionContent | undefined;
+
+  /**
+   * <p>A replacement description; applied together with the content when the review passes. Omit to clear.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRetrievalInstructionResponse {
+  /**
+   * <p>The identifier of the retrieval instruction.</p>
+   * @public
+   */
+  retrievalInstructionId: string | undefined;
+
+  /**
+   * <p>The ARN of the retrieval instruction.</p>
+   * @public
+   */
+  retrievalInstructionArn: string | undefined;
+
+  /**
+   * <p>The name of the retrieval instruction.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Whether the instruction can be used. An update never lowers status. Unchanged from the previous value on this response.</p>
+   * @public
+   */
+  status: RetrievalInstructionStatus | undefined;
+
+  /**
+   * <p>Always UPDATING on this response. Poll GetRetrievalInstruction until this member is neither CREATING nor UPDATING, then read the outcome from it.</p>
+   * @public
+   */
+  lastTransitionStatus: RetrievalInstructionLastTransitionStatus | undefined;
+
+  /**
+   * <p>When you created the retrieval instruction.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>When the retrieval instruction was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
 }
 
 /**

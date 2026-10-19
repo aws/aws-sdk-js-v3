@@ -69,6 +69,16 @@ import {
   CreatePromptVersionCommand,
 } from "./commands/CreatePromptVersionCommand";
 import {
+  type CreateRetrievalInstructionCommandInput,
+  type CreateRetrievalInstructionCommandOutput,
+  CreateRetrievalInstructionCommand,
+} from "./commands/CreateRetrievalInstructionCommand";
+import {
+  type CreateRetrievalInstructionVersionCommandInput,
+  type CreateRetrievalInstructionVersionCommandOutput,
+  CreateRetrievalInstructionVersionCommand,
+} from "./commands/CreateRetrievalInstructionVersionCommand";
+import {
   type CreateVpcConfigurationCommandInput,
   type CreateVpcConfigurationCommandOutput,
   CreateVpcConfigurationCommand,
@@ -133,6 +143,11 @@ import {
   type DeleteResourcePolicyCommandOutput,
   DeleteResourcePolicyCommand,
 } from "./commands/DeleteResourcePolicyCommand";
+import {
+  type DeleteRetrievalInstructionCommandInput,
+  type DeleteRetrievalInstructionCommandOutput,
+  DeleteRetrievalInstructionCommand,
+} from "./commands/DeleteRetrievalInstructionCommand";
 import {
   type DeleteVpcConfigurationCommandInput,
   type DeleteVpcConfigurationCommandOutput,
@@ -212,6 +227,11 @@ import {
   GetResourcePolicyCommand,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type GetRetrievalInstructionCommandInput,
+  type GetRetrievalInstructionCommandOutput,
+  GetRetrievalInstructionCommand,
+} from "./commands/GetRetrievalInstructionCommand";
+import {
   type GetVpcConfigurationCommandInput,
   type GetVpcConfigurationCommandOutput,
   GetVpcConfigurationCommand,
@@ -287,6 +307,16 @@ import {
   type ListPromptsCommandOutput,
   ListPromptsCommand,
 } from "./commands/ListPromptsCommand";
+import {
+  type ListRetrievalInstructionsCommandInput,
+  type ListRetrievalInstructionsCommandOutput,
+  ListRetrievalInstructionsCommand,
+} from "./commands/ListRetrievalInstructionsCommand";
+import {
+  type ListRetrievalInstructionVersionsCommandInput,
+  type ListRetrievalInstructionVersionsCommandOutput,
+  ListRetrievalInstructionVersionsCommand,
+} from "./commands/ListRetrievalInstructionVersionsCommand";
 import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
@@ -383,6 +413,11 @@ import {
   UpdatePromptCommand,
 } from "./commands/UpdatePromptCommand";
 import {
+  type UpdateRetrievalInstructionCommandInput,
+  type UpdateRetrievalInstructionCommandOutput,
+  UpdateRetrievalInstructionCommand,
+} from "./commands/UpdateRetrievalInstructionCommand";
+import {
   type ValidateFlowDefinitionCommandInput,
   type ValidateFlowDefinitionCommandOutput,
   ValidateFlowDefinitionCommand,
@@ -401,6 +436,8 @@ import { paginateListIngestionJobs } from "./pagination/ListIngestionJobsPaginat
 import { paginateListKnowledgeBaseDocuments } from "./pagination/ListKnowledgeBaseDocumentsPaginator";
 import { paginateListKnowledgeBases } from "./pagination/ListKnowledgeBasesPaginator";
 import { paginateListPrompts } from "./pagination/ListPromptsPaginator";
+import { paginateListRetrievalInstructions } from "./pagination/ListRetrievalInstructionsPaginator";
+import { paginateListRetrievalInstructionVersions } from "./pagination/ListRetrievalInstructionVersionsPaginator";
 import { paginateListVpcConfigurations } from "./pagination/ListVpcConfigurationsPaginator";
 
 const commands = {
@@ -416,6 +453,8 @@ const commands = {
   CreateKnowledgeBaseCommand,
   CreatePromptCommand,
   CreatePromptVersionCommand,
+  CreateRetrievalInstructionCommand,
+  CreateRetrievalInstructionVersionCommand,
   CreateVpcConfigurationCommand,
   DeleteAgentCommand,
   DeleteAgentActionGroupCommand,
@@ -429,6 +468,7 @@ const commands = {
   DeleteKnowledgeBaseDocumentsCommand,
   DeletePromptCommand,
   DeleteResourcePolicyCommand,
+  DeleteRetrievalInstructionCommand,
   DeleteVpcConfigurationCommand,
   DisassociateAgentCollaboratorCommand,
   DisassociateAgentKnowledgeBaseCommand,
@@ -447,6 +487,7 @@ const commands = {
   GetKnowledgeBaseDocumentsCommand,
   GetPromptCommand,
   GetResourcePolicyCommand,
+  GetRetrievalInstructionCommand,
   GetVpcConfigurationCommand,
   IngestKnowledgeBaseDocumentsCommand,
   ListAgentActionGroupsCommand,
@@ -463,6 +504,8 @@ const commands = {
   ListKnowledgeBaseDocumentsCommand,
   ListKnowledgeBasesCommand,
   ListPromptsCommand,
+  ListRetrievalInstructionsCommand,
+  ListRetrievalInstructionVersionsCommand,
   ListTagsForResourceCommand,
   ListVpcConfigurationsCommand,
   PrepareAgentCommand,
@@ -482,6 +525,7 @@ const commands = {
   UpdateFlowAliasCommand,
   UpdateKnowledgeBaseCommand,
   UpdatePromptCommand,
+  UpdateRetrievalInstructionCommand,
   ValidateFlowDefinitionCommand,
 };
 const paginators = {
@@ -499,6 +543,8 @@ const paginators = {
   paginateListKnowledgeBaseDocuments,
   paginateListKnowledgeBases,
   paginateListPrompts,
+  paginateListRetrievalInstructions,
+  paginateListRetrievalInstructionVersions,
   paginateListVpcConfigurations,
 };
 
@@ -712,6 +758,40 @@ export interface BedrockAgent {
     args: CreatePromptVersionCommandInput,
     options: BedrockAgentRequestOptions,
     cb: (err: any, data?: CreatePromptVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRetrievalInstructionCommand}
+   */
+  createRetrievalInstruction(
+    args: CreateRetrievalInstructionCommandInput,
+    options?: BedrockAgentRequestOptions
+  ): Promise<CreateRetrievalInstructionCommandOutput>;
+  createRetrievalInstruction(
+    args: CreateRetrievalInstructionCommandInput,
+    cb: (err: any, data?: CreateRetrievalInstructionCommandOutput) => void
+  ): void;
+  createRetrievalInstruction(
+    args: CreateRetrievalInstructionCommandInput,
+    options: BedrockAgentRequestOptions,
+    cb: (err: any, data?: CreateRetrievalInstructionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRetrievalInstructionVersionCommand}
+   */
+  createRetrievalInstructionVersion(
+    args: CreateRetrievalInstructionVersionCommandInput,
+    options?: BedrockAgentRequestOptions
+  ): Promise<CreateRetrievalInstructionVersionCommandOutput>;
+  createRetrievalInstructionVersion(
+    args: CreateRetrievalInstructionVersionCommandInput,
+    cb: (err: any, data?: CreateRetrievalInstructionVersionCommandOutput) => void
+  ): void;
+  createRetrievalInstructionVersion(
+    args: CreateRetrievalInstructionVersionCommandInput,
+    options: BedrockAgentRequestOptions,
+    cb: (err: any, data?: CreateRetrievalInstructionVersionCommandOutput) => void
   ): void;
 
   /**
@@ -933,6 +1013,23 @@ export interface BedrockAgent {
     args: DeleteResourcePolicyCommandInput,
     options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRetrievalInstructionCommand}
+   */
+  deleteRetrievalInstruction(
+    args: DeleteRetrievalInstructionCommandInput,
+    options?: BedrockAgentRequestOptions
+  ): Promise<DeleteRetrievalInstructionCommandOutput>;
+  deleteRetrievalInstruction(
+    args: DeleteRetrievalInstructionCommandInput,
+    cb: (err: any, data?: DeleteRetrievalInstructionCommandOutput) => void
+  ): void;
+  deleteRetrievalInstruction(
+    args: DeleteRetrievalInstructionCommandInput,
+    options: BedrockAgentRequestOptions,
+    cb: (err: any, data?: DeleteRetrievalInstructionCommandOutput) => void
   ): void;
 
   /**
@@ -1242,6 +1339,23 @@ export interface BedrockAgent {
   ): void;
 
   /**
+   * @see {@link GetRetrievalInstructionCommand}
+   */
+  getRetrievalInstruction(
+    args: GetRetrievalInstructionCommandInput,
+    options?: BedrockAgentRequestOptions
+  ): Promise<GetRetrievalInstructionCommandOutput>;
+  getRetrievalInstruction(
+    args: GetRetrievalInstructionCommandInput,
+    cb: (err: any, data?: GetRetrievalInstructionCommandOutput) => void
+  ): void;
+  getRetrievalInstruction(
+    args: GetRetrievalInstructionCommandInput,
+    options: BedrockAgentRequestOptions,
+    cb: (err: any, data?: GetRetrievalInstructionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetVpcConfigurationCommand}
    */
   getVpcConfiguration(
@@ -1515,6 +1629,41 @@ export interface BedrockAgent {
     args: ListPromptsCommandInput,
     options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListPromptsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRetrievalInstructionsCommand}
+   */
+  listRetrievalInstructions(): Promise<ListRetrievalInstructionsCommandOutput>;
+  listRetrievalInstructions(
+    args: ListRetrievalInstructionsCommandInput,
+    options?: BedrockAgentRequestOptions
+  ): Promise<ListRetrievalInstructionsCommandOutput>;
+  listRetrievalInstructions(
+    args: ListRetrievalInstructionsCommandInput,
+    cb: (err: any, data?: ListRetrievalInstructionsCommandOutput) => void
+  ): void;
+  listRetrievalInstructions(
+    args: ListRetrievalInstructionsCommandInput,
+    options: BedrockAgentRequestOptions,
+    cb: (err: any, data?: ListRetrievalInstructionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRetrievalInstructionVersionsCommand}
+   */
+  listRetrievalInstructionVersions(
+    args: ListRetrievalInstructionVersionsCommandInput,
+    options?: BedrockAgentRequestOptions
+  ): Promise<ListRetrievalInstructionVersionsCommandOutput>;
+  listRetrievalInstructionVersions(
+    args: ListRetrievalInstructionVersionsCommandInput,
+    cb: (err: any, data?: ListRetrievalInstructionVersionsCommandOutput) => void
+  ): void;
+  listRetrievalInstructionVersions(
+    args: ListRetrievalInstructionVersionsCommandInput,
+    options: BedrockAgentRequestOptions,
+    cb: (err: any, data?: ListRetrievalInstructionVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -1841,6 +1990,23 @@ export interface BedrockAgent {
   ): void;
 
   /**
+   * @see {@link UpdateRetrievalInstructionCommand}
+   */
+  updateRetrievalInstruction(
+    args: UpdateRetrievalInstructionCommandInput,
+    options?: BedrockAgentRequestOptions
+  ): Promise<UpdateRetrievalInstructionCommandOutput>;
+  updateRetrievalInstruction(
+    args: UpdateRetrievalInstructionCommandInput,
+    cb: (err: any, data?: UpdateRetrievalInstructionCommandOutput) => void
+  ): void;
+  updateRetrievalInstruction(
+    args: UpdateRetrievalInstructionCommandInput,
+    options: BedrockAgentRequestOptions,
+    cb: (err: any, data?: UpdateRetrievalInstructionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ValidateFlowDefinitionCommand}
    */
   validateFlowDefinition(
@@ -2010,6 +2176,28 @@ export interface BedrockAgent {
     args?: ListPromptsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListPromptsCommandOutput>;
+
+  /**
+   * @see {@link ListRetrievalInstructionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRetrievalInstructionsCommandOutput}.
+   */
+  paginateListRetrievalInstructions(
+    args?: ListRetrievalInstructionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRetrievalInstructionsCommandOutput>;
+
+  /**
+   * @see {@link ListRetrievalInstructionVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRetrievalInstructionVersionsCommandOutput}.
+   */
+  paginateListRetrievalInstructionVersions(
+    args: ListRetrievalInstructionVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRetrievalInstructionVersionsCommandOutput>;
 
   /**
    * @see {@link ListVpcConfigurationsCommand}
