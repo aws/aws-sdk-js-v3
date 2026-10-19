@@ -27,6 +27,7 @@ import type {
 import type {
   AgentActionGroup,
   AgenticRetrieveConfiguration,
+  AgenticRetrieveInstructionConfiguration,
   AgenticRetrieveMemoryConfiguration,
   AgenticRetrieveMessage,
   AgenticRetrievePolicyConfiguration,
@@ -59,6 +60,47 @@ import type {
   UserContext,
   VectorSearchRerankingConfiguration,
 } from "./models_0";
+
+/**
+ * <p>Contains the response generated from querying the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>output</code> field</p> </li> </ul>
+ * @public
+ */
+export interface RetrieveAndGenerateOutput {
+  /**
+   * <p>The response generated from querying the knowledge base.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveAndGenerateResponse {
+  /**
+   * <p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>Contains the response generated from querying the knowledge base.</p>
+   * @public
+   */
+  output: RetrieveAndGenerateOutput | undefined;
+
+  /**
+   * <p>A list of segments of the generated response that are based on sources in the knowledge base, alongside information about the sources.</p>
+   * @public
+   */
+  citations?: Citation[] | undefined;
+
+  /**
+   * <p>Specifies if there is a guardrail intervention in the response.</p>
+   * @public
+   */
+  guardrailAction?: GuadrailAction | undefined;
+}
 
 /**
  * <p>A citation event.</p>
@@ -1900,6 +1942,12 @@ export interface AgenticRetrieveStreamRequest {
    * @public
    */
   memoryConfiguration?: AgenticRetrieveMemoryConfiguration | undefined;
+
+  /**
+   * <p>A retrieval instruction to apply to this request.</p>
+   * @public
+   */
+  retrievalInstructionConfiguration?: AgenticRetrieveInstructionConfiguration | undefined;
 
   /**
    * <p>Whether to generate a response based on the retrieved results.</p>

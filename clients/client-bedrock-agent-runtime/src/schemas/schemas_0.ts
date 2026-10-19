@@ -22,6 +22,7 @@ const _APpi = "ApiParameters";
 const _AR = "AgenticRetriever";
 const _ARA = "AgenticRetrieveAction";
 const _ARAD = "AgenticRetrieveActionDetails";
+const _ARAI = "AgenticRetrieveAppliedInstruction";
 const _ARAg = "AgenticRetrieveActions";
 const _ARB = "ApiRequestBody";
 const _ARBGC = "AgenticRetrieveBedrockGuardrailConfiguration";
@@ -37,6 +38,7 @@ const _ARFDED = "AgenticRetrieveFullDocExpansionDetails";
 const _ARFg = "AgenticRetrieveFailures";
 const _ARGR = "AgenticRetrieveGeneratedResponse";
 const _ARGW = "AgenticRetrieveGuardrailWarning";
+const _ARIC = "AgenticRetrieveInstructionConfiguration";
 const _ARM = "AgenticRetrieveMessage";
 const _ARMC = "AgenticRetrieveMemoryConfiguration";
 const _ARMCg = "AgenticRetrieveMessageContent";
@@ -540,6 +542,7 @@ const _aI = "actorId";
 const _aII = "apiInvocationInput";
 const _aIT = "actionInvocationType";
 const _aIg = "agentId";
+const _aIp = "appliedInstruction";
 const _aL = "allowList";
 const _aMRF = "additionalModelRequestFields";
 const _aN = "agentName";
@@ -875,6 +878,8 @@ const _rCet = "retrievalConfiguration";
 const _rCetu = "returnControl";
 const _rE = "responseEvent";
 const _rI = "resultIndex";
+const _rIC = "retrievalInstructionConfiguration";
+const _rII = "retrievalInstructionId";
 const _rIe = "requestId";
 const _rM = "retrievalMetadata";
 const _rMT = "rerankingModelType";
@@ -1185,6 +1190,11 @@ export var AgenticRetrieveActionDetails$: StaticStructureSchema = [3, n0, _ARAD,
   [_iQ, _sR],
   [[() => AgenticRetrieveMessageContent$, 0], () => AgenticRetrieveSourceRetrieverList], 2
 ];
+export var AgenticRetrieveAppliedInstruction$: StaticStructureSchema = [3, n0, _ARAI,
+  0,
+  [_id, _ve],
+  [0, 0], 1
+];
 export var AgenticRetrieveBedrockGuardrailConfiguration$: StaticStructureSchema = [3, n0, _ARBGC,
   0,
   [_gI, _gV],
@@ -1234,6 +1244,11 @@ export var AgenticRetrieveGuardrailWarning$: StaticStructureSchema = [3, n0, _AR
   0,
   [_id, _ve, _ac, _m],
   [0, 0, 0, 0], 3
+];
+export var AgenticRetrieveInstructionConfiguration$: StaticStructureSchema = [3, n0, _ARIC,
+  0,
+  [_rII, _ve],
+  [0, 0], 1
 ];
 export var AgenticRetrieveMemoryConfiguration$: StaticStructureSchema = [3, n0, _ARMC,
   0,
@@ -1312,8 +1327,8 @@ export var AgenticRetrieveSourceRetriever$: StaticStructureSchema = [3, n0, _ARS
 ];
 export var AgenticRetrieveStreamRequest$: StaticStructureSchema = [3, n0, _ARSRg,
   0,
-  [_mes, _ret, _aRC, _pC, _nT, _uC, _mCe, _gRe],
-  [[() => AgenticRetrieveMessages, 0], [() => AgenticRetrievers, 0], () => AgenticRetrieveConfiguration$, () => AgenticRetrievePolicyConfiguration$, 0, [() => UserContext$, 0], () => AgenticRetrieveMemoryConfiguration$, 2], 3
+  [_mes, _ret, _aRC, _pC, _nT, _uC, _mCe, _rIC, _gRe],
+  [[() => AgenticRetrieveMessages, 0], [() => AgenticRetrievers, 0], () => AgenticRetrieveConfiguration$, () => AgenticRetrievePolicyConfiguration$, 0, [() => UserContext$, 0], () => AgenticRetrieveMemoryConfiguration$, () => AgenticRetrieveInstructionConfiguration$, 2], 3
 ];
 export var AgenticRetrieveStreamResponse$: StaticStructureSchema = [3, n0, _ARSRge,
   0,
@@ -1327,8 +1342,8 @@ export var AgenticRetrieveTraceEvent$: StaticStructureSchema = [3, n0, _ARTE,
 ];
 export var AgenticRetrieveTraceEventAttributes$: StaticStructureSchema = [3, n0, _ARTEA,
   0,
-  [_ste, _sta, _m, _act, _w, _fa, _rM, _rR],
-  [0, 0, 0, [() => AgenticRetrieveActions, 0], () => AgenticRetrieveWarnings, () => AgenticRetrieveFailures, () => AgenticRetrieveSourceMetadataList, () => AgenticRetrieveTraceResults], 3
+  [_ste, _sta, _m, _act, _w, _fa, _rM, _rR, _aIp],
+  [0, 0, 0, [() => AgenticRetrieveActions, 0], () => AgenticRetrieveWarnings, () => AgenticRetrieveFailures, () => AgenticRetrieveSourceMetadataList, () => AgenticRetrieveTraceResults, () => AgenticRetrieveAppliedInstruction$], 3
 ];
 export var AgenticRetrieveTraceResultItem$: StaticStructureSchema = [3, n0, _ARTRI,
   0,
