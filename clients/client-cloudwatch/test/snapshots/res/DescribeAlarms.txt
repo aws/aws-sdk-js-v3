@@ -60,7 +60,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ActionsSuppressedReason": "__ActionsSuppressedReason__",
       "ActionsSuppressor": "__ActionsSuppressor__",
       "ActionsSuppressorWaitPeriod": 0,
-      "ActionsSuppressorExtensionPeriod": 0
+      "ActionsSuppressorExtensionPeriod": 0,
+      "ActionConfiguration": {
+        "AlarmTagsPropagation": {
+          "Enabled": false,
+          "IncludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ExcludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     },
     {
       "ActionsEnabled": false,
@@ -93,7 +108,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ActionsSuppressedReason": "__ActionsSuppressedReason__",
       "ActionsSuppressor": "__ActionsSuppressor__",
       "ActionsSuppressorWaitPeriod": 0,
-      "ActionsSuppressorExtensionPeriod": 0
+      "ActionsSuppressorExtensionPeriod": 0,
+      "ActionConfiguration": {
+        "AlarmTagsPropagation": {
+          "Enabled": false,
+          "IncludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ExcludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     },
     {
       "ActionsEnabled": false,
@@ -126,7 +156,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "ActionsSuppressedReason": "__ActionsSuppressedReason__",
       "ActionsSuppressor": "__ActionsSuppressor__",
       "ActionsSuppressorWaitPeriod": 0,
-      "ActionsSuppressorExtensionPeriod": 0
+      "ActionsSuppressorExtensionPeriod": 0,
+      "ActionConfiguration": {
+        "AlarmTagsPropagation": {
+          "Enabled": false,
+          "IncludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ExcludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     }
   ],
   "MetricAlarms": [
@@ -244,7 +289,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "RecoveryPeriod": 0
         }
       },
-      "EvaluationInterval": 0
+      "EvaluationInterval": 0,
+      "ActionConfiguration": {
+        "AlarmTagsPropagation": {
+          "Enabled": false,
+          "IncludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ExcludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     },
     {
       "AlarmName": "__AlarmName__",
@@ -358,7 +418,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "RecoveryPeriod": 0
         }
       },
-      "EvaluationInterval": 0
+      "EvaluationInterval": 0,
+      "ActionConfiguration": {
+        "AlarmTagsPropagation": {
+          "Enabled": false,
+          "IncludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ExcludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     },
     {
       "AlarmName": "__AlarmName__",
@@ -474,7 +549,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "RecoveryPeriod": 0
         }
       },
-      "EvaluationInterval": 0
+      "EvaluationInterval": 0,
+      "ActionConfiguration": {
+        "AlarmTagsPropagation": {
+          "Enabled": false,
+          "IncludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ExcludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     }
   ],
   "LogAlarms": [
@@ -545,6 +635,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "WarmUpConfiguration": {
         "WarmUpPeriodDurationInMinutes": 0,
         "OnlyStartEvaluatingAfterWarmUpPeriodEnds": false
+      },
+      "ActionConfiguration": {
+        "AlarmTagsPropagation": {
+          "Enabled": false,
+          "IncludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ExcludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
       }
     },
     {
@@ -614,6 +719,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "WarmUpConfiguration": {
         "WarmUpPeriodDurationInMinutes": 0,
         "OnlyStartEvaluatingAfterWarmUpPeriodEnds": false
+      },
+      "ActionConfiguration": {
+        "AlarmTagsPropagation": {
+          "Enabled": false,
+          "IncludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ExcludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
       }
     },
     {
@@ -683,6 +803,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "WarmUpConfiguration": {
         "WarmUpPeriodDurationInMinutes": 0,
         "OnlyStartEvaluatingAfterWarmUpPeriodEnds": false
+      },
+      "ActionConfiguration": {
+        "AlarmTagsPropagation": {
+          "Enabled": false,
+          "IncludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ExcludedTagKeys": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
       }
     }
   ],
@@ -724,7 +859,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ActionsSuppressedReason: "__ActionsSuppressedReason__",
       ActionsSuppressor: "__ActionsSuppressor__",
       ActionsSuppressorWaitPeriod: (number) 0,
-      ActionsSuppressorExtensionPeriod: (number) 0
+      ActionsSuppressorExtensionPeriod: (number) 0,
+      ActionConfiguration: {
+        AlarmTagsPropagation: {
+          Enabled: (boolean) false,
+          IncludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ExcludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     },
     {
       ActionsEnabled: (boolean) false,
@@ -757,7 +907,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ActionsSuppressedReason: "__ActionsSuppressedReason__",
       ActionsSuppressor: "__ActionsSuppressor__",
       ActionsSuppressorWaitPeriod: (number) 0,
-      ActionsSuppressorExtensionPeriod: (number) 0
+      ActionsSuppressorExtensionPeriod: (number) 0,
+      ActionConfiguration: {
+        AlarmTagsPropagation: {
+          Enabled: (boolean) false,
+          IncludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ExcludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     },
     {
       ActionsEnabled: (boolean) false,
@@ -790,7 +955,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       ActionsSuppressedReason: "__ActionsSuppressedReason__",
       ActionsSuppressor: "__ActionsSuppressor__",
       ActionsSuppressorWaitPeriod: (number) 0,
-      ActionsSuppressorExtensionPeriod: (number) 0
+      ActionsSuppressorExtensionPeriod: (number) 0,
+      ActionConfiguration: {
+        AlarmTagsPropagation: {
+          Enabled: (boolean) false,
+          IncludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ExcludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     }
   ],
   MetricAlarms: [
@@ -908,7 +1088,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           RecoveryPeriod: (number) 0
         }
       },
-      EvaluationInterval: (number) 0
+      EvaluationInterval: (number) 0,
+      ActionConfiguration: {
+        AlarmTagsPropagation: {
+          Enabled: (boolean) false,
+          IncludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ExcludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     },
     {
       AlarmName: "__AlarmName__",
@@ -1022,7 +1217,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           RecoveryPeriod: (number) 0
         }
       },
-      EvaluationInterval: (number) 0
+      EvaluationInterval: (number) 0,
+      ActionConfiguration: {
+        AlarmTagsPropagation: {
+          Enabled: (boolean) false,
+          IncludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ExcludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     },
     {
       AlarmName: "__AlarmName__",
@@ -1138,7 +1348,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           RecoveryPeriod: (number) 0
         }
       },
-      EvaluationInterval: (number) 0
+      EvaluationInterval: (number) 0,
+      ActionConfiguration: {
+        AlarmTagsPropagation: {
+          Enabled: (boolean) false,
+          IncludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ExcludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
     }
   ],
   LogAlarms: [
@@ -1209,6 +1434,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       WarmUpConfiguration: {
         WarmUpPeriodDurationInMinutes: (number) 0,
         OnlyStartEvaluatingAfterWarmUpPeriodEnds: (boolean) false
+      },
+      ActionConfiguration: {
+        AlarmTagsPropagation: {
+          Enabled: (boolean) false,
+          IncludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ExcludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
       }
     },
     {
@@ -1278,6 +1518,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       WarmUpConfiguration: {
         WarmUpPeriodDurationInMinutes: (number) 0,
         OnlyStartEvaluatingAfterWarmUpPeriodEnds: (boolean) false
+      },
+      ActionConfiguration: {
+        AlarmTagsPropagation: {
+          Enabled: (boolean) false,
+          IncludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ExcludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
       }
     },
     {
@@ -1347,6 +1602,21 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       WarmUpConfiguration: {
         WarmUpPeriodDurationInMinutes: (number) 0,
         OnlyStartEvaluatingAfterWarmUpPeriodEnds: (boolean) false
+      },
+      ActionConfiguration: {
+        AlarmTagsPropagation: {
+          Enabled: (boolean) false,
+          IncludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ExcludedTagKeys: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
       }
     }
   ],

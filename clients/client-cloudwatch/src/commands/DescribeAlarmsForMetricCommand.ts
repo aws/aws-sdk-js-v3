@@ -137,6 +137,17 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  * //         },
  * //       },
  * //       EvaluationInterval: Number("int"),
+ * //       ActionConfiguration: { // ActionConfiguration
+ * //         AlarmTagsPropagation: { // AlarmTagsPropagation
+ * //           Enabled: true || false, // required
+ * //           IncludedTagKeys: [ // AlarmTagsPropagationTagKeys
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ExcludedTagKeys: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

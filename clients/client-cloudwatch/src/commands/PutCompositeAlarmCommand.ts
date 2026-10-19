@@ -108,6 +108,17 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  *   ActionsSuppressor: "STRING_VALUE",
  *   ActionsSuppressorWaitPeriod: Number("int"),
  *   ActionsSuppressorExtensionPeriod: Number("int"),
+ *   ActionConfiguration: { // ActionConfiguration
+ *     AlarmTagsPropagation: { // AlarmTagsPropagation
+ *       Enabled: true || false, // required
+ *       IncludedTagKeys: [ // AlarmTagsPropagationTagKeys
+ *         "STRING_VALUE",
+ *       ],
+ *       ExcludedTagKeys: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new PutCompositeAlarmCommand(input);
  * const response = await client.send(command);

@@ -1,10 +1,12 @@
 import {
+  ActionConfiguration$,
   ActionsSuppressedBy,
   AlarmContributor$,
   AlarmHistoryItem$,
   AlarmMuteRuleStatus,
   AlarmMuteRuleSummary$,
   AlarmPromQLCriteria$,
+  AlarmTagsPropagation$,
   AlarmType,
   AnomalyDetector$,
   AnomalyDetectorConfiguration$,
@@ -455,10 +457,12 @@ assert(typeof UpdateOTelEnrichment$ === "object");
 assert(typeof UpdateResourceMetricsConfigurationCommand === "function");
 assert(typeof UpdateResourceMetricsConfiguration$ === "object");
 // structural schemas
+assert(typeof ActionConfiguration$ === "object");
 assert(typeof AlarmContributor$ === "object");
 assert(typeof AlarmHistoryItem$ === "object");
 assert(typeof AlarmMuteRuleSummary$ === "object");
 assert(typeof AlarmPromQLCriteria$ === "object");
+assert(typeof AlarmTagsPropagation$ === "object");
 assert(typeof AnomalyDetector$ === "object");
 assert(typeof AnomalyDetectorConfiguration$ === "object");
 assert(typeof AssociateDatasetKmsKeyInput$ === "object");
