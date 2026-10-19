@@ -11,6 +11,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 0.1.1 (2026-10-15)
+### Chores
+* **codegen:** sync for JSON codec and schema server plugin ([#8353](https://github.com/aws/aws-sdk-js-v3/issues/8353)) ([3e350b5](https://github.com/aws/aws-sdk-js-v3/commit/3e350b59848e2bffcfe4d34a628e7adc136a6a55))
+
+
+
 # 0.1.0 (2026-10-14)
 ### Features
 * **lib-transfer-manager:** publish as a preview package ([#8355](https://github.com/aws/aws-sdk-js-v3/issues/8355)) ([4108092](https://github.com/aws/aws-sdk-js-v3/commit/41080929c1e5a81980f0bda4a35eadd0b6e048a9))

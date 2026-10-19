@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
+
+
+### Features
+
+* **client-datazone:** Adds SDK and CLI support for the Iceberg REST catalog connection types already available in Amazon SageMaker Unified Studio - ICEBERGRESTCATALOG, SNOWFLAKEICEBERGRESTCATALOG, and DATABRICKSICEBERGRESTCATALOG. ([5894051](https://github.com/aws/aws-sdk-js-v3/commit/589405154b0a66e2ea212629dea13241fde0f2cc))
+
+
+
+
+
 # [3.1152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1151.0...v3.1152.0) (2026-10-14)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

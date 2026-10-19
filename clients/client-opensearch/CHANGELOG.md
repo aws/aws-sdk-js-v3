@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
+
+
+### Features
+
+* **client-opensearch:** Amazon OpenSearch Service adds a new TLS security policy to support FIPS policy and post-quantum cryptography ([f035263](https://github.com/aws/aws-sdk-js-v3/commit/f035263194102654c4cc6aa9d71579c19b9404d3))
+
+
+
+
+
 # [3.1152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1151.0...v3.1152.0) (2026-10-14)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch

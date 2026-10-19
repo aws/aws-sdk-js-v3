@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Adds support for applying a Retrieval Instruction, optionally by version, to AgenticRetrieveStream requests for Amazon Bedrock Knowledge Bases, and reports the applied instruction and version on the trace. ([a065ceb](https://github.com/aws/aws-sdk-js-v3/commit/a065ceb4d25bc8a810712d7319a37e105ef2d8af))
+
+
+
+
+
 # [3.1152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1151.0...v3.1152.0) (2026-10-14)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime

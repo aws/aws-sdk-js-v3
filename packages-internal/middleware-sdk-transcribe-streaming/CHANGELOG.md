@@ -37,6 +37,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.35 (2026-10-15)
+### Chores
+* **codegen:** sync for JSON codec and schema server plugin ([#8353](https://github.com/aws/aws-sdk-js-v3/issues/8353)) ([3e350b5](https://github.com/aws/aws-sdk-js-v3/commit/3e350b59848e2bffcfe4d34a628e7adc136a6a55))
+
+
+
 # 3.972.34 (2026-10-08)
 ### Chores
 * **codegen:** sync for endpoint cache fix and pre-schema error fallback ([#8341](https://github.com/aws/aws-sdk-js-v3/issues/8341)) ([5773a75](https://github.com/aws/aws-sdk-js-v3/commit/5773a7515472dbdf2760c61e4a462b71800c50e7))

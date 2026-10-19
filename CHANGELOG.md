@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1153.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1152.0...v3.1153.0) (2026-10-19)
+
+
+### Bug Fixes
+
+* **scripts:** include preview/ in dependency version checks ([#8362](https://github.com/aws/aws-sdk-js-v3/issues/8362)) ([ef0483d](https://github.com/aws/aws-sdk-js-v3/commit/ef0483d3f70550c3f4cddce2f930484bf4c48761))
+* **token-providers:** await in-flight SSO token refresh ([#8363](https://github.com/aws/aws-sdk-js-v3/issues/8363)) ([a8459b3](https://github.com/aws/aws-sdk-js-v3/commit/a8459b35151dac985633a889a6d2fed51ef0b884))
+
+
+### Features
+
+* **client-amplify:** Documentation update release for AWS service ([7e7cacf](https://github.com/aws/aws-sdk-js-v3/commit/7e7cacf5a108ddde97b1604a21e9cc242ac0c114))
+* **client-bedrock-agent-runtime:** Adds support for applying a Retrieval Instruction, optionally by version, to AgenticRetrieveStream requests for Amazon Bedrock Knowledge Bases, and reports the applied instruction and version on the trace. ([a065ceb](https://github.com/aws/aws-sdk-js-v3/commit/a065ceb4d25bc8a810712d7319a37e105ef2d8af))
+* **client-bedrock-agent:** Adds Retrieval Instructions for Amazon Bedrock Knowledge Bases. Create, get, update, delete, list, and version customer-authored instructions that guide how a knowledge base retrieves and answers, with content review before use. ([d16d517](https://github.com/aws/aws-sdk-js-v3/commit/d16d5176d8e0809b948c9a32eb5778b05c2c1e7b))
+* **client-bedrock-agentcore:** Adds the Builtin.FailureAnalysis evaluator for batch evaluations. GetBatchEvaluation now returns insightResults that group session failures into insights with root causes and suggested fixes. ([e34db60](https://github.com/aws/aws-sdk-js-v3/commit/e34db602ee2b503787aa6a773d9bfbb6a25ed1c1))
+* **client-cloudwatch-logs:** Amazon CloudWatch Logs now supports filtering DescribeDeliverySources by resourceArns, DescribeDeliveryDestinations by names, and DescribeDeliveries by deliverySourceNames. ([01e43f5](https://github.com/aws/aws-sdk-js-v3/commit/01e43f5704d34499152ec8099746afe49fbafed7))
+* **client-cloudwatch:** This release adds ActionConfiguration to PutMetricAlarm, PutCompositeAlarm and PutLogAlarm. It allows customers to include an alarm's tags in its notifications and alarm state change events ([ae73490](https://github.com/aws/aws-sdk-js-v3/commit/ae7349077d8a6917a553b468f1f9704f63b7afa3))
+* **client-codecommit:** Documentation update release for AWS service ([f6d2795](https://github.com/aws/aws-sdk-js-v3/commit/f6d27955eafb97949159410ad7e42b0decc07237))
+* **client-codedeploy:** Adds support for suspending Amazon EC2 Auto Scaling processes during CodeDeploy EC2 in-place deployments. Use ec2DeploymentOptions to choose which processes are suspended and resumed. ([43c1651](https://github.com/aws/aws-sdk-js-v3/commit/43c16517dc79ef4e519688a06820ddf07730cb9d))
+* **client-codepipeline:** Documentation update release for AWS service ([75cdc91](https://github.com/aws/aws-sdk-js-v3/commit/75cdc917412a0ac35ca4257ccabae052df793f1b))
+* **client-codestar-notifications:** Documentation update release for AWS service ([b2679b6](https://github.com/aws/aws-sdk-js-v3/commit/b2679b610245c018d9e0e469549b79d5208f3dd0))
+* **client-connect:** Amazon Connect GetAttachedFile API now supports an optional UrlContentDisposition parameter. Set it to INLINE to get a pre-signed URL that displays the file in the browser, so agents can preview email attachments without downloading them. ATTACHMENT (download) remains the default. ([81ad4d8](https://github.com/aws/aws-sdk-js-v3/commit/81ad4d8e306be2b96e79d97bf179de424ec649c8))
+* **client-controltower:** Documentation update release for AWS service ([60659ee](https://github.com/aws/aws-sdk-js-v3/commit/60659ee5353e375121fd3fdc683511243ef338e0))
+* **client-databrew:** Documentation update release for AWS service ([67b9053](https://github.com/aws/aws-sdk-js-v3/commit/67b90539ed1ba3cfc683e6c0276b41f8ae89b99f))
+* **client-datazone:** Adds SDK and CLI support for the Iceberg REST catalog connection types already available in Amazon SageMaker Unified Studio - ICEBERGRESTCATALOG, SNOWFLAKEICEBERGRESTCATALOG, and DATABRICKSICEBERGRESTCATALOG. ([5894051](https://github.com/aws/aws-sdk-js-v3/commit/589405154b0a66e2ea212629dea13241fde0f2cc))
+* **client-devops-agent:** Documentation update release for AWS service ([5ff30e2](https://github.com/aws/aws-sdk-js-v3/commit/5ff30e27b6a887a1f59d0dceb80223cb76df9bcc))
+* **client-drs:** Documentation update release for AWS service ([50b058d](https://github.com/aws/aws-sdk-js-v3/commit/50b058d144b917125aa49d08a8b3fbf34c716b5b))
+* **client-dynamodb:** Enable account endpoint generation for existing CN and GovCloud regions ([ca19aa3](https://github.com/aws/aws-sdk-js-v3/commit/ca19aa35fd5555729bb74037015e8c97499cb642))
+* **client-ecs:** Adds support for configurable envoy application log levels. Customers can now debug network connectivity issues with their task's sidecar envoys. ([fca981d](https://github.com/aws/aws-sdk-js-v3/commit/fca981d8614d2254efc0dedf3f01217ede005b73))
+* **client-emr-containers:** Documentation update release for AWS service ([4ba3e7b](https://github.com/aws/aws-sdk-js-v3/commit/4ba3e7bbab14ce31280b6beb74afdbadc9b8049e))
+* **client-grafana:** Documentation update release for AWS service ([4971fd7](https://github.com/aws/aws-sdk-js-v3/commit/4971fd765b459428dcf433eb104a241bef5cbb62))
+* **client-guardduty:** Adding a new Expected Bucket Owner optional field for GuardDuty publishing destination APIs ([2b62c86](https://github.com/aws/aws-sdk-js-v3/commit/2b62c86019889b1c992d13487de415115279fbf8))
+* **client-iot-wireless:** Documentation update release for AWS service ([202f66a](https://github.com/aws/aws-sdk-js-v3/commit/202f66a716eedc953d9d0a2471e80f03d3ae3756))
+* **client-observabilityadmin:** Adding support for EKS Container Insights Telemetry Rules ([3c63647](https://github.com/aws/aws-sdk-js-v3/commit/3c63647d7897d553f1f00e36de54eb5f94c263b7))
+* **client-opensearch:** Amazon OpenSearch Service adds a new TLS security policy to support FIPS policy and post-quantum cryptography ([f035263](https://github.com/aws/aws-sdk-js-v3/commit/f035263194102654c4cc6aa9d71579c19b9404d3))
+* **client-socialmessaging:** Adding support for WhatsApp Direct Send. ([0721adf](https://github.com/aws/aws-sdk-js-v3/commit/0721adf50944d4077ff8b6327e7c145c4edd5f48))
+* **client-timestream-influxdb:** Adds four new parameters to the InfluxDBv3Enterprise parameter group for Amazon Timestream for InfluxDB. The new parameters are upgradePachaTree, walBufferSize, snapshotSize, and snapshotDuration. ([1f97769](https://github.com/aws/aws-sdk-js-v3/commit/1f97769a6cd4a346e2522ee0f288b006a835a8bc))
+* **client-workspaces-instances:** ModifyVolume is a new public API for WorkSpaces Core Managed Instances. Customers can change the size, type, IOPS, or throughput of an existing managed volume online, with no stop required. Customers track progress by calling EC2 DescribeVolumesModifications directly. ([7689ba6](https://github.com/aws/aws-sdk-js-v3/commit/7689ba6bcf82d36b26a4f7267a97b1b33f459b63))
+* **client-workspaces:** Adds optional imageValidationMode enum to ImportCustomWorkspaceImageRequest. This allows customers to opt-in to having prevalidation run in the service account instead of customer account. ([38638dc](https://github.com/aws/aws-sdk-js-v3/commit/38638dc747e9d3d6959eba0b23f3c962ec6b9307))
+* **client-xray:** Adds support for encrypting the Transaction Search spans log group with a customer managed AWS KMS key. Pass the key ARN in the new CloudWatchLogsConfiguration.SpansLogGroupKmsKeyId field of UpdateTraceSegmentDestination. X-Ray applies the key when it creates the log group. ([154d49f](https://github.com/aws/aws-sdk-js-v3/commit/154d49fd78ab2bda589b4a03f3a7061efbb859d0))
+
+
+
+
+
 # [3.1152.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1151.0...v3.1152.0) (2026-10-14)
 
 
